@@ -1,0 +1,9 @@
+{
+  "extends": "@vtex/tsconfig",
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": ["**/node_modules", "**/dist", "**/stories", "**/test"]
+}

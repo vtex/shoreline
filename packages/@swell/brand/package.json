@@ -1,0 +1,43 @@
+{
+  "name": "@swell/brand",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/brand.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/@swell/brand",
+    "type": "git",
+    "url": "git+https://github.com/vtex/swell.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/swell/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "storybook": "start-storybook -p 6007"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16",
+    "reakit": "1.2.2",
+    "theme-ui": "^0.3.1"
+  },
+  "dependencies": {
+    "@react-aria/focus": "3.2.0",
+    "@swell-components/button": "0.0.0"
+  }
+}
