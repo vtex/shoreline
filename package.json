@@ -1,15 +1,17 @@
 {
-  "name": "root",
+  "name": "onda",
   "private": true,
   "workspaces": [
-    "packages/@swell-components/*",
-    "packages/@swell/*"
+    "components/*",
+    "styleguides/*"
   ],
   "scripts": {
+    "build": "lerna run build",
+    "clean": "lerna clean && lerna run clean",
+    "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\"",
     "bootstrap": "yarn install --frozen-lockfile && yarn build:packages",
-    "build:packages": "lerna run build",
-    "storybook:admin": "cd packages/@swell/admin && yarn run storybook",
-    "storybook:brand": "cd packages/@swell/brand && yarn run storybook"
+    "storybook:admin": "cd styleguides/admin && yarn run storybook",
+    "storybook:brand": "cd styleguides/brand && yarn run storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

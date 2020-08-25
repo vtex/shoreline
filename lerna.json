@@ -1,5 +1,5 @@
 {
-  "packages": ["packages/@swell-components/*", "packages/@swell/*"],
+  "packages": ["components/*", "styleguides/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent"

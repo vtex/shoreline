@@ -1,3 +1,0 @@
-# 🌊 Swell components
-
-> Base components
