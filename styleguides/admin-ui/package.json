@@ -27,7 +27,6 @@
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
     "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
     "storybook": "start-storybook -p 6006"
   },
   "peerDependencies": {
@@ -38,7 +37,7 @@
   },
   "dependencies": {
     "@react-aria/focus": "3.2.0",
-    "@vtex-components/button": "0.0.0",
+    "@vtex-components/button": "1.1.0",
     "@vtex-components/icon": "0.0.0"
   }
 }
