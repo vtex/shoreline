@@ -1,5 +1,6 @@
-import { useThemeUI } from "theme-ui";
-import { ThemeContext } from "./typings";
+import { useThemeUI } from 'theme-ui'
+
+import { ThemeContext } from './typings'
 
 /**
  * Hook that returns the ThemeContext
@@ -24,4 +25,4 @@ import { ThemeContext } from "./typings";
  *  )
  * }
  */
-export const useTheme = (useThemeUI as unknown) as () => ThemeContext;
+export const useTheme = (useThemeUI as unknown) as () => ThemeContext

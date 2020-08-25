@@ -2,12 +2,12 @@ import React, { Ref, forwardRef } from 'react'
 import { SxStyleProp, Flex } from 'theme-ui'
 import merge from 'deepmerge'
 import { useFocusRing } from '@react-aria/focus'
-
-import { useTheme, SemanticShades } from '../Theme'
 import {
   Button as BaseButton,
   ButtonProps as BaseProps,
 } from '@vtex-components/button'
+
+import { useTheme, SemanticShades } from '../Theme'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -54,7 +54,7 @@ export const Button = forwardRef(
           outline: 'none',
         },
         ...focusVisibleStyle,
-        ...getMeasures(size, iconStart, iconEnd, iconOnly),
+        ...getMeasures({ size, iconStart, iconEnd, iconOnly }),
         ...getVariant(variant, chosenPalette),
       },
       sx
@@ -62,6 +62,7 @@ export const Button = forwardRef(
 
     const renderIcon = () => {
       const iconProps = getIconProps(size)
+
       return icon?.(iconProps)
     }
 
@@ -93,6 +94,7 @@ function getIconProps(size: Size) {
     },
     margin: 3,
   }
+
   return {
     size: styles.size[size],
     sx: {
@@ -101,12 +103,19 @@ function getIconProps(size: Size) {
   }
 }
 
-function getMeasures(
-  size: Size = 'regular',
-  iconStart: boolean,
-  iconEnd: boolean,
+interface GetMeasuresParams {
+  size: Size
+  iconStart: boolean
+  iconEnd: boolean
   iconOnly: boolean
-): SxStyleProp {
+}
+
+function getMeasures({
+  size = 'regular',
+  iconStart,
+  iconEnd,
+  iconOnly,
+}: GetMeasuresParams): SxStyleProp {
   switch (size) {
     case 'regular':
       return {
@@ -117,6 +126,7 @@ function getMeasures(
         paddingLeft: iconOnly ? 3 : iconStart ? 5 : 9,
         paddingRight: iconOnly ? 3 : iconEnd ? 5 : 9,
       }
+
     case 'small':
       return {
         paddingY: 4,
@@ -126,6 +136,9 @@ function getMeasures(
         paddingLeft: iconOnly ? 2 : iconStart ? 5 : 7,
         paddingRight: iconOnly ? 2 : iconEnd ? 5 : 7,
       }
+
+    default:
+      return {}
   }
 }
 
@@ -150,6 +163,7 @@ function getVariant(variant: Variant, color: SemanticShades): SxStyleProp {
           color: 'muted.1',
         },
       }
+
     case 'outlined':
       return {
         textTransform: 'uppercase',
@@ -169,6 +183,7 @@ function getVariant(variant: Variant, color: SemanticShades): SxStyleProp {
           backgroundColor: 'muted.4',
         },
       }
+
     case 'filled':
       return {
         textTransform: 'uppercase',
@@ -186,6 +201,9 @@ function getVariant(variant: Variant, color: SemanticShades): SxStyleProp {
           backgroundColor: 'muted.2',
         },
       }
+
+    default:
+      return {}
   }
 }
 

@@ -18,6 +18,7 @@ Playground.args = {
 
 export const WithinAToolbar = () => {
   const toolbar = useToolbarState({ loop: true })
+
   return (
     <Toolbar {...toolbar} aria-label="Sample toolbar">
       <ToolbarItem {...toolbar}>

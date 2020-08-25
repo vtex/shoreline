@@ -6,9 +6,9 @@ import {
 } from '@vtex-components/button'
 import merge from 'deepmerge'
 import { useFocusRing } from '@react-aria/focus'
+import { forwardRef } from '@vtex-components/utils'
 
 import { useTheme, FeedbackPalette, FeedbackPalettes } from '../../theme'
-import { forwardRef } from '@vtex-components/utils'
 import get from './get'
 /**
  * Component that handles all Button variants of the DS.
@@ -44,8 +44,10 @@ export const Button = forwardRef(
             theme,
             'space.1',
             1
-          )}px ${background}, 0px 0px 0 ${get(theme, 'space.3', 1) -
-            get(theme, 'space.1', 3)}px ${focus}`,
+            // eslint-disable-next-line prettier/prettier
+          )}px ${background}, 0px 0px 0 ${
+            get(theme, 'space.3', 1) - get(theme, 'space.1', 3)
+          }px ${focus}`,
         }
       : {}
 
@@ -60,7 +62,7 @@ export const Button = forwardRef(
           outline: 'none',
         },
         ...focusVisibleStyle,
-        ...getMeasures(size, iconStart, iconEnd, iconOnly),
+        ...getMeasures({ size, iconStart, iconEnd, iconOnly }),
         ...getVariant(variant, chosenPalette),
       },
       sx
@@ -68,6 +70,7 @@ export const Button = forwardRef(
 
     const renderIcon = () => {
       const iconProps = getIconProps(size)
+
       return icon?.(iconProps)
     }
 
@@ -99,6 +102,7 @@ function getIconProps(size: Size) {
     },
     margin: 3,
   }
+
   return {
     size: styles.size[size],
     sx: {
@@ -107,12 +111,19 @@ function getIconProps(size: Size) {
   }
 }
 
-function getMeasures(
-  size: Size = 'regular',
-  iconStart: boolean,
-  iconEnd: boolean,
+interface GetMeasuresParams {
+  size: Size
+  iconStart: boolean
+  iconEnd: boolean
   iconOnly: boolean
-): SxStyleProp {
+}
+
+function getMeasures({
+  size = 'regular',
+  iconStart,
+  iconEnd,
+  iconOnly,
+}: GetMeasuresParams): SxStyleProp {
   switch (size) {
     case 'regular':
       return {
@@ -123,6 +134,7 @@ function getMeasures(
         paddingLeft: iconOnly ? 3 : iconStart ? 5 : 9,
         paddingRight: iconOnly ? 3 : iconEnd ? 5 : 9,
       }
+
     case 'small':
       return {
         paddingY: 4,
@@ -132,6 +144,9 @@ function getMeasures(
         paddingLeft: iconOnly ? 2 : iconStart ? 5 : 7,
         paddingRight: iconOnly ? 2 : iconEnd ? 5 : 7,
       }
+
+    default:
+      return {}
   }
 }
 
@@ -156,6 +171,7 @@ function getVariant(variant: Variant, palette: FeedbackPalette): SxStyleProp {
           color: 'muted.1',
         },
       }
+
     case 'outlined':
       return {
         textTransform: 'uppercase',
@@ -175,6 +191,7 @@ function getVariant(variant: Variant, palette: FeedbackPalette): SxStyleProp {
           backgroundColor: 'muted.4',
         },
       }
+
     case 'filled':
       return {
         textTransform: 'uppercase',
@@ -192,6 +209,9 @@ function getVariant(variant: Variant, palette: FeedbackPalette): SxStyleProp {
           backgroundColor: 'muted.2',
         },
       }
+
+    default:
+      return {}
   }
 }
 

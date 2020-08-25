@@ -28,6 +28,7 @@ Circle.args = {
 
 export const TextExample = () => {
   const [loading, setLoading] = React.useState(false)
+
   return (
     <Fragment>
       <Box sx={{ width: 400 }}>

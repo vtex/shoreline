@@ -18,6 +18,7 @@ Playground.args = {
 }
 
 export const WithIconOnly = Template.bind({})
+
 WithIconOnly.args = {
   icon: (props: any) => <IconMock title="Icon title" {...props} />,
 }
@@ -37,6 +38,7 @@ WithIconEnd.args = {
 
 export const WithinAToolbar = () => {
   const toolbar = useToolbarState({ loop: true })
+
   return (
     <Toolbar {...toolbar} aria-label="Sample toolbar">
       <ToolbarItem {...toolbar}>

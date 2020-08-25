@@ -36,6 +36,7 @@ export function Skeleton(props: SkeletonProps) {
     sx = {},
     ...boxProps
   } = props
+
   return (
     <Box
       {...boxProps}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function get<T = any>(
   value: any,
   path: string,
@@ -7,11 +8,11 @@ export default function get<T = any>(
     .split('.')
     .reduce((acc, v) => {
       try {
-        // @ts-ignore
         acc = acc[v]
       } catch (e) {
         return defaultValue
       }
+
       return acc
     }, value)
 }

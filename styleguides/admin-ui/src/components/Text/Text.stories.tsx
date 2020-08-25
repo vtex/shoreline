@@ -1,8 +1,8 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { Box } from 'theme-ui'
 
 import { Text, TextProps, getTextSx } from './index'
-import { Box } from 'theme-ui'
 
 export default {
   title: 'beta/Text',

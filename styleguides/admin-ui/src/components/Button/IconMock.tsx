@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Icon, IconProps } from '@vtex-components/icon'
 
-export function IconMock(props: IconProps) {
+export const IconMock: FC<IconProps> = (props) => {
   return (
     <Icon {...props}>
       <path
@@ -30,3 +30,5 @@ export function IconMock(props: IconProps) {
     </Icon>
   )
 }
+
+IconMock.displayName = 'IconMock'

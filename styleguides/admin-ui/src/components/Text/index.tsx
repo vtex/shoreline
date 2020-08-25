@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box, BoxProps } from '../Box'
 import { SxStyleProp } from 'theme-ui'
+
+import { Box, BoxProps } from '../Box'
 
 /**
  * Component that abstracts all text variants on the DS
@@ -23,7 +24,7 @@ export function Text({
   ...props
 }: TextProps) {
   const tag = getTag(variant)
-  const asProp: typeof as = as || tag
+  const asProp: typeof as = as ?? tag
 
   return (
     <Box
@@ -41,8 +42,10 @@ function getTag(variant: TextVariant) {
   switch (variant) {
     case 'headline':
       return 'h1'
+
     case 'subtitle':
       return 'h2'
+
     default:
       return 'span'
   }
@@ -74,6 +77,7 @@ export function getTextSx(variant: TextVariant = 'body'): SxStyleProp {
         fontWeight: 'regular',
         fontSize: 0,
       }
+
     case 'body':
       return {
         color: 'text',
@@ -81,6 +85,7 @@ export function getTextSx(variant: TextVariant = 'body'): SxStyleProp {
         fontWeight: 'regular',
         fontSize: 1,
       }
+
     case 'highlight':
       return {
         color: 'text',
@@ -88,6 +93,7 @@ export function getTextSx(variant: TextVariant = 'body'): SxStyleProp {
         fontWeight: 'medium',
         fontSize: 1,
       }
+
     case 'action':
       return {
         color: 'text',
@@ -96,6 +102,7 @@ export function getTextSx(variant: TextVariant = 'body'): SxStyleProp {
         fontSize: 1,
         textTransform: 'uppercase',
       }
+
     case 'subtitle':
       return {
         color: 'text',
@@ -103,6 +110,7 @@ export function getTextSx(variant: TextVariant = 'body'): SxStyleProp {
         fontWeight: 'medium',
         fontSize: 2,
       }
+
     case 'headline':
       return {
         color: 'text',
@@ -110,6 +118,9 @@ export function getTextSx(variant: TextVariant = 'body'): SxStyleProp {
         fontWeight: 'medium',
         fontSize: 3,
       }
+
+    default:
+      return {}
   }
 }
 
