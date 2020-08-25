@@ -5,8 +5,19 @@
     "components/*",
     "styleguides/*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "engines": {
+    "yarn": "^1.17.3",
+    "node": ">=10.13.0"
+  },
   "scripts": {
+    "lerna": "lerna",
     "build": "lerna run build",
+    "publish:packages": "lerna publish",
+    "publish-canary": "lerna publish --canary --yes",
     "clean": "lerna clean && lerna run clean",
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\"",
     "bootstrap": "yarn install --frozen-lockfile && yarn build",
