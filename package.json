@@ -22,8 +22,8 @@
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\"",
     "bootstrap": "yarn install --frozen-lockfile && yarn build",
     "lint": "eslint styleguides/ --ext .js,.ts,.jsx,.tsx",
-    "storybook:admin": "cd styleguides/admin && yarn run storybook",
-    "storybook:brand": "cd styleguides/brand && yarn run storybook"
+    "storybook:admin": "cd styleguides/admin-ui && yarn run storybook",
+    "storybook:brand": "cd styleguides/brand-ui && yarn run storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
