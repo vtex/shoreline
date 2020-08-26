@@ -1,6 +1,6 @@
 {
   "name": "@vtex/brand-ui",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "dist/index.js",
   "module": "dist/brand.esm.js",
   "typings": "dist/index.d.ts",
@@ -37,6 +37,6 @@
   },
   "dependencies": {
     "@react-aria/focus": "3.2.0",
-    "@vtex-components/button": "1.1.0"
+    "@vtex-components/button": "^1.1.1"
   }
 }
