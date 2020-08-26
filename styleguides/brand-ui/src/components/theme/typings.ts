@@ -21,6 +21,11 @@ export interface Colors {
    * Semantic colors to represent different action states & feedbacks
    */
   primary: SemanticShades
+  secondary: SemanticShades
+  success: SemanticShades
+  warning: SemanticShades
+  danger: SemanticShades
+  bubblegum: SemanticShades
 }
 
 /**
