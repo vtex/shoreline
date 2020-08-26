@@ -5,19 +5,105 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.14.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.13.1...@vtex/admin-ui@0.14.0) (2020-08-26)
 
-
 ### Features
 
-* **admin-ui/card:** create card component ([b55f6ff](https://github.com/vtex/onda/commit/b55f6ffd722a389cf179ee18a00dd0e3dbe9b2e3))
-
-
-
-
+- **admin-ui/card:** create card component ([b55f6ff](https://github.com/vtex/onda/commit/b55f6ffd722a389cf179ee18a00dd0e3dbe9b2e3))
 
 ## 0.13.1 (2020-08-26)
 
+### Bug Fixes
+
+- **admin-ui:** fix component exports for box & skeleton ([939b9cd](https://github.com/vtex/onda/commit/939b9cd465759154a3424ed61141561b8295f0a1))
+- lint ([41c8c5b](https://github.com/vtex/onda/commit/41c8c5ba5be84792ae7b3edebf3e1e28749b28fa))
+
+# [0.13.0](https://github.com/vtex/admin-ui/compare/v0.12.0...v0.13.0) (2020-08-07)
+
+### Features
+
+- **checkbox:** add Checkbox component ([f4645ad](https://github.com/vtex/admin-ui/commit/f4645adb774f2907f7d5d761143c1acc9ae8b7b0))
+
+# [0.12.0](https://github.com/vtex/admin-ui/compare/v0.11.0...v0.12.0) (2020-08-06)
+
+### Features
+
+- 🎸 Add Textarea component ([26f4af5](https://github.com/vtex/admin-ui/commit/26f4af5127ea986b027a28ac27d418af4f83d1c3))
+
+# [0.11.0](https://github.com/vtex/admin-ui/compare/v0.10.0...v0.11.0) (2020-08-04)
+
+### Features
+
+- **separator:** add Separator component ([9ac4b28](https://github.com/vtex/admin-ui/commit/9ac4b28eaa82c62f7c6a4b133ff8b1bd001c1ec5))
+
+# [0.10.0](https://github.com/vtex/admin-ui/compare/v0.9.0...v0.10.0) (2020-08-03)
+
+### Features
+
+- **switch:** add switch component ([d04e595](https://github.com/vtex/admin-ui/commit/d04e59519d951b3f71d646c3f615755ef60126e4))
+
+# [0.9.0](https://github.com/vtex/admin-ui/compare/v0.8.0...v0.9.0) (2020-08-03)
+
+### Features
+
+- 🎸 Add Select component ([4dd645b](https://github.com/vtex/admin-ui/commit/4dd645b86a3825fa8a7bc4d96f938aaf5cf3dd14))
+
+# [0.8.0](https://github.com/vtex/admin-ui/compare/v0.7.0...v0.8.0) (2020-08-03)
+
+### Features
+
+- **theme:** add better types to theme to make it easier to access ([a7f710a](https://github.com/vtex/admin-ui/commit/a7f710a59a989c2d1b5f9b7e8a96e004d004edb1))
+
+# [0.7.0](https://github.com/vtex/admin-ui/compare/v0.6.0...v0.7.0) (2020-07-31)
 
 ### Bug Fixes
 
-* **admin-ui:** fix component exports for box & skeleton ([939b9cd](https://github.com/vtex/onda/commit/939b9cd465759154a3424ed61141561b8295f0a1))
-* lint ([41c8c5b](https://github.com/vtex/onda/commit/41c8c5ba5be84792ae7b3edebf3e1e28749b28fa))
+- **textfield:** expose only full-length margin props ([c9f8ef5](https://github.com/vtex/admin-ui/commit/c9f8ef530f6ab5cf63e15ed28a49343c1daa0b28))
+
+### Features
+
+- **textfield:** add new TextField component. It replaces Input ([40efacb](https://github.com/vtex/admin-ui/commit/40efacb51196af19cefebe685ca815489689734b))
+
+# [0.6.0](https://github.com/vtex/admin-ui/compare/v0.5.0...v0.6.0) (2020-07-31)
+
+### Features
+
+- **box:** use just theme ui instead of reakit box ([cda8808](https://github.com/vtex/admin-ui/commit/cda88080db946d41d53cc0d964f9883a962f4e03))
+
+# [0.5.0](https://github.com/vtex/admin-ui/compare/v0.4.0...v0.5.0) (2020-07-31)
+
+### Bug Fixes
+
+- **button:** alignment of forwarded & inner refs ([0f87e9f](https://github.com/vtex/admin-ui/commit/0f87e9fb078afbb046bcb7f18e7bf64568e626b3))
+- **button:** do not expose as, css and sx props ([60f3311](https://github.com/vtex/admin-ui/commit/60f3311b1333f58377bd7fae4eabc8f89d256c97))
+
+### Features
+
+- **button:** use react-aria instead of reakit ([3cfe840](https://github.com/vtex/admin-ui/commit/3cfe8404724e05eabcc37236bc6dff7bfd3699dc))
+
+# [0.4.0](https://github.com/vtex/admin-ui/compare/v0.3.0...v0.4.0) (2020-07-29)
+
+### Features
+
+- 🎸 Add input component ([a19d47a](https://github.com/vtex/admin-ui/commit/a19d47a98d6933b3873ef34c6edd360ebfd57891))
+
+# [0.3.0](https://github.com/vtex/admin-ui/compare/v0.2.2...v0.3.0) (2020-07-27)
+
+### Features
+
+- Add `Box` component.
+
+# [0.2.2](https://github.com/vtex/admin-ui/compare/v0.2.1...v0.2.2) (2020-07-27)
+
+# [0.2.1](https://github.com/vtex/admin-ui/compare/v0.2.0...v0.2.1) (2020-07-27)
+
+# [0.2.0](https://github.com/vtex/admin-ui/compare/v0.1.0...v0.2.0) (2020-07-27)
+
+### Features
+
+- Add `Button` variants.
+
+# 0.1.0 (2020-07-22)
+
+### Features
+
+- Add `Button` component.
+- Add `ThemeProvider` component.
