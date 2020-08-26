@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.13.1...@vtex/admin-ui@0.14.0) (2020-08-26)
+
+
+### Features
+
+* **admin-ui/card:** create card component ([b55f6ff](https://github.com/vtex/onda/commit/b55f6ffd722a389cf179ee18a00dd0e3dbe9b2e3))
+
+
+
+
+
 ## 0.13.1 (2020-08-26)
 
 
