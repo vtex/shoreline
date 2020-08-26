@@ -5,7 +5,7 @@
     "regex_ci": "^master$",
     "build": {
       "provider": "jenkins",
-      "type": "semantic-release",
+      "type": "lerna-monorepo",
       "disabledFlows": ["Deploy"],
       "parameters": {
         "SLACK_CHANNEL": "jenkins-notifications"
