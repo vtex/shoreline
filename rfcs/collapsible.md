@@ -1,56 +1,89 @@
-# RFC - VTEX admin-ui Collapsible Component
+# RFC admin/Collapsible
 
 - Start Date: 2020-08-26
-- PR: (leave this empty)
-- Issue: (leave this empty)
+- PR: 🚧
+- Issue: 🚧
 
 # Summary
 
-- A Brief explanation of the feature.
-- Short motivation, if applicable. (you can use enumerated lists to help you).
+A `Collapsible` is a container that allows toggling the display of content. It can be nested as well.
 
-# Basic example [optional]
+# Basic example
 
-- If the proposal involves a new or changed API, include a basic code example.
+```jsx
+import { Collapsible, useCollapsible } from '@vtex/admin-ui'
+
+const collapsibleState = useCollapsible({ visible: true })
+
+<Collapsible {...collapsibleState}>
+  <Header label="Sample title">
+    <Button>Action</Button>
+    <Button>Action</Button>
+  </Header>
+  <Content>
+    Content
+  </Content>
+</Collapsible>
+```
 
 # Detailed design
 
-This is the bulk of the RFC, you must:
+The Collapsible has two composites: `Header` and `Content`. It states are controlled by a custom hook, `useCollapsible`.
 
-- Explain the design in enough detail for engineers to understand.
-- Define solutions for corner-cases.
-- Include examples of how the feature is used.
-- Define the new terminologies.
+## Header
+
+| prop     | type        | description             | required |
+| -------- | ----------- | ----------------------- | -------- |
+| label    | ReactNode   | title of the disclosure | 🚫       |
+| children | ReactNode   | set of actions          | 🚫       |
+| sx       | SxStyleProp | Theme-ui style prop     | 🚫       |
+
+## Content
+
+| prop     | type        | description           | required |
+| -------- | ----------- | --------------------- | -------- |
+| children | ReactNode   | what's beeing toggled | 🚫       |
+| sx       | SxStyleProp | Theme-ui style prop   | 🚫       |
+
+## useCollapsible
+
+Is extracted directly from `reakit/disclosure`. With the same props.
+[Read more](https://reakit.io/docs/disclosure/#usedisclosurestate)
+
+### Usage
+
+```jsx
+const props = useCollapsible({ visible: true })
+
+<Collapsible {...props}>
+  {/** Collapsible composites **/}
+</Collapsible>
+```
 
 # Drawbacks
 
-Why should we _not_ do this? Please consider:
+- The need for import props from `useCollapsible()` hook every time that `Collapsible` is used, even if the state control is not necessary.
 
-- implementation cost, both in term of code size and complexity
-- the impact on teaching people
-- integration of this feature with other existing and planned features
-- cost of migrating existing applications (is it a breaking change?)
+# Alternatives
 
-💡There are tradeoffs to choosing any path. Attempt to identify them here.
+We've considered the uncontrolled approach, in which the user would only react to the `Collapsible` internal changes.
 
-# Alternatives [optional]
+```jsx
+<Collapsible visible={/** Inital state **/} onCollapse={/** Do something **/} />
+```
 
-What other designs have been considered?
+The problem with this approach is that the user would not be able to set the internal state of the component without a force update.
 
-# Adoption strategy [optional]
+# Adoption strategy
 
-- If we implement this proposal, how will existing developers adopt it?
-- Is this a breaking change?
-- Can we write a codemod?
-- Should we coordinate with other projects or libraries?
+- This is a new feature, no breaking changes to any packages in `onda`.
+- We must write a migration guide for users coming from `@vtex/styleguide` since is a breaking change for then.
 
-# Education [optional]
+# Education
 
-- What names and terminology work best for these concepts and why?
-- Would the acceptance of this proposal change the documentation somehow?
-- How should this feature be taught to existing VTEX developers?
+- As with any DS component, it must be documented.
 
-# Unresolved questions [optional]
+# Unresolved questions
 
-- Optional, but suggested for first drafts.
-- What parts of the design are still TBD?
+- Missing hover state.
+- Missing disabled state.
