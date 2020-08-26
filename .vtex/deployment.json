@@ -1,0 +1,15 @@
+[
+  {
+    "name": "onda",
+    "description": "VTEX design system",
+    "regex_ci": "^master$",
+    "build": {
+      "provider": "jenkins",
+      "type": "semantic-release",
+      "disabledFlows": ["Deploy"],
+      "parameters": {
+        "SLACK_CHANNEL": "jenkins-notifications"
+      }
+    }
+  }
+]
