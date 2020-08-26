@@ -1,14 +1,12 @@
 # RFC Template <REPLACE_WITH_TITLE>
 
-Inpiration: https://github.com/reactjs/rfcs/blob/master/README.md
-
 - Start Date: (fill me in with today's date, YYYY-MM-DD)
 - PR: (leave this empty)
 - Issue: (leave this empty)
 
 # Summary
 
-- Brief explanation of the feature.
+- A brief explanation of the feature.
 - Short motivation, if applicable. (you can use enumerated lists to help you).
 
 # Basic example [optional]
