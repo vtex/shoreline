@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.14.0...@vtex/admin-ui@0.14.1) (2020-08-27)
+
+
+### Bug Fixes
+
+* **admin:** admin-ui type exports & release script ([56ae954](https://github.com/vtex/onda/commit/56ae954a37b25e1898891a36a95c12bf4bf4be8e))
+* **admin:** export card & cardprops ([8af897e](https://github.com/vtex/onda/commit/8af897e50423c2023cfaac33da787ef74fa6ac50))
+
+
+
+
+
 # [0.14.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.13.1...@vtex/admin-ui@0.14.0) (2020-08-26)
 
 ### Features
