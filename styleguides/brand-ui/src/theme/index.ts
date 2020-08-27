@@ -1,10 +1,10 @@
-export { ThemeProvider, ThemeProviderProps } from './Provider'
+export { ThemeProvider } from './Provider'
 export { useTheme } from './useTheme'
 export { theme } from './theme'
 export {
   Theme,
   Colors,
-  SemanticColors,
-  SemanticShades,
+  FeedbackPalette,
+  FeedbackPalettes,
   ThemeContext,
 } from './typings'

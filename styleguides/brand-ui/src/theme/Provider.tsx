@@ -3,10 +3,10 @@ import { ThemeProvider as ThemeUIProvider } from 'theme-ui'
 
 import { theme } from './theme'
 
-export interface ThemeProviderProps {
+interface Props {
   children: ReactNode
 }
 
-export function ThemeProvider({ children }: ThemeProviderProps) {
+export function ThemeProvider({ children }: Props) {
   return <ThemeUIProvider theme={theme}>{children}</ThemeUIProvider>
 }

@@ -7,7 +7,7 @@ import {
   ButtonProps as BaseProps,
 } from '@vtex-components/button'
 
-import { useTheme, SemanticShades } from '../Theme'
+import { useTheme, FeedbackPalette } from '../../theme'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -142,7 +142,7 @@ function getMeasures({
   }
 }
 
-function getVariant(variant: Variant, color: SemanticShades): SxStyleProp {
+function getVariant(variant: Variant, color: FeedbackPalette): SxStyleProp {
   switch (variant) {
     case 'subtle':
       return {

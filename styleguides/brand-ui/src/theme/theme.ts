@@ -8,7 +8,7 @@ export const theme = defineTheme({
     text: '#4A4A4A',
     background: '#C4C4C4',
     muted: ['#717786', '#A1A8B3', '#CCCED8', '#E7E9EE', '#F8F7FC'],
-    focus: '#8DB6FA',
+    focus: '#F71963', // Missing spec
     primary: {
       base: '#F71963',
       hover: '#D91657',
