@@ -16,13 +16,13 @@ import { Collapsible, useCollapsible } from '@vtex/admin-ui'
 const collapsibleState = useCollapsible({ visible: true })
 
 <Collapsible {...collapsibleState}>
-  <Header label="Sample title">
+  <Collapsible.Header label="Sample title">
     <Button>Action</Button>
     <Button>Action</Button>
-  </Header>
-  <Content>
+  </Collapsible.Header>
+  <Collapsible.Content>
     Content
-  </Content>
+  </Collapsible.Content>
 </Collapsible>
 ```
 
@@ -47,7 +47,7 @@ The Collapsible has two composites: `Header` and `Content`. It states are contro
 
 ## useCollapsible
 
-Is extracted directly from `reakit/disclosure`. With the same props.
+It is extracted directly from `reakit/disclosure` with the same props.
 [Read more](https://reakit.io/docs/disclosure/#usedisclosurestate)
 
 ### Usage
@@ -62,11 +62,11 @@ const props = useCollapsible({ visible: true })
 
 # Drawbacks
 
-- The need for import props from `useCollapsible()` hook every time that `Collapsible` is used, even if the state control is not necessary.
+- The need to import props from the `useCollapsible()` hook every time that `Collapsible` is used, even if the state control is not necessary.
 
 # Alternatives
 
-We've considered the uncontrolled approach, in which the user would only react to the `Collapsible` internal changes.
+We've considered the uncontrolled approach, in which the user would only react to the `Collapsible`'s internal changes.
 
 ```jsx
 <Collapsible visible={/** Inital state **/} onCollapse={/** Do something **/} />
@@ -77,7 +77,7 @@ The problem with this approach is that the user would not be able to set the int
 # Adoption strategy
 
 - This is a new feature, no breaking changes to any packages in `onda`.
-- We must write a migration guide for users coming from `@vtex/styleguide` since is a breaking change for then.
+- We must write a migration guide for users coming from `@vtex/styleguide` since this is a breaking change for them.
 
 # Education
 
