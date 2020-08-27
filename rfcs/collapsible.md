@@ -2,7 +2,7 @@
 
 - Start Date: 2020-08-26
 - PR: 🚧
-- Issue: 🚧
+- Issue: https://github.com/vtex/onda/issues/19
 
 # Summary
 
