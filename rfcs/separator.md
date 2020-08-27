@@ -1,26 +1,39 @@
 # RFC Admin/Separator
 
-- Start Date: (fill me in with today's date, YYYY-MM-DD)
+- Start Date: 2020-08-27
 - PR: (leave this empty)
 - Issue: (leave this empty)
 
 # Summary
 
-- A brief explanation of the feature.
-- Short motivation, if applicable. (you can use enumerated lists to help you).
+The Separator is a static structure that provides a visible boundary for elements.
 
-# Basic example [optional]
+# Basic example
 
 - If the proposal involves a new or changed API, include a basic code example.
 
+```jsx
+import { Separator } from '@vtex/admin-ui'
+
+<Separator />
+<Separator orientation="vertical"/>
+<Separator orientation="horizontal"/>
+```
+
 # Detailed design
+
+## Props
+
+| prop        | type                     | description             | required | default      |
+| ----------- | ------------------------ | ----------------------- | -------- | ------------ |
+| orientation | "horizontal", "vertical" | Separator's orientation | 🚫       | "horizontal" |
+| sx          | SxStyleProp              | Theme-ui style prop     | 🚫       | -            |
 
 This is the bulk of the RFC, you must:
 
-- Explain the design in enough detail for engineers to understand.
-- Define solutions for corner-cases.
-- Include examples of how the feature is used.
-- Define the new terminologies.
+## Sx
+
+Even the `Separator` being a component that doesn't need style in the most use cases, with the `sx` prop it will be possible to do this, if necessary.
 
 # Drawbacks
 
@@ -33,24 +46,16 @@ Why should we _not_ do this? Please consider:
 
 💡There are tradeoffs to choosing any path. Attempt to identify them here.
 
-# Alternatives [optional]
+# Adoption strategy
 
-What other designs have been considered?
+- This is a new feature, no breaking changes to any packages in `onda`.
+- It will have the same props as the [VTEX styleguide](https://styleguide.vtex.com/)
+- `Divider` -> `Separator`
 
-# Adoption strategy [optional]
+# Education
 
-- If we implement this proposal, how will existing developers adopt it?
-- Is this a breaking change?
-- Can we write a codemod?
-- Should we coordinate with other projects or libraries?
+- As with any DS component, it must be documented.
 
-# Education [optional]
+# Unresolved questions
 
-- What names and terminology work best for these concepts and why?
-- Would the acceptance of this proposal change the documentation somehow?
-- How should this feature be taught to existing VTEX developers?
-
-# Unresolved questions [optional]
-
-- Optional, but suggested for first drafts.
-- What parts of the design are still TBD?
+- Should we create already as a Base component?
