@@ -6,7 +6,11 @@ export interface Colors {
   focus: string
   muted: string[]
   primary: FeedbackPalette
+  secondary: FeedbackPalette
+  success: FeedbackPalette
+  warning: FeedbackPalette
   danger: FeedbackPalette
+  bubblegum: FeedbackPalette
 }
 
 export type FeedbackPalettes =

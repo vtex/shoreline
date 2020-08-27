@@ -7,7 +7,7 @@ import {
   ButtonProps as BaseProps,
 } from '@vtex-components/button'
 
-import { useTheme, FeedbackPalette } from '../../theme'
+import { useTheme, FeedbackPalette, FeedbackPalettes } from '../../theme'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -209,7 +209,7 @@ function getVariant(variant: Variant, color: FeedbackPalette): SxStyleProp {
 
 export type Variant = 'filled' | 'outlined' | 'subtle'
 export type Size = 'small' | 'regular'
-export type Palette = 'primary'
+export type Palette = FeedbackPalettes
 export interface ButtonProps
   extends Pick<
     BaseProps,
