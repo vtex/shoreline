@@ -1,37 +1,27 @@
 import { Theme as ThemeUITheme } from 'theme-ui'
 
 export interface Colors {
-  /**
-   * Default color of every text
-   */
   text: string
-  /**
-   * Color of the main bg
-   */
   background: string
-  /**
-   * Color of the focus ring
-   */
   focus: string
-  /**
-   * Muted colors
-   */
   muted: string[]
-  /**
-   * Semantic colors to represent different action states & feedbacks
-   */
-  primary: SemanticShades
+  primary: FeedbackPalette
+  secondary: FeedbackPalette
+  success: FeedbackPalette
+  warning: FeedbackPalette
+  danger: FeedbackPalette
+  bubblegum: FeedbackPalette
 }
 
-/**
- * All possible semantic colors
- */
-export type SemanticColors = 'primary'
+export type FeedbackPalettes =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'bubblegum'
 
-/**
- * Feedback color shades for every state
- */
-export interface SemanticShades {
+export interface FeedbackPalette {
   base: string
   hover: string
   active: string
