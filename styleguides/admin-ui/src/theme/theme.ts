@@ -1,31 +1,6 @@
-import { Theme as ThemeUITheme } from 'theme-ui'
+import { Theme } from '@vtex-components/theme'
 
-export interface Colors {
-  text: string
-  background: string
-  focus: string
-  muted: string[]
-  primary: FeedbackPalette
-  danger: FeedbackPalette
-}
-
-export type FeedbackPalettes = 'primary' | 'danger'
-
-export interface FeedbackPalette {
-  base: string
-  hover: string
-  active: string
-  contrast: string
-  washed: string
-}
-
-export interface Theme extends Omit<ThemeUITheme, 'colors'> {
-  colors: Colors
-}
-
-const defineTheme = <T extends Theme>(t: T) => t
-
-export const theme = defineTheme({
+export const theme: Theme = {
   space: [0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
   colors: {
     text: '#323845',
@@ -253,4 +228,6 @@ export const theme = defineTheme({
   },
   borderWidths: [0, 1, 2, 4, 6],
   borderRadius: [0, 1, 2, 4, 6],
-})
+}
+
+export type AdminTheme = typeof theme

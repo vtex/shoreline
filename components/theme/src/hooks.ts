@@ -1,14 +1,16 @@
-import React from 'react'
+import { useContext } from 'react'
 import { get } from '@theme-ui/css'
 import { ThemeContext } from '@emotion/core'
 import merge from 'deepmerge'
 import { SxStyleProp } from 'theme-ui'
 
+export const useTheme = () => useContext(ThemeContext)
+
 export const useComponentSx = (
   id: string,
   modifiers: { [key: string]: string }
 ) => {
-  const theme = React.useContext(ThemeContext)
+  const theme = useTheme()
   const prefix = `components.${id}`
   const styles = get(theme, `${prefix}.styles`)
 

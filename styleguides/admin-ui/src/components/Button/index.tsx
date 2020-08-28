@@ -3,9 +3,7 @@ import { SxStyleProp, Flex } from 'theme-ui'
 import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 import { useFocusRing } from '@react-aria/focus'
 import { forwardRef } from '@vtex-components/utils'
-import { get, mergeSx } from '@vtex-components/theme'
-
-import { useTheme, FeedbackPalettes } from '../../theme'
+import { useTheme, get, mergeSx } from '@vtex-components/theme'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -71,7 +69,7 @@ export const Button = forwardRef(
 )
 
 function useFocusHollow() {
-  const { theme } = useTheme()
+  const theme = useTheme()
   const { isFocusVisible, focusProps } = useFocusRing()
   const focusStyles = isFocusVisible
     ? {
@@ -134,7 +132,7 @@ function getIconProps(size: Size) {
 
 export type Variant = 'filled' | 'outlined' | 'subtle'
 export type Size = 'small' | 'regular'
-export type Palette = FeedbackPalettes
+export type Palette = 'primary' | 'danger'
 export interface ButtonProps
   extends Pick<
     BaseProps,
