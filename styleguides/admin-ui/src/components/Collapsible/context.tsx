@@ -7,7 +7,9 @@ export function useCollapsibleContext() {
   const context = useContext(CollapsibleContext)
 
   if (!context) {
-    throw new Error('Do not use Collapsible components outside of context')
+    throw new Error(
+      `Do not use Collapsible's composites outside of Collapsible context`
+    )
   }
 
   return context
