@@ -1,8 +1,6 @@
-import { Theme } from './typings'
+import { Theme } from '@vtex-components/theme'
 
-const defineTheme = <T extends Theme>(t: T) => t
-
-export const theme = defineTheme({
+export const theme: Theme = {
   space: [0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
   colors: {
     text: '#4A4A4A',
@@ -138,4 +136,4 @@ export const theme = defineTheme({
   },
   borderWidths: [0, 1, 2, 4, 6],
   borderRadius: [0, 1, 2, 4, 6],
-})
+}

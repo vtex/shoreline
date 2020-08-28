@@ -13,7 +13,7 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
 export const Playground = Template.bind({})
 Playground.args = {
-  children: 'Admin UI Button',
+  children: 'Brand UI Button',
 }
 
 export const WithinAToolbar = () => {

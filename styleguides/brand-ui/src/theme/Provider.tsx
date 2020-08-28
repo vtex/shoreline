@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react'
-import { ThemeProvider as ThemeUIProvider } from 'theme-ui'
+import React, { ReactNode, memo } from 'react'
+import { ThemeProvider as BaseProvider } from '@vtex-components/theme'
 
 import { theme } from './theme'
 
@@ -7,6 +7,8 @@ interface Props {
   children: ReactNode
 }
 
-export function ThemeProvider({ children }: Props) {
-  return <ThemeUIProvider theme={theme}>{children}</ThemeUIProvider>
+function ThemeProvider({ children }: Props) {
+  return <BaseProvider theme={theme}>{children}</BaseProvider>
 }
+
+export default memo(ThemeProvider)

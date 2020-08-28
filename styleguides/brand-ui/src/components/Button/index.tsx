@@ -1,9 +1,8 @@
 import React, { Ref } from 'react'
 import { SxStyleProp } from 'theme-ui'
 import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
-import merge from 'deepmerge'
 import { forwardRef } from '@vtex-components/utils'
-import { get } from '@vtex-components/theme'
+import { get, mergeSx } from '@vtex-components/theme'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -22,7 +21,7 @@ export const Button = forwardRef(
       ...restProps
     } = props
 
-    const mergedSx = merge<SxStyleProp>(
+    const mergedSx = mergeSx<SxStyleProp>(
       {
         '&:focus': {
           outline: 'none',
