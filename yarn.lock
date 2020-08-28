@@ -3337,6 +3337,13 @@
     "@theme-ui/css" "^0.3.1"
     deepmerge "^4.2.2"
 
+"@theme-ui/css@0.4.0-rc.3":
+  version "0.4.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@theme-ui/css/-/css-0.4.0-rc.3.tgz#02b66c43bfaedebbfb317433726ebb8f734d1fd0"
+  integrity sha512-nd8wGdardLlJm92IYYrJyLIQXi3ADk+TPBM83j7W08bsWVdwuv+J24G0v3qvxeBZdIofaXSnZoWC/YzViMSL0A==
+  dependencies:
+    csstype "^2.5.7"
+
 "@theme-ui/css@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@theme-ui/css/-/css-0.3.1.tgz#b85c7e8fae948dc0de65aa30b853368993e25cb3"

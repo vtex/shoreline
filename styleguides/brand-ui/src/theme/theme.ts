@@ -52,6 +52,72 @@ export const theme = defineTheme({
       contrast: '#FFFFFF',
     },
   },
+  components: {
+    button: {
+      styles: {
+        borderWidth: 1,
+        borderRadius: 3,
+        cursor: 'pointer',
+        position: 'relative',
+        border: 'none',
+        '&:focus': {
+          outline: 'none',
+        },
+      },
+      variant: {
+        primary: {
+          textTransform: 'uppercase',
+          color: 'primary.contrast',
+          backgroundColor: 'primary.base',
+          fontWeight: 'medium',
+          '&:hover': {
+            backgroundColor: 'primary.hover',
+          },
+          '&:active': {
+            backgroundColor: 'primary.active',
+          },
+          '&:disabled': {
+            color: 'text',
+            backgroundColor: 'muted.2',
+          },
+        },
+        secondary: {
+          textTransform: 'uppercase',
+          color: 'secondary.contrast',
+          backgroundColor: 'secondary.base',
+          fontWeight: 'medium',
+          '&:hover': {
+            backgroundColor: 'secondary.hover',
+          },
+          '&:active': {
+            backgroundColor: 'secondary.active',
+          },
+          '&:disabled': {
+            color: 'text',
+            backgroundColor: 'muted.2',
+          },
+        },
+      },
+      size: {
+        regular: {
+          paddingY: 5,
+          fontSize: 1,
+          height: 40,
+          width: 'auto',
+          paddingLeft: 9,
+          paddingRight: 9,
+        },
+        small: {
+          paddingY: 4,
+          fontSize: 0,
+          height: 32,
+          width: 'auto',
+          paddingLeft: 7,
+          paddingRight: 7,
+        },
+      },
+    },
+  },
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',

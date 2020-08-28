@@ -1,15 +1,12 @@
 import React, { Ref } from 'react'
 import { SxStyleProp, Flex } from 'theme-ui'
-import {
-  Button as BaseButton,
-  ButtonProps as BaseProps,
-} from '@vtex-components/button'
-import merge from 'deepmerge'
+import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 import { useFocusRing } from '@react-aria/focus'
 import { forwardRef } from '@vtex-components/utils'
+import { get, mergeSx } from '@vtex-components/theme'
 
-import { useTheme, FeedbackPalette, FeedbackPalettes } from '../../theme'
-import get from './get'
+import { useTheme, FeedbackPalettes } from '../../theme'
+
 /**
  * Component that handles all Button variants of the DS.
  * It renders a button jsx element by default
@@ -30,43 +27,13 @@ export const Button = forwardRef(
       ...restProps
     } = props
 
-    const { theme } = useTheme()
-    const { isFocusVisible, focusProps } = useFocusRing()
-    const chosenPalette = theme.colors[palette]
-    const { background, focus } = theme.colors
-    const iconStart = !!icon && iconPosition === 'start'
-    const iconEnd = !!icon && iconPosition === 'end'
-    const iconOnly = !!icon && !children
-
-    const focusVisibleStyle = isFocusVisible
-      ? {
-          boxShadow: `0px 0px 0 ${get(
-            theme,
-            'space.1',
-            1
-            // eslint-disable-next-line prettier/prettier
-          )}px ${background}, 0px 0px 0 ${
-            get(theme, 'space.3', 1) - get(theme, 'space.1', 3)
-          }px ${focus}`,
-        }
-      : {}
-
-    const mergedSx = merge<SxStyleProp>(
-      {
-        borderWidth: 1,
-        borderRadius: 3,
-        cursor: 'pointer',
-        position: 'relative',
-        borderStyle: 'solid',
-        '&:focus': {
-          outline: 'none',
-        },
-        ...focusVisibleStyle,
-        ...getMeasures({ size, iconStart, iconEnd, iconOnly }),
-        ...getVariant(variant, chosenPalette),
-      },
-      sx
-    )
+    const { focusStyles, focusProps } = useFocusHollow()
+    const { resolvedSize, containerStyles } = useMeasures({
+      size,
+      icon,
+      iconPosition,
+      children,
+    })
 
     const renderIcon = () => {
       const iconProps = getIconProps(size)
@@ -74,16 +41,25 @@ export const Button = forwardRef(
       return icon?.(iconProps)
     }
 
+    const mergedSx = mergeSx<SxStyleProp>(focusStyles, sx)
+
     return (
-      <BaseButton sx={mergedSx} ref={ref} {...restProps} {...focusProps}>
+      <BaseButton
+        variant={`${variant}-${palette}`}
+        size={resolvedSize}
+        sx={mergedSx}
+        ref={ref}
+        {...restProps}
+        {...focusProps}
+      >
         <Flex
           sx={{
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: iconEnd ? 'row-reverse' : 'row',
             margin: 'auto',
             width: '100%',
             height: '100%',
+            ...containerStyles,
           }}
         >
           {renderIcon()}
@@ -93,6 +69,51 @@ export const Button = forwardRef(
     )
   }
 )
+
+function useFocusHollow() {
+  const { theme } = useTheme()
+  const { isFocusVisible, focusProps } = useFocusRing()
+  const focusStyles = isFocusVisible
+    ? {
+        boxShadow: `0px 0px 0 ${get(theme, 'space.1')}px ${get(
+          theme,
+          'colors.background'
+        )}, 0px 0px 0 ${get(theme, 'space.3') - get(theme, 'space.1')}px ${get(
+          theme,
+          'colors.focus'
+        )}`,
+      }
+    : {}
+
+  return { focusStyles, focusProps }
+}
+
+function useMeasures({
+  size,
+  icon,
+  iconPosition,
+  children,
+}: Pick<ButtonProps, 'size' | 'icon' | 'iconPosition' | 'children'>) {
+  const iconStart = !!icon && iconPosition === 'start'
+  const iconEnd = !!icon && iconPosition === 'end'
+  const iconOnly = !!icon && !children
+
+  const containerStyles: SxStyleProp = {
+    flexDirection: iconEnd ? 'row-reverse' : 'row',
+  }
+
+  const resolvedSize = `${size}${
+    iconOnly ? `-icon` : iconStart || iconEnd ? `-icon-${iconPosition}` : ''
+  }`
+
+  return {
+    resolvedSize,
+    containerStyles,
+    iconEnd,
+    iconStart,
+    iconOnly,
+  }
+}
 
 function getIconProps(size: Size) {
   const styles = {
@@ -108,110 +129,6 @@ function getIconProps(size: Size) {
     sx: {
       marginX: styles.margin,
     },
-  }
-}
-
-interface GetMeasuresParams {
-  size: Size
-  iconStart: boolean
-  iconEnd: boolean
-  iconOnly: boolean
-}
-
-function getMeasures({
-  size = 'regular',
-  iconStart,
-  iconEnd,
-  iconOnly,
-}: GetMeasuresParams): SxStyleProp {
-  switch (size) {
-    case 'regular':
-      return {
-        paddingY: 5,
-        fontSize: 1,
-        height: 40,
-        width: iconOnly ? 40 : 'auto',
-        paddingLeft: iconOnly ? 3 : iconStart ? 5 : 9,
-        paddingRight: iconOnly ? 3 : iconEnd ? 5 : 9,
-      }
-
-    case 'small':
-      return {
-        paddingY: 4,
-        fontSize: 0,
-        height: 32,
-        width: iconOnly ? 32 : 'auto',
-        paddingLeft: iconOnly ? 2 : iconStart ? 5 : 7,
-        paddingRight: iconOnly ? 2 : iconEnd ? 5 : 7,
-      }
-
-    default:
-      return {}
-  }
-}
-
-function getVariant(variant: Variant, palette: FeedbackPalette): SxStyleProp {
-  switch (variant) {
-    case 'subtle':
-      return {
-        borderColor: 'transparent',
-        textTransform: 'capitalize',
-        backgroundColor: 'transparent',
-        color: palette.base,
-        fontWeight: 'regular',
-        '&:hover': {
-          color: palette.hover,
-          backgroundColor: palette.washed,
-        },
-        '&:active': {
-          backgroundColor: palette.washed,
-          color: palette.active,
-        },
-        '&:disabled': {
-          color: 'muted.1',
-        },
-      }
-
-    case 'outlined':
-      return {
-        textTransform: 'uppercase',
-        backgroundColor: 'transparent',
-        borderColor: 'muted.2',
-        color: palette.base,
-        fontWeight: 'medium',
-        '&:hover': {
-          backgroundColor: palette.washed,
-          color: palette.hover,
-        },
-        '&:active': {
-          color: palette.active,
-        },
-        '&:disabled': {
-          color: 'muted.1',
-          backgroundColor: 'muted.4',
-        },
-      }
-
-    case 'filled':
-      return {
-        textTransform: 'uppercase',
-        color: palette.contrast,
-        backgroundColor: palette.base,
-        fontWeight: 'medium',
-        '&:hover': {
-          backgroundColor: palette.hover,
-        },
-        '&:active': {
-          backgroundColor: palette.active,
-        },
-        '&:disabled': {
-          color: 'text',
-          backgroundColor: 'muted.2',
-        },
-      }
-
-    default:
-      return {}
   }
 }
 

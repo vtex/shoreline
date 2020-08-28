@@ -5,7 +5,7 @@ import { useToolbarState, Toolbar, ToolbarItem } from 'reakit/Toolbar'
 import { Button, ButtonProps } from './index'
 
 export default {
-  title: 'brand/ready for beta/Button',
+  title: 'beta/Button',
   component: Button,
 } as Meta
 
@@ -26,14 +26,14 @@ export const WithinAToolbar = () => {
       </ToolbarItem>
       <ToolbarItem {...toolbar}>
         {(props) => (
-          <Button {...props} variant="outlined">
+          <Button {...props} variant="primary">
             File
           </Button>
         )}
       </ToolbarItem>
       <ToolbarItem {...toolbar}>
         {(props) => (
-          <Button {...props} variant="subtle">
+          <Button {...props} variant="secondary">
             Selection
           </Button>
         )}

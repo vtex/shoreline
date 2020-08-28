@@ -48,7 +48,190 @@ export const theme = defineTheme({
     },
   },
   components: {
-    skeleton: {},
+    button: {
+      styles: {
+        borderWidth: 1,
+        borderRadius: 3,
+        cursor: 'pointer',
+        position: 'relative',
+        borderStyle: 'solid',
+        '&:focus': {
+          outline: 'none',
+        },
+      },
+      size: {
+        regular: {
+          paddingY: 5,
+          fontSize: 1,
+          height: 40,
+          width: 'auto',
+          paddingLeft: 9,
+          paddingRight: 9,
+        },
+        'regular-icon': {
+          paddingY: 5,
+          fontSize: 1,
+          height: 40,
+          width: 40,
+          paddingLeft: 3,
+          paddingRight: 3,
+        },
+        'regular-icon-start': {
+          paddingY: 5,
+          fontSize: 1,
+          height: 40,
+          width: 'auto',
+          paddingLeft: 5,
+          paddingRight: 9,
+        },
+        'regular-icon-end': {
+          paddingY: 5,
+          fontSize: 1,
+          height: 40,
+          width: 'auto',
+          paddingLeft: 9,
+          paddingRight: 5,
+        },
+        small: {
+          paddingY: 4,
+          fontSize: 0,
+          height: 32,
+          width: 'auto',
+          paddingLeft: 7,
+          paddingRight: 7,
+        },
+        'small-icon': {
+          paddingY: 4,
+          fontSize: 0,
+          height: 32,
+          width: 32,
+          paddingLeft: 2,
+          paddingRight: 2,
+        },
+        'small-icon-start': {
+          paddingY: 4,
+          fontSize: 0,
+          height: 32,
+          width: 'auto',
+          paddingLeft: 5,
+          paddingRight: 7,
+        },
+        'small-icon-end': {
+          paddingY: 4,
+          fontSize: 0,
+          height: 32,
+          width: 'auto',
+          paddingLeft: 7,
+          paddingRight: 5,
+        },
+      },
+      variant: {
+        'filled-primary': {
+          textTransform: 'uppercase',
+          color: 'primary.contrast',
+          backgroundColor: 'primary.base',
+          fontWeight: 'medium',
+          '&:hover': {
+            backgroundColor: 'primary.hover',
+          },
+          '&:active': {
+            backgroundColor: 'primary.active',
+          },
+          '&:disabled': {
+            color: 'text',
+            backgroundColor: 'muted.2',
+          },
+        },
+        'outlined-primary': {
+          textTransform: 'uppercase',
+          backgroundColor: 'transparent',
+          borderColor: 'muted.2',
+          color: 'primary.base',
+          fontWeight: 'medium',
+          '&:hover': {
+            backgroundColor: 'primary.washed',
+            color: 'primary.hover',
+          },
+          '&:active': {
+            color: 'primary.active',
+          },
+          '&:disabled': {
+            color: 'muted.1',
+            backgroundColor: 'muted.4',
+          },
+        },
+        'subtle-primary': {
+          borderColor: 'transparent',
+          textTransform: 'capitalize',
+          backgroundColor: 'transparent',
+          color: 'primary.base',
+          fontWeight: 'regular',
+          '&:hover': {
+            color: 'primary.hover',
+            backgroundColor: 'primary.washed',
+          },
+          '&:active': {
+            color: 'primary.active',
+            backgroundColor: 'primary.washed',
+          },
+          '&:disabled': {
+            color: 'muted.1',
+          },
+        },
+        'filled-danger': {
+          textTransform: 'uppercase',
+          color: 'danger.contrast',
+          backgroundColor: 'danger.base',
+          fontWeight: 'medium',
+          '&:hover': {
+            backgroundColor: 'danger.hover',
+          },
+          '&:active': {
+            backgroundColor: 'danger.active',
+          },
+          '&:disabled': {
+            color: 'text',
+            backgroundColor: 'muted.2',
+          },
+        },
+        'outlined-danger': {
+          textTransform: 'uppercase',
+          backgroundColor: 'transparent',
+          borderColor: 'muted.2',
+          color: 'danger.base',
+          fontWeight: 'medium',
+          '&:hover': {
+            backgroundColor: 'danger.washed',
+            color: 'danger.hover',
+          },
+          '&:active': {
+            color: 'danger.active',
+          },
+          '&:disabled': {
+            color: 'muted.1',
+            backgroundColor: 'muted.4',
+          },
+        },
+        'subtle-danger': {
+          borderColor: 'transparent',
+          textTransform: 'capitalize',
+          backgroundColor: 'transparent',
+          color: 'danger.base',
+          fontWeight: 'regular',
+          '&:hover': {
+            color: 'danger.hover',
+            backgroundColor: 'danger.washed',
+          },
+          '&:active': {
+            color: 'danger.active',
+            backgroundColor: 'danger.washed',
+          },
+          '&:disabled': {
+            color: 'muted.1',
+          },
+        },
+      },
+    },
   },
   fonts: {
     body: '"VTEX Trust", sans-serif',
