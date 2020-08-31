@@ -1,9 +1,9 @@
 import React from 'react'
 import { Icon, IconProps } from '@vtex-components/icon'
 
-export function IconCaretMock({ size, sx }: IconProps) {
+export function IconCaretMock(props: IconProps) {
   return (
-    <Icon size={size} sx={sx}>
+    <Icon {...props}>
       <path
         d="M10 16L14 12L10 8"
         stroke="currentColor"

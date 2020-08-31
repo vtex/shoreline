@@ -79,10 +79,11 @@ function Disclosure({ children }: { children: ReactNode }) {
           <Button
             {...enhancedProps}
             iconPosition="start"
-            icon={() => (
+            icon={({ size, sx }) => (
               <IconCaretMock
-                size={24}
+                size={size}
                 sx={{
+                  ...sx,
                   transform: visible ? 'rotate(90deg)' : '',
                 }}
               />
@@ -108,11 +109,7 @@ function Content({ children, sx }: ContentProps) {
   return (
     <DisclosureContent {...props}>
       {(enhancedProps) => (
-        <Box
-          role="region"
-          {...enhancedProps}
-          sx={{ paddingX: 13, paddingBottom: 13, ...sx }}
-        >
+        <Box {...enhancedProps} sx={{ paddingX: 13, paddingBottom: 13, ...sx }}>
           {children}
         </Box>
       )}
