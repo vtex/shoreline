@@ -10,7 +10,7 @@ Introduce new architecture on how to theme base components. The main reasons are
 - Standardize property names through a series of styleguides.
 - Reuse common theme definitions.
 
-# Basic example [optional]
+# Basic example
 
 On theme:
 
