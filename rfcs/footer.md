@@ -24,20 +24,47 @@ const links = [
   },
 ]
 
-<Footer links={links} />
+const footerSections = [
+  {
+    sectionName: 'Product',
+    links: [
+      {
+        name: 'Platform Overview',
+        href: '#',
+      },
+      {
+        name: 'Marketplace',
+        href: '#',
+      },
+    ],
+  },
+  {
+    sectionName: 'Partners',
+    links: [
+      {
+        name: 'Become a Partner',
+        href: '#',
+      },
+    ],
+  },
+]
+
+<Footer links={links} sections={footerSections} />
 ```
 
 # Detailed design
 
 | prop     | type        | description             | default | required |
 | -------- | ----------- | ----------------------- | -------- | ------ |
-| label | Link[] | Array of link objects that will be displayed on the footer | `[]` | 🚫 |
+| links | Link[] | Array of link objects that will be displayed on the footer | `[]` | 🚫 |
+| sections | Section[] | Array of section objects that will be displayed on the footer | `[]` | 🚫 |
 
 Link: ```{ name: string, href: string }```
+Section: ```{ name: string, links: Link[] }```
 
 # Drawbacks
 
-The array of links may get a little big, but the developer can create them in a sepparated file and import them into the main file.
+The array of links and sections may get a little big, but the developer can create them in a sepparated file and import them into the main file.
 
 # Adoption strategy 
 
