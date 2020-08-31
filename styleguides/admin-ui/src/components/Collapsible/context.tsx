@@ -7,12 +7,10 @@ const CollapsibleContext = createContext<DisclosureProps | null>(null)
 export function useCollapsibleContext() {
   const context = useContext(CollapsibleContext)
 
-  if (!context) {
-    invariant(
-      false,
-      `Do not use Collapsible's composites outside of Collapsible context`
-    )
-  }
+  invariant(
+    context,
+    `Do not use Collapsible's composites outside of Collapsible context`
+  )
 
   return context
 }
