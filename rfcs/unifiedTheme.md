@@ -51,7 +51,7 @@ There are 3 protagonists into this architecture:
 
 1. 🆕 `@vtex-components/theme`: Defines the common types and export theme utils.
 2. Styled base-component: Documents its theme surface area and consumes it.
-3. Styleguide: Imports the Styled base-component and implements it's defined surface area.
+3. Styleguide: Imports the Styled base-component and implements its defined surface area.
 
 ## Workflow: Create Styled base-component
 
