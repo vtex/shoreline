@@ -11,7 +11,7 @@
 # Basic example
 
 ```jsx
-import { Footer } from '@vtex/footer'
+import { Footer } from '@vtex/brand-ui'
 
 const links = [
   {
