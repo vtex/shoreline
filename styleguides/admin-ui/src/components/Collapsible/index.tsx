@@ -56,7 +56,15 @@ function Header({ children, label, sx }: HeaderProps) {
       }}
     >
       <Disclosure>{label}</Disclosure>
-      <Flex>{children}</Flex>
+      <Flex
+        sx={{
+          '& button:nth-of-type(n+2)': {
+            marginLeft: 3,
+          },
+        }}
+      >
+        {children}
+      </Flex>
     </Flex>
   )
 }

@@ -28,14 +28,15 @@ export const SimpleUsage = () => {
   )
 }
 
-export const WithButton = () => {
+export const WithButtons = () => {
   const props = useCollapsible()
 
   return (
-    <Collapsible {...props} sx={{ width: '40%' }}>
+    <Collapsible {...props} sx={{ width: '80%' }}>
       <Collapsible.Header label="Build for Community #1">
         <Button size="small">Action 1</Button>
         <Button size="small">Action 2</Button>
+        <Button size="small">Action 3</Button>
       </Collapsible.Header>
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
@@ -56,7 +57,8 @@ export const NestedCollapsible = () => {
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
-        <Button size="small">Action</Button>
+        <Button variant="subtle">Action</Button>
+        <Button>Button</Button>
       </Collapsible.Header>
       <Collapsible.Content>
         <Collapsible {...secondProps}>
