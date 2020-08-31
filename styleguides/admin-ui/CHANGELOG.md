@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.14.1...@vtex/admin-ui@0.15.0) (2020-08-31)
+
+
+### Features
+
+* **collapsible:** add Collapsible component ([a22403d](https://github.com/vtex/onda/commit/a22403dafaffe94df741a5aebf9676d9ad1d2b53))
+
+
+
+
+
 ## [0.14.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.14.0...@vtex/admin-ui@0.14.1) (2020-08-27)
 
 
