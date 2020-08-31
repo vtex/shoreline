@@ -79,17 +79,18 @@ function Disclosure({ children }: { children: ReactNode }) {
           <Button
             {...enhancedProps}
             iconPosition="start"
-            icon={({ size, sx }) => (
+            icon={({ size }) => (
               <IconCaretMock
                 size={size}
                 sx={{
-                  ...sx,
+                  marginRight: 3,
                   transform: visible ? 'rotate(90deg)' : '',
                 }}
               />
             )}
             variant="subtle"
             sx={{
+              padding: 0,
               color: 'text',
               '&:hover': { backgroundColor: 'transparent', color: 'text' },
               '&:active': { backgroundColor: 'transparent', color: 'text' },
@@ -147,11 +148,13 @@ export interface HeaderProps {
    * Actions panel
    */
   children?: ReactNode
+  /** custom styles */
   sx?: SxStyleProp
 }
 
 export interface ContentProps {
   children?: ReactNode
+  /** custom styles */
   sx?: SxStyleProp
 }
 
