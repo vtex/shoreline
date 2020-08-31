@@ -17,9 +17,9 @@ yarn add @vtex/admin-ui
 ### Internal Rituals
 
 - Weekly:
-  - 🗓Friday: ⏰ 11-11:30
+  - 🗓Fridays: ⏰ 11–11:30 AM BRT
 - Daily:
-  - ⏰ 9:30-9:45
+  - ⏰ 9:30-9:45 AM BRT
   - dev-team alignment
 - RFC Discussions:
   - Ad-hoc.
@@ -33,12 +33,12 @@ yarn add @vtex/admin-ui
 ### Shared Rituals
 
 - Dailies with design team:
-  - 🗓Monday: ⏰ 17-17:15
-  - 🗓Tuesday: ⏰ 18-18:15
-  - 🗓Wednesday: ⏰ 18-18:15
+  - 🗓Mondays: ⏰ 5-5:15 PM BRT
+  - 🗓Tuesdays: ⏰ 6-6:15 PM BRT
+  - 🗓Wednesdays: ⏰ 6-6:15 PM BRT
   - Align the development and design efforts.
 - New Admin V4 Weekly:
-  - 🗓Thursday: ⏰ 14-15
-- Styleguide Weekly:
-  - 🗓Thursday: ⏰ 15-16
+  - 🗓Thursdays: ⏰ 2–3 PM BRT
+- Design System Weekly:
+  - 🗓Thursdays: ⏰ 3–4 PM BRT
   - A quick share of our current status to other teams.

@@ -50,7 +50,7 @@ We use [`commitlint`](https://commitlint.js.org/#/) and [`commitizen`](http://co
 
 Many changes, including bug fixes and documentation improvements, can be implemented and reviewed via the normal GitHub pull request workflow.
 
-Some changes though are "substantial", and we ask that these be put through a design process and produce a consensus among the `onda-core-team`.
+However, in case of substantial changes, they should follow a design process and there must be a consensus about the topic in the `onda-core-team`.
 
 The "RFC" (request for comments) process is intended to provide a consistent and controlled path for new features to enter the project.
 
@@ -71,10 +71,10 @@ The "RFC" (request for comments) process is intended to provide a consistent and
 #### The Process
 
 - Copy the template from the `rfcs/` folder.
-- Rename it after `<your_title>.md`, where the title is meaningful.
-- Fill in the RFC with care into the details.
+- Rename it with a meaningful title.
+- Fill up all sections, making sure that everything is clear, well reasoned and understandable.
 - Submit a pull request so the RFC can be reviewed.
-- Eventually, the team will decide whether the RFC is a candidate for inclusion in the onda's schedule.
+- Eventually, the team will decide whether the RFC is a candidate for inclusion in the Onda schedule.
 - If rejected, the PR is closed.
 - If accepted, the PR is merged. The team will create a GitHub issue and a Jira board for it, assigning priorities.
 
