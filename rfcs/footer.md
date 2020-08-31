@@ -1,4 +1,4 @@
-# RFC Brand Tooltip
+# RFC Brand Footer
 
 - Start Date: 2020-08-31
 - PR: (leave this empty)
