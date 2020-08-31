@@ -8,14 +8,10 @@ export function useCollapsibleContext() {
   const context = useContext(CollapsibleContext)
 
   if (!context) {
-    if ('production' !== process.env.NODE_ENV) {
-      invariant(
-        false,
-        `Do not use Collapsible's composites outside of Collapsible context`
-      )
-    } else {
-      invariant(false)
-    }
+    invariant(
+      false,
+      `Do not use Collapsible's composites outside of Collapsible context`
+    )
   }
 
   return context
