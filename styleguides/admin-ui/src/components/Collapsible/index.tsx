@@ -90,8 +90,8 @@ function Disclosure({ children }: { children: ReactNode }) {
             variant="subtle"
             sx={{
               color: 'text',
-              '&:hover': { backgroundColor: 'none', color: 'text' },
-              '&:active': { backgroundColor: 'none', color: 'text' },
+              '&:hover': { backgroundColor: 'transparent', color: 'text' },
+              '&:active': { backgroundColor: 'transparent', color: 'text' },
             }}
           >
             {children}
