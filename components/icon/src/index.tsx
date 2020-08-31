@@ -25,6 +25,7 @@ export const Icon = forwardRef((props: IconProps, ref: Ref<SVGSVGElement>) => {
     children,
     ...svgJSXProps
   } = props
+
   return (
     <svg
       sx={{
