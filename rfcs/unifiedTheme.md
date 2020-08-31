@@ -71,10 +71,14 @@ There are 3 protagonists into this architecture:
 
 # Drawbacks
 
-- Increase the learning curve by adding the patterns, due to the abstraction on top of theme-ui.
-- The theme definition can become huge if a lot of components have intricate variants.
+- Increase the learning curve by adding the patterns, due to the abstraction on top of theme-ui. We can solve this with good documentation.
+- The theme definition can become huge if a lot of components have intricate variants. This can be solved by creating a `theme/components` folder to store all components themes.
 
-# Adoption strategy & Education
+# Adoption strategy
+
+- We must open an issue to subscribe all components into this architecture.
+
+# Education
 
 - Documentation into a \docs folder on onda's root with all patterns.
 - Guidelines on common solutions.
