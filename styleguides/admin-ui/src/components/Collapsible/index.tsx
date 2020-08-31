@@ -6,11 +6,11 @@ import {
   DisclosureContent,
   DisclosureProps,
 } from 'reakit/Disclosure'
-import { useFocusRing } from '@react-aria/focus'
 
 import { Box } from '../Box'
 import { CollapsibleProvider, useCollapsibleContext } from './context'
 import { IconCaretMock } from './CaretIconMock'
+import { Button } from '../Button'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
@@ -55,49 +55,39 @@ function Header({ children, label, sx }: HeaderProps) {
         ...sx,
       }}
     >
-      <Flex sx={{ alignItems: 'center' }}>
-        <Disclosure />
-        <Box as="span">{label}</Box>
-      </Flex>
+      <Disclosure>{label}</Disclosure>
       <Flex>{children}</Flex>
     </Flex>
   )
 }
 
-function Disclosure() {
+function Disclosure({ children }: { children: ReactNode }) {
   const { visible, ...disclosureProps } = useCollapsibleContext()
 
-  const { isFocusVisible, focusProps } = useFocusRing()
-
   return (
-    <ReakitDisclosure {...focusProps} visible={visible} {...disclosureProps}>
+    <ReakitDisclosure visible={visible} {...disclosureProps}>
       {(enhancedProps) => {
         return (
-          <Box
+          <Button
             {...enhancedProps}
-            as="span"
-            role="button"
-            tabIndex={0}
+            iconPosition="start"
+            icon={() => (
+              <IconCaretMock
+                size={24}
+                sx={{
+                  transform: visible ? 'rotate(90deg)' : '',
+                }}
+              />
+            )}
+            variant="subtle"
             sx={{
-              display: 'flex',
-              alignItems: 'center',
-              borderRadius: 3,
-              cursor: 'pointer',
-              '&:focus': {
-                outline: 'none',
-              },
-              boxShadow: isFocusVisible
-                ? (theme) => `0 0 0 2px ${theme.colors.focus}`
-                : '',
+              color: 'text',
+              '&:hover': { backgroundColor: 'none', color: 'text' },
+              '&:active': { backgroundColor: 'none', color: 'text' },
             }}
           >
-            <IconCaretMock
-              size={24}
-              sx={{
-                transform: visible ? 'rotate(90deg)' : '',
-              }}
-            />
-          </Box>
+            {children}
+          </Button>
         )
       }}
     </ReakitDisclosure>

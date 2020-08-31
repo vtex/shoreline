@@ -32,11 +32,10 @@ export const WithButton = () => {
   const props = useCollapsible()
 
   return (
-    <Collapsible {...props} sx={{ width: '30%' }}>
-      <Collapsible.Header
-        label={<Text variant="highlight">Build for Community #1</Text>}
-      >
-        <Button size="small">Action</Button>
+    <Collapsible {...props} sx={{ width: '40%' }}>
+      <Collapsible.Header label="Build for Community #1">
+        <Button size="small">Action 1</Button>
+        <Button size="small">Action 2</Button>
       </Collapsible.Header>
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
