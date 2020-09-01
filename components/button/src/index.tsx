@@ -8,11 +8,12 @@ import { useComponentSx, mergeSx } from '@vtex-components/theme'
  * Elementary accessible button component that can be reused by all VTEX Styleguides.
  * You can use reakit full features (except the 'as' prop) and theme-ui's sx.
  * It renders a button element by default.
- *
  * This is a styled base component, so any system can theme it.
  * You may configure your `components.button` property of the theme object.
+ * @example
+ * ```jsx
+ * import { Button, ButtonProps } from `@vtex-components/button`
  *
- * @example theme
  * const theme = {
  *  colors: {
  *    primary: 'pink'
@@ -26,9 +27,8 @@ import { useComponentSx, mergeSx } from '@vtex-components/theme'
  *  }
  * }
  *
- * @example usage
- * import { Button, ButtonProps } from "vtex-components/button"
  * <Button variant="primary" size="small">Small Primary Button</Button>
+ * ```
  */
 function Button(props: ButtonProps, ref: Ref<HTMLButtonElement>) {
   const { sx = {}, variant = '', size = '', ...buttonProps } = props
