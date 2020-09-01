@@ -14,12 +14,12 @@
 import { Footer } from '@vtex/brand-ui'
 
 <Footer>
-  <Footer.LinkGroup>
+  <Footer.LinkGroups>
     <Footer.Group title='Product'>
       <Footer.Link href='#'>Platform Overview</Footer.Link>
       <Footer.Link href='#'>Marketplace</Footer.Link>
     </Footer.Group>
-  </Footer.LinkGroup>
+  </Footer.LinkGroups>
   <Footer.Extra>
     <Footer.SocialMedia />
     <Footer.ExtraLinks>
