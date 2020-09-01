@@ -39,7 +39,7 @@ export const Button = forwardRef(
 
     const focusVisibleStyle = isFocusVisible
       ? {
-          boxShadow: `0px 0px 0px 1px ${background}, 0px 0px 0 3px ${focus}`,
+          boxShadow: `0px 0px 0px 2px ${background}, 0px 0px 0 3px ${focus}`,
         }
       : {}
 
