@@ -31,9 +31,39 @@ import { Footer } from '@vtex/brand-ui'
 
 # Detailed design
 
-| prop     | type        | description             | default | required |
-| -------- | ----------- | ----------------------- | -------- | ------ |
-| children | ReactNode | elements that will be shown on the footer | - | ✔️ |
+The footer has some composites: `LinkGroups` are the section of the footer which contains all the groups of links in the main section, composed by `Group` and `Link` components. The `Extra` component contains the extra information and links that will be displayed. The `SocialMedia` are the links for VTEX's social media and the `ExtraLinks` are the links located at the bottom of the footer.
+
+## LinkGroups
+
+| prop     | type        | description             | required |
+| -------- | ----------- | ----------------------- | -------- |
+| children | ReactNode   | content shown on the groups          | 🚫       |
+
+## Group
+
+| prop     | type        | description             | required |
+| -------- | ----------- | ----------------------- | -------- |
+| title | String   | link group title          | ✔️       |
+| children | ReactNode   | content shown on the link group          | 🚫       |
+
+## Link
+
+| prop     | type        | description             | required |
+| -------- | ----------- | ----------------------- | -------- |
+| href | String   | the URL of the page the link goes to          | ✔️       |
+| children | ReactNode   | elements inside the link          | 🚫       |
+
+## Extra
+
+| prop     | type        | description             | required |
+| -------- | ----------- | ----------------------- | -------- |
+| children | ReactNode   | elements inside the extra section of the footer          | 🚫       |
+
+## ExtraLinks
+
+| prop     | type        | description             | required |
+| -------- | ----------- | ----------------------- | -------- |
+| children | ReactNode   | content (links) in the extra links          | 🚫       |
 
 # Drawbacks
 
