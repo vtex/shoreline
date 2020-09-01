@@ -1,5 +1,5 @@
 import React from 'react'
-import { SxStyleProp } from 'theme-ui'
+import { useComponentSx } from '@vtex-components/theme'
 
 import { Box, BoxProps } from '../Box'
 
@@ -25,13 +25,14 @@ export function Text({
 }: TextProps) {
   const tag = getTag(variant)
   const asProp: typeof as = as ?? tag
+  const styles = useComponentSx('text', { variant })
 
   return (
     <Box
       as={asProp}
       {...props}
       sx={{
-        ...getTextSx(variant),
+        ...styles,
         ...sx,
       }}
     />
@@ -48,79 +49,6 @@ function getTag(variant: TextVariant) {
 
     default:
       return 'span'
-  }
-}
-
-/**
- * Utility that returns the sx all existing text variants
- * You can use it to define the font style of containers
- * @example
- * import { Box, getTextSx } from 'admin-ui'
- *
- * <Box sx={getTextSx()}>
- *  Wow, this body style
- * </Box>
- *
- * <Box sx={getTextSx('highlight')}>
- *  And this one, has the highlight style
- * </Box>
- *
- * @param variant Text variant @default 'body'
- * @returns SxStyleProp with { color, lineHeight, fontWeight, fontSize }
- */
-export function getTextSx(variant: TextVariant = 'body'): SxStyleProp {
-  switch (variant) {
-    case 'small':
-      return {
-        color: 'text',
-        lineHeight: 'small',
-        fontWeight: 'regular',
-        fontSize: 0,
-      }
-
-    case 'body':
-      return {
-        color: 'text',
-        lineHeight: 'body',
-        fontWeight: 'regular',
-        fontSize: 1,
-      }
-
-    case 'highlight':
-      return {
-        color: 'text',
-        lineHeight: 'highlight',
-        fontWeight: 'medium',
-        fontSize: 1,
-      }
-
-    case 'action':
-      return {
-        color: 'text',
-        lineHeight: 'action',
-        fontWeight: 'medium',
-        fontSize: 1,
-        textTransform: 'uppercase',
-      }
-
-    case 'subtitle':
-      return {
-        color: 'text',
-        lineHeight: 'subtitle',
-        fontWeight: 'medium',
-        fontSize: 2,
-      }
-
-    case 'headline':
-      return {
-        color: 'text',
-        lineHeight: 'headline',
-        fontWeight: 'medium',
-        fontSize: 3,
-      }
-
-    default:
-      return {}
   }
 }
 

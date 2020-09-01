@@ -215,6 +215,52 @@ export const theme: Theme = {
         },
       },
     },
+    text: {
+      variant: {
+        small: {
+          color: 'text',
+          lineHeight: 'small',
+          fontWeight: 'regular',
+          fontSize: 0,
+        },
+
+        body: {
+          color: 'text',
+          lineHeight: 'body',
+          fontWeight: 'regular',
+          fontSize: 1,
+        },
+
+        highlight: {
+          color: 'text',
+          lineHeight: 'highlight',
+          fontWeight: 'medium',
+          fontSize: 1,
+        },
+
+        action: {
+          color: 'text',
+          lineHeight: 'action',
+          fontWeight: 'medium',
+          fontSize: 1,
+          textTransform: 'uppercase',
+        },
+
+        subtitle: {
+          color: 'text',
+          lineHeight: 'subtitle',
+          fontWeight: 'medium',
+          fontSize: 2,
+        },
+
+        headline: {
+          color: 'text',
+          lineHeight: 'headline',
+          fontWeight: 'medium',
+          fontSize: 3,
+        },
+      },
+    },
   },
   fonts: {
     body: '"VTEX Trust", sans-serif',
