@@ -1,2 +1,5 @@
-[build]
+[build]  
+  base = "styleguides/admin-ui/"
+  publish = "/storybook-static"
+  command = "yarn build:storybook"
   ignore = "git diff --quiet master ./"
