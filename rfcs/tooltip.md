@@ -1,4 +1,4 @@
-# RFC Brand Tooltip
+# RFC Tooltip component
 
 - Start Date: 2020-08-28
 - PR: (leave this empty)
@@ -11,7 +11,7 @@
 # Basic example
 
 ```jsx
-import { Tooltip } from '@vtex/brand-ui'
+import { Tooltip } from '@vtex-component/tooltip'
 
 <Tooltip label='Delete' placement='right'>
   <Button>Delete</Button>
