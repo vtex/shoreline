@@ -5,7 +5,7 @@ import { useToolbarState, Toolbar, ToolbarItem } from 'reakit/Toolbar'
 import { Button, ButtonProps } from './index'
 
 export default {
-  title: 'brand/ready for beta/Button',
+  title: 'beta/Button',
   component: Button,
 } as Meta
 
@@ -13,7 +13,7 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
 export const Playground = Template.bind({})
 Playground.args = {
-  children: 'Admin UI Button',
+  children: 'Brand UI Button',
 }
 
 export const WithinAToolbar = () => {
@@ -26,14 +26,14 @@ export const WithinAToolbar = () => {
       </ToolbarItem>
       <ToolbarItem {...toolbar}>
         {(props) => (
-          <Button {...props} variant="outlined">
+          <Button {...props} variant="primary">
             File
           </Button>
         )}
       </ToolbarItem>
       <ToolbarItem {...toolbar}>
         {(props) => (
-          <Button {...props} variant="subtle">
+          <Button {...props} variant="secondary">
             Selection
           </Button>
         )}

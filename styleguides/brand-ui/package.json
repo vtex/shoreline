@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@react-aria/focus": "3.2.0",
-    "@vtex-components/button": "^1.1.1"
+    "@vtex-components/button": "^1.1.1",
+    "@vtex-components/theme": "0.0.0"
   }
 }

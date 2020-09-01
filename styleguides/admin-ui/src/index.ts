@@ -1,4 +1,5 @@
-export { ThemeProvider, useTheme, Theme } from './theme'
+export { useTheme, Theme } from '@vtex-components/theme'
+export { ThemeProvider } from './theme'
 export { Box, BoxProps } from './components/Box'
 export { Button, ButtonProps } from './components/Button'
 export { Text, TextProps } from './components/Text'

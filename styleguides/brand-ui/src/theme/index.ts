@@ -1,10 +1,2 @@
-export { ThemeProvider } from './Provider'
-export { useTheme } from './useTheme'
+export { default as ThemeProvider } from './Provider'
 export { theme } from './theme'
-export {
-  Theme,
-  Colors,
-  FeedbackPalette,
-  FeedbackPalettes,
-  ThemeContext,
-} from './typings'
