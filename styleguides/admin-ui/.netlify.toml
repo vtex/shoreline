@@ -1,0 +1,4 @@
+[build]
+base = "/styleguides/admin-ui"
+publish = "/build"
+command = "yarn build"
