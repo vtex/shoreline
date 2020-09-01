@@ -25,7 +25,7 @@ import { Tooltip } from '@vtex/brand-ui'
 | children | ReactNode   | element that triggers the tooltip | - | ✔️ |
 | label | String | Text shown in the tooltip | - | ✔️ |
 | placement | Placement | the placement of the tooltip relative to its children    | top | 🚫 |
-| visible | boolean | if the tooltip is visible or not    | - | 🚫 |
+| visible | boolean | whether the tooltip is visible or not    | - | 🚫 |
 | sx       | SxStyleProp | Theme-ui style prop     | - | 🚫       |
 
 Placement: `"auto-start" | "auto" | "auto-end" | "top-start" | "top" | "top-end" | "right-start" | "right" | "right-end" | "bottom-end" | "bottom" | "bottom-start" | "left-end" | "left" | "left-start"`
@@ -36,10 +36,10 @@ WIP
 
 # Alternatives 
 
-An alternative is pass directly a listener to the tooltip children and manualy change the visibility of the tooltip.
+An alternative is to pass directly a listener to the tooltip children and manually change the visibility of the tooltip.
 
 ```jsx
-<Tooltip visible={/** Inital state **/} />
+<Tooltip visible={/** Initial state **/} />
 ```
 
 # Adoption strategy 
