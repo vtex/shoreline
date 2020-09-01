@@ -25,5 +25,5 @@ There are 3 protagonists here:
 ### Workflow: Subscribe to a Styled base-component surface area.
 
 1. On the theme object entry the component's `id` into `components`.
-2. Read with care the documentation of the base component and fill de modifiers.
+2. Read with care the documentation of the base component and fill the modifiers.
 3. Remember that every base-component has the `styles` modifier on its theme.

@@ -27,7 +27,7 @@ import { useComponentSx, mergeSx } from '@vtex-components/theme'
  * }
  *
  * @example usage
- * import { Button, ButtonProps } from 'vtex-components/button'
+ * import { Button, ButtonProps } from "vtex-components/button"
  * <Button variant="primary" size="small">Small Primary Button</Button>
  */
 function Button(props: ButtonProps, ref: Ref<HTMLButtonElement>) {

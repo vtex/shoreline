@@ -18,13 +18,13 @@ npm install @vtex-components/theme
 
 ### ThemeProvider
 
-Same as `theme-ui/ThemeProvider`
+Same as [`theme-ui/ThemeProvider`](https://theme-ui.com/api)
 
 ## Hooks
 
 ### useColorMode
 
-Same as `theme-ui/useColorMode`
+Same as [`theme-ui/useColorMode`](https://theme-ui.com/color-modes)
 
 ### useTheme
 
@@ -84,8 +84,8 @@ function Component() {
 
 Merges two objects deepply.
 
-Same as `deepmerge`.
+Same as [`deepmerge`](https://github.com/TehShrike/deepmerge).
 
 ### get
 
-Same as `@theme-ui/css/get`.
+Same as [`@theme-ui/css/get`](https://theme-ui.com/packages/color).

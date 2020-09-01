@@ -30,11 +30,11 @@ function UseCase() {
 
 ## 🎨 Theming
 
-| Modifier | Description        |
-| -------- | ------------------ |
-| styles   | base styles        |
-| variant  | button variants    |
-| size     | mesures in general |
+| Modifier | Description         |
+| -------- | ------------------- |
+| styles   | base styles         |
+| variant  | button variants     |
+| size     | measures in general |
 
 ### Example
 
