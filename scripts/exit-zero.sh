@@ -1,3 +1,3 @@
 #!/bin/bash
 
-git status
+git diff --quiet HEAD^ HEAD -- ./ .
