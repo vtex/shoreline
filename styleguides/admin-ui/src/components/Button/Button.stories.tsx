@@ -1,9 +1,11 @@
+/* eslint-disable react/display-name */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 import { useToolbarState, Toolbar, ToolbarItem } from 'reakit/Toolbar'
 
 import { Button, ButtonProps } from './index'
-import { IconMock } from './IconMock'
+import { IconCancel } from '../../icons'
 
 export default {
   title: 'beta/Button',
@@ -20,18 +22,18 @@ Playground.args = {
 export const WithIconOnly = Template.bind({})
 
 WithIconOnly.args = {
-  icon: (props: any) => <IconMock title="Icon title" {...props} />,
+  icon: (props: any) => <IconCancel title="Icon title" {...props} />,
 }
 
 export const WithIconStart = Template.bind({})
 WithIconStart.args = {
-  icon: (props: any) => <IconMock {...props} />,
+  icon: (props: any) => <IconCancel {...props} />,
   children: 'Admin UI Button',
 }
 
 export const WithIconEnd = Template.bind({})
 WithIconEnd.args = {
-  icon: (props: any) => <IconMock {...props} />,
+  icon: (props: any) => <IconCancel {...props} />,
   iconPosition: 'end',
   children: 'Admin UI Button',
 }
