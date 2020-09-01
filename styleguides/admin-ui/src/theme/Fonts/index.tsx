@@ -1,10 +1,8 @@
 import React, { memo } from 'react'
 import { Global, css } from '@emotion/core'
 
-import RegularWoff from './regular.woff'
-import RegularWoff2 from './regular.woff2'
-import MediumWoff from './medium.woff'
-import MediumWoff2 from './medium.woff2'
+// import VariableWoff from './variable.woff'
+import VariableWoff2 from './variable.woff2'
 
 /**
  * Defines & applies VTEX Trust font
@@ -16,20 +14,11 @@ function Fonts() {
         @font-face {
           font-family: 'VTEX Trust';
           src: local('VTEX Trust'), local('VTEX Trust'),
-            url(${RegularWoff2}) format('woff2'),
-            url(${RegularWoff}) format('woff');
-          font-weight: 400;
+            url(${VariableWoff2}) format('woff2-variations'),
+          font-weight: 1 999;
           font-style: normal;
         }
-        @font-face {
-          font-family: 'VTEX Trust';
-          src: local('VTEX Trust'), local('VTEX Trust'),
-            url(${MediumWoff2}) format('woff2'),
-            url(${MediumWoff}) format('woff');
-          font-weight: 500;
-          font-style: normal;
-        }
-        * {
+        html, * {
           font-family: 'VTEX Trust', sans-serif;
         }
       `}
