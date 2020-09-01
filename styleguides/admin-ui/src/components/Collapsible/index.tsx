@@ -82,9 +82,9 @@ function Disclosure({ children }: { children: ReactNode }) {
             icon={({ size }) => (
               <IconCaret
                 size={size}
+                direction={visible ? 'down' : 'right'}
                 sx={{
                   marginRight: 3,
-                  transform: visible ? 'rotate(90deg)' : '',
                 }}
               />
             )}
