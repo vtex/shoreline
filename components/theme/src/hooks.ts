@@ -4,8 +4,16 @@ import { ThemeContext } from '@emotion/core'
 import merge from 'deepmerge'
 import { SxStyleProp } from 'theme-ui'
 
+/**
+ * Hook to access the theme property
+ */
 export const useTheme = () => useContext(ThemeContext)
 
+/**
+ * Consume and merge the modifiers from a component
+ * @param id id of the component
+ * @param modifiers modifiers map.
+ */
 export const useComponentSx = (
   id: string,
   modifiers: { [key: string]: string }

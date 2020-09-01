@@ -5,11 +5,11 @@ import { forwardRef } from '@vtex-components/utils'
 import { useComponentSx, mergeSx } from '@vtex-components/theme'
 
 /**
- * Elementary accessible button component that can be reused by all VTEX DS's.
+ * Elementary accessible button component that can be reused by all VTEX Styleguides.
  * You can use reakit full features (except the 'as' prop) and theme-ui's sx.
  * It renders a button element by default.
  *
- * This is a styled base component, so every design system can theme it.
+ * This is a styled base component, so any system can theme it.
  * You may configure your `components.button` property of the theme object.
  *
  * @example theme

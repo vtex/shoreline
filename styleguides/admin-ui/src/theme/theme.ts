@@ -106,14 +106,18 @@ export const theme: Theme = {
           color: 'primary.contrast',
           backgroundColor: 'primary.base',
           fontWeight: 'medium',
+          borderColor: 'primary.base',
           '&:hover': {
             backgroundColor: 'primary.hover',
+            borderColor: 'primary.hover',
           },
           '&:active': {
             backgroundColor: 'primary.active',
+            borderColor: 'primary.active',
           },
           '&:disabled': {
             color: 'text',
+            borderColor: 'muted.2',
             backgroundColor: 'muted.2',
           },
         },
@@ -158,13 +162,17 @@ export const theme: Theme = {
           color: 'danger.contrast',
           backgroundColor: 'danger.base',
           fontWeight: 'medium',
+          borderColor: 'danger.base',
           '&:hover': {
+            borderColor: 'danger.hover',
             backgroundColor: 'danger.hover',
           },
           '&:active': {
+            borderColor: 'danger.active',
             backgroundColor: 'danger.active',
           },
           '&:disabled': {
+            borderColor: 'muted.2',
             color: 'text',
             backgroundColor: 'muted.2',
           },

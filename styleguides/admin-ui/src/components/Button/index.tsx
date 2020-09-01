@@ -73,10 +73,7 @@ function useFocusHollow() {
   const { isFocusVisible, focusProps } = useFocusRing()
   const focusStyles = isFocusVisible
     ? {
-        boxShadow: `0px 0px 0 ${get(theme, 'space.1')}px ${get(
-          theme,
-          'colors.background'
-        )}, 0px 0px 0 ${get(theme, 'space.3') - get(theme, 'space.1')}px ${get(
+        boxShadow: `0px 0px 0px ${get(theme, 'space.2')}px ${get(
           theme,
           'colors.focus'
         )}`,
@@ -107,9 +104,6 @@ function useMeasures({
   return {
     resolvedSize,
     containerStyles,
-    iconEnd,
-    iconStart,
-    iconOnly,
   }
 }
 
