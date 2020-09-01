@@ -57,14 +57,14 @@ export const theme: Theme = {
           height: 40,
           width: 'auto',
           paddingLeft: 5,
-          paddingRight: 9,
+          paddingRight: 7,
         },
         'regular-icon-end': {
           paddingY: 5,
           fontSize: 1,
           height: 40,
           width: 'auto',
-          paddingLeft: 9,
+          paddingLeft: 7,
           paddingRight: 5,
         },
         small: {
