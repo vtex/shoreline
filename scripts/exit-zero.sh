@@ -1,3 +1,3 @@
 #!/bin/bash
 
-git diff --quiet master ./
+git diff --quiet HEAD^ HEAD -- ./ .
