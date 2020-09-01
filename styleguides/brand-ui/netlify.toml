@@ -2,4 +2,4 @@
   base = "styleguides/brand-ui/"
   publish = "/storybook-static"
   command = "yarn build:storybook"
-  ignore = "../../scripts/exit-zero.sh"
+  ignore = "sh ../../scripts/exit-zero.sh"
