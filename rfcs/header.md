@@ -43,10 +43,6 @@ import { Header } from '@vtex/brand-ui'
 | LocaleSwitcher         | ReactNode   | Element responsible for changing the site's language | -       | ✔️       |
 | sx                     | SxStyleProp | Theme-ui style prop                                  | -       | 🚫       |
 
-# Drawbacks
-
-WIP
-
 # Adoption strategy
 
 - This is a new feature, no breaking changes to any packages in `onda`.
