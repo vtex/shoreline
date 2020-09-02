@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.17.1",
+  "version": "0.18.0",
   "main": "dist/index.js",
   "module": "dist/admin.esm.js",
   "typings": "dist/index.d.ts",
@@ -40,9 +40,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@react-aria/focus": "3.2.0",
-    "@vtex-components/button": "^1.2.0",
+    "@vtex-components/button": "^1.2.1",
     "@vtex-components/icon": "^0.0.3",
-    "@vtex-components/theme": "^0.1.0",
+    "@vtex-components/theme": "^0.1.1",
     "reakit": "1.2.3",
     "theme-ui": "^0.3.1"
   }

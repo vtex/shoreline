@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/vtex/onda/compare/@vtex-components/theme@0.1.0...@vtex-components/theme@0.1.1) (2020-09-02)
+
+
+### Bug Fixes
+
+* **theme:** fonts are no longer required ([f146bc8](https://github.com/vtex/onda/commit/f146bc82fa287077a17f8f21e1ee33b04a45e2a0))
+
+
+
+
+
 # 0.1.0 (2020-09-01)
 
 

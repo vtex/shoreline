@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.17.1...@vtex/admin-ui@0.18.0) (2020-09-02)
+
+
+### Bug Fixes
+
+* **button:** paddings with icons left or right ([19a629f](https://github.com/vtex/onda/commit/19a629fb6f12953d8d4d6385ba0342a7782a63bc))
+* **iconarrow:** prop warning ([576c838](https://github.com/vtex/onda/commit/576c838bb7642ea4d9b32935136ca12e53b4b942))
+
+
+### Features
+
+* **theme:** add vtex trust font ([d3b9a43](https://github.com/vtex/onda/commit/d3b9a43cd8318da2967f5271088ea2abc1f3045f))
+
+
+### Performance Improvements
+
+* **font:** add font fallback ([68af7b2](https://github.com/vtex/onda/commit/68af7b2a6d83889573df3f91d196509b769544e7))
+* **font:** use variable fonts ([2a21985](https://github.com/vtex/onda/commit/2a2198586b74caf293df51e2d70373313acc00b4))
+
+
+
+
+
 ## [0.17.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.17.0...@vtex/admin-ui@0.17.1) (2020-09-02)
 
 
