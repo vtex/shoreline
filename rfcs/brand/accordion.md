@@ -101,7 +101,7 @@ const MyAccordion = () => {
 ```
 
 The drawback of this solution is the difficulty to control the state of open
-sections in the `singleOpen` mod.
+sections in the `singleOpen` mode.
 
 # Adoption strategy [optional]
 
