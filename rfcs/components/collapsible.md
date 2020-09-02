@@ -17,7 +17,7 @@ import { Collapsible, useCollapsible } from '@vtex-component/collapsible'
 const collapsibleState = useCollapsible({ visible: true })
 
 <Collapsible {...collapsibleState}>
-  <Collapsible.Header arrowIcon={<Arrow />}>
+  <Collapsible.Header disclosureIcon={<Arrow />}>
     Header
   </Collapsible.Header>
   <Collapsible.Content>
