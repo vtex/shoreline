@@ -16,14 +16,14 @@ import { Footer } from '@vtex/brand-ui'
 <Footer>
   <Footer.LinkGroups>
     <Footer.Group title='Product'>
-      <Footer.Link to='#'>Platform Overview</Footer.Link>
-      <Footer.Link to='#'>Marketplace</Footer.Link>
+      <Footer.Link href='#'>Platform Overview</Footer.Link>
+      <Footer.Link href='#'>Marketplace</Footer.Link>
     </Footer.Group>
   </Footer.LinkGroups>
   <Footer.Extra>
     <Footer.SocialMedia />
     <Footer.ExtraLinks>
-      <Footer.Link to='#'>Terms and Policies</Footer.Link>
+      <Footer.Link href='#'>Terms and Policies</Footer.Link>
     </Footer.ExtraLinks>
   </Footer.Extra>
 <Footer>
@@ -50,7 +50,7 @@ The footer has some composites: `LinkGroups` are the section of the footer which
 
 | prop     | type        | description             | required |
 | -------- | ----------- | ----------------------- | -------- |
-| to | String   | the URL of the page the link goes to          | ✔️       |
+| href | String   | the URL of the page the link goes to          | ✔️       |
 | children | ReactNode   | elements inside the link          | 🚫       |
 
 ## Extra
