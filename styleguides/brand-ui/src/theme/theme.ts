@@ -53,7 +53,6 @@ export const theme: Theme = {
   components: {
     button: {
       styles: {
-        width: 'auto',
         textTransform: 'uppercase',
         fontWeight: 'medium',
         borderWidth: 1,
@@ -113,11 +112,6 @@ export const theme: Theme = {
           paddingY: 4,
           height: 32,
           paddingX: 9,
-        },
-        block: {
-          display: 'block',
-          width: '100%',
-          paddingY: 9,
         },
         icon: {
           height: 48,

@@ -59,6 +59,7 @@ function useMeasures({
 export const Button = forwardRef(
   (props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     const {
+      block,
       size = 'regular',
       variant = 'primary',
       sx = {},
@@ -78,7 +79,10 @@ export const Button = forwardRef(
 
     const renderIcon = () => icon?.(iconProps)
 
-    const mergedSx = mergeSx<SxStyleProp>(focusStyles, sx)
+    const blockStyles = block ? { display: 'block', width: '100%' } : {}
+
+    const buttonSx = mergeSx<SxStyleProp>(focusStyles, blockStyles)
+    const mergedSx = mergeSx<SxStyleProp>(sx, buttonSx)
 
     return (
       <BaseButton
@@ -108,7 +112,7 @@ export const Button = forwardRef(
 )
 
 export type Variant = 'primary' | 'secondary' | 'tertiary'
-export type Size = 'small' | 'regular' | 'block'
+export type Size = 'small' | 'regular'
 export interface ButtonProps
   extends Pick<
     BaseProps,
@@ -145,4 +149,9 @@ export interface ButtonProps
    * @default start
    */
   iconPosition?: 'start' | 'end'
+  /**
+   * Block type
+   * @default false
+   */
+  block?: boolean
 }

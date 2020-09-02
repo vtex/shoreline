@@ -36,8 +36,16 @@ export const ButtonSizes = () => (
       Regular
     </Button>
     <Button size="small">Small</Button>
-    <Button size="block" sx={{ mt: 4 }}>
-      Block
+  </>
+)
+
+export const ButtonBlock = () => (
+  <>
+    <Button size="regular" block sx={{ mb: 4 }}>
+      Regular
+    </Button>
+    <Button size="small" block>
+      Small
     </Button>
   </>
 )
