@@ -47,7 +47,7 @@ the list of collapsibles, controlling which one must be open.
 
 - This component depends on the `Collapsible` one.
 
-# Alternatives [optional]
+# Alternatives
 
 To set default open sections, there are two alternatives:
 
