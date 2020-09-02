@@ -29,6 +29,10 @@ import { Input } from '@vtex/brand-ui'
 
 # Detailed design
 
+This component reuses functionalities from the [Reakit Input](https://reakit.io/docs/input/).
+
+## Props
+
 | prop | type | description | required |
 | ---- | ---- | ----------- | -------- |
 | helperText | string | additional tips on how the input is expected to be filled | ✔️ |
@@ -72,7 +76,7 @@ WIP. Ideas?
       },
       {
         validation: checkFullName,
-        errorMessage: 'Remember to state your first and last names.'
+        errorMessage: 'Remember to state your first and last name.'
       }
     ]}
   />
