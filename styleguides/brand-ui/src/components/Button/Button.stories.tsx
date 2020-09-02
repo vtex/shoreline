@@ -18,30 +18,41 @@ Playground.args = {
   children: 'Brand UI Button',
 }
 
-export const ButtonVariaties = () => (
+export const ButtonVariations = () => (
   <>
-    <Button variant="primary">Primary</Button>
-    <Button variant="secondary">Secondary</Button>
+    <Button sx={{ mr: 4 }} variant="primary">
+      Primary
+    </Button>
+    <Button sx={{ mr: 4 }} variant="secondary">
+      Secondary
+    </Button>
     <Button variant="tertiary">Tertiary</Button>
   </>
 )
 
 export const ButtonSizes = () => (
   <>
-    <Button size="regular" sx={{ marginRight: 4 }}>
+    <Button size="regular" sx={{ mr: 4 }}>
       Regular
     </Button>
     <Button size="small">Small</Button>
-    <Button size="block" sx={{ marginTop: 4 }}>
+    <Button size="block" sx={{ mt: 4 }}>
       Block
     </Button>
   </>
 )
 
-export const ButtonWithIconAndLabel = () => (
-  <Button icon={(props) => <IconMock {...props} />}>Button</Button>
-)
-
 export const ButtonWithIcon = () => {
   return <Button icon={(props) => <IconMock {...props} />} />
 }
+
+export const ButtonWithIconAndLabel = () => (
+  <>
+    <Button icon={(props) => <IconMock {...props} />} sx={{ mr: 4 }}>
+      Icon Start
+    </Button>
+    <Button icon={(props) => <IconMock {...props} />} iconPosition="end">
+      Icon End
+    </Button>
+  </>
+)

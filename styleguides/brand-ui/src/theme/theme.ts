@@ -53,6 +53,7 @@ export const theme: Theme = {
   components: {
     button: {
       styles: {
+        width: 'auto',
         textTransform: 'uppercase',
         fontWeight: 'medium',
         borderWidth: 1,
@@ -106,15 +107,12 @@ export const theme: Theme = {
         regular: {
           paddingY: 8,
           height: 48,
-          width: 'auto',
           paddingX: 13,
         },
         small: {
           paddingY: 4,
           height: 32,
-          width: 'auto',
           paddingX: 9,
-          lineHeight: 20,
         },
         block: {
           display: 'block',

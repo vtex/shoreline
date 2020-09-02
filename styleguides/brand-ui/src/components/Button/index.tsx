@@ -31,28 +31,22 @@ function useMeasures({
     flexDirection: iconEnd ? 'row-reverse' : 'row',
   }
 
+  const iconStyles = children
+    ? iconEnd
+      ? { marginLeft: 4 }
+      : { marginRight: 4 }
+    : {}
+
+  const iconSize = size === 'small' ? 20 : 24
+
   const resolvedSize = !!icon && !children ? 'icon' : size
+  const iconProps = { sx: iconStyles, size: iconSize }
 
   return {
     resolvedSize,
     containerStyles,
+    iconProps,
   }
-}
-
-function getIconProps({
-  size: buttonSize,
-  iconPosition,
-  children,
-}: Pick<ButtonProps, 'size' | 'iconPosition' | 'children'>) {
-  const sx = children
-    ? iconPosition === 'start'
-      ? { marginRight: 4 }
-      : { marginLeft: 4 }
-    : {}
-
-  const size = buttonSize === 'small' ? 20 : 24
-
-  return { sx, size }
 }
 
 /**
@@ -75,22 +69,14 @@ export const Button = forwardRef(
     } = props
 
     const { focusStyles, focusProps } = useFocusHollow()
-    const { containerStyles, resolvedSize } = useMeasures({
+    const { containerStyles, resolvedSize, iconProps } = useMeasures({
       children,
       icon,
       iconPosition,
       size,
     })
 
-    const renderIcon = () => {
-      const iconProps = getIconProps({
-        children,
-        size,
-        iconPosition,
-      })
-
-      return icon?.(iconProps)
-    }
+    const renderIcon = () => icon?.(iconProps)
 
     const mergedSx = mergeSx<SxStyleProp>(focusStyles, sx)
 
