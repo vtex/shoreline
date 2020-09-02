@@ -32,7 +32,7 @@ const MyAccordion = () => {
 # Detailed design
 
 This component is a composition with the `Collapsible` component, it just handles
-the list of collapsible, controlling which one must be open.
+the list of collapsibles, controlling which one must be open.
 
 ## Accordion
 
