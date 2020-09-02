@@ -18,7 +18,7 @@ Playground.args = {
   children: 'Brand UI Button',
 }
 
-export const ButtonVariations = () => (
+export const Variations = () => (
   <>
     <Button sx={{ mr: 4 }} variant="primary">
       Primary
@@ -30,7 +30,7 @@ export const ButtonVariations = () => (
   </>
 )
 
-export const ButtonSizes = () => (
+export const Sizes = () => (
   <>
     <Button size="regular" sx={{ mr: 4 }}>
       Regular
@@ -39,14 +39,10 @@ export const ButtonSizes = () => (
   </>
 )
 
-export const ButtonBlock = () => (
+export const BoxTypes = () => (
   <>
-    <Button size="regular" block sx={{ mb: 4 }}>
-      Regular
-    </Button>
-    <Button size="small" block>
-      Small
-    </Button>
+    <Button sx={{ mb: 4 }}>Default</Button>
+    <Button block>Block</Button>
   </>
 )
 
