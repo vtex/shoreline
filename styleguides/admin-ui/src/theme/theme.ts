@@ -105,7 +105,7 @@ export const theme: Theme = {
           textTransform: 'uppercase',
           color: 'primary.contrast',
           backgroundColor: 'primary.base',
-          fontWeight: 'medium',
+          fontVariationSettings: "'wght' 100",
           borderColor: 'primary.base',
           '&:hover': {
             backgroundColor: 'primary.hover',
@@ -126,7 +126,7 @@ export const theme: Theme = {
           backgroundColor: 'transparent',
           borderColor: 'muted.2',
           color: 'primary.base',
-          fontWeight: 'medium',
+          fontVariationSettings: "'wght' 100",
           '&:hover': {
             backgroundColor: 'primary.washed',
             color: 'primary.hover',
@@ -144,7 +144,7 @@ export const theme: Theme = {
           textTransform: 'capitalize',
           backgroundColor: 'transparent',
           color: 'primary.base',
-          fontWeight: 'regular',
+          fontVariationSettings: "'wght' 80",
           '&:hover': {
             color: 'primary.hover',
             backgroundColor: 'primary.washed',
@@ -161,7 +161,7 @@ export const theme: Theme = {
           textTransform: 'uppercase',
           color: 'danger.contrast',
           backgroundColor: 'danger.base',
-          fontWeight: 'medium',
+          fontVariationSettings: "'wght' 100",
           borderColor: 'danger.base',
           '&:hover': {
             borderColor: 'danger.hover',
@@ -182,7 +182,7 @@ export const theme: Theme = {
           backgroundColor: 'transparent',
           borderColor: 'muted.2',
           color: 'danger.base',
-          fontWeight: 'medium',
+          fontVariationSettings: "'wght' 100",
           '&:hover': {
             backgroundColor: 'danger.washed',
             color: 'danger.hover',
@@ -200,7 +200,7 @@ export const theme: Theme = {
           textTransform: 'capitalize',
           backgroundColor: 'transparent',
           color: 'danger.base',
-          fontWeight: 'regular',
+          fontVariationSettings: "'wght' 80",
           '&:hover': {
             color: 'danger.hover',
             backgroundColor: 'danger.washed',
@@ -220,58 +220,44 @@ export const theme: Theme = {
         small: {
           color: 'text',
           lineHeight: 'small',
-          fontWeight: 'regular',
+          fontVariationSettings: "'wght' 80",
           fontSize: 0,
         },
-
         body: {
           color: 'text',
           lineHeight: 'body',
-          fontWeight: 'regular',
+          fontVariationSettings: "'wght' 80",
           fontSize: 1,
         },
-
         highlight: {
           color: 'text',
           lineHeight: 'highlight',
-          fontWeight: 'medium',
+          fontVariationSettings: "'wght' 100",
           fontSize: 1,
         },
-
         action: {
           color: 'text',
           lineHeight: 'action',
-          fontWeight: 'medium',
+          fontVariationSettings: "'wght' 100",
           fontSize: 1,
           textTransform: 'uppercase',
         },
-
         subtitle: {
           color: 'text',
           lineHeight: 'subtitle',
-          fontWeight: 'medium',
+          fontVariationSettings: "'wght' 100",
           fontSize: 2,
         },
-
         headline: {
           color: 'text',
           lineHeight: 'headline',
-          fontWeight: 'medium',
+          fontVariationSettings: "'wght' 100",
           fontSize: 3,
         },
       },
     },
   },
-  fonts: {
-    body: '"VTEX Trust", sans-serif',
-    heading: '"VTEX Trust", sans-serif',
-    monospace: 'Menlo, monospace',
-  },
   fontSizes: [12, 14, 16, 20],
-  fontWeights: {
-    regular: 400,
-    medium: 500,
-  },
   lineHeights: {
     small: 1.125,
     body: 1.25,

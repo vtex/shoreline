@@ -12,25 +12,16 @@ function Fonts() {
     <Global
       styles={css`
         @font-face {
-          font-family: 'VTEX Trust';
+          font-family: 'VTEX Trust Variable';
           src: url(${VtexTrustVariableWoff2}) format('woff2-variations'),
             url(${VtexTrustVariableWoff}) format('woff-variations');
           font-weight: normal;
           font-style: normal;
         }
-        @supports (font-variation-settings: normal) {
-          html,
-          body,
-          * {
-            font-family: 'SourceSansVariable', sans-serif;
-            font-variation-settings: 'wght' 90;
-          }
-        }
         html,
-        body,
-        * {
-          font-family: 'VTEX Trust', sans-serif;
-          font-weight: 400;
+        body {
+          font-family: 'VTEX Trust Variable', sans-serif;
+          font-variation-settings: 'wght' 80;
         }
       `}
     />
