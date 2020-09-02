@@ -30,6 +30,9 @@
     "storybook": "start-storybook -p 6006",
     "build:storybook": "yarn --cwd ../../ bootstrap && yarn run build-storybook"
   },
+  "devDependencies": {
+    "@rollup/plugin-url": "^5.0.1"
+  },
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16"

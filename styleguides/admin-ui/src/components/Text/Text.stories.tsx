@@ -1,8 +1,8 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Box } from 'theme-ui'
 
-import { Text, TextProps, getTextSx } from './index'
+import { Box } from '../Box'
+import { Text, TextProps } from './index'
 
 export default {
   title: 'beta/Text',
@@ -28,9 +28,9 @@ export const As = () => (
 )
 
 export const FontSx = () => (
-  <Box
+  <Text
+    variant="highlight"
     sx={{
-      ...getTextSx('highlight'),
       width: '30%',
       textAlign: 'justify',
     }}
@@ -42,5 +42,22 @@ export const FontSx = () => (
     <Text variant="small" as="span">
       IBM Manual, 1925
     </Text>
+  </Text>
+)
+
+export const NativeElements = () => (
+  <Box sx={{ width: '256px' }}>
+    <h1>Heading one</h1>
+    <h2>Heading two</h2>
+    <h3>Heading three</h3>
+    <h4>Heading four</h4>
+    <h5>Heading five</h5>
+    <h6>Heading six</h6>
+    <p>
+      Expand your market reach and reduce overhead with an ecommerce
+      marketplace.Leverage a collaborative commerce platform with native
+      marketplace and distributed order management capabilities built-in for
+      rapid time to revenue.
+    </p>
   </Box>
 )
