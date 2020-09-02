@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.17.0...@vtex/admin-ui@0.17.1) (2020-09-02)
+
+
+### Bug Fixes
+
+* **admin-ui:** dependencies ([d724171](https://github.com/vtex/onda/commit/d724171ae9d4b63271504f881cb3e31a09fbc4e3))
+
+
+
+
+
 # [0.17.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.16.0...@vtex/admin-ui@0.17.0) (2020-09-02)
 
 
