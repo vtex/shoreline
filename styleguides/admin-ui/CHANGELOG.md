@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.16.0...@vtex/admin-ui@0.17.0) (2020-09-02)
+
+
+### Features
+
+* **icons:** add icons to admin-ui ([30fb04c](https://github.com/vtex/onda/commit/30fb04c2f63a1ddc702754b8de2de7750c39a0bc))
+
+
+
+
+
 # [0.16.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.15.0...@vtex/admin-ui@0.16.0) (2020-09-01)
 
 
