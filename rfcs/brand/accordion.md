@@ -38,8 +38,8 @@ the list of collapsibles, controlling which one must be open.
 
 | prop    | type                        | description                                                                             | required | default     |
 | ------- | --------------------------- | --------------------------------------------------------------------------------------- | -------- | ----------- |
-| visible | string[]                    | list with id of open sections, if in `singleOpen` mode, only the first one will be open | 🚫       | []          |
-| disabled | string[]                    | list with id of disabled sections                                                       | 🚫       | []          |
+| visible | string[]                    | list with ids of open sections, if in `singleOpen` mode, only the first one will be open | 🚫       | []          |
+| disabled | string[]                    | list with ids of disabled sections                                                       | 🚫       | []          |
 | mode    | 'multiOpen' or 'singleOpen' | define if multiple sections can be open at the same time                                | 🚫       | `multiOpen` |
 | sx      | SxStyleProp                 | Theme-ui style prop                                                                     | 🚫       | -           |
 
