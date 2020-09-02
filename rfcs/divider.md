@@ -1,4 +1,4 @@
-# RFC Admin/Divider
+# RFC Divider
 
 - Start Date: 2020-08-27
 - PR: https://github.com/vtex/onda/pull/23
