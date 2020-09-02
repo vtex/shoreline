@@ -1,4 +1,4 @@
-# RFC Template <REPLACE_WITH_TITLE>
+# RFC Brand Accordion
 
 - Start Date: 2020-09-01
 - PR: (leave this empty)
