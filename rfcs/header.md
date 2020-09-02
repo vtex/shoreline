@@ -32,16 +32,13 @@ import { Header } from '@vtex/brand-ui'
 
 # Detailed design
 
-| prop                   | type        | description                                          | default | required |
-| ---------------------- | ----------- | ---------------------------------------------------- | ------- | -------- |
-| Header.Brand           | ReactNode   | Element with the VTEX logo                           | -       | ✔️       |
-| Header.LeftLinks       | ReactNode   | Element that represents the site navigation menu.    | -       | ✔️       |
-| Header.LeftLinks.Link  | ReactNode   | Element that contains a navigation menu item.        | -       | ✔️       |
-| Header.SearchBar       | ReactNode   | Element that contains the site search bar            | -       | 🚫       |
-| Header.RightLinks      | ReactNode   | Element that represents the website support menu     | -       | 🚫       |
-| Header.RightLinks.Link | ReactNode   | Element that contains a site support menu item       | -       | 🚫       |
-| LocaleSwitcher         | ReactNode   | Element responsible for changing the site's language | -       | ✔️       |
-| sx                     | SxStyleProp | Theme-ui style prop                                  | -       | 🚫       |
+| prop              | type        | description                                          | default | required |
+| ----------------- | ----------- | ---------------------------------------------------- | ------- | -------- |
+| Header.Brand      | ReactNode   | Element with the VTEX logo                           | -       | ✔️       |
+| Header.LeftLinks  | ReactNode   | Element that represents the site navigation menu.    | -       | ✔️       |
+| Header.RightLinks | ReactNode   | Element that represents the website support menu     | -       | 🚫       |
+| LocaleSwitcher    | ReactNode   | Element responsible for changing the site's language | -       | ✔️       |
+| sx                | SxStyleProp | Theme-ui style prop                                  | -       | 🚫       |
 
 # Adoption strategy
 
