@@ -35,6 +35,7 @@ import { Input } from '@vtex/brand-ui'
 | label | string | label displayed in the input, also used as placeholder | ✔️ |
 | charLimit | number | maximum number of characters in input text | 🚫 |
 | disabled | boolean | whether the input is disabled or not | 🚫 |
+| pattern | RegExp | a pattern the input text must match | 🚫 |
 | prefix | ReactNode | element placed before the input | 🚫 |
 | readOnly | boolean | whether the input is read only or not | 🚫 |
 | required | boolean | whether the input must be filled or not | 🚫 |
