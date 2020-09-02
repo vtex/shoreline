@@ -8,7 +8,7 @@
 
 An accordion is a vertically stacked list of headers that reveal or hide
 associated sections of content. Its main objective is to hide from view detailed
-information that might not be necessarily.
+information that might not be necessary.
 
 # Basic example [optional]
 
