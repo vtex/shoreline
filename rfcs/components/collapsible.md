@@ -45,7 +45,7 @@ The Collapsible has two composites: `Header` and `Content`. It states are contro
 | prop       | type        | description                    | required |
 | --------   | ----------- | -----------------------        | -------- |
 | children   | ReactNode   | set of actions                 | 🚫       |
-| arrowIcon  | ReactNode   | arrow icon shown in the header | 🚫       |
+| disclosureIcon  | ReactNode   | icon shown in the header's disclosure | 🚫       |
 | sx         | SxStyleProp | Theme-ui style prop            | 🚫       |
 
 ## Content
