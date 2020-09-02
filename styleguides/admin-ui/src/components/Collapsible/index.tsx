@@ -9,7 +9,7 @@ import {
 
 import { Box } from '../Box'
 import { CollapsibleProvider, useCollapsibleContext } from './context'
-import { IconCaretMock } from './CaretIconMock'
+import { IconCaret } from '../../icons'
 import { Button } from '../Button'
 
 /**
@@ -80,11 +80,11 @@ function Disclosure({ children }: { children: ReactNode }) {
             {...enhancedProps}
             iconPosition="start"
             icon={({ size }) => (
-              <IconCaretMock
+              <IconCaret
                 size={size}
+                direction={visible ? 'down' : 'right'}
                 sx={{
                   marginRight: 3,
-                  transform: visible ? 'rotate(90deg)' : '',
                 }}
               />
             )}
