@@ -53,59 +53,74 @@ export const theme: Theme = {
   components: {
     button: {
       styles: {
+        textTransform: 'uppercase',
+        fontWeight: 'medium',
         borderWidth: 1,
         borderRadius: 3,
+        fontSize: 1,
         cursor: 'pointer',
         position: 'relative',
         border: 'none',
+        lineHeight: 1,
         '&:focus': {
           outline: 'none',
+        },
+        '&:disabled': {
+          color: 'text',
+          backgroundColor: 'muted.2',
         },
       },
       variant: {
         primary: {
-          textTransform: 'uppercase',
           color: 'primary.contrast',
           backgroundColor: 'primary.base',
-          fontWeight: 'medium',
           '&:hover': {
             backgroundColor: 'primary.hover',
           },
           '&:active': {
             backgroundColor: 'primary.active',
           },
-          '&:disabled': {
-            color: 'text',
-            backgroundColor: 'muted.2',
-          },
         },
         secondary: {
-          textTransform: 'uppercase',
           color: 'secondary.contrast',
           backgroundColor: 'secondary.base',
-          fontWeight: 'medium',
           '&:hover': {
             backgroundColor: 'secondary.hover',
           },
           '&:active': {
             backgroundColor: 'secondary.active',
           },
-          '&:disabled': {
-            color: 'text',
-            backgroundColor: 'muted.2',
+        },
+        tertiary: {
+          color: 'secondary.base',
+          backgroundColor: 'secondary.contrast',
+          '&:hover': {
+            textDecoration: 'underline',
+          },
+          '&:active': {
+            textDecoration: 'underline',
           },
         },
       },
       size: {
         regular: {
-          height: 40,
+          paddingY: 8,
+          fontSize: 1,
+          height: 48,
           width: 'auto',
-          paddingX: 5,
+          paddingX: 13,
         },
         small: {
+          paddingY: 4,
+          fontSize: 1,
           height: 32,
           width: 'auto',
-          padding: 4,
+          paddingX: 9,
+          lineHeight: 20,
+        },
+        block: {
+          display: 'block',
+          width: '100%',
         },
       },
     },
