@@ -11,7 +11,7 @@ The Divider is a static structure that provides a visible boundary for elements.
 # Basic example
 
 ```jsx
-import { Divider } from '@vtex/admin-ui'
+import { Divider } from '@vtex-components/divider'
 
 <Divider />
 <Divider orientation="vertical"/>
