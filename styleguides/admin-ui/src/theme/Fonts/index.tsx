@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import { Global, css } from '@emotion/core'
 
-// import VariableWoff from './variable.woff'
-import VariableWoff2 from './variable.woff2'
+import VtexTrustVariableWoff from './VtexTrustVariable.woff'
+import VtexTrustVariableWoff2 from './VtexTrustVariable.woff2'
 
 /**
  * Defines & applies VTEX Trust font
@@ -13,13 +13,24 @@ function Fonts() {
       styles={css`
         @font-face {
           font-family: 'VTEX Trust';
-          src: local('VTEX Trust'), local('VTEX Trust'),
-            url(${VariableWoff2}) format('woff2-variations'),
-          font-weight: 1 999;
+          src: url(${VtexTrustVariableWoff2}) format('woff2-variations'),
+            url(${VtexTrustVariableWoff}) format('woff-variations');
+          font-weight: normal;
           font-style: normal;
         }
-        html, * {
+        @supports (font-variation-settings: normal) {
+          html,
+          body,
+          * {
+            font-family: 'SourceSansVariable', sans-serif;
+            font-variation-settings: 'wght' 90;
+          }
+        }
+        html,
+        body,
+        * {
           font-family: 'VTEX Trust', sans-serif;
+          font-weight: 400;
         }
       `}
     />
