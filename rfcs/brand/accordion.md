@@ -31,14 +31,17 @@ const MyAccordion = () => {
 
 # Detailed design
 
-This component is a composition with the `Collapsible` component, it just handle the list of collapsibles, controling whitch one must be open.
+This component is a composition with the `Collapsible` component, it just handles
+the list of collapsible, controlling which one must be open.
 
-## useAccordion
+## Accordion
 
-| prop | type                        | description                                              | required |
-| ---- | --------------------------- | -------------------------------------------------------- | -------- |
-| mode | 'multiOpen' or 'singleOpen' | define if multiple sections can be open at the same time | 🚫       |
-| sx   | SxStyleProp                 | Theme-ui style prop                                      | 🚫       |
+| prop    | type                        | description                                                                             | required | default     |
+| ------- | --------------------------- | --------------------------------------------------------------------------------------- | -------- | ----------- |
+| visible | string[]                    | list with id of open sections, if in `singleOpen` mode, only the first one will be open | 🚫       | []          |
+| diabled | string[]                    | list with id of disabled sections                                                       | 🚫       | []          |
+| mode    | 'multiOpen' or 'singleOpen' | define if multiple sections can be open at the same time                                | 🚫       | `multiOpen` |
+| sx      | SxStyleProp                 | Theme-ui style prop                                                                     | 🚫       | -           |
 
 # Drawbacks
 
@@ -48,8 +51,9 @@ This component is a composition with the `Collapsible` component, it just handle
 
 To set default open sections, there are two alternatives:
 
-1 - Initialize the open sections, passing to the `useAccordion` an array with the id of the sections that must be open.
-With this solution, the user would need to manualy set the sections id.
+1 - Initialize the open sections, passing to the `useAccordion` an array with
+the id of the sections that must be open. With this solution, the user would
+need to manually set the sections id.
 
 ```jsx
 import { Accordion, useAccordion } from '@brand-ui'
@@ -96,18 +100,18 @@ const MyAccordion = () => {
 }
 ```
 
-The drawback of this solution is the dificulty to control the open
-sections in the `singleOpen` mode is active. 
+The drawback of this solution is the difficulty to control the state of open
+sections in the `singleOpen` mod.
 
 # Adoption strategy [optional]
 
-- It causes no breaking change, since it is a new component.
+- It causes no breaking change since it is a new component.
 
 # Education [optional]
 
-- Document the components with its user cases, besides usage examples with all component's features.
+- Document the components with its user cases, besides usage examples with all
+component's features.
 
 # Unresolved questions [optional]
 
-- How can we handle default open sections?
-- How
+- WIP
