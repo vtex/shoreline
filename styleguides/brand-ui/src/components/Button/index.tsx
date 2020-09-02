@@ -20,46 +20,39 @@ function useFocusHollow() {
   return { focusStyles, focusProps }
 }
 
-function getIconProps(size: Size) {
-  const styles = {
-    size: {
-      regular: 24,
-      small: 20,
-      block: 24,
-    },
-    margin: 3,
-  }
-
-  return {
-    size: styles.size[size],
-    sx: {
-      marginX: styles.margin,
-    },
-  }
-}
-
 function useMeasures({
   size,
   icon,
   iconPosition,
   children,
 }: Pick<ButtonProps, 'size' | 'icon' | 'iconPosition' | 'children'>) {
-  const iconStart = !!icon && iconPosition === 'start'
   const iconEnd = !!icon && iconPosition === 'end'
-  const iconOnly = !!icon && !children
-
   const containerStyles: SxStyleProp = {
     flexDirection: iconEnd ? 'row-reverse' : 'row',
   }
 
-  const resolvedSize = `${size}${
-    iconOnly ? `-icon` : iconStart || iconEnd ? `-icon-${iconPosition}` : ''
-  }`
+  const resolvedSize = !!icon && !children ? 'icon' : size
 
   return {
     resolvedSize,
     containerStyles,
   }
+}
+
+function getIconProps({
+  size: buttonSize,
+  iconPosition,
+  children,
+}: Pick<ButtonProps, 'size' | 'iconPosition' | 'children'>) {
+  const sx = children
+    ? iconPosition === 'start'
+      ? { marginRight: 4 }
+      : { marginLeft: 4 }
+    : {}
+
+  const size = buttonSize === 'small' ? 20 : 24
+
+  return { sx, size }
 }
 
 /**
@@ -82,15 +75,19 @@ export const Button = forwardRef(
     } = props
 
     const { focusStyles, focusProps } = useFocusHollow()
-    const { resolvedSize, containerStyles } = useMeasures({
-      size,
+    const { containerStyles, resolvedSize } = useMeasures({
+      children,
       icon,
       iconPosition,
-      children,
+      size,
     })
 
     const renderIcon = () => {
-      const iconProps = getIconProps(size)
+      const iconProps = getIconProps({
+        children,
+        size,
+        iconPosition,
+      })
 
       return icon?.(iconProps)
     }

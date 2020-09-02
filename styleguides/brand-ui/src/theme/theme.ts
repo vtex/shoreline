@@ -105,14 +105,12 @@ export const theme: Theme = {
       size: {
         regular: {
           paddingY: 8,
-          fontSize: 1,
           height: 48,
           width: 'auto',
           paddingX: 13,
         },
         small: {
           paddingY: 4,
-          fontSize: 1,
           height: 32,
           width: 'auto',
           paddingX: 9,
@@ -121,6 +119,12 @@ export const theme: Theme = {
         block: {
           display: 'block',
           width: '100%',
+          paddingY: 9,
+        },
+        icon: {
+          height: 48,
+          paddingX: 9,
+          paddingY: 4,
         },
       },
     },
