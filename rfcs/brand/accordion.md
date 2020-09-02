@@ -39,7 +39,7 @@ the list of collapsible, controlling which one must be open.
 | prop    | type                        | description                                                                             | required | default     |
 | ------- | --------------------------- | --------------------------------------------------------------------------------------- | -------- | ----------- |
 | visible | string[]                    | list with id of open sections, if in `singleOpen` mode, only the first one will be open | 🚫       | []          |
-| diabled | string[]                    | list with id of disabled sections                                                       | 🚫       | []          |
+| disabled | string[]                    | list with id of disabled sections                                                       | 🚫       | []          |
 | mode    | 'multiOpen' or 'singleOpen' | define if multiple sections can be open at the same time                                | 🚫       | `multiOpen` |
 | sx      | SxStyleProp                 | Theme-ui style prop                                                                     | 🚫       | -           |
 
