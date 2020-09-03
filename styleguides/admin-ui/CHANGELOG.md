@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.18.1...@vtex/admin-ui@0.19.0) (2020-09-03)
+
+
+### Features
+
+* **skeleton:** apply theme architecture to skeleton ([534553d](https://github.com/vtex/onda/commit/534553dc0caf29e2933b2dd235f8184e42eb1255))
+
+
+
+
+
 ## [0.18.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.18.0...@vtex/admin-ui@0.18.1) (2020-09-02)
 
 
