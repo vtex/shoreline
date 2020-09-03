@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.19.0...@vtex/admin-ui@0.19.1) (2020-09-03)
+
+
+### Bug Fixes
+
+* **font:** fallback with system fonts ([d174e47](https://github.com/vtex/onda/commit/d174e47eab34e9d76d70669b7db194ad61885a1c))
+
+
+
+
+
 # [0.19.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.18.1...@vtex/admin-ui@0.19.0) (2020-09-03)
 
 
