@@ -6,28 +6,26 @@ import IconInstagram from './icons/IconInstagram'
 import IconYouTube from './icons/IconYouTube'
 import IconLinkedIn from './icons/IconLinkedIn'
 
-const ICON_SIZE = 20
-
 const socialMediaLinks = [
   {
     name: 'Facebook',
     to: 'https://www.facebook.com/vtexcommerce',
-    icon: <IconFacebook size={ICON_SIZE} />,
+    icon: <IconFacebook />,
   },
   {
     name: 'Instagram',
     to: 'https://www.instagram.com/vtexcommerce/',
-    icon: <IconInstagram size={ICON_SIZE} />,
+    icon: <IconInstagram />,
   },
   {
     name: 'YouTube',
     to: 'https://www.youtube.com/user/VTEXTV/',
-    icon: <IconYouTube size={ICON_SIZE} />,
+    icon: <IconYouTube />,
   },
   {
     name: 'LinkedIn',
     to: 'https://www.linkedin.com/company/vtex/',
-    icon: <IconLinkedIn size={16} />,
+    icon: <IconLinkedIn />,
   },
 ]
 
@@ -146,25 +144,18 @@ const SocialMediaIcon = ({ href, icon, ariaLabel }: FooterSocialMediaProps) => (
       padding: '0.6rem',
       borderRadius: '100%',
       border: '1px solid #222C44',
-      boxSizing: 'border-box',
       transition: 'all 0.1s ease-in-out',
       '&:hover': {
         bg: '#222C44',
       },
+      color: 'muted.1',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     }}
     href={href}
   >
-    <Flex
-      sx={{
-        color: 'muted.2',
-        width: '100%',
-
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      {icon}
-    </Flex>
+    {icon}
   </ThemeUILink>
 )
 
