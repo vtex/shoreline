@@ -66,7 +66,7 @@ export const theme: Theme = {
           outline: 'none',
         },
         '&:disabled': {
-          color: 'text',
+          color: 'white',
           backgroundColor: 'muted.2',
         },
       },
@@ -99,6 +99,10 @@ export const theme: Theme = {
           },
           '&:active': {
             textDecoration: 'underline',
+          },
+          '&:disabled': {
+            color: 'muted.2',
+            backgroundColor: 'white',
           },
         },
       },
