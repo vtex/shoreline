@@ -1,6 +1,6 @@
 {
   "name": "@vtex-components/utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "module": "dist/utils.esm.js",
   "typings": "dist/index.d.ts",

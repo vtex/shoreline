@@ -1,6 +1,6 @@
 {
   "name": "@vtex-components/icon",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "module": "dist/icon.esm.js",
   "typings": "dist/index.d.ts",
@@ -35,6 +35,6 @@
     "theme-ui": "^0.3.1"
   },
   "dependencies": {
-    "@vtex-components/utils": "^0.0.2"
+    "@vtex-components/utils": "^0.0.3"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@vtex-components/button",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "dist/index.js",
   "module": "dist/button.esm.js",
   "typings": "dist/index.d.ts",
@@ -37,6 +37,6 @@
   },
   "dependencies": {
     "@vtex-components/theme": "^0.1.1",
-    "@vtex-components/utils": "^0.0.2"
+    "@vtex-components/utils": "^0.0.3"
   }
 }
