@@ -1,5 +1,7 @@
 import React from 'react'
 import { keyframes } from '@emotion/core'
+import { useComponentSx, mergeSx } from '@vtex-components/theme'
+import { SxStyleProp } from 'theme-ui'
 
 import { Box, BoxProps } from '../Box'
 
@@ -24,39 +26,28 @@ const load = keyframes`
  *
  * function Component() {
  *  const { loading, data } = useFetch()
- *  return loading ? <Skeleton height={24} /> : <h1>{data}</h1>
+ *  return loading ? <Skeleton sx={{ ... }} /> : <h1>{data}</h1>
  * }
  *
  */
 export function Skeleton(props: SkeletonProps) {
-  const {
-    width = '100%',
-    height = '100%',
-    circle = false,
-    sx = {},
-    ...boxProps
-  } = props
+  const { sx = {}, shape = 'rect', ...boxProps } = props
+
+  const componentStyles = useComponentSx('skeleton', { shape })
+  const styles = mergeSx<SxStyleProp>(componentStyles, sx)
 
   return (
     <Box
       {...boxProps}
       sx={{
-        backgroundColor: 'muted.4',
         backgroundImage: (theme) => `linear-gradient(
           90deg,
           ${theme.colors.muted[4]},
           white,
           ${theme.colors.muted[4]}
         )`,
-        backgroundSize: `200px 100%`,
-        backgroundRepeat: 'no-repeat',
-        display: 'inline-block',
-        lineHeight: 1,
-        width,
-        height,
-        borderRadius: circle ? '50%' : 4,
         animation: `${load} 1.2s ease-in-out infinite`,
-        ...sx,
+        ...styles,
       }}
     />
   )
@@ -64,18 +55,8 @@ export function Skeleton(props: SkeletonProps) {
 
 export interface SkeletonProps extends BoxProps {
   /**
-   * Width of the element
-   * @default 100%
+   * Shape of the skeleton
+   * @default 'rect'
    */
-  width?: string | number
-  /**
-   * Height of the element
-   * @default 100%
-   */
-  height?: string | number
-  /**
-   * If is a circle or not
-   * @default false
-   */
-  circle?: boolean
+  shape?: 'rect' | 'circle'
 }
