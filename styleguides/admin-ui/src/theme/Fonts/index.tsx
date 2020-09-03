@@ -13,14 +13,15 @@ function Fonts() {
       styles={css`
         @font-face {
           font-family: 'VTEX Trust Variable';
-          src: url(${VtexTrustVariableWoff2}) format('woff2-variations'),
-            url(${VtexTrustVariableWoff}) format('woff-variations');
+          src: url(${VtexTrustVariableWoff2}) format('woff2'),
+            url(${VtexTrustVariableWoff}) format('woff');
           font-weight: normal;
           font-style: normal;
         }
         html,
         body {
-          font-family: 'VTEX Trust Variable', sans-serif;
+          font-family: 'VTEX Trust Variable', -apple-system, system-ui,
+            BlinkMacSystemFont, sans-serif;
           font-variation-settings: 'wght' 80;
         }
       `}
