@@ -23,6 +23,25 @@ export const theme: Theme = {
     },
   },
   components: {
+    skeleton: {
+      styles: {
+        display: 'inline-block',
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'muted.4',
+        backgroundSize: `200px 100%`,
+        backgroundRepeat: 'no-repeat',
+        lineHeight: 1,
+      },
+      shape: {
+        rect: {
+          borderRadius: 4,
+        },
+        circle: {
+          borderRadius: '100%',
+        },
+      },
+    },
     button: {
       styles: {
         borderWidth: 1,

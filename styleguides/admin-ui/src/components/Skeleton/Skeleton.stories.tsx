@@ -15,15 +15,29 @@ const Template: Story<SkeletonProps> = (args) => <Skeleton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  height: 24,
-  width: 128,
+  sx: {
+    height: 128,
+    width: 128,
+  },
 }
 
 export const Circle = Template.bind({})
 Circle.args = {
-  height: 32,
-  width: 32,
-  circle: true,
+  sx: { width: 100, height: 100 },
+  shape: 'circle',
+}
+
+export const Fluid = () => {
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        height: 200,
+      }}
+    >
+      <Skeleton />
+    </Box>
+  )
 }
 
 export const TextExample = () => {
@@ -34,13 +48,13 @@ export const TextExample = () => {
       <Box sx={{ width: 400 }}>
         {loading ? (
           <Box>
-            <Skeleton height={24} width="40%" />
-            <Skeleton height={14} />
-            <Skeleton height={14} />
-            <Skeleton height={14} />
-            <Skeleton height={14} />
-            <Skeleton height={14} />
-            <Skeleton height={14} width="50%" />
+            <Skeleton sx={{ height: 24, width: '40%' }} />
+            <Skeleton sx={{ height: 14 }} />
+            <Skeleton sx={{ height: 14 }} />
+            <Skeleton sx={{ height: 14 }} />
+            <Skeleton sx={{ height: 14 }} />
+            <Skeleton sx={{ height: 14 }} />
+            <Skeleton sx={{ height: 14, width: '50%' }} />
           </Box>
         ) : (
           <Box>
