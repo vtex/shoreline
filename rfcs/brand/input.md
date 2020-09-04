@@ -61,23 +61,3 @@ WIP. Ideas?
 # Education
 
 - As with any DS component, it must be documented.
-
-# Unresolved questions
-
-- Should we add the possibility of passing validations and their respective error messages (e.g. with `yup`)? It would look something like this: 
-
-  ```jsx
-  <Input
-    label='name'
-    validations={[
-      {
-        validation: validateUpperCase,
-        errorMessage: 'The name should begin with an uppercase letter.'
-      },
-      {
-        validation: checkFullName,
-        errorMessage: 'Remember to state your first and last name.'
-      }
-    ]}
-  />
-  ```
