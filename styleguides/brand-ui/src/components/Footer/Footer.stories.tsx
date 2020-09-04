@@ -21,7 +21,6 @@ const Template = () => (
                 display: ['grid', 'grid', 'flex'],
                 marginBottom: '1rem',
                 maxWidth: '10rem',
-                // gridTemplateColumns: 'repeat(2, 1fr)',
                 alignItems: 'end',
                 width: ['100%', '100%', 'auto'],
                 flexWrap: 'wrap',

@@ -1,5 +1,14 @@
-import React, { ReactNode, PropsWithChildren } from 'react'
-import { Box, Text, Link as ThemeUILink, Flex } from 'theme-ui'
+import React, { ReactNode, PropsWithChildren, Ref } from 'react'
+import {
+  Box,
+  Text,
+  Link as ThemeUILink,
+  Flex,
+  LinkProps,
+  SxStyleProp,
+} from 'theme-ui'
+import { forwardRef } from '@vtex-components/utils'
+import { mergeSx } from '@vtex-components/theme'
 
 import IconFacebook from './icons/IconFacebook'
 import IconInstagram from './icons/IconInstagram'
@@ -95,25 +104,27 @@ interface FooterLinkProps {
   fontSize?: string
 }
 
-const Link = ({
-  href,
-  fontSize = '1rem',
-  children,
-}: PropsWithChildren<FooterLinkProps>) => (
-  <ThemeUILink
-    sx={{
-      fontSize,
+const Link = forwardRef((props: LinkProps, ref: Ref<HTMLAnchorElement>) => {
+  const { sx = {}, children, href, ...restProps } = props
+
+  const mergedSx = mergeSx<SxStyleProp>(
+    {
+      fontSize: '1rem',
       textDecoration: 'none',
       color: 'muted.1',
       '&:hover': {
         color: 'primary.contrast',
       },
-    }}
-    href={href}
-  >
-    {children}
-  </ThemeUILink>
-)
+    },
+    sx
+  )
+
+  return (
+    <ThemeUILink sx={mergedSx} href={href} ref={ref} {...restProps}>
+      {children}
+    </ThemeUILink>
+  )
+})
 
 interface FooterSocialMediaProps extends FooterLinkProps {
   icon: ReactNode
