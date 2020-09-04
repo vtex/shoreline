@@ -1,4 +1,4 @@
-# RFC Base collapsible component
+# Brand UI Collapsible
 
 - Start Date: 2020-08-31
 - PR: (leave this empty)
@@ -12,41 +12,30 @@ can be nested as well.
 # Basic example
 
 ```jsx
-import { Collapsible, useCollapsible } from '@vtex-component/collapsible'
+import { Collapsible, useCollapsible } from '@brand-ui/collapsible'
 
-const collapsibleState = useCollapsible({ visible: true })
+const Example = () => {
+  const collapsibleState = useCollapsible({ visible: true })
 
-<Collapsible {...collapsibleState}>
-  <Collapsible.Header disclosureIcon={<Arrow />}>
-    Header
-  </Collapsible.Header>
-  <Collapsible.Content>
-    Content
-  </Collapsible.Content>
-</Collapsible>
-
-<Footer>
-<Links>
-...
-</Links>
-<ExtraLinks>
-  <SocialMedias>
-  <CopyWrite>
-</ExtraLinks>
-</Footer>
+  return (
+    <Collapsible {...collapsibleState}>
+      <Collapsible.Header>Header</Collapsible.Header>
+      <Collapsible.Content>Content</Collapsible.Content>
+    </Collapsible>
+  )
+}
 ```
 
 # Detailed design
 
-The Collapsible has two composites: `Header` and `Content`. It states are controlled by a custom hook, `useCollapsible`.
+The Collapsible has two composites: [Header](#header) and [Content](#content). Its states are controlled by a custom hook, [useCollapsible](#useCollapsible).
 
 ## Header
 
-| prop       | type        | description                    | required |
-| --------   | ----------- | -----------------------        | -------- |
-| children   | ReactNode   | set of actions                 | 🚫       |
-| disclosureIcon  | ReactNode   | icon shown in the header's disclosure | 🚫       |
-| sx         | SxStyleProp | Theme-ui style prop            | 🚫       |
+| prop     | type        | description         | required |
+| -------- | ----------- | ------------------- | -------- |
+| children | ReactNode   | header content      | 🚫       |
+| sx       | SxStyleProp | Theme-ui style prop | 🚫       |
 
 ## Content
 
@@ -59,26 +48,6 @@ The Collapsible has two composites: `Header` and `Content`. It states are contro
 
 It is extracted directly from `reakit/disclosure` with the same props.
 [Read more](https://reakit.io/docs/disclosure/#usedisclosurestate)
-
-## Customizing
-
-```jsx
-// theme.ts
-const theme: Theme = {
-  ...
-  components: {
-    collapsible: {
-      header: {
-        ...
-      },
-      content: {
-        ...
-      }
-    }
-  }
-  ...
-}
-```
 
 ### Usage
 
@@ -106,12 +75,11 @@ The problem with this approach is that the user would not be able to set the int
 
 # Adoption strategy
 
-- This is a new feature, no breaking changes to any packages in `onda`.
-- We must write a migration guide for users coming from `@vtex/styleguide` since this is a breaking change for them.
+This is a new feature, no breaking changes to any packages in `onda`.
 
 # Education
 
-- As with any DS component, it must be documented.
+Document the components with its user cases, besides usage examples with all Collapsible's features.
 
 # Unresolved questions
 
