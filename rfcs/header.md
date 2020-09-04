@@ -26,19 +26,42 @@ import { Header } from '@vtex/brand-ui'
     <Link to="/">CONTACT</Link>
     <Link to="/">Help Center</Link>
   </Header.RightLinks>
-  <LocaleSwitcher />
+  <ActionButton><LocaleSwitcher /></ActionButton>
 <Header>
 ```
 
 # Detailed design
 
-| prop              | type        | description                                          | default | required |
-| ----------------- | ----------- | ---------------------------------------------------- | ------- | -------- |
-| Header.Brand      | ReactNode   | Element with the VTEX logo                           | -       | ✔️       |
-| Header.LeftLinks  | ReactNode   | Element that represents the site navigation menu.    | -       | ✔️       |
-| Header.RightLinks | ReactNode   | Element that represents the website support menu     | -       | 🚫       |
-| LocaleSwitcher    | ReactNode   | Element responsible for changing the site's language | -       | ✔️       |
-| sx                | SxStyleProp | Theme-ui style prop                                  | -       | 🚫       |
+| prop | type        | description         | default | required |
+| ---- | ----------- | ------------------- | ------- | -------- |
+| sx   | SxStyleProp | Theme-ui style prop | -       | 🚫       |
+
+The Header has four composites: `Brand`, `LeftLinks`, `RightLinks`, `ActionButton`.
+
+## Brand
+
+Element with the VTEX logo
+
+## LeftLinks
+
+| prop     | type        | description                                    | default | required |
+| -------- | ----------- | ---------------------------------------------- | ------- | -------- |
+| children | ReactNode   | Element that represents a navigation menu item | -       | ✔️       |
+| sx       | SxStyleProp | Theme-ui style prop                            | -       | 🚫       |
+
+## RightLinks [Optional]
+
+| prop     | type        | description                                 | default | required |
+| -------- | ----------- | ------------------------------------------- | ------- | -------- |
+| children | ReactNode   | Element that represents a support menu item | -       | ✔️       |
+| sx       | SxStyleProp | Theme-ui style prop                         | -       | 🚫       |
+
+## ActionButton [Optional]
+
+| prop     | type        | description                         | default | required |
+| -------- | ----------- | ----------------------------------- | ------- | -------- |
+| children | ReactNode   | Element responsible for some action | -       | ✔️       |
+| sx       | SxStyleProp | Theme-ui style prop                 | -       | 🚫       |
 
 # Adoption strategy
 
