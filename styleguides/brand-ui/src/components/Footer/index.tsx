@@ -67,11 +67,7 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
   </Flex>
 )
 
-interface GroupProps {
-  title: string
-}
-
-const Group = ({ title, children }: PropsWithChildren<GroupProps>) => (
+const Group = ({ title, children }: PropsWithChildren<{ title: string }>) => (
   <Box sx={{ marginRight: ['0', '3rem'], marginBottom: '1rem' }}>
     <Text
       as="p"
