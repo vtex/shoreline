@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.19.2...@vtex/admin-ui@0.19.3) (2020-09-04)
+
+
+### Bug Fixes
+
+* **collapsible:** export from admin-ui ([77f722c](https://github.com/vtex/onda/commit/77f722c092ec8f907a17ee2770bf88beac8f107b))
+
+
+
+
+
 ## [0.19.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.19.1...@vtex/admin-ui@0.19.2) (2020-09-03)
 
 
