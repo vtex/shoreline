@@ -99,11 +99,6 @@ const Group = ({ title, children }: PropsWithChildren<GroupProps>) => (
   </Box>
 )
 
-interface FooterLinkProps {
-  href: string
-  fontSize?: string
-}
-
 const Link = forwardRef((props: LinkProps, ref: Ref<HTMLAnchorElement>) => {
   const { sx = {}, children, href, ...restProps } = props
 
@@ -126,16 +121,11 @@ const Link = forwardRef((props: LinkProps, ref: Ref<HTMLAnchorElement>) => {
   )
 })
 
-interface FooterSocialMediaProps extends FooterLinkProps {
-  icon: ReactNode
-  ariaLabel: string
-}
-
 const SocialMedia = () => (
   <Flex>
     {socialMediaLinks.map((socialMediaLink) => (
       <SocialMediaIcon
-        ariaLabel={socialMediaLink.name}
+        aria-label={socialMediaLink.name}
         key={socialMediaLink.to}
         href={socialMediaLink.to}
         icon={socialMediaLink.icon}
@@ -144,31 +134,39 @@ const SocialMedia = () => (
   </Flex>
 )
 
-const SocialMediaIcon = ({ href, icon, ariaLabel }: FooterSocialMediaProps) => (
-  <ThemeUILink
-    aria-label={ariaLabel}
-    sx={{
-      width: '2.5rem',
-      height: '2.5rem',
-      marginRight: '1rem',
-      bg: '#111C2D',
-      padding: '0.6rem',
-      borderRadius: '100%',
-      border: '1px solid #222C44',
-      transition: 'all 0.1s ease-in-out',
-      '&:hover': {
-        bg: '#222C44',
-        color: 'primary.contrast',
-      },
-      color: 'muted.1',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-    href={href}
-  >
-    {icon}
-  </ThemeUILink>
+const SocialMediaIcon = forwardRef(
+  (props: LinkProps & { icon: ReactNode }, ref: Ref<HTMLAnchorElement>) => {
+    const { 'aria-label': ariaLabel, icon, href, ...restProps } = props
+
+    return (
+      <ThemeUILink
+        aria-label={ariaLabel}
+        sx={{
+          width: '2.5rem',
+          height: '2.5rem',
+          marginRight: '1rem',
+          bg: '#111C2D',
+          padding: '0.6rem',
+          borderRadius: '100%',
+          border: '1px solid #222C44',
+          transition: 'all 0.1s ease-in-out',
+          '&:hover': {
+            bg: '#222C44',
+            color: 'primary.contrast',
+          },
+          color: 'muted.1',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        href={href}
+        ref={ref}
+        {...restProps}
+      >
+        {icon}
+      </ThemeUILink>
+    )
+  }
 )
 
 const Extra = ({ children }: PropsWithChildren<{}>) => (
