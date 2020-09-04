@@ -18,9 +18,15 @@ const Template = () => (
             <Box
               key={groupLink.title}
               sx={{
+                display: ['grid', 'grid', 'flex'],
                 marginBottom: '1rem',
-                marginRight: ['1.875rem', '1.875rem', '1.875rem', '0'],
                 maxWidth: '10rem',
+                // gridTemplateColumns: 'repeat(2, 1fr)',
+                alignItems: 'end',
+                width: ['100%', '100%', 'auto'],
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
+                lineHeight: '2rem',
               }}
             >
               <Footer.Link href={groupLink.href}>{groupLink.title}</Footer.Link>

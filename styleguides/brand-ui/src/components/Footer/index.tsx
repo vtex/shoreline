@@ -49,7 +49,7 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
     />
     <Flex
       sx={{
-        flexDirection: ['column', 'column', 'column', 'row'],
+        flexDirection: ['column', 'row'],
         marginTop: ['2rem', '4rem', '4rem', '0'],
       }}
     >
@@ -63,7 +63,7 @@ interface GroupProps {
 }
 
 const Group = ({ title, children }: PropsWithChildren<GroupProps>) => (
-  <Box sx={{ marginRight: ['0', '0', '0', '3rem'] }}>
+  <Box sx={{ marginRight: ['0', '3rem'], marginBottom: '1rem' }}>
     <Text
       as="p"
       sx={{
@@ -80,7 +80,7 @@ const Group = ({ title, children }: PropsWithChildren<GroupProps>) => (
     <Box
       sx={{
         width: '100%',
-        display: ['flex', 'flex', 'flex', 'block'],
+        display: ['flex', 'block'],
         justifyContent: 'space-between',
         flexWrap: 'wrap',
       }}
@@ -147,6 +147,7 @@ const SocialMediaIcon = ({ href, icon, ariaLabel }: FooterSocialMediaProps) => (
       transition: 'all 0.1s ease-in-out',
       '&:hover': {
         bg: '#222C44',
+        color: 'primary.contrast',
       },
       color: 'muted.1',
       display: 'flex',
@@ -188,7 +189,6 @@ const Footer = ({ children }: PropsWithChildren<{}>) => (
   <Box
     as="footer"
     sx={{
-      variant: 'secondary',
       width: '100%',
       bg: 'secondary.base',
       color: 'background',
