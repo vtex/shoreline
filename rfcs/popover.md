@@ -11,20 +11,22 @@
 # Basic example
 
 ```jsx
-import { Popover } from '@brand-ui/popover'
-
-<Popover size="small">
+import { Popover } from '@vtex-component/popover'
+;<Popover size="small">
   <p>This is a Popover</p>
 </Popover>
 ```
 
 # Detailed design
 
-| prop | type        | description           | default     | required |
-| ---- | ----------- | --------------------- | ----------- | -------- |
-| size | PopoverSize | sizing of the popover | `'regular'` | 🚫       |
+| prop      | type        | description                                           | default | required |
+| --------- | ----------- | ----------------------------------------------------- | ------- | -------- |
+| size      | PopoverSize | sizing of the popover                                 | regular | 🚫       |
+| placement | Placement   | the placement of the popover relative to its children | top     | 🚫       |
+| arrow     | Boolean     | whether the popover will have an arrow or no          | top     | 🚫       |
 
-PopoverSize = `'small'` | `'regular'`
+PopoverSize = `'small'` | `'regular'`  
+Placement = `"auto-start" | "auto" | "auto-end" | "top-start" | "top" | "top-end" | "right-start" | "right" | "right-end" | "bottom-end" | "bottom" | "bottom-start" | "left-end" | "left" | "left-start"`
 
 # Adoption strategy
 
