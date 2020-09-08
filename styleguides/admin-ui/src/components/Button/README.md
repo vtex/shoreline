@@ -1,6 +1,6 @@
-# VTEX Components Button
+# Admin UI Button
 
-Accessible admin button component.
+Accessible button component.
 
 ## Install
 
@@ -8,57 +8,113 @@ Accessible admin button component.
 yarn add @vtex/admin-ui
 ```
 
-or
-
-```bash
-npm install @vtex/admin-ui
-```
-
 ## Usage
+
+- Simple usage
 
 ```jsx
 import Button from '@vtex/admin-ui'
 
 function UseCase() {
-  return <Button>VTEX Components Button</Button>
+  return <Button>Admin Button</Button>
+}
+```
+
+- Variants
+
+```jsx
+import Button from '@vtex/admin-ui'
+
+function UseCase() {
+  return (
+    <>
+      <Button variant="filled">Filled Button</Button>
+      <Button variant="outlined">Outlined Button</Button>
+      <Button variant="subtle">Subtle Button</Button>
+    </>
+  )
+}
+```
+
+- Palettes
+
+```jsx
+import Button from '@vtex/admin-ui'
+
+function UseCase() {
+  return (
+    <>
+      <Button palette="primary">Primary Button</Button>
+      <Button palette="danger">Danger Button</Button>
+    </>
+  )
+}
+```
+
+- Button With Icon
+
+```jsx
+import Button from '@vtex/admin-ui'
+
+function UseCase() {
+  return (
+    <>
+      <Button iconPosition="start" icon={(props) => <Icon {...props} />}>
+        Primary Button
+      </Button>
+    </>
+  )
 }
 ```
 
 ## Props
 
-| prop         | type                                                      | description                | required | default      |
-| ------------ | --------------------------------------------------------- | -------------------------- | -------- | ------------ |
-| orientation  | "horizontal", "vertical"                                  | Divider's orientation      | 🚫       | "horizontal" |
-| size         | "regular", "small"                                        | Size of the button         | 🚫       | "regular"    |
-| variant      | "filled", "outlined", "subtle"                            | Button variant             | 🚫       | "filled"     |
-| palette      | "primary", "danger"                                       | Colors palette             | 🚫       | "primary"    |
-| iconPosition | "start", "end"                                            | Position of the icon       | 🚫       | "start"      |
-| icon         | (props: { size: number; sx: SxStyleProp }) => JSX.Element | Icon of the button         | 🚫       | -            |
-| sx           | SxStyleProp                                               | Theme-ui style prop        | 🚫       | -            |
-| disabled     | boolean                                                   | Same as the HTML attribute | 🚫       | false        |
-| children     | ReactNode                                                 | Button Label               | 🚫       | -            |
-| onClick      | () => void                                                | onClick event              | 🚫       | -            |
-| value        | string                                                    | value                      | 🚫       | -            |
-| onFocus      |                                                           | onFocus event              | 🚫       | -            |
-| onMouseEnter |                                                           | onMouseEnter event         | 🚫       | -            |
-| onMouseLeave |                                                           | onMouseLeave event         | 🚫       | -            |
-| onMouseDown  |                                                           | onMouseDown event          | 🚫       | -            |
-| onMouseUp    |                                                           | onMouseUp event            | 🚫       | -            |
-| onMouseOver  |                                                           | onMouseOver event          | 🚫       | -            |
+| prop         | type                                                      | description                | required | default   |
+| ------------ | --------------------------------------------------------- | -------------------------- | -------- | --------- |
+| size         | "regular", "small"                                        | Size of the button         | 🚫       | "regular" |
+| variant      | "filled", "outlined", "subtle"                            | Button variant             | 🚫       | "filled"  |
+| palette      | "primary", "danger"                                       | Colors palette             | 🚫       | "primary" |
+| iconPosition | "start", "end"                                            | Position of the icon       | 🚫       | "start"   |
+| icon         | (props: { size: number; sx: SxStyleProp }) => JSX.Element | Icon of the button         | 🚫       | -         |
+| sx           | SxStyleProp                                               | Theme-ui style prop        | 🚫       | -         |
+| disabled     | boolean                                                   | Same as the HTML attribute | 🚫       | false     |
+| children     | ReactNode                                                 | Button Label               | 🚫       | -         |
+| value        | string                                                    | value                      | 🚫       | -         |
+| onClick      | () => void                                                | onClick event              | 🚫       | -         |
+| onFocus      | func                                                      | onFocus event              | 🚫       | -         |
+| onMouseEnter | func                                                      | onMouseEnter event         | 🚫       | -         |
+| onMouseLeave | func                                                      | onMouseLeave event         | 🚫       | -         |
+| onMouseDown  | func                                                      | onMouseDown event          | 🚫       | -         |
+| onMouseUp    | func                                                      | onMouseUp event            | 🚫       | -         |
+| onMouseOver  | func                                                      | onMouseOver event          | 🚫       | -         |
 
-### Migration Guide
+## Migration Guide
 
-#### Button Style
+This section is designated for users coming from [Styleguide v9](https://styleguide.vtex.com/)
 
-- `variation` -> Refer to the structure of the button and how it will behavior on the states of hover, pressed, and focused.
+### Button Style
+
+- `variation` -> Refer to the structure of the button and how it will behave on the states of hover, pressed, and focused.
 - `palette` -> Refer to the color palette of the button (Primary and Danger palettes)
-- `sx` -> It's used for styling, so if it's neecessary to add or override some style, is possible to do this using this property.
+- `sx` -> It's used for styling, so if it's necessary to add or override some style, is possible to do this using this property.
 
-#### Button with Icon
+### Variant and Palette
+
+In the `styleguide v9`, we used `variation` to define the type and color of the button. Now we've separated it into two props `variant` and `palette`.
+
+#### How we use
+
+- `variation="primary"` -> `variant="filled" palette="primary"`
+- `variation="secondary"` -> `variant="outlined" palette="primary"`
+- `variation="tertiary"` -> `variant="subtle" palette="primary"`
+- `variation="danger"` -> `variant="filled" palette="danger"`
+- `variation="danger-tertiary"` -> `variant="subtle" palette="danger"`
+
+### Button with Icon
 
 To use a button with an icon before, we needed to import another component, but now we can have this behavior only using the main Button.
 
-##### Example
+#### Example
 
 - Icon and Label
 
@@ -84,9 +140,9 @@ function UseCase() {
 }
 ```
 
-##### Icon render props
+#### Icon render props
 
-You can reuse a pre-built style for the icon, using `render props`. We do this in order to guarantee the `pixel perfect` design.
+You can reuse a pre-built style for the icon, using `render props`. We do this to guarantee a `pixel-perfect` design.
 
 - `sx` -> Guarantee the margin spacing between Icon and Label
 - `size` -> To identify the size of the button - "regular" or "smal"
