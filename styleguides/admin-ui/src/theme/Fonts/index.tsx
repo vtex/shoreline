@@ -19,7 +19,8 @@ function Fonts() {
           font-style: normal;
         }
         html,
-        body {
+        body,
+        * {
           font-family: 'VTEX Trust Variable', -apple-system, system-ui,
             BlinkMacSystemFont, sans-serif;
           font-variation-settings: 'wght' 80;
