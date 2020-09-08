@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.6](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.3.5...@vtex/brand-ui@0.3.6) (2020-09-08)
+
+
+### Bug Fixes
+
+* incorrent brand-ui module name ([e32ed2a](https://github.com/vtex/onda/commit/e32ed2a2f560869d120e079561f6f4d7ce09dbde))
+* incorrent divider module name & brand-ui dependencies ([87eee40](https://github.com/vtex/onda/commit/87eee40ab477f6fd5b979e2d2c4a3c4a7f2f6477))
+
+
+
+
+
 ## [0.3.5](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.3.4...@vtex/brand-ui@0.3.5) (2020-09-08)
 
 **Note:** Version bump only for package @vtex/brand-ui

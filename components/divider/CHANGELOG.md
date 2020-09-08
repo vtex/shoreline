@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/vtex/onda/compare/@vtex-components/divider@0.1.1...@vtex-components/divider@0.1.2) (2020-09-08)
+
+
+### Bug Fixes
+
+* incorrent divider module name & brand-ui dependencies ([87eee40](https://github.com/vtex/onda/commit/87eee40ab477f6fd5b979e2d2c4a3c4a7f2f6477))
+
+
+
+
+
 ## [0.1.1](https://github.com/vtex/onda/compare/@vtex-components/divider@0.1.0...@vtex-components/divider@0.1.1) (2020-09-08)
 
 
