@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.19.3...@vtex/admin-ui@0.19.4) (2020-09-08)
+
+
+### Bug Fixes
+
+* **admin-button:** font family ([48ada0e](https://github.com/vtex/onda/commit/48ada0ee7ba7357975899270c1a5e20659145193))
+
+
+
+
+
 ## [0.19.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.19.2...@vtex/admin-ui@0.19.3) (2020-09-04)
 
 
