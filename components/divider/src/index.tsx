@@ -18,7 +18,7 @@ import { useComponentSx, mergeSx } from '@vtex-components/theme'
  *  components: {
       styles: { color: muted.4 },
  *    divider: {
- *      orientation: { 
+ *      orientation: {
  *        vertical: { marginX: 3 },
  *        horizontal: { marginY : 3 },
  *      },
@@ -36,7 +36,7 @@ function Divider(props: DividerProps) {
 
   return (
     <Separator
-      sx={mergeSx<SxStyleProp>(sx, styles)}
+      sx={mergeSx<SxStyleProp>(styles, sx)}
       orientation={orientation}
     />
   )
