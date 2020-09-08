@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.20.0...@vtex/admin-ui@0.20.1) (2020-09-08)
+
+
+### Bug Fixes
+
+* **admin:** export theme-ui types as dependency ([9ddea92](https://github.com/vtex/onda/commit/9ddea92bf9d5c10ab1005ab815caf1d5d431cf61))
+
+
+
+
+
 # [0.20.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.19.4...@vtex/admin-ui@0.20.0) (2020-09-08)
 
 
