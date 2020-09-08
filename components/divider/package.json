@@ -2,7 +2,7 @@
   "name": "@vtex-components/divider",
   "version": "0.1.1",
   "main": "dist/index.js",
-  "module": "dist/button.esm.js",
+  "module": "dist/divider.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
