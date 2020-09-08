@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/vtex/onda/compare/@vtex-components/button@1.2.2...@vtex-components/button@1.2.3) (2020-09-08)
+
+
+### Bug Fixes
+
+* **button:** button component custom sx ([fc4b3d8](https://github.com/vtex/onda/commit/fc4b3d88ecfd1bdd0eee8455665abba165313aee))
+
+
+
+
+
 ## [1.2.2](https://github.com/vtex/onda/compare/@vtex-components/button@1.2.1...@vtex-components/button@1.2.2) (2020-09-03)
 
 **Note:** Version bump only for package @vtex-components/button

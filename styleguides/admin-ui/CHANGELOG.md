@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.19.4...@vtex/admin-ui@0.20.0) (2020-09-08)
+
+
+### Features
+
+* **admin:** export jsx pragma ([fda2721](https://github.com/vtex/onda/commit/fda27210b8acb4bf28638cc7e54c487e58076e3e))
+
+
+
+
+
 ## [0.19.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.19.3...@vtex/admin-ui@0.19.4) (2020-09-08)
 
 
