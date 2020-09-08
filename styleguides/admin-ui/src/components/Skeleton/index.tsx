@@ -3,7 +3,7 @@ import { keyframes } from '@emotion/core'
 import { useComponentSx, mergeSx } from '@vtex-components/theme'
 import { SxStyleProp } from 'theme-ui'
 
-import { Box, BoxProps } from '../Box'
+import { Box } from '../Box'
 
 const load = keyframes`
   0% {
@@ -53,10 +53,20 @@ export function Skeleton(props: SkeletonProps) {
   )
 }
 
-export interface SkeletonProps extends BoxProps {
+export interface SkeletonProps {
   /**
    * Shape of the skeleton
    * @default 'rect'
    */
   shape?: 'rect' | 'circle'
+  /**
+   * Custom styles
+   * @default {}
+   */
+  sx?: SxStyleProp
+  /**
+   * Element type
+   * @default div
+   */
+  as?: React.ElementType
 }

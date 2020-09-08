@@ -13052,7 +13052,7 @@ reakit-warning@^0.5.3:
   dependencies:
     reakit-utils "^0.14.3"
 
-reakit@^1.2.3:
+reakit@1.2.3, reakit@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/reakit/-/reakit-1.2.3.tgz#3a144e836366bd4d3388665bd0ee39d5ad595853"
   integrity sha512-bxtrH9O5beHGWzlVzRr+C6idUiV58/rRzBTmw1nu6Wj+hX0yjJDGlSlOLD/oOufhLCjjBGP8s8U3NuLuq4Xv+g==
