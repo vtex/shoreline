@@ -1,3 +1,4 @@
+export { jsx } from 'theme-ui'
 export { useTheme, Theme } from '@vtex-components/theme'
 export { ThemeProvider } from './theme'
 export { Box, BoxProps } from './components/Box'

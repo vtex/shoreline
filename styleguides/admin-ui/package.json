@@ -2,7 +2,7 @@
   "name": "@vtex/admin-ui",
   "version": "0.19.4",
   "main": "dist/index.js",
-  "module": "dist/admin.esm.js",
+  "module": "dist/admin-ui.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",

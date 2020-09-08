@@ -42,7 +42,7 @@ function Button(props: ButtonProps, ref: Ref<HTMLButtonElement>) {
       {(enhancedProps) => {
         return (
           <ThemeUIButton
-            sx={mergeSx<SxStyleProp>(sx, styles)}
+            sx={mergeSx<SxStyleProp>(styles, sx)}
             {...enhancedProps}
           >
             {props.children}
