@@ -46,6 +46,7 @@
     "@vtex-components/theme": "^0.1.1",
     "@vtex-components/utils": "^0.0.3",
     "reakit": "1.2.3",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "tiny-invariant": "^1.1.0"
   }
 }
