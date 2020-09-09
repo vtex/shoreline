@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.7](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.3.6...@vtex/brand-ui@0.3.7) (2020-09-09)
+
+
+### Bug Fixes
+
+* brand-ui spaces ([e282309](https://github.com/vtex/onda/commit/e2823098c6c1794b217fa38249cb631174f5546e))
+
+
+
+
+
 ## [0.3.6](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.3.5...@vtex/brand-ui@0.3.6) (2020-09-08)
 
 
