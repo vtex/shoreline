@@ -19,7 +19,7 @@ const Template = () => (
               key={groupLink.title}
               sx={{
                 display: ['grid', 'grid', 'flex'],
-                marginBottom: 2,
+                marginBottom: 3,
                 maxWidth: '9rem',
                 alignItems: 'center',
                 width: ['100%', 'auto'],

@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import { Box, Flex } from 'theme-ui'
 
-import IconVTEX from '../Footer/icons/IconVTEX'
+import { IconVTEX } from '../../icons'
 import Footer from '../Footer'
 
 const FooterLanding = ({ children }: PropsWithChildren<{}>) => (

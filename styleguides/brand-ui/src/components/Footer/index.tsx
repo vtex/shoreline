@@ -10,9 +10,12 @@ import {
 import { forwardRef } from '@vtex-components/utils'
 import { mergeSx } from '@vtex-components/theme'
 
-import IconFacebook from './icons/IconFacebook'
-import IconInstagram from './icons/IconInstagram'
-import IconYouTube from './icons/IconYouTube'
+import {
+  IconFacebook,
+  IconInstagram,
+  IconLinkedIn,
+  IconYouTube,
+} from '../../icons'
 
 const socialMediaLinks = [
   {
@@ -30,6 +33,11 @@ const socialMediaLinks = [
     to: 'https://www.youtube.com/user/VTEXTV/',
     icon: <IconYouTube />,
   },
+  {
+    name: 'LinkedIn',
+    to: 'https://www.linkedin.com/company/vtex/',
+    icon: <IconLinkedIn />,
+  },
 ]
 
 const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
@@ -39,6 +47,7 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
       margin: '0 auto',
       paddingTop: [7, 7, 7, 9],
       paddingX: [4, 5, 5],
+      paddingBottom: 7,
       flexDirection: ['column', 'column', 'column', 'row'],
       justifyContent: 'space-between',
       alignItems: 'start',
@@ -100,7 +109,7 @@ const Link = forwardRef((props: LinkProps, ref: Ref<HTMLAnchorElement>) => {
 
   const mergedSx = mergeSx<SxStyleProp>(
     {
-      fontSize: 3,
+      fontSize: 2,
       textDecoration: 'none',
       color: 'muted.2',
       '&:hover': {

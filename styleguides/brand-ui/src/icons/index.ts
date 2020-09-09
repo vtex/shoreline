@@ -1,0 +1,5 @@
+export { default as IconFacebook } from './Facebook'
+export { default as IconInstagram } from './Instagram'
+export { default as IconYouTube } from './YouTube'
+export { default as IconLinkedIn } from './LinkedIn'
+export { default as IconVTEX } from './VTEX'
