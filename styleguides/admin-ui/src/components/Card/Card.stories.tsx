@@ -22,3 +22,24 @@ export const Example = () => {
     </Card>
   )
 }
+
+export const WithoutPadding = () => {
+  return (
+    <Card sx={{ padding: 0, width: '40%' }}>
+      <Text variant="headline" sx={{ padding: 13 }} color="text">
+        Our People
+      </Text>
+      <img
+        width="100%"
+        src="https://careers.vtex.com/assets/media/perspectives03.jpg"
+        alt=""
+      />
+      <Text as="p" variant="body" sx={{ padding: 13 }} color="text">
+        At VTEX we believe inclusion inspires innovation. We are committed to
+        implement a recruiting process that guarantees equal opportunities for
+        all, regardless of ethnicity, gender, disability, sexual orientation,
+        gender identity or religion.
+      </Text>
+    </Card>
+  )
+}

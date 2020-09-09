@@ -1,10 +1,14 @@
 import React, { Ref } from 'react'
 import { forwardRef } from '@vtex-components/utils'
+import { SxStyleProp } from 'theme-ui'
 
-import { Box, BoxProps } from '../Box'
+import { Box } from '../Box'
 
 export const Card = forwardRef(
-  ({ children, sx, ...restProps }: BoxProps, ref: Ref<HTMLDivElement>) => {
+  (
+    { children, sx }: React.PropsWithChildren<CardProps>,
+    ref: Ref<HTMLDivElement>
+  ) => {
     return (
       <Box
         sx={{
@@ -16,7 +20,6 @@ export const Card = forwardRef(
           borderRadius: 3,
           ...sx,
         }}
-        {...restProps}
         ref={ref}
       >
         {children}
@@ -24,4 +27,7 @@ export const Card = forwardRef(
     )
   }
 )
-export type CardProps = BoxProps
+export interface CardProps {
+  /** ThemeUI style props */
+  sx: SxStyleProp
+}
