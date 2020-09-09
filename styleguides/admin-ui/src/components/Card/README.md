@@ -40,11 +40,11 @@ import { Card, Text } from '@vtex/admin-ui'
 function UseCase() {
   return (
     <Card sx={{ padding: 0 }}>
-      <Text variation="headline" sx={{ padding: 9 }}>
+      <Text variation="headline" sx={{ padding: 13 }}>
         Title
       </Text>
       <img />
-      <Text as="p" variation="body" sx={{ padding: 9 }}>
+      <Text as="p" variation="body" sx={{ padding: 13 }}>
         Some text
       </Text>
     </Card>
