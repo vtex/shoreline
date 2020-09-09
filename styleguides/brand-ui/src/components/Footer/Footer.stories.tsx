@@ -20,7 +20,7 @@ const Template = () => (
               key={groupLink.title}
               sx={{
                 display: ['grid', 'grid', 'flex'],
-                marginBottom: (theme) => get(theme, 'space.5'),
+                marginBottom: (theme) => get(theme, 'space.2'),
                 maxWidth: '9rem',
                 alignItems: 'center',
                 width: ['100%', 'auto'],
@@ -43,7 +43,7 @@ const Template = () => (
             key={link.title}
             sx={{
               marginRight: (theme) =>
-                index !== links.length - 1 ? get(theme, 'space.14') : 0,
+                index !== links.length - 1 ? get(theme, 'space.6') : 0,
             }}
           >
             <Footer.Link key={link.title} href={link.href}>

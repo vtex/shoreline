@@ -12,14 +12,14 @@ const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
       width: '100%',
       bg: 'secondary.base',
       color: 'background',
-      paddingX: (theme) => get(theme, 'space.13'),
+      paddingX: (theme) => get(theme, 'space.6'),
     }}
   >
     <Flex
       sx={{
         maxWidth: '70rem',
         margin: '0 auto',
-        paddingY: (theme) => get(theme, 'space.16'),
+        paddingY: (theme) => get(theme, 'space.7'),
         flexDirection: ['column', 'column', 'row'],
         justifyContent: 'space-between',
         alignItems: ['start', 'start', 'center'],
@@ -35,11 +35,11 @@ const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
           display: ['grid', 'grid', 'flex'],
           gridTemplateColumns: 'repeat(2, 1fr)',
           alignItems: 'center',
-          columnGap: (theme) => get(theme, 'space.13'),
+          columnGap: (theme) => get(theme, 'space.4'),
           width: ['100%', '100%', 'auto'],
           marginTop: (theme) => [
-            get(theme, 'space.14'),
-            get(theme, 'space.14'),
+            get(theme, 'space.6'),
+            get(theme, 'space.6'),
             get(theme, 'space.0'),
           ],
           flexWrap: 'wrap',

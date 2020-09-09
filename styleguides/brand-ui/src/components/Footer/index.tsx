@@ -38,16 +38,15 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
       maxWidth: '70rem',
       margin: '0 auto',
       paddingTop: (theme) => [
-        get(theme, 'space.16'),
-        get(theme, 'space.16'),
-        get(theme, 'space.17'),
+        get(theme, 'space.7'),
+        get(theme, 'space.7'),
+        get(theme, 'space.7'),
+        get(theme, 'space.9'),
       ],
-      paddingBottom: (theme) => [get(theme, 'space.6'), get(theme, 'space.16')],
       paddingX: (theme) => [
-        get(theme, 'space.12'),
-        get(theme, 'space.14'),
-        get(theme, 'space.14'),
-        get(theme, 'space.0'),
+        get(theme, 'space.4'),
+        get(theme, 'space.5'),
+        get(theme, 'space.5'),
       ],
       flexDirection: ['column', 'column', 'column', 'row'],
       justifyContent: 'space-between',
@@ -63,9 +62,9 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
       sx={{
         flexDirection: ['column', 'row'],
         marginTop: (theme) => [
-          get(theme, 'space.14'),
-          get(theme, 'space.15'),
-          get(theme, 'space.15'),
+          get(theme, 'space.6'),
+          get(theme, 'space.6'),
+          get(theme, 'space.6'),
           get(theme, 'space.0'),
         ],
         justifyContent: 'space-between',
@@ -80,8 +79,13 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
 const Group = ({ title, children }: PropsWithChildren<{ title: string }>) => (
   <Box
     sx={{
-      marginRight: (theme) => [0, 0, get(theme, 'space.15')],
-      marginBottom: (theme) => get(theme, 'space.8'),
+      marginRight: (theme) => [
+        get(theme, 'space.0'),
+        get(theme, 'space.0'),
+        get(theme, 'space.0'),
+        get(theme, 'space.7'),
+      ],
+      marginBottom: (theme) => [get(theme, 'space.2'), get(theme, 'space.3')],
     }}
   >
     <Text
@@ -92,7 +96,7 @@ const Group = ({ title, children }: PropsWithChildren<{ title: string }>) => (
         lineHeight: 'action',
         fontStyle: 'normal',
         fontWeight: 'normal',
-        marginBottom: (theme) => get(theme, 'space.6'),
+        marginBottom: (theme) => get(theme, 'space.4'),
       }}
     >
       {title}
@@ -115,9 +119,9 @@ const Link = forwardRef((props: LinkProps, ref: Ref<HTMLAnchorElement>) => {
 
   const mergedSx = mergeSx<SxStyleProp>(
     {
-      fontSize: 16,
+      fontSize: (theme) => get(theme, 'fontSizes.3'),
       textDecoration: 'none',
-      color: 'muted.1',
+      color: 'muted.2',
       '&:hover': {
         color: 'primary.contrast',
       },
@@ -155,9 +159,9 @@ const SocialMediaIcon = forwardRef(
         sx={{
           width: '2.5rem',
           height: '2.5rem',
-          marginRight: (theme) => get(theme, 'space.6'),
+          marginRight: (theme) => get(theme, 'space.4'),
           bg: '#111C2D',
-          padding: (theme) => get(theme, 'space.4'),
+          padding: '0.6rem',
           borderRadius: '100%',
           border: '1px solid #222C44',
           transition: 'all 0.1s ease-in-out',
@@ -165,7 +169,7 @@ const SocialMediaIcon = forwardRef(
             bg: '#222C44',
             color: 'primary.contrast',
           },
-          color: 'muted.1',
+          color: 'muted.2',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -192,13 +196,9 @@ const Extra = ({ children }: PropsWithChildren<{}>) => (
         margin: '0 auto',
         flexDirection: ['column', 'column', 'row'],
         justifyContent: 'space-between',
-        paddingY: (theme) => get(theme, 'space.14'),
-        paddingX: (theme) => [
-          get(theme, 'space.7'),
-          get(theme, 'space.9'),
-          get(theme, 'space.9'),
-          0,
-        ],
+        alignItems: ['start', 'start', 'center'],
+        paddingY: (theme) => get(theme, 'space.6'),
+        paddingX: (theme) => get(theme, 'space.5'),
       }}
     >
       {children}
@@ -209,7 +209,7 @@ const Extra = ({ children }: PropsWithChildren<{}>) => (
 const ExtraLinks = ({ children }: PropsWithChildren<{}>) => (
   <Flex
     sx={{
-      marginTop: (theme) => [get(theme, 'space.8'), get(theme, 'space.8'), '0'],
+      marginTop: (theme) => [get(theme, 'space.6'), get(theme, 'space.6'), 0],
     }}
   >
     {children}

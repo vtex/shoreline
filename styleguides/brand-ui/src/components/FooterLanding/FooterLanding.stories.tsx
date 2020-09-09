@@ -16,13 +16,16 @@ const Template = () => (
       <Text
         key={link.name}
         sx={{
-          marginRight: [
-            0,
-            0,
-            (theme) =>
-              index !== links.length - 1 ? get(theme, 'space.14') : 0,
+          marginRight: (theme) => [
+            get(theme, 'space.0'),
+            get(theme, 'space.0'),
+            index !== links.length - 1 ? get(theme, 'space.4') : 0,
           ],
-          marginBottom: (theme) => get(theme, 'space.4'),
+          marginBottom: (theme) => [
+            get(theme, 'space.4'),
+            get(theme, 'space.4'),
+            get(theme, 'space.0'),
+          ],
         }}
       >
         <FooterLanding.Link
