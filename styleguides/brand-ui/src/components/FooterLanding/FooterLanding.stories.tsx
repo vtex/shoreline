@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text } from 'theme-ui'
+import { get } from '@vtex-components/theme'
 
 import { links } from './mockLinks'
 import FooterLanding from './index'
@@ -15,10 +16,19 @@ const Template = () => (
       <Text
         key={link.name}
         sx={{
-          marginRight: ['0', '0', index !== links.length - 1 ? '2rem' : '0'],
+          marginRight: [
+            0,
+            0,
+            (theme) =>
+              index !== links.length - 1 ? get(theme, 'space.14') : 0,
+          ],
+          marginBottom: (theme) => get(theme, 'space.4'),
         }}
       >
-        <FooterLanding.Link fontSize="0.875rem" href={link.href}>
+        <FooterLanding.Link
+          sx={{ fontSize: (theme) => get(theme, 'fontSizes.2') }}
+          href={link.href}
+        >
           {link.name}
         </FooterLanding.Link>
       </Text>

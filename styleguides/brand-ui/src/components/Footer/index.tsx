@@ -8,12 +8,11 @@ import {
   SxStyleProp,
 } from 'theme-ui'
 import { forwardRef } from '@vtex-components/utils'
-import { mergeSx } from '@vtex-components/theme'
+import { mergeSx, get } from '@vtex-components/theme'
 
 import IconFacebook from './icons/IconFacebook'
 import IconInstagram from './icons/IconInstagram'
 import IconYouTube from './icons/IconYouTube'
-import IconLinkedIn from './icons/IconLinkedIn'
 
 const socialMediaLinks = [
   {
@@ -31,11 +30,6 @@ const socialMediaLinks = [
     to: 'https://www.youtube.com/user/VTEXTV/',
     icon: <IconYouTube />,
   },
-  {
-    name: 'LinkedIn',
-    to: 'https://www.linkedin.com/company/vtex/',
-    icon: <IconLinkedIn />,
-  },
 ]
 
 const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
@@ -43,9 +37,18 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
     sx={{
       maxWidth: '70rem',
       margin: '0 auto',
-      paddingTop: ['4rem', '4rem', '8rem'],
-      paddingBottom: ['2rem', '4rem'],
-      paddingX: ['1rem', '1.5rem', '1.5rem', '0'],
+      paddingTop: (theme) => [
+        get(theme, 'space.16'),
+        get(theme, 'space.16'),
+        get(theme, 'space.17'),
+      ],
+      paddingBottom: (theme) => [get(theme, 'space.6'), get(theme, 'space.16')],
+      paddingX: (theme) => [
+        get(theme, 'space.12'),
+        get(theme, 'space.14'),
+        get(theme, 'space.14'),
+        get(theme, 'space.0'),
+      ],
       flexDirection: ['column', 'column', 'column', 'row'],
       justifyContent: 'space-between',
       alignItems: 'start',
@@ -59,7 +62,14 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
     <Flex
       sx={{
         flexDirection: ['column', 'row'],
-        marginTop: ['2rem', '4rem', '4rem', '0'],
+        marginTop: (theme) => [
+          get(theme, 'space.14'),
+          get(theme, 'space.15'),
+          get(theme, 'space.15'),
+          get(theme, 'space.0'),
+        ],
+        justifyContent: 'space-between',
+        width: ['100%', '100%', '100%', 'auto'],
       }}
     >
       {children}
@@ -68,16 +78,21 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
 )
 
 const Group = ({ title, children }: PropsWithChildren<{ title: string }>) => (
-  <Box sx={{ marginRight: ['0', '3rem'], marginBottom: '1rem' }}>
+  <Box
+    sx={{
+      marginRight: (theme) => [0, 0, get(theme, 'space.15')],
+      marginBottom: (theme) => get(theme, 'space.8'),
+    }}
+  >
     <Text
       as="p"
       sx={{
         color: 'white',
-        fontSize: '1.25rem',
-        lineHeight: '1.875rem',
+        fontSize: (theme) => get(theme, 'fontSizes.3'),
+        lineHeight: 'action',
         fontStyle: 'normal',
         fontWeight: 'normal',
-        marginBottom: '1rem',
+        marginBottom: (theme) => get(theme, 'space.6'),
       }}
     >
       {title}
@@ -100,7 +115,7 @@ const Link = forwardRef((props: LinkProps, ref: Ref<HTMLAnchorElement>) => {
 
   const mergedSx = mergeSx<SxStyleProp>(
     {
-      fontSize: '1rem',
+      fontSize: 16,
       textDecoration: 'none',
       color: 'muted.1',
       '&:hover': {
@@ -140,9 +155,9 @@ const SocialMediaIcon = forwardRef(
         sx={{
           width: '2.5rem',
           height: '2.5rem',
-          marginRight: '1rem',
+          marginRight: (theme) => get(theme, 'space.6'),
           bg: '#111C2D',
-          padding: '0.6rem',
+          padding: (theme) => get(theme, 'space.4'),
           borderRadius: '100%',
           border: '1px solid #222C44',
           transition: 'all 0.1s ease-in-out',
@@ -177,8 +192,13 @@ const Extra = ({ children }: PropsWithChildren<{}>) => (
         margin: '0 auto',
         flexDirection: ['column', 'column', 'row'],
         justifyContent: 'space-between',
-        paddingY: '3rem',
-        paddingX: ['1rem', '1.5rem', '1.5rem', '0'],
+        paddingY: (theme) => get(theme, 'space.14'),
+        paddingX: (theme) => [
+          get(theme, 'space.7'),
+          get(theme, 'space.9'),
+          get(theme, 'space.9'),
+          0,
+        ],
       }}
     >
       {children}
@@ -187,7 +207,13 @@ const Extra = ({ children }: PropsWithChildren<{}>) => (
 )
 
 const ExtraLinks = ({ children }: PropsWithChildren<{}>) => (
-  <Flex sx={{ marginTop: ['2rem', '2rem', '0'] }}>{children}</Flex>
+  <Flex
+    sx={{
+      marginTop: (theme) => [get(theme, 'space.8'), get(theme, 'space.8'), '0'],
+    }}
+  >
+    {children}
+  </Flex>
 )
 
 const Footer = ({ children }: PropsWithChildren<{}>) => (

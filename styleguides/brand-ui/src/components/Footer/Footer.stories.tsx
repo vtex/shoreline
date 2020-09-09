@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Text } from 'theme-ui'
+import { get } from '@vtex-components/theme'
 
 import { footerGroups, links } from './mockLinks'
 import Footer from './index'
@@ -19,13 +20,13 @@ const Template = () => (
               key={groupLink.title}
               sx={{
                 display: ['grid', 'grid', 'flex'],
-                marginBottom: '1rem',
-                maxWidth: '10rem',
-                alignItems: 'end',
-                width: ['100%', '100%', 'auto'],
+                marginBottom: (theme) => get(theme, 'space.5'),
+                maxWidth: '9rem',
+                alignItems: 'center',
+                width: ['100%', 'auto'],
                 flexWrap: 'wrap',
                 justifyContent: 'space-between',
-                lineHeight: '2rem',
+                lineHeight: 'action',
               }}
             >
               <Footer.Link href={groupLink.href}>{groupLink.title}</Footer.Link>
@@ -40,7 +41,10 @@ const Template = () => (
         {links.map((link, index) => (
           <Text
             key={link.title}
-            sx={{ marginRight: index !== links.length - 1 ? '2rem' : '0' }}
+            sx={{
+              marginRight: (theme) =>
+                index !== links.length - 1 ? get(theme, 'space.14') : 0,
+            }}
           >
             <Footer.Link key={link.title} href={link.href}>
               {link.title}
