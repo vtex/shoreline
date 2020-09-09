@@ -73,22 +73,94 @@ Supported props:
 margin, margin-top, margin-right, margin-bottom, margin-left, margin-block, margin-block-end, margin-block-start, margin-inline, margin-inline-end, margin-inline-start, padding, padding-top, padding-right, padding-bottom, padding-left, padding-block, padding-block-end, padding-block-start, padding-inline, padding-inline-end, padding-inline-start, inset, inset-block, inset-block-end, inset-block-start, inset-inline, inset-inline-end, inset-inline-start, top, right, bottom, left, grid-gap, grid-column-gap, grid-row-gap, gap, column-gap, row-gap
 ```
 
-| token | value  |
-| ----- | ------ |
-| 0     | `0px`  |
-| 1     | `1px`  |
-| 2     | `2px`  |
-| 3     | `4px`  |
-| 4     | `6px`  |
-| 5     | `8px`  |
-| 6     | `10px` |
-| 7     | `12px` |
-| 8     | `14px` |
-| 9     | `16px` |
-| 10    | `18px` |
-| 11    | `20px` |
-| 12    | `22px` |
-| 13    | `24px` |
+| token | value       |
+| ----- | ----------- |
+| 0     | `0rem`      |
+| 1     | `0.0625rem` |
+| 2     | `0.125rem`  |
+| 3     | `0.25rem`   |
+| 4     | `0.375rem`  |
+| 5     | `0.5rem`    |
+| 6     | `0.625rem`  |
+| 7     | `0.75rem`   |
+| 8     | `0.875rem`  |
+| 9     | `1rem`      |
+| 10    | `1.125rem`  |
+| 11    | `1.25rem`   |
+| 12    | `1.375rem`  |
+| 13    | `1.5rem`    |
+
+### Sizes
+
+Supported pros:
+
+```
+width, min-width, max-width, height, min-height, max-height, flex-basis, block-size, inline-size, max-block-size, max-inline-size, min-block-size, min-inline-size
+```
+
+| token          | value        |
+| -------------- | ------------ |
+| 0              | `0rem`       |
+| 1              | `0.0625rem`  |
+| 2              | `0.125rem`   |
+| 3              | `0.25rem`    |
+| 4              | `0.5rem`     |
+| 5              | `0.75rem`    |
+| 6              | `1rem`       |
+| 7              | `1.25rem`    |
+| 8              | `1.5rem`     |
+| 9              | `1.75rem`    |
+| 10             | `2rem`       |
+| 11             | `2.25rem`    |
+| 12             | `2.5rem`     |
+| 13             | `3rem`       |
+| 14             | `4rem`       |
+| 15             | `5rem`       |
+| 16             | `6rem`       |
+| 17             | `8rem`       |
+| 18             | `10rem`      |
+| 19             | `12rem`      |
+| 20             | `14rem`      |
+| 21             | `16rem`      |
+| `xs`           | `20rem`      |
+| `sm`           | `24rem`      |
+| `md`           | `28rem`      |
+| `lg`           | `32rem`      |
+| `xl`           | `36rem`      |
+| `2xl`          | `42rem`      |
+| `3xl`          | `48rem`      |
+| `4xl`          | `56rem`      |
+| `5xl`          | `64rem`      |
+| `6xl`          | `72rem`      |
+| `1/2`          | `50%`        |
+| `1/3`          | `33.333333%` |
+| `2/3`          | `66.666667%` |
+| `1/4`          | `25%`        |
+| `2/4`          | `50%`        |
+| `3/4`          | `75%`        |
+| `1/5`          | `20%`        |
+| `2/5`          | `40%`        |
+| `3/5`          | `60%`        |
+| `4/5`          | `80%`        |
+| `1/6`          | `16.666667%` |
+| `2/6`          | `33.333333%` |
+| `3/6`          | `50%`        |
+| `4/6`          | `66.666667%` |
+| `5/6`          | `83.333333%` |
+| `1/12`         | `8.333333%`  |
+| `2/12`         | `16.666667%` |
+| `3/12`         | `25%`        |
+| `4/12`         | `33.333333%` |
+| `5/12`         | `41.666667%` |
+| `6/12`         | `50%`        |
+| `7/12`         | `58.333333%` |
+| `8/12`         | `66.666667%` |
+| `9/12`         | `75%`        |
+| `10/12`        | `83.333333%` |
+| `11/12`        | `91.666667%` |
+| `full`         | `100%`       |
+| `screenHeight` | `100vh`      |
+| `screenWidth`  | `100vw`      |
 
 ### Color
 
