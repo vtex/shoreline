@@ -38,17 +38,18 @@ We'll use [Reakit Checkbox](https://reakit.io/docs/checkbox/) as the base to cre
 
 ## Types
 
-| prop     | type                                 | description                         | required | default |
-| -------- | ------------------------------------ | ----------------------------------- | -------- | ------- |
-| sx       | SxStyleProp                          | ThemeUI style prop                  | 🚫       | {}      |
-| checked  | bool                                 | Whether checkbox is checked or not  | 🚫       | false   |
-| required | bool                                 | Whether checkbox is required or not | 🚫       | false   |
-| disabled | bool                                 | Whether checkbox is disabled or not | 🚫       | false   |
-| label    | ReactNode                            | Checkbox label                      | 🚫       | -       |
-| value    | string, number, undefined            | Checkbox value                      | 🚫       | -       |
-| name     | string                               | Checkbox name                       | 🚫       | -       |
-| state    | CheckState                           | `reakit` Checkbox state             | 🚫       | -       |
-| setState | SetStateAction<boolean, CheckState>) | `reakit` Checkbox setState          | 🚫       | -       |
+| prop     | type                                | description                         | required | default |
+| -------- | ----------------------------------- | ----------------------------------- | -------- | ------- |
+| sx       | SxStyleProp                         | ThemeUI style prop                  | 🚫       | {}      |
+| checked  | bool                                | Whether checkbox is checked or not  | 🚫       | false   |
+| required | bool                                | Whether checkbox is required or not | 🚫       | false   |
+| disabled | bool                                | Whether checkbox is disabled or not | 🚫       | false   |
+| label    | ReactNode                           | Checkbox label                      | 🚫       | -       |
+| value    | string, number, undefined           | Checkbox value                      | 🚫       | -       |
+| name     | string                              | Checkbox name                       | 🚫       | -       |
+| onChange | func                                | onChange event                      | 🚫       | -       |
+| state    | CheckState                          | `reakit` Checkbox state             | 🚫       | -       |
+| setState | SetStateAction<boolean, CheckState> | `reakit` Checkbox setState          | 🚫       | -       |
 
 ```ts
 interface CheckState {
