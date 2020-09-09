@@ -4,7 +4,7 @@
 
 > Provider of all admin-ui styles
 
-The ThemeProvider component is a wrapper around Emotion's ThemeProvider and MDX's MDXProvider. It provides default styled components to MDX content that pick up values from theme.styles. It also handles color mode state.
+The ThemeProvider component is a wrapper around Emotion's ThemeProvider and MDX's MDXProvider. It provides default styled-components to MDX content that pick up values from `theme.styles`. It also handles color mode state.
 
 Usage:
 
