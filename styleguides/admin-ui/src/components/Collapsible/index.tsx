@@ -52,6 +52,7 @@ function Header({ children, label, sx }: HeaderProps) {
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: 13,
+        paddingLeft: 12,
         ...sx,
       }}
     >
@@ -79,21 +80,18 @@ function Disclosure({ children }: { children: ReactNode }) {
           <Button
             {...enhancedProps}
             iconPosition="start"
-            icon={({ size }) => (
+            icon={({ size, sx }) => (
               <IconCaret
                 size={size}
                 direction={visible ? 'down' : 'right'}
-                sx={{
-                  marginRight: 3,
-                }}
+                sx={sx}
               />
             )}
             variant="subtle"
             sx={{
-              padding: 0,
               color: 'text',
-              '&:hover': { backgroundColor: 'transparent', color: 'text' },
-              '&:active': { backgroundColor: 'transparent', color: 'text' },
+              '&:hover': { backgroundColor: 'transparent' },
+              '&:active': { backgroundColor: 'transparent' },
             }}
           >
             {children}
