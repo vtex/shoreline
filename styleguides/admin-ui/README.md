@@ -12,6 +12,29 @@ Install from npm:
 yarn add @vtex/admin-ui
 ```
 
+Import the theme provider on the project root:
+
+```tsx
+import { ThemeProvider } from '@vtex/admin-ui'
+
+function ProjectRoot() {
+  return <ThemeProvider>{/** You app here */}</ThemeProvider>
+}
+```
+
+[Read more about theme](./src/theme/README.md)
+
+## Components
+
+| Name        | Documentation                                  | Graduation |
+| ----------- | ---------------------------------------------- | ---------- |
+| Button      | [Docs](./src/components/Button/README.md)      | beta       |
+| Collapsible | [Docs](./src/components/Collapsible/README.md) | beta       |
+| Skeleton    | [Docs](./src/components/Skeleton/README.md)    | beta       |
+| Card        | 🚫TBD                                          | beta       |
+| Text        | 🚫TBD                                          | beta       |
+| Icons       | 🚫TBD                                          | beta       |
+
 ## Appointments
 
 ### Internal Rituals

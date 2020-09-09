@@ -1,8 +1,7 @@
 # RFC Divider
 
-- Start Date: 2020-08-27
-- PR: https://github.com/vtex/onda/pull/23
-- Issue: (leave this empty)
+- 📅 Start Date: 2020-08-27
+- 🏆 Champions: @lucasaarcoverde, @matheusps
 
 # Summary
 

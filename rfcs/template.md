@@ -1,8 +1,7 @@
 # RFC Template <REPLACE_WITH_TITLE>
 
-- Start Date: (fill me in with today's date, YYYY-MM-DD)
-- PR: (leave this empty)
-- Issue: (leave this empty)
+- 📅 Start Date: (fill me in with today's date, YYYY-MM-DD)
+- 🏆 Champions: (fill with the champions @'s)
 
 # Summary
 
