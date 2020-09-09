@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.20.3...@vtex/admin-ui@0.20.4) (2020-09-09)
+
+
+### Bug Fixes
+
+* **card:** define sx prop instead of extends BoxProps ([7e24acd](https://github.com/vtex/onda/commit/7e24acddf605db2856dc0bfdbf29c38098e7cf7d))
+
+
+
+
+
 ## [0.20.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.20.2...@vtex/admin-ui@0.20.3) (2020-09-09)
 
 
