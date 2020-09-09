@@ -12,7 +12,7 @@ Install from npm:
 yarn add @vtex/admin-ui
 ```
 
-Import the theme provider on the project root:
+**⚠️ Import the theme provider on the project root:**
 
 ```tsx
 import { ThemeProvider } from '@vtex/admin-ui'

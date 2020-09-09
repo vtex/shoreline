@@ -1,10 +1,10 @@
 # Admin UI Theme
 
+> 💡 Also check [ThemeUI API](https://theme-ui.com/api/) for detailed info.
+
 ## ThemeProvider
 
-> Provider of all admin-ui styles
-
-The ThemeProvider component is a wrapper around Emotion's ThemeProvider and MDX's MDXProvider. It provides default styled-components to MDX content that pick up values from `theme.styles`. It also handles color mode state.
+> Same as [ThemeUI ThemeProvider](https://theme-ui.com/guides/how-it-works/#themeprovider)
 
 Usage:
 
@@ -12,13 +12,13 @@ Usage:
 import { ThemeProvider } from '@vtex/admin-ui'
 
 function ProjectRoot() {
-  return <ThemeProvider>{/** You app here */}</ThemeProvider>
+  return <ThemeProvider>{/** Your app here */}</ThemeProvider>
 }
 ```
 
 ## jsx
 
-The jsx export is a React create element function intended for use with a custom pragma comment. It adds support for the sx prop, which uses Emotion's create element function internally and parses style objects with the Theme UI css utility.
+> Same as [JSX Pragma](https://theme-ui.com/guides/how-it-works/#jsx-pragma)
 
 Usage:
 
@@ -63,7 +63,7 @@ Some property are theme-aware, that can consume specyfic sections of the theme c
 
 ## Token List
 
-> List of all tokens and props that can consume it
+> List of all tokens and props that can consume it. Check [ThemeScales](https://theme-ui.com/theme-spec#theme-scales) for further reading
 
 ### Space
 
