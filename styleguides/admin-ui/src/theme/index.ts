@@ -1,2 +1,2 @@
 export { default as ThemeProvider } from './Provider'
-export { theme } from './theme'
+export { theme, AdminTheme as Theme } from './theme'
