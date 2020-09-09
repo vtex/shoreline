@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.20.2...@vtex/admin-ui@0.20.3) (2020-09-09)
+
+
+### Bug Fixes
+
+* **text:** remove color property from Text theme ([4c8887d](https://github.com/vtex/onda/commit/4c8887d37218080db5bfda3a54cd84aab8853ae4))
+
+
+
+
+
 ## [0.20.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.20.1...@vtex/admin-ui@0.20.2) (2020-09-08)
 
 
