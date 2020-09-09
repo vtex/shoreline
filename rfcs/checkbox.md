@@ -1,8 +1,7 @@
-# RFC admin/Checkbox
+# RFC Admin Checkbox
 
-- Start Date: 2020-09-09
-- PR: (leave this empty)
-- Issue: (leave this empty)
+- 📅 Start Date: 2020-09-09
+- 🏆 Champion: @lucasaarcoverde
 
 # Summary
 
