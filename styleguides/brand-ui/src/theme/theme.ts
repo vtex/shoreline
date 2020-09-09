@@ -1,7 +1,7 @@
 import { Theme } from '@vtex-components/theme'
 
 export const theme: Theme = {
-  space: [0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
+  space: [0, 2, 4, 8, 16, 24, 32, 64, 96, 128, 160, 256],
   colors: {
     text: '#4A4A4A',
     background: '#C4C4C4',
@@ -98,20 +98,14 @@ export const theme: Theme = {
       },
       size: {
         regular: {
-          paddingY: 5,
-          fontSize: 1,
           height: 40,
           width: 'auto',
-          paddingLeft: 9,
-          paddingRight: 9,
+          paddingX: 5,
         },
         small: {
-          paddingY: 4,
-          fontSize: 0,
           height: 32,
           width: 'auto',
-          paddingLeft: 7,
-          paddingRight: 7,
+          padding: 4,
         },
       },
     },
