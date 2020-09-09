@@ -33,13 +33,13 @@ function useMeasures({
 
   const iconStyles = children
     ? iconEnd
-      ? { marginLeft: 4 }
-      : { marginRight: 4 }
+      ? { marginLeft: 3 }
+      : { marginRight: 3 }
     : {}
 
   const iconSize = size === 'small' ? 20 : 24
 
-  const resolvedSize = !!icon && !children ? 'icon' : size
+  const resolvedSize = !!icon && !children ? `icon-${size}` : size
   const iconProps = { sx: iconStyles, size: iconSize }
 
   return {

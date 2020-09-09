@@ -1,12 +1,11 @@
 import { Theme } from '@vtex-components/theme'
 
 export const theme: Theme = {
-  space: [0, 2, 4, 8, 16, 24, 32, 64, 96, 128, 160, 256],
   colors: {
     text: '#4A4A4A',
     background: '#C4C4C4',
     muted: ['#717786', '#A1A8B3', '#CCCED8', '#E7E9EE', '#F8F7FC'],
-    focus: '#F71963', // Missing spec
+    focus: '#FFC4DD',
     primary: {
       base: '#F71963',
       hover: '#D91657',
@@ -93,7 +92,7 @@ export const theme: Theme = {
         },
         tertiary: {
           color: 'secondary.base',
-          backgroundColor: 'secondary.contrast',
+          backgroundColor: 'transparent',
           '&:hover': {
             textDecoration: 'underline',
           },
@@ -102,25 +101,26 @@ export const theme: Theme = {
           },
           '&:disabled': {
             color: 'muted.2',
-            backgroundColor: 'white',
+            backgroundColor: 'transparent',
           },
         },
       },
       size: {
         regular: {
-          paddingY: 8,
           height: 48,
-          paddingX: 13,
+          paddingX: 5,
         },
         small: {
-          paddingY: 4,
           height: 32,
-          paddingX: 9,
+          paddingX: 4,
         },
-        icon: {
+        'icon-regular': {
           height: 48,
-          paddingX: 9,
-          paddingY: 4,
+          paddingX: 4,
+        },
+        'icon-small': {
+          height: 32,
+          paddingX: 3,
         },
       },
     },
@@ -143,6 +143,7 @@ export const theme: Theme = {
     subtitle: 1.5,
     headline: 1.5,
   },
+  space: [0, 2, 4, 8, 16, 24, 32, 64, 96, 128, 160, 256],
   borderWidths: [0, 1, 2, 4, 6],
   borderRadius: [0, 1, 2, 4, 6],
 }
