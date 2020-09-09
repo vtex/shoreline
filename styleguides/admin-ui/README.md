@@ -18,7 +18,7 @@ Import the theme provider on the project root:
 import { ThemeProvider } from '@vtex/admin-ui'
 
 function ProjectRoot() {
-  return <ThemeProvider>{/** You app here */}</ThemeProvider>
+  return <ThemeProvider>{/** Your app here */}</ThemeProvider>
 }
 ```
 
