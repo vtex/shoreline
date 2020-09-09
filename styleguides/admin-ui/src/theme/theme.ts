@@ -237,38 +237,32 @@ export const theme: Theme = {
     text: {
       variant: {
         small: {
-          color: 'text',
           lineHeight: 'small',
           fontVariationSettings: "'wght' 80",
           fontSize: 0,
         },
         body: {
-          color: 'text',
           lineHeight: 'body',
           fontVariationSettings: "'wght' 80",
           fontSize: 1,
         },
         highlight: {
-          color: 'text',
           lineHeight: 'highlight',
           fontVariationSettings: "'wght' 100",
           fontSize: 1,
         },
         action: {
-          color: 'text',
           lineHeight: 'action',
           fontVariationSettings: "'wght' 100",
           fontSize: 1,
           textTransform: 'uppercase',
         },
         subtitle: {
-          color: 'text',
           lineHeight: 'subtitle',
           fontVariationSettings: "'wght' 100",
           fontSize: 2,
         },
         headline: {
-          color: 'text',
           lineHeight: 'headline',
           fontVariationSettings: "'wght' 100",
           fontSize: 3,
