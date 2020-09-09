@@ -1,56 +1,129 @@
 # RFC admin/Checkbox
 
-- Start Date: (fill me in with today's date, YYYY-MM-DD)
+- Start Date: 2020-09-09
 - PR: (leave this empty)
 - Issue: (leave this empty)
 
 # Summary
 
-- A brief explanation of the feature.
-- Short motivation, if applicable. (you can use enumerated lists to help you).
+Accessible Checkbox component that follows [WAI-ARIA Checkbox Pattern](https://www.w3.org/TR/wai-aria-practices/#checkbox).
 
-# Basic example [optional]
+# Basic example
 
-- If the proposal involves a new or changed API, include a basic code example.
+```jsx
+import { Checkbox } from '@vtex/admin-ui'
+
+function UseCase() {
+  const [checked, setChecked] = React.useState(false)
+
+  return <Checkbox checked={checked} onChange={() => setChecked(!checked)} />
+}
+```
+
+- Using `useCheckbox` hook
+
+```jsx
+import { Checkbox, useCheckbox } from '@vtex/admin-ui'
+
+function UseCase() {
+  const checkbox = useCheckbox({ state: false })
+
+  return <Checkbox {...checkbox} />
+}
+```
 
 # Detailed design
 
-This is the bulk of the RFC, you must:
+We'll use [Reakit Checkbox](https://reakit.io/docs/checkbox/) as the base to create our component
 
-- Explain the design in enough detail for engineers to understand.
-- Define solutions for corner-cases.
-- Include examples of how the feature is used.
-- Define the new terminologies.
+## Types
+
+| prop     | type                                 | description                         | required | default |
+| -------- | ------------------------------------ | ----------------------------------- | -------- | ------- |
+| sx       | SxStyleProp                          | ThemeUI style prop                  | 🚫       | {}      |
+| checked  | bool                                 | Whether checkbox is checked or not  | 🚫       | false   |
+| required | bool                                 | Whether checkbox is required or not | 🚫       | false   |
+| disabled | bool                                 | Whether checkbox is disabled or not | 🚫       | false   |
+| label    | ReactNode                            | Checkbox label                      | 🚫       | -       |
+| value    | string, number, undefined            | Checkbox value                      | 🚫       | -       |
+| name     | string                               | Checkbox name                       | 🚫       | -       |
+| state    | CheckState                           | `reakit` Checkbox state             | 🚫       | -       |
+| setState | SetStateAction<boolean, CheckState>) | `reakit` Checkbox setState          | 🚫       | -       |
+
+```ts
+interface CheckState {
+  state: bool | "indeterminate", (string,number)[]
+}
+```
+
+## State
+
+### `checked` and `onChange`
+
+We can use our state logic using the properties `checked` and `onChange` event.
+
+### `useCheckboxState` hook
+
+Reakit also provides this hook that already handles state logic for us:
+
+- Multiple checkboxes
+- Partially checked
+- Checkbox tree is easier to implement using it
+
+You can read more in [Reakit documentation](https://reakit.io/docs/checkbox/#usecheckboxstate)
+
+#### Usage Examples
+
+- **Multiple Checkboxes**
+  Remember that all checkboxes need to have a value set.
+
+```jsx
+import { Checkbox, useCheckbox } from '@vtex/admin-ui'
+
+function UseCase() {
+  const checkbox = useCheckbox({ state: [] })
+
+  return (
+    <>
+      <Checkbox {...checkbox} value="checkbox1" />
+      <Checkbox {...checkbox} value="checkbox2" />
+      <Checkbox {...checkbox} value="checkbox3" />
+    </>
+  )
+}
+```
+
+- **Partially Checked**
+
+```jsx
+import { Checkbox, useCheckbox } from '@vtex/admin-ui'
+
+function UseCase() {
+  const checkbox = useCheckbox({ state: 'indeterminate' })
+
+  return (
+    <>
+      <Checkbox {...checkbox} value="checkbox1" />
+      <Checkbox {...checkbox} value="checkbox2" />
+      <Checkbox {...checkbox} value="checkbox3" />
+    </>
+  )
+}
+```
 
 # Drawbacks
 
-Why should we _not_ do this? Please consider:
+- When we have multiple checkboxes the state has only a list of values, without indicating which checkboxes are checked (In `Styleguide v9` it saves an object `{ label: ..., value:... }`). Maybe it can be a drawback.
 
-- implementation cost, both in term of code size and complexity
-- the impact on teaching people
-- integration of this feature with other existing and planned features
-- cost of migrating existing applications (is it a breaking change?)
+# Adoption strategy
 
-💡There are tradeoffs to choosing any path. Attempt to identify them here.
+- This is a new feature, no breaking changes to any packages in onda.
 
-# Alternatives [optional]
+# Education
 
-What other designs have been considered?
+- Document the components with its user cases, besides usage examples with all Checkbox's features (Multiple checkboxes, Partially Checked, Simple usage, etc).
 
-# Adoption strategy [optional]
+# Unresolved questions
 
-- If we implement this proposal, how will existing developers adopt it?
-- Is this a breaking change?
-- Can we write a codemod?
-- Should we coordinate with other projects or libraries?
-
-# Education [optional]
-
-- What names and terminology work best for these concepts and why?
-- Would the acceptance of this proposal change the documentation somehow?
-- How should this feature be taught to existing VTEX developers?
-
-# Unresolved questions [optional]
-
-- Optional, but suggested for first drafts.
-- What parts of the design are still TBD?
+- How the Checkbox label will works?
+- It will have only the primary color?
