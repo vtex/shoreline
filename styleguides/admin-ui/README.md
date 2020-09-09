@@ -31,9 +31,9 @@ function ProjectRoot() {
 | Button      | [Docs](./src/components/Button/README.md)      | beta       |
 | Collapsible | [Docs](./src/components/Collapsible/README.md) | beta       |
 | Skeleton    | [Docs](./src/components/Skeleton/README.md)    | beta       |
-| Card        | 🚫TBD                                          | beta       |
-| Text        | 🚫TBD                                          | beta       |
-| Icons       | 🚫TBD                                          | beta       |
+| Card        | 🚫WIP                                          | beta       |
+| Text        | 🚫WIP                                          | beta       |
+| Icons       | 🚫WIP                                          | beta       |
 
 ## Appointments
 
