@@ -1,8 +1,7 @@
 # RFC Brand Footer
 
-- Start Date: 2020-08-31
-- PR: (leave this empty)
-- Issue: (leave this empty)
+- 📅 Start Date: 2020-08-31
+- 🏆 Champion: @lucasmedeiros
 
 # Summary
 
@@ -35,44 +34,44 @@ The footer has some composites: `LinkGroups` are the section of the footer which
 
 ## LinkGroups
 
-| prop     | type        | description             | required |
-| -------- | ----------- | ----------------------- | -------- |
-| children | ReactNode   | content shown on the groups          | 🚫       |
+| prop     | type      | description                 | required |
+| -------- | --------- | --------------------------- | -------- |
+| children | ReactNode | content shown on the groups | 🚫       |
 
 ## Group
 
-| prop     | type        | description             | required |
-| -------- | ----------- | ----------------------- | -------- |
-| title | String   | link group title          | ✔️       |
-| children | ReactNode   | content shown on the link group          | 🚫       |
+| prop     | type      | description                     | required |
+| -------- | --------- | ------------------------------- | -------- |
+| title    | String    | link group title                | ✔️       |
+| children | ReactNode | content shown on the link group | 🚫       |
 
 ## Link
 
-| prop     | type        | description             | required |
-| -------- | ----------- | ----------------------- | -------- |
-| href | String   | the URL of the page the link goes to          | ✔️       |
-| children | ReactNode   | elements inside the link          | 🚫       |
+| prop     | type      | description                          | required |
+| -------- | --------- | ------------------------------------ | -------- |
+| href     | String    | the URL of the page the link goes to | ✔️       |
+| children | ReactNode | elements inside the link             | 🚫       |
 
 ## Extra
 
-| prop     | type        | description             | required |
-| -------- | ----------- | ----------------------- | -------- |
-| children | ReactNode   | elements inside the extra section of the footer          | 🚫       |
+| prop     | type      | description                                     | required |
+| -------- | --------- | ----------------------------------------------- | -------- |
+| children | ReactNode | elements inside the extra section of the footer | 🚫       |
 
 ## ExtraLinks
 
-| prop     | type        | description             | required |
-| -------- | ----------- | ----------------------- | -------- |
-| children | ReactNode   | content (links) in the extra links          | 🚫       |
+| prop     | type      | description                        | required |
+| -------- | --------- | ---------------------------------- | -------- |
+| children | ReactNode | content (links) in the extra links | 🚫       |
 
 # Drawbacks
 
 The links and groups may get a little big, but the developer can create an array with them in a separate file and import them into the main file.
 
-# Adoption strategy 
+# Adoption strategy
 
 - This is a new feature, no breaking changes to any packages in `onda`.
 
-# Education 
+# Education
 
 - As with any DS component, it must be documented.
