@@ -1,4 +1,4 @@
-<!-- If there is nothing to say in some section, you can remove it -->
+<!-- If there is nothing to describe in some section, you can remove it -->
 #### What is the purpose of this pull request?
 <!--- Describe your changes in detail. -->
 
