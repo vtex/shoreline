@@ -1,8 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import { Box, Flex } from 'theme-ui'
-import { get } from '@vtex-components/theme'
 
-import IconVTEX from './IconVTEX'
+import IconVTEX from '../Footer/icons/IconVTEX'
 import Footer from '../Footer'
 
 const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
@@ -12,14 +11,14 @@ const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
       width: '100%',
       bg: 'secondary.base',
       color: 'background',
-      paddingX: (theme) => get(theme, 'space.6'),
+      paddingX: 6,
     }}
   >
     <Flex
       sx={{
         maxWidth: '70rem',
         margin: '0 auto',
-        paddingY: (theme) => get(theme, 'space.7'),
+        paddingY: 7,
         flexDirection: ['column', 'column', 'row'],
         justifyContent: 'space-between',
         alignItems: ['start', 'start', 'center'],
@@ -35,13 +34,9 @@ const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
           display: ['grid', 'grid', 'flex'],
           gridTemplateColumns: 'repeat(2, 1fr)',
           alignItems: 'center',
-          columnGap: (theme) => get(theme, 'space.4'),
+          columnGap: 4,
           width: ['100%', '100%', 'auto'],
-          marginTop: (theme) => [
-            get(theme, 'space.6'),
-            get(theme, 'space.6'),
-            get(theme, 'space.0'),
-          ],
+          marginTop: [6, 6, 0],
           flexWrap: 'wrap',
           justifyContent: 'space-between',
           lineHeight: 'action',

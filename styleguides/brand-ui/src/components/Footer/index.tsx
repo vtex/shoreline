@@ -8,7 +8,7 @@ import {
   SxStyleProp,
 } from 'theme-ui'
 import { forwardRef } from '@vtex-components/utils'
-import { mergeSx, get } from '@vtex-components/theme'
+import { mergeSx } from '@vtex-components/theme'
 
 import IconFacebook from './icons/IconFacebook'
 import IconInstagram from './icons/IconInstagram'
@@ -37,17 +37,8 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
     sx={{
       maxWidth: '70rem',
       margin: '0 auto',
-      paddingTop: (theme) => [
-        get(theme, 'space.7'),
-        get(theme, 'space.7'),
-        get(theme, 'space.7'),
-        get(theme, 'space.9'),
-      ],
-      paddingX: (theme) => [
-        get(theme, 'space.4'),
-        get(theme, 'space.5'),
-        get(theme, 'space.5'),
-      ],
+      paddingTop: [7, 7, 7, 9],
+      paddingX: [4, 5, 5],
       flexDirection: ['column', 'column', 'column', 'row'],
       justifyContent: 'space-between',
       alignItems: 'start',
@@ -61,12 +52,7 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
     <Flex
       sx={{
         flexDirection: ['column', 'row'],
-        marginTop: (theme) => [
-          get(theme, 'space.6'),
-          get(theme, 'space.6'),
-          get(theme, 'space.6'),
-          get(theme, 'space.0'),
-        ],
+        marginTop: [6, 6, 6, 0],
         justifyContent: 'space-between',
         width: ['100%', '100%', '100%', 'auto'],
       }}
@@ -79,24 +65,19 @@ const LinkGroups = ({ children }: PropsWithChildren<{}>) => (
 const Group = ({ title, children }: PropsWithChildren<{ title: string }>) => (
   <Box
     sx={{
-      marginRight: (theme) => [
-        get(theme, 'space.0'),
-        get(theme, 'space.0'),
-        get(theme, 'space.0'),
-        get(theme, 'space.7'),
-      ],
-      marginBottom: (theme) => [get(theme, 'space.2'), get(theme, 'space.3')],
+      marginRight: [0, 0, 0, 7],
+      marginBottom: [2, 3],
     }}
   >
     <Text
       as="p"
       sx={{
         color: 'white',
-        fontSize: (theme) => get(theme, 'fontSizes.3'),
+        fontSize: 3,
         lineHeight: 'action',
         fontStyle: 'normal',
         fontWeight: 'normal',
-        marginBottom: (theme) => get(theme, 'space.4'),
+        marginBottom: 4,
       }}
     >
       {title}
@@ -119,7 +100,7 @@ const Link = forwardRef((props: LinkProps, ref: Ref<HTMLAnchorElement>) => {
 
   const mergedSx = mergeSx<SxStyleProp>(
     {
-      fontSize: (theme) => get(theme, 'fontSizes.3'),
+      fontSize: 3,
       textDecoration: 'none',
       color: 'muted.2',
       '&:hover': {
@@ -159,7 +140,7 @@ const SocialMediaIcon = forwardRef(
         sx={{
           width: '2.5rem',
           height: '2.5rem',
-          marginRight: (theme) => get(theme, 'space.4'),
+          marginRight: 4,
           bg: '#111C2D',
           padding: '0.6rem',
           borderRadius: '100%',
@@ -197,8 +178,8 @@ const Extra = ({ children }: PropsWithChildren<{}>) => (
         flexDirection: ['column', 'column', 'row'],
         justifyContent: 'space-between',
         alignItems: ['start', 'start', 'center'],
-        paddingY: (theme) => get(theme, 'space.6'),
-        paddingX: (theme) => get(theme, 'space.5'),
+        paddingY: 6,
+        paddingX: 5,
       }}
     >
       {children}
@@ -209,7 +190,7 @@ const Extra = ({ children }: PropsWithChildren<{}>) => (
 const ExtraLinks = ({ children }: PropsWithChildren<{}>) => (
   <Flex
     sx={{
-      marginTop: (theme) => [get(theme, 'space.6'), get(theme, 'space.6'), 0],
+      marginTop: [6, 6, 0],
     }}
   >
     {children}
