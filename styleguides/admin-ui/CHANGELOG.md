@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.20.4...@vtex/admin-ui@0.21.0) (2020-09-09)
+
+
+### Bug Fixes
+
+* **admin:** export correct theme ([0f9ae1e](https://github.com/vtex/onda/commit/0f9ae1e10eb36e2085bc1d0fd9e0c960308622b5))
+
+
+### Features
+
+* **admin:** add theme sizes & convert space from px to rem ([2897a7d](https://github.com/vtex/onda/commit/2897a7de1832a578c31b732021ee690ef0bd2587))
+
+
+
+
+
 ## [0.20.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.20.3...@vtex/admin-ui@0.20.4) (2020-09-09)
 
 
