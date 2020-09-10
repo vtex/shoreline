@@ -4,18 +4,20 @@ import { useComponentSx } from '@vtex-components/theme'
 import { Box, BoxProps } from '../Box'
 
 /**
- * Component that abstracts all text variants on the DS
- * It renders a h1 if variant === headline
- * It renders a h2 if variant === subtitle
- * It renders a div for other variants
+ * The component that abstracts all text variants from admin's styleguide.
+ * - It renders a h1 if variant === headline.
+ * - It renders a h2 if variant === subtitle.
+ * - It renders a span for other variants.
  * @example
- * import { Text } from 'admin-ui'
+ * ```jsx
+ * import { Text } from `@vtex/admin-ui`
  *
- * To use a variant:
+ * // To use a variant:
  * <Text variant="small">A small text</Text>
  *
- * To render with a different tag:
+ * // To render with a different tag:
  * <Text as="p" variant="body">Look, a paragraph</Text>
+ * ```
  */
 export function Text({
   as = undefined,
@@ -61,5 +63,9 @@ export type TextVariant =
   | 'headline'
 
 export interface TextProps extends Omit<BoxProps, 'variant' | 'ref'> {
+  /**
+   * Text Variant
+   * @default body
+   */
   variant?: TextVariant
 }
