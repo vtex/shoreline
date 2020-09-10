@@ -11,10 +11,21 @@
 # Basic example
 
 ```jsx
-import { Popover } from '@vtex-component/popover'
-;<Popover size="small" disclosure={<button>Open popover</button>}>
-  <p>This is a Popover</p>
-</Popover>
+import { Popover, usePopoverState } from '@vtex-component/popover'
+
+const Example = () => {
+  const popover = usePopoverState()
+
+  return (
+    <Popover
+      {...popover}
+      size="small"
+      disclosure={<button>Open popover</button>}
+    >
+      <p>This is a Popover</p>
+    </Popover>
+  )
+}
 ```
 
 # Detailed design
