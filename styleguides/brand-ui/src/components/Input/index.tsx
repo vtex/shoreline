@@ -4,7 +4,7 @@ import { useInput } from 'reakit/Input'
 
 import { forwardRef } from '@vtex-components/utils'
 
-const pickPadding = (size: Size, focus: boolean) => {
+const pickPadding = (size: Size) => {
   const variants = {
     regular: {
       px: 13,
@@ -14,9 +14,6 @@ const pickPadding = (size: Size, focus: boolean) => {
       px: 13,
       py: 13,
     },
-  }
-  if (focus) {
-    variants.regular.py = 5
   }
 
   return variants?.[size] ?? variants.regular
@@ -29,7 +26,6 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
     helpMessage,
     prefix,
     suffix,
-    focus,
     ...restProps
   } = props
   const ref = useRef<HTMLInputElement>(null)
@@ -37,83 +33,85 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
   const { children, ...inputProps } = useInput({}, restProps)
 
   return (
-    <Box
-      onFocus={() => redirectFocus()}
-      onClick={() => redirectFocus()}
-    >
+    <Box onFocus={() => redirectFocus()} onClick={() => redirectFocus()}>
       <Flex
         sx={{
-          ...pickPadding(size, focus),
-          borderWidth: 1,
-          borderStyle: 'solid',
-          borderColor: 'muted.2',
-          borderRadius: 6,
+          position: 'relative',
           width: 'fit-content',
-          ':focus-within': {
-            borderWidth: 1,
-            borderStyle: 'solid',
-            borderColor: 'secondary.base',
-            outline: 'none',
+          'input:focus ~ label': {
+            padding: '0 4px',
+            transition: 'all 0.2s ease-in-out',
+            top: '-8px',
+            left: '8px',
+            backgroundColor: 'white',
+            width: 'fit-content',
+            fontSize: '14px',
+            transform: 'scale(.8)',
+            color: '#1976d2',
           },
         }}
         {...inputProps}
       >
-        {prefix && <Prefix prefix={prefix} />}
-        <span>
-          {focus && (
-            <Label sx={{ fontSize: 0, lineHeight: '1rem' }}>
-              {label}
-            </Label>
-          )}
-          <Input
-            ref={ref}
-            sx={{
-              border: 'none',
-              padding: 0,
-              ':focus': {
-                outline: 'none',
-                ":placeholder-shown": {
-
-                }
-              },
-            }}
-            placeholder={label}
-          />
-        </span>
-        {suffix && <Suffix suffix={suffix} />}
+        {prefix && (
+          <Flex sx={{
+            left: 0,
+            margin: ".5em",
+            position: "absolute",
+            top: 1, alignItems: 'center'
+          }} pl={5}>
+            {prefix}
+          </Flex>
+        )}
+        <Input
+          onChange={(e) => console.log(e.target.value)}
+          ref={ref}
+          sx={{
+            ...pickPadding(size),
+            borderWidth: 1,
+            borderStyle: 'solid',
+            borderColor: 'muted.2',
+            borderRadius: 6,
+            width: 'fit-content',
+            ':focus': {
+              outline: 'none',
+            },
+          }}
+        />
+        <Label
+          sx={{
+            width: 'fit-content',
+            display: 'inline-block',
+            position: 'absolute',
+            top: '20px',
+            left: '40px',
+            pointerEvents: 'none',
+            color: 'rgba(0, 0, 0, 0.5)',
+            transition: 'all 0.2s ease-in-out',
+          }}
+        >
+          {label}
+        </Label>
+        {suffix && (
+          <Flex sx={{
+            right: 0,
+            margin: ".5em",
+            position: "absolute",
+            top: 1, alignItems: 'center'
+          }} pl={5}>
+            {suffix}
+          </Flex>
+        )}
       </Flex>
-      {helpMessage && <HelpMessage text={helpMessage} />}
+      <div>{helpMessage && <HelpMessage text={helpMessage} />}</div>
     </Box>
   )
 }
-
-type PrefixProps = {
-  prefix: ReactNode
-}
-
-const Prefix = ({ prefix }: PrefixProps) => (
-  <Flex sx={{ alignItems: 'center' }} pl={5}>
-    {prefix}
-  </Flex>
-)
-
-type SuffixProps = {
-  suffix: ReactNode
-}
-
-const Suffix = ({ suffix }: SuffixProps) => (
-  <Flex sx={{ alignItems: 'center' }} pl={5}>
-    {suffix}
-  </Flex>
-)
 
 type HelpMessageProps = {
   text: string
 }
 const HelpMessage = ({ text }: HelpMessageProps) => (
-  <Text sx={{ mt: 5, fontSize: 0, color: 'muted.1' }}>
-    {text}
-  </Text>
+  <Text sx={{ mt: 5, fontSize: 0, color: 'muted.1' }}>{text}</Text>
 )
 
 export type Size = 'regular' | 'large'
@@ -124,7 +122,6 @@ export interface InputProps {
   label: string
   suffix?: ReactNode
   prefix?: ReactNode
-  focus?: boolean // Temporary (should be the actual state)
 }
 
 export default forwardRef(BrandInput)

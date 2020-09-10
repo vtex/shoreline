@@ -20,7 +20,7 @@ export default {
 const Template: Story<InputProps> = (args: InputProps) => {
   return (
     <Box sx={{ backgroundColor: 'white', p: 10 }}>
-      <h1>Focused</h1>
+      <p>Basic</p>
       <Input {...args} />
       <p>Suffix</p>
       <Input {...args} suffix={<div>😄</div>} />
@@ -28,19 +28,6 @@ const Template: Story<InputProps> = (args: InputProps) => {
       <Input {...args} prefix={<div>😄</div>} />
       <p>Suffix and prefix</p>
       <Input {...args} prefix={<div>😄</div>} suffix={<div>😄</div>} />
-      <h1>Unfocused</h1>
-      <Input {...args} focus={false} />
-      <p>Suffix</p>
-      <Input {...args} suffix={<div>😄</div>} focus={false} />
-      <p>Prefix</p>
-      <Input {...args} prefix={<div>😄</div>} focus={false} />
-      <p>Suffix and prefix</p>
-      <Input
-        {...args}
-        prefix={<div>😄</div>}
-        suffix={<div>😄</div>}
-        focus={false}
-      />
     </Box>
   )
 }
