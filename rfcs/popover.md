@@ -6,13 +6,13 @@
 
 # Summary
 
-`Popover` is a non-modal dialog that floats around its disclosure. Popovers contain helpful information such as an explanation of a context.
+`Popover` is a non-modal dialog that floats around its disclosure. Popovers contains helpful information such as an explanation of a context.
 
 # Basic example
 
 ```jsx
 import { Popover } from '@vtex-component/popover'
-<Popover size="small" disclosure={<button>Open popover</button>}>
+;<Popover size="small" disclosure={<button>Open popover</button>}>
   <p>This is a Popover</p>
 </Popover>
 ```
@@ -31,7 +31,7 @@ Placement = `"auto-start" | "auto" | "auto-end" | "top-start" | "top" | "top-end
 
 # Adoption strategy
 
-- This is a new feature, no breaking changes to any packages in `onda`.
+- This is a new feature, there are no breaking changes to any packages in `onda`.
 
 # Education
 
