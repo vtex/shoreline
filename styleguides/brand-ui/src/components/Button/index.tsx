@@ -1,8 +1,53 @@
 import React, { Ref } from 'react'
-import { SxStyleProp } from 'theme-ui'
+import { SxStyleProp, Flex } from 'theme-ui'
 import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
+import { useFocusRing } from '@react-aria/focus'
 import { forwardRef } from '@vtex-components/utils'
-import { get, mergeSx } from '@vtex-components/theme'
+import { get, mergeSx, useTheme } from '@vtex-components/theme'
+
+function useFocusHollow() {
+  const theme = useTheme()
+  const { isFocusVisible, focusProps } = useFocusRing()
+  const focusStyles = isFocusVisible
+    ? {
+        boxShadow: `0px 0px 0px ${get(theme, 'space.2')}px ${get(
+          theme,
+          'colors.focus'
+        )}`,
+      }
+    : {}
+
+  return { focusStyles, focusProps }
+}
+
+function useMeasures({
+  size,
+  icon,
+  iconPosition,
+  children,
+}: Pick<ButtonProps, 'size' | 'icon' | 'iconPosition' | 'children'>) {
+  const iconEnd = !!icon && iconPosition === 'end'
+  const containerStyles: SxStyleProp = {
+    flexDirection: iconEnd ? 'row-reverse' : 'row',
+  }
+
+  const iconStyles = children
+    ? iconEnd
+      ? { marginLeft: 3 }
+      : { marginRight: 3 }
+    : {}
+
+  const iconSize = size === 'small' ? 20 : 24
+
+  const resolvedSize = !!icon && !children ? `icon-${size}` : size
+  const iconProps = { sx: iconStyles, size: iconSize }
+
+  return {
+    resolvedSize,
+    containerStyles,
+    iconProps,
+  }
+}
 
 /**
  * Component that handles all Button variants of the DS.
@@ -14,42 +59,59 @@ import { get, mergeSx } from '@vtex-components/theme'
 export const Button = forwardRef(
   (props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     const {
+      block,
       size = 'regular',
       variant = 'primary',
       sx = {},
+      iconPosition = 'start',
+      icon,
       children,
       ...restProps
     } = props
 
-    const mergedSx = mergeSx<SxStyleProp>(
-      {
-        '&:focus': {
-          outline: 'none',
-          boxShadow: (theme) =>
-            `0px 0px 0 ${get(theme, 'space.1')}px ${get(
-              theme,
-              'colors.focus'
-            )}`,
-        },
-      },
-      sx
-    )
+    const { focusStyles, focusProps } = useFocusHollow()
+    const { containerStyles, resolvedSize, iconProps } = useMeasures({
+      children,
+      icon,
+      iconPosition,
+      size,
+    })
+
+    const renderIcon = () => icon?.(iconProps)
+
+    const blockStyles = block ? { display: 'block', width: '100%' } : {}
+
+    const buttonSx = mergeSx<SxStyleProp>(focusStyles, blockStyles)
+    const mergedSx = mergeSx<SxStyleProp>(sx, buttonSx)
 
     return (
       <BaseButton
         variant={variant}
-        size={size}
+        size={resolvedSize}
         sx={mergedSx}
         ref={ref}
         {...restProps}
+        {...focusProps}
       >
-        {children}
+        <Flex
+          sx={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: 'auto',
+            width: '100%',
+            height: '100%',
+            ...containerStyles,
+          }}
+        >
+          {renderIcon()}
+          {children}
+        </Flex>
       </BaseButton>
     )
   }
 )
 
-export type Variant = 'primary' | 'secondary'
+export type Variant = 'primary' | 'secondary' | 'tertiary'
 export type Size = 'small' | 'regular'
 export interface ButtonProps
   extends Pick<
@@ -78,4 +140,18 @@ export interface ButtonProps
    * @default primary
    * */
   variant?: Variant
+  /**
+   * Icon of the button
+   */
+  icon?: (props: { size: number; sx: SxStyleProp }) => JSX.Element
+  /**
+   * Position of the icon
+   * @default start
+   */
+  iconPosition?: 'start' | 'end'
+  /**
+   * Block type
+   * @default false
+   */
+  block?: boolean
 }

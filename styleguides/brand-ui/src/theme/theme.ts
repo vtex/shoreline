@@ -1,12 +1,11 @@
 import { Theme } from '@vtex-components/theme'
 
 export const theme: Theme = {
-  space: [0, 2, 4, 8, 16, 24, 32, 64, 96, 128, 160, 256],
   colors: {
     text: '#4A4A4A',
     background: '#C4C4C4',
     muted: ['#717786', '#A1A8B3', '#CCCED8', '#E7E9EE', '#F8F7FC'],
-    focus: '#F71963', // Missing spec
+    focus: '#FFC4DD',
     primary: {
       base: '#F71963',
       hover: '#D91657',
@@ -53,59 +52,75 @@ export const theme: Theme = {
   components: {
     button: {
       styles: {
+        textTransform: 'uppercase',
+        fontWeight: 'medium',
         borderWidth: 1,
         borderRadius: 3,
+        fontSize: 1,
         cursor: 'pointer',
         position: 'relative',
         border: 'none',
+        lineHeight: 1,
         '&:focus': {
           outline: 'none',
+        },
+        '&:disabled': {
+          color: 'white',
+          backgroundColor: 'muted.2',
         },
       },
       variant: {
         primary: {
-          textTransform: 'uppercase',
           color: 'primary.contrast',
           backgroundColor: 'primary.base',
-          fontWeight: 'medium',
           '&:hover': {
             backgroundColor: 'primary.hover',
           },
           '&:active': {
             backgroundColor: 'primary.active',
           },
-          '&:disabled': {
-            color: 'text',
-            backgroundColor: 'muted.2',
-          },
         },
         secondary: {
-          textTransform: 'uppercase',
           color: 'secondary.contrast',
           backgroundColor: 'secondary.base',
-          fontWeight: 'medium',
           '&:hover': {
             backgroundColor: 'secondary.hover',
           },
           '&:active': {
             backgroundColor: 'secondary.active',
           },
+        },
+        tertiary: {
+          color: 'secondary.base',
+          backgroundColor: 'transparent',
+          '&:hover': {
+            textDecoration: 'underline',
+          },
+          '&:active': {
+            textDecoration: 'underline',
+          },
           '&:disabled': {
-            color: 'text',
-            backgroundColor: 'muted.2',
+            color: 'muted.2',
+            backgroundColor: 'transparent',
           },
         },
       },
       size: {
         regular: {
-          height: 40,
-          width: 'auto',
+          height: 48,
           paddingX: 5,
         },
         small: {
           height: 32,
-          width: 'auto',
-          padding: 4,
+          paddingX: 4,
+        },
+        'icon-regular': {
+          height: 48,
+          paddingX: 4,
+        },
+        'icon-small': {
+          height: 32,
+          paddingX: 3,
         },
       },
     },
@@ -128,6 +143,7 @@ export const theme: Theme = {
     subtitle: 1.5,
     headline: 1.5,
   },
+  space: [0, 2, 4, 8, 16, 24, 32, 64, 96, 128, 160, 256],
   borderWidths: [0, 1, 2, 4, 6],
   borderRadius: [0, 1, 2, 4, 6],
 }
