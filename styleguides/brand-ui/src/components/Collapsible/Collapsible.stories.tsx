@@ -3,7 +3,6 @@ import { Meta } from '@storybook/react'
 import { Text } from 'theme-ui'
 
 import { Collapsible, useCollapsible } from './index'
-import { Button } from '../Button'
 
 export default {
   title: 'beta/Collapsible',
@@ -14,28 +13,9 @@ export const SimpleUsage = () => {
   const props = useCollapsible()
 
   return (
-    <Collapsible {...props} sx={{ width: '30%' }}>
+    <Collapsible {...props} sx={{ width: '40%' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
-      />
-      <Collapsible.Content>
-        It’s all about being ready to grow and reach new levels. Have a solid
-        foundation, modular thinking and flexible essence, and you’re building
-        for scale. We are global but we’re audacious enough to aim for the
-        stars.
-      </Collapsible.Content>
-    </Collapsible>
-  )
-}
-
-export const WithButtons = () => {
-  const props = useCollapsible()
-
-  return (
-    <Collapsible {...props} sx={{ width: '80%' }}>
-      <Collapsible.Header
-        label="Build for Community 1"
-        sx={{ borderBottom: 'solid', borderColor: 'muted.3' }}
       />
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
@@ -53,17 +33,10 @@ export const NestedCollapsible = () => {
 
   return (
     <Collapsible {...firstProps} sx={{ width: '40%' }}>
-      <Collapsible.Header
-        label={<Text variant="highlight">Build for Community #1</Text>}
-      >
-        <Button variant="primary">Action</Button>
-        <Button>Button</Button>
-      </Collapsible.Header>
+      <Collapsible.Header label="Build for Community #1" />
       <Collapsible.Content>
         <Collapsible {...secondProps}>
-          <Collapsible.Header
-            label={<Text variant="highlight">Build for Community #2</Text>}
-          />
+          <Collapsible.Header label="Build for Community #2" />
           <Collapsible.Content>
             It’s all about being ready to grow and reach new levels. Have a
             solid foundation, modular thinking and flexible essence, and you’re
@@ -80,13 +53,8 @@ export const InitiallyVisible = () => {
   const firstProps = useCollapsible({ visible: true })
 
   return (
-    <Collapsible {...firstProps} sx={{ width: '30%' }}>
-      <Collapsible.Header
-        iconPosition="end"
-        label={<Text variant="highlight">Build for Community #1</Text>}
-      >
-        <Button size="small">Action</Button>
-      </Collapsible.Header>
+    <Collapsible {...firstProps} sx={{ width: '40%' }}>
+      <Collapsible.Header iconPosition="end" label="Build for Community #1" />
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
