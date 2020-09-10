@@ -1,5 +1,6 @@
 import React from 'react'
 import { useComponentSx } from '@vtex-components/theme'
+import { SxStyleProp } from 'theme-ui'
 
 import { Box, BoxProps } from '../Box'
 
@@ -22,7 +23,7 @@ import { Box, BoxProps } from '../Box'
 export function Text({
   as = undefined,
   variant = 'body',
-  sx,
+  sx = {},
   ...props
 }: TextProps) {
   const tag = getTag(variant)
@@ -62,10 +63,14 @@ export type TextVariant =
   | 'subtitle'
   | 'headline'
 
-export interface TextProps extends Omit<BoxProps, 'variant' | 'ref'> {
+export interface TextProps extends Pick<BoxProps, 'as' | 'children'> {
   /**
    * Text Variant
    * @default body
    */
   variant?: TextVariant
+  /**
+   * ThemeUI style prop
+   */
+  sx?: SxStyleProp
 }
