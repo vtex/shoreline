@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.3.7...@vtex/brand-ui@0.4.0) (2020-09-10)
+
+
+### Bug Fixes
+
+* **button:** colors and sizes of the brand button ([b7523f0](https://github.com/vtex/onda/commit/b7523f05172d93204ca6193f301998eabe65dbcb))
+* **button:** colors when the button is disabled ([a4a70ae](https://github.com/vtex/onda/commit/a4a70aec131eee8e309aa477d6788b073ae138a7))
+
+
+### Features
+
+* **button:** add block prop in the brand button ([91a537a](https://github.com/vtex/onda/commit/91a537a75f27ef3b2fd07791b103ff13ccf19745))
+
+
+
+
+
 ## [0.3.7](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.3.6...@vtex/brand-ui@0.3.7) (2020-09-09)
 
 
