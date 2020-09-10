@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.21.0...@vtex/admin-ui@0.21.1) (2020-09-10)
+
+
+### Bug Fixes
+
+* **text:** fix Text props interface ([929e7ab](https://github.com/vtex/onda/commit/929e7ab292cb1421548c76c0ea002fc7a72330db))
+
+
+
+
+
 # [0.21.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.20.4...@vtex/admin-ui@0.21.0) (2020-09-09)
 
 
