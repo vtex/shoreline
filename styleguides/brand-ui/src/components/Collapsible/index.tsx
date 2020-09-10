@@ -9,6 +9,7 @@ import {
 
 import { CollapsibleProvider, useCollapsibleContext } from './context'
 import { Button } from '../Button'
+import { IconCaret } from '../../icons'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
@@ -24,37 +25,24 @@ import { Button } from '../Button'
  * </Collapsible>
  * ```
  */
-export function Collapsible(props: CollapsibleProps) {
-  const { sx, children, ...disclosureProps } = props
-
+export function Collapsible({ sx, children, ...props }: CollapsibleProps) {
   return (
-    <Box
-      sx={{
-        backgroundColor: 'white',
-        border: 'solid',
-        borderColor: 'muted.3',
-        borderWidth: 1,
-        borderRadius: 3,
-        ...sx,
-      }}
-    >
-      <CollapsibleProvider {...disclosureProps}>{children}</CollapsibleProvider>
+    <Box sx={sx}>
+      <CollapsibleProvider {...props}>{children}</CollapsibleProvider>
     </Box>
   )
 }
 
-function Header({ children, label, sx }: HeaderProps) {
+function Header({ children, label, sx, iconPosition = 'end' }: HeaderProps) {
   return (
     <Flex
       sx={{
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: 13,
-        paddingLeft: 12,
         ...sx,
       }}
     >
-      <Disclosure>{label}</Disclosure>
+      <Disclosure iconPosition={iconPosition}>{label}</Disclosure>
       <Flex
         sx={{
           '& button:nth-of-type(n+2)': {
@@ -68,23 +56,30 @@ function Header({ children, label, sx }: HeaderProps) {
   )
 }
 
-function Disclosure({ children }: { children: ReactNode }) {
+function Disclosure({
+  children,
+  iconPosition,
+}: Pick<HeaderProps, 'children' | 'iconPosition'>) {
   const { visible, ...disclosureProps } = useCollapsibleContext()
 
   return (
     <ReakitDisclosure visible={visible} {...disclosureProps}>
-      {(enhancedProps) => {
-        return (
-          <Button
-            {...enhancedProps}
-            sx={{ color: 'text' }}
-            iconPosition="start"
-            variant="tertiary"
-          >
+      {(enhancedProps) => (
+        <Button
+          {...enhancedProps}
+          sx={{ color: 'text', paddingX: 0 }}
+          iconPosition={iconPosition}
+          variant="tertiary"
+          block
+          icon={(iconProps) => (
+            <IconCaret {...iconProps} direction={visible ? 'right' : 'down'} />
+          )}
+        >
+          <Flex sx={{ justifyContent: 'start', width: '100%' }}>
             {children}
-          </Button>
-        )
-      }}
+          </Flex>
+        </Button>
+      )}
     </ReakitDisclosure>
   )
 }
@@ -125,6 +120,11 @@ export interface CollapsibleProps extends DisclosureProps {
 }
 
 export interface HeaderProps {
+  /**
+   * Disclosure button icon position
+   * @default end
+   */
+  iconPosition?: 'end' | 'start'
   /**
    * Disclosure Button label
    */

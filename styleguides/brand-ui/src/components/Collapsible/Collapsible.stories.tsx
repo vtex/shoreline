@@ -33,11 +33,10 @@ export const WithButtons = () => {
 
   return (
     <Collapsible {...props} sx={{ width: '80%' }}>
-      <Collapsible.Header label="Build for Community #1">
-        <Button size="small">Action 1</Button>
-        <Button size="small">Action 2</Button>
-        <Button size="small">Action 3</Button>
-      </Collapsible.Header>
+      <Collapsible.Header
+        label="Build for Community 1"
+        sx={{ borderBottom: 'solid', borderColor: 'muted.3' }}
+      />
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
@@ -83,6 +82,7 @@ export const InitiallyVisible = () => {
   return (
     <Collapsible {...firstProps} sx={{ width: '30%' }}>
       <Collapsible.Header
+        iconPosition="end"
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
         <Button size="small">Action</Button>
