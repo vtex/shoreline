@@ -20,7 +20,7 @@ export function Checkbox({ sx, label, ...reakitProps }: CheckboxProps) {
       sx={{
         appearance: 'none',
         border: (theme) => `${theme.sizes[1]} solid ${theme.colors.muted[1]}`,
-        borderRadius: 4,
+        borderRadius: 3,
         outline: 'none',
         cursor: 'pointer',
         width: 7,
