@@ -1,0 +1,78 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+
+import { Menu } from './index'
+import { Button } from '../Button'
+import { IconCaret, IconFavorite, IconLink, IconDownload } from '../../icons'
+
+<Meta title="alpha/Menu" component={Menu} />
+
+# Menu
+
+With `MDX` we can define a story for `Menu` right in the middle of our
+Markdown documentation.
+
+<Canvas>
+  <Story name="Base">
+    <Menu
+      disclosure={
+        <Button
+          icon={(props) => <IconCaret {...props} direction="down" />}
+          iconPosition="end"
+        >
+          Action Menu
+        </Button>
+      }
+      items={[
+        <Button
+          sx={{
+            color: 'text',
+            ':hover': {
+              color: 'text',
+            },
+            width: 'full',
+            div: {
+              justifyContent: 'flex-start',
+            },
+          }}
+          variant="subtle"
+          icon={IconDownload}
+        >
+          Download
+        </Button>,
+        <Button
+          sx={{
+            display: 'flex',
+            color: 'text',
+            ':hover': {
+              color: 'text',
+            },
+            width: 'full',
+            div: {
+              justifyContent: 'flex-start',
+            },
+          }}
+          variant="subtle"
+          icon={IconLink}
+        >
+          Link to
+        </Button>,
+        <Button
+          sx={{
+            color: 'text',
+            ':hover': {
+              color: 'text',
+            },
+            width: 'full',
+            div: {
+              justifyContent: 'flex-start',
+            },
+          }}
+          variant="subtle"
+          icon={IconFavorite}
+        >
+          Favorite
+        </Button>,
+      ]}
+    />
+  </Story>
+</Canvas>
