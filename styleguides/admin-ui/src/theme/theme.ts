@@ -113,7 +113,7 @@ export const theme = {
         borderColor: 'muted.2',
       },
     },
-    menuItem: {
+    'menu--item': {
       styles: {
         color: 'text',
         ':hover': {

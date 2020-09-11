@@ -20,6 +20,18 @@ import { mergeSx, useComponentSx } from '@vtex-components/theme'
 
 import { Button, ButtonProps } from '../Button'
 
+/**
+ * Accessible menu component
+ * @example
+ * ```jsx
+ * import { Menu, Button } from `@vtex/admin-ui`
+ *
+ * <Menu discolure={<Button>Open menu</Button>}>
+ *   <Menu.Item>Item one</Menu.Item>
+ *   <Menu.Item>...</Menu.Item>
+ * </Menu>
+ * ```
+ */
 function Menu(props: MenuProps) {
   const {
     disclosure,
@@ -69,10 +81,23 @@ function Menu(props: MenuProps) {
   )
 }
 
+/**
+ * Accessible menu item component
+ * ⚠️ You must use it within admin-ui/menu component context.
+ * @example
+ * ```jsx
+ * import { Menu, Button } from `@vtex/admin-ui`
+ *
+ * <Menu discolure={<Button>Open menu</Button>}>
+ *   <Menu.Item>Item one</Menu.Item>
+ *   <Menu.Item>...</Menu.Item>
+ * </Menu>
+ * ```
+ */
 Menu.Item = forwardRef((props: MenuItemProps, ref: Ref<HTMLButtonElement>) => {
   const { sx = {}, ...buttonProps } = props
 
-  const componentStyles = useComponentSx('menuItem', {})
+  const componentStyles = useComponentSx('menu--item', {})
   const styles = mergeSx<SxStyleProp>(componentStyles, sx)
 
   return <Button ref={ref} sx={styles} variant="subtle" {...buttonProps} />
