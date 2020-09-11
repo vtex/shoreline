@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { jsx, Box, SxStyleProp } from 'theme-ui'
-import { FunctionComponentElement, Fragment, cloneElement } from 'react'
+import { Box, SxStyleProp } from 'theme-ui'
+import React, { FunctionComponentElement, cloneElement } from 'react'
 import {
   useTooltipState,
   Tooltip as ReakitTooltip,
@@ -51,17 +50,17 @@ function Tooltip(props: TooltipProps) {
     children,
     label,
     arrow,
-    placement,
+    placement = 'top',
     visible,
     ...tooltipProps
   } = props
 
-  const tooltip = useTooltipState({ placement: placement ?? 'top', visible })
+  const tooltip = useTooltipState({ placement, visible })
 
   const styles = useComponentSx('tooltip', {})
 
   return (
-    <Fragment>
+    <>
       <TooltipReference {...tooltip} {...children.props} ref={children.ref}>
         {(referenceProps) => cloneElement(children, { ...referenceProps })}
       </TooltipReference>
@@ -69,7 +68,7 @@ function Tooltip(props: TooltipProps) {
         {arrow && cloneElement(arrow, { ...tooltip })}
         <Box sx={mergeSx<SxStyleProp>(styles, sx)}>{label}</Box>
       </ReakitTooltip>
-    </Fragment>
+    </>
   )
 }
 
@@ -93,8 +92,8 @@ export interface TooltipProps extends Omit<ReakitProps, 'as'> {
    */
   sx?: SxStyleProp
   /**
-   * The size of the arrow, if the arrow is enabled
-   * @default The reakit default size
+   * The placement of the tooltip relative to its children
+   * @default 'top'
    */
   placement?: Placement
   /**
