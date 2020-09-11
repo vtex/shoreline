@@ -1,27 +1,21 @@
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
 import serializer from 'jest-emotion'
 
 import { ThemeProvider } from '../../theme'
-import { Collapsible, useCollapsible } from './index'
+import { Collapsible } from './index'
 
 expect.addSnapshotSerializer(serializer)
 
-function StatefulCollpasible({ children }: PropsWithChildren<{}>) {
-  const state = useCollapsible()
-
-  return <Collapsible {...state}>{children}</Collapsible>
-}
-
-describe('Button tests', () => {
+describe('Collapsible tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <StatefulCollpasible>
+        <Collapsible toggle={() => {}} baseId="">
           <Collapsible.Header label="Label" />
           <Collapsible.Content>Content</Collapsible.Content>
-        </StatefulCollpasible>
+        </Collapsible>
       </ThemeProvider>
     )
 

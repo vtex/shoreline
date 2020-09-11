@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button tests should match snapshot 1`] = `
+exports[`Skeleton tests should match snapshot 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button tests should match snapshot 1`] = `
+exports[`Collapsible tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-6 {
   box-sizing: border-box;
@@ -162,7 +162,7 @@ exports[`Button tests should match snapshot 1`] = `
       class="emotion-4"
     >
       <button
-        aria-controls="id-tc28si"
+        aria-controls=""
         aria-expanded="false"
         class="emotion-2"
         type="button"
@@ -194,7 +194,7 @@ exports[`Button tests should match snapshot 1`] = `
     <div
       class="emotion-5"
       hidden=""
-      id="id-tc28si"
+      id=""
       style="display: none;"
     >
       Content

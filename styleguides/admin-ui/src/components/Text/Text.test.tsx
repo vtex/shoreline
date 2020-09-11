@@ -8,7 +8,7 @@ import { Text, TextVariant } from './index'
 
 expect.addSnapshotSerializer(serializer)
 
-describe('Button tests', () => {
+describe('Text tests', () => {
   it('should match snapshot', () => {
     const variants = [
       'small',

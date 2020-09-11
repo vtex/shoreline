@@ -8,7 +8,7 @@ import { Card } from './index'
 
 expect.addSnapshotSerializer(serializer)
 
-describe('Button tests', () => {
+describe('Card tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>

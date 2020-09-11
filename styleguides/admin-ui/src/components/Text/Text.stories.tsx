@@ -7,6 +7,9 @@ import { Text, TextProps } from './index'
 export default {
   title: 'beta/Text',
   component: Text,
+  parameters: {
+    jest: 'Text.test.tsx',
+  },
 } as Meta
 
 const Template: Story<TextProps> = (args) => <Text {...args} />

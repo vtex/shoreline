@@ -8,6 +8,9 @@ import { Text } from '../Text'
 export default {
   title: 'beta/Collapsible',
   component: Collapsible,
+  parameters: {
+    jest: 'Collapsible.test.tsx',
+  },
 } as Meta
 
 export const SimpleUsage = () => {

@@ -8,7 +8,7 @@ import { Skeleton, Shape } from './index'
 
 expect.addSnapshotSerializer(serializer)
 
-describe('Button tests', () => {
+describe('Skeleton tests', () => {
   it('should match snapshot', () => {
     const shapes = ['circle', 'rect'] as Shape[]
 

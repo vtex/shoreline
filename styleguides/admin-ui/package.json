@@ -26,8 +26,11 @@
   "scripts": {
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
-    "test": "tsdx test --passWithNoTests",
+    "test": "tsdx test",
+    "test:generate-output": "yarn test --json --outputFile=.jest-test-results.json || true",
+    "prestorybook": "yarn test:generate-output",
     "storybook": "start-storybook -p 6006",
+    "prebuild:storybook": "yarn test:generate-output",
     "build:storybook": "yarn --cwd ../../ bootstrap && yarn run build-storybook"
   },
   "devDependencies": {

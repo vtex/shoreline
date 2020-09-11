@@ -7,6 +7,9 @@ import { Text } from '../Text'
 export default {
   title: 'beta/Card',
   component: Card,
+  parameters: {
+    jest: 'Card.test.tsx',
+  },
 } as Meta
 
 export const Example = () => {

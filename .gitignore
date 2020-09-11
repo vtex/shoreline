@@ -6,6 +6,9 @@ packages/icons/native
 **/coverage
 storybook-static
 
+# test results
+.jest-test-results.json
+
 
 # No npm allowed
 package-lock.json
