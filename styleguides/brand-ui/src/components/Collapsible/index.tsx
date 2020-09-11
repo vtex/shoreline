@@ -33,33 +33,7 @@ export function Collapsible({ sx, children, ...props }: CollapsibleProps) {
   )
 }
 
-function Header({ children, label, sx, iconPosition = 'end' }: HeaderProps) {
-  return (
-    <Flex
-      sx={{
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        ...sx,
-      }}
-    >
-      <Disclosure iconPosition={iconPosition}>{label}</Disclosure>
-      <Flex
-        sx={{
-          '& button:nth-of-type(n+2)': {
-            marginLeft: 3,
-          },
-        }}
-      >
-        {children}
-      </Flex>
-    </Flex>
-  )
-}
-
-function Disclosure({
-  children,
-  iconPosition,
-}: Pick<HeaderProps, 'children' | 'iconPosition'>) {
+function Header({ children, sx, iconPosition = 'end' }: HeaderProps) {
   const { visible, ...disclosureProps } = useCollapsibleContext()
 
   return (
@@ -67,7 +41,7 @@ function Disclosure({
       {(enhancedProps) => (
         <Button
           {...enhancedProps}
-          sx={{ color: 'text', paddingX: 0 }}
+          sx={{ color: 'text', paddingX: 2, ...sx }}
           iconPosition={iconPosition}
           variant="tertiary"
           block
@@ -90,7 +64,7 @@ function Content({ children, sx }: ContentProps) {
   return (
     <DisclosureContent {...props}>
       {(enhancedProps) => (
-        <Box {...enhancedProps} sx={{ paddingX: 13, paddingBottom: 13, ...sx }}>
+        <Box {...enhancedProps} sx={{ p: 3, ...sx }}>
           {children}
         </Box>
       )}
@@ -126,11 +100,7 @@ export interface HeaderProps {
    */
   iconPosition?: 'end' | 'start'
   /**
-   * Disclosure Button label
-   */
-  label?: ReactNode
-  /**
-   * Actions panel
+   * Disclosure content
    */
   children?: ReactNode
   /** custom styles */
