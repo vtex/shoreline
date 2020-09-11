@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  padding: 1.5rem;
+  background-color: var(--theme-ui-colors-background,#FFFFFF);
+  border: solid;
+  border-color: var(--theme-ui-colors-muted-3,#D7DADF);
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Example card
+  </div>
+</DocumentFragment>
+`;
