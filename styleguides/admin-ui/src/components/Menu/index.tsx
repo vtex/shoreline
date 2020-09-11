@@ -16,18 +16,9 @@ import {
   MenuButton,
   MenuState,
 } from 'reakit/Menu'
-import { get, mergeSx } from '@vtex-components/theme'
+import { mergeSx, useComponentSx } from '@vtex-components/theme'
 
 import { Button, ButtonProps } from '../Button'
-
-export interface MenuProps extends Pick<MenuState, 'placement'> {
-  disclosure: FunctionComponentElement<unknown>
-  children: ReactElement[]
-  label: string
-  sx?: SxStyleProp
-  disabled?: boolean
-  loop?: boolean
-}
 
 function Menu(props: MenuProps) {
   const {
@@ -35,27 +26,14 @@ function Menu(props: MenuProps) {
     children,
     label,
     disabled = false,
-    placement = 'bottom',
-    loop = false,
+    placement = 'bottom-start',
     sx = {},
     ...baseProps
   } = props
 
-  const menu = useMenuState({ orientation: 'vertical', placement, loop })
-
-  const styles = mergeSx<SxStyleProp>(
-    {
-      flexDirection: 'column',
-      background: (theme) => get(theme, 'colors.background'),
-      border: (theme) =>
-        `${get(theme, 'sizes.1')} solid ${get(theme, 'colors.muted.2')}`,
-      marginTop: 4,
-      padding: 5,
-      minWidth: 20,
-      borderRadius: 3,
-    },
-    sx
-  )
+  const menu = useMenuState({ orientation: 'vertical', loop: true, placement })
+  const componentStyles = useComponentSx('menu', {})
+  const styles = mergeSx<SxStyleProp>(componentStyles, sx)
 
   return (
     <Fragment>
@@ -91,27 +69,40 @@ function Menu(props: MenuProps) {
   )
 }
 
-export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
-
-function Item(props: MenuItemProps, ref: Ref<HTMLButtonElement>) {
+Menu.Item = forwardRef((props: MenuItemProps, ref: Ref<HTMLButtonElement>) => {
   const { sx = {}, ...buttonProps } = props
-  const styles = mergeSx<SxStyleProp>(
-    {
-      color: 'text',
-      ':hover': {
-        color: 'text',
-      },
-      width: 'full',
-      div: {
-        justifyContent: 'flex-start',
-      },
-    },
-    sx
-  )
+
+  const componentStyles = useComponentSx('menuItem', {})
+  const styles = mergeSx<SxStyleProp>(componentStyles, sx)
 
   return <Button ref={ref} sx={styles} variant="subtle" {...buttonProps} />
-}
+})
 
-Menu.Item = forwardRef(Item)
+export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
+
+export interface MenuProps extends Pick<MenuState, 'placement'> {
+  /**
+   * Menu visibility toggle
+   */
+  disclosure: FunctionComponentElement<unknown>
+  /**
+   * Menu items
+   */
+  children: ReactElement[]
+  /**
+   * aria-label of menu
+   */
+  label: string
+  /**
+   * Custom box sytles
+   * @default {}
+   */
+  sx?: SxStyleProp
+  /**
+   * If is disabled or not
+   * @default false
+   */
+  disabled?: boolean
+}
 
 export { Menu }
