@@ -28,6 +28,29 @@ function UseCase() {
 }
 ```
 
+### With arrow
+
+If you want your tooltip to have an arrow, you can pass it to the tooltip as a prop. On the following example,
+it's shown how you can use the Reakit TooltipArrow with the tooltip, but you can design any arrow you want.
+The tooltip state is passed to the arrow, so you can access the placement and visibility of the tooltip.
+
+```js
+import Tooltip from '@vtex-components/toolitp'
+import { TooltipArrow } from 'reakit'
+
+function Arrow(props) {
+  return <TooltipArrow {...props} />;
+}
+
+function TooltipExample() {
+  return(
+    <Tooltip label="Tooltip label" placement="top" arrow={<Arrow />}>
+      <button>Children component</button>
+    </Tooltip>
+  )
+}
+```
+
 ## 🎨 Theming
 
 | Modifier | Description         |
@@ -55,32 +78,9 @@ const theme = {
 
 | prop      | type        | description                                              | default | required |
 | --------- | ----------- | -------------------------------------------------------- | ------- | -------- |
-| children  | ReactNode   | Element that triggers the tooltip                        | -       | ✔️       |
-| label     | String      | Text shown in the tooltip                                | -       | ✔️       |
+| children  | ReactNode   | Element that triggers the tooltip                        | -       | ✔️        |
+| label     | String      | Text shown in the tooltip                                | -       | ✔️        |
 | arrow     | ReactNode   | Arrow element, if you want your tooltip to have an arrow | -       | 🚫       |
 | placement | Placement   | The placement of the tooltip relative to its children    | top     | 🚫       |
 | visible   | boolean     | Whether the tooltip is visible or not                    | -       | 🚫       |
 | sx        | SxStyleProp | Theme-ui style prop                                      | -       | 🚫       |
-
-### Arrow example
-
-If you want your tooltip to have an arrow, you can pass it to the tooltip as a prop. On the following example,
-it's shown how you can use the Reakit TooltipArrow with the tooltip, but you can design any arrow you want.
-The tooltip state is passed to the arrow, so you can access the placement and visibility of the tooltip.
-
-```js
-import Tooltip from '@vtex-components/toolitp'
-import { TooltipArrow } from 'reakit'
-
-function Arrow(props) {
-  return <TooltipArrow {...props} />;
-}
-
-function TooltipExample() {
-  return(
-    <Tooltip label="Tooltip label" placement="top" arrow={<Arrow />}>
-      <button>Children component</button>
-    </Tooltip>
-  )
-}
-```
