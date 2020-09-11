@@ -34,7 +34,7 @@ export type Placement =
  * You may configure your `components.tooltip` property of the theme object.
  * @example
  * ```jsx
- * import { Button, ButtonProps } from `@vtex-components/button`
+ * import { Tooltip } from `@vtex-components/tooltip`
  *
  * const theme = {
  *  components: {
