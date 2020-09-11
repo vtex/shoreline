@@ -23,7 +23,7 @@ function Fonts() {
         * {
           font-family: 'VTEX Trust Variable', -apple-system, system-ui,
             BlinkMacSystemFont, sans-serif;
-          font-variation-settings: 'wght' 80;
+          font-variation-settings: 'wght' 92;
         }
       `}
     />

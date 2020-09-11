@@ -55,8 +55,8 @@ export const Button = forwardRef(
             alignItems: 'center',
             justifyContent: 'center',
             margin: 'auto',
-            width: '100%',
-            height: '100%',
+            width: 'full',
+            height: 'full',
             ...containerStyles,
           }}
         >
@@ -73,7 +73,7 @@ function useFocusHollow() {
   const { isFocusVisible, focusProps } = useFocusRing()
   const focusStyles = isFocusVisible
     ? {
-        boxShadow: `0px 0px 0px ${get(theme, 'space.2')}px ${get(
+        boxShadow: `0rem 0rem 0rem ${get(theme, 'space.2')} ${get(
           theme,
           'colors.focus'
         )}`,
@@ -110,8 +110,8 @@ function useMeasures({
 function getIconProps(size: Size) {
   const styles = {
     size: {
-      regular: 24,
-      small: 20,
+      regular: 8,
+      small: 7,
     },
     margin: 3,
   }

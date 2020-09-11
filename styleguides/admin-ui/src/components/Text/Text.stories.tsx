@@ -31,7 +31,7 @@ export const FontSx = () => (
   <Text
     variant="highlight"
     sx={{
-      width: '30%',
+      width: '1/3',
       textAlign: 'justify',
     }}
   >
@@ -46,7 +46,7 @@ export const FontSx = () => (
 )
 
 export const NativeElements = () => (
-  <Box sx={{ width: '256px' }}>
+  <Box sx={{ width: 21 }}>
     <h1>Heading one</h1>
     <h2>Heading two</h2>
     <h3>Heading three</h3>
