@@ -4,7 +4,7 @@ Elementary tooltip component that can be reused by all VTEX Styleguides.
 You can use reakit full features (except the 'as' prop) and theme-ui's sx.
 It renders a tooltip element by default.
 
-> This is a styled base component, so any system can theme it. You may configure your `components.tooltip` property of the theme object (check the theming section).
+> This is a styled base component, so any system can theme it. You may configure your `components.tooltip` property of the theme object (check the [theming](#-theming) section).
 
 ## Install
 
@@ -21,7 +21,7 @@ npm install @vtex-components/tooltip
 ## Usage
 
 ```jsx
-import Tooltip from '@vtex-components/toolitp'
+import Tooltip from '@vtex-components/tooltip'
 
 function UseCase() {
   return <Tooltip label="Tooltip text here"><button>Children</button></Tooltip>
@@ -35,7 +35,7 @@ it's shown how you can use the Reakit TooltipArrow with the tooltip, but you can
 The tooltip state is passed to the arrow, so you can access the placement and visibility of the tooltip.
 
 ```js
-import Tooltip from '@vtex-components/toolitp'
+import Tooltip from '@vtex-components/tooltip'
 import { TooltipArrow } from 'reakit'
 
 function Arrow(props) {
