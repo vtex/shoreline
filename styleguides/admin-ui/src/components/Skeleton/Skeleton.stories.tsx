@@ -31,8 +31,8 @@ export const Fluid = () => {
   return (
     <Box
       sx={{
-        width: '100%',
-        height: 200,
+        width: 'full',
+        height: 19,
       }}
     >
       <Skeleton />
@@ -45,16 +45,16 @@ export const TextExample = () => {
 
   return (
     <Fragment>
-      <Box sx={{ width: 400 }}>
+      <Box sx={{ width: 'sm' }}>
         {loading ? (
           <Box>
-            <Skeleton sx={{ height: 24, width: '40%' }} />
-            <Skeleton sx={{ height: 14 }} />
-            <Skeleton sx={{ height: 14 }} />
-            <Skeleton sx={{ height: 14 }} />
-            <Skeleton sx={{ height: 14 }} />
-            <Skeleton sx={{ height: 14 }} />
-            <Skeleton sx={{ height: 14, width: '50%' }} />
+            <Skeleton sx={{ height: 8, width: '2/5' }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6, width: '1/2' }} />
           </Box>
         ) : (
           <Box>

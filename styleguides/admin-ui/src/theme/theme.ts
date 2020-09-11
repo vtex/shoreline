@@ -102,8 +102,8 @@ export const theme = {
     skeleton: {
       styles: {
         display: 'inline-block',
-        width: '100%',
-        height: '100%',
+        width: 'full',
+        height: 'full',
         backgroundColor: 'muted.4',
         backgroundSize: `200px 100%`,
         backgroundRepeat: 'no-repeat',
@@ -133,7 +133,7 @@ export const theme = {
         regular: {
           paddingY: 5,
           fontSize: 1,
-          height: 40,
+          height: 12,
           width: 'auto',
           paddingLeft: 9,
           paddingRight: 9,
@@ -141,15 +141,15 @@ export const theme = {
         'regular-icon': {
           paddingY: 5,
           fontSize: 1,
-          height: 40,
-          width: 40,
+          height: 12,
+          width: 12,
           paddingLeft: 3,
           paddingRight: 3,
         },
         'regular-icon-start': {
           paddingY: 5,
           fontSize: 1,
-          height: 40,
+          height: 12,
           width: 'auto',
           paddingLeft: 5,
           paddingRight: 7,
@@ -157,7 +157,7 @@ export const theme = {
         'regular-icon-end': {
           paddingY: 5,
           fontSize: 1,
-          height: 40,
+          height: 12,
           width: 'auto',
           paddingLeft: 7,
           paddingRight: 5,
@@ -165,7 +165,7 @@ export const theme = {
         small: {
           paddingY: 4,
           fontSize: 0,
-          height: 32,
+          height: 10,
           width: 'auto',
           paddingLeft: 7,
           paddingRight: 7,
@@ -173,15 +173,15 @@ export const theme = {
         'small-icon': {
           paddingY: 4,
           fontSize: 0,
-          height: 32,
-          width: 32,
+          height: 10,
+          width: 10,
           paddingLeft: 2,
           paddingRight: 2,
         },
         'small-icon-start': {
           paddingY: 4,
           fontSize: 0,
-          height: 32,
+          height: 10,
           width: 'auto',
           paddingLeft: 5,
           paddingRight: 7,
@@ -189,7 +189,7 @@ export const theme = {
         'small-icon-end': {
           paddingY: 4,
           fontSize: 0,
-          height: 32,
+          height: 10,
           width: 'auto',
           paddingLeft: 7,
           paddingRight: 5,
@@ -200,7 +200,7 @@ export const theme = {
           textTransform: 'uppercase',
           color: 'primary.contrast',
           backgroundColor: 'primary.base',
-          fontVariationSettings: "'wght' 100",
+          fontVariationSettings: "'wght' 92",
           borderColor: 'primary.base',
           '&:hover': {
             backgroundColor: 'primary.hover',
@@ -221,7 +221,7 @@ export const theme = {
           backgroundColor: 'transparent',
           borderColor: 'muted.2',
           color: 'primary.base',
-          fontVariationSettings: "'wght' 100",
+          fontVariationSettings: "'wght' 92",
           '&:hover': {
             backgroundColor: 'primary.washed',
             color: 'primary.hover',
@@ -239,7 +239,7 @@ export const theme = {
           textTransform: 'capitalize',
           backgroundColor: 'transparent',
           color: 'primary.base',
-          fontVariationSettings: "'wght' 80",
+          fontVariationSettings: "'wght' 92",
           '&:hover': {
             color: 'primary.hover',
             backgroundColor: 'primary.washed',
@@ -256,7 +256,7 @@ export const theme = {
           textTransform: 'uppercase',
           color: 'danger.contrast',
           backgroundColor: 'danger.base',
-          fontVariationSettings: "'wght' 100",
+          fontVariationSettings: "'wght' 92",
           borderColor: 'danger.base',
           '&:hover': {
             borderColor: 'danger.hover',
@@ -277,7 +277,7 @@ export const theme = {
           backgroundColor: 'transparent',
           borderColor: 'muted.2',
           color: 'danger.base',
-          fontVariationSettings: "'wght' 100",
+          fontVariationSettings: "'wght' 92",
           '&:hover': {
             backgroundColor: 'danger.washed',
             color: 'danger.hover',
@@ -295,7 +295,7 @@ export const theme = {
           textTransform: 'capitalize',
           backgroundColor: 'transparent',
           color: 'danger.base',
-          fontVariationSettings: "'wght' 80",
+          fontVariationSettings: "'wght' 92",
           '&:hover': {
             color: 'danger.hover',
             backgroundColor: 'danger.washed',
@@ -324,23 +324,23 @@ export const theme = {
         },
         highlight: {
           lineHeight: 'highlight',
-          fontVariationSettings: "'wght' 100",
+          fontVariationSettings: "'wght' 92",
           fontSize: 1,
         },
         action: {
           lineHeight: 'action',
-          fontVariationSettings: "'wght' 100",
+          fontVariationSettings: "'wght' 92",
           fontSize: 1,
           textTransform: 'uppercase',
         },
         subtitle: {
           lineHeight: 'subtitle',
-          fontVariationSettings: "'wght' 100",
+          fontVariationSettings: "'wght' 92",
           fontSize: 2,
         },
         headline: {
           lineHeight: 'headline',
-          fontVariationSettings: "'wght' 100",
+          fontVariationSettings: "'wght' 92",
           fontSize: 3,
         },
       },

@@ -14,7 +14,7 @@ export const SimpleUsage = () => {
   const props = useCollapsible()
 
   return (
-    <Collapsible {...props} sx={{ width: '30%' }}>
+    <Collapsible {...props} sx={{ width: '1/3' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       />
@@ -32,7 +32,7 @@ export const WithButtons = () => {
   const props = useCollapsible()
 
   return (
-    <Collapsible {...props} sx={{ width: '80%' }}>
+    <Collapsible {...props} sx={{ width: '4/5' }}>
       <Collapsible.Header label="Build for Community #1">
         <Button size="small">Action 1</Button>
         <Button size="small">Action 2</Button>
@@ -53,7 +53,7 @@ export const NestedCollapsible = () => {
   const secondProps = useCollapsible()
 
   return (
-    <Collapsible {...firstProps} sx={{ width: '40%' }}>
+    <Collapsible {...firstProps} sx={{ width: '2/5' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
@@ -81,7 +81,7 @@ export const InitiallyVisible = () => {
   const firstProps = useCollapsible({ visible: true })
 
   return (
-    <Collapsible {...firstProps} sx={{ width: '30%' }}>
+    <Collapsible {...firstProps} sx={{ width: '1/3' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
