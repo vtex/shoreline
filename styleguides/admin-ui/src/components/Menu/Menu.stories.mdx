@@ -8,71 +8,22 @@ import { IconCaret, IconFavorite, IconLink, IconDownload } from '../../icons'
 
 # Menu
 
-With `MDX` we can define a story for `Menu` right in the middle of our
-Markdown documentation.
+Accessible dropdown Menu component that follows the [WAI-ARIA Menu or Menu bar Pattern](https://www.w3.org/TR/wai-aria-practices/#menu).
+It also includes a MenuButton component that follows the [WAI-ARIA Menu Button Pattern](https://www.w3.org/TR/wai-aria-practices/#menubutton).
 
-<Canvas>
-  <Story name="Base">
-    <Menu
-      disclosure={
-        <Button
-          icon={(props) => <IconCaret {...props} direction="down" />}
-          iconPosition="end"
-        >
-          Action Menu
-        </Button>
-      }
-      items={[
-        <Button
-          sx={{
-            color: 'text',
-            ':hover': {
-              color: 'text',
-            },
-            width: 'full',
-            div: {
-              justifyContent: 'flex-start',
-            },
-          }}
-          variant="subtle"
-          icon={IconDownload}
-        >
-          Download
-        </Button>,
-        <Button
-          sx={{
-            display: 'flex',
-            color: 'text',
-            ':hover': {
-              color: 'text',
-            },
-            width: 'full',
-            div: {
-              justifyContent: 'flex-start',
-            },
-          }}
-          variant="subtle"
-          icon={IconLink}
-        >
-          Link to
-        </Button>,
-        <Button
-          sx={{
-            color: 'text',
-            ':hover': {
-              color: 'text',
-            },
-            width: 'full',
-            div: {
-              justifyContent: 'flex-start',
-            },
-          }}
-          variant="subtle"
-          icon={IconFavorite}
-        >
-          Favorite
-        </Button>,
-      ]}
-    />
-  </Story>
-</Canvas>
+<Story name="Base">
+  <Menu
+    disclosure={
+      <Button
+        icon={(props) => <IconCaret {...props} direction="down" />}
+        iconPosition="end"
+      >
+        Action Menu
+      </Button>
+    }
+  >
+    <Menu.Item icon={IconDownload}>Download</Menu.Item>
+    <Menu.Item icon={IconLink}>Link to</Menu.Item>
+    <Menu.Item icon={IconFavorite}>Favorite</Menu.Item>
+  </Menu>
+</Story>
