@@ -1,8 +1,7 @@
-# RFC Template <REPLACE_WITH_TITLE>
+# RFC Popover Component
 
 - Start Date: 2020-09-02
-- PR: (leave this empty)
-- Issue: (leave this empty)
+- 🏆 Champions: @raylamedeiros
 
 # Summary
 
