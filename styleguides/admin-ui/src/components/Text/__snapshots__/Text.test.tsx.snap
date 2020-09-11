@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  line-height: 1.125;
+  font-variation-settings: 'wght' 80;
+  font-size: 12px;
+}
+
+<span
+    class="emotion-0"
+  >
+    small
+  </span>
+  .emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 80;
+  font-size: 14px;
+}
+
+<span
+    class="emotion-0"
+  >
+    body
+  </span>
+  .emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 14px;
+}
+
+<span
+    class="emotion-0"
+  >
+    highlight
+  </span>
+  .emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+<span
+    class="emotion-0"
+  >
+    action
+  </span>
+  .emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 16px;
+}
+
+<h2
+    class="emotion-0"
+  >
+    subtitle
+  </h2>
+  .emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 20px;
+}
+
+<h1
+    class="emotion-0"
+  >
+    headline
+  </h1>
+</DocumentFragment>
+`;
