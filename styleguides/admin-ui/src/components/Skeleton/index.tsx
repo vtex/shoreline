@@ -53,12 +53,14 @@ export function Skeleton(props: SkeletonProps) {
   )
 }
 
+export type Shape = 'rect' | 'circle'
+
 export interface SkeletonProps {
   /**
    * Shape of the skeleton
    * @default 'rect'
    */
-  shape?: 'rect' | 'circle'
+  shape?: Shape
   /**
    * Custom styles
    * @default {}
