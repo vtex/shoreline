@@ -1,4 +1,4 @@
-# Admin UI Collapsible
+# Brand UI Collapsible
 
 A `Collapsible` is a container that allows toggling the display of its content. It can be nested as well.
 
@@ -10,11 +10,11 @@ The Collapsible has two composites: `Header` and `Content`. It states are contro
 
 #### Header
 
-| prop     | type        | description             | required |
-| -------- | ----------- | ----------------------- | -------- |
-| label    | ReactNode   | title of the disclosure | 🚫       |
-| children | ReactNode   | set of actions          | 🚫       |
-| sx       | SxStyleProp | Theme-ui style prop     | 🚫       |
+| prop         | type             | description                     | required |
+| ------------ | ---------------- | ------------------------------- | -------- |
+| children     | ReactNode        | content of the disclosure       | 🚫       |
+| iconPosition | `end` or `start` | position of the disclosure icon | `start`  |
+| sx           | SxStyleProp      | Theme-ui style prop             | 🚫       |
 
 #### Content
 
@@ -40,7 +40,7 @@ function Standalone() {
 
   return (
     <Collapsible {...props}>
-      <Collapsible.Header label="Label" />
+      <Collapsible.Header>Title</Collapsible.Header>
       <Collapsible.Content>Content</Collapsible.Content>
     </Collapsible>
   )
@@ -57,28 +57,7 @@ function Standalone() {
 
   return (
     <Collapsible {...props}>
-      <Collapsible.Header label="Label" />
-      <Collapsible.Content>Content</Collapsible.Content>
-    </Collapsible>
-  )
-}
-```
-
-### Standalone With Buttons
-
-```jsx
-import { Collapsible, useCollapsible } from '@vtex/brand-ui'
-
-function WithButtons() {
-  const props = useCollapsible()
-
-  return (
-    <Collapsible {...props}>
-      <Collapsible.Header label="Label">
-        <Button>Action 1</Button>
-        <Button>Action 2</Button>
-        <Button>Action 3</Button>
-      </Collapsible.Header>
+      <Collapsible.Header>Title</Collapsible.Header>
       <Collapsible.Content>Content</Collapsible.Content>
     </Collapsible>
   )
@@ -96,10 +75,10 @@ function NestedCollapsible() {
 
   return (
     <Collapsible {...rootProps}>
-      <Collapsible.Header label="Label 1" />
+      <Collapsible.Header>Title 1</Collapsible.Header>
       <Collapsible.Content>
         <Collapsible {...childProps}>
-          <Collapsible.Header label="Label 2" />
+          <Collapsible.Header>Title 2</Collapsible.Header>
           <Collapsible.Content>Child content</Collapsible.Content>
         </Collapsible>
       </Collapsible.Content>
@@ -134,7 +113,7 @@ function Standalone() {
 
   return (
     <Collapsible {...collapsibleProps}>
-      <Collapsible.Header label="Label" />
+      <Collapsible.Header>Title</Collapsible.Header>
       <Collapsible.Content>{data}</Collapsible.Content>
     </Collapsible>
   )
