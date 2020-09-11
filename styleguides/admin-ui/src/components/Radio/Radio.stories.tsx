@@ -41,7 +41,7 @@ export function WithHiddenLabel() {
 }
 
 export function Group() {
-  const radio = useRadioState()
+  const radio = useRadioState({ state: 'oms' })
 
   return (
     <Fragment>
@@ -51,6 +51,7 @@ export function Group() {
         <Radio value="b2c" label="B2C Commerce" state={radio} />
         <Radio value="b2b" label="B2B Commerce" state={radio} />
         <Radio value="oms" label="Order Management System" state={radio} />
+        <Radio value="disabled" label="Disabled" state={radio} disabled />
       </RadioGroup>
     </Fragment>
   )
