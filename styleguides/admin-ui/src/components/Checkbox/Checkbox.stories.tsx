@@ -19,6 +19,17 @@ const Template: Story<Omit<CheckboxProps, 'checked'>> = (
 
 export const Playground = Template.bind({})
 
+export const Size = () => {
+  const props = useCheckbox({ state: ['1'] })
+
+  return (
+    <>
+      <Checkbox {...props} value="1" />
+      <Checkbox {...props} value="2" size="small" />
+    </>
+  )
+}
+
 export const Disabled = () => {
   const props = useCheckbox({ state: ['1'] })
 
