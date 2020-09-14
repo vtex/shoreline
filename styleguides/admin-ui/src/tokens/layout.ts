@@ -4,27 +4,27 @@ import * as CSS from 'csstype'
 import { theme } from '../theme/theme'
 
 export const layoutTokens = system({
-  width: {
+  w: {
     property: 'width',
     scale: 'sizes',
   },
-  minWidth: {
+  minW: {
     property: 'minWidth',
     scale: 'sizes',
   },
-  maxWidth: {
+  maxW: {
     property: 'maxWidth',
     scale: 'sizes',
   },
-  height: {
+  h: {
     property: 'height',
     scale: 'sizes',
   },
-  minHeight: {
+  minH: {
     property: 'minHeight',
     scale: 'sizes',
   },
-  maxHeight: {
+  maxH: {
     property: 'maxHeight',
     scale: 'sizes',
   },
@@ -47,11 +47,32 @@ export interface LayoutTokensProps {
   overflowX?: ResponsiveValue<CSS.Property.OverflowX>
   overflowY?: ResponsiveValue<CSS.Property.OverflowY>
   verticalAlign?: ResponsiveValue<CSS.Property.VerticalAlign>
-  width?: Sizes
-  minWidth?: Sizes
-  maxWidth?: Sizes
-  height?: Sizes
-  minHeight?: Sizes
-  maxHeight?: Sizes
+  /**
+   * Width
+   */
+  w?: Sizes
+  /**
+   * Min width
+   */
+  minW?: Sizes
+  /**
+   * max width
+   */
+  maxW?: Sizes
+  /**
+   * Height
+   */
+  h?: Sizes
+  /**
+   * Min height
+   */
+  minH?: Sizes
+  /**
+   * Max height
+   */
+  maxH?: Sizes
+  /**
+   * width + height
+   */
   size?: Sizes
 }

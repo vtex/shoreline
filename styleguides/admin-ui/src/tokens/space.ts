@@ -3,59 +3,59 @@ import { system } from 'styled-system'
 import { theme } from '../theme/theme'
 
 export const spaceTokens = system({
-  margin: {
+  m: {
     property: 'margin',
     scale: 'space',
   },
-  marginTop: {
+  mt: {
     property: 'marginTop',
     scale: 'space',
   },
-  marginRight: {
+  mr: {
     property: 'marginRight',
     scale: 'space',
   },
-  marginBottom: {
+  mb: {
     property: 'marginBottom',
     scale: 'space',
   },
-  marginLeft: {
+  ml: {
     property: 'marginLeft',
     scale: 'space',
   },
-  marginX: {
+  mx: {
     properties: ['marginLeft', 'marginRight'],
     scale: 'space',
   },
-  marginY: {
+  my: {
     properties: ['marginTop', 'marginBottom'],
     scale: 'space',
   },
-  padding: {
+  p: {
     property: 'padding',
     scale: 'space',
   },
-  paddingTop: {
+  pt: {
     property: 'paddingTop',
     scale: 'space',
   },
-  paddingRight: {
+  pr: {
     property: 'paddingRight',
     scale: 'space',
   },
-  paddingBottom: {
+  pb: {
     property: 'paddingBottom',
     scale: 'space',
   },
-  paddingLeft: {
+  pl: {
     property: 'paddingLeft',
     scale: 'space',
   },
-  paddingX: {
+  px: {
     properties: ['paddingLeft', 'paddingRight'],
     scale: 'space',
   },
-  paddingY: {
+  py: {
     properties: ['paddingTop', 'paddingBottom'],
     scale: 'space',
   },
@@ -64,18 +64,60 @@ export const spaceTokens = system({
 type Space = keyof typeof theme.space
 
 export interface SpaceTokensProps {
-  margin?: Space
-  marginTop?: Space
-  marginRight?: Space
-  marginBottom?: Space
-  marginLeft?: Space
-  marginX?: Space
-  marginY?: Space
-  padding?: Space
-  paddingTop?: Space
-  paddingRight?: Space
-  paddingBottom?: Space
-  paddingLeft?: Space
-  paddingX?: Space
-  paddingY?: Space
+  /**
+   * Margin
+   */
+  m?: Space
+  /**
+   * Margin top
+   */
+  mt?: Space
+  /**
+   * Margin right
+   */
+  mr?: Space
+  /**
+   * Margin bottom
+   */
+  mb?: Space
+  /**
+   * Margin left
+   */
+  ml?: Space
+  /**
+   * Horizontal margin
+   */
+  mx?: Space
+  /**
+   * Vertical margin
+   */
+  my?: Space
+  /**
+   * Padding
+   */
+  p?: Space
+  /**
+   * Padding top
+   */
+  pt?: Space
+  /**
+   * Padding right
+   */
+  pr?: Space
+  /**
+   * Padding bottom
+   */
+  pb?: Space
+  /**
+   * Padding left
+   */
+  pl?: Space
+  /**
+   * Horizontal padding
+   */
+  px?: Space
+  /**
+   * Vertical padding
+   */
+  py?: Space
 }

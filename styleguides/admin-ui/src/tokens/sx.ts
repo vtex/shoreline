@@ -4,4 +4,5 @@ import { styleFn } from 'styled-system'
 
 export const sxTokens = ({ sx }: SxTokensProps) =>
   css(sx as Interpolation) as styleFn
+
 export { SxTokensProps }

@@ -1,8 +1,7 @@
 import { system } from 'styled-system'
-import * as CSS from 'csstype'
 
 export const colorTokens = system({
-  backgroundColor: {
+  bg: {
     property: 'backgroundColor',
     scale: 'colors',
   },
@@ -10,31 +9,31 @@ export const colorTokens = system({
     property: 'color',
     scale: 'colors',
   },
-  borderColor: {
+  bc: {
     property: 'borderColor',
     scale: 'colors',
   },
-  caretColor: {
+  cc: {
     property: 'caretColor',
     scale: 'colors',
   },
-  borderTopColor: {
+  btc: {
     property: 'borderTopColor',
     scale: 'colors',
   },
-  borderBottomColor: {
+  bbc: {
     property: 'borderBottomColor',
     scale: 'colors',
   },
-  borderLeftColor: {
+  blc: {
     property: 'borderLeftColor',
     scale: 'colors',
   },
-  borderRightColor: {
+  brc: {
     property: 'borderRightColor',
     scale: 'colors',
   },
-  outlineColor: {
+  oc: {
     property: 'outlineColor',
     scale: 'colors',
   },
@@ -67,18 +66,50 @@ type Colors =
   | 'danger.active'
   | 'danger.contrast'
   | 'danger.washed'
-  | CSS.Property.BackgroundColor
 
 export interface ColorTokensProps {
-  backgroundColor?: Colors
+  /**
+   * Background color
+   */
+  bg?: Colors
+  /**
+   * Text color
+   */
   color?: Colors
-  borderColor?: Colors
-  caretColor?: Colors
-  borderTopColor?: Colors
-  borderBottomColor?: Colors
-  borderLeftColor?: Colors
-  borderRightColor?: Colors
-  outlineColor?: Colors
+  /**
+   * Border color
+   */
+  bc?: Colors
+  /**
+   * Caret color
+   */
+  cc?: Colors
+  /**
+   * Border top color
+   */
+  btc?: Colors
+  /**
+   * Border bottom color
+   */
+  bbc?: Colors
+  /**
+   * Border left color
+   */
+  blc?: Colors
+  /**
+   * Border right color
+   */
+  brc?: Colors
+  /**
+   * Outline color
+   */
+  oc?: Colors
+  /**
+   * Fill
+   */
   fill?: Colors
+  /**
+   * Stroke
+   */
   stroke?: Colors
 }
