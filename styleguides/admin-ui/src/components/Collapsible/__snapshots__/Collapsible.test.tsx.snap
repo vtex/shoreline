@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapsible tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-6 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  background-color: var(--theme-ui-colors-background,#FFFFFF);
+  border: solid;
+  border-color: var(--theme-ui-colors-muted-3,#D7DADF);
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1.5rem;
+  padding-left: 1.375rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  text-align: center;
+  line-height: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: inherit;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  border-width: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  border-style: solid;
+  border-color: transparent;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: var(--theme-ui-colors-text,#323845);
+  font-variation-settings: 'wght' 92;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 14px;
+  height: 2.5rem;
+  width: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.75rem;
+}
+
+.emotion-2 backgroundColor {
+  base: var(--theme-ui-colors-primary-base,#2953B2);
+  hover: var(--theme-ui-colors-primary-hover,#1E4397);
+  active: var(--theme-ui-colors-primary-active,#3F6FDB);
+  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
+  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
+}
+
+.emotion-2:focus {
+  outline: none;
+}
+
+.emotion-2:hover {
+  color: var(--theme-ui-colors-primary-hover,#1E4397);
+  background-color: transparent;
+}
+
+.emotion-2:active {
+  color: var(--theme-ui-colors-primary-active,#3F6FDB);
+  background-color: transparent;
+}
+
+.emotion-2:disabled {
+  color: var(--theme-ui-colors-muted-1,#8B9299);
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-0 {
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.emotion-3 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3 button:nth-of-type(n+2) {
+  margin-left: 0.25rem;
+}
+
+.emotion-5 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+<div
+    class="emotion-6"
+  >
+    <div
+      class="emotion-4"
+    >
+      <button
+        aria-controls=""
+        aria-expanded="false"
+        class="emotion-2"
+        type="button"
+      >
+        <div
+          class="emotion-1"
+        >
+          <svg
+            class="emotion-0"
+            fill="currentColor"
+            fill-opacity="0"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 14L12 10L8 14"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
+          Label
+        </div>
+      </button>
+      <div
+        class="emotion-3"
+      />
+    </div>
+    <div
+      class="emotion-5"
+      hidden=""
+      id=""
+      style="display: none;"
+    >
+      Content
+    </div>
+  </div>
+</DocumentFragment>
+`;

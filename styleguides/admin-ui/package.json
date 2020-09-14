@@ -26,7 +26,7 @@
   "scripts": {
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
-    "test": "tsdx test --passWithNoTests",
+    "test": "tsdx test",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "yarn --cwd ../../ bootstrap && yarn run build-storybook"
   },
