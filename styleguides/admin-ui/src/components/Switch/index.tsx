@@ -1,28 +1,35 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from 'theme-ui'
-import { ReactNode } from 'react'
-import {
-  Checkbox,
-  CheckboxProps as ReakitProps,
-  useCheckboxState,
-} from 'reakit'
+import { ReactNode, Ref } from 'react'
+import { Checkbox, CheckboxProps, useCheckboxState } from 'reakit'
 import { useFocusRing } from '@react-aria/focus'
 import { useComponentSx, mergeSx } from '@vtex-components/theme'
+import { forwardRef } from '@vtex-components/utils'
 
 import { Theme } from '../../theme'
 
-export function Switch(props: SwitchProps) {
-  const { label, sx = {}, size = 'regular', ...reakitProps } = props
-  const { focusStyles, focusProps } = useFocusHollow()
+export const Switch = forwardRef(
+  (props: SwitchProps, ref: Ref<HTMLInputElement>) => {
+    const { label, sx = {}, size = 'regular', ...reakitProps } = props
+    const { focusStyles, focusProps } = useFocusHollow()
 
-  const styles = useComponentSx('switch', {
-    size,
-  })
+    const styles = useComponentSx('switch', {
+      size,
+    })
 
-  const mergedSx = mergeSx<SxStyleProp>({ ...styles, ...focusStyles }, sx)
+    const mergedSx = mergeSx<SxStyleProp>({ ...styles, ...focusStyles }, sx)
 
-  return <Checkbox {...reakitProps} {...focusProps} sx={mergedSx} />
-}
+    return (
+      <Checkbox
+        ref={ref}
+        role="switch"
+        {...reakitProps}
+        {...focusProps}
+        sx={mergedSx}
+      />
+    )
+  }
+)
 
 function useFocusHollow() {
   const { isFocusVisible, focusProps } = useFocusRing()
@@ -40,7 +47,7 @@ function useFocusHollow() {
 
 export interface SwitchProps
   extends Pick<
-    ReakitProps,
+    CheckboxProps,
     | 'checked'
     | 'required'
     | 'disabled'
