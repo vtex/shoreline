@@ -58,6 +58,7 @@ function Tooltip(props: TooltipProps) {
   const tooltip = useTooltipState({ placement, visible })
 
   const styles = useComponentSx('tooltip', {})
+  const mergedSx = mergeSx<SxStyleProp>(styles, sx)
 
   return (
     <>
@@ -66,7 +67,7 @@ function Tooltip(props: TooltipProps) {
       </TooltipReference>
       <ReakitTooltip {...tooltip} {...tooltipProps}>
         {arrow && cloneElement(arrow, { ...tooltip })}
-        <Box sx={mergeSx<SxStyleProp>(styles, sx)}>{label}</Box>
+        <Box sx={mergedSx}>{label}</Box>
       </ReakitTooltip>
     </>
   )

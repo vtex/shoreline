@@ -31,7 +31,7 @@ function UseCase() {
 ### With arrow
 
 If you want your tooltip to have an arrow, you can pass it to the tooltip as a prop. On the following example,
-it's shown how you can use the Reakit TooltipArrow with the tooltip, but you can design any arrow you want.
+it's shown how you can use the Reakit [Reakit TooltipArrow](https://reakit.io/docs/tooltip/#tooltiparrow) with the tooltip, but you can design any arrow you want.
 The tooltip state is passed to the arrow, so you can access the placement and visibility of the tooltip.
 
 ```js
@@ -65,10 +65,11 @@ You can define the theme with:
 const theme = {
   components: {
     tooltip: {
+      styles: {
       backgroundColor: 'black',
       color: 'white',
       paddingY: 1,
-      paddingX: 2,
+      paddingX: 2, }
     },
   },
 }
