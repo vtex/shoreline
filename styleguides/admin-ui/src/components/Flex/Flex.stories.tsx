@@ -15,7 +15,8 @@ export const Playground = () => {
       width="full"
       height="21"
       justify="evenly"
-      sx={{ backgroundColor: 'muted.3', padding: '10' }}
+      padding="10"
+      sx={{ backgroundColor: 'muted.3' }}
     >
       <Flex width="1/5" height="full" sx={{ backgroundColor: 'muted.2' }}>
         {(props) => <Button {...props}>My Button</Button>}
