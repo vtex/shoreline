@@ -109,8 +109,93 @@ export const theme = {
       contrast: '#FFFFFF',
       washed: '#FFF0F0',
     },
+    success: {
+      base: '#097E47',
+      hover: '#005C31',
+      active: '#26AE6E',
+      contrast: '#FFFFFF',
+      washed: '#E2F5EA',
+    },
   },
   components: {
+    switch: {
+      styles: {
+        appearance: 'none',
+        outline: 'none',
+        position: 'relative',
+        cursor: 'pointer',
+        borderRadius: '6.25rem',
+        backgroundColor: 'muted.1',
+        borderStyle: 'solid',
+        borderColor: 'muted.1',
+        borderWidth: 1,
+        '&:after': {
+          content: '""',
+          display: 'block',
+          position: 'absolute',
+          borderRadius: '1.25rem',
+          left: 0,
+          top: 0,
+          backgroundColor: 'success.contrast',
+          transition: 'transform .4s ease',
+        },
+        '&:checked': {
+          backgroundColor: 'success.base',
+          borderColor: 'success.base',
+          '&:hover': {
+            backgroundColor: 'success.hover',
+            borderColor: 'success.hover',
+          },
+          '&:active': {
+            backgroundColor: 'success.active',
+            borderColor: 'success.active',
+          },
+        },
+        '&:hover': {
+          backgroundColor: 'muted.0',
+          borderColor: 'muted.0',
+        },
+        '&:active': {
+          backgroundColor: 'muted.0',
+          borderColor: 'muted.0',
+        },
+        '&:disabled': {
+          backgroundColor: 'muted.1',
+          borderColor: 'muted.1',
+          '&:after': {
+            backgroundColor: 'muted.2',
+          },
+        },
+      },
+      size: {
+        regular: {
+          height: 7,
+          width: 11,
+          '&:after': {
+            width: '1.125rem',
+            height: '1.125rem',
+          },
+          '&:checked': {
+            '&:after': {
+              transform: 'translateX(1rem)',
+            },
+          },
+        },
+        small: {
+          height: '0.875rem',
+          width: 9,
+          '&:after': {
+            width: '0.75rem',
+            height: '0.75rem',
+          },
+          '&:checked': {
+            '&:after': {
+              transform: 'translateX(0.875rem)',
+            },
+          },
+        },
+      },
+    },
     skeleton: {
       styles: {
         display: 'inline-block',
