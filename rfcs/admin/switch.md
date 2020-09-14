@@ -19,7 +19,7 @@ function UseCase() {
 }
 ```
 
-- Using `useSwitch` hook
+- Using the `useSwitch` hook
 
 ```jsx
 import { Switch, useSwitch } from '@vtex/admin-ui'
@@ -95,7 +95,7 @@ function UseCase() {
 
 # Drawbacks
 
-- Using `Reakit Checkbox` grants the accessibility that we need, but can be non-intuitive with its props, for example: instead of using the prop `on` to represents the state of the switch, we use `checked`. This can be worked around by changing the interface and using the `checked` only in background.
+- Using `Reakit Checkbox` grants the accessibility that we need, but can be non-intuitive with its props, for example: instead of using the prop `on` to represents the state of the switch, we use `checked`. This can be worked around by changing the interface and using the `checked` only in the background.
 
 # Adoption strategy
 
