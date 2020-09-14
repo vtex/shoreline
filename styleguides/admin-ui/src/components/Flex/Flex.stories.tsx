@@ -16,13 +16,22 @@ export const Playground = () => {
       height="21"
       justify="evenly"
       padding="10"
-      sx={{ backgroundColor: 'muted.3' }}
+      backgroundColor="muted.3"
     >
-      <Flex width="1/5" height="full" sx={{ backgroundColor: 'muted.2' }}>
+      <Flex width="1/5" height="full" backgroundColor="red">
         {(props) => <Button {...props}>My Button</Button>}
       </Flex>
-      <Flex width="1/5" height="full" sx={{ backgroundColor: 'muted.2' }} />
-      <Flex width="1/5" height="full" sx={{ backgroundColor: 'muted.2' }} />
+      <Flex width="1/5" height="full" backgroundColor="muted.2" />
+      <Flex
+        width="1/5"
+        height="full"
+        backgroundColor="#212121"
+        color="background"
+        justify="center"
+        items="center"
+      >
+        Text
+      </Flex>
     </Flex>
   )
 }
