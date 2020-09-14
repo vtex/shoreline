@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Text } from 'theme-ui'
 
 import { footerGroups, links } from './mockLinks'
-import Footer from './index'
+import { Footer } from './index'
 
 export default {
   title: 'Work in progress/Footer',
@@ -19,6 +19,7 @@ const Template = () => (
               key={groupLink.title}
               sx={{
                 display: ['grid', 'grid', 'flex'],
+                fontSize: 3,
                 marginBottom: 3,
                 maxWidth: '9rem',
                 alignItems: 'center',

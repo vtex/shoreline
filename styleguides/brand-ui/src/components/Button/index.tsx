@@ -10,11 +10,11 @@ function useFocusHollow() {
   const { isFocusVisible, focusProps } = useFocusRing()
   const focusStyles = isFocusVisible
     ? {
-        boxShadow: `0px 0px 0px ${get(theme, 'space.2')}px ${get(
-          theme,
-          'colors.focus'
-        )}`,
-      }
+      boxShadow: `0px 0px 0px ${get(theme, 'space.2')}px ${get(
+        theme,
+        'colors.focus'
+      )}`,
+    }
     : {}
 
   return { focusStyles, focusProps }
@@ -82,7 +82,7 @@ export const Button = forwardRef(
     const blockStyles = block ? { display: 'block', width: '100%' } : {}
 
     const buttonSx = mergeSx<SxStyleProp>(focusStyles, blockStyles)
-    const mergedSx = mergeSx<SxStyleProp>(sx, buttonSx)
+    const mergedSx = mergeSx<SxStyleProp>(buttonSx, sx)
 
     return (
       <BaseButton
@@ -115,22 +115,22 @@ export type Variant = 'primary' | 'secondary' | 'tertiary'
 export type Size = 'small' | 'regular'
 export interface ButtonProps
   extends Pick<
-    BaseProps,
-    | 'sx'
-    | 'disabled'
-    | 'focusable'
-    | 'children'
-    | 'id'
-    | 'type'
-    | 'name'
-    | 'onClick'
-    | 'onMouseEnter'
-    | 'onMouseLeave'
-    | 'onMouseDown'
-    | 'onMouseUp'
-    | 'onFocus'
-    | 'onMouseOver'
-    | 'value'
+  BaseProps,
+  | 'sx'
+  | 'disabled'
+  | 'focusable'
+  | 'children'
+  | 'id'
+  | 'type'
+  | 'name'
+  | 'onClick'
+  | 'onMouseEnter'
+  | 'onMouseLeave'
+  | 'onMouseDown'
+  | 'onMouseUp'
+  | 'onFocus'
+  | 'onMouseOver'
+  | 'value'
   > {
   /** Size of the button
    * @default regular

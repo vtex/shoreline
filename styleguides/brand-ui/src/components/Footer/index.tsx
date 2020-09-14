@@ -1,4 +1,4 @@
-import React, { ReactNode, PropsWithChildren, Ref } from 'react'
+import React, { PropsWithChildren, Ref, ReactNode } from 'react'
 import {
   Box,
   Text,
@@ -115,6 +115,7 @@ const Link = forwardRef((props: LinkProps, ref: Ref<HTMLAnchorElement>) => {
       '&:hover': {
         color: 'primary.contrast',
       },
+      transition: 'all 0.3s',
     },
     sx
   )
@@ -150,14 +151,15 @@ const SocialMediaIcon = forwardRef(
           width: '2.5rem',
           height: '2.5rem',
           marginRight: 4,
-          bg: '#111C2D',
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
           padding: '0.6rem',
           borderRadius: '100%',
-          border: '1px solid #222C44',
-          transition: 'all 0.1s ease-in-out',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          transition: 'all 0.3s ease-in-out',
           '&:hover': {
-            bg: '#222C44',
+            backgroundColor: 'rgba(255, 255, 255, 0.06)',
             color: 'primary.contrast',
+            border: '1px solid transparent',
           },
           color: 'muted.2',
           display: 'flex',
@@ -206,7 +208,7 @@ const ExtraLinks = ({ children }: PropsWithChildren<{}>) => (
   </Flex>
 )
 
-const Footer = ({ children }: PropsWithChildren<{}>) => (
+export const Footer = ({ children }: PropsWithChildren<{}>) => (
   <Box
     as="footer"
     sx={{
@@ -225,5 +227,3 @@ Footer.Group = Group
 Footer.Extra = Extra
 Footer.SocialMedia = SocialMedia
 Footer.ExtraLinks = ExtraLinks
-
-export default Footer

@@ -2,9 +2,9 @@ import React, { PropsWithChildren } from 'react'
 import { Box, Flex } from 'theme-ui'
 
 import { IconVTEX } from '../../icons'
-import Footer from '../Footer'
+import { Footer } from '../Footer'
 
-const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
+export const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
   <Box
     as="footer"
     sx={{
@@ -49,5 +49,3 @@ const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
 )
 
 FooterLanding.Link = Footer.Link
-
-export default FooterLanding

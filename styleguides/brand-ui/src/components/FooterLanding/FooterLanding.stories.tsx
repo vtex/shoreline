@@ -2,10 +2,10 @@ import React from 'react'
 import { Text } from 'theme-ui'
 
 import { links } from './mockLinks'
-import FooterLanding from './index'
+import { FooterLanding } from './index'
 
 export default {
-  title: 'Work in progress/Footer Landing',
+  title: 'Beta/Footer Landing',
   component: FooterLanding,
 }
 
