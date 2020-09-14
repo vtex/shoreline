@@ -36,7 +36,6 @@
     "@storybook/addon-a11y": "^6.0.21",
     "@storybook/addon-actions": "^6.0.18",
     "@storybook/addon-essentials": "^6.0.18",
-    "@storybook/addon-jest": "^6.0.21",
     "@storybook/addon-links": "^6.0.18",
     "@storybook/react": "^6.0.18",
     "@testing-library/jest-dom": "^5.11.4",

@@ -9,9 +9,6 @@ import { Button } from '../Button'
 export default {
   title: 'beta/Skeleton',
   component: Skeleton,
-  parameters: {
-    jest: 'Skeleton.test.tsx',
-  },
 } as Meta
 
 const Template: Story<SkeletonProps> = (args) => <Skeleton {...args} />

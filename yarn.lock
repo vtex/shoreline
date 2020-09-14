@@ -2725,23 +2725,6 @@
     regenerator-runtime "^0.13.3"
     ts-dedent "^1.1.1"
 
-"@storybook/addon-jest@^6.0.21":
-  version "6.0.21"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-jest/-/addon-jest-6.0.21.tgz#9233188ec575269b4cb1405e71d3e84cdd644c99"
-  integrity sha512-6MCEVQ/OhzP1Ck000p0xvi3Z2nrLsqlvofJWp68Me9o9CYR/9TfW9ycStuhNtL2SiDevnV7gLq7ktiYj3KpuFw==
-  dependencies:
-    "@storybook/addons" "6.0.21"
-    "@storybook/api" "6.0.21"
-    "@storybook/components" "6.0.21"
-    "@storybook/core-events" "6.0.21"
-    "@storybook/theming" "6.0.21"
-    core-js "^3.0.1"
-    global "^4.3.2"
-    react "^16.8.3"
-    react-sizeme "^2.5.2"
-    regenerator-runtime "^0.13.3"
-    upath "^1.1.0"
-
 "@storybook/addon-links@^6.0.18":
   version "6.0.18"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.0.18.tgz#e024846b1001b8fb3cf19c3cdd8db63aef18595d"
@@ -15630,7 +15613,7 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
-upath@^1.1.0, upath@^1.1.1, upath@^1.2.0:
+upath@^1.1.1, upath@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/upath/-/upath-1.2.0.tgz#8f66dbcd55a883acdae4408af8b035a5044c1894"
   integrity sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==

@@ -10,9 +10,6 @@ import { IconCancel } from '../../icons'
 export default {
   title: 'beta/Button',
   component: Button,
-  parameters: {
-    jest: 'Button.test.tsx',
-  },
 } as Meta
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />
