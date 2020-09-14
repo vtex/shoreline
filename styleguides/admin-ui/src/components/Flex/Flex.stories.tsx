@@ -13,7 +13,7 @@ export const Playground = () => {
   return (
     <Flex
       width="full"
-      height="sm"
+      height="21"
       justify="evenly"
       sx={{ backgroundColor: 'muted.3', padding: '10' }}
     >
