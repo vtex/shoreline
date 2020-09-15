@@ -10,7 +10,13 @@ import { Switch } from '@vtex/admin-ui'
 function UseCase() {
   const [checked, setChecked] = React.useState(false)
 
-  return <Switch checked={checked} onChange={() => setChecked(!checked)} />
+  return (
+    <Switch
+      label="label"
+      checked={checked}
+      onChange={() => setChecked(!checked)}
+    />
+  )
 }
 ```
 
@@ -22,7 +28,7 @@ import { Switch, useSwitch } from '@vtex/admin-ui'
 function UseCase() {
   const switch = useSwitch({ state: false })
 
-  return <Switch {...switch} />
+  return <Switch label="label" {...switch} />
 }
 ```
 
