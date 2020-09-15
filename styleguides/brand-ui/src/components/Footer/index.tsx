@@ -17,26 +17,28 @@ import {
   IconYouTube,
 } from '../../icons'
 
+const ICON_SIZE = 20
+
 const socialMediaLinks = [
   {
     name: 'Facebook',
     to: 'https://www.facebook.com/vtexcommerce',
-    icon: <IconFacebook />,
+    icon: <IconFacebook size={ICON_SIZE} />,
   },
   {
     name: 'Instagram',
     to: 'https://www.instagram.com/vtexcommerce/',
-    icon: <IconInstagram />,
+    icon: <IconInstagram size={ICON_SIZE} />,
   },
   {
     name: 'YouTube',
     to: 'https://www.youtube.com/user/VTEXTV/',
-    icon: <IconYouTube />,
+    icon: <IconYouTube size={ICON_SIZE} />,
   },
   {
     name: 'LinkedIn',
     to: 'https://www.linkedin.com/company/vtex/',
-    icon: <IconLinkedIn />,
+    icon: <IconLinkedIn size={ICON_SIZE} />,
   },
 ]
 

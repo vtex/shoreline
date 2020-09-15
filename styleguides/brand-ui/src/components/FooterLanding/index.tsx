@@ -27,7 +27,7 @@ export const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
       <Flex
         sx={{ color: 'white', justifyContent: 'center', alignItems: 'center' }}
       >
-        <IconVTEX width={80} height={42} />
+        <IconVTEX size={80} />
       </Flex>
       <Box
         sx={{
