@@ -1,4 +1,5 @@
 export { jsx } from 'theme-ui'
+export { VisuallyHidden, VisuallyHiddenProps } from 'reakit/VisuallyHidden'
 export { useTheme } from '@vtex-components/theme'
 export { ThemeProvider, Theme } from './theme'
 export { Box, BoxProps } from './components/Box'
