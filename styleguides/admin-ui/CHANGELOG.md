@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.21.3...@vtex/admin-ui@0.22.0) (2020-09-15)
+
+
+### Features
+
+* **flex:** add flex component ([e372b82](https://github.com/vtex/onda/commit/e372b82f03fbc8223efc879bc8c9e87adc421cb9))
+* **tokens:** add color tokens ([c9e5fc7](https://github.com/vtex/onda/commit/c9e5fc77edc86b818fe6597a3faa062b9c933d0e))
+* **tokens:** add space tokens ([9ad9b87](https://github.com/vtex/onda/commit/9ad9b8712c61603cb3843b7509635a4ea9d34d6a))
+* **tokens:** create style tokens ([d0f892f](https://github.com/vtex/onda/commit/d0f892fa60c127be4f9ca5aa4cac3e6c49d64552))
+
+
+
+
+
 ## [0.21.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.21.2...@vtex/admin-ui@0.21.3) (2020-09-15)
 
 **Note:** Version bump only for package @vtex/admin-ui
