@@ -34,7 +34,7 @@ export function Collapsible(props: CollapsibleProps) {
       bg="background"
       bc="muted.3"
       sx={{
-        border: 'solid',
+        borderStyle: 'solid',
         borderWidth: 1,
         borderRadius: 3,
         ...sx,

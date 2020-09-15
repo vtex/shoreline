@@ -3,9 +3,6 @@
 exports[`Text tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
   line-height: 1.125;
   font-variation-settings: 'wght' 80;
   font-size: 12px;
@@ -13,13 +10,11 @@ exports[`Text tests should match snapshot 1`] = `
 
 <span
     class="emotion-0"
+    sx="[object Object]"
   >
     small
   </span>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
   line-height: 1.25;
   font-variation-settings: 'wght' 80;
   font-size: 14px;
@@ -27,13 +22,11 @@ exports[`Text tests should match snapshot 1`] = `
 
 <span
     class="emotion-0"
+    sx="[object Object]"
   >
     body
   </span>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 14px;
@@ -41,13 +34,11 @@ exports[`Text tests should match snapshot 1`] = `
 
 <span
     class="emotion-0"
+    sx="[object Object]"
   >
     highlight
   </span>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
   font-size: 14px;
@@ -56,13 +47,11 @@ exports[`Text tests should match snapshot 1`] = `
 
 <span
     class="emotion-0"
+    sx="[object Object]"
   >
     action
   </span>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
   font-size: 16px;
@@ -70,13 +59,11 @@ exports[`Text tests should match snapshot 1`] = `
 
 <h2
     class="emotion-0"
+    sx="[object Object]"
   >
     subtitle
   </h2>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
   font-size: 20px;
@@ -84,6 +71,7 @@ exports[`Text tests should match snapshot 1`] = `
 
 <h1
     class="emotion-0"
+    sx="[object Object]"
   >
     headline
   </h1>
