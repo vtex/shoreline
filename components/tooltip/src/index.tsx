@@ -7,23 +7,7 @@ import {
   TooltipProps as ReakitProps,
 } from 'reakit/Tooltip/'
 import { useComponentSx, mergeSx } from '@vtex-components/theme'
-
-export type Placement =
-  | 'auto-start'
-  | 'auto'
-  | 'auto-end'
-  | 'top-start'
-  | 'top'
-  | 'top-end'
-  | 'right-start'
-  | 'right'
-  | 'right-end'
-  | 'bottom-end'
-  | 'bottom'
-  | 'bottom-start'
-  | 'left-end'
-  | 'left'
-  | 'left-start'
+import { PopoverState } from 'reakit/ts'
 
 /**
  * Elementary tooltip component that can be reused by all VTEX Styleguides.
@@ -72,6 +56,8 @@ function Tooltip(props: TooltipProps) {
     </>
   )
 }
+
+type Placement = Pick<PopoverState, 'placement'>['placement']
 
 export interface TooltipProps extends Omit<ReakitProps, 'as'> {
   /**
