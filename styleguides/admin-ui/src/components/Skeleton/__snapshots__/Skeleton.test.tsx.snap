@@ -23,9 +23,6 @@ exports[`Skeleton tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
   background-image: linear-gradient( 90deg, var(--theme-ui-colors-muted-4,#F3F5F9), white, var(--theme-ui-colors-muted-4,#F3F5F9) );
   -webkit-animation: animation-0 1.2s ease-in-out infinite;
   animation: animation-0 1.2s ease-in-out infinite;
@@ -41,6 +38,7 @@ exports[`Skeleton tests should match snapshot 1`] = `
 
 <div
     class="emotion-0"
+    sx="[object Object]"
   />
   @keyframes animation-0 {
   0% {
@@ -63,9 +61,6 @@ exports[`Skeleton tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
   background-image: linear-gradient( 90deg, var(--theme-ui-colors-muted-4,#F3F5F9), white, var(--theme-ui-colors-muted-4,#F3F5F9) );
   -webkit-animation: animation-0 1.2s ease-in-out infinite;
   animation: animation-0 1.2s ease-in-out infinite;
@@ -81,6 +76,7 @@ exports[`Skeleton tests should match snapshot 1`] = `
 
 <div
     class="emotion-0"
+    sx="[object Object]"
   />
 </DocumentFragment>
 `;

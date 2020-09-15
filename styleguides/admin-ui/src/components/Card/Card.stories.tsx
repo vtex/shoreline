@@ -34,7 +34,7 @@ export const WithoutPadding = () => {
         src="https://careers.vtex.com/assets/media/perspectives03.jpg"
         alt=""
       />
-      <Text as="p" variant="body" sx={{ padding: 13 }}>
+      <Text el="p" variant="body" sx={{ padding: 13 }}>
         At VTEX we believe inclusion inspires innovation. We are committed to
         implement a recruiting process that guarantees equal opportunities for
         all, regardless of ethnicity, gender, disability, sexual orientation,

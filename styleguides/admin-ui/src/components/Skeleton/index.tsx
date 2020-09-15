@@ -70,5 +70,5 @@ export interface SkeletonProps {
    * Element type
    * @default div
    */
-  as?: React.ElementType
+  el?: React.ElementType
 }

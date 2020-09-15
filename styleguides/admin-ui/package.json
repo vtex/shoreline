@@ -39,13 +39,18 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "@react-aria/focus": "3.2.0",
+    "@types/styled-system": "^5.1.10",
     "@types/theme-ui": "^0.3.6",
     "@vtex-components/button": "^1.2.3",
     "@vtex-components/icon": "^0.0.4",
     "@vtex-components/theme": "^0.1.1",
     "@vtex-components/utils": "^0.0.3",
+    "csstype": "^3.0.3",
     "reakit": "1.2.3",
+    "reakit-utils": "^0.14.3",
+    "styled-system": "^5.1.5",
     "theme-ui": "^0.3.1",
     "tiny-invariant": "^1.1.0"
   }

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { SxStyleProp, Flex } from 'theme-ui'
+import { SxStyleProp } from 'theme-ui'
 import {
   useDisclosureState,
   Disclosure as ReakitDisclosure,
@@ -31,10 +31,10 @@ export function Collapsible(props: CollapsibleProps) {
 
   return (
     <Box
+      bg="background"
+      bc="muted.3"
       sx={{
-        backgroundColor: 'background',
-        border: 'solid',
-        borderColor: 'muted.3',
+        borderStyle: 'solid',
         borderWidth: 1,
         borderRadius: 3,
         ...sx,
@@ -47,17 +47,19 @@ export function Collapsible(props: CollapsibleProps) {
 
 function Header({ children, label, sx }: HeaderProps) {
   return (
-    <Flex
+    <Box
+      display="flex"
+      items="center"
+      justify="between"
+      p="13"
+      pl="12"
       sx={{
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: 13,
-        paddingLeft: 12,
         ...sx,
       }}
     >
       <Disclosure>{label}</Disclosure>
-      <Flex
+      <Box
+        display="flex"
         sx={{
           '& button:nth-of-type(n+2)': {
             marginLeft: 3,
@@ -65,8 +67,8 @@ function Header({ children, label, sx }: HeaderProps) {
         }}
       >
         {children}
-      </Flex>
-    </Flex>
+      </Box>
+    </Box>
   )
 }
 

@@ -9,11 +9,11 @@ export const Card = forwardRef((props: CardProps, ref: Ref<HTMLDivElement>) => {
 
   return (
     <Box
+      bg="background"
+      bc="muted.3"
+      p="13"
       sx={{
-        padding: 13,
-        backgroundColor: 'background',
-        border: 'solid',
-        borderColor: 'muted.3',
+        borderStyle: 'solid',
         borderWidth: 1,
         borderRadius: 3,
         ...sx,

@@ -1,0 +1,85 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+
+import { Button } from '../Button'
+import { Box } from './index'
+
+<Meta title="alpha/Box" component={Box} />
+
+# Usage
+
+```jsx
+import { Box } from '@vtex/admin-ui'
+
+function UseCase() {
+  return <Box>Something</Box>
+}
+```
+
+# Basic
+
+<Canvas>
+  <Story name="Basic">
+    <Box>I'm a div</Box>
+  </Story>
+</Canvas>
+
+# Style Props
+
+<Canvas>
+  <Story name="Style Props">
+    <Box
+      display="flex"
+      el="section"
+      w="full"
+      h="20"
+      justify="evenly"
+      p="10"
+      bg="muted.4"
+      items="center"
+    >
+      <Box
+        display="flex"
+        w="1/3"
+        h="full"
+        bg="muted.2"
+        m="5"
+        justify="center"
+        items="center"
+      >
+        1/3
+      </Box>
+      <Box
+        display="flex"
+        w="1/3"
+        h="full"
+        bg="muted.2"
+        m="5"
+        justify="center"
+        items="center"
+      >
+        1/3
+      </Box>
+      <Box
+        display="flex"
+        w="1/3"
+        h="full"
+        bg="muted.2"
+        m="5"
+        justify="center"
+        items="center"
+      >
+        1/3
+      </Box>
+    </Box>
+  </Story>
+</Canvas>
+
+# Composition with render-props
+
+<Canvas>
+  <Story name="Render Props">
+    <Box w="2xl" h="full">
+      {(props) => <Button {...props}>Button With 2xl Width</Button>}
+    </Box>
+  </Story>
+</Canvas>
