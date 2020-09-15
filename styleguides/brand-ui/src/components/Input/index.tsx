@@ -3,21 +3,7 @@ import { Box, Flex, Input, Label, Text } from 'theme-ui'
 import { useInput } from 'reakit/Input'
 
 import { forwardRef } from '@vtex-components/utils'
-
-const pickPadding = (size: Size) => {
-  const variants = {
-    regular: {
-      px: 13,
-      py: 9,
-    },
-    large: {
-      px: 13,
-      py: 13,
-    },
-  }
-
-  return variants?.[size] ?? variants.regular
-}
+import { useComponentSx } from '@vtex-components/theme'
 
 const BrandInput = (props: PropsWithChildren<InputProps>) => {
   const {
@@ -31,34 +17,34 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
   const ref = useRef<HTMLInputElement>(null)
   const redirectFocus = () => ref.current?.focus()
   const { children, ...inputProps } = useInput({}, restProps)
+  const styles = useComponentSx('input', {
+    size,
+  })
 
   return (
-    <Box onFocus={() => redirectFocus()} onClick={() => redirectFocus()}>
+    <Box m={2} onFocus={() => redirectFocus()} onClick={() => redirectFocus()}>
       <Flex
         sx={{
-          position: 'relative',
-          width: 'fit-content',
+          ...styles,
           'input:focus ~ label': {
-            padding: '0 4px',
-            transition: 'all 0.2s ease-in-out',
-            top: '-8px',
-            left: '8px',
+            lineHeight: 'small',
+            px: 2,
+            py: 0,
+            top: -3,
+            left: '16px',
             backgroundColor: 'white',
-            width: 'fit-content',
-            fontSize: '14px',
-            transform: 'scale(.8)',
-            color: '#1976d2',
+            fontSize: 0,
           },
         }}
         {...inputProps}
       >
         {prefix && (
-          <Flex sx={{
-            left: 0,
-            margin: ".5em",
-            position: "absolute",
-            top: 1, alignItems: 'center'
-          }} pl={5}>
+          <Flex
+            sx={{
+              alignItems: 'center',
+              mr: 3,
+            }}
+          >
             {prefix}
           </Flex>
         )}
@@ -66,12 +52,10 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
           onChange={(e) => console.log(e.target.value)}
           ref={ref}
           sx={{
-            ...pickPadding(size),
-            borderWidth: 1,
-            borderStyle: 'solid',
-            borderColor: 'muted.2',
-            borderRadius: 6,
+            border: 'none',
             width: 'fit-content',
+            p: 0,
+            lineHeight: 'action',
             ':focus': {
               outline: 'none',
             },
@@ -79,49 +63,42 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
         />
         <Label
           sx={{
+            color: 'muted.0',
             width: 'fit-content',
-            display: 'inline-block',
             position: 'absolute',
-            top: '20px',
-            left: '40px',
             pointerEvents: 'none',
-            color: 'rgba(0, 0, 0, 0.5)',
+            fontSize: 2,
+            left: prefix ? '44px' : 'auto',
+            lineHeight: 'action',
             transition: 'all 0.2s ease-in-out',
           }}
         >
           {label}
         </Label>
         {suffix && (
-          <Flex sx={{
-            right: 0,
-            margin: ".5em",
-            position: "absolute",
-            top: 1, alignItems: 'center'
-          }} pl={5}>
+          <Flex
+            sx={{
+              alignItems: 'center',
+              ml: 3,
+            }}
+          >
             {suffix}
           </Flex>
         )}
       </Flex>
-      <div>{helpMessage && <HelpMessage text={helpMessage} />}</div>
+    <Text sx={{ mt: 2, fontSize: 0, color: 'muted.1' }}>{helpMessage}</Text>
     </Box>
   )
 }
 
-type HelpMessageProps = {
-  text: string
-}
-const HelpMessage = ({ text }: HelpMessageProps) => (
-  <Text sx={{ mt: 5, fontSize: 0, color: 'muted.1' }}>{text}</Text>
-)
-
-export type Size = 'regular' | 'large'
+export type Size = 'small' | 'regular' | 'large'
 
 export interface InputProps {
-  size?: Size
-  helpMessage?: string
+  helpMessage: string
   label: string
-  suffix?: ReactNode
   prefix?: ReactNode
+  size?: Size
+  suffix?: ReactNode
 }
 
 export default forwardRef(BrandInput)
