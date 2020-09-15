@@ -11,12 +11,20 @@ export default {
 
 export const Playground = () => {
   return (
-    <Box w="full" h="20" justify="evenly" p="10" bg="muted.4">
+    <Box
+      display="flex"
+      el="section"
+      w="full"
+      h="20"
+      justify="evenly"
+      p="10"
+      bg="muted.4"
+    >
       <Box w="1/5" h="full" bg="muted.2">
         {(props) => <Button {...props}>My Button</Button>}
       </Box>
       <Box w="1/5" h="full" bg="muted.2" />
-      <Box w="1/5" h="full" color="text" justify="center" items="center">
+      <Box w="1/5" h="full" c="text" justify="center" items="center">
         Text
       </Box>
     </Box>

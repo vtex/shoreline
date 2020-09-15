@@ -5,7 +5,7 @@ export const colorTokens = system({
     property: 'backgroundColor',
     scale: 'colors',
   },
-  color: {
+  c: {
     property: 'color',
     scale: 'colors',
   },
@@ -75,7 +75,7 @@ export interface ColorTokensProps {
   /**
    * Text color
    */
-  color?: Colors
+  c?: Colors
   /**
    * Border color
    */
