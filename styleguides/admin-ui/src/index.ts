@@ -1,5 +1,4 @@
 export { jsx } from 'theme-ui'
-export { VisuallyHidden, VisuallyHiddenProps } from 'reakit/VisuallyHidden'
 export { useTheme } from '@vtex-components/theme'
 export { ThemeProvider, Theme } from './theme'
 export { Box, BoxProps } from './components/Box'
@@ -7,6 +6,10 @@ export { Button, ButtonProps } from './components/Button'
 export { Text, TextProps } from './components/Text'
 export { Skeleton, SkeletonProps } from './components/Skeleton'
 export { Card, CardProps } from './components/Card'
+export {
+  VisuallyHidden,
+  VisuallyHiddenProps,
+} from './components/VisuallyHidden'
 export {
   Collapsible,
   useCollapsible,

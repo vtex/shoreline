@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+
+import { Box } from '../Box'
+import { Text } from '../Text'
+import { VisuallyHidden } from './index'
+
+<Meta title="alpha/VisuallyHidden" component={VisuallyHidden} />
+
+# VisuallyHidden
+
+VisuallyHidden is a common techinique used in web accessibility to hide content from the visual client, but keep it readable for screen readers.
+Same as [reakit/VisuallyHidden](https://reakit.io/docs/visually-hidden/)
+
+<Canvas>
+  <Story name="With simple search field">
+    <Box display="flex" direction="col" w="21">
+      <VisuallyHidden>
+        <label htmlFor="search">Hidden Label</label>
+      </VisuallyHidden>
+      <input id="search" type="search" placeholder="A11y Search Input" />
+      <Text variant="small">Use this input to search things</Text>
+    </Box>
+  </Story>
+</Canvas>
