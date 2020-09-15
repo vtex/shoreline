@@ -7,6 +7,10 @@ export { Text, TextProps } from './components/Text'
 export { Skeleton, SkeletonProps } from './components/Skeleton'
 export { Card, CardProps } from './components/Card'
 export {
+  VisuallyHidden,
+  VisuallyHiddenProps,
+} from './components/VisuallyHidden'
+export {
   Collapsible,
   useCollapsible,
   CollapsibleProps,
