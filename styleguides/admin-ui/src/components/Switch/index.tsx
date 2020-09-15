@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
+import { jsx, SxStyleProp, Label } from 'theme-ui'
 import { ReactNode, Ref } from 'react'
 import { Checkbox, CheckboxProps, useCheckboxState } from 'reakit'
 import { useFocusRing } from '@react-aria/focus'
@@ -20,13 +20,21 @@ export const Switch = forwardRef(
     const mergedSx = mergeSx<SxStyleProp>({ ...styles, ...focusStyles }, sx)
 
     return (
-      <Checkbox
-        ref={ref}
-        role="switch"
-        {...reakitProps}
-        {...focusProps}
-        sx={mergedSx}
-      />
+      <Label
+        sx={{
+          display: 'inline',
+          cursor: 'pointer',
+        }}
+      >
+        <Checkbox
+          ref={ref}
+          role="switch"
+          {...reakitProps}
+          {...focusProps}
+          sx={mergedSx}
+        />
+        {label}
+      </Label>
     )
   }
 )
@@ -56,14 +64,13 @@ export interface SwitchProps
     | 'onChange'
     | 'state'
     | 'setState'
-    | 'onClick'
   > {
   /** ThemeUI style prop
    * @default {}
    */
   sx?: SxStyleProp
   /** Checkbox label */
-  label?: ReactNode
+  label: ReactNode
   /**
    * Checkbox Size
    * @default regular
