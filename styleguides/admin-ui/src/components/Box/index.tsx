@@ -17,11 +17,6 @@ import {
   SxTokensProps,
 } from '../../tokens'
 
-interface PropsWithEl extends ReakitBoxProps {
-  el?: React.ElementType
-  children?: ReactNode | RenderProp<ExtractHTMLAttributes<any>>
-}
-
 const WrappedBox = forwardRef(function BoxWithEl(
   props: PropsWithEl,
   ref: Ref<any>
@@ -38,6 +33,15 @@ export const Box = styled(WrappedBox)<BoxProps>(
   colorTokens,
   sxTokens
 )
+
+export interface PropsWithEl extends ReakitBoxProps {
+  /**
+   * Element type
+   * @default 'div'
+   * */
+  el?: React.ElementType
+  children?: ReactNode | RenderProp<ExtractHTMLAttributes<any>>
+}
 
 export type BoxProps = FlexTokensProps &
   LayoutTokensProps &

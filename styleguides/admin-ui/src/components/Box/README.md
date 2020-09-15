@@ -1,52 +1,84 @@
-# [alpha] Styled Box
+# [alpha] Box
 
 - 📅 Start Date: 2020-09-14
 - 🏆 Champions: @matheusps
 
 # Summary
 
-- A brief explanation of the feature.
-- Short motivation, if applicable. (you can use enumerated lists to help you).
+Elementary component
 
-# Basic example [optional]
+# Basic example
 
-- If the proposal involves a new or changed API, include a basic code example.
+```jsx
+import { Box } from '@vtex/admin-ui'
+
+function UseCase() {
+  return <Box>👻 This is a box</Box>
+}
+```
 
 # Detailed design
 
-This is the bulk of the RFC, you must:
+We wrap a reakit Box with a `@emotion/styled`. To select different tag elements, we need to remap the `as` prop to be `el`. The composition is enabled through the render-props API.
 
-- Explain the design in enough detail for engineers to understand.
-- Define solutions for corner-cases.
-- Include examples of how the feature is used.
-- Define the new terminologies.
+Further read https://reakit.io/docs/styling/, https://reakit.io/docs/composition/.
+
+## Render as other elements
+
+```jsx
+import { Box } from '@vtex/admin-ui'
+
+function WithElement() {
+  return (
+    <Box el="article">
+      <Box el="h1">👻 I'm a h1</Box>
+      <Box el="p">👻 I'm a p</Box>
+      <Box>👻 I'm a div</Box>
+    </Box>
+  )
+}
+```
+
+## Style Props
+
+```jsx
+import { Box } from '@vtex/admin-ui'
+
+function WithStyleProps() {
+  return <Box bg="primary.base">👻 This is a box</Box>
+}
+```
+
+## Render Props
+
+```jsx
+import { Box, Button } from '@vtex/admin-ui'
+
+function RenderProps() {
+  return (
+    <Box display="flex">
+      {(props) => <Button {...props}>I'm a flex button</Button>}
+    </Box>
+  )
+}
+```
 
 # Drawbacks
 
-Why should we _not_ do this? Please consider:
+- Increases complexity
 
-- implementation cost, both in term of code size and complexity
-- the impact on teaching people
-- integration of this feature with other existing and planned features
-- cost of migrating existing applications (is it a breaking change?)
+# Alternatives
 
-💡There are tradeoffs to choosing any path. Attempt to identify them here.
+- Use theme-ui box with sx.
 
-# Alternatives [optional]
-
-What other designs have been considered?
-
-# Adoption strategy [optional]
+# Adoption strategy
 
 This component aims to reduce the learning curve and migration time from tachyons/styleguide v9.
 
-# Education [optional]
+# Education
 
-- What names and terminology work best for these concepts and why?
-- Would the acceptance of this proposal change the documentation somehow?
-- How should this feature be taught to existing VTEX developers?
+- Documentation, as usual
 
-# Unresolved questions [optional]
+# Unresolved questions
 
-- Optional, but suggested for first drafts.
-- What parts of the design are still TBD?
+- Will the developers will enjoy using it?
