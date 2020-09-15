@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.22.0...@vtex/admin-ui@0.23.0) (2020-09-15)
+
+
+### Features
+
+* **admin-ui:** export Icon, IconWithDirection as VisuallyHidden components ([cddbe9e](https://github.com/vtex/onda/commit/cddbe9e265bac116f503911e8b3b598ea08ae1d9))
+
+
+
+
+
 # [0.22.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.21.3...@vtex/admin-ui@0.22.0) (2020-09-15)
 
 
