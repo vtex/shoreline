@@ -8,12 +8,40 @@ export const borderTokens = system({
     property: 'borderWidth',
     scale: 'borderWidths',
   },
+  btw: {
+    property: 'borderTopWidth',
+    scale: 'borderWidths',
+  },
+  bbw: {
+    property: 'borderBottomWidth',
+    scale: 'borderWidths',
+  },
+  blw: {
+    property: 'borderLeftWidth',
+    scale: 'borderWidths',
+  },
+  brw: {
+    property: 'borderRightWidth',
+    scale: 'borderWidths',
+  },
   br: {
     property: 'borderRadius',
     scale: 'borderRadius',
   },
   bs: {
     property: 'borderStyle',
+  },
+  bts: {
+    property: 'borderTopStyle',
+  },
+  bbs: {
+    property: 'borderBottomStyle',
+  },
+  bls: {
+    property: 'borderLeftStyle',
+  },
+  brs: {
+    property: 'borderRightStyle',
   },
 })
 
