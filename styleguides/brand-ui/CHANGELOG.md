@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.4.1...@vtex/brand-ui@0.5.0) (2020-09-16)
+
+
+### Bug Fixes
+
+* brand-ui icons ([a0db6ea](https://github.com/vtex/onda/commit/a0db6ea458ad959fb79e2885d17f20ee99a9434d))
+* footer link props and style ([1e733c9](https://github.com/vtex/onda/commit/1e733c9a0667e3e1681c9a629f627f08bb1789a5))
+* footer social media icons ([011fe47](https://github.com/vtex/onda/commit/011fe47e310599de34aa7f084af22b92e05c3e4c))
+* footer social media icons props and style ([f562cc3](https://github.com/vtex/onda/commit/f562cc395652eb2efc00f3237ad9dc8e9a537b25))
+* remove unnecessary interfaces ([75a1c49](https://github.com/vtex/onda/commit/75a1c494a042e63d067493f1045f8e30d1403862))
+
+
+### Features
+
+* add footer component ([df8a7bf](https://github.com/vtex/onda/commit/df8a7bf552dbb8573efc8b2e27fe8221a6b417b8))
+* add footer landing component ([da97e2a](https://github.com/vtex/onda/commit/da97e2ab587a84ce857fded2765cf269e1086c3e))
+
+
+
+
+
 ## [0.4.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.4.0...@vtex/brand-ui@0.4.1) (2020-09-11)
 
 **Note:** Version bump only for package @vtex/brand-ui

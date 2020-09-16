@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.23.0...@vtex/admin-ui@0.24.0) (2020-09-16)
+
+
+### Bug Fixes
+
+* **box:** sx prop ([f19527f](https://github.com/vtex/onda/commit/f19527f865e2bf5ed3f542ef4bb3d2333b603282))
+
+
+### Features
+
+* **border:** add border tokens ([a9f832f](https://github.com/vtex/onda/commit/a9f832f92599843b6958d6ee79877b8de13dc793))
+
+
+
+
+
 # [0.23.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.22.0...@vtex/admin-ui@0.23.0) (2020-09-15)
 
 
