@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.25.0...@vtex/admin-ui@0.25.1) (2020-09-16)
+
+
+### Bug Fixes
+
+* **border-tokens:** fix ts exports ([2beb837](https://github.com/vtex/onda/commit/2beb8379b44d4f5468efd1c45742e8577279abf8))
+
+
+
+
+
 # [0.25.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.24.0...@vtex/admin-ui@0.25.0) (2020-09-16)
 
 
