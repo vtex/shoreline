@@ -50,6 +50,55 @@ export const theme = {
     },
   },
   buttons,
+  components: {
+    collapsible: {
+      styles: {
+        borderBottom: 'solid',
+        borderBottomWidth: 1,
+        borderBottomColor: 'muted.2',
+        backgroundColor: 'white',
+      },
+      header: {
+        styles: {
+          backgroundColor: 'white',
+          border: 'none',
+          px: 3,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          width: '100%',
+          cursor: 'pointer',
+          color: 'secondary.base',
+          '&:disabled': {
+            color: 'muted.2',
+          },
+        },
+        size: {
+          regular: {
+            fontSize: 2,
+            height: 64,
+          },
+          small: {
+            fontSize: 1,
+            height: 48,
+          },
+        },
+      },
+      content: {
+        styles: {
+          pb: 5,
+          color: 'muted.0',
+        },
+        behavior: {
+          regular: {
+            px: 4,
+          },
+          stacked: {
+            ml: 5,
+          },
+        },
+      },
+    },
+  },
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',

@@ -1,14 +1,15 @@
-import React, { ReactNode } from 'react'
-import { SxStyleProp, Flex, Box } from 'theme-ui'
+import React, { ReactNode, ReactElement } from 'react'
+/** jsx */
+import { SxStyleProp, Box, Flex, jsx } from 'theme-ui'
 import {
   useDisclosureState,
-  Disclosure as ReakitDisclosure,
   DisclosureContent,
   DisclosureProps,
 } from 'reakit/Disclosure'
+import { useComponentSx, mergeSx } from '@vtex-components/theme'
+import { Disclosure as ReakitDisclosure } from 'reakit'
 
 import { CollapsibleProvider, useCollapsibleContext } from './context'
-import { Button } from '../Button'
 import { IconCaret } from '../../icons'
 
 /**
@@ -25,46 +26,51 @@ import { IconCaret } from '../../icons'
  * </Collapsible>
  * ```
  */
-export function Collapsible({ sx, children, ...props }: CollapsibleProps) {
+export function Collapsible({ sx = {}, children, ...props }: CollapsibleProps) {
+  const styles = useComponentSx('collapsible', {})
+  const mergedSx = mergeSx<SxStyleProp>(styles, sx)
+
   return (
-    <Box sx={sx}>
+    <Box sx={mergedSx}>
       <CollapsibleProvider {...props}>{children}</CollapsibleProvider>
     </Box>
   )
 }
 
-function Header({ children, sx, iconPosition = 'end' }: HeaderProps) {
-  const { visible, ...disclosureProps } = useCollapsibleContext()
+function Header({ children, size = 'regular', sx = {} }: HeaderProps) {
+  const { visible, disabled, ...disclosureProps } = useCollapsibleContext()
+  const styles = useComponentSx('collapsible.header', { size })
+  const mergedSx = mergeSx<SxStyleProp>(styles, sx)
 
   return (
-    <ReakitDisclosure visible={visible} {...disclosureProps}>
+    <ReakitDisclosure
+      visible={visible}
+      disabled={disabled}
+      {...disclosureProps}
+    >
       {(enhancedProps) => (
-        <Button
-          {...enhancedProps}
-          sx={{ color: 'text', paddingX: 2, ...sx }}
-          iconPosition={iconPosition}
-          variant="tertiary"
-          block
-          icon={(iconProps) => (
-            <IconCaret {...iconProps} direction={visible ? 'right' : 'down'} />
-          )}
-        >
-          <Flex sx={{ justifyContent: 'start', width: '100%' }}>
-            {children}
-          </Flex>
-        </Button>
+        <Flex as="button" {...enhancedProps} sx={mergedSx}>
+          {children}
+          <IconCaret direction={visible ? 'right' : 'down'} />
+        </Flex>
       )}
     </ReakitDisclosure>
   )
 }
 
-function Content({ children, sx }: ContentProps) {
+function Content({ children, sx = {} }: ContentProps) {
   const props = useCollapsibleContext()
+
+  const behavior =
+    (children as ReactElement).type === Collapsible ? 'stacked' : 'regular'
+
+  const styles = useComponentSx('collapsible.content', { behavior })
+  const mergedSx = mergeSx<SxStyleProp>(styles, sx)
 
   return (
     <DisclosureContent {...props}>
       {(enhancedProps) => (
-        <Box {...enhancedProps} sx={{ p: 3, ...sx }}>
+        <Box {...enhancedProps} sx={mergedSx}>
           {children}
         </Box>
       )}
@@ -95,16 +101,15 @@ export interface CollapsibleProps extends DisclosureProps {
 
 export interface HeaderProps {
   /**
-   * Disclosure button icon position
-   * @default end
-   */
-  iconPosition?: 'end' | 'start'
-  /**
    * Disclosure content
    */
   children?: ReactNode
   /** custom styles */
   sx?: SxStyleProp
+  /** Size of the collapsible
+   * @default regular
+   */
+  size?: 'small' | 'regular'
 }
 
 export interface ContentProps {

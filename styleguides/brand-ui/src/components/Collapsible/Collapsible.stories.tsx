@@ -27,18 +27,24 @@ export const SimpleUsage = () => {
 export const NestedCollapsible = () => {
   const firstProps = useCollapsible()
   const secondProps = useCollapsible()
+  const thirdProps = useCollapsible()
 
   return (
     <Collapsible {...firstProps} sx={{ width: '40%' }}>
-      <Collapsible.Header>Build for Community #2</Collapsible.Header>
+      <Collapsible.Header>Build for Community #1</Collapsible.Header>
       <Collapsible.Content>
         <Collapsible {...secondProps}>
           <Collapsible.Header>Build for Community #2</Collapsible.Header>
           <Collapsible.Content>
-            It’s all about being ready to grow and reach new levels. Have a
-            solid foundation, modular thinking and flexible essence, and you’re
-            building for scale. We are global but we’re audacious enough to aim
-            for the stars.
+            <Collapsible {...thirdProps} disabled>
+              <Collapsible.Header>Build for Community #3</Collapsible.Header>
+              <Collapsible.Content>
+                It’s all about being ready to grow and reach new levels. Have a
+                solid foundation, modular thinking and flexible essence, and
+                you’re building for scale. We are global but we’re audacious
+                enough to aim for the stars.
+              </Collapsible.Content>
+            </Collapsible>
           </Collapsible.Content>
         </Collapsible>
       </Collapsible.Content>
@@ -51,9 +57,7 @@ export const InitiallyVisible = () => {
 
   return (
     <Collapsible {...firstProps} sx={{ width: '40%' }}>
-      <Collapsible.Header iconPosition="end">
-        Build for Community #2
-      </Collapsible.Header>
+      <Collapsible.Header>Build for Community #2</Collapsible.Header>
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
