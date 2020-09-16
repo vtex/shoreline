@@ -71,6 +71,9 @@ export const theme = {
           '&:disabled': {
             color: 'muted.2',
           },
+          '&:focus': {
+            outline: 'none',
+          },
         },
         size: {
           regular: {
@@ -85,6 +88,7 @@ export const theme = {
       },
       content: {
         styles: {
+          pt: 2,
           pb: 5,
           color: 'muted.0',
         },

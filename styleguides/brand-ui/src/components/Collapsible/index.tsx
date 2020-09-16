@@ -1,6 +1,5 @@
 import React, { ReactNode, ReactElement } from 'react'
-/** jsx */
-import { SxStyleProp, Box, Flex, jsx } from 'theme-ui'
+import { SxStyleProp, Box, Flex } from 'theme-ui'
 import {
   useDisclosureState,
   DisclosureContent,
@@ -11,6 +10,7 @@ import { Disclosure as ReakitDisclosure } from 'reakit'
 
 import { CollapsibleProvider, useCollapsibleContext } from './context'
 import { IconCaret } from '../../icons'
+import { useFocusHollow } from '../utils'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
@@ -38,18 +38,17 @@ export function Collapsible({ sx = {}, children, ...props }: CollapsibleProps) {
 }
 
 function Header({ children, size = 'regular', sx = {} }: HeaderProps) {
-  const { visible, disabled, ...disclosureProps } = useCollapsibleContext()
+  const { visible, ...disclosureProps } = useCollapsibleContext()
+  const { focusStyles, focusProps } = useFocusHollow()
+
   const styles = useComponentSx('collapsible.header', { size })
-  const mergedSx = mergeSx<SxStyleProp>(styles, sx)
+  const headerSx = mergeSx<SxStyleProp>(styles, focusStyles)
+  const mergedSx = mergeSx<SxStyleProp>(headerSx, sx)
 
   return (
-    <ReakitDisclosure
-      visible={visible}
-      disabled={disabled}
-      {...disclosureProps}
-    >
+    <ReakitDisclosure visible={visible} {...disclosureProps}>
       {(enhancedProps) => (
-        <Flex as="button" {...enhancedProps} sx={mergedSx}>
+        <Flex as="button" {...enhancedProps} {...focusProps} sx={mergedSx}>
           {children}
           <IconCaret direction={visible ? 'right' : 'down'} />
         </Flex>
