@@ -1,4 +1,5 @@
-export { jsx } from 'theme-ui'
+export { jsx, css } from 'theme-ui'
+export { default as styled } from '@emotion/styled'
 export { useTheme } from '@vtex-components/theme'
 export { ThemeProvider, Theme } from './theme'
 export { Box, BoxProps } from './components/Box'
