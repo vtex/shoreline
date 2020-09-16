@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.24.0...@vtex/admin-ui@0.25.0) (2020-09-16)
+
+
+### Features
+
+* **border-tokens:** add tokens for partial borders ([9d61609](https://github.com/vtex/onda/commit/9d61609dce8ab8e877805d1f80e32ee2fd297f5b))
+* **typo-tokens:** add typography tokens ([c2537e7](https://github.com/vtex/onda/commit/c2537e731f002453098dd60ea696103939101e0d))
+
+
+
+
+
 # [0.24.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.23.0...@vtex/admin-ui@0.24.0) (2020-09-16)
 
 
