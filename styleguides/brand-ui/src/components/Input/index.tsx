@@ -143,7 +143,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
         <Text>{helpMessage}</Text>
         {charLimit && (
           <Text>
-            {charCount} / {charLimit}
+            {charCount}/{charLimit}
           </Text>
         )}
       </Flex>
