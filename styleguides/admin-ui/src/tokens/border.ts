@@ -51,6 +51,22 @@ export interface BorderTokensProps {
    */
   bw?: BorderSizes
   /**
+   * Borde Top Width
+   */
+  btw?: BorderSizes
+  /**
+   * Border Bottom Width
+   */
+  bbw?: BorderSizes
+  /**
+   * Border Right Width
+   */
+  brw?: BorderSizes
+  /**
+   * Border Left Width
+   */
+  blw?: BorderSizes
+  /**
    * Border radius
    */
   br?: BorderSizes
@@ -58,4 +74,20 @@ export interface BorderTokensProps {
    * Border style
    */
   bs?: ResponsiveValue<CSS.Property.BorderStyle>
+  /**
+   * Borde Top Style
+   */
+  bts?: ResponsiveValue<CSS.Property.BorderTopStyle>
+  /**
+   * Border Bottom Style
+   */
+  bbs?: ResponsiveValue<CSS.Property.BorderBottomStyle>
+  /**
+   * Border Right Style
+   */
+  brs?: ResponsiveValue<CSS.Property.BorderRightStyle>
+  /**
+   * Border Left Style
+   */
+  bls?: ResponsiveValue<CSS.Property.BorderLeftStyle>
 }
