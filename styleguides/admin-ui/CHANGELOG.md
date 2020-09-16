@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.25.1...@vtex/admin-ui@0.26.0) (2020-09-16)
+
+
+### Features
+
+* **styled:** export styled from emotion ([af8f8cf](https://github.com/vtex/onda/commit/af8f8cfed8edb61527404993532e2554ab7aa89a))
+
+
+
+
+
 ## [0.25.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.25.0...@vtex/admin-ui@0.25.1) (2020-09-16)
 
 
