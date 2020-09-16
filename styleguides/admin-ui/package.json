@@ -27,8 +27,11 @@
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
     "test": "tsdx test",
-    "storybook": "start-storybook -p 6006",
-    "build:storybook": "yarn --cwd ../../ bootstrap && yarn run build-storybook"
+    "start:storybook": "run-p storybook playroom",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-playroom": "playroom build",
+    "playroom": "playroom start",
+    "build:storybook": "yarn --cwd ../../ bootstrap && yarn run build-storybook -s public && yarn build-playroom"
   },
   "devDependencies": {
     "@rollup/plugin-url": "^5.0.1"
