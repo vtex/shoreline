@@ -36,7 +36,7 @@ export const NestedCollapsible = () => {
         <Collapsible {...secondProps}>
           <Collapsible.Header>Build for Community #2</Collapsible.Header>
           <Collapsible.Content>
-            <Collapsible {...thirdProps} disabled>
+            <Collapsible {...thirdProps}>
               <Collapsible.Header>Build for Community #3</Collapsible.Header>
               <Collapsible.Content>
                 It’s all about being ready to grow and reach new levels. Have a
@@ -57,6 +57,22 @@ export const InitiallyVisible = () => {
 
   return (
     <Collapsible {...firstProps} sx={{ width: '40%' }}>
+      <Collapsible.Header>Build for Community #2</Collapsible.Header>
+      <Collapsible.Content>
+        It’s all about being ready to grow and reach new levels. Have a solid
+        foundation, modular thinking and flexible essence, and you’re building
+        for scale. We are global but we’re audacious enough to aim for the
+        stars.
+      </Collapsible.Content>
+    </Collapsible>
+  )
+}
+
+export const Disabled = () => {
+  const firstProps = useCollapsible()
+
+  return (
+    <Collapsible {...firstProps} disabled sx={{ width: '40%' }}>
       <Collapsible.Header>Build for Community #2</Collapsible.Header>
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
