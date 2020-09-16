@@ -7,9 +7,9 @@ export const theme: Theme = {
     muted: ['#717786', '#A1A8B3', '#CCCED8', '#E7E9EE', '#F8F7FC'],
     focus: '#FFC4DD',
     primary: {
-      base: '#F71963',
-      hover: '#D91657',
-      active: '#E5175C',
+      base: '#E31C58',
+      hover: '#C81E51',
+      active: '#D71D55',
       washed: '#FFF3F6',
       contrast: '#FFFFFF',
     },
