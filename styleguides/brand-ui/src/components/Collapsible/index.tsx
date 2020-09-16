@@ -50,7 +50,7 @@ function Header({ children, size = 'regular', sx = {} }: HeaderProps) {
       {(enhancedProps) => (
         <Flex as="button" {...enhancedProps} {...focusProps} sx={mergedSx}>
           {children}
-          <IconCaret direction={visible ? 'right' : 'down'} />
+          <IconCaret direction={visible ? 'up' : 'down'} />
         </Flex>
       )}
     </ReakitDisclosure>
