@@ -75,7 +75,7 @@ export interface BorderTokensProps {
    */
   bs?: ResponsiveValue<CSS.Property.BorderStyle>
   /**
-   * Borde Top Style
+   * Border Top Style
    */
   bts?: ResponsiveValue<CSS.Property.BorderTopStyle>
   /**
