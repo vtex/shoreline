@@ -1,37 +1,16 @@
-import React, { ReactNode, Ref } from 'react'
-import { forwardRef } from '@vtex-components/utils'
-import { SxStyleProp } from 'theme-ui'
+import styled from '@emotion/styled'
 
-import { Box } from '../Box'
+import { Box, BoxProps as CardProps } from '../Box'
 
-export const Card = forwardRef((props: CardProps, ref: Ref<HTMLDivElement>) => {
-  const { sx, children } = props
+export const Card = styled(Box)<CardProps>``
 
-  return (
-    <Box
-      bg="background"
-      bc="muted.3"
-      p="13"
-      sx={{
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderRadius: 3,
-        ...sx,
-      }}
-      ref={ref}
-    >
-      {children}
-    </Box>
-  )
-})
-export interface CardProps {
-  /**
-   * ThemeUI style props
-   * @default {}
-   * */
-  sx?: SxStyleProp
-  /**
-   * React children prop
-   * */
-  children?: ReactNode
+Card.defaultProps = {
+  bg: 'background',
+  bc: 'muted.3',
+  p: '13',
+  bw: '1',
+  bs: 'solid',
+  br: '3',
 }
+
+export { CardProps }

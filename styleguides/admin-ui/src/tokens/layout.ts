@@ -1,7 +1,7 @@
 import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
 
-import { theme } from '../theme/theme'
+import { Sizes } from '../theme/theme'
 
 export const layoutTokens = system({
   w: {
@@ -38,8 +38,6 @@ export const layoutTokens = system({
   display: true,
   verticalAlign: true,
 })
-
-type Sizes = keyof typeof theme.sizes
 
 export interface LayoutTokensProps {
   display?: ResponsiveValue<CSS.Property.Display>

@@ -9,11 +9,13 @@ import {
   layoutTokens,
   spaceTokens,
   colorTokens,
+  borderTokens,
   sxTokens,
   FlexTokensProps,
   LayoutTokensProps,
   SpaceTokensProps,
   ColorTokensProps,
+  BorderTokensProps,
   SxTokensProps,
 } from '../../tokens'
 
@@ -31,10 +33,11 @@ export const Box = styled(WrappedBox)<BoxProps>(
   layoutTokens,
   spaceTokens,
   colorTokens,
+  borderTokens,
   sxTokens
 )
 
-export interface PropsWithEl extends ReakitBoxProps {
+export interface PropsWithEl extends Omit<ReakitBoxProps, 'sx'> {
   /**
    * Element type
    * @default 'div'
@@ -47,5 +50,6 @@ export type BoxProps = FlexTokensProps &
   LayoutTokensProps &
   SpaceTokensProps &
   ColorTokensProps &
+  BorderTokensProps &
   SxTokensProps &
   PropsWithEl

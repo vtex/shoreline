@@ -273,6 +273,31 @@ function useCase() {
 | `screenHeight` | `100vh`        |
 | `screenWidth`  | `100vw`        |
 
+### Border
+
+```js
+function useCase() {
+  return <Box bw="1" br="3" bs="solid" />
+}
+```
+
+#### Available Tokens
+
+| Token | CSS Property    | Theme Field    |
+| ----- | --------------- | -------------- |
+| `bw`  | `border-width`  | `borderWidths` |
+| `br`  | `border-radius` | `borderRadius` |
+| `bs`  | `border-style`  | none           |
+
+#### Values
+
+| token | value       |
+| ----- | ----------- |
+| 0     | `0rem`      |
+| 1     | `0.0625rem` |
+| 2     | `0.125rem`  |
+| 3     | `0.25rem`   |
+
 ### fontSize (not yet supported by styled props)
 
 Supported props:
@@ -304,35 +329,3 @@ line-height
 | `action`    | `1.5em`   |
 | `subtitle`  | `1.5em`   |
 | `headline`  | `1.5em`   |
-
-### Border Width (not yet supported by styled props)
-
-Supported props:
-
-```
-border-width, border-top-width, border-bottom-width, border-left-width, border-right-width, border-block-end-width, border-block-start-width, border-block-width, border-inline-end-width, border-inline-start-width, border-inline-width
-```
-
-| token | value |
-| ----- | ----- |
-| 0     | `0px` |
-| 1     | `1px` |
-| 2     | `2px` |
-| 3     | `4px` |
-| 4     | `6px` |
-
-### Border Radius (not yet supported by styled props)
-
-Supported props:
-
-```
-border-radius, border-top-right-radius, border-top-left-radius, border-bottom-right-radius, border-bottom-left-radius, border-end-end-radius, border-end-start-radius, border-start-end-radius, border-start-start-radius
-```
-
-| token | value |
-| ----- | ----- |
-| 0     | `0px` |
-| 1     | `1px` |
-| 2     | `2px` |
-| 3     | `4px` |
-| 4     | `6px` |

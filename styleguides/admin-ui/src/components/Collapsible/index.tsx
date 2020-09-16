@@ -30,16 +30,7 @@ export function Collapsible(props: CollapsibleProps) {
   const { sx, children, ...disclosureProps } = props
 
   return (
-    <Box
-      bg="background"
-      bc="muted.3"
-      sx={{
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderRadius: 3,
-        ...sx,
-      }}
-    >
+    <Box bg="background" bc="muted.3" bs="solid" bw="1" br="3" sx={sx}>
       <CollapsibleProvider {...disclosureProps}>{children}</CollapsibleProvider>
     </Box>
   )
@@ -47,16 +38,7 @@ export function Collapsible(props: CollapsibleProps) {
 
 function Header({ children, label, sx }: HeaderProps) {
   return (
-    <Box
-      display="flex"
-      items="center"
-      justify="between"
-      p="13"
-      pl="12"
-      sx={{
-        ...sx,
-      }}
-    >
+    <Box display="flex" items="center" justify="between" p="13" pl="12" sx={sx}>
       <Disclosure>{label}</Disclosure>
       <Box
         display="flex"
@@ -110,7 +92,7 @@ function Content({ children, sx }: ContentProps) {
   return (
     <DisclosureContent {...props}>
       {(enhancedProps) => (
-        <Box {...enhancedProps} sx={{ paddingX: 13, paddingBottom: 13, ...sx }}>
+        <Box {...enhancedProps} px="13" pb="13" sx={sx}>
           {children}
         </Box>
       )}

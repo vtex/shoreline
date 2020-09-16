@@ -30,8 +30,8 @@ export const As = () => (
 export const FontSx = () => (
   <Text
     variant="highlight"
+    w="1/3"
     sx={{
-      width: '1/3',
       textAlign: 'justify',
     }}
   >
@@ -46,7 +46,7 @@ export const FontSx = () => (
 )
 
 export const NativeElements = () => (
-  <Box sx={{ width: 21 }}>
+  <Box w="21">
     <h1>Heading one</h1>
     <h2>Heading two</h2>
     <h3>Heading three</h3>
