@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-console.log()
 module.exports = {
   components: './playroom/components.ts',
   outputPath: './storybook-static/playroom',

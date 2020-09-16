@@ -11,4 +11,4 @@ export const parameters = {
   },
 }
 
-export const decorators = [themeDecorator, withPlayroom]
+export const decorators = [withPlayroom, themeDecorator]
