@@ -1,9 +1,11 @@
 import React, { Ref } from 'react'
-import { SxStyleProp, Flex } from 'theme-ui'
+import { SxStyleProp } from 'theme-ui'
 import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 import { useFocusRing } from '@react-aria/focus'
 import { forwardRef } from '@vtex-components/utils'
 import { useTheme, get, mergeSx } from '@vtex-components/theme'
+
+import { Box } from '../Box'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -50,19 +52,18 @@ export const Button = forwardRef(
         {...restProps}
         {...focusProps}
       >
-        <Flex
-          sx={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: 'auto',
-            width: 'full',
-            height: 'full',
-            ...containerStyles,
-          }}
+        <Box
+          display="flex"
+          h="full"
+          w="full"
+          m="auto"
+          items="center"
+          justify="center"
+          sx={containerStyles}
         >
           {renderIcon()}
           {children}
-        </Flex>
+        </Box>
       </BaseButton>
     )
   }

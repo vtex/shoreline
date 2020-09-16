@@ -20,12 +20,8 @@ import { Box, BoxProps } from '../Box'
  * <Text as="p" variant="body">Look, a paragraph</Text>
  * ```
  */
-export function Text({
-  el = undefined,
-  variant = 'body',
-  sx = {},
-  ...props
-}: TextProps) {
+export function Text(props: TextProps) {
+  const { el = undefined, variant = 'body', sx = {}, ...boxProps } = props
   const tag = getTag(variant)
   const element: typeof el = el ?? tag
   const styles = useComponentSx('text', { variant })
@@ -33,7 +29,7 @@ export function Text({
   return (
     <Box
       el={element}
-      {...props}
+      {...boxProps}
       sx={{
         ...styles,
         ...sx,
@@ -63,7 +59,7 @@ export type TextVariant =
   | 'subtitle'
   | 'headline'
 
-export interface TextProps extends Pick<BoxProps, 'el' | 'children'> {
+export interface TextProps extends BoxProps {
   /**
    * Text Variant
    * @default body

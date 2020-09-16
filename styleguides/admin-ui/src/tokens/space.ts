@@ -1,6 +1,6 @@
 import { system } from 'styled-system'
 
-import { theme } from '../theme/theme'
+import { Space } from '../theme/theme'
 
 export const spaceTokens = system({
   m: {
@@ -61,13 +61,11 @@ export const spaceTokens = system({
   },
 })
 
-type Space = keyof typeof theme.space
-
 export interface SpaceTokensProps {
   /**
    * Margin
    */
-  m?: Space
+  m?: Space | 'auto'
   /**
    * Margin top
    */
