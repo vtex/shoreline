@@ -358,11 +358,11 @@ export const theme = {
     },
   },
   fontSizes: {
-    '0': '12px',
-    '1': '14px',
-    '2': '16px',
-    '3': '18px',
-    '4': '20px',
+    '0': '0.75rem',
+    '1': '0.875rem',
+    '2': '1rem',
+    '3': '1.125rem',
+    '4': '1.25rem',
   },
   fontVariation: {
     light: "'wght' 80",
@@ -391,7 +391,7 @@ export const theme = {
   },
 }
 
-export type FontSizes = '0' | '1' | '2' | '4'
+export type FontSizes = '0' | '1' | '2' | '3' | '4'
 export type BorderSizes = '0' | '1' | '2' | '3'
 export type FontVariation = keyof typeof theme.fontVariation
 export type LineHeights = keyof typeof theme.lineHeights
