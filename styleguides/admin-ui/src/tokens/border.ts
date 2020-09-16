@@ -51,7 +51,7 @@ export interface BorderTokensProps {
    */
   bw?: BorderSizes
   /**
-   * Borde Top Width
+   * Border Top Width
    */
   btw?: BorderSizes
   /**
