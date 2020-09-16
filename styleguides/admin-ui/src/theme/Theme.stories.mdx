@@ -159,6 +159,17 @@ function useCase() {
 | 11          | `1.25rem`      |
 | 12          | `1.375rem`     |
 | 13          | `1.5rem`       |
+| 14          | `1.625rem`     |
+| 15          | `1.875rem`     |
+| 16          | `2rem`         |
+| 17          | `2.125rem`     |
+| 18          | `2.25rem`      |
+| 19          | `2.375rem`     |
+| 20          | `2.5rem`       |
+| 21          | `2.625rem`     |
+| 22          | `2.75rem`      |
+| 23          | `2.875rem`     |
+| 24          | `3rem`         |
 
 ### Flex
 
@@ -283,49 +294,73 @@ function useCase() {
 
 #### Available Tokens
 
-| Token | CSS Property    | Theme Field    |
-| ----- | --------------- | -------------- |
-| `bw`  | `border-width`  | `borderWidths` |
-| `br`  | `border-radius` | `borderRadius` |
-| `bs`  | `border-style`  | none           |
+| Token | CSS Property          | Theme Field    |
+| ----- | --------------------- | -------------- |
+| `bw`  | `border-width`        | `borderWidths` |
+| `btw` | `border-top-width`    | `borderWidths` |
+| `bbw` | `border-bottom-width` | `borderWidths` |
+| `brw` | `border-right-width`  | `borderWidths` |
+| `blw` | `border-left-width`   | `borderWidths` |
+| `br`  | `border-radius`       | `borderRadius` |
+| `bs`  | `border-style`        | none           |
+| `bts` | `border-top-style`    | none           |
+| `bbs` | `border-bottom-style` | none           |
+| `brs` | `border-right-style`  | none           |
+| `bls` | `border-left-style`   | none           |
 
 #### Values
 
-| token | value       |
-| ----- | ----------- |
-| 0     | `0rem`      |
-| 1     | `0.0625rem` |
-| 2     | `0.125rem`  |
-| 3     | `0.25rem`   |
+| Token Value | Returned Value |
+| ----------- | -------------- |
+| 0           | `0rem`         |
+| 1           | `0.0625rem`    |
+| 2           | `0.125rem`     |
+| 3           | `0.25rem`      |
 
-### fontSize (not yet supported by styled props)
+### Typography
 
-Supported props:
-
-```
-font-size
-```
-
-| token | value  |
-| ----- | ------ |
-| 0     | `12px` |
-| 1     | `14px` |
-| 2     | `16px` |
-| 3     | `20px` |
-
-### Line Height (not yet supported by styled props)
-
-Supported props:
-
-```
-line-height
+```js
+function useCase() {
+  return <Box fs="1" fv="regular" ta="center" lh="small" />
+}
 ```
 
-| token       | value     |
-| ----------- | --------- |
-| `small`     | `1.125em` |
-| `body`      | `1.125em` |
-| `highlight` | `1.125em` |
-| `action`    | `1.5em`   |
-| `subtitle`  | `1.5em`   |
-| `headline`  | `1.5em`   |
+#### Available Tokens
+
+| Token | CSS Property              | Theme Field     |
+| ----- | ------------------------- | --------------- |
+| `fs`  | `font-size`               | `fontSizes`     |
+| `fv`  | `font-variation-settings` | `fontVariation` |
+| `lh`  | `line-height`             | `lineHeights`   |
+| `ta`  | `text-align`              | none            |
+
+#### Values
+
+##### Font size
+
+| Token Value | Returned Value |
+| ----------- | -------------- |
+| 0           | `0.75rem`      |
+| 1           | `0.875rem`     |
+| 2           | `1rem`         |
+| 3           | `1.125rem`     |
+| 4           | `1.25rem`      |
+
+##### Font Variation Settings
+
+| Token Value | Returned Value |
+| ----------- | -------------- |
+| `light`     | `'wght' 80`    |
+| `regular`   | `'wght' 92`    |
+| `bold`      | `'wght' 100`   |
+
+##### Line Height
+
+| Token Value | Returned Value |
+| ----------- | -------------- |
+| `small`     | `1.125em`      |
+| `body`      | `1.125em`      |
+| `highlight` | `1.125em`      |
+| `action`    | `1.5em`        |
+| `subtitle`  | `1.5em`        |
+| `headline`  | `1.5em`        |

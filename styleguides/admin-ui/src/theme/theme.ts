@@ -352,12 +352,23 @@ export const theme = {
         headline: {
           lineHeight: 'headline',
           fontVariationSettings: "'wght' 92",
-          fontSize: 3,
+          fontSize: 4,
         },
       },
     },
   },
-  fontSizes: [12, 14, 16, 20],
+  fontSizes: {
+    '0': '0.75rem',
+    '1': '0.875rem',
+    '2': '1rem',
+    '3': '1.125rem',
+    '4': '1.25rem',
+  },
+  fontVariation: {
+    light: "'wght' 80",
+    regular: "'wght' 92",
+    bold: "'wght' 100",
+  },
   lineHeights: {
     small: 1.125,
     body: 1.25,
@@ -380,7 +391,10 @@ export const theme = {
   },
 }
 
+export type FontSizes = '0' | '1' | '2' | '3' | '4'
 export type BorderSizes = '0' | '1' | '2' | '3'
+export type FontVariation = keyof typeof theme.fontVariation
+export type LineHeights = keyof typeof theme.lineHeights
 
 export type Space =
   | '0'

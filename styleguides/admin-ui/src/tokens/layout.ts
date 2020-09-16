@@ -32,6 +32,7 @@ export const layoutTokens = system({
     properties: ['width', 'height'],
     scale: 'sizes',
   },
+  position: true,
   overflow: true,
   overflowX: true,
   overflowY: true,
@@ -41,6 +42,7 @@ export const layoutTokens = system({
 
 export interface LayoutTokensProps {
   display?: ResponsiveValue<CSS.Property.Display>
+  position?: ResponsiveValue<CSS.Property.Position>
   overflow?: ResponsiveValue<CSS.Property.Overflow>
   overflowX?: ResponsiveValue<CSS.Property.OverflowX>
   overflowY?: ResponsiveValue<CSS.Property.OverflowY>

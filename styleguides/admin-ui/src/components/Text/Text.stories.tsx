@@ -61,3 +61,16 @@ export const NativeElements = () => (
     </p>
   </Box>
 )
+export const Tokens = () => (
+  <Box w="21">
+    <Box fv="light" fs="4">
+      Light Text
+    </Box>
+    <Box fv="regular" fs="4">
+      Regular Text
+    </Box>
+    <Box fv="bold" fs="4">
+      Bold Text
+    </Box>
+  </Box>
+)
