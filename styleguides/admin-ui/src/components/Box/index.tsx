@@ -5,12 +5,14 @@ import { Box as ReakitBox, BoxProps as ReakitBoxProps } from 'reakit'
 import { RenderProp, ExtractHTMLAttributes } from 'reakit-utils/types'
 
 import {
+  typographyTokens,
   flexTokens,
   layoutTokens,
   spaceTokens,
   colorTokens,
   borderTokens,
   sxTokens,
+  TypographyTokensProps,
   FlexTokensProps,
   LayoutTokensProps,
   SpaceTokensProps,
@@ -29,6 +31,7 @@ const WrappedBox = forwardRef(function BoxWithEl(
 })
 
 export const Box = styled(WrappedBox)<BoxProps>(
+  typographyTokens,
   flexTokens,
   layoutTokens,
   spaceTokens,
@@ -46,7 +49,8 @@ export interface PropsWithEl extends Omit<ReakitBoxProps, 'sx'> {
   children?: ReactNode | RenderProp<ExtractHTMLAttributes<any>>
 }
 
-export type BoxProps = FlexTokensProps &
+export type BoxProps = TypographyTokensProps &
+  FlexTokensProps &
   LayoutTokensProps &
   SpaceTokensProps &
   ColorTokensProps &
