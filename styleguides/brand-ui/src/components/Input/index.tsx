@@ -7,11 +7,19 @@ import { useComponentSx, mergeSx } from '@vtex-components/theme'
 
 const getLabelStyles = ({
   isIdle = true,
+  size = 'regular',
   prefix = null,
 }: {
   isIdle?: boolean
+  size?: Size
   prefix?: ReactNode
 }) => {
+  const transitionY = {
+    small: -18,
+    regular: -24,
+    large: -28
+  }
+
   return mergeSx<SxStyleProp>(
     {
       color: 'muted.0',
@@ -29,7 +37,7 @@ const getLabelStyles = ({
           paddingY: 0,
           lineHeight: 'small',
           backgroundColor: 'white',
-          transform: `translate(-${prefix ? 44 : 12}px, -24px) scale(0.75)`,
+          transform: `translate(${prefix ? -44 : -12}px, ${transitionY[size]}px) scale(0.75)`,
         }
       : {}
   )
@@ -68,6 +76,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
                 ...mergeSx<SxStyleProp>(styles, sx),
                 'input:focus ~ label': getLabelStyles({
                   isIdle: false,
+                  size,
                   prefix,
                 }),
               }}
@@ -101,8 +110,8 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
                 htmlFor={id}
                 sx={
                   charCount > 0
-                    ? getLabelStyles({ isIdle: false, prefix })
-                    : getLabelStyles({ isIdle: true, prefix })
+                    ? getLabelStyles({ isIdle: false, size, prefix })
+                    : getLabelStyles({ isIdle: true, size, prefix })
                 }
               >
                 {label}
