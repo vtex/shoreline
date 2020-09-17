@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx, SxStyleProp, Label } from 'theme-ui'
-import { ReactNode, Ref } from 'react'
+import { jsx, SxStyleProp } from 'theme-ui'
+import { Ref } from 'react'
 import { Checkbox, CheckboxProps, useCheckboxState } from 'reakit'
 import { useFocusRing } from '@react-aria/focus'
 import { useComponentSx, mergeSx } from '@vtex-components/theme'
@@ -10,7 +10,7 @@ import { Theme } from '../../theme'
 
 export const Switch = forwardRef(
   (props: SwitchProps, ref: Ref<HTMLInputElement>) => {
-    const { label, sx = {}, size = 'regular', ...reakitProps } = props
+    const { sx = {}, size = 'regular', ...reakitProps } = props
     const { focusStyles, focusProps } = useFocusHollow()
 
     const styles = useComponentSx('switch', {
@@ -20,21 +20,13 @@ export const Switch = forwardRef(
     const mergedSx = mergeSx<SxStyleProp>({ ...styles, ...focusStyles }, sx)
 
     return (
-      <Label
-        sx={{
-          display: 'inline',
-          cursor: 'pointer',
-        }}
-      >
-        <Checkbox
-          ref={ref}
-          role="switch"
-          {...reakitProps}
-          {...focusProps}
-          sx={mergedSx}
-        />
-        {label}
-      </Label>
+      <Checkbox
+        ref={ref}
+        role="switch"
+        {...reakitProps}
+        {...focusProps}
+        sx={mergedSx}
+      />
     )
   }
 )
@@ -69,10 +61,8 @@ export interface SwitchProps
    * @default {}
    */
   sx?: SxStyleProp
-  /** Checkbox label */
-  label: ReactNode
   /**
-   * Checkbox Size
+   * Switch Size
    * @default regular
    */
   size?: 'regular' | 'small'

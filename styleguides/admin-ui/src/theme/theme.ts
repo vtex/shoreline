@@ -149,6 +149,13 @@ export const theme = {
             backgroundColor: 'success.active',
             borderColor: 'success.active',
           },
+          '&:disabled': {
+            backgroundColor: 'muted.1',
+            borderColor: 'muted.1',
+            '&:after': {
+              backgroundColor: 'muted.2',
+            },
+          },
         },
         '&:hover': {
           backgroundColor: 'muted.0',
