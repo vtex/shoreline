@@ -21,17 +21,15 @@ const getLabelStyles = ({
       fontSize: 2,
       left: prefix ? 48 : 'auto',
       lineHeight: 'action',
-      transition: 'all 0.2s ease-in-out',
+      transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms'
     },
     !isIdle
       ? {
           paddingX: 2,
           paddingY: 0,
-          top: -3,
-          left: 4,
           lineHeight: 'small',
-          fontSize: 0,
           backgroundColor: 'white',
+          transform: `translate(-${prefix ? 44 : 12}px, -24px) scale(0.75)`
         }
       : {}
   )
