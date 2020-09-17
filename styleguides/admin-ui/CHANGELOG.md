@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.29.0...@vtex/admin-ui@0.30.0) (2020-09-17)
+
+
+### Bug Fixes
+
+* **position-tokens:** create a separate token for position ([2b067f5](https://github.com/vtex/onda/commit/2b067f55c9e79980231296e80967ccb885312daf))
+
+
+### Features
+
+* **theme:** add breakpoints ([c787a27](https://github.com/vtex/onda/commit/c787a270438b6bff288caf47f4e588961d9a319b))
+
+
+
+
+
 # [0.29.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.28.0...@vtex/admin-ui@0.29.0) (2020-09-17)
 
 
