@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.27.0...@vtex/admin-ui@0.28.0) (2020-09-17)
+
+
+### Features
+
+* **icons:** add admin shell icons ([78caa90](https://github.com/vtex/onda/commit/78caa90b92cfd32e692d815f21372e6d2fcb2643))
+* **theme:** add emphasis color ([d607c60](https://github.com/vtex/onda/commit/d607c605197fa996623c6ed99d27ec7d1bb9c827))
+
+
+
+
+
 # [0.27.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.26.0...@vtex/admin-ui@0.27.0) (2020-09-17)
 
 
