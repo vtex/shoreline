@@ -4147,6 +4147,11 @@
   dependencies:
     eslint-visitor-keys "^1.1.0"
 
+"@vtex-components/utils@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@vtex-components/utils/-/utils-0.0.2.tgz#b0eed21c22d50007896d969eb5f743fed9800efc"
+  integrity sha512-tF6naB1tw57USLBes2uPHcuXUOJDPNi72VMfwg3FVg9/KI66/cPz2EsH79wgychIR9U4PUYH2ui5AuN+SE13Hw==
+
 "@vtex/prettier-config@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@vtex/prettier-config/-/prettier-config-0.3.1.tgz#c376999e826827aa11f4b0e08af9cf59ae9ee476"
