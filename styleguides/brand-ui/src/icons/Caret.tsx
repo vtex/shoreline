@@ -9,7 +9,7 @@ const directions = {
 }
 
 export function IconCaret(props: IconWithDirectionProps) {
-  const { direction = 'up', ...iconProps } = props
+  const { direction = 'up', duration = 0, ...iconProps } = props
 
   const rotationDeg = directions[direction]
 
@@ -18,6 +18,7 @@ export function IconCaret(props: IconWithDirectionProps) {
       {...iconProps}
       sx={{
         transform: `rotate(${rotationDeg}deg)`,
+        transition: `all ${duration}s`,
       }}
     >
       <path
@@ -37,4 +38,9 @@ export interface IconWithDirectionProps extends IconProps {
    * @default 'up'
    */
   direction?: 'up' | 'right' | 'down' | 'left'
+  /**
+   * Duration of animation in seconds
+   * @default 0
+   */
+  duration?: number
 }
