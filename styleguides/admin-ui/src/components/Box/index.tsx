@@ -7,6 +7,7 @@ import { RenderProp, ExtractHTMLAttributes } from 'reakit-utils/types'
 import {
   typographyTokens,
   flexTokens,
+  gridTokens,
   layoutTokens,
   spaceTokens,
   colorTokens,
@@ -19,6 +20,7 @@ import {
   ColorTokensProps,
   BorderTokensProps,
   SxTokensProps,
+  GridTokensProps,
 } from '../../tokens'
 
 const WrappedBox = forwardRef(function BoxWithEl(
@@ -37,6 +39,7 @@ export const Box = styled(WrappedBox)<BoxProps>(
   spaceTokens,
   colorTokens,
   borderTokens,
+  gridTokens,
   sxTokens
 )
 
@@ -56,4 +59,5 @@ export type BoxProps = TypographyTokensProps &
   ColorTokensProps &
   BorderTokensProps &
   SxTokensProps &
+  GridTokensProps &
   PropsWithEl
