@@ -24,11 +24,27 @@ export const WithIconOnly = Template.bind({})
 WithIconOnly.args = {
   icon: (props: any) => <IconCancel title="Icon title" {...props} />,
 }
+WithIconOnly.parameters = {
+  playroom: {
+    code: `
+<Button iconPosition="start" icon={(props) => <IconCancel {...props} />} />
+    `,
+  },
+}
 
 export const WithIconStart = Template.bind({})
 WithIconStart.args = {
   icon: (props: any) => <IconCancel {...props} />,
   children: 'Admin UI Button',
+}
+WithIconStart.parameters = {
+  playroom: {
+    code: `
+<Button iconPosition="start" icon={(props) => <IconCancel {...props} />} >
+  Admin UI Button
+</Button>
+    `,
+  },
 }
 
 export const WithIconEnd = Template.bind({})
@@ -37,7 +53,15 @@ WithIconEnd.args = {
   iconPosition: 'end',
   children: 'Admin UI Button',
 }
-
+WithIconEnd.parameters = {
+  playroom: {
+    code: `
+<Button iconPosition="end" icon={(props) => <IconCancel {...props} />} >
+  Admin UI Button
+</Button>
+    `,
+  },
+}
 export const WithinAToolbar = () => {
   const toolbar = useToolbarState({ loop: true })
 

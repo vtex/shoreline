@@ -76,3 +76,44 @@ export const TextExample = () => {
     </Fragment>
   )
 }
+
+TextExample.parameters = {
+  playroom: {
+    code: `
+<Play.ToggleState>
+  {({ toggle, setToggle }) => (
+    <>
+      <Box sx={{ width: "sm" }}>
+        {toggle ? (
+          <Box>
+            <Skeleton sx={{ height: 8, width: "2/5" }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6 }} />
+            <Skeleton sx={{ height: 6, width: "1/2" }} />
+          </Box>
+        ) : (
+          <Box>
+            <Text variant="headline">Developing</Text>
+            <Text>
+              The VTEX team welcomes and thanks you for developing with us. We
+              are committed in provide the best developer experience through
+              consistency and quality of our guidelines. We are open and
+              appreciate all the feedbacks, tips and ideas to keep this
+              experience the best as possible. Bellow we describe the way we
+              work and the best practices.
+            </Text>
+          </Box>
+        )}
+        <Button sx={{ marginX: 0 }} onClick={() => setToggle((s) => !s)}>
+          Toggle Loading
+        </Button>
+      </Box>
+    </>
+  )}
+</Play.ToggleState>
+    `,
+  },
+}

@@ -15,7 +15,7 @@ This tool doesn't allow using `state` or `hooks` by default, so we've created co
 
 ### `<Play.CollapsibleState />`
 
-This component is responsible to handle the Collapsible's state and spread the props from `useCollapsible` hook for its children.
+This component is responsible for handling the Collapsible's state and spreading the props from the `useCollapsible` hook for its children.
 
 #### Type
 
@@ -43,7 +43,7 @@ interface CollapsibleStateProps {
 
 ### `<Play.ToggleState />`
 
-This component is responsible to handle basic `Toggle` state logic and spread the props to its children.
+This component is responsible for handling basic `Toggle` state logic and spreading the props to its children.
 
 #### Type
 
@@ -62,7 +62,7 @@ interface ToggleStateProps {
 <Play.ToggleState>
   {({ toggle, setToggle }) => (
     <Box>
-      <Button onClick={toggle}>Button</Button>
+      <Button onClick={() => setToggle(!toggle)}>Button</Button>
       {toggle && <Text>Toggled!</Text>}
     </Box>
   )}
