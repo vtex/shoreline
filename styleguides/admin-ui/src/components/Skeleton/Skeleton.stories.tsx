@@ -29,12 +29,7 @@ Circle.args = {
 
 export const Fluid = () => {
   return (
-    <Box
-      sx={{
-        width: 'full',
-        height: 19,
-      }}
-    >
+    <Box w="full" h="19">
       <Skeleton />
     </Box>
   )
@@ -45,7 +40,7 @@ export const TextExample = () => {
 
   return (
     <Fragment>
-      <Box sx={{ width: 'sm' }}>
+      <Box w="sm">
         {loading ? (
           <Box>
             <Skeleton sx={{ height: 8, width: '2/5' }} />
@@ -69,7 +64,7 @@ export const TextExample = () => {
             </Text>
           </Box>
         )}
-        <Button sx={{ marginX: 0 }} onClick={() => setLoading((s) => !s)}>
+        <Button mx="0" onClick={() => setLoading((s) => !s)}>
           Toggle Loading
         </Button>
       </Box>
@@ -83,7 +78,7 @@ TextExample.parameters = {
 <Play.ToggleState>
   {({ toggle, setToggle }) => (
     <>
-      <Box sx={{ width: "sm" }}>
+      <Box w="sm">
         {toggle ? (
           <Box>
             <Skeleton sx={{ height: 8, width: "2/5" }} />
@@ -107,7 +102,7 @@ TextExample.parameters = {
             </Text>
           </Box>
         )}
-        <Button sx={{ marginX: 0 }} onClick={() => setToggle((s) => !s)}>
+        <Button mx="0" onClick={() => setToggle((s) => !s)}>
           Toggle Loading
         </Button>
       </Box>
