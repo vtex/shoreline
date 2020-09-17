@@ -81,7 +81,6 @@ function Content({ children, sx = {} }: ContentProps) {
  * ```
  * Collapsible.Header is always visible.
  * Disclosure Button -> always on the left side, and is responsible for controlling the content visibility.
- * Actions Panel -> always on the right side.
  * ```
  */
 Collapsible.Header = Header
@@ -105,7 +104,7 @@ export interface HeaderProps {
   children?: ReactNode
   /** custom styles */
   sx?: SxStyleProp
-  /** Size of the collapsible
+  /** Size of the collapsible header
    * @default regular
    */
   size?: 'small' | 'regular'

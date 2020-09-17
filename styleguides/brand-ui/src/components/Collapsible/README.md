@@ -10,11 +10,11 @@ The Collapsible has two composites: `Header` and `Content`. It states are contro
 
 #### Header
 
-| prop         | type             | description                     | required |
-| ------------ | ---------------- | ------------------------------- | -------- |
-| children     | ReactNode        | content of the disclosure       | 🚫       |
-| iconPosition | `end` or `start` | position of the disclosure icon | `start`  |
-| sx           | SxStyleProp      | Theme-ui style prop             | 🚫       |
+| prop     | type                 | description               | default   | required |
+| -------- | -------------------- | ------------------------- | --------- | -------- |
+| children | ReactNode            | content of the disclosure | -         | 🚫       |
+| size     | `regular` or `small` | size of the header        | `regular` | 🚫       |
+| sx       | SxStyleProp          | Theme-ui style prop       | -         | 🚫       |
 
 #### Content
 
