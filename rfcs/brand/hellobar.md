@@ -7,10 +7,10 @@
 
 `Hellobar` is a section where you can present a specific message to your visitors, without distracting them from your regular content.
 
-# Basic example [optional]
+# Basic example
 
 ```jsx
-import { HelloBar } from '@brand-ui/HelloBar'
+import { HelloBar } from '@vtex/brand-ui'
 
 <HelloBar>
   Hello Bar text here.
@@ -23,12 +23,12 @@ import { HelloBar } from '@brand-ui/HelloBar'
 
 | prop    | type                        | description                                                                             | required | default     |
 | ------- | --------------------------- | --------------------------------------------------------------------------------------- | -------- | ----------- |
-| button | ReakitButton                    | the button of the hello bar | 🚫       | tertiary button          |
+| action | { label: string, onClick: Function }                    | the action of the hello bar | 🚫       | -          |
 
-# Adoption strategy [optional]
+# Adoption strategy
 
 - It causes no breaking change since it is a new component.
 
-# Education [optional]
+# Education
 
 - Document the components with its user cases, besides usage examples with all Hello Bar's features.
