@@ -31,29 +31,47 @@ Playground.args = {
   label: 'Company name',
   helpMessage: 'I could go on and on and I will.',
   charLimit: 32,
+  id: 'company-name',
 }
 
 export const Sizes = () => (
   <Box sx={{ backgroundColor: 'white', p: 5 }}>
-    <Input size="small" label="Small" helpMessage="This is a small input." />
     <Input
+      id="small"
+      size="small"
+      label="Small"
+      helpMessage="This is a small input."
+    />
+    <Input
+      id="medium"
       size="regular"
       label="Regular"
       helpMessage="This is a regular input."
     />
-    <Input size="large" label="Large" helpMessage="This is a large input." />
+    <Input
+      id="large"
+      size="large"
+      label="Large"
+      helpMessage="This is a large input."
+    />
   </Box>
 )
 
 export const Contents = () => (
   <Box sx={{ backgroundColor: 'white', p: 5 }}>
-    <Input label="Text only" helpMessage="This is a basic input." />
     <Input
+      id="text-only"
+      label="Text only"
+      helpMessage="This is a basic input."
+    />
+    <Input
+      id="text-suffix"
       label="Text + Suffix"
       helpMessage="This input has a suffix."
       suffix={<IconMock />}
     />
     <Input
+      id="text-prefix"
       label="Text + Prefix"
       helpMessage="This input has a prefix."
       prefix={<IconMock />}

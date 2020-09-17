@@ -21,7 +21,7 @@ const getLabelStyles = ({
       fontSize: 2,
       left: prefix ? 48 : 'auto',
       lineHeight: 'action',
-      transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms'
+      transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
     },
     !isIdle
       ? {
@@ -29,7 +29,7 @@ const getLabelStyles = ({
           paddingY: 0,
           lineHeight: 'small',
           backgroundColor: 'white',
-          transform: `translate(-${prefix ? 44 : 12}px, -24px) scale(0.75)`
+          transform: `translate(-${prefix ? 44 : 12}px, -24px) scale(0.75)`,
         }
       : {}
   )
@@ -39,6 +39,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
   const {
     size = 'regular',
     label,
+    id,
     charLimit,
     helpMessage,
     prefix,
@@ -68,7 +69,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
                 'input:focus ~ label': getLabelStyles({
                   isIdle: false,
                   prefix,
-                })
+                }),
               }}
               {...enhancedProps}
             >
@@ -83,6 +84,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
                 </Flex>
               )}
               <Input
+                id={id}
                 onChange={(e) => setCharCount(e.target.value.length)}
                 ref={ref}
                 sx={{
@@ -96,6 +98,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
                 }}
               />
               <Label
+                htmlFor={id}
                 sx={
                   charCount > 0
                     ? getLabelStyles({ isIdle: false, prefix })
@@ -140,6 +143,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
 export type Size = 'small' | 'regular' | 'large'
 
 export interface InputProps extends Pick<BaseProps, 'sx'> {
+  id: string
   helpMessage: string
   label: string
   charLimit?: number

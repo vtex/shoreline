@@ -60,6 +60,112 @@ export const theme = {
   hamburgerMenu,
   tooltip,
   card,
+  components: {
+    input: {
+      styles: {
+        paddingX: 4,
+        alignItems: 'center',
+        position: 'relative',
+        width: 'fit-content',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: 'muted.2',
+        borderRadius: 3,
+        ':hover': {
+          borderColor: 'secondary.hover',
+        },
+        ':focus-within': {
+          borderColor: 'secondary.hover',
+          boxShadow: (t) => `0 0 0 ${t.borderWidths[2]}px ${t.colors.focus}`,
+        },
+      },
+      size: {
+        regular: {
+          height: 48,
+        },
+        small: {
+          height: 36,
+        },
+        large: {
+          height: 56,
+        },
+      },
+    },
+    button: {
+      styles: {
+        textTransform: 'uppercase',
+        fontWeight: 'medium',
+        borderWidth: 1,
+        borderRadius: 3,
+        fontSize: 1,
+        cursor: 'pointer',
+        position: 'relative',
+        border: 'none',
+        lineHeight: 1,
+        '&:focus': {
+          outline: 'none',
+        },
+        '&:disabled': {
+          color: 'white',
+          backgroundColor: 'muted.2',
+        },
+      },
+      variant: {
+        primary: {
+          color: 'primary.contrast',
+          backgroundColor: 'primary.base',
+          '&:hover': {
+            backgroundColor: 'primary.hover',
+          },
+          '&:active': {
+            backgroundColor: 'primary.active',
+          },
+        },
+        secondary: {
+          color: 'secondary.contrast',
+          backgroundColor: 'secondary.base',
+          '&:hover': {
+            backgroundColor: 'secondary.hover',
+          },
+          '&:active': {
+            backgroundColor: 'secondary.active',
+          },
+        },
+        tertiary: {
+          color: 'secondary.base',
+          backgroundColor: 'transparent',
+          '&:hover': {
+            textDecoration: 'underline',
+          },
+          '&:active': {
+            textDecoration: 'underline',
+          },
+          '&:disabled': {
+            color: 'muted.2',
+            backgroundColor: 'transparent',
+          },
+        },
+      },
+      size: {
+        regular: {
+          height: 48,
+          paddingX: 5,
+        },
+        small: {
+          height: 32,
+          paddingX: 4,
+        },
+        'icon-regular': {
+          height: 48,
+          paddingX: 4,
+        },
+        'icon-small': {
+          height: 32,
+          paddingX: 3,
+        },
+      },
+    },
+  },
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
