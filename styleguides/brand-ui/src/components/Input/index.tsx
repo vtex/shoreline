@@ -3,18 +3,7 @@ import { Box, Flex, Label, Input, Text, SxStyleProp } from 'theme-ui'
 import { Input as ReakitInput, InputProps as BaseProps } from 'reakit/Input'
 
 import { forwardRef } from '@vtex-components/utils'
-import { useTheme, get, useComponentSx, mergeSx } from '@vtex-components/theme'
-
-const getFocusStyles = () => {
-  const theme = useTheme()
-  return {
-    borderColor: 'secondary.hover',
-    boxShadow: `0 0 0 ${get(theme, 'borderWidths.2')}px ${get(
-      theme,
-      'colors.focus'
-    )}`,
-  }
-}
+import { useComponentSx, mergeSx } from '@vtex-components/theme'
 
 const getLabelStyles = ({
   isIdle = true,
@@ -81,8 +70,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
                 'input:focus ~ label': getLabelStyles({
                   isIdle: false,
                   prefix,
-                }),
-                ':focus-within': getFocusStyles(),
+                })
               }}
               {...enhancedProps}
             >
