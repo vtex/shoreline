@@ -37,9 +37,9 @@ function UseCase() {
 
 ### With arrow
 
-If you want your popover to have an arrow, you can pass it to the tooltip as a prop. On the following example,
+If you want your popover to have an arrow, you can pass it to the popover as a prop. On the following example,
 it's shown how you can use the Reakit [Reakit PopoverArrow](https://reakit.io/docs/popover/#popoverarrow) with the popover, but you can design any arrow you want.
-The popover state is passed to the arrow, so you can access the placement and visibility of the tooltip.
+The popover state is passed to the arrow, so you can access the placement and visibility of the popover.
 
 ## 🎨 Theming
 
@@ -70,8 +70,8 @@ const theme = {
 | children  | ReactNode   | Popover content element                        | -       | ✔️        |
 | disclosure | ReactNode   | Element that triggers the popover                     | -       | ✔️       |
 | placement  | Placement   | The placement of the popover relative to its children | top     | 🚫       |
-| arrow     | ReactNode   | Arrow element, if you want your tooltip to have an arrow | -       | 🚫       |
-| visible   | boolean     | Whether the tooltip is visible or not                    | -       | 🚫       |
+| arrow     | ReactNode   | Arrow element, if you want your popover to have an arrow | -       | 🚫       |
+| visible   | boolean     | Whether the popover is visible or not                    | -       | 🚫       |
 | sx        | SxStyleProp | Theme-ui style prop                                      | -       | 🚫       |
 
 
