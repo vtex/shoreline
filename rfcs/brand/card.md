@@ -5,7 +5,7 @@
 
 # Summary
 
-`Cards` are single containers that can display a digestible amount of information on it.
+`Cards` are single containers that can display a digestible amount of information.
 
 # Basic example
 
@@ -64,6 +64,6 @@ All composites of the card have a `noPadding` property which can be used while d
 
 - Document the components with its user cases, besides usage examples with all Card's features (with and without padding, with images, buttons, etc).
 
-# Unresolved questions [optional]
+# Unresolved questions
 
 - Is this a brand specific component, or a component that can be reused by all VTEX Styleguides?
