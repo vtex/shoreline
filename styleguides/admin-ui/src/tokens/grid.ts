@@ -28,9 +28,9 @@ export const gridTokens = system({
 })
 
 export interface GridTokensProps {
-  gridGap?: Space
-  gridColumnGap?: Space
-  gridRowGap?: Space
+  gridGap?: ResponsiveValue<Space>
+  gridColumnGap?: ResponsiveValue<Space>
+  gridRowGap?: ResponsiveValue<Space>
   gridColumn?: ResponsiveValue<CSS.Property.Display>
   gridRow?: ResponsiveValue<CSS.Property.Display>
   gridAutoFlow?: ResponsiveValue<CSS.Property.Display>
