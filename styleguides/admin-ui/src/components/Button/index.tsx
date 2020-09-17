@@ -1,11 +1,11 @@
 import React, { Ref } from 'react'
 import { SxStyleProp } from 'theme-ui'
-import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 import { useFocusRing } from '@react-aria/focus'
 import { forwardRef } from '@vtex-components/utils'
 import { useTheme, get, mergeSx } from '@vtex-components/theme'
 
 import { Box } from '../Box'
+import { StyledButton, StyledButtonProps } from './styled'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -24,7 +24,7 @@ export const Button = forwardRef(
       sx = {},
       icon,
       children,
-      ...restProps
+      ...buttonProps
     } = props
 
     const { focusStyles, focusProps } = useFocusHollow()
@@ -44,12 +44,12 @@ export const Button = forwardRef(
     const mergedSx = mergeSx<SxStyleProp>(focusStyles, sx)
 
     return (
-      <BaseButton
+      <StyledButton
         variant={`${variant}-${palette}`}
         size={resolvedSize}
         sx={mergedSx}
         ref={ref}
-        {...restProps}
+        {...buttonProps}
         {...focusProps}
       >
         <Box
@@ -64,7 +64,7 @@ export const Button = forwardRef(
           {renderIcon()}
           {children}
         </Box>
-      </BaseButton>
+      </StyledButton>
     )
   }
 )
@@ -129,24 +129,7 @@ export type Variant = 'filled' | 'outlined' | 'subtle'
 export type Size = 'small' | 'regular'
 export type Palette = 'primary' | 'danger'
 export interface ButtonProps
-  extends Pick<
-    BaseProps,
-    | 'sx'
-    | 'disabled'
-    | 'focusable'
-    | 'children'
-    | 'id'
-    | 'type'
-    | 'name'
-    | 'onClick'
-    | 'onMouseEnter'
-    | 'onMouseLeave'
-    | 'onMouseDown'
-    | 'onMouseUp'
-    | 'onFocus'
-    | 'onMouseOver'
-    | 'value'
-  > {
+  extends Omit<StyledButtonProps, 'ref' | 'size' | 'variant'> {
   /** Size of the button
    * @default regular
    * */

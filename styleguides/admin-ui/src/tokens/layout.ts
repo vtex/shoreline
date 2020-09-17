@@ -28,10 +28,6 @@ export const layoutTokens = system({
     property: 'maxHeight',
     scale: 'sizes',
   },
-  size: {
-    properties: ['width', 'height'],
-    scale: 'sizes',
-  },
   position: true,
   overflow: true,
   overflowX: true,
@@ -71,8 +67,4 @@ export interface LayoutTokensProps {
    * Max height
    */
   maxH?: Sizes
-  /**
-   * width + height
-   */
-  size?: Sizes
 }
