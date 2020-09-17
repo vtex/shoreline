@@ -5,6 +5,7 @@ import {
   Disclosure as ReakitDisclosure,
   DisclosureContent,
   DisclosureProps,
+  DisclosureStateReturn,
 } from 'reakit/Disclosure'
 
 import { Box } from '../Box'
@@ -141,3 +142,4 @@ export interface ContentProps {
 }
 
 export { useDisclosureState as useCollapsible }
+export { DisclosureStateReturn }

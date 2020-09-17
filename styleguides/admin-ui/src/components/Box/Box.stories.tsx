@@ -1,32 +1,20 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import React from 'react'
+import { Meta } from '@storybook/react'
 
-import { Button } from '../Button'
 import { Box } from './index'
+import { Button } from '../Button'
 
-<Meta title="alpha/Box" component={Box} />
+export default {
+  title: 'alpha/Box',
+  component: Box,
+} as Meta
 
-# Usage
-
-```jsx
-import { Box } from '@vtex/admin-ui'
-
-function UseCase() {
-  return <Box>Something</Box>
+export function Basic() {
+  return <Box>Im a div</Box>
 }
-```
 
-# Basic
-
-<Canvas>
-  <Story name="Basic">
-    <Box>I'm a div</Box>
-  </Story>
-</Canvas>
-
-# Style Props
-
-<Canvas>
-  <Story name="Style Props">
+export function StyleProps() {
+  return (
     <Box
       display="flex"
       el="section"
@@ -71,15 +59,23 @@ function UseCase() {
         1/3
       </Box>
     </Box>
-  </Story>
-</Canvas>
+  )
+}
 
-# Composition with render-props
-
-<Canvas>
-  <Story name="Render Props">
+export function CompositionWithRenderProps() {
+  return (
     <Box w="2xl" h="full">
       {(props) => <Button {...props}>Button With 2xl Width</Button>}
     </Box>
-  </Story>
-</Canvas>
+  )
+}
+
+CompositionWithRenderProps.parameters = {
+  playroom: {
+    code: `
+<Box w="2xl" h="full">
+  {(props) => <Button {...props}>Button With 2xl Width</Button>}
+</Box>
+    `,
+  },
+}

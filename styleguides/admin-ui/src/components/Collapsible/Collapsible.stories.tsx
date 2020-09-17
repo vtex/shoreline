@@ -28,15 +28,40 @@ export const SimpleUsage = () => {
   )
 }
 
+SimpleUsage.parameters = {
+  playroom: {
+    code: `
+<Play.CollapsibleState>
+  {({toggle, visible, ...props}) => (
+    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '1/3' }}>
+      <Collapsible.Header
+        label={<Text variant="highlight">Build for Community #1</Text>}
+      />
+      <Collapsible.Content>
+        It’s all about being ready to grow and reach new levels. Have a solid
+        foundation, modular thinking and flexible essence, and you’re building
+        for scale. We are global but we’re audacious enough to aim for the
+        stars.
+      </Collapsible.Content>
+    </Collapsible>
+  )}
+</Play.CollapsibleState>
+    `,
+  },
+}
+
 export const WithButtons = () => {
-  const props = useCollapsible()
+  const { toggle, ...props } = useCollapsible()
 
   return (
-    <Collapsible {...props} sx={{ width: '4/5' }}>
+    <Collapsible toggle={toggle} {...props} sx={{ width: '2/5' }}>
       <Collapsible.Header label="Build for Community #1">
-        <Button size="small">Action 1</Button>
-        <Button size="small">Action 2</Button>
-        <Button size="small">Action 3</Button>
+        <Button size="small" variant="outlined">
+          Button
+        </Button>
+        <Button size="small" onClick={toggle}>
+          Toggle
+        </Button>
       </Collapsible.Header>
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
@@ -46,6 +71,31 @@ export const WithButtons = () => {
       </Collapsible.Content>
     </Collapsible>
   )
+}
+
+WithButtons.parameters = {
+  playroom: {
+    code: `
+<Play.CollapsibleState>
+  {({toggle, visible, ...props}) => (
+    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '2/5' }}>
+      <Collapsible.Header label="Build for Community #1">
+        <Button size="small" variant="outlined">
+          Button
+        </Button>
+        <Button size="small" onClick={toggle}>Toggle</Button>
+      </Collapsible.Header>
+      <Collapsible.Content>
+        It’s all about being ready to grow and reach new levels. Have a solid
+        foundation, modular thinking and flexible essence, and you’re building
+        for scale. We are global but we’re audacious enough to aim for the
+        stars.
+      </Collapsible.Content>
+    </Collapsible>
+  )}
+</Play.CollapsibleState>
+    `,
+  },
 }
 
 export const NestedCollapsible = () => {
@@ -77,11 +127,47 @@ export const NestedCollapsible = () => {
   )
 }
 
+NestedCollapsible.parameters = {
+  playroom: {
+    code: `
+<Play.CollapsibleState>
+  {({toggle, visible, ...firstProps}) => (
+    <Collapsible toggle={toggle} visible={visible} {...firstProps} sx={{ width: '2/5' }}>
+      <Collapsible.Header
+        label={<Text variant="highlight">Build for Community #1</Text>}
+      >
+        <Button variant="subtle">Action</Button>
+        <Button>Button</Button>
+      </Collapsible.Header>
+      <Collapsible.Content>
+        <Play.CollapsibleState>
+          {({toggle, visible, ...secondProps}) => (
+            <Collapsible toggle={toggle} visible={visible} {...secondProps}>
+              <Collapsible.Header
+                label={<Text variant="highlight">Build for Community #2</Text>}
+              />
+              <Collapsible.Content>
+                It’s all about being ready to grow and reach new levels. Have a
+                solid foundation, modular thinking and flexible essence, and you’re
+                building for scale. We are global but we’re audacious enough to aim
+                for the stars.
+              </Collapsible.Content>
+            </Collapsible>
+          )}
+        </Play.CollapsibleState>  
+      </Collapsible.Content>
+    </Collapsible>
+  )}
+</Play.CollapsibleState>
+    `,
+  },
+}
+
 export const InitiallyVisible = () => {
-  const firstProps = useCollapsible({ visible: true })
+  const props = useCollapsible({ visible: true })
 
   return (
-    <Collapsible {...firstProps} sx={{ width: '1/3' }}>
+    <Collapsible {...props} sx={{ width: '1/3' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
@@ -95,4 +181,28 @@ export const InitiallyVisible = () => {
       </Collapsible.Content>
     </Collapsible>
   )
+}
+
+InitiallyVisible.parameters = {
+  playroom: {
+    code: `
+<Play.CollapsibleState>
+  {({toggle, visible, ...props}) => (
+    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '1/3' }}>
+      <Collapsible.Header
+        label={<Text variant="highlight">Build for Community #1</Text>}
+      >
+        <Button size="small">Action</Button>
+      </Collapsible.Header>
+      <Collapsible.Content>
+        It’s all about being ready to grow and reach new levels. Have a solid
+        foundation, modular thinking and flexible essence, and you’re building
+        for scale. We are global but we’re audacious enough to aim for the
+        stars.
+      </Collapsible.Content>
+    </Collapsible>
+  )}
+</Play.CollapsibleState>
+    `,
+  },
 }

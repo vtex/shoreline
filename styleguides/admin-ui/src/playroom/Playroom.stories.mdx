@@ -1,0 +1,70 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+
+<Meta title="design-system/Playroom" />
+
+## Playroom
+
+`Playroom` is a tool that allows us to edit each component story directly on the `storybook`, and design using all the `admin-ui` features.
+
+> 💡 Also check
+> [Playroom](https://github.com/seek-oss/playroom) and [Playroom Storybook addon](https://github.com/rbardini/storybook-addon-playroom) for detailed info.
+
+## State
+
+This tool doesn't allow using `state` or `hooks` by default, so we've created components to handle this logic when editing a component code as a workaround.
+
+### `<Play.CollapsibleState />`
+
+This component is responsible for handling the Collapsible's state and spreading the props from the `useCollapsible` hook for its children.
+
+#### Type
+
+```ts
+interface CollapsibleStateProps {
+  children: (props: DisclosureStateReturn) => ReactNode
+}
+```
+
+#### Example
+
+```jsx
+<Play.CollapsibleState>
+  {(props) => (
+    <Collapsible {...props}>
+      <Collapsible.Header label="Collapsible Label!" />
+      <Collapsible.Content>Collapsible Content</Collapsible.Content>
+    </Collapsible>
+  )}
+</Play.CollapsibleState>
+```
+
+> 💡 Also check
+> [Collapsible Docs](../components/Collapsible/README.md) for detailed info.
+
+### `<Play.ToggleState />`
+
+This component is responsible for handling basic `Toggle` state logic and spreading the props to its children.
+
+#### Type
+
+```ts
+interface ToggleStateProps {
+  children: (props: {
+    toggle: boolean
+    setToggle: React.Dispatch<React.SetStateAction<boolean>>
+  }) => ReactNode
+}
+```
+
+#### Example
+
+```jsx
+<Play.ToggleState>
+  {({ toggle, setToggle }) => (
+    <Box>
+      <Button onClick={() => setToggle(!toggle)}>Button</Button>
+      {toggle && <Text>Toggled!</Text>}
+    </Box>
+  )}
+</Play.CollapsibleState>
+```
