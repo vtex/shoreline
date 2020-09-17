@@ -55,6 +55,7 @@ type Colors =
   | 'muted.2'
   | 'muted.3'
   | 'muted.4'
+  | 'emphasis'
   | 'focus'
   | 'primary.base'
   | 'primary.hover'
