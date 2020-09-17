@@ -16,4 +16,5 @@ export {
   useCollapsible,
   CollapsibleProps,
 } from './components/Collapsible'
+export { Switch, SwitchProps, useSwitch } from './components/Switch'
 export * from './icons'

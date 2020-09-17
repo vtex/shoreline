@@ -68,3 +68,39 @@ interface ToggleStateProps {
   )}
 </Play.CollapsibleState>
 ```
+
+### `<Play.CheckboxState />`
+
+This component is responsible for handling the Checkbox's state.
+
+It can be used by:
+
+- `Switch`, spreading the props from `useSwitch` hook
+
+> ℹ️ In the future will be used by the `Checkbox` component as well.
+
+#### Type
+
+```ts
+interface CheckboxStateProps {
+  state?: boolean | 'indeterminate' | Array<number | string>
+  children: (props: CheckboxStateReturn) => ReactNode
+}
+```
+
+#### Example
+
+```jsx
+<Play.CheckboxState state={[]}>
+  {({ state, setState }) => (
+    <>
+      <Switch ariaLabel="label1" state={state} setState={setState} />
+      <Switch ariaLabel="label2" state={state} setState={setState} />
+      <Switch ariaLabel="label3" state={state} setState={setState} />
+    </>
+  )}
+</Play.CheckboxState>
+```
+
+> 💡 Also check
+> [Switch Docs](../components/Switch/README.md) for detailed info.

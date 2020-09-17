@@ -1,46 +1,82 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { Meta } from '@storybook/react'
 
-import { Switch, useSwitch, SwitchProps } from './index'
+import { Text } from '../Text'
+import { Switch, useSwitch } from './index'
 
 export default {
   title: 'beta/Switch',
   component: Switch,
 } as Meta
 
-const Template: Story<SwitchProps> = (args: SwitchProps) => {
-  const props = useSwitch()
+export function Playground() {
+  const [checked, setChecked] = React.useState(false)
 
-  return <Switch aria-labelledby="label" {...args} {...props} />
+  return (
+    <Switch
+      ariaLabel="label"
+      checked={checked}
+      onChange={() => setChecked(!checked)}
+    />
+  )
 }
 
-export const Playground = Template.bind({})
-
-export function WithHiddenLabel() {
-  const props = useSwitch({ state: false })
-
-  return <Switch {...props} aria-labelledby="label" />
+Playground.parameters = {
+  playroom: {
+    code: `
+<Play.ToggleState>
+  {({ toggle, setToggle }) => (
+    <Switch
+      ariaLabel="label"
+      checked={toggle}
+      onChange={() => setToggle(!toggle)}
+    />
+  )}
+</Play.ToggleState>
+    `,
+  },
 }
 
-export function Sizes() {
+export function MultipleSwitches() {
   const props = useSwitch({ state: [] })
 
   return (
     <>
-      <Switch {...props} aria-labelledby="label" value="switch1" />
-      <Switch {...props} aria-labelledby="label" size="small" value="switch2" />
+      <Text>State: {props.state}</Text>
+      <br />
+      <Switch {...props} ariaLabel="label1" value="switch1" />
+      <Switch {...props} ariaLabel="label2" value="switch2" />
+      <Switch {...props} ariaLabel="label3" value="switch3" />
     </>
   )
+}
+
+MultipleSwitches.parameters = {
+  playroom: {
+    code: `
+<Play.CheckboxState state={[]}>
+  {({ state, setState }) => (
+    <>
+      <Text>State: {state}</Text>
+      <br />
+      <Switch state={state} setState={setState} ariaLabel="label1" value="switch1" />
+      <Switch state={state} setState={setState} ariaLabel="label2" value="switch2" />
+      <Switch state={state} setState={setState} ariaLabel="label3" value="switch3" />
+    </>
+  )}
+</Play.CheckboxState>
+    `,
+  },
 }
 
 export function Disabled() {
   return (
     <>
-      <Switch disabled aria-labelledby="label" />
-      <Switch checked disabled aria-labelledby="label" />
+      <Switch disabled ariaLabel="label1" />
+      <Switch checked disabled ariaLabel="label2" />
       <br />
-      <Switch disabled size="small" aria-labelledby="label" />
-      <Switch checked disabled size="small" aria-labelledby="label" />
+      <Switch disabled size="small" ariaLabel="label3" />
+      <Switch checked disabled size="small" ariaLabel="label4" />
     </>
   )
 }

@@ -12,7 +12,7 @@ function UseCase() {
 
   return (
     <Switch
-      label="label"
+      ariaLabel="label"
       checked={checked}
       onChange={() => setChecked(!checked)}
     />
@@ -20,66 +20,40 @@ function UseCase() {
 }
 ```
 
-- Using the `useSwitch` hook
-
-```jsx
-import { Switch, useSwitch } from '@vtex/admin-ui'
-
-function UseCase() {
-  const switch = useSwitch({ state: false })
-
-  return <Switch label="label" {...switch} />
-}
-```
-
 ## Types
 
-| prop     | type                                 | description                       | required | default   |
-| -------- | ------------------------------------ | --------------------------------- | -------- | --------- |
-| label    | ReactNode                            | Switch label                      | ✅       | -         |
-| size     | 'regular', 'small'                   | Switch size                       | 🚫       | 'regular' |
-| sx       | SxStyleProp                          | ThemeUI style prop                | 🚫       | {}        |
-| checked  | bool                                 | Whether Switch is checked or not  | 🚫       | false     |
-| required | bool                                 | Whether Switch is required or not | 🚫       | false     |
-| disabled | bool                                 | Whether Switch is disabled or not | 🚫       | false     |
-| value    | string, number, undefined            | Switch value                      | 🚫       | -         |
-| name     | string                               | Switch name                       | 🚫       | -         |
-| onChange | func                                 | onChange event                    | 🚫       | -         |
-| state    | SwitchState                          | `reakit` Checkbox state           | 🚫       | -         |
-| setState | SetStateAction<boolean, SwitchState> | `reakit` Checkbox setState        | 🚫       | -         |
+| prop      | type                                 | description                       | required | default   |
+| --------- | ------------------------------------ | --------------------------------- | -------- | --------- |
+| ariaLabel | ReactNode                            | Switch visually hidden label      | ✅       | -         |
+| size      | 'regular', 'small'                   | Switch size                       | 🚫       | 'regular' |
+| sx        | SxStyleProp                          | ThemeUI style prop                | 🚫       | {}        |
+| checked   | bool                                 | Whether Switch is checked or not  | 🚫       | false     |
+| required  | bool                                 | Whether Switch is required or not | 🚫       | false     |
+| disabled  | bool                                 | Whether Switch is disabled or not | 🚫       | false     |
+| value     | string, number, undefined            | Switch value                      | 🚫       | -         |
+| name      | string                               | Switch name                       | 🚫       | -         |
+| onChange  | func                                 | onChange event                    | 🚫       | -         |
+| state     | SwitchState                          | `reakit` Checkbox state           | 🚫       | -         |
+| setState  | SetStateAction<boolean, SwitchState> | `reakit` Checkbox setState        | 🚫       | -         |
 
-### Label
+### ariaLabel
 
-Every accessible input should have a label specified, which can be visible or not.
+The Switch component has a visually hidden label, because every `form` component should have a label specified, so we grant this using the `ariaLabel` prop.
 
 #### Example
 
-- Visible label
-
 ```jsx
-import { Switch, useSwitch } from '@vtex/admin-ui'
+import { Switch } from '@vtex/admin-ui'
 
 function UseCase() {
-  const switchProps = useSwitch({ state: false })
-
-  return <Switch label="your label goes here!" {...switchProps} />
-}
-```
-
-- Hidden label
-
-You can use the `<VisuallyHidden />` component to do this.
-
-```jsx
-import { Switch, useSwitch, VisuallyHidden } from '@vtex/admin-ui'
-
-function UseCase() {
-  const switchProps = useSwitch({ state: false })
+  const [checked, setChecked] = React.useState(false)
 
   return (
     <Switch
-      label={<VisuallyHidden>your label goes here!</VisuallyHidden>}
-      {...switchProps}
+      checked={checked}
+      ariaLabel="your label goes here!"
+      checked={checked}
+      onChange={() => setChecked(!checked)}
     />
   )
 }
@@ -105,16 +79,33 @@ function UseCase() {
 
 ### `useSwitch` hook
 
-We also provide this hook that already handles the state logic:
+Since the `Switch` has the same state behavior of a `Checkbox`, we also provide the `useSwitch` hook that already handles the state logic for these use cases:
 
-- Simple use case
+- Simple switch
 - Multiple switches
 
-You can read more in [Reakit documentation](https://reakit.io/docs/checkbox/#usecheckboxstate)
+```ts
+interface CheckboxStateReturn {
+  /**
+   * Stores the state of the switch.
+   * If switches that share this state have defined a `value` prop, it's
+   * going to be an array.
+   */
+  state: boolean | Array<number | string>
+  /**
+   * Sets `state`.
+   */
+  setState: React.Dispatch<React.SetStateAction<CheckboxState['state']>>
+}
+```
+
+It can be very handy if you have a group of switches and want to handle the states of each one
+
+> 💡You can check [Reakit documentation](https://reakit.io/docs/checkbox/#usecheckboxstate) for detailed info
 
 #### Usage Examples
 
-- **Simple use case**
+- **Simple switch**
 
 ```jsx
 import { Switch, useSwitch } from '@vtex/admin-ui'
@@ -133,14 +124,16 @@ function UseCase() {
 import { Switch, useSwitch } from '@vtex/admin-ui'
 
 function UseCase() {
-  const switch = useSwitch({ state: [] })
+  const switchProps = useSwitch({ state: [] })
 
   return (
     <>
-      <Switch {...switch} value="switch1" />
-      <Switch {...switch} value="switch2" />
-      <Switch {...switch} value="switch3" />
+      <Switch {...switchProps} value="switch1" />
+      <Switch {...switchProps} value="switch2" />
+      <Switch {...switchProps} value="switch3" />
     </>
   )
 }
 ```
+
+In this case, if we have the `first` and the `second` switch toggled the state will be: `[switch1, switch2]`
