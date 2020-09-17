@@ -31,13 +31,13 @@ export interface GridTokensProps {
   gridGap?: ResponsiveValue<Space>
   gridColumnGap?: ResponsiveValue<Space>
   gridRowGap?: ResponsiveValue<Space>
-  gridColumn?: ResponsiveValue<CSS.Property.Display>
-  gridRow?: ResponsiveValue<CSS.Property.Display>
-  gridAutoFlow?: ResponsiveValue<CSS.Property.Display>
-  gridAutoColumns?: ResponsiveValue<CSS.Property.Display>
-  gridAutoRows?: ResponsiveValue<CSS.Property.Display>
-  gridTemplateColumns?: ResponsiveValue<CSS.Property.Display>
-  gridTemplateRows?: ResponsiveValue<CSS.Property.Display>
-  gridTemplateAreas?: ResponsiveValue<CSS.Property.Display>
-  gridArea?: ResponsiveValue<CSS.Property.Display>
+  gridColumn?: ResponsiveValue<CSS.Property.GridColumn>
+  gridRow?: ResponsiveValue<CSS.Property.GridRow>
+  gridAutoFlow?: ResponsiveValue<CSS.Property.GridAutoFlow>
+  gridAutoColumns?: ResponsiveValue<CSS.Property.GridAutoColumns>
+  gridAutoRows?: ResponsiveValue<CSS.Property.GridAutoRows>
+  gridTemplateColumns?: ResponsiveValue<CSS.Property.GridTemplateColumns>
+  gridTemplateRows?: ResponsiveValue<CSS.Property.GridTemplateRows>
+  gridTemplateAreas?: ResponsiveValue<CSS.Property.GridTemplateAreas>
+  gridArea?: ResponsiveValue<CSS.Property.GridArea>
 }

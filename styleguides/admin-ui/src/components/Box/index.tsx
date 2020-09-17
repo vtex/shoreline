@@ -13,6 +13,7 @@ import {
   colorTokens,
   borderTokens,
   sxTokens,
+  positionTokens,
   TypographyTokensProps,
   FlexTokensProps,
   LayoutTokensProps,
@@ -21,6 +22,7 @@ import {
   BorderTokensProps,
   SxTokensProps,
   GridTokensProps,
+  PositionTokensProps,
 } from '../../tokens'
 
 const WrappedBox = forwardRef(function BoxWithEl(
@@ -40,6 +42,7 @@ export const Box = styled(WrappedBox)<BoxProps>(
   colorTokens,
   borderTokens,
   gridTokens,
+  positionTokens,
   sxTokens
 )
 
@@ -60,4 +63,5 @@ export type BoxProps = TypographyTokensProps &
   BorderTokensProps &
   SxTokensProps &
   GridTokensProps &
-  PropsWithEl
+  PropsWithEl &
+  PositionTokensProps
