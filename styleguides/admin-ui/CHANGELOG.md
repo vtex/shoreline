@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.28.0...@vtex/admin-ui@0.29.0) (2020-09-17)
+
+
+### Features
+
+* **tokens:** add grid tokens ([7673a11](https://github.com/vtex/onda/commit/7673a11fe956003c7ad28312da8ec49ad9f8c927))
+
+
+
+
+
 # [0.28.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.27.0...@vtex/admin-ui@0.28.0) (2020-09-17)
 
 
