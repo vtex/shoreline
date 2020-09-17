@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.26.0...@vtex/admin-ui@0.27.0) (2020-09-17)
+
+
+### Features
+
+* **button-tokens:** add style props to button ([682af1a](https://github.com/vtex/onda/commit/682af1a38040387b58434743e53fd7ede00975ca))
+
+
+
+
+
 # [0.26.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.25.1...@vtex/admin-ui@0.26.0) (2020-09-16)
 
 
