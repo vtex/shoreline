@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.5.0...@vtex/brand-ui@0.5.1) (2020-09-17)
+
+
+### Bug Fixes
+
+* adjust primary colors to comply with WCAG 2 AA standards ([bd428de](https://github.com/vtex/onda/commit/bd428decc2a36aa459dca7fa8553f605b441e17c))
+
+
+
+
+
 # [0.5.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.4.1...@vtex/brand-ui@0.5.0) (2020-09-16)
 
 
