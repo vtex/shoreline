@@ -49,27 +49,27 @@ export interface BorderTokensProps {
   /**
    * Border Width
    */
-  bw?: BorderSizes
+  bw?: ResponsiveValue<BorderSizes>
   /**
    * Border Top Width
    */
-  btw?: BorderSizes
+  btw?: ResponsiveValue<BorderSizes>
   /**
    * Border Bottom Width
    */
-  bbw?: BorderSizes
+  bbw?: ResponsiveValue<BorderSizes>
   /**
    * Border Right Width
    */
-  brw?: BorderSizes
+  brw?: ResponsiveValue<BorderSizes>
   /**
    * Border Left Width
    */
-  blw?: BorderSizes
+  blw?: ResponsiveValue<BorderSizes>
   /**
    * Border radius
    */
-  br?: BorderSizes
+  br?: ResponsiveValue<BorderSizes>
   /**
    * Border style
    */

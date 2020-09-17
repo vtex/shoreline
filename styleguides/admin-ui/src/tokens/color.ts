@@ -1,4 +1,4 @@
-import { system } from 'styled-system'
+import { system, ResponsiveValue } from 'styled-system'
 
 export const colorTokens = system({
   bg: {
@@ -72,45 +72,45 @@ export interface ColorTokensProps {
   /**
    * Background color
    */
-  bg?: Colors
+  bg?: ResponsiveValue<Colors>
   /**
    * Text color
    */
-  c?: Colors
+  c?: ResponsiveValue<Colors>
   /**
    * Border color
    */
-  bc?: Colors
+  bc?: ResponsiveValue<Colors>
   /**
    * Caret color
    */
-  cc?: Colors
+  cc?: ResponsiveValue<Colors>
   /**
    * Border top color
    */
-  btc?: Colors
+  btc?: ResponsiveValue<Colors>
   /**
    * Border bottom color
    */
-  bbc?: Colors
+  bbc?: ResponsiveValue<Colors>
   /**
    * Border left color
    */
-  blc?: Colors
+  blc?: ResponsiveValue<Colors>
   /**
    * Border right color
    */
-  brc?: Colors
+  brc?: ResponsiveValue<Colors>
   /**
    * Outline color
    */
-  oc?: Colors
+  oc?: ResponsiveValue<Colors>
   /**
    * Fill
    */
-  fill?: Colors
+  fill?: ResponsiveValue<Colors>
   /**
    * Stroke
    */
-  stroke?: Colors
+  stroke?: ResponsiveValue<Colors>
 }
