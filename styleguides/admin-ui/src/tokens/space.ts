@@ -1,4 +1,4 @@
-import { system } from 'styled-system'
+import { system, ResponsiveValue } from 'styled-system'
 
 import { Space } from '../theme/theme'
 
@@ -65,57 +65,57 @@ export interface SpaceTokensProps {
   /**
    * Margin
    */
-  m?: Space | 'auto'
+  m?: ResponsiveValue<Space | 'auto'>
   /**
    * Margin top
    */
-  mt?: Space
+  mt?: ResponsiveValue<Space>
   /**
    * Margin right
    */
-  mr?: Space
+  mr?: ResponsiveValue<Space>
   /**
    * Margin bottom
    */
-  mb?: Space
+  mb?: ResponsiveValue<Space>
   /**
    * Margin left
    */
-  ml?: Space
+  ml?: ResponsiveValue<Space>
   /**
    * Horizontal margin
    */
-  mx?: Space
+  mx?: ResponsiveValue<Space>
   /**
    * Vertical margin
    */
-  my?: Space
+  my?: ResponsiveValue<Space>
   /**
    * Padding
    */
-  p?: Space
+  p?: ResponsiveValue<Space>
   /**
    * Padding top
    */
-  pt?: Space
+  pt?: ResponsiveValue<Space>
   /**
    * Padding right
    */
-  pr?: Space
+  pr?: ResponsiveValue<Space>
   /**
    * Padding bottom
    */
-  pb?: Space
+  pb?: ResponsiveValue<Space>
   /**
    * Padding left
    */
-  pl?: Space
+  pl?: ResponsiveValue<Space>
   /**
    * Horizontal padding
    */
-  px?: Space
+  px?: ResponsiveValue<Space>
   /**
    * Vertical padding
    */
-  py?: Space
+  py?: ResponsiveValue<Space>
 }

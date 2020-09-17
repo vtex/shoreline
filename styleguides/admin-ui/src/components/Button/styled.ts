@@ -6,10 +6,11 @@ import {
   sxTokens,
   layoutTokens,
   flexTokens,
+  positionTokens,
   SpaceTokensProps,
   SxTokensProps,
   FlexTokensProps,
-  LayoutTokensProps,
+  PositionTokensProps,
 } from '../../tokens'
 
 export type StyledButtonProps = Pick<
@@ -35,11 +36,12 @@ export type StyledButtonProps = Pick<
   Pick<SpaceTokensProps, 'm' | 'mt' | 'mb' | 'mr' | 'ml' | 'mx' | 'my'> &
   SxTokensProps &
   Pick<FlexTokensProps, 'self'> &
-  Pick<LayoutTokensProps, 'position'>
+  PositionTokensProps
 
 export const StyledButton = styled(BaseButton)<StyledButtonProps>`
   ${spaceTokens}
   ${sxTokens}
   ${flexTokens}
   ${layoutTokens}
+  ${positionTokens}
 `

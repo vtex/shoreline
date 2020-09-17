@@ -358,12 +358,23 @@ export const theme = {
       },
     },
   },
+  breakpoints: ['20em', '48em', '56em', '64em'],
   fontSizes: {
     '0': '0.75rem',
     '1': '0.875rem',
     '2': '1rem',
     '3': '1.125rem',
     '4': '1.25rem',
+  },
+  zIndexes: {
+    under: -1,
+    plain: 0,
+    over: 999,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
   },
   fontVariation: {
     light: "'wght' 80",
@@ -396,6 +407,7 @@ export type FontSizes = '0' | '1' | '2' | '3' | '4'
 export type BorderSizes = '0' | '1' | '2' | '3'
 export type FontVariation = keyof typeof theme.fontVariation
 export type LineHeights = keyof typeof theme.lineHeights
+export type ZIndexes = 'under' | 'plain' | 'over' | '1' | '2' | '3' | '4' | '5'
 
 export type Space =
   | '0'

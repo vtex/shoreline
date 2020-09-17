@@ -25,15 +25,15 @@ export interface TypographyTokensProps {
   /**
    * Font size
    */
-  fs?: FontSizes
+  fs?: ResponsiveValue<FontSizes>
   /**
    * Font Varition Settings
    */
-  fv?: FontVariation
+  fv?: ResponsiveValue<FontVariation>
   /**
    * Line height
    */
-  lh?: LineHeights
+  lh?: ResponsiveValue<LineHeights>
   /**
    * Text align
    */

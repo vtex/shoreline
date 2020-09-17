@@ -89,12 +89,12 @@ type FlexSelf = keyof typeof flexMap.alignSelf
 type FlexContent = keyof typeof flexMap.alignContent
 
 export interface FlexTokensProps {
-  direction?: FlexDirection
-  wrap?: FlexWrap
-  items?: FlexItems
-  justify?: FlexJustify
-  self?: FlexSelf
-  content?: FlexContent
+  direction?: ResponsiveValue<FlexDirection>
+  wrap?: ResponsiveValue<FlexWrap>
+  items?: ResponsiveValue<FlexItems>
+  justify?: ResponsiveValue<FlexJustify>
+  self?: ResponsiveValue<FlexSelf>
+  content?: ResponsiveValue<FlexContent>
   order?: ResponsiveValue<CSS.Property.Order>
   grow?: ResponsiveValue<CSS.Property.FlexGrow>
   shrink?: ResponsiveValue<CSS.Property.FlexShrink>
