@@ -72,7 +72,10 @@ export function CompositionWithRenderProps() {
 
 CompositionWithRenderProps.parameters = {
   playroom: {
-    code:
-      '<Box w="2xl" h="full">{(props) => <Button {...props}>Button With 2xl Width</Button>}</Box>',
+    code: `
+<Box w="2xl" h="full">
+  {(props) => <Button {...props}>Button With 2xl Width</Button>}
+</Box>
+    `,
   },
 }

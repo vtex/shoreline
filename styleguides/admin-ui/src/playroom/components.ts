@@ -1,3 +1,5 @@
+export { Play } from './Playroom'
+
 export {
   Button,
   Text,
@@ -6,7 +8,7 @@ export {
   Collapsible,
   Box,
   VisuallyHidden,
-} from '../src'
+} from '../index'
 
 export {
   IconCancel,
@@ -15,4 +17,4 @@ export {
   IconArrow,
   Icon,
   IconWithDirection,
-} from '../src/icons'
+} from '../icons'

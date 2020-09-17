@@ -1,9 +1,11 @@
 import React, { ReactNode } from 'react'
-import { DisclosureStateReturn } from 'reakit/ts'
 
-import { useCollapsible } from '../src/components/Collapsible'
+import {
+  DisclosureStateReturn,
+  useCollapsible,
+} from '../components/Collapsible'
 
-export function Play({ children }) {
+export function Play({ children }: Props) {
   return <>{children}</>
 }
 
@@ -14,7 +16,7 @@ function ToggleState({ children }: ToggleStateProps) {
 }
 
 function CollapsibleState({ children }: CollapsibleStateProps) {
-  const collapsibleProps = useCollapsible({ visible: true })
+  const collapsibleProps = useCollapsible({ visible: false })
 
   return children?.({ ...collapsibleProps })
 }

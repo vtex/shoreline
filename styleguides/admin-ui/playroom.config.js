@@ -1,5 +1,5 @@
 module.exports = {
-  components: './playroom/components.ts',
+  components: './src/playroom/components.ts',
   outputPath: './storybook-static/playroom',
   openBrowser: false,
   widths: [1024],
