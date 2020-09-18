@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.6.0...@vtex/brand-ui@0.7.0) (2020-09-18)
+
+
+### Features
+
+* add brand-ui fonts ([2dcf03e](https://github.com/vtex/onda/commit/2dcf03e4c445add9b87c279ffec83964614791a3))
+
+
+
+
+
 # [0.6.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.5.1...@vtex/brand-ui@0.6.0) (2020-09-18)
 
 
