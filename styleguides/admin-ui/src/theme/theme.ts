@@ -136,7 +136,7 @@ export const theme = {
           position: 'absolute',
           borderRadius: '1.25rem',
           backgroundColor: 'success.contrast',
-          transition: 'transform .4s ease',
+          transition: 'transform .25s ease',
         },
         '&:checked': {
           backgroundColor: 'success.base',
