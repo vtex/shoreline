@@ -1,15 +1,15 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 
 import { Text } from '../Text'
-import { Switch, useSwitch } from './index'
+import { Switch, useSwitch, SwitchProps } from './index'
 
 export default {
   title: 'beta/Switch',
   component: Switch,
 } as Meta
 
-export function Playground() {
+const Template: Story<SwitchProps> = (args) => {
   const [checked, setChecked] = React.useState(false)
 
   return (
@@ -17,10 +17,12 @@ export function Playground() {
       aria-label="label"
       checked={checked}
       onChange={() => setChecked(!checked)}
+      {...args}
     />
   )
 }
 
+export const Playground = Template.bind({})
 Playground.parameters = {
   playroom: {
     code: `
