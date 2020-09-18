@@ -14,7 +14,7 @@ import { useTheme, get } from '@vtex-components/theme'
  * function UseCase() {
  *  const { focusStyle, focusProps } = useFocusHollow()
  *
- *  <Button {...focusProps} sx={focusStyle}>...</Button>
+ *  <Button {...focusProps} sx={{ ...focusStyle }}>...</Button>
  * }
  * ```
  */
