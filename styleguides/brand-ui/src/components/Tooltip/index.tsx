@@ -13,7 +13,6 @@ export const Tooltip = (props: TooltipProps) => {
   )
 }
 
-// TODO
 export interface TooltipProps
   extends Pick<BaseProps, 'label' | 'children' | 'visible' | 'sx'> {
   /**
