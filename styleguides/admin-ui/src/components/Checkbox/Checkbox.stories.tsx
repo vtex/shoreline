@@ -3,7 +3,6 @@ import { Meta, Story } from '@storybook/react'
 
 import { Checkbox, useCheckbox, CheckboxProps } from './index'
 import { Text } from '../Text'
-import { Box } from '../Box'
 
 export default {
   title: 'beta/Checkbox',
@@ -14,13 +13,11 @@ const Template: Story<Omit<CheckboxProps, 'checked'>> = (args) => {
   const [checked, setChecked] = React.useState(false)
 
   return (
-    <Box sx={{ height: '100%' }}>
-      <Checkbox
-        {...args}
-        checked={checked}
-        onChange={() => setChecked(!checked)}
-      />
-    </Box>
+    <Checkbox
+      {...args}
+      checked={checked}
+      onChange={() => setChecked(!checked)}
+    />
   )
 }
 
