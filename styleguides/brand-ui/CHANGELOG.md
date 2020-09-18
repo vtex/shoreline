@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.5.1...@vtex/brand-ui@0.6.0) (2020-09-18)
+
+
+### Features
+
+* export box and flex components from theme-ui ([faaed47](https://github.com/vtex/onda/commit/faaed4716291e443890bd6b18081446d3ac1d34b))
+
+
+
+
+
 ## [0.5.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.5.0...@vtex/brand-ui@0.5.1) (2020-09-17)
 
 
