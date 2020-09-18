@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.30.0...@vtex/admin-ui@0.31.0) (2020-09-18)
+
+
+### Features
+
+* **switch:** add Switch component ([bd41dfb](https://github.com/vtex/onda/commit/bd41dfb45e838b6b2dd9086a6c1cb29a904dae14))
+* **switch:** add switch label ([5f478e3](https://github.com/vtex/onda/commit/5f478e3fd8a8a5a7dcf6635168d57a58a0e758f1))
+
+
+
+
+
 # [0.30.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.29.0...@vtex/admin-ui@0.30.0) (2020-09-17)
 
 
