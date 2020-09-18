@@ -2,10 +2,10 @@ import { useFocusRing } from '@react-aria/focus'
 import { useTheme, get } from '@vtex-components/theme'
 
 /**
- * Hook to add a focus hollow style to your component whenever is focused by the keyboard.
+ * Hook to add a focus hollow style to your component whenever it's focused by the keyboard.
  *
  * @returns `{ focusProps, focusStyles }`
- * - focusProps -> It is responsible to detect if the component is focused or not. You should pass this to your component.
+ * - focusProps -> It is responsible for detecting whether the component is focused or not. You must pass this on to your component.
  * - focusStyles -> Focus hollow style
  * @example
  * ```jsx
