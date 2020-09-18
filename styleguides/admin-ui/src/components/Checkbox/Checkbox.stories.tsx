@@ -3,42 +3,30 @@ import { Meta, Story } from '@storybook/react'
 
 import { Checkbox, useCheckbox, CheckboxProps } from './index'
 import { Text } from '../Text'
+import { Box } from '../Box'
 
 export default {
   title: 'beta/Checkbox',
   component: Checkbox,
 } as Meta
 
-const Template: Story<Omit<CheckboxProps, 'checked'>> = (
-  args: Omit<CheckboxProps, 'checked'>
-) => {
-  const props = useCheckbox({ state: false })
+const Template: Story<Omit<CheckboxProps, 'checked'>> = (args) => {
+  const [checked, setChecked] = React.useState(false)
 
-  return <Checkbox {...args} {...props} />
+  return (
+    <Box sx={{ height: '100%' }}>
+      <Checkbox
+        {...args}
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+      />
+    </Box>
+  )
 }
 
 export const Playground = Template.bind({})
-
-export const Size = () => {
-  const props = useCheckbox({ state: ['1'] })
-
-  return (
-    <>
-      <Checkbox {...props} value="1" />
-      <Checkbox {...props} value="2" size="small" />
-    </>
-  )
-}
-
-export const Disabled = () => {
-  const props = useCheckbox({ state: ['1'] })
-
-  return (
-    <>
-      <Checkbox {...props} checked value="1" disabled />
-      <Checkbox {...props} value="2" disabled />
-    </>
-  )
+Playground.args = {
+  'aria-label': 'label',
 }
 
 export const MultipleCheckboxes = () => {
@@ -47,9 +35,18 @@ export const MultipleCheckboxes = () => {
   return (
     <>
       <Text>Checkboxes marked: {props.state}</Text>
-      <Checkbox {...props} value="checkbox1" />
-      <Checkbox {...props} value="checkbox2" />
-      <Checkbox {...props} value="checkbox3" />
+      <Checkbox {...props} aria-label="label" value="checkbox1" />
+      <Checkbox {...props} aria-label="label" value="checkbox2" />
+      <Checkbox {...props} aria-label="label" value="checkbox3" />
+    </>
+  )
+}
+
+export const Disabled = () => {
+  return (
+    <>
+      <Checkbox checked disabled />
+      <Checkbox disabled />
     </>
   )
 }

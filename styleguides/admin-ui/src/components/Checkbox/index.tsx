@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from 'theme-ui'
-import { ReactNode } from 'react'
 import {
   Checkbox as ReakitCheckbox,
   CheckboxProps as ReakitProps,
@@ -13,7 +12,6 @@ import { Theme } from '../../theme'
 
 export function Checkbox({
   sx = {},
-  label,
   size = 'regular',
   ...reakitProps
 }: CheckboxProps) {
@@ -53,11 +51,12 @@ export interface CheckboxProps
     | 'state'
     | 'setState'
     | 'onClick'
+    | 'aria-label'
+    | 'aria-labelledby'
+    | 'id'
   > {
   /** ThemeUI style prop */
   sx?: SxStyleProp
-  /** Checkbox label */
-  label?: ReactNode
   /**
    * Checkbox Size
    * @default regular

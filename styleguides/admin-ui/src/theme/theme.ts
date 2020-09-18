@@ -162,8 +162,8 @@ export const theme = {
           width: 7,
         },
         small: {
-          height: '1.125rem',
-          width: '1.125rem',
+          height: 6,
+          width: 6,
         },
       },
     },
