@@ -14,7 +14,7 @@ export function Playground() {
 
   return (
     <Switch
-      ariaLabel="label"
+      aria-label="label"
       checked={checked}
       onChange={() => setChecked(!checked)}
     />
@@ -44,9 +44,9 @@ export function MultipleSwitches() {
     <>
       <Text>State: {props.state}</Text>
       <br />
-      <Switch {...props} ariaLabel="label1" value="switch1" />
-      <Switch {...props} ariaLabel="label2" value="switch2" />
-      <Switch {...props} ariaLabel="label3" value="switch3" />
+      <Switch {...props} aria-label="label1" value="switch1" />
+      <Switch {...props} aria-label="label2" value="switch2" />
+      <Switch {...props} aria-label="label3" value="switch3" />
     </>
   )
 }
@@ -72,11 +72,11 @@ MultipleSwitches.parameters = {
 export function Disabled() {
   return (
     <>
-      <Switch disabled ariaLabel="label1" />
-      <Switch checked disabled ariaLabel="label2" />
+      <Switch disabled aria-label="label1" />
+      <Switch checked disabled aria-label="label2" />
       <br />
-      <Switch disabled size="small" ariaLabel="label3" />
-      <Switch checked disabled size="small" ariaLabel="label4" />
+      <Switch disabled size="small" aria-label="label3" />
+      <Switch checked disabled size="small" aria-label="label4" />
     </>
   )
 }

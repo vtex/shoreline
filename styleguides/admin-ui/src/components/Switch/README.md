@@ -22,23 +22,22 @@ function UseCase() {
 
 ## Types
 
-| prop      | type                                 | description                       | required | default   |
-| --------- | ------------------------------------ | --------------------------------- | -------- | --------- |
-| ariaLabel | string                               | Switch visually hidden label      | ✅       | -         |
-| size      | 'regular', 'small'                   | Switch size                       | 🚫       | 'regular' |
-| sx        | SxStyleProp                          | ThemeUI style prop                | 🚫       | {}        |
-| checked   | bool                                 | Whether Switch is checked or not  | 🚫       | false     |
-| required  | bool                                 | Whether Switch is required or not | 🚫       | false     |
-| disabled  | bool                                 | Whether Switch is disabled or not | 🚫       | false     |
-| value     | string, number                       | Switch value                      | 🚫       | -         |
-| name      | string                               | Switch name                       | 🚫       | -         |
-| onChange  | func                                 | onChange event                    | 🚫       | -         |
-| state     | SwitchState                          | `reakit` Checkbox state           | 🚫       | -         |
-| setState  | SetStateAction<boolean, SwitchState> | `reakit` Checkbox setState        | 🚫       | -         |
+| prop     | type                                 | description                       | required | default   |
+| -------- | ------------------------------------ | --------------------------------- | -------- | --------- |
+| size     | 'regular', 'small'                   | Switch size                       | 🚫       | 'regular' |
+| sx       | SxStyleProp                          | ThemeUI style prop                | 🚫       | {}        |
+| checked  | bool                                 | Whether Switch is checked or not  | 🚫       | false     |
+| required | bool                                 | Whether Switch is required or not | 🚫       | false     |
+| disabled | bool                                 | Whether Switch is disabled or not | 🚫       | false     |
+| value    | string, number                       | Switch value                      | 🚫       | -         |
+| name     | string                               | Switch name                       | 🚫       | -         |
+| onChange | func                                 | onChange event                    | 🚫       | -         |
+| state    | SwitchState                          | `reakit` Checkbox state           | 🚫       | -         |
+| setState | SetStateAction<boolean, SwitchState> | `reakit` Checkbox setState        | 🚫       | -         |
 
-### ariaLabel
+### aria-label
 
-The Switch component has a visually hidden label, because every `form` component should have a label specified, so we grant this using the `ariaLabel` prop.
+`aria-label` is an optional prop, but, as a `form` component, the Switch should have a label specified to be accessible, so we grant this using this property.
 
 #### Example
 
@@ -51,7 +50,7 @@ function UseCase() {
   return (
     <Switch
       checked={checked}
-      ariaLabel="your label goes here!"
+      aria-label="your label goes here!"
       checked={checked}
       onChange={() => setChecked(!checked)}
     />

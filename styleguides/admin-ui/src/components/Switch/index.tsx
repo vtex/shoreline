@@ -7,18 +7,18 @@ import {
   useCheckboxState,
   CheckboxStateReturn,
 } from 'reakit'
-import { useFocusRing } from '@react-aria/focus'
 import { useComponentSx, mergeSx } from '@vtex-components/theme'
 import { forwardRef } from '@vtex-components/utils'
 
-import { Theme } from '../../theme'
-import { VisuallyHidden } from '../VisuallyHidden'
-import { Box } from '../Box'
+import { useFocusHollow } from '../../utils'
 
 export const Switch = forwardRef(
   (props: SwitchProps, ref: Ref<HTMLInputElement>) => {
-    const { ariaLabel, sx = {}, size = 'regular', ...reakitProps } = props
-    const { focusStyles, focusProps } = useFocusHollow()
+    const { sx = {}, size = 'regular', ...reakitProps } = props
+    const { focusStyles, focusProps } = useFocusHollow({
+      backgroundColor: 'muted.0',
+      borderColor: 'muted.0',
+    })
 
     const styles = useComponentSx('switch', {
       size,
@@ -27,33 +27,16 @@ export const Switch = forwardRef(
     const mergedSx = mergeSx<SxStyleProp>({ ...styles, ...focusStyles }, sx)
 
     return (
-      <Box el="label">
-        <Checkbox
-          ref={ref}
-          role="switch"
-          {...reakitProps}
-          {...focusProps}
-          sx={mergedSx}
-        />
-        <VisuallyHidden>{ariaLabel}</VisuallyHidden>
-      </Box>
+      <Checkbox
+        ref={ref}
+        role="switch"
+        {...reakitProps}
+        {...focusProps}
+        sx={mergedSx}
+      />
     )
   }
 )
-
-function useFocusHollow() {
-  const { isFocusVisible, focusProps } = useFocusRing()
-  const focusStyles = isFocusVisible
-    ? {
-        backgroundColor: 'muted.0',
-        borderColor: 'muted.0',
-        boxShadow: (theme: Theme) =>
-          `0rem 0rem 0rem ${theme.sizes[2]} ${theme.colors.focus}`,
-      }
-    : {}
-
-  return { focusStyles, focusProps }
-}
 
 export interface SwitchProps
   extends Pick<
@@ -66,15 +49,13 @@ export interface SwitchProps
     | 'onChange'
     | 'state'
     | 'setState'
+    | 'aria-labelledby'
+    | 'aria-label'
   > {
   /** ThemeUI style prop
    * @default {}
    */
   sx?: SxStyleProp
-  /**
-   * Visually hidden label to grant Accesibility
-   */
-  ariaLabel: string
   /**
    * Switch Size
    * @default regular

@@ -1,9 +1,9 @@
 import React, { Ref } from 'react'
 import { SxStyleProp } from 'theme-ui'
-import { useFocusRing } from '@react-aria/focus'
 import { forwardRef } from '@vtex-components/utils'
-import { useTheme, get, mergeSx } from '@vtex-components/theme'
+import { mergeSx } from '@vtex-components/theme'
 
+import { useFocusHollow } from '../../utils'
 import { Box } from '../Box'
 import { StyledButton, StyledButtonProps } from './styled'
 
@@ -68,21 +68,6 @@ export const Button = forwardRef(
     )
   }
 )
-
-function useFocusHollow() {
-  const theme = useTheme()
-  const { isFocusVisible, focusProps } = useFocusRing()
-  const focusStyles = isFocusVisible
-    ? {
-        boxShadow: `0rem 0rem 0rem ${get(theme, 'space.2')} ${get(
-          theme,
-          'colors.focus'
-        )}`,
-      }
-    : {}
-
-  return { focusStyles, focusProps }
-}
 
 function useMeasures({
   size,
