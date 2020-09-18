@@ -18,3 +18,4 @@ export {
 } from './components/Collapsible'
 export { Switch, SwitchProps, useSwitch } from './components/Switch'
 export * from './icons'
+export { useFocusHollow } from './hooks'

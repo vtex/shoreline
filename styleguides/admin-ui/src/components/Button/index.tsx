@@ -3,7 +3,7 @@ import { SxStyleProp } from 'theme-ui'
 import { forwardRef } from '@vtex-components/utils'
 import { mergeSx } from '@vtex-components/theme'
 
-import { useFocusHollow } from '../../utils'
+import { useFocusHollow } from '../../hooks'
 import { Box } from '../Box'
 import { StyledButton, StyledButtonProps } from './styled'
 

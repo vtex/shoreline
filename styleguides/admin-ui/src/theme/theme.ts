@@ -141,6 +141,10 @@ export const theme = {
         '&:checked': {
           backgroundColor: 'success.base',
           borderColor: 'success.base',
+          '&:focus': {
+            backgroundColor: 'success.base',
+            borderColor: 'success.base',
+          },
           '&:hover': {
             backgroundColor: 'success.hover',
             borderColor: 'success.hover',
@@ -156,6 +160,10 @@ export const theme = {
               backgroundColor: 'muted.2',
             },
           },
+        },
+        '&:focus': {
+          backgroundColor: 'muted.0',
+          borderColor: 'muted.0',
         },
         '&:hover': {
           backgroundColor: 'muted.0',

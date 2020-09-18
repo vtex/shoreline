@@ -10,15 +10,12 @@ import {
 import { useComponentSx, mergeSx } from '@vtex-components/theme'
 import { forwardRef } from '@vtex-components/utils'
 
-import { useFocusHollow } from '../../utils'
+import { useFocusHollow } from '../../hooks'
 
 export const Switch = forwardRef(
   (props: SwitchProps, ref: Ref<HTMLInputElement>) => {
     const { sx = {}, size = 'regular', ...reakitProps } = props
-    const { focusStyles, focusProps } = useFocusHollow({
-      backgroundColor: 'muted.0',
-      borderColor: 'muted.0',
-    })
+    const { focusStyles, focusProps } = useFocusHollow()
 
     const styles = useComponentSx('switch', {
       size,
@@ -51,6 +48,7 @@ export interface SwitchProps
     | 'setState'
     | 'aria-labelledby'
     | 'aria-label'
+    | 'id'
   > {
   /** ThemeUI style prop
    * @default {}
