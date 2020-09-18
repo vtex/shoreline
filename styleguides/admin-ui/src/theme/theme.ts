@@ -128,7 +128,6 @@ export const theme = {
         backgroundColor: 'muted.1',
         borderStyle: 'solid',
         borderColor: 'muted.1',
-        verticalAlign: 'middle',
         borderWidth: 1,
         '&:after': {
           content: '""',
