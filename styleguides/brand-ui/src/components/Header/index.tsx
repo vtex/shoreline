@@ -3,7 +3,7 @@ import { Box, Flex } from 'theme-ui'
 
 import IconVTEXExpanded from './IconVTEXExpanded'
 
-const Header = ({ children }: PropsWithChildren<{}>) => {
+export const Header = ({ children }: PropsWithChildren<{}>) => {
   return (
     <Box
       sx={{
@@ -124,5 +124,3 @@ Header.LeftLinks = LeftLinks
 Header.RightLinks = RightLinks
 Header.Brand = Brand
 Header.ActionButton = ActionButton
-
-export default Header

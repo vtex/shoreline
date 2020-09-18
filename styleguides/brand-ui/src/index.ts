@@ -18,3 +18,4 @@ export {
 } from './components/Accordion'
 export * from './icons'
 export { useFocusHollow } from './hooks'
+export { Header } from './components/Header'
