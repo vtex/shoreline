@@ -27,7 +27,7 @@ Playground.parameters = {
 <Play.ToggleState>
   {({ toggle, setToggle }) => (
     <Switch
-      ariaLabel="label"
+      aria-label="label"
       checked={toggle}
       onChange={() => setToggle(!toggle)}
     />
@@ -59,9 +59,9 @@ MultipleSwitches.parameters = {
     <>
       <Text>State: {state}</Text>
       <br />
-      <Switch state={state} setState={setState} ariaLabel="label1" value="switch1" />
-      <Switch state={state} setState={setState} ariaLabel="label2" value="switch2" />
-      <Switch state={state} setState={setState} ariaLabel="label3" value="switch3" />
+      <Switch state={state} setState={setState} aria-label="label1" value="switch1" />
+      <Switch state={state} setState={setState} aria-label="label2" value="switch2" />
+      <Switch state={state} setState={setState} aria-label="label3" value="switch3" />
     </>
   )}
 </Play.CheckboxState>
