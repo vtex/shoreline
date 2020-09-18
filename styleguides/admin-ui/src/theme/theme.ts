@@ -188,15 +188,15 @@ export const theme = {
           },
         },
         small: {
-          height: '0.875rem',
+          height: 6,
           width: 9,
           '&:after': {
-            width: '0.75rem',
-            height: '0.75rem',
+            width: '0.875rem',
+            height: '0.875rem',
           },
           '&:checked': {
             '&:after': {
-              transform: 'translateX(0.875rem)',
+              transform: 'translateX(0.75rem)',
             },
           },
         },

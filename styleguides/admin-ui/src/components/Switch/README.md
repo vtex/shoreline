@@ -24,13 +24,13 @@ function UseCase() {
 
 | prop      | type                                 | description                       | required | default   |
 | --------- | ------------------------------------ | --------------------------------- | -------- | --------- |
-| ariaLabel | ReactNode                            | Switch visually hidden label      | ✅       | -         |
+| ariaLabel | string                               | Switch visually hidden label      | ✅       | -         |
 | size      | 'regular', 'small'                   | Switch size                       | 🚫       | 'regular' |
 | sx        | SxStyleProp                          | ThemeUI style prop                | 🚫       | {}        |
 | checked   | bool                                 | Whether Switch is checked or not  | 🚫       | false     |
 | required  | bool                                 | Whether Switch is required or not | 🚫       | false     |
 | disabled  | bool                                 | Whether Switch is disabled or not | 🚫       | false     |
-| value     | string, number, undefined            | Switch value                      | 🚫       | -         |
+| value     | string, number                       | Switch value                      | 🚫       | -         |
 | name      | string                               | Switch name                       | 🚫       | -         |
 | onChange  | func                                 | onChange event                    | 🚫       | -         |
 | state     | SwitchState                          | `reakit` Checkbox state           | 🚫       | -         |
