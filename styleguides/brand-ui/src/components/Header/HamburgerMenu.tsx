@@ -9,17 +9,17 @@ const HamburgerMenu = ({ children }: PropsWithChildren<{}>) => {
 
   return (
     <Fragment>
-      <Flex
+      <Box
         role="presentation"
         sx={{
+          display: ['flex', 'flex', , 'none'],
           height: '100%',
-          paddingLeft: '2rem',
-          paddingRight: '2rem',
-          paddingTop: '1.5rem',
-          paddingBottom: '1.5rem',
+          paddingX: '2rem',
+          paddingY: '1.5rem',
           justifyContent: 'end',
           alignItems: 'center',
           color: 'primary.base',
+          borderLeft: '1px solid #e3e4e6',
         }}
         onClick={() => setOpen(!open)}
       >
@@ -30,7 +30,7 @@ const HamburgerMenu = ({ children }: PropsWithChildren<{}>) => {
         ) : (
           <IconHamburger />
         )}
-      </Flex>
+      </Box>
       {open && (
         <Box
           sx={{
@@ -41,6 +41,7 @@ const HamburgerMenu = ({ children }: PropsWithChildren<{}>) => {
             marginTop: '5.1rem',
             left: '0',
             bottom: '0',
+            top: '0',
           }}
         >
           <Flex
@@ -65,16 +66,13 @@ const Menu = ({ children }: PropsWithChildren<{}>) => {
     <Flex
       sx={{
         flexDirection: 'column',
-        paddingTop: '1rem',
-        paddingBottom: '1rem',
+        paddingY: 4,
         '> a': {
           textDecoration: 'none',
           transition: 'color 0.15s ease-in',
           color: 'secondary.base',
-          marginTop: '1rem',
-          marginBottom: '1rem',
-          paddingLeft: '2rem',
-          paddingRight: '2rem', // AJUSTAR ISSO
+          marginY: 4,
+          paddingX: '2rem', // AJUSTAR ISSO
         },
       }}
     >
@@ -84,7 +82,16 @@ const Menu = ({ children }: PropsWithChildren<{}>) => {
 }
 
 const ActionButton = ({ children }: PropsWithChildren<{}>) => {
-  return <Box sx={{ zIndex: 2147483647 }}>{children}</Box>
+  return (
+    <Box
+      sx={{
+        zIndex: 2147483647,
+        borderTop: '1px solid #e3e4e6',
+      }}
+    >
+      {children}
+    </Box>
+  )
 }
 
 HamburgerMenu.Menu = Menu

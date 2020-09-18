@@ -10,8 +10,9 @@ const Header = ({ children }: PropsWithChildren<{}>) => {
         width: '100%',
         position: 'fixed',
         top: '0',
-        backgroundColor: '#fff',
-        borderBottom: '1 solid muted.4',
+        left: '0',
+        backgroundColor: 'primary.contrast',
+        borderBottom: '1px solid #e3e4e6',
         height: '5.1rem',
       }}
     >
@@ -33,15 +34,15 @@ const Brand = () => {
   return (
     <Flex
       sx={{
-        width: '16rem',
         alignItems: 'center',
         color: 'primary.base',
+        cursor: 'pointer',
       }}
     >
       <Flex
         sx={{
+          width: ['8rem', '16rem'],
           height: '100%',
-          justifyContent: 'space-around',
           padding: '0.75rem',
         }}
       >
@@ -55,20 +56,17 @@ const LeftLinks = ({ children }: PropsWithChildren<{}>) => {
   return (
     <Box
       sx={{
-        display: ['none', 'none', 'flex'],
+        display: ['none', 'none', 'none', 'flex'],
         width: '100%',
-        borderTop: ['1px solid muted.4', 0, 0],
+        borderTop: ['1px solid #e3e4e6', 0, 0],
         marginTop: ['0.75rem', 0, 0],
         paddingTop: ['0.75rem', 0, 0],
         '> a': {
           textDecoration: 'none',
           transition: 'color 0.15s ease-in',
-          marginLeft: '1.5rem',
-          marginRight: '1.5rem',
-          paddingLeft: '0.125rem',
-          paddingRight: '0.125rem',
-          paddingTop: '1.875rem',
-          paddingBottom: '1.875rem',
+          marginX: '1.5rem',
+          paddingX: '0.125rem',
+          paddingY: '1.875rem',
           color: '#3f3f40',
           '&:hover': {
             color: 'primary.base',
@@ -85,10 +83,10 @@ const RightLinks = ({ children }: PropsWithChildren<{}>) => {
   return (
     <Box
       sx={{
-        display: ['none', 'none', 'flex'],
+        display: ['none', 'none', 'none', 'flex'],
         width: '100%',
-        justifyContent: 'end',
-        borderTop: ['1px solid muted.4', 0, 0],
+        justifyContent: 'flex-end',
+        borderTop: ['1px solid #e3e4e6', 0, 0],
         marginTop: ['0.75rem', 0, 0],
         paddingTop: ['0.75rem', 0, 0],
         textTransform: 'uppercase',
@@ -96,10 +94,8 @@ const RightLinks = ({ children }: PropsWithChildren<{}>) => {
           textDecoration: 'none',
           transition: 'color 0.15s ease-in',
           color: '#727273',
-          marginLeft: '1rem',
-          marginRight: '1rem',
-          paddingLeft: '0.25rem',
-          paddingRight: '0.25rem',
+          marginX: 4,
+          paddingX: '0.25rem',
           fontSize: '0.875rem',
           fontWeight: 'medium',
         },
@@ -116,6 +112,7 @@ const ActionButton = ({ children }: PropsWithChildren<{}>) => {
       sx={{
         height: '100%',
         alignItems: 'center',
+        cursor: 'pointer',
       }}
     >
       {children}
