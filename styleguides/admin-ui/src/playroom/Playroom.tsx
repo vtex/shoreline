@@ -4,6 +4,7 @@ import {
   DisclosureStateReturn,
   useCollapsible,
 } from '../components/Collapsible'
+import { useSwitch, CheckboxStateReturn } from '../components/Switch'
 
 export function Play({ children }: Props) {
   return <>{children}</>
@@ -21,8 +22,15 @@ function CollapsibleState({ children }: CollapsibleStateProps) {
   return children?.({ ...collapsibleProps })
 }
 
+function CheckboxState({ state = false, children }: CheckboxStateProps) {
+  const switchProps = useSwitch({ state })
+
+  return children?.({ ...switchProps })
+}
+
 Play.ToggleState = ToggleState
 Play.CollapsibleState = CollapsibleState
+Play.CheckboxState = CheckboxState
 
 interface Props {
   children: ReactNode
@@ -37,4 +45,9 @@ interface ToggleStateProps {
 
 interface CollapsibleStateProps {
   children: (props: DisclosureStateReturn) => ReactNode
+}
+
+interface CheckboxStateProps {
+  state?: boolean | 'indeterminate' | Array<number | string>
+  children: (props: CheckboxStateReturn) => ReactNode
 }
