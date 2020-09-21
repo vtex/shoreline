@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.7.0...@vtex/brand-ui@0.7.1) (2020-09-21)
+
+
+### Bug Fixes
+
+* fix background color and and missing muted.5 color ([8b5864e](https://github.com/vtex/onda/commit/8b5864ec7a79b020ccdda443b70b4f9150b8358d))
+
+
+
+
+
 # [0.7.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.6.0...@vtex/brand-ui@0.7.0) (2020-09-18)
 
 
