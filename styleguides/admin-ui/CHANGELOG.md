@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.31.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.31.0...@vtex/admin-ui@0.31.1) (2020-09-21)
+
+
+### Bug Fixes
+
+* **collapsible:** decrease header paddingLeft ([74c82af](https://github.com/vtex/onda/commit/74c82aff9a5e111cd6daf9c84287c6bdce083393))
+
+
+
+
+
 # [0.31.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.30.0...@vtex/admin-ui@0.31.0) (2020-09-18)
 
 
