@@ -15,6 +15,7 @@ export const Basic: Story<AvatarProps> = () => {
       <Avatar label="base" />
       <Avatar label="primary" palette="primary" />
       <Avatar label="danger" palette="danger" />
+      <Avatar label="success" palette="success" />
     </Box>
   )
 }

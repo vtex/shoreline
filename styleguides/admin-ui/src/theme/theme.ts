@@ -111,31 +111,6 @@ export const theme = {
     },
   },
   components: {
-    avatar: {
-      styles: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 8,
-        height: 8,
-        padding: 5,
-        borderRadius: 'full',
-      },
-      palette: {
-        base: {
-          bg: 'muted.4',
-          color: 'text',
-        },
-        primary: {
-          bg: 'primary.washed',
-          color: 'primary.base',
-        },
-        danger: {
-          bg: 'danger.washed',
-          color: 'danger.base',
-        },
-      },
-    },
     skeleton: {
       styles: {
         display: 'inline-block',

@@ -1,6 +1,4 @@
 import React from 'react'
-import { mergeSx, useComponentSx } from '@vtex-components/theme'
-import { SxStyleProp } from 'theme-ui'
 
 import { Surface, SurfaceProps } from './styled'
 import { Text } from '../Text'
@@ -18,14 +16,11 @@ import { Text } from '../Text'
 export function Avatar(props: AvatarProps) {
   const { palette = 'base', sx = {}, label, ...containerProps } = props
 
-  const componentStyles = useComponentSx('avatar', { palette })
-  const styles = mergeSx<SxStyleProp>(componentStyles, sx)
-
-  const capitalLetter = label?.charAt(0)?.toUpperCase()
+  const firstLetter = label?.charAt(0)
 
   return (
-    <Surface sx={styles} {...containerProps}>
-      <Text variant="highlight">{capitalLetter}</Text>
+    <Surface sx={{ variant: `avatar.${palette}`, ...sx }} {...containerProps}>
+      <Text variant="highlight">{firstLetter}</Text>
     </Surface>
   )
 }
@@ -39,5 +34,5 @@ export interface AvatarProps extends SurfaceProps {
    * Avatar theme
    * @default base
    */
-  palette?: 'base' | 'primary' | 'danger'
+  palette?: 'base' | 'primary' | 'danger' | 'success'
 }

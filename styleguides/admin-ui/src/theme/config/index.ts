@@ -6,6 +6,7 @@ import sizes from './sizes'
 import buttons from './buttons'
 import text from './text'
 import toggle from './toggle'
+import avatar from './avatar'
 
 export const theme = {
   ...layout,
@@ -13,6 +14,7 @@ export const theme = {
   sizes,
   colors,
   buttons,
+  avatar,
   forms: {
     ...toggle,
   },
@@ -20,7 +22,8 @@ export const theme = {
 }
 
 export type FontSizes = '0' | '1' | '2' | '3' | '4'
-export type BorderSizes = '0' | '1' | '2' | '3'
+export type BorderWidths = '0' | '1' | '2' | '3'
+export type BorderRadius = '0' | '1' | '2' | '3' | 'full'
 export type FontVariation = keyof typeof theme.fontVariation
 export type LineHeights = keyof typeof theme.lineHeights
 export type ZIndexes = 'under' | 'plain' | 'over' | '1' | '2' | '3' | '4' | '5'
