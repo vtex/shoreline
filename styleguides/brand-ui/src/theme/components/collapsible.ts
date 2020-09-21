@@ -14,7 +14,7 @@ const headerBase = {
     outline: 'none',
   },
   '&:hover': {
-    backgroundColor: 'transparent',
+    backgroundColor: 'muted.3',
   },
 }
 
