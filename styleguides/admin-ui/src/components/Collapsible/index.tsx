@@ -39,7 +39,7 @@ export function Collapsible(props: CollapsibleProps) {
 
 function Header({ children, label, sx }: HeaderProps) {
   return (
-    <Box display="flex" items="center" justify="between" p="13" pl="12" sx={sx}>
+    <Box display="flex" items="center" justify="between" p="13" pl="7" sx={sx}>
       <Disclosure>{label}</Disclosure>
       <Box
         display="flex"
