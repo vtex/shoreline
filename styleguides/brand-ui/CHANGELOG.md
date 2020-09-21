@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.9.0...@vtex/brand-ui@0.9.1) (2020-09-21)
+
+
+### Bug Fixes
+
+* add missing export of landing footer ([2b4f43d](https://github.com/vtex/onda/commit/2b4f43d63b46f6b00864b5d6bf34d115dcfce2a5))
+
+
+
+
+
 # [0.9.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.8.0...@vtex/brand-ui@0.9.0) (2020-09-21)
 
 
