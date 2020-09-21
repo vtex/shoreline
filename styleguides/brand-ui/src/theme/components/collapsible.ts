@@ -1,5 +1,5 @@
 const headerBase = {
-  backgroundColor: 'white',
+  backgroundColor: 'transparent',
   border: 'none',
   px: 3,
   justifyContent: 'space-between',
@@ -14,7 +14,7 @@ const headerBase = {
     outline: 'none',
   },
   '&:hover': {
-    backgroundColor: 'muted.3',
+    backgroundColor: 'transparent',
   },
 }
 
@@ -52,7 +52,7 @@ const collapsible = {
   borderBottom: 'solid',
   borderBottomWidth: 1,
   borderBottomColor: 'muted.2',
-  backgroundColor: 'white',
+  backgroundColor: 'transparent',
   header,
   content,
 }
