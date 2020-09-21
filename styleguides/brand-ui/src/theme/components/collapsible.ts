@@ -13,6 +13,9 @@ const headerBase = {
   '&:focus': {
     outline: 'none',
   },
+  '&:hover': {
+    backgroundColor: 'muted.3',
+  },
 }
 
 const header = {
