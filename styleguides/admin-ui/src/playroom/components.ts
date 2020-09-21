@@ -8,7 +8,7 @@ export {
   Collapsible,
   Box,
   VisuallyHidden,
-  Switch,
+  Toggle,
 } from '../index'
 
 export {

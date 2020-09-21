@@ -5,6 +5,7 @@ import sizes from './sizes'
 // components
 import buttons from './buttons'
 import text from './text'
+import toggle from './toggle'
 
 export const theme = {
   ...layout,
@@ -12,6 +13,9 @@ export const theme = {
   sizes,
   colors,
   buttons,
+  forms: {
+    ...toggle,
+  },
   text,
 }
 

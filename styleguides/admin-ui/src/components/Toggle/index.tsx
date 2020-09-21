@@ -7,21 +7,20 @@ import {
   useCheckboxState,
   CheckboxStateReturn,
 } from 'reakit'
-import { useComponentSx, mergeSx } from '@vtex-components/theme'
+import { mergeSx } from '@vtex-components/theme'
 import { forwardRef } from '@vtex-components/utils'
 
 import { useFocusHollow } from '../../hooks'
 
-export const Switch = forwardRef(
-  (props: SwitchProps, ref: Ref<HTMLInputElement>) => {
+export const Toggle = forwardRef(
+  (props: ToggleProps, ref: Ref<HTMLInputElement>) => {
     const { sx = {}, size = 'regular', ...reakitProps } = props
     const { focusStyles, focusProps } = useFocusHollow()
 
-    const styles = useComponentSx('switch', {
-      size,
-    })
-
-    const mergedSx = mergeSx<SxStyleProp>({ ...styles, ...focusStyles }, sx)
+    const styles = mergeSx<SxStyleProp>(
+      { variant: `forms.toggle-${size}`, ...focusStyles },
+      sx
+    )
 
     return (
       <Checkbox
@@ -29,13 +28,13 @@ export const Switch = forwardRef(
         role="switch"
         {...reakitProps}
         {...focusProps}
-        sx={mergedSx}
+        sx={styles}
       />
     )
   }
 )
 
-export interface SwitchProps
+export interface ToggleProps
   extends Pick<
     CheckboxProps,
     | 'checked'
@@ -61,5 +60,5 @@ export interface SwitchProps
   size?: 'regular' | 'small'
 }
 
-export { useCheckboxState as useSwitch }
+export { useCheckboxState as useToggle }
 export { CheckboxStateReturn }

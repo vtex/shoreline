@@ -16,6 +16,6 @@ export {
   useCollapsible,
   CollapsibleProps,
 } from './components/Collapsible'
-export { Switch, SwitchProps, useSwitch } from './components/Switch'
+export { Toggle, ToggleProps, useToggle } from './components/Toggle'
 export * from './icons'
 export { useFocusHollow } from './hooks'
