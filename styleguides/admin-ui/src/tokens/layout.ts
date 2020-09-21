@@ -1,7 +1,7 @@
 import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
 
-import { Sizes } from '../theme/theme'
+import { Sizes } from '../theme/config'
 
 export const layoutTokens = system({
   w: {

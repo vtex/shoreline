@@ -1,17 +1,7 @@
 import React from 'react'
-import { keyframes } from '@emotion/core'
 import { SxStyleProp } from 'theme-ui'
 
 import { Box } from '../Box'
-
-const load = keyframes`
-  0% {
-    background-position: -200px 0;
-  }
-  100% {
-    background-position: calc(200px + 100%) 0;
-  }
-`
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -31,20 +21,14 @@ const load = keyframes`
  */
 export function Skeleton(props: SkeletonProps) {
   const { sx = {}, shape = 'rect', ...boxProps } = props
+  const variant =
+    shape === 'circle' ? 'layout.skeleton-circle' : 'layout.skeleton'
 
   return (
     <Box
       {...boxProps}
       sx={{
-        variant: 'layout.skeleton',
-        borderRadius: shape === 'circle' ? '100%' : 4,
-        backgroundImage: (theme) => `linear-gradient(
-          90deg,
-          ${theme.colors.muted[4]},
-          white,
-          ${theme.colors.muted[4]}
-        )`,
-        animation: `${load} 1.2s ease-in-out infinite`,
+        variant,
         ...sx,
       }}
     />
