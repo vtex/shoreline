@@ -1,1 +1,1 @@
-export { useFocusHollow } from './useFocusHallow'
+export { useFocusHollow } from './useFocusHollow'
