@@ -7,6 +7,7 @@ const headerBase = {
   width: '100%',
   cursor: 'pointer',
   color: 'secondary.base',
+  transition: 'ease 300ms all',
   '&:disabled': {
     color: 'muted.2',
   },
