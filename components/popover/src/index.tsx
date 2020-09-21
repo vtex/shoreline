@@ -15,7 +15,7 @@ import { useComponentSx, mergeSx } from '@vtex-components/theme'
  * It renders a popover element by default.
  *
  * This is a styled base component, so any system can theme it.
- * You may configure your `components.tooltip` property of the theme object.
+ * You may configure your `components.popover` property of the theme object.
  * @example
  * ```jsx
  * import { Popover, usePopoverState } from '@vtex-components/popover'
