@@ -1,4 +1,5 @@
 import buttons from './components/buttons'
+import collapsible from './components/collapsible'
 
 export const theme = {
   colors: {
@@ -50,6 +51,7 @@ export const theme = {
     },
   },
   buttons,
+  collapsible,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
