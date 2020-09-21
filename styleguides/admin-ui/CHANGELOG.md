@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.33.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.32.0...@vtex/admin-ui@0.33.0) (2020-09-21)
+
+
+### Features
+
+* **avatar:** create component ([211c87a](https://github.com/vtex/onda/commit/211c87a28271d22e059b163d27d5f40b464dd061))
+
+
+
+
+
 # [0.32.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.31.1...@vtex/admin-ui@0.32.0) (2020-09-21)
 
 
