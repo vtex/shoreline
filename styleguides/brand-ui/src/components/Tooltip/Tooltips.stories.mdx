@@ -1,0 +1,78 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Tooltip } from '.';
+import { IconMock } from '../Button/IconMock';
+import { Button } from '../Button';
+import { Icon, IconProps } from '@vtex-components/icon'
+
+<Meta title="MDX/Tooltips" component={Tooltip} />
+
+# Tooltip
+
+This story shows different possibilities of how to use the `tooltip` component.
+
+<Canvas>
+  <Story name="Default tooltip">
+    <Tooltip label="Label"><Button>Trigger component</Button></Tooltip>
+  </Story>
+</Canvas>
+
+## Visibility
+
+With the `visible` props you can set if the tooltip is visible or not initially.
+By default this prop is `false`, so it is hidden initially.
+
+<Canvas>
+  <Story name="Visible">
+    <Tooltip label="Label" visible={true}><Button>Visible</Button></Tooltip>
+  </Story>
+  <Story name="Hidden">
+    <Tooltip label="Label" visible={false}><Button>Hidden</Button></Tooltip>
+  </Story>
+</Canvas>
+
+## Placement
+
+If you use the `placement` prop you can set the tooltip placement relative to the tooltip trigger component.
+The possible `placement`s are: `top`, `right`, `bottom` and `left`. The default `placement` is `top`.
+
+<Canvas>
+  <Story name="Placement top">
+    <Tooltip label="Label" placement="top"><Button>Top</Button></Tooltip>
+  </Story>
+  <Story name="Placement right">
+    <Tooltip label="Label" placement="right"><Button>Right</Button></Tooltip>
+  </Story>
+  <Story name="Placement bottom">
+    <Tooltip label="Label" placement="bottom"><Button>Bottom</Button></Tooltip>
+  </Story>
+  <Story name="Placement left">
+    <Tooltip label="Label" placement="left"><Button>Left</Button></Tooltip>
+  </Story>
+</Canvas>
+
+## Sx
+
+The `tooltip` can receive `sx` props to change it's design, as you can see below with some examples.
+
+<Canvas>
+  <Story name="Custom sx">
+    <Tooltip label="Label" sx={{backgroundColor: 'red', color: 'yellow'}}><Button>Button</Button></Tooltip>
+  </Story>
+</Canvas>
+
+## Other examples
+
+Right bellow you can see other examples of how you can use the `tooltip`.
+
+<Canvas>
+  <Story name="Tooltip on icon">
+    <Tooltip label="Icon tooltip" placement="right"><Icon><IconMock/></Icon></Tooltip>
+  </Story>
+  <div style={{width: '2000px'}}></div>
+  <Story name="Long text tooltip">
+    <Tooltip placement="right" label="Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Curabitur sit amet dictum urna. Sed nec tortor placerat, congue sapien eu,
+    efficitur felis. Fusce vel porta augue. Donec vitae libero felis.
+    Morbi non nisl ligula."><Button>Hover here to see the long text</Button></Tooltip>
+  </Story>
+</Canvas>
