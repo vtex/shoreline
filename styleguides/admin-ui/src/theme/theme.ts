@@ -1,3 +1,5 @@
+import buttons from './components/buttons'
+
 export const theme = {
   space: {
     '0': '0rem',
@@ -209,251 +211,50 @@ export const theme = {
         },
       },
     },
+  buttons,
+  layout: {
     skeleton: {
-      styles: {
-        display: 'inline-block',
-        width: 'full',
-        height: 'full',
-        backgroundColor: 'muted.4',
-        backgroundSize: `200px 100%`,
-        backgroundRepeat: 'no-repeat',
-        lineHeight: 1,
-      },
-      shape: {
-        rect: {
-          borderRadius: 4,
-        },
-        circle: {
-          borderRadius: '100%',
-        },
-      },
+      display: 'inline-block',
+      width: 'full',
+      height: 'full',
+      backgroundColor: 'muted.4',
+      backgroundSize: `200px 100%`,
+      backgroundRepeat: 'no-repeat',
+      lineHeight: 1,
+      borderRadius: 3,
     },
-    button: {
-      styles: {
-        borderWidth: 1,
-        borderRadius: 3,
-        cursor: 'pointer',
-        position: 'relative',
-        borderStyle: 'solid',
-        '&:focus': {
-          outline: 'none',
-        },
-      },
-      size: {
-        regular: {
-          paddingY: 5,
-          fontSize: 1,
-          height: 12,
-          width: 'auto',
-          paddingLeft: 9,
-          paddingRight: 9,
-        },
-        'regular-icon': {
-          paddingY: 5,
-          fontSize: 1,
-          height: 12,
-          width: 12,
-          paddingLeft: 3,
-          paddingRight: 3,
-        },
-        'regular-icon-start': {
-          paddingY: 5,
-          fontSize: 1,
-          height: 12,
-          width: 'auto',
-          paddingLeft: 5,
-          paddingRight: 7,
-        },
-        'regular-icon-end': {
-          paddingY: 5,
-          fontSize: 1,
-          height: 12,
-          width: 'auto',
-          paddingLeft: 7,
-          paddingRight: 5,
-        },
-        small: {
-          paddingY: 4,
-          fontSize: 0,
-          height: 10,
-          width: 'auto',
-          paddingLeft: 7,
-          paddingRight: 7,
-        },
-        'small-icon': {
-          paddingY: 4,
-          fontSize: 0,
-          height: 10,
-          width: 10,
-          paddingLeft: 2,
-          paddingRight: 2,
-        },
-        'small-icon-start': {
-          paddingY: 4,
-          fontSize: 0,
-          height: 10,
-          width: 'auto',
-          paddingLeft: 5,
-          paddingRight: 7,
-        },
-        'small-icon-end': {
-          paddingY: 4,
-          fontSize: 0,
-          height: 10,
-          width: 'auto',
-          paddingLeft: 7,
-          paddingRight: 5,
-        },
-      },
-      variant: {
-        'filled-primary': {
-          textTransform: 'uppercase',
-          color: 'primary.contrast',
-          backgroundColor: 'primary.base',
-          fontVariationSettings: "'wght' 92",
-          borderColor: 'primary.base',
-          '&:hover': {
-            backgroundColor: 'primary.hover',
-            borderColor: 'primary.hover',
-          },
-          '&:active': {
-            backgroundColor: 'primary.active',
-            borderColor: 'primary.active',
-          },
-          '&:disabled': {
-            color: 'text',
-            borderColor: 'muted.2',
-            backgroundColor: 'muted.2',
-          },
-        },
-        'outlined-primary': {
-          textTransform: 'uppercase',
-          backgroundColor: 'transparent',
-          borderColor: 'muted.2',
-          color: 'primary.base',
-          fontVariationSettings: "'wght' 92",
-          '&:hover': {
-            backgroundColor: 'primary.washed',
-            color: 'primary.hover',
-          },
-          '&:active': {
-            color: 'primary.active',
-          },
-          '&:disabled': {
-            color: 'muted.1',
-            backgroundColor: 'muted.4',
-          },
-        },
-        'subtle-primary': {
-          borderColor: 'transparent',
-          textTransform: 'capitalize',
-          backgroundColor: 'transparent',
-          color: 'primary.base',
-          fontVariationSettings: "'wght' 92",
-          '&:hover': {
-            color: 'primary.hover',
-            backgroundColor: 'primary.washed',
-          },
-          '&:active': {
-            color: 'primary.active',
-            backgroundColor: 'primary.washed',
-          },
-          '&:disabled': {
-            color: 'muted.1',
-          },
-        },
-        'filled-danger': {
-          textTransform: 'uppercase',
-          color: 'danger.contrast',
-          backgroundColor: 'danger.base',
-          fontVariationSettings: "'wght' 92",
-          borderColor: 'danger.base',
-          '&:hover': {
-            borderColor: 'danger.hover',
-            backgroundColor: 'danger.hover',
-          },
-          '&:active': {
-            borderColor: 'danger.active',
-            backgroundColor: 'danger.active',
-          },
-          '&:disabled': {
-            borderColor: 'muted.2',
-            color: 'text',
-            backgroundColor: 'muted.2',
-          },
-        },
-        'outlined-danger': {
-          textTransform: 'uppercase',
-          backgroundColor: 'transparent',
-          borderColor: 'muted.2',
-          color: 'danger.base',
-          fontVariationSettings: "'wght' 92",
-          '&:hover': {
-            backgroundColor: 'danger.washed',
-            color: 'danger.hover',
-          },
-          '&:active': {
-            color: 'danger.active',
-          },
-          '&:disabled': {
-            color: 'muted.1',
-            backgroundColor: 'muted.4',
-          },
-        },
-        'subtle-danger': {
-          borderColor: 'transparent',
-          textTransform: 'capitalize',
-          backgroundColor: 'transparent',
-          color: 'danger.base',
-          fontVariationSettings: "'wght' 92",
-          '&:hover': {
-            color: 'danger.hover',
-            backgroundColor: 'danger.washed',
-          },
-          '&:active': {
-            color: 'danger.active',
-            backgroundColor: 'danger.washed',
-          },
-          '&:disabled': {
-            color: 'muted.1',
-          },
-        },
-      },
+  },
+  text: {
+    small: {
+      lineHeight: 'small',
+      fontVariationSettings: "'wght' 80",
+      fontSize: 0,
     },
-    text: {
-      variant: {
-        small: {
-          lineHeight: 'small',
-          fontVariationSettings: "'wght' 80",
-          fontSize: 0,
-        },
-        body: {
-          lineHeight: 'body',
-          fontVariationSettings: "'wght' 80",
-          fontSize: 1,
-        },
-        highlight: {
-          lineHeight: 'highlight',
-          fontVariationSettings: "'wght' 92",
-          fontSize: 1,
-        },
-        action: {
-          lineHeight: 'action',
-          fontVariationSettings: "'wght' 92",
-          fontSize: 1,
-          textTransform: 'uppercase',
-        },
-        subtitle: {
-          lineHeight: 'subtitle',
-          fontVariationSettings: "'wght' 92",
-          fontSize: 2,
-        },
-        headline: {
-          lineHeight: 'headline',
-          fontVariationSettings: "'wght' 92",
-          fontSize: 4,
-        },
-      },
+    body: {
+      lineHeight: 'body',
+      fontVariationSettings: "'wght' 80",
+      fontSize: 1,
+    },
+    highlight: {
+      lineHeight: 'highlight',
+      fontVariationSettings: "'wght' 92",
+      fontSize: 1,
+    },
+    action: {
+      lineHeight: 'action',
+      fontVariationSettings: "'wght' 92",
+      fontSize: 1,
+      textTransform: 'uppercase',
+    },
+    subtitle: {
+      lineHeight: 'subtitle',
+      fontVariationSettings: "'wght' 92",
+      fontSize: 2,
+    },
+    headline: {
+      lineHeight: 'headline',
+      fontVariationSettings: "'wght' 92",
+      fontSize: 4,
     },
   },
   breakpoints: ['20em', '48em', '56em', '64em'],

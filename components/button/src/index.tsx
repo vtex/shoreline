@@ -1,15 +1,15 @@
-import React, { Ref } from 'react'
-import { Button as ThemeUIButton, SxStyleProp } from 'theme-ui'
+/** @jsx jsx */
+import { jsx, SxStyleProp } from 'theme-ui'
+import { Ref } from 'react'
 import { Button as ReakitButton, ButtonProps as ReakitProps } from 'reakit'
 import { forwardRef } from '@vtex-components/utils'
-import { useComponentSx, mergeSx } from '@vtex-components/theme'
 
 /**
  * Elementary accessible button component that can be reused by all VTEX Styleguides.
- * You can use reakit full features (except the 'as' prop) and theme-ui's sx.
+ * You can use reakit full features and theme-ui's sx.
  * It renders a button element by default.
  * This is a styled base component, so any system can theme it.
- * You may configure your `components.button` property of the theme object.
+ * You may configure your `buttons` property of the theme object.
  * @example
  * ```jsx
  * import { Button, ButtonProps } from `@vtex-components/button`
@@ -18,38 +18,24 @@ import { useComponentSx, mergeSx } from '@vtex-components/theme'
  *  colors: {
  *    primary: 'pink'
  *  }
- *  components: {
- *    button: {
- *      styles: { border: none },
- *      variant: { primary: { bg: 'primary' } },
- *      size: { small: { paddingX: 1 } }
- *    }
+ *  buttons: {
+ *    'primary-regular': { bg: 'primary', px: 2 },
+ *    'primary-small': { bg: 'primary', px: 1 },
  *  }
  * }
  *
- * <Button variant="primary" size="small">Small Primary Button</Button>
+ * <Button variant="primary-small">Small Primary Button</Button>
  * ```
  */
 function Button(props: ButtonProps, ref: Ref<HTMLButtonElement>) {
-  const { sx = {}, variant = '', size = '', ...buttonProps } = props
-  const styles = useComponentSx('button', {
-    variant,
-    size,
-  })
+  const { sx = {}, variant = '', ...buttonProps } = props
 
   return (
-    <ReakitButton ref={ref} {...buttonProps}>
-      {(enhancedProps) => {
-        return (
-          <ThemeUIButton
-            sx={mergeSx<SxStyleProp>(styles, sx)}
-            {...enhancedProps}
-          >
-            {props.children}
-          </ThemeUIButton>
-        )
-      }}
-    </ReakitButton>
+    <ReakitButton
+      ref={ref}
+      {...buttonProps}
+      sx={{ variant: `buttons.${variant}`, ...sx }}
+    />
   )
 }
 
@@ -60,14 +46,10 @@ export interface ButtonProps extends Omit<ReakitProps, 'as'> {
    */
   sx?: SxStyleProp
   /**
-   * Button variant consumed from 'components.button'
+   * Button variant consumed from 'buttons'
    * @default ''
    */
   variant?: string
-  /**
-   * Button size consumed from 'components.button'
-   * @default ''
-   */
   size?: string
 }
 

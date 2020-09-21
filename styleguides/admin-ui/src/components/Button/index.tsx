@@ -45,8 +45,7 @@ export const Button = forwardRef(
 
     return (
       <StyledButton
-        variant={`${variant}-${palette}`}
-        size={resolvedSize}
+        variant={`${variant}-${palette}-${resolvedSize}`}
         sx={mergedSx}
         ref={ref}
         {...buttonProps}

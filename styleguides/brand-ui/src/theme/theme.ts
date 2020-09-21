@@ -1,6 +1,6 @@
-import { Theme } from '@vtex-components/theme'
+import buttons from './components/buttons'
 
-export const theme: Theme = {
+export const theme = {
   colors: {
     text: '#4A4A4A',
     background: '#F8F7FC',
@@ -49,6 +49,7 @@ export const theme: Theme = {
       contrast: '#FFFFFF',
     },
   },
+<<<<<<< HEAD
   components: {
     button: {
       styles: {
@@ -125,6 +126,9 @@ export const theme: Theme = {
       },
     },
   },
+=======
+  buttons,
+>>>>>>> feat(theme): improve theme speed by avoid deepmerge
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',

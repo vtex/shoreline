@@ -1,6 +1,5 @@
 import React from 'react'
 import { keyframes } from '@emotion/core'
-import { useComponentSx, mergeSx } from '@vtex-components/theme'
 import { SxStyleProp } from 'theme-ui'
 
 import { Box } from '../Box'
@@ -33,13 +32,12 @@ const load = keyframes`
 export function Skeleton(props: SkeletonProps) {
   const { sx = {}, shape = 'rect', ...boxProps } = props
 
-  const componentStyles = useComponentSx('skeleton', { shape })
-  const styles = mergeSx<SxStyleProp>(componentStyles, sx)
-
   return (
     <Box
       {...boxProps}
       sx={{
+        variant: 'layout.skeleton',
+        borderRadius: shape === 'circle' ? '100%' : 4,
         backgroundImage: (theme) => `linear-gradient(
           90deg,
           ${theme.colors.muted[4]},
@@ -47,7 +45,7 @@ export function Skeleton(props: SkeletonProps) {
           ${theme.colors.muted[4]}
         )`,
         animation: `${load} 1.2s ease-in-out infinite`,
-        ...styles,
+        ...sx,
       }}
     />
   )

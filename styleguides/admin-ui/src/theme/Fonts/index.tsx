@@ -25,6 +25,16 @@ function Fonts() {
             BlinkMacSystemFont, sans-serif;
           font-variation-settings: 'wght' 92;
         }
+        button {
+          appearance: button;
+          display: inline-block;
+          text-align: center;
+          line-height: inherit;
+          text-decoration: none;
+          font-size: inherit;
+          border: 0;
+          outline: none;
+        }
       `}
     />
   )
