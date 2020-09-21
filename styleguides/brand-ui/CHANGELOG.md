@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.8.0...@vtex/brand-ui@0.9.0) (2020-09-21)
+
+
+### Features
+
+* add brand-ui collapsible component ([14237fe](https://github.com/vtex/onda/commit/14237fe6cf34a8b0909b1ac5460184b180b0fd0e))
+
+
+
+
+
 # [0.8.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.7.1...@vtex/brand-ui@0.8.0) (2020-09-21)
 
 
