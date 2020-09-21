@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.32.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.31.1...@vtex/admin-ui@0.32.0) (2020-09-21)
+
+
+### Features
+
+* **theme:** improve theme speed by avoid deepmerge ([27b0ec1](https://github.com/vtex/onda/commit/27b0ec18d6469b42a42b451ebc97ee4865393d3f))
+
+
+
+
+
 ## [0.31.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.31.0...@vtex/admin-ui@0.31.1) (2020-09-21)
 
 

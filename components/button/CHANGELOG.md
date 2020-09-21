@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/vtex/onda/compare/@vtex-components/button@1.2.3...@vtex-components/button@1.3.0) (2020-09-21)
+
+
+### Features
+
+* **theme:** improve theme speed by avoid deepmerge ([27b0ec1](https://github.com/vtex/onda/commit/27b0ec18d6469b42a42b451ebc97ee4865393d3f))
+
+
+
+
+
 ## [1.2.3](https://github.com/vtex/onda/compare/@vtex-components/button@1.2.2...@vtex-components/button@1.2.3) (2020-09-08)
 
 
