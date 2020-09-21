@@ -16,7 +16,7 @@ Playground.args = {
   children: 'Admin UI Text',
 }
 
-export const As = () => (
+export const El = () => (
   <ol>
     <Text variant="headline" el="li">
       Headline
