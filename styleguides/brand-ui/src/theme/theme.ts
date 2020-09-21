@@ -3,8 +3,8 @@ import { Theme } from '@vtex-components/theme'
 export const theme: Theme = {
   colors: {
     text: '#4A4A4A',
-    background: '#C4C4C4',
-    muted: ['#717786', '#A1A8B3', '#CCCED8', '#E7E9EE', '#F8F7FC'],
+    background: '#F8F7FC',
+    muted: ['#717786', '#A1A8B3', '#CCCED8', '#E7E9EE', '#F8F7FC', '#FFFFFF'],
     focus: '#FFC4DD',
     primary: {
       base: '#E31C58',
@@ -65,7 +65,7 @@ export const theme: Theme = {
           outline: 'none',
         },
         '&:disabled': {
-          color: 'white',
+          color: 'muted.5',
           backgroundColor: 'muted.2',
         },
       },
