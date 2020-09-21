@@ -7,7 +7,6 @@ import {
 } from 'reakit/Popover'
 import { PopoverState } from 'reakit/ts'
 import { SxStyleProp, Box } from 'theme-ui'
-import { useComponentSx, mergeSx } from '@vtex-components/theme'
 
 /**
  * Elementary popover component that can be reused by all VTEX Styleguides.
@@ -47,16 +46,12 @@ function Popover(props: PopoverProps) {
 
   const popover = usePopoverState({ placement, visible })
 
-  const styles = useComponentSx('popover', {})
-
-  const mergedSx = mergeSx<SxStyleProp>(styles, sx)
-
   return (
     <>
       <PopoverDisclosure {...popover}>{disclosure}</PopoverDisclosure>
       <ReakitPopover {...popover} {...popoverProps}>
         {arrow && cloneElement(arrow, { ...popover })}
-        <Box sx={mergedSx}>{children}</Box>
+        <Box sx={sx}>{children}</Box>
       </ReakitPopover>
     </>
   )
