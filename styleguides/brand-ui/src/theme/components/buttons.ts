@@ -13,7 +13,7 @@ const styles = {
     outline: 'none',
   },
   '&:disabled': {
-    color: 'white',
+    color: 'muted.5',
     backgroundColor: 'muted.2',
   },
 }
