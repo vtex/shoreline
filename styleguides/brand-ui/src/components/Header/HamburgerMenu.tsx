@@ -14,12 +14,14 @@ const HamburgerMenu = ({ children }: PropsWithChildren<{}>) => {
         sx={{
           display: ['flex', 'flex', , 'none'],
           height: '100%',
-          paddingX: '2rem',
-          paddingY: '1.5rem',
+          paddingX: 6,
+          paddingY: 5,
           justifyContent: 'end',
           alignItems: 'center',
           color: 'primary.base',
-          borderLeft: '1px solid #e3e4e6',
+          borderLeft: 'solid',
+          borderLeftWidth: '1px',
+          borderLeftColor: 'muted.3',
         }}
         onClick={() => setOpen(!open)}
       >
@@ -49,7 +51,7 @@ const HamburgerMenu = ({ children }: PropsWithChildren<{}>) => {
               height: '100%',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              backgroundColor: '#f7f9fa',
+              backgroundColor: 'muted.4',
               paddingBottom: '5.1rem',
             }}
           >
@@ -72,7 +74,7 @@ const Menu = ({ children }: PropsWithChildren<{}>) => {
           transition: 'color 0.15s ease-in',
           color: 'secondary.base',
           marginY: 4,
-          paddingX: '2rem', // AJUSTAR ISSO
+          paddingX: 6, // AJUSTAR ISSO
         },
       }}
     >
@@ -86,7 +88,9 @@ const ActionButton = ({ children }: PropsWithChildren<{}>) => {
     <Box
       sx={{
         zIndex: 2147483647,
-        borderTop: '1px solid #e3e4e6',
+        borderTop: 'solid',
+        borderTopWidth: '1px',
+        borderTopColor: 'muted.3',
       }}
     >
       {children}

@@ -1,31 +1,40 @@
 import React, { PropsWithChildren } from 'react'
-import { Box, Flex } from 'theme-ui'
+import { Box, Flex, SxStyleProp } from 'theme-ui'
 
 import IconVTEXExpanded from './IconVTEXExpanded'
 
-export const Header = ({ children }: PropsWithChildren<{}>) => {
+interface HeaderProps {
+  sx?: SxStyleProp
+}
+
+export const Header = ({ children, sx }: PropsWithChildren<HeaderProps>) => {
   return (
     <Box
       sx={{
-        width: '100%',
+        width: '100vw',
         position: 'fixed',
         top: '0',
         left: '0',
         backgroundColor: 'primary.contrast',
-        borderBottom: '1px solid #e3e4e6',
+        borderBottom: 'solid',
+        borderBottomWidth: '1px',
+        borderBottomColor: 'muted.3',
         height: '5.1rem',
       }}
     >
-      <Flex
+      <Box
         sx={{
+          display: ['flex', 'flex', 'flex', 'grid'],
           width: '100%',
           height: '100%',
           alignItems: 'center',
           justifyContent: 'space-between',
+          gridTemplateColumns: '0.75fr 4.5fr 2fr 2fr 0.75fr',
+          gridTemplateAreas: '"brand leftlinks search rightlinks actionbutton"',
         }}
       >
         {children}
-      </Flex>
+      </Box>
     </Box>
   )
 }
@@ -36,18 +45,11 @@ const Brand = () => {
       sx={{
         alignItems: 'center',
         color: 'primary.base',
-        cursor: 'pointer',
+        padding: '0.75rem',
+        gridArea: 'brand',
       }}
     >
-      <Flex
-        sx={{
-          width: ['8rem', '16rem'],
-          height: '100%',
-          padding: '0.75rem',
-        }}
-      >
-        <IconVTEXExpanded />
-      </Flex>
+      <IconVTEXExpanded width={85} height={30} />
     </Flex>
   )
 }
@@ -57,17 +59,18 @@ const LeftLinks = ({ children }: PropsWithChildren<{}>) => {
     <Box
       sx={{
         display: ['none', 'none', 'none', 'flex'],
+        gridArea: 'leftlinks',
         width: '100%',
-        borderTop: ['1px solid #e3e4e6', 0, 0],
         marginTop: ['0.75rem', 0, 0],
         paddingTop: ['0.75rem', 0, 0],
         '> a': {
+          minWidth: 'max-content',
           textDecoration: 'none',
           transition: 'color 0.15s ease-in',
-          marginX: '1.5rem',
-          paddingX: '0.125rem',
+          marginX: 5,
+          paddingX: 1,
           paddingY: '1.875rem',
-          color: '#3f3f40',
+          color: 'secondary.base',
           '&:hover': {
             color: 'primary.base',
           },
@@ -84,18 +87,19 @@ const RightLinks = ({ children }: PropsWithChildren<{}>) => {
     <Box
       sx={{
         display: ['none', 'none', 'none', 'flex'],
+        gridArea: 'rightlinks',
         width: '100%',
         justifyContent: 'flex-end',
-        borderTop: ['1px solid #e3e4e6', 0, 0],
         marginTop: ['0.75rem', 0, 0],
         paddingTop: ['0.75rem', 0, 0],
         textTransform: 'uppercase',
         '> a': {
+          minWidth: 'max-content',
           textDecoration: 'none',
           transition: 'color 0.15s ease-in',
-          color: '#727273',
+          color: 'muted.0',
           marginX: 4,
-          paddingX: '0.25rem',
+          paddingX: 1,
           fontSize: '0.875rem',
           fontWeight: 'medium',
         },
@@ -110,6 +114,7 @@ const ActionButton = ({ children }: PropsWithChildren<{}>) => {
   return (
     <Flex
       sx={{
+        gridArea: 'actionbutton',
         height: '100%',
         alignItems: 'center',
         cursor: 'pointer',
