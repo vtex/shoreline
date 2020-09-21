@@ -1,6 +1,6 @@
-import { Theme } from '@vtex-components/theme'
+import buttons from './components/buttons'
 
-export const theme: Theme = {
+export const theme = {
   colors: {
     text: '#4A4A4A',
     background: '#F8F7FC',
@@ -49,82 +49,7 @@ export const theme: Theme = {
       contrast: '#FFFFFF',
     },
   },
-  components: {
-    button: {
-      styles: {
-        textTransform: 'uppercase',
-        fontWeight: 'medium',
-        borderWidth: 1,
-        borderRadius: 3,
-        fontSize: 1,
-        cursor: 'pointer',
-        position: 'relative',
-        border: 'none',
-        lineHeight: 1,
-        '&:focus': {
-          outline: 'none',
-        },
-        '&:disabled': {
-          color: 'muted.5',
-          backgroundColor: 'muted.2',
-        },
-      },
-      variant: {
-        primary: {
-          color: 'primary.contrast',
-          backgroundColor: 'primary.base',
-          '&:hover': {
-            backgroundColor: 'primary.hover',
-          },
-          '&:active': {
-            backgroundColor: 'primary.active',
-          },
-        },
-        secondary: {
-          color: 'secondary.contrast',
-          backgroundColor: 'secondary.base',
-          '&:hover': {
-            backgroundColor: 'secondary.hover',
-          },
-          '&:active': {
-            backgroundColor: 'secondary.active',
-          },
-        },
-        tertiary: {
-          color: 'secondary.base',
-          backgroundColor: 'transparent',
-          '&:hover': {
-            textDecoration: 'underline',
-          },
-          '&:active': {
-            textDecoration: 'underline',
-          },
-          '&:disabled': {
-            color: 'muted.2',
-            backgroundColor: 'transparent',
-          },
-        },
-      },
-      size: {
-        regular: {
-          height: 48,
-          paddingX: 5,
-        },
-        small: {
-          height: 32,
-          paddingX: 4,
-        },
-        'icon-regular': {
-          height: 48,
-          paddingX: 4,
-        },
-        'icon-small': {
-          height: 32,
-          paddingX: 3,
-        },
-      },
-    },
-  },
+  buttons,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',

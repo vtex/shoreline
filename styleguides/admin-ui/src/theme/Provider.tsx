@@ -1,7 +1,7 @@
 import React, { ReactNode, memo } from 'react'
 import { ThemeProvider as BaseProvider } from '@vtex-components/theme'
 
-import { theme } from './theme'
+import { theme } from './config'
 import Fonts from './Fonts'
 
 interface Props {

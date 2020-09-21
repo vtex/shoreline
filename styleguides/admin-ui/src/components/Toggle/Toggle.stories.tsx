@@ -2,18 +2,18 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Text } from '../Text'
-import { Switch, useSwitch, SwitchProps } from './index'
+import { Toggle, useToggle, ToggleProps } from './index'
 
 export default {
-  title: 'beta/Switch',
-  component: Switch,
+  title: 'beta/Toggle',
+  component: Toggle,
 } as Meta
 
-const Template: Story<SwitchProps> = (args) => {
+const Template: Story<ToggleProps> = (args) => {
   const [checked, setChecked] = React.useState(false)
 
   return (
-    <Switch
+    <Toggle
       aria-label="label"
       checked={checked}
       onChange={() => setChecked(!checked)}
@@ -28,7 +28,7 @@ Playground.parameters = {
     code: `
 <Play.ToggleState>
   {({ toggle, setToggle }) => (
-    <Switch
+    <Toggle
       aria-label="label"
       checked={toggle}
       onChange={() => setToggle(!toggle)}
@@ -40,15 +40,15 @@ Playground.parameters = {
 }
 
 export function MultipleSwitches() {
-  const props = useSwitch({ state: [] })
+  const props = useToggle({ state: [] })
 
   return (
     <>
       <Text>State: {props.state}</Text>
       <br />
-      <Switch {...props} aria-label="label1" value="switch1" />
-      <Switch {...props} aria-label="label2" value="switch2" />
-      <Switch {...props} aria-label="label3" value="switch3" />
+      <Toggle {...props} aria-label="label1" value="toggle1" />
+      <Toggle {...props} aria-label="label2" value="toggle2" />
+      <Toggle {...props} aria-label="label3" value="toggle3" />
     </>
   )
 }
@@ -61,9 +61,9 @@ MultipleSwitches.parameters = {
     <>
       <Text>State: {state}</Text>
       <br />
-      <Switch state={state} setState={setState} aria-label="label1" value="switch1" />
-      <Switch state={state} setState={setState} aria-label="label2" value="switch2" />
-      <Switch state={state} setState={setState} aria-label="label3" value="switch3" />
+      <Toggle state={state} setState={setState} aria-label="label1" value="toggle1" />
+      <Toggle state={state} setState={setState} aria-label="label2" value="toggle2" />
+      <Toggle state={state} setState={setState} aria-label="label3" value="toggle3" />
     </>
   )}
 </Play.CheckboxState>
@@ -74,11 +74,11 @@ MultipleSwitches.parameters = {
 export function Disabled() {
   return (
     <>
-      <Switch disabled aria-label="label1" />
-      <Switch checked disabled aria-label="label2" />
+      <Toggle disabled aria-label="label1" />
+      <Toggle checked disabled aria-label="label2" />
       <br />
-      <Switch disabled size="small" aria-label="label3" />
-      <Switch checked disabled size="small" aria-label="label4" />
+      <Toggle disabled size="small" aria-label="label3" />
+      <Toggle checked disabled size="small" aria-label="label4" />
     </>
   )
 }

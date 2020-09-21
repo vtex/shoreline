@@ -1,7 +1,7 @@
 import { ResponsiveValue, system } from 'styled-system'
 import * as CSS from 'csstype'
 
-import { FontSizes, FontVariation, LineHeights } from '../theme/theme'
+import { FontSizes, FontVariation, LineHeights } from '../theme/config'
 
 export const typographyTokens = system({
   fs: {

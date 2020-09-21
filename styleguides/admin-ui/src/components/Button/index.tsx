@@ -1,7 +1,6 @@
 import React, { Ref } from 'react'
 import { SxStyleProp } from 'theme-ui'
 import { forwardRef } from '@vtex-components/utils'
-import { mergeSx } from '@vtex-components/theme'
 
 import { useFocusHollow } from '../../hooks'
 import { Box } from '../Box'
@@ -41,13 +40,10 @@ export const Button = forwardRef(
       return icon?.(iconProps)
     }
 
-    const mergedSx = mergeSx<SxStyleProp>(focusStyles, sx)
-
     return (
       <StyledButton
-        variant={`${variant}-${palette}`}
-        size={resolvedSize}
-        sx={mergedSx}
+        variant={`${variant}-${palette}-${resolvedSize}`}
+        sx={{ ...focusStyles, ...sx }}
         ref={ref}
         {...buttonProps}
         {...focusProps}

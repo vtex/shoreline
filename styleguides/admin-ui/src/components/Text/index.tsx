@@ -1,5 +1,4 @@
 import React from 'react'
-import { useComponentSx } from '@vtex-components/theme'
 import { SxStyleProp } from 'theme-ui'
 
 import { Box, BoxProps } from '../Box'
@@ -12,11 +11,7 @@ import { Box, BoxProps } from '../Box'
  * @example
  * ```jsx
  * import { Text } from `@vtex/admin-ui`
- *
- * // To use a variant:
  * <Text variant="small">A small text</Text>
- *
- * // To render with a different tag:
  * <Text as="p" variant="body">Look, a paragraph</Text>
  * ```
  */
@@ -24,14 +19,13 @@ export function Text(props: TextProps) {
   const { el = undefined, variant = 'body', sx = {}, ...boxProps } = props
   const tag = getTag(variant)
   const element: typeof el = el ?? tag
-  const styles = useComponentSx('text', { variant })
 
   return (
     <Box
       el={element}
       {...boxProps}
       sx={{
-        ...styles,
+        variant: `text.${variant}`,
         ...sx,
       }}
     />

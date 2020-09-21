@@ -1,7 +1,7 @@
 import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
 
-import { Space } from '../theme/theme'
+import { Space } from '../theme/config'
 
 export const gridTokens = system({
   gridGap: {
