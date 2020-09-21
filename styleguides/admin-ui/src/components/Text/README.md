@@ -18,7 +18,7 @@ function UseCase() {
 
 | prop    | type              | description                        | required | default |
 | ------- | ----------------- | ---------------------------------- | -------- | ------- |
-| as      | React.ElementType | Used to render a specific HTML Tag | 🚫       | -       |
+| el      | React.ElementType | Used to render a specific HTML Tag | 🚫       | -       |
 | variant | TextVariant       | Text variants                      | 🚫       | 'body'  |
 | sx      | SxStyleProp       | ThemeUI style prop                 | 🚫       | {}      |
 
@@ -55,7 +55,7 @@ By default `<Text />` render three HTML elements
 
 ⚠️ Remember that variant styles are based on `Admin's Theme`
 
-### `as` prop
+### `el` prop
 
 If you want to render the component using a different HTML tag, you should use this prop.
 
@@ -66,7 +66,7 @@ import { Text } from '@vtex/admin-ui'
 
 function UseCase() {
   return (
-    <Text as="p" variant="body">
+    <Text el="p" variant="body">
       Look, a paragraph
     </Text>
   )
@@ -78,7 +78,7 @@ import { Text } from '@vtex/admin-ui'
 
 function UseCase() {
   return (
-    <Text as="h3" variant="headline">
+    <Text el="h3" variant="headline">
       Look, a heading 3
     </Text>
   )
