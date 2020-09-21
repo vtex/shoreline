@@ -5,7 +5,7 @@ import {
   DisclosureContent,
   DisclosureProps,
 } from 'reakit/Disclosure'
-import { useComponentSx, mergeSx } from '@vtex-components/theme'
+import { mergeSx } from '@vtex-components/theme'
 import { Disclosure as ReakitDisclosure } from 'reakit'
 
 import { CollapsibleProvider, useCollapsibleContext } from './context'
@@ -27,11 +27,8 @@ import { useFocusHollow } from '../utils'
  * ```
  */
 export function Collapsible({ sx = {}, children, ...props }: CollapsibleProps) {
-  const styles = useComponentSx('collapsible', {})
-  const mergedSx = mergeSx<SxStyleProp>(styles, sx)
-
   return (
-    <Box sx={mergedSx}>
+    <Box variant="collapsible" sx={sx}>
       <CollapsibleProvider {...props}>{children}</CollapsibleProvider>
     </Box>
   )
@@ -41,14 +38,19 @@ function Header({ children, size = 'regular', sx = {} }: HeaderProps) {
   const { visible, ...disclosureProps } = useCollapsibleContext()
   const { focusStyles, focusProps } = useFocusHollow()
 
-  const styles = useComponentSx('collapsible.header', { size })
-  const headerSx = mergeSx<SxStyleProp>(styles, focusStyles)
-  const mergedSx = mergeSx<SxStyleProp>(headerSx, sx)
+  const variant = `collapsible.header.${size}`
+  const mergedSx = mergeSx<SxStyleProp>(focusStyles, sx)
 
   return (
     <ReakitDisclosure visible={visible} {...disclosureProps}>
       {(enhancedProps) => (
-        <Flex as="button" {...enhancedProps} {...focusProps} sx={mergedSx}>
+        <Flex
+          as="button"
+          {...enhancedProps}
+          {...focusProps}
+          variant={variant}
+          sx={mergedSx}
+        >
           {children}
           <IconCaret duration={0.3} direction={visible ? 'up' : 'down'} />
         </Flex>
@@ -63,13 +65,12 @@ function Content({ children, sx = {} }: ContentProps) {
   const behavior =
     (children as ReactElement).type === Collapsible ? 'stacked' : 'regular'
 
-  const styles = useComponentSx('collapsible.content', { behavior })
-  const mergedSx = mergeSx<SxStyleProp>(styles, sx)
+  const variant = `collapsible.content.${behavior}`
 
   return (
     <DisclosureContent {...props}>
       {(enhancedProps) => (
-        <Box {...enhancedProps} sx={mergedSx}>
+        <Box {...enhancedProps} variant={variant} sx={sx}>
           {children}
         </Box>
       )}
