@@ -7,6 +7,7 @@ export { Button, ButtonProps } from './components/Button'
 export { Text, TextProps } from './components/Text'
 export { Skeleton, SkeletonProps } from './components/Skeleton'
 export { Card, CardProps } from './components/Card'
+export { Menu, MenuProps, MenuItemProps } from './components/Menu'
 export {
   VisuallyHidden,
   VisuallyHiddenProps,

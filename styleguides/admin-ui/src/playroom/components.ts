@@ -10,6 +10,7 @@ export {
   Box,
   VisuallyHidden,
   Toggle,
+  Menu,
 } from '../index'
 
 export {
@@ -31,4 +32,7 @@ export {
   IconOrders,
   IconSettings,
   IconUser,
+  IconDownload,
+  IconFavorite,
+  IconLink,
 } from '../icons'

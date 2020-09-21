@@ -7,6 +7,7 @@ import buttons from './buttons'
 import text from './text'
 import toggle from './toggle'
 import avatar from './avatar'
+import overlay from './overlay'
 
 export const theme = {
   ...layout,
@@ -15,6 +16,7 @@ export const theme = {
   colors,
   buttons,
   avatar,
+  overlay,
   forms: {
     ...toggle,
   },

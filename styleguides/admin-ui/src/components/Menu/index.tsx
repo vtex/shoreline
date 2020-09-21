@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Flex, SxStyleProp } from 'theme-ui'
+import { jsx, SxStyleProp } from 'theme-ui'
 import {
   Fragment,
   cloneElement,
@@ -12,12 +12,12 @@ import {
 import {
   useMenuState,
   Menu as RekitMenu,
-  MenuItem,
+  MenuItem as ReakitMenuItem,
   MenuButton,
   MenuState,
 } from 'reakit/Menu'
-import { mergeSx, useComponentSx } from '@vtex-components/theme'
 
+import { Box } from '../Box'
 import { Button, ButtonProps } from '../Button'
 
 /**
@@ -36,7 +36,6 @@ function Menu(props: MenuProps) {
   const {
     disclosure,
     children,
-    label,
     disabled = false,
     placement = 'bottom-start',
     sx = {},
@@ -44,8 +43,6 @@ function Menu(props: MenuProps) {
   } = props
 
   const menu = useMenuState({ orientation: 'vertical', loop: true, placement })
-  const componentStyles = useComponentSx('menu', {})
-  const styles = mergeSx<SxStyleProp>(componentStyles, sx)
 
   return (
     <Fragment>
@@ -58,7 +55,6 @@ function Menu(props: MenuProps) {
         {(disclosureProps) => cloneElement(disclosure, disclosureProps)}
       </MenuButton>
       <RekitMenu
-        aria-label={label}
         sx={{
           border: 0,
           background: 'none',
@@ -69,13 +65,13 @@ function Menu(props: MenuProps) {
         {...baseProps}
         disabled={disabled}
       >
-        <Flex sx={styles}>
+        <Box sx={{ variant: `overlay.menu`, ...sx }}>
           {Children.map(children, (child, index) => (
-            <MenuItem {...menu} {...child.props} key={index}>
+            <ReakitMenuItem {...menu} {...child.props} key={index}>
               {(itemProps) => cloneElement(child, itemProps)}
-            </MenuItem>
+            </ReakitMenuItem>
           ))}
-        </Flex>
+        </Box>
       </RekitMenu>
     </Fragment>
   )
@@ -95,17 +91,12 @@ function Menu(props: MenuProps) {
  * ```
  */
 Menu.Item = forwardRef((props: MenuItemProps, ref: Ref<HTMLButtonElement>) => {
-  const { sx = {}, ...buttonProps } = props
-
-  const componentStyles = useComponentSx('menu--item', {})
-  const styles = mergeSx<SxStyleProp>(componentStyles, sx)
-
-  return <Button ref={ref} sx={styles} variant="subtle" {...buttonProps} />
+  return <Button ref={ref} variant="subtle" {...props} />
 })
 
 export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
 
-export interface MenuProps extends Pick<MenuState, 'placement'> {
+export interface MenuProps extends Partial<Pick<MenuState, 'placement'>> {
   /**
    * Menu visibility toggle
    */
@@ -117,7 +108,7 @@ export interface MenuProps extends Pick<MenuState, 'placement'> {
   /**
    * aria-label of menu
    */
-  label: string
+  'aria-label': string
   /**
    * Custom box sytles
    * @default {}
