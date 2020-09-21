@@ -1,6 +1,7 @@
 export { Play } from './Playroom'
 
 export {
+  Avatar,
   Button,
   Text,
   Skeleton,

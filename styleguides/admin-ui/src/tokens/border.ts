@@ -1,7 +1,7 @@
 import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
 
-import { BorderSizes } from '../theme/config'
+import { BorderWidths, BorderRadius } from '../theme/config'
 
 export const borderTokens = system({
   bw: {
@@ -49,27 +49,27 @@ export interface BorderTokensProps {
   /**
    * Border Width
    */
-  bw?: ResponsiveValue<BorderSizes>
+  bw?: ResponsiveValue<BorderWidths>
   /**
    * Border Top Width
    */
-  btw?: ResponsiveValue<BorderSizes>
+  btw?: ResponsiveValue<BorderWidths>
   /**
    * Border Bottom Width
    */
-  bbw?: ResponsiveValue<BorderSizes>
+  bbw?: ResponsiveValue<BorderWidths>
   /**
    * Border Right Width
    */
-  brw?: ResponsiveValue<BorderSizes>
+  brw?: ResponsiveValue<BorderWidths>
   /**
    * Border Left Width
    */
-  blw?: ResponsiveValue<BorderSizes>
+  blw?: ResponsiveValue<BorderWidths>
   /**
    * Border radius
    */
-  br?: ResponsiveValue<BorderSizes>
+  br?: ResponsiveValue<BorderRadius>
   /**
    * Border style
    */

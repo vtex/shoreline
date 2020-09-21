@@ -18,4 +18,5 @@ export {
 } from './components/Collapsible'
 export { Toggle, ToggleProps, useToggle } from './components/Toggle'
 export * from './icons'
+export { Avatar } from './components/Avatar'
 export { useFocusHollow } from './hooks'
