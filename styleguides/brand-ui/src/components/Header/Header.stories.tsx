@@ -50,13 +50,13 @@ export const LandingPage = () => (
   <Header
     sx={{
       display: ['flex', 'flex', 'flex', 'flex'],
+      paddingX: [4, 4, 6, 10],
     }}
   >
     <Header.Brand />
     <Box
       sx={{
         width: 'min-content',
-        marginX: [4, 4, 6, 10],
       }}
     >
       Accelerate Commerce Transformation
