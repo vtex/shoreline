@@ -24,7 +24,7 @@ interface LeftLinksProps {
 }
 
 const LeftLinks = ({ children, sx }: PropsWithChildren<LeftLinksProps>) => (
-  <Box variant="header.leftLinks" sx={sx}>
+  <Box variant="header.leftLinks(true)" sx={sx}>
     {children}
   </Box>
 )

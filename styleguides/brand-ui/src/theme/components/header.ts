@@ -5,21 +5,25 @@ const brand = {
   gridArea: 'brand',
 }
 
-const leftLinks = {
-  display: ['none', 'none', 'none', 'flex'],
-  gridArea: 'leftlinks',
-  width: '100%',
-  '> a': {
-    minWidth: 'max-content',
-    textDecoration: 'none',
-    transition: 'color 0.15s ease-in',
-    marginX: 5,
-    paddingX: 1,
-    color: 'secondary.base',
-    '&:hover': {
-      color: 'primary.base',
+const leftLinks = (test: boolean) => {
+  return {
+    display: ['none', 'none', 'none', 'flex'],
+    gridArea: 'leftlinks',
+    width: '100%',
+    '> a': {
+      minWidth: 'max-content',
+      textDecoration: 'none',
+      transition: 'color 0.15s ease-in',
+      marginX: 5,
+      paddingX: 1,
+      color: () => {
+        test ? 'secondary.base' : 'primary.base'
+      },
+      '&:hover': {
+        color: 'primary.base',
+      },
     },
-  },
+  }
 }
 
 const rightLinks = {
