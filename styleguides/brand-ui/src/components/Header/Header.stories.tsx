@@ -47,11 +47,15 @@ const Template = () => (
 )
 
 export const LandingPage = () => (
-  <Header sx={{ display: 'flex' }}>
+  <Header
+    sx={{
+      display: ['flex', 'flex', 'flex', 'flex'],
+    }}
+  >
     <Header.Brand />
     <Box
       sx={{
-        width: '6.25rem',
+        width: 'min-content',
         marginX: [4, 4, 6, 10],
       }}
     >

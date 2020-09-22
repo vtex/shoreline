@@ -1,28 +1,21 @@
 import React, { PropsWithChildren, useState, Fragment } from 'react'
-import { Box, Flex } from 'theme-ui'
+import { Box, Flex, SxStyleProp } from 'theme-ui'
 
 import IconExit from './IconExit'
 import IconHamburger from './IconHamburger'
 
-const HamburgerMenu = ({ children }: PropsWithChildren<{}>) => {
+interface HamburgerProps {
+  sx?: SxStyleProp
+}
+
+const HamburgerMenu = ({ children, sx }: PropsWithChildren<HamburgerProps>) => {
   const [open, setOpen] = useState(false)
 
   return (
     <Fragment>
       <Box
         role="presentation"
-        sx={{
-          display: ['flex', 'flex', , 'none'],
-          height: '100%',
-          paddingX: 6,
-          paddingY: 5,
-          justifyContent: 'end',
-          alignItems: 'center',
-          color: 'primary.base',
-          borderLeft: 'solid',
-          borderLeftWidth: '1px',
-          borderLeftColor: 'muted.3',
-        }}
+        variant="hamburgerMenu"
         onClick={() => setOpen(!open)}
       >
         {open ? (
@@ -34,65 +27,36 @@ const HamburgerMenu = ({ children }: PropsWithChildren<{}>) => {
         )}
       </Box>
       {open && (
-        <Box
-          sx={{
-            position: 'absolute',
-            width: '100vw',
-            height: '100vh',
-            backgroundColor: 'muted.5',
-            marginTop: '5.1rem',
-            left: '0',
-            bottom: '0',
-            top: '0',
-          }}
-        >
-          <Flex
-            sx={{
-              height: '100%',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              backgroundColor: 'muted.4',
-              paddingBottom: '5.1rem',
-            }}
-          >
-            {children}
-          </Flex>
-        </Box>
+        <Flex variant="hamburgerMenu.open" sx={sx}>
+          {children}
+        </Flex>
       )}
     </Fragment>
   )
 }
 
-const Menu = ({ children }: PropsWithChildren<{}>) => {
+interface HamburgerMenuProps {
+  sx?: SxStyleProp
+}
+
+const Menu = ({ children, sx }: PropsWithChildren<HamburgerMenuProps>) => {
   return (
-    <Flex
-      sx={{
-        flexDirection: 'column',
-        paddingY: 4,
-        '> a': {
-          textDecoration: 'none',
-          transition: 'color 0.15s ease-in',
-          color: 'secondary.base',
-          marginY: 4,
-          paddingX: 6, // AJUSTAR ISSO
-        },
-      }}
-    >
+    <Flex variant="hamburgerMenu.menu" sx={sx}>
       {children}
     </Flex>
   )
 }
 
-const ActionButton = ({ children }: PropsWithChildren<{}>) => {
+interface ActionButtonProps {
+  sx?: SxStyleProp
+}
+
+const ActionButton = ({
+  children,
+  sx,
+}: PropsWithChildren<ActionButtonProps>) => {
   return (
-    <Box
-      sx={{
-        zIndex: 2147483647,
-        borderTop: 'solid',
-        borderTopWidth: '1px',
-        borderTopColor: 'muted.3',
-      }}
-    >
+    <Box variant="hamburgerMenu.actionButton" sx={sx}>
       {children}
     </Box>
   )

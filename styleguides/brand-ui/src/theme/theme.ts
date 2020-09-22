@@ -1,5 +1,7 @@
 import buttons from './components/buttons'
 import collapsible from './components/collapsible'
+import header from './components/header'
+import hamburgerMenu from './components/hamburgerMenu'
 
 export const theme = {
   colors: {
@@ -52,6 +54,8 @@ export const theme = {
   },
   buttons,
   collapsible,
+  header,
+  hamburgerMenu,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
