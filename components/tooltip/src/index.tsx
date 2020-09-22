@@ -6,7 +6,6 @@ import {
   TooltipReference,
   TooltipProps as ReakitProps,
 } from 'reakit/Tooltip/'
-import { useComponentSx, mergeSx } from '@vtex-components/theme'
 import { PopoverState } from 'reakit/ts'
 
 /**
@@ -14,15 +13,14 @@ import { PopoverState } from 'reakit/ts'
  * You can use reakit full features (except the 'as' prop) and theme-ui's sx.
  * It renders a tooltip element by default.
  * This is a styled base component, so any system can theme it.
- * You may configure your `components.tooltip` property of the theme object.
+ * To customize this component, you just need to add the `tooltip` variant
+ * in your theme.
  * @example
  * ```jsx
  * import { Tooltip } from `@vtex-components/tooltip`
  *
  * const theme = {
- *  components: {
  *    tooltip: { ... }
- *  }
  * }
  *
  * <Tooltip label="Tooltip text here"><button>Children</button></Tooltip>
@@ -41,9 +39,6 @@ function Tooltip(props: TooltipProps) {
 
   const tooltip = useTooltipState({ placement, visible })
 
-  const styles = useComponentSx('tooltip', {})
-  const mergedSx = mergeSx<SxStyleProp>(styles, sx)
-
   return (
     <>
       <TooltipReference {...tooltip} {...children.props} ref={children.ref}>
@@ -51,7 +46,9 @@ function Tooltip(props: TooltipProps) {
       </TooltipReference>
       <ReakitTooltip {...tooltip} {...tooltipProps}>
         {arrow && cloneElement(arrow, { ...tooltip })}
-        <Box sx={mergedSx}>{label}</Box>
+        <Box variant="tooltip" sx={sx}>
+          {label}
+        </Box>
       </ReakitTooltip>
     </>
   )
