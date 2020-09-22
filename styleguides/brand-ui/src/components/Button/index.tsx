@@ -4,7 +4,7 @@ import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 import { forwardRef } from '@vtex-components/utils'
 import { mergeSx } from '@vtex-components/theme'
 
-import { useFocusHollow } from '../utils'
+import { useFocusHollow } from '../../hooks'
 
 function useMeasures({
   size,
