@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.34.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.33.0...@vtex/admin-ui@0.34.0) (2020-09-22)
+
+
+### Features
+
+* **label:** add Label component ([e8a1e74](https://github.com/vtex/onda/commit/e8a1e74ab146ac0e6e3d3a52e66a2ac63780027c))
+
+
+
+
+
 # [0.33.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.32.0...@vtex/admin-ui@0.33.0) (2020-09-21)
 
 
