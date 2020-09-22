@@ -17,5 +17,6 @@ export {
   useAccordion,
 } from './components/Accordion'
 export * from './icons'
+export { Card } from './components/Card'
 export { useFocusHollow } from './hooks'
 export { Header } from './components/Header'

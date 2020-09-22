@@ -1,6 +1,6 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Box, Flex } from 'theme-ui'
+import { Box } from 'theme-ui'
 
 import { Card, CardProps } from './index'
 import { Button } from '../Button'

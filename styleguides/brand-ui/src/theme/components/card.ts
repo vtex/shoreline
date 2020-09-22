@@ -9,6 +9,12 @@ const card = {
   small: { ...baseCard, padding: 4 },
   regular: { ...baseCard, paddingX: 5, paddingY: 6 },
   noPadding: { ...baseCard, padding: 0 },
+  header: {
+    fontSize: 3,
+  },
+  body: {
+    fontSize: 2,
+  },
 }
 
 export default card
