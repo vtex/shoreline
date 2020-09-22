@@ -1,9 +1,32 @@
 import React, { PropsWithChildren } from 'react'
-import { Box, Flex, SxStyleProp, Link } from 'theme-ui'
+import { Box, Flex, SxStyleProp, Link, Text } from 'theme-ui'
 
 import { IconVTEXExpanded } from '../../icons'
 
 interface HeaderProps {
+  sx?: SxStyleProp
+}
+
+interface LeftLinksProps {
+  sx?: SxStyleProp
+}
+
+interface BrandProps {
+  noMargin?: boolean
+  title?: string
+}
+
+interface LinksProps {
+  sx?: SxStyleProp
+  to: string
+  active?: boolean
+}
+
+interface RightLinksProps {
+  sx?: SxStyleProp
+}
+
+interface ActionButtonProps {
   sx?: SxStyleProp
 }
 
@@ -13,22 +36,15 @@ export const Header = ({ children, sx }: PropsWithChildren<HeaderProps>) => (
   </Box>
 )
 
-interface BrandProps {
-  noMargin?: boolean
-}
-
-const Brand = ({ noMargin = false }: BrandProps) => {
+const Brand = ({ noMargin = false, title }: BrandProps) => {
   const sx = noMargin ? { marginX: '0' } : {}
 
   return (
     <Flex variant="header.brand" sx={sx}>
       <IconVTEXExpanded width={85} height={30} />
+      <Text>{title}</Text>
     </Flex>
   )
-}
-
-interface LeftLinksProps {
-  sx?: SxStyleProp
 }
 
 const LeftLinks = ({ children, sx }: PropsWithChildren<LeftLinksProps>) => {
@@ -37,12 +53,6 @@ const LeftLinks = ({ children, sx }: PropsWithChildren<LeftLinksProps>) => {
       {children}
     </Box>
   )
-}
-
-interface LinksProps {
-  sx?: SxStyleProp
-  to: string
-  active?: boolean
 }
 
 const Links = ({
@@ -60,19 +70,11 @@ const Links = ({
   )
 }
 
-interface RightLinksProps {
-  sx?: SxStyleProp
-}
-
 const RightLinks = ({ children, sx }: PropsWithChildren<RightLinksProps>) => (
   <Box variant="header.rightLinks" sx={sx}>
     {children}
   </Box>
 )
-
-interface ActionButtonProps {
-  sx?: SxStyleProp
-}
 
 const ActionButton = ({
   children,

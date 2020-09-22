@@ -1,30 +1,39 @@
+import { Theme, FeedbackPalette } from '@vtex-components/theme'
+
 const brand = {
   alignItems: 'center',
   color: 'primary.base',
   justifyContent: 'center',
   gridArea: 'brand',
   marginX: 4,
+  '> div': {
+    display: ['flex', 'flex', 'flex', 'none'],
+    boxShadow: `inset 1px 0px 0px 0px`,
+    paddingLeft: 3,
+    marginLeft: 3,
+  },
 }
 
 const linksBase = {
+  display: 'flex',
+  height: '100%',
   minWidth: 'max-content',
   textDecoration: 'none',
-  transition: 'color 0.15s ease-in',
+  transition: 'all 0.15s ease-in',
   marginX: 5,
-  paddingX: 1,
   '&:hover': {
     color: 'primary.base',
   },
-  paddingY: '1.825rem',
+  alignItems: 'center',
+  fontSize: 2,
 }
 
 const links = {
   active: {
     ...linksBase,
     color: 'primary.base',
-    borderBottom: 'solid',
-    borderBottomWidth: '0.15rem',
-    borderBottomColor: 'primary.base',
+    boxShadow: (theme: Theme) =>
+      `inset 0 -3px 0px 0px ${(theme.colors.primary as FeedbackPalette).base}`,
   },
   noActive: {
     ...linksBase,
@@ -36,6 +45,7 @@ const leftLinks = {
   display: ['none', 'none', 'none', 'flex'],
   gridArea: 'leftlinks',
   width: '100%',
+  height: '100%',
   links,
 }
 

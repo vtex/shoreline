@@ -11,7 +11,7 @@ export default {
 
 const Template = () => (
   <Header>
-    <Header.Brand />
+    <Header.Brand title="Status" />
     <Header.LeftLinks>
       <Header.LeftLinks.Links
         active
@@ -19,7 +19,7 @@ const Template = () => (
       >
         Status
       </Header.LeftLinks.Links>
-      <Header.LeftLinks.Links to="/?path=/story/work-in-progress-header--playground">
+      <Header.LeftLinks.Links to="/?path=/story/work-in-progress-header--landing-page">
         History
       </Header.LeftLinks.Links>
     </Header.LeftLinks>
@@ -34,15 +34,18 @@ const Template = () => (
     <Header.ActionButton>
       <HamburgerMenu>
         <HamburgerMenu.Menu>
-          <Link href="/?path=/story/work-in-progress-header--playground">
+          <HamburgerMenu.Menu.Links
+            active
+            to="/?path=/story/work-in-progress-header--playground"
+          >
             Status
-          </Link>
-          <Link href="/?path=/story/work-in-progress-header--playground">
+          </HamburgerMenu.Menu.Links>
+          <HamburgerMenu.Menu.Links to="/?path=/story/work-in-progress-header--landing-page">
             History
-          </Link>
-          <Link href="/?path=/story/work-in-progress-header--playground">
+          </HamburgerMenu.Menu.Links>
+          <HamburgerMenu.Menu.Links to="/?path=/story/work-in-progress-header--playground">
             Help Center
-          </Link>
+          </HamburgerMenu.Menu.Links>
         </HamburgerMenu.Menu>
       </HamburgerMenu>
     </Header.ActionButton>

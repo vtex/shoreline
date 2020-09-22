@@ -1,3 +1,5 @@
+import { Theme, FeedbackPalette } from '@vtex-components/theme'
+
 const open = {
   position: 'absolute',
   width: '100vw',
@@ -16,13 +18,24 @@ const menu = {
   display: ['flex', 'flex', 'flex', 'none'],
   flexDirection: 'column',
   paddingY: 4,
-  '> a': {
-    textDecoration: 'none',
-    transition: 'color 0.15s ease-in',
-    color: 'secondary.base',
-    marginY: 4,
-    paddingX: 6, // AJUSTAR ISSO
-  },
+}
+
+const links = {
+  height: '30px',
+  display: 'flex',
+  alignItems: 'center',
+  textDecoration: 'none',
+  transition: 'color 0.15s ease-in',
+  color: 'secondary.base',
+  marginY: 4,
+  paddingX: 6,
+  fontSize: 3,
+}
+
+const activeLink = {
+  ...links,
+  boxShadow: (theme: Theme) =>
+    `inset 3px 0px 0px 0px ${(theme.colors.primary as FeedbackPalette).base}`,
 }
 
 const actionButton = {
@@ -47,6 +60,8 @@ const hamburgerMenu = {
   cursor: 'pointer',
   open,
   menu,
+  links,
+  activeLink,
   actionButton,
 }
 

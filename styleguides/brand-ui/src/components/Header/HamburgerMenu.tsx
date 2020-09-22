@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useState, Fragment } from 'react'
-import { Box, Flex, SxStyleProp } from 'theme-ui'
+import { Box, Flex, SxStyleProp, Link } from 'theme-ui'
 
 import { IconExit, IconHamburger } from '../../icons'
 
@@ -44,6 +44,27 @@ const Menu = ({ children, sx }: PropsWithChildren<HamburgerMenuProps>) => (
   </Box>
 )
 
+interface LinksProps {
+  sx?: SxStyleProp
+  to: string
+  active?: boolean
+}
+
+const Links = ({
+  children,
+  to,
+  sx,
+  active = false,
+}: PropsWithChildren<LinksProps>) => {
+  const variant = `hamburgerMenu.${active ? 'activeLink' : 'links'}`
+
+  return (
+    <Link href={to} variant={variant} sx={sx}>
+      {children}
+    </Link>
+  )
+}
+
 interface ActionButtonProps {
   sx?: SxStyleProp
 }
@@ -58,6 +79,7 @@ const ActionButton = ({
 )
 
 HamburgerMenu.Menu = Menu
+Menu.Links = Links
 HamburgerMenu.ActionButton = ActionButton
 
 export default HamburgerMenu
