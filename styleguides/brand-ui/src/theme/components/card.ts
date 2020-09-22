@@ -11,6 +11,11 @@ const card = {
   noPadding: { ...baseCard, padding: 0 },
   header: {
     fontSize: 3,
+    marginBottom: 4,
+  },
+  footer: {
+    fontSize: 2,
+    marginTop: 4,
   },
   body: {
     fontSize: 2,

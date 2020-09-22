@@ -24,7 +24,7 @@ const Body = ({ children, ...props }: BoxProps) => (
 )
 
 const Footer = ({ children, ...props }: BoxProps) => (
-  <Flex {...props} variant="card.body">
+  <Flex {...props} variant="card.footer">
     {children}
   </Flex>
 )
