@@ -13,7 +13,8 @@ import { PopoverState } from 'reakit/ts'
  * You can use reakit full features (except the 'as' prop) and theme-ui's sx.
  * It renders a tooltip element by default.
  * This is a styled base component, so any system can theme it.
- * You may configure your `tooltip` property of the theme object.
+ * To customize this component, you just need to add the `tooltip` variant
+ * in your theme.
  * @example
  * ```jsx
  * import { Tooltip } from `@vtex-components/tooltip`
