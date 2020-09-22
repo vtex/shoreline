@@ -20,7 +20,6 @@ import { PopoverState } from 'reakit/ts'
  *
  * const theme = {
  *    tooltip: { ... }
- *  }
  * }
  *
  * <Tooltip label="Tooltip text here"><button>Children</button></Tooltip>
