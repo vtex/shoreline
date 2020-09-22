@@ -5,25 +5,37 @@ const brand = {
   gridArea: 'brand',
 }
 
-const leftLinks = (test: boolean) => {
-  return {
-    display: ['none', 'none', 'none', 'flex'],
-    gridArea: 'leftlinks',
-    width: '100%',
-    '> a': {
-      minWidth: 'max-content',
-      textDecoration: 'none',
-      transition: 'color 0.15s ease-in',
-      marginX: 5,
-      paddingX: 1,
-      color: () => {
-        test ? 'secondary.base' : 'primary.base'
-      },
-      '&:hover': {
-        color: 'primary.base',
-      },
-    },
-  }
+const linksBase = {
+  minWidth: 'max-content',
+  textDecoration: 'none',
+  transition: 'color 0.15s ease-in',
+  marginX: 5,
+  paddingX: 1,
+  '&:hover': {
+    color: 'primary.base',
+  },
+  paddingY: '1.825rem',
+}
+
+const links = {
+  active: {
+    ...linksBase,
+    color: 'primary.base',
+    borderBottom: 'solid',
+    borderBottomWidth: '0.15rem',
+    borderBottomColor: 'primary.base',
+  },
+  noActive: {
+    ...linksBase,
+    color: 'secondary.base',
+  },
+}
+
+const leftLinks = {
+  display: ['none', 'none', 'none', 'flex'],
+  gridArea: 'leftlinks',
+  width: '100%',
+  links,
 }
 
 const rightLinks = {
@@ -41,6 +53,9 @@ const rightLinks = {
     paddingX: 1,
     fontSize: 1,
     fontWeight: 'medium',
+    '&:hover': {
+      color: 'primary.base',
+    },
   },
 }
 
@@ -53,7 +68,7 @@ const actionButton = {
 const header = {
   display: ['flex', 'flex', 'flex', 'grid'],
   width: '100vw',
-  height: '5.1rem',
+  height: '5rem',
   position: 'fixed',
   top: '0',
   left: '0',

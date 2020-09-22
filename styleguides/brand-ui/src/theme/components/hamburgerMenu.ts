@@ -8,8 +8,8 @@ const open = {
   flexDirection: 'column',
   justifyContent: 'space-between',
   backgroundColor: 'muted.4',
-  marginTop: '5.1rem',
-  paddingBottom: '5.1rem',
+  marginTop: '5rem',
+  paddingBottom: '5rem',
 }
 
 const menu = {

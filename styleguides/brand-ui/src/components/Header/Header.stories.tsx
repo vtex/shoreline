@@ -13,12 +13,15 @@ const Template = () => (
   <Header>
     <Header.Brand />
     <Header.LeftLinks>
-      <Link href="/?path=/story/work-in-progress-header--playground">
+      <Header.LeftLinks.Links
+        active
+        to="/?path=/story/work-in-progress-header--playground"
+      >
         Status
-      </Link>
-      <Link href="/?path=/story/work-in-progress-header--playground">
+      </Header.LeftLinks.Links>
+      <Header.LeftLinks.Links to="/?path=/story/work-in-progress-header--playground">
         History
-      </Link>
+      </Header.LeftLinks.Links>
     </Header.LeftLinks>
     <Header.RightLinks>
       <Link href="/?path=/story/work-in-progress-header--playground">
