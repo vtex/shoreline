@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.34.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.34.0...@vtex/admin-ui@0.34.1) (2020-09-22)
+
+
+### Bug Fixes
+
+* **toggle:** fix toggle color onPressed state ([feb0d98](https://github.com/vtex/onda/commit/feb0d980e6f52b20ed54126c617e8db9c9883b5a))
+
+
+
+
+
 # [0.34.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.33.0...@vtex/admin-ui@0.34.0) (2020-09-22)
 
 
