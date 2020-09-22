@@ -29,10 +29,6 @@ const styles = {
       backgroundColor: 'success.hover',
       borderColor: 'success.hover',
     },
-    '&:active': {
-      backgroundColor: 'success.active',
-      borderColor: 'success.active',
-    },
     '&:disabled': {
       backgroundColor: 'muted.1',
       borderColor: 'muted.1',
@@ -46,10 +42,6 @@ const styles = {
     borderColor: 'muted.0',
   },
   '&:hover': {
-    backgroundColor: 'muted.0',
-    borderColor: 'muted.0',
-  },
-  '&:active': {
     backgroundColor: 'muted.0',
     borderColor: 'muted.0',
   },
