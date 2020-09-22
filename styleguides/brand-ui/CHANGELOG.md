@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.9.1...@vtex/brand-ui@0.9.2) (2020-09-22)
+
+
+### Bug Fixes
+
+* add brand-ui components export ([f839611](https://github.com/vtex/onda/commit/f839611431e03005556baec26ef207640462022b))
+
+
+
+
+
 ## [0.9.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.9.0...@vtex/brand-ui@0.9.1) (2020-09-21)
 
 
