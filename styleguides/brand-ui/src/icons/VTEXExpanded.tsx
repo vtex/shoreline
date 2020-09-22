@@ -1,15 +1,9 @@
 import React from 'react'
+import { IconProps } from '@vtex-components/icon'
 
-const IconVTEXExpanded = ({
-  width = 120,
-  height = 44,
-}: {
-  width?: number
-  height?: number
-}) => (
+export const IconVTEXExpanded = (props: IconProps) => (
   <svg
-    width={width}
-    height={height}
+    {...props}
     viewBox="0 0 1181 433"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -23,5 +17,3 @@ const IconVTEXExpanded = ({
     <path d="m465.558982,2.363315l-374,0c-29,0 -47.57,30.83 -34,56.46l37.41,70.84l-67.82,0a24.94,24.94 0 0 0 -22.06,36.56l120.33,227.75a24.94,24.94 0 0 0 44.08,0l32.68,-61.52l41,77.62c14.43,27.3 53.52,27.35 68,0.08l187.46,-352.76c13.25,-24.95 -4.83,-55.03 -33.08,-55.03zm-168,150.72l-80.83,152.14a16.6,16.6 0 0 1 -29.33,0l-80.05,-151.5a16.6,16.6 0 0 1 14.62,-24.37l161.33,0a16.15,16.15 0 0 1 14.26,23.73z" />{' '}
   </svg>
 )
-
-export default IconVTEXExpanded

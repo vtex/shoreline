@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import { Box, Flex, SxStyleProp, Link } from 'theme-ui'
 
-import IconVTEXExpanded from './IconVTEXExpanded'
+import { IconVTEXExpanded } from '../../icons'
 
 interface HeaderProps {
   sx?: SxStyleProp

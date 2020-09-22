@@ -1,8 +1,7 @@
 import React, { PropsWithChildren, useState, Fragment } from 'react'
 import { Box, Flex, SxStyleProp } from 'theme-ui'
 
-import IconExit from './IconExit'
-import IconHamburger from './IconHamburger'
+import { IconExit, IconHamburger } from '../../icons'
 
 interface HamburgerProps {
   sx?: SxStyleProp

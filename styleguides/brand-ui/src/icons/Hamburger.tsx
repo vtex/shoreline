@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IconHamburger = () => (
+export const IconHamburger = () => (
   <svg
     width="24"
     height="24"
@@ -14,5 +14,3 @@ const IconHamburger = () => (
     <rect y="16" width="24" height="3" fill="#F71963" />
   </svg>
 )
-
-export default IconHamburger
