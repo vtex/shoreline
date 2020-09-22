@@ -1,24 +1,12 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
-import {
-  Fragment,
-  cloneElement,
-  Children,
-  ReactElement,
-  FunctionComponentElement,
-  Ref,
-  forwardRef,
-} from 'react'
-import {
-  useMenuState,
-  Menu as RekitMenu,
-  MenuItem as ReakitMenuItem,
-  MenuButton,
-  MenuState,
-} from 'reakit/Menu'
+import React, { Ref, forwardRef } from 'react'
 
-import { Box } from '../Box'
 import { Button, ButtonProps } from '../Button'
+import {
+  StatelessMenu,
+  StatelessMenuProps,
+  MenuState,
+  useMenuState,
+} from './Stateless'
 
 /**
  * Accessible menu component
@@ -33,48 +21,11 @@ import { Button, ButtonProps } from '../Button'
  * ```
  */
 function Menu(props: MenuProps) {
-  const {
-    disclosure,
-    children,
-    disabled = false,
-    placement = 'bottom-start',
-    sx = {},
-    ...baseProps
-  } = props
+  const { placement = 'bottom-start', ...baseProps } = props
 
-  const menu = useMenuState({ orientation: 'vertical', loop: true, placement })
+  const state = useMenuState({ orientation: 'vertical', loop: true, placement })
 
-  return (
-    <Fragment>
-      <MenuButton
-        {...menu}
-        disabled={disabled}
-        ref={disclosure.ref}
-        {...disclosure.props}
-      >
-        {(disclosureProps) => cloneElement(disclosure, disclosureProps)}
-      </MenuButton>
-      <RekitMenu
-        sx={{
-          border: 0,
-          background: 'none',
-          padding: 0,
-          outline: 'none',
-        }}
-        {...menu}
-        {...baseProps}
-        disabled={disabled}
-      >
-        <Box sx={{ variant: `overlay.menu`, ...sx }}>
-          {Children.map(children, (child, index) => (
-            <ReakitMenuItem {...menu} {...child.props} key={index}>
-              {(itemProps) => cloneElement(child, itemProps)}
-            </ReakitMenuItem>
-          ))}
-        </Box>
-      </RekitMenu>
-    </Fragment>
-  )
+  return <StatelessMenu {...baseProps} state={state} />
 }
 
 /**
@@ -90,35 +41,16 @@ function Menu(props: MenuProps) {
  * </Menu>
  * ```
  */
-Menu.Item = forwardRef((props: MenuItemProps, ref: Ref<HTMLButtonElement>) => {
+Menu.Item = forwardRef(function MenuItem(
+  props: MenuItemProps,
+  ref: Ref<HTMLButtonElement>
+) {
   return <Button ref={ref} size="small" variant="subtle" {...props} />
 })
 
 export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
 
-export interface MenuProps extends Partial<Pick<MenuState, 'placement'>> {
-  /**
-   * Menu visibility toggle
-   */
-  disclosure: FunctionComponentElement<unknown>
-  /**
-   * Menu items
-   */
-  children: ReactElement[]
-  /**
-   * aria-label of menu
-   */
-  'aria-label': string
-  /**
-   * Custom box sytles
-   * @default {}
-   */
-  sx?: SxStyleProp
-  /**
-   * If is disabled or not
-   * @default false
-   */
-  disabled?: boolean
-}
+export type MenuProps = Omit<StatelessMenuProps, 'state'> &
+  Partial<Pick<MenuState, 'placement'>>
 
 export { Menu }
