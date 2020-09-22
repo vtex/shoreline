@@ -11,6 +11,7 @@ export {
   VisuallyHidden,
   Toggle,
   Menu,
+  StatelessMenu,
 } from '../index'
 
 export {
@@ -35,4 +36,5 @@ export {
   IconDownload,
   IconFavorite,
   IconLink,
+  IconDelete,
 } from '../icons'

@@ -7,6 +7,8 @@ import {
   ReactElement,
   FunctionComponentElement,
   MouseEvent,
+  forwardRef,
+  Ref,
 } from 'react'
 import {
   useMenuState,
@@ -15,11 +17,14 @@ import {
   MenuButton,
   MenuState,
   MenuStateReturn,
+  MenuSeparator,
 } from 'reakit/Menu'
 
 import { Box } from '../Box'
+import { Button, ButtonProps } from '../Button'
 
 export { useMenuState, MenuState }
+export { MenuStateReturn }
 
 /**
  * Stateless accessible menu component
@@ -91,6 +96,45 @@ export function StatelessMenu(props: StatelessMenuProps) {
     </Fragment>
   )
 }
+
+/**
+ * Accessible menu item component
+ * ⚠️ You must use it within admin-ui/menu component context.
+ * @example
+ * ```jsx
+ * import { StatelessMenu, Button } from `@vtex/admin-ui`
+ *
+ * <StatelessMenu discolure={<Button>Open menu</Button>}>
+ *   <StatelessMenu.Item>Item one</StatelessMenu.Item>
+ *   <StatelessMenu.Item>...</StatelessMenu.Item>
+ * </StatelessMenu>
+ * ```
+ */
+StatelessMenu.Item = forwardRef(function MenuItem(
+  props: MenuItemProps,
+  ref: Ref<HTMLButtonElement>
+) {
+  return <Button ref={ref} size="small" variant="subtle" {...props} />
+})
+
+/**
+ * Accessible menu separator
+ * ⚠️ You must use it within admin-ui/menu component context.
+ * @example
+ * ```jsx
+ * import { StatelessMenu, Button } from `@vtex/admin-ui`
+ *
+ * <StatelessMenu discolure={<Button>Open menu</Button>}>
+ *   <StatelessMenu.Item>Item one</StatelessMenu.Item>
+ *   <StatelessMenu.Item>...</StatelessMenu.Item>
+ *   <StatelessMenu.Separator />
+ *   <StatelessMenu.Item>...</StatelessMenu.Item>
+ * </StatelessMenu>
+ * ```
+ */
+StatelessMenu.Separator = MenuSeparator
+
+export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
 
 export interface StatelessMenuProps {
   /**

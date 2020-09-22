@@ -1,6 +1,5 @@
-import React, { Ref, forwardRef } from 'react'
+import React from 'react'
 
-import { Button, ButtonProps } from '../Button'
 import {
   StatelessMenu,
   StatelessMenuProps,
@@ -41,14 +40,24 @@ function Menu(props: MenuProps) {
  * </Menu>
  * ```
  */
-Menu.Item = forwardRef(function MenuItem(
-  props: MenuItemProps,
-  ref: Ref<HTMLButtonElement>
-) {
-  return <Button ref={ref} size="small" variant="subtle" {...props} />
-})
+Menu.Item = StatelessMenu.Item
 
-export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
+/**
+ * Accessible menu separator
+ * ⚠️ You must use it within admin-ui/menu component context.
+ * @example
+ * ```jsx
+ * import { Menu, Button } from `@vtex/admin-ui`
+ *
+ * <Menu discolure={<Button>Open menu</Button>}>
+ *   <Menu.Item>Item one</Menu.Item>
+ *   <Menu.Item>...</Menu.Item>
+ *   <Menu.Separator />
+ *   <Menu.Item>...</Menu.Item>
+ * </Menu>
+ * ```
+ */
+Menu.Separator = StatelessMenu.Separator
 
 export type MenuProps = Omit<StatelessMenuProps, 'state'> &
   Partial<Pick<MenuState, 'placement'>>
