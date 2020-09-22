@@ -13,14 +13,14 @@ import { Box, BoxProps } from '../Box'
  *   return <Label>Your label here!</Label>
  * }
  */
-export function Label({ children, el = 'label', ...props }: LabelProps) {
+export function Label({ children, ...props }: LabelProps) {
   return (
-    <Box el={el} {...props}>
+    <Box el="label" {...props}>
       {children}
     </Box>
   )
 }
 
-export interface LabelProps extends BoxProps {
+export interface LabelProps extends Omit<BoxProps, 'el'> {
   htmlFor?: string
 }
