@@ -63,7 +63,7 @@ You can define the theme with:
 
 ```js
 const theme = {
-    tooltip: {
+  tooltip: {
     backgroundColor: 'black',
     color: 'white',
     paddingY: 1,
