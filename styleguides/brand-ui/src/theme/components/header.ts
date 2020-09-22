@@ -55,7 +55,7 @@ const header = {
   left: '0',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gridTemplateColumns: '0.75fr 4.5fr 2fr 2fr 0.75fr',
+  gridTemplateColumns: '1fr 4.25fr 2fr 2fr 0.75fr',
   gridTemplateAreas: '"brand leftlinks search rightlinks actionbutton"',
   backgroundColor: 'primary.contrast',
   borderBottom: 'solid',
