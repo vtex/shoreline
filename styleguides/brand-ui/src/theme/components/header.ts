@@ -1,7 +1,7 @@
 const brand = {
   alignItems: 'center',
   color: 'primary.base',
-  padding: '0.75rem',
+  justifyContent: 'center',
   gridArea: 'brand',
 }
 
@@ -9,15 +9,12 @@ const leftLinks = {
   display: ['none', 'none', 'none', 'flex'],
   gridArea: 'leftlinks',
   width: '100%',
-  marginTop: ['0.75rem', 0, 0],
-  paddingTop: ['0.75rem', 0, 0],
   '> a': {
     minWidth: 'max-content',
     textDecoration: 'none',
     transition: 'color 0.15s ease-in',
     marginX: 5,
     paddingX: 1,
-    paddingY: '1.875rem',
     color: 'secondary.base',
     '&:hover': {
       color: 'primary.base',
@@ -30,8 +27,6 @@ const rightLinks = {
   gridArea: 'rightlinks',
   width: '100%',
   justifyContent: 'flex-end',
-  marginTop: ['0.75rem', 0, 0],
-  paddingTop: ['0.75rem', 0, 0],
   textTransform: 'uppercase',
   '> a': {
     minWidth: 'max-content',
@@ -40,7 +35,7 @@ const rightLinks = {
     color: 'muted.0',
     marginX: 4,
     paddingX: 1,
-    fontSize: '0.875rem',
+    fontSize: 1,
     fontWeight: 'medium',
   },
 }

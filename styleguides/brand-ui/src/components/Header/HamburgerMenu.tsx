@@ -39,13 +39,11 @@ interface HamburgerMenuProps {
   sx?: SxStyleProp
 }
 
-const Menu = ({ children, sx }: PropsWithChildren<HamburgerMenuProps>) => {
-  return (
-    <Flex variant="hamburgerMenu.menu" sx={sx}>
-      {children}
-    </Flex>
-  )
-}
+const Menu = ({ children, sx }: PropsWithChildren<HamburgerMenuProps>) => (
+  <Flex variant="hamburgerMenu.menu" sx={sx}>
+    {children}
+  </Flex>
+)
 
 interface ActionButtonProps {
   sx?: SxStyleProp
@@ -54,13 +52,11 @@ interface ActionButtonProps {
 const ActionButton = ({
   children,
   sx,
-}: PropsWithChildren<ActionButtonProps>) => {
-  return (
-    <Box variant="hamburgerMenu.actionButton" sx={sx}>
-      {children}
-    </Box>
-  )
-}
+}: PropsWithChildren<ActionButtonProps>) => (
+  <Box variant="hamburgerMenu.actionButton" sx={sx}>
+    {children}
+  </Box>
+)
 
 HamburgerMenu.Menu = Menu
 HamburgerMenu.ActionButton = ActionButton
