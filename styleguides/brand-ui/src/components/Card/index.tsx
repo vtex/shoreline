@@ -3,6 +3,15 @@ import { Flex, Box, BoxProps, SxStyleProp } from 'theme-ui'
 import React, { ReactNode } from 'react'
 import { mergeSx } from '@vtex-components/theme'
 
+function getCardVariant(
+  noPadding: boolean,
+  size: CardProps['size'] = 'regular'
+) {
+  if (noPadding) return 'card.noPadding'
+
+  return `card.${size}`
+}
+
 const Header = ({ children, sx = {}, ...props }: BoxProps) => {
   const mergedSx = mergeSx<SxStyleProp>({ fontSize: 3 }, sx)
 
@@ -24,10 +33,7 @@ const Body = ({ children, sx = {}, ...props }: BoxProps) => {
 }
 
 const Footer = ({ children, sx = {}, ...props }: BoxProps) => {
-  const mergedSx = mergeSx<SxStyleProp>(
-    { fontSize: 2, width: '100%', justifyContent: 'space-between' },
-    sx
-  )
+  const mergedSx = mergeSx<SxStyleProp>({ fontSize: 2 }, sx)
 
   return (
     <Flex sx={mergedSx} {...props}>
@@ -41,22 +47,13 @@ export const Card = ({
   noPadding = false,
   el = 'div',
   sx = {},
+  size,
   ...props
 }: CardProps) => {
-  const mergedSx = mergeSx<SxStyleProp>(
-    {
-      bg: 'primary.contrast',
-      flexDirection: 'column',
-      paddingX: noPadding ? 0 : 5,
-      paddingY: noPadding ? 0 : 6,
-      borderRadius: 3,
-      boxShadow: '0px 3px 9px rgba(61, 62, 64, 0.25)',
-    },
-    sx
-  )
+  const variant = getCardVariant(noPadding, size)
 
   return (
-    <Flex {...props} as={el} sx={mergedSx}>
+    <Flex {...props} variant={variant} as={el} sx={sx}>
       {children}
     </Flex>
   )
@@ -73,6 +70,11 @@ export interface CardProps extends BoxProps {
    * @default 'false'
    */
   noPadding?: boolean
+  /**
+   * Card size
+   * @default 'regular'
+   */
+  size?: 'small' | 'regular'
   children?: ReactNode
 }
 

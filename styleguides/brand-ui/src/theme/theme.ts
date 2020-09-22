@@ -3,6 +3,7 @@ import collapsible from './components/collapsible'
 import header from './components/header'
 import hamburgerMenu from './components/hamburgerMenu'
 import tooltip from './components/tooltip'
+import card from './components/card'
 
 export const theme = {
   colors: {
@@ -58,6 +59,7 @@ export const theme = {
   header,
   hamburgerMenu,
   tooltip,
+  card,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
