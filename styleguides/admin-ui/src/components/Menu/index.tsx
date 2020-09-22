@@ -91,7 +91,7 @@ function Menu(props: MenuProps) {
  * ```
  */
 Menu.Item = forwardRef((props: MenuItemProps, ref: Ref<HTMLButtonElement>) => {
-  return <Button ref={ref} variant="subtle" {...props} />
+  return <Button ref={ref} size="small" variant="subtle" {...props} />
 })
 
 export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
