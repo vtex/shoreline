@@ -4,7 +4,7 @@ Elementary tooltip component that can be reused by all VTEX Styleguides.
 You can use reakit full features (except the 'as' prop) and theme-ui's sx.
 It renders a tooltip element by default.
 
-> This is a styled base component, so any system can theme it. You may configure your `components.tooltip` property of the theme object (check the [theming](#-theming) section).
+> This is a styled base component, so any system can theme it. To customize this component, you just need to add the `tooltip` variant in your theme (check the [theming](#-theming) section).
 
 ## Install
 
@@ -63,14 +63,11 @@ You can define the theme with:
 
 ```js
 const theme = {
-  components: {
     tooltip: {
-      styles: {
-      backgroundColor: 'black',
-      color: 'white',
-      paddingY: 1,
-      paddingX: 2, }
-    },
+    backgroundColor: 'black',
+    color: 'white',
+    paddingY: 1,
+    paddingX: 2,
   },
 }
 ```
