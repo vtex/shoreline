@@ -10,7 +10,7 @@ import { Disclosure as ReakitDisclosure } from 'reakit'
 
 import { CollapsibleProvider, useCollapsibleContext } from './context'
 import { IconCaret } from '../../icons'
-import { useFocusHollow } from '../utils'
+import { useFocusHollow } from '../../hooks'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
