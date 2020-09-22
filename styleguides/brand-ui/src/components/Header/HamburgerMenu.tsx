@@ -39,9 +39,9 @@ interface HamburgerMenuProps {
 }
 
 const Menu = ({ children, sx }: PropsWithChildren<HamburgerMenuProps>) => (
-  <Flex variant="hamburgerMenu.menu" sx={sx}>
+  <Box variant="hamburgerMenu.menu" sx={sx}>
     {children}
-  </Flex>
+  </Box>
 )
 
 interface ActionButtonProps {

@@ -56,7 +56,7 @@ export const LandingPage = () => (
       paddingX: [4, 4, 6, 10],
     }}
   >
-    <Header.Brand />
+    <Header.Brand noMargin />
     <Box
       sx={{
         width: 'min-content',

@@ -13,6 +13,7 @@ const open = {
 }
 
 const menu = {
+  display: ['flex', 'flex', 'flex', 'none'],
   flexDirection: 'column',
   paddingY: 4,
   '> a': {
@@ -29,6 +30,7 @@ const actionButton = {
   borderTop: 'solid',
   borderTopWidth: '1px',
   borderTopColor: 'muted.3',
+  paddingX: 5,
 }
 
 const hamburgerMenu = {

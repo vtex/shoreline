@@ -3,6 +3,7 @@ const brand = {
   color: 'primary.base',
   justifyContent: 'center',
   gridArea: 'brand',
+  marginX: 4,
 }
 
 const linksBase = {

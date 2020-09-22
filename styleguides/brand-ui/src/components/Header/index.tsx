@@ -13,11 +13,19 @@ export const Header = ({ children, sx }: PropsWithChildren<HeaderProps>) => (
   </Box>
 )
 
-const Brand = () => (
-  <Flex variant="header.brand">
-    <IconVTEXExpanded width={85} height={30} />
-  </Flex>
-)
+interface BrandProps {
+  noMargin?: boolean
+}
+
+const Brand = ({ noMargin = false }: BrandProps) => {
+  const sx = noMargin ? { marginX: '0' } : {}
+
+  return (
+    <Flex variant="header.brand" sx={sx}>
+      <IconVTEXExpanded width={85} height={30} />
+    </Flex>
+  )
+}
 
 interface LeftLinksProps {
   sx?: SxStyleProp
