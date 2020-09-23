@@ -3,14 +3,8 @@ import BaseTooltip, {
   TooltipProps as BaseProps,
 } from '@vtex-components/tooltip'
 
-export const Tooltip = (props: TooltipProps) => {
-  const { label, children, placement, visible, sx } = props
-
-  return (
-    <BaseTooltip label={label} placement={placement} visible={visible} sx={sx}>
-      {children}
-    </BaseTooltip>
-  )
+export const Tooltip = ({ children, ...props }: TooltipProps) => {
+  return <BaseTooltip {...props}>{children}</BaseTooltip>
 }
 
 export interface TooltipProps
