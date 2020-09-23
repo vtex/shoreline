@@ -34,6 +34,37 @@ Playground.args = {
   id: 'company-name',
 }
 
+export const States = () => (
+  <Box sx={{ backgroundColor: 'white', p: 5 }}>
+    <Input
+      id="idle"
+      label="Idle"
+      helpMessage="This is an idle input."
+    />
+    <Input
+      id="disabled"
+      label="Disabled"
+      disabled
+      value="Take me to the lakes"
+      helpMessage="This is a disabled input."
+    />
+    <Input
+      id="readonly"
+      label="Readonly"
+      readOnly
+      value="Can't change your mood"
+      helpMessage="This is a readonly input."
+    />
+    <Input
+      id="error"
+      label="Error"
+      error
+      value="Be my mistake..."
+      helpMessage="This is an error input."
+    />
+  </Box>
+)
+
 export const Sizes = () => (
   <Box sx={{ backgroundColor: 'white', p: 5 }}>
     <Input

@@ -77,6 +77,7 @@ export const theme = {
         ':focus-within': {
           borderColor: 'secondary.hover',
           boxShadow: (t) => `0 0 0 ${t.borderWidths[2]}px ${t.colors.focus}`,
+          outline: 'none',
         },
       },
       size: {
@@ -90,78 +91,19 @@ export const theme = {
           height: 56,
         },
       },
-    },
-    button: {
-      styles: {
-        textTransform: 'uppercase',
-        fontWeight: 'medium',
-        borderWidth: 1,
-        borderRadius: 3,
-        fontSize: 1,
-        cursor: 'pointer',
-        position: 'relative',
-        border: 'none',
-        lineHeight: 1,
-        '&:focus': {
-          outline: 'none',
+      state: {
+        disabled: {
+          color: 'muted.1',
         },
-        '&:disabled': {
-          color: 'white',
-          backgroundColor: 'muted.2',
+        error: {
+          borderColor: 'danger.base',
         },
-      },
-      variant: {
-        primary: {
-          color: 'primary.contrast',
-          backgroundColor: 'primary.base',
-          '&:hover': {
-            backgroundColor: 'primary.hover',
-          },
-          '&:active': {
-            backgroundColor: 'primary.active',
-          },
+        filled: {
+          borderColor: 'secondary.hover',
         },
-        secondary: {
-          color: 'secondary.contrast',
-          backgroundColor: 'secondary.base',
-          '&:hover': {
-            backgroundColor: 'secondary.hover',
-          },
-          '&:active': {
-            backgroundColor: 'secondary.active',
-          },
-        },
-        tertiary: {
-          color: 'secondary.base',
-          backgroundColor: 'transparent',
-          '&:hover': {
-            textDecoration: 'underline',
-          },
-          '&:active': {
-            textDecoration: 'underline',
-          },
-          '&:disabled': {
-            color: 'muted.2',
-            backgroundColor: 'transparent',
-          },
-        },
-      },
-      size: {
-        regular: {
-          height: 48,
-          paddingX: 5,
-        },
-        small: {
-          height: 32,
-          paddingX: 4,
-        },
-        'icon-regular': {
-          height: 48,
-          paddingX: 4,
-        },
-        'icon-small': {
-          height: 32,
-          paddingX: 3,
+        readOnly: {
+          backgroundColor: 'muted.3',
+          borderColor: 'muted.1',
         },
       },
     },
