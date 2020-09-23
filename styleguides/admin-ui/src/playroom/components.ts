@@ -14,6 +14,7 @@ export {
   StatelessMenu,
   ActionButton,
   MenuDisclosure,
+  Checkbox,
 } from '../index'
 
 export {

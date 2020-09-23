@@ -8,6 +8,7 @@ import text from './text'
 import toggle from './toggle'
 import avatar from './avatar'
 import overlay from './overlay'
+import checkbox from './checkbox'
 
 export const theme = {
   ...layout,
@@ -19,6 +20,7 @@ export const theme = {
   overlay,
   forms: {
     ...toggle,
+    ...checkbox,
   },
   text,
 }

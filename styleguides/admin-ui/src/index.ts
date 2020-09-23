@@ -30,4 +30,5 @@ export {
 export { Toggle, ToggleProps, useToggle } from './components/Toggle'
 export * from './icons'
 export { Avatar } from './components/Avatar'
+export { Checkbox, CheckboxProps } from './components/Checkbox'
 export { useFocusHollow } from './hooks'
