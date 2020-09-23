@@ -44,6 +44,10 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
-    "@rollup/plugin-url": "^5.0.1"
+    "@rollup/plugin-url": "^5.0.1",
+    "@storybook/addon-a11y": "^6.0.21",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/react": "^6.0.21"
   }
 }
