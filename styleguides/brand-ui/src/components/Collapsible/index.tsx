@@ -37,7 +37,7 @@ function Collapsible({ sx = {}, children, ...props }: CollapsibleProps) {
 function Header({
   label,
   prefix,
-  sufix,
+  suffix,
   size = 'regular',
   sx = {},
 }: HeaderProps) {
@@ -65,7 +65,7 @@ function Header({
           <Flex sx={{ alignItems: 'center' }}>
             {renderIcon(prefix, contentVariant)}
             <Text variant={contentVariant}>{label}</Text>
-            {renderIcon(sufix)}
+            {renderIcon(suffix)}
           </Flex>
           <IconCaret duration={0.3} direction={visible ? 'up' : 'down'} />
         </Flex>
@@ -128,7 +128,7 @@ interface HeaderProps extends SxProps {
   /**
    * Sufix icon of the collapsible header
    */
-  sufix?: (props: IconProps) => ReactNode
+  suffix?: (props: IconProps) => ReactNode
   /** Size of the collapsible header
    * @default regular
    */

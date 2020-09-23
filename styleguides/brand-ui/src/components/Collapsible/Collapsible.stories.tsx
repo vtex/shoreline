@@ -110,7 +110,7 @@ export const WithSufixIcon = () => {
   return (
     <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
       <Collapsible.Header
-        sufix={(props) => <IconMock {...props} />}
+        suffix={(props) => <IconMock {...props} />}
         label="Build for Community #2"
       />
       <Collapsible.Content>
