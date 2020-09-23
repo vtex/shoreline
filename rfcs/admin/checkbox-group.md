@@ -45,11 +45,11 @@ function UseCase() {
 
 ### CheckboxGroup Label
 
-The user can easily add a label using `label` prop for the `CheckboxGroup`.
+The user can easily add a label using `label` prop.
 
 - **Without using label prop**
 
-If the user want to add a custom label, that differs of the defined in the `label` prop, it is possible.
+If the user want to add a custom label, that differs of the defined one in the `label` prop, it is possible.
 
 ```jsx
 import { CheckboxGroup, Label, Checkbox } from '@vtex/admin-ui'
@@ -78,7 +78,7 @@ function UseCase() {
 
 ### CheckboxGroup items
 
-Components with `role="group"` should have children of the same type. We don't do this restriction on the code, so the user should keep it in mind when using the `CheckboxGroup` children should have `Checkbox` type.
+Components with `role="group"` should have children of the same type. We don't do this restriction on the code, so the user should keep in mind that when using the `CheckboxGroup` the children should be of `Checkbox` type.
 
 #### Items label
 
