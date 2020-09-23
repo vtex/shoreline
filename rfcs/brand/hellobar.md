@@ -12,18 +12,16 @@
 ```jsx
 import { HelloBar } from '@vtex/brand-ui'
 
-<HelloBar>
-  Hello Bar text here.
-</HelloBar>
+;<HelloBar>Hello Bar text here.</HelloBar>
 ```
 
 # Detailed design
 
 ## HelloBar
 
-| prop    | type                        | description                                                                             | required | default     |
-| ------- | --------------------------- | --------------------------------------------------------------------------------------- | -------- | ----------- |
-| action | { label: string, onClick: Function }                    | the action of the hello bar | 🚫       | -          |
+| prop   | type                                 | description                 | required | default |
+| ------ | ------------------------------------ | --------------------------- | -------- | ------- |
+| action | { label: string, onClick: Function } | the action of the hello bar | 🚫       | -       |
 
 # Adoption strategy
 
