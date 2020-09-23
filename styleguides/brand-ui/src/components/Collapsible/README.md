@@ -91,7 +91,7 @@ function WithPrefixIcon() {
 ```jsx
 import { Collapsible, useCollapsible } from '@vtex/brand-ui'
 
-function WithPrefixIcon() {
+function WithSuffixIcon() {
   const collapsibleProps = useCollapsible()
 
   return (

@@ -104,7 +104,7 @@ export const WithPrefixIcon = () => {
   )
 }
 
-export const WithSufixIcon = () => {
+export const WithSuffixIcon = () => {
   const firstProps = useCollapsible()
 
   return (
