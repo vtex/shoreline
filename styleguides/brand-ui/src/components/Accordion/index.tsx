@@ -46,7 +46,7 @@ const useAccordion = (initialState?: AccordionInitalState): AccordionProps => {
   }
 }
 
-function Section({ children }: PropsWithChildren<{}>) {
+function Panel({ children }: PropsWithChildren<{}>) {
   return <>{children}</>
 }
 
@@ -100,9 +100,9 @@ function Accordion({
   return <Box variant="accordion">{items}</Box>
 }
 
-Section.Header = Collapsible.Header
-Section.Content = Collapsible.Content
+Panel.Header = Collapsible.Header
+Panel.Content = Collapsible.Content
 
-Accordion.Section = Section
+Accordion.Section = Panel
 
 export { Accordion, useAccordion, AccordionProps, AccordionInitalState }
