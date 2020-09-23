@@ -21,11 +21,8 @@ import { SxStyleProp, Box } from 'theme-ui'
  * import { Popover, usePopoverState } from '@vtex-components/popover'
 
  * function UseCase() {
- *   const popover = usePopoverState()
- *
  *   return (
  *     <Popover
- *       {...popover}
  *       disclosure={<button>Open popover</button>}
  *     >
  *       <p>This is a Popover</p>
