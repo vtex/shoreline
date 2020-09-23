@@ -1,18 +1,34 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { Tooltip } from '.';
+import { Tooltip, TooltipProps } from '.';
 import { IconMock } from '../Button/IconMock';
 import { Button } from '../Button';
 import { Icon, IconProps } from '@vtex-components/icon'
 
 <Meta title="MDX/Tooltips" component={Tooltip} />
 
+export const Template = (args) => (
+  <div
+    style={{
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      marginTop: '5%',
+      marginBottom: '5%',
+    }}
+  >
+    <Tooltip {...args}>
+      <Button>Children component</Button>
+    </Tooltip>
+  </div>
+)
+
 # Tooltip
 
 This story shows different possibilities of how to use the `tooltip` component.
 
 <Canvas>
-  <Story name="Default tooltip">
-    <Tooltip label="Label"><Button>Trigger component</Button></Tooltip>
+  <Story name="Default tooltip" args={{ label: 'Label', placement: 'top' }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 

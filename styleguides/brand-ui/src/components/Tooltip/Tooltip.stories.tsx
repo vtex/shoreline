@@ -9,23 +9,26 @@ export default {
   component: Tooltip,
 } as Meta
 
-const Template: Story<TooltipProps> = (args) => (
-  <div
-    style={{
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      marginTop: '5%',
-      marginBottom: '5%',
-    }}
-  >
-    <Tooltip {...args}>
-      <Button>Children component</Button>
-    </Tooltip>
-  </div>
-)
+const Template: Story<TooltipProps> = (args) => {
+  return (
+    <div
+      style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '5%',
+        marginBottom: '5%',
+      }}
+    >
+      <Tooltip {...args}>
+        <Button>Children component</Button>
+      </Tooltip>
+    </div>
+  )
+}
 
 export const Playground = Template.bind({})
 Playground.args = {
   label: 'Label',
+  placement: 'top',
 }
