@@ -142,11 +142,13 @@ Components with `role="group"` should have children of the same type. We don't d
 
 We decided to haven't a `FormGroup.Item` that receives a Label, because it can be a non-flexible approach, for example, in this use case:
 
-- When the user wants FormGroup items Labeled on the right instead of left
+- **When the user wants FormGroup items Labeled on the right instead of left**
+
   To cover this case, we would need to add a new `prop` that handles the label position and also add this logic in the code.
 
 Just letting the user cover this case turns the component easier to use.
-Example:
+
+##### Example:
 
 ```jsx
 <FormGroup>
