@@ -1,0 +1,42 @@
+{
+  "name": "@vtex-components/popover",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/popover.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "components/popover",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16",
+    "reakit": "1.2.2",
+    "theme-ui": "^0.3.1"
+  },
+  "dependencies": {
+    "@vtex-components/theme": "^0.1.0",
+    "@vtex-components/utils": "^0.0.2"
+  }
+}
