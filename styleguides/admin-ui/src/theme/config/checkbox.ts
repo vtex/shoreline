@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 const styles = {
   appearance: 'none',
   borderStyle: 'solid',

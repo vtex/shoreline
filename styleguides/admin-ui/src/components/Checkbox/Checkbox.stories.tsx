@@ -41,6 +41,7 @@ Playground.parameters = {
     `,
   },
 }
+
 export const MultipleCheckboxes = () => {
   const props = useCheckbox({ state: [] })
 
@@ -86,6 +87,7 @@ MultipleCheckboxes.parameters = {
     `,
   },
 }
+
 export const Disabled = () => {
   return (
     <>
@@ -108,8 +110,7 @@ export const IndeterminateExample = () => {
       } else if (group === false) {
         setItems([])
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [group])
+    }, [group, setItems, values])
 
     // updates group when items is toggled
     React.useEffect(() => {
@@ -120,13 +121,12 @@ export const IndeterminateExample = () => {
       } else {
         setGroup(false)
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [items])
+    }, [items, setGroup, values])
 
     return { group, items, setItems, setGroup }
   }
 
-  const values = ['Apple', 'Orange', 'Watermelon']
+  const values = React.useMemo(() => ['Apple', 'Orange', 'Watermelon'], [])
   const { group, setGroup, items, setItems } = useTreeState({ values })
 
   return (
