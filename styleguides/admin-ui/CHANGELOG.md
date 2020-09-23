@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.35.0...@vtex/admin-ui@0.36.0) (2020-09-23)
+
+
+### Features
+
+* **checkbox:** add checkbox partially checked state ([309a972](https://github.com/vtex/onda/commit/309a9728a5ffe146099b56982bd49f678e0aacd6))
+* **checkbox:** add draft Checkbox component ([8d1f8fe](https://github.com/vtex/onda/commit/8d1f8fe69370ef64b1422ea63a71160780c6d79e))
+
+
+
+
+
 # [0.35.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.34.1...@vtex/admin-ui@0.35.0) (2020-09-23)
 
 
