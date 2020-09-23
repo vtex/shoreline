@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.36.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.36.0...@vtex/admin-ui@0.36.1) (2020-09-23)
+
+
+### Bug Fixes
+
+* **checkbox:** add checkbox forwardRef ([917b20b](https://github.com/vtex/onda/commit/917b20bb4218a35a9c2492dfd86e1c6639499cc4))
+
+
+
+
+
 # [0.36.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.35.0...@vtex/admin-ui@0.36.0) (2020-09-23)
 
 
