@@ -5,7 +5,7 @@
 
 # Summary
 
-Used to group checkboxes components like
+Used to group `Checkbox` components.
 
 # Basic example
 
