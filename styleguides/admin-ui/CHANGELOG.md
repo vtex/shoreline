@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.34.1...@vtex/admin-ui@0.35.0) (2020-09-23)
+
+
+### Features
+
+* **actionbutton:** add component ([40b012d](https://github.com/vtex/onda/commit/40b012d053e51a0fc0e9b2d23d09314917ca712b))
+* **icons:** add favorite download & link icons ([2ace2cd](https://github.com/vtex/onda/commit/2ace2cdd7ea3f5eee22553004241ad03b6edc079))
+* **menu:** add menu component to admin-ui ([21ba951](https://github.com/vtex/onda/commit/21ba95103e4033eb5d2d5567899a2b70f86a46e6))
+
+
+
+
+
 ## [0.34.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.34.0...@vtex/admin-ui@0.34.1) (2020-09-22)
 
 
