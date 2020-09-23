@@ -5,5 +5,6 @@ export {
   StatelessMenuProps,
   MenuItemProps,
   MenuStateReturn,
+  MenuDisclosure,
 } from './Stateless'
 export { ActionButton, ActionButtonProps } from './ActionButton'

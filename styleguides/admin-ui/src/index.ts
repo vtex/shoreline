@@ -16,6 +16,7 @@ export {
   useMenuState,
   ActionButton,
   ActionButtonProps,
+  MenuDisclosure,
 } from './components/Menu'
 export {
   VisuallyHidden,

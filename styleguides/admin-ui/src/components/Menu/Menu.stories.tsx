@@ -36,14 +36,7 @@ Stateful.parameters = {
     code: `
     <Menu
     aria-label="menu label"
-    disclosure={
-      <Button
-        icon={(props) => <IconCaret {...props} direction="down" />}
-        iconPosition="end"
-      >
-        Action Menu
-      </Button>
-    }
+    disclosure={<ActionButton display="menu" />}
   >
     <Menu.Item icon={IconDownload}>Download</Menu.Item>
     <Menu.Item icon={IconLink}>Link to</Menu.Item>
@@ -81,24 +74,18 @@ Stateless.parameters = {
     code: `
 <Play.MenuState>
   {(state) => (
-    <StatelessMenu
-    aria-label="actions"
-    state={state}
-    disclosure={
-      <Button
-        icon={(props) => <IconCaret {...props} direction="down" />}
-        iconPosition="end"
-      >
-        Action Menu
-      </Button>
-    }
-  >
-    <StatelessMenu.Item icon={IconDownload}>Download</StatelessMenu.Item>
-    <StatelessMenu.Item icon={IconLink}>Link to</StatelessMenu.Item>
-    <StatelessMenu.Item icon={IconFavorite}>Favorite</StatelessMenu.Item>
-    <StatelessMenu.Separator />
-    <StatelessMenu.Item icon={IconDelete}>Delete</StatelessMenu.Item>
-  </StatelessMenu>
+    <>
+    <MenuDisclosure {...state}>
+      <ActionButton variant="subtle">Post options</ActionButton>
+    </MenuDisclosure>
+    <StatelessMenu aria-label="actions" state={state}>
+      <StatelessMenu.Item icon={IconDownload}>Download</StatelessMenu.Item>
+      <StatelessMenu.Item icon={IconLink}>Link to</StatelessMenu.Item>
+      <StatelessMenu.Item icon={IconFavorite}>Favorite</StatelessMenu.Item>
+      <StatelessMenu.Separator />
+      <StatelessMenu.Item icon={IconDelete}>Delete</StatelessMenu.Item>
+    </StatelessMenu>
+  </>
   )}
 </Play.MenuState>
     `,

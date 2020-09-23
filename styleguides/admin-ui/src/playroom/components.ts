@@ -12,6 +12,8 @@ export {
   Toggle,
   Menu,
   StatelessMenu,
+  ActionButton,
+  MenuDisclosure,
 } from '../index'
 
 export {
@@ -37,4 +39,5 @@ export {
   IconFavorite,
   IconLink,
   IconDelete,
+  IconActions,
 } from '../icons'
