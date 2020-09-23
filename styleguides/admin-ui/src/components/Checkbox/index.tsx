@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from 'theme-ui'
+import { Ref } from 'react'
 import {
   Checkbox as ReakitCheckbox,
   CheckboxProps as ReakitProps,
@@ -7,24 +8,25 @@ import {
   useCheckboxState,
 } from 'reakit'
 import { mergeSx } from '@vtex-components/theme'
+import { forwardRef } from '@vtex-components/utils'
 
 import { useFocusHollow } from '../../hooks'
 
-export function Checkbox({
-  sx = {},
-  size = 'regular',
-  ...reakitProps
-}: CheckboxProps) {
-  const { focusStyles, focusProps } = useFocusHollow()
+export const Checkbox = forwardRef(
+  (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
+    const { sx = {}, size = 'regular', ...reakitProps } = props
+    const { focusStyles, focusProps } = useFocusHollow()
 
-  const styles = mergeSx<SxStyleProp>(
-    { variant: `forms.checkbox-${size}`, ...focusStyles },
-    sx
-  )
+    const styles = mergeSx<SxStyleProp>(
+      { variant: `forms.checkbox-${size}`, ...focusStyles },
+      sx
+    )
 
-  return <ReakitCheckbox {...focusProps} {...reakitProps} sx={styles} />
-}
-
+    return (
+      <ReakitCheckbox ref={ref} {...focusProps} {...reakitProps} sx={styles} />
+    )
+  }
+)
 export interface CheckboxProps
   extends Pick<
     ReakitProps,
