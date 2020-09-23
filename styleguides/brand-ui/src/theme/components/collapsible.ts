@@ -30,6 +30,9 @@ const header = {
     fontSize: 1,
     height: 48,
   },
+  content: {
+    mr: 3,
+  },
 }
 
 const contentBase = {

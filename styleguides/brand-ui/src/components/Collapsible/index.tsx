@@ -1,5 +1,5 @@
-import React, { ReactNode, ReactElement } from 'react'
-import { SxStyleProp, Box, Flex } from 'theme-ui'
+import React, { ReactNode, ReactElement, PropsWithChildren } from 'react'
+import { SxStyleProp, Box, Flex, Text, SxProps } from 'theme-ui'
 import {
   useDisclosureState,
   DisclosureContent,
@@ -26,7 +26,7 @@ import { useFocusHollow } from '../../hooks'
  * </Collapsible>
  * ```
  */
-export function Collapsible({ sx = {}, children, ...props }: CollapsibleProps) {
+function Collapsible({ sx = {}, children, ...props }: CollapsibleProps) {
   return (
     <Box variant="collapsible" sx={sx}>
       <CollapsibleProvider {...props}>{children}</CollapsibleProvider>
@@ -34,12 +34,23 @@ export function Collapsible({ sx = {}, children, ...props }: CollapsibleProps) {
   )
 }
 
-function Header({ children, size = 'regular', sx = {} }: HeaderProps) {
+function Header({
+  label,
+  prefix,
+  sufix,
+  size = 'regular',
+  sx = {},
+}: HeaderProps) {
   const { visible, ...disclosureProps } = useCollapsibleContext()
   const { focusStyles, focusProps } = useFocusHollow()
 
-  const variant = `collapsible.header.${size}`
+  const baseVariant = 'collapsible.header'
+  const headerVariant = `${baseVariant}.${size}`
+  const contentVariant = `${baseVariant}.content`
   const mergedSx = mergeSx<SxStyleProp>(focusStyles, sx)
+
+  const renderIcon = (icon?: Function, variant = '') =>
+    icon?.({ size: 16, sx: { variant } })
 
   return (
     <ReakitDisclosure visible={visible} {...disclosureProps}>
@@ -48,10 +59,14 @@ function Header({ children, size = 'regular', sx = {} }: HeaderProps) {
           as="button"
           {...enhancedProps}
           {...focusProps}
-          variant={variant}
+          variant={headerVariant}
           sx={mergedSx}
         >
-          {children}
+          <Flex sx={{ alignItems: 'center' }}>
+            {renderIcon(prefix, contentVariant)}
+            <Text variant={contentVariant}>{label}</Text>
+            {renderIcon(sufix)}
+          </Flex>
           <IconCaret duration={0.3} direction={visible ? 'up' : 'down'} />
         </Flex>
       )}
@@ -63,7 +78,9 @@ function Content({ children, sx = {} }: ContentProps) {
   const props = useCollapsibleContext()
 
   const behavior =
-    (children as ReactElement).type === Collapsible ? 'stacked' : 'regular'
+    !!children && (children as ReactElement).type === Collapsible
+      ? 'stacked'
+      : 'regular'
 
   const variant = `collapsible.content.${behavior}`
 
@@ -93,28 +110,35 @@ Collapsible.Header = Header
  */
 Collapsible.Content = Content
 
-export interface CollapsibleProps extends DisclosureProps {
-  children?: ReactNode
-  sx?: SxStyleProp
-}
+type CollapsibleProps = PropsWithChildren<DisclosureProps & SxProps>
 
-export interface HeaderProps {
+type IconProps = SxProps & { size: number }
+
+type ContentProps = PropsWithChildren<SxProps>
+
+interface HeaderProps extends SxProps {
   /**
    * Disclosure content
    */
-  children?: ReactNode
-  /** custom styles */
-  sx?: SxStyleProp
+  label: ReactNode
+  /**
+   * Prefix icon of the collapsible header
+   */
+  prefix?: (props: IconProps) => ReactNode
+  /**
+   * Sufix icon of the collapsible header
+   */
+  sufix?: (props: IconProps) => ReactNode
   /** Size of the collapsible header
    * @default regular
    */
   size?: 'small' | 'regular'
 }
 
-export interface ContentProps {
-  children?: ReactNode
-  /** custom styles */
-  sx?: SxStyleProp
+export {
+  Collapsible,
+  CollapsibleProps,
+  HeaderProps as CollapsibleHeaderProps,
+  ContentProps as CollapsibleContentProps,
+  useDisclosureState as useCollapsible,
 }
-
-export { useDisclosureState as useCollapsible }
