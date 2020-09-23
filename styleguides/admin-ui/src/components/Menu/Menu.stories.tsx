@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import {
@@ -8,14 +8,9 @@ import {
   StatelessMenuProps,
   useMenuState,
 } from './index'
-import { Button } from '../Button'
-import {
-  IconCaret,
-  IconFavorite,
-  IconLink,
-  IconDownload,
-  IconDelete,
-} from '../../icons'
+import { IconFavorite, IconLink, IconDownload, IconDelete } from '../../icons'
+import { MenuDisclosure } from './Stateless'
+import { ActionButton } from './ActionButton'
 
 export default {
   title: 'alpha/Menu',
@@ -26,14 +21,7 @@ export const Stateful: Story<MenuProps> = () => (
   <Menu
     hideOnClick
     aria-label="menu label"
-    disclosure={
-      <Button
-        icon={(props) => <IconCaret {...props} direction="down" />}
-        iconPosition="end"
-      >
-        Action Menu
-      </Button>
-    }
+    disclosure={<ActionButton display="menu" />}
   >
     <Menu.Item icon={IconDownload}>Download</Menu.Item>
     <Menu.Item icon={IconLink}>Link to</Menu.Item>
@@ -73,24 +61,18 @@ export const Stateless: Story<StatelessMenuProps> = () => {
   })
 
   return (
-    <StatelessMenu
-      aria-label="actions"
-      state={state}
-      disclosure={
-        <Button
-          icon={(props) => <IconCaret {...props} direction="down" />}
-          iconPosition="end"
-        >
-          Action Menu
-        </Button>
-      }
-    >
-      <StatelessMenu.Item icon={IconDownload}>Download</StatelessMenu.Item>
-      <StatelessMenu.Item icon={IconLink}>Link to</StatelessMenu.Item>
-      <StatelessMenu.Item icon={IconFavorite}>Favorite</StatelessMenu.Item>
-      <StatelessMenu.Separator />
-      <StatelessMenu.Item icon={IconDelete}>Delete</StatelessMenu.Item>
-    </StatelessMenu>
+    <Fragment>
+      <MenuDisclosure {...state}>
+        <ActionButton variant="subtle">Post options</ActionButton>
+      </MenuDisclosure>
+      <StatelessMenu aria-label="actions" state={state}>
+        <StatelessMenu.Item icon={IconDownload}>Download</StatelessMenu.Item>
+        <StatelessMenu.Item icon={IconLink}>Link to</StatelessMenu.Item>
+        <StatelessMenu.Item icon={IconFavorite}>Favorite</StatelessMenu.Item>
+        <StatelessMenu.Separator />
+        <StatelessMenu.Item icon={IconDelete}>Delete</StatelessMenu.Item>
+      </StatelessMenu>
+    </Fragment>
   )
 }
 

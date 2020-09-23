@@ -14,6 +14,8 @@ export {
   StatelessMenu,
   StatelessMenuProps,
   useMenuState,
+  ActionButton,
+  ActionButtonProps,
 } from './components/Menu'
 export {
   VisuallyHidden,

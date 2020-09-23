@@ -1,18 +1,17 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from 'theme-ui'
 import {
-  Fragment,
   cloneElement,
   Children,
   ReactElement,
-  FunctionComponentElement,
   MouseEvent,
   forwardRef,
   Ref,
+  FunctionComponentElement,
 } from 'react'
 import {
   useMenuState,
-  Menu as RekitMenu,
+  Menu as ReakitMenu,
   MenuItem as ReakitMenuItem,
   MenuButton,
   MenuState,
@@ -28,18 +27,16 @@ export { MenuStateReturn }
 
 /**
  * Stateless accessible menu component
- * With this approach you may have controll of all menu state
+ * With this approach, you may have control of all menu state
  * Must be used alongside useMenuState
  * @example
  * ```jsx
- * import { StatelessMenu, useMenuState, Button } from `@vtex/admin-ui`
+ * import { StatelessMenu, MenuDisclosure, useMenuState, Button } from `@vtex/admin-ui`
  *
  * const state = useMenuState()
  *
- * //Will also show the menu
- * <Button onClick={state.show}>Programatically Show</Button>
- *
- * <Menu state={state} discolure={<Button>Open menu</Button>}>
+ * <MenuDisclosure><Button>Open menu</Button></MenuDisclosure>
+ * <Menu state={state}>
  *   <Menu.Item>Item one</Menu.Item>
  *   <Menu.Item>...</Menu.Item>
  * </Menu>
@@ -47,7 +44,6 @@ export { MenuStateReturn }
  */
 export function StatelessMenu(props: StatelessMenuProps) {
   const {
-    disclosure,
     children,
     disabled = false,
     hideOnClick = false,
@@ -57,43 +53,48 @@ export function StatelessMenu(props: StatelessMenuProps) {
   } = props
 
   return (
-    <Fragment>
-      <MenuButton
-        {...state}
-        disabled={disabled}
-        ref={disclosure.ref}
-        {...disclosure.props}
-      >
-        {(disclosureProps) => cloneElement(disclosure, disclosureProps)}
-      </MenuButton>
-      <RekitMenu
-        sx={{
-          border: 0,
-          background: 'none',
-          padding: 0,
-          outline: 'none',
-        }}
-        {...state}
-        {...baseProps}
-        disabled={disabled}
-      >
-        <Box sx={{ variant: `overlay.menu`, ...sx }}>
-          {Children.map(children, (child, index) => (
-            <ReakitMenuItem {...state} {...child.props} key={index}>
-              {(itemProps) =>
-                cloneElement(child, {
-                  ...itemProps,
-                  onClick: (e: MouseEvent) => {
-                    hideOnClick && state.hide()
-                    itemProps?.onClick?.(e)
-                  },
-                })
-              }
-            </ReakitMenuItem>
-          ))}
-        </Box>
-      </RekitMenu>
-    </Fragment>
+    <ReakitMenu
+      sx={{
+        // css reset
+        border: 0,
+        background: 'none',
+        padding: 0,
+        outline: 'none',
+      }}
+      {...state}
+      {...baseProps}
+      disabled={disabled}
+    >
+      <Box sx={{ variant: `overlay.menu`, ...sx }}>
+        {Children.map(children, (child, index) => (
+          <ReakitMenuItem {...state} {...child.props} key={index}>
+            {(itemProps) =>
+              cloneElement(child, {
+                ...itemProps,
+                onClick: (e: MouseEvent) => {
+                  hideOnClick && state.hide()
+                  itemProps?.onClick?.(e)
+                },
+              })
+            }
+          </ReakitMenuItem>
+        ))}
+      </Box>
+    </ReakitMenu>
+  )
+}
+
+interface MenuDisclosureProps extends MenuStateReturn {
+  children: FunctionComponentElement<unknown>
+}
+
+export function MenuDisclosure({ children, ...props }: MenuDisclosureProps) {
+  Children.only(children)
+
+  return (
+    <MenuButton {...props} ref={children.ref} {...children.props}>
+      {(enhancedProps) => cloneElement(children, enhancedProps)}
+    </MenuButton>
   )
 }
 
@@ -137,10 +138,6 @@ StatelessMenu.Separator = MenuSeparator
 export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
 
 export interface StatelessMenuProps {
-  /**
-   * Menu visibility toggle
-   */
-  disclosure: FunctionComponentElement<unknown>
   /**
    * Menu items
    */
