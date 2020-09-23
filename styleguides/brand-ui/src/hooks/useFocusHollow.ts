@@ -1,7 +1,5 @@
 import { useFocusRing } from '@react-aria/focus'
-import { get } from '@vtex-components/theme'
-
-import { useTheme } from '..'
+import { get, useTheme } from '@vtex-components/theme'
 
 export function useFocusHollow() {
   const theme = useTheme()
