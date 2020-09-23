@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 import { Checkbox, Label } from 'theme-ui'
 
 import { Button } from '../Button'
-import { Disclosure, Modal, useModalState } from './index'
+import { ModalDisclosure, Modal, useModalState } from './index'
 import { Text } from '../Text'
 
 export default {
@@ -13,32 +13,39 @@ export default {
 
 export const Basic = () => {
   const [allowNext, setAllowNext] = useState(false)
-  const modal = useModalState()
+  const publishModal = useModalState()
+  const conditionsModal = useModalState()
 
   return (
     <Fragment>
-      <Disclosure {...modal}>
-        <Button>Large</Button>
-      </Disclosure>
-      {/* <Modal size="small">
-        <Text variant="headline">Build for community</Text>
-        <Text>
-          It’s all about being ready to grow and reach new levels. Have a solid
-          foundation, modular thinking and flexible essence, and you’re building
-          for scale. We are global but we’re audacious enough to aim for the
-          stars.
-        </Text>
+      <ModalDisclosure {...publishModal}>
+        <Button>Publish</Button>
+      </ModalDisclosure>
+      <Modal state={publishModal} size="small">
+        <Modal.Header title="Publish content" hide={publishModal.hide} />
+        <Modal.Content>
+          <Text>
+            Are you sure you want to publish this content? These action cannot
+            be undone.
+          </Text>
+        </Modal.Content>
+        <Modal.Footer>
+          <Button variant="outlined">Cancel</Button>
+          <Button>Confirm</Button>
+        </Modal.Footer>
       </Modal>
-      <Modal>
-        <Text variant="headline">Build for community</Text>
-        <Text>
-          It’s all about being ready to grow and reach new levels. Have a solid
-          foundation, modular thinking and flexible essence, and you’re building
-          for scale. We are global but we’re audacious enough to aim for the
-          stars.
-        </Text>
-      </Modal> */}
-      <Modal state={modal} title="Terms and Conditions" size="regular">
+
+      <ModalDisclosure {...conditionsModal}>
+        <Button>Regular</Button>
+      </ModalDisclosure>
+      <Modal state={conditionsModal} size="regular">
+        <Modal.Header
+          title="Terms and Conditions"
+          hide={() => {
+            conditionsModal.hide()
+            setAllowNext(false)
+          }}
+        />
         <Modal.Content>
           <Text variant="subtitle">Shared Cart</Text>
           <Text>
