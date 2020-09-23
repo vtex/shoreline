@@ -41,7 +41,8 @@
     "@vtex-components/icon": "^0.0.4",
     "@vtex-components/theme": "^0.1.1",
     "reakit": "1.2.3",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "tiny-invariant": "^1.1.0"
   },
   "devDependencies": {
     "@rollup/plugin-url": "^5.0.1",

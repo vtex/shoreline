@@ -10,7 +10,6 @@ const directions = {
 
 export function IconCaret(props: IconWithDirectionProps) {
   const { direction = 'up', duration = 0, ...iconProps } = props
-
   const rotationDeg = directions[direction]
 
   return (
