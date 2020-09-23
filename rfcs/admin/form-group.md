@@ -5,7 +5,7 @@
 
 # Summary
 
-FormGroup component
+Used to group form's components like, `Checkbox`, and `Toggle`.
 
 # Basic example
 
