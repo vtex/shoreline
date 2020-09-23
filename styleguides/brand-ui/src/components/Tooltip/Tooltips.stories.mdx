@@ -1,34 +1,18 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { Tooltip, TooltipProps } from '.';
+import { Tooltip } from '.';
 import { IconMock } from '../Button/IconMock';
 import { Button } from '../Button';
 import { Icon, IconProps } from '@vtex-components/icon'
 
 <Meta title="MDX/Tooltips" component={Tooltip} />
 
-export const Template = (args) => (
-  <div
-    style={{
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      marginTop: '5%',
-      marginBottom: '5%',
-    }}
-  >
-    <Tooltip {...args}>
-      <Button>Children component</Button>
-    </Tooltip>
-  </div>
-)
-
 # Tooltip
 
-This story shows different possibilities of how to use the `tooltip` component.
+`Tooltip` is brief piece of information that appear on hover state over an element to clarify its meaning or use for the user.
 
 <Canvas>
-  <Story name="Default tooltip" args={{ label: 'Label', placement: 'top' }}>
-    {Template.bind({})}
+  <Story name="Default tooltip">
+    <Tooltip label="Label"><Button>Children component</Button></Tooltip>
   </Story>
 </Canvas>
 
@@ -72,7 +56,7 @@ The `tooltip` can receive `sx` props to change it's design, as you can see below
 
 <Canvas>
   <Story name="Custom sx">
-    <Tooltip label="Label" sx={{backgroundColor: 'red', color: 'yellow'}}><Button>Button</Button></Tooltip>
+    <Tooltip label="Label" sx={{backgroundColor: 'warning.base', color: 'black'}}><Button>Button</Button></Tooltip>
   </Story>
 </Canvas>
 
