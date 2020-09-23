@@ -10,5 +10,11 @@ export {
   CollapsibleProps,
   useCollapsible,
 } from './components/Collapsible'
+export {
+  Accordion,
+  AccordionInitalState,
+  AccordionProps,
+  useAccordion,
+} from './components/Accordion'
 export * from './icons'
 export { useFocusHollow } from './hooks'

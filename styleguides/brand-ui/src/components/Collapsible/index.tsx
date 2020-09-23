@@ -16,7 +16,7 @@ import { useFocusHollow } from '../../hooks'
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
  * @example
  * ```jsx
- * import { Collapsible, useCollapsible } from `@vtex/admin-ui`
+ * import { Collapsible, useCollapsible } from `@vtex/brand-ui`
  * const props = useCollapsible()
  * <Collapsible {...props}>
  *   <Collapsible.Header label="Title goes here">
