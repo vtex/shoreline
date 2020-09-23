@@ -14,7 +14,8 @@ import { SxStyleProp, Box } from 'theme-ui'
  * It renders a popover element by default.
  *
  * This is a styled base component, so any system can theme it.
- * You may configure your `components.popover` property of the theme object.
+ * To customize this component, you just need to add the `popover` variant
+ * in your theme.
  * @example
  * ```jsx
  * import { Popover, usePopoverState } from '@vtex-components/popover'
@@ -51,7 +52,9 @@ function Popover(props: PopoverProps) {
       <PopoverDisclosure {...popover}>{disclosure}</PopoverDisclosure>
       <ReakitPopover {...popover} {...popoverProps}>
         {arrow && cloneElement(arrow, { ...popover })}
-        <Box sx={sx}>{children}</Box>
+        <Box variant="popover" sx={sx}>
+          {children}
+        </Box>
       </ReakitPopover>
     </>
   )

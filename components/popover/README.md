@@ -4,6 +4,8 @@ Elementary popover component that can be reused by all VTEX Styleguides.
 You can use reakit full features (except the 'as' prop) and theme-ui's sx.
 It renders a popover element by default.
 
+> This is a styled base component, so any system can theme it. To customize this component, you just need to add the `popover` variant in your theme (check the [theming](#-theming) section).
+
 ## Install
 
 ```bash
@@ -53,12 +55,10 @@ You can define the theme with:
 
 ```js
 const theme = {
-  components: {
-    popover: {
-      styles: {
-        backgroundColor: 'white',
-      }
-    },
+  popover: {
+    backgroundColor: 'white',
+    padding: 3,
+    ...
   },
 }
 ```
