@@ -90,6 +90,7 @@ function Accordion({
       visible: visible === key,
       toggle: () => toggle(key),
       disabled: disabled.some((id) => id === key),
+      baseId: `id-${key}`,
     }
 
     return React.createElement(Collapsible, props, child.props.children)
