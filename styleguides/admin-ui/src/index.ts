@@ -8,6 +8,17 @@ export { Text, TextProps } from './components/Text'
 export { Skeleton, SkeletonProps } from './components/Skeleton'
 export { Card, CardProps } from './components/Card'
 export {
+  Menu,
+  MenuProps,
+  MenuItemProps,
+  StatelessMenu,
+  StatelessMenuProps,
+  useMenuState,
+  ActionButton,
+  ActionButtonProps,
+  MenuDisclosure,
+} from './components/Menu'
+export {
   VisuallyHidden,
   VisuallyHiddenProps,
 } from './components/VisuallyHidden'

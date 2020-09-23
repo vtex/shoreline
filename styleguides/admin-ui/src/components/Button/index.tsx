@@ -1,6 +1,5 @@
-import React, { Ref } from 'react'
+import React, { Ref, forwardRef } from 'react'
 import { SxStyleProp } from 'theme-ui'
-import { forwardRef } from '@vtex-components/utils'
 
 import { useFocusHollow } from '../../hooks'
 import { Box } from '../Box'
