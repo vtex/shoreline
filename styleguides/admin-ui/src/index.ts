@@ -27,6 +27,7 @@ export {
   useCollapsible,
   CollapsibleProps,
 } from './components/Collapsible'
+export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Toggle, ToggleProps, useToggle } from './components/Toggle'
 export * from './icons'
 export { Avatar } from './components/Avatar'

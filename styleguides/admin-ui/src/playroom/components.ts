@@ -18,6 +18,7 @@ export {
   Divider,
   Label,
   CheckboxGroup,
+  Tooltip,
 } from '../index'
 
 export {

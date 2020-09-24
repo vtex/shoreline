@@ -10,8 +10,14 @@ export default {
   component: Tooltip,
 } as Meta
 
-export const Basic: Story<TooltipProps> = () => (
-  <Tooltip placement="right" label="Add new channel">
+const Template: Story<TooltipProps> = (args) => (
+  <Tooltip {...args}>
     <Button icon={<IconAddChannel />} variant="text" />
   </Tooltip>
 )
+
+export const Usage = Template.bind({})
+Usage.args = {
+  placement: 'right',
+  label: 'Add new channel',
+}
