@@ -14,7 +14,7 @@ const Template: Story<PopoverProps> = ({ children, ...args }) => (
   <Popover
     {...args}
     disclosure={
-      <Button size="small" sx={{ marginTop: 8, marginLeft: 7 }}>
+      <Button size="small" sx={{ marginTop: 8, marginLeft: 10 }}>
         Click
       </Button>
     }
@@ -27,8 +27,9 @@ export const SimpleUsage = Template.bind({})
 SimpleUsage.args = {
   placement: 'top',
   variant: 'regular',
-  children: 'This is a popover',
+  children: 'Lorem ipsum dolor sit amet',
   visible: true,
+  showClose: true,
 }
 
 export const WithBar = () => (
@@ -169,6 +170,8 @@ export const WithBarSmall = () => (
   <>
     <Popover
       visible
+      showClose
+      sx={{ width: '18rem' }}
       variant="small"
       disclosure={
         <Button size="small" sx={{ marginTop: 9, marginLeft: 10 }}>
@@ -208,6 +211,8 @@ export const WithBarSmall = () => (
     </Popover>
     <Popover
       visible
+      showClose
+      sx={{ width: '18rem' }}
       variant="small"
       disclosure={
         <Button size="small" sx={{ marginTop: 9, marginLeft: 11 }}>
@@ -247,6 +252,8 @@ export const WithBarSmall = () => (
     </Popover>
     <Popover
       visible
+      showClose
+      sx={{ width: '18rem' }}
       variant="small"
       disclosure={
         <Button size="small" sx={{ marginTop: 9, marginLeft: 11 }}>

@@ -5,6 +5,9 @@ import BasePopover, {
 import { Box, BoxProps } from 'theme-ui'
 import { PopoverArrow, usePopoverState } from 'reakit'
 
+import { IconClose } from '../../icons/Close'
+import { Button } from '../Button'
+
 const Content = ({ children, ...props }: BoxProps) => (
   <Box {...props} variant="popover.content">
     {children}
@@ -16,6 +19,7 @@ export const Popover = ({
   placement = 'top',
   visible = false,
   variant = 'regular',
+  showClose,
   ...props
 }: PopoverProps) => {
   const popover = usePopoverState({ placement, visible })
@@ -29,8 +33,8 @@ export const Popover = ({
           <PopoverArrow
             as={Box}
             size={25}
-            variant={`popover.arrow.${placement}`}
-            placement={placement}
+            variant={`popover.arrow.${popover.placement}`}
+            placement={popover.placement}
           />
         ) : (
             undefined
@@ -38,6 +42,16 @@ export const Popover = ({
       }
     >
       {children}
+      {showClose && (
+        <Box variant="popover.close">
+          <Button
+            size="small"
+            variant="tertiary"
+            icon={IconClose}
+            onClick={() => popover.hide()}
+          />
+        </Box>
+      )}
     </BasePopover>
   )
 }
@@ -47,8 +61,14 @@ Popover.Content = Content
 export interface PopoverProps
   extends Pick<BaseProps, 'children' | 'disclosure' | 'sx' | 'visible'> {
   /**
+   *
    * @default top
    */
   placement?: 'top' | 'right' | 'bottom' | 'left'
+  /**
+   * Show the close icon on the top-right section of the popover
+   * @default false
+   */
+  showClose?: boolean
   variant?: 'regular' | 'small'
 }

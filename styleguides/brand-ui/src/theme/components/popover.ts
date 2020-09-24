@@ -1,3 +1,9 @@
+const close = {
+  position: 'absolute',
+  right: 2,
+  top: 3,
+}
+
 const content = {
   paddingX: 5,
   paddingY: 4,
@@ -32,8 +38,7 @@ const popover = {
   boxShadow: '0px 3px 9px rgba(61, 62, 64, 0.25)',
   borderRadius: 3,
   maxWidth: '24rem',
-  transition: 'opacity 250ms ease-in-out, transform 250ms ease-in-out',
-  transformOrigin: 'top center',
+  close,
   content,
   arrow,
 }
