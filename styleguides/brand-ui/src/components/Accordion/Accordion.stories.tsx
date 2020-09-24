@@ -14,9 +14,7 @@ export const SimpleUsage = () => {
   return (
     <Accordion {...accordion} sx={{ width: 300 }}>
       <Accordion.Section>
-        <Accordion.Section.Header>
-          Build for Community #1
-        </Accordion.Section.Header>
+        <Accordion.Section.Header label="Build for Community #1" />
         <Accordion.Section.Content>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
@@ -25,9 +23,7 @@ export const SimpleUsage = () => {
         </Accordion.Section.Content>
       </Accordion.Section>
       <Accordion.Section>
-        <Accordion.Section.Header>
-          Build for Community #2
-        </Accordion.Section.Header>
+        <Accordion.Section.Header label="Build for Community #2" />
         <Accordion.Section.Content>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
@@ -45,9 +41,7 @@ export const SectionInitialyVisible = () => {
   return (
     <Accordion {...accordion} sx={{ width: 300 }}>
       <Accordion.Section>
-        <Accordion.Section.Header>
-          Build for Community #1
-        </Accordion.Section.Header>
+        <Accordion.Section.Header label="Build for Community #1" />
         <Accordion.Section.Content>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
@@ -56,9 +50,7 @@ export const SectionInitialyVisible = () => {
         </Accordion.Section.Content>
       </Accordion.Section>
       <Accordion.Section>
-        <Accordion.Section.Header>
-          Build for Community #2
-        </Accordion.Section.Header>
+        <Accordion.Section.Header label="Build for Community #2" />
         <Accordion.Section.Content>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
@@ -67,9 +59,7 @@ export const SectionInitialyVisible = () => {
         </Accordion.Section.Content>
       </Accordion.Section>
       <Accordion.Section>
-        <Accordion.Section.Header>
-          Build for Community #3
-        </Accordion.Section.Header>
+        <Accordion.Section.Header label="Build for Community #3" />
         <Accordion.Section.Content>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
@@ -87,9 +77,7 @@ export const SectionsDisabled = () => {
   return (
     <Accordion {...accordion} sx={{ width: 300 }}>
       <Accordion.Section>
-        <Accordion.Section.Header>
-          Build for Community #1
-        </Accordion.Section.Header>
+        <Accordion.Section.Header label="Build for Community #1" />
         <Accordion.Section.Content>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
@@ -98,9 +86,7 @@ export const SectionsDisabled = () => {
         </Accordion.Section.Content>
       </Accordion.Section>
       <Accordion.Section>
-        <Accordion.Section.Header>
-          Build for Community #2
-        </Accordion.Section.Header>
+        <Accordion.Section.Header label="Build for Community #2" />
         <Accordion.Section.Content>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
@@ -109,9 +95,7 @@ export const SectionsDisabled = () => {
         </Accordion.Section.Content>
       </Accordion.Section>
       <Accordion.Section>
-        <Accordion.Section.Header>
-          Build for Community #3
-        </Accordion.Section.Header>
+        <Accordion.Section.Header label="Build for Community #3" />
         <Accordion.Section.Content>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building

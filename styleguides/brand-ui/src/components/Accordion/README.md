@@ -32,8 +32,12 @@ const MyAccordion = () => {
   return (
     <Accordion {...props}>
       <Accordion.Section>
-        <Accordion.Section.Header>Header 1</Accordion.Section.Header>
+        <Accordion.Section.Header label="Header 1" />
         <Accordion.Section.Content>Content 1</Accordion.Section.Content>
+      </Accordion.Section>
+      <Accordion.Section>
+        <Accordion.Section.Header label="Header 2" />
+        <Accordion.Section.Content>Content 2</Accordion.Section.Content>
       </Accordion.Section>
     </Accordion>
   )
@@ -53,13 +57,11 @@ const MyAccordion = () => {
   return (
     <Accordion {...props}>
       <Accordion.Section>
-        <Accordion.Section.Header>Header 1</Accordion.Section.Header>
+        <Accordion.Section.Header label="Header 1" />
         <Accordion.Section.Content>Content 1</Accordion.Section.Content>
       </Accordion.Section>
       <Accordion.Section>
-        <Accordion.Section.Header>
-          Header 2 - Initially Open
-        </Accordion.Section.Header>
+        <Accordion.Section.Header label="Header 2 - Initially Open" />
         <Accordion.Section.Content>Content 2</Accordion.Section.Content>
       </Accordion.Section>
     </Accordion>
@@ -80,11 +82,11 @@ const MyAccordion = () => {
   return (
     <Accordion {...props}>
       <Accordion.Section>
-        <Accordion.Section.Header>Header 1</Accordion.Section.Header>
+        <Accordion.Section.Header label="Header 1" />
         <Accordion.Section.Content>Content 1</Accordion.Section.Content>
       </Accordion.Section>
       <Accordion.Section>
-        <Accordion.Section.Header>Header 2 - Disabled</Accordion.Section.Header>
+        <Accordion.Section.Header label="Header 2 - Disabled" />
         <Accordion.Section.Content>Content 2</Accordion.Section.Content>
       </Accordion.Section>
     </Accordion>
