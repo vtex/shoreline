@@ -1,24 +1,23 @@
 import React, { ReactNode } from 'react'
 import { SxStyleProp } from 'theme-ui'
-import { mergeSx } from '@vtex-components/theme'
 
 import { Label } from '../Label'
 import { Box } from '../Box'
 
-export function CheckboxGroup({
-  sx = {},
-  label,
-  id,
-  orientation = 'horizontal',
-  size = 'regular',
-  children,
-}: CheckboxGroupProps) {
-  const styles = mergeSx<SxStyleProp>(
-    {
-      variant: `forms.controlGroup-${orientation}-${size}`,
-    },
-    sx
-  )
+export function CheckboxGroup(props: CheckboxGroupProps) {
+  const {
+    sx = {},
+    label,
+    id,
+    orientation = 'horizontal',
+    size = 'regular',
+    children,
+  } = props
+
+  const styles = {
+    variant: `forms.controlGroup-${orientation}-${size}`,
+    ...sx,
+  }
 
   return (
     <>

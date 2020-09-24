@@ -19,11 +19,11 @@ export const Horizontal = () => {
       size="regular"
       label="Checkbox Group Label!"
     >
-      <Label display="flex" items="center">
+      <Label>
         <Checkbox {...checkboxProps} value="1" />
         First Checkbox
       </Label>
-      <Label display="flex" items="center">
+      <Label>
         <Checkbox {...checkboxProps} value="2" />
         Second Checkbox
       </Label>
@@ -40,11 +40,11 @@ export const Vertical = () => {
       size="regular"
       label="Checkbox Group Label!"
     >
-      <Label display="flex" items="center">
+      <Label>
         <Checkbox {...checkboxProps} value="1" />
         First Checkbox
       </Label>
-      <Label display="flex" items="center">
+      <Label>
         <Checkbox {...checkboxProps} value="2" />
         Second Checkbox
       </Label>
