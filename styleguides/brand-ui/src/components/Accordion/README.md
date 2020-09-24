@@ -69,7 +69,7 @@ const MyAccordion = () => {
 
 ### Section Disabled
 
-For this, you just need to pass the a list of index of the section that must be disabled to the `disabled` accordion prop.
+For this, you just need to pass the list of indexes of the section that must be disabled to the `disabled` accordion prop.
 
 ```jsx
 import { Accordion, useAccordion } from '@brand-ui'
