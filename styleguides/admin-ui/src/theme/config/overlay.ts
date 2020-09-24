@@ -3,6 +3,15 @@ import { SxStyleProp } from 'theme-ui'
 import space from './space'
 
 export default {
+  tooltip: {
+    backgroundColor: 'text',
+    color: 'background',
+    fontSize: 1,
+    paddingY: 5,
+    paddingX: 7,
+    borderRadius: 3,
+    height: 10,
+  },
   menu: {
     display: 'flex',
     flexDirection: 'column',
