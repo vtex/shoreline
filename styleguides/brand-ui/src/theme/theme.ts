@@ -57,6 +57,7 @@ export const theme = {
   collapsible,
   header,
   hamburgerMenu,
+  tooltip,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
