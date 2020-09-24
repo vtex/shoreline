@@ -41,4 +41,6 @@ export {
   IconLink,
   IconDelete,
   IconActions,
+  IconMoney,
+  IconTruck,
 } from '../icons'
