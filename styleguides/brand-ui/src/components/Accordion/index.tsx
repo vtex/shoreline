@@ -8,7 +8,7 @@ import { Box } from 'theme-ui'
 
 import { useCollapsible, Collapsible, CollapsibleProps } from '../Collapsible'
 
-interface AccordionInitalState {
+interface AccordionInitialState {
   /**
    * Key of the current visible section content
    * @default -1
@@ -23,14 +23,14 @@ interface AccordionInitalState {
 
 interface AccordionProps
   extends Omit<CollapsibleProps, 'visible' | 'toggle' | 'disabled'>,
-    AccordionInitalState {
+    AccordionInitialState {
   /**
    * Function to toggle a section with the key received
    */
   toggle: (key: number) => void
 }
 
-const useAccordion = (initialState?: AccordionInitalState): AccordionProps => {
+const useAccordion = (initialState?: AccordionInitialState): AccordionProps => {
   const [currentVisible, setVisible] = useState(initialState?.visible ?? -1)
   const collapsible = useCollapsible({ animated: true })
 
@@ -106,4 +106,4 @@ Panel.Content = Collapsible.Content
 
 Accordion.Section = Panel
 
-export { Accordion, useAccordion, AccordionProps, AccordionInitalState }
+export { Accordion, useAccordion, AccordionProps, AccordionInitialState }

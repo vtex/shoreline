@@ -12,7 +12,7 @@ export {
 } from './components/Collapsible'
 export {
   Accordion,
-  AccordionInitalState,
+  AccordionInitialState,
   AccordionProps,
   useAccordion,
 } from './components/Accordion'
