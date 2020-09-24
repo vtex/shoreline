@@ -36,10 +36,12 @@ Playground.args = {
 
 export const States = () => (
   <Box sx={{ backgroundColor: 'white', p: 5 }}>
+    <Input id="idle" label="Idle" helpMessage="This is an idle input." />
     <Input
-      id="idle"
-      label="Idle"
-      helpMessage="This is an idle input."
+      id="filled"
+      label="Filled"
+      helpMessage="This is a filled input."
+      value="This time I'm not leaving"
     />
     <Input
       id="disabled"

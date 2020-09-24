@@ -64,7 +64,7 @@ const useInputState = ({
     setState(resolveInputState({ disabled, readOnly, error, filled, focused }))
   }, [filled, focused, error, disabled, readOnly])
 
-  return { state, setFocused, charCount, setCharCount }
+  return { state, charCount, setFocused }
 }
 
 export default useInputState

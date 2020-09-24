@@ -1,16 +1,8 @@
 import React, { useState, useRef, PropsWithChildren, ReactNode } from 'react'
-import {
-  Box,
-  Flex,
-  Label,
-  Input as ThemeUIInput,
-  Text,
-  SxStyleProp,
-} from 'theme-ui'
+import { Box, Flex, Label, Input as ThemeUIInput, Text } from 'theme-ui'
 import { Input as ReakitInput, InputProps as BaseProps } from 'reakit/Input'
 
 import { forwardRef } from '@vtex-components/utils'
-import { useComponentSx, mergeSx } from '@vtex-components/theme'
 
 import useInputState from './useInputState'
 
@@ -29,29 +21,31 @@ const getLabelStyles = ({
     large: -28,
   }
 
-  return mergeSx<SxStyleProp>(
-    {
-      color: state === 'error' ? 'danger.base' : 'muted.0',
-      width: 'fit-content',
-      position: 'absolute',
-      pointerEvents: 'none',
-      fontSize: 2,
-      left: prefix ? 48 : 'auto',
-      lineHeight: 'action',
-      transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
-    },
-    state !== 'idle'
-      ? {
-          paddingX: 2,
-          paddingY: 0,
-          lineHeight: 'small',
-          backgroundColor: 'white',
-          transform: `translate(${prefix ? -44 : -12}px, ${
-            transitionY[size]
-          }px) scale(0.75)`,
-        }
-      : {}
-  )
+  const styles = {
+    color: state === 'error' ? 'danger.base' : 'muted.0',
+    width: 'fit-content',
+    position: 'absolute',
+    pointerEvents: 'none',
+    fontSize: 2,
+    left: prefix ? 48 : 'auto',
+    lineHeight: 'action',
+    transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
+  }
+
+  const activeStyles = {
+    paddingX: 2,
+    paddingY: 0,
+    lineHeight: 'small',
+    backgroundColor: 'white',
+    transform: `translate(${prefix ? -44 : -12}px, ${
+      transitionY[size]
+    }px) scale(0.75)`,
+  }
+
+  return {
+    ...styles,
+    ...(state !== 'idle' ? activeStyles : {}),
+  }
 }
 
 const BrandInput = (props: PropsWithChildren<InputProps>) => {
@@ -81,14 +75,10 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
     error,
     value,
   })
-  const styles = useComponentSx('input', {
-    size,
-    state,
-  })
 
   return (
     <Box
-      sx={{ margin: 4, width: 'fit-content' }}
+      sx={{ margin: 2, width: 'fit-content' }}
       onFocus={() => redirectFocus()}
     >
       <ReakitInput
@@ -105,7 +95,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
         {...inputProps}
       >
         {(enhancedProps) => (
-          <Flex sx={mergeSx<SxStyleProp>(styles, sx)}>
+          <Flex variant={`input.${size}-${state}`} sx={sx}>
             {prefix && (
               <Flex sx={{ alignItems: 'center', mr: 3 }}>{prefix}</Flex>
             )}

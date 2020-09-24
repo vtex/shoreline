@@ -4,6 +4,7 @@ import header from './components/header'
 import hamburgerMenu from './components/hamburgerMenu'
 import tooltip from './components/tooltip'
 import card from './components/card'
+import input from './components/input'
 
 export const theme = {
   colors: {
@@ -60,54 +61,7 @@ export const theme = {
   hamburgerMenu,
   tooltip,
   card,
-  components: {
-    input: {
-      styles: {
-        paddingX: 4,
-        alignItems: 'center',
-        position: 'relative',
-        width: 'fit-content',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        borderColor: 'muted.2',
-        borderRadius: 3,
-        ':hover': {
-          borderColor: 'secondary.hover',
-        },
-        ':focus-within': {
-          borderColor: 'secondary.hover',
-          boxShadow: (t) => `0 0 0 ${t.borderWidths[2]}px ${t.colors.focus}`,
-          outline: 'none',
-        },
-      },
-      size: {
-        regular: {
-          height: 48,
-        },
-        small: {
-          height: 36,
-        },
-        large: {
-          height: 56,
-        },
-      },
-      state: {
-        disabled: {
-          color: 'muted.1',
-        },
-        error: {
-          borderColor: 'danger.base',
-        },
-        filled: {
-          borderColor: 'secondary.hover',
-        },
-        readOnly: {
-          backgroundColor: 'muted.3',
-          borderColor: 'muted.1',
-        },
-      },
-    },
-  },
+  input,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
