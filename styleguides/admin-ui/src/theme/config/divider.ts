@@ -1,8 +1,7 @@
-import colors from './colors'
-import sizes from './sizes'
-
 const styles = {
-  border: `${sizes[1]} solid ${colors.muted[3]}`,
+  border: 'solid',
+  borderWidth: 1,
+  borderColor: 'muted.3',
 }
 
 export default {
