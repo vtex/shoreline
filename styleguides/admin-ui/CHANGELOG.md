@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.37.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.36.1...@vtex/admin-ui@0.37.0) (2020-09-24)
+
+
+### Features
+
+* **icons:** add Truck and Money icons ([c813b73](https://github.com/vtex/onda/commit/c813b7345e56de47d5981cf22504c63b6e3b31c0))
+
+
+
+
+
 ## [0.36.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.36.0...@vtex/admin-ui@0.36.1) (2020-09-23)
 
 
