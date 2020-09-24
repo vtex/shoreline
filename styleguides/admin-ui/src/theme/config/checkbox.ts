@@ -28,7 +28,7 @@ const styles = {
     },
   },
   '&:indeterminate': {
-    backgroundColor: 'primary.washed',
+    backgroundColor: 'primary.washed.0',
     borderColor: 'primary.base',
     color: 'primary.base',
     '&:after': {
@@ -66,7 +66,7 @@ const styles = {
     borderColor: 'text',
   },
   '&:active': {
-    backgroundColor: 'primary.washed',
+    backgroundColor: 'primary.washed.0',
     borderColor: 'text',
   },
 }

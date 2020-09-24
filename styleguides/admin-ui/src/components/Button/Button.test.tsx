@@ -10,7 +10,7 @@ expect.addSnapshotSerializer(serializer)
 
 describe('Button tests', () => {
   it('should match snapshot', () => {
-    const variants = ['filled', 'outlined', 'subtle'] as Variant[]
+    const variants = ['filled', 'subtle', 'text'] as Variant[]
     const palettes = ['primary', 'danger'] as Palette[]
     const sizes = ['regular', 'small'] as Size[]
 

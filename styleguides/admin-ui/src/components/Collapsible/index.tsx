@@ -65,14 +65,8 @@ function Disclosure({ children }: { children: ReactNode }) {
           <Button
             {...enhancedProps}
             iconPosition="start"
-            icon={({ size, sx }) => (
-              <IconCaret
-                size={size}
-                direction={visible ? 'down' : 'right'}
-                sx={sx}
-              />
-            )}
-            variant="subtle"
+            icon={<IconCaret direction={visible ? 'down' : 'right'} />}
+            variant="text"
             sx={{
               color: 'text',
               '&:hover': { backgroundColor: 'transparent' },

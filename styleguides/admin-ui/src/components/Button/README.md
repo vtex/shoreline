@@ -29,8 +29,8 @@ function UseCase() {
   return (
     <>
       <Button variant="filled">Filled Button</Button>
-      <Button variant="outlined">Outlined Button</Button>
       <Button variant="subtle">Subtle Button</Button>
+      <Button variant="text">Text Button</Button>
     </>
   )
 }
@@ -72,7 +72,7 @@ function UseCase() {
 | prop         | type                                                      | description                | required | default   |
 | ------------ | --------------------------------------------------------- | -------------------------- | -------- | --------- |
 | size         | "regular", "small"                                        | Size of the button         | 🚫       | "regular" |
-| variant      | "filled", "outlined", "subtle"                            | Button variant             | 🚫       | "filled"  |
+| variant      | "filled", "subtle", "text"                                | Button variant             | 🚫       | "filled"  |
 | palette      | "primary", "danger"                                       | Colors palette             | 🚫       | "primary" |
 | iconPosition | "start", "end"                                            | Position of the icon       | 🚫       | "start"   |
 | icon         | (props: { size: number; sx: SxStyleProp }) => JSX.Element | Icon of the button         | 🚫       | -         |
@@ -105,10 +105,10 @@ In the `styleguide v9`, we used `variation` to define the type and color of the 
 #### How we use
 
 - `variation="primary"` -> `variant="filled" palette="primary"`
-- `variation="secondary"` -> `variant="outlined" palette="primary"`
-- `variation="tertiary"` -> `variant="subtle" palette="primary"`
+- `variation="secondary"` -> `variant="subtle" palette="primary"`
+- `variation="tertiary"` -> `variant="text" palette="primary"`
 - `variation="danger"` -> `variant="filled" palette="danger"`
-- `variation="danger-tertiary"` -> `variant="subtle" palette="danger"`
+- `variation="danger-tertiary"` -> `variant="text" palette="danger"`
 
 ### Button with Icon
 

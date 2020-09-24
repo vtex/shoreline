@@ -9,20 +9,20 @@ export default {
     hover: '#1E4397',
     active: '#3F6FDB',
     contrast: '#FFFFFF',
-    washed: '#F4F8FE',
+    washed: ['#F4F8FE', '#E8F1FF', '#DBE9FF'],
   },
   danger: {
     base: '#D23030',
     hover: '#A70C0C',
     active: '#DE0404',
     contrast: '#FFFFFF',
-    washed: '#FFF0F0',
+    washed: ['#FFF0F0', '#FFE3E3', '#FFD0D0'],
   },
   success: {
     base: '#097E47',
     hover: '#005C31',
     active: '#26AE6E',
     contrast: '#FFFFFF',
-    washed: '#E2F5EA',
+    washed: ['#E2F5EA'],
   },
 }

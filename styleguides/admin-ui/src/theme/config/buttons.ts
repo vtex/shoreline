@@ -15,6 +15,13 @@ const size = {
     width: 12,
     paddingLeft: 3,
     paddingRight: 3,
+    svg: {
+      width: 8,
+      minWidth: 8,
+      height: 8,
+      minHeight: 8,
+      margin: 3,
+    },
   },
   'regular-icon-start': {
     paddingY: 5,
@@ -23,6 +30,13 @@ const size = {
     width: 'auto',
     paddingLeft: 5,
     paddingRight: 7,
+    svg: {
+      width: 8,
+      minWidth: 8,
+      height: 8,
+      minHeight: 8,
+      margin: 3,
+    },
   },
   'regular-icon-end': {
     paddingY: 5,
@@ -31,6 +45,13 @@ const size = {
     width: 'auto',
     paddingLeft: 7,
     paddingRight: 5,
+    svg: {
+      width: 8,
+      minWidth: 8,
+      height: 8,
+      minHeight: 8,
+      margin: 3,
+    },
   },
   small: {
     paddingY: 4,
@@ -47,6 +68,13 @@ const size = {
     width: 10,
     paddingLeft: 2,
     paddingRight: 2,
+    svg: {
+      width: 7,
+      minWidth: 7,
+      height: 7,
+      minHeight: 7,
+      margin: 3,
+    },
   },
   'small-icon-start': {
     paddingY: 4,
@@ -55,6 +83,13 @@ const size = {
     width: 'auto',
     paddingLeft: 5,
     paddingRight: 7,
+    svg: {
+      width: 7,
+      minWidth: 7,
+      height: 7,
+      minHeight: 7,
+      margin: 3,
+    },
   },
   'small-icon-end': {
     paddingY: 4,
@@ -63,6 +98,13 @@ const size = {
     width: 'auto',
     paddingLeft: 7,
     paddingRight: 5,
+    svg: {
+      width: 7,
+      minWidth: 7,
+      height: 7,
+      minHeight: 7,
+      margin: 3,
+    },
   },
 }
 
@@ -72,54 +114,49 @@ const variant = {
     color: 'primary.contrast',
     backgroundColor: 'primary.base',
     fontVariationSettings: "'wght' 92",
-    borderColor: 'primary.base',
-    '&:hover': {
+    ':hover': {
       backgroundColor: 'primary.hover',
-      borderColor: 'primary.hover',
     },
-    '&:active': {
+    ':active': {
       backgroundColor: 'primary.active',
-      borderColor: 'primary.active',
     },
-    '&:disabled': {
+    ':disabled': {
       color: 'text',
-      borderColor: 'muted.2',
       backgroundColor: 'muted.2',
     },
   },
-  'outlined-primary': {
+  'subtle-primary': {
     textTransform: 'uppercase',
-    backgroundColor: 'transparent',
-    borderColor: 'muted.2',
+    backgroundColor: 'primary.washed.0',
     color: 'primary.base',
     fontVariationSettings: "'wght' 92",
-    '&:hover': {
-      backgroundColor: 'primary.washed',
+    ':hover': {
+      backgroundColor: 'primary.washed.1',
       color: 'primary.hover',
     },
-    '&:active': {
+    ':active': {
+      backgroundColor: 'primary.washed.2',
       color: 'primary.active',
     },
-    '&:disabled': {
+    ':disabled': {
       color: 'muted.1',
       backgroundColor: 'muted.4',
     },
   },
-  'subtle-primary': {
-    borderColor: 'transparent',
+  'text-primary': {
     textTransform: 'capitalize',
     backgroundColor: 'transparent',
     color: 'primary.base',
     fontVariationSettings: "'wght' 92",
-    '&:hover': {
+    ':hover': {
       color: 'primary.hover',
-      backgroundColor: 'primary.washed',
+      backgroundColor: 'primary.washed.0',
     },
-    '&:active': {
+    ':active': {
       color: 'primary.active',
-      backgroundColor: 'primary.washed',
+      backgroundColor: 'primary.washed.0',
     },
-    '&:disabled': {
+    ':disabled': {
       color: 'muted.1',
     },
   },
@@ -128,66 +165,60 @@ const variant = {
     color: 'danger.contrast',
     backgroundColor: 'danger.base',
     fontVariationSettings: "'wght' 92",
-    borderColor: 'danger.base',
-    '&:hover': {
-      borderColor: 'danger.hover',
+    ':hover': {
       backgroundColor: 'danger.hover',
     },
-    '&:active': {
-      borderColor: 'danger.active',
+    ':active': {
       backgroundColor: 'danger.active',
     },
-    '&:disabled': {
-      borderColor: 'muted.2',
+    ':disabled': {
       color: 'text',
       backgroundColor: 'muted.2',
     },
   },
-  'outlined-danger': {
+  'subtle-danger': {
     textTransform: 'uppercase',
-    backgroundColor: 'transparent',
-    borderColor: 'muted.2',
+    backgroundColor: 'danger.washed.0',
     color: 'danger.base',
     fontVariationSettings: "'wght' 92",
-    '&:hover': {
-      backgroundColor: 'danger.washed',
+    ':hover': {
+      backgroundColor: 'danger.washed.1',
       color: 'danger.hover',
     },
-    '&:active': {
+    ':active': {
+      backgroundColor: 'danger.washed.2',
       color: 'danger.active',
     },
-    '&:disabled': {
+    ':disabled': {
       color: 'muted.1',
       backgroundColor: 'muted.4',
     },
   },
-  'subtle-danger': {
-    borderColor: 'transparent',
+  'text-danger': {
     textTransform: 'capitalize',
-    backgroundColor: 'transparent',
+    backgroundColor: 'danger.washed.0',
     color: 'danger.base',
     fontVariationSettings: "'wght' 92",
-    '&:hover': {
+    ':hover': {
       color: 'danger.hover',
-      backgroundColor: 'danger.washed',
+      backgroundColor: 'danger.washed.0',
     },
-    '&:active': {
+    ':active': {
       color: 'danger.active',
-      backgroundColor: 'danger.washed',
+      backgroundColor: 'danger.washed.0',
     },
-    '&:disabled': {
+    ':disabled': {
       color: 'muted.1',
     },
   },
 }
 
 const styles = {
-  borderWidth: 1,
+  border: 'none',
   borderRadius: 3,
   cursor: 'pointer',
   position: 'relative',
-  borderStyle: 'solid',
-  '&:focus': {
+  ':focus': {
     outline: 'none',
   },
 }
