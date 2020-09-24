@@ -16,6 +16,8 @@ export {
   MenuDisclosure,
   Checkbox,
   Divider,
+  Label,
+  CheckboxGroup,
 } from '../index'
 
 export {

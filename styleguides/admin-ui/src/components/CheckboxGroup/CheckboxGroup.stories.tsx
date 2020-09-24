@@ -31,15 +31,32 @@ export const Horizontal = () => {
   )
 }
 
+Horizontal.parameters = {
+  playroom: {
+    code: `
+<Play.CheckboxState state={[]}>
+  {(checkboxProps) => (
+    <CheckboxGroup orientation="horizontal" label="Checkbox Group Label!">
+      <Label>
+        <Checkbox {...checkboxProps} value="1" />
+        First Checkbox
+      </Label>
+      <Label>
+        <Checkbox {...checkboxProps} value="2" />
+        Second Checkbox
+      </Label>
+    </CheckboxGroup>
+  )}
+</Play.CheckboxState>
+    `,
+  },
+}
+
 export const Vertical = () => {
   const checkboxProps = useCheckbox({ state: [] })
 
   return (
-    <CheckboxGroup
-      orientation="vertical"
-      size="regular"
-      label="Checkbox Group Label!"
-    >
+    <CheckboxGroup orientation="vertical" label="Checkbox Group Label!">
       <Label>
         <Checkbox {...checkboxProps} value="1" />
         First Checkbox
@@ -50,4 +67,25 @@ export const Vertical = () => {
       </Label>
     </CheckboxGroup>
   )
+}
+
+Vertical.parameters = {
+  playroom: {
+    code: `
+<Play.CheckboxState state={[]}>
+  {(checkboxProps) => (
+    <CheckboxGroup orientation="vertical" label="Checkbox Group Label!">
+      <Label>
+        <Checkbox {...checkboxProps} value="1" />
+        First Checkbox
+      </Label>
+      <Label>
+        <Checkbox {...checkboxProps} value="2" />
+        Second Checkbox
+      </Label>
+    </CheckboxGroup>
+  )}
+</Play.CheckboxState>
+    `,
+  },
 }
