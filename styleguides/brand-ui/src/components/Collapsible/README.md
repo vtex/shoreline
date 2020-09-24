@@ -10,11 +10,13 @@ The Collapsible has two composites: `Header` and `Content`. It states are contro
 
 #### Header
 
-| prop     | type                 | description               | default   | required |
-| -------- | -------------------- | ------------------------- | --------- | -------- |
-| children | ReactNode            | content of the disclosure | -         | 🚫       |
-| size     | `regular` or `small` | size of the header        | `regular` | 🚫       |
-| sx       | SxStyleProp          | Theme-ui style prop       | -         | 🚫       |
+| prop   | type                                                    | description               | default   | required |
+| ------ | ------------------------------------------------------- | ------------------------- | --------- | -------- |
+| label  | ReactNode                                               | content of the disclosure | -         | ✔️       |
+| prefix | (props: { size: number; sx: SxStyleProp }) => ReactNode | prefix icon of the header | -         | 🚫       |
+| suffix | (props: { size: number; sx: SxStyleProp }) => ReactNode | suffix icon of the header | -         | 🚫       |
+| size   | `regular` or `small`                                    | size of the header        | `regular` | 🚫       |
+| sx     | SxStyleProp                                             | Theme-ui style prop       | -         | 🚫       |
 
 #### Content
 
@@ -36,28 +38,68 @@ To handle states, you can use the `useCollapsible` hook. It is extracted directl
 import { Collapsible, useCollapsible } from '@vtex/brand-ui'
 
 function Standalone() {
-  const props = useCollapsible()
+  const collapsibleProps = useCollapsible()
 
   return (
-    <Collapsible {...props}>
-      <Collapsible.Header>Title</Collapsible.Header>
+    <Collapsible {...collapsibleProps}>
+      <Collapsible.Header label="Header" />
       <Collapsible.Content>Content</Collapsible.Content>
     </Collapsible>
   )
 }
 ```
 
-### Initally Visible
+### Initially Visible
 
 ```jsx
 import { Collapsible, useCollapsible } from '@vtex/brand-ui'
 
-function Standalone() {
-  const props = useCollapsible({ visible: true })
+function InitiallyVisible() {
+  const collapsibleProps = useCollapsible({ visible: true })
 
   return (
-    <Collapsible {...props}>
-      <Collapsible.Header>Title</Collapsible.Header>
+    <Collapsible {...collapsibleProps}>
+      <Collapsible.Header label="Header" />
+      <Collapsible.Content>Content</Collapsible.Content>
+    </Collapsible>
+  )
+}
+```
+
+### With Prefix Icon
+
+```jsx
+import { Collapsible, useCollapsible } from '@vtex/brand-ui'
+
+function WithPrefixIcon() {
+  const collapsibleProps = useCollapsible()
+
+  return (
+    <Collapsible {...collapsibleProps} sx={{ width: ['100%', 500] }}>
+      <Collapsible.Header
+        prefix={(props) => <Icon {...props} />}
+        label="Header"
+      />
+      <Collapsible.Content>Content</Collapsible.Content>
+    </Collapsible>
+  )
+}
+```
+
+### With Suffix Icon
+
+```jsx
+import { Collapsible, useCollapsible } from '@vtex/brand-ui'
+
+function WithSuffixIcon() {
+  const collapsibleProps = useCollapsible()
+
+  return (
+    <Collapsible {...collapsibleProps} sx={{ width: ['100%', 500] }}>
+      <Collapsible.Header
+        suffix={(props) => <Icon {...props} />}
+        label="Header"
+      />
       <Collapsible.Content>Content</Collapsible.Content>
     </Collapsible>
   )
@@ -75,10 +117,10 @@ function NestedCollapsible() {
 
   return (
     <Collapsible {...rootProps}>
-      <Collapsible.Header>Title 1</Collapsible.Header>
+      <Collapsible.Header label="Header" />
       <Collapsible.Content>
         <Collapsible {...childProps}>
-          <Collapsible.Header>Title 2</Collapsible.Header>
+          <Collapsible.Header label="Header" />
           <Collapsible.Content>Child content</Collapsible.Content>
         </Collapsible>
       </Collapsible.Content>
@@ -113,7 +155,7 @@ function Standalone() {
 
   return (
     <Collapsible {...collapsibleProps}>
-      <Collapsible.Header>Title</Collapsible.Header>
+      <Collapsible.Header label="Header" />
       <Collapsible.Content>{data}</Collapsible.Content>
     </Collapsible>
   )

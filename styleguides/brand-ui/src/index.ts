@@ -5,8 +5,10 @@ export { Button, ButtonProps } from './components/Button'
 export { FooterLanding } from './components/FooterLanding'
 export {
   Collapsible,
-  useCollapsible,
+  CollapsibleContentProps,
+  CollapsibleHeaderProps,
   CollapsibleProps,
+  useCollapsible,
 } from './components/Collapsible'
 export * from './icons'
 export { useFocusHollow } from './hooks'
