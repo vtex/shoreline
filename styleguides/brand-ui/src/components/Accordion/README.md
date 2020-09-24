@@ -40,7 +40,7 @@ const MyAccordion = () => {
 }
 ```
 
-### Section Initialy Open
+### Section Initially Open
 
 For this, you just need to pass the key (index of the accordion section) to the `visible` accordion prop.
 
