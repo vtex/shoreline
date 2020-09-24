@@ -1,15 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Flex, Box, BoxProps } from 'theme-ui'
-import React, { ReactNode } from 'react'
-
-function getCardVariant(
-  noPadding: boolean,
-  size: CardProps['size'] = 'regular'
-) {
-  if (noPadding) return 'card.noPadding'
-
-  return `card.${size}`
-}
+import { Flex, Box, BoxProps, Image as ReakitImage, ImageProps } from 'theme-ui'
+import React, { ReactNode, Ref } from 'react'
+import { forwardRef } from '@vtex-components/utils'
 
 const Header = ({ children, ...props }: BoxProps) => (
   <Box {...props} variant="card.header">
@@ -23,6 +15,10 @@ const Body = ({ children, ...props }: BoxProps) => (
   </Box>
 )
 
+const Image = forwardRef((props: ImageProps, ref: Ref<HTMLImageElement>) => (
+  <ReakitImage {...props} ref={ref} />
+))
+
 const Footer = ({ children, ...props }: BoxProps) => (
   <Flex {...props} variant="card.footer">
     {children}
@@ -31,20 +27,15 @@ const Footer = ({ children, ...props }: BoxProps) => (
 
 export const Card = ({
   children,
-  noPadding = false,
   el = 'div',
   sx = {},
-  size,
+  size = 'regular',
   ...props
-}: CardProps) => {
-  const variant = getCardVariant(noPadding, size)
-
-  return (
-    <Flex {...props} variant={variant} as={el} sx={sx}>
+}: CardProps) => (
+    <Flex {...props} variant={`card.${size}`} as={el} sx={sx}>
       {children}
     </Flex>
   )
-}
 
 export interface CardProps extends BoxProps {
   /**
@@ -52,11 +43,6 @@ export interface CardProps extends BoxProps {
    * @default 'div'
    * */
   el?: React.ElementType
-  /**
-   * Use the full size of the card
-   * @default 'false'
-   */
-  noPadding?: boolean
   /**
    * Card size
    * @default 'regular'
@@ -68,3 +54,4 @@ export interface CardProps extends BoxProps {
 Card.Header = Header
 Card.Footer = Footer
 Card.Body = Body
+Card.Image = Image

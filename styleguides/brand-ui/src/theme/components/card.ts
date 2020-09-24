@@ -3,19 +3,31 @@ const baseCard = {
   flexDirection: 'column',
   borderRadius: 3,
   boxShadow: '0px 3px 9px rgba(61, 62, 64, 0.25)',
+  '& > img': { padding: 0 },
 }
 
 const card = {
-  small: { ...baseCard, padding: 4 },
-  regular: { ...baseCard, paddingX: 5, paddingY: 6 },
-  noPadding: { ...baseCard, padding: 0 },
+  small: {
+    ...baseCard,
+    '& > div': { paddingX: 4 },
+    paddingBottom: 4,
+    paddingTop: 4,
+  },
+  regular: {
+    ...baseCard,
+    '& > div': {
+      paddingX: 5,
+    },
+    paddingBottom: 6,
+    paddingTop: 6,
+  },
   header: {
     fontSize: 3,
-    marginBottom: 4,
+    paddingBottom: 4,
   },
   footer: {
+    paddingTop: 4,
     fontSize: 2,
-    marginTop: 4,
   },
   body: {
     fontSize: 2,
