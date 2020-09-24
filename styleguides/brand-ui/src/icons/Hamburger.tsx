@@ -1,16 +1,11 @@
 import React from 'react'
+import { Icon } from '@vtex-components/icon'
 
 export const IconHamburger = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <Icon size={24} viewBox="0 0 24 24">
     <rect width="24" height="24" fill="white" />
-    <rect y="4" width="24" height="3" fill="#F71963" />
-    <rect y="10" width="24" height="3" fill="#F71963" />
-    <rect y="16" width="24" height="3" fill="#F71963" />
-  </svg>
+    <rect y="4" width="24" height="3" fill="#F71963" fillOpacity={1} />
+    <rect y="10" width="24" height="3" fill="#F71963" fillOpacity={1} />
+    <rect y="16" width="24" height="3" fill="#F71963" fillOpacity={1} />
+  </Icon>
 )

@@ -1,56 +1,49 @@
 import React from 'react'
 import { Link, Box } from 'theme-ui'
 
-import { Header } from '.'
+import { Header, LinksProps } from '.'
 import HamburgerMenu from './HamburgerMenu'
+import { IconExternalLink } from '../../icons'
 
 export default {
-  title: 'Work in progress/Header',
+  title: 'beta/Header',
   component: Header,
 }
 
-const Template = () => (
+const Template = (args: LinksProps) => (
   <Header>
     <Header.Brand title="Status" />
     <Header.LeftLinks>
-      <Header.LeftLinks.Links
-        active
-        to="/?path=/story/work-in-progress-header--playground"
-      >
-        Status
-      </Header.LeftLinks.Links>
-      <Header.LeftLinks.Links to="/?path=/story/work-in-progress-header--landing-page">
-        History
-      </Header.LeftLinks.Links>
+      <Header.LeftLinks.Links {...args} />
+      <Header.LeftLinks.Links to="/" title="History" />
     </Header.LeftLinks>
     <Header.RightLinks>
-      <Link href="/?path=/story/work-in-progress-header--playground">
-        CONTACT
-      </Link>
-      <Link href="/?path=/story/work-in-progress-header--playground">
+      <Link href="/">CONTACT</Link>
+      <Link href="/">
         Help Center
+        <Box sx={{ paddingLeft: 3 }}>
+          <IconExternalLink />
+        </Box>
       </Link>
     </Header.RightLinks>
     <Header.ActionButton>
       <HamburgerMenu>
         <HamburgerMenu.Menu>
-          <HamburgerMenu.Menu.Links
-            active
-            to="/?path=/story/work-in-progress-header--playground"
-          >
-            Status
-          </HamburgerMenu.Menu.Links>
-          <HamburgerMenu.Menu.Links to="/?path=/story/work-in-progress-header--landing-page">
-            History
-          </HamburgerMenu.Menu.Links>
-          <HamburgerMenu.Menu.Links to="/?path=/story/work-in-progress-header--playground">
-            Help Center
-          </HamburgerMenu.Menu.Links>
+          <HamburgerMenu.Menu.Links {...args} />
+          <HamburgerMenu.Menu.Links to="/" title="History" />
+          <HamburgerMenu.Menu.Links to="/" title="Help Center" />
         </HamburgerMenu.Menu>
       </HamburgerMenu>
     </Header.ActionButton>
   </Header>
 )
+
+export const Playground = Template.bind({})
+Playground.args = {
+  title: 'Status',
+  to: '/',
+  active: true,
+}
 
 export const LandingPage = () => (
   <Header
@@ -69,5 +62,3 @@ export const LandingPage = () => (
     </Box>
   </Header>
 )
-
-export const Playground = Template.bind({})

@@ -56,6 +56,7 @@ const rightLinks = {
   justifyContent: 'flex-end',
   textTransform: 'uppercase',
   '> a': {
+    display: 'flex',
     minWidth: 'max-content',
     textDecoration: 'none',
     transition: 'color 0.15s ease-in',

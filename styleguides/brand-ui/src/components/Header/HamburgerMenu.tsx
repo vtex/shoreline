@@ -1,57 +1,42 @@
-import React, { PropsWithChildren, useState, Fragment } from 'react'
-import { Box, Flex, SxStyleProp, Link } from 'theme-ui'
+import React, { PropsWithChildren, useState } from 'react'
+import { Box, Flex, Link, SxProps } from 'theme-ui'
 
 import { IconExit, IconHamburger } from '../../icons'
+import { LinksProps } from '.'
 
-interface HamburgerProps {
-  sx?: SxStyleProp
-}
-
-const HamburgerMenu = ({ children, sx }: PropsWithChildren<HamburgerProps>) => {
+const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <Fragment>
-      <Box
-        role="presentation"
-        variant="hamburgerMenu"
-        onClick={() => setOpen(!open)}
-      >
-        {open ? (
+    <Box
+      role="presentation"
+      variant="hamburgerMenu"
+      onClick={() => setOpen(!open)}
+    >
+      {open ? (
+        <>
           <Box sx={{ color: 'secondary.base' }}>
             <IconExit />
           </Box>
-        ) : (
-          <IconHamburger />
-        )}
-      </Box>
-      {open && (
-        <Flex variant="hamburgerMenu.open" sx={sx}>
-          {children}
-        </Flex>
+          <Flex variant="hamburgerMenu.open" sx={sx}>
+            {children}
+          </Flex>
+        </>
+      ) : (
+        <IconHamburger />
       )}
-    </Fragment>
+    </Box>
   )
 }
 
-interface HamburgerMenuProps {
-  sx?: SxStyleProp
-}
-
-const Menu = ({ children, sx }: PropsWithChildren<HamburgerMenuProps>) => (
+const Menu = ({ children, sx }: PropsWithChildren<SxProps>) => (
   <Box variant="hamburgerMenu.menu" sx={sx}>
     {children}
   </Box>
 )
 
-interface LinksProps {
-  sx?: SxStyleProp
-  to: string
-  active?: boolean
-}
-
 const Links = ({
-  children,
+  title,
   to,
   sx,
   active = false,
@@ -60,19 +45,12 @@ const Links = ({
 
   return (
     <Link href={to} variant={variant} sx={sx}>
-      {children}
+      {title}
     </Link>
   )
 }
 
-interface ActionButtonProps {
-  sx?: SxStyleProp
-}
-
-const ActionButton = ({
-  children,
-  sx,
-}: PropsWithChildren<ActionButtonProps>) => (
+const ActionButton = ({ children, sx }: PropsWithChildren<SxProps>) => (
   <Box variant="hamburgerMenu.actionButton" sx={sx}>
     {children}
   </Box>

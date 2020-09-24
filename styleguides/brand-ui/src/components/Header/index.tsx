@@ -1,36 +1,20 @@
 import React, { PropsWithChildren } from 'react'
-import { Box, Flex, SxStyleProp, Link, Text } from 'theme-ui'
+import { Box, Flex, Link, Text, SxProps } from 'theme-ui'
 
 import { IconVTEXExpanded } from '../../icons'
-
-interface HeaderProps {
-  sx?: SxStyleProp
-}
-
-interface LeftLinksProps {
-  sx?: SxStyleProp
-}
 
 interface BrandProps {
   noMargin?: boolean
   title?: string
 }
 
-interface LinksProps {
-  sx?: SxStyleProp
+export interface LinksProps extends SxProps {
+  title: string
   to: string
   active?: boolean
 }
 
-interface RightLinksProps {
-  sx?: SxStyleProp
-}
-
-interface ActionButtonProps {
-  sx?: SxStyleProp
-}
-
-export const Header = ({ children, sx }: PropsWithChildren<HeaderProps>) => (
+export const Header = ({ children, sx }: PropsWithChildren<SxProps>) => (
   <Box variant="header" sx={sx}>
     {children}
   </Box>
@@ -41,13 +25,13 @@ const Brand = ({ noMargin = false, title }: BrandProps) => {
 
   return (
     <Flex variant="header.brand" sx={sx}>
-      <IconVTEXExpanded width={85} height={30} />
+      <IconVTEXExpanded size={80} />
       <Text>{title}</Text>
     </Flex>
   )
 }
 
-const LeftLinks = ({ children, sx }: PropsWithChildren<LeftLinksProps>) => {
+const LeftLinks = ({ children, sx }: PropsWithChildren<SxProps>) => {
   return (
     <Box variant="header.leftLinks" sx={sx}>
       {children}
@@ -55,31 +39,23 @@ const LeftLinks = ({ children, sx }: PropsWithChildren<LeftLinksProps>) => {
   )
 }
 
-const Links = ({
-  children,
-  to,
-  sx,
-  active = false,
-}: PropsWithChildren<LinksProps>) => {
+const Links = ({ title, to, sx, active = false }: LinksProps) => {
   const variant = `header.leftLinks.links.${active ? 'active' : 'noActive'}`
 
   return (
     <Link href={to} variant={variant} sx={sx}>
-      {children}
+      {title}
     </Link>
   )
 }
 
-const RightLinks = ({ children, sx }: PropsWithChildren<RightLinksProps>) => (
+const RightLinks = ({ children, sx }: PropsWithChildren<SxProps>) => (
   <Box variant="header.rightLinks" sx={sx}>
     {children}
   </Box>
 )
 
-const ActionButton = ({
-  children,
-  sx,
-}: PropsWithChildren<ActionButtonProps>) => (
+const ActionButton = ({ children, sx }: PropsWithChildren<SxProps>) => (
   <Flex variant="header.actionButton" sx={sx}>
     {children}
   </Flex>
