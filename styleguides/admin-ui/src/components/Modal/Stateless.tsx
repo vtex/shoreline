@@ -105,8 +105,8 @@ function ButtonClose(
   return (
     <Button
       {...props}
-      variant="subtle"
-      icon={IconClose}
+      variant="text"
+      icon={<IconClose />}
       sx={{ color: 'text' }}
     />
   )

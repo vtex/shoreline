@@ -1,7 +1,8 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Meta } from '@storybook/react'
-import { Checkbox, Label } from 'theme-ui'
 
+import { Checkbox, useCheckbox } from '../Checkbox'
+import { Label } from '../Label'
 import { Button } from '../Button'
 import { ModalDisclosure, Modal, useModalState } from './index'
 import { Text } from '../Text'
@@ -11,8 +12,8 @@ export default {
   component: Modal,
 } as Meta
 
-export const Basic = () => {
-  const [allowNext, setAllowNext] = useState(false)
+export const Stateless = () => {
+  const checkbox = useCheckbox()
   const publishModal = useModalState()
   const conditionsModal = useModalState()
 
@@ -21,7 +22,7 @@ export const Basic = () => {
       <ModalDisclosure {...publishModal}>
         <Button>Publish</Button>
       </ModalDisclosure>
-      <Modal state={publishModal} size="small">
+      {/* <Modal state={publishModal} size="small">
         <Modal.Header title="Publish content" hide={publishModal.hide} />
         <Modal.Content>
           <Text>
@@ -30,8 +31,29 @@ export const Basic = () => {
           </Text>
         </Modal.Content>
         <Modal.Footer>
-          <Button variant="outlined">Cancel</Button>
-          <Button>Confirm</Button>
+          <Button sx={{ width: 'full', mr: 9 }} variant="subtle">
+            Cancel
+          </Button>
+          <Button sx={{ width: 'full' }}>Confirm</Button>
+        </Modal.Footer>
+      </Modal> */}
+
+      <Modal state={publishModal} size="small">
+        <Modal.Header title="Publish content" hide={publishModal.hide} />
+        <Modal.Content>
+          <Text>
+            Are you sure you want to publish this content? These action cannot
+            be undone.
+          </Text>
+        </Modal.Content>
+        <Modal.Footer
+          sx={{
+            button: {
+              width: 'full',
+            },
+          }}
+        >
+          <Button sx={{ width: 'full' }}>Okay, got it</Button>
         </Modal.Footer>
       </Modal>
 
@@ -43,7 +65,7 @@ export const Basic = () => {
           title="Terms and Conditions"
           hide={() => {
             conditionsModal.hide()
-            setAllowNext(false)
+            checkbox.setState(false)
           }}
         />
         <Modal.Content>
@@ -74,20 +96,10 @@ export const Basic = () => {
           </Text>
         </Modal.Content>
         <Modal.Footer>
-          <Label
-            sx={{
-              position: 'relative',
-              width: 'inherit',
-              alignItems: 'center',
-            }}
-          >
-            <Checkbox
-              checked={allowNext}
-              onChange={() => setAllowNext((alnxt) => !alnxt)}
-            />
-            I accept the terms and conditions above.
+          <Label display="flex" position="relative" items="center">
+            <Checkbox {...checkbox} />I accept the terms and conditions above.
           </Label>
-          <Button disabled={!allowNext}>Next</Button>
+          <Button disabled={!checkbox.state}>Next</Button>
         </Modal.Footer>
       </Modal>
     </Fragment>
