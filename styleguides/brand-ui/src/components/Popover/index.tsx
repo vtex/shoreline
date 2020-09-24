@@ -47,7 +47,7 @@ export const Popover = ({
           <Button
             size="small"
             variant="tertiary"
-            icon={IconClose}
+            icon={() => <IconClose size={30} />}
             onClick={() => popover.hide()}
           />
         </Box>
