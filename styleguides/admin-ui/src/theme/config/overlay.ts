@@ -46,7 +46,7 @@ export default {
       border: 'none',
       textTransform: 'initial',
       ':focus': {
-        bg: 'primary.washed',
+        bg: 'primary.washed.0',
         outline: 'none',
         boxShadow: 'none',
       },
