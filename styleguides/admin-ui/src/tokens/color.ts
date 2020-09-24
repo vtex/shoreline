@@ -61,12 +61,21 @@ type Colors =
   | 'primary.hover'
   | 'primary.active'
   | 'primary.contrast'
-  | 'primary.washed'
+  | 'primary.washed.0'
+  | 'primary.washed.1'
+  | 'primary.washed.2'
   | 'danger.base'
   | 'danger.hover'
   | 'danger.active'
   | 'danger.contrast'
-  | 'danger.washed'
+  | 'danger.washed.0'
+  | 'danger.washed.1'
+  | 'danger.washed.2'
+  | 'success.base'
+  | 'success.hover'
+  | 'success.active'
+  | 'success.contrast'
+  | 'success.washed.0'
 
 export interface ColorTokensProps {
   /**
