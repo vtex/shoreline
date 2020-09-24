@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.10.0...@vtex/brand-ui@0.11.0) (2020-09-24)
+
+
+### Features
+
+* add brand-ui accordion component ([7928195](https://github.com/vtex/onda/commit/7928195289754f7638b0d87e0d58cdbae728e064)), closes [#32](https://github.com/vtex/onda/issues/32)
+
+
+
+
+
 # [0.10.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.9.2...@vtex/brand-ui@0.10.0) (2020-09-24)
 
 
