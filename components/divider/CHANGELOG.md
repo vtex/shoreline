@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/vtex/onda/compare/@vtex-components/divider@0.1.2...@vtex-components/divider@0.1.3) (2020-09-24)
+
+
+### Bug Fixes
+
+* **base-divider:** change how to style the component using the theme ([5fc54a2](https://github.com/vtex/onda/commit/5fc54a200eb12f20cb0e17caff434a87c4bc5e45))
+* **base-divider:** props spreading to reakit separator ([76bea94](https://github.com/vtex/onda/commit/76bea9463a9102002671e8e08232a872b48f237b))
+
+
+
+
+
 ## [0.1.2](https://github.com/vtex/onda/compare/@vtex-components/divider@0.1.1...@vtex-components/divider@0.1.2) (2020-09-08)
 
 

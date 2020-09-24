@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.38.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.37.1...@vtex/admin-ui@0.38.0) (2020-09-24)
+
+
+### Features
+
+* **divider:** add admin-ui Divider component ([5f1923c](https://github.com/vtex/onda/commit/5f1923ca9d8d25cb4eaec2db875055f7d3b0bf9d))
+* **divider:** add margin tokens ([5ae1a06](https://github.com/vtex/onda/commit/5ae1a06119f77810da923201221d5f2890ee3e6a))
+
+
+
+
+
 ## [0.37.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.37.0...@vtex/admin-ui@0.37.1) (2020-09-24)
 
 
