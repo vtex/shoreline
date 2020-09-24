@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.38.0...@vtex/admin-ui@0.39.0) (2020-09-24)
+
+
+### Features
+
+* **checkboc-group:** add CheckboxGroup component ([338b2ed](https://github.com/vtex/onda/commit/338b2ed0df2f8d0d8bd7c519dd3065afefa33a1b))
+
+
+
+
+
 # [0.38.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.37.1...@vtex/admin-ui@0.38.0) (2020-09-24)
 
 
