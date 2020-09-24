@@ -22,7 +22,12 @@ const getLabelStyles = ({
   }
 
   const styles = {
-    color: state === 'error' ? 'danger.base' : 'muted.0',
+    color:
+      state === 'disabled'
+        ? 'muted.1'
+        : state === 'error'
+        ? 'danger.base'
+        : 'muted.0',
     width: 'fit-content',
     position: 'absolute',
     pointerEvents: 'none',
@@ -32,19 +37,18 @@ const getLabelStyles = ({
     transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
   }
 
-  const activeStyles = {
+  const translateStyles = {
     paddingX: 2,
+    fontSize: 0,
     paddingY: 0,
     lineHeight: 'small',
     backgroundColor: 'white',
-    transform: `translate(${prefix ? -44 : -12}px, ${
-      transitionY[size]
-    }px) scale(0.75)`,
+    transform: `translate(${prefix ? -32 : 0}px, ${transitionY[size]}px)`,
   }
 
   return {
     ...styles,
-    ...(state !== 'idle' ? activeStyles : {}),
+    ...(state !== 'idle' && state !== 'disabled' ? translateStyles : {}),
   }
 }
 
@@ -82,12 +86,11 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
       onFocus={() => redirectFocus()}
     >
       <ReakitInput
-        value={value}
+        value={state === 'disabled' ? '' : value}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         disabled={disabled}
         readOnly={readOnly}
-        defaultValue={value}
         type={type}
         id={id}
         onChange={(e) => setValue(e.target.value)}
@@ -127,7 +130,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
           color:
             state === 'error'
               ? 'danger.base'
-              : 'disabled'
+              : state === 'disabled'
               ? 'muted.1'
               : 'muted.0',
           justifyContent: 'space-between',
