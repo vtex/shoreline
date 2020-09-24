@@ -16,10 +16,11 @@ import { Separator, SeparatorProps } from 'reakit'
  * ```
  */
 function Divider(props: DividerProps) {
-  const { sx = {}, orientation = 'horizontal' } = props
+  const { sx = {}, orientation = 'horizontal', ...restProps } = props
 
   return (
     <Separator
+      {...restProps}
       sx={{ variant: `divider.${orientation}`, ...sx }}
       orientation={orientation}
     />
