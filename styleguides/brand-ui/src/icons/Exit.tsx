@@ -1,9 +1,9 @@
 import React from 'react'
-import { Icon } from '@vtex-components/icon'
+import { Icon, IconProps } from '@vtex-components/icon'
 
-export const IconExit = () => {
+export const IconExit = (props: IconProps) => {
   return (
-    <Icon size={18} viewBox="0 0 18 18">
+    <Icon {...props} viewBox="0 0 18 18">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

@@ -16,14 +16,14 @@ const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
       {open ? (
         <>
           <Box sx={{ color: 'secondary.base' }}>
-            <IconExit />
+            <IconExit size={18} />
           </Box>
           <Flex variant="hamburgerMenu.open" sx={sx}>
             {children}
           </Flex>
         </>
       ) : (
-        <IconHamburger />
+        <IconHamburger size={24} />
       )}
     </Box>
   )

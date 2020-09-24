@@ -1,10 +1,10 @@
 import React from 'react'
-import { Icon } from '@vtex-components/icon'
+import { Icon, IconProps } from '@vtex-components/icon'
 
-export const IconExternalLink = () => {
+export const IconExternalLink = (props: IconProps) => {
   return (
     <Icon
-      size={14}
+      {...props}
       viewBox="0 0 25 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

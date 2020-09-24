@@ -22,7 +22,7 @@ const Template = (args: LinksProps) => (
       <Link href="/">
         Help Center
         <Box sx={{ paddingLeft: 3 }}>
-          <IconExternalLink />
+          <IconExternalLink size={14} />
         </Box>
       </Link>
     </Header.RightLinks>
