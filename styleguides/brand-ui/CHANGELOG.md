@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.11.1...@vtex/brand-ui@0.12.0) (2020-09-24)
+
+
+### Features
+
+* apply changes on brand tooltip ([8083697](https://github.com/vtex/onda/commit/80836971e3bc94ac1a9bf3508cdac5d81b39dcca))
+
+
+
+
+
 ## [0.11.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.11.0...@vtex/brand-ui@0.11.1) (2020-09-24)
 
 **Note:** Version bump only for package @vtex/brand-ui
