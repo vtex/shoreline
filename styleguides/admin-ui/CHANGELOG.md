@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.39.0...@vtex/admin-ui@0.40.0) (2020-09-24)
+
+
+### Features
+
+* **tooltip:** add component into admin-ui ([6018297](https://github.com/vtex/onda/commit/60182974b568d9239b71876a7f0a19135be1d91d))
+
+
+
+
+
 # [0.39.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.38.0...@vtex/admin-ui@0.39.0) (2020-09-24)
 
 

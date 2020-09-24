@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/onda/compare/@vtex-components/tooltip@0.1.1...@vtex-components/tooltip@0.2.0) (2020-09-24)
+
+
+### Features
+
+* **tooltip:** add component into admin-ui ([6018297](https://github.com/vtex/onda/commit/60182974b568d9239b71876a7f0a19135be1d91d))
+
+
+
+
+
 ## [0.1.1](https://github.com/vtex/onda/compare/@vtex-components/tooltip@0.1.0...@vtex-components/tooltip@0.1.1) (2020-09-22)
 
 
