@@ -12,7 +12,7 @@ The Accordion is a composition with the `Section` component, that is composed by
 
 ### useAccordion
 
-To handle states, you can use the `useAccordion` hook. It is extracted directly from [useCollapsible](../Collapsible) with the same props just overriding the props bellow.[Read more](../Collapsible)
+To handle states, you can use the `useAccordion` hook. It is extracted directly from [useCollapsible](../Collapsible) with the same props just overriding the props below.[Read more](../Collapsible)
 
 | prop     | type     | description                                  | required | default |
 | -------- | -------- | -------------------------------------------- | -------- | ------- |
