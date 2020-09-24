@@ -58,7 +58,7 @@ const MyAccordion = () => {
       </Accordion.Section>
       <Accordion.Section>
         <Accordion.Section.Header>
-          Header 2 - Initialy Open
+          Header 2 - Initially Open
         </Accordion.Section.Header>
         <Accordion.Section.Content>Content 2</Accordion.Section.Content>
       </Accordion.Section>
