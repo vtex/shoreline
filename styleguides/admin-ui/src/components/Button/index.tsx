@@ -1,4 +1,4 @@
-import React, { Ref, forwardRef } from 'react'
+import React, { Ref, forwardRef, ReactNode } from 'react'
 import { SxStyleProp } from 'theme-ui'
 
 import { useFocusHollow } from '../../hooks'
@@ -26,18 +26,12 @@ export const Button = forwardRef(
     } = props
 
     const { focusStyles, focusProps } = useFocusHollow()
-    const { resolvedSize, containerStyles } = useMeasures({
+    const { resolvedSize, containerStyles } = getSizeVariant({
       size,
       icon,
       iconPosition,
       children,
     })
-
-    const renderIcon = () => {
-      const iconProps = getIconProps(size)
-
-      return icon?.(iconProps)
-    }
 
     return (
       <StyledButton
@@ -56,7 +50,7 @@ export const Button = forwardRef(
           justify="center"
           sx={containerStyles}
         >
-          {renderIcon()}
+          {icon}
           {children}
         </Box>
       </StyledButton>
@@ -64,7 +58,7 @@ export const Button = forwardRef(
   }
 )
 
-function useMeasures({
+function getSizeVariant({
   size,
   icon,
   iconPosition,
@@ -88,24 +82,7 @@ function useMeasures({
   }
 }
 
-function getIconProps(size: Size) {
-  const styles = {
-    size: {
-      regular: 8,
-      small: 7,
-    },
-    margin: 3,
-  }
-
-  return {
-    size: styles.size[size],
-    sx: {
-      marginX: styles.margin,
-    },
-  }
-}
-
-export type Variant = 'filled' | 'outlined' | 'subtle'
+export type Variant = 'filled' | 'subtle' | 'text'
 export type Size = 'small' | 'regular'
 export type Palette = 'primary' | 'danger'
 export interface ButtonProps
@@ -126,7 +103,7 @@ export interface ButtonProps
   /**
    * Icon of the button
    */
-  icon?: (props: { size: number; sx: SxStyleProp }) => JSX.Element
+  icon?: ReactNode
   /**
    * Position of the icon
    * @default start

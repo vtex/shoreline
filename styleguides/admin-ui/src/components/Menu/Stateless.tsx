@@ -115,7 +115,7 @@ StatelessMenu.Item = forwardRef(function MenuItem(
   props: MenuItemProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  return <Button ref={ref} size="small" variant="subtle" {...props} />
+  return <Button ref={ref} size="small" variant="text" {...props} />
 })
 
 /**

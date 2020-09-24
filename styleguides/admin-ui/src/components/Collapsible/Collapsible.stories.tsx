@@ -56,7 +56,7 @@ export const WithButtons = () => {
   return (
     <Collapsible toggle={toggle} {...props} sx={{ width: '2/5' }}>
       <Collapsible.Header label="Build for Community #1">
-        <Button size="small" variant="outlined">
+        <Button size="small" variant="subtle">
           Button
         </Button>
         <Button size="small" onClick={toggle}>
@@ -80,7 +80,7 @@ WithButtons.parameters = {
   {({toggle, visible, ...props}) => (
     <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '2/5' }}>
       <Collapsible.Header label="Build for Community #1">
-        <Button size="small" variant="outlined">
+        <Button size="small" variant="subtle">
           Button
         </Button>
         <Button size="small" onClick={toggle}>Toggle</Button>
@@ -154,7 +154,7 @@ NestedCollapsible.parameters = {
               </Collapsible.Content>
             </Collapsible>
           )}
-        </Play.CollapsibleState>  
+        </Play.CollapsibleState>
       </Collapsible.Content>
     </Collapsible>
   )}

@@ -29,13 +29,7 @@ export const ActionButton = forwardRef(
     return (
       <Button
         ref={ref}
-        icon={(iconProps) =>
-          isActions ? (
-            <IconActions {...iconProps} />
-          ) : (
-            <IconCaret direction="down" {...iconProps} />
-          )
-        }
+        icon={isActions ? <IconActions /> : <IconCaret direction="down" />}
         iconPosition={iconPosition}
         {...buttonProps}
       />

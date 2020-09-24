@@ -23,11 +23,11 @@ export const Stateful: Story<MenuProps> = () => (
     aria-label="menu label"
     disclosure={<ActionButton display="menu" />}
   >
-    <Menu.Item icon={IconDownload}>Download</Menu.Item>
-    <Menu.Item icon={IconLink}>Link to</Menu.Item>
-    <Menu.Item icon={IconFavorite}>Favorite</Menu.Item>
+    <Menu.Item icon={<IconDownload />}>Download</Menu.Item>
+    <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
+    <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
     <Menu.Separator />
-    <Menu.Item icon={IconDelete}>Delete</Menu.Item>
+    <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
   </Menu>
 )
 
@@ -38,9 +38,9 @@ Stateful.parameters = {
     aria-label="menu label"
     disclosure={<ActionButton display="menu" />}
   >
-    <Menu.Item icon={IconDownload}>Download</Menu.Item>
-    <Menu.Item icon={IconLink}>Link to</Menu.Item>
-    <Menu.Item icon={IconFavorite}>Favorite</Menu.Item>
+    <Menu.Item icon={<IconDownload />}>Download</Menu.Item>
+    <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
+    <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
   </Menu>
     `,
   },
@@ -59,11 +59,15 @@ export const Stateless: Story<StatelessMenuProps> = () => {
         <ActionButton variant="subtle">Post options</ActionButton>
       </MenuDisclosure>
       <StatelessMenu aria-label="actions" state={state}>
-        <StatelessMenu.Item icon={IconDownload}>Download</StatelessMenu.Item>
-        <StatelessMenu.Item icon={IconLink}>Link to</StatelessMenu.Item>
-        <StatelessMenu.Item icon={IconFavorite}>Favorite</StatelessMenu.Item>
+        <StatelessMenu.Item icon={<IconDownload />}>
+          Download
+        </StatelessMenu.Item>
+        <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
+        <StatelessMenu.Item icon={<IconFavorite />}>
+          Favorite
+        </StatelessMenu.Item>
         <StatelessMenu.Separator />
-        <StatelessMenu.Item icon={IconDelete}>Delete</StatelessMenu.Item>
+        <StatelessMenu.Item icon={<IconDelete />}>Delete</StatelessMenu.Item>
       </StatelessMenu>
     </Fragment>
   )
@@ -79,11 +83,11 @@ Stateless.parameters = {
       <ActionButton variant="subtle">Post options</ActionButton>
     </MenuDisclosure>
     <StatelessMenu aria-label="actions" state={state}>
-      <StatelessMenu.Item icon={IconDownload}>Download</StatelessMenu.Item>
-      <StatelessMenu.Item icon={IconLink}>Link to</StatelessMenu.Item>
-      <StatelessMenu.Item icon={IconFavorite}>Favorite</StatelessMenu.Item>
+      <StatelessMenu.Item icon={<IconDownload />}>Download</StatelessMenu.Item>
+      <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
+      <StatelessMenu.Item icon={<IconFavorite />}>Favorite</StatelessMenu.Item>
       <StatelessMenu.Separator />
-      <StatelessMenu.Item icon={IconDelete}>Delete</StatelessMenu.Item>
+      <StatelessMenu.Item icon={<IconDelete />}>Delete</StatelessMenu.Item>
     </StatelessMenu>
   </>
   )}

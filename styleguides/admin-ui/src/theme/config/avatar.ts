@@ -19,17 +19,17 @@ export default {
   },
   primary: {
     ...styles,
-    bg: 'primary.washed',
+    bg: 'primary.washed.0',
     color: 'primary.base',
   },
   danger: {
     ...styles,
-    bg: 'danger.washed',
+    bg: 'danger.washed.0',
     color: 'danger.base',
   },
   success: {
     ...styles,
-    bg: 'success.washed',
+    bg: 'success.washed.0',
     color: 'success.base',
   },
 }
