@@ -1,7 +1,6 @@
 import React, { Ref, forwardRef, ReactNode } from 'react'
 import { SxStyleProp } from 'theme-ui'
 
-import { useFocusHollow } from '../../hooks'
 import { Box } from '../Box'
 import { StyledButton, StyledButtonProps } from './styled'
 
@@ -19,13 +18,11 @@ export const Button = forwardRef(
       variant = 'filled',
       palette = 'primary',
       iconPosition = 'start',
-      sx = {},
       icon,
       children,
       ...buttonProps
     } = props
 
-    const { focusStyles, focusProps } = useFocusHollow()
     const { resolvedSize, containerStyles } = getSizeVariant({
       size,
       icon,
@@ -36,10 +33,8 @@ export const Button = forwardRef(
     return (
       <StyledButton
         variant={`${variant}-${palette}-${resolvedSize}`}
-        sx={{ ...focusStyles, ...sx }}
         ref={ref}
         {...buttonProps}
-        {...focusProps}
       >
         <Box
           display="flex"

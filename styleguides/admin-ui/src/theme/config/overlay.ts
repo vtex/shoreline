@@ -33,9 +33,9 @@ export default {
       borderLeft: 'none',
       borderRight: 'none',
       borderColor: 'muted.2',
-      outlineColor: 'focus',
       width: `calc(100% -${space[7]})`,
       marginX: `-${space[7]}`,
+      outline: 'none',
     },
     '> button': {
       marginY: 2,
@@ -45,6 +45,11 @@ export default {
       fontSize: 1,
       border: 'none',
       textTransform: 'initial',
+      ':focus': {
+        bg: 'primary.washed',
+        outline: 'none',
+        boxShadow: 'none',
+      },
       ':hover': {
         color: 'text',
       },
