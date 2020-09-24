@@ -15,6 +15,7 @@ export {
   ActionButton,
   MenuDisclosure,
   Checkbox,
+  Divider,
 } from '../index'
 
 export {
