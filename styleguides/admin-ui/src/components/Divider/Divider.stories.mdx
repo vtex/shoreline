@@ -25,18 +25,28 @@ function UseCase() {
 
 ## Customization
 
-You can use the `sx` prop to add any style to your component.
+You can use all margin's `SpaceTokens` to customize your divider, and also you can use the `sx` prop to add any style to your component.
 
 > 💡 You can check the [Theme Documentation](https://admin-ui.vercel.app/?path=/story/design-system-theme--page) for detailed info.
 
 ### Example
 
-- Increasing vertical margin
+- Increasing vertical margin using `SpaceTokens`
 
 ```jsx
 import { Divider, DividerProps } from '@vtex/admin-ui'
 
 function UseCase() {
-  return <Divider sx={{ marginY: 13 }} orientation="horizontal" />
+  return <Divider my="13" orientation="horizontal" />
+}
+```
+
+- Increasing vertical margin using `sx`
+
+```jsx
+import { Divider, DividerProps } from '@vtex/admin-ui'
+
+function UseCase() {
+  return <Divider sx={{ marginY: '13' }} orientation="horizontal" />
 }
 ```

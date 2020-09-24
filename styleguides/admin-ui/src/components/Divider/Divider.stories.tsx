@@ -21,12 +21,7 @@ export const Horizontal = () => {
         Allows orders to be placed even if they pass X% of the account`s credit
         limit. Tolerance is set per account.
       </Text>
-      <Divider
-        orientation="horizontal"
-        sx={{
-          marginY: '13',
-        }}
-      />
+      <Divider orientation="horizontal" my="13" />
       <Text variant="headline" mt="0" mb="6">
         Automatic account creation
       </Text>
@@ -49,7 +44,7 @@ export const Vertical = () => {
           related to his account, and can add, remove or edit credit card data.
         </Text>
       </Box>
-      <Divider orientation="vertical" sx={{ marginX: 13 }} />
+      <Divider orientation="vertical" mx="13" />
       <Box w="2/5">
         <Text variant="headline" mt="0" mb="6">
           Personal data
