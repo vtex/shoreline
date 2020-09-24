@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.37.0...@vtex/admin-ui@0.37.1) (2020-09-24)
+
+
+### Bug Fixes
+
+* **button:** update to match new figma specs ([c346f71](https://github.com/vtex/onda/commit/c346f7137fac5a056ca92025e4b7cfc88df6384c))
+
+
+
+
+
 # [0.37.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.36.1...@vtex/admin-ui@0.37.0) (2020-09-24)
 
 
