@@ -10,6 +10,7 @@ import avatar from './avatar'
 import overlay from './overlay'
 import checkbox from './checkbox'
 import divider from './divider'
+import controlGroup from './controlGroup'
 
 export const theme = {
   ...layout,
@@ -21,6 +22,7 @@ export const theme = {
   overlay,
   divider,
   forms: {
+    ...controlGroup,
     ...toggle,
     ...checkbox,
   },
