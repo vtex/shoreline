@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from 'theme-ui'
 import { Separator, SeparatorProps } from 'reakit'
-import { useComponentSx, mergeSx } from '@vtex-components/theme'
 
 /**
  * Elementary accessible hr component that can be reused by all VTEX Styleguides.
@@ -11,32 +10,18 @@ import { useComponentSx, mergeSx } from '@vtex-components/theme'
  * You may configure your `components.divider` property of the theme object.
  * @example
  * ```jsx
- * import { Divider } from `@vtex-components/divider`
- *
- * const theme = {
-
- *  components: {
-      styles: { color: muted.4 },
- *    divider: {
- *      orientation: {
- *        vertical: { marginX: 3 },
- *        horizontal: { marginY : 3 },
- *      },
- *    }
- *  }
- * }
+ * import Divider from `@vtex-components/divider`
  *
  * <Divider orientation="horizontal" />
  * ```
  */
 function Divider(props: DividerProps) {
-  const { sx = {}, orientation = 'horizontal' } = props
-
-  const styles = useComponentSx('divider', { orientation })
+  const { sx = {}, orientation = 'horizontal', ...restProps } = props
 
   return (
     <Separator
-      sx={mergeSx<SxStyleProp>(styles, sx)}
+      {...restProps}
+      sx={{ variant: `divider.${orientation}`, ...sx }}
       orientation={orientation}
     />
   )

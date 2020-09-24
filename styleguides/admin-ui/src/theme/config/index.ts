@@ -9,6 +9,7 @@ import toggle from './toggle'
 import avatar from './avatar'
 import overlay from './overlay'
 import checkbox from './checkbox'
+import divider from './divider'
 
 export const theme = {
   ...layout,
@@ -18,6 +19,7 @@ export const theme = {
   buttons,
   avatar,
   overlay,
+  divider,
   forms: {
     ...toggle,
     ...checkbox,
