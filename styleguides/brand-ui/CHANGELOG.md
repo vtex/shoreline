@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.9.2...@vtex/brand-ui@0.10.0) (2020-09-24)
+
+
+### Features
+
+* add prefix and sufix icon prop to collapsible header ([379aea8](https://github.com/vtex/onda/commit/379aea8e40d8b5658c7af4cc68ed722089525354))
+
+
+
+
+
 ## [0.9.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.9.1...@vtex/brand-ui@0.9.2) (2020-09-22)
 
 
