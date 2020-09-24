@@ -180,30 +180,30 @@ export const WithBarSmall = () => (
         sx={{
           width: '100%',
           height: '100%',
-          gridTemplateColumns: '0.6rem 10fr',
+          gridTemplateRows: '10fr 0.3rem',
           gap: 0,
         }}
       >
+        <Popover.Content sx={{ paddingX: 4 }}>
+          Lorem ipsum dolor sit amet
+          <Box sx={{ paddingY: 3 }}>
+            <Link
+              href="http://localhost:6007/?path=/story/beta-popover--with-bar"
+              sx={{ color: 'primary.base' }}
+            >
+              Action Link
+            </Link>
+          </Box>
+        </Popover.Content>
         <Flex
           sx={{
-            height: '100%',
-            maxWidth: '0.6rem',
-            borderTopLeftRadius: 3,
+            width: '100%',
+            maxHeight: '0.3rem',
             borderBottomLeftRadius: 3,
+            borderBottomRightRadius: 3,
             background: '#FFB100',
           }}
         />
-        <Popover.Content sx={{ paddingX: 4 }}>
-          Lorem ipsum dolor sit amet
-          <Box sx={{ paddingY: 3 }}>
-            <Link
-              href="http://localhost:6007/?path=/story/beta-popover--with-bar"
-              sx={{ color: 'primary.base' }}
-            >
-              Action Link
-            </Link>
-          </Box>
-        </Popover.Content>
       </Grid>
     </Popover>
     <Popover
@@ -219,30 +219,30 @@ export const WithBarSmall = () => (
         sx={{
           width: '100%',
           height: '100%',
-          gridTemplateColumns: '0.6rem 10fr',
+          gridTemplateRows: '10fr 0.3rem',
           gap: 0,
         }}
       >
+        <Popover.Content sx={{ paddingX: 4 }}>
+          Lorem ipsum dolor sit amet
+          <Box sx={{ paddingY: 3 }}>
+            <Link
+              href="http://localhost:6007/?path=/story/beta-popover--with-bar"
+              sx={{ color: 'primary.base' }}
+            >
+              Action Link
+            </Link>
+          </Box>
+        </Popover.Content>
         <Flex
           sx={{
-            height: '100%',
-            maxWidth: '0.6rem',
-            borderTopLeftRadius: 3,
+            width: '100%',
+            maxHeight: '0.3rem',
             borderBottomLeftRadius: 3,
+            borderBottomRightRadius: 3,
             background: '#80BE80',
           }}
         />
-        <Popover.Content sx={{ paddingX: 4 }}>
-          Lorem ipsum dolor sit amet
-          <Box sx={{ paddingY: 3 }}>
-            <Link
-              href="http://localhost:6007/?path=/story/beta-popover--with-bar"
-              sx={{ color: 'primary.base' }}
-            >
-              Action Link
-            </Link>
-          </Box>
-        </Popover.Content>
       </Grid>
     </Popover>
     <Popover
@@ -258,19 +258,10 @@ export const WithBarSmall = () => (
         sx={{
           width: '100%',
           height: '100%',
-          gridTemplateColumns: '0.6rem 10fr',
+          gridTemplateRows: '10fr 0.3rem',
           gap: 0,
         }}
       >
-        <Flex
-          sx={{
-            height: '100%',
-            maxWidth: '0.6rem',
-            borderTopLeftRadius: 3,
-            borderBottomLeftRadius: 3,
-            background: '#E76850',
-          }}
-        />
         <Popover.Content sx={{ paddingX: 4 }}>
           Lorem ipsum dolor sit amet
           <Box sx={{ paddingY: 3 }}>
@@ -282,6 +273,15 @@ export const WithBarSmall = () => (
             </Link>
           </Box>
         </Popover.Content>
+        <Flex
+          sx={{
+            width: '100%',
+            maxHeight: '0.3rem',
+            borderBottomLeftRadius: 3,
+            borderBottomRightRadius: 3,
+            background: '#E76850',
+          }}
+        />
       </Grid>
     </Popover>
   </>
