@@ -17,7 +17,7 @@ function UseCase() {
     <CheckboxGroup
       orientation="horizontal"
       id="form-group-id"
-      label={(props) => <Label {...props}>Group label!</Label>}
+      label="Group label!"
     >
       <Label>
         <Checkbox />
@@ -40,7 +40,7 @@ function UseCase() {
 | ----------- | ------------------------ | ------------------------- | -------- | ------------ |
 | id          | string                   | CheckboxGroup identifier  | 🚫       | -            |
 | orientation | 'vertical', 'horizontal' | CheckboxGroup orientation | 🚫       | 'horizontal' |
-| label       | ReactNode                | CheckboxGroup label       | 🚫       | -            |
+| label       | string                   | CheckboxGroup label       | 🚫       | -            |
 | sx          | SxStyleProp              | ThemeUI style prop        | 🚫       | {}           |
 
 ### CheckboxGroup Label
