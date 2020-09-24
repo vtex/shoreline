@@ -1,8 +1,19 @@
 import { SxStyleProp } from 'theme-ui'
+import { rgba } from 'polished'
 
+import colors from './colors'
 import space from './space'
 
 export default {
+  tooltip: {
+    backgroundColor: rgba(colors.text, 0.95),
+    color: 'background',
+    fontSize: 0,
+    paddingY: 3,
+    paddingX: 6,
+    borderRadius: 3,
+    transition: 'all 250ms ease-in-out',
+  },
   menu: {
     display: 'flex',
     flexDirection: 'column',

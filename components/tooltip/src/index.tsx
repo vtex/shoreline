@@ -46,7 +46,7 @@ function Tooltip(props: TooltipProps) {
       </TooltipReference>
       <ReakitTooltip {...tooltip} {...tooltipProps}>
         {arrow && cloneElement(arrow, { ...tooltip })}
-        <Box variant="tooltip" sx={sx}>
+        <Box variant="overlay.tooltip" sx={sx}>
           {label}
         </Box>
       </ReakitTooltip>

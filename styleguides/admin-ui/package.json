@@ -50,6 +50,7 @@
     "@vtex-components/divider": "^0.1.3",
     "@vtex-components/icon": "^0.0.4",
     "@vtex-components/theme": "^0.1.1",
+    "@vtex-components/tooltip": "^0.1.1",
     "@vtex-components/utils": "^0.0.3",
     "csstype": "^3.0.3",
     "reakit": "1.2.3",
