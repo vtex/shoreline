@@ -34,6 +34,7 @@ function Tooltip(props: TooltipProps) {
     arrow,
     placement = 'top',
     visible,
+    variant = 'tooltip',
     ...tooltipProps
   } = props
 
@@ -46,7 +47,7 @@ function Tooltip(props: TooltipProps) {
       </TooltipReference>
       <ReakitTooltip {...tooltip} {...tooltipProps}>
         {arrow && cloneElement(arrow, { ...tooltip })}
-        <Box variant="overlay.tooltip" sx={sx}>
+        <Box variant={variant} sx={sx}>
           {label}
         </Box>
       </ReakitTooltip>
@@ -85,6 +86,10 @@ export interface TooltipProps extends Omit<ReakitProps, 'as'> {
    * @default false
    */
   visible?: boolean
+  /**
+   * Theme variant
+   */
+  variant?: string
 }
 
 export default Tooltip

@@ -8,13 +8,13 @@ import BaseTooltip, {
  * @example
  * ```jsx
  * import { Tooltip, Button, IconClose } from `@vtex/admin-ui`
- * <Tooltip labe="Close something">
+ * <Tooltip label="Close something">
  *   <Button icon={<IconClose />} variant="text" />
  * </Tooltip>
  * ```
  */
 export function Tooltip(props: TooltipProps) {
-  return <BaseTooltip {...props} />
+  return <BaseTooltip variant="overlay.tooltip" {...props} />
 }
 
 export type TooltipProps = Pick<
