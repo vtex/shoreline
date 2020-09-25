@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Radio, RadioGroup, RadioProps, useRadioState } from './index'
+import { Radio, RadioProps, useRadioState } from './index'
+import { RadioGroup } from '../RadioGroup'
 import { Text } from '../Text'
 import { Label } from '../Label'
 
@@ -22,22 +23,22 @@ Playground.args = {
   label: 'Playground',
 }
 
-export function Standalone() {
+export function Disabled() {
   const state = useRadioState()
 
-  return <Radio value="standalone" aria-label="label" state={state} />
-}
-
-export function WithHiddenLabel() {
-  const state = useRadioState()
-
-  return <Radio value="With hidden label" state={state} />
+  return (
+    <>
+      <Radio value="standalone" aria-label="label" disabled state={state} />
+      <br />
+      <Radio value="checked-disabled" checked disabled state={state} />
+    </>
+  )
 }
 
 export function Group() {
   const radio = useRadioState({ state: 'oms' })
   const values = [
-    'Maketplace Ecommerce',
+    'Marketplace Ecommerce',
     'B2C Commerce',
     'B2B Commerce',
     'Order Management System',
@@ -47,11 +48,7 @@ export function Group() {
   return (
     <Fragment>
       <Text variant="subtitle">Selected solution: {radio.state}</Text>
-      <RadioGroup
-        sx={{ variant: 'forms.controlGroup-vertical-regular' }}
-        {...radio}
-        label="Solutions"
-      >
+      <RadioGroup {...radio} orientation="vertical" aria-label="Solutions">
         {values.map((value, key) => {
           return (
             <Label key={key}>
@@ -59,7 +56,6 @@ export function Group() {
                 value={value}
                 state={radio}
                 disabled={value === 'Disabled'}
-                sx={{ marginRight: '5' }}
               />
               {value}
             </Label>
