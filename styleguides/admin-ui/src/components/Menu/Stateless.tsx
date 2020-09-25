@@ -140,7 +140,7 @@ export interface StatelessMenuProps {
   /**
    * Menu items
    */
-  children: ReactElement[] | ReactElement
+  children: ReactElement | ReactElement[]
   /**
    * aria-label of menu
    */
