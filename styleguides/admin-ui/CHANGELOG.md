@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.3...@vtex/admin-ui@0.40.4) (2020-09-25)
+
+
+### Bug Fixes
+
+* **build:** fix 0.40.2 ([2b4a185](https://github.com/vtex/onda/commit/2b4a185906a1135b60e68cf8ed8f1c8094af31cf))
+
+
+
+
+
 ## [0.40.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.2...@vtex/admin-ui@0.40.3) (2020-09-25)
 
 
