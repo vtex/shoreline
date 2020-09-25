@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Meta } from '@storybook/react'
 
 import { Checkbox, useCheckbox } from '../Checkbox'
+import { Box } from '../Box'
 import { Label } from '../Label'
 import { Button } from '../Button'
-import { ModalDisclosure, Modal, useModalState } from './index'
+import { Modal, ModalDisclosure, StatelessModal, useModalState } from './index'
 import { Text } from '../Text'
 
 export default {
@@ -12,63 +13,116 @@ export default {
   component: Modal,
 } as Meta
 
+export const Stateful = () => (
+  <Modal
+    aria-label="Publish modal"
+    size="small"
+    disclosure={<Button>Publish</Button>}
+  >
+    <Modal.Header>
+      <Modal.Title>Publish content</Modal.Title>
+    </Modal.Header>
+    <Modal.Content>
+      <Text>
+        Are you sure you want to publish this content? These action cannot be
+        undone.
+      </Text>
+    </Modal.Content>
+    <Modal.Footer>
+      <Button variant="subtle">Cancel</Button>
+      <Button>Confirm</Button>
+    </Modal.Footer>
+  </Modal>
+)
+
+export const StatefulWithNativeElements = () => (
+  <Modal
+    aria-label="Publish modal"
+    size="small"
+    disclosure={<Button>Publish</Button>}
+  >
+    <header>
+      <h1>Publish content</h1>
+    </header>
+    <section>
+      <Text>
+        Are you sure you want to publish this content? These action cannot be
+        undone.
+      </Text>
+    </section>
+    <footer>
+      <Button variant="subtle">Cancel</Button>
+      <Button>Confirm</Button>
+    </footer>
+  </Modal>
+)
+
 export const Stateless = () => {
   const checkbox = useCheckbox()
   const publishModal = useModalState()
+  const newsModal = useModalState()
   const conditionsModal = useModalState()
 
   return (
-    <Fragment>
+    <Box sx={{ 'button + button': { ml: 8 } }}>
       <ModalDisclosure {...publishModal}>
         <Button>Publish</Button>
       </ModalDisclosure>
-      {/* <Modal state={publishModal} size="small">
-        <Modal.Header title="Publish content" hide={publishModal.hide} />
-        <Modal.Content>
+      <StatelessModal
+        aria-label="Publish modal"
+        state={publishModal}
+        size="small"
+      >
+        <header>
+          <h1>Publish content</h1>
+        </header>
+        <section>
           <Text>
             Are you sure you want to publish this content? These action cannot
             be undone.
           </Text>
-        </Modal.Content>
-        <Modal.Footer>
-          <Button sx={{ width: 'full', mr: 9 }} variant="subtle">
-            Cancel
-          </Button>
-          <Button sx={{ width: 'full' }}>Confirm</Button>
-        </Modal.Footer>
-      </Modal> */}
+        </section>
+        <footer>
+          <Button variant="subtle">Cancel</Button>
+          <Button>Confirm</Button>
+        </footer>
+      </StatelessModal>
 
-      <Modal state={publishModal} size="small">
-        <Modal.Header title="Publish content" hide={publishModal.hide} />
-        <Modal.Content>
+      <ModalDisclosure {...newsModal}>
+        <Button>News</Button>
+      </ModalDisclosure>
+      <StatelessModal
+        aria-label="News modal"
+        state={newsModal}
+        size="small"
+        hideCloseButton
+      >
+        <header>
+          <h1>We have good news!</h1>
+        </header>
+        <section>
           <Text>
-            Are you sure you want to publish this content? These action cannot
-            be undone.
+            This is our new experience for inventory update. Feel free to leave
+            feedback.
           </Text>
-        </Modal.Content>
-        <Modal.Footer
-          sx={{
-            button: {
-              width: 'full',
-            },
-          }}
-        >
-          <Button sx={{ width: 'full' }}>Okay, got it</Button>
-        </Modal.Footer>
-      </Modal>
+        </section>
+        <footer>
+          <Button onClick={() => newsModal.hide()}>Okay, got it</Button>
+        </footer>
+      </StatelessModal>
 
       <ModalDisclosure {...conditionsModal}>
         <Button>Regular</Button>
       </ModalDisclosure>
-      <Modal state={conditionsModal} size="regular">
-        <Modal.Header
-          title="Terms and Conditions"
-          hide={() => {
-            conditionsModal.hide()
-            checkbox.setState(false)
-          }}
-        />
-        <Modal.Content>
+      <StatelessModal
+        aria-label="Conditions Modal"
+        state={conditionsModal}
+        size="regular"
+      >
+        <header>
+          <StatelessModal.Title>Terms and Conditions</StatelessModal.Title>
+        </header>
+        <section>
           <Text variant="subtitle">Shared Cart</Text>
           <Text>
             The shared cart is a tool that allows more than one customer to add,
@@ -94,14 +148,14 @@ export const Stateless = () => {
             secure, since the profile and delivery data are visible only to the
             user who creates the cart. For others, these same data are
           </Text>
-        </Modal.Content>
-        <Modal.Footer>
+        </section>
+        <footer>
           <Label display="flex" position="relative" items="center">
             <Checkbox {...checkbox} />I accept the terms and conditions above.
           </Label>
           <Button disabled={!checkbox.state}>Next</Button>
-        </Modal.Footer>
-      </Modal>
-    </Fragment>
+        </footer>
+      </StatelessModal>
+    </Box>
   )
 }

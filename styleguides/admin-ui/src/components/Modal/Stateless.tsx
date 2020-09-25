@@ -13,123 +13,54 @@ import {
   DialogBackdrop,
   DialogDisclosure,
   DialogStateReturn,
+  DialogOptions,
 } from 'reakit/Dialog'
-import { ButtonProps } from 'reakit/ts'
-import { rgba } from 'polished'
 
-import colors from '../../theme/config/colors'
 import { Box, BoxProps } from '../Box'
-import { Text } from '../Text'
+import { Text, TextProps } from '../Text'
 import { Button } from '../Button'
 import { IconClose } from '../../icons'
 
 export { useDialogState as useModalState }
 
-export function Modal({
-  children,
-  size = 'regular',
-  state,
-  ...props
-}: ModalProps) {
-  const styles: SxStyleProp = {
-    outline: 'none',
-    bg: 'background',
-    borderRadius: 3,
-    borderColor: 'muted.4',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    width: {
-      small: 320,
-      regular: 560,
-      large: 800,
-    }[size],
-  }
-
-  const backdropStyles: SxStyleProp = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: rgba(colors.text, 0.95),
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 9999,
-  }
+export function StatelessModal(props: StatelessModalProps) {
+  const {
+    children,
+    state,
+    size = 'regular',
+    hideCloseButton = false,
+    backdropSx = {},
+    sx = {},
+    ...baseProps
+  } = props
 
   return (
-    <DialogBackdrop sx={backdropStyles} {...state}>
-      <BaseDialog sx={styles} {...state} {...props}>
+    <DialogBackdrop
+      sx={{ variant: 'overlay.modal.backdrop', ...backdropSx }}
+      {...state}
+    >
+      <BaseDialog
+        sx={{ variant: `overlay.modal.${size}`, ...sx }}
+        {...state}
+        {...baseProps}
+      >
+        {!hideCloseButton && (
+          <Button
+            onClick={state.hide}
+            variant="text"
+            icon={<IconClose />}
+            sx={{
+              color: 'text',
+              position: 'absolute',
+              top: 5,
+              right: 9,
+            }}
+          />
+        )}
         {children}
       </BaseDialog>
     </DialogBackdrop>
   )
-}
-
-interface HeaderProps extends Omit<BoxProps, 'title'> {
-  title?: ReactNode
-  hide?: () => void
-}
-
-function Header(props: HeaderProps) {
-  const { children, title, hide, ...boxProps } = props
-
-  return (
-    <Box
-      display="flex"
-      justify="between"
-      items="center"
-      py="9"
-      px="13"
-      bbc="muted.4"
-      bbw="1"
-      bbs="solid"
-      {...boxProps}
-    >
-      {title && (
-        <Text variant="subtitle" sx={{ lineHeight: 0 }}>
-          {title}
-        </Text>
-      )}
-      {children}
-      {hide && <ButtonClose onClick={hide} />}
-    </Box>
-  )
-}
-
-function ButtonClose(
-  props: Omit<ButtonProps, 'variant' | 'icon' | 'iconPosition' | 'sx'>
-) {
-  return (
-    <Button
-      {...props}
-      variant="text"
-      icon={<IconClose />}
-      sx={{ color: 'text' }}
-    />
-  )
-}
-
-function Footer(props: BoxProps) {
-  return (
-    <Box
-      display="flex"
-      justify="between"
-      items="center"
-      py="9"
-      px="13"
-      btc="muted.4"
-      btw="1"
-      bts="solid"
-      {...props}
-    />
-  )
-}
-
-function Content(props: BoxProps) {
-  return <Box pt="9" px="13" pb="13" {...props} />
 }
 
 interface ModalDisclosureProps extends DialogStateReturn {
@@ -148,12 +79,54 @@ export function ModalDisclosure(props: ModalDisclosureProps) {
   )
 }
 
-Modal.Header = Header
-Modal.Content = Content
-Modal.Footer = Footer
+StatelessModal.Title = function Title(props: TextProps) {
+  return <Text el="h1" {...props} />
+}
 
-export interface ModalProps {
+StatelessModal.Header = function Header(props: BoxProps) {
+  return <Box el="header" {...props} />
+}
+
+StatelessModal.Content = function Content(props: BoxProps) {
+  return <Box el="section" {...props} />
+}
+
+StatelessModal.Footer = function Footer(props: BoxProps) {
+  return <Box el="footer" {...props} />
+}
+
+export interface StatelessModalProps
+  extends Pick<DialogOptions, 'hideOnEsc' | 'hideOnClickOutside'> {
+  /**
+   * Component children
+   */
   children: ReactNode
-  size?: 'small' | 'regular' | 'large'
+  /**
+   * Return of useModalState hook
+   */
   state: DialogStateReturn
+  /**
+   * Label of the modal
+   */
+  'aria-label': string
+  /**
+   * Modal size
+   * @default regular
+   */
+  size?: 'small' | 'regular' | 'large'
+  /**
+   * If should hide the close button located on top-right
+   * @default false
+   */
+  hideCloseButton?: boolean
+  /**
+   * Modal box styles
+   * @default {}
+   */
+  sx?: SxStyleProp
+  /**
+   * Backdrop styles
+   * @default {}
+   */
+  backdropSx?: SxStyleProp
 }
