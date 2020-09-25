@@ -33,9 +33,16 @@ const state = {
   },
   disabled: {
     color: 'muted.1',
+    ':hover': {
+      borderColor: 'muted.2',
+      cursor: 'not-allowed',
+    },
   },
   error: {
     borderColor: 'danger.base',
+    ':hover': {
+      borderColor: 'danger.hover',
+    },
   },
   filled: {
     borderColor: 'secondary.hover',
@@ -44,6 +51,9 @@ const state = {
   readOnly: {
     backgroundColor: 'muted.3',
     borderColor: 'muted.1',
+    ':hover': {
+      borderColor: 'muted.1',
+    },
   },
 }
 

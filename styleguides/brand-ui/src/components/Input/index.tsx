@@ -68,6 +68,9 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
                 ':focus': {
                   outline: 'none',
                 },
+                ':hover': {
+                  cursor: readOnly ? 'default' : 'text',
+                }
               }}
               {...enhancedProps}
             />
