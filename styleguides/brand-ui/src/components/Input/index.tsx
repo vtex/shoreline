@@ -6,52 +6,6 @@ import { forwardRef } from '@vtex-components/utils'
 
 import useInputState from './useInputState'
 
-const getLabelStyles = ({
-  state,
-  size = 'regular',
-  prefix = null,
-}: {
-  state: InputState
-  size?: Size
-  prefix?: ReactNode
-}) => {
-  const transitionY = {
-    small: -18,
-    regular: -24,
-    large: -28,
-  }
-
-  const styles = {
-    color:
-      state === 'disabled'
-        ? 'muted.1'
-        : state === 'error'
-        ? 'danger.base'
-        : 'muted.0',
-    width: 'fit-content',
-    position: 'absolute',
-    pointerEvents: 'none',
-    fontSize: 2,
-    left: prefix ? 48 : 'auto',
-    lineHeight: 'action',
-    transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
-  }
-
-  const translateStyles = {
-    paddingX: 2,
-    fontSize: 0,
-    paddingY: 0,
-    lineHeight: 'small',
-    backgroundColor: 'white',
-    transform: `translate(${prefix ? -32 : 0}px, ${transitionY[size]}px)`,
-  }
-
-  return {
-    ...styles,
-    ...(state !== 'idle' && state !== 'disabled' ? translateStyles : {}),
-  }
-}
-
 const BrandInput = (props: PropsWithChildren<InputProps>) => {
   const {
     size = 'regular',
@@ -80,6 +34,10 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
     value,
   })
 
+  const labelVariant = `input.label.${size}-${prefix ? 'prefix-' : ''}${state}`
+  const helpMessageVariant = `input.helpMessage.${
+    (state === 'disabled' || state === 'error') ? state : 'default'
+  }`
   return (
     <Box
       sx={{ margin: 2, width: 'fit-content' }}
@@ -99,9 +57,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
       >
         {(enhancedProps) => (
           <Flex variant={`input.${size}-${state}`} sx={sx}>
-            {prefix && (
-              <Flex sx={{ alignItems: 'center', mr: 3 }}>{prefix}</Flex>
-            )}
+            {prefix && <Flex variant="input.prefix">{prefix}</Flex>}
             <ThemeUIInput
               sx={{
                 border: 'none',
@@ -114,28 +70,14 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
               }}
               {...enhancedProps}
             />
-            <Label htmlFor={id} sx={getLabelStyles({ state, size, prefix })}>
+            <Label htmlFor={id} variant={labelVariant}>
               {label}
             </Label>
-            {suffix && (
-              <Flex sx={{ alignItems: 'center', ml: 3 }}>{suffix}</Flex>
-            )}
+            {suffix && <Flex variant="input.suffix">{suffix}</Flex>}
           </Flex>
         )}
       </ReakitInput>
-      <Flex
-        sx={{
-          mt: 2,
-          fontSize: 0,
-          color:
-            state === 'error'
-              ? 'danger.base'
-              : state === 'disabled'
-              ? 'muted.1'
-              : 'muted.0',
-          justifyContent: 'space-between',
-        }}
-      >
+      <Flex variant={helpMessageVariant}>
         <Text>{helpMessage}</Text>
         {charLimit && (
           <Text>
