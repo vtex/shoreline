@@ -32,6 +32,9 @@ Playground.args = {
   helpMessage: 'I could go on and on and I will.',
   charLimit: 32,
   id: 'company-name',
+  error: false,
+  readOnly: false,
+  disabled: false,
 }
 
 export const States = () => (

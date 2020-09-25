@@ -32,6 +32,7 @@ const BrandInput = (props: PropsWithChildren<InputProps>) => {
     readOnly,
     error,
     value,
+    charLimit,
   })
 
   const labelVariant = `input.label.${size}-${prefix ? 'prefix-' : ''}${state}`

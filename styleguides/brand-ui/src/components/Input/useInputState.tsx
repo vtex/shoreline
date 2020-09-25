@@ -6,6 +6,7 @@ interface InputStateModifiers {
   disabled?: boolean
   readOnly?: boolean
   error?: boolean
+  lengthError?: boolean
   focused?: boolean
   filled?: boolean
   value?: string | number
@@ -17,8 +18,9 @@ const resolveInputState = ({
   error,
   filled,
   focused,
+  lengthError,
 }: InputStateModifiers): InputState => {
-  if (error) {
+  if (error || lengthError) {
     return 'error'
   } else if (disabled) {
     return 'disabled'
@@ -33,21 +35,35 @@ const resolveInputState = ({
   }
 }
 
+interface InitialState {
+  charLimit?: number
+  disabled?: boolean
+  error?: boolean
+  readOnly?: boolean
+  value?: string | number
+}
+
 const useInputState = ({
   disabled,
   readOnly,
   error,
   value,
-}: InputStateModifiers) => {
+  charLimit
+}: InitialState) => {
   const [focused, setFocused] = useState(false)
   const [charCount, setCharCount] = useState(
     value ? value.toString().length : 0
   )
   const [filled, setFilled] = useState(charCount > 0)
-
+  const [lengthError, setLengthError] = useState(charLimit ? charCount > charLimit : false)
   useEffect(() => {
-    setCharCount(value ? value.toString().length : 0)
-    setFilled(value ? value.toString().length > 0 : false)
+    const length = value ? value.toString().length : 0
+    setCharCount(length)
+    setFilled(length > 0)
+
+    if (charLimit) {
+      setLengthError(length > charLimit)
+    }
   }, [value])
 
   const [state, setState] = useState<InputState>(
@@ -61,8 +77,8 @@ const useInputState = ({
   )
 
   useEffect(() => {
-    setState(resolveInputState({ disabled, readOnly, error, filled, focused }))
-  }, [filled, focused, error, disabled, readOnly])
+    setState(resolveInputState({ disabled, readOnly, error, filled, focused, lengthError }))
+  }, [filled, focused, error, disabled, readOnly, lengthError])
 
   return { state, charCount, setFocused }
 }
