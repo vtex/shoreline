@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.12.0...@vtex/brand-ui@0.13.0) (2020-09-25)
+
+
+### Features
+
+* add brand card ([f2b259f](https://github.com/vtex/onda/commit/f2b259fe32eb01437cc8f9d3c01c436b01346121))
+* add brand card stories ([f4e316d](https://github.com/vtex/onda/commit/f4e316d21c8de1c5c726715d00a925679f194963))
+
+
+
+
+
 # [0.12.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.11.1...@vtex/brand-ui@0.12.0) (2020-09-24)
 
 

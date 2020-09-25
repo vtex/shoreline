@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.4...@vtex/admin-ui@0.41.0) (2020-09-25)
+
+
+### Features
+
+* **icon:** add IconPrinter ([4fe5880](https://github.com/vtex/onda/commit/4fe58800202de97dd284bd5aa544df862773ae4b))
+
+
+
+
+
 ## [0.40.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.3...@vtex/admin-ui@0.40.4) (2020-09-25)
 
 
