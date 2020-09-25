@@ -150,11 +150,11 @@ const variant = {
     fontVariationSettings: "'wght' 92",
     ':hover': {
       color: 'primary.hover',
-      backgroundColor: 'primary.washed.0',
+      backgroundColor: 'primary.washed.1',
     },
     ':active': {
       color: 'primary.active',
-      backgroundColor: 'primary.washed.0',
+      backgroundColor: 'primary.washed.2',
     },
     ':disabled': {
       color: 'muted.1',
@@ -196,16 +196,16 @@ const variant = {
   },
   'text-danger': {
     textTransform: 'capitalize',
-    backgroundColor: 'danger.washed.0',
+    backgroundColor: 'transparent',
     color: 'danger.base',
     fontVariationSettings: "'wght' 92",
     ':hover': {
       color: 'danger.hover',
-      backgroundColor: 'danger.washed.0',
+      backgroundColor: 'danger.washed.1',
     },
     ':active': {
       color: 'danger.active',
-      backgroundColor: 'danger.washed.0',
+      backgroundColor: 'danger.washed.2',
     },
     ':disabled': {
       color: 'muted.1',
