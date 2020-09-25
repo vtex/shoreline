@@ -57,7 +57,6 @@ export function StatelessMenu(props: StatelessMenuProps) {
       sx={{
         // css reset
         border: 0,
-        background: 'none',
         padding: 0,
         outline: 'none',
       }}
@@ -65,7 +64,7 @@ export function StatelessMenu(props: StatelessMenuProps) {
       {...baseProps}
       disabled={disabled}
     >
-      <Box sx={{ variant: `overlay.menu`, ...sx }}>
+      <Box sx={{ variant: 'overlay.menu', ...sx }}>
         {Children.map(children, (child, index) => (
           <ReakitMenuItem {...state} {...child.props} key={index}>
             {(itemProps) =>
@@ -141,7 +140,7 @@ export interface StatelessMenuProps {
   /**
    * Menu items
    */
-  children: ReactElement[]
+  children: ReactElement[] | ReactElement
   /**
    * aria-label of menu
    */

@@ -218,8 +218,13 @@ const styles = {
   borderRadius: 3,
   cursor: 'pointer',
   position: 'relative',
+  ':focus:not([data-focus-visible-added])': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
   ':focus': {
     outline: 'none',
+    boxShadow: 'focus',
   },
 }
 
