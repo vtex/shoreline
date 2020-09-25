@@ -1,4 +1,6 @@
 import skeleton from './skeleton'
+import colors from './colors'
+import space from './space'
 
 export default {
   layout: {
@@ -47,5 +49,9 @@ export default {
     '2': '0.125rem',
     '3': '0.250rem',
     full: '100%',
+  },
+  shadows: {
+    menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
+    focus: `0rem 0rem 0rem ${space[2]} ${colors.focus}`,
   },
 }

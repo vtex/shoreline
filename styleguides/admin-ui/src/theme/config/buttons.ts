@@ -1,6 +1,3 @@
-import space from './space'
-import colors from './colors'
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const size = {
   regular: {
@@ -227,7 +224,7 @@ const styles = {
   },
   ':focus': {
     outline: 'none',
-    boxShadow: `0rem 0rem 0rem ${space[2]} ${colors.focus}`,
+    boxShadow: 'focus',
   },
 }
 
