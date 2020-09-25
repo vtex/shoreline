@@ -11,6 +11,7 @@ import overlay from './overlay'
 import checkbox from './checkbox'
 import divider from './divider'
 import controlGroup from './controlGroup'
+import radio from './radio'
 
 export const theme = {
   ...layout,
@@ -25,6 +26,7 @@ export const theme = {
     ...controlGroup,
     ...toggle,
     ...checkbox,
+    ...radio,
   },
   text,
 }

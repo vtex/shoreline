@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import { Story, Meta } from '@storybook/react'
-import { VisuallyHidden } from 'reakit'
 
 import { Radio, RadioGroup, RadioProps, useRadioState } from './index'
 import { Text } from '../Text'
+import { Label } from '../Label'
 
 export default {
   title: 'alpha/Radio',
@@ -25,33 +25,46 @@ Playground.args = {
 export function Standalone() {
   const state = useRadioState()
 
-  return <Radio value="standalone" label="Standalone" state={state} />
+  return <Radio value="standalone" aria-label="label" state={state} />
 }
 
 export function WithHiddenLabel() {
   const state = useRadioState()
 
-  return (
-    <Radio
-      value="With hidden label"
-      label={<VisuallyHidden>This is hidden</VisuallyHidden>}
-      state={state}
-    />
-  )
+  return <Radio value="With hidden label" state={state} />
 }
 
 export function Group() {
   const radio = useRadioState({ state: 'oms' })
+  const values = [
+    'Maketplace Ecommerce',
+    'B2C Commerce',
+    'B2B Commerce',
+    'Order Management System',
+    'Disabled',
+  ]
 
   return (
     <Fragment>
       <Text variant="subtitle">Selected solution: {radio.state}</Text>
-      <RadioGroup sx={{ paddingTop: 8 }} {...radio} label="Solutions">
-        <Radio value="marketplace" label="Maketplace Ecommerce" state={radio} />
-        <Radio value="b2c" label="B2C Commerce" state={radio} />
-        <Radio value="b2b" label="B2B Commerce" state={radio} />
-        <Radio value="oms" label="Order Management System" state={radio} />
-        <Radio value="disabled" label="Disabled" state={radio} disabled />
+      <RadioGroup
+        sx={{ variant: 'forms.controlGroup-vertical-regular' }}
+        {...radio}
+        label="Solutions"
+      >
+        {values.map((value, key) => {
+          return (
+            <Label key={key}>
+              <Radio
+                value={value}
+                state={radio}
+                disabled={value === 'Disabled'}
+                sx={{ marginRight: '5' }}
+              />
+              {value}
+            </Label>
+          )
+        })}
       </RadioGroup>
     </Fragment>
   )

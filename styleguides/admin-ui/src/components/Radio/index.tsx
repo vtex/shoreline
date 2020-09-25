@@ -1,87 +1,62 @@
 /** @jsx jsx */
-import { jsx, Label, SxStyleProp } from 'theme-ui'
-import { ReactNode } from 'react'
+import { jsx, SxStyleProp } from 'theme-ui'
 import {
   Radio as ReakitRadio,
-  RadioStateReturn,
+  RadioProps as ReakitRadioProps,
   RadioGroup as ReakitRadioGroup,
   RadioGroupProps as ReakitRadioGroupProps,
+  RadioStateReturn,
 } from 'reakit/Radio'
-import { get } from '@vtex-components/theme'
+import { Ref } from 'react'
+import { forwardRef } from '@vtex-components/utils'
 
-export interface RadioProps {
-  label: ReactNode
-  value: string
+import { useFocusHollow } from '../../hooks'
+
+export interface RadioProps
+  extends Pick<
+    ReakitRadioProps,
+    | 'value'
+    | 'disabled'
+    | 'required'
+    | 'name'
+    | 'id'
+    | 'checked'
+    | 'aria-label'
+    | 'aria-labelledby'
+  > {
+  /**
+   * Radio size
+   * @default 'regular'
+   */
+  size?: 'regular' | 'small'
+  /**
+   * useRadioState() hook return
+   */
   state: RadioStateReturn
-  disabled?: boolean
+  /**
+   * ThemeUI Style prop
+   */
+  sx?: SxStyleProp
 }
 
-export function Radio(props: RadioProps) {
-  const { label, state, ...baseProps } = props
+export const Radio = forwardRef(
+  (props: RadioProps, ref: Ref<HTMLInputElement>) => {
+    const { size = 'regular', sx, state, ...baseProps } = props
 
-  return (
-    <Label sx={{ cursor: baseProps.disabled ? 'not-allowed' : 'pointer' }}>
+    const { focusProps, focusStyles } = useFocusHollow()
+    const styles = { variant: `forms.radio-${size}`, ...focusStyles, ...sx }
+
+    return (
       <ReakitRadio
-        sx={{
-          appearance: 'none',
-          height: 7,
-          width: 7,
-          outline: 'none',
-          display: 'inline-block',
-          verticalAlign: 'top',
-          position: 'relative',
-          margin: (theme) => (label ? `0 ${get(theme, 'space.3')}` : 0),
-          cursor: 'pointer',
-          border: (theme) =>
-            `${get(theme, 'sizes.1')} solid ${get(theme, 'colors.muted.2')}`,
-          background: 'transparent',
-          transition: 'background .3s, border-color .3s, box-shadow .2s',
-          borderRadius: '50%',
-          padding: '5px',
-          ':after': {
-            content: '""',
-            display: 'block',
-            width: 'full',
-            height: 'full',
-            borderRadius: '50%',
-            background: 'white',
-            opacity: 0,
-          },
-          ':checked': {
-            background: (theme) => get(theme, 'colors.primary.base'),
-            border: (theme) =>
-              `${get(theme, 'sizes.1')} solid ${get(
-                theme,
-                'colors.primary.base'
-              )}`,
-          },
-          ':checked::after': {
-            opacity: 1,
-          },
-          ':disabled': {
-            cursor: 'not-allowed',
-            background: (theme) => get(theme, 'colors.muted.3'),
-            border: (theme) =>
-              `${get(theme, 'sizes.1')} solid ${get(theme, 'colors.muted.2')}`,
-          },
-          ':disabled::after': {
-            background: (theme) => get(theme, 'colors.muted.2'),
-          },
-          ':focus': {
-            boxShadow: (theme) =>
-              `0px 0px 0px ${get(theme, 'space.2')} ${get(
-                theme,
-                'colors.focus'
-              )}`,
-          },
-        }}
+        ref={ref}
+        sx={styles}
         {...state}
+        {...focusProps}
         {...baseProps}
-      />{' '}
-      {label}
-    </Label>
-  )
-}
+      />
+    )
+  }
+)
 
 export interface RadioGroupProps
   extends Omit<ReakitRadioGroupProps, 'aria-label'> {
@@ -90,9 +65,9 @@ export interface RadioGroupProps
 }
 
 export function RadioGroup(props: RadioGroupProps) {
-  const { label, sx = {}, ...baseProps } = props
+  const { label, ...baseProps } = props
 
-  return <ReakitRadioGroup {...baseProps} sx={sx} aria-label={label} />
+  return <ReakitRadioGroup {...baseProps} aria-label={label} />
 }
 
-export { useRadioState } from 'reakit/Radio'
+export { useRadioState, RadioStateReturn } from 'reakit/Radio'
