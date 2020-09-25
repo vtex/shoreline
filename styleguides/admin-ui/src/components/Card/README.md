@@ -2,18 +2,10 @@
 
 Used to group various pieces of content into a container.
 
-## Install
-
-```bash
-yarn add @vtex/admin-ui
-```
-
 ## Usage
 
-- Simple usage
-
 ```jsx
-import { Card } from '@vtex/admin-ui'
+import { Card, CardProps } from '@vtex/admin-ui'
 
 function UseCase() {
   return <Card>{content}</Card>
@@ -22,13 +14,13 @@ function UseCase() {
 
 ## Props
 
-| prop | type        | description        | required | default |
-| ---- | ----------- | ------------------ | -------- | ------- |
-| sx   | SxStyleProp | ThemeUI style prop | 🚫       | {}      |
+It has the same props as the `Box` component.
 
 ## Customization
 
-Use `sx` if you want to add any style to your `Card`.
+You can use all the theme tokens to make customizations, and you can also use the `sx` prop.
+
+> 💡 You can check the [Theme Documentation](https://admin-ui.vercel.app/?path=/story/design-system-theme--page) for detailed info.
 
 ### Example
 
@@ -39,7 +31,7 @@ import { Card, Text } from '@vtex/admin-ui'
 
 function UseCase() {
   return (
-    <Card sx={{ padding: 0 }}>
+    <Card p="0">
       <Text variation="headline" sx={{ padding: 13 }}>
         Title
       </Text>
@@ -51,5 +43,3 @@ function UseCase() {
   )
 }
 ```
-
-You can read more about the `sx` [here](https://theme-ui.com/sx-prop/)
