@@ -22,7 +22,7 @@ export const Popover = ({
   showClose,
   ...props
 }: PopoverProps) => {
-  const popover = usePopoverState({ placement, visible })
+  const popover = usePopoverState({ placement, visible, gutter: 20 })
 
   return (
     <BasePopover
