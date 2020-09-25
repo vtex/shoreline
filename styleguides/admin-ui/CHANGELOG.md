@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.2...@vtex/admin-ui@0.40.3) (2020-09-25)
+
+
+### Bug Fixes
+
+* **menu:** focus padding ([6e337bf](https://github.com/vtex/onda/commit/6e337bffd58b39b66d9315692bae53cf3e423150))
+* **menu:** types to allow a single element ([f8c3416](https://github.com/vtex/onda/commit/f8c3416fc99fb24b3c298fb72e8d98302b92aed7))
+
+
+
+
+
 ## [0.40.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.1...@vtex/admin-ui@0.40.2) (2020-09-25)
 
 
