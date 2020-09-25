@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.0...@vtex/admin-ui@0.40.1) (2020-09-25)
+
+
+### Bug Fixes
+
+* **card:** styling with tokens not working ([4059a87](https://github.com/vtex/onda/commit/4059a87337fa45e1efb614b2551db8f942c6c8b4))
+
+
+
+
+
 # [0.40.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.39.0...@vtex/admin-ui@0.40.0) (2020-09-24)
 
 
