@@ -36,9 +36,7 @@ export const Popover = ({
             variant={`popover.arrow.${popover.placement}`}
             placement={popover.placement}
           />
-        ) : (
-            undefined
-          )
+        ) : undefined
       }
     >
       {children}
