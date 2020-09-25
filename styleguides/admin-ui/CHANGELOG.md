@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.1...@vtex/admin-ui@0.40.2) (2020-09-25)
+
+
+### Bug Fixes
+
+* **button:** text variant style ([86bd646](https://github.com/vtex/onda/commit/86bd6464b691f215f28719c9acc40d1a05f6780a))
+
+
+
+
+
 ## [0.40.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.0...@vtex/admin-ui@0.40.1) (2020-09-25)
 
 
