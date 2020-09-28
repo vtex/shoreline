@@ -4,7 +4,7 @@ import { Box, Flex, Link, SxProps } from 'theme-ui'
 import { IconExit, IconHamburger } from '../../icons'
 import { LinksProps } from '.'
 
-const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
+export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -59,5 +59,3 @@ const ActionButton = ({ children, sx }: PropsWithChildren<SxProps>) => (
 HamburgerMenu.Menu = Menu
 Menu.Links = Links
 HamburgerMenu.ActionButton = ActionButton
-
-export default HamburgerMenu
