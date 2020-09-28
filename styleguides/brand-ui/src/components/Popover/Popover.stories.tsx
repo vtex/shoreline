@@ -1,5 +1,6 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { Link, Box } from 'theme-ui'
 
 import { Button } from '../Button'
 import { Popover, PopoverProps } from './index'
@@ -18,7 +19,14 @@ const Template: Story<PopoverProps> = ({ children, ...args }) => (
       </Button>
     }
   >
-    <Popover.Content>{children}</Popover.Content>
+    <Popover.Content>
+      {children}
+      <Box sx={{ mt: 3 }}>
+        <Link href="/" sx={{ color: 'primary.base' }}>
+          Action Link
+        </Link>
+      </Box>
+    </Popover.Content>
   </Popover>
 )
 
