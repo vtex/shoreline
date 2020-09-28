@@ -3,6 +3,8 @@ import { Box, Flex, Link, Text, SxProps } from 'theme-ui'
 
 import { IconVTEXExpanded } from '../../icons'
 
+export { HamburgerMenu } from './HamburgerMenu'
+
 interface BrandProps {
   noMargin?: boolean
   title?: string
