@@ -42,6 +42,9 @@ const state = {
     borderColor: 'danger.base',
     ':hover': {
       borderColor: 'danger.hover',
+      label: {
+        color: 'danger.hover',
+      }
     },
   },
   filled: {

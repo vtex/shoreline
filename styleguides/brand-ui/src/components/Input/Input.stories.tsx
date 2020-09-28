@@ -6,7 +6,7 @@ import { IconMock } from '../Button/IconMock' // TODO Move to a utils?
 import Input, { InputProps } from './index'
 
 export default {
-  title: 'Work in progress/Input',
+  title: 'alpha/Input',
   component: Input,
   argTypes: {
     size: {
