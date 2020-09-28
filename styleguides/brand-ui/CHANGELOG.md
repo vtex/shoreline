@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.14.0...@vtex/brand-ui@0.14.1) (2020-09-28)
+
+
+### Bug Fixes
+
+* export hamburger in header ([0feac68](https://github.com/vtex/onda/commit/0feac681dc3c111a00a3a722204777ba275ea93f))
+* export hamburger menu ([c867209](https://github.com/vtex/onda/commit/c8672099254821c9743d5c595ab31c5f15bee66d))
+
+
+
+
+
 # [0.14.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.13.0...@vtex/brand-ui@0.14.0) (2020-09-28)
 
 
