@@ -9,7 +9,7 @@ const modalStyles: SxStyleProp = {
   outline: 'none',
   bg: 'background',
   borderRadius: 3,
-  borderColor: 'muted.4',
+  borderColor: 'muted.3',
   borderStyle: 'solid',
   borderWidth: 1,
   position: 'relative',
@@ -17,12 +17,15 @@ const modalStyles: SxStyleProp = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    py: 9,
-    px: 13,
-    borderColor: 'muted.4',
+    borderColor: 'muted.3',
     borderStyle: 'solid',
+    'button + button': {
+      ml: 9,
+    },
   },
   header: {
+    py: 9,
+    px: 13,
     height: '3.5rem',
     borderTopWidth: 0,
     borderLeftWidth: 0,
@@ -32,6 +35,12 @@ const modalStyles: SxStyleProp = {
       variant: 'text.subtitle',
       lineHeight: 0,
     },
+    position: 'sticky',
+    top: 0,
+    left: 0,
+    right: 0,
+    bg: 'background',
+    zIndex: 999,
   },
   section: {
     pt: 9,
@@ -42,11 +51,44 @@ const modalStyles: SxStyleProp = {
     borderBottomWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    'button + button': {
-      ml: 9,
+    position: 'sticky',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    bg: 'background',
+    p: 13,
+  },
+  overflowY: 'scroll',
+  overflowX: 'hidden',
+  maxHeight: '3/4',
+}
+
+const smallModal = mergeSx<SxStyleProp>(modalStyles, {
+  width: 320,
+  footer: {
+    borderTopWidth: 0,
+    '>button': {
+      width: 'full',
     },
   },
-}
+})
+
+const regularModal = mergeSx<SxStyleProp>(modalStyles, {
+  width: 560,
+  footer: {
+    borderTopWidth: 1,
+  },
+})
+
+const largeModal = mergeSx<SxStyleProp>(modalStyles, {
+  width: 800,
+  header: {
+    height: '5rem',
+  },
+  footer: {
+    borderTopWidth: 1,
+  },
+})
 
 export default {
   tooltip: {
@@ -64,7 +106,7 @@ export default {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: rgba(colors.text, 0.95),
+      backgroundColor: rgba(colors.text, 0.8),
       position: 'fixed',
       top: 0,
       left: 0,
@@ -72,27 +114,9 @@ export default {
       bottom: 0,
       zIndex: 9999,
     },
-    small: mergeSx<SxStyleProp>(modalStyles, {
-      width: 320,
-      footer: {
-        borderTopWidth: 0,
-        '>button': {
-          width: 'full',
-        },
-      },
-    }),
-    regular: mergeSx<SxStyleProp>(modalStyles, {
-      width: 560,
-      footer: {
-        borderTopWidth: 1,
-      },
-    }),
-    large: mergeSx<SxStyleProp>(modalStyles, {
-      width: 800,
-      footer: {
-        borderTopWidth: 1,
-      },
-    }),
+    small: smallModal,
+    regular: regularModal,
+    large: largeModal,
   },
   menu: {
     display: 'flex',

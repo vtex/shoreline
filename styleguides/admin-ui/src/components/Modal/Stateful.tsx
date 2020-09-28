@@ -21,12 +21,15 @@ export function Modal(props: ModalProps) {
 }
 
 Modal.Header = StatelessModal.Header
-Modal.Title = StatelessModal.Title
 Modal.Content = StatelessModal.Content
 Modal.Footer = StatelessModal.Footer
+Modal.Button = StatelessModal.Button
 
 export interface ModalProps
   extends Omit<StatelessModalProps, 'state'>,
     Pick<DisclosureInitialState, 'visible'> {
+  /**
+   * Visibility toggle. It implements the [WAI-ARIA Disclosure Pattern](https://www.w3.org/TR/wai-aria-practices/#disclosure)
+   */
   disclosure: FunctionComponentElement<unknown>
 }

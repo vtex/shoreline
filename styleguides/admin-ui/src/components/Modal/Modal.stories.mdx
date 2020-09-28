@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
+import { Modal, StatelessModal, ModalDisclosure } from './index'
+
+<Meta title="design-system/components/Modal" />
+
+# Admin UI Modal
+
+Accessible Dialog component that follows the [WAI-ARIA Dialog
+(Modal)](https://www.w3.org/TR/wai-aria-practices/#dialog_modal) Pattern. It's
+rendered within a [Portal](https://reactjs.org/docs/portals.html) by default.
+It has both stateful (Modal) and stateless components (StatelessModal).
+
+## Usage
+
+### Stateful
+
+Stateful is the default way of using the Modal component within admin-ui.
+
+<Canvas>
+  <Story id="beta-modal--stateful" />
+</Canvas>
+
+#### Props
+
+<Props of={Modal} />
+
+### Stateless
+
+Its used to achieve more complex behavior
+
+<Canvas>
+  <Story id="beta-modal--stateless" />
+</Canvas>
+
+#### Stateless Props
+
+<Props of={StatelessModal} />

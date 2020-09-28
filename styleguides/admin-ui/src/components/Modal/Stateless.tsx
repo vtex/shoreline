@@ -1,11 +1,15 @@
-/* eslint-disable react/jsx-handler-names */
 /** @jsx jsx */
 import { jsx, SxStyleProp } from 'theme-ui'
 import {
   Children,
   cloneElement,
+  forwardRef,
   FunctionComponentElement,
   ReactNode,
+  Ref,
+  MouseEvent,
+  useMemo,
+  useCallback,
 } from 'react'
 import {
   useDialogState,
@@ -17,9 +21,10 @@ import {
 } from 'reakit/Dialog'
 
 import { Box, BoxProps } from '../Box'
-import { Text, TextProps } from '../Text'
-import { Button } from '../Button'
+import { Text } from '../Text'
+import { Button, ButtonProps } from '../Button'
 import { IconClose } from '../../icons'
+import { ModalProvider, useModalContext } from './context'
 
 export { useDialogState as useModalState }
 
@@ -28,11 +33,17 @@ export function StatelessModal(props: StatelessModalProps) {
     children,
     state,
     size = 'regular',
-    hideCloseButton = false,
+    omitCloseButton = false,
     backdropSx = {},
     sx = {},
+    onClose = () => null,
     ...baseProps
   } = props
+
+  const handleClose = useCallback(() => {
+    state.hide()
+    onClose()
+  }, [onClose, state])
 
   return (
     <DialogBackdrop
@@ -40,34 +51,24 @@ export function StatelessModal(props: StatelessModalProps) {
       {...state}
     >
       <BaseDialog
-        sx={{ variant: `overlay.modal.${size}`, ...sx }}
+        sx={{
+          variant: `overlay.modal.${size}`,
+          ...sx,
+        }}
         {...state}
         {...baseProps}
       >
-        {!hideCloseButton && (
-          <Button
-            onClick={state.hide}
-            variant="text"
-            icon={<IconClose />}
-            sx={{
-              color: 'text',
-              position: 'absolute',
-              top: 5,
-              right: 9,
-            }}
-          />
-        )}
-        {children}
+        <ModalProvider value={{ state, handleClose, omitCloseButton }}>
+          {children}
+        </ModalProvider>
       </BaseDialog>
     </DialogBackdrop>
   )
 }
 
-interface ModalDisclosureProps extends DialogStateReturn {
-  children: FunctionComponentElement<unknown>
-}
-
-export function ModalDisclosure(props: ModalDisclosureProps) {
+export function ModalDisclosure(
+  props: DialogStateReturn & { children: FunctionComponentElement<unknown> }
+) {
   const { children, ...baseProps } = props
 
   Children.only(children)
@@ -79,12 +80,53 @@ export function ModalDisclosure(props: ModalDisclosureProps) {
   )
 }
 
-StatelessModal.Title = function Title(props: TextProps) {
-  return <Text el="h1" {...props} />
-}
+/**
+ * Modal Header
+ */
+StatelessModal.Header = function Header(
+  props: Omit<BoxProps, 'title'> & {
+    /**
+     * Title of the modal
+     * @default null
+     */
+    title?: ReactNode
+    /**
+     * Styles of the button container
+     * @default {}
+     */
+    containerSx?: SxStyleProp
+  }
+) {
+  const { children, title = null, containerSx = {}, ...boxProps } = props
+  const { omitCloseButton } = useModalContext()
 
-StatelessModal.Header = function Header(props: BoxProps) {
-  return <Box el="header" {...props} />
+  const renderTitle = useMemo(() => {
+    if (typeof title === 'string') {
+      return <Text el="h1">{title}</Text>
+    }
+
+    return title
+  }, [title])
+
+  return (
+    <Box el="header" {...boxProps}>
+      {renderTitle}
+      <Box sx={containerSx} display="flex" items="center">
+        {children}
+        {!omitCloseButton && (
+          <StatelessModal.Button
+            closeModalOnClick
+            variant="text"
+            size="small"
+            icon={<IconClose />}
+            sx={{
+              color: 'text',
+            }}
+          />
+        )}
+      </Box>
+    </Box>
+  )
 }
 
 StatelessModal.Content = function Content(props: BoxProps) {
@@ -94,6 +136,50 @@ StatelessModal.Content = function Content(props: BoxProps) {
 StatelessModal.Footer = function Footer(props: BoxProps) {
   return <Box el="footer" {...props} />
 }
+
+/**
+ * Button capable of close the modal when clicked
+ * It's a fully capable admin-ui/Button
+ * @example
+ * ```jsx
+ * import { StatelessModal, useModalState } from `@vtex/admin-ui`
+ *
+ * const state = useModalState()
+ * <StatelessModal state={state}>
+ *    <StatelessModal.Content>
+ *      <StatelessModal.Button closeModalOnClick>Save</StatelessModal.Button>
+ *    <StatelessModal.Content>
+ * </StatelessModal>
+ * ```
+ */
+StatelessModal.Button = forwardRef(function ModalButton(
+  props: ButtonProps & {
+    /**
+     * If it should close the modal on click
+     * @default false
+     */
+    closeModalOnClick?: boolean
+  },
+  ref: Ref<HTMLButtonElement>
+) {
+  const {
+    closeModalOnClick = false,
+    onClick = () => null,
+    ...buttonProps
+  } = props
+
+  const { handleClose } = useModalContext()
+
+  const handleClick = (event: MouseEvent<unknown, globalThis.MouseEvent>) => {
+    onClick(event)
+
+    if (closeModalOnClick) {
+      handleClose()
+    }
+  }
+
+  return <Button onClick={handleClick} ref={ref} {...buttonProps} />
+})
 
 export interface StatelessModalProps
   extends Pick<DialogOptions, 'hideOnEsc' | 'hideOnClickOutside'> {
@@ -115,10 +201,10 @@ export interface StatelessModalProps
    */
   size?: 'small' | 'regular' | 'large'
   /**
-   * If should hide the close button located on top-right
+   * If should omit the close button located on top-right
    * @default false
    */
-  hideCloseButton?: boolean
+  omitCloseButton?: boolean
   /**
    * Modal box styles
    * @default {}
@@ -129,4 +215,9 @@ export interface StatelessModalProps
    * @default {}
    */
   backdropSx?: SxStyleProp
+  /**
+   * Action to dispatch on close modal
+   * @default ()=>null
+   */
+  onClose?: () => void
 }

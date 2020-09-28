@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import { Divider } from './index'
+import { Divider, DividerProps } from './index'
 import { Card } from '../Card'
 import { Text } from '../Text'
 import { Box } from '../Box'
@@ -11,7 +11,7 @@ export default {
   component: Divider,
 } as Meta
 
-export const Horizontal = () => {
+export const Horizontal: Story<DividerProps> = () => {
   return (
     <Card w="2/5">
       <Text variant="headline" mt="0" mb="6">
@@ -32,7 +32,7 @@ export const Horizontal = () => {
   )
 }
 
-export const Vertical = () => {
+export const Vertical: Story<DividerProps> = () => {
   return (
     <Card display="flex" w="2/5" justify="center">
       <Box w="2/5">
