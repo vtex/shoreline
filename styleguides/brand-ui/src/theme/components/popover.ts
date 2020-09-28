@@ -1,6 +1,6 @@
 const close = {
   position: 'absolute',
-  right: 2,
+  right: 0,
   top: 3,
 }
 
@@ -35,6 +35,7 @@ const arrow = {
 
 const popover = {
   backgroundColor: 'primary.contrast',
+  outline: 'none',
   boxShadow: '0px 3px 9px rgba(61, 62, 64, 0.25)',
   borderRadius: 3,
   maxWidth: '24rem',

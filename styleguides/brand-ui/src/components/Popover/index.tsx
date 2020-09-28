@@ -20,6 +20,7 @@ export const Popover = ({
   visible = false,
   variant = 'regular',
   showClose,
+  sx = {},
   ...props
 }: PopoverProps) => {
   const popover = usePopoverState({ placement, visible, gutter: 20 })
@@ -28,6 +29,8 @@ export const Popover = ({
     <BasePopover
       {...props}
       {...popover}
+      sx={{ ...sx, pr: showClose ? 4 : 0 }}
+      unstable_autoFocusOnShow={false}
       arrow={
         variant === 'regular' ? (
           <PopoverArrow
@@ -36,7 +39,9 @@ export const Popover = ({
             variant={`popover.arrow.${popover.placement}`}
             placement={popover.placement}
           />
-        ) : undefined
+        ) : (
+            undefined
+          )
       }
     >
       {children}
