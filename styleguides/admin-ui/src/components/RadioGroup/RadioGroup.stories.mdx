@@ -3,7 +3,7 @@ import { RadioGroup } from './index'
 
 <Meta title="design-system/components/RadioGroup" component={RadioGroup} />
 
-# Admin UI RadiouGroup
+# **Admin UI RadiouGroup**
 
 Used to group `Radio` components.
 
@@ -17,13 +17,23 @@ Used to group `Radio` components.
 
 <Props of={RadioGroup} />
 
+## `useRadio` hook
+
+You should use this hook to grants navigation accessibility in the `RadioGroup` children.
+
+### **Usage**
+
+<Canvas>
+  <Story id="alpha-radiogroup--horizontal" />
+</Canvas>
+
+> 💡 You can check [Reakit documentation](https://reakit.io/docs/radio/#useradiostate) for detailed info
+
 ## **RadioGroup Label**
 
-You can easily add a label using the `label` prop.
+You can easily add a label using the `label` prop, but it is also possible to add a custom one, or even not add any label (just remember to use `aria-label` prop, in this case).
 
-- **Without using label prop**
-
-If you want to add a custom label, that differs of the defined one in the `label` prop, it is possible.
+- **Custom Label**
 
 **Example:**
 
@@ -41,7 +51,7 @@ Components with `role="radiogroup"` should have children of type `Radio`. We don
 
 The labels involved by `RadioGroup` are customized with `display="flex"` and `items="center"` by default. This doesn't imply that you can't override these styles.
 
-### **Usage Example**
+### **Usage**
 
 <Canvas>
   <Story id="alpha-radiogroup--horizontal" />

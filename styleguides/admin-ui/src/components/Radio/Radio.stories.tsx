@@ -48,7 +48,7 @@ export function Disabled() {
 }
 
 export function Group() {
-  const radio = useRadio({ state: 'oms' })
+  const state = useRadio({ state: 'oms' })
   const values = [
     'Marketplace Ecommerce',
     'B2C Commerce',
@@ -59,14 +59,14 @@ export function Group() {
 
   return (
     <Fragment>
-      <Text variant="subtitle">Selected solution: {radio.state}</Text>
-      <RadioGroup {...radio} orientation="vertical" aria-label="Solutions">
+      <Text variant="subtitle">Selected solution: {state.state}</Text>
+      <RadioGroup {...state} orientation="vertical" aria-label="Solutions">
         {values.map((value, key) => {
           return (
             <Label key={key}>
               <Radio
                 value={value}
-                state={radio}
+                state={state}
                 disabled={value === 'Disabled'}
               />
               {value}
