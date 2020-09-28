@@ -1,11 +1,10 @@
 import React, { ReactNode, FunctionComponentElement, cloneElement } from 'react'
 import {
   Popover as ReakitPopover,
-  usePopoverState,
   PopoverDisclosure,
   PopoverProps as ReakitProps,
 } from 'reakit/Popover'
-import { PopoverState } from 'reakit/ts'
+import { PopoverState, PopoverStateReturn } from 'reakit/ts'
 import { SxStyleProp, Box } from 'theme-ui'
 
 /**
@@ -20,9 +19,12 @@ import { SxStyleProp, Box } from 'theme-ui'
  * ```jsx
  * import { Popover, usePopoverState } from '@vtex-components/popover'
 
- * function UseCase() {
+ * function UseCase({ placement, visible }) {
+ *   const popover = usePopoverState({ placement, visible })
+ *
  *   return (
  *     <Popover
+ *       {...popover}
  *       disclosure={<button>Open popover</button>}
  *     >
  *       <p>This is a Popover</p>
@@ -31,24 +33,16 @@ import { SxStyleProp, Box } from 'theme-ui'
  * }
  * ```
  */
-function Popover(props: PopoverProps) {
-  const {
-    sx = {},
-    disclosure,
-    children,
-    arrow,
-    placement = 'top',
-    visible,
-    ...popoverProps
-  } = props
-
-  const popover = usePopoverState({ placement, visible })
+function Popover(props: PopoverProps & PopoverStateReturn) {
+  const { sx = {}, disclosure, children, arrow, ...popoverProps } = props
 
   return (
     <>
-      <PopoverDisclosure {...popover}>{disclosure}</PopoverDisclosure>
-      <ReakitPopover {...popover} {...popoverProps}>
-        {arrow && cloneElement(arrow, { ...popover })}
+      <PopoverDisclosure {...popoverProps} ref={disclosure?.ref}>
+        {(referenceProps) => cloneElement(disclosure, { ...referenceProps })}
+      </PopoverDisclosure>
+      <ReakitPopover {...popoverProps}>
+        {arrow && cloneElement(arrow, { ...popoverProps })}
         <Box variant="popover" sx={sx}>
           {children}
         </Box>
@@ -59,7 +53,7 @@ function Popover(props: PopoverProps) {
 
 type Placement = Pick<PopoverState, 'placement'>['placement']
 
-export interface PopoverProps extends Omit<ReakitProps, 'as'> {
+export interface PopoverProps extends Omit<ReakitProps, 'as' | 'baseId'> {
   /**
    * Popover content element
    */
@@ -67,7 +61,7 @@ export interface PopoverProps extends Omit<ReakitProps, 'as'> {
   /**
    * The element that triggers the popover
    */
-  disclosure: ReactNode
+  disclosure: FunctionComponentElement<unknown>
   /**
    * Whether the popover will have an arrow or not
    */
