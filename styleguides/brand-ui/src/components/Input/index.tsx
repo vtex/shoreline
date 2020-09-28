@@ -6,7 +6,7 @@ import { forwardRef } from '@vtex-components/utils'
 
 import useInputState from './useInputState'
 
-const BrandInput = (props: PropsWithChildren<InputProps>) => {
+export const Input = (props: PropsWithChildren<InputProps>) => {
   const {
     size = 'regular',
     label,
@@ -115,4 +115,4 @@ export interface InputProps
   suffix?: ReactNode
 }
 
-export default forwardRef(BrandInput)
+export default forwardRef(Input)
