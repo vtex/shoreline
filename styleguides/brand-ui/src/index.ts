@@ -17,9 +17,9 @@ export {
   useAccordion,
 } from './components/Accordion'
 export * from './icons'
-export { Card } from './components/Card'
+export { Card, CardProps } from './components/Card'
 export { useFocusHollow } from './hooks'
 export { Header, HamburgerMenu } from './components/Header'
 export { Input, InputProps } from './components/Input'
-export { Tooltip } from './components/Tooltip'
+export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Popover, PopoverProps } from './components/Popover'
