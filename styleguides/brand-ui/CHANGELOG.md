@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.14.1...@vtex/brand-ui@0.15.0) (2020-09-28)
+
+
+### Features
+
+* add brand popover ([14dfcf6](https://github.com/vtex/onda/commit/14dfcf6e8b993b000f0cc43ab3c06afc1e280dc1))
+* add close icon to popover ([b5ecf34](https://github.com/vtex/onda/commit/b5ecf341a8540f6de932145b50705b988fa0c590))
+
+
+
+
+
 ## [0.14.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.14.0...@vtex/brand-ui@0.14.1) (2020-09-28)
 
 

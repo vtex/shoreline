@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/onda/compare/@vtex-components/popover@0.1.0...@vtex-components/popover@0.2.0) (2020-09-28)
+
+
+### Features
+
+* add brand popover ([14dfcf6](https://github.com/vtex/onda/commit/14dfcf6e8b993b000f0cc43ab3c06afc1e280dc1))
+
+
+
+
+
 # 0.1.0 (2020-09-23)
 
 
