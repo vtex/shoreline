@@ -117,7 +117,6 @@ StatelessModal.Header = function Header(
           <StatelessModal.Button
             closeModalOnClick
             variant="text"
-            size="small"
             icon={<IconClose />}
             sx={{
               color: 'text',
