@@ -53,4 +53,11 @@ export {
   IconMoney,
   IconTruck,
   IconPrinter,
+  IconCustomers,
+  IconGlobe,
+  IconKeys,
+  IconLogout,
+  IconOnlineStore,
+  IconShipping,
+  IconProducts,
 } from '../icons'
