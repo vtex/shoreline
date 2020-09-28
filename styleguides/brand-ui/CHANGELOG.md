@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.13.0...@vtex/brand-ui@0.14.0) (2020-09-28)
+
+
+### Bug Fixes
+
+* adjust label transition according to input size ([bebbc13](https://github.com/vtex/onda/commit/bebbc13e21ac97bad63f9c83d4cc44d01cbe15d9))
+* smoothen Input label animation ([ce6c8fd](https://github.com/vtex/onda/commit/ce6c8fdc0490dd4e365c8fec167c6d0c57e03247))
+
+
+### Features
+
+* add animation and use theme-defined styles ([8b313d7](https://github.com/vtex/onda/commit/8b313d76bdc3f17761e72fc9136b56f62ff90ad4))
+* add base for brand input ([f006afc](https://github.com/vtex/onda/commit/f006afc63da561f92dffa6ce8d7f206eb06809de))
+* add Brand Input stories ([0f07cc3](https://github.com/vtex/onda/commit/0f07cc3f1fdbe713f60816a58a5a73db6b2e6a3c))
+* add first version of input animation ([c27dfd3](https://github.com/vtex/onda/commit/c27dfd3683c46fa9622062a1d54de49921dc863b))
+* add id prop for Input ([a85abb9](https://github.com/vtex/onda/commit/a85abb9773267148c36d88caccc5cc6a901630ef))
+* add new controls for input stories and use icon mock ([ab19258](https://github.com/vtex/onda/commit/ab19258579bc0364d16bf1e4562219f18df16527))
+* create useInputState hook ([734ba98](https://github.com/vtex/onda/commit/734ba98e157eac4b240bad876cfd83a8855a3a82))
+* improve styles in input for different states ([b5b52f0](https://github.com/vtex/onda/commit/b5b52f0487d036b3b70b0015c97077269d2a1bea))
+* use hook to manage states and create stories ([0093a92](https://github.com/vtex/onda/commit/0093a92f3bef464d9ce5ce917ad394def8c7eafd))
+
+
+
+
+
 # [0.13.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.12.0...@vtex/brand-ui@0.13.0) (2020-09-25)
 
 
