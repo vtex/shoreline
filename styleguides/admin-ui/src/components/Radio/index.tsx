@@ -3,14 +3,20 @@ import { jsx, SxStyleProp } from 'theme-ui'
 import {
   Radio as ReakitRadio,
   RadioProps as ReakitRadioProps,
-  RadioGroup as ReakitRadioGroup,
-  RadioGroupProps as ReakitRadioGroupProps,
   RadioStateReturn,
 } from 'reakit/Radio'
 import { Ref } from 'react'
 import { forwardRef } from '@vtex-components/utils'
 
-import { useFocusHollow } from '../../hooks'
+export const Radio = forwardRef(
+  (props: RadioProps, ref: Ref<HTMLInputElement>) => {
+    const { size = 'regular', sx, state, ...baseProps } = props
+
+    const styles = { variant: `forms.radio-${size}`, ...sx }
+
+    return <ReakitRadio ref={ref} sx={styles} {...state} {...baseProps} />
+  }
+)
 
 export interface RadioProps
   extends Pick<
@@ -30,7 +36,7 @@ export interface RadioProps
    */
   size?: 'regular' | 'small'
   /**
-   * useRadioState() hook return
+   * useRadio() hook return
    */
   state: RadioStateReturn
   /**
@@ -39,35 +45,4 @@ export interface RadioProps
   sx?: SxStyleProp
 }
 
-export const Radio = forwardRef(
-  (props: RadioProps, ref: Ref<HTMLInputElement>) => {
-    const { size = 'regular', sx, state, ...baseProps } = props
-
-    const { focusProps, focusStyles } = useFocusHollow()
-    const styles = { variant: `forms.radio-${size}`, ...focusStyles, ...sx }
-
-    return (
-      <ReakitRadio
-        ref={ref}
-        sx={styles}
-        {...state}
-        {...focusProps}
-        {...baseProps}
-      />
-    )
-  }
-)
-
-export interface RadioGroupProps
-  extends Omit<ReakitRadioGroupProps, 'aria-label'> {
-  label: string
-  sx?: SxStyleProp
-}
-
-export function RadioGroup(props: RadioGroupProps) {
-  const { label, ...baseProps } = props
-
-  return <ReakitRadioGroup {...baseProps} aria-label={label} />
-}
-
-export { useRadioState, RadioStateReturn } from 'reakit/Radio'
+export { useRadioState as useRadio, RadioStateReturn } from 'reakit/Radio'

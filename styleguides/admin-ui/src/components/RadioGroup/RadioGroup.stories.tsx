@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import { Radio, useRadioState } from '../Radio'
-import { RadioGroup } from './index'
+import { Radio, useRadio } from '../Radio'
+import { RadioGroup, RadioGroupProps } from './index'
 import { Text } from '../Text'
 import { Label } from '../Label'
 
@@ -12,7 +12,7 @@ export default {
 } as Meta
 
 export function Horizontal() {
-  const radio = useRadioState({ state: 'oms' })
+  const radio = useRadio({ state: 'oms' })
   const values = [
     'Marketplace Ecommerce',
     'B2C Commerce',
@@ -24,7 +24,12 @@ export function Horizontal() {
   return (
     <Fragment>
       <Text variant="subtitle">Selected solution: {radio.state}</Text>
-      <RadioGroup {...radio} orientation="horizontal" label="Solutions">
+      <RadioGroup
+        {...radio}
+        id="radio-group"
+        orientation="horizontal"
+        label="Solutions"
+      >
         {values.map((value, key) => {
           return (
             <Label key={key}>
@@ -42,8 +47,48 @@ export function Horizontal() {
   )
 }
 
+Horizontal.parameters = {
+  playroom: {
+    code: `
+<Play.RadioState>
+  {(state) => (
+    <>
+      <Text variant="subtitle">Selected solution: {state.state}</Text>
+      <RadioGroup
+        {...state}
+        id="radio-group"
+        label="Solutions"
+      >
+        <Label>
+          <Radio state={state} value="Marketplace Ecommerce" />
+          Marketplace Ecommerce
+        </Label>
+        <Label>
+          <Radio state={state} value="B2C Commerce" />
+          B2C Commerce
+        </Label>
+        <Label>
+          <Radio state={state} value="B2B Commerce" />
+          B2B Commerce
+        </Label>
+        <Label>
+          <Radio state={state} value="Order Management System" />
+          Order Management System
+        </Label>
+        <Label>
+          <Radio state={state} disabled value="Disabled" />
+          Disabled
+        </Label>      
+      </RadioGroup>
+    </>
+  )}
+</Play.RadioState>
+    `,
+  },
+}
+
 export function Vertical() {
-  const radio = useRadioState({ state: 'oms' })
+  const radio = useRadio({ state: 'oms' })
   const values = [
     'Marketplace Ecommerce',
     'B2C Commerce',
@@ -55,7 +100,12 @@ export function Vertical() {
   return (
     <Fragment>
       <Text variant="subtitle">Selected solution: {radio.state}</Text>
-      <RadioGroup {...radio} orientation="vertical" label="Solutions">
+      <RadioGroup
+        {...radio}
+        id="radio-group"
+        orientation="vertical"
+        label="Solutions"
+      >
         {values.map((value, key) => {
           return (
             <Label key={key}>
@@ -71,4 +121,97 @@ export function Vertical() {
       </RadioGroup>
     </Fragment>
   )
+}
+
+Vertical.parameters = {
+  playroom: {
+    code: `
+<Play.RadioState>
+  {(state) => (
+    <>
+      <Text variant="subtitle">Selected solution: {state.state}</Text>
+      <RadioGroup
+        {...state}
+        id="radio-group"
+        orientation="vertical"
+        label="Solutions"
+      >
+        <Label>
+          <Radio state={state} value="Marketplace Ecommerce" />
+          Marketplace Ecommerce
+        </Label>
+        <Label>
+          <Radio state={state} value="B2C Commerce" />
+          B2C Commerce
+        </Label>
+        <Label>
+          <Radio state={state} value="B2B Commerce" />
+          B2B Commerce
+        </Label>
+        <Label>
+          <Radio state={state} value="Order Management System" />
+          Order Management System
+        </Label>
+        <Label>
+          <Radio state={state} disabled value="Disabled" />
+          Disabled
+        </Label>      
+      </RadioGroup>
+    </>
+  )}
+</Play.RadioState>
+    `,
+  },
+}
+
+export const WithoutLabelProp: Story<RadioGroupProps> = () => {
+  const state = useRadio()
+
+  return (
+    <Fragment>
+      <Label htmlFor="radio-group-id">Fruits</Label>
+      <RadioGroup id="radio-group-id" {...state}>
+        <Label>
+          <Radio state={state} value="Apple" />
+          Apple
+        </Label>
+        <Label>
+          <Radio state={state} value="Watermelon" />
+          Watermelon
+        </Label>
+        <Label>
+          <Radio state={state} value="Orange" />
+          Orange
+        </Label>
+      </RadioGroup>
+    </Fragment>
+  )
+}
+
+WithoutLabelProp.parameters = {
+  playroom: {
+    code: `
+<Play.RadioState>
+  {(state) => (
+    <>
+      <Label htmlFor="radio-group-id">Fruits</Label>
+      <RadioGroup id="radio-group-id" {...state}>
+        <Label>
+          <Radio state={state} value="Apple" />
+          Apple
+        </Label>
+        <Label>
+          <Radio state={state} value="Watermelon" />
+          Watermelon
+        </Label>
+        <Label>
+          <Radio state={state} value="Orange" />
+          Orange
+        </Label>
+      </RadioGroup>
+    </>
+  )}
+</Play.RadioState>
+    `,
+  },
 }

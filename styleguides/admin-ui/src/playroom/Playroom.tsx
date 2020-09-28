@@ -4,8 +4,9 @@ import {
   DisclosureStateReturn,
   useCollapsible,
 } from '../components/Collapsible'
-import { useToggle, CheckboxStateReturn } from '../components/Toggle'
+import { CheckboxStateReturn, useCheckbox } from '../components/Checkbox'
 import { useMenuState, MenuStateReturn } from '../components/Menu'
+import { RadioStateReturn, useRadio } from '../components/Radio'
 
 export function Play({ children }: Props) {
   return <>{children}</>
@@ -24,9 +25,9 @@ function CollapsibleState({ children }: CollapsibleStateProps) {
 }
 
 function CheckboxState({ state = false, children }: CheckboxStateProps) {
-  const switchProps = useToggle({ state })
+  const props = useCheckbox({ state })
 
-  return children?.({ ...switchProps })
+  return children?.({ ...props })
 }
 
 function MenuState({ children }: MenuStateProps) {
@@ -39,10 +40,17 @@ function MenuState({ children }: MenuStateProps) {
   return children?.({ ...menuProps })
 }
 
+function RadioState({ children }: RadioStateProps) {
+  const radioProps = useRadio()
+
+  return children?.({ ...radioProps })
+}
+
 Play.ToggleState = ToggleState
 Play.CollapsibleState = CollapsibleState
 Play.CheckboxState = CheckboxState
 Play.MenuState = MenuState
+Play.RadioState = RadioState
 
 interface Props {
   children: ReactNode
@@ -66,4 +74,8 @@ interface CheckboxStateProps {
 
 interface MenuStateProps {
   children: (props: MenuStateReturn) => ReactNode
+}
+
+interface RadioStateProps {
+  children: (props: RadioStateReturn) => ReactNode
 }

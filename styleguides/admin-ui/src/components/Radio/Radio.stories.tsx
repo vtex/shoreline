@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Radio, RadioProps, useRadioState } from './index'
+import { Radio, RadioProps, useRadio } from './index'
 import { RadioGroup } from '../RadioGroup'
 import { Text } from '../Text'
 import { Label } from '../Label'
@@ -11,32 +11,44 @@ export default {
   component: Radio,
 } as Meta
 
-const Template: Story<RadioProps> = (args) => {
-  const state = useRadioState()
+export const Playground: Story<RadioProps> = () => {
+  const state = useRadio()
 
-  return <Radio {...args} state={state} />
+  return <Radio state={state} value="playground" aria-label="playground" />
 }
 
-export const Playground = Template.bind({})
-Playground.args = {
-  value: 'playground',
-  label: 'Playground',
+Playground.parameters = {
+  playroom: {
+    code: `
+<Play.RadioState>
+  {(state) => (
+    <Radio state={state} value="playground" aria-label="playground" />
+  )}
+</Play.RadioState>
+    `,
+  },
 }
 
 export function Disabled() {
-  const state = useRadioState()
+  const state = useRadio()
 
   return (
     <>
-      <Radio value="standalone" aria-label="label" disabled state={state} />
+      <Radio value="disabled" aria-label="label" disabled state={state} />
       <br />
-      <Radio value="checked-disabled" checked disabled state={state} />
+      <Radio
+        value="checked-disabled"
+        aria-label="checked-disabled"
+        checked
+        disabled
+        state={state}
+      />
     </>
   )
 }
 
 export function Group() {
-  const radio = useRadioState({ state: 'oms' })
+  const radio = useRadio({ state: 'oms' })
   const values = [
     'Marketplace Ecommerce',
     'B2C Commerce',
@@ -64,4 +76,45 @@ export function Group() {
       </RadioGroup>
     </Fragment>
   )
+}
+
+Group.parameters = {
+  playroom: {
+    code: `
+<Play.RadioState>
+  {(state) => (
+    <>
+      <Text variant="subtitle">Selected solution: {state.state}</Text>
+      <RadioGroup
+        {...state}
+        id="radio-group"
+        label="Solutions"
+        orientation="vertical"
+      >
+        <Label>
+          <Radio state={state} value="Marketplace Ecommerce" />
+          Marketplace Ecommerce
+        </Label>
+        <Label>
+          <Radio state={state} value="B2C Commerce" />
+          B2C Commerce
+        </Label>
+        <Label>
+          <Radio state={state} value="B2B Commerce" />
+          B2B Commerce
+        </Label>
+        <Label>
+          <Radio state={state} value="Order Management System" />
+          Order Management System
+        </Label>
+        <Label>
+          <Radio state={state} disabled value="Disabled" />
+          Disabled
+        </Label>      
+      </RadioGroup>
+    </>
+  )}
+</Play.RadioState>
+    `,
+  },
 }

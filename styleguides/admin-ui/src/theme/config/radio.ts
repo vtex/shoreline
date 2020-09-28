@@ -3,7 +3,6 @@ import { SxStyleProp } from 'theme-ui'
 
 const style = {
   appearance: 'none',
-  outline: 'none',
   margin: 0,
   position: 'relative',
   cursor: 'pointer',
@@ -33,6 +32,14 @@ const style = {
     ':after': {
       backgroundColor: 'muted.1',
     },
+  },
+  ':focus:not([data-focus-visible-added])': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
+  ':focus': {
+    outline: 'none',
+    boxShadow: 'focus',
   },
 }
 
