@@ -4,6 +4,7 @@ import header from './components/header'
 import hamburgerMenu from './components/hamburgerMenu'
 import tooltip from './components/tooltip'
 import card from './components/card'
+import input from './components/input'
 
 export const theme = {
   colors: {
@@ -60,6 +61,7 @@ export const theme = {
   hamburgerMenu,
   tooltip,
   card,
+  input,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
