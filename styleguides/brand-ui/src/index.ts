@@ -19,5 +19,6 @@ export {
 export * from './icons'
 export { Card } from './components/Card'
 export { useFocusHollow } from './hooks'
-export { Header } from './components/Header'
+export { Header, HamburgerMenu } from './components/Header'
 export { Input, InputProps } from './components/Input'
+export { Tooltip } from './components/Tooltip'

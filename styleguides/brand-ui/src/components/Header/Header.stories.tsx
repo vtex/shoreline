@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link, Box } from 'theme-ui'
 
-import { Header, LinksProps } from '.'
-import HamburgerMenu from './HamburgerMenu'
+import { Header, HamburgerMenu, LinksProps } from '.'
 import { IconExternalLink } from '../../icons'
 
 export default {
