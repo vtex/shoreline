@@ -75,8 +75,8 @@ export function StyleProps() {
 
 export function CompositionWithRenderProps() {
   return (
-    <Box w="2xl">
-      {(props) => <Button {...props}>Button With 2xl Width</Button>}
+    <Box w={160}>
+      {(props) => <Button {...props}>Button With 160 Width</Button>}
     </Box>
   )
 }
@@ -84,7 +84,7 @@ export function CompositionWithRenderProps() {
 CompositionWithRenderProps.parameters = {
   playroom: {
     code: `
-<Box w="2xl" h="full">
+<Box w="160" h="full">
   {(props) => <Button {...props}>Button With 2xl Width</Button>}
 </Box>
     `,
