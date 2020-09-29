@@ -25,7 +25,7 @@ export const Example = () => {
 
 export const WithoutPadding = () => {
   return (
-    <Card p="0" w="2/5">
+    <Card p="0" w="5/12">
       <Text variant="headline" p="6">
         Our People
       </Text>

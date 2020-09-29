@@ -19,7 +19,7 @@ export function StyleProps() {
       display="flex"
       el="section"
       w="full"
-      h="20"
+      h={160}
       justify="evenly"
       p="5"
       bg="muted.4"
@@ -27,36 +27,47 @@ export function StyleProps() {
     >
       <Box
         display="flex"
-        w="1/3"
+        w="1/4"
         h="full"
         bg="muted.2"
         m="2"
         justify="center"
         items="center"
       >
-        1/3
+        1/4
       </Box>
       <Box
         display="flex"
-        w="1/3"
+        w="1/4"
         h="full"
         bg="muted.2"
         m="2"
         justify="center"
         items="center"
       >
-        1/3
+        1/4
       </Box>
       <Box
         display="flex"
-        w="1/3"
+        w="1/4"
         h="full"
         bg="muted.2"
         m="2"
         justify="center"
         items="center"
       >
-        1/3
+        1/4
+      </Box>
+      <Box
+        display="flex"
+        w="1/4"
+        h="full"
+        bg="muted.2"
+        m="2"
+        justify="center"
+        items="center"
+      >
+        1/4
       </Box>
     </Box>
   )

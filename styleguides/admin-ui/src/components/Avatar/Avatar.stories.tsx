@@ -11,7 +11,7 @@ export default {
 
 export const Basic: Story<AvatarProps> = () => {
   return (
-    <Box display="flex" w="15" justify="around">
+    <Box display="flex" w={140} justify="around">
       <Avatar label="base" />
       <Avatar label="primary" palette="primary" />
       <Avatar label="danger" palette="danger" />
