@@ -12,6 +12,7 @@ import checkbox from './checkbox'
 import divider from './divider'
 import controlGroup from './controlGroup'
 import radio from './radio'
+import collapsible from './collapsible'
 
 export const theme = {
   ...layout,
@@ -22,6 +23,7 @@ export const theme = {
   avatar,
   overlay,
   divider,
+  collapsible,
   forms: {
     ...controlGroup,
     ...toggle,

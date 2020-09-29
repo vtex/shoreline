@@ -14,7 +14,7 @@ export const SimpleUsage = () => {
   const props = useCollapsible()
 
   return (
-    <Collapsible {...props} sx={{ width: '1/3' }}>
+    <Collapsible {...props} sx={{ width: '4/12' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       />
@@ -33,7 +33,7 @@ SimpleUsage.parameters = {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...props}) => (
-    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '1/3' }}>
+    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '4/12' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       />
@@ -54,7 +54,7 @@ export const WithButtons = () => {
   const { toggle, ...props } = useCollapsible()
 
   return (
-    <Collapsible toggle={toggle} {...props} sx={{ width: '2/5' }}>
+    <Collapsible toggle={toggle} {...props} sx={{ width: '5/12' }}>
       <Collapsible.Header label="Build for Community #1">
         <Button size="small" variant="subtle">
           Button
@@ -78,7 +78,7 @@ WithButtons.parameters = {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...props}) => (
-    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '2/5' }}>
+    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '5/12' }}>
       <Collapsible.Header label="Build for Community #1">
         <Button size="small" variant="subtle">
           Button
@@ -103,7 +103,7 @@ export const NestedCollapsible = () => {
   const secondProps = useCollapsible()
 
   return (
-    <Collapsible {...firstProps} sx={{ width: '2/5' }}>
+    <Collapsible {...firstProps} sx={{ width: '5/12' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
@@ -132,7 +132,7 @@ NestedCollapsible.parameters = {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...firstProps}) => (
-    <Collapsible toggle={toggle} visible={visible} {...firstProps} sx={{ width: '2/5' }}>
+    <Collapsible toggle={toggle} visible={visible} {...firstProps} sx={{ width: '5/12' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
@@ -167,7 +167,7 @@ export const InitiallyVisible = () => {
   const props = useCollapsible({ visible: true })
 
   return (
-    <Collapsible {...props} sx={{ width: '1/3' }}>
+    <Collapsible {...props} sx={{ width: '4/12' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
@@ -188,7 +188,7 @@ InitiallyVisible.parameters = {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...props}) => (
-    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '1/3' }}>
+    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '4/12' }}>
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >

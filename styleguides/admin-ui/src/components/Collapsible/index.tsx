@@ -31,7 +31,7 @@ export function Collapsible(props: CollapsibleProps) {
   const { sx, children, ...disclosureProps } = props
 
   return (
-    <Box bg="background" bc="muted.3" bs="solid" bw="1" br="3" sx={sx}>
+    <Box sx={{ variant: 'collapsible', ...sx }}>
       <CollapsibleProvider {...disclosureProps}>{children}</CollapsibleProvider>
     </Box>
   )
@@ -39,16 +39,9 @@ export function Collapsible(props: CollapsibleProps) {
 
 function Header({ children, label, sx }: HeaderProps) {
   return (
-    <Box display="flex" items="center" justify="between" p="6" pl="3" sx={sx}>
+    <Box el="header">
       <Disclosure>{label}</Disclosure>
-      <Box
-        display="flex"
-        sx={{
-          '& button:nth-of-type(n+2)': {
-            marginLeft: 1,
-          },
-        }}
-      >
+      <Box display="flex" sx={sx}>
         {children}
       </Box>
     </Box>
@@ -68,6 +61,7 @@ function Disclosure({ children }: { children: ReactNode }) {
             icon={<IconCaret direction={visible ? 'down' : 'right'} />}
             variant="text"
             sx={{
+              // reset
               color: 'text',
               '&:hover': { backgroundColor: 'transparent' },
               '&:active': { backgroundColor: 'transparent' },
@@ -87,7 +81,7 @@ function Content({ children, sx }: ContentProps) {
   return (
     <DisclosureContent {...props}>
       {(enhancedProps) => (
-        <Box {...enhancedProps} px="6" pb="6" sx={sx}>
+        <Box el="section" {...enhancedProps} sx={sx}>
           {children}
         </Box>
       )}
