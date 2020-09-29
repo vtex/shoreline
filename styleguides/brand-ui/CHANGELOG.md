@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.15.1...@vtex/brand-ui@0.16.0) (2020-09-29)
+
+
+### Features
+
+* add brand-ui hello bar component ([c4b471e](https://github.com/vtex/onda/commit/c4b471ec4eb70f6713ec261cc9d94ef4e8f99231))
+
+
+
+
+
 ## [0.15.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.15.0...@vtex/brand-ui@0.15.1) (2020-09-29)
 
 
