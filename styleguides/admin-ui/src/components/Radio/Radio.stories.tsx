@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Radio, RadioProps, useRadio } from './index'
@@ -58,7 +58,7 @@ export function Group() {
   ]
 
   return (
-    <Fragment>
+    <>
       <Text variant="subtitle">Selected solution: {state.state}</Text>
       <RadioGroup {...state} orientation="vertical" aria-label="Solutions">
         {values.map((value, key) => {
@@ -74,7 +74,7 @@ export function Group() {
           )
         })}
       </RadioGroup>
-    </Fragment>
+    </>
   )
 }
 

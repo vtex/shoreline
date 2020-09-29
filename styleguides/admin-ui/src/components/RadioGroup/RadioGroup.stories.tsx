@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Radio, useRadio } from '../Radio'
@@ -22,7 +22,7 @@ export function Horizontal() {
   ]
 
   return (
-    <Fragment>
+    <>
       <Text variant="subtitle">Selected solution: {radio.state}</Text>
       <RadioGroup
         {...radio}
@@ -43,7 +43,7 @@ export function Horizontal() {
           )
         })}
       </RadioGroup>
-    </Fragment>
+    </>
   )
 }
 
@@ -98,7 +98,7 @@ export function Vertical() {
   ]
 
   return (
-    <Fragment>
+    <>
       <Text variant="subtitle">Selected solution: {radio.state}</Text>
       <RadioGroup
         {...radio}
@@ -119,7 +119,7 @@ export function Vertical() {
           )
         })}
       </RadioGroup>
-    </Fragment>
+    </>
   )
 }
 
@@ -168,7 +168,7 @@ export const WithoutLabelProp: Story<RadioGroupProps> = () => {
   const state = useRadio()
 
   return (
-    <Fragment>
+    <>
       <Label htmlFor="radio-group-id">Fruits</Label>
       <RadioGroup id="radio-group-id" {...state}>
         <Label>
@@ -184,7 +184,7 @@ export const WithoutLabelProp: Story<RadioGroupProps> = () => {
           Orange
         </Label>
       </RadioGroup>
-    </Fragment>
+    </>
   )
 }
 
