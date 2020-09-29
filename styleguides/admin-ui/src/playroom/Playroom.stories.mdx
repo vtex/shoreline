@@ -75,7 +75,8 @@ This component is responsible for handling the Checkbox's state.
 
 It can be used by:
 
-- `Switch`, spreading the props from `useSwitch` hook
+- `Toggle`, spreading the props from `useToggle` hook
+- `Checkbox`, spreading the props from `useCheckbox` hook
 
 > ℹ️ In the future will be used by the `Checkbox` component as well.
 
@@ -94,13 +95,55 @@ interface CheckboxStateProps {
 <Play.CheckboxState state={[]}>
   {({ state, setState }) => (
     <>
-      <Switch ariaLabel="label1" state={state} setState={setState} />
-      <Switch ariaLabel="label2" state={state} setState={setState} />
-      <Switch ariaLabel="label3" state={state} setState={setState} />
+      <Checkbox aria-abel="label1" state={state} setState={setState} />
+      <Toggle aria-label="label2" state={state} setState={setState} />
     </>
   )}
 </Play.CheckboxState>
 ```
 
-> 💡 Also check
-> [Switch Docs](../components/Switch/README.md) for detailed info.
+### `<Play.RadioState />`
+
+This component is responsible for handling the Radio's state.
+
+It is used by:
+
+- `Radio`
+- `RadioGroup`
+
+```ts
+interface RadioStateProps {
+  state: string | number | undefined
+  setState: React.Dispatch<React.SetStateAction<string | number | undefined>>
+  rtl: boolean
+  orientation?: 'horizontal' | 'vertical' | undefined
+  items: Item[]
+  groups: Group[]
+  currentId?: string | null | undefined
+  loop: boolean | Orientation
+  wrap: boolean | Orientation
+  unstable_virtual: boolean
+  unstable_moves: number
+  unstable_angular: boolean
+  unstable_hasActiveWidget: boolean
+}
+```
+
+#### Example
+
+```jsx
+<Play.RadioState>
+  {(state) => (
+    <RadioGroup {...state}>
+      <Label>
+        <Radio state={state} value="radio1" />
+        Radio 1
+      </Label>
+      <Label>
+        <Radio state={state} value="radio2" />
+        Radio 2
+      </Label>
+    </RadioGroup>
+  )}
+</Play.RadioState>
+```

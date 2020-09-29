@@ -1,0 +1,56 @@
+import { Meta, Props, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { RadioGroup } from './index'
+
+<Meta title="design-system/components/RadioGroup" component={RadioGroup} />
+
+# **Admin UI RadiouGroup**
+
+Used to group `Radio` components.
+
+## **Usage**
+
+<Canvas>
+  <Story id="alpha-radiogroup--vertical" />
+</Canvas>
+
+## **Props**
+
+<Props of={RadioGroup} />
+
+## `useRadio` hook
+
+You should use this hook to grants navigation accessibility in the `RadioGroup` children.
+
+### **Usage**
+
+<Canvas>
+  <Story id="alpha-radiogroup--horizontal" />
+</Canvas>
+
+> 💡 You can check [Reakit documentation](https://reakit.io/docs/radio/#useradiostate) for detailed info
+
+## **RadioGroup Label**
+
+You can easily add a label using the `label` prop, but it is also possible to add a custom one, or even not add any label (just remember to use `aria-label` prop, in this case).
+
+- **Custom Label**
+
+<Canvas>
+  <Story id="alpha-radiogroup--without-label-prop" />
+</Canvas>
+
+> ⚠️ To guarantee accessibility, always that a `RadioGroup` has a label, it should have an `id` set as well.
+
+## **RadioGroup children**
+
+Components with `role="radiogroup"` should have children of type `Radio`. We don't do this restriction on the code, so you should keep in mind that when using the `RadioGroup` the children should be of `Radio` type.
+
+### **Child label**
+
+The labels involved by `RadioGroup` are customized with `display="flex"` and `items="center"` by default. You can override these styles if necessary.
+
+### **Usage**
+
+<Canvas>
+  <Story id="alpha-radiogroup--horizontal" />
+</Canvas>

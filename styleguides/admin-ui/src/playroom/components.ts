@@ -19,6 +19,8 @@ export {
   Label,
   CheckboxGroup,
   Tooltip,
+  Radio,
+  RadioGroup,
 } from '../index'
 
 export {
