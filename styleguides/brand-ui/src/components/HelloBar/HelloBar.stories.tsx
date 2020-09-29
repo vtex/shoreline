@@ -21,6 +21,7 @@ Playground.args = {
     'Subscribe to get email notifications whenever VTEX creates, updates or resolves an incident.',
   action: {
     label: 'subscribe',
+    onClick: () => alert('Subscribe'),
   },
 }
 
@@ -39,7 +40,7 @@ export const Variations = () => (
       variant="secondary"
       action={{
         label: 'subscribe',
-        onClick: () => alert('Primary: Subscribe'),
+        onClick: () => alert('Secondary: Subscribe'),
       }}
     >
       Subscribe to get email notifications whenever VTEX creates, updates or
@@ -49,7 +50,7 @@ export const Variations = () => (
       variant="tertiary"
       action={{
         label: 'subscribe',
-        onClick: () => alert('Primary: Subscribe'),
+        onClick: () => alert('Tertiary: Subscribe'),
       }}
     >
       Subscribe to get email notifications whenever VTEX creates, updates or

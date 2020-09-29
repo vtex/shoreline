@@ -5,6 +5,16 @@ import { IconProps } from '@vtex-components/icon'
 import { IconCaret } from '../../icons'
 import { Button } from '../Button'
 
+/**
+ *
+ * Hellobar is a section where you can present a specific message to your visitors,
+ * without distracting them from your regular content.
+ * @example
+ * ```jsx
+ * import { HelloBar } from `@vtex/brand-ui`
+ * <HelloBar>Message</HelloBar>
+ * ```
+ */
 const HelloBar = ({
   icon,
   variant = 'primary',
@@ -40,9 +50,21 @@ interface HelloBarProps extends PropsWithChildren<SxProps> {
    * @default primary
    */
   variant?: 'primary' | 'secondary' | 'tertiary'
+  /**
+   * Function to render the helloBar icon
+   */
   icon?: (props: IconProps) => ReactNode
+  /**
+   * Props to the hello bar action
+   */
   action: {
+    /**
+     * Label of the action
+     */
     label: string
+    /**
+     * Hello bar click function
+     */
     onClick?: () => void
   }
 }
