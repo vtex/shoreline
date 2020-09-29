@@ -19,12 +19,12 @@ const styles: SxStyleProp = {
     borderColor: 'muted.3',
     borderStyle: 'solid',
     'button + button': {
-      ml: 9,
+      ml: 4,
     },
   },
   header: {
-    py: 9,
-    px: 13,
+    py: 4,
+    px: 6,
     height: '3.5rem',
     borderTopWidth: 0,
     borderLeftWidth: 0,
@@ -42,9 +42,9 @@ const styles: SxStyleProp = {
     zIndex: 999,
   },
   section: {
-    pt: 9,
-    px: 13,
-    pb: 13,
+    pt: 4,
+    px: 6,
+    pb: 6,
   },
   footer: {
     borderBottomWidth: 0,
@@ -55,7 +55,7 @@ const styles: SxStyleProp = {
     left: 0,
     right: 0,
     bg: 'background',
-    p: 13,
+    p: 6,
   },
   overflowY: 'auto',
   overflowX: 'hidden',
