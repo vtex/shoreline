@@ -1,5 +1,5 @@
-export { ThemeProvider, ThemeProviderProps, useColorMode } from 'theme-ui'
-export { Theme, FeedbackPalette } from './theme'
-export { useTheme, useComponentSx } from './hooks'
 export { get } from '@theme-ui/css'
 export { default as mergeSx } from 'deepmerge'
+export { ThemeProvider, ThemeProviderProps, useColorMode } from 'theme-ui'
+export { useComponentSx, useTheme } from './hooks'
+export { FeedbackPalette, Theme } from './theme'

@@ -32,8 +32,10 @@
     "build:storybook": "NODE_ENV=production build-storybook -s -p --quiet"
   },
   "peerDependencies": {
+    "@emotion/core": "^10.0.35",
     "react": ">=16",
-    "react-dom": ">=16"
+    "react-dom": ">=16",
+    "theme-ui": "^0.3.1"
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
@@ -56,6 +58,7 @@
     "@storybook/react": "^6.0.22",
     "babel-loader": "^8.1.0",
     "react-is": "^16.13.1",
-    "tsdx": "^0.14.0"
+    "tsdx": "^0.14.0",
+    "rollup-plugin-peer-deps-external": "^2.2.3"
   }
 }

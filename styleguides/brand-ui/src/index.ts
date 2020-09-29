@@ -1,4 +1,4 @@
-export { ThemeProvider } from './theme'
+export { ThemeProvider, theme } from './theme'
 export { Box, Flex } from 'theme-ui'
 export { Button, ButtonProps } from './components/Button'
 export { FooterLanding } from './components/FooterLanding'
