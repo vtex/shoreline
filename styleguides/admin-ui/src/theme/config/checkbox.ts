@@ -4,7 +4,6 @@ const styles = {
   borderWidth: 1,
   borderColor: 'muted.1',
   borderRadius: 3,
-  outline: 'none',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
@@ -51,6 +50,7 @@ const styles = {
     '&:hover': {
       borderColor: 'primary.hover',
       color: 'primary.hover',
+      bg: 'primary.washed.1',
     },
     '&:active': {
       borderColor: 'primary.active',
@@ -67,7 +67,15 @@ const styles = {
   },
   '&:active': {
     backgroundColor: 'primary.washed.0',
-    borderColor: 'text',
+    borderColor: 'muted.0',
+  },
+  ':focus:not([data-focus-visible-added])': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
+  ':focus': {
+    outline: 'none',
+    boxShadow: 'focus',
   },
 }
 

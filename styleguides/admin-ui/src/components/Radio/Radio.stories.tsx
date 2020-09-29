@@ -7,7 +7,7 @@ import { Text } from '../Text'
 import { Label } from '../Label'
 
 export default {
-  title: 'alpha/Radio',
+  title: 'beta/Radio',
   component: Radio,
 } as Meta
 

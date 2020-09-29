@@ -24,6 +24,14 @@ const style = {
     ':after': {
       opacity: 1,
     },
+    ':hover': {
+      backgroundColor: 'primary.hover',
+      borderColor: 'primary.hover',
+    },
+    ':active': {
+      borderColor: 'primary.active',
+      backgroundColor: 'primary.active',
+    },
   },
   ':disabled': {
     cursor: 'not-allowed',
@@ -32,6 +40,13 @@ const style = {
     ':after': {
       backgroundColor: 'muted.1',
     },
+  },
+  ':hover': {
+    borderColor: 'text',
+  },
+  ':active': {
+    borderColor: 'muted.0',
+    backgroundColor: 'primary.washed.0',
   },
   ':focus:not([data-focus-visible-added])': {
     outline: 'none',
