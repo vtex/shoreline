@@ -52,6 +52,6 @@ export default {
   },
   shadows: {
     menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
-    focus: `0rem 0rem 0rem ${space[2]} ${colors.focus}`,
+    focus: `0rem 0rem 0rem ${space['2px']} ${colors.focus}`,
   },
 }
