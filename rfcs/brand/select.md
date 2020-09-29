@@ -1,4 +1,4 @@
-# RFC Brand Input
+# RFC Brand Select
 
 - 📅 Start Date: 2020-09-29
 - 🏆 Champion: @lucasmedeiros
