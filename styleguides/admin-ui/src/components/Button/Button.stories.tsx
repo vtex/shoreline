@@ -27,7 +27,7 @@ WithIconOnly.args = {
 WithIconOnly.parameters = {
   playroom: {
     code: `
-<Button iconPosition="start" icon={(props) => <IconCancel {...props} />} />
+<Button iconPosition="start" icon={<IconCancel />} />
     `,
   },
 }
@@ -40,7 +40,7 @@ WithIconStart.args = {
 WithIconStart.parameters = {
   playroom: {
     code: `
-<Button iconPosition="start" icon={(props) => <IconCancel {...props} />} >
+<Button iconPosition="start" icon={<IconCancel />} >
   Admin UI Button
 </Button>
     `,
@@ -56,7 +56,7 @@ WithIconEnd.args = {
 WithIconEnd.parameters = {
   playroom: {
     code: `
-<Button iconPosition="end" icon={(props) => <IconCancel {...props} />} >
+<Button iconPosition="end" icon={<IconCancel />} >
   Admin UI Button
 </Button>
     `,

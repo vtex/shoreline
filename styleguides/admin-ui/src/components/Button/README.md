@@ -59,7 +59,7 @@ import Button from '@vtex/admin-ui'
 function UseCase() {
   return (
     <>
-      <Button iconPosition="start" icon={(props) => <Icon {...props} />}>
+      <Button iconPosition="start" icon={<Icon />}>
         Primary Button
       </Button>
     </>
@@ -123,7 +123,7 @@ import { Button } from '@vtex/admin-ui'
 
 function UseCase() {
   return (
-    <Button icon={(props) => <Icon {...props} />} iconPosition="start">
+    <Button icon={<Icon />} iconPosition="start">
       VTEX Button
     </Button>
   )
@@ -136,7 +136,7 @@ function UseCase() {
 import { Button } from '@vtex/admin-ui'
 
 function UseCase() {
-  return <Button icon={(props) => <Icon {...props} />} />
+  return <Button icon={<Icon />} />
 }
 ```
 
