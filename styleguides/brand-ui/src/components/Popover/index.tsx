@@ -24,6 +24,7 @@ export const Popover = ({
   ...props
 }: PopoverProps) => {
   const popover = usePopoverState({ placement, visible, gutter: 20 })
+  const handleHide = () => popover.hide()
 
   return (
     <BasePopover
@@ -40,8 +41,8 @@ export const Popover = ({
             placement={popover.placement}
           />
         ) : (
-            undefined
-          )
+          undefined
+        )
       }
     >
       {children}
@@ -51,7 +52,7 @@ export const Popover = ({
             size="small"
             variant="tertiary"
             icon={() => <IconClose size={30} />}
-            onClick={() => popover.hide()}
+            onClick={handleHide}
           />
         </Box>
       )}

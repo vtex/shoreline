@@ -1,7 +1,6 @@
 import React, { useState, useRef, PropsWithChildren, ReactNode } from 'react'
 import { Box, Flex, Label, Input as ThemeUIInput, Text } from 'theme-ui'
 import { Input as ReakitInput, InputProps as BaseProps } from 'reakit/Input'
-
 import { forwardRef } from '@vtex-components/utils'
 
 import useInputState from './useInputState'
@@ -23,6 +22,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
     sx = {},
     ...inputProps
   } = props
+
   const ref = useRef<HTMLInputElement>(null)
   const redirectFocus = () => ref.current?.focus()
 
@@ -37,8 +37,9 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
 
   const labelVariant = `input.label.${size}-${prefix ? 'prefix-' : ''}${state}`
   const helpMessageVariant = `input.helpMessage.${
-    (state === 'disabled' || state === 'error') ? state : 'default'
+    state === 'disabled' || state === 'error' ? state : 'default'
   }`
+
   return (
     <Box
       sx={{ margin: 2, width: 'fit-content' }}
@@ -70,7 +71,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
                 },
                 ':hover': {
                   cursor: readOnly ? 'default' : 'text',
-                }
+                },
               }}
               {...enhancedProps}
             />
