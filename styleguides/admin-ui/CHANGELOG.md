@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.41.0...@vtex/admin-ui@0.42.0) (2020-09-29)
+
+
+### Features
+
+* **radio:** add radio component to admin-ui ([95019e1](https://github.com/vtex/onda/commit/95019e1f2e6cca047c80f96ec29f0ad1ee2d37ea))
+* **radio-group:** add RadioGroup component ([3825356](https://github.com/vtex/onda/commit/3825356e2433b68f4f7fed640b0b84e81963541f))
+
+
+
+
+
 # [0.41.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.40.4...@vtex/admin-ui@0.41.0) (2020-09-25)
 
 
