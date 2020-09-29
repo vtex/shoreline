@@ -1,7 +1,8 @@
 import React, { PropsWithChildren, ReactNode } from 'react'
-import { Flex, SxProps, Text } from 'theme-ui'
+import { Flex, SxProps, Text, Box } from 'theme-ui'
 import { IconProps } from '@vtex-components/icon'
 
+import { IconCaret } from '../../icons'
 import { Button } from '../Button'
 
 const HelloBar = ({
@@ -14,14 +15,21 @@ const HelloBar = ({
   const paletteVariant = `helloBar.${variant}`
 
   return (
-    <Flex variant={paletteVariant}>
-      <Flex>
+    <Flex variant={paletteVariant} onClick={onClick}>
+      <Flex variant="helloBar.content">
         {icon?.({ size: 18, sx: { variant: 'helloBar.icon' } })}
         <Text>{children}</Text>
       </Flex>
-      <Button variant={buttonVariant} size="small" onClick={onClick}>
+      <Button
+        sx={{ display: ['none', 'none', 'block'] }}
+        variant={buttonVariant}
+        size="small"
+      >
         {label}
       </Button>
+      <Box variant="helloBar.actionIcon">
+        <IconCaret direction="right" />
+      </Box>
     </Flex>
   )
 }
