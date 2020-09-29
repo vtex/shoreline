@@ -29,7 +29,7 @@
     "build": "tsdx build --tsconfig tsconfig.json",
     "test": "tsdx test --passWithNoTests",
     "storybook": "start-storybook -p 6007",
-    "build:storybook": "build-storybook"
+    "build:storybook": "NODE_ENV=production build-storybook -s -p --quiet"
   },
   "peerDependencies": {
     "react": ">=16",
