@@ -1,1 +1,1 @@
-# Brand UI
+# VTEX Brand UI
