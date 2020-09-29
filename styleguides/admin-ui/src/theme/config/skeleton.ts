@@ -1,14 +1,13 @@
 import { keyframes } from '@emotion/core'
 
 import colors from './colors'
-import sizes from './sizes'
 
 const load = keyframes`
   0% {
-    background-position: -${sizes['19']} 0;
+    background-position: -200px 0;
   }
   100% {
-    background-position: calc(${sizes['19']} + 100%) 0;
+    background-position: calc(200px + 100%) 0;
   }
 `
 
@@ -17,7 +16,7 @@ const styles = {
   width: 'full',
   height: 'full',
   backgroundColor: 'muted.4',
-  backgroundSize: `${sizes['19']} 100%`,
+  backgroundSize: `200px 100%`,
   backgroundRepeat: 'no-repeat',
   lineHeight: 1,
   borderRadius: 3,

@@ -29,7 +29,7 @@ Circle.args = {
 
 export const Fluid = () => {
   return (
-    <Box w="full" h="19">
+    <Box w="full" h={192}>
       <Skeleton />
     </Box>
   )
@@ -43,13 +43,13 @@ export const TextExample = () => {
       <Box w="sm">
         {loading ? (
           <Box>
-            <Skeleton sx={{ height: 8, width: '2/5' }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6, width: '1/2' }} />
+            <Skeleton sx={{ height: 24, width: '5/12' }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16, width: '1/2' }} />
           </Box>
         ) : (
           <Box>
@@ -81,13 +81,13 @@ TextExample.parameters = {
       <Box w="sm">
         {toggle ? (
           <Box>
-            <Skeleton sx={{ height: 8, width: "2/5" }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6 }} />
-            <Skeleton sx={{ height: 6, width: "1/2" }} />
+            <Skeleton sx={{ height: 24, width: "5/12" }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16 }} />
+            <Skeleton sx={{ height: 16, width: "1/2" }} />
           </Box>
         ) : (
           <Box>

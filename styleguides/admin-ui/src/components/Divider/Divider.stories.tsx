@@ -13,7 +13,7 @@ export default {
 
 export const Horizontal: Story<DividerProps> = () => {
   return (
-    <Card w="2/5">
+    <Card w="5/12">
       <Text variant="headline" mt="0" mb="2">
         Tolerance
       </Text>
@@ -34,8 +34,8 @@ export const Horizontal: Story<DividerProps> = () => {
 
 export const Vertical: Story<DividerProps> = () => {
   return (
-    <Card display="flex" w="2/5" justify="center">
-      <Box w="2/5">
+    <Card display="flex" w="5/12" justify="center">
+      <Box w="5/12">
         <Text variant="headline" mt="0" mb="2">
           Cards
         </Text>
@@ -45,7 +45,7 @@ export const Vertical: Story<DividerProps> = () => {
         </Text>
       </Box>
       <Divider orientation="vertical" mx="6" />
-      <Box w="2/5">
+      <Box w="5/12">
         <Text variant="headline" mt="0" mb="2">
           Personal data
         </Text>
