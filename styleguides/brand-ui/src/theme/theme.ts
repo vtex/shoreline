@@ -6,6 +6,7 @@ import tooltip from './components/tooltip'
 import card from './components/card'
 import input from './components/input'
 import popover from './components/popover'
+import helloBar from './components/helloBar'
 
 export const theme = {
   colors: {
@@ -64,6 +65,7 @@ export const theme = {
   card,
   input,
   popover,
+  helloBar,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
