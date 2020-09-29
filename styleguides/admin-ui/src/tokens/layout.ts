@@ -1,32 +1,42 @@
 import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
+import { get } from '@vtex-components/theme'
 
 import { Sizes } from '../theme/config'
+import sizes from '../theme/config/sizes'
+
+function transformSize(value: string | number) {
+  if (typeof value === 'string' && Object.keys(sizes).includes(value)) {
+    return get(sizes, value)
+  }
+
+  return Number(value)
+}
 
 export const layoutTokens = system({
   w: {
     property: 'width',
-    scale: 'sizes',
+    transform: transformSize,
   },
   minW: {
     property: 'minWidth',
-    scale: 'sizes',
+    transform: transformSize,
   },
   maxW: {
     property: 'maxWidth',
-    scale: 'sizes',
+    transform: transformSize,
   },
   h: {
     property: 'height',
-    scale: 'sizes',
+    transform: transformSize,
   },
   minH: {
     property: 'minHeight',
-    scale: 'sizes',
+    transform: transformSize,
   },
   maxH: {
     property: 'maxHeight',
-    scale: 'sizes',
+    transform: transformSize,
   },
   overflow: true,
   overflowX: true,
@@ -44,25 +54,25 @@ export interface LayoutTokensProps {
   /**
    * Width
    */
-  w?: ResponsiveValue<Sizes>
+  w?: ResponsiveValue<Sizes | number>
   /**
    * Min width
    */
-  minW?: ResponsiveValue<Sizes>
+  minW?: ResponsiveValue<Sizes | number>
   /**
    * max width
    */
-  maxW?: ResponsiveValue<Sizes>
+  maxW?: ResponsiveValue<Sizes | number>
   /**
    * Height
    */
-  h?: ResponsiveValue<Sizes>
+  h?: ResponsiveValue<Sizes | number>
   /**
    * Min height
    */
-  minH?: ResponsiveValue<Sizes>
+  minH?: ResponsiveValue<Sizes | number>
   /**
    * Max height
    */
-  maxH?: ResponsiveValue<Sizes>
+  maxH?: ResponsiveValue<Sizes | number>
 }
