@@ -18,11 +18,18 @@ function Fonts() {
           font-weight: normal;
           font-style: normal;
         }
+        code > * > *,
+        pre > * > *,
+        code,
+        pre {
+          font-family: 'Dank Mono', 'Operator Mono', 'Fira Code Retina',
+            'Fira Code', 'FiraCode-Retina', Consolas, Monaco, monospace !important;
+        }
         html,
         body,
         * {
           font-family: 'VTEX Trust Variable', -apple-system, system-ui,
-            BlinkMacSystemFont, sans-serif;
+            BlinkMacSystemFont, sans-serif !important;
           font-variation-settings: 'wght' 92;
         }
       `}

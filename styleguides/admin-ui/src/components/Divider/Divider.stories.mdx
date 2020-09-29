@@ -1,4 +1,5 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
+import { Divider } from './index'
 
 <Meta title="design-system/components/Divider" />
 
@@ -16,12 +17,21 @@ function UseCase() {
 }
 ```
 
-## Types
+### Horizontal
 
-| prop        | type                     | description         | required | default      |
-| ----------- | ------------------------ | ------------------- | -------- | ------------ |
-| orientation | 'horizontal', 'vertical' | Divider orientation | 🚫       | 'horizontal' |
-| sx          | SxStyleProp              | ThemeUI style prop  | 🚫       | {}           |
+<Canvas>
+  <Story id="beta-divider--horizontal" />
+</Canvas>
+
+### Vertical
+
+<Canvas>
+  <Story id="beta-divider--vertical" />
+</Canvas>
+
+## Props
+
+<Props of={Divider} />
 
 ## Customization
 

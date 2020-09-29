@@ -1,0 +1,120 @@
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
+import { Modal, StatelessModal, ModalDisclosure } from './index'
+
+<Meta title="design-system/components/Modal" />
+
+# Admin UI Modal
+
+Accessible Dialog component that follows the [WAI-ARIA Dialog
+(Modal)](https://www.w3.org/TR/wai-aria-practices/#dialog_modal) Pattern. It's
+rendered within a [Portal](https://reactjs.org/docs/portals.html) by default.
+It has both stateful (Modal) and stateless components (StatelessModal).
+
+## Usage
+
+Stateful is the default way of using the Modal component within admin-ui.
+
+<Canvas>
+  <Story id="beta-modal--stateful" />
+</Canvas>
+
+### Composites
+
+Modal is a compound component with the following composites:
+
+| Name            | Description                                       | Props               |
+| --------------- | ------------------------------------------------- | ------------------- |
+| `Modal.Header`  | Modal header. Renders `header` element            | `Modal.HeaderProps` |
+| `Modal.Content` | Content of the modal. Renders a `section` element | `BoxProps`          |
+| `Modal.Footer`  | Modal footer. Renders a `footer` element          | `BoxProps`          |
+| `Modal.Button`  | Renders a admin-ui/Button                         | `Modal.ButtonProps` |
+
+**Modal.Header Props**
+
+Same as `BoxProps` with aditional,
+
+| Name        | Description                     | Type          | Default |
+| ----------- | ------------------------------- | ------------- | ------- |
+| title       | Title of the modal              | `ReactNode`   | null    |
+| containerSx | Styles of the buttons container | `SxStyleProp` | {}      |
+
+**Modal.Button Props**
+
+Same as `ButtonProps` with aditional,
+
+| Name              | Description                        | Type      | Default |
+| ----------------- | ---------------------------------- | --------- | ------- |
+| closeModalOnClick | If should close the modal on click | `boolean` | false   |
+
+**Modal.Content Props**
+
+Same as `BoxProps`.
+
+**Modal.Footer Props**
+
+Same as `BoxProps`.
+
+### Sizes
+
+The modal comes in three different sizes: `small`, `regular`, and `large`.
+
+#### Regular (default)
+
+<Canvas>
+  <Story id="beta-modal--regular-modal" />
+</Canvas>
+
+#### Small
+
+<Canvas>
+  <Story id="beta-modal--small-modal" />
+</Canvas>
+
+#### Large
+
+<Canvas>
+  <Story id="beta-modal--large-modal" />
+</Canvas>
+
+#### Props
+
+<Props of={Modal} />
+
+## Stateless Modal
+
+Sometimes, you may need to access the modal states or open it on async updates (like data fetching). For this, need to use the stateless approach.
+You will also need the `ModalDisclosure` component and the `useModalState` hook.
+
+```jsx
+import { useModalState, ModalDisclosure } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useModalState()
+  return (
+    <ModalDisclosure {...state}>
+      {/** Can be any component */}
+      <Button>Toggle Modal</Button>
+    </ModalDisclosure>
+  )
+}
+```
+
+<Canvas>
+  <Story id="beta-modal--stateless" />
+</Canvas>
+
+In this example, we trigger the modal after fetching some data (it takes 1 second):
+
+<Canvas>
+  <Story id="beta-modal--programmatically" />
+</Canvas>
+
+#### Props
+
+**StatelessModal Props**
+
+<Props of={StatelessModal} />
+
+**useModalState Props**
+
+Same as [Reakit useDialogState](https://reakit.io/docs/dialog/#usedialogstate)
