@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.42.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.42.0...@vtex/admin-ui@0.42.1) (2020-09-29)
+
+
+### Bug Fixes
+
+* **aria-focus:** remove aria-focus dependency and useFocusHollow hook ([1bcfe95](https://github.com/vtex/onda/commit/1bcfe9502a56563c5ed8597202c0ea7762b377d6))
+* **selection-controls:** add missing css style to Radio and Toggle components ([a21d5c5](https://github.com/vtex/onda/commit/a21d5c54ce776b3b3b9fdc5f8ad8bc93b0da011c))
+
+
+
+
+
 # [0.42.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.41.0...@vtex/admin-ui@0.42.0) (2020-09-29)
 
 
