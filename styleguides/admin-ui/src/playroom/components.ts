@@ -21,6 +21,9 @@ export {
   Tooltip,
   Radio,
   RadioGroup,
+  Modal,
+  StatelessModal,
+  ModalDisclosure,
 } from '../index'
 
 export {

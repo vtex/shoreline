@@ -28,6 +28,27 @@ import { ModalProvider, useModalContext } from './context'
 
 export { useDialogState as useModalState }
 
+/**
+ * Stateless Modal
+ * Must be used with ModalDisclosure and useModalState.
+ * Composites: Modal.Header, Modal.Content, Modal.Footer, & Modal.Button
+ * @example
+ * ```jsx
+ * import { StatelessModal, useModalState, ModalDisclosure } from `@vtex/admin-ui`
+ *
+ * const state = useModalState()
+ *
+ * <ModalDisclosure {...state}>
+ *  <button>Open Modal</button>
+ * </ModalDisclosure>
+ *
+ * <StatelessModal state={state}>
+ *  <StatelessModal.Content>
+ *   Example
+ *  </StatelessModal.Content>
+ * </StatelessModal>
+ * ```
+ */
 export function StatelessModal(props: StatelessModalProps) {
   const {
     children,
@@ -66,6 +87,19 @@ export function StatelessModal(props: StatelessModalProps) {
   )
 }
 
+/**
+ * Toggle StatelessModal visibility
+ *
+ * @example
+ * ```jsx
+ * import { useModalState, ModalDisclosure } from `@vtex/admin-ui`
+ *
+ * const state = useModalState()
+ * <ModalDisclosure {...state}>
+ *  <button>Open Modal</button>
+ * </ModalDisclosure>
+ * ```
+ */
 export function ModalDisclosure(
   props: DialogStateReturn & { children: FunctionComponentElement<unknown> }
 ) {
@@ -81,22 +115,19 @@ export function ModalDisclosure(
 }
 
 /**
- * Modal Header
+ * Header of the modal
+ * Renders a header element
+ * @example
+ * ```jsx
+ * import { StatelessModal } from `@vtex/admin-ui`
+ * <StatelessModal>
+ *  <StatelessModal.Header title="Example">
+ *    <Button>Cancel</Button>
+ *  </StatelessModal.Header>
+ * </StatelessModal>
+ * ```
  */
-StatelessModal.Header = function Header(
-  props: Omit<BoxProps, 'title'> & {
-    /**
-     * Title of the modal
-     * @default null
-     */
-    title?: ReactNode
-    /**
-     * Styles of the button container
-     * @default {}
-     */
-    containerSx?: SxStyleProp
-  }
-) {
+StatelessModal.Header = function Header(props: ModalHeaderProps) {
   const { children, title = null, containerSx = {}, ...boxProps } = props
   const { omitCloseButton } = useModalContext()
 
@@ -128,17 +159,43 @@ StatelessModal.Header = function Header(
   )
 }
 
-StatelessModal.Content = function Content(props: BoxProps) {
+/**
+ * Content of the modal
+ * Renders a section element
+ * @example
+ * ```jsx
+ * import { StatelessModal } from `@vtex/admin-ui`
+ * <StatelessModal>
+ *  <StatelessModal.Content>
+ *    <Button>Cancel</Button>
+ *  </StatelessModal.Content>
+ * </StatelessModal>
+ * ```
+ */
+StatelessModal.Content = function Content(props: ModalContentProps) {
   return <Box el="section" {...props} />
 }
 
-StatelessModal.Footer = function Footer(props: BoxProps) {
+/**
+ * Footer of the modal
+ * Renders a footer element
+ * @example
+ * ```jsx
+ * import { StatelessModal } from `@vtex/admin-ui`
+ * <StatelessModal>
+ *  <StatelessModal.Footer>
+ *    <Button>Cancel</Button>
+ *  </StatelessModal.Footer>
+ * </StatelessModal>
+ * ```
+ */
+StatelessModal.Footer = function Footer(props: ModalFooterProps) {
   return <Box el="footer" {...props} />
 }
 
 /**
  * Button capable of close the modal when clicked
- * It's a fully capable admin-ui/Button
+ * It implements an admin-ui/Button, with all its features
  * @example
  * ```jsx
  * import { StatelessModal, useModalState } from `@vtex/admin-ui`
@@ -152,13 +209,7 @@ StatelessModal.Footer = function Footer(props: BoxProps) {
  * ```
  */
 StatelessModal.Button = forwardRef(function ModalButton(
-  props: ButtonProps & {
-    /**
-     * If it should close the modal on click
-     * @default false
-     */
-    closeModalOnClick?: boolean
-  },
+  props: ModalButtonProps,
   ref: Ref<HTMLButtonElement>
 ) {
   const {
@@ -179,6 +230,29 @@ StatelessModal.Button = forwardRef(function ModalButton(
 
   return <Button onClick={handleClick} ref={ref} {...buttonProps} />
 })
+
+export interface ModalHeaderProps extends Omit<BoxProps, 'title'> {
+  /**
+   * Title of the modal
+   * @default null
+   */
+  title?: ReactNode
+  /**
+   * Styles of the buttons container
+   * @default {}
+   */
+  containerSx?: SxStyleProp
+}
+export interface ModalButtonProps extends ButtonProps {
+  /**
+   * If it should close the modal on click
+   * @default false
+   */
+  closeModalOnClick?: boolean
+}
+
+export type ModalContentProps = BoxProps
+export type ModalFooterProps = BoxProps
 
 export interface StatelessModalProps
   extends Pick<DialogOptions, 'hideOnEsc' | 'hideOnClickOutside'> {

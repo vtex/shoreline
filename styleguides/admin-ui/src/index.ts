@@ -18,6 +18,7 @@ export {
   ActionButtonProps,
   MenuDisclosure,
 } from './components/Menu'
+export * from './components/Modal'
 export {
   VisuallyHidden,
   VisuallyHiddenProps,
