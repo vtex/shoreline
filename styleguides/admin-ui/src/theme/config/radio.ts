@@ -71,7 +71,7 @@ export default {
   'radio-small': mergeSx<SxStyleProp>(style, {
     height: 6,
     width: 6,
-    padding: 3,
+    padding: 1,
     ':after': {
       width: '0.375rem',
       height: '0.375rem',
