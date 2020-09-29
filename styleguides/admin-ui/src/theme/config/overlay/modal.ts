@@ -87,13 +87,13 @@ export default {
     },
   }),
   regular: mergeSx<SxStyleProp>(styles, {
-    width: 560,
+    width: ['full', 'full', 560],
     footer: {
       borderTopWidth: 1,
     },
   }),
   large: mergeSx<SxStyleProp>(styles, {
-    width: 800,
+    width: ['full', 'full', 800],
     header: {
       height: '5rem',
     },
