@@ -107,11 +107,6 @@ export const RegularModal: Story<ModalProps> = () => {
           <br />
           For your customer, the shared cart means practicality when making a
           purchase. For your store, it means:
-          <ol>
-            <li>Opportunity for a larger sale.</li>
-            <li> Lower logistics effort.</li>
-            <li>Single order flow. </li>
-          </ol>
           <Text variant="subtitle">How this is technically possible</Text>
           We started using a parameter in the URL to identify the cart. As a
           result, the URL can be shared with other users, who can view the
@@ -128,7 +123,8 @@ export const RegularModal: Story<ModalProps> = () => {
       </Modal.Content>
       <Modal.Footer>
         <Label display="flex" position="relative" items="center">
-          <Checkbox {...checkbox} />I accept the terms and conditions above.
+          <Checkbox {...checkbox} />
+          <Text pl="2">I accept the terms and conditions above</Text>
         </Label>
         <Button disabled={!checkbox.state}>Next</Button>
       </Modal.Footer>
@@ -157,6 +153,7 @@ export const LargeModal: Story<ModalProps> = () => {
         display="flex"
         w="full"
         justify="between"
+        items="center"
         py="9"
         bbc="muted.3"
         bbw="1"
@@ -172,6 +169,7 @@ export const LargeModal: Story<ModalProps> = () => {
         aria-label="Transactions Modal"
         disclosure={<Button>Transactions settings</Button>}
         size="large"
+        omitCloseButton
       >
         <Modal.Header title="Transactions settings">
           <Modal.Button variant="subtle" size="small" closeModalOnClick>
@@ -232,8 +230,8 @@ export const LargeModal: Story<ModalProps> = () => {
         <List>
           <List.Item>
             <Ballon />
-            <Box w="2/3">
-              <Text variant="subtitle">
+            <Box pl="5" w="2/3">
+              <Text variant="subtitle" sx={{ lineHeight: 'inherit' }}>
                 Received SKUs: Bulk approval
                 <br />
                 <Text c="muted.1" variant="small">
@@ -250,8 +248,8 @@ export const LargeModal: Story<ModalProps> = () => {
           </List.Item>
           <List.Item>
             <WrappingBox />
-            <Box w="2/3">
-              <Text variant="subtitle">
+            <Box pl="5" w="2/3">
+              <Text variant="subtitle" sx={{ lineHeight: 'inherit' }}>
                 B2B: Segment prices directly in the purchase flow using our new
                 Order Configuration app.
                 <br />
@@ -269,8 +267,8 @@ export const LargeModal: Story<ModalProps> = () => {
           </List.Item>
           <List.Item>
             <Stairs />
-            <Box w="2/3">
-              <Text variant="subtitle">
+            <Box pl="5" w="2/3">
+              <Text variant="subtitle" sx={{ lineHeight: 'inherit' }}>
                 Samsung Pay: more flexible payments thanks to the new digital
                 wallet
                 <br />
