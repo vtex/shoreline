@@ -6,7 +6,7 @@ const styles: SxStyleProp = {
   justifyContent: 'center',
   width: 8,
   height: 8,
-  padding: 5,
+  padding: 2,
   borderRadius: 'full',
   textTransform: 'uppercase',
 }
