@@ -5,7 +5,6 @@ import BasePopover, {
 import { Box, BoxProps } from 'theme-ui'
 import { PopoverArrow, usePopoverState } from 'reakit'
 
-import { IconClose } from '../../icons/Close'
 import { Button } from '../Button'
 
 const Content = ({ children, ...props }: BoxProps) => (
@@ -48,12 +47,7 @@ export const Popover = ({
       {children}
       {showClose && (
         <Box variant="popover.close">
-          <Button
-            size="small"
-            variant="tertiary"
-            icon={() => <IconClose size={30} />}
-            onClick={handleHide}
-          />
+          <Button size="small" variant="tertiary" onClick={handleHide} />
         </Box>
       )}
     </BasePopover>
@@ -71,6 +65,7 @@ export interface PopoverProps
   placement?: 'top' | 'right' | 'bottom' | 'left'
   /**
    * Show the close icon on the top-right section of the popover
+   *
    * @default false
    */
   showClose?: boolean

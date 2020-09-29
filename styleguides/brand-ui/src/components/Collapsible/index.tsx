@@ -9,7 +9,6 @@ import { mergeSx } from '@vtex-components/theme'
 import { Disclosure as ReakitDisclosure } from 'reakit'
 
 import { CollapsibleProvider, useCollapsibleContext } from './context'
-import { IconCaret } from '../../icons'
 import { useFocusHollow } from '../../hooks'
 
 /**
@@ -67,7 +66,6 @@ function Header({
             <Text variant={contentVariant}>{label}</Text>
             {renderIcon(suffix)}
           </Flex>
-          <IconCaret duration={0.3} direction={visible ? 'up' : 'down'} />
         </Flex>
       )}
     </ReakitDisclosure>

@@ -15,7 +15,6 @@ export {
   AccordionProps,
   useAccordion,
 } from './components/Accordion'
-export * from './icons'
 export { Card, CardProps } from './components/Card'
 export { useFocusHollow } from './hooks'
 export { Header, HamburgerMenu } from './components/Header'

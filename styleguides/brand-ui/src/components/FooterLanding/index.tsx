@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { Box, Flex } from 'theme-ui'
 
-import { IconVTEX } from '../../icons'
 import { Footer } from '../Footer'
 
 export const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
@@ -24,11 +23,6 @@ export const FooterLanding = ({ children }: PropsWithChildren<{}>) => (
         alignItems: ['start', 'start', 'center'],
       }}
     >
-      <Flex
-        sx={{ color: 'white', justifyContent: 'center', alignItems: 'center' }}
-      >
-        <IconVTEX size={80} />
-      </Flex>
       <Box
         sx={{
           display: ['grid', 'grid', 'flex'],

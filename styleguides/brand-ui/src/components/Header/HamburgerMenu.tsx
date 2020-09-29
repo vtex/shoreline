@@ -1,7 +1,6 @@
 import React, { PropsWithChildren, useState } from 'react'
 import { Box, Flex, Link, SxProps } from 'theme-ui'
 
-import { IconExit, IconHamburger } from '../../icons'
 import { LinksProps } from '.'
 
 export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
@@ -16,14 +15,14 @@ export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
       {open ? (
         <>
           <Box sx={{ color: 'secondary.base' }}>
-            <IconExit size={18} />
+            <div />
           </Box>
           <Flex variant="hamburgerMenu.open" sx={sx}>
             {children}
           </Flex>
         </>
       ) : (
-        <IconHamburger size={24} />
+        <div />
       )}
     </Box>
   )

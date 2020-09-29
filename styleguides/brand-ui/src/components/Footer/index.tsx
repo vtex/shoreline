@@ -10,35 +10,28 @@ import {
 import { forwardRef } from '@vtex-components/utils'
 import { mergeSx } from '@vtex-components/theme'
 
-import {
-  IconFacebook,
-  IconInstagram,
-  IconLinkedIn,
-  IconYouTube,
-} from '../../icons'
-
-const ICON_SIZE = 20
+// const ICON_SIZE = 20
 
 const socialMediaLinks = [
   {
     name: 'Facebook',
     to: 'https://www.facebook.com/vtexcommerce',
-    icon: <IconFacebook size={ICON_SIZE} />,
+    icon: null,
   },
   {
     name: 'Instagram',
     to: 'https://www.instagram.com/vtexcommerce/',
-    icon: <IconInstagram size={ICON_SIZE} />,
+    icon: null,
   },
   {
     name: 'YouTube',
     to: 'https://www.youtube.com/user/VTEXTV/',
-    icon: <IconYouTube size={ICON_SIZE} />,
+    icon: null,
   },
   {
     name: 'LinkedIn',
     to: 'https://www.linkedin.com/company/vtex/',
-    icon: <IconLinkedIn size={ICON_SIZE} />,
+    icon: null,
   },
 ]
 

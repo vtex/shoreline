@@ -1,8 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { Box, Flex, Link, Text, SxProps } from 'theme-ui'
 
-import { IconVTEXExpanded } from '../../icons'
-
 export { HamburgerMenu } from './HamburgerMenu'
 
 interface BrandProps {
@@ -27,7 +25,6 @@ const Brand = ({ noMargin = false, title }: BrandProps) => {
 
   return (
     <Flex variant="header.brand" sx={sx}>
-      <IconVTEXExpanded size={80} />
       <Text>{title}</Text>
     </Flex>
   )
