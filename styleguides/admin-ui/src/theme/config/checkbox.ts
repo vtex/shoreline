@@ -33,7 +33,7 @@ const styles = {
     '&:after': {
       content: '""',
       position: 'absolute',
-      width: 4,
+      width: 8,
       height: 0,
       borderWidth: 1,
       borderStyle: 'solid',
@@ -82,12 +82,12 @@ const styles = {
 export default {
   'checkbox-regular': {
     ...styles,
-    height: 7,
-    width: 7,
+    height: 20,
+    width: 20,
   },
   'checkbox-small': {
     ...styles,
-    height: 6,
-    width: 6,
+    height: 16,
+    width: 16,
   },
 }

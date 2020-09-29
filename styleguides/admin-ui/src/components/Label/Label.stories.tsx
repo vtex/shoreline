@@ -20,7 +20,7 @@ export const Basic: Story<LabelProps> = () => {
 
 export const HtmlFor: Story<LabelProps> = () => {
   return (
-    <Box display="flex" direction="col" w="18">
+    <Box display="flex" direction="col" w={160}>
       <Label htmlFor="text-id">Text Input Label!</Label>
       <input type="text" id="text-id" />
     </Box>

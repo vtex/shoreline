@@ -62,28 +62,28 @@ const styles = {
 
 export default {
   'toggle-regular': mergeSx(styles, {
-    height: 7,
-    width: 11,
+    height: 20,
+    width: 36,
     '&:after': {
-      width: '1.125rem',
-      height: '1.125rem',
+      width: 18,
+      height: 18,
     },
     '&:checked': {
       '&:after': {
-        transform: 'translateX(1rem)',
+        transform: 'translateX(16px)',
       },
     },
   }),
   'toggle-small': mergeSx(styles, {
-    height: 6,
-    width: 9,
+    height: 16,
+    width: 28,
     '&:after': {
-      width: '0.875rem',
-      height: '0.875rem',
+      width: 14,
+      height: 14,
     },
     '&:checked': {
       '&:after': {
-        transform: 'translateX(0.75rem)',
+        transform: 'translateX(12px)',
       },
     },
   }),

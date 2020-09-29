@@ -60,21 +60,21 @@ const style = {
 
 export default {
   'radio-regular': mergeSx<SxStyleProp>(style, {
-    height: 7,
-    width: 7,
+    height: 20,
+    width: 20,
     padding: '0.3125rem',
     ':after': {
-      width: 4,
-      height: 4,
+      width: 8,
+      height: 8,
     },
   }),
   'radio-small': mergeSx<SxStyleProp>(style, {
-    height: 6,
-    width: 6,
+    height: 16,
+    width: 16,
     padding: 1,
     ':after': {
-      width: '0.375rem',
-      height: '0.375rem',
+      width: 6,
+      height: 6,
     },
   }),
 }
