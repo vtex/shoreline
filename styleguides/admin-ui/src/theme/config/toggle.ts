@@ -2,7 +2,6 @@ import { mergeSx } from '@vtex-components/theme'
 
 const styles = {
   appearance: 'none',
-  outline: 'none',
   position: 'relative',
   cursor: 'pointer',
   borderRadius: '6.25rem',
@@ -21,10 +20,6 @@ const styles = {
   '&:checked': {
     backgroundColor: 'success.base',
     borderColor: 'success.base',
-    '&:focus': {
-      backgroundColor: 'success.base',
-      borderColor: 'success.base',
-    },
     '&:hover': {
       backgroundColor: 'success.hover',
       borderColor: 'success.hover',
@@ -37,10 +32,6 @@ const styles = {
       },
     },
   },
-  '&:focus': {
-    backgroundColor: 'muted.0',
-    borderColor: 'muted.0',
-  },
   '&:hover': {
     backgroundColor: 'muted.0',
     borderColor: 'muted.0',
@@ -51,6 +42,14 @@ const styles = {
     '&:after': {
       backgroundColor: 'muted.2',
     },
+  },
+  ':focus:not([data-focus-visible-added])': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
+  ':focus': {
+    outline: 'none',
+    boxShadow: 'focus',
   },
 }
 

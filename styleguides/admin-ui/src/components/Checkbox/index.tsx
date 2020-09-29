@@ -10,21 +10,16 @@ import {
 import { mergeSx } from '@vtex-components/theme'
 import { forwardRef } from '@vtex-components/utils'
 
-import { useFocusHollow } from '../../hooks'
-
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
     const { sx = {}, size = 'regular', ...reakitProps } = props
-    const { focusStyles, focusProps } = useFocusHollow()
 
     const styles = mergeSx<SxStyleProp>(
-      { variant: `forms.checkbox-${size}`, ...focusStyles },
+      { variant: `forms.checkbox-${size}` },
       sx
     )
 
-    return (
-      <ReakitCheckbox ref={ref} {...focusProps} {...reakitProps} sx={styles} />
-    )
+    return <ReakitCheckbox ref={ref} {...reakitProps} sx={styles} />
   }
 )
 export interface CheckboxProps
