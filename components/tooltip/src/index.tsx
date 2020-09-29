@@ -5,7 +5,7 @@ import {
   Tooltip as ReakitTooltip,
   TooltipReference,
   TooltipProps as ReakitProps,
-} from 'reakit/Tooltip/'
+} from 'reakit/Tooltip'
 import { PopoverState } from 'reakit/ts'
 
 /**
