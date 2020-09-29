@@ -39,13 +39,13 @@ export function Collapsible(props: CollapsibleProps) {
 
 function Header({ children, label, sx }: HeaderProps) {
   return (
-    <Box display="flex" items="center" justify="between" p="13" pl="7" sx={sx}>
+    <Box display="flex" items="center" justify="between" p="6" pl="3" sx={sx}>
       <Disclosure>{label}</Disclosure>
       <Box
         display="flex"
         sx={{
           '& button:nth-of-type(n+2)': {
-            marginLeft: 3,
+            marginLeft: 1,
           },
         }}
       >
@@ -87,7 +87,7 @@ function Content({ children, sx }: ContentProps) {
   return (
     <DisclosureContent {...props}>
       {(enhancedProps) => (
-        <Box {...enhancedProps} px="13" pb="13" sx={sx}>
+        <Box {...enhancedProps} px="6" pb="6" sx={sx}>
           {children}
         </Box>
       )}

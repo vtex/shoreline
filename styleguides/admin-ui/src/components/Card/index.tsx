@@ -9,7 +9,7 @@ export const Card = forwardRef((props: CardProps, ref: Ref<HTMLDivElement>) => {
       ref={ref}
       bg="background"
       bc="muted.3"
-      p="13"
+      p="6"
       bw="1"
       bs="solid"
       br="3"
