@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.42.1...@vtex/admin-ui@0.43.0) (2020-09-29)
+
+
+### Features
+
+* **modal:** add modal to admin-ui ([47f71af](https://github.com/vtex/onda/commit/47f71afe0a9631db4cc72e6fa2ca4f2b334bc2c1))
+
+
+
+
+
 ## [0.42.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.42.0...@vtex/admin-ui@0.42.1) (2020-09-29)
 
 
