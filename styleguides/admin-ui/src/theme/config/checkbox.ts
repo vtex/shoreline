@@ -67,7 +67,7 @@ const styles = {
   },
   '&:active': {
     backgroundColor: 'primary.washed.0',
-    borderColor: 'text',
+    borderColor: 'muted.0',
   },
   ':focus:not([data-focus-visible-added])': {
     outline: 'none',

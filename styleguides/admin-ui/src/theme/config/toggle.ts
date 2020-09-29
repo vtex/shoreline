@@ -17,10 +17,6 @@ const styles = {
     backgroundColor: 'success.contrast',
     transition: 'transform .25s ease',
   },
-  '&:active': {
-    backgroundColor: 'muted.0',
-    borderColor: 'muted.0',
-  },
   '&:checked': {
     backgroundColor: 'success.base',
     borderColor: 'success.base',
@@ -45,6 +41,13 @@ const styles = {
     borderColor: 'muted.1',
     '&:after': {
       backgroundColor: 'muted.2',
+    },
+  },
+  ':not(:checked):active': {
+    backgroundColor: 'muted.0',
+    borderColor: 'muted.0',
+    ':after': {
+      backgroundColor: 'primary.washed.0',
     },
   },
   ':focus:not([data-focus-visible-added])': {
