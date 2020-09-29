@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.15.0...@vtex/brand-ui@0.15.1) (2020-09-29)
+
+
+### Bug Fixes
+
+* export card and tooltip props on brand-ui ([c1b4ff4](https://github.com/vtex/onda/commit/c1b4ff448dbb266d4d640ad134cde1642cfcef2f))
+
+
+
+
+
 # [0.15.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.14.1...@vtex/brand-ui@0.15.0) (2020-09-28)
 
 
