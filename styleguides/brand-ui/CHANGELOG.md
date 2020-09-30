@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.17.1...@vtex/brand-ui@0.17.2) (2020-09-30)
+
+
+### Bug Fixes
+
+* adjust icon position ([8efa27a](https://github.com/vtex/onda/commit/8efa27aea8e3ee5175fed6c250e08263a2e2556d))
+
+
+
+
+
 ## [0.17.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.17.0...@vtex/brand-ui@0.17.1) (2020-09-30)
 
 **Note:** Version bump only for package @vtex/brand-ui
