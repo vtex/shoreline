@@ -23,7 +23,7 @@ Include code samples for the CLI installation of the component.
 Include all variation names, and their details.
 
 
-### 5. Code example
+## 5. Code example
 For each variation, include code examples in:
 
 - CSS
@@ -31,7 +31,7 @@ For each variation, include code examples in:
 - React
 
 
-### 6. Props
+## 6. Props
 In a table, include the following attributes for each prop:
  - Prop name  
  - Description  
@@ -41,11 +41,11 @@ In a table, include the following attributes for each prop:
  - Optional props  
 
 
-### 7. State objects
+## 7. State objects
 Include code examples for stateful components.
 
 
-### 8. Labels
+## 8. Labels
 Include any labels present in the component.
 
 
