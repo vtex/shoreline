@@ -48,10 +48,10 @@ const actionButton = {
 
 const hamburgerMenu = {
   display: ['flex', 'flex', 'flex', 'none'],
+  width: '5rem',
   height: '100%',
-  paddingX: 6,
   paddingY: 5,
-  justifyContent: 'end',
+  justifyContent: 'center',
   alignItems: 'center',
   color: 'primary.base',
   borderLeft: 'solid',
