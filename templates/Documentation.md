@@ -1,8 +1,12 @@
 # Components documentation template
 
-## 1. Component
-Include component's name.
+Use this template to fill all the information about each component. 
 
+## 1. Component info
+Include in this section: 
+- Component's name
+- Release date
+- Version (if it applies)
 
 
 ## 2. Behavior
@@ -48,8 +52,13 @@ Include examples for the following states:
 Include any labels present in the component.
 
 
-### 4.5 Customization
+
+### 5. Customization
 For each customization possible, make sure to include:  
 - Description  
 - Code example  
 - Labels  
+
+
+### 6. Limitations
+Include here any behaviors or customizations that the component doesn't yet support. 
