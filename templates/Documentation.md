@@ -42,7 +42,7 @@ In a table, include the following attributes for each prop:
 
 
 ### 7. State objects
-Include code examples for stateless or stateful components.
+Include code examples for stateful components.
 
 
 ### 8. Labels
