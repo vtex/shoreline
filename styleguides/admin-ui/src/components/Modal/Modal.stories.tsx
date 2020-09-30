@@ -236,7 +236,7 @@ export const LargeModal: Story<ModalProps> = () => {
         <List>
           <List.Item>
             <Ballon />
-            <Box pl="2" w="2/3">
+            <Box pl="2" w="3/4">
               <Text variant="subtitle" sx={{ lineHeight: 1.5 }}>
                 Received SKUs: Bulk approval
                 <br />
@@ -263,7 +263,7 @@ export const LargeModal: Story<ModalProps> = () => {
           </List.Item>
           <List.Item>
             <WrappingBox />
-            <Box pl="2" w="2/3">
+            <Box pl="2" w="3/4">
               <Text variant="subtitle" sx={{ lineHeight: 1.5 }}>
                 B2B: Segment prices directly in the purchase flow using our new
                 Order Configuration app.
@@ -291,7 +291,7 @@ export const LargeModal: Story<ModalProps> = () => {
           </List.Item>
           <List.Item>
             <Stairs />
-            <Box pl="2" w="2/3">
+            <Box pl="2" w="3/4">
               <Text variant="subtitle" sx={{ lineHeight: 1.5 }}>
                 Samsung Pay: more flexible payments thanks to the new digital
                 wallet
