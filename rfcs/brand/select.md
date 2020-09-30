@@ -57,7 +57,7 @@ import { Select } from '@vtex/brand-ui'
 
 # Detailed design
 
-This component reuses functionalities from the [Reakit Select Input](https://reakit.io/docs/input/). It also has a composite `Group`, which is a commom `optgroup` HTML tag, for grouping options.
+This component reuses functionalities from the [Reakit Select Input](https://reakit.io/docs/input/). It also has a composite `Group`, which is a common `optgroup` HTML tag, for grouping options.
 
 ## Props
 
