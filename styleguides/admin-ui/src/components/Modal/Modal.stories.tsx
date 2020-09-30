@@ -130,7 +130,7 @@ export const RegularModal: Story<ModalProps> = () => {
       <Modal.Footer>
         <Label display="flex" position="relative" items="center">
           <Checkbox {...checkbox} />
-          <Text pl="5">I accept the terms and conditions above</Text>
+          <Text pl="2">I accept the terms and conditions above</Text>
         </Label>
         <Button disabled={!checkbox.state}>Next</Button>
       </Modal.Footer>
@@ -160,7 +160,7 @@ export const LargeModal: Story<ModalProps> = () => {
         w="full"
         justify="between"
         items="center"
-        py="9"
+        py="4"
         bbc="muted.3"
         bbw="1"
         bbs="solid"
@@ -170,7 +170,7 @@ export const LargeModal: Story<ModalProps> = () => {
   }
 
   return (
-    <Box sx={{ 'button + button': { ml: 5 } }}>
+    <Box sx={{ 'button + button': { ml: 2 } }}>
       <Modal
         aria-label="Transactions Modal"
         disclosure={<Button>Transactions settings</Button>}
@@ -236,7 +236,7 @@ export const LargeModal: Story<ModalProps> = () => {
         <List>
           <List.Item>
             <Ballon />
-            <Box pl="5" w="2/3">
+            <Box pl="2" w="2/3">
               <Text variant="subtitle" sx={{ lineHeight: 1.5 }}>
                 Received SKUs: Bulk approval
                 <br />
@@ -263,7 +263,7 @@ export const LargeModal: Story<ModalProps> = () => {
           </List.Item>
           <List.Item>
             <WrappingBox />
-            <Box pl="5" w="2/3">
+            <Box pl="2" w="2/3">
               <Text variant="subtitle" sx={{ lineHeight: 1.5 }}>
                 B2B: Segment prices directly in the purchase flow using our new
                 Order Configuration app.
@@ -291,7 +291,7 @@ export const LargeModal: Story<ModalProps> = () => {
           </List.Item>
           <List.Item>
             <Stairs />
-            <Box pl="5" w="2/3">
+            <Box pl="2" w="2/3">
               <Text variant="subtitle" sx={{ lineHeight: 1.5 }}>
                 Samsung Pay: more flexible payments thanks to the new digital
                 wallet
@@ -354,7 +354,7 @@ export const Programmatically = () => {
   }, [data, blockModal])
 
   return (
-    <Box sx={{ 'button + button': { ml: 9 } }}>
+    <Box sx={{ 'button + button': { ml: 4 } }}>
       <Button onClick={fetchData} disabled={data.length > 0}>
         Get blocks data
       </Button>
@@ -371,12 +371,12 @@ export const Programmatically = () => {
               items="center"
               bbc="muted.3"
               bbw="1"
-              py="9"
+              py="4"
               bbs="solid"
               key={id}
             >
               <Icon />
-              <Box pl="9">
+              <Box pl="4">
                 <Text sx={{ lineHeight: 'inherit', fontSize: 2 }}>
                   {title}
                   <br />

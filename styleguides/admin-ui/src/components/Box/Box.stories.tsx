@@ -19,44 +19,55 @@ export function StyleProps() {
       display="flex"
       el="section"
       w="full"
-      h="20"
+      h={160}
       justify="evenly"
-      p="10"
+      p="5"
       bg="muted.4"
       items="center"
     >
       <Box
         display="flex"
-        w="1/3"
+        w="1/4"
         h="full"
         bg="muted.2"
-        m="5"
+        m="2"
         justify="center"
         items="center"
       >
-        1/3
+        1/4
       </Box>
       <Box
         display="flex"
-        w="1/3"
+        w="1/4"
         h="full"
         bg="muted.2"
-        m="5"
+        m="2"
         justify="center"
         items="center"
       >
-        1/3
+        1/4
       </Box>
       <Box
         display="flex"
-        w="1/3"
+        w="1/4"
         h="full"
         bg="muted.2"
-        m="5"
+        m="2"
         justify="center"
         items="center"
       >
-        1/3
+        1/4
+      </Box>
+      <Box
+        display="flex"
+        w="1/4"
+        h="full"
+        bg="muted.2"
+        m="2"
+        justify="center"
+        items="center"
+      >
+        1/4
       </Box>
     </Box>
   )
@@ -64,8 +75,8 @@ export function StyleProps() {
 
 export function CompositionWithRenderProps() {
   return (
-    <Box w="2xl" h="full">
-      {(props) => <Button {...props}>Button With 2xl Width</Button>}
+    <Box w={160}>
+      {(props) => <Button {...props}>Button With 160 Width</Button>}
     </Box>
   )
 }
@@ -73,7 +84,7 @@ export function CompositionWithRenderProps() {
 CompositionWithRenderProps.parameters = {
   playroom: {
     code: `
-<Box w="2xl" h="full">
+<Box w="160" h="full">
   {(props) => <Button {...props}>Button With 2xl Width</Button>}
 </Box>
     `,

@@ -4,8 +4,8 @@ export default {
   backgroundColor: 'text',
   color: 'background',
   fontSize: 1,
-  paddingY: 5,
-  paddingX: 7,
+  paddingY: 2,
+  paddingX: 3,
   borderRadius: 3,
-  height: 10,
+  height: 32,
 } as SxStyleProp

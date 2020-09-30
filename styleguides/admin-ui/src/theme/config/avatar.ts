@@ -4,9 +4,9 @@ const styles: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: 8,
-  height: 8,
-  padding: 5,
+  width: 24,
+  height: 24,
+  padding: 2,
   borderRadius: 'full',
   textTransform: 'uppercase',
 }

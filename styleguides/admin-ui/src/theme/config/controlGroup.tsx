@@ -1,12 +1,12 @@
 const styles = {
   fontVariationSettings: 'regular',
   lh: 'highlight',
-  marginTop: '7',
-  marginBottom: '13',
+  marginTop: 3,
+  marginBottom: 6,
   display: 'flex',
   alignItems: 'flex-start',
   '& > label > input': {
-    marginRight: 5,
+    marginRight: 2,
     marginLeft: 0,
   },
   '& > label': {
@@ -23,7 +23,7 @@ export default {
     fontSize: '2',
     flexDirection: 'row',
     '& label:not(:last-child)': {
-      marginRight: 13,
+      marginRight: 6,
     },
   },
   'controlGroup-horizontal-small': {
@@ -31,7 +31,7 @@ export default {
     fontSize: '1',
     flexDirection: 'row',
     '& label:not(:last-child)': {
-      marginRight: 11,
+      marginRight: 5,
     },
   },
   'controlGroup-vertical-regular': {
@@ -39,7 +39,7 @@ export default {
     fontSize: '2',
     flexDirection: 'column',
     '& label:not(:last-child)': {
-      marginBottom: 9,
+      marginBottom: 4,
     },
   },
   'controlGroup-vertical-small': {
@@ -47,7 +47,7 @@ export default {
     fontSize: '1',
     flexDirection: 'column',
     '& label:not(:last-child)': {
-      marginBottom: 9,
+      marginBottom: 4,
     },
   },
 }
