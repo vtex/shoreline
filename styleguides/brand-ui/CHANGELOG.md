@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.16.1...@vtex/brand-ui@0.17.0) (2020-09-30)
+
+
+### Bug Fixes
+
+* hellobar not using sx prop ([d3091fb](https://github.com/vtex/onda/commit/d3091fb10defd3194534d5a92cf007ef51d49bd3))
+
+
+### Features
+
+* add mail icon ([01e3072](https://github.com/vtex/onda/commit/01e3072a455c6550e0680133103810e4771ca653))
+
+
+
+
+
 ## [0.16.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.16.0...@vtex/brand-ui@0.16.1) (2020-09-29)
 
 
