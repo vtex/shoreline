@@ -30,12 +30,17 @@ For each variation, include code examples in React.
 
 In a table, include the following attributes for each prop:
 
+<<<<<<< HEAD
 - Prop name
 - Description
 - Type
 - Default value
 - Required
 - Optional props
+=======
+### 7. State objects
+Include code examples for stateful components.
+>>>>>>> Update Documentation.md
 
 ## 7. State objects
 
