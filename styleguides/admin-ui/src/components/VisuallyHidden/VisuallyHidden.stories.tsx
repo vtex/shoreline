@@ -12,7 +12,7 @@ export default {
 
 export function WithSimpleSearchField() {
   return (
-    <Box display="flex" direction="col" w="21">
+    <Box display="flex" direction="col" w={200}>
       <VisuallyHidden>
         <label htmlFor="search">Hidden Label</label>
       </VisuallyHidden>
