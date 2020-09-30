@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 
 import { Tooltip, TooltipProps } from './index'
 import { Button } from '../Button'
-import { IconAddChannel } from '../../icons'
+import { IconAddChannel, IconCaret } from '../../icons'
 import { Box } from '../Box'
 import { Text } from '../Text'
 
@@ -12,13 +12,13 @@ export default {
   component: Tooltip,
 } as Meta
 
-export const SimpleUsage: Story<TooltipProps> = () => (
+export const StringLabel: Story<TooltipProps> = () => (
   <Tooltip label="Tooltip Label" placement="right">
     <Button icon={<IconAddChannel />} variant="text" />
   </Tooltip>
 )
 
-export const ComplexUsage: Story<TooltipProps> = () => {
+export const ReactNodeLabel: Story<TooltipProps> = () => {
   function Tag() {
     return (
       <Box my="2">
@@ -54,7 +54,7 @@ export const ComplexUsage: Story<TooltipProps> = () => {
           </Box>
         }
       >
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconCaret direction="left" />} variant="text" />
       </Tooltip>
     </Box>
   )
