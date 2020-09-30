@@ -53,12 +53,12 @@ Include any labels present in the component.
 
 
 
-### 5. Customization
+## 5. Customization
 For each customization possible, make sure to include:  
 - Description  
 - Code example  
 - Labels  
 
 
-### 6. Limitations
+## 6. Limitations
 Include here any behaviors or customizations that the component doesn't yet support. 
