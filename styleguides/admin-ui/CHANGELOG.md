@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.43.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.43.0...@vtex/admin-ui@0.43.1) (2020-09-30)
+
+
+### Bug Fixes
+
+* **avatar:** space ([8a9f5bf](https://github.com/vtex/onda/commit/8a9f5bf4b298e21d17ba45004f2cf75fe78784cc))
+* **box:** space ([0bd820d](https://github.com/vtex/onda/commit/0bd820da8ead27e9ba6968e1867ef8bdc7eff160))
+* **button:** change button size values ([bcdc87c](https://github.com/vtex/onda/commit/bcdc87c8fadfa753ef21de22abf55b5831e794ec))
+* **button:** change spacing values ([ff0be0f](https://github.com/vtex/onda/commit/ff0be0f3bb931e1dbc6278d8325987bd23c4fdbc))
+* **collapsible:** themes ([3e998b8](https://github.com/vtex/onda/commit/3e998b82ad21ca14a080f1b0202aa14a50a7ab27))
+* **collapsible,card,divider:** spaces ([a488515](https://github.com/vtex/onda/commit/a48851563517f2c5fecbfeecca1f9f94c5f830eb))
+* **containers:** change theme size values ([571df0c](https://github.com/vtex/onda/commit/571df0c32fa2660db4d440fd9ab41178b070d66c))
+* **overlay:** new spaces ([7da62b8](https://github.com/vtex/onda/commit/7da62b8b55f8498df6e614bfceb491e0f82026d8))
+* **selection-controls:** change theme spacing values ([87b4972](https://github.com/vtex/onda/commit/87b49726ec5044d20bd5fabc0ad67daec81710b6))
+* **skeleton,divider:** sizes ([1ed99a7](https://github.com/vtex/onda/commit/1ed99a716867531d4905e7e79698a80892b9947c))
+* **space:** theme spacing values ([9df6df8](https://github.com/vtex/onda/commit/9df6df89a8cd9f1cd27e18d4b6bad1a63ba7b5db))
+* **space:** type ([c2a83a1](https://github.com/vtex/onda/commit/c2a83a11e93cc108ccb03e307dd58d09af5246de))
+* **theme:** sizes tokens ([c6a8782](https://github.com/vtex/onda/commit/c6a878228ba3745d7518735ef9c5f7804555975d))
+
+
+
+
+
 # [0.43.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.42.1...@vtex/admin-ui@0.43.0) (2020-09-29)
 
 
