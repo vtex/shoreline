@@ -40,8 +40,9 @@ import { Select } from '@vtex/brand-ui'
 <Select
   label="Movie"
   helperText="Select the movie you want to watch"
-  prefix={<IconPerson />}
+  prefix={<IconMovie />}
   required
+  multiple
 >
   <Select.Group label="19h00">
     <option>Titanic</option>
@@ -66,6 +67,7 @@ This component reuses functionalities from the [Reakit Select Input](https://rea
 | helperText | string    | additional tips about the select options                   | 🚫       |
 | prefix     | ReactNode | element placed before the select                           | 🚫       |
 | readOnly   | boolean   | whether the select is read only or not                     | 🚫       |
+| multiple   | boolean   | whether multiple options can be selected                   | 🚫       |
 | required   | boolean   | whether the select must be filled or not                   | 🚫       |
 | size       | InputSize | sizing of the select                                       | 🚫       |
 
