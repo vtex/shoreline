@@ -1,6 +1,6 @@
 # Components documentation template
 
-Use this template to fill all the information about each component. 
+Use this template to fill all the information about each component. Not all fields will always apply to every component, but do your best to add as much information as you can.
 
 ## 1. Component info
 Include in this section: 
@@ -20,10 +20,10 @@ Include code samples for the CLI installation of the component.
 
 
 ## 4. Variation
-Include all variation names. The fields listed below must take into account the differences between each variation.
+Include all variation names, and their details.
 
 
-### 4.1 Code example
+### 5. Code example
 For each variation, include code examples in:
 
 - CSS
@@ -31,7 +31,7 @@ For each variation, include code examples in:
 - React
 
 
-### 4.2 Props
+### 6. Props
 In a table, include the following attributes for each prop:
  - Prop name  
  - Description  
@@ -41,24 +41,21 @@ In a table, include the following attributes for each prop:
  - Optional props  
 
 
-### 4.3 States 
-Include examples for the following states:  
-- Stateless    
-- Stateful  
-- Indeterminate    
+### 7. State objects
+Include code examples for stateless or stateful components.
 
 
-### 4.4 Labels
+### 8. Labels
 Include any labels present in the component.
 
 
 
-## 5. Customization
+## 9. Customization
 For each customization possible, make sure to include:  
 - Description  
 - Code example  
 - Labels  
 
 
-## 6. Limitations
+## 10. Limitations
 Include here any behaviors or customizations that the component doesn't yet support. 
