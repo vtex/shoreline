@@ -1,5 +1,5 @@
 import { Box, SxStyleProp } from 'theme-ui'
-import React, { FunctionComponentElement, cloneElement } from 'react'
+import React, { FunctionComponentElement, cloneElement, ReactNode } from 'react'
 import {
   useTooltipState,
   Tooltip as ReakitTooltip,
@@ -63,9 +63,9 @@ export interface TooltipProps extends Omit<ReakitProps, 'as'> {
    */
   children: FunctionComponentElement<unknown>
   /**
-   * Text shown inside the tooltip
+   * Label shown inside the tooltip
    */
-  label: string
+  label: ReactNode
   /**
    * Arrow component
    * @default {}
