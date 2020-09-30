@@ -11,6 +11,7 @@
 | variant  | `primary`, `secondary` or `tertiary` | palette variation of the hello bar | 🚫       | `primary` |
 | children | ReactNode                            | message shown inside the hello bar | 🚫       | -         |
 | action   | { label: string, onClick: Function } | the action of the hello bar        | 🚫       | -         |
+| sx       | SxStyleProp                          | Theme-ui style prop                | 🚫       | -         |
 
 # Usage
 

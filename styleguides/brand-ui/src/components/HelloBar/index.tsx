@@ -19,13 +19,14 @@ const HelloBar = ({
   icon,
   variant = 'primary',
   action: { label, onClick },
+  sx = {},
   children,
 }: HelloBarProps) => {
   const buttonVariant = variant === 'secondary' ? 'primary' : 'tertiary'
   const paletteVariant = `helloBar.${variant}`
 
   return (
-    <Flex variant={paletteVariant} onClick={onClick}>
+    <Flex sx={sx} variant={paletteVariant} onClick={onClick}>
       <Flex variant="helloBar.content">
         {icon?.({ size: 18, sx: { variant: 'helloBar.icon' } })}
         <Text>{children}</Text>
