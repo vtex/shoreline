@@ -37,6 +37,7 @@ const helloBar: SxStyleProp = {
     py: 3,
     mx: 'auto',
     minHeight: 56,
+    fontSize: [0, 2],
   },
   actionIcon: {
     display: ['block', 'block', 'none'],
