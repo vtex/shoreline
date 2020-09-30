@@ -26,22 +26,24 @@ const HelloBar = ({
   const paletteVariant = `helloBar.${variant}`
 
   return (
-    <Flex sx={sx} variant={paletteVariant} onClick={onClick}>
-      <Flex variant="helloBar.content">
-        {icon?.({ size: 18, sx: { variant: 'helloBar.icon' } })}
-        <Text>{children}</Text>
+    <Box sx={sx} variant={paletteVariant} onClick={onClick}>
+      <Flex variant="helloBar.container">
+        <Flex variant="helloBar.content">
+          {icon?.({ size: 18, sx: { variant: 'helloBar.icon' } })}
+          <Text>{children}</Text>
+        </Flex>
+        <Button
+          sx={{ display: ['none', 'none', 'block'] }}
+          variant={buttonVariant}
+          size="small"
+        >
+          {label}
+        </Button>
+        <Box variant="helloBar.actionIcon">
+          <IconCaret direction="right" />
+        </Box>
       </Flex>
-      <Button
-        sx={{ display: ['none', 'none', 'block'] }}
-        variant={buttonVariant}
-        size="small"
-      >
-        {label}
-      </Button>
-      <Box variant="helloBar.actionIcon">
-        <IconCaret direction="right" />
-      </Box>
-    </Flex>
+    </Box>
   )
 }
 

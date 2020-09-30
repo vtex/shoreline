@@ -2,11 +2,6 @@ import { SxStyleProp } from 'theme-ui'
 
 const base: SxStyleProp = {
   width: '100%',
-  minHeight: 56,
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  px: 4,
-  py: 3,
   cursor: 'pointer',
 }
 
@@ -33,6 +28,15 @@ const helloBar: SxStyleProp = {
   content: {
     alignItems: 'center',
     mr: 4,
+  },
+  container: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    maxWidth: 1140,
+    px: 4,
+    py: 3,
+    mx: 'auto',
+    minHeight: 56,
   },
   actionIcon: {
     display: ['block', 'block', 'none'],
