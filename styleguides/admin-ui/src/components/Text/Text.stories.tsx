@@ -39,7 +39,7 @@ export const FontSx = () => (
     parts you are reassembling were disassembled by you. Therefore, if you can’t
     get them together again, there must be a reason. By all means, do not use a
     hammer.” —{' '}
-    <Text variant="small" el="span" fw={500}>
+    <Text variant="small" el="span" fv="bold">
       IBM Manual, 1925
     </Text>
   </Text>
@@ -72,5 +72,33 @@ export const Tokens = () => (
     <Box fv="bold" fs="4">
       Bold Text
     </Box>
+  </Box>
+)
+
+export const FontVariations = () => (
+  <Box>
+    <Text el="span" variant="small">
+      Small
+    </Text>
+    <br />
+    <Text el="span" variant="body">
+      Body
+    </Text>
+    <br />
+    <Text el="span" variant="highlight">
+      Highlight
+    </Text>
+    <br />
+    <Text el="span" variant="action">
+      Action
+    </Text>
+    <br />
+    <Text el="span" variant="subtitle">
+      Subtitle
+    </Text>
+    <br />
+    <Text el="span" variant="headline">
+      Headline
+    </Text>
   </Box>
 )

@@ -5,11 +5,16 @@ import {
   SxTokensProps,
   positionTokens,
   PositionTokensProps,
+  variantToken,
+  VariantTokenProps,
 } from '../../tokens'
 
-export type SurfaceProps = SxTokensProps & PositionTokensProps
+export type SurfaceProps = SxTokensProps &
+  PositionTokensProps &
+  VariantTokenProps
 
 export const Surface = styled.div<SurfaceProps>`
-  ${sxTokens}
+  ${variantToken}
   ${positionTokens}
+  ${sxTokens}
 `

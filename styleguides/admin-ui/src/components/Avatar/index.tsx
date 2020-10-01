@@ -19,7 +19,7 @@ export function Avatar(props: AvatarProps) {
   const firstLetter = label?.charAt(0)
 
   return (
-    <Surface sx={{ variant: `avatar.${palette}`, ...sx }} {...containerProps}>
+    <Surface variant={`avatar.${palette}`} sx={sx} {...containerProps}>
       <Text variant="highlight">{firstLetter}</Text>
     </Surface>
   )
