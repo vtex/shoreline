@@ -5,13 +5,19 @@ import { Box, BoxProps } from '../Box'
 import { Text, TextVariant } from '../Text'
 import { ListProvider, useListContext } from './context'
 
-export type Density = 'compact' | 'regular' | 'comfortable'
-
-export interface ListProps extends BoxProps {
-  density?: Density
-  label?: ReactNode
-}
-
+/**
+ * Used to display items with same kind of data.
+ * @example
+ * ```jsx
+ * import { List } from `@vtex/admin-ui`
+ *
+ * <List>
+ *   <List.Item>
+ *     <List.TextGroup>
+ *   </List.Item>
+ * </List>
+ * ```
+ */
 export function List(props: ListProps) {
   const { density = 'regular', sx, children, label, ...boxProps } = props
 
@@ -23,6 +29,17 @@ export function List(props: ListProps) {
   )
 }
 
+/**
+ * Item of the list
+ * @example
+ * ```jsx
+ * import { List } from `@vtex/admin-ui`
+ *
+ * <List>
+ *   <List.Item />
+ * </List>
+ * ```
+ */
 List.Item = function ListItem(props: BoxProps) {
   const { sx, ...boxProps } = props
   const { density } = useListContext()
@@ -30,31 +47,16 @@ List.Item = function ListItem(props: BoxProps) {
   return <Box sx={{ variant: `data.list.${density}`, ...sx }} {...boxProps} />
 }
 
-interface TextGroupProps extends Omit<BoxProps, 'title'> {
-  /**
-   * ditto
-   */
-  title?: ReactNode
-  /**
-   * ditto
-   */
-  subtitle?: ReactNode
-  /**
-   * short description
-   */
-  description?: ReactNode
-  /**
-   * description lines
-   */
-  descLineCount?: number
-  /**
-   * Variant of the title
-   */
-  variant?: TextVariant
-}
-
 /**
- * Groups title, subtilte and shortDesc
+ * Groups title, subtilte and description
+ * @example
+ * ```jsx
+ * import { List } from `@vtex/admin-ui`
+ *
+ * <List>
+ *   <List.TextGroup title="" subtitle="" description="" />
+ * </List>
+ * ```
  */
 export function TextGroup(props: TextGroupProps) {
   const {
@@ -73,7 +75,7 @@ export function TextGroup(props: TextGroupProps) {
     ({
       compact: 'body',
       regular: 'subtitle',
-      comfortable: 'headline',
+      comfortable: 'subtitle',
     }[density] as TextVariant)
 
   return (
@@ -99,3 +101,40 @@ export function TextGroup(props: TextGroupProps) {
 }
 
 List.TextGroup = TextGroup
+
+export type ListDensity = 'compact' | 'regular' | 'comfortable'
+
+export interface ListProps extends BoxProps {
+  /**
+   * Density of the list
+   * @default regular
+   */
+  density?: ListDensity
+  /**
+   * Label of the list
+   */
+  label?: ReactNode
+}
+
+export interface TextGroupProps extends Omit<BoxProps, 'title'> {
+  /**
+   * ditto
+   */
+  title?: ReactNode
+  /**
+   * ditto
+   */
+  subtitle?: ReactNode
+  /**
+   * short description
+   */
+  description?: ReactNode
+  /**
+   * description lines
+   */
+  descLineCount?: number
+  /**
+   * Variant of the title
+   */
+  variant?: TextVariant
+}

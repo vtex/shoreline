@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Meta, Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
-import { Density, List, ListProps, TextGroup } from './index'
+import { ListDensity, List, ListProps } from './index'
 import { Text } from '../Text'
 import { Toggle } from '../Toggle'
 import { Card } from '../Card'
@@ -67,7 +67,7 @@ export const Regular: Story<ListProps> = () => {
         {list.map(({ id, icon: Icon, title }) => (
           <List.Item key={id}>
             <Icon />
-            <TextGroup
+            <List.TextGroup
               ml="4"
               title={title}
               subtitle="Short description about the block"
@@ -83,7 +83,7 @@ export const Comfortable: Story<ListProps> = () => {
   const list = [
     {
       id: '1',
-      icon: Ballon,
+      icon: IconCarousel,
       title: 'Received SKUs: Bulk approval',
       subtitle: 'July 4, 2020',
       description: `Marketplaces manage their sellers products from the Received
@@ -93,9 +93,8 @@ export const Comfortable: Story<ListProps> = () => {
     },
     {
       id: '2',
-      icon: WrappingBox,
-      title: `B2B: Segment prices directly in the purchase flow using our new
-      Order Configuration app`,
+      icon: IconShelf,
+      title: `Shelf Block`,
       subtitle: 'July 4, 2020',
       description: `A critical part of a B2B operation is the segmentation of prices
       and rates according to the buying company profile. The rules
@@ -104,7 +103,7 @@ export const Comfortable: Story<ListProps> = () => {
     },
     {
       id: '3',
-      icon: Stairs,
+      icon: IconInfoCard,
       title: `Samsung Pay: more flexible payments thanks to the new digital
       wallet`,
       subtitle: 'July 4, 2020',
@@ -121,7 +120,7 @@ export const Comfortable: Story<ListProps> = () => {
         {list.map(({ id, icon: Icon, ...info }) => (
           <List.Item key={id}>
             <Icon />
-            <TextGroup ml="4" {...info} descLineCount={1} />
+            <List.TextGroup ml="4" {...info} descLineCount={1} />
           </List.Item>
         ))}
       </List>
@@ -130,7 +129,7 @@ export const Comfortable: Story<ListProps> = () => {
 }
 
 export const Adaptative: Story<ListProps> = () => {
-  const [density, setDensity] = useState<Density>('comfortable')
+  const [density, setDensity] = useState<ListDensity>('comfortable')
   const list = [
     {
       id: '1',
@@ -153,11 +152,13 @@ export const Adaptative: Story<ListProps> = () => {
   ]
 
   return (
-    <Card w={800}>
+    <Card w={800} display="flex" direction="col">
       <Menu
-        sx={{ float: 'right' }}
         aria-label="density menu"
-        disclosure={<Button icon={<IconSettings />} />}
+        placement="bottom-end"
+        disclosure={
+          <Button sx={{ alignSelf: 'flex-end' }} icon={<IconSettings />} />
+        }
       >
         <Menu.Item onClick={() => setDensity('compact')}>Compact</Menu.Item>
         <Menu.Item onClick={() => setDensity('regular')}>Regular</Menu.Item>
@@ -169,7 +170,7 @@ export const Adaptative: Story<ListProps> = () => {
         {list.map(({ id, icon: Icon, title, subtitle }) => (
           <List.Item key={id}>
             <Icon />
-            <TextGroup
+            <List.TextGroup
               ml="4"
               title={title}
               subtitle={subtitle}
@@ -235,7 +236,7 @@ export const Styled: Story<ListProps> = () => {
         {list.map(({ id, image: Image, ...info }) => (
           <Announcement key={id}>
             <Image />
-            <TextGroup ml="4" {...info} descLineCount={3} />
+            <List.TextGroup ml="4" {...info} descLineCount={3} />
           </Announcement>
         ))}
       </List>

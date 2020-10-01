@@ -1,10 +1,10 @@
 import React from 'react'
 import invariant from 'tiny-invariant'
 
-import { Density } from './index'
+import { ListDensity } from './index'
 
 const ListContext = React.createContext<{
-  density: Density
+  density: ListDensity
 } | null>(null)
 
 export function useListContext() {
