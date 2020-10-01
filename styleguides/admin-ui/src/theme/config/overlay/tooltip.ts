@@ -7,5 +7,6 @@ export default {
   paddingY: 2,
   paddingX: 3,
   borderRadius: 3,
-  height: 32,
+  maxWidth: 240,
+  minHeight: 32,
 } as SxStyleProp
