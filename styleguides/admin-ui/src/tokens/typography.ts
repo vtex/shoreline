@@ -19,6 +19,9 @@ export const typographyTokens = system({
   ta: {
     property: 'textAlign',
   },
+  fw: {
+    property: 'fontWeight',
+  },
 })
 
 export interface TypographyTokensProps {
@@ -38,4 +41,8 @@ export interface TypographyTokensProps {
    * Text align
    */
   ta?: ResponsiveValue<CSS.Property.TextAlign>
+  /**
+   * Font Weight
+   */
+  fw?: ResponsiveValue<CSS.Property.FontWeight>
 }

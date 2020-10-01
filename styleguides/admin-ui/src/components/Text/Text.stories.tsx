@@ -39,7 +39,7 @@ export const FontSx = () => (
     parts you are reassembling were disassembled by you. Therefore, if you can’t
     get them together again, there must be a reason. By all means, do not use a
     hammer.” —{' '}
-    <Text variant="small" el="span">
+    <Text variant="small" el="span" fw={500}>
       IBM Manual, 1925
     </Text>
   </Text>
