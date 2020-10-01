@@ -29,7 +29,7 @@ const HelloBar = ({
     <Box sx={sx} variant={paletteVariant} onClick={onClick}>
       <Flex variant="helloBar.container">
         <Flex variant="helloBar.content">
-          {icon?.({ size: 18, sx: { variant: 'helloBar.icon' } })}
+          {icon?.({ size: 24, sx: { variant: 'helloBar.icon' } })}
           <Text>{children}</Text>
         </Flex>
         <Button
