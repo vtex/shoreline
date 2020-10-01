@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.43.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.43.4...@vtex/admin-ui@0.43.5) (2020-10-01)
+
+
+### Bug Fixes
+
+* **admin-build:** fix polished deps ([d30566d](https://github.com/vtex/onda/commit/d30566d79343aedd533d06ad938f7ba768dbb363))
+
+
+
+
+
 ## [0.43.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.43.2...@vtex/admin-ui@0.43.4) (2020-10-01)
 
 
