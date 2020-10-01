@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.3](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.17.2...@vtex/brand-ui@0.17.3) (2020-10-01)
+
+
+### Bug Fixes
+
+* hello bar container size ([07491ce](https://github.com/vtex/onda/commit/07491ceb0558cfe4e26625b2bf4ef0993c45d7ee))
+* hello bar font size when in small devices ([9ef2eca](https://github.com/vtex/onda/commit/9ef2ecafb853e09259b6c456cc265db045eb8ce9))
+* hello bar icon size ([0ffcb47](https://github.com/vtex/onda/commit/0ffcb471ac7f1b538e1e4eb2682592334d412ef1))
+
+
+
+
+
 ## [0.17.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.17.1...@vtex/brand-ui@0.17.2) (2020-09-30)
 
 

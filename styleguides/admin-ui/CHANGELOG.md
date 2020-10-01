@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.43.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.43.2...@vtex/admin-ui@0.43.4) (2020-10-01)
+
+
+### Bug Fixes
+
+* **icons:** add forwardRef to all admin icons ([7d62868](https://github.com/vtex/onda/commit/7d628687135783a6546d874a74ca021bc1116fa5))
+* **tooltip:** now the tooltip adjust it sizes for large labels ([1f2832c](https://github.com/vtex/onda/commit/1f2832ca229fa72f9a04ee47aa97d5e468a73082))
+
+
+
+
+
 ## [0.43.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.43.1...@vtex/admin-ui@0.43.2) (2020-09-30)
 
 **Note:** Version bump only for package @vtex/admin-ui
