@@ -39,7 +39,7 @@ export const FontSx = () => (
     parts you are reassembling were disassembled by you. Therefore, if you can’t
     get them together again, there must be a reason. By all means, do not use a
     hammer.” —{' '}
-    <Text variant="small" el="span" fv="bold">
+    <Text variant="small" el="span" fw="bold">
       IBM Manual, 1925
     </Text>
   </Text>
@@ -63,13 +63,16 @@ export const NativeElements = () => (
 )
 export const Tokens = () => (
   <Box w={200}>
-    <Box fv="light" fs="4">
+    <Box fw="light" fs="4">
       Light Text
     </Box>
-    <Box fv="regular" fs="4">
+    <Box fw="regular" fs="4">
       Regular Text
     </Box>
-    <Box fv="bold" fs="4">
+    <Box fw="medium" fs="4">
+      Medium Text
+    </Box>
+    <Box fw="bold" fs="4">
       Bold Text
     </Box>
   </Box>

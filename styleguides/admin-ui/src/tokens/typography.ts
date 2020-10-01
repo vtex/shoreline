@@ -1,16 +1,12 @@
-import { ResponsiveValue, system } from 'styled-system'
+import { ResponsiveValue, system, variant } from 'styled-system'
 import * as CSS from 'csstype'
 
-import { FontSizes, FontVariation, LineHeights } from '../theme/config'
+import { FontSizes, FontWeights, LineHeights } from '../theme/config'
 
-export const typographyTokens = system({
+const baseTokens = system({
   fs: {
     property: 'fontSize',
     scale: 'fontSizes',
-  },
-  fv: {
-    property: 'fontVariationSettings',
-    scale: 'fontVariation',
   },
   lh: {
     property: 'lineHeight',
@@ -19,10 +15,14 @@ export const typographyTokens = system({
   ta: {
     property: 'textAlign',
   },
-  fw: {
-    property: 'fontWeight',
-  },
 })
+
+const fontWeightVariant = variant({
+  prop: 'fw',
+  scale: 'fontWeights',
+})
+
+export const typographyTokens = [fontWeightVariant, baseTokens]
 
 export interface TypographyTokensProps {
   /**
@@ -32,7 +32,7 @@ export interface TypographyTokensProps {
   /**
    * Font Varition Settings
    */
-  fv?: ResponsiveValue<FontVariation>
+  fw?: ResponsiveValue<FontWeights>
   /**
    * Line height
    */
@@ -41,8 +41,4 @@ export interface TypographyTokensProps {
    * Text align
    */
   ta?: ResponsiveValue<CSS.Property.TextAlign>
-  /**
-   * Font Weight
-   */
-  fw?: ResponsiveValue<CSS.Property.FontWeight>
 }
