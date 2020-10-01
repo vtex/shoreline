@@ -3,6 +3,9 @@ import { SxStyleProp } from 'theme-ui'
 const base: SxStyleProp = {
   width: '100%',
   cursor: 'pointer',
+  borderBottomStyle: 'solid',
+  borderBottomWidth: 1,
+  borderBottomColor: 'muted.3',
 }
 
 const helloBar: SxStyleProp = {

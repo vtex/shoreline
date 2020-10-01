@@ -44,7 +44,7 @@ const state = {
       borderColor: 'danger.hover',
       label: {
         color: 'danger.hover',
-      }
+      },
     },
   },
   filled: {
@@ -161,11 +161,13 @@ const labelState = {
 const label = {
   ...Object.entries(labelState).reduce(function mergeState(acc, currState) {
     const [stateName, stateStyles] = currState
+
     return {
       ...acc,
       ...Object.entries(labelSize).reduce(function mergeSize(bcc, currSize) {
         const [sizeName, { defaultPosition, translate }] = currSize
         let currLabelStyles
+
         if (stateName === 'idle' || stateName === 'disabled') {
           currLabelStyles = {
             ...labelStyles,
@@ -175,6 +177,7 @@ const label = {
         } else {
           currLabelStyles = { ...labelStyles, ...stateStyles, ...translate }
         }
+
         return {
           ...bcc,
           [`${sizeName}-${stateName}`]: currLabelStyles,
