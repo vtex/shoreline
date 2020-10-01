@@ -2,12 +2,10 @@ import { SxStyleProp } from 'theme-ui'
 
 const base: SxStyleProp = {
   width: '100%',
-  minHeight: 56,
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  px: 4,
-  py: 3,
   cursor: 'pointer',
+  borderBottomStyle: 'solid',
+  borderBottomWidth: 1,
+  borderBottomColor: 'muted.3',
 }
 
 const helloBar: SxStyleProp = {
@@ -33,6 +31,16 @@ const helloBar: SxStyleProp = {
   content: {
     alignItems: 'center',
     mr: 4,
+  },
+  container: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    maxWidth: 1140,
+    px: 4,
+    py: 3,
+    mx: 'auto',
+    minHeight: 56,
+    fontSize: [0, 2],
   },
   actionIcon: {
     display: ['block', 'block', 'none'],
