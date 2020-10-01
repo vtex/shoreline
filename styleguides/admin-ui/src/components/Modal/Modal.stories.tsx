@@ -1,14 +1,10 @@
-import React, {
-  FunctionComponent,
-  ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react'
 import { Meta, Story } from '@storybook/react'
+import styled from '@emotion/styled'
 
 import { Checkbox, useCheckbox } from '../Checkbox'
-import { Box, BoxProps } from '../Box'
+import { Box } from '../Box'
+import { List } from '../List'
 import { Label } from '../Label'
 import { Button } from '../Button'
 import { Modal, ModalDisclosure, StatelessModal, useModalState } from './index'
@@ -138,39 +134,77 @@ export const RegularModal: Story<ModalProps> = () => {
   )
 }
 
-export const LargeModal: Story<ModalProps> = () => {
-  interface ListProps {
-    title?: string
-    children: ReactNode
-  }
+export const AnnoucementsModal: Story<ModalProps> = () => {
+  const list = [
+    {
+      id: '1',
+      image: Ballon,
+      title: 'Received SKUs: Bulk approval',
+      subtitle: 'July 4, 2020',
+      description: `Marketplaces manage their sellers products from the Received
+    SKUs dashboard, where you can review and approve products sent
+    by sellers. On the dashboard, you can bulk select SKUs,
+    approving, or rejecting items all at once.`,
+    },
+    {
+      id: '2',
+      image: WrappingBox,
+      title: `B2B: Segment prices directly in the purchase flow using our new
+      Order Configuration app`,
+      subtitle: 'July 4, 2020',
+      description: `A critical part of a B2B operation is the segmentation of prices
+      and rates according to the buying company profile. The rules
+      change from store to store, but factors such as the buyers
+      location, type of order and payment method.`,
+    },
+    {
+      id: '3',
+      image: Stairs,
+      title: `Samsung Pay: more flexible payments thanks to the new digital
+      wallet`,
+      subtitle: 'July 4, 2020',
+      description: `Marketplaces manage their sellers products from the Received
+      SKUs dashboard, where you can review and approve products sent
+      by sellers. On the dashboard, you can bulk select SKUs,
+      approving, or rejecting items all at once.`,
+    },
+  ]
 
-  function List(props: ListProps) {
-    return (
-      <Modal.Content>
-        {props.title && <Text variant="subtitle">{props.title}</Text>}
-        {props.children}
-      </Modal.Content>
-    )
-  }
-
-  List.Item = function ListItem(props: BoxProps) {
-    return (
-      <Box
-        display="flex"
-        w="full"
-        justify="between"
-        items="center"
-        py="4"
-        bbc="muted.3"
-        bbw="1"
-        bbs="solid"
-        {...props}
-      />
-    )
-  }
+  const Announcement = styled(List.Item)`
+    height: 208px;
+    svg,
+    img {
+      min-width: 240px;
+      max-width: 240px;
+      min-height: 160px;
+      max-height: 160px;
+    }
+  `
 
   return (
-    <Box sx={{ 'button + button': { ml: 2 } }}>
+    <Modal
+      aria-label="Announcements Modal"
+      disclosure={<Button>Announcements</Button>}
+      size="large"
+    >
+      <Modal.Header title="Announcements" />
+      <List>
+        {list.map(({ id, image: Image, ...info }) => (
+          <Announcement key={id}>
+            <Box px="5" w="full" h="full" display="flex" items="center">
+              <Image />
+              <List.TextGroup ml="4" {...info} descLineCount={3} />
+            </Box>
+          </Announcement>
+        ))}
+      </List>
+    </Modal>
+  )
+}
+
+export const LargeModal: Story<ModalProps> = () => {
+  return (
+    <Box>
       <Modal
         aria-label="Transactions Modal"
         disclosure={<Button>Transactions settings</Button>}
@@ -185,46 +219,66 @@ export const LargeModal: Story<ModalProps> = () => {
             Save Changes
           </Modal.Button>
         </Modal.Header>
-        <List title="General">
-          <List.Item>
-            <Text>Default markup for external integration</Text>
-            <Text c="muted.1">100%</Text>
-          </List.Item>
-          <List.Item>
-            <Text>Use price variation limit</Text>
-            <Toggle state />
-          </List.Item>
-          <List.Item>
-            <Text>Inherit prices from parent account</Text>
-            <Toggle state />
-          </List.Item>
-          <List.Item>
-            <Text>Overwrite seller prices</Text>
-            <Toggle state />
-          </List.Item>
-        </List>
-        <List title="Psychological pricing">
-          <List.Item>
-            <Box>
-              <Text>Apply this method to all prices</Text>
-              <br />
-              <Text c="muted.1">Inactive</Text>
-            </Box>
-            <Toggle state />
-          </List.Item>
-          <List.Item>
-            <Text>At what price range will this rule apply?</Text>
-            <Text c="muted.1">From 9.90 to 20.00</Text>
-          </List.Item>
-          <List.Item>
-            <Text>How many digits will be rounded?</Text>
-            <Text c="muted.1">2</Text>
-          </List.Item>
-          <List.Item>
-            <Text>Which rounding method will be applied to?</Text>
-            <Text c="muted.1">Nines</Text>
-          </List.Item>
-        </List>
+        <Modal.Content>
+          <List
+            density="compact"
+            label="General"
+            sx={{
+              div: {
+                justifyContent: 'space-between',
+              },
+            }}
+          >
+            <List.Item>
+              <Text>Default markup for external integration</Text>
+              <Text c="muted.1">100%</Text>
+            </List.Item>
+            <List.Item>
+              <Text>Use price variation limit</Text>
+              <Toggle state />
+            </List.Item>
+            <List.Item>
+              <Text>Inherit prices from parent account</Text>
+              <Toggle state />
+            </List.Item>
+            <List.Item>
+              <Text>Overwrite seller prices</Text>
+              <Toggle state />
+            </List.Item>
+          </List>
+        </Modal.Content>
+        <Modal.Content>
+          <List
+            density="compact"
+            label="Psychological pricing"
+            sx={{
+              div: {
+                justifyContent: 'space-between',
+              },
+            }}
+          >
+            <List.Item>
+              <List.TextGroup
+                variant="body"
+                title="Apply this method to all prices"
+                subtitle="Inactive"
+              />
+              <Toggle state />
+            </List.Item>
+            <List.Item>
+              <Text>At what price range will this rule apply?</Text>
+              <Text c="muted.1">From 9.90 to 20.00</Text>
+            </List.Item>
+            <List.Item>
+              <Text>How many digits will be rounded?</Text>
+              <Text c="muted.1">2</Text>
+            </List.Item>
+            <List.Item>
+              <Text>Which rounding method will be applied to?</Text>
+              <Text c="muted.1">Nines</Text>
+            </List.Item>
+          </List>
+        </Modal.Content>
       </Modal>
 
       <Modal
@@ -363,30 +417,19 @@ export const Programmatically = () => {
       </ModalDisclosure>
       <StatelessModal aria-label="Add block modal" state={blockModal}>
         <StatelessModal.Header title="Add new block" />
-        <StatelessModal.Content>
-          {data.map(({ id, icon: Icon, title }) => (
-            <Box
-              display="flex"
-              w="full"
-              items="center"
-              bbc="muted.3"
-              bbw="1"
-              py="4"
-              bbs="solid"
-              key={id}
-            >
-              <Icon />
-              <Box pl="4">
-                <Text sx={{ lineHeight: 'inherit', fontSize: 2 }}>
-                  {title}
-                  <br />
-                  <Text c="muted.1" variant="small">
-                    Short description about the block
-                  </Text>
-                </Text>
-              </Box>
-            </Box>
-          ))}
+        <StatelessModal.Content sx={{ paddingTop: 0 }}>
+          <List>
+            {data.map(({ id, icon: Icon, title }) => (
+              <List.Item key={id}>
+                <Icon />
+                <List.TextGroup
+                  ml="4"
+                  title={title}
+                  subtitle="Short description about the block"
+                />
+              </List.Item>
+            ))}
+          </List>
         </StatelessModal.Content>
       </StatelessModal>
     </Box>

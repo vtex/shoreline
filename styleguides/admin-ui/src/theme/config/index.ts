@@ -23,6 +23,7 @@ export const theme = {
   buttons,
   avatar,
   overlay,
+  data,
   divider,
   collapsible,
   data,

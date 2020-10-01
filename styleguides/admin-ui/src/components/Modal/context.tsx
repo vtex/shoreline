@@ -2,10 +2,13 @@ import React from 'react'
 import { DialogStateReturn } from 'reakit/Dialog'
 import invariant from 'tiny-invariant'
 
+import { ModalSize } from './Stateless'
+
 const ModalContext = React.createContext<{
   state: DialogStateReturn
   handleClose: () => void
   omitCloseButton?: boolean
+  size: ModalSize
 } | null>(null)
 
 export function useModalContext() {
