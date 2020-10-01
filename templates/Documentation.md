@@ -24,11 +24,7 @@ Include all variation names, and their details.
 
 
 ## 5. Code example
-For each variation, include code examples in:
-
-- CSS
-
-- React
+For each variation, include code examples in React.
 
 
 ## 6. Props
