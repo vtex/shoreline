@@ -1,6 +1,7 @@
 import React from 'react'
 import { SxStyleProp } from 'theme-ui'
 
+import { LayoutTokensProps, SpaceTokensProps } from '../../tokens'
 import { Box } from '../Box'
 
 /**
@@ -24,20 +25,17 @@ export function Skeleton(props: SkeletonProps) {
   const variant =
     shape === 'circle' ? 'layout.skeleton-circle' : 'layout.skeleton'
 
-  return (
-    <Box
-      {...boxProps}
-      sx={{
-        variant,
-        ...sx,
-      }}
-    />
-  )
+  return <Box {...boxProps} variant={variant} sx={sx} />
 }
 
 export type Shape = 'rect' | 'circle'
 
-export interface SkeletonProps {
+export interface SkeletonProps
+  extends Pick<
+      LayoutTokensProps,
+      'w' | 'h' | 'maxH' | 'minH' | 'maxW' | 'minW'
+    >,
+    Pick<SpaceTokensProps, 'm' | 'mt' | 'mb' | 'ml' | 'mr' | 'mx' | 'my'> {
   /**
    * Shape of the skeleton
    * @default 'rect'
