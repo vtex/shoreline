@@ -12,14 +12,21 @@ import { Box } from '../Box'
 import { CollapsibleProvider, useCollapsibleContext } from './context'
 import { IconCaret } from '../../icons'
 import { Button } from '../Button'
+import {
+  BorderTokensProps,
+  ColorTokensProps,
+  FlexTokensProps,
+  LayoutTokensProps,
+  SpaceTokensProps,
+} from '../../tokens'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
  * @example
  * ```jsx
  * import { Collapsible, useCollapsible } from `@vtex/admin-ui`
- * const props = useCollapsible()
- * <Collapsible {...props}>
+ * const state = useCollapsible()
+ * <Collapsible state={state}>
  *   <Collapsible.Header label="Title goes here">
  *     {children}
  *   </Collapsible.Header>
@@ -28,18 +35,26 @@ import { Button } from '../Button'
  * ```
  */
 export function Collapsible(props: CollapsibleProps) {
-  const { sx, children, ...disclosureProps } = props
+  const { sx, children, disabled, focusable, state, ...tokensProps } = props
+
+  const reakitProps = {
+    focusable,
+    disabled,
+    ...state,
+  }
 
   return (
-    <Box sx={{ variant: 'collapsible', ...sx }}>
-      <CollapsibleProvider {...disclosureProps}>{children}</CollapsibleProvider>
+    <Box variant="collapsible.container" sx={sx} {...tokensProps}>
+      <CollapsibleProvider {...reakitProps}>{children}</CollapsibleProvider>
     </Box>
   )
 }
 
-function Header({ children, label, sx }: HeaderProps) {
+function Header(props: HeaderProps) {
+  const { children, label, sx, ...tokens } = props
+
   return (
-    <Box el="header" sx={sx}>
+    <Box el="header" variant="collapsible.header" sx={sx} {...tokens}>
       <Disclosure>{label}</Disclosure>
       <Box display="flex">{children}</Box>
     </Box>
@@ -73,13 +88,20 @@ function Disclosure({ children }: { children: ReactNode }) {
   )
 }
 
-function Content({ children, sx }: ContentProps) {
-  const props = useCollapsibleContext()
+function Content(props: ContentProps) {
+  const { children, sx, ...tokens } = props
+  const disclosureProps = useCollapsibleContext()
 
   return (
-    <DisclosureContent {...props}>
+    <DisclosureContent {...disclosureProps}>
       {(enhancedProps) => (
-        <Box el="section" {...enhancedProps} sx={sx}>
+        <Box
+          el="section"
+          variant="collapsible.section"
+          {...enhancedProps}
+          sx={sx}
+          {...tokens}
+        >
           {children}
         </Box>
       )}
@@ -103,12 +125,25 @@ Collapsible.Header = Header
  */
 Collapsible.Content = Content
 
-export interface CollapsibleProps extends DisclosureProps {
+export interface CollapsibleProps
+  extends Omit<DisclosureProps, 'visible' | 'baseId' | 'toggle'>,
+    BorderTokensProps,
+    LayoutTokensProps,
+    FlexTokensProps,
+    SpaceTokensProps,
+    ColorTokensProps {
   children?: ReactNode
   sx?: SxStyleProp
+  state: DisclosureStateReturn
+  variant?: 'string'
 }
 
-export interface HeaderProps {
+export interface HeaderProps
+  extends BorderTokensProps,
+    LayoutTokensProps,
+    FlexTokensProps,
+    SpaceTokensProps,
+    ColorTokensProps {
   /**
    * Disclosure Button label
    */
@@ -121,7 +156,12 @@ export interface HeaderProps {
   sx?: SxStyleProp
 }
 
-export interface ContentProps {
+export interface ContentProps
+  extends BorderTokensProps,
+    LayoutTokensProps,
+    FlexTokensProps,
+    SpaceTokensProps,
+    ColorTokensProps {
   children?: ReactNode
   /** custom styles */
   sx?: SxStyleProp

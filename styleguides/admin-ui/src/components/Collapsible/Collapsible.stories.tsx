@@ -11,10 +11,10 @@ export default {
 } as Meta
 
 export const SimpleUsage = () => {
-  const props = useCollapsible()
+  const state = useCollapsible()
 
   return (
-    <Collapsible {...props} sx={{ width: '4/12' }}>
+    <Collapsible state={state} w="4/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       />
@@ -33,7 +33,7 @@ SimpleUsage.parameters = {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...props}) => (
-    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '4/12' }}>
+    <Collapsible state={{toggle, visible, ...props}} w="4/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       />
@@ -54,7 +54,7 @@ export const WithButtons = () => {
   const { toggle, ...props } = useCollapsible()
 
   return (
-    <Collapsible toggle={toggle} {...props} sx={{ width: '5/12' }}>
+    <Collapsible state={{ toggle, ...props }} w="5/12">
       <Collapsible.Header label="Build for Community #1">
         <Button size="small" variant="subtle">
           Button
@@ -78,7 +78,7 @@ WithButtons.parameters = {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...props}) => (
-    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '5/12' }}>
+    <Collapsible state={{ toggle, visible,...props }} w="5/12">
       <Collapsible.Header label="Build for Community #1">
         <Button size="small" variant="subtle">
           Button
@@ -99,11 +99,11 @@ WithButtons.parameters = {
 }
 
 export const NestedCollapsible = () => {
-  const firstProps = useCollapsible()
-  const secondProps = useCollapsible()
+  const firstState = useCollapsible()
+  const secondState = useCollapsible()
 
   return (
-    <Collapsible {...firstProps} sx={{ width: '5/12' }}>
+    <Collapsible state={firstState} w="5/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
@@ -111,7 +111,7 @@ export const NestedCollapsible = () => {
         <Button>Button</Button>
       </Collapsible.Header>
       <Collapsible.Content>
-        <Collapsible {...secondProps}>
+        <Collapsible state={secondState}>
           <Collapsible.Header
             label={<Text variant="highlight">Build for Community #2</Text>}
           />
@@ -131,8 +131,8 @@ NestedCollapsible.parameters = {
   playroom: {
     code: `
 <Play.CollapsibleState>
-  {({toggle, visible, ...firstProps}) => (
-    <Collapsible toggle={toggle} visible={visible} {...firstProps} sx={{ width: '5/12' }}>
+  {({toggle, visible, ...firstState}) => (
+    <Collapsible state={{toggle, visible, ...firstState}} w="5/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
@@ -141,8 +141,8 @@ NestedCollapsible.parameters = {
       </Collapsible.Header>
       <Collapsible.Content>
         <Play.CollapsibleState>
-          {({toggle, visible, ...secondProps}) => (
-            <Collapsible toggle={toggle} visible={visible} {...secondProps}>
+          {({toggle, visible, ...secondState}) => (
+            <Collapsible state={{toggle, visible, ...secondState}}>
               <Collapsible.Header
                 label={<Text variant="highlight">Build for Community #2</Text>}
               />
@@ -164,10 +164,10 @@ NestedCollapsible.parameters = {
 }
 
 export const InitiallyVisible = () => {
-  const props = useCollapsible({ visible: true })
+  const state = useCollapsible({ visible: true })
 
   return (
-    <Collapsible {...props} sx={{ width: '4/12' }}>
+    <Collapsible state={state} w="4/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
@@ -188,7 +188,7 @@ InitiallyVisible.parameters = {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...props}) => (
-    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '4/12' }}>
+    <Collapsible state={{ toggle, visible,...props }} w="4/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       >
