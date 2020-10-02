@@ -32,7 +32,12 @@ export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Toggle, ToggleProps, useToggle } from './components/Toggle'
 export * from './icons'
 export { Avatar } from './components/Avatar'
-export { Checkbox, CheckboxProps } from './components/Checkbox'
+export {
+  Checkbox,
+  CheckboxProps,
+  useCheckbox,
+  CheckboxStateReturn,
+} from './components/Checkbox'
 export { Divider, DividerProps } from './components/Divider'
 export { Label, LabelProps } from './components/Label'
 export { CheckboxGroup, CheckboxGroupProps } from './components/CheckboxGroup'
