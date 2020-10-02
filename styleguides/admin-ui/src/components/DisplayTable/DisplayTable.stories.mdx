@@ -1,0 +1,82 @@
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
+import { DisplayTable } from './index'
+
+<Meta title="design-system/components/DisplayTable" />
+
+# DisplayTable
+
+Use this template to fill all the information about each component. Not all fields will always apply to every component, but do your best to add as much information as you can.
+
+## 1. Component info
+
+Include in this section:
+
+- Component's name
+- Release date
+- Version (if it applies)
+
+## 2. Behavior
+
+<Canvas>
+  <Story id="beta-displaytable--sample" />
+</Canvas>
+
+## 3. Installation
+
+```bash
+yarn add @vtex/admin-ui
+```
+
+```tsx
+import { DisplayTable } from '@vtex/admin-ui'
+```
+
+## 4. Resolvers
+
+### Plain (default)
+
+<Canvas>
+  <Story id="beta-displaytable--plain-resolver" />
+</Canvas>
+
+### Date
+
+<Canvas>
+  <Story id="beta-displaytable--date-resolver" />
+</Canvas>
+
+### Currency
+
+<Canvas>
+  <Story id="beta-displaytable--currency-resolver" />
+</Canvas>
+
+### Image
+
+<Canvas>
+  <Story id="beta-displaytable--image-resolver" />
+</Canvas>
+
+### Root
+
+<Canvas>
+  <Story id="beta-displaytable--plain-resolver" />
+</Canvas>
+
+## Props
+
+<Props of={DisplayTable} />
+
+## 🛠 Customization
+
+For each customization possible, make sure to include:
+
+- Description
+- Code example
+- Labels
+
+## 🚫 Limitations
+
+Include here any behaviors or customizations that the component doesn't yet support.
+
+## 🐋 Deep Dive
