@@ -32,7 +32,7 @@ interface AccordionProps
 
 const useAccordion = (initialState?: AccordionInitialState): AccordionProps => {
   const [currentVisible, setVisible] = useState(initialState?.visible ?? -1)
-  const collapsible = useCollapsible({ animated: true })
+  const collapsible = useCollapsible()
 
   const toggle = (id: number) => {
     setVisible((current) => (current === id ? -1 : id))
