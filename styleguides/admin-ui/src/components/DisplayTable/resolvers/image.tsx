@@ -5,7 +5,7 @@ import { ReactNode, Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
 
-import { createResolver, defaultRender } from './core'
+import { createResolver, defaultRender, ResolverContext } from './core'
 import { Skeleton } from '../../Skeleton'
 
 const defaultPreview: ImagePreview = {
@@ -17,21 +17,17 @@ const defaultPreview: ImagePreview = {
 function ImageWithPreview({
   url,
   preview,
+  context: { dir, density },
 }: {
   url: string
   preview: ImagePreview
+  context: ResolverContext
 }) {
   const tooltip = useTooltipState({
-    placement: 'right',
+    placement: dir === 'rtl' ? 'left' : 'right',
     animated: true,
     visible: false,
   })
-
-  const size = {
-    small: 80,
-    regular: 156,
-    large: 256,
-  }[preview.size ?? 'regular']
 
   return (
     <Fragment>
@@ -41,11 +37,7 @@ function ImageWithPreview({
             alt=""
             {...props}
             sx={{
-              width: 56,
-              minWidth: 56,
-              height: 56,
-              minHeight: 56,
-              borderRadius: 4,
+              variant: `data.table.image.${density}`,
               cursor: 'pointer',
               transition: 'transform 150ms ease-in-out',
               ':hover': {
@@ -69,7 +61,7 @@ function ImageWithPreview({
           opacity: 0;
           img {
             will-change: transform;
-            transform-origin: left center;
+            transform-origin: ${dir === 'rtl' ? 'right' : 'left'} center;
             transition: transform 100ms ease-in ${preview.delay}ms;
             transform: scale(0.6);
           }
@@ -86,12 +78,7 @@ function ImageWithPreview({
         <img
           alt=""
           sx={{
-            width: size,
-            minWidth: size,
-            height: size,
-            minHeight: size,
-            borderRadius: 4,
-            boxShadow: 'menu',
+            variant: `data.table.image-preview.${preview.size}`,
           }}
           src={url}
         />
@@ -106,7 +93,7 @@ function ImageWithPreview({
  */
 export function imageResolver<T>() {
   return createResolver<T, 'image', ImageResolver<T>>({
-    field: function Field({ getData, item, column }) {
+    field: function Field({ getData, item, column, context }) {
       const url = getData()
       const { resolver } = column
 
@@ -116,26 +103,18 @@ export function imageResolver<T>() {
 
       const content = url ? (
         preview.display ? (
-          <ImageWithPreview url={url} preview={preview} />
+          <ImageWithPreview url={url} preview={preview} context={context} />
         ) : (
           <img
             alt=""
-            sx={{
-              width: 56,
-              minWidth: 56,
-              height: 56,
-              minHeight: 56,
-              borderRadius: 4,
-            }}
+            sx={{ variant: `data.table.image.${context.density}` }}
             src={url}
           />
         )
       ) : (
         <Skeleton
           sx={{
-            width: 56,
-            height: 56,
-            borderRadius: 4,
+            variant: `data.table.image.${context.density}`,
             animation: '',
           }}
         />

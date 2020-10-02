@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Card } from '../Card'
-import { DisplayTable, defineColumns } from './index'
+import { DisplayTable, defineColumns, TableDir } from './index'
 
 export default {
   title: 'beta/DisplayTable',
@@ -355,6 +355,7 @@ export const ImageResolver = () => {
   return (
     <Card w={560} display="flex" direction="col">
       <DisplayTable
+        dir="ltr"
         columns={[
           {
             id: 'image',
@@ -460,7 +461,7 @@ export const ImageResolver = () => {
 
 export const Variable = () => {
   const [loading, setLoading] = useState(false)
-  const [rtl, setRtl] = useState(false)
+  const [rtl, setRtl] = useState<TableDir>('ltr')
 
   const variableSizeItems = [
     {
@@ -485,7 +486,7 @@ export const Variable = () => {
       id: 4,
       location: 'Itaquaquecetuba, SP',
       date: '4/7/2020, 14:48',
-      status: `Object dispatched at the post office Object dispatched at the post officeObject dispatched at the post office`,
+      status: `Object dispatched at the post office`,
     },
   ]
 
@@ -494,12 +495,15 @@ export const Variable = () => {
       <Button variant="subtle" onClick={() => setLoading((l) => !l)}>
         Toggle Loading
       </Button>
-      <Button variant="subtle" onClick={() => setRtl((l) => !l)}>
+      <Button
+        variant="subtle"
+        onClick={() => setRtl((dir) => (dir === 'rtl' ? 'ltr' : 'rtl'))}
+      >
         Toggle RTL
       </Button>
       <DisplayTable
-        rtl={rtl}
-        density="compact"
+        dir={rtl}
+        density="variable"
         columns={[
           {
             id: 'location',
@@ -565,7 +569,7 @@ export const RTL = () => {
   return (
     <Card w={512}>
       <DisplayTable
-        rtl
+        dir="rtl"
         density="compact"
         columns={[
           {

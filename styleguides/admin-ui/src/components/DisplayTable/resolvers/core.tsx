@@ -3,14 +3,22 @@
 
 import React, { ReactNode, Fragment } from 'react'
 import warning from 'tiny-warning'
+import { get } from '@vtex-components/theme'
 
 import { Column } from '../typings'
+import { TableDensity, TableDir } from '..'
 
 /**
  * Used to recursive define resolver
  * @generic I: ID of the resolver
  */
 export type ResolverShorcut<I, T = unknown> = T & { type: I }
+
+export type ResolverContext = {
+  dir: TableDir
+  density: TableDensity
+  loading: boolean
+}
 
 /**
  * Fields resolver
@@ -26,8 +34,10 @@ export interface Resolver<T = any, I = any, S = any> {
     item: T
     /** current column */
     column: Column<T, ResolverShorcut<I, S>>
+    /** field context */
+    context: ResolverContext
   }) => ReactNode
-  lead?: (helpers: { getData: Function }) => ReactNode
+  lead?: (helpers: { getData: Function; context: ResolverContext }) => ReactNode
 }
 
 /**
@@ -43,20 +53,34 @@ export function createResolver<T, I, S = {}>(
   return resolver
 }
 
+type ResolveLeadArgs<T> = {
+  column: Column<T>
+  resolvers: Record<string, Resolver<T>>
+  context: ResolverContext
+}
+
 /**
  * Resolve current lead within a loop
  * @param column
  * @param resolvers
  */
-export function resolveLead<T>(
-  column: Column<T>,
-  resolvers: Record<string, Resolver<T>>
-) {
-  const id = get<string>(column, 'resolver.type', 'plain')
+export function resolveLead<T>(args: ResolveLeadArgs<T>) {
+  const { column, resolvers, context } = args
+
+  const id = get(column, 'resolver.type', 'plain')
 
   const { lead } = resolvers[id]
 
-  return lead ? lead({ getData: () => accessLead(column) }) : accessLead(column)
+  return lead
+    ? lead({ getData: () => accessLead(column), context })
+    : accessLead(column)
+}
+
+type ResolveFieldArgs<T> = {
+  column: Column<T>
+  item: T
+  resolvers: Record<string, Resolver<T>>
+  context: ResolverContext
 }
 
 /**
@@ -65,18 +89,16 @@ export function resolveLead<T>(
  * @param item
  * @param resolvers
  */
-export function resolveField<T>(
-  column: Column<T>,
-  item: T,
-  resolvers: Record<string, Resolver<T>>
-) {
-  const id = get<string>(column, 'resolver.type', 'plain')
+export function resolveField<T>(args: ResolveFieldArgs<T>) {
+  const { column, item, resolvers, context } = args
+  const id = get(column, 'resolver.type', 'plain')
   const { field } = resolvers[id]
 
   return field({
     getData: () => accessField(column, item),
     item,
     column,
+    context,
   })
 }
 
@@ -112,7 +134,7 @@ function accessField<T>(column: Column<T>, item: T) {
 
   switch (typeof acessor) {
     case 'string': {
-      const resolved = get(item, acessor, undefined)
+      const resolved = get((item as unknown) as object, acessor, undefined)
 
       warning(
         resolved,
@@ -143,22 +165,4 @@ function accessField<T>(column: Column<T>, item: T) {
 /** Default render of resolvers */
 export function defaultRender(data: any) {
   return <Fragment>{data}</Fragment>
-}
-
-/**
- * Extract a value from a path within a collection
- * @param collection target collection
- * @param path desired path separated by '.'
- * @param defaultValue value returned if path is not found
- */
-function get<T>(
-  collection: Record<string, any>,
-  path: string,
-  defaultValue: any
-): T {
-  return String(path)
-    .split('.')
-    .reduce((tokens, token) => {
-      return (tokens as any)?.[token] ?? defaultValue
-    }, collection as T)
 }

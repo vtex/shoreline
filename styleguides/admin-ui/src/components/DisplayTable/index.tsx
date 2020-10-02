@@ -1,11 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 /** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
+import { jsx } from 'theme-ui'
+import { get } from '@vtex-components/theme'
 
 import { Skeleton } from '../Skeleton'
 import { baseResolvers } from './resolvers/base'
-import { resolveField, resolveLead, Resolver } from './resolvers/core'
+import {
+  resolveField,
+  resolveLead,
+  Resolver,
+  ResolverContext,
+} from './resolvers/core'
 import { Column } from './typings'
 
 /**
@@ -38,49 +42,29 @@ export function DisplayTable<T>(props: DisplayTableProps<T>) {
     columns,
     items = [],
     loading = false,
-    getRowKey = (item: any) => item?.id ?? '',
+    getRowKey = (item: T) => get((item as unknown) as object, 'id', ''),
     resolvers = baseResolvers<T>(),
     density = 'regular',
-    rtl = false,
+    dir = 'ltr',
   } = props
 
-  const dir = rtl ? 'rtl' : 'ltr'
-
-  const styles: Record<string, SxStyleProp> = {
-    table: {
-      borderCollapse: 'collapse',
-      tr: {
-        textAlign: rtl ? 'right' : 'left',
-      },
-      'th, td': {
-        borderBottomWidth: 1,
-        borderBottomStyle: 'solid',
-        borderBottomColor: 'muted.3',
-        paddingX: 2,
-        variant: 'text.body',
-      },
-      th: {
-        color: 'muted.1',
-        fontWeight: 'normal',
-      },
-      'thead > tr': {
-        height: 48,
-      },
-      'tbody > tr': {
-        height: density === 'regular' ? 80 : 48,
-      },
-    },
-    skeleton: {
-      height: 24,
-    },
+  const context: ResolverContext = {
+    density,
+    loading,
+    dir,
   }
 
   return (
-    <table dir={dir} sx={styles.table}>
+    <table
+      dir={dir}
+      sx={{
+        variant: `data.table.${density}`,
+      }}
+    >
       <thead dir={dir}>
-        <tr dir={dir}>
+        <tr sx={{ textAlign: dir === 'rtl' ? 'right' : 'left' }} dir={dir}>
           {columns.map((column) => {
-            const content = resolveLead<T>(column, resolvers)
+            const content = resolveLead<T>({ column, resolvers, context })
 
             return (
               <th
@@ -96,13 +80,26 @@ export function DisplayTable<T>(props: DisplayTableProps<T>) {
       </thead>
       <tbody dir={dir}>
         {items.map((item) => (
-          <tr dir={dir} key={getRowKey(item)}>
+          <tr
+            sx={{ textAlign: dir === 'rtl' ? 'right' : 'left' }}
+            dir={dir}
+            key={getRowKey(item)}
+          >
             {columns.map((column) => {
-              const content = resolveField<T>(column, item, resolvers)
+              const content = resolveField<T>({
+                column,
+                item,
+                resolvers,
+                context,
+              })
 
               return (
                 <td dir={dir} key={column.id as string}>
-                  {loading ? <Skeleton sx={styles.skeleton} /> : content}
+                  {loading ? (
+                    <Skeleton sx={{ variant: 'data.table.skeleton' }} />
+                  ) : (
+                    content
+                  )}
                 </td>
               )
             })}
@@ -121,6 +118,8 @@ export function defineColumns<T>(columns: Array<Column<T>>): Array<Column<T>> {
   return columns
 }
 
+export type TableDensity = 'compact' | 'regular' | 'variable'
+export type TableDir = 'ltr' | 'rtl'
 export interface DisplayTableProps<T> {
   /**
    * ditto
@@ -150,10 +149,10 @@ export interface DisplayTableProps<T> {
    * Table row height
    * @default regular
    */
-  density?: 'compact' | 'regular'
+  density?: TableDensity
   /**
-   * If is rtl or not
-   * @default false
+   * HTML Dir
+   * @default 'ltr'
    */
-  rtl?: boolean
+  dir?: TableDir
 }
