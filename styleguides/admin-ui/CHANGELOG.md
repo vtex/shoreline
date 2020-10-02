@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.44.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.43.5...@vtex/admin-ui@0.44.0) (2020-10-02)
+
+
+### Bug Fixes
+
+* **fontweights:** add fw token to set fontWeight and fontVariationSettings ([031cd60](https://github.com/vtex/onda/commit/031cd60e5fd3e069e644a946f3c53ffe35cee534))
+* **typography:** add fontWeight token ([f165048](https://github.com/vtex/onda/commit/f1650486dbd3a3d1d8554de4d8c675e5df166b2e))
+
+
+### Features
+
+* **tokens:** add variant token ([3e986c0](https://github.com/vtex/onda/commit/3e986c0d94b513b4cbfe9474c9ea09c09189eb9e))
+
+
+
+
+
 ## [0.43.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.43.4...@vtex/admin-ui@0.43.5) (2020-10-01)
 
 
