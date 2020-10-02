@@ -84,10 +84,14 @@ export default {
     ...styles,
     height: 20,
     width: 20,
+    minWidth: 20,
+    minHeight: 20,
   },
   'checkbox-small': {
     ...styles,
     height: 16,
     width: 16,
+    minWidth: 16,
+    minHeight: 16,
   },
 }
