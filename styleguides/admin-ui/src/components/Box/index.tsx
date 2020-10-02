@@ -14,6 +14,7 @@ import {
   borderTokens,
   sxTokens,
   positionTokens,
+  variantToken,
   TypographyTokensProps,
   FlexTokensProps,
   LayoutTokensProps,
@@ -23,6 +24,7 @@ import {
   SxTokensProps,
   GridTokensProps,
   PositionTokensProps,
+  VariantTokenProps,
 } from '../../tokens'
 
 const WrappedBox = forwardRef(function BoxWithEl(
@@ -35,6 +37,7 @@ const WrappedBox = forwardRef(function BoxWithEl(
 })
 
 export const Box = styled(WrappedBox)<BoxProps>(
+  variantToken,
   typographyTokens,
   flexTokens,
   layoutTokens,
@@ -46,7 +49,7 @@ export const Box = styled(WrappedBox)<BoxProps>(
   sxTokens
 )
 
-export interface PropsWithEl extends Omit<ReakitBoxProps, 'sx'> {
+export interface PropsWithEl extends Omit<ReakitBoxProps, 'sx' | 'variant'> {
   /**
    * Element type
    * @default 'div'
@@ -64,4 +67,5 @@ export type BoxProps = TypographyTokensProps &
   SxTokensProps &
   GridTokensProps &
   PropsWithEl &
-  PositionTokensProps
+  PositionTokensProps &
+  VariantTokenProps

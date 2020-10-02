@@ -8,3 +8,4 @@ export { borderTokens, BorderTokensProps } from './border'
 export { positionTokens, PositionTokensProps } from './position'
 
 export { sxTokens, SxTokensProps } from './sx'
+export { variantToken, VariantTokenProps } from './variant'

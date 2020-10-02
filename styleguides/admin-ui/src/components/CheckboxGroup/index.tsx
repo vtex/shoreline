@@ -22,7 +22,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
   return (
     <>
       {label && (
-        <Label htmlFor={id} c="muted.0" fs="0" fv="regular">
+        <Label htmlFor={id} c="muted.0" fs="0" fw="regular">
           {label}
         </Label>
       )}

@@ -24,10 +24,23 @@ export default {
     '4': 4,
     '5': 5,
   },
-  fontVariation: {
-    light: "'wght' 80",
-    regular: "'wght' 92",
-    bold: "'wght' 100",
+  fontWeights: {
+    light: {
+      fontVariationSettings: "'wght' 80",
+      fontWeight: 300,
+    },
+    regular: {
+      fontVariationSettings: "'wght' 92",
+      fontWeight: 400,
+    },
+    medium: {
+      fontVariationSettings: "'wght' 100",
+      fontWeight: 500,
+    },
+    bold: {
+      fontVariationSettings: "'wght' 108",
+      fontWeight: 600,
+    },
   },
   lineHeights: {
     small: 1.125,

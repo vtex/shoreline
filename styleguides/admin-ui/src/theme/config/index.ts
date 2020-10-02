@@ -36,7 +36,7 @@ export const theme = {
 export type FontSizes = '0' | '1' | '2' | '3' | '4'
 export type BorderWidths = '0' | '1' | '2' | '3'
 export type BorderRadius = '0' | '1' | '2' | '3' | 'full'
-export type FontVariation = keyof typeof theme.fontVariation
+export type FontWeights = keyof typeof theme.fontWeights
 export type LineHeights = keyof typeof theme.lineHeights
 export type ZIndexes = 'under' | 'plain' | 'over' | '1' | '2' | '3' | '4' | '5'
 

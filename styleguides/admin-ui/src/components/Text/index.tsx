@@ -2,7 +2,6 @@ import React from 'react'
 import { SxStyleProp } from 'theme-ui'
 
 import { Box, BoxProps } from '../Box'
-
 /**
  * The component that abstracts all text variants from admin's styleguide.
  * - It renders a h1 if variant === headline.
@@ -20,16 +19,7 @@ export function Text(props: TextProps) {
   const tag = getTag(variant)
   const element: typeof el = el ?? tag
 
-  return (
-    <Box
-      el={element}
-      {...boxProps}
-      sx={{
-        variant: `text.${variant}`,
-        ...sx,
-      }}
-    />
-  )
+  return <Box el={element} {...boxProps} variant={`text.${variant}`} sx={sx} />
 }
 
 function getTag(variant: TextVariant) {
@@ -53,7 +43,7 @@ export type TextVariant =
   | 'subtitle'
   | 'headline'
 
-export interface TextProps extends BoxProps {
+export interface TextProps extends Omit<BoxProps, 'variant'> {
   /**
    * Text Variant
    * @default body
