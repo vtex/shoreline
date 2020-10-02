@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.18.1...@vtex/brand-ui@0.18.2) (2020-10-02)
+
+
+### Bug Fixes
+
+* remove circular dependency from use hallow hook ([1c51c12](https://github.com/vtex/onda/commit/1c51c122b23c2b5382b6929c90873a63360fbf19))
+
+
+
+
+
 ## [0.18.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.18.0...@vtex/brand-ui@0.18.1) (2020-10-02)
 
 **Note:** Version bump only for package @vtex/brand-ui
