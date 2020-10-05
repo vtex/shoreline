@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.3](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.18.2...@vtex/brand-ui@0.18.3) (2020-10-05)
+
+
+### Bug Fixes
+
+* export text of theme-ui ([68bff17](https://github.com/vtex/onda/commit/68bff1739038eb78519da4a34a6095730221c52c))
+
+
+
+
+
 ## [0.18.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.18.1...@vtex/brand-ui@0.18.2) (2020-10-02)
 
 
