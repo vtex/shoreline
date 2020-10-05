@@ -50,7 +50,7 @@ export function Collapsible(props: CollapsibleProps) {
   )
 }
 
-function Header(props: HeaderProps) {
+export function Header(props: CollapsibleHeaderProps) {
   const { children, label, sx, ...tokens } = props
 
   return (
@@ -88,7 +88,7 @@ function Disclosure({ children }: { children: ReactNode }) {
   )
 }
 
-function Content(props: ContentProps) {
+export function Content(props: CollapsibleContentProps) {
   const { children, sx, ...tokens } = props
   const disclosureProps = useCollapsibleContext()
 
@@ -138,7 +138,7 @@ export interface CollapsibleProps
   variant?: 'string'
 }
 
-export interface HeaderProps
+export interface CollapsibleHeaderProps
   extends BorderTokensProps,
     LayoutTokensProps,
     FlexTokensProps,
@@ -156,7 +156,7 @@ export interface HeaderProps
   sx?: SxStyleProp
 }
 
-export interface ContentProps
+export interface CollapsibleContentProps
   extends BorderTokensProps,
     LayoutTokensProps,
     FlexTokensProps,
