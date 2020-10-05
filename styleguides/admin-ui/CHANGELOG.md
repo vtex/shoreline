@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.45.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.44.1...@vtex/admin-ui@0.45.0) (2020-10-05)
+
+
+### Features
+
+* **skeleton:** add Size and Space tokens to Skeleton component ([abd595a](https://github.com/vtex/onda/commit/abd595a0f86e88c725d95adf1f4db9dbf62e24cf))
+
+
+
+
+
 ## [0.44.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.44.0...@vtex/admin-ui@0.44.1) (2020-10-02)
 
 
