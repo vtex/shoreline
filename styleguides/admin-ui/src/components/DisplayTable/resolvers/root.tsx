@@ -1,11 +1,11 @@
 import { ReactNode } from 'react'
 import invariant from 'tiny-invariant'
 
-import { createResolver } from './core'
+import { createResolver, ResolverRenderProps } from './core'
 
 export function rootResolver<T>() {
   return createResolver<T, 'root', RootResolver<T>>({
-    field: function RootResolver({ item, column }) {
+    field: function RootResolver({ item, column, context }) {
       const { resolver } = column
 
       invariant(resolver, 'resolver is required')
@@ -17,12 +17,15 @@ export function rootResolver<T>() {
         'The render function is mandatory while using the root resolver'
       )
 
-      return render(item)
+      return render({ data: null, item, context })
     },
   })
 }
 
 export type RootResolver<T> = {
   type: 'root'
-  render: (item: T) => ReactNode
+  /**
+   * render function
+   */
+  render: (props: ResolverRenderProps<null, T>) => ReactNode
 }

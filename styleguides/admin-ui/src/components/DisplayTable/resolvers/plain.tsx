@@ -1,21 +1,25 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
-import { createResolver, defaultRender } from './core'
+import { Skeleton } from '../../Skeleton'
+import { createResolver, defaultRender, ResolverRenderProps } from './core'
 
 export function plainResolver<T>() {
   return createResolver<T, 'plain', PlainResolver<T>>({
-    field: function PlainResolver({ getData, item, column }) {
-      const content = getData()
-      const { resolver } = column
+    field: function Resolver({ getData, item, column, context }) {
+      if (context.loading) {
+        return <Skeleton sx={{ height: 24 }} />
+      }
 
+      const data = getData()
+      const { resolver } = column
       const render = resolver?.render ?? defaultRender
 
-      return render(content, item)
+      return render({ data, item, context })
     },
   })
 }
 
 export type PlainResolver<T> = {
   type: 'plain'
-  render?: (data: ReactNode, item: T) => ReactNode
+  render?: (props: ResolverRenderProps<ReactNode, T>) => ReactNode
 }

@@ -1,11 +1,16 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import invariant from 'tiny-invariant'
 
-import { createResolver, defaultRender } from './core'
+import { Skeleton } from '../../Skeleton'
+import { createResolver, defaultRender, ResolverRenderProps } from './core'
 
 export function currencyResolver<T>() {
   return createResolver<T, 'currency', CurrencyResolver<T>>({
-    field: function CurrencyResolver({ getData, item, column }) {
+    field: function CurrencyResolver({ getData, item, column, context }) {
+      if (context.loading) {
+        return <Skeleton sx={{ height: 24 }} />
+      }
+
       const { resolver } = column
 
       invariant(resolver, 'Resolver prop is required')
@@ -14,14 +19,14 @@ export function currencyResolver<T>() {
 
       const plainValue = getData()
       const asNumber = Number(plainValue)
-      const content = new Intl.NumberFormat(locale, {
+      const data = new Intl.NumberFormat(locale, {
         style: 'currency',
         currency,
       }).format(asNumber)
 
       const renderContent = render ?? defaultRender
 
-      return renderContent(content, item)
+      return renderContent({ data, item, context })
     },
   })
 }
@@ -30,5 +35,5 @@ export type CurrencyResolver<T> = {
   type: 'currency'
   locale: string
   currency: string
-  render?: (currency: string, item: T) => ReactNode
+  render?: (props: ResolverRenderProps<string, T>) => ReactNode
 }

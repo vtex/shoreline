@@ -2,20 +2,23 @@ import { mergeSx } from '@vtex-components/theme'
 import { SxStyleProp } from 'theme-ui'
 
 const styles: SxStyleProp = {
-  borderCollapse: 'collapse',
-  'th, td': {
-    borderBottomWidth: 1,
-    borderBottomStyle: 'solid',
-    borderBottomColor: 'muted.3',
-    paddingX: 2,
-    variant: 'text.body',
+  reset: {
+    borderCollapse: 'collapse',
+    'td, th': {
+      borderBottomWidth: 1,
+      borderBottomStyle: 'solid',
+      borderBottomColor: 'muted.3',
+    },
   },
-  th: {
-    color: 'muted.1',
-    fontWeight: 'normal',
-  },
-  'thead > tr': {
+  lead: {
     height: 48,
+    display: 'flex',
+    alignItems: 'center',
+    verticalAlign: 'middle',
+    paddingX: 2,
+    color: 'muted.0',
+    fontWeight: 'normal',
+    variant: 'text.body',
   },
 }
 
@@ -72,23 +75,37 @@ export default {
   },
   regular: {
     ...styles,
-    'tbody > tr': {
+    cell: {
+      display: 'flex',
+      alignItems: 'center',
+      verticalAlign: 'middle',
       height: 80,
+      paddingX: 2,
+      variant: 'text.body',
     },
   },
   compact: {
     ...styles,
-    'tbody > tr': {
+    cell: {
+      display: 'flex',
+      alignItems: 'center',
+      verticalAlign: 'middle',
       height: 48,
+      paddingX: 2,
+      variant: 'text.body',
     },
   },
   variable: mergeSx<SxStyleProp>(styles, {
     tbody: {
       verticalAlign: 'top',
     },
-    td: {
+    cell: {
+      display: 'flex',
+      alignItems: 'flex-start',
       minHeight: 48,
-      paddingY: 2,
+      paddingY: 4,
+      paddingX: 2,
+      variant: 'text.body',
     },
   }),
 } as Record<string, SxStyleProp>

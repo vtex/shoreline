@@ -14,10 +14,33 @@ import { TableDensity, TableDir } from '..'
  */
 export type ResolverShorcut<I, T = unknown> = T & { type: I }
 
+/**
+ * Table context
+ */
 export type ResolverContext = {
+  /**
+   * HTML Dir
+   */
   dir: TableDir
+  /**
+   * Table current density
+   */
   density: TableDensity
+  /**
+   * If is loading or not
+   */
   loading: boolean
+}
+
+/**
+ * Render props of the resolver
+ * @generic D: Type of returned data
+ * @generic T: Type of returned item
+ */
+export type ResolverRenderProps<D, T> = {
+  data: D
+  item: T
+  context: ResolverContext
 }
 
 /**
@@ -163,6 +186,6 @@ function accessField<T>(column: Column<T>, item: T) {
 }
 
 /** Default render of resolvers */
-export function defaultRender(data: any) {
+export function defaultRender({ data }: ResolverRenderProps<any, any>) {
   return <Fragment>{data}</Fragment>
 }

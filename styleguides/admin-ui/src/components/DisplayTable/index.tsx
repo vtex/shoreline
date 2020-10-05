@@ -2,7 +2,6 @@
 import { jsx } from 'theme-ui'
 import { get } from '@vtex-components/theme'
 
-import { Skeleton } from '../Skeleton'
 import { baseResolvers } from './resolvers/base'
 import {
   resolveField,
@@ -11,6 +10,7 @@ import {
   ResolverContext,
 } from './resolvers/core'
 import { Column } from './typings'
+import { Box } from '../Box'
 
 /**
  * Table used to show static & simple information
@@ -48,6 +48,8 @@ export function DisplayTable<T>(props: DisplayTableProps<T>) {
     dir = 'ltr',
   } = props
 
+  const variant = `data.table.${density}`
+
   const context: ResolverContext = {
     density,
     loading,
@@ -58,7 +60,7 @@ export function DisplayTable<T>(props: DisplayTableProps<T>) {
     <table
       dir={dir}
       sx={{
-        variant: `data.table.${density}`,
+        variant: `${variant}.reset`,
       }}
     >
       <thead dir={dir}>
@@ -67,12 +69,16 @@ export function DisplayTable<T>(props: DisplayTableProps<T>) {
             const content = resolveLead<T>({ column, resolvers, context })
 
             return (
-              <th
-                dir={dir}
-                sx={{ minWidth: column.width, maxWidth: column.width }}
-                key={column.id as string}
-              >
-                {content}
+              <th dir={dir} key={column.id as string}>
+                <Box
+                  sx={{
+                    variant: `${variant}.lead`,
+                    minWidth: column.width,
+                    maxWidth: column.width,
+                  }}
+                >
+                  {content}
+                </Box>
               </th>
             )
           })}
@@ -95,11 +101,15 @@ export function DisplayTable<T>(props: DisplayTableProps<T>) {
 
               return (
                 <td dir={dir} key={column.id as string}>
-                  {loading ? (
-                    <Skeleton sx={{ variant: 'data.table.skeleton' }} />
-                  ) : (
-                    content
-                  )}
+                  <Box
+                    sx={{
+                      variant: `${variant}.cell`,
+                      minWidth: column.width,
+                      maxWidth: column.width,
+                    }}
+                  >
+                    {content}
+                  </Box>
                 </td>
               )
             })}

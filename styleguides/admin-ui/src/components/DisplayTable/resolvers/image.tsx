@@ -5,7 +5,12 @@ import { ReactNode, Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
 
-import { createResolver, defaultRender, ResolverContext } from './core'
+import {
+  createResolver,
+  defaultRender,
+  ResolverContext,
+  ResolverRenderProps,
+} from './core'
 import { Skeleton } from '../../Skeleton'
 
 const defaultPreview: ImagePreview = {
@@ -14,15 +19,68 @@ const defaultPreview: ImagePreview = {
   size: 'regular',
 }
 
-function ImageWithPreview({
-  url,
-  preview,
-  context: { dir, density },
-}: {
-  url: string
-  preview: ImagePreview
-  context: ResolverContext
-}) {
+/**
+ * Resolve image fields
+ * @generic T: item type
+ */
+export function imageResolver<T>() {
+  return createResolver<T, 'image', ImageResolver<T>>({
+    field: function Field({ getData, item, column, context }) {
+      if (context.loading) {
+        return <Skeleton sx={{ height: 24 }} />
+      }
+
+      const url = getData()
+      const { resolver } = column
+
+      invariant(resolver, 'Resolver prop is required')
+
+      const preview = resolver.preview ?? defaultPreview
+
+      const data = url ? (
+        preview.display ? (
+          <ImageWithPreview
+            url={url}
+            alt={resolver.alt}
+            preview={preview}
+            context={context}
+          />
+        ) : (
+          <img
+            alt={resolver.alt}
+            sx={{ variant: `data.table.image.${context.density}` }}
+            src={url}
+          />
+        )
+      ) : (
+        <Skeleton
+          sx={{
+            variant: `data.table.image.${context.density}`,
+            animation: '',
+          }}
+        />
+      )
+
+      const render = resolver.render ?? defaultRender
+
+      return render({ data, item, context })
+    },
+  })
+}
+
+/**
+ * Image with preview on :hover
+ * Delay is configurable through the preview prop
+ * Uses reakit tooltip under the hood
+ */
+function ImageWithPreview(props: PreviewComponentProps) {
+  const {
+    url,
+    preview,
+    context: { dir, density },
+    alt,
+  } = props
+
   const tooltip = useTooltipState({
     placement: dir === 'rtl' ? 'left' : 'right',
     animated: true,
@@ -32,10 +90,10 @@ function ImageWithPreview({
   return (
     <Fragment>
       <TooltipReference {...tooltip}>
-        {(props) => (
+        {(referenceProps) => (
           <img
-            alt=""
-            {...props}
+            {...referenceProps}
+            alt={alt}
             sx={{
               variant: `data.table.image.${density}`,
               cursor: 'pointer',
@@ -72,11 +130,11 @@ function ImageWithPreview({
             }
           }
         `}
-        aria-label="Large Image"
+        aria-label={`${alt} large`}
         sx={{ outline: 'none' }}
       >
         <img
-          alt=""
+          alt={`${alt} large`}
           sx={{
             variant: `data.table.image-preview.${preview.size}`,
           }}
@@ -87,44 +145,23 @@ function ImageWithPreview({
   )
 }
 
-/**
- * Resolve image fields
- * @generic T: item type
- */
-export function imageResolver<T>() {
-  return createResolver<T, 'image', ImageResolver<T>>({
-    field: function Field({ getData, item, column, context }) {
-      const url = getData()
-      const { resolver } = column
-
-      invariant(resolver, 'Resolver prop is required')
-
-      const preview = resolver.preview ?? defaultPreview
-
-      const content = url ? (
-        preview.display ? (
-          <ImageWithPreview url={url} preview={preview} context={context} />
-        ) : (
-          <img
-            alt=""
-            sx={{ variant: `data.table.image.${context.density}` }}
-            src={url}
-          />
-        )
-      ) : (
-        <Skeleton
-          sx={{
-            variant: `data.table.image.${context.density}`,
-            animation: '',
-          }}
-        />
-      )
-
-      const render = resolver.render ?? defaultRender
-
-      return render(content, item)
-    },
-  })
+interface PreviewComponentProps {
+  /**
+   * url of the image
+   */
+  url: string
+  /**
+   * preview options
+   */
+  preview: ImagePreview
+  /**
+   * resolver context
+   */
+  context: ResolverContext
+  /**
+   * HTML img alt
+   */
+  alt?: string
 }
 
 type ImagePreview = {
@@ -147,6 +184,17 @@ type ImagePreview = {
 
 export type ImageResolver<T> = {
   type: 'image'
+  /**
+   * HTML img alt
+   */
+  alt?: string
+  /**
+   * Preview options
+   * @default {display:true,delay:0,size:'regular'}
+   */
   preview?: ImagePreview
-  render?: (image: JSX.Element, item: T) => ReactNode
+  /**
+   * optional render function
+   */
+  render?: (props: ResolverRenderProps<JSX.Element, T>) => ReactNode
 }

@@ -1,11 +1,16 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import invariant from 'tiny-invariant'
 
-import { createResolver, defaultRender } from './core'
+import { Skeleton } from '../../Skeleton'
+import { createResolver, defaultRender, ResolverRenderProps } from './core'
 
 export function dateResolver<T>() {
   return createResolver<T, 'date', DateResolver<T>>({
-    field: function DateResolver({ getData, item, column }) {
+    field: function DateResolver({ getData, item, column, context }) {
+      if (context.loading) {
+        return <Skeleton sx={{ height: 24 }} />
+      }
+
       const { resolver } = column
 
       invariant(resolver, 'resolver is required')
@@ -14,11 +19,11 @@ export function dateResolver<T>() {
 
       const dateString = getData()
       const asDate = new Date(dateString)
-      const content = new Intl.DateTimeFormat(locale, options).format(asDate)
+      const data = new Intl.DateTimeFormat(locale, options).format(asDate)
 
       const renderContent = render ?? defaultRender
 
-      return renderContent(content, item)
+      return renderContent({ data, item, context })
     },
   })
 }
@@ -27,5 +32,5 @@ export type DateResolver<T> = {
   type: 'date'
   locale: string
   options?: Intl.DateTimeFormatOptions
-  render?: (date: string, item: T) => ReactNode
+  render?: (props: ResolverRenderProps<string, T>) => ReactNode
 }
