@@ -11,23 +11,15 @@ export default {
   component: Skeleton,
 } as Meta
 
-const Template: Story<SkeletonProps> = (args) => <Skeleton {...args} />
-
-export const Default = Template.bind({})
-Default.args = {
-  sx: {
-    height: 128,
-    width: 128,
-  },
+export const Rect: Story<SkeletonProps> = () => {
+  return <Skeleton h={128} w={128} />
 }
 
-export const Circle = Template.bind({})
-Circle.args = {
-  sx: { width: 100, height: 100 },
-  shape: 'circle',
+export const Circle: Story<SkeletonProps> = () => {
+  return <Skeleton shape="circle" w={100} h={100} />
 }
 
-export const Fluid = () => {
+export const Fluid: Story<SkeletonProps> = () => {
   return (
     <Box w="full" h={192}>
       <Skeleton />
@@ -43,13 +35,13 @@ export const TextExample = () => {
       <Box w="sm">
         {loading ? (
           <Box>
-            <Skeleton sx={{ height: 24, width: '5/12' }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16, width: '1/2' }} />
+            <Skeleton h={24} w="5/12" />
+            <Skeleton h={16} />
+            <Skeleton h={16} />
+            <Skeleton h={16} />
+            <Skeleton h={16} />
+            <Skeleton h={16} />
+            <Skeleton h={16} w="1/2" />
           </Box>
         ) : (
           <Box>
@@ -81,13 +73,13 @@ TextExample.parameters = {
       <Box w="sm">
         {toggle ? (
           <Box>
-            <Skeleton sx={{ height: 24, width: "5/12" }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16 }} />
-            <Skeleton sx={{ height: 16, width: "1/2" }} />
+            <Skeleton h={24} w="5/12" />
+            <Skeleton h={16} />
+            <Skeleton h={16} />
+            <Skeleton h={16} />
+            <Skeleton h={16} />
+            <Skeleton h={16} />
+            <Skeleton h={16} w="1/2" />
           </Box>
         ) : (
           <Box>
