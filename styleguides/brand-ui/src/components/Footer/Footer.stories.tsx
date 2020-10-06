@@ -5,7 +5,7 @@ import { footerGroups, links } from './mockLinks'
 import { Footer } from './index'
 
 export default {
-  title: 'Work in progress/Footer',
+  title: 'beta/Footer',
   component: Footer,
 }
 

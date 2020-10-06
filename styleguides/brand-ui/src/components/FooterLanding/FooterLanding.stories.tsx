@@ -5,7 +5,7 @@ import { links } from './mockLinks'
 import { FooterLanding } from './index'
 
 export default {
-  title: 'Beta/Footer Landing',
+  title: 'beta/Footer Landing',
   component: FooterLanding,
 }
 
