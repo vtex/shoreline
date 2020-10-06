@@ -5,7 +5,7 @@ import { DisplayTable, DisplayTableProps } from '../index'
 import { baseResolvers } from '../resolvers/base'
 
 export default {
-  title: 'beta/DisplayTable/Densities',
+  title: 'alpha/DisplayTable/Densities',
   component: DisplayTable,
 } as Meta
 

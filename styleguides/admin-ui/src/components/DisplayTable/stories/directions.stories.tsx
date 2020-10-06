@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 import { DisplayTable } from '../index'
 
 export default {
-  title: 'beta/DisplayTable/Directions',
+  title: 'alpha/DisplayTable/Directions',
   component: DisplayTable,
 } as Meta
 

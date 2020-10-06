@@ -8,7 +8,7 @@ import { DisplayTable, defineColumns } from '../index'
 import { Skeleton } from '../../Skeleton'
 
 export default {
-  title: 'beta/DisplayTable',
+  title: 'alpha/DisplayTable/Full',
   component: DisplayTable,
 } as Meta
 
@@ -22,7 +22,7 @@ interface Item {
   price: number
 }
 
-export const Sample = () => {
+export const Example = () => {
   const [loading, setLoading] = useState(false)
 
   const items = [
@@ -90,6 +90,11 @@ export const Sample = () => {
     {
       id: 'description',
       lead: 'Description',
+      fieldSx: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+      },
       resolver: {
         type: 'root',
         render: function Description({ item, context }) {
@@ -100,7 +105,6 @@ export const Sample = () => {
           return (
             <Fragment>
               <Text variant="highlight">{item.productName}</Text>
-              <br />
               <Text variant="body">{item.category}</Text>
             </Fragment>
           )
@@ -137,74 +141,3 @@ export const Sample = () => {
     </Card>
   )
 }
-
-// export const Widths = () => {
-//   const [loading, setLoading] = useState(false)
-
-//   const columns = defineColumns<Item>([
-//     {
-//       id: 'image',
-//       lead: 'Image',
-//       width: [60, 60, 76],
-//       resolver: {
-//         type: 'image',
-//       },
-//     },
-//     {
-//       id: 'description',
-//       lead: 'Description',
-//       resolver: {
-//         type: 'root',
-//         render: function Description(item) {
-//           return (
-//             <Fragment>
-//               <Text variant="highlight">{item.productName}</Text>
-//               <br />
-//               <Text variant="body">{item.category}</Text>
-//             </Fragment>
-//           )
-//         },
-//       },
-//     },
-//     {
-//       id: 'product-name',
-//       lead: 'ProductName',
-//       acessor: 'productName',
-//       resolver: {
-//         type: 'plain',
-//       },
-//     },
-//     {
-//       id: 'inStock',
-//       lead: 'In Stock',
-//       resolver: {
-//         type: 'plain',
-//       },
-//     },
-//     {
-//       id: 'skus',
-//       lead: 'SKUs',
-//       resolver: {
-//         type: 'plain',
-//       },
-//     },
-//     {
-//       id: 'price',
-//       lead: 'Price',
-//       resolver: {
-//         type: 'currency',
-//         locale: 'pt-BR',
-//         currency: 'BRL',
-//       },
-//     },
-//   ])
-
-//   return (
-//     <Card w={560} display="flex" direction="col">
-//       <Button variant="subtle" onClick={() => setLoading((l) => !l)}>
-//         Toggle Loading
-//       </Button>
-//       <DisplayTable columns={columns} loading={loading} items={items} />
-//     </Card>
-//   )
-// }

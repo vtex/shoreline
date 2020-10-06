@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, SxStyleProp } from 'theme-ui'
 import { get } from '@vtex-components/theme'
+import { useMemo } from 'react'
 
 import { baseResolvers } from './resolvers/base'
 import {
@@ -46,6 +47,8 @@ export function DisplayTable<T>(props: DisplayTableProps<T>) {
     resolvers = baseResolvers<T>(),
     density = 'regular',
     dir = 'ltr',
+    sx = {},
+    length = 5,
   } = props
 
   const variant = `data.table.${density}`
@@ -56,38 +59,59 @@ export function DisplayTable<T>(props: DisplayTableProps<T>) {
     dir,
   }
 
+  const skeletonItems = useMemo<T[]>(() => {
+    return [...Array(length).keys()].map((id) => {
+      const item = columns.reduce((acc, col) => {
+        return { ...acc, [col.id]: '...loading' }
+      }, {})
+
+      return ({ id, ...item } as unknown) as T
+    })
+  }, [length, columns])
+
+  const listToRender = loading ? skeletonItems : items
+
   return (
     <table
       dir={dir}
       sx={{
         variant: `${variant}.reset`,
+        ...sx,
       }}
     >
-      <thead dir={dir}>
-        <tr sx={{ textAlign: dir === 'rtl' ? 'right' : 'left' }} dir={dir}>
+      <thead
+        sx={{
+          textAlign: dir === 'rtl' ? 'right' : 'left',
+        }}
+        dir={dir}
+      >
+        <tr>
           {columns.map((column) => {
             const content = resolveLead<T>({ column, resolvers, context })
 
             return (
-              <th dir={dir} key={column.id as string}>
+              <td dir={dir} key={column.id as string}>
                 <Box
                   sx={{
                     variant: `${variant}.lead`,
                     minWidth: column.width,
                     maxWidth: column.width,
+                    ...column.leadSx,
                   }}
                 >
                   {content}
                 </Box>
-              </th>
+              </td>
             )
           })}
         </tr>
       </thead>
       <tbody dir={dir}>
-        {items.map((item) => (
+        {listToRender.map((item) => (
           <tr
-            sx={{ textAlign: dir === 'rtl' ? 'right' : 'left' }}
+            sx={{
+              textAlign: dir === 'rtl' ? 'right' : 'left',
+            }}
             dir={dir}
             key={getRowKey(item)}
           >
@@ -106,6 +130,7 @@ export function DisplayTable<T>(props: DisplayTableProps<T>) {
                       variant: `${variant}.cell`,
                       minWidth: column.width,
                       maxWidth: column.width,
+                      ...column.fieldSx,
                     }}
                   >
                     {content}
@@ -132,16 +157,16 @@ export type TableDensity = 'compact' | 'regular' | 'variable'
 export type TableDir = 'ltr' | 'rtl'
 export interface DisplayTableProps<T> {
   /**
-   * ditto
+   * Table column spec
    */
   columns: Array<Column<T>>
   /**
-   * ditto
+   * Table items
    * @default []
    */
   items?: T[]
   /**
-   * key extractor
+   * Key extractor
    * @default (item)=>item.id
    */
   getRowKey?: (item: T) => string
@@ -165,4 +190,14 @@ export interface DisplayTableProps<T> {
    * @default 'ltr'
    */
   dir?: TableDir
+  /**
+   * Sx of table
+   * @default {}
+   */
+  sx?: SxStyleProp
+  /**
+   * Expected items length
+   * @default 5
+   */
+  length?: number
 }
