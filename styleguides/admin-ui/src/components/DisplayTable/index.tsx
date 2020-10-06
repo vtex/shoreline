@@ -25,12 +25,10 @@ import { Box } from '../Box'
  *
  * const columns = defineColumns<Item>([
  *  {
- *    id: '_item_property_',
- *    lead: '_title_of_column',
- *    width: ['...some_responsive_width'] | '_some_global_width_'
- *    resolver: {
- *      type: '_valid_resolver_type'
- *    }
+ *    id: 'prop-to-access',
+ *    lead: 'column-lead-text',
+ *    width: ['...responsive-width'] | 'width'
+ *    resolver: one of BaseResolvers<Item>
  *  },
  *  ...
  * ])
@@ -171,7 +169,7 @@ export interface DisplayTableProps<T> {
    */
   getRowKey?: (item: T) => string
   /**
-   * if the table is loading or not
+   * Whether the table is loading or not
    * @default false
    */
   loading?: boolean

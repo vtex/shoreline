@@ -13,7 +13,10 @@ export function currencyResolver<T>() {
 
       const { resolver } = column
 
-      invariant(resolver, 'Resolver prop is required')
+      invariant(
+        resolver,
+        'Resolver prop is required while using the currency resolver'
+      )
 
       const { locale, currency, render } = resolver
 

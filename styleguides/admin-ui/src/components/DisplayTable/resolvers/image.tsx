@@ -33,7 +33,10 @@ export function imageResolver<T>() {
       const url = getData()
       const { resolver } = column
 
-      invariant(resolver, 'Resolver prop is required')
+      invariant(
+        resolver,
+        'Resolver prop is required while using the image resolver'
+      )
 
       const preview = resolver.preview ?? defaultPreview
 
@@ -96,11 +99,15 @@ function ImageWithPreview(props: PreviewComponentProps) {
             alt={alt}
             sx={{
               variant: `data.table.image.${density}`,
-              cursor: 'pointer',
+              cursor: 'zoom-in',
               transition: 'transform 150ms ease-in-out',
               ':hover': {
                 transform: 'scale(1.1)',
                 boxShadow: 'subtle',
+              },
+              ':focus:not([data-focus-visible-added])': {
+                outline: 'none',
+                boxShadow: 'none',
               },
               ':focus': {
                 outline: 'none',

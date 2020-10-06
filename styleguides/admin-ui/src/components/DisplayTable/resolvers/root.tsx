@@ -8,7 +8,7 @@ export function rootResolver<T>() {
     field: function RootResolver({ item, column, context }) {
       const { resolver } = column
 
-      invariant(resolver, 'resolver is required')
+      invariant(resolver, 'resolver is required while using the root resolver')
 
       const { render } = resolver
 

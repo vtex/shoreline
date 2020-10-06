@@ -7,7 +7,7 @@ import { BaseResolvers } from './resolvers/base'
 
 /**
  * Column type
- * Each column, represents a field withn a item
+ * Each column, represents a field within an item
  * @generic T: Item
  * @generic R: Resolver filed
  */

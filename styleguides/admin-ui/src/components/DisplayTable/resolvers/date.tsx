@@ -13,7 +13,7 @@ export function dateResolver<T>() {
 
       const { resolver } = column
 
-      invariant(resolver, 'resolver is required')
+      invariant(resolver, 'resolver is required while using the date resolver')
 
       const { locale, options, render } = resolver
 
