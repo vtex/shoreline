@@ -1,0 +1,66 @@
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
+
+import { CollapsibleGroup } from './index'
+
+<Meta title="design-system/components/CollapsibleGroup" />
+
+# Beta CollapsibleGroup
+
+## 1. Component info
+
+A Component that groups Collapsible components
+
+- CollapsibleGroup
+- version: beta.1
+
+## Behavior
+
+<Canvas>
+  <Story id="beta-collapsiblegroup--nested" />
+</Canvas>
+
+## 3. Installation
+
+```bash
+yarn add @vtex/admin-ui
+```
+
+```tsx
+import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
+```
+
+## Basic
+
+<Canvas>
+  <Story id="beta-collapsiblegroup--simple" />
+</Canvas>
+
+## Nested
+
+<Canvas>
+  <Story id="beta-collapsiblegroup--nested" />
+</Canvas>
+
+## 6. Props
+
+<Props of={CollapsibleGroup} />
+
+## Composites
+
+- `<CollapsibleGroup.Item>`
+- `<CollapsibleGroup.Item.Header>`
+- `<CollapsibleGroup.Item.Content>`
+
+> 💡 Check the [Collapsible Component Documentation](https://admin-ui.vercel.app/?path=/story/design-system-components-collapsible--page) for detailed info.
+
+## State
+
+- `useCollapsible` hook
+
+  Since the `CollapsibleGroup.Item` is a Collapsible Component, you should use this hook to add state logic to them.
+
+## Customization
+
+`CollapsibleGroup` is a container component, so you can customize it using `Border`, `Space`, `Color`, and `Layout` tokens defined in our theme, or you can do it using the `sx` prop as well.
+
+> 💡 You can check the props table to verify which token you can use.

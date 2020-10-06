@@ -10,7 +10,7 @@ export default {
   component: CollapsibleGroup,
 } as Meta
 
-export const BasicExample: Story<CollapsibleGroupProps> = () => {
+export const Basic: Story<CollapsibleGroupProps> = () => {
   const promos = useCollapsible()
   const marketing = useCollapsible()
 
@@ -46,7 +46,7 @@ export const BasicExample: Story<CollapsibleGroupProps> = () => {
   )
 }
 
-export const Basic: Story<CollapsibleGroupProps> = () => {
+export const Nested: Story<CollapsibleGroupProps> = () => {
   const promosAndPartner = useCollapsible()
   const shipping = useCollapsible()
   const promos = useCollapsible()
@@ -86,9 +86,35 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
     )
   }
 
+  function PackagesContent() {
+    return (
+      <>
+        <Text variant="small" c="muted.2" fs="0">
+          Bill
+        </Text>
+        <Text c="primary.base">N 00025755809</Text>
+        <br />
+        <Text variant="small" c="muted.2" fs="0">
+          Total cost of items
+        </Text>
+        <Text c="text">39,00 BRL</Text>
+        <br />
+        <Text variant="small" c="muted.2" fs="0">
+          Type
+        </Text>
+        <Text>Total Express</Text>
+        <br />
+        <Text variant="small" c="muted.2" fs="0">
+          Tracking
+        </Text>
+        <Text c="primary.base">XSDFE231675</Text>{' '}
+      </>
+    )
+  }
+
   return (
     <CollapsibleGroup w={400}>
-      <CollapsibleGroup.Item className="test" state={promosAndPartner}>
+      <CollapsibleGroup.Item state={promosAndPartner}>
         <CollapsibleGroup.Item.Header label="Promos and Partnerships" />
         <CollapsibleGroup.Item.Content>
           <CollapsibleGroup>
@@ -119,25 +145,7 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
                 >
                   <CollapsibleGroup.Item.Header label={value} />
                   <CollapsibleGroup.Item.Content display="flex" direction="col">
-                    <Text variant="small" c="muted.2" fs="0">
-                      Bill
-                    </Text>
-                    <Text c="primary.base">N 00025755809</Text>
-                    <br />
-                    <Text variant="small" c="muted.2" fs="0">
-                      Total cost of items
-                    </Text>
-                    <Text c="text">39,00 BRL</Text>
-                    <br />
-                    <Text variant="small" c="muted.2" fs="0">
-                      Type
-                    </Text>
-                    <Text>Total Express</Text>
-                    <br />
-                    <Text variant="small" c="muted.2" fs="0">
-                      Tracking
-                    </Text>
-                    <Text c="primary.base">XSDFE231675</Text>
+                    <PackagesContent />
                   </CollapsibleGroup.Item.Content>
                 </CollapsibleGroup.Item>
               )
