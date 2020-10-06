@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.45.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.45.0...@vtex/admin-ui@0.45.1) (2020-10-06)
+
+
+### Bug Fixes
+
+* **color-tokens:** add CSS Properties in the color tokens ([00e70cc](https://github.com/vtex/onda/commit/00e70cc18bef7495870a3373ded1422004ab062b))
+
+
+
+
+
 # [0.45.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.44.1...@vtex/admin-ui@0.45.0) (2020-10-05)
 
 
