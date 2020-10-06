@@ -126,24 +126,23 @@ Collapsible.Header = Header
 Collapsible.Content = Content
 
 export interface CollapsibleProps
-  extends Omit<DisclosureProps, 'visible' | 'baseId' | 'toggle'>,
+  extends Omit<
+      DisclosureProps,
+      'visible' | 'baseId' | 'toggle' | 'wrapElement'
+    >,
     BorderTokensProps,
     LayoutTokensProps,
-    FlexTokensProps,
     SpaceTokensProps,
-    ColorTokensProps {
-  children?: ReactNode
+    Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc'> {
+  /** ThemeUI style prop */
   sx?: SxStyleProp
+  /** useCollapsible hook return */
   state: DisclosureStateReturn
-  variant?: 'string'
 }
 
 export interface CollapsibleHeaderProps
-  extends BorderTokensProps,
-    LayoutTokensProps,
-    FlexTokensProps,
-    SpaceTokensProps,
-    ColorTokensProps {
+  extends SpaceTokensProps,
+    Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc' | 'c'> {
   /**
    * Disclosure Button label
    */
@@ -152,18 +151,17 @@ export interface CollapsibleHeaderProps
    * Actions panel
    */
   children?: ReactNode
-  /** custom styles */
+  /** ThemeUI style prop */
   sx?: SxStyleProp
 }
 
 export interface CollapsibleContentProps
-  extends BorderTokensProps,
-    LayoutTokensProps,
+  extends Pick<LayoutTokensProps, 'display'>,
     FlexTokensProps,
     SpaceTokensProps,
-    ColorTokensProps {
+    Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc' | 'c'> {
   children?: ReactNode
-  /** custom styles */
+  /** ThemeUI style prop */
   sx?: SxStyleProp
 }
 
