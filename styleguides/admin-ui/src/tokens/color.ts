@@ -121,5 +121,5 @@ export interface ColorTokensProps {
   /**
    * Stroke
    */
-  stroke?: ResponsiveValue<ThemeColors | 'initial' | 'inherit'>
+  stroke?: ResponsiveValue<ThemeColors | 'initial' | 'inherit' | 'none'>
 }
