@@ -47,7 +47,7 @@ export const colorTokens = system({
   },
 })
 
-type Colors =
+type ThemeColors =
   | 'text'
   | 'background'
   | 'muted.0'
@@ -81,45 +81,45 @@ export interface ColorTokensProps {
   /**
    * Background color
    */
-  bg?: ResponsiveValue<Colors>
+  bg?: ResponsiveValue<ThemeColors | 'transparent' | 'inherit' | 'initial'>
   /**
    * Text color
    */
-  c?: ResponsiveValue<Colors>
+  c?: ResponsiveValue<ThemeColors | 'initial' | 'inherit'>
   /**
    * Border color
    */
-  bc?: ResponsiveValue<Colors>
+  bc?: ResponsiveValue<ThemeColors | 'transparent' | 'inherit' | 'initial'>
   /**
    * Caret color
    */
-  cc?: ResponsiveValue<Colors>
+  cc?: ResponsiveValue<ThemeColors | 'auto'>
   /**
    * Border top color
    */
-  btc?: ResponsiveValue<Colors>
+  btc?: ResponsiveValue<ThemeColors | 'transparent' | 'inherit' | 'initial'>
   /**
    * Border bottom color
    */
-  bbc?: ResponsiveValue<Colors>
+  bbc?: ResponsiveValue<ThemeColors | 'transparent' | 'inherit' | 'initial'>
   /**
    * Border left color
    */
-  blc?: ResponsiveValue<Colors>
+  blc?: ResponsiveValue<ThemeColors | 'transparent' | 'inherit' | 'initial'>
   /**
    * Border right color
    */
-  brc?: ResponsiveValue<Colors>
+  brc?: ResponsiveValue<ThemeColors | 'transparent' | 'inherit' | 'initial'>
   /**
    * Outline color
    */
-  oc?: ResponsiveValue<Colors>
+  oc?: ResponsiveValue<ThemeColors | 'invert' | 'inherit' | 'initial'>
   /**
    * Fill
    */
-  fill?: ResponsiveValue<Colors>
+  fill?: ResponsiveValue<ThemeColors | 'initial' | 'inherit'>
   /**
    * Stroke
    */
-  stroke?: ResponsiveValue<Colors>
+  stroke?: ResponsiveValue<ThemeColors | 'initial' | 'inherit'>
 }
