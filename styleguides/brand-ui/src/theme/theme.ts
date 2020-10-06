@@ -8,6 +8,7 @@ import card from './components/card'
 import input from './components/input'
 import popover from './components/popover'
 import helloBar from './components/helloBar'
+import localeSwitcher from './components/localeSwitcher'
 
 export const theme = {
   colors: {
@@ -68,6 +69,7 @@ export const theme = {
   input,
   popover,
   helloBar,
+  localeSwitcher,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',

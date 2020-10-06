@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Box } from 'theme-ui'
 
-import { Header, HamburgerMenu, LinksProps } from '.'
+import { Header, HamburgerMenu, LinksProps, LocaleSwitcher } from '.'
 import { IconExternalLink } from '../../icons'
 
 export default {
@@ -33,6 +33,7 @@ const Template = (args: LinksProps) => (
           <HamburgerMenu.Menu.Links to="/" title="Help Center" />
         </HamburgerMenu.Menu>
       </HamburgerMenu>
+      <LocaleSwitcher />
     </Header.ActionButton>
   </Header>
 )

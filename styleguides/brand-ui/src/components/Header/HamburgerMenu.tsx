@@ -23,8 +23,8 @@ export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
           </Flex>
         </>
       ) : (
-        <IconHamburger size={24} />
-      )}
+          <IconHamburger size={24} />
+        )}
     </Box>
   )
 }

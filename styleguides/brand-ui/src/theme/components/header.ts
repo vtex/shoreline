@@ -75,6 +75,7 @@ const actionButton = {
   gridArea: 'actionbutton',
   height: '100%',
   alignItems: 'center',
+  justifyContent: 'flex-end',
 }
 
 const header = {
