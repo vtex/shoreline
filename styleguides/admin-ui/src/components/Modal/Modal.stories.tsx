@@ -100,12 +100,14 @@ export const SmallModal: Story<ModalProps> = () => {
 export const RegularModal: Story<ModalProps> = () => {
   const checkbox = useCheckbox()
 
+  const handleClose = () => checkbox.setState(false)
+
   return (
     <Modal
       aria-label="Conditions Modal"
       disclosure={<Button>Regular</Button>}
       size="regular"
-      onClose={() => checkbox.setState(false)}
+      onClose={handleClose}
     >
       <Modal.Header title="Terms and Conditions" />
       <Modal.Content>
@@ -143,180 +145,85 @@ export const RegularModal: Story<ModalProps> = () => {
 
 export const LargeModal: Story<ModalProps> = () => {
   return (
-    <Box>
-      <Modal
-        aria-label="Transactions Modal"
-        disclosure={<Button>Transactions settings</Button>}
-        size="large"
-        omitCloseButton
-      >
-        <Modal.Header title="Transactions settings">
-          <Modal.Button variant="subtle" size="small" closeModalOnClick>
-            Cancel
-          </Modal.Button>
-          <Modal.Button closeModalOnClick size="small">
-            Save Changes
-          </Modal.Button>
-        </Modal.Header>
-        <Modal.Content>
-          <List
-            density="compact"
-            label="General"
-            sx={{
-              div: {
-                justifyContent: 'space-between',
-              },
-            }}
-          >
-            <List.Item>
-              <Text>Default markup for external integration</Text>
-              <Text c="muted.1">100%</Text>
-            </List.Item>
-            <List.Item>
-              <Text>Use price variation limit</Text>
-              <Toggle state />
-            </List.Item>
-            <List.Item>
-              <Text>Inherit prices from parent account</Text>
-              <Toggle state />
-            </List.Item>
-            <List.Item>
-              <Text>Overwrite seller prices</Text>
-              <Toggle state />
-            </List.Item>
-          </List>
-        </Modal.Content>
-        <Modal.Content>
-          <List
-            density="compact"
-            label="Psychological pricing"
-            sx={{
-              div: {
-                justifyContent: 'space-between',
-              },
-            }}
-          >
-            <List.Item>
-              <List.TextGroup
-                variant="body"
-                title="Apply this method to all prices"
-                subtitle="Inactive"
-              />
-              <Toggle state />
-            </List.Item>
-            <List.Item>
-              <Text>At what price range will this rule apply?</Text>
-              <Text c="muted.1">From 9.90 to 20.00</Text>
-            </List.Item>
-            <List.Item>
-              <Text>How many digits will be rounded?</Text>
-              <Text c="muted.1">2</Text>
-            </List.Item>
-            <List.Item>
-              <Text>Which rounding method will be applied to?</Text>
-              <Text c="muted.1">Nines</Text>
-            </List.Item>
-          </List>
-        </Modal.Content>
-      </Modal>
-
-      <Modal
-        aria-label="Announcements Modal"
-        disclosure={<Button>Announcements</Button>}
-        size="large"
-      >
-        <Modal.Header title="Announcements" />
-        <List>
+    <Modal
+      aria-label="Transactions Modal"
+      disclosure={<Button>Transactions settings</Button>}
+      size="large"
+      omitCloseButton
+    >
+      <Modal.Header title="Transactions settings">
+        <Modal.Button variant="subtle" size="small" closeModalOnClick>
+          Cancel
+        </Modal.Button>
+        <Modal.Button closeModalOnClick size="small">
+          Save Changes
+        </Modal.Button>
+      </Modal.Header>
+      <Modal.Content>
+        <List
+          density="compact"
+          label="General"
+          sx={{
+            div: {
+              justifyContent: 'space-between',
+            },
+          }}
+        >
           <List.Item>
-            <Ballon />
-            <Box pl="2" w="3/4">
-              <Text variant="subtitle" sx={{ lineHeight: 1.5 }}>
-                Received SKUs: Bulk approval
-                <br />
-                <Text c="muted.1" variant="small">
-                  July 4, 2020
-                </Text>
-              </Text>
-              <Text
-                sx={{
-                  display: 'block',
-                  lineHeight: 1.5,
-                  textOverflow: 'ellipsis',
-                  overflow: 'hidden',
-                  maxHeight: '4.5em',
-                }}
-                el="p"
-              >
-                Marketplaces manage their sellers products from the Received
-                SKUs dashboard, where you can review and approve products sent
-                by sellers. On the dashboard, you can bulk select SKUs,
-                approving, or rejecting items all at once.
-              </Text>
-            </Box>
+            <Text>Default markup for external integration</Text>
+            <Text c="muted.1">100%</Text>
           </List.Item>
           <List.Item>
-            <WrappingBox />
-            <Box pl="2" w="3/4">
-              <Text variant="subtitle" sx={{ lineHeight: 1.5 }}>
-                B2B: Segment prices directly in the purchase flow using our new
-                Order Configuration app.
-                <br />
-                <Text c="muted.1" variant="small">
-                  July 4, 2020
-                </Text>
-              </Text>
-              <Text
-                el="p"
-                sx={{
-                  display: 'block',
-                  lineHeight: 1.5,
-                  textOverflow: 'ellipsis',
-                  overflow: 'hidden',
-                  maxHeight: '4.5em',
-                }}
-              >
-                A critical part of a B2B operation is the segmentation of prices
-                and rates according to the buying company profile. The rules
-                change from store to store, but factors such as the buyers
-                location, type of order and payment method.
-              </Text>
-            </Box>
+            <Text>Use price variation limit</Text>
+            <Toggle state />
           </List.Item>
           <List.Item>
-            <Stairs />
-            <Box pl="2" w="3/4">
-              <Text variant="subtitle" sx={{ lineHeight: 1.5 }}>
-                Samsung Pay: more flexible payments thanks to the new digital
-                wallet
-                <br />
-                <Text c="muted.1" variant="small">
-                  July 4, 2020
-                </Text>
-              </Text>
-              <Text
-                sx={{
-                  display: 'block',
-                  lineHeight: 1.5,
-                  textOverflow: 'ellipsis',
-                  overflow: 'hidden',
-                  maxHeight: '4.5em',
-                }}
-                el="p"
-              >
-                Marketplaces manage their sellers products from the Received
-                SKUs dashboard, where you can review and approve products sent
-                by sellers. On the dashboard, you can bulk select SKUs,
-                approving, or rejecting items all at once.
-              </Text>
-            </Box>
+            <Text>Inherit prices from parent account</Text>
+            <Toggle state />
+          </List.Item>
+          <List.Item>
+            <Text>Overwrite seller prices</Text>
+            <Toggle state />
           </List.Item>
         </List>
-      </Modal>
-    </Box>
+      </Modal.Content>
+      <Modal.Content>
+        <List
+          density="compact"
+          label="Psychological pricing"
+          sx={{
+            div: {
+              justifyContent: 'space-between',
+            },
+          }}
+        >
+          <List.Item>
+            <List.TextGroup
+              variant="body"
+              title="Apply this method to all prices"
+              subtitle="Inactive"
+            />
+            <Toggle state />
+          </List.Item>
+          <List.Item>
+            <Text>At what price range will this rule apply?</Text>
+            <Text c="muted.1">From 9.90 to 20.00</Text>
+          </List.Item>
+          <List.Item>
+            <Text>How many digits will be rounded?</Text>
+            <Text c="muted.1">2</Text>
+          </List.Item>
+          <List.Item>
+            <Text>Which rounding method will be applied to?</Text>
+            <Text c="muted.1">Nines</Text>
+          </List.Item>
+        </List>
+      </Modal.Content>
+    </Modal>
   )
 }
 
-export const AnnoucementsModal: Story<ModalProps> = () => {
+export const AnnouncementsModal: Story<ModalProps> = () => {
   const list = [
     {
       id: '1',

@@ -26,7 +26,6 @@ export const theme = {
   data,
   divider,
   collapsible,
-  data,
   forms: {
     ...controlGroup,
     ...toggle,

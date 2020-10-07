@@ -48,7 +48,7 @@ List.Item = function ListItem(props: BoxProps) {
 }
 
 /**
- * Groups title, subtilte and description
+ * Groups title, subtitle and description
  * @example
  * ```jsx
  * import { List } from `@vtex/admin-ui`
@@ -118,11 +118,11 @@ export interface ListProps extends BoxProps {
 
 export interface TextGroupProps extends Omit<BoxProps, 'title'> {
   /**
-   * ditto
+   * TextGroup Title
    */
   title?: ReactNode
   /**
-   * ditto
+   * TextGroup Subtitle
    */
   subtitle?: ReactNode
   /**
