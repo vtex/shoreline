@@ -1,7 +1,7 @@
 const headerBase = {
   backgroundColor: 'transparent',
   border: 'none',
-  px: 3,
+  px: 2,
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
