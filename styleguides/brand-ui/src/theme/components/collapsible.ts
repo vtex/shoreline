@@ -31,7 +31,7 @@ const header = {
     height: 48,
   },
   content: {
-    mr: 3,
+    mr: 2,
   },
 }
 
