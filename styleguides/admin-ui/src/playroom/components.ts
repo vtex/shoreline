@@ -60,4 +60,11 @@ export {
   IconOnlineStore,
   IconShipping,
   IconProducts,
+  IconBook,
+  IconCode,
+  IconDocument,
+  IconFlag,
+  IconHeartbeat,
+  IconRocket,
+  IconSupport,
 } from '../icons'
