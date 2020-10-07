@@ -1,3 +1,4 @@
 import table from './table'
+import list from './list'
 
-export default { table }
+export default { list, table }

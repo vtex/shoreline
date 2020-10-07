@@ -73,13 +73,13 @@ export function StatelessModal(props: StatelessModalProps) {
     >
       <BaseDialog
         sx={{
-          variant: `overlay.modal.${size}`,
+          variant: `overlay.modal.surface-${size}`,
           ...sx,
         }}
         {...state}
         {...baseProps}
       >
-        <ModalProvider value={{ state, handleClose, omitCloseButton }}>
+        <ModalProvider value={{ state, handleClose, size, omitCloseButton }}>
           {children}
         </ModalProvider>
       </BaseDialog>
@@ -128,8 +128,15 @@ export function ModalDisclosure(
  * ```
  */
 StatelessModal.Header = function Header(props: ModalHeaderProps) {
-  const { children, title = null, containerSx = {}, ...boxProps } = props
-  const { omitCloseButton } = useModalContext()
+  const {
+    children,
+    title = null,
+    containerSx = {},
+    sx = {},
+    ...boxProps
+  } = props
+
+  const { omitCloseButton, size } = useModalContext()
 
   const renderTitle = useMemo(() => {
     if (typeof title === 'string') {
@@ -140,7 +147,11 @@ StatelessModal.Header = function Header(props: ModalHeaderProps) {
   }, [title])
 
   return (
-    <Box el="header" {...boxProps}>
+    <Box
+      el="header"
+      sx={{ variant: `overlay.modal.header-${size}`, ...sx }}
+      {...boxProps}
+    >
       {renderTitle}
       <Box sx={containerSx} display="flex" items="center">
         {children}
@@ -173,7 +184,9 @@ StatelessModal.Header = function Header(props: ModalHeaderProps) {
  * ```
  */
 StatelessModal.Content = function Content(props: ModalContentProps) {
-  return <Box el="section" {...props} />
+  const { sx, ...boxProps } = props
+
+  return <Box sx={{ variant: 'overlay.modal.content', ...sx }} {...boxProps} />
 }
 
 /**
@@ -190,7 +203,16 @@ StatelessModal.Content = function Content(props: ModalContentProps) {
  * ```
  */
 StatelessModal.Footer = function Footer(props: ModalFooterProps) {
-  return <Box el="footer" {...props} />
+  const { sx, ...boxProps } = props
+  const { size } = useModalContext()
+
+  return (
+    <Box
+      el="footer"
+      sx={{ variant: `overlay.modal.footer-${size}`, ...sx }}
+      {...boxProps}
+    />
+  )
 }
 
 /**
@@ -253,6 +275,7 @@ export interface ModalButtonProps extends ButtonProps {
 
 export type ModalContentProps = BoxProps
 export type ModalFooterProps = BoxProps
+export type ModalSize = 'small' | 'regular' | 'large'
 
 export interface StatelessModalProps
   extends Pick<DialogOptions, 'hideOnEsc' | 'hideOnClickOutside'> {
@@ -272,7 +295,7 @@ export interface StatelessModalProps
    * Modal size
    * @default regular
    */
-  size?: 'small' | 'regular' | 'large'
+  size?: ModalSize
   /**
    * If should omit the close button located on top-right
    * @default false

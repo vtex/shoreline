@@ -23,9 +23,9 @@ export const theme = {
   buttons,
   avatar,
   overlay,
+  data,
   divider,
   collapsible,
-  data,
   forms: {
     ...controlGroup,
     ...toggle,

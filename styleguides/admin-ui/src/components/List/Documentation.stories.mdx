@@ -1,0 +1,111 @@
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
+import { List } from './index'
+
+<Meta title="design-system/components/List" />
+
+# Beta List
+
+Component to display consistently, in sequence, items that contain the same kind of data.
+
+- List
+- beta.1
+
+## Behavior
+
+<Canvas>
+  <Story id="beta-list--adaptative" />
+</Canvas>
+
+## Installation
+
+```bash
+yarn add @vtex/admin-ui
+```
+
+```tsx
+import { List } from '@vtex/admin-ui'
+```
+
+## Composition
+
+List is a compound component with the following composites:
+
+| Name            | Description                                                      | Props            |
+| --------------- | ---------------------------------------------------------------- | ---------------- |
+| `List.Item`     | List item. Renders a `div` element                               | `List.ItemProps` |
+| `List.TextGrop` | Combine title, subtitle and description. Renders a `div` element | `BoxProps`       |
+
+**List.Item Props**
+
+Same as `BoxProps`.
+
+**List.TextGroup Props**
+
+Same as `BoxProps` with aditional,
+
+| Name          | Description               | Type                                            | Default |
+| ------------- | ------------------------- | ----------------------------------------------- | ------- |
+| title         | TextGroup title           | `ReactNode`                                     | 🚫      |
+| subtitle      | TextGroup subtitle        | `ReactNode`                                     | 🚫      |
+| description   | TextGroup description     | `ReactNode`                                     | 🚫      |
+| descLineCount | Description line quantity | `number`                                        | 1       |
+| variant       | Variant of the title      | `subtitle, headline, small, body, or highlight` | 🚫      |
+
+## Densities
+
+The list comes in three different densities: `compact`, `regular`, and `comfortable`.
+
+### Regular (default)
+
+<Canvas>
+  <Story id="beta-list--regular" />
+</Canvas>
+
+### Compact
+
+<Canvas>
+  <Story id="beta-list--compact" />
+</Canvas>
+
+### Comfortable
+
+<Canvas>
+  <Story id="beta-list--comfortable" />
+</Canvas>
+
+## Customization
+
+### Style tokens and sx
+
+As always, you can use the `style-tokens` and `sx` prop to customize the components.
+
+<Canvas>
+  <Story id="beta-list--sx" />
+</Canvas>
+
+### Styled
+
+You can also customize the list style with the `styled` HOC.
+
+```jsx
+import { List, styled } from '@vtex/admin-ui'
+
+const StyledList = styled(List)`<custom_css_here>`
+const StyledItem = styled(List.Item)`<custom_css_here>`
+
+function Example() {
+  return (
+    <StyledList>
+      <StyledItem>{/** custom styles */}</StyledItem>
+    </StyledList>
+  )
+}
+```
+
+<Canvas>
+  <Story id="beta-list--styled" />
+</Canvas>
+
+## Props
+
+<Props of={List} />

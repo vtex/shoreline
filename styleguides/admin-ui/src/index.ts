@@ -1,4 +1,5 @@
 export { jsx, css } from 'theme-ui'
+export { keyframes } from '@emotion/core'
 export { default as styled } from '@emotion/styled'
 export { useTheme } from '@vtex-components/theme'
 export { ThemeProvider, Theme } from './theme'
@@ -18,6 +19,7 @@ export {
   ActionButtonProps,
   MenuDisclosure,
 } from './components/Menu'
+export { List, ListProps, TextGroupProps } from './components/List'
 export * from './components/Modal'
 export {
   VisuallyHidden,
