@@ -13,6 +13,7 @@ import divider from './divider'
 import controlGroup from './controlGroup'
 import radio from './radio'
 import collapsible from './collapsible'
+import data from './data'
 
 export const theme = {
   ...layout,
@@ -24,6 +25,7 @@ export const theme = {
   overlay,
   divider,
   collapsible,
+  data,
   forms: {
     ...controlGroup,
     ...toggle,

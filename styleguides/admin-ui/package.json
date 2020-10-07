@@ -58,6 +58,7 @@
     "reakit-utils": "^0.14.3",
     "styled-system": "^5.1.5",
     "theme-ui": "^0.3.1",
-    "tiny-invariant": "^1.1.0"
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
   }
 }

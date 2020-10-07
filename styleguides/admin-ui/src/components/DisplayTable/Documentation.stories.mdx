@@ -1,0 +1,140 @@
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
+import { DisplayTable } from './index'
+
+<Meta title="design-system/components/DisplayTable" />
+
+# Alpha DisplayTable
+
+Component to render simple tabular data
+
+- DisplayTable
+- version: alpha.1
+
+## Behavior
+
+<Canvas>
+  <Story id="alpha-displaytable-full--example" />
+</Canvas>
+
+## Installation
+
+```bash
+yarn add @vtex/admin-ui
+```
+
+```tsx
+import { DisplayTable } from '@vtex/admin-ui'
+```
+
+## Densities
+
+You can control the table densities with the `density` prop.
+
+### Regular (default)
+
+<Canvas>
+  <Story id="alpha-displaytable-densities--regular" />
+</Canvas>
+
+### Compact
+
+<Canvas>
+  <Story id="alpha-displaytable-densities--compact" />
+</Canvas>
+
+### Variable
+
+<Canvas>
+  <Story id="alpha-displaytable-densities--variable" />
+</Canvas>
+
+## Directions
+
+You can control the table direction with the `dir` prop.
+
+### LTR (default)
+
+<Canvas>
+  <Story id="alpha-displaytable-directions--ltr" />
+</Canvas>
+
+### RTL
+
+<Canvas>
+  <Story id="alpha-displaytable-directions--rtl" />
+</Canvas>
+
+## States
+
+### Loading
+
+<Canvas>
+  <Story id="alpha-displaytable-states--loading" />
+</Canvas>
+
+### Data fetch example
+
+<Canvas>
+  <Story id="alpha-displaytable-states--data-fetch" />
+</Canvas>
+
+## Resolvers
+
+Resolvers are recipes to render oftem commom field types.
+
+### Plain (default)
+
+<Canvas>
+  <Story id="alpha-displaytable-resolvers--plain" />
+</Canvas>
+
+### Date
+
+<Canvas>
+  <Story id="alpha-displaytable-resolvers--date" />
+</Canvas>
+
+### Currency
+
+<Canvas>
+  <Story id="alpha-displaytable-resolvers--currency" />
+</Canvas>
+
+### Image
+
+<Canvas>
+  <Story id="alpha-displaytable-resolvers--image" />
+</Canvas>
+
+### Root
+
+<Canvas>
+  <Story id="alpha-displaytable-resolvers--root" />
+</Canvas>
+
+## Props
+
+<Props of={DisplayTable} />
+
+## Customization
+
+You can use three sx properties:
+
+| prop    | description                   |
+| ------- | ----------------------------- |
+| sx      | main style                    |
+| leadSx  | style of each lead container  |
+| fieldSx | style of each field container |
+
+## Limitations
+
+- No empty state yet
+- No actions within rows
+- No `:hover` styles
+- No virtualization
+- No dnd
+- No nesting
+
+## 🐋 Deep Dive
+
+This upcoming section will describe how to create your own resolvers and table internals.
