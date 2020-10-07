@@ -25,6 +25,14 @@ const Template = (args: LinksProps) => {
       label: 'ES',
       value: 'es',
     },
+    {
+      label: 'ES | LATAM',
+      value: 'es-latam',
+    },
+    {
+      label: 'IT',
+      value: 'it',
+    },
   ]
 
   return (
@@ -49,6 +57,12 @@ const Template = (args: LinksProps) => {
             <HamburgerMenu.Menu.Links {...args} />
             <HamburgerMenu.Menu.Links to="/" title="History" />
             <HamburgerMenu.Menu.Links to="/" title="Help Center" />
+            <HamburgerMenu.Menu.Links to="/" title="Elaia" />
+            <LocaleSwitcher
+              locale={locale}
+              options={options}
+              onChange={setLocale}
+            />
           </HamburgerMenu.Menu>
         </HamburgerMenu>
         <LocaleSwitcher

@@ -1,13 +1,13 @@
 import React, { PropsWithChildren, useState, Fragment } from 'react'
 import { Box, Text } from 'theme-ui'
 
-import { IconGlobe, IconCaret } from '../../icons'
+import { IconCaret } from '../../icons'
 
 export const LocaleSwitcher = (
   props: PropsWithChildren<LocaleSwitcherProps>
 ) => {
   const { children, options, onChange, locale } = props
-  const [open, setOpen] = useState<boolean>(false)
+  const [open, setOpen] = useState(false)
 
   const onChangeLocale = (option: LocaleOption) => {
     const nextLocaleValue = option.value
@@ -23,24 +23,26 @@ export const LocaleSwitcher = (
     return currentLocaleOption?.label ?? ''
   }
 
+  const handleOpen = (value: boolean) => setOpen(value)
+
   return (
     <Fragment>
-      <Box variant="localeSwitcher" onClick={() => setOpen((prev) => !prev)}>
-        <IconGlobe size={24} />
-        <Text variant="localeSwitcher.label">{getLocaleLabel()}</Text>
-        <IconCaret direction="down" size={30} />
-      </Box>
-      {open && (
-        <Fragment>
-          <Box
-            variant="localeSwitcher.overlay"
-            role="presentation"
-            onClick={() => setOpen(false)}
-          />
-          <Box variant="localeSwitcher.optionContainerLarge">
+      <Box
+        variant="localeSwitcher.large"
+        onMouseEnter={() => handleOpen(true)}
+        onMouseLeave={() => handleOpen(false)}
+      >
+        <Text variant="localeSwitcher.large.label">{getLocaleLabel()}</Text>
+        <IconCaret
+          sx={{ position: 'absolute', right: 3 }}
+          direction="down"
+          size={30}
+        />
+        {open && (
+          <Box variant="localeSwitcher.large.optionContainer">
             {options.map((option) => {
               const active = option.value === locale
-              const variant = 'localeSwitcher.option'
+              const variant = 'localeSwitcher.large.option'
 
               return (
                 <Box
@@ -57,6 +59,16 @@ export const LocaleSwitcher = (
               )
             })}
           </Box>
+        )}
+      </Box>
+      <Box variant="localeSwitcher.mobile">ab</Box>
+      {open && (
+        <Fragment>
+          <Box
+            variant="localeSwitcher.overlay"
+            role="presentation"
+            onClick={() => setOpen(false)}
+          />
         </Fragment>
       )}
     </Fragment>
