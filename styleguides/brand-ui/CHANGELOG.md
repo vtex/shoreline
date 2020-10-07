@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.4](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.18.3...@vtex/brand-ui@0.18.4) (2020-10-07)
+
+
+### Bug Fixes
+
+* incorrent padding of the collapsible header of brand ([9515c1d](https://github.com/vtex/onda/commit/9515c1dd0fff543ea4d915eec3c305a0e1d29140))
+
+
+
+
+
 ## [0.18.3](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.18.2...@vtex/brand-ui@0.18.3) (2020-10-05)
 
 
