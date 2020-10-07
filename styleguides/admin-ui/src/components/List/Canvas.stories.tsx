@@ -183,6 +183,67 @@ export const Adaptative: Story<ListProps> = () => {
   )
 }
 
+export const Sx: Story<ListProps> = () => {
+  const list = [
+    {
+      id: '1',
+      image: Ballon,
+      title: 'Received SKUs: Bulk approval',
+      subtitle: 'July 4, 2020',
+      description: `Marketplaces manage their sellers products from the Received
+    SKUs dashboard, where you can review and approve products sent
+    by sellers. On the dashboard, you can bulk select SKUs,
+    approving, or rejecting items all at once.`,
+    },
+    {
+      id: '2',
+      image: WrappingBox,
+      title: `B2B: Segment prices directly in the purchase flow using our new
+      Order Configuration app`,
+      subtitle: 'July 4, 2020',
+      description: `A critical part of a B2B operation is the segmentation of prices
+      and rates according to the buying company profile. The rules
+      change from store to store, but factors such as the buyers
+      location, type of order and payment method.`,
+    },
+    {
+      id: '3',
+      image: Stairs,
+      title: `Samsung Pay: more flexible payments thanks to the new digital
+      wallet`,
+      subtitle: 'July 4, 2020',
+      description: `Marketplaces manage their sellers products from the Received
+      SKUs dashboard, where you can review and approve products sent
+      by sellers. On the dashboard, you can bulk select SKUs,
+      approving, or rejecting items all at once.`,
+    },
+  ]
+
+  return (
+    <Card w={800}>
+      <List label="Annoncements List">
+        {list.map(({ id, image: Image, ...info }) => (
+          <List.Item
+            sx={{
+              height: 208,
+              'svg, img': {
+                minWidth: 240,
+                maxWidth: 240,
+                minHeight: 160,
+                maxHeight: 160,
+              },
+            }}
+            key={id}
+          >
+            <Image />
+            <List.TextGroup ml="4" {...info} descLineCount={3} />
+          </List.Item>
+        ))}
+      </List>
+    </Card>
+  )
+}
+
 export const Styled: Story<ListProps> = () => {
   const list = [
     {

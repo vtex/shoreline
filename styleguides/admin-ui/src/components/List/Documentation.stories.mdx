@@ -3,17 +3,30 @@ import { List } from './index'
 
 <Meta title="design-system/components/List" />
 
-# Admin UI List
+# Beta List
 
 Component to display consistently, in sequence, items that contain the same kind of data.
 
-## Usage
+- List
+- beta.1
+
+## Behavior
 
 <Canvas>
   <Story id="beta-list--adaptative" />
 </Canvas>
 
-### Composites
+## Installation
+
+```bash
+yarn add @vtex/admin-ui
+```
+
+```tsx
+import { List } from '@vtex/admin-ui'
+```
+
+## Composition
 
 List is a compound component with the following composites:
 
@@ -38,26 +51,36 @@ Same as `ButtonProps` with aditional,
 | descLineCount | Description line quantity | `number`                                        | 1       |
 | variant       | Variant of the title      | `subtitle, headline, small, body, or highlight` | 🚫      |
 
-### Density
+## Densities
 
 The list comes in three different densities: `compact`, `regular`, and `comfortable`.
 
-#### Regular (default)
+### Regular (default)
 
 <Canvas>
   <Story id="beta-list--regular" />
 </Canvas>
 
-#### Compact
+### Compact
 
 <Canvas>
   <Story id="beta-list--compact" />
 </Canvas>
 
-#### Comfortable
+### Comfortable
 
 <Canvas>
   <Story id="beta-list--comfortable" />
+</Canvas>
+
+## Customization
+
+### Style tokens and sx
+
+As always, you can use the `style-tokens` and `sx` prop to customize the components.
+
+<Canvas>
+  <Story id="beta-list--sx" />
 </Canvas>
 
 ### Styled
@@ -83,6 +106,6 @@ function Example() {
   <Story id="beta-list--styled" />
 </Canvas>
 
-#### Props
+## Props
 
 <Props of={List} />
