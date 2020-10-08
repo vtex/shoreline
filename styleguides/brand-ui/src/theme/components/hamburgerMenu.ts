@@ -50,6 +50,9 @@ const actionButton = {
 
 const hamburgerMenu: SxStyleProp = {
   display: ['flex', 'flex', 'flex', 'none'],
+  outline: 'none',
+  border: 'none',
+  bg: 'transparent',
   width: '5rem',
   height: '100%',
   paddingY: 5,
