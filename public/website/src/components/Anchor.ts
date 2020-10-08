@@ -1,20 +1,22 @@
-import * as React from "react";
-import { css, cx } from "emotion";
-import { useBox, BoxHTMLProps, BoxOptions } from "reakit";
-import { usePalette } from "reakit-system-palette/utils";
-import { createHook, createComponent, useCreateElement } from "reakit-system";
-import { Link } from "gatsby";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/rules-of-hooks */
+import * as React from 'react'
+import { css, cx } from 'emotion'
+import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
+import { usePalette } from 'reakit-system-palette/utils'
+import { createHook, createComponent, useCreateElement } from 'reakit-system'
+import { Link } from 'gatsby'
 
-export type AnchorOptions = BoxOptions;
-export type AnchorHTMLProps = BoxHTMLProps & React.AnchorHTMLAttributes<any>;
-export type AnchorProps = AnchorOptions & AnchorHTMLProps;
+export type AnchorOptions = BoxOptions
+export type AnchorHTMLProps = BoxHTMLProps & React.AnchorHTMLAttributes<any>
+export type AnchorProps = AnchorOptions & AnchorHTMLProps
 
 export const useAnchor = createHook<AnchorOptions, AnchorHTMLProps>({
-  name: "Anchor",
+  name: 'Anchor',
   compose: useBox,
 
   useProps(_, htmlProps) {
-    const color = usePalette("link");
+    const color = usePalette('link')
     const anchor = css`
       color: ${color};
       font-weight: 500;
@@ -23,21 +25,23 @@ export const useAnchor = createHook<AnchorOptions, AnchorHTMLProps>({
       &:hover {
         text-decoration: underline;
       }
-    `;
-    return { ...htmlProps, className: cx(anchor, htmlProps.className) };
+    `
+
+    return { ...htmlProps, className: cx(anchor, htmlProps.className) }
   },
-});
+})
 
 const Anchor = createComponent({
-  as: "a",
+  as: 'a',
   useHook: useAnchor,
 
   useCreateElement(type, { href, ...props }, children) {
     if (href && /^\/(?!\/)/.test(href)) {
-      return useCreateElement(Link, { to: href, ...props }, children);
+      return useCreateElement(Link, { to: href, ...props }, children)
     }
-    return useCreateElement(type, { href, ...props }, children);
-  },
-});
 
-export default Anchor;
+    return useCreateElement(type, { href, ...props }, children)
+  },
+})
+
+export default Anchor

@@ -27,8 +27,6 @@ redirect_from:
 
 `Box` is the most abstract component on top of which all other Reakit components are built. By default, it renders a `div` element.
 
-<carbon-ad></carbon-ad>
-
 ## Installation
 
 ```sh

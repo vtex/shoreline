@@ -1,175 +1,130 @@
-// TODO: Refactor this mess
-import * as React from "react";
-import { Global, css } from "@emotion/core";
-import { usePalette, useFade } from "reakit-system-palette/utils";
-import useScrolled from "../hooks/useScrolled";
-import DocsNavigation from "./DocsNavigation";
-import DocsInnerNavigation from "./DocsInnerNavigation";
-import Footer from "./Footer";
-import Header from "./Header";
+import React, { ReactNode } from 'react'
+import { Box, ThemeProvider } from '@vtex/admin-ui'
+import { SxStyleProp } from 'theme-ui'
 
-type CoreLayoutProps = {
-  children: React.ReactNode;
-  location: {
-    pathname: string;
-  };
-  pageContext: {
-    sourceUrl?: string;
-    readmeUrl?: string;
-    tableOfContentsAst?: object;
-  };
-  data?: {
-    markdownRemark?: {
-      title?: string;
-      htmlAst?: object;
-      frontmatter?: {
-        path?: string;
-        experimental?: boolean;
-      };
-    };
-  };
-};
+import DocsNavigation from './DocsNavigation'
+import DocsInnerNavigation from './DocsInnerNavigation'
+import Footer from './Footer'
+import Header from './Header'
 
-export default function CoreLayout(props: CoreLayoutProps) {
-  const scrolled = useScrolled(50);
-  const title =
-    props.data && props.data.markdownRemark && props.data.markdownRemark.title;
-  const isHome = props.location.pathname === "/";
-  const background = usePalette("background");
-  const foreground = usePalette("foreground");
-  const codeBackground = useFade(foreground, 0.95);
+/**
+ * Full site adaptable layout
+ */
+export default function CoreLayout(props: Props) {
+  const {
+    data,
+    location,
+    children,
+    pageContext: { sourceUrl = '', readmeUrl = '', tableOfContentsAst = {} },
+  } = props
+
+  const title = data?.markdownRemark?.title
+
+  const isHome = location.pathname === '/'
+
+  const withTitleSx: SxStyleProp = title
+    ? {
+        marginTop: [120, 120, 100],
+        marginRight: [0, 0, 256, 'auto'],
+        marginBottom: 72,
+        marginLeft: [0, 0, 300, 'auto'],
+        padding: 2,
+      }
+    : {}
+
+  const homeSx: SxStyleProp = isHome
+    ? {
+        minWidth: 'full',
+        maxWidth: 'full',
+      }
+    : {}
 
   return (
-    <>
-      <Global
-        styles={css`
-          html,
-          body {
-            font-family: -apple-system, system-ui, BlinkMacSystemFont,
-              "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif,
-              "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            margin: 0;
-            padding: 0;
-            background: ${background};
-            color: ${foreground};
-          }
-
-          :root {
-            --nav-width: 270px;
-            --aside-width: 210px;
-            --horizontal-gutter: 22px;
-          }
-        `}
-      />
-      <Header transparent={isHome && !scrolled} />
+    <ThemeProvider>
+      <Header />
       {title && (
-        <div
-          css={css`
-            position: fixed;
-            background: ${background};
-            width: var(--nav-width);
-            z-index: 900;
-            top: 120px;
-            left: 0;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
-            height: calc(100vh - var(--header-height, 60px));
-            padding: 16px;
-            padding-bottom: 100px;
-            box-sizing: border-box;
-            @media (max-width: 768px) {
-              display: none;
-            }
-          `}
+        <Box
+          position="fixed"
+          bg="background"
+          w={270}
+          z="over"
+          left="0"
+          sx={{
+            top: 120,
+            height: 'calc(100vh - var(--header-height, 60px))',
+            paddingBottom: 100,
+          }}
+          overflow="auto"
+          p="4"
+          display={['none', 'none', 'initial']}
         >
           <DocsNavigation />
-        </div>
+        </Box>
       )}
-      <main
+      <Box
+        el="main"
         id="main"
-        css={css`
-          code {
-            font-family: Consolas, Liberation Mono, Menlo, Courier, monospace;
-            background-color: ${codeBackground};
-            border-radius: 3px;
-            font-size: 0.875em;
-            padding: 0.2em 0.4em;
-          }
-          ${isHome &&
-          css`
-            @media (max-width: 768px) {
-              margin-top: 50px;
-            }
-          `}
-          ${!title &&
-          !isHome &&
-          css`
-            margin: 100px auto 72px;
-            max-width: 1200px;
-          `}
-          ${title &&
-          css`
-            margin-top: 100px;
-            margin-right: calc(var(--aside-width) + var(--horizontal-gutter));
-            margin-bottom: 72px;
-            margin-left: calc(var(--nav-width) + var(--horizontal-gutter));
-            padding: 8px;
-            box-sizing: border-box;
-
-            @media (max-width: 1024px) {
-              margin-right: 0;
-            }
-            @media (max-width: 768px) {
-              margin-left: 0;
-              margin-top: 120px;
-            }
-            @media (min-width: 1440px) {
-              max-width: calc(
-                1440px - var(--aside-width) - var(--nav-width) -
-                  var(--horizontal-gutter) * 2 -
-                  (var(--nav-width) - var(--aside-width))
-              );
-              margin-right: auto;
-              margin-left: auto;
-            }
-          `}
-        `}
+        maxW={1200}
+        sx={{
+          code: {
+            borderRadius: 3,
+            padding: '0.2em 0.4em',
+          },
+          ...withTitleSx,
+          ...homeSx,
+        }}
       >
-        {props.children}
-      </main>
+        {children}
+      </Box>
       {title && props.pageContext.tableOfContentsAst && (
-        <aside
-          css={css`
-            position: fixed;
-            top: 80px;
-            right: 0;
-            width: var(--aside-width);
-            background: ${background};
-            padding: 72px 16px;
-            box-sizing: border-box;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
-            height: calc(100vh - var(--header-height, 60px));
-            @media (max-width: 1024px) {
-              display: none;
-            }
-          `}
+        <Box
+          el="aside"
+          position="fixed"
+          sx={{
+            top: 80,
+            paddingY: '72px',
+            height: 'calc(100vh - var(--header-height, 60px))',
+          }}
+          right="0"
+          w={210}
+          bg="background"
+          overflow="auto"
+          display={['none', 'none', 'initial']}
+          px="4"
         >
           <DocsInnerNavigation
-            sourceUrl={props.pageContext.sourceUrl!}
-            readmeUrl={props.pageContext.readmeUrl!}
-            tableOfContentsAst={props.pageContext.tableOfContentsAst}
+            sourceUrl={sourceUrl}
+            readmeUrl={readmeUrl}
+            tableOfContentsAst={tableOfContentsAst}
             title={title}
           />
-        </aside>
+        </Box>
       )}
-      <div
-        css={css`
-          margin-top: 100px;
-        `}
-      >
+      <Box sx={{ marginTop: 100 }}>
         <Footer />
-      </div>
-    </>
-  );
+      </Box>
+    </ThemeProvider>
+  )
+}
+
+interface Props {
+  children: ReactNode
+  location: {
+    pathname: string
+  }
+  pageContext: {
+    sourceUrl?: string
+    readmeUrl?: string
+    tableOfContentsAst?: object
+  }
+  data?: {
+    markdownRemark?: {
+      title?: string
+      htmlAst?: object
+      frontmatter?: {
+        path?: string
+        experimental?: boolean
+      }
+    }
+  }
 }
