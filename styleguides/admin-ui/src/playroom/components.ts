@@ -67,4 +67,5 @@ export {
   IconHeartbeat,
   IconRocket,
   IconSupport,
+  IconClose,
 } from '../icons'
