@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.5](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.18.4...@vtex/brand-ui@0.18.5) (2020-10-08)
+
+
+### Bug Fixes
+
+* **buttons:** add buttons prefix to the variants ([8b0aa7d](https://github.com/vtex/onda/commit/8b0aa7db2f0a98a2c2bbb168dd1db26eb731874d))
+
+
+
+
+
 ## [0.18.4](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.18.3...@vtex/brand-ui@0.18.4) (2020-10-07)
 
 

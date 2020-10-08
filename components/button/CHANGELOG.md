@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/vtex/onda/compare/@vtex-components/button@1.3.0...@vtex-components/button@1.3.1) (2020-10-08)
+
+
+### Bug Fixes
+
+* **base-button:** remove the static variant 'buttons' ([d6f05f1](https://github.com/vtex/onda/commit/d6f05f1c8aeb8998f6c967254aef916376968058))
+
+
+
+
+
 # [1.3.0](https://github.com/vtex/onda/compare/@vtex-components/button@1.2.3...@vtex-components/button@1.3.0) (2020-09-21)
 
 
