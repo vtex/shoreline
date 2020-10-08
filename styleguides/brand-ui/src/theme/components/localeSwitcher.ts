@@ -86,38 +86,50 @@ const baseLocaleSwitcher: SxStyleProp = {
   fontWeight: '600',
   fontSize: 1,
   bg: 'primary.contrast',
+  border: 'none',
+  outline: 'none',
+}
+
+const large: SxStyleProp = {
+  ...baseLocaleSwitcher,
+  display: ['none', 'none', 'none', 'flex'],
+  ':hover': {
+    color: 'secondary.base',
+  },
+  height: '100%',
+  justifyContent: 'flex-start',
+  borderLeft: '1px solid',
+  borderBottom: '1px solid',
+  borderColor: 'muted.3',
+  optionContainer: optionContainerLarge,
+  label: labelLarge,
+  option: optionLarge,
+}
+
+const mobile: SxStyleProp = {
+  ...baseLocaleSwitcher,
+  display: ['flex', 'flex', 'flex', 'none'],
+  position: 'fixed',
+  justifyContent: 'space-between',
+  px: 6,
+  py: 5,
+  bottom: 0,
+  zIndex: 2,
+  label: labelMobile,
+  optionContainer: optionContainerMobile,
+  borderTop: '1px solid',
+  borderColor: 'muted.3',
+  option: optionMobile,
 }
 
 const localeSwitcher: SxStyleProp = {
-  large: {
-    ...baseLocaleSwitcher,
-    display: ['none', 'none', 'none', 'flex'],
-    ':hover': {
+  large,
+  mobile: {
+    ...mobile,
+    open: {
+      ...mobile,
       color: 'secondary.base',
     },
-    height: '100%',
-    justifyContent: 'flex-start',
-    borderLeft: '1px solid',
-    borderBottom: '1px solid',
-    borderColor: 'muted.3',
-    optionContainer: optionContainerLarge,
-    label: labelLarge,
-    option: optionLarge,
-  },
-  mobile: {
-    ...baseLocaleSwitcher,
-    display: ['flex', 'flex', 'flex', 'none'],
-    position: 'fixed',
-    justifyContent: 'space-between',
-    px: 6,
-    py: 5,
-    bottom: 0,
-    zIndex: 2,
-    label: labelMobile,
-    optionContainer: optionContainerMobile,
-    borderTop: '1px solid',
-    borderColor: 'muted.3',
-    option: optionMobile,
   },
   overlay,
   optionContainerLarge,

@@ -1,5 +1,7 @@
-import React, { useState, Fragment } from 'react'
-import { Box, Text, Flex } from 'theme-ui'
+/** @jsx jsx */
+import { Box, Text, Flex, jsx } from 'theme-ui'
+import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
+import { Fragment } from 'react'
 
 import { IconCaret, IconGlobe } from '../../icons'
 
@@ -8,7 +10,7 @@ export const LocaleSwitcher = ({
   onChange,
   locale,
 }: LocaleSwitcherProps) => {
-  const [open, setOpen] = useState(false)
+  const disclosure = useDisclosureState({ visible: false })
 
   const onChangeLocale = (option: LocaleOption) => {
     const nextLocaleValue = option.value
@@ -23,8 +25,6 @@ export const LocaleSwitcher = ({
 
     return currentLocaleOption?.label ?? ''
   }
-
-  const handleOpen = (value: boolean) => setOpen(value)
 
   const Option = ({
     screen,
@@ -42,7 +42,7 @@ export const LocaleSwitcher = ({
         role="presentation"
         onClick={() => {
           onChangeLocale(option)
-          setOpen(false)
+          disclosure.hide()
         }}
       >
         {option.label}
@@ -52,7 +52,7 @@ export const LocaleSwitcher = ({
 
   return (
     <Fragment>
-      <Box variant="localeSwitcher.large" onClick={() => handleOpen(!open)}>
+      <Disclosure sx={{ variant: 'localeSwitcher.large' }} {...disclosure}>
         <IconGlobe sx={{ ml: 5 }} size={22} />
         <Text variant="localeSwitcher.large.label">{getLocaleLabel()}</Text>
         <IconCaret
@@ -60,37 +60,45 @@ export const LocaleSwitcher = ({
           direction="down"
           size={30}
         />
-      </Box>
-      <Box
-        variant="localeSwitcher.mobile"
-        sx={{ color: open ? 'secondary.base' : 'muted.0' }}
-        onClick={() => handleOpen(!open)}
+      </Disclosure>
+      <Disclosure
+        {...disclosure}
+        sx={{
+          variant: `localeSwitcher.mobile${disclosure.visible ? '.open' : ''}`,
+        }}
       >
         <Flex sx={{ alignItems: 'center' }}>
           <IconGlobe size={22} />
           <Text variant="localeSwitcher.mobile.label">{getLocaleLabel()}</Text>
         </Flex>
-        <IconCaret size={32} direction={open ? 'down' : 'up'} />
-      </Box>
-      {open && (
-        <Fragment>
-          <Box variant="localeSwitcher.large.optionContainer">
-            {options.map((option) => (
-              <Option key={option.label} option={option} screen="large" />
-            ))}
-          </Box>
-          <Box
-            variant="localeSwitcher.overlay"
-            role="presentation"
-            onClick={() => setOpen(false)}
-          />
-          <Box variant="localeSwitcher.mobile.optionContainer">
-            {options.map((option) => (
-              <Option key={option.label} option={option} screen="mobile" />
-            ))}
-          </Box>
-        </Fragment>
-      )}
+        <IconCaret size={32} direction={disclosure.visible ? 'down' : 'up'} />
+      </Disclosure>
+      <DisclosureContent
+        {...disclosure}
+        sx={{
+          variant: 'localeSwitcher.large.optionContainer',
+        }}
+      >
+        {options.map((option) => (
+          <Option key={option.label} option={option} screen="large" />
+        ))}
+      </DisclosureContent>
+      <DisclosureContent
+        {...disclosure}
+        onClick={() => disclosure.hide()}
+        sx={{
+          variant: 'localeSwitcher.overlay',
+        }}
+        role="presentation"
+      />
+      <DisclosureContent
+        {...disclosure}
+        sx={{ variant: 'localeSwitcher.mobile.optionContainer' }}
+      >
+        {options.map((option) => (
+          <Option key={option.label} option={option} screen="mobile" />
+        ))}
+      </DisclosureContent>
     </Fragment>
   )
 }
