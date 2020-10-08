@@ -1,10 +1,12 @@
-import "whatwg-fetch";
-import React from "react";
-import Provider from "./src/components/Provider";
-import CoreLayout from "./src/components/CoreLayout";
+/* eslint-disable react/jsx-filename-extension */
+import 'whatwg-fetch'
+import React from 'react'
 
-export const wrapRootElement = ({ element }) => <Provider>{element}</Provider>;
+import Provider from './src/components/Provider'
+import CoreLayout from './src/components/CoreLayout'
+
+export const wrapRootElement = ({ element }) => <Provider>{element}</Provider>
 
 export const wrapPageElement = ({ element, props }) => {
-  return <CoreLayout {...props}>{element}</CoreLayout>;
-};
+  return <CoreLayout {...props}>{element}</CoreLayout>
+}

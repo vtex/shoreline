@@ -1,15 +1,10 @@
 {
   "name": "website",
-  "version": "1.2.5",
+  "version": "0.0.0",
   "private": true,
-  "description": "Reakit website",
+  "description": "AdminUI website",
   "license": "MIT",
   "repository": "https://github.com/vtex/onda/tree/master/public/website",
-  "author": {
-    "name": "Diego Haz",
-    "email": "hazdiego@gmail.com",
-    "url": "https://github.com/diegohaz"
-  },
   "scripts": {
     "start": "yarn develop",
     "build": "gatsby build",

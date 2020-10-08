@@ -1,6 +1,6 @@
-declare module "*.png";
-declare module "*.jpg";
-declare module "*.svg";
-declare module "*.woff";
-declare module "whatwg-fetch";
-declare module "styled-components";
+declare module '*.png'
+declare module '*.jpg'
+declare module '*.svg'
+declare module '*.woff'
+declare module 'whatwg-fetch'
+declare module 'styled-components'

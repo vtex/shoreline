@@ -1,15 +1,15 @@
-const { plugins } = require("../../babel.config");
+const { plugins } = require('../../babel.config')
 
 module.exports = {
   presets: [
     [
-      "babel-preset-gatsby",
+      'babel-preset-gatsby',
       {
         targets: {
-          browsers: [">0.25%", "not dead"],
+          browsers: ['>0.25%', 'not dead'],
         },
       },
     ],
   ],
   plugins,
-};
+}
