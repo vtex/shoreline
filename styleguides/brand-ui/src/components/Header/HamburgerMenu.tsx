@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Box, Link, SxProps, jsx } from 'theme-ui'
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, Fragment } from 'react'
 
 import { IconExit, IconHamburger } from '../../icons'
 import { LinksProps } from '.'
@@ -10,7 +10,7 @@ export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
   const disclosure = useDisclosureState({ visible: false })
 
   return (
-    <Box sx={{ height: '100%' }}>
+    <Fragment>
       <Disclosure
         {...disclosure}
         role="presentation"
@@ -30,7 +30,7 @@ export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
       >
         {children}
       </DisclosureContent>
-    </Box>
+    </Fragment>
   )
 }
 
