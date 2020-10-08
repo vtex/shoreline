@@ -8,23 +8,25 @@ export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <Box
-      role="presentation"
-      variant="hamburgerMenu"
-      onClick={() => setOpen(!open)}
-    >
-      {open ? (
-        <>
+    <Box sx={{ height: '100%' }}>
+      <Box
+        role="presentation"
+        variant="hamburgerMenu"
+        onClick={() => setOpen(!open)}
+      >
+        {open ? (
           <Box sx={{ color: 'secondary.base' }}>
             <IconExit size={18} />
           </Box>
-          <Flex variant="hamburgerMenu.open" sx={sx}>
-            {children}
-          </Flex>
-        </>
-      ) : (
-          <IconHamburger size={24} />
-        )}
+        ) : (
+            <IconHamburger size={24} />
+          )}
+      </Box>
+      {open && (
+        <Flex variant="hamburgerMenu.open" sx={sx}>
+          {children}
+        </Flex>
+      )}
     </Box>
   )
 }

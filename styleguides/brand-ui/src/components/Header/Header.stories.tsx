@@ -57,7 +57,6 @@ const Template = (args: LinksProps) => {
             <HamburgerMenu.Menu.Links {...args} />
             <HamburgerMenu.Menu.Links to="/" title="History" />
             <HamburgerMenu.Menu.Links to="/" title="Help Center" />
-            <HamburgerMenu.Menu.Links to="/" title="Elaia" />
             <LocaleSwitcher
               locale={locale}
               options={options}
@@ -65,11 +64,19 @@ const Template = (args: LinksProps) => {
             />
           </HamburgerMenu.Menu>
         </HamburgerMenu>
-        <LocaleSwitcher
-          locale={locale}
-          options={options}
-          onChange={setLocale}
-        />
+        <Box
+          sx={{
+            display: ['none', 'none', 'none', 'block'],
+            height: '100%',
+            width: '100%',
+          }}
+        >
+          <LocaleSwitcher
+            locale={locale}
+            options={options}
+            onChange={setLocale}
+          />
+        </Box>
       </Header.ActionButton>
     </Header>
   )
