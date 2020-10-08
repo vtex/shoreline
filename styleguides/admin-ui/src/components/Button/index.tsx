@@ -32,7 +32,7 @@ export const Button = forwardRef(
 
     return (
       <StyledButton
-        variant={`${variant}-${palette}-${resolvedSize}`}
+        variant={`buttons.${variant}-${palette}-${resolvedSize}`}
         ref={ref}
         {...buttonProps}
       >

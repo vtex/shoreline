@@ -30,13 +30,7 @@ import { forwardRef } from '@vtex-components/utils'
 function Button(props: ButtonProps, ref: Ref<HTMLButtonElement>) {
   const { sx = {}, variant = '', ...buttonProps } = props
 
-  return (
-    <ReakitButton
-      ref={ref}
-      {...buttonProps}
-      sx={{ variant: `buttons.${variant}`, ...sx }}
-    />
-  )
+  return <ReakitButton ref={ref} {...buttonProps} sx={{ variant, ...sx }} />
 }
 
 export interface ButtonProps extends Omit<ReakitProps, 'as'> {
