@@ -26,6 +26,30 @@ export const LocaleSwitcher = ({
 
   const handleOpen = (value: boolean) => setOpen(value)
 
+  const Option = ({
+    screen,
+    option,
+  }: {
+    screen: 'mobile' | 'large'
+    option: LocaleOption
+  }) => {
+    const active = option.value === locale
+    const variant = `localeSwitcher.${screen}.option`
+
+    return (
+      <Box
+        variant={`${variant}${active ? '.active' : ''}`}
+        role="presentation"
+        onClick={() => {
+          onChangeLocale(option)
+          setOpen(false)
+        }}
+      >
+        {option.label}
+      </Box>
+    )
+  }
+
   return (
     <Fragment>
       <Box variant="localeSwitcher.large" onClick={() => handleOpen(!open)}>
@@ -51,24 +75,9 @@ export const LocaleSwitcher = ({
       {open && (
         <Fragment>
           <Box variant="localeSwitcher.large.optionContainer">
-            {options.map((option) => {
-              const active = option.value === locale
-              const variant = 'localeSwitcher.large.option'
-
-              return (
-                <Box
-                  key={option.label}
-                  variant={`${variant}${active ? '.active' : ''}`}
-                  role="presentation"
-                  onClick={() => {
-                    onChangeLocale(option)
-                    setOpen(false)
-                  }}
-                >
-                  {option.label}
-                </Box>
-              )
-            })}
+            {options.map((option) => (
+              <Option key={option.label} option={option} screen="large" />
+            ))}
           </Box>
           <Box
             variant="localeSwitcher.overlay"
@@ -76,24 +85,9 @@ export const LocaleSwitcher = ({
             onClick={() => setOpen(false)}
           />
           <Box variant="localeSwitcher.mobile.optionContainer">
-            {options.map((option) => {
-              const active = option.value === locale
-              const variant = 'localeSwitcher.mobile.option'
-
-              return (
-                <Box
-                  key={option.label}
-                  variant={`${variant}${active ? '.active' : ''}`}
-                  role="presentation"
-                  onClick={() => {
-                    onChangeLocale(option)
-                    setOpen(false)
-                  }}
-                >
-                  {option.label}
-                </Box>
-              )
-            })}
+            {options.map((option) => (
+              <Option key={option.label} option={option} screen="mobile" />
+            ))}
           </Box>
         </Fragment>
       )}
