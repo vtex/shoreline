@@ -59,7 +59,7 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
   )
 }
 
-function Item(props: CollapsibleProps) {
+function CollapsibleGroupItem(props: CollapsibleProps) {
   return <Collapsible bs="none" {...props} />
 }
 
@@ -70,7 +70,9 @@ function Item(props: CollapsibleProps) {
  * Actions Panel -> always on the right side.
  * ```
  */
-Item.Header = function ItemHeader(props: CollapsibleHeaderProps) {
+CollapsibleGroupItem.Header = function ItemHeader(
+  props: CollapsibleHeaderProps
+) {
   return <Header p="4" pl="2" {...props} />
 }
 
@@ -80,7 +82,9 @@ Item.Header = function ItemHeader(props: CollapsibleHeaderProps) {
  * Can be visible or hidden.
  * ```
  */
-Item.Content = function ItemContent(props: CollapsibleContentProps) {
+CollapsibleGroupItem.Content = function ItemContent(
+  props: CollapsibleContentProps
+) {
   return <Content p="4" pt="0" {...props} />
 }
 
@@ -101,7 +105,7 @@ Item.Content = function ItemContent(props: CollapsibleContentProps) {
  * </CollapsibleGroup>
  * ```
  */
-CollapsibleGroup.Item = Item
+CollapsibleGroup.Item = CollapsibleGroupItem
 
 export interface CollapsibleGroupProps
   extends BorderTokensProps,
