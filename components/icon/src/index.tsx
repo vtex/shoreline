@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from 'theme-ui'
-import { ReactNode, Ref } from 'react'
+import { Ref } from 'react'
 import { forwardRef } from '@vtex-components/utils'
 
 /**
@@ -23,6 +23,7 @@ export const Icon = forwardRef((props: IconProps, ref: Ref<SVGSVGElement>) => {
     sx = {},
     viewBox = '0 0 24 24',
     children,
+    fill = 'none',
     ...svgJSXProps
   } = props
 
@@ -37,8 +38,7 @@ export const Icon = forwardRef((props: IconProps, ref: Ref<SVGSVGElement>) => {
       }}
       ref={ref}
       viewBox={viewBox}
-      fillOpacity={0}
-      fill="currentColor"
+      fill={fill}
       {...svgJSXProps}
     >
       {title && <title>{title}</title>}
@@ -51,6 +51,4 @@ export interface IconProps extends React.SVGProps<SVGSVGElement> {
   size?: number
   title?: string
   sx?: SxStyleProp
-  viewBox?: string
-  children?: ReactNode
 }

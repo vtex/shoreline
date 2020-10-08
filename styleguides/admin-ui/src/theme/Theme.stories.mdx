@@ -65,6 +65,21 @@ Some property are theme-aware, that can consume specyfic sections of the theme c
 
 [Read more on ThemeUI Documentation](https://theme-ui.com/sx-prop)
 
+## `focus` ring
+
+Our components have a `focus` ring style that only appears when the user is navigating with the keyboard. To add this in a custom component use the following properties in with the `sx` prop.
+
+```css
+':focus:not([data-focus-visible-added])': {
+  outline: 'none',
+  boxShadow: 'none',
+},
+':focus': {
+  outline: 'none',
+  boxShadow: 'focus',
+},
+```
+
 ## Styled Props
 
 > 💡 Check the `Tokens` section for detailed info about each styled prop.
