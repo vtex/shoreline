@@ -43,7 +43,7 @@ module.exports = {
       'babel-plugin-module-resolver',
       {
         alias: {
-          '^reakit([^/]*)(.*)$': 'reakit\\1/src\\2',
+          '@vtex/admin-ui': '@vtex/admin-ui',
         },
       },
     ],

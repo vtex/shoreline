@@ -1,35 +1,37 @@
-import * as React from "react";
-import { css, cx } from "emotion";
-import { useBox, BoxHTMLProps, BoxOptions } from "reakit";
-import { createHook, createComponent } from "reakit-system";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as React from 'react'
+import { css, cx } from 'emotion'
+import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
+import { createHook, createComponent } from 'reakit-system'
 import {
   usePalette,
   useLighten,
   useContrast,
-} from "reakit-system-palette/utils";
-import TestTube from "../icons/TestTube";
+} from 'reakit-system-palette/utils'
+
+import TestTube from '../icons/TestTube'
 
 export type BlockquoteOptions = BoxOptions & {
-  experimental?: "true" | "false";
-};
+  experimental?: 'true' | 'false'
+}
 
 export type BlockquoteHTMLProps = BoxHTMLProps &
-  React.BlockquoteHTMLAttributes<any>;
+  React.BlockquoteHTMLAttributes<any>
 
-export type BlockquoteProps = BlockquoteOptions & BlockquoteHTMLProps;
+export type BlockquoteProps = BlockquoteOptions & BlockquoteHTMLProps
 
 export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
   {
-    name: "Blockquote",
+    name: 'Blockquote',
     compose: useBox,
-    keys: ["experimental"],
+    keys: ['experimental'],
 
     useProps(options, htmlProps) {
-      const isExperimental = options.experimental === "true";
-      const warning = usePalette("warning");
-      const backgroundColor = useLighten(warning, 0.85);
-      const borderColor = useLighten(warning, 0.3);
-      const color = useContrast(backgroundColor);
+      const isExperimental = options.experimental === 'true'
+      const warning = usePalette('warning')
+      const backgroundColor = useLighten(warning, 0.85)
+      const borderColor = useLighten(warning, 0.3)
+      const color = useContrast(backgroundColor)
       const blockquote = css`
         color: ${color};
         background-color: ${backgroundColor};
@@ -45,17 +47,17 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
         }
 
         ${isExperimental &&
-        css`
-          display: flex;
+          css`
+            display: flex;
 
-          svg {
-            flex: none;
-            width: 50px;
-            height: 50px;
-            margin-right: 20px;
-          }
-        `}
-      `;
+            svg {
+              flex: none;
+              width: 50px;
+              height: 50px;
+              margin-right: 20px;
+            }
+          `}
+      `
 
       return {
         ...htmlProps,
@@ -68,14 +70,14 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
           htmlProps.children
         ),
         className: cx(blockquote, htmlProps.className),
-      };
+      }
     },
   }
-);
+)
 
 const Blockquote = createComponent({
-  as: "blockquote",
+  as: 'blockquote',
   useHook: useBlockquote,
-});
+})
 
-export default Blockquote;
+export default Blockquote

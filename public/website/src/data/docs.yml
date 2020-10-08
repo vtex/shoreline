@@ -25,6 +25,9 @@
 #     - /docs/toolbar/
 #     - /docs/tooltip/
 #     - /docs/visually-hidden/
+- section: Components
+  paths:
+    - /docs/list/
 - section: Abstract components
   paths:
     - /docs/box/

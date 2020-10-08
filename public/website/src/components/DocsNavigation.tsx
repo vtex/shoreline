@@ -1,60 +1,62 @@
 // TODO: Refactor this mess
-import * as React from "react";
-import { useStaticQuery, graphql, Link, GatsbyLinkProps } from "gatsby";
+import * as React from 'react'
+import { useStaticQuery, graphql, Link, GatsbyLinkProps } from 'gatsby'
 import {
   useTooltipState,
   Tooltip,
   TooltipReference,
   TooltipArrow,
   unstable_useId as useId,
-} from "reakit";
-import kebabCase from "lodash/kebabCase";
-import { css } from "emotion";
-import { usePalette, useLighten } from "reakit-system-palette/utils";
-import TestTube from "../icons/TestTube";
+} from 'reakit'
+import kebabCase from 'lodash/kebabCase'
+import { css } from 'emotion'
+import { usePalette, useLighten } from 'reakit-system-palette/utils'
+
+import TestTube from '../icons/TestTube'
 
 type Data = {
   allDocsYaml: {
     nodes: Array<{
-      section: string;
-      paths: string[];
-    }>;
-  };
+      section: string
+      paths: string[]
+    }>
+  }
   allMarkdownRemark: {
     nodes: Array<{
-      title: string;
+      title: string
       frontmatter: {
-        path: string;
-        experimental?: boolean;
-      };
-    }>;
-  };
-};
+        path: string
+        experimental?: boolean
+      }
+    }>
+  }
+}
 
 function ExperimentalLink(props: GatsbyLinkProps<{}>) {
   const { unstable_referenceRef, ...tooltip } = useTooltipState({
-    placement: "right",
+    placement: 'right',
     unstable_fixed: true,
-  });
+  })
+
   return (
     <>
       <TooltipReference as={Link} {...props} {...tooltip}>
         {props.children}
         <TestTube role="presentation" ref={unstable_referenceRef} />
       </TooltipReference>
-      <Tooltip unstable_system={{ palette: "warning" }} {...tooltip}>
+      <Tooltip unstable_system={{ palette: 'warning' }} {...tooltip}>
         <TooltipArrow {...tooltip} /> Experimental
       </Tooltip>
     </>
-  );
+  )
 }
 
 function useDocsNavigationCSS() {
-  const background = usePalette("background");
-  const foreground = usePalette("foreground");
-  const primary = usePalette("primary");
-  const currentBackgroundColor = useLighten(primary, 0.85);
-  const headingColor = useLighten(foreground, 0.5);
+  const background = usePalette('background')
+  const foreground = usePalette('foreground')
+  const primary = usePalette('primary')
+  const currentBackgroundColor = useLighten(primary, 0.85)
+  const headingColor = useLighten(foreground, 0.5)
 
   const docsNavigation = css`
     background-color: ${background};
@@ -96,7 +98,7 @@ function useDocsNavigationCSS() {
         color: ${primary};
       }
 
-      &[aria-current="page"] {
+      &[aria-current='page'] {
         background-color: ${currentBackgroundColor};
         border-left-color: ${primary};
       }
@@ -105,24 +107,23 @@ function useDocsNavigationCSS() {
         margin-left: 0.25em;
       }
     }
-  `;
+  `
 
-  return docsNavigation;
+  return docsNavigation
 }
 
 export default function DocsNavigation() {
-  const data: Data = useStaticQuery(query);
-  const { id: baseId } = useId({ baseId: "docs-navigation" });
-  const className = useDocsNavigationCSS();
+  const data: Data = useStaticQuery(query)
+  const { id: baseId } = useId({ baseId: 'docs-navigation' })
+  const className = useDocsNavigationCSS()
 
-  const getId = (section: string) => `${baseId}-${kebabCase(section)}`;
+  const getId = (section: string) => `${baseId}-${kebabCase(section)}`
   const findMeta = (path: string) =>
-    data.allMarkdownRemark.nodes.find(
-      (node) => node.frontmatter.path === path
-    )!;
-  const getTitle = (path: string) => findMeta(path).title;
+    data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)!
+
+  const getTitle = (path: string) => findMeta(path).title
   const getIsExperimental = (path: string) =>
-    Boolean(findMeta(path).frontmatter.experimental);
+    Boolean(findMeta(path).frontmatter.experimental)
 
   return (
     <div className={className}>
@@ -145,7 +146,7 @@ export default function DocsNavigation() {
         </nav>
       ))}
     </div>
-  );
+  )
 }
 
 const query = graphql`
@@ -166,4 +167,4 @@ const query = graphql`
       }
     }
   }
-`;
+`

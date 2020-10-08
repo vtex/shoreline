@@ -1,15 +1,15 @@
-import * as React from "react";
-import { globalHistory } from "@reach/router";
+import * as React from 'react'
+import { globalHistory } from '@reach/router'
 
 function useLocation() {
-  const [location, setLocation] = React.useState(globalHistory.location);
+  const [location, setLocation] = React.useState(globalHistory.location)
 
   React.useEffect(
     () => globalHistory.listen((params) => setLocation(params.location)),
     [setLocation]
-  );
+  )
 
-  return location;
+  return location
 }
 
-export default useLocation;
+export default useLocation
