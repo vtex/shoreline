@@ -1,84 +1,86 @@
-# [alpha] Box
+---
+path: /docs/box/
+redirect_from:
+  - /components/box/
+  - /components/block/
+  - /components/flex/
+  - /components/grid/
+  - /components/inline/
+  - /components/inlineblock/
+  - /components/inlineflex/
+  - /components/avatar/
+  - /components/blockquote/
+  - /components/card/
+  - /components/card/cardfit/
+  - /components/code/
+  - /components/heading/
+  - /components/image/
+  - /components/link/
+  - /components/list/
+  - /components/navigation/
+  - /components/paragraph/
+  - /components/table/
+  - /components/table/tablewrapper/
+---
 
-- 📅 Start Date: 2020-09-14
-- 🏆 Champions: @matheusps
+# Box Tamo voando 🌊 🏄🏾‍♂️
 
-# Summary
+`Box` is the most abstract component on top of which all other Reakit components are built. By default, it renders a `div` element.
 
-Elementary component
+<carbon-ad></carbon-ad>
 
-# Basic example
+## Installation
+
+```sh
+npm install reakit
+```
+
+Learn more in [Get started](/docs/get-started/).
+
+## Usage
 
 ```jsx
-import { Box } from '@vtex/admin-ui'
+import { Box } from 'reakit/Box'
 
-function UseCase() {
-  return <Box>👻 This is a box</Box>
+function Example() {
+  return <Box>Box</Box>
 }
 ```
 
-# Detailed design
+### `as` prop
 
-We wrap a reakit Box with a `@emotion/styled`. To select different tag elements, we need to remap the `as` prop to be `el`. The composition is enabled through the render-props API.
-
-Further read https://reakit.io/docs/styling/, https://reakit.io/docs/composition/.
-
-## Render as other elements
+Learn more about the `as` prop in [Composition](/docs/composition/#as-prop).
 
 ```jsx
-import { Box } from '@vtex/admin-ui'
+import { Box } from 'reakit/Box'
 
-function WithElement() {
-  return (
-    <Box el="article">
-      <Box el="h1">👻 I'm a h1</Box>
-      <Box el="p">👻 I'm a p</Box>
-      <Box>👻 I'm a div</Box>
-    </Box>
-  )
+function Example() {
+  return <Box as="button">Button</Box>
 }
 ```
 
-## Style Props
+### Render props
+
+Learn more about render props in [Composition](/docs/composition/#render-props).
 
 ```jsx
-import { Box } from '@vtex/admin-ui'
+import { Box } from 'reakit/Box'
 
-function WithStyleProps() {
-  return <Box bg="primary.base">👻 This is a box</Box>
+function Example() {
+  return <Box>{(props) => <button {...props}>Button</button>}</Box>
 }
 ```
 
-## Render Props
+## Composition
 
-```jsx
-import { Box, Button } from '@vtex/admin-ui'
+- `Box` is used by all Reakit components.
 
-function RenderProps() {
-  return (
-    <Box display="flex">
-      {(props) => <Button {...props}>I'm a flex button</Button>}
-    </Box>
-  )
-}
-```
+Learn more in [Composition](/docs/composition/#props-hooks).
 
-# Drawbacks
+## Props
 
-- Increases complexity
+<!-- Automatically generated -->
 
-# Alternatives
+### `Box`
 
-- Use theme-ui box with sx.
-
-# Adoption strategy
-
-This component aims to reduce the learning curve and migration time from tachyons/styleguide v9.
-
-# Education
-
-- Documentation, as usual
-
-# Unresolved questions
-
-- Will the developers will enjoy using it?
+No props to show
