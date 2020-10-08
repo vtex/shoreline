@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.49.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.49.0...@vtex/admin-ui@0.49.1) (2020-10-08)
+
+
+### Bug Fixes
+
+* **forwardref:** export forwardRef utils ([1caf850](https://github.com/vtex/onda/commit/1caf850a7e40b9e786ef34f9f9dbb34ac6e1b1b1))
+* **forwardref:** remove forwardRef export ([f678bfc](https://github.com/vtex/onda/commit/f678bfc2ac6a25b9854b93e4af5abc382b583225))
+
+
+
+
+
 # [0.49.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.48.1...@vtex/admin-ui@0.49.0) (2020-10-08)
 
 
