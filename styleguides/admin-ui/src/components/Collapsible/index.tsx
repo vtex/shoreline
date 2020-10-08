@@ -126,10 +126,7 @@ Collapsible.Header = Header
 Collapsible.Content = Content
 
 export interface CollapsibleProps
-  extends Omit<
-      DisclosureProps,
-      'visible' | 'baseId' | 'toggle' | 'wrapElement'
-    >,
+  extends Pick<DisclosureProps, 'focusable' | 'disabled' | 'children'>,
     BorderTokensProps,
     LayoutTokensProps,
     SpaceTokensProps,

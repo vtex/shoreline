@@ -29,6 +29,9 @@ export {
   Collapsible,
   useCollapsible,
   CollapsibleProps,
+  DisclosureStateReturn,
+  CollapsibleContentProps,
+  CollapsibleHeaderProps,
 } from './components/Collapsible'
 export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Toggle, ToggleProps, useToggle } from './components/Toggle'
@@ -45,3 +48,7 @@ export { Label, LabelProps } from './components/Label'
 export { CheckboxGroup, CheckboxGroupProps } from './components/CheckboxGroup'
 export { Radio, RadioProps } from './components/Radio'
 export { RadioGroup, RadioGroupProps } from './components/RadioGroup'
+export {
+  CollapsibleGroup,
+  CollapsibleGroupProps,
+} from './components/CollapsibleGroup'
