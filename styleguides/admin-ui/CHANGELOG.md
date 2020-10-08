@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.48.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.47.0...@vtex/admin-ui@0.48.0) (2020-10-08)
+
+
+### Bug Fixes
+
+* **collapsible-group:** fix private name lint error ([d59be3b](https://github.com/vtex/onda/commit/d59be3b76fa81101e695b82a3b492ba40f50c63a))
+
+
+### Features
+
+* **collapsible:** add theme tokens to collapsible ([01d586a](https://github.com/vtex/onda/commit/01d586a3add41512ce47d9b0c3ce40fd3e58e95d))
+* **collapsible-group:** add CollapsibleGroup component ([48b059a](https://github.com/vtex/onda/commit/48b059a09c1721631ae2a196272071996dfeccb9))
+
+
+
+
+
 # [0.47.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.46.0...@vtex/admin-ui@0.47.0) (2020-10-07)
 
 
