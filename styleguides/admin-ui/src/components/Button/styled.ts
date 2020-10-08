@@ -1,5 +1,5 @@
-import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 import styled from '@emotion/styled'
+import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 
 import {
   spaceTokens,

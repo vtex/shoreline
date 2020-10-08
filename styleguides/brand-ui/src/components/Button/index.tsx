@@ -1,8 +1,8 @@
 import React, { Ref } from 'react'
 import { SxStyleProp, Flex } from 'theme-ui'
-import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 import { forwardRef } from '@vtex-components/utils'
 import { mergeSx } from '@vtex-components/theme'
+import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 
 import { useFocusHollow } from '../../hooks'
 
@@ -74,7 +74,7 @@ export const Button = forwardRef(
 
     return (
       <BaseButton
-        variant={`${variant}-${resolvedSize}`}
+        variant={`buttons.${variant}-${resolvedSize}`}
         sx={mergedSx}
         ref={ref}
         {...restProps}
