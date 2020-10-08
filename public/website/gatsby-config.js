@@ -1,10 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Reakit',
-    author: '@reakitjs',
-    siteUrl: process.env.URL || 'https://reakit.io',
-    description:
-      'Low level component library for building accessible high level UI libraries, design systems and applications with React.',
+    title: 'AdminUI',
+    author: '@vtex',
+    siteUrl: process.env.URL || 'https://admin-ui.surge.sh',
+    description: 'VTEX admin component library',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -20,11 +19,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Reakit',
+        name: 'AdminUI',
         short_name: 'Reakit',
         start_url: '/',
-        background_color: '#5640dd',
-        theme_color: '#5640dd',
+        background_color: '#2953B2',
+        theme_color: '#2953B2',
         display: 'minimal-ui',
         icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
@@ -78,11 +77,5 @@ module.exports = {
     },
     'gatsby-plugin-meta-redirect',
     'gatsby-plugin-netlify',
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: 'GTM-NWWM5K3',
-      },
-    },
   ],
 }

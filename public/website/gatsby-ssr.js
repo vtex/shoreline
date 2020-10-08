@@ -1,16 +1,19 @@
-import React from "react";
-import { renderToString } from "react-dom/server";
-import { renderStylesToString } from "emotion-server";
-import Provider from "./src/components/Provider";
-import CoreLayout from "./src/components/CoreLayout";
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react'
+import { renderToString } from 'react-dom/server'
+import { renderStylesToString } from 'emotion-server'
+
+import Provider from './src/components/Provider'
+import CoreLayout from './src/components/CoreLayout'
 
 export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
-  const html = renderStylesToString(renderToString(bodyComponent));
-  replaceBodyHTMLString(html);
-};
+  const html = renderStylesToString(renderToString(bodyComponent))
 
-export const wrapRootElement = ({ element }) => <Provider>{element}</Provider>;
+  replaceBodyHTMLString(html)
+}
+
+export const wrapRootElement = ({ element }) => <Provider>{element}</Provider>
 
 export const wrapPageElement = ({ element, props }) => {
-  return <CoreLayout {...props}>{element}</CoreLayout>;
-};
+  return <CoreLayout {...props}>{element}</CoreLayout>
+}
