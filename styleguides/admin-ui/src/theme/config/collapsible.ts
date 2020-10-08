@@ -1,9 +1,11 @@
 export default {
-  bg: 'background',
-  borderColor: 'muted.3',
-  borderStyle: 'solid',
-  borderWidth: 1,
-  borderRadius: 3,
+  container: {
+    bg: 'background',
+    borderColor: 'muted.3',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderRadius: 3,
+  },
   header: {
     display: 'flex',
     alignItems: 'center',

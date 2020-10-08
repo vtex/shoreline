@@ -10,11 +10,11 @@ export default {
   component: Collapsible,
 } as Meta
 
-export const SimpleUsage = () => {
-  const props = useCollapsible()
+export const Basic = () => {
+  const state = useCollapsible()
 
   return (
-    <Collapsible {...props} sx={{ width: '4/12' }}>
+    <Collapsible state={state} w="5/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       />
@@ -28,12 +28,12 @@ export const SimpleUsage = () => {
   )
 }
 
-SimpleUsage.parameters = {
+Basic.parameters = {
   playroom: {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...props}) => (
-    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '4/12' }}>
+    <Collapsible state={{toggle, visible, ...props}} w="5/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
       />
@@ -54,13 +54,13 @@ export const WithButtons = () => {
   const { toggle, ...props } = useCollapsible()
 
   return (
-    <Collapsible toggle={toggle} {...props} sx={{ width: '5/12' }}>
+    <Collapsible state={{ toggle, ...props }} w="6/12">
       <Collapsible.Header label="Build for Community #1">
         <Button size="small" variant="subtle">
           Button
         </Button>
         <Button size="small" onClick={toggle}>
-          Toggle
+          Open Collapsible
         </Button>
       </Collapsible.Header>
       <Collapsible.Content>
@@ -78,12 +78,14 @@ WithButtons.parameters = {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...props}) => (
-    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '5/12' }}>
+    <Collapsible state={{ toggle, visible,...props }} w="6/12">
       <Collapsible.Header label="Build for Community #1">
         <Button size="small" variant="subtle">
           Button
         </Button>
-        <Button size="small" onClick={toggle}>Toggle</Button>
+        <Button size="small" onClick={toggle}>
+          Open Collapsible
+        </Button>
       </Collapsible.Header>
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
@@ -98,20 +100,17 @@ WithButtons.parameters = {
   },
 }
 
-export const NestedCollapsible = () => {
-  const firstProps = useCollapsible()
-  const secondProps = useCollapsible()
+export const Nested = () => {
+  const firstState = useCollapsible()
+  const secondState = useCollapsible()
 
   return (
-    <Collapsible {...firstProps} sx={{ width: '5/12' }}>
+    <Collapsible state={firstState} w="5/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
-      >
-        <Button variant="subtle">Action</Button>
-        <Button>Button</Button>
-      </Collapsible.Header>
+      />
       <Collapsible.Content>
-        <Collapsible {...secondProps}>
+        <Collapsible state={secondState}>
           <Collapsible.Header
             label={<Text variant="highlight">Build for Community #2</Text>}
           />
@@ -127,22 +126,19 @@ export const NestedCollapsible = () => {
   )
 }
 
-NestedCollapsible.parameters = {
+Nested.parameters = {
   playroom: {
     code: `
 <Play.CollapsibleState>
-  {({toggle, visible, ...firstProps}) => (
-    <Collapsible toggle={toggle} visible={visible} {...firstProps} sx={{ width: '5/12' }}>
+  {({toggle, visible, ...firstState}) => (
+    <Collapsible state={{toggle, visible, ...firstState}} w="5/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
-      >
-        <Button variant="subtle">Action</Button>
-        <Button>Button</Button>
-      </Collapsible.Header>
+      />
       <Collapsible.Content>
         <Play.CollapsibleState>
-          {({toggle, visible, ...secondProps}) => (
-            <Collapsible toggle={toggle} visible={visible} {...secondProps}>
+          {({toggle, visible, ...secondState}) => (
+            <Collapsible state={{toggle, visible, ...secondState}}>
               <Collapsible.Header
                 label={<Text variant="highlight">Build for Community #2</Text>}
               />
@@ -164,15 +160,13 @@ NestedCollapsible.parameters = {
 }
 
 export const InitiallyVisible = () => {
-  const props = useCollapsible({ visible: true })
+  const state = useCollapsible({ visible: true })
 
   return (
-    <Collapsible {...props} sx={{ width: '4/12' }}>
+    <Collapsible state={state} w="5/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
-      >
-        <Button size="small">Action</Button>
-      </Collapsible.Header>
+      />
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
@@ -188,12 +182,10 @@ InitiallyVisible.parameters = {
     code: `
 <Play.CollapsibleState>
   {({toggle, visible, ...props}) => (
-    <Collapsible toggle={toggle} visible={visible} {...props} sx={{ width: '4/12' }}>
+    <Collapsible state={{ toggle, visible,...props }} w="5/12">
       <Collapsible.Header
         label={<Text variant="highlight">Build for Community #1</Text>}
-      >
-        <Button size="small">Action</Button>
-      </Collapsible.Header>
+      />
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
