@@ -7,7 +7,7 @@ export type LogoProps = React.SVGAttributes<SVGElement> & {
 
 export default function Logo({ colored, ...props }: LogoProps) {
   return (
-    <svg height={64} viewBox="0 0 1044.3 1108" {...props}>
+    <svg height={52} viewBox="0 0 1044.3 1108" {...props}>
       <title>VTEX skeleton logo</title>
       <path
         id="Shape"

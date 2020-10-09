@@ -34,12 +34,14 @@ export default function CoreLayout(props: Props) {
     ? {
         minWidth: 'full',
         maxWidth: 'full',
+        marginTop: 0,
+        marginBottom: 0,
       }
     : {}
 
   return (
     <ThemeProvider>
-      <Header />
+      <Header isHome={isHome} />
 
       {title && (
         <Box
