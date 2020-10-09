@@ -1,22 +1,23 @@
-import React, { useEffect, useState, useRef } from "react";
-import { css } from "@emotion/core";
-import { useFade, usePalette } from "reakit-system-palette/utils";
-import MagnifierIcon from "../icons/Magnifier";
-import addStyleSheet from "../utils/addStyleSheet";
+import React, { useEffect, useState, useRef } from 'react'
+import { css } from '@emotion/core'
+import { useFade, usePalette } from 'reakit-system-palette/utils'
+
+import MagnifierIcon from '../icons/Magnifier'
+import addStyleSheet from '../utils/addStyleSheet'
 
 const docSearchCSSPath =
-  "https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css";
+  'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
-const searchInputId = "docsearch-input";
+const searchInputId = 'docsearch-input'
 
 interface ISearchBarProps {
-  variant?: "negative" | "default";
+  variant?: 'negative' | 'default'
 }
 
-export default function SearchBar({ variant = "default" }: ISearchBarProps) {
-  const inputEl = useRef(null);
-  const [withError, setError] = useState(false);
-  const isNegativeVariant = variant === "negative";
+export default function SearchBar({ variant = 'default' }: ISearchBarProps) {
+  const inputEl = useRef(null)
+  const [withError, setError] = useState(false)
+  const isNegativeVariant = variant === 'negative'
   const dropdownStyles = `
     .algolia-autocomplete {
       .algolia-docsearch-footer {
@@ -36,31 +37,31 @@ export default function SearchBar({ variant = "default" }: ISearchBarProps) {
       }
 
       .ds-dropdown-menu {
-        box-shadow: 0 1px 2px ${useFade(usePalette("foregroud"), 0.85)};
+        box-shadow: 0 1px 2px ${useFade(usePalette('foregroud'), 0.85)};
       }
 
       a {
         text-decoration: none;
       }
     }
-  `;
+  `
 
   useEffect(() => {
-    import("docsearch.js")
+    import('docsearch.js')
       .then((module) => {
         module.default({
-          apiKey: "2f44778ac6ae42bb4edea44efbb0b647",
-          indexName: "reakit",
+          apiKey: '2f44778ac6ae42bb4edea44efbb0b647',
+          indexName: 'reakit',
           inputSelector: `#${searchInputId}`,
           debug: false,
-        });
+        })
 
-        addStyleSheet(docSearchCSSPath);
+        addStyleSheet(docSearchCSSPath)
       })
-      .catch(() => setError(true));
-  }, []);
+      .catch(() => setError(true))
+  }, [])
 
-  if (withError) return null;
+  if (withError) return null
 
   return (
     <div
@@ -109,10 +110,10 @@ export default function SearchBar({ variant = "default" }: ISearchBarProps) {
           background: transparent;
           color: unset;
           `} &::placeholder {
-            color: ${isNegativeVariant ? "rgba(255,255,255, .6)" : "#9E9E9E"};
+            color: ${isNegativeVariant ? 'rgba(255,255,255, .6)' : '#9E9E9E'};
           }
         `}
       />
     </div>
-  );
+  )
 }

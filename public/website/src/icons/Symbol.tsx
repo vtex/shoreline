@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React from 'react'
 
 export type LogoProps = React.SVGAttributes<SVGElement> & {
-  colored?: boolean;
-};
+  colored?: boolean
+}
 
 export default function Symbol({ colored, ...props }: LogoProps) {
   return (
@@ -20,10 +20,10 @@ export default function Symbol({ colored, ...props }: LogoProps) {
           <stop offset="1" stopColor="#7860ff" />
         </linearGradient>
       </defs>
-      <g fill={colored ? "url(#Default_gradient)" : "currentColor"}>
+      <g fill={colored ? 'url(#Default_gradient)' : 'currentColor'}>
         <polygon points="0 59.5 59.8 119.3 119.7 119.3 60.3 59.5 0 59.5" />
         <path d="M90.8,59.5h0A29.4,29.4,0,0,0,90.8.7H0L60.3,59.5Z" />
       </g>
     </svg>
-  );
+  )
 }

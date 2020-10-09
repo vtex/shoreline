@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 function TinyFast(props: React.SVGAttributes<SVGElement>, ref: React.Ref<any>) {
   return (
@@ -32,7 +32,7 @@ function TinyFast(props: React.SVGAttributes<SVGElement>, ref: React.Ref<any>) {
 	C31,25.8,31.4,26.1,32,25.8z"
       />
     </svg>
-  );
+  )
 }
 
-export default React.forwardRef(TinyFast);
+export default React.forwardRef(TinyFast)

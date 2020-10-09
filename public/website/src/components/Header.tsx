@@ -1,8 +1,8 @@
 // TODO: Refactor this mess
-import * as React from "react";
-import { Link } from "gatsby";
-import { css } from "emotion";
-import { Global } from "@emotion/core";
+import * as React from 'react'
+import { Link } from 'gatsby'
+import { css } from 'emotion'
+import { Global } from '@emotion/core'
 import {
   VisuallyHidden,
   DialogDisclosure,
@@ -10,88 +10,59 @@ import {
   Dialog,
   DialogBackdrop,
   Portal,
-} from "reakit";
-import { FaGithub } from "react-icons/fa";
-import { MdMenu } from "react-icons/md";
-import { usePalette, useFade } from "reakit-system-palette/utils";
-import { LinkGetProps } from "@reach/router";
-import Logo from "../icons/Logo";
-import useViewportWidthGreaterThan from "../hooks/useViewportWidthGreaterThan";
-import useLocation from "../hooks/useLocation";
-import track from "../utils/track";
-import Anchor from "./Anchor";
-import SkipToContent from "./SkipToContent";
-import Spacer from "./Spacer";
-import HiddenMediaQuery from "./HiddenMediaQuery";
-import DocsNavigation from "./DocsNavigation";
-import SearchBar from "./SearchBar";
+} from 'reakit'
+import { FaGithub } from 'react-icons/fa'
+import { MdMenu } from 'react-icons/md'
+import { usePalette, useFade } from 'reakit-system-palette/utils'
+import { LinkGetProps } from '@reach/router'
+
+import Logo from '../icons/Logo'
+import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
+import useLocation from '../hooks/useLocation'
+import track from '../utils/track'
+import Anchor from './Anchor'
+import SkipToContent from './SkipToContent'
+import Spacer from './Spacer'
+import HiddenMediaQuery from './HiddenMediaQuery'
+import DocsNavigation from './DocsNavigation'
+import SearchBar from './SearchBar'
 
 export type HeaderProps = {
-  transparent?: boolean;
-};
+  transparent?: boolean
+}
 
 function getLinkProps({ isPartiallyCurrent }: LinkGetProps) {
   if (isPartiallyCurrent) {
-    return { "aria-current": "page" };
+    return { 'aria-current': 'page' }
   }
-  return {};
+
+  return {}
 }
 
 export default function Header({ transparent }: HeaderProps) {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const isLarge = useViewportWidthGreaterThan(768);
-  const background = usePalette("background");
-  const foreground = usePalette("foreground");
-  const primary = usePalette("primary");
-  const boxShadowColor = useFade(foreground, 0.85);
-  const dialog = useDialogState({ animated: true });
-  const location = useLocation();
-  const headerZIndex = 910;
-  const narrowBreakpoint = 450;
+  const ref = React.useRef<HTMLDivElement>(null)
+  const isLarge = useViewportWidthGreaterThan(768)
+  const background = usePalette('background')
+  const foreground = usePalette('foreground')
+  const primary = usePalette('primary')
+  const boxShadowColor = useFade(foreground, 0.85)
+  const dialog = useDialogState({ animated: true })
+  const location = useLocation()
+  const headerZIndex = 910
+  const narrowBreakpoint = 450
 
-  React.useEffect(dialog.hide, [location.pathname]);
+  React.useEffect(dialog.hide, [location.pathname])
 
   return (
     <>
-      <div
-        className={css`
-          background-color: black;
-          color: white;
-          position: fixed;
-          top: 0;
-          width: 100%;
-          padding: 17px 15px;
-          z-index: ${headerZIndex};
-          @media (min-width: 768px) {
-            padding: 15px 56px;
-          }
-        `}
-      >
-        Black Lives Matter.&nbsp;&nbsp;
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://support.eji.org/give/153413/#!/donation/checkout"
-          className={css`
-            text-decoration: none;
-            color: #61dafb;
-            @media (max-width: ${narrowBreakpoint}px) {
-              display: block;
-            }
-          `}
-        >
-          Support the Equal Justice Initiative.
-        </a>
-      </div>
       <header
         className={css`
           position: fixed;
-          top: 48px;
+          top: 0;
           left: 0;
           width: 100%;
           z-index: 910;
-          height: calc(var(--header-height));
-          box-sizing: border-box;
+          height: 60;
           background: ${background};
           display: flex;
           align-items: center;
@@ -99,15 +70,15 @@ export default function Header({ transparent }: HeaderProps) {
           will-change: background;
           ${!transparent && `box-shadow: 0 1px 2px ${boxShadowColor}`};
           ${transparent &&
-          css`
-            background: transparent;
-            color: white;
-          `};
+            css`
+              background: transparent;
+              color: white;
+            `};
 
           & > *:not(:last-child) {
             margin-right: 16px;
           }
-          a:not([href^="#"]) {
+          a:not([href^='#']) {
             display: inline-flex;
             align-items: center;
             height: calc(100% - 5px);
@@ -118,13 +89,13 @@ export default function Header({ transparent }: HeaderProps) {
             box-sizing: border-box;
             text-transform: uppercase;
             font-size: 0.875em;
-            &:not([href="/"]) {
+            &:not([href='/']) {
               padding: 0 1em;
               &:hover {
-                color: ${transparent ? "white" : primary};
-                text-decoration: ${transparent ? "underline" : "none"};
+                color: ${transparent ? 'white' : primary};
+                text-decoration: ${transparent ? 'underline' : 'none'};
               }
-              &[aria-current="page"] {
+              &[aria-current='page'] {
                 color: ${primary};
                 border-color: ${primary};
               }
@@ -150,8 +121,8 @@ export default function Header({ transparent }: HeaderProps) {
       >
         <Global
           styles={{
-            ":root": {
-              "--header-height": "60px",
+            ':root': {
+              '--header-height': '60px',
             },
           }}
         />
@@ -159,7 +130,7 @@ export default function Header({ transparent }: HeaderProps) {
         <HiddenMediaQuery query="min-width: 769px">
           <DialogDisclosure
             {...dialog}
-            unstable_system={{ palette: "background" }}
+            unstable_system={{ palette: 'background' }}
             className={css`
               background: transparent;
               color: inherit;
@@ -211,7 +182,7 @@ export default function Header({ transparent }: HeaderProps) {
               {isLarge && (
                 <SearchBar
                   {...props}
-                  variant={transparent ? "negative" : "default"}
+                  variant={transparent ? 'negative' : 'default'}
                 />
               )}
               <Anchor
@@ -219,7 +190,7 @@ export default function Header({ transparent }: HeaderProps) {
                 to="/docs/"
                 getProps={getLinkProps}
                 {...props}
-                onClick={track("reakit.headerGuideClick")}
+                onClick={track('reakit.headerGuideClick')}
               >
                 Documentation
               </Anchor>
@@ -227,7 +198,7 @@ export default function Header({ transparent }: HeaderProps) {
                 as={Link}
                 to="/news/"
                 {...props}
-                onClick={track("reakit.headerNewsletterClick")}
+                onClick={track('reakit.headerNewsletterClick')}
               >
                 Newsletter
               </Anchor>
@@ -236,9 +207,9 @@ export default function Header({ transparent }: HeaderProps) {
         </HiddenMediaQuery>
         <Anchor
           href="https://github.com/reakit/reakit"
-          onClick={track("reakit.headerGithubClick")}
+          onClick={track('reakit.headerGithubClick')}
         >
-          <FaGithub style={{ fontSize: "1.2em" }} />
+          <FaGithub style={{ fontSize: '1.2em' }} />
           <HiddenMediaQuery query="max-width: 900px">
             <Spacer width={8} />
             GitHub
@@ -247,5 +218,5 @@ export default function Header({ transparent }: HeaderProps) {
         </Anchor>
       </header>
     </>
-  );
+  )
 }

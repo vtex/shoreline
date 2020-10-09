@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 function Composable(
   props: React.SVGAttributes<SVGElement>,
@@ -17,7 +17,7 @@ function Composable(
 	h6V11z M34,34h-6v-6h6V34z"
       />
     </svg>
-  );
+  )
 }
 
-export default React.forwardRef(Composable);
+export default React.forwardRef(Composable)
