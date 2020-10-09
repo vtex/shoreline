@@ -3,8 +3,8 @@
   "private": true,
   "workspaces": [
     "components/*",
-    "styleguides/*",
-    "public/*"
+    "styleguides/brand-ui",
+    "styleguides/admin/*"
   ],
   "repository": {
     "type": "git",
@@ -25,9 +25,11 @@
     "format": "prettier --write \"styleguides/**/*.{ts,js,tsx,jsx,json}\"",
     "bootstrap": "yarn install --frozen-lockfile && yarn build",
     "lint": "eslint styleguides/ --ext .js,.ts,.jsx,.tsx",
-    "storybook:admin": "yarn --cwd styleguides/admin-ui start:storybook",
+    "storybook:admin": "yarn --cwd styleguides/admin/ui start:storybook",
+    "site:admin": "yarn --cwd styleguides/admin/site develop",
     "storybook:brand": "yarn --cwd styleguides/brand-ui storybook",
-    "build-storybook:admin": "yarn --cwd styleguides/admin-ui build:storybook",
+    "build-storybook:admin": "yarn --cwd styleguides/admin/ui build:storybook",
+    "build-site:admin": "yarn --cwd styleguides/admin/site build",
     "build-storybook:brand": "yarn --cwd styleguides/brand-ui build-storybook"
   },
   "devDependencies": {
