@@ -1,0 +1,13 @@
+- section: Guide
+  paths:
+    - /docs/get-started/
+    - /docs/basic-concepts/
+    - /docs/composition/
+    - /docs/accessibility/
+    - /docs/styling/
+    - /docs/managing-state/
+    - /docs/experimental/
+- section: Components
+  paths:
+    - /docs/box/
+    - /docs/list/
