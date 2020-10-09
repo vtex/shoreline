@@ -1,0 +1,38 @@
+{
+  "name": "admin-icons",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/icons.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "styleguides/admin/admin-icons",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "test": "tsdx test"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "dependencies": {
+    "@vtex-components/icon": "^0.0.5"
+  }
+}

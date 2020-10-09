@@ -1,0 +1,93 @@
+/* eslint-disable react/display-name */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react'
+import { Story, Meta } from '@storybook/react'
+import { useToolbarState, Toolbar, ToolbarItem } from 'reakit/Toolbar'
+import { IconCancel } from 'admin-icons'
+
+import { Button, ButtonProps } from './index'
+
+export default {
+  title: 'beta/Button',
+  component: Button,
+} as Meta
+
+const Template: Story<ButtonProps> = (args) => <Button {...args} />
+
+export const Playground = Template.bind({})
+Playground.args = {
+  children: 'Admin UI Button',
+}
+
+export const WithIconOnly = Template.bind({})
+
+WithIconOnly.args = {
+  icon: <IconCancel title="Icon title" />,
+}
+WithIconOnly.parameters = {
+  playroom: {
+    code: `
+<Button iconPosition="start" icon={<IconCancel />} />
+    `,
+  },
+}
+
+export const WithIconStart = Template.bind({})
+WithIconStart.args = {
+  icon: <IconCancel />,
+  children: 'Admin UI Button',
+}
+WithIconStart.parameters = {
+  playroom: {
+    code: `
+<Button iconPosition="start" icon={<IconCancel />} >
+  Admin UI Button
+</Button>
+    `,
+  },
+}
+
+export const WithIconEnd = Template.bind({})
+WithIconEnd.args = {
+  icon: <IconCancel />,
+  iconPosition: 'end',
+  children: 'Admin UI Button',
+}
+WithIconEnd.parameters = {
+  playroom: {
+    code: `
+<Button iconPosition="end" icon={<IconCancel />} >
+  Admin UI Button
+</Button>
+    `,
+  },
+}
+export const WithinAToolbar = () => {
+  const toolbar = useToolbarState({ loop: true })
+
+  return (
+    <Toolbar {...toolbar} aria-label="Sample toolbar">
+      <ToolbarItem {...toolbar}>
+        {(props) => (
+          <Button {...props} variant="filled" palette="danger">
+            Delete
+          </Button>
+        )}
+      </ToolbarItem>
+      <ToolbarItem {...toolbar}>
+        {(props) => (
+          <Button {...props} variant="subtle">
+            File
+          </Button>
+        )}
+      </ToolbarItem>
+      <ToolbarItem {...toolbar}>
+        {(props) => (
+          <Button {...props} variant="text">
+            Selection
+          </Button>
+        )}
+      </ToolbarItem>
+    </Toolbar>
+  )
+}
