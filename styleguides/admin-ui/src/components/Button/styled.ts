@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { createShouldForwardProp } from '@styled-system/should-forward-prop'
 import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
 
 import {
@@ -12,6 +13,10 @@ import {
   FlexTokensProps,
   PositionTokensProps,
 } from '../../tokens'
+
+const shouldForwardProp = createShouldForwardProp([
+  ...Object.keys(layoutTokens),
+])
 
 export type StyledButtonProps = Pick<
   BaseProps,
@@ -38,7 +43,9 @@ export type StyledButtonProps = Pick<
   Pick<FlexTokensProps, 'self'> &
   PositionTokensProps
 
-export const StyledButton = styled(BaseButton)<StyledButtonProps>`
+export const StyledButton = styled(BaseButton, { shouldForwardProp })<
+  StyledButtonProps
+>`
   ${spaceTokens}
   ${sxTokens}
   ${flexTokens}
