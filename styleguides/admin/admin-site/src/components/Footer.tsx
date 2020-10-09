@@ -1,21 +1,11 @@
-// TODO: Refactor this mess
-import * as React from 'react'
-import {
-  FaFacebook,
-  FaTwitter,
-  FaGithub,
-  FaStackOverflow,
-} from 'react-icons/fa'
+import React from 'react'
+import { FaGithub } from 'react-icons/fa'
 import { VisuallyHidden } from 'reakit'
 import { css } from '@emotion/core'
 import { usePalette, useLighten } from 'reakit-system-palette/utils'
 import { Text } from '@vtex/admin-ui'
 
-import track from '../utils/track'
-import SpectrumLogo from '../icons/Spectrum'
 import Anchor from './Anchor'
-
-const year = new Date().getFullYear()
 
 export default function Footer() {
   const foreground = usePalette('foreground')
@@ -50,62 +40,12 @@ export default function Footer() {
           margin-bottom: 20px;
         `}
       >
-        <Anchor
-          href="https://facebook.com/reakitjs"
-          target="_blank"
-          onClick={track('reakit.footerFacebookClick')}
-        >
-          <FaFacebook />
-          <VisuallyHidden>Facebook</VisuallyHidden>
-        </Anchor>
-        <Anchor
-          href="https://twitter.com/reakitjs"
-          target="_blank"
-          onClick={track('reakit.footerTwitterClick')}
-        >
-          <FaTwitter />
-          <VisuallyHidden>Twitter</VisuallyHidden>
-        </Anchor>
-        <Anchor
-          href="https://github.com/reakit/reakit"
-          target="_blank"
-          onClick={track('reakit.footerGithubClick')}
-        >
+        <Anchor href="https://github.com/vtex/onda" target="_blank">
           <FaGithub />
           <VisuallyHidden>GitHub</VisuallyHidden>
         </Anchor>
-        <Anchor
-          href="https://stackoverflow.com/questions/tagged/reakit"
-          target="_blank"
-          onClick={track('reakit.footerStackoverflowClick')}
-        >
-          <FaStackOverflow />
-          <VisuallyHidden>Stackoverflow</VisuallyHidden>
-        </Anchor>
-        <Anchor
-          href="https://spectrum.chat/reakit"
-          target="_blank"
-          onClick={track('reakit.footerSpectrumClick')}
-        >
-          <SpectrumLogo />
-          <VisuallyHidden>Spectrum</VisuallyHidden>
-        </Anchor>
       </div>
-      <Text el="p">
-        <Anchor href="https://www.netlify.com" target="_blank">
-          This site is powered by Netlify
-        </Anchor>
-      </Text>
-      <Text el="p">
-        Released under the{' '}
-        <Anchor href="https://opensource.org/licenses/MIT" target="_blank">
-          MIT License
-        </Anchor>
-      </Text>
-      <Text el="p">
-        Copyright © 2017-
-        {year} Diego Haz
-      </Text>
+      <Text el="p">Copyright © 2020 VTEX</Text>
     </footer>
   )
 }

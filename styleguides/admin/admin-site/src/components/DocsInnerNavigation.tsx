@@ -1,11 +1,11 @@
-// TODO: Refactor this mess
+/** @jsx jsx */
+import { jsx, useColor, Button, Theme, Box } from '@vtex/admin-ui'
 import * as React from 'react'
 import RehypeReact from 'rehype-react'
-import { Button, unstable_useId as useId } from 'reakit'
+import { Button as ReakitButton, unstable_useId as useId } from 'reakit'
 import { css } from 'emotion'
 import constate from 'constate'
 import { FaEdit, FaGithub } from 'react-icons/fa'
-import { usePalette, useLighten } from 'reakit-system-palette/utils'
 
 import useLocation from '../hooks/useLocation'
 import track from '../utils/track'
@@ -42,7 +42,7 @@ function useCollection() {
 const [CollectionProvider, useCollectionContext] = constate(() => {
   const value = useCollection()
 
-  return React.useMemo(() => value, Object.values(value))
+  return React.useMemo(() => value, [value])
 })
 
 function useScrollSpy() {
@@ -81,56 +81,13 @@ function useScrollSpy() {
 
 const [ScrollSpyProvider, useScrollSpyContext] = constate(useScrollSpy)
 
-function useDocsInnerNavigationCSS() {
-  const background = usePalette('background')
-  const foreground = usePalette('foreground')
-  const borderColor = useLighten(foreground, 0.9)
-
-  const docsInnerNavigation = css`
-    font-size: 0.875em;
-    background-color: ${background};
-    color: ${foreground};
-
-    > * {
-      margin-bottom: 16px;
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        padding: 0.25em 0;
-      }
-
-      ul {
-        margin: 4px 0 0 1px;
-        padding-left: 12px;
-        border-left: 1px solid ${borderColor};
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
-        &[aria-current='page'] {
-          font-weight: bold;
-        }
-      }
-    }
-  `
-
-  return docsInnerNavigation
-}
-
 const { Compiler: renderAst } = new RehypeReact({
   createElement: React.createElement,
   components: {
-    p: (props: React.PropsWithChildren<{}>) => <span {...props} />,
-    a: (props: React.AnchorHTMLAttributes<any>) => {
+    p: function Render(props: React.PropsWithChildren<{}>) {
+      return <span {...props} />
+    },
+    a: function Render(props: React.AnchorHTMLAttributes<any>) {
       const [href] = React.useState(
         () => props.href && props.href.replace(/^.*(#.+)$/, '$1')
       )
@@ -170,36 +127,64 @@ export default function DocsInnerNavigation({
   tableOfContentsAst,
 }: Props) {
   const { id } = useId()
-  const className = useDocsInnerNavigationCSS()
 
   return (
     <CollectionProvider>
       <ScrollSpyProvider>
-        <div className={className} key={title}>
-          <Button
-            as="a"
+        <Box
+          sx={{
+            fontSize: '0.875em',
+            bg: 'background',
+            color: 'primary.base',
+            borderColor: 'muted.3',
+            '> *': {
+              marginBottom: 4,
+            },
+            '> nav': {
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+              '> li': {
+                padding: '0.25em 0',
+              },
+              '> ul': {
+                margin: '4px 0 0 1px',
+                paddingLeft: 3,
+                borderLeft: (theme: Theme) =>
+                  `1px solid ${theme.colors.muted[3]}`,
+              },
+              '> a': {
+                color: 'inherit',
+                textDecoration: 'none',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
+                "&[aria-current='page']": {
+                  fontWeight: 'bold',
+                },
+              },
+            },
+          }}
+          key={title}
+        >
+          <a
             href={sourceUrl}
-            unstable_system={{ fill: 'outline' }}
-            onClick={track('reakit.sectionSourceClick')}
+            sx={{ textDecoration: 'none', ':hover': { bg: 'primary.base' } }}
           >
-            <FaGithub />
-            <Spacer width={8} /> View on GitHub
-          </Button>
-          <Button
-            as="a"
-            href={readmeUrl}
-            unstable_system={{ fill: 'outline' }}
-            onClick={track('reakit.sectionMarkdownClick')}
-          >
-            <FaEdit />
-            <Spacer width={8} />
-            Edit this page
-          </Button>
+            <Button m="4" variant="subtle" icon={<FaGithub />}>
+              View on Github
+            </Button>
+          </a>
+          <a href={readmeUrl} sx={{ textDecoration: 'none' }}>
+            <Button m="4" variant="subtle" icon={<FaEdit />}>
+              Edit this page
+            </Button>
+          </a>
           <div hidden id={id}>
             {title} sections
           </div>
           <nav aria-labelledby={id}>{renderAst(tableOfContentsAst)}</nav>
-        </div>
+        </Box>
       </ScrollSpyProvider>
     </CollectionProvider>
   )
