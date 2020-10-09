@@ -3,6 +3,7 @@ import React, { forwardRef, Ref, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { Box as ReakitBox, BoxProps as ReakitBoxProps } from 'reakit'
 import { RenderProp, ExtractHTMLAttributes } from 'reakit-utils/types'
+import { createShouldForwardProp } from '@styled-system/should-forward-prop'
 
 import {
   typographyTokens,
@@ -27,6 +28,11 @@ import {
   VariantTokenProps,
 } from '../../tokens'
 
+const shouldForwardProp = createShouldForwardProp([
+  ...Object.keys(gridTokens),
+  ...Object.keys(layoutTokens),
+])
+
 const WrappedBox = forwardRef(function BoxWithEl(
   props: PropsWithEl,
   ref: Ref<any>
@@ -36,7 +42,7 @@ const WrappedBox = forwardRef(function BoxWithEl(
   return <ReakitBox as={el} ref={ref} {...boxProps} />
 })
 
-export const Box = styled(WrappedBox)<BoxProps>(
+export const Box = styled(WrappedBox, { shouldForwardProp })<BoxProps>(
   variantToken,
   typographyTokens,
   flexTokens,
