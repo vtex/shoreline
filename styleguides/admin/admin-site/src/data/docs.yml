@@ -6,7 +6,7 @@
     - /docs/accessibility/
     - /docs/styling/
     - /docs/managing-state/
-    - /docs/experimental/
+    - /docs/nightly/
 - section: Style Tokens
   paths:
     - /docs/tokens-border/

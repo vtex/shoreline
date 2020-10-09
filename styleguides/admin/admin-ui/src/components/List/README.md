@@ -18,7 +18,6 @@ redirect_from:
   - /components/link/
   - /components/list/
   - /components/navigation/
-  - /components/paragraph/
   - /components/table/
   - /components/table/tablewrapper/
 ---
