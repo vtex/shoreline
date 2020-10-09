@@ -24,10 +24,9 @@ export default function CoreLayout(props: Props) {
   const withTitleSx = title
     ? {
         marginTop: [120, 120, 100],
-        marginRight: [0, 0, 256, 'auto'],
         marginBottom: 72,
-        marginLeft: [0, 0, 300, 'auto'],
-        padding: 2,
+        marginRight: [2, 2, 8, 256, 'auto'],
+        marginLeft: [2, 2, 256, 280, 'auto'],
       }
     : {}
 
@@ -41,15 +40,16 @@ export default function CoreLayout(props: Props) {
   return (
     <ThemeProvider>
       <Header />
+
       {title && (
         <Box
           position="fixed"
           bg="background"
-          w={270}
-          z="over"
+          w={256}
+          z="plain"
           left="0"
           sx={{
-            top: 100,
+            top: 60,
             height: 'calc(100vh - 60px)',
             paddingBottom: 100,
           }}
@@ -62,13 +62,12 @@ export default function CoreLayout(props: Props) {
       )}
       <Box
         el="main"
-        id="main"
-        maxW={1200}
         sx={{
           code: {
             borderRadius: 3,
             padding: '0.2em 0.4em',
           },
+          maxWidth: ['full', 756, 756, 960],
           ...withTitleSx,
           ...homeSx,
         }}
@@ -83,12 +82,12 @@ export default function CoreLayout(props: Props) {
             top: 80,
             paddingY: '72px',
             height: 'calc(100vh - 60px)',
+            display: ['none', 'none', 'none', 'initial'],
           }}
           right="0"
           w={210}
           bg="background"
           overflow="auto"
-          display={['none', 'none', 'initial']}
           px="4"
         >
           <DocsInnerNavigation
