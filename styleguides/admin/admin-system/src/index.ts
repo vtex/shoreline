@@ -1,8 +1,10 @@
-export { jsx, css, SxStyleProp, SxProps } from 'theme-ui'
-export { keyframes } from '@emotion/core'
+export { jsx, SxStyleProp, SxProps } from 'theme-ui'
+export { keyframes, css } from '@emotion/core'
 export { default as styled } from '@emotion/styled'
-export { useTheme, get } from '@vtex-components/theme'
-export { ThemeProvider, Theme, theme } from './theme'
+export { get } from '@theme-ui/css'
+export * from './theme'
+export { default as merge } from 'deepmerge'
+export { useColor, useTheme } from './theme/hooks'
 export {
   BorderRadius,
   BorderWidths,
@@ -15,13 +17,13 @@ export {
 } from './theme/config'
 
 // Tokens
-export { typographyTokens, TypographyTokensProps } from './typography'
-export { flexTokens, FlexTokensProps } from './flexbox'
-export { gridTokens, GridTokensProps } from './grid'
-export { layoutTokens, LayoutTokensProps } from './layout'
-export { spaceTokens, SpaceTokensProps } from './space'
-export { colorTokens, ColorTokensProps } from './color'
-export { borderTokens, BorderTokensProps } from './border'
-export { positionTokens, PositionTokensProps } from './position'
-export { sxTokens, SxTokensProps } from './sx'
-export { variantToken, VariantTokenProps } from './variant'
+export { typographyTokens, TypographyTokensProps } from './tokens/typography'
+export { flexTokens, FlexTokensProps } from './tokens/flexbox'
+export { gridTokens, GridTokensProps } from './tokens/grid'
+export { layoutTokens, LayoutTokensProps } from './tokens/layout'
+export { spaceTokens, SpaceTokensProps } from './tokens/space'
+export { colorTokens, ColorTokensProps } from './tokens/color'
+export { borderTokens, BorderTokensProps } from './tokens/border'
+export { positionTokens, PositionTokensProps } from './tokens/position'
+export { sxTokens, SxTokensProps } from './tokens/sx'
+export { variantToken, VariantTokenProps } from './tokens/variant'

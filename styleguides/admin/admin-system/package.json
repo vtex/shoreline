@@ -29,19 +29,19 @@
     "react": ">=16",
     "react-dom": ">=16"
   },
-  "devDependencies": {
-    "@rollup/plugin-url": "^5.0.1"
-  },
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "@theme-ui/css": "0.4.0-rc.3",
     "@types/styled-system": "^5.1.10",
-    "csstype": "^3.0.3",
-    "styled-system": "^5.1.5",
     "@types/theme-ui": "^0.3.6",
     "@vtex-components/theme": "^0.1.1",
+    "csstype": "^3.0.3",
+    "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",
     "polished": "^3.6.7",
-    "theme-ui": "^0.3.1"
+    "styled-system": "^5.1.5",
+    "theme-ui": "^0.3.1",
+    "tiny-invariant": "^1.1.0"
   }
 }

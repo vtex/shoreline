@@ -1,5 +1,7 @@
 import { system, ResponsiveValue } from 'styled-system'
 
+import { ThemeColors } from '../theme/config'
+
 export const colorTokens = system({
   bg: {
     property: 'backgroundColor',
@@ -46,36 +48,6 @@ export const colorTokens = system({
     scale: 'colors',
   },
 })
-
-type ThemeColors =
-  | 'text'
-  | 'background'
-  | 'muted.0'
-  | 'muted.1'
-  | 'muted.2'
-  | 'muted.3'
-  | 'muted.4'
-  | 'emphasis'
-  | 'focus'
-  | 'primary.base'
-  | 'primary.hover'
-  | 'primary.active'
-  | 'primary.contrast'
-  | 'primary.washed.0'
-  | 'primary.washed.1'
-  | 'primary.washed.2'
-  | 'danger.base'
-  | 'danger.hover'
-  | 'danger.active'
-  | 'danger.contrast'
-  | 'danger.washed.0'
-  | 'danger.washed.1'
-  | 'danger.washed.2'
-  | 'success.base'
-  | 'success.hover'
-  | 'success.active'
-  | 'success.contrast'
-  | 'success.washed.0'
 
 export interface ColorTokensProps {
   /**

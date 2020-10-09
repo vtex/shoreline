@@ -1,2 +1,5 @@
+export { contrast } from './util'
 export { default as ThemeProvider } from './Provider'
-export { theme, AdminTheme as Theme } from './config'
+export { darken, lighten, desaturate, saturate, rgba } from 'polished'
+export * from './config'
+export * from './hooks'

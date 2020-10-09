@@ -1,7 +1,7 @@
 import { css, cx } from 'emotion'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
-import { usePalette, useDarken } from 'reakit-system-palette/utils'
+import { useColor, darken } from '@vtex/admin-ui'
 
 export type KeyboardInputOptions = BoxOptions
 export type KeyboardInputHTMLProps = BoxHTMLProps
@@ -15,12 +15,13 @@ export const useKeyboardInput = createHook<
   compose: useBox,
 
   useProps(_, htmlProps) {
-    const background = usePalette('background')
-    const backgroundColor = useDarken(background, 0.08)
-    const borderColor = useDarken(backgroundColor, 0.15)
+    const color = useColor('background')
+    const background = darken(0.08, color)
+    const borderColor = darken(0.15, color)
+
     const keyboardInput = css`
       border-radius: 0.25em;
-      background-color: ${backgroundColor};
+      background-color: ${background};
       padding: 0.3em 0.5em 0.25em;
       border: 1px solid ${borderColor};
       border-width: 1px 1px 2px 1px;
