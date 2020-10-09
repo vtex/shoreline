@@ -1,41 +1,41 @@
-import { css, cx } from "emotion";
-import { useBox, BoxHTMLProps, BoxOptions } from "reakit";
-import { createHook, createComponent } from "reakit-system";
+import { css, cx } from 'emotion'
+import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
+import { createHook, createComponent } from 'reakit-system'
 
 export type HiddenMediaQueryOptions = BoxOptions & {
-  query: string;
-};
+  query: string
+}
 
-export type HiddenMediaQueryHTMLProps = BoxHTMLProps;
+export type HiddenMediaQueryHTMLProps = BoxHTMLProps
 
 export type HiddenMediaQueryProps = HiddenMediaQueryOptions &
-  HiddenMediaQueryHTMLProps;
+  HiddenMediaQueryHTMLProps
 
 export const useHiddenMediaQuery = createHook<
   HiddenMediaQueryOptions,
   HiddenMediaQueryHTMLProps
 >({
-  name: "HiddenMediaQuery",
+  name: 'HiddenMediaQuery',
   compose: useBox,
-  keys: ["query"],
+  keys: ['query'],
 
   useProps(options, htmlProps) {
     const hiddenMediaQuery = css`
       @media (${options.query}) {
         display: none !important;
       }
-    `;
+    `
 
     return {
       ...htmlProps,
       className: cx(hiddenMediaQuery, htmlProps.className),
-    };
+    }
   },
-});
+})
 
 const HiddenMediaQuery = createComponent({
-  as: "div",
+  as: 'div',
   useHook: useHiddenMediaQuery,
-});
+})
 
-export default HiddenMediaQuery;
+export default HiddenMediaQuery

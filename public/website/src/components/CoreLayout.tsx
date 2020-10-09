@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 import { Box, ThemeProvider } from '@vtex/admin-ui'
-import { SxStyleProp } from 'theme-ui'
 
 import DocsNavigation from './DocsNavigation'
 import DocsInnerNavigation from './DocsInnerNavigation'
@@ -22,7 +21,7 @@ export default function CoreLayout(props: Props) {
 
   const isHome = location.pathname === '/'
 
-  const withTitleSx: SxStyleProp = title
+  const withTitleSx = title
     ? {
         marginTop: [120, 120, 100],
         marginRight: [0, 0, 256, 'auto'],
@@ -32,7 +31,7 @@ export default function CoreLayout(props: Props) {
       }
     : {}
 
-  const homeSx: SxStyleProp = isHome
+  const homeSx = isHome
     ? {
         minWidth: 'full',
         maxWidth: 'full',
@@ -50,8 +49,8 @@ export default function CoreLayout(props: Props) {
           z="over"
           left="0"
           sx={{
-            top: 120,
-            height: 'calc(100vh - var(--header-height, 60px))',
+            top: 100,
+            height: 'calc(100vh - 60px)',
             paddingBottom: 100,
           }}
           overflow="auto"
@@ -83,7 +82,7 @@ export default function CoreLayout(props: Props) {
           sx={{
             top: 80,
             paddingY: '72px',
-            height: 'calc(100vh - var(--header-height, 60px))',
+            height: 'calc(100vh - 60px)',
           }}
           right="0"
           w={210}
@@ -100,9 +99,11 @@ export default function CoreLayout(props: Props) {
           />
         </Box>
       )}
-      <Box sx={{ marginTop: 100 }}>
-        <Footer />
-      </Box>
+      {!isHome && (
+        <Box sx={{ marginTop: 100 }}>
+          <Footer />
+        </Box>
+      )}
     </ThemeProvider>
   )
 }

@@ -1,21 +1,22 @@
-import { css, cx } from "emotion";
-import { createHook, createComponent } from "reakit-system";
-import { usePalette } from "reakit-system-palette/utils";
-import { useAnchor, AnchorOptions, AnchorProps } from "./Anchor";
+import { css, cx } from 'emotion'
+import { createHook, createComponent } from 'reakit-system'
+import { usePalette } from 'reakit-system-palette/utils'
 
-export type SkipToContentOptions = AnchorOptions;
-export type SkipToContentHTMLProps = AnchorProps;
-export type SkipToContentProps = SkipToContentOptions & SkipToContentHTMLProps;
+import { useAnchor, AnchorOptions, AnchorProps } from './Anchor'
+
+export type SkipToContentOptions = AnchorOptions
+export type SkipToContentHTMLProps = AnchorProps
+export type SkipToContentProps = SkipToContentOptions & SkipToContentHTMLProps
 
 export const useSkipToContent = createHook<
   SkipToContentOptions,
   SkipToContentHTMLProps
 >({
-  name: "SkipToContent",
+  name: 'SkipToContent',
   compose: useAnchor,
 
   useProps(_, htmlProps) {
-    const background = usePalette("background");
+    const background = usePalette('background')
 
     const skipToContent = css`
       left: -999px;
@@ -38,20 +39,21 @@ export const useSkipToContent = createHook<
         text-align: center;
         z-index: 999;
       }
-    `;
+    `
+
     return {
       tabIndex: 0,
-      children: "Skip to main content",
-      href: "#main",
+      children: 'Skip to main content',
+      href: '#main',
       ...htmlProps,
       className: cx(skipToContent, htmlProps.className),
-    };
+    }
   },
-});
+})
 
 const SkipToContent = createComponent({
-  as: "a",
+  as: 'a',
   useHook: useSkipToContent,
-});
+})
 
-export default SkipToContent;
+export default SkipToContent

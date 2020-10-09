@@ -1,24 +1,26 @@
 // TODO: Refactor this mess
-import * as React from "react";
+import * as React from 'react'
 import {
   FaFacebook,
   FaTwitter,
   FaGithub,
   FaStackOverflow,
-} from "react-icons/fa";
-import { VisuallyHidden } from "reakit";
-import { css } from "@emotion/core";
-import { usePalette, useLighten } from "reakit-system-palette/utils";
-import track from "../utils/track";
-import SpectrumLogo from "../icons/Spectrum";
-import Anchor from "./Anchor";
-import Paragraph from "./Paragraph";
+} from 'react-icons/fa'
+import { VisuallyHidden } from 'reakit'
+import { css } from '@emotion/core'
+import { usePalette, useLighten } from 'reakit-system-palette/utils'
 
-const year = new Date().getFullYear();
+import track from '../utils/track'
+import SpectrumLogo from '../icons/Spectrum'
+import Anchor from './Anchor'
+import Paragraph from './Paragraph'
+
+const year = new Date().getFullYear()
 
 export default function Footer() {
-  const foreground = usePalette("foreground");
-  const color = useLighten(foreground, 0.35);
+  const foreground = usePalette('foreground')
+  const color = useLighten(foreground, 0.35)
+
   return (
     <footer
       css={css`
@@ -51,7 +53,7 @@ export default function Footer() {
         <Anchor
           href="https://facebook.com/reakitjs"
           target="_blank"
-          onClick={track("reakit.footerFacebookClick")}
+          onClick={track('reakit.footerFacebookClick')}
         >
           <FaFacebook />
           <VisuallyHidden>Facebook</VisuallyHidden>
@@ -59,7 +61,7 @@ export default function Footer() {
         <Anchor
           href="https://twitter.com/reakitjs"
           target="_blank"
-          onClick={track("reakit.footerTwitterClick")}
+          onClick={track('reakit.footerTwitterClick')}
         >
           <FaTwitter />
           <VisuallyHidden>Twitter</VisuallyHidden>
@@ -67,7 +69,7 @@ export default function Footer() {
         <Anchor
           href="https://github.com/reakit/reakit"
           target="_blank"
-          onClick={track("reakit.footerGithubClick")}
+          onClick={track('reakit.footerGithubClick')}
         >
           <FaGithub />
           <VisuallyHidden>GitHub</VisuallyHidden>
@@ -75,7 +77,7 @@ export default function Footer() {
         <Anchor
           href="https://stackoverflow.com/questions/tagged/reakit"
           target="_blank"
-          onClick={track("reakit.footerStackoverflowClick")}
+          onClick={track('reakit.footerStackoverflowClick')}
         >
           <FaStackOverflow />
           <VisuallyHidden>Stackoverflow</VisuallyHidden>
@@ -83,7 +85,7 @@ export default function Footer() {
         <Anchor
           href="https://spectrum.chat/reakit"
           target="_blank"
-          onClick={track("reakit.footerSpectrumClick")}
+          onClick={track('reakit.footerSpectrumClick')}
         >
           <SpectrumLogo />
           <VisuallyHidden>Spectrum</VisuallyHidden>
@@ -95,7 +97,7 @@ export default function Footer() {
         </Anchor>
       </Paragraph>
       <Paragraph>
-        Released under the{" "}
+        Released under the{' '}
         <Anchor href="https://opensource.org/licenses/MIT" target="_blank">
           MIT License
         </Anchor>
@@ -105,5 +107,5 @@ export default function Footer() {
         {year} Diego Haz
       </Paragraph>
     </footer>
-  );
+  )
 }

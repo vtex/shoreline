@@ -1,82 +1,90 @@
 // TODO: Refactor this mess
-import * as React from "react";
-import RehypeReact from "rehype-react";
-import { Button, unstable_useId as useId } from "reakit";
-import { css } from "emotion";
-import constate from "constate";
-import { FaEdit, FaGithub } from "react-icons/fa";
-import { usePalette, useLighten } from "reakit-system-palette/utils";
-import useLocation from "../hooks/useLocation";
-import track from "../utils/track";
-import Spacer from "./Spacer";
+import * as React from 'react'
+import RehypeReact from 'rehype-react'
+import { Button, unstable_useId as useId } from 'reakit'
+import { css } from 'emotion'
+import constate from 'constate'
+import { FaEdit, FaGithub } from 'react-icons/fa'
+import { usePalette, useLighten } from 'reakit-system-palette/utils'
+
+import useLocation from '../hooks/useLocation'
+import track from '../utils/track'
+import Spacer from './Spacer'
 
 type Props = {
-  readmeUrl: string;
-  sourceUrl: string;
-  title: string;
-  tableOfContentsAst: object;
-};
+  readmeUrl: string
+  sourceUrl: string
+  title: string
+  tableOfContentsAst: object
+}
 
 function useCollection() {
-  const [items, setItems] = React.useState<string[]>([]);
+  const [items, setItems] = React.useState<string[]>([])
   const add = React.useCallback((item: string) => {
-    setItems((prevItems) => [...prevItems, item]);
-  }, []);
+    setItems((prevItems) => [...prevItems, item])
+  }, [])
+
   const remove = React.useCallback((item: string) => {
     setItems((prevItems) => {
-      const idx = prevItems.indexOf(item);
-      return [...prevItems.slice(0, idx), ...prevItems.slice(idx + 1)];
-    });
-  }, []);
+      const idx = prevItems.indexOf(item)
+
+      return [...prevItems.slice(0, idx), ...prevItems.slice(idx + 1)]
+    })
+  }, [])
+
   return {
     items,
     add,
     remove,
-  };
+  }
 }
 
 const [CollectionProvider, useCollectionContext] = constate(() => {
-  const value = useCollection();
-  return React.useMemo(() => value, Object.values(value));
-});
+  const value = useCollection()
+
+  return React.useMemo(() => value, Object.values(value))
+})
 
 function useScrollSpy() {
-  const { items } = useCollectionContext();
-  const [currentId, setCurrentId] = React.useState<string | null>(null);
-  const location = useLocation();
+  const { items } = useCollectionContext()
+  const [currentId, setCurrentId] = React.useState<string | null>(null)
+  const location = useLocation()
 
-  React.useEffect(() => setCurrentId(null), [location.pathname]);
+  React.useEffect(() => setCurrentId(null), [location.pathname])
 
   React.useEffect(() => {
-    if (!items.length) return undefined;
+    if (!items.length) return undefined
 
     const elements = document.querySelectorAll<HTMLElement>(
-      items.map((item) => `[id="${item}"]`).join(",")
-    );
-    const elementsArray = Array.from(elements);
+      items.map((item) => `[id="${item}"]`).join(',')
+    )
+
+    const elementsArray = Array.from(elements)
 
     const handleScroll = () => {
       elementsArray.forEach((element) => {
         if (element.offsetTop <= window.scrollY + 100) {
-          setCurrentId(element.id);
+          setCurrentId(element.id)
         }
-      });
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [items]);
+      })
+    }
 
-  return currentId;
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [items])
+
+  return currentId
 }
 
-const [ScrollSpyProvider, useScrollSpyContext] = constate(useScrollSpy);
+const [ScrollSpyProvider, useScrollSpyContext] = constate(useScrollSpy)
 
 function useDocsInnerNavigationCSS() {
-  const background = usePalette("background");
-  const foreground = usePalette("foreground");
-  const borderColor = useLighten(foreground, 0.9);
+  const background = usePalette('background')
+  const foreground = usePalette('foreground')
+  const borderColor = useLighten(foreground, 0.9)
 
   const docsInnerNavigation = css`
     font-size: 0.875em;
@@ -108,14 +116,14 @@ function useDocsInnerNavigationCSS() {
         &:hover {
           text-decoration: underline;
         }
-        &[aria-current="page"] {
+        &[aria-current='page'] {
           font-weight: bold;
         }
       }
     }
-  `;
+  `
 
-  return docsInnerNavigation;
+  return docsInnerNavigation
 }
 
 const { Compiler: renderAst } = new RehypeReact({
@@ -124,33 +132,36 @@ const { Compiler: renderAst } = new RehypeReact({
     p: (props: React.PropsWithChildren<{}>) => <span {...props} />,
     a: (props: React.AnchorHTMLAttributes<any>) => {
       const [href] = React.useState(
-        () => props.href && props.href.replace(/^.*(#.+)$/, "$1")
-      );
-      const id = href && href.substr(1);
-      const { add, remove } = useCollectionContext();
-      const currentId = useScrollSpyContext();
+        () => props.href && props.href.replace(/^.*(#.+)$/, '$1')
+      )
+
+      const id = href?.substr(1)
+      const { add, remove } = useCollectionContext()
+      const currentId = useScrollSpyContext()
 
       React.useEffect(() => {
-        if (!id) return undefined;
-        add(id);
-        return () => remove(id);
-      }, [id, add, remove]);
+        if (!id) return undefined
+        add(id)
+
+        return () => remove(id)
+      }, [id, add, remove])
 
       if (href) {
         return (
           <a
             {...props}
             href={href}
-            aria-current={currentId === id ? "page" : undefined}
+            aria-current={currentId === id ? 'page' : undefined}
           >
             {props.children}
           </a>
-        );
+        )
       }
-      return <a {...props}>{props.children}</a>;
+
+      return <a {...props}>{props.children}</a>
     },
   },
-});
+})
 
 export default function DocsInnerNavigation({
   sourceUrl,
@@ -158,8 +169,8 @@ export default function DocsInnerNavigation({
   title,
   tableOfContentsAst,
 }: Props) {
-  const { id } = useId();
-  const className = useDocsInnerNavigationCSS();
+  const { id } = useId()
+  const className = useDocsInnerNavigationCSS()
 
   return (
     <CollectionProvider>
@@ -168,8 +179,8 @@ export default function DocsInnerNavigation({
           <Button
             as="a"
             href={sourceUrl}
-            unstable_system={{ fill: "outline" }}
-            onClick={track("reakit.sectionSourceClick")}
+            unstable_system={{ fill: 'outline' }}
+            onClick={track('reakit.sectionSourceClick')}
           >
             <FaGithub />
             <Spacer width={8} /> View on GitHub
@@ -177,8 +188,8 @@ export default function DocsInnerNavigation({
           <Button
             as="a"
             href={readmeUrl}
-            unstable_system={{ fill: "outline" }}
-            onClick={track("reakit.sectionMarkdownClick")}
+            unstable_system={{ fill: 'outline' }}
+            onClick={track('reakit.sectionMarkdownClick')}
           >
             <FaEdit />
             <Spacer width={8} />
@@ -191,5 +202,5 @@ export default function DocsInnerNavigation({
         </div>
       </ScrollSpyProvider>
     </CollectionProvider>
-  );
+  )
 }

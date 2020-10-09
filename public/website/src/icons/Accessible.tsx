@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 function Accessible(
   props: React.SVGAttributes<SVGElement>,
@@ -21,7 +21,7 @@ function Accessible(
         />
       </g>
     </svg>
-  );
+  )
 }
 
-export default React.forwardRef(Accessible);
+export default React.forwardRef(Accessible)

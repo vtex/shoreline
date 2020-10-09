@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 function Customizable(
   props: React.SVGAttributes<SVGElement>,
@@ -21,7 +21,7 @@ function Customizable(
 	c0,0.5,0.5,1,1,1h3C33.5,28,34,27.5,34,27z"
       />
     </svg>
-  );
+  )
 }
 
-export default React.forwardRef(Customizable);
+export default React.forwardRef(Customizable)

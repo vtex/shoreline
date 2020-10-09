@@ -1,28 +1,28 @@
-import * as React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import { Separator } from "reakit/Separator";
-import { css } from "emotion";
-import { usePalette, useLighten } from "reakit-system-palette/utils";
-import { VisuallyHidden } from "reakit/VisuallyHidden";
+import * as React from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { Separator } from 'reakit/Separator'
+import { css } from 'emotion'
+import { usePalette, useLighten } from 'reakit-system-palette/utils'
+import { VisuallyHidden } from 'reakit/VisuallyHidden'
 
-type DocsBackNextProps = { nextPath: string; prevPath: string };
-
-type Data = {
-  allMarkdownRemark: {
-    nodes: Array<{
-      title: string;
-      frontmatter: {
-        path: string;
-      };
-    }>;
-  };
-};
+const query = graphql`
+  query DocsBackNextQuery {
+    allMarkdownRemark {
+      nodes {
+        title
+        frontmatter {
+          path
+        }
+      }
+    }
+  }
+`
 
 function useDocsBackNextCSS() {
-  const background = usePalette("background");
-  const foreground = usePalette("foreground");
-  const primary = usePalette("primary");
-  const currentBackgroundColor = useLighten(primary, 0.85);
+  const background = usePalette('background')
+  const foreground = usePalette('foreground')
+  const primary = usePalette('primary')
+  const currentBackgroundColor = useLighten(primary, 0.85)
 
   const docsNavigation = css`
     background-color: ${background};
@@ -58,22 +58,22 @@ function useDocsBackNextCSS() {
         color: ${primary};
       }
     }
-  `;
+  `
 
-  return docsNavigation;
+  return docsNavigation
 }
 
 export default function DocsBackNext({
   nextPath,
   prevPath,
 }: DocsBackNextProps) {
-  const data: Data = useStaticQuery(query);
-  const className = useDocsBackNextCSS();
+  const data: Data = useStaticQuery(query)
+  const className = useDocsBackNextCSS()
   const findMeta = (path: string) =>
-    data.allMarkdownRemark.nodes.find(
-      (node) => node.frontmatter.path === path
-    )!;
-  const getTitle = (path: string) => findMeta(path).title;
+    data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)!
+
+  const getTitle = (path: string) => findMeta(path).title
+
   return (
     <div className={className}>
       <nav>
@@ -98,18 +98,18 @@ export default function DocsBackNext({
         </ul>
       </nav>
     </div>
-  );
+  )
 }
 
-const query = graphql`
-  query DocsBackNextQuery {
-    allMarkdownRemark {
-      nodes {
-        title
-        frontmatter {
-          path
-        }
+type DocsBackNextProps = { nextPath: string; prevPath: string }
+
+type Data = {
+  allMarkdownRemark: {
+    nodes: Array<{
+      title: string
+      frontmatter: {
+        path: string
       }
-    }
+    }>
   }
-`;
+}

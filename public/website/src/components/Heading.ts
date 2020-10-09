@@ -1,13 +1,13 @@
-import { css, cx } from "emotion";
-import { useBox, BoxHTMLProps, BoxOptions } from "reakit";
-import { createHook, createComponent } from "reakit-system";
+import { css, cx } from 'emotion'
+import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
+import { createHook, createComponent } from 'reakit-system'
 
-export type HeadingOptions = BoxOptions;
-export type HeadingHTMLProps = BoxHTMLProps;
-export type HeadingProps = HeadingOptions & HeadingHTMLProps;
+export type HeadingOptions = BoxOptions
+export type HeadingHTMLProps = BoxHTMLProps
+export type HeadingProps = HeadingOptions & HeadingHTMLProps
 
 export const useHeading = createHook<HeadingOptions, HeadingHTMLProps>({
-  name: "Heading",
+  name: 'Heading',
   compose: useBox,
 
   useProps(_, htmlProps) {
@@ -44,14 +44,15 @@ export const useHeading = createHook<HeadingOptions, HeadingHTMLProps>({
           font-size: 1em;
         }
       }
-    `;
-    return { ...htmlProps, className: cx(heading, htmlProps.className) };
+    `
+
+    return { ...htmlProps, className: cx(heading, htmlProps.className) }
   },
-});
+})
 
 const Heading = createComponent({
-  as: "h1",
+  as: 'h1',
   useHook: useHeading,
-});
+})
 
-export default Heading;
+export default Heading

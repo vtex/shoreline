@@ -1,13 +1,13 @@
-import { css, cx } from "emotion";
-import { useBox, BoxHTMLProps, BoxOptions } from "reakit";
-import { createHook, createComponent } from "reakit-system";
+import { css, cx } from 'emotion'
+import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
+import { createHook, createComponent } from 'reakit-system'
 
-export type ListOptions = BoxOptions;
-export type ListHTMLProps = BoxHTMLProps;
-export type ListProps = ListOptions & ListHTMLProps;
+export type ListOptions = BoxOptions
+export type ListHTMLProps = BoxHTMLProps
+export type ListProps = ListOptions & ListHTMLProps
 
 export const useList = createHook<ListOptions, ListHTMLProps>({
-  name: "List",
+  name: 'List',
   compose: useBox,
 
   useProps(_, htmlProps) {
@@ -31,14 +31,15 @@ export const useList = createHook<ListOptions, ListHTMLProps>({
           }
         }
       }
-    `;
-    return { ...htmlProps, className: cx(list, htmlProps.className) };
+    `
+
+    return { ...htmlProps, className: cx(list, htmlProps.className) }
   },
-});
+})
 
 const List = createComponent({
-  as: "ul",
+  as: 'ul',
   useHook: useList,
-});
+})
 
-export default List;
+export default List

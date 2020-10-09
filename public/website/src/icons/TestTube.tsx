@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 function TestTube(props: React.SVGAttributes<SVGElement>, ref: React.Ref<any>) {
   return (
@@ -19,7 +19,7 @@ function TestTube(props: React.SVGAttributes<SVGElement>, ref: React.Ref<any>) {
         <circle cx={23.5} cy={16.5} r={1.5} />
       </g>
     </svg>
-  );
+  )
 }
 
-export default React.forwardRef(TestTube);
+export default React.forwardRef(TestTube)
