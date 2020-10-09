@@ -4,15 +4,20 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import thumbnail from '../images/thumbnail.png'
 
-export type SEOProps = {
-  description?: string
-  lang?: string
-  meta?: Array<{ property: string; content: string }>
-  keywords?: string[]
-  title: string
-}
-
 const defaultKeywords = ['react', 'accessibility', 'components', 'ui', 'a11y']
+
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+        author
+      }
+    }
+  }
+`
 
 export default function SEO({
   description,
@@ -24,8 +29,8 @@ export default function SEO({
   const data = useStaticQuery(detailsQuery)
   const metaDescription = description ?? data.site.siteMetadata.description
   const metaTitle = title || data.site.siteMetadata.title
-  const url = data.site.siteMetadata.siteUrl
-  const image = url + thumbnail
+  const url = data.site.siteMetadata.siteUrl as string
+  const image = url + ((thumbnail as unknown) as string)
 
   return (
     <Helmet
@@ -57,26 +62,6 @@ export default function SEO({
           content: image,
         },
         {
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          name: 'twitter:image:src',
-          content: image,
-        },
-        {
-          name: 'twitter:creator',
-          content: data.site.siteMetadata.author,
-        },
-        {
-          name: 'twitter:title',
-          content: metaTitle,
-        },
-        {
-          name: 'twitter:description',
-          content: metaDescription,
-        },
-        {
           name: 'keywords',
           content: defaultKeywords.concat(keywords).join(', '),
         },
@@ -85,15 +70,10 @@ export default function SEO({
   )
 }
 
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-        author
-      }
-    }
-  }
-`
+export interface SEOProps {
+  description?: string
+  lang?: string
+  meta?: Array<{ property: string; content: string }>
+  keywords?: string[]
+  title: string
+}

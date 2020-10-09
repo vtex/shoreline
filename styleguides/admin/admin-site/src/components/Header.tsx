@@ -25,7 +25,6 @@ import SkipToContent from './SkipToContent'
 import Spacer from './Spacer'
 import HiddenMediaQuery from './HiddenMediaQuery'
 import DocsNavigation from './DocsNavigation'
-import SearchBar from './SearchBar'
 
 export type HeaderProps = {
   transparent?: boolean
@@ -178,23 +177,15 @@ export default function Header({ transparent }: HeaderProps) {
         <div style={{ flex: 1 }} />
         <HiddenMediaQuery query="max-width: 768px">
           {(props) => (
-            <>
-              {isLarge && (
-                <SearchBar
-                  {...props}
-                  variant={transparent ? 'negative' : 'default'}
-                />
-              )}
-              <Anchor
-                as={Link}
-                to="/docs/"
-                getProps={getLinkProps}
-                {...props}
-                onClick={track('reakit.headerGuideClick')}
-              >
-                Documentation
-              </Anchor>
-            </>
+            <Anchor
+              as={Link}
+              to="/docs/"
+              getProps={getLinkProps}
+              {...props}
+              onClick={track('reakit.headerGuideClick')}
+            >
+              Documentation
+            </Anchor>
           )}
         </HiddenMediaQuery>
         <Anchor

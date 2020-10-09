@@ -5,14 +5,6 @@ import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent, useCreateElement } from 'reakit-system'
 import { Link } from 'gatsby'
 
-export type AnchorOptions = BoxOptions
-export type AnchorHTMLProps = BoxHTMLProps &
-  React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  >
-export type AnchorProps = AnchorOptions & AnchorHTMLProps
-
 export const useAnchor = createHook<AnchorOptions, AnchorHTMLProps>({
   name: 'Anchor',
   compose: useBox,
@@ -43,5 +35,13 @@ const Anchor = createComponent({
     )
   },
 })
+
+export type AnchorOptions = BoxOptions
+export type AnchorHTMLProps = BoxHTMLProps &
+  React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  >
+export type AnchorProps = AnchorOptions & AnchorHTMLProps
 
 export default Anchor

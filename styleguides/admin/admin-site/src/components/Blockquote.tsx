@@ -1,29 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import * as React from 'react'
+import React, { Fragment } from 'react'
 import { css, cx } from 'emotion'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
 import { useColor, darken, lighten } from '@vtex/admin-ui'
 
-import TestTube from '../icons/TestTube'
-
-export type BlockquoteOptions = BoxOptions & {
-  experimental?: 'true' | 'false'
-}
-
-export type BlockquoteHTMLProps = BoxHTMLProps &
-  React.BlockquoteHTMLAttributes<any>
-
-export type BlockquoteProps = BlockquoteOptions & BlockquoteHTMLProps
+import Nightly from '../icons/Nightly'
 
 export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
   {
     name: 'Blockquote',
     compose: useBox,
-    keys: ['experimental'],
+    keys: ['nightly'],
 
     useProps(options, htmlProps) {
-      const isExperimental = options.experimental === 'true'
+      const isNightly = options.nightly === 'true'
       const warning = useColor('warning.base')
       const backgroundColor = lighten(0.275, warning)
       const borderColor = darken(0.2, backgroundColor)
@@ -43,7 +33,7 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
           margin: 0;
         }
 
-        ${isExperimental &&
+        ${isNightly &&
           css`
             display: flex;
 
@@ -58,11 +48,11 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
 
       return {
         ...htmlProps,
-        children: isExperimental ? (
-          <>
-            <TestTube />
+        children: isNightly ? (
+          <Fragment>
+            <Nightly />
             <div>{htmlProps.children}</div>
-          </>
+          </Fragment>
         ) : (
           htmlProps.children
         ),
@@ -76,5 +66,17 @@ const Blockquote = createComponent({
   as: 'blockquote',
   useHook: useBlockquote,
 })
+
+export type BlockquoteOptions = BoxOptions & {
+  nightly?: 'true' | 'false'
+}
+
+export type BlockquoteHTMLProps = BoxHTMLProps &
+  React.DetailedHTMLProps<
+    React.BlockquoteHTMLAttributes<HTMLElement>,
+    HTMLElement
+  >
+
+export type BlockquoteProps = BlockquoteOptions & BlockquoteHTMLProps
 
 export default Blockquote

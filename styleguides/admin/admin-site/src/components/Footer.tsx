@@ -9,11 +9,11 @@ import {
 import { VisuallyHidden } from 'reakit'
 import { css } from '@emotion/core'
 import { usePalette, useLighten } from 'reakit-system-palette/utils'
+import { Text } from '@vtex/admin-ui'
 
 import track from '../utils/track'
 import SpectrumLogo from '../icons/Spectrum'
 import Anchor from './Anchor'
-import Paragraph from './Paragraph'
 
 const year = new Date().getFullYear()
 
@@ -91,21 +91,21 @@ export default function Footer() {
           <VisuallyHidden>Spectrum</VisuallyHidden>
         </Anchor>
       </div>
-      <Paragraph>
+      <Text el="p">
         <Anchor href="https://www.netlify.com" target="_blank">
           This site is powered by Netlify
         </Anchor>
-      </Paragraph>
-      <Paragraph>
+      </Text>
+      <Text el="p">
         Released under the{' '}
         <Anchor href="https://opensource.org/licenses/MIT" target="_blank">
           MIT License
         </Anchor>
-      </Paragraph>
-      <Paragraph>
+      </Text>
+      <Text el="p">
         Copyright © 2017-
         {year} Diego Haz
-      </Paragraph>
+      </Text>
     </footer>
   )
 }

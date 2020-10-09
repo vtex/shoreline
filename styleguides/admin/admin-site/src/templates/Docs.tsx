@@ -20,11 +20,10 @@ import { FaUniversalAccess } from 'react-icons/fa'
 import * as AdminUI from '@vtex/admin-ui'
 
 import Anchor from '../components/Anchor'
-import Paragraph from '../components/Paragraph'
 import List from '../components/List'
-import KeyboardInput from '../components/KeyboardInput'
+import Kbd from '../components/Kbd'
 import Blockquote from '../components/Blockquote'
-import TestTube from '../icons/TestTube'
+import Nightly from '../icons/Nightly'
 import Heading from '../components/Heading'
 import Seo from '../components/SEO'
 import track from '../utils/track'
@@ -46,7 +45,7 @@ type DocsProps = {
       excerpt: string
       frontmatter: {
         path: string
-        experimental: boolean
+        nightly: boolean
       }
     }
   }
@@ -140,10 +139,10 @@ const { Compiler: renderAst } = new RehypeReact({
   createElement: React.createElement,
   components: {
     a: Anchor,
-    p: Paragraph,
+    p: (props) => <AdminUI.Text el="p" fs="2" {...props} />,
     ul: List,
-    ol: (props) => <List as="ol" {...props} />,
-    kbd: KeyboardInput,
+    ol: (props) => <List el="ol" {...props} />,
+    kbd: Kbd,
     blockquote: Blockquote,
     summary: Summary,
     h1: Heading,
@@ -153,10 +152,10 @@ const { Compiler: renderAst } = new RehypeReact({
     h5: (props) => <Heading as="h5" {...props} />,
     h6: (props) => <Heading as="h6" {...props} />,
     span: (props: React.HTMLAttributes<any>) => {
-      if (props.title === 'Experimental') {
+      if (props.title === 'Nightly') {
         return (
           <span {...props}>
-            <TestTube />
+            <Nightly />
           </span>
         )
       }

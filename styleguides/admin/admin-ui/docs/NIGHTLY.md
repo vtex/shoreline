@@ -1,17 +1,17 @@
 ---
-path: /docs/experimental/
-experimental: true
+path: /docs/nightly/
+nightly: true
 redirect_from:
-  - /docs/experimental-features/
+  - /docs/nightly-features/
 ---
 
-# Experimental features
+# Nightly features
 
 Reakit is the result of a lot of experimentation. We want to keep this spirit in order to continue evolving and remain modern. New modules, types, components and props are usually introduced with the `unstable_` prefix. After being thoroughly tested in various apps and the API has met the vast majority of use cases, we can remove the prefix and release it as a stable module in a new minor version.
 
-<blockquote experimental="true">
+<blockquote nightly="true">
 
-Experimental features may introduce **breaking changes** or be **removed altogether** in patch and minor versions without notice. The simple act of promoting an experimental feature to its stable version would break your code if you are using it as the feature would be renamed.
+Nightly features may introduce **breaking changes** or be **removed altogether** in patch and minor versions without notice. The simple act of promoting an experimental feature to its stable version would break your code if you are using it as the feature would be renamed.
 
 </blockquote>
 
@@ -50,24 +50,24 @@ For example, say you're using `unstable_prop` from `unstable_Component`. Instead
 
 ```jsx static
 // MyComponent.js
-import React from "react";
-import { unstable_Component as Component } from "reakit";
+import React from 'react'
+import { unstable_Component as Component } from 'reakit'
 
 function MyComponent({ prop, ...props }, ref) {
-  return <Component unstable_prop={prop} {...props} ref={ref} />;
+  return <Component unstable_prop={prop} {...props} ref={ref} />
 }
 
-export default React.forwardRef(MyComponent);
+export default React.forwardRef(MyComponent)
 ```
 
 <!-- eslint-disable import/no-unresolved -->
 
 ```jsx static
 // OtherComponent.js
-import MyComponent from "./MyComponent";
+import MyComponent from './MyComponent'
 
 function OtherComponent() {
-  return <MyComponent prop="value" />;
+  return <MyComponent prop="value" />
 }
 ```
 
