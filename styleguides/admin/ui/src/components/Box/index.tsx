@@ -3,7 +3,6 @@ import React, { forwardRef, Ref, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { Box as ReakitBox, BoxProps as ReakitBoxProps } from 'reakit'
 import { RenderProp, ExtractHTMLAttributes } from 'reakit-utils/types'
-
 import {
   typographyTokens,
   flexTokens,
@@ -25,7 +24,7 @@ import {
   GridTokensProps,
   PositionTokensProps,
   VariantTokenProps,
-} from '../../tokens'
+} from '@admin/style-tokens'
 
 const WrappedBox = forwardRef(function BoxWithEl(
   props: PropsWithEl,

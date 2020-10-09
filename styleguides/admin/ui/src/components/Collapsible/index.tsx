@@ -7,18 +7,18 @@ import {
   DisclosureProps,
   DisclosureStateReturn,
 } from 'reakit/Disclosure'
-
-import { Box } from '../Box'
-import { CollapsibleProvider, useCollapsibleContext } from './context'
-import { IconCaret } from '../../icons'
-import { Button } from '../Button'
 import {
   BorderTokensProps,
   ColorTokensProps,
   FlexTokensProps,
   LayoutTokensProps,
   SpaceTokensProps,
-} from '../../tokens'
+} from '@admin/style-tokens'
+
+import { Box } from '../Box'
+import { CollapsibleProvider, useCollapsibleContext } from './context'
+import { IconCaret } from '../../icons'
+import { Button } from '../Button'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.

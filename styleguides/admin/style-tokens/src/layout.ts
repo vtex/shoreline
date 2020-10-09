@@ -1,13 +1,10 @@
 import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
-import { get } from '@vtex-components/theme'
-
-import { Sizes } from '../theme/config'
-import sizes from '../theme/config/sizes'
+import { Sizes, get, theme } from '@vtex/admin-ui'
 
 function transformSize(value: string | number) {
-  if (typeof value === 'string' && Object.keys(sizes).includes(value)) {
-    return get(sizes, value)
+  if (typeof value === 'string' && Object.keys(theme.sizes).includes(value)) {
+    return get(theme.sizes, value)
   }
 
   return Number(value)

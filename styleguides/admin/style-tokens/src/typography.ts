@@ -1,7 +1,6 @@
+import { FontSizes, FontWeights, LineHeights } from '@vtex/admin-ui'
 import { ResponsiveValue, system, variant } from 'styled-system'
 import * as CSS from 'csstype'
-
-import { FontSizes, FontWeights, LineHeights } from '../theme/config'
 
 const baseTokens = system({
   fs: {

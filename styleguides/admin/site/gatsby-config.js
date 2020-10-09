@@ -38,6 +38,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'style-tokens',
+        path: `${__dirname}/../style-tokens/src/docs`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'components',
         path: `${__dirname}/../ui/src`,
       },

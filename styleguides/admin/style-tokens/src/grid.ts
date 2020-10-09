@@ -1,7 +1,6 @@
 import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
-
-import { Space } from '../theme/config'
+import { Space } from '@vtex/admin-ui'
 
 export const gridTokens = system({
   gridGap: {

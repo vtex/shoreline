@@ -1,7 +1,6 @@
 import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
-
-import { BorderWidths, BorderRadius } from '../theme/config'
+import { BorderWidths, BorderRadius } from '@vtex/admin-ui'
 
 export const borderTokens = system({
   bw: {

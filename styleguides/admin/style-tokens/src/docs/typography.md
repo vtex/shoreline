@@ -1,12 +1,18 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+---
+path: /docs/tokens-typography/
+---
 
-<Meta title="design-system/Theme/Tokens/typography" />
+# Typography
 
-### Typography
+```jsx
+import { Box, ThemeProvider } from '@vtex/admin-ui'
 
-```js
-function useCase() {
-  return <Box fs="1" fw="regular" ta="center" lh="small" />
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box fs="1" fw="regular" ta="center" lh="small" />
+    </ThemeProvider>
+  )
 }
 ```
 

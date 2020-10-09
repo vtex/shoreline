@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
-
 import {
   spaceTokens,
   sxTokens,
@@ -12,7 +11,7 @@ import {
   FlexTokensProps,
   PositionTokensProps,
   LayoutTokensProps,
-} from '../../tokens'
+} from '@admin/style-tokens'
 
 export type StyledButtonProps = Pick<
   BaseProps,

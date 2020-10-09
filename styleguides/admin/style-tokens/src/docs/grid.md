@@ -1,12 +1,18 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+---
+path: /docs/tokens-grid/
+---
 
-<Meta title="design-system/Theme/Tokens/grid" />
-
-### Grid
+# Grid
 
 ```jsx
-function useCase() {
-  return <Box gridGap="2" gridAutoFlow="row dense" />
+import { Box, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box gridGap="2" gridAutoFlow="row dense" />
+    </ThemeProvider>
+  )
 }
 ```
 
