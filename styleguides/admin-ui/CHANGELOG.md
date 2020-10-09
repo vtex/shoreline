@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.49.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.49.2...@vtex/admin-ui@0.49.3) (2020-10-09)
+
+
+### Bug Fixes
+
+* **tokens:** rollback on the solution to supress react unknown props warning ([b4dc49f](https://github.com/vtex/onda/commit/b4dc49f1f57f83aaed16046f315a86431a349a13))
+* set correct backdrop color opacity ([8b89397](https://github.com/vtex/onda/commit/8b893973a584371b68251753d70eefe927f34726))
+
+
+
+
+
 ## [0.49.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.49.1...@vtex/admin-ui@0.49.2) (2020-10-09)
 
 
