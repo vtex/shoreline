@@ -1,22 +1,23 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react-hooks/rules-of-hooks */
-import * as React from 'react'
-import { css, cx } from 'emotion'
+import React from 'react'
+import { cx, css } from 'emotion'
+import { useColor } from '@vtex/admin-ui'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
-import { usePalette } from 'reakit-system-palette/utils'
 import { createHook, createComponent, useCreateElement } from 'reakit-system'
 import { Link } from 'gatsby'
 
 export type AnchorOptions = BoxOptions
-export type AnchorHTMLProps = BoxHTMLProps & React.AnchorHTMLAttributes<any>
+export type AnchorHTMLProps = BoxHTMLProps &
+  React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  >
 export type AnchorProps = AnchorOptions & AnchorHTMLProps
 
 export const useAnchor = createHook<AnchorOptions, AnchorHTMLProps>({
   name: 'Anchor',
   compose: useBox,
-
   useProps(_, htmlProps) {
-    const color = usePalette('link')
+    const color = useColor('primary.base')
     const anchor = css`
       color: ${color};
       font-weight: 500;
@@ -34,13 +35,12 @@ export const useAnchor = createHook<AnchorOptions, AnchorHTMLProps>({
 const Anchor = createComponent({
   as: 'a',
   useHook: useAnchor,
-
   useCreateElement(type, { href, ...props }, children) {
-    if (href && /^\/(?!\/)/.test(href)) {
-      return useCreateElement(Link, { to: href, ...props }, children)
-    }
-
-    return useCreateElement(type, { href, ...props }, children)
+    return useCreateElement(
+      href && /^\/(?!\/)/.test(href) ? Link : type,
+      { href, ...props },
+      children
+    )
   },
 })
 

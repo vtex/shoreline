@@ -2,7 +2,7 @@ import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
 import { get } from '@vtex-components/theme'
 
-import { Sizes, theme } from './theme/config'
+import { Sizes, theme } from '../theme/config'
 
 function transformSize(value: string | number) {
   if (typeof value === 'string' && Object.keys(theme.sizes).includes(value)) {

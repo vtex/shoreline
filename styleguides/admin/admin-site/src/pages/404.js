@@ -5,7 +5,7 @@ import Seo from '../components/SEO'
 
 const NotFoundPage = () => (
   <>
-    <Seo title="404: Not found — Reakit" />
+    <Seo title="AdminUI 404: Not fount" />
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
   </>

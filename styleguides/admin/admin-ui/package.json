@@ -33,9 +33,6 @@
     "playroom": "playroom start",
     "build:storybook": "yarn --cwd ../../../site bootstrap && yarn run build-storybook -s public && yarn build-playroom"
   },
-  "devDependencies": {
-    "@rollup/plugin-url": "^5.0.1"
-  },
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16"
@@ -51,6 +48,8 @@
     "@vtex-components/theme": "^0.1.1",
     "@vtex-components/tooltip": "^0.2.1",
     "@vtex-components/utils": "^0.0.3",
+    "admin-icons": "*",
+    "admin-system": "*",
     "csstype": "^3.0.3",
     "focus-visible": "^5.1.0",
     "polished": "^3.6.7",
@@ -60,8 +59,6 @@
     "styled-system": "^5.1.5",
     "theme-ui": "^0.3.1",
     "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3",
-    "admin-system": "*",
-    "admin-icons": "*"
+    "tiny-warning": "^1.0.3"
   }
 }

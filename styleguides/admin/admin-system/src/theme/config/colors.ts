@@ -18,6 +18,9 @@ export default {
     contrast: '#FFFFFF',
     washed: ['#FFF0F0', '#FFE3E3', '#FFD0D0'],
   },
+  warning: {
+    base: '#FFBA52',
+  },
   success: {
     base: '#097E47',
     hover: '#005C31',

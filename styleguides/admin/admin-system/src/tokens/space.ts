@@ -1,6 +1,6 @@
 import { system, ResponsiveValue } from 'styled-system'
 
-import { Space } from './theme/config'
+import { Space } from '../theme/config'
 
 export const spaceTokens = system({
   m: {

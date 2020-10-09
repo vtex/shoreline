@@ -63,8 +63,5 @@
     "unist-util-visit": "2.0.3",
     "whatwg-fetch": "3.4.1",
     "yup": "0.29.3"
-  },
-  "devDependencies": {
-    "babel-preset-gatsby": "0.5.10"
   }
 }

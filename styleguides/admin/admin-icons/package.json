@@ -1,13 +1,10 @@
 {
   "name": "admin-icons",
+  "private": "true",
   "version": "0.0.0",
   "main": "dist/index.js",
   "module": "dist/icons.esm.js",
   "typings": "dist/index.d.ts",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
   "files": [
     "dist",
     "src"

@@ -16,7 +16,7 @@ import { MdMenu } from 'react-icons/md'
 import { usePalette, useFade } from 'reakit-system-palette/utils'
 import { LinkGetProps } from '@reach/router'
 
-import Logo from '../icons/Logo'
+import Logo from '../icons/LogoSkeleton'
 import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
 import useLocation from '../hooks/useLocation'
 import track from '../utils/track'
@@ -194,19 +194,11 @@ export default function Header({ transparent }: HeaderProps) {
               >
                 Documentation
               </Anchor>
-              <Anchor
-                as={Link}
-                to="/news/"
-                {...props}
-                onClick={track('reakit.headerNewsletterClick')}
-              >
-                Newsletter
-              </Anchor>
             </>
           )}
         </HiddenMediaQuery>
         <Anchor
-          href="https://github.com/reakit/reakit"
+          href="https://github.com/vtex/onda/tree/master/stylesguides/admin/admin-ui"
           onClick={track('reakit.headerGithubClick')}
         >
           <FaGithub style={{ fontSize: '1.2em' }} />

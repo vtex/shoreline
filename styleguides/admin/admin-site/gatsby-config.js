@@ -25,7 +25,7 @@ module.exports = {
         background_color: '#2953B2',
         theme_color: '#2953B2',
         display: 'minimal-ui',
-        icon: 'src/images/icon.svg', // This path is relative to the root of the site.
+        icon: 'src/images/icon.svg',
       },
     },
     {
@@ -38,7 +38,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'style-tokens',
+        name: 'system',
         path: `${__dirname}/../admin-system/src/docs`,
       },
     },

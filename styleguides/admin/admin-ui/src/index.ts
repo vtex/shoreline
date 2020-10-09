@@ -1,4 +1,5 @@
 export * from 'admin-system'
+export * from 'admin-icons'
 export { Box, BoxProps } from './components/Box'
 export { Button, ButtonProps } from './components/Button'
 export { Text, TextProps } from './components/Text'
@@ -31,7 +32,6 @@ export {
 } from './components/Collapsible'
 export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Toggle, ToggleProps, useToggle } from './components/Toggle'
-export * from 'admin-icons'
 export { Avatar } from './components/Avatar'
 export {
   Checkbox,

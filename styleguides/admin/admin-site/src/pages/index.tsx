@@ -6,7 +6,7 @@ import Seo from '../components/SEO'
 export default function IndexPage() {
   return (
     <ThemeProvider>
-      <Seo title="Reakit – Toolkit for building accessible UIs" />
+      <Seo title="AdminUI - VTEX admin component library" />
       <Box
         display="flex"
         justify="start"
