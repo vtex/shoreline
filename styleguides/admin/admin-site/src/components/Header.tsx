@@ -15,6 +15,7 @@ import { FaGithub } from 'react-icons/fa'
 import { MdMenu } from 'react-icons/md'
 import { usePalette, useFade } from 'reakit-system-palette/utils'
 import { LinkGetProps } from '@reach/router'
+import { Box } from '@vtex/admin-ui'
 
 import Logo from '../icons/LogoSkeleton'
 import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
@@ -41,82 +42,71 @@ function getLinkProps({ isPartiallyCurrent }: LinkGetProps) {
 export default function Header({ transparent }: HeaderProps) {
   const ref = React.useRef<HTMLDivElement>(null)
   const isLarge = useViewportWidthGreaterThan(768)
-  const background = usePalette('background')
   const foreground = usePalette('foreground')
   const primary = usePalette('primary')
   const boxShadowColor = useFade(foreground, 0.85)
   const dialog = useDialogState({ animated: true })
   const location = useLocation()
-  const headerZIndex = 910
-  const narrowBreakpoint = 450
 
   React.useEffect(dialog.hide, [location.pathname])
+  const transparentStyle = transparent
+    ? { background: 'transparent', color: 'background' }
+    : { boxShadow: `0 1px 2px ${boxShadowColor}` }
 
   return (
     <>
-      <header
-        className={css`
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          z-index: 910;
-          height: 60;
-          background: ${background};
-          display: flex;
-          align-items: center;
-          padding: 0 56px;
-          will-change: background;
-          ${!transparent && `box-shadow: 0 1px 2px ${boxShadowColor}`};
-          ${transparent &&
-            css`
-              background: transparent;
-              color: white;
-            `};
-
-          & > *:not(:last-child) {
-            margin-right: 16px;
-          }
-          a:not([href^='#']) {
-            display: inline-flex;
-            align-items: center;
-            height: calc(100% - 5px);
-            color: inherit;
-            font-weight: 400;
-            margin-top: 5px;
-            border-bottom: 5px solid transparent;
-            box-sizing: border-box;
-            text-transform: uppercase;
-            font-size: 0.875em;
-            &:not([href='/']) {
-              padding: 0 1em;
-              &:hover {
-                color: ${transparent ? 'white' : primary};
-                text-decoration: ${transparent ? 'underline' : 'none'};
-              }
-              &[aria-current='page'] {
-                color: ${primary};
-                border-color: ${primary};
-              }
-            }
-          }
-
-          @media (max-width: 768px) {
-            padding: 0 8px;
-            transform: initial;
-            height: var(--header-height);
-            & > *:not(:last-child) {
-              margin-right: 8px;
-            }
-            a {
-              font-size: 1em !important;
-            }
-          }
-
-          @media (max-width: ${narrowBreakpoint}px) {
-            top: 66px;
-          }
-        `}
+      <Box
+        el="header"
+        position="fixed"
+        top="0"
+        left="0"
+        w="full"
+        h={60}
+        display="flex"
+        items="center"
+        bg="background"
+        sx={{
+          zIndex: 910,
+          padding: '0 56px',
+          willChange: 'background',
+          '& > *:not(:last-child)': {
+            marginRight: 4,
+          },
+          '@media (max-width: 768px)': {
+            padding: '0 8px',
+            transform: 'initial',
+            height: 60,
+            '> *:not(:last-child)': {
+              marginRight: '8px',
+            },
+            a: {
+              fontSize: '1em !important',
+            },
+          },
+          "a:not([href^='#'])": {
+            display: 'inline-flex',
+            alignItems: 'center',
+            height: 'calc(100% - 5px)',
+            color: 'inherit',
+            fontWeight: 400,
+            marginTop: '5px',
+            borderBottom: '5px solid transparent',
+            textTransform: 'uppercase',
+            fontSize: '0.875em',
+            "&:not([href='/'])": {
+              padding: '0 1em',
+              '&:hover': {
+                color: transparent ? 'white' : primary,
+                textDecoration: transparent ? 'underline' : 'none',
+              },
+              "&[aria-current='page']": {
+                color: primary,
+                borderColor: primary,
+              },
+            },
+          },
+          ...transparentStyle,
+        }}
       >
         <Global
           styles={{
@@ -174,7 +164,7 @@ export default function Header({ transparent }: HeaderProps) {
           <Logo colored={!transparent} />
           <VisuallyHidden>Reakit</VisuallyHidden>
         </Anchor>
-        <div style={{ flex: 1 }} />
+        <Box sx={{ flex: 1 }} />
         <HiddenMediaQuery query="max-width: 768px">
           {(props) => (
             <Anchor
@@ -199,7 +189,7 @@ export default function Header({ transparent }: HeaderProps) {
           </HiddenMediaQuery>
           {!isLarge && <VisuallyHidden>GitHub</VisuallyHidden>}
         </Anchor>
-      </header>
+      </Box>
     </>
   )
 }
