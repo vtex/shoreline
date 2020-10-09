@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.49.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.49.1...@vtex/admin-ui@0.49.2) (2020-10-09)
+
+
+### Bug Fixes
+
+* **tokens:** fix react unknown prop warning when using the tokens ([071dabd](https://github.com/vtex/onda/commit/071dabdef455a2896d70d57b892df71f21d1e807))
+
+
+
+
+
 ## [0.49.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.49.0...@vtex/admin-ui@0.49.1) (2020-10-08)
 
 
