@@ -1,6 +1,5 @@
+import { Space } from '@vtex/admin-ui'
 import { system, ResponsiveValue } from 'styled-system'
-
-import { Space } from '../theme/config'
 
 export const spaceTokens = system({
   m: {

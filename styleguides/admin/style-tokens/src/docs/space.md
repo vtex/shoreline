@@ -1,12 +1,18 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+---
+path: /docs/tokens-space/
+---
 
-<Meta title="design-system/Theme/Tokens/space" />
+# Space
 
-### Space
+```jsx
+import { Box, ThemeProvider } from '@vtex/admin-ui'
 
-```js
-function useCase() {
-  return <Box m="2" pb="4" />
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box m="2" pb="4" />
+    </ThemeProvider>
+  )
 }
 ```
 

@@ -1,8 +1,18 @@
-export { jsx, css } from 'theme-ui'
+export { jsx, css, SxStyleProp, SxProps } from 'theme-ui'
 export { keyframes } from '@emotion/core'
 export { default as styled } from '@emotion/styled'
-export { useTheme } from '@vtex-components/theme'
-export { ThemeProvider, Theme } from './theme'
+export { useTheme, get } from '@vtex-components/theme'
+export { ThemeProvider, Theme, theme } from './theme'
+export {
+  BorderRadius,
+  BorderWidths,
+  FontSizes,
+  FontWeights,
+  ZIndexes,
+  Space,
+  Sizes,
+  LineHeights,
+} from './theme/config'
 export { Box, BoxProps } from './components/Box'
 export { Button, ButtonProps } from './components/Button'
 export { Text, TextProps } from './components/Text'

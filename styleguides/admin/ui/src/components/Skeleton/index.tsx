@@ -1,7 +1,7 @@
 import React from 'react'
 import { SxStyleProp } from 'theme-ui'
+import { LayoutTokensProps, SpaceTokensProps } from '@admin/style-tokens'
 
-import { LayoutTokensProps, SpaceTokensProps } from '../../tokens'
 import { Box } from '../Box'
 
 /**

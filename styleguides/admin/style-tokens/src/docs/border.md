@@ -1,12 +1,18 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+---
+path: /docs/tokens-border/
+---
 
-<Meta title="design-system/Theme/Tokens/border" />
+# Border
 
-### Border
+```jsx
+import { Box, ThemeProvider } from '@vtex/admin-ui'
 
-```js
-function useCase() {
-  return <Box bw="1" br="3" bs="solid" />
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box bw="1" br="3" bs="solid" />
+    </ThemeProvider>
+  )
 }
 ```
 

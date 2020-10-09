@@ -7,6 +7,16 @@
     - /docs/styling/
     - /docs/managing-state/
     - /docs/experimental/
+- section: Style Tokens
+  paths:
+    - /docs/tokens-border/
+    - /docs/tokens-color/
+    - /docs/tokens-flex/
+    - /docs/tokens-grid/
+    - /docs/tokens-layout/
+    - /docs/tokens-position/
+    - /docs/tokens-space/
+    - /docs/tokens-typography/
 - section: Components
   paths:
     - /docs/box/

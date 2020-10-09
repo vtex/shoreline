@@ -1,12 +1,18 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+---
+path: /docs/tokens-position/
+---
 
-<Meta title="design-system/Theme/Tokens/position" />
-
-### Position
+# Position
 
 ```jsx
-function useCase() {
-  return <Box position="relative" z="1" top="0" left="0" bottom="0" right="0" />
+import { Box, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box position="relative" z="1" top="0" left="0" bottom="0" right="0" />
+    </ThemeProvider>
+  )
 }
 ```
 

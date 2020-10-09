@@ -1,4 +1,4 @@
-import { SxProps as SxTokensProps, css } from 'theme-ui'
+import { SxProps as SxTokensProps, css } from '@vtex/admin-ui'
 import { Interpolation } from '@emotion/styled'
 import { styleFn } from 'styled-system'
 

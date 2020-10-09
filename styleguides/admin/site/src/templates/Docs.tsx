@@ -168,6 +168,51 @@ const { Compiler: renderAst } = new RehypeReact({
         <CodeBlock {...props} />
       </AdminUI.ThemeProvider>
     ),
+    table: (props) => (
+      <AdminUI.Box
+        el="table"
+        br="3"
+        sx={{
+          borderCollapse: 'collapse',
+        }}
+        {...props}
+      />
+    ),
+    tr: (props) => <AdminUI.Box ta="left" el="tr" h={48} {...props} />,
+    colorblock: (props) => (
+      <AdminUI.Box
+        w="full"
+        bc="muted.2"
+        bw="1"
+        bs="solid"
+        h={32}
+        br="3"
+        sx={{
+          boxShadow: 'subtle',
+        }}
+        {...props}
+      />
+    ),
+    th: (props) => (
+      <AdminUI.Box
+        px="3"
+        el="th"
+        bbc="muted.2"
+        bbw="1"
+        bbs="solid"
+        {...props}
+      />
+    ),
+    td: (props) => (
+      <AdminUI.Box
+        px="3"
+        el="td"
+        bbc="muted.2"
+        bbw="1"
+        bbs="solid"
+        {...props}
+      />
+    ),
   },
 })
 

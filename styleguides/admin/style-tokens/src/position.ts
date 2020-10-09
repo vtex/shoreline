@@ -1,7 +1,6 @@
+import { Space, ZIndexes } from '@vtex/admin-ui'
 import { system, ResponsiveValue } from 'styled-system'
 import * as CSS from 'csstype'
-
-import { Space, ZIndexes } from '../theme/config'
 
 export const positionTokens = system({
   position: true,
