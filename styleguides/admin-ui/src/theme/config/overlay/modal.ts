@@ -69,7 +69,7 @@ export default {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: rgba(colors.text, 0.8),
+    backgroundColor: rgba(colors.text, 0.5),
     position: 'fixed',
     top: 0,
     left: 0,
