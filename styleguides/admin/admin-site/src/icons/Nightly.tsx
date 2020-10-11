@@ -1,6 +1,9 @@
 import * as React from 'react'
 
-function Nightly(props: React.SVGAttributes<SVGElement>, ref: React.Ref<any>) {
+function Nightly(
+  props: React.SVGAttributes<SVGElement>,
+  ref: React.Ref<SVGSVGElement>
+) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 512 512" {...props} ref={ref}>
       <path

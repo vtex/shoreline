@@ -25,13 +25,13 @@ export default function IndexPage() {
           height: '100vh',
           position: 'relative',
           width: 'full',
-          bg: 'black',
+          bg: 'background',
         }}
       >
         <Box
           sx={{
             backgroundImage: (theme) =>
-              `radial-gradient(${theme.colors.text} 4px, transparent 4px)`,
+              `radial-gradient(${theme.colors.muted[4]} 4px, transparent 4px)`,
             backgroundSize: 'calc(10 * 2px) calc(10 * 2px)',
             backgroundClip: 'text',
             maxWidth: 256,
@@ -42,7 +42,7 @@ export default function IndexPage() {
             fw={800}
             sx={{
               fontSize: 140,
-              color: 'background',
+              color: 'text',
             }}
           >
             VTEX ADMIN UI
