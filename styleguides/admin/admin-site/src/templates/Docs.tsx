@@ -162,11 +162,7 @@ const { Compiler: renderAst } = new RehypeReact({
 
       return <span {...props} />
     },
-    pre: (props) => (
-      <AdminUI.ThemeProvider>
-        <CodeBlock {...props} />
-      </AdminUI.ThemeProvider>
-    ),
+    pre: (props) => <CodeBlock {...props} />,
     table: (props) => (
       <AdminUI.Box
         el="table"

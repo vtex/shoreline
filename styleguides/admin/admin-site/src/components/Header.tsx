@@ -18,7 +18,6 @@ import { LinkGetProps } from '@reach/router'
 import Logo from '../icons/LogoSkeleton'
 import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
 import useLocation from '../hooks/useLocation'
-import track from '../utils/track'
 import Anchor from './Anchor'
 import SkipToContent from './SkipToContent'
 import Spacer from './Spacer'
@@ -145,19 +144,13 @@ export default function Header({ isHome }: HeaderProps) {
         </Dialog>
       </HiddenMediaQuery>
       <Anchor as={Link} to="/">
-        <Logo colored={!isHome} />
+        <Logo />
         <VisuallyHidden>Reakit</VisuallyHidden>
       </Anchor>
       <Box sx={{ flex: 1 }} />
       <HiddenMediaQuery query="max-width: 768px">
         {(props) => (
-          <Anchor
-            as={Link}
-            to="/docs/"
-            getProps={getLinkProps}
-            {...props}
-            onClick={track('reakit.headerGuideClick')}
-          >
+          <Anchor as={Link} to="/docs/" getProps={getLinkProps} {...props}>
             Documentation
           </Anchor>
         )}
