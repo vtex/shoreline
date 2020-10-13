@@ -1,5 +1,5 @@
 {
-  "packages": ["components/*", "styleguides/*"],
+  "packages": ["components/*", "styleguides/brand-ui", "styleguides/admin/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent",
@@ -7,7 +7,7 @@
   "loglevel": "success",
   "command": {
     "publish": {
-      "allowBranch": "master",
+      "allowBranch": ["master", "nightly"],
       "conventionalCommits": true,
       "message": "chore(release): publish [skip ci]"
     }

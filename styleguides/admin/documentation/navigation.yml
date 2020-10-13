@@ -1,0 +1,22 @@
+- section: Guide
+  paths:
+    - /docs/get-started/
+    - /docs/styling/
+    - /docs/nightly/
+- section: Theme
+  paths:
+    - /docs/tokens-border/
+    - /docs/tokens-color/
+    - /docs/tokens-flex/
+    - /docs/tokens-grid/
+    - /docs/tokens-layout/
+    - /docs/tokens-position/
+    - /docs/tokens-space/
+    - /docs/tokens-typography/
+- section: Components
+  paths:
+    - /docs/box/
+    - /docs/list/
+- section: Documentation Templates
+  paths:
+    - /docs/documentation-template/
