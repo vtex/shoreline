@@ -68,4 +68,4 @@ export {
   IconRocket,
   IconSupport,
   IconClose,
-} from 'admin-icons'
+} from '../icons'

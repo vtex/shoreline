@@ -2,6 +2,7 @@
 import React, { forwardRef, Ref, ReactNode } from 'react'
 import { Box as ReakitBox, BoxProps as ReakitBoxProps } from 'reakit'
 import { RenderProp, ExtractHTMLAttributes } from 'reakit-utils/types'
+
 import {
   styled,
   typographyTokens,
@@ -24,7 +25,7 @@ import {
   GridTokensProps,
   PositionTokensProps,
   VariantTokenProps,
-} from 'admin-system'
+} from '../../system'
 
 const WrappedBox = forwardRef(function BoxWithEl(
   props: PropsWithEl,

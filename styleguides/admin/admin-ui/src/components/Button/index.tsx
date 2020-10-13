@@ -1,6 +1,6 @@
 import React, { Ref, forwardRef, ReactNode } from 'react'
-import { SxStyleProp } from 'admin-system'
 
+import { SxStyleProp } from '../../system'
 import { Box } from '../Box'
 import { StyledButton, StyledButtonProps } from './styled'
 

@@ -1,4 +1,5 @@
 import BaseButton, { ButtonProps as BaseProps } from '@vtex-components/button'
+
 import {
   styled,
   spaceTokens,
@@ -11,7 +12,7 @@ import {
   FlexTokensProps,
   PositionTokensProps,
   LayoutTokensProps,
-} from 'admin-system'
+} from '../../system'
 
 export type StyledButtonProps = Pick<
   BaseProps,

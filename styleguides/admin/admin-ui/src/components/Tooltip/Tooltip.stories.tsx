@@ -2,8 +2,8 @@
 import { jsx } from 'theme-ui'
 import React, { Ref } from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Icon, IconAddChannel, IconCaret, IconProps } from 'admin-icons'
 
+import { Icon, IconAddChannel, IconCaret, IconProps } from '../../icons'
 import { Tooltip, TooltipProps } from './index'
 import { Button } from '../Button'
 import { Box } from '../Box'

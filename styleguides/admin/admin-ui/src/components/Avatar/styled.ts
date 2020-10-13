@@ -6,7 +6,7 @@ import {
   PositionTokensProps,
   variantToken,
   VariantTokenProps,
-} from 'admin-system'
+} from '../../system'
 
 export type SurfaceProps = SxTokensProps &
   PositionTokensProps &

@@ -48,8 +48,7 @@
     "@vtex-components/theme": "^0.1.1",
     "@vtex-components/tooltip": "^0.2.1",
     "@vtex-components/utils": "^0.0.3",
-    "admin-icons": "^0.1.0-alpha.0",
-    "admin-system": "^0.1.0-alpha.0",
+    "@vtex-components/icon": "^0.0.5",
     "csstype": "^3.0.3",
     "focus-visible": "^5.1.0",
     "polished": "^3.6.7",
@@ -59,6 +58,8 @@
     "styled-system": "^5.1.5",
     "theme-ui": "^0.3.1",
     "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3"
+    "tiny-warning": "^1.0.3",
+    "@theme-ui/css": "0.4.0-rc.3",
+    "deepmerge": "^4.2.2"
   }
 }

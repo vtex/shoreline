@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { forwardRef, Ref } from 'react'
-import { IconActions, IconCaret } from 'admin-icons'
 
+import { IconActions, IconCaret } from '../../icons'
 import { Button, ButtonProps } from '../Button'
 
 /**

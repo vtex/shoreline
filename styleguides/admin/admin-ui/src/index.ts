@@ -1,5 +1,5 @@
-export * from 'admin-system'
-export * from 'admin-icons'
+export * from './system'
+export * from './icons'
 export { Box, BoxProps } from './components/Box'
 export { Button, ButtonProps } from './components/Button'
 export { Text, TextProps } from './components/Text'

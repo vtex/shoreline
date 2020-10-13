@@ -19,8 +19,8 @@ import {
   DialogStateReturn,
   DialogOptions,
 } from 'reakit/Dialog'
-import { IconClose } from 'admin-icons'
 
+import { IconClose } from '../../icons'
 import { Box, BoxProps } from '../Box'
 import { Text } from '../Text'
 import { Button, ButtonProps } from '../Button'
