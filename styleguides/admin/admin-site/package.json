@@ -6,11 +6,11 @@
   "license": "MIT",
   "repository": "https://github.com/vtex/onda/tree/master/stylesguides/admin/site",
   "scripts": {
-    "start": "yarn develop",
-    "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
-    "serve": "gatsby serve -H 0.0.0.0 -p 9000"
+    "prebuild-site": "yarn clean",
+    "build-site": "gatsby build",
+    "predevelop": "yarn clean",
+    "develop": "gatsby develop -H 0.0.0.0 -p 8000"
   },
   "dependencies": {
     "@emotion/core": "10.0.35",

@@ -14,7 +14,7 @@
 Use the following command to bootstrap all the packages.
 
 ```bash
-yarn bootstrap
+yarn
 ```
 
 ### Storybook
@@ -42,7 +42,7 @@ yarn publish:packages
 or
 
 ```bash
-yarn publish:canary
+yarn publish:nightly
 ```
 
 To publish a canary version
