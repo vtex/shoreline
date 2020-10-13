@@ -79,6 +79,7 @@ export const theme = {
   fontWeights: {
     regular: 400,
     medium: 500,
+    bold: 600,
   },
   lineHeights: {
     small: 1.125,
