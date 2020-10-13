@@ -31,7 +31,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-playroom": "playroom build",
     "playroom": "playroom start",
-    "build:storybook": "yarn --cwd ../../../site bootstrap && yarn run build-storybook -s public && yarn build-playroom"
+    "build:storybook": "yarn --cwd ../../../ build && yarn run build-storybook -s public && yarn build-playroom"
   },
   "peerDependencies": {
     "react": ">=16",
