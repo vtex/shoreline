@@ -21,7 +21,7 @@
     "start": "lerna run start",
     "prepublish:packages": "yarn run bootstrap",
     "publish:packages": "lerna publish --yes",
-    "publish:canary": "lerna publish --canary --yes",
+    "publish:nightly": "lerna publish --canary --yes",
     "clean": "lerna clean && lerna run clean",
     "format": "prettier --write \"styleguides/**/*.{ts,js,tsx,jsx,json}\"",
     "bootstrap": "yarn install --frozen-lockfile && yarn build",
