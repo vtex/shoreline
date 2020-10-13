@@ -25,28 +25,14 @@ module.exports = {
         background_color: '#2953B2',
         theme_color: '#2953B2',
         display: 'minimal-ui',
-        icon: 'src/images/icon.svg',
+        // icon: 'src/images/icon.svg',
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'guide',
-        path: `${__dirname}/../admin-ui/docs`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'system',
-        path: `${__dirname}/../admin-system/src/docs`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'components',
-        path: `${__dirname}/../admin-ui/src`,
+        name: 'documentation',
+        path: `${__dirname}/../documentation`,
       },
     },
     {
@@ -78,8 +64,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'data',
-        path: `${__dirname}/src/data/`,
+        name: 'navigation',
+        path: `${__dirname}/../documentation`,
       },
     },
     'gatsby-plugin-meta-redirect',

@@ -1,5 +1,6 @@
 ---
 path: /docs/tokens-space/
+nightly: true
 ---
 
 # Space

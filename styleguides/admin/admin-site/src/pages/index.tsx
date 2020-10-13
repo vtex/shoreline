@@ -1,19 +1,10 @@
 /** @jsx jsx */
 import { jsx, Box, Text, ThemeProvider } from '@vtex/admin-ui'
-import { useRef, useLayoutEffect } from 'react'
 
 import Seo from '../components/SEO'
 import IndexIllustration from '../icons/IndexIllustration'
 
 export default function IndexPage() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useLayoutEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play()
-    }
-  }, [])
-
   return (
     <ThemeProvider>
       <Seo title="AdminUI - VTEX admin component library" />

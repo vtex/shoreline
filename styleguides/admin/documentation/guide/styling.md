@@ -1,18 +1,23 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+---
+path: /docs/styling/
+nightly: true
+---
 
-<Meta title="design-system/Theme/theme" />
+# Styling
 
-# Admin UI Theme
+💡 Also check [ThemeUI API](https://theme-ui.com/api/) for detailed info.
 
-> 💡 Also check [ThemeUI API](https://theme-ui.com/api/) for detailed info.
+<blockquote nightly="true">
+  This is a nightly feature. Use it with care 😬.
+</blockquote>
 
 ## ThemeProvider
 
-> Same as [ThemeUI ThemeProvider](https://theme-ui.com/guides/how-it-works/#themeprovider)
+Same as [ThemeUI ThemeProvider](https://theme-ui.com/guides/how-it-works/#themeprovider)
 
 Usage:
 
-```jsx
+```jsx static
 import { ThemeProvider } from '@vtex/admin-ui'
 
 function ProjectRoot() {
@@ -22,11 +27,11 @@ function ProjectRoot() {
 
 ## jsx
 
-> Same as [JSX Pragma](https://theme-ui.com/guides/how-it-works/#jsx-pragma)
+Same as [JSX Pragma](https://theme-ui.com/guides/how-it-works/#jsx-pragma)
 
 Usage:
 
-```jsx
+```jsx static
 /** @jsx jsx */
 import { jsx } from '@vtex/admin-ui'
 
@@ -42,11 +47,11 @@ export default (props) => (
 
 ## `useTheme` hook
 
-> Returns the theme object
+Returns the theme object
 
 Usage:
 
-```jsx
+```jsx static
 import { useTheme } from '@vtex-components/theme'
 
 function Component() {
@@ -56,8 +61,6 @@ function Component() {
 ```
 
 ## `sx` property
-
-> To apply custom styles and consume theme values on specyfic properties
 
 The sx prop lets you add any valid CSS to an element, while using values from your theme to keep styles consistent. You can think of the style object that the sx prop accepts as a superset of CSS.
 
@@ -82,4 +85,4 @@ Our components have a `focus` ring style that only appears when the user is navi
 
 ## Styled Props
 
-> 💡 Check the `Tokens` section for detailed info about each styled prop.
+💡 Check the `Tokens` section for detailed info about each styled prop.

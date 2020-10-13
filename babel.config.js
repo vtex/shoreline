@@ -3,6 +3,7 @@ const prod = process.env.NODE_ENV === 'production'
 
 const { warn } = console
 
+// TODO: refactor
 // Prevents resolution warnings from babel-plugin-module-resolver
 // See https://github.com/tleunen/babel-plugin-module-resolver/issues/315
 // eslint-disable-next-line no-console

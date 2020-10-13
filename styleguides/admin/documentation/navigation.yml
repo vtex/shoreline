@@ -1,13 +1,9 @@
 - section: Guide
   paths:
     - /docs/get-started/
-    - /docs/basic-concepts/
-    - /docs/composition/
-    - /docs/accessibility/
     - /docs/styling/
-    - /docs/managing-state/
     - /docs/nightly/
-- section: Style Tokens
+- section: Theme
   paths:
     - /docs/tokens-border/
     - /docs/tokens-color/
@@ -21,3 +17,6 @@
   paths:
     - /docs/box/
     - /docs/list/
+- section: Documentation Templates
+  paths:
+    - /docs/documentation-template/

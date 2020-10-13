@@ -36,7 +36,7 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
-      allDocsYaml {
+      allNavigationYaml {
         edges {
           node {
             section
@@ -52,7 +52,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     const flatArray = []
 
-    result.data.allDocsYaml.edges.forEach(async ({ node }) => {
+    result.data.allNavigationYaml.edges.forEach(async ({ node }) => {
       node.paths.forEach((path) => flatArray.push(path))
     })
 

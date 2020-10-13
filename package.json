@@ -18,6 +18,7 @@
     "lerna": "lerna",
     "build": "lerna run build",
     "test": "lerna run test",
+    "start": "lerna run start",
     "prepublish:packages": "yarn run bootstrap",
     "publish:packages": "lerna publish --yes",
     "publish:canary": "lerna publish --canary --yes",

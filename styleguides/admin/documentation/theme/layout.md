@@ -1,5 +1,6 @@
 ---
 path: /docs/tokens-layout/
+nightly: true
 ---
 
 # Layout

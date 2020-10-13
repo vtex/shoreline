@@ -2,8 +2,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import thumbnail from '../images/thumbnail.png'
-
 const defaultKeywords = ['react', 'accessibility', 'components', 'ui', 'a11y']
 
 const detailsQuery = graphql`
@@ -30,7 +28,6 @@ export default function SEO({
   const metaDescription = description ?? data.site.siteMetadata.description
   const metaTitle = title || data.site.siteMetadata.title
   const url = data.site.siteMetadata.siteUrl as string
-  const image = url + ((thumbnail as unknown) as string)
 
   return (
     <Helmet
@@ -57,10 +54,11 @@ export default function SEO({
           property: 'og:type',
           content: 'website',
         },
-        {
-          property: 'og:image',
-          content: image,
-        },
+        // TODO: add thumbnail
+        // {
+        //   property: 'og:image',
+        //   content: image,
+        // },
         {
           name: 'keywords',
           content: defaultKeywords.concat(keywords).join(', '),

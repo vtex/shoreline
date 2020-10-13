@@ -1,5 +1,6 @@
 ---
 path: /docs/tokens-position/
+nightly: true
 ---
 
 # Position

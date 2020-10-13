@@ -1,5 +1,6 @@
 ---
 path: /docs/tokens-border/
+nightly: true
 ---
 
 # Border
