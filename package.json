@@ -16,6 +16,7 @@
   },
   "scripts": {
     "lerna": "lerna",
+    "prebuild": "yarn run clean-site:admin",
     "build": "lerna run build",
     "test": "lerna run test",
     "start": "lerna run start",
