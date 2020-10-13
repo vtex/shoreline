@@ -20,7 +20,6 @@ import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
 import useLocation from '../hooks/useLocation'
 import Anchor from './Anchor'
 import SkipToContent from './SkipToContent'
-import Spacer from './Spacer'
 import HiddenMediaQuery from './HiddenMediaQuery'
 import DocsNavigation from './DocsNavigation'
 
@@ -159,11 +158,8 @@ export default function Header({ isHome }: HeaderProps) {
         href="https://github.com/vtex/onda/tree/master/stylesguides/admin/admin-ui"
         target="blank"
       >
-        <FaGithub style={{ fontSize: '1.2em' }} />
-        <HiddenMediaQuery query="max-width: 900px">
-          <Spacer width={8} />
-          GitHub
-        </HiddenMediaQuery>
+        <FaGithub sx={{ fontSize: '1.2em', marginRight: 2 }} />
+        <HiddenMediaQuery query="max-width: 900px">GitHub</HiddenMediaQuery>
         {!isLarge && <VisuallyHidden>GitHub</VisuallyHidden>}
       </Anchor>
     </Box>

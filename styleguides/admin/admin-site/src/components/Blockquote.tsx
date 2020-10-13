@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { css, cx } from 'emotion'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
-import { useColor, darken, lighten } from '@vtex/admin-ui'
+import { useColor, darken, lighten, ThemeColors } from '@vtex/admin-ui'
 
 import Nightly from '../icons/Nightly'
 
@@ -10,12 +10,15 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
   {
     name: 'Blockquote',
     compose: useBox,
-    keys: ['nightly'],
+    keys: ['nightly', 'palette'],
 
     useProps(options, htmlProps) {
       const isNightly = options.nightly === 'true'
-      const warning = useColor('warning.base')
-      const backgroundColor = lighten(0.275, warning)
+      const palette = useColor(
+        `${options.palette ?? 'warning'}.base` as ThemeColors
+      )
+
+      const backgroundColor = lighten(0.32, `${palette}`)
       const borderColor = darken(0.2, backgroundColor)
       const color = useColor('text')
 
@@ -69,6 +72,7 @@ const Blockquote = createComponent({
 
 export type BlockquoteOptions = BoxOptions & {
   nightly?: 'true' | 'false'
+  palette?: 'primary' | 'success' | 'danger' | 'warning'
 }
 
 export type BlockquoteHTMLProps = BoxHTMLProps &

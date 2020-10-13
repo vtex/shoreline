@@ -1,5 +1,6 @@
 ---
 path: /docs/tokens-grid/
+nightly: true
 ---
 
 # Grid

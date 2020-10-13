@@ -1,15 +1,11 @@
 /** @jsx jsx */
-import { jsx, useColor, Button, Theme, Box } from '@vtex/admin-ui'
-import * as React from 'react'
+import { jsx, Theme, VisuallyHidden } from '@vtex/admin-ui'
+import { useState, useCallback, createElement, useMemo, useEffect } from 'react'
 import RehypeReact from 'rehype-react'
-import { Button as ReakitButton, unstable_useId as useId } from 'reakit'
-import { css } from 'emotion'
+import { unstable_useId as useId } from 'reakit'
 import constate from 'constate'
-import { FaEdit, FaGithub } from 'react-icons/fa'
 
 import useLocation from '../hooks/useLocation'
-import track from '../utils/track'
-import Spacer from './Spacer'
 
 type Props = {
   readmeUrl: string
@@ -19,12 +15,12 @@ type Props = {
 }
 
 function useCollection() {
-  const [items, setItems] = React.useState<string[]>([])
-  const add = React.useCallback((item: string) => {
+  const [items, setItems] = useState<string[]>([])
+  const add = useCallback((item: string) => {
     setItems((prevItems) => [...prevItems, item])
   }, [])
 
-  const remove = React.useCallback((item: string) => {
+  const remove = useCallback((item: string) => {
     setItems((prevItems) => {
       const idx = prevItems.indexOf(item)
 
@@ -42,17 +38,17 @@ function useCollection() {
 const [CollectionProvider, useCollectionContext] = constate(() => {
   const value = useCollection()
 
-  return React.useMemo(() => value, [value])
+  return useMemo(() => value, [value])
 })
 
 function useScrollSpy() {
   const { items } = useCollectionContext()
-  const [currentId, setCurrentId] = React.useState<string | null>(null)
+  const [currentId, setCurrentId] = useState<string | null>(null)
   const location = useLocation()
 
-  React.useEffect(() => setCurrentId(null), [location.pathname])
+  useEffect(() => setCurrentId(null), [location.pathname])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!items.length) return undefined
 
     const elements = document.querySelectorAll<HTMLElement>(
@@ -82,13 +78,13 @@ function useScrollSpy() {
 const [ScrollSpyProvider, useScrollSpyContext] = constate(useScrollSpy)
 
 const { Compiler: renderAst } = new RehypeReact({
-  createElement: React.createElement,
+  createElement,
   components: {
     p: function Render(props: React.PropsWithChildren<{}>) {
       return <span {...props} />
     },
     a: function Render(props: React.AnchorHTMLAttributes<any>) {
-      const [href] = React.useState(
+      const [href] = useState(
         () => props.href && props.href.replace(/^.*(#.+)$/, '$1')
       )
 
@@ -96,7 +92,7 @@ const { Compiler: renderAst } = new RehypeReact({
       const { add, remove } = useCollectionContext()
       const currentId = useScrollSpyContext()
 
-      React.useEffect(() => {
+      useEffect(() => {
         if (!id) return undefined
         add(id)
 
@@ -109,6 +105,21 @@ const { Compiler: renderAst } = new RehypeReact({
             {...props}
             href={href}
             aria-current={currentId === id ? 'page' : undefined}
+            sx={{
+              color: 'text',
+              fontSize: 2,
+              textDecoration: 'none',
+              transition: 'all 150ms ease',
+              paddingY: 2,
+              ':hover': {
+                transform: 'scale(1.1)',
+                color: 'primary.base',
+              },
+              "[aria-current='page']": {
+                transform: 'scale(1.1)',
+                color: 'primary.base',
+              },
+            }}
           >
             {props.children}
           </a>
@@ -120,71 +131,41 @@ const { Compiler: renderAst } = new RehypeReact({
   },
 })
 
-export default function DocsInnerNavigation({
-  sourceUrl,
-  readmeUrl,
-  title,
-  tableOfContentsAst,
-}: Props) {
+export default function DocsInnerNavigation(props: Props) {
+  const { title, tableOfContentsAst } = props
+
   const { id } = useId()
 
   return (
     <CollectionProvider>
       <ScrollSpyProvider>
-        <Box
+        <aside
           sx={{
             fontSize: '0.875em',
             bg: 'background',
             color: 'primary.base',
             borderColor: 'muted.3',
-            '> *': {
-              marginBottom: 4,
-            },
-            '> nav': {
+            nav: {
               listStyle: 'none',
               margin: 0,
               padding: 0,
-              '> li': {
-                padding: '0.25em 0',
+              li: {
+                display: 'flex',
+                flexDirection: 'column',
               },
-              '> ul': {
-                margin: '4px 0 0 1px',
-                paddingLeft: 3,
+              ul: {
+                listStyle: 'none',
+                paddingLeft: 4,
                 borderLeft: (theme: Theme) =>
                   `1px solid ${theme.colors.muted[3]}`,
-              },
-              '> a': {
-                color: 'inherit',
-                textDecoration: 'none',
-                '&:hover': {
-                  textDecoration: 'underline',
-                },
-                "&[aria-current='page']": {
-                  fontWeight: 'bold',
-                },
               },
             },
           }}
           key={title}
         >
-          <a
-            href={sourceUrl}
-            sx={{ textDecoration: 'none', ':hover': { bg: 'primary.base' } }}
-          >
-            <Button m="4" variant="subtle" icon={<FaGithub />}>
-              View on Github
-            </Button>
-          </a>
-          <a href={readmeUrl} sx={{ textDecoration: 'none' }}>
-            <Button m="4" variant="subtle" icon={<FaEdit />}>
-              Edit this page
-            </Button>
-          </a>
-          <div hidden id={id}>
-            {title} sections
-          </div>
+          <VisuallyHidden id={id}>{title} Sections</VisuallyHidden>
           <nav aria-labelledby={id}>{renderAst(tableOfContentsAst)}</nav>
-        </Box>
+        </aside>
       </ScrollSpyProvider>
     </CollectionProvider>
   )

@@ -15,7 +15,7 @@ import Nightly from '../icons/Nightly'
 
 const query = graphql`
   query DocsQuery {
-    allDocsYaml {
+    allNavigationYaml {
       nodes {
         section
         paths
@@ -35,32 +35,36 @@ const query = graphql`
 
 const linkStyles: SxStyleProp = {
   display: 'flex',
+  justifyContent: 'space-between',
+  width: 'full',
   borderRadius: 3,
   alignItems: 'center',
-  padding: '0.5em 1em 0.5em 2em',
+  // padding: '0.5em 1em 0.5em 2em',
+  paddingY: 2,
+  paddingX: 2,
   textDecoration: 'none',
   color: 'inherit',
   cursor: 'pointer',
-  marginX: 2,
-  marginY: 1,
-  height: 44,
-  ':focus': {
-    outline: 'none',
-    bg: 'muted.3',
-    color: 'text',
-  },
+  marginY: '2px',
   ':hover:not(:focus)': {
+    bg: 'primary.washed.0',
     color: 'text',
-    bg: 'muted.4',
   },
   '&[aria-current="page"]': {
-    bg: 'muted.3',
+    bg: 'primary.washed.2',
+    borderLeftColor: 'primary.base',
+    borderLeftStyle: 'solid',
+    borderLeftWidth: 4,
     color: 'text',
   },
+  ':focus': {
+    bg: 'primary.washed.2',
+    color: 'text',
+    outline: 'none',
+  },
   svg: {
-    marginLeft: 2,
-    height: 24,
-    width: 24,
+    height: 20,
+    width: 20,
   },
 }
 
@@ -110,25 +114,34 @@ export default function DocsNavigation() {
         },
       }}
     >
-      {data.allDocsYaml.nodes.map((node) => (
-        <Box
-          el="nav"
-          mt="6"
+      {data.allNavigationYaml.nodes.map((node) => (
+        <nav
+          sx={{
+            marginTop: 4,
+          }}
           key={node.section}
           aria-labelledby={getId(node.section)}
         >
           <Text
             py="0"
-            px="4"
+            px="0"
             variant="highlight"
             c="muted.0"
             id={getId(node.section)}
           >
             {node.section}
           </Text>
-          <Box p="0" el="ul">
+          <ul sx={{ padding: 0 }}>
             {node.paths.map((path) => (
-              <Box sx={{ listStyle: 'none' }} el="li" key={path}>
+              <li
+                sx={{
+                  listStyle: 'none',
+                  display: 'flex',
+                  width: 'full',
+                  justifyContent: 'space-between',
+                }}
+                key={path}
+              >
                 {getIsExperimental(path) ? (
                   <ExperimentalLink to={path}>
                     {getTitle(path)}
@@ -138,17 +151,17 @@ export default function DocsNavigation() {
                     {getTitle(path)}
                   </Link>
                 )}
-              </Box>
+              </li>
             ))}
-          </Box>
-        </Box>
+          </ul>
+        </nav>
       ))}
     </Box>
   )
 }
 
 interface Data {
-  allDocsYaml: {
+  allNavigationYaml: {
     nodes: Array<{
       section: string
       paths: string[]

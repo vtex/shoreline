@@ -1,5 +1,6 @@
 ---
 path: /docs/tokens-color/
+nightly: true
 ---
 
 # Color

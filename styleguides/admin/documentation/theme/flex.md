@@ -1,5 +1,6 @@
 ---
 path: /docs/tokens-flex/
+nightly: true
 ---
 
 # Flex

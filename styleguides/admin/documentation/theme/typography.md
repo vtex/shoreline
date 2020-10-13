@@ -1,5 +1,6 @@
 ---
 path: /docs/tokens-typography/
+nightly: true
 ---
 
 # Typography
