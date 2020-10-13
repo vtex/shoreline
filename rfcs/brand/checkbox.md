@@ -42,7 +42,7 @@ Our implementation will be based on [Reakit's Checkbox](https://reakit.io/docs/c
 | checked      | boolean                             | whether the checkbox is checked or not     | -       | 🚫       |
 | disabled     | boolean                             | whether the checkbox is disabled or not    | -       | 🚫       |
 | error        | boolean                             | whether the checkbox is error state or not | -       | 🚫       |
-| errorMessage | boolean                             | description of the error                   | -       | 🚫       |
+| errorMessage | string                              | description of the error                   | -       | 🚫       |
 | label        | string                              | checkbox label                             | -       | 🚫       |
 | onChange     | function                            | onChange event                             | -       | 🚫       |
 | required     | boolean                             | whether the checkbox is required or not    | -       | 🚫       |
