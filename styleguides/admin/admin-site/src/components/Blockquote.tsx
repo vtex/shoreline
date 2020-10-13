@@ -31,7 +31,7 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
         padding: 20px 16px 20px 25px;
         margin: 20px 0;
         line-height: 1.5;
-        borderradius: 4px;
+        border-radius: 4px;
         p {
           margin: 0;
         }
@@ -39,7 +39,6 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
         ${isNightly &&
           css`
             display: flex;
-
             svg {
               flex: none;
               width: 50px;
