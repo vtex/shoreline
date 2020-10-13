@@ -3,7 +3,6 @@ import { SxStyleProp } from 'theme-ui'
 const labelLarge: SxStyleProp = {
   pl: 2,
   pr: '3.5rem',
-  mt: '-1px',
 }
 
 const labelMobile: SxStyleProp = {
@@ -32,7 +31,7 @@ const optionContainerLarge: SxStyleProp = {
   px: 5,
   py: 4,
   mt: '5rem',
-  fontWeight: '300',
+  fontWeight: 'regular',
   border: '1px solid',
   borderColor: 'muted.3',
   boxShadow: '0px 20px 25px rgba(20, 32, 50, 0.1)',
@@ -50,7 +49,7 @@ const optionContainerMobile: SxStyleProp = {
   bottom: '5rem',
   px: 5,
   py: 4,
-  fontWeight: '300',
+  fontWeight: 'regular',
   border: '1px solid',
   borderColor: 'muted.3',
 }
@@ -83,7 +82,7 @@ const baseLocaleSwitcher: SxStyleProp = {
   color: 'muted.0',
   alignItems: 'center',
   cursor: 'pointer',
-  fontWeight: '600',
+  fontWeight: 'bold',
   fontSize: 1,
   bg: 'primary.contrast',
   border: 'none',
