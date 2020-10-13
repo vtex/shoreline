@@ -1,5 +1,5 @@
 {
-  "packages": ["components/*", "styleguides/*"],
+  "packages": ["components/*", "styleguides/brand-ui", "styleguides/admin/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent",

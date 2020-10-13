@@ -1,0 +1,7 @@
+declare module '*.png'
+declare module '*.jpg'
+declare module '*.svg'
+declare module '*.woff'
+declare module '*.mp4'
+declare module 'whatwg-fetch'
+declare module 'styled-components'
