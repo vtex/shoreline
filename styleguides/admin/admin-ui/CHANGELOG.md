@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.50.1-alpha.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.50.0-alpha.0...@vtex/admin-ui@0.50.1-alpha.0) (2020-10-13)
+
+
+### Bug Fixes
+
+* **packages:** nesting ([1a3cd63](https://github.com/vtex/onda/commit/1a3cd6325c687ce366d0777feedccb14c8304abb))
+
+
+
+
+
 # [0.50.0-alpha.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.49.3...@vtex/admin-ui@0.50.0-alpha.0) (2020-10-13)
 
 **Note:** Version bump only for package @vtex/admin-ui
