@@ -26,7 +26,6 @@ import Blockquote from '../components/Blockquote'
 import Nightly from '../icons/Nightly'
 import Heading from '../components/Heading'
 import Seo from '../components/SEO'
-import track from '../utils/track'
 import DocsBackNext from '../components/DocsBackNext'
 import Summary from '../components/Summary'
 
@@ -111,12 +110,7 @@ function CodeBlock(props: React.HTMLAttributes<any>) {
             }}
             {...state}
           />
-          <PlaygroundEditor
-            mode={mode}
-            maxHeight={maxHeight}
-            onBlur={track('reakit.codeMirrorBlur')}
-            {...state}
-          />
+          <PlaygroundEditor mode={mode} maxHeight={maxHeight} {...state} />
         </div>
       )
     }
