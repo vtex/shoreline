@@ -3,8 +3,8 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 import { useToolbarState, Toolbar, ToolbarItem } from 'reakit/Toolbar'
-import { IconCancel } from 'admin-icons'
 
+import { IconCancel } from '../../icons'
 import { Button, ButtonProps } from './index'
 
 export default {

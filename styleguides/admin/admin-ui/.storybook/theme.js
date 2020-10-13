@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming/create'
-import { theme } from 'admin-system'
+import { theme } from '../src/system'
 
 const { colors, borderRadius } = theme
 

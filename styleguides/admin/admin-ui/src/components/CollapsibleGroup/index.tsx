@@ -1,12 +1,12 @@
 import React, { Children, cloneElement, ReactElement } from 'react'
 import { SxStyleProp } from 'theme-ui'
+
 import {
   BorderTokensProps,
   ColorTokensProps,
   LayoutTokensProps,
   SpaceTokensProps,
-} from 'admin-system'
-
+} from '../../system'
 import { Card } from '../Card'
 import {
   Collapsible,

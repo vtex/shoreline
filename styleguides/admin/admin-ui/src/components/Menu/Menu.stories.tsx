@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Meta, Story } from '@storybook/react'
-import { IconFavorite, IconLink, IconDownload, IconDelete } from 'admin-icons'
 
+import { IconFavorite, IconLink, IconDownload, IconDelete } from '../../icons'
 import {
   Menu,
   MenuProps,

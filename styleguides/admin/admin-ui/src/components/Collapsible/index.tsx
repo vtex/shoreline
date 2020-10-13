@@ -7,15 +7,15 @@ import {
   DisclosureProps,
   DisclosureStateReturn,
 } from 'reakit/Disclosure'
+
 import {
   BorderTokensProps,
   ColorTokensProps,
   FlexTokensProps,
   LayoutTokensProps,
   SpaceTokensProps,
-} from 'admin-system'
-import { IconCaret } from 'admin-icons'
-
+} from '../../system'
+import { IconCaret } from '../../icons'
 import { Box } from '../Box'
 import { CollapsibleProvider, useCollapsibleContext } from './context'
 import { Button } from '../Button'

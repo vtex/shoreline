@@ -3,7 +3,7 @@ module.exports = {
   outputPath: './storybook-static/playroom',
   openBrowser: false,
   widths: [1024],
-  frameComponent: './src/theme/Provider.tsx',
+  frameComponent: './src/system/theme/Provider.tsx',
   webpackConfig: () => ({
     module: {
       rules: [

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Meta, Story } from '@storybook/react'
 import styled from '@emotion/styled'
-import { IconSettings } from 'admin-icons'
 
+import { IconSettings } from '../../icons'
 import { ListDensity, List, ListProps } from './index'
 import { Text } from '../Text'
 import { Toggle } from '../Toggle'
