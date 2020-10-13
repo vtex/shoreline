@@ -1,6 +1,6 @@
 {
   "name": "admin-site",
-  "version": "0.1.1-alpha.0",
+  "version": "0.2.0-alpha.0",
   "private": true,
   "description": "AdminUI site",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "@types/qs": "6.9.5",
     "@types/react-helmet": "6.1.0",
     "@types/yup": "0.29.7",
-    "@vtex/admin-ui": "^0.50.1-alpha.0",
+    "@vtex/admin-ui": "^0.50.1-alpha.1",
     "constate": "2.0.0",
     "docsearch.js": "2.6.3",
     "emotion": "10.0.27",
