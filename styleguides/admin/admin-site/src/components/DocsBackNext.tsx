@@ -1,9 +1,6 @@
-import * as React from 'react'
+/** @jsx jsx */
+import { jsx, Box, VisuallyHidden, Divider } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import { Separator } from 'reakit/Separator'
-import { css } from 'emotion'
-import { usePalette, useLighten } from 'reakit-system-palette/utils'
-import { VisuallyHidden } from 'reakit/VisuallyHidden'
 
 const query = graphql`
   query DocsBackNextQuery {
@@ -18,67 +15,41 @@ const query = graphql`
   }
 `
 
-function useDocsBackNextCSS() {
-  const background = usePalette('background')
-  const foreground = usePalette('foreground')
-  const primary = usePalette('primary')
-  const currentBackgroundColor = useLighten(primary, 0.85)
-
-  const docsNavigation = css`
-    background-color: ${background};
-    color: ${foreground};
-    nav {
-      margin: 3em 0 0 0;
-    }
-    ul {
-      padding: 0;
-      display: flex;
-    }
-    li {
-      list-style: none;
-
-      &.next {
-        margin-left: auto;
-      }
-    }
-    a {
-      display: flex;
-      align-items: center;
-      padding: 0.5em 1em 0.5em 1em;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-
-      &:focus {
-        outline: none;
-        background-color: ${currentBackgroundColor};
-      }
-
-      &:hover {
-        color: ${primary};
-      }
-    }
-  `
-
-  return docsNavigation
-}
-
 export default function DocsBackNext({
   nextPath,
   prevPath,
 }: DocsBackNextProps) {
   const data: Data = useStaticQuery(query)
-  const className = useDocsBackNextCSS()
-  const findMeta = (path: string) =>
-    data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)!
 
-  const getTitle = (path: string) => findMeta(path).title
+  const findMeta = (path: string) =>
+    data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)
+
+  const getTitle = (path: string) => findMeta?.(path)?.title
 
   return (
-    <div className={className}>
-      <nav>
-        <Separator orientation="horizontal" />
-        <ul>
+    <Box
+      c="text"
+      sx={{
+        li: {
+          listStyle: 'none',
+        },
+        a: {
+          display: 'flex',
+          alignItems: 'center',
+          paddingY: 2,
+          paddingX: 4,
+          textDecoration: 'none',
+          color: 'inherit',
+          cursor: 'pointer',
+          '&:hover': {
+            color: 'primary.hover',
+          },
+        },
+      }}
+    >
+      <nav sx={{ margin: '3em 0 0 0' }}>
+        <Divider orientation="horizontal" />
+        <ul sx={{ padding: '0', display: 'flex' }}>
           {prevPath && (
             <li>
               <Link to={prevPath}>
@@ -88,7 +59,7 @@ export default function DocsBackNext({
             </li>
           )}
           {nextPath && (
-            <li className="next">
+            <li sx={{ marginLeft: 'auto' }}>
               <Link to={nextPath}>
                 <VisuallyHidden>Next </VisuallyHidden>
                 {getTitle(nextPath)}
@@ -97,7 +68,7 @@ export default function DocsBackNext({
           )}
         </ul>
       </nav>
-    </div>
+    </Box>
   )
 }
 

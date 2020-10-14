@@ -1,3 +1,4 @@
+// TODO Refactor Tooltip (arrow Icon, use admin's tooltip)
 /** @jsx jsx */
 import { jsx, Box, Text, SxStyleProp } from '@vtex/admin-ui'
 import { Fragment, Ref } from 'react'
@@ -84,8 +85,19 @@ function ExperimentalLink(props: GatsbyLinkProps<{}>) {
           ref={(ref as unknown) as Ref<SVGSVGElement>}
         />
       </TooltipReference>
-      <Tooltip sx={{ bg: 'text' }} {...tooltip}>
-        <TooltipArrow {...tooltip} /> Nightly
+      <Tooltip
+        sx={{
+          bg: 'text',
+          color: 'background',
+          padding: 2,
+          borderRadius: 4,
+        }}
+        {...tooltip}
+      >
+        <Text el="span" variant="small">
+          <TooltipArrow {...tooltip} />
+          Nightly
+        </Text>
       </Tooltip>
     </Fragment>
   )

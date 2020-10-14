@@ -5,7 +5,7 @@ import * as bootstrapSystem from 'reakit-system-bootstrap'
 import * as playgroundSystem from 'reakit-playground/system'
 import { ThemeProvider } from '@vtex/admin-ui'
 
-const system = mergeSystem(bootstrapSystem, playgroundSystem, {
+const system = mergeSystem(playgroundSystem, {
   palette: {
     ...bootstrapSystem.palette,
     primary: '#6a50ee',
