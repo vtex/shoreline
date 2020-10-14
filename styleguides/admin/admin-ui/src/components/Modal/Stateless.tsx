@@ -11,8 +11,6 @@ import {
   useMemo,
   useCallback,
   createRef,
-  useEffect,
-  useState,
   ReactElement,
 } from 'react'
 import {
@@ -74,8 +72,6 @@ export function StatelessModal(props: StatelessModalProps) {
     onClose = () => null,
     ...baseProps
   } = props
-  const [footerHeight, setFooterHeight] = useState(0)
-
   let hasHeader = false
   let hasFooter = false
 
@@ -119,8 +115,6 @@ export function StatelessModal(props: StatelessModalProps) {
             omitCloseButton,
             hasHeader,
             hasFooter,
-            setFooterHeight,
-            footerHeight,
           }}
         >
           {children}
@@ -229,21 +223,8 @@ StatelessModal.Header = function Header(props: ModalHeaderProps) {
 StatelessModal.Content = function Content(props: ModalContentProps) {
   const { sx, ...boxProps } = props
   const contentRef = createRef<HTMLDivElement>()
-  const [height, setHeight] = useState(0)
-  const { hasHeader, size, footerHeight } = useModalContext()
-  useEffect(() => {
-    if (footerHeight) {
-      const currentHeight = contentRef.current?.clientHeight
-
-      if (currentHeight) {
-        setHeight(currentHeight - footerHeight)
-      }
-    }
-
-    console.log('footer height: ', height)
-  }, [setHeight, footerHeight])
-
-  const withHeader = hasHeader ? `-with-${size}-header` : ''
+  const { hasHeader, size } = useModalContext()
+  const withHeader = hasHeader ? `-with-${size}-scroll` : ''
 
   return (
     <Box
@@ -272,16 +253,11 @@ StatelessModal.Content = function Content(props: ModalContentProps) {
  */
 StatelessModal.Footer = function Footer(props: ModalFooterProps) {
   const { sx, ...boxProps } = props
-  const { size, setFooterHeight } = useModalContext()
-  const footerRef = createRef<HTMLElement>()
-  useEffect(() => {
-    setFooterHeight(Number(footerRef?.current?.clientHeight))
-  }, [setFooterHeight, footerRef])
+  const { size } = useModalContext()
 
   return (
     <Box
       el="footer"
-      ref={footerRef}
       sx={{ variant: `overlay.modal.footer-${size}`, ...sx }}
       {...boxProps}
     />

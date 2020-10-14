@@ -70,7 +70,7 @@ const content = {
   pb: 6,
 }
 
-const contentWithHeader = {
+const contentWithScroll = {
   ...content,
   ...scrollbar,
   overflowY: 'auto',
@@ -99,17 +99,25 @@ export default {
   content: {
     ...content,
   },
-  'content-with-small-header': {
-    ...contentWithHeader,
+  'content-with-small-scroll': {
+    ...contentWithScroll,
     height: 'calc(100% - 3.5rem)',
   },
-  'content-with-regular-header': {
-    ...contentWithHeader,
+  'content-with-regular-scroll': {
+    ...contentWithScroll,
     height: 'calc(100% - 3.5rem)',
   },
-  'content-with-large-header': {
-    ...contentWithHeader,
+  'content-with-large-scroll': {
+    ...contentWithScroll,
     height: 'calc(100% - 5rem)',
+  },
+  'content-with-larger-scroll': {
+    ...contentWithScroll,
+    height: 'calc(100% - 7rem)',
+  },
+  'content-with-extra-large-scroll': {
+    ...contentWithScroll,
+    height: 'calc(100% - 10rem)',
   },
   'footer-small': {
     ...footer,
@@ -118,7 +126,8 @@ export default {
     '>button': {
       width: 'full',
     },
+    height: '3.5rem',
   },
-  'footer-regular': { ...footer, borderTopWidth: 1 },
-  'footer.-large': { ...footer, borderTopWidth: 1 },
+  'footer-regular': { ...footer, borderTopWidth: 1, height: '3.5rem' },
+  'footer-large': { ...footer, borderTopWidth: 1, height: '5rem' },
 } as Record<string, SxStyleProp>

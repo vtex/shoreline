@@ -10,8 +10,6 @@ const ModalContext = React.createContext<{
   omitCloseButton?: boolean
   hasHeader: boolean
   hasFooter: boolean
-  setFooterHeight: (height: number) => void
-  footerHeight?: number
   size: ModalSize
 } | null>(null)
 
