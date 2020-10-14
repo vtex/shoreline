@@ -1,7 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/display-name */
-// TODO: Refactor this mess
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
@@ -9,14 +8,10 @@ import {
   PlaygroundPreview,
   PlaygroundEditor,
   usePlaygroundState,
+  PlaygroundStateReturn,
 } from 'reakit-playground'
 import * as emotion from 'emotion'
 import * as styled from 'styled-components'
-import * as spring from 'react-spring'
-import * as yup from 'yup'
-import set from 'lodash/set'
-import constate from 'constate'
-import { FaUniversalAccess } from 'react-icons/fa'
 import * as AdminUI from '@vtex/admin-ui'
 
 import Anchor from '../components/Anchor'
@@ -53,81 +48,87 @@ type DocsProps = {
 
 function getChildrenCode(props: { children?: React.ReactNode }) {
   const children = React.Children.toArray(props.children)
-  const [first] = children
+  const [code] = children
 
-  if (typeof first === 'object' && first !== null && 'type' in first) {
-    return first.type === 'code' ? first : null
+  if (code && typeof code === 'object' && 'type' in code) {
+    return code.type === 'code' ? code : null
   }
 
   return null
 }
 
-function CodeBlock(props: React.HTMLAttributes<any>) {
-  const codeElement = getChildrenCode(props)
+interface PlaygroundProps {
+  dynamic: boolean
+  mode: string
+  state: PlaygroundStateReturn
+  maxHeight?: string
+}
 
-  if (codeElement) {
-    const {
-      static: isStatic,
-      unstyled,
-      maxHeight,
-      className,
-    } = codeElement.props
-
-    let [, mode] = className.match(/language-(.+)/) || ([] as any[])
-
-    const modeMap = {
-      html: 'htmlmixed',
-      js: 'javascript',
-    }
-
-    if (mode in modeMap) {
-      mode = modeMap[mode as keyof typeof modeMap]
-    }
-
-    const isDynamic =
-      !isStatic && ['js', 'jsx', 'ts', 'tsx'].indexOf(mode) !== -1
-
-    const [code] = codeElement.props.children
-    const state = usePlaygroundState({ code })
-
-    React.useEffect(() => {
-      state.update(code)
-    }, [state.update, code])
-
-    if (isDynamic) {
-      return (
-        <div>
-          <PlaygroundPreview
-            unstyled={unstyled}
-            modules={{
-              '@vtex/admin-ui': AdminUI,
-              emotion,
-              yup,
-              constate,
-              'lodash/set': set,
-              'styled-components': styled,
-              'react-spring': spring,
-              './UniversalAccess': FaUniversalAccess,
-            }}
-            {...state}
-          />
-          <PlaygroundEditor mode={mode} maxHeight={maxHeight} {...state} />
-        </div>
-      )
-    }
-
-    return (
+function Playground({
+  dynamic,
+  mode,
+  state,
+  maxHeight,
+  ...props
+}: PlaygroundProps) {
+  return (
+    <>
+      {dynamic && (
+        <PlaygroundPreview
+          unstyled
+          modules={{
+            '@vtex/admin-ui': AdminUI,
+            emotion,
+            'styled-components': styled,
+          }}
+          {...state}
+        />
+      )}
       <PlaygroundEditor
-        readOnly
+        readOnly={!dynamic}
         mode={mode}
         maxHeight={maxHeight}
         {...state}
         {...props}
       />
-    )
+    </>
+  )
+}
+
+function CodeBlock(props: React.HTMLAttributes<unknown>) {
+  const codeElement = getChildrenCode(props)
+
+  const { static: isStatic, maxHeight, className } = codeElement?.props
+
+  const [, language] = className.match(/language-(.+)/) ?? []
+
+  const modeMap = {
+    html: 'htmlmixed',
+    js: 'javascript',
   }
 
-  return <pre {...props} />
+  const mode = modeMap?.[language as keyof typeof modeMap] ?? language
+
+  const isDynamic = !isStatic && mode === 'jsx'
+
+  const [code] = codeElement?.props?.children
+  const state = usePlaygroundState({ code })
+
+  React.useEffect(() => {
+    state.update(code)
+  }, [state.update, code])
+
+  return codeElement ? (
+    <Playground
+      state={state}
+      mode={mode}
+      dynamic={isDynamic}
+      maxHeight={maxHeight}
+      {...props}
+    />
+  ) : (
+    <pre {...props} />
+  )
 }
 
 const { Compiler: renderAst } = new RehypeReact({
@@ -147,7 +148,7 @@ const { Compiler: renderAst } = new RehypeReact({
     h4: (props) => <Heading as="h4" {...props} />,
     h5: (props) => <Heading as="h5" {...props} />,
     h6: (props) => <Heading as="h6" {...props} />,
-    span: (props: React.HTMLAttributes<any>) => {
+    span: (props: React.HTMLAttributes<unknown>) => {
       if (props.title === 'Nightly') {
         return (
           <span {...props}>
@@ -158,7 +159,7 @@ const { Compiler: renderAst } = new RehypeReact({
 
       return <span {...props} />
     },
-    pre: (props) => <CodeBlock {...props} />,
+    pre: CodeBlock,
     table: (props) => (
       <AdminUI.Box
         el="table"
