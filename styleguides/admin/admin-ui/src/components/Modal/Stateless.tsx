@@ -223,14 +223,25 @@ StatelessModal.Header = function Header(props: ModalHeaderProps) {
 StatelessModal.Content = function Content(props: ModalContentProps) {
   const { sx, ...boxProps } = props
   const contentRef = createRef<HTMLDivElement>()
-  const { hasHeader, size } = useModalContext()
-  const withHeader = hasHeader ? `-with-${size}-scroll` : ''
+  const { hasHeader, hasFooter, size } = useModalContext()
+
+  let scrollSize = ''
+
+  if (hasHeader && hasFooter) {
+    if (size === 'small' || size === 'regular') {
+      scrollSize = '-with-larger-scroll'
+    } else {
+      scrollSize = '-with-extra-large-scroll'
+    }
+  } else if (hasHeader || hasFooter) {
+    scrollSize = `-with-${size}-scroll`
+  }
 
   return (
     <Box
       ref={contentRef}
       sx={{
-        variant: `overlay.modal.content${withHeader}`,
+        variant: `overlay.modal.content${scrollSize}`,
         ...sx,
       }}
       {...boxProps}
