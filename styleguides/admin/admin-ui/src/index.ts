@@ -48,3 +48,4 @@ export {
   CollapsibleGroup,
   CollapsibleGroupProps,
 } from './components/CollapsibleGroup'
+export { Tag, TagProps } from './components/Tag'

@@ -14,6 +14,7 @@ import controlGroup from './controlGroup'
 import radio from './radio'
 import collapsible from './collapsible'
 import data from './data'
+import tag from './tag'
 
 export const theme = {
   ...layout,
@@ -26,6 +27,7 @@ export const theme = {
   data,
   divider,
   collapsible,
+  tag,
   forms: {
     ...controlGroup,
     ...toggle,
@@ -87,5 +89,10 @@ export type ThemeColors =
   | 'success.contrast'
   | 'success.washed.0'
   | 'warning.base'
+  | 'warning.hover'
+  | 'warning.active'
+  | 'warning.contrast'
+  | 'warning.washed.0'
+  | 'purple.washed.0'
 
 export type Theme = typeof theme
