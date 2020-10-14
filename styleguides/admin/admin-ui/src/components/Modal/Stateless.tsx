@@ -10,6 +10,10 @@ import {
   MouseEvent,
   useMemo,
   useCallback,
+  createRef,
+  useEffect,
+  useState,
+  ReactElement,
 } from 'react'
 import {
   useDialogState,
@@ -27,6 +31,16 @@ import { Button, ButtonProps } from '../Button'
 import { ModalProvider, useModalContext } from './context'
 
 export { useDialogState as useModalState }
+
+function isReactElement(
+  child: ReactNode
+): child is Omit<ReactElement, 'type'> & { type: { displayName: string } } {
+  if ((child as ReactElement).type) {
+    return true
+  } else {
+    return false
+  }
+}
 
 /**
  * Stateless Modal
@@ -60,11 +74,29 @@ export function StatelessModal(props: StatelessModalProps) {
     onClose = () => null,
     ...baseProps
   } = props
+  const [footerHeight, setFooterHeight] = useState(0)
+
+  let hasHeader = false
+  let hasFooter = false
 
   const handleClose = useCallback(() => {
     state.hide()
     onClose()
   }, [onClose, state])
+
+  Children.forEach(children, function (child) {
+    const displayName = isReactElement(child) && child.type.displayName
+
+    if (displayName === 'Modal.Header' || displayName === 'Stateless.Modal') {
+      hasHeader = true
+      Object.assign(sx, { overflowY: 'hidden' })
+    }
+
+    if (displayName === 'Modal.Footer' || displayName === 'Stateless.Footer') {
+      hasFooter = true
+      Object.assign(sx, { overflowY: 'hidden' })
+    }
+  })
 
   return (
     <DialogBackdrop
@@ -79,7 +111,18 @@ export function StatelessModal(props: StatelessModalProps) {
         {...state}
         {...baseProps}
       >
-        <ModalProvider value={{ state, handleClose, size, omitCloseButton }}>
+        <ModalProvider
+          value={{
+            state,
+            handleClose,
+            size,
+            omitCloseButton,
+            hasHeader,
+            hasFooter,
+            setFooterHeight,
+            footerHeight,
+          }}
+        >
           {children}
         </ModalProvider>
       </BaseDialog>
@@ -185,8 +228,33 @@ StatelessModal.Header = function Header(props: ModalHeaderProps) {
  */
 StatelessModal.Content = function Content(props: ModalContentProps) {
   const { sx, ...boxProps } = props
+  const contentRef = createRef<HTMLDivElement>()
+  const [height, setHeight] = useState(0)
+  const { hasHeader, size, footerHeight } = useModalContext()
+  useEffect(() => {
+    if (footerHeight) {
+      const currentHeight = contentRef.current?.clientHeight
 
-  return <Box sx={{ variant: 'overlay.modal.content', ...sx }} {...boxProps} />
+      if (currentHeight) {
+        setHeight(currentHeight - footerHeight)
+      }
+    }
+
+    console.log('footer height: ', height)
+  }, [setHeight, footerHeight])
+
+  const withHeader = hasHeader ? `-with-${size}-header` : ''
+
+  return (
+    <Box
+      ref={contentRef}
+      sx={{
+        variant: `overlay.modal.content${withHeader}`,
+        ...sx,
+      }}
+      {...boxProps}
+    />
+  )
 }
 
 /**
@@ -204,11 +272,16 @@ StatelessModal.Content = function Content(props: ModalContentProps) {
  */
 StatelessModal.Footer = function Footer(props: ModalFooterProps) {
   const { sx, ...boxProps } = props
-  const { size } = useModalContext()
+  const { size, setFooterHeight } = useModalContext()
+  const footerRef = createRef<HTMLElement>()
+  useEffect(() => {
+    setFooterHeight(Number(footerRef?.current?.clientHeight))
+  }, [setFooterHeight, footerRef])
 
   return (
     <Box
       el="footer"
+      ref={footerRef}
       sx={{ variant: `overlay.modal.footer-${size}`, ...sx }}
       {...boxProps}
     />

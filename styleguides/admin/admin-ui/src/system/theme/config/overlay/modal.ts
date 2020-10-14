@@ -2,6 +2,7 @@ import { SxStyleProp } from 'theme-ui'
 import { rgba } from 'polished'
 
 import colors from '../colors'
+import { scrollbar } from '../scrollbar'
 
 const surface = {
   outline: 'none',
@@ -63,6 +64,18 @@ const footer = {
   p: 6,
 }
 
+const content = {
+  pt: 4,
+  px: 6,
+  pb: 6,
+}
+
+const contentWithHeader = {
+  ...content,
+  ...scrollbar,
+  overflowY: 'auto',
+}
+
 export default {
   backdrop: {
     display: 'flex',
@@ -84,9 +97,19 @@ export default {
   'header-regular': { ...header, height: '3.5rem' },
   'header-large': { ...header, height: '5rem' },
   content: {
-    pt: 4,
-    px: 6,
-    pb: 6,
+    ...content,
+  },
+  'content-with-small-header': {
+    ...contentWithHeader,
+    height: 'calc(100% - 3.5rem)',
+  },
+  'content-with-regular-header': {
+    ...contentWithHeader,
+    height: 'calc(100% - 3.5rem)',
+  },
+  'content-with-large-header': {
+    ...contentWithHeader,
+    height: 'calc(100% - 5rem)',
   },
   'footer-small': {
     ...footer,
