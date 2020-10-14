@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.19.0...@vtex/brand-ui@0.19.1) (2020-10-14)
+
+
+### Bug Fixes
+
+* export grid and sxprops in brand-ui ([0bd5863](https://github.com/vtex/onda/commit/0bd5863a71503c025e52612e3a44068ceec8cbb0))
+
+
+### Reverts
+
+* **storybook:** scripts ([83567cb](https://github.com/vtex/onda/commit/83567cb632dc8c26e55de85695cf56472ce5f0bc))
+
+
+
+
+
 # [0.19.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.19.0-alpha.1...@vtex/brand-ui@0.19.0) (2020-10-13)
 
 **Note:** Version bump only for package @vtex/brand-ui

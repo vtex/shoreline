@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.50.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.50.1...@vtex/admin-ui@0.50.2) (2020-10-14)
+
+
+### Reverts
+
+* **storybook:** scripts ([83567cb](https://github.com/vtex/onda/commit/83567cb632dc8c26e55de85695cf56472ce5f0bc))
+
+
+
+
+
 ## [0.50.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.50.1-alpha.1...@vtex/admin-ui@0.50.1) (2020-10-13)
 
 **Note:** Version bump only for package @vtex/admin-ui
