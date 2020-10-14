@@ -4,7 +4,7 @@
   "private": true,
   "description": "AdminUI site",
   "license": "MIT",
-  "repository": "https://github.com/vtex/onda/tree/master/stylesguides/admin/site",
+  "repository": "https://github.com/vtex/onda/tree/master/styleguides/admin/site",
   "scripts": {
     "clean": "gatsby clean",
     "prebuild-site": "yarn clean",
