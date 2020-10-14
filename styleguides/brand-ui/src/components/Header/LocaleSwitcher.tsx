@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-handler-names */
 /** @jsx jsx */
 import { Box, Text, Flex, jsx } from 'theme-ui'
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
@@ -5,18 +6,33 @@ import { Fragment } from 'react'
 
 import { IconCaret, IconGlobe } from '../../icons'
 
+const Option = ({ screen, option, onClick, active }: OptionProps) => {
+  const variant = `localeSwitcher.${screen}.option`
+
+  return (
+    <Box
+      variant={`${variant}${active ? '.active' : ''}`}
+      role="presentation"
+      onClick={onClick}
+    >
+      {option.label}
+    </Box>
+  )
+}
+
+interface OptionProps {
+  screen: 'mobile' | 'large'
+  option: LocaleOption
+  active: boolean
+  onClick?: () => void
+}
+
 export const LocaleSwitcher = ({
   options,
   onChange,
   locale,
 }: LocaleSwitcherProps) => {
   const disclosure = useDisclosureState({ visible: false })
-
-  const onChangeLocale = (option: LocaleOption) => {
-    const nextLocaleValue = option.value
-
-    onChange(nextLocaleValue)
-  }
 
   const getLocaleLabel = () => {
     const currentLocaleOption = options.find(
@@ -26,28 +42,9 @@ export const LocaleSwitcher = ({
     return currentLocaleOption?.label ?? ''
   }
 
-  const Option = ({
-    screen,
-    option,
-  }: {
-    screen: 'mobile' | 'large'
-    option: LocaleOption
-  }) => {
-    const active = option.value === locale
-    const variant = `localeSwitcher.${screen}.option`
-
-    return (
-      <Box
-        variant={`${variant}${active ? '.active' : ''}`}
-        role="presentation"
-        onClick={() => {
-          onChangeLocale(option)
-          disclosure.hide()
-        }}
-      >
-        {option.label}
-      </Box>
-    )
+  const handleOptionClick = (option: LocaleOption) => {
+    onChange(option.value)
+    disclosure.hide()
   }
 
   return (
@@ -80,7 +77,15 @@ export const LocaleSwitcher = ({
         }}
       >
         {options.map((option) => (
-          <Option key={option.label} option={option} screen="large" />
+          <Option
+            key={option.label}
+            option={option}
+            screen="large"
+            onClick={() => {
+              handleOptionClick(option)
+            }}
+            active={option.value === locale}
+          />
         ))}
       </DisclosureContent>
       <DisclosureContent
@@ -96,7 +101,15 @@ export const LocaleSwitcher = ({
         sx={{ variant: 'localeSwitcher.mobile.optionContainer' }}
       >
         {options.map((option) => (
-          <Option key={option.label} option={option} screen="mobile" />
+          <Option
+            key={option.label}
+            option={option}
+            screen="mobile"
+            onClick={() => () => {
+              handleOptionClick(option)
+            }}
+            active={option.value === locale}
+          />
         ))}
       </DisclosureContent>
     </Fragment>

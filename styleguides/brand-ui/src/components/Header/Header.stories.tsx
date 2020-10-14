@@ -10,30 +10,31 @@ export default {
   component: Header,
 }
 
+const options: LocaleOption[] = [
+  {
+    label: 'EN',
+    value: 'en',
+  },
+  {
+    label: 'PT | BR',
+    value: 'pt-br',
+  },
+  {
+    label: 'ES',
+    value: 'es',
+  },
+  {
+    label: 'ES | LATAM',
+    value: 'es-latam',
+  },
+  {
+    label: 'IT',
+    value: 'it',
+  },
+]
+
 const Template = (args: LinksProps) => {
   const [locale, setLocale] = useState('en')
-  const options: LocaleOption[] = [
-    {
-      label: 'EN',
-      value: 'en',
-    },
-    {
-      label: 'PT | BR',
-      value: 'pt-br',
-    },
-    {
-      label: 'ES',
-      value: 'es',
-    },
-    {
-      label: 'ES | LATAM',
-      value: 'es-latam',
-    },
-    {
-      label: 'IT',
-      value: 'it',
-    },
-  ]
 
   return (
     <Header>
