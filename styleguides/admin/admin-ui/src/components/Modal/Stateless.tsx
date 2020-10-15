@@ -67,33 +67,31 @@ function getScrollAreaSize(
   size: ModalSize,
   footerSize?: ModalFooterSize
 ) {
-  let scrollAreaSize = ''
-
   if (!footerSize) {
     if (hasHeader && hasFooter) {
       if (size === 'small' || size === 'regular') {
-        scrollAreaSize = '-with-larger-scroll-area'
+        return '-with-larger-scroll-area'
       } else {
-        scrollAreaSize = '-with-extra-large-scroll-area'
+        return '-with-extra-large-scroll-area'
       }
     } else if (hasHeader || hasFooter) {
-      scrollAreaSize = `-with-${size}-scroll-area`
+      return `-with-${size}-scroll-area`
     }
   } else {
     if (hasHeader) {
       if (size === footerSize) {
         if (footerSize === 'small' || footerSize === 'regular') {
-          scrollAreaSize = '-with-larger-scroll-area'
+          return '-with-larger-scroll-area'
         } else {
-          scrollAreaSize = '-with-extra-large-scroll-area'
+          return '-with-extra-large-scroll-area'
         }
       } else {
-        scrollAreaSize = '-with-mixed-scroll-area'
+        return '-with-mixed-scroll-area'
       }
     }
   }
 
-  return scrollAreaSize
+  return ''
 }
 
 /**
