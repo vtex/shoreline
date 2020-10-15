@@ -1,6 +1,5 @@
 ---
 path: /docs/checkbox/
-nightly: true
 ---
 
 # Checkbox

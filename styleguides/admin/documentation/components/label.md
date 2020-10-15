@@ -1,8 +1,8 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+---
+path: /docs/label/
+---
 
-<Meta title="design-system/components/Label" />
-
-# Admin UI Label
+# Label
 
 Form label component
 
@@ -11,14 +11,17 @@ Form label component
 - Simple usage
 
 ```jsx
-import { Label } from '@vtex/admin-ui'
+import { Label, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   return (
-    <Label>
-      Input Label!
-      <input value="input value" />
-    </Label>
+    <ThemeProvider>
+      <Label>
+        Input Label!
+        <br />
+        <input value="input value" />
+      </Label>
+    </ThemeProvider>
   )
 }
 ```
@@ -26,14 +29,15 @@ function UseCase() {
 - Using `htmlFor` prop
 
 ```jsx
-import { Label } from '@vtex/admin-ui'
+import { Label, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   return (
-    <>
+    <ThemeProvider>
       <Label htmlFor="my-input">Input Label!</Label>
+      <br />
       <input id="my-input" value="input value" />
-    </>
+    </ThemeProvider>
   )
 }
 ```
@@ -50,19 +54,23 @@ It also receives all the props from `BoxProps` except the `el` prop.
 
 You can use all the theme tokens to make customizations, and you can also use the `sx` prop.
 
-> 💡 You can check the [Theme Documentation](https://admin-ui.vercel.app/?path=/story/design-system-theme--page) for detailed info.
+> 💡 You can check the Theme Documentation for detailed info.
 
 ### Example
 
 ```jsx
-import { Label, Toggle } from '@vtex/admin-ui'
+import { Label, Toggle, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   return (
-    <Label display="flex" items="center">
-      <Toggle checked={...} onChange={...}/>
-      Toggle Label!
-    </Label>
+    <ThemeProvider>
+      <Label display="flex" items="center">
+        <Toggle checked={true} />
+        Toggle Label!
+      </Label>
+    </ThemeProvider>
   )
 }
 ```
+
+<proptypes heading="Label" component="Label">

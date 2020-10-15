@@ -14,6 +14,21 @@
     - /docs/tag/
     - /docs/checkbox/
     - /docs/checkbox-group/
+    - /docs/collapsible/
+    - /docs/collapsible-group/
+    - /docs/divider/
+    - /docs/label/
+    - /docs/modal/
+    - /docs/radio/
+    - /docs/radio-group/
+    - /docs/skeleton/
+    - /docs/text/
+    - /docs/toggle/
+    - /docs/tooltip/
+    - /docs/card/
+    - /docs/visually-hidden/
+    - /docs/avatar/
+    - /docs/menu/
 - section: Documentation Templates
   paths:
     - /docs/documentation-template/

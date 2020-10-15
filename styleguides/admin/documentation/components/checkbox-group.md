@@ -1,6 +1,5 @@
 ---
 path: /docs/checkbox-group/
-nightly: true
 ---
 
 # CheckboxGroup
@@ -42,17 +41,18 @@ You can easily add a label using the `label` prop.
 
 If you want to add a custom label, that differs of the defined one in the `label` prop, it is possible.
 
-```jsx static
+```jsx
 import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Label htmlFor={CheckboxGroupId} {...customization}>
-        Group Label
-      </Label>
-      <CheckboxGroup orientation="horizontal" id={CheckboxGroupId}>
-        ...
+      <Label htmlFor="cheboxgroup-id">Group Label</Label>
+      <CheckboxGroup orientation="horizontal" id="cheboxgroup-id">
+        <Label>
+          <Checkbox />
+          Label 1
+        </Label>
       </CheckboxGroup>
     </ThemeProvider>
   )
