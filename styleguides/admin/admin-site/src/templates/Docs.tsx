@@ -2,9 +2,21 @@
 import { jsx } from '@vtex/admin-ui'
 import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
-import * as AdminUI from '@vtex/admin-ui'
 import React, { createElement } from 'react'
+import {
+  PlaygroundPreview,
+  PlaygroundEditor,
+  usePlaygroundState,
+} from 'reakit-playground'
+import * as emotion from 'emotion'
+import * as styled from 'styled-components'
+import * as spring from 'react-spring'
+import * as yup from 'yup'
+import set from 'lodash/set'
+import constate from 'constate'
+import { FaUniversalAccess } from 'react-icons/fa'
 
+import * as AdminUI from '../../../admin-ui/src'
 import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'

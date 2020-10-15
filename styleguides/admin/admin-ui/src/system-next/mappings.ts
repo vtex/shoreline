@@ -13,9 +13,6 @@ export const cssEventProps = {
 }
 
 export const flexBox = {
-  // direction: 'flexDirection',
-  // justify: 'justifyContent',
-  // items: 'alignItems',
   alignContent: 'align-content',
   alignSelf: 'align-self',
   alignItems: 'align-items',

@@ -2,7 +2,7 @@
 path: /docs/box-next/
 ---
 
-# Box
+# Unstable Box
 
 ## Installation
 
@@ -15,11 +15,15 @@ Learn more in [Get started](/docs/get-started/).
 ## Styled Props
 
 ```jsx
-import { nightlyBox as Box, ThemeProvider } from '@vtex/admin-ui'
+import {
+  unstableBox as Box,
+  ThemeProviderNext,
+  baseTheme,
+} from '@vtex/admin-ui'
 
 function Example() {
   return (
-    <ThemeProvider>
+    <ThemeProviderNext theme={baseTheme}>
       <Box
         bg="primary.washed"
         padding="5"
@@ -29,11 +33,16 @@ function Example() {
       >
         This is also a Box, but styled
       </Box>
-    </ThemeProvider>
+    </ThemeProviderNext>
   )
 }
 ```
 
 # Props
 
-<proptypes heading="Box" component="nightlyBox" />
+<details open>
+  <summary>Box</summary>
+  <div>
+    <proptypes component="unstableBox" />
+  </div>
+</details>
