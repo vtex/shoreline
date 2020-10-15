@@ -155,7 +155,7 @@ export default function Header({ isHome }: HeaderProps) {
         )}
       </HiddenMediaQuery>
       <Anchor
-        href="https://github.com/vtex/onda/tree/master/stylesguides/admin/admin-ui"
+        href="https://github.com/vtex/onda/tree/master/styleguides/admin/admin-ui"
         target="blank"
       >
         <FaGithub sx={{ fontSize: '1.2em', marginRight: 2 }} />

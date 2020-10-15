@@ -6,6 +6,7 @@ export type HeadingOptions = BoxOptions
 export type HeadingHTMLProps = BoxHTMLProps
 export type HeadingProps = HeadingOptions & HeadingHTMLProps
 
+// TODO Refactor Heading component
 export const useHeading = createHook<HeadingOptions, HeadingHTMLProps>({
   name: 'Heading',
   compose: useBox,
