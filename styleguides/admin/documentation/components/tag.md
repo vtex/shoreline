@@ -100,18 +100,12 @@ function Example() {
 }
 ```
 
-## Props
-
-| Prop name      | Description               | Type                                                           | Default value | Required? |
-| -------------- | ------------------------- | -------------------------------------------------------------- | ------------- | --------- |
-| `label`        | `Tag Label`               | `string`                                                       | -             | `true`    |
-| `size`         | `Tag Size`                | `'regular'`, `'small'`                                         | `regular`     | `false`   |
-| `palette`      | `Tag palette color`       | `'black'`, `'green'`,`'red'`, `'yellow'`, `'blue'`, `'purple'` | `blue`        | `false`   |
-| `handleDelete` | `handle tag delete event` | `() => void`                                                   | -             | `false`   |
-| `icon`         | `Tag Icon`                | `ReactNode`                                                    | -             | `false`   |
-
 ## Customization
 
 You can use **Space Tokens**, **Layout Tokens**, **Flex Tokens**, and **Sx prop** to add styles to the tag component.
 
 > Check the theme documentation section for detailed info
+
+## Props
+
+<proptypes heading="Tag" component="Tag" />

@@ -1,7 +1,7 @@
 export default {
   text: '#323845',
   background: '#FFFFFF',
-  muted: ['#686E7B', '#8B9299', '#C1C6CC', '#D7DADF', '#F3F5F9'],
+  muted: ['#707685', '#898F9E', '#C4C5CA', '#E0E2E7', '#F4F6FB'],
   focus: '#8DB6FA',
   emphasis: '#F71963',
   primary: {
@@ -9,14 +9,14 @@ export default {
     hover: '#1E4397',
     active: '#3F6FDB',
     contrast: '#FFFFFF',
-    washed: ['#E5EEFF', '#E8F1FF', '#DBE9FF'],
+    washed: ['#DAE3F5', '#E8F1FF', '#DBE9FF'],
   },
   danger: {
     base: '#CE454F',
     hover: '#A70C0C',
     active: '#DE0404',
     contrast: '#FFFFFF',
-    washed: ['#FED5D9', '#FFE3E3', '#FFD0D0'],
+    washed: ['#FEE3E3', '#FFE3E3', '#FFD0D0'],
   },
   warning: {
     base: '#FFBA52',
@@ -26,18 +26,18 @@ export default {
     washed: ['#FDE6C0'],
   },
   success: {
-    base: '#097E47',
+    base: '#368369',
     hover: '#005C31',
     active: '#26AE6E',
     contrast: '#FFFFFF',
     washed: ['#CCECE3'],
   },
   basic: {
-    blue: '#E5EEFF',
+    blue: '#DAE3F5',
     purple: '#F4EFFF',
     yellow: '#FDE6C0',
     green: '#CCECE3',
-    red: '#FED5D9',
+    red: '#FEE3E3',
     black: '#323845',
   },
 }
