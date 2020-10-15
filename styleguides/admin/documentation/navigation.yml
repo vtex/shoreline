@@ -5,18 +5,12 @@
     - /docs/nightly/
 - section: Theme
   paths:
-    - /docs/tokens-border/
-    - /docs/tokens-color/
-    - /docs/tokens-flex/
-    - /docs/tokens-grid/
-    - /docs/tokens-layout/
-    - /docs/tokens-position/
-    - /docs/tokens-space/
-    - /docs/tokens-typography/
+    - /docs/style-props/
 - section: Components
   paths:
     - /docs/box/
     - /docs/list/
+    - /docs/button/
 - section: Documentation Templates
   paths:
     - /docs/documentation-template/

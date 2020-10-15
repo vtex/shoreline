@@ -58,6 +58,6 @@ function Example() {
 }
 ```
 
-## Props
+# Props
 
-<!-- Automatically generated -->
+<proptypes heading="Box" component="Box" />
