@@ -12,6 +12,7 @@
     - /docs/list/
     - /docs/button/
     - /docs/tag/
+    - /docs/checkbox/
 - section: Documentation Templates
   paths:
     - /docs/documentation-template/
