@@ -15,7 +15,7 @@ import radio from './radio'
 import collapsible from './collapsible'
 import data from './data'
 
-export const theme = {
+export const baseTheme = {
   ...layout,
   space,
   sizes,
@@ -38,8 +38,8 @@ export const theme = {
 export type FontSizes = '0' | '1' | '2' | '3' | '4'
 export type BorderWidths = '0' | '1' | '2' | '3'
 export type BorderRadius = '0' | '1' | '2' | '3' | 'full'
-export type FontWeights = keyof typeof theme.fontWeights
-export type LineHeights = keyof typeof theme.lineHeights
+export type FontWeights = keyof typeof baseTheme.fontWeights
+export type LineHeights = keyof typeof baseTheme.lineHeights
 export type ZIndexes = 'under' | 'plain' | 'over' | '1' | '2' | '3' | '4' | '5'
 
 export type Space =
@@ -88,4 +88,4 @@ export type ThemeColors =
   | 'success.washed.0'
   | 'warning.base'
 
-export type Theme = typeof theme
+export type Theme = typeof baseTheme

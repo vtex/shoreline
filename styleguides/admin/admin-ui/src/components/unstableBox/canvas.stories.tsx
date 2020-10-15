@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Box } from './index'
+import { unstableBox as Box } from './index'
 import { ThemeProviderNext } from '../../system-next'
-import { theme } from '../../themes-next'
+import { baseTheme } from '../../themes-next'
 
 export default {
   title: 'system-next/box',
@@ -11,7 +11,7 @@ export default {
 
 export const Basic: Story = () => {
   return (
-    <ThemeProviderNext theme={theme}>
+    <ThemeProviderNext theme={baseTheme}>
       <Box>Cool Box</Box>
     </ThemeProviderNext>
   )
@@ -19,7 +19,7 @@ export const Basic: Story = () => {
 
 export const Sx: Story = () => {
   return (
-    <ThemeProviderNext theme={theme}>
+    <ThemeProviderNext theme={baseTheme}>
       <Box
         sx={{
           fontSize: 64,
@@ -33,7 +33,7 @@ export const Sx: Story = () => {
 
 export const ConsumeTheme: Story = () => {
   return (
-    <ThemeProviderNext theme={theme}>
+    <ThemeProviderNext theme={baseTheme}>
       <Box
         sx={{
           fontSize: 64,
@@ -52,7 +52,7 @@ export const CustomTheme: Story = () => {
   return (
     <ThemeProviderNext
       theme={{
-        ...theme,
+        ...baseTheme,
         box: {
           default: {
             bg: 'background',
@@ -89,7 +89,7 @@ export const CustomTheme: Story = () => {
 
 export const StyleProps: Story = () => {
   return (
-    <ThemeProviderNext theme={theme}>
+    <ThemeProviderNext theme={baseTheme}>
       <Box
         bg="primary.base"
         color="primary.contrast"
@@ -104,28 +104,21 @@ export const StyleProps: Story = () => {
   )
 }
 
-// export const Ref: Story = () => {
-//   const ref = useRef<HTMLInputElement>(null)
-//   const handleFocus = () => {
-//     if (ref.current) {
-//       ref.current.focus()
-//     }
-//   }
+export const Ref: Story = () => {
+  const ref = useRef<HTMLInputElement>(null)
+  const handleFocus = () => {
+    if (ref.current) {
+      ref.current.focus()
+    }
+  }
 
-//   return (
-//     <ThemeProviderNext theme={theme}>
-//       <Box
-//         ref={ref}
-//         borderRadius={4}
-//         borderStyle="solid"
-//         fontSize={18}
-//         use="input"
-//         type="text"
-//       />
-//       <button onClick={handleFocus}>Focus</button>
-//     </ThemeProviderNext>
-//   )
-// }
+  return (
+    <ThemeProviderNext theme={baseTheme}>
+      <Box ref={ref} borderRadius="3" borderStyle="solid" element="section" />
+      <button onClick={handleFocus}>Focus</button>
+    </ThemeProviderNext>
+  )
+}
 
 // export const FullUse: Story = () => {
 //   const ref = useRef<HTMLInputElement>(null)
