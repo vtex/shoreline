@@ -10,7 +10,6 @@ import {
   MouseEvent,
   useMemo,
   useCallback,
-  createRef,
   ReactElement,
 } from 'react'
 import {
@@ -33,11 +32,28 @@ export { useDialogState as useModalState }
 function isReactElement(
   child: ReactNode
 ): child is Omit<ReactElement, 'type'> & { type: { displayName: string } } {
-  if ((child as ReactElement).type) {
-    return true
-  } else {
-    return false
-  }
+  return !!(child as ReactElement).type
+}
+
+function getComponentsExistence(children: ReactNode, sx: SxStyleProp) {
+  let headerExists = false
+  let footerExists = false
+
+  Children.forEach(children, function (child) {
+    const displayName = isReactElement(child) && child.type.displayName
+
+    if (displayName === 'Modal.Header' || displayName === 'Stateless.Modal') {
+      Object.assign(sx, { overflowY: 'hidden' })
+      headerExists = true
+    }
+
+    if (displayName === 'Modal.Footer' || displayName === 'Stateless.Footer') {
+      Object.assign(sx, { overflowY: 'hidden' })
+      footerExists = true
+    }
+  })
+
+  return [headerExists, footerExists]
 }
 
 /**
@@ -72,27 +88,16 @@ export function StatelessModal(props: StatelessModalProps) {
     onClose = () => null,
     ...baseProps
   } = props
-  let hasHeader = false
-  let hasFooter = false
 
   const handleClose = useCallback(() => {
     state.hide()
     onClose()
   }, [onClose, state])
 
-  Children.forEach(children, function (child) {
-    const displayName = isReactElement(child) && child.type.displayName
-
-    if (displayName === 'Modal.Header' || displayName === 'Stateless.Modal') {
-      hasHeader = true
-      Object.assign(sx, { overflowY: 'hidden' })
-    }
-
-    if (displayName === 'Modal.Footer' || displayName === 'Stateless.Footer') {
-      hasFooter = true
-      Object.assign(sx, { overflowY: 'hidden' })
-    }
-  })
+  const [hasHeader, hasFooter] = useMemo(
+    () => getComponentsExistence(children, sx),
+    [children, sx]
+  )
 
   return (
     <DialogBackdrop
@@ -222,7 +227,6 @@ StatelessModal.Header = function Header(props: ModalHeaderProps) {
  */
 StatelessModal.Content = function Content(props: ModalContentProps) {
   const { sx, ...boxProps } = props
-  const contentRef = createRef<HTMLDivElement>()
   const { hasHeader, hasFooter, size } = useModalContext()
 
   let scrollSize = ''
@@ -239,7 +243,6 @@ StatelessModal.Content = function Content(props: ModalContentProps) {
 
   return (
     <Box
-      ref={contentRef}
       sx={{
         variant: `overlay.modal.content${scrollSize}`,
         ...sx,
