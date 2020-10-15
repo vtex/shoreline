@@ -1,7 +1,8 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, Ref } from 'react'
 import BaseButton from '@vtex-components/button'
+import { forwardRef } from '@vtex-components/utils'
 
-import { Icon } from '../../icons'
+import { IconRemove } from '../../icons'
 import {
   FlexTokensProps,
   LayoutTokensProps,
@@ -9,7 +10,7 @@ import {
 } from '../../system'
 import { Box } from '../Box'
 
-export function Tag(props: TagProps) {
+export const Tag = forwardRef((props: TagProps, ref: Ref<SVGSVGElement>) => {
   const {
     palette = 'blue',
     size = 'regular',
@@ -20,56 +21,21 @@ export function Tag(props: TagProps) {
   } = props
 
   return (
-    <Box variant={`tag.${palette}-${size}`} {...restProps}>
+    <Box variant={`tag.${palette}-${size}`} {...restProps} ref={ref}>
       {icon}
       {label}
       {!!handleDelete && (
-        <ButtonDelete
-          label={label}
-          handleDelete={handleDelete}
-          palette={palette}
-        />
+        <BaseButton
+          aria-label={`${label}-tag-button-delete`}
+          onClick={handleDelete}
+          variant={`tag.${palette === 'black' ? palette : 'default'}-button`}
+        >
+          <IconRemove />
+        </BaseButton>
       )}
     </Box>
   )
-}
-
-function ButtonDelete(props: ButtonDeleteProps) {
-  const { label, handleDelete, palette } = props
-
-  return (
-    <BaseButton
-      aria-label={`${label}-tag-button-delete`}
-      onClick={handleDelete}
-      variant={`tag.${palette === 'black' ? palette : 'default'}-button`}
-    >
-      <IconDelete />
-    </BaseButton>
-  )
-}
-
-function IconDelete() {
-  return (
-    <Icon viewBox="0 0 20 20">
-      <path
-        d="M6.66669 6.66663L13.3334 13.3333"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M13.3334 6.66663L6.66669 13.3333"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </Icon>
-  )
-}
-
-type ButtonDeleteProps = Pick<TagProps, 'label' | 'handleDelete' | 'palette'>
+})
 
 export interface TagProps
   extends SpaceTokensProps,

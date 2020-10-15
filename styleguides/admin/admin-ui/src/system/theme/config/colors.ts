@@ -32,7 +32,12 @@ export default {
     contrast: '#FFFFFF',
     washed: ['#CCECE3'],
   },
-  purple: {
-    washed: ['#F4EFFF'],
+  basic: {
+    blue: '#E5EEFF',
+    purple: '#F4EFFF',
+    yellow: '#FDE6C0',
+    green: '#CCECE3',
+    red: '#FED5D9',
+    black: '#323845',
   },
 }

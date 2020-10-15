@@ -38,7 +38,7 @@ import { Tag, TagProps } from '@vtex/admin-ui'
 
 ## Variation
 
-#### Sizes
+### Sizes
 
 ```jsx
 import { Tag, ThemeProvider } from '@vtex/admin-ui'
@@ -53,7 +53,7 @@ function Example() {
 }
 ```
 
-#### Palettes
+### Palettes
 
 ```jsx
 import { Tag, ThemeProvider } from '@vtex/admin-ui'
@@ -72,7 +72,7 @@ function Example() {
 }
 ```
 
-#### Deletable
+### Deletable
 
 ```jsx
 import { Tag, ThemeProvider } from '@vtex/admin-ui'
@@ -86,7 +86,7 @@ function Example() {
 }
 ```
 
-#### With Icon
+### With Icon
 
 ```jsx
 import { Tag, IconFavorite, ThemeProvider } from '@vtex/admin-ui'

@@ -60,6 +60,7 @@ export type Space =
 export type Sizes = keyof typeof sizes
 
 export type ThemeColors =
+  | BasicColors
   | 'text'
   | 'background'
   | 'muted.0'
@@ -93,6 +94,13 @@ export type ThemeColors =
   | 'warning.active'
   | 'warning.contrast'
   | 'warning.washed.0'
-  | 'purple.washed.0'
+
+type BasicColors =
+  | 'basic.purple'
+  | 'basic.blue'
+  | 'basic.red'
+  | 'basic.yellow'
+  | 'basic.black'
+  | 'basic.green'
 
 export type Theme = typeof theme

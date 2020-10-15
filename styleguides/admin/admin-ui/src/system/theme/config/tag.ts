@@ -35,23 +35,23 @@ const styles = {
 
 const palette = {
   blue: {
-    bg: 'primary.washed.0',
+    bg: 'basic.blue',
   },
   green: {
-    bg: 'success.washed.0',
+    bg: 'basic.green',
   },
   red: {
-    bg: 'danger.washed.0',
+    bg: 'basic.red',
   },
   black: {
-    bg: 'text',
+    bg: 'basic.black',
     color: 'background',
   },
   yellow: {
-    bg: 'warning.washed.0',
+    bg: 'basic.yellow',
   },
   purple: {
-    bg: 'purple.washed.0',
+    bg: 'basic.purple',
   },
 }
 
