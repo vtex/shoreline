@@ -28,6 +28,7 @@ import Heading from '../components/Heading'
 import Seo from '../components/SEO'
 import DocsBackNext from '../components/DocsBackNext'
 import Summary from '../components/Summary'
+import { Proptypes } from '../components/Proptypes'
 
 type DocsProps = {
   pageContext: {
@@ -134,6 +135,7 @@ const { Compiler: renderAst } = new RehypeReact({
   components: {
     a: Anchor,
     p: (props) => <AdminUI.Text el="p" fs="2" {...props} />,
+    proptypes: Proptypes,
     ul: List,
     ol: (props) => <List el="ol" {...props} />,
     kbd: Kbd,

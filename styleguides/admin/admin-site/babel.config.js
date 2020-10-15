@@ -1,5 +1,3 @@
-const { plugins } = require('../../../babel.config')
-
 module.exports = {
   presets: [
     [
@@ -11,5 +9,5 @@ module.exports = {
       },
     ],
   ],
-  plugins,
+  plugins: ['emotion', 'babel-plugin-extract-react-types'],
 }

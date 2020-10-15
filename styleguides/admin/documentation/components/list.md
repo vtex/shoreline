@@ -1,25 +1,5 @@
 ---
 path: /docs/list/
-redirect_from:
-  - /components/box/
-  - /components/block/
-  - /components/flex/
-  - /components/grid/
-  - /components/inline/
-  - /components/inlineblock/
-  - /components/inlineflex/
-  - /components/avatar/
-  - /components/blockquote/
-  - /components/card/
-  - /components/card/cardfit/
-  - /components/code/
-  - /components/heading/
-  - /components/image/
-  - /components/link/
-  - /components/list/
-  - /components/navigation/
-  - /components/table/
-  - /components/table/tablewrapper/
 ---
 
 # List
@@ -68,3 +48,7 @@ function Example() {
   )
 }
 ```
+
+# Props
+
+<proptypes heading="List" component="List" />
