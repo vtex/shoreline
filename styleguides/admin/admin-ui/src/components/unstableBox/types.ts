@@ -3,7 +3,7 @@ import * as CSS from 'csstype'
 
 import { ThemeColors, BorderWidths, BorderRadius } from '../../themes-next'
 
-export type ComponentType<R> = React.ComponentType<R> & { useProps: any }
+export type ComponentType<R> = React.ComponentType<R>
 
 export interface BorderStyleProps {
   /**
@@ -108,3 +108,14 @@ export interface ColorStyleProps {
    */
   stroke?: ResponsiveValue<ThemeColors | 'initial' | 'inherit' | 'none'>
 }
+
+export type HeadingTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+
+export type SemanticTags =
+  | 'section'
+  | 'header'
+  | 'nav'
+  | 'main'
+  | 'aside'
+  | 'article'
+  | 'footer'

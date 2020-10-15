@@ -50,4 +50,6 @@ export {
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
 export { DisplayTable, defineColumns } from './components/DisplayTable'
-export { Box as nightlyBox } from './components/BoxNext'
+export { unstableBox } from './components/unstableBox'
+export { ThemeProviderNext } from './system-next'
+export { baseTheme } from './themes-next'
