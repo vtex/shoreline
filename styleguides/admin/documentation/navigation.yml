@@ -13,6 +13,7 @@
     - /docs/button/
     - /docs/tag/
     - /docs/checkbox/
+    - /docs/checkbox-group/
 - section: Documentation Templates
   paths:
     - /docs/documentation-template/
