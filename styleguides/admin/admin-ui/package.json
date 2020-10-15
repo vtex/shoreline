@@ -38,9 +38,11 @@
     "react-dom": ">=16"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^0.8.8",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
-    "@theme-ui/css": "0.4.0-rc.3",
+    "@theme-ui/css": "^0.4.0-rc.5",
+    "@theme-ui/core": "^0.4.0-rc.5",
     "@types/react-truncate": "^2.3.3",
     "@types/styled-system": "^5.1.10",
     "@types/theme-ui": "^0.3.6",
@@ -52,6 +54,7 @@
     "@vtex-components/utils": "^0.0.3",
     "csstype": "^3.0.3",
     "deepmerge": "^4.2.2",
+    "emotion": "^10.0.27",
     "focus-visible": "^5.1.0",
     "polished": "^3.6.7",
     "react-truncate": "^2.4.0",
