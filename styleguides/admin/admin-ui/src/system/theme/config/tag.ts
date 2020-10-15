@@ -33,21 +33,21 @@ const styles = {
   },
 }
 
-const pallete = {
-  primary: {
+const palette = {
+  blue: {
     bg: 'primary.washed.0',
   },
-  success: {
+  green: {
     bg: 'success.washed.0',
   },
-  danger: {
+  red: {
     bg: 'danger.washed.0',
   },
-  base: {
+  black: {
     bg: 'text',
     color: 'background',
   },
-  warning: {
+  yellow: {
     bg: 'warning.washed.0',
   },
   purple: {
@@ -95,7 +95,7 @@ const size = {
 }
 
 export default {
-  ...Object.keys(pallete).reduce(function mergeV(acc, p) {
+  ...Object.keys(palette).reduce(function mergeV(acc, p) {
     return {
       ...acc,
       ...Object.keys(size).reduce(function mergeS(bcc, s) {
@@ -103,7 +103,7 @@ export default {
           ...bcc,
           [`${p}-${s}`]: {
             ...styles,
-            ...(pallete as any)[p],
+            ...(palette as any)[p],
             ...(size as any)[s],
           },
         }
@@ -119,7 +119,7 @@ export default {
       backgroundColor: rgba(colors.text, 0.13),
     },
   },
-  'base-button': {
+  'black-button': {
     ...buttonStyles,
     '&:hover': {
       backgroundColor: rgba(colors.background, 0.1),

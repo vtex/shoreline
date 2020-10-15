@@ -11,7 +11,7 @@ import { Box } from '../Box'
 
 export function Tag(props: TagProps) {
   const {
-    palette = 'primary',
+    palette = 'blue',
     size = 'regular',
     label,
     icon,
@@ -41,7 +41,7 @@ function ButtonDelete(props: ButtonDeleteProps) {
     <BaseButton
       aria-label={`${label}-tag-button-delete`}
       onClick={handleDelete}
-      variant={`tag.${palette === 'base' ? palette : 'default'}-button`}
+      variant={`tag.${palette === 'black' ? palette : 'default'}-button`}
     >
       <IconDelete />
     </BaseButton>
@@ -77,9 +77,9 @@ export interface TagProps
     FlexTokensProps {
   /**
    *  Tag Palette
-   *  @default primary
+   *  @default blue
    */
-  palette?: 'base' | 'success' | 'danger' | 'primary' | 'warning' | 'purple'
+  palette?: 'black' | 'green' | 'red' | 'blue' | 'yellow' | 'purple'
   /**
    *  Tag Size
    *  @default regular

@@ -15,11 +15,11 @@ export function Palettes() {
   return (
     <>
       <Box display="flex" items="center">
-        <Tag label="Rio de Janeiro" palette="primary" />
-        <Tag label="Rio de Janeiro" palette="danger" />
-        <Tag label="Rio de Janeiro" palette="warning" />
-        <Tag label="Rio de Janeiro" palette="success" />
-        <Tag label="Rio de Janeiro" palette="base" />
+        <Tag label="Rio de Janeiro" palette="blue" />
+        <Tag label="Rio de Janeiro" palette="red" />
+        <Tag label="Rio de Janeiro" palette="yellow" />
+        <Tag label="Rio de Janeiro" palette="green" />
+        <Tag label="Rio de Janeiro" palette="black" />
         <Tag label="Rio de Janeiro" palette="purple" />
       </Box>
     </>

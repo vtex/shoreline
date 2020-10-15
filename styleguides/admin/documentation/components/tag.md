@@ -61,11 +61,11 @@ import { Tag, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Tag label="Rio de Janeiro" palette="primary" />
-      <Tag label="Rio de Janeiro" palette="danger" />
-      <Tag label="Rio de Janeiro" palette="warning" />
-      <Tag label="Rio de Janeiro" palette="success" />
-      <Tag label="Rio de Janeiro" palette="base" />
+      <Tag label="Rio de Janeiro" palette="blue" />
+      <Tag label="Rio de Janeiro" palette="red" />
+      <Tag label="Rio de Janeiro" palette="yellow" />
+      <Tag label="Rio de Janeiro" palette="green" />
+      <Tag label="Rio de Janeiro" palette="black" />
       <Tag label="Rio de Janeiro" palette="purple" />
     </ThemeProvider>
   )
@@ -102,13 +102,13 @@ function Example() {
 
 ## Props
 
-| Prop name      | Description               | Type                                                                   | Default value | Required? |
-| -------------- | ------------------------- | ---------------------------------------------------------------------- | ------------- | --------- |
-| `label`        | `Tag Label`               | `string`                                                               | -             | `true`    |
-| `size`         | `Tag Size`                | `'regular'`, `'small'`                                                 | `regular`     | `false`   |
-| `palette`      | `Tag color palette`       | `'base'`, `'success'`,`'danger'`, `'warning'`, `'primary'`, `'purple'` | `primary`     | `false`   |
-| `handleDelete` | `handle tag delete event` | `() => void`                                                           | -             | `false`   |
-| `icon`         | `Tag Icon`                | `ReactNode`                                                            | -             | `false`   |
+| Prop name      | Description               | Type                                                           | Default value | Required? |
+| -------------- | ------------------------- | -------------------------------------------------------------- | ------------- | --------- |
+| `label`        | `Tag Label`               | `string`                                                       | -             | `true`    |
+| `size`         | `Tag Size`                | `'regular'`, `'small'`                                         | `regular`     | `false`   |
+| `palette`      | `Tag palette color`       | `'black'`, `'green'`,`'red'`, `'yellow'`, `'blue'`, `'purple'` | `blue`        | `false`   |
+| `handleDelete` | `handle tag delete event` | `() => void`                                                   | -             | `false`   |
+| `icon`         | `Tag Icon`                | `ReactNode`                                                    | -             | `false`   |
 
 ## Customization
 
