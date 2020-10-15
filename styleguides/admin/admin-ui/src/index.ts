@@ -50,3 +50,4 @@ export {
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
 export { DisplayTable, defineColumns } from './components/DisplayTable'
+export { Box as nightlyBox } from './components/BoxNext'
