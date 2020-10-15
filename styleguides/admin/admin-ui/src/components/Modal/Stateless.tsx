@@ -35,9 +35,13 @@ function isReactElement(
   return !!(child as ReactElement).type
 }
 
-function getComponentsExistence(children: ReactNode, sx: SxStyleProp) {
+function getComponentsExistence(
+  children: ReactNode,
+  sx: SxStyleProp
+): [boolean, boolean, ModalFooterSize | undefined] {
   let headerExists = false
   let footerExists = false
+  let footerSize: ModalFooterSize | undefined = undefined
 
   Children.forEach(children, function (child) {
     const displayName = isReactElement(child) && child.type.displayName
@@ -50,10 +54,46 @@ function getComponentsExistence(children: ReactNode, sx: SxStyleProp) {
     if (displayName === 'Modal.Footer' || displayName === 'Stateless.Footer') {
       Object.assign(sx, { overflowY: 'hidden' })
       footerExists = true
+      footerSize = (isReactElement(child) && child.props['size']) ?? undefined
     }
   })
 
-  return [headerExists, footerExists]
+  return [headerExists, footerExists, footerSize]
+}
+
+function getScrollAreaSize(
+  hasHeader: boolean,
+  hasFooter: boolean,
+  size: ModalSize,
+  footerSize?: ModalFooterSize
+) {
+  let scrollAreaSize = ''
+
+  if (!footerSize) {
+    if (hasHeader && hasFooter) {
+      if (size === 'small' || size === 'regular') {
+        scrollAreaSize = '-with-larger-scroll-area'
+      } else {
+        scrollAreaSize = '-with-extra-large-scroll-area'
+      }
+    } else if (hasHeader || hasFooter) {
+      scrollAreaSize = `-with-${size}-scroll-area`
+    }
+  } else {
+    if (hasHeader) {
+      if (size === footerSize) {
+        if (footerSize === 'small' || footerSize === 'regular') {
+          scrollAreaSize = '-with-larger-scroll-area'
+        } else {
+          scrollAreaSize = '-with-extra-large-scroll-area'
+        }
+      } else {
+        scrollAreaSize = '-with-mixed-scroll-area'
+      }
+    }
+  }
+
+  return scrollAreaSize
 }
 
 /**
@@ -94,7 +134,7 @@ export function StatelessModal(props: StatelessModalProps) {
     onClose()
   }, [onClose, state])
 
-  const [hasHeader, hasFooter] = useMemo(
+  const [hasHeader, hasFooter, footerSize] = useMemo(
     () => getComponentsExistence(children, sx),
     [children, sx]
   )
@@ -120,6 +160,7 @@ export function StatelessModal(props: StatelessModalProps) {
             omitCloseButton,
             hasHeader,
             hasFooter,
+            footerSize,
           }}
         >
           {children}
@@ -227,19 +268,12 @@ StatelessModal.Header = function Header(props: ModalHeaderProps) {
  */
 StatelessModal.Content = function Content(props: ModalContentProps) {
   const { sx, ...boxProps } = props
-  const { hasHeader, hasFooter, size } = useModalContext()
+  const { hasHeader, hasFooter, size, footerSize } = useModalContext()
 
-  let scrollSize = ''
-
-  if (hasHeader && hasFooter) {
-    if (size === 'small' || size === 'regular') {
-      scrollSize = '-with-larger-scroll'
-    } else {
-      scrollSize = '-with-extra-large-scroll'
-    }
-  } else if (hasHeader || hasFooter) {
-    scrollSize = `-with-${size}-scroll`
-  }
+  const scrollSize = useMemo(
+    () => getScrollAreaSize(hasHeader, hasFooter, size, footerSize),
+    [hasHeader, hasFooter, size, footerSize]
+  )
 
   return (
     <Box
@@ -266,13 +300,13 @@ StatelessModal.Content = function Content(props: ModalContentProps) {
  * ```
  */
 StatelessModal.Footer = function Footer(props: ModalFooterProps) {
-  const { sx, ...boxProps } = props
+  const { sx, size: footerSize, ...boxProps } = props
   const { size } = useModalContext()
 
   return (
     <Box
       el="footer"
-      sx={{ variant: `overlay.modal.footer-${size}`, ...sx }}
+      sx={{ variant: `overlay.modal.footer-${footerSize ?? size}`, ...sx }}
       {...boxProps}
     />
   )
@@ -337,8 +371,16 @@ export interface ModalButtonProps extends ButtonProps {
 }
 
 export type ModalContentProps = BoxProps
-export type ModalFooterProps = BoxProps
 export type ModalSize = 'small' | 'regular' | 'large'
+export type ModalFooterSize = ModalSize
+
+export interface ModalFooterProps extends BoxProps {
+  /**
+   * Modal footer size
+   * @default matches the Modal size
+   */
+  size?: ModalFooterSize
+}
 
 export interface StatelessModalProps
   extends Pick<DialogOptions, 'hideOnEsc' | 'hideOnClickOutside'> {

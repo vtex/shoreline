@@ -99,25 +99,29 @@ export default {
   content: {
     ...content,
   },
-  'content-with-small-scroll': {
+  'content-with-small-scroll-area': {
     ...contentWithScroll,
     height: 'calc(100% - 3.5rem)',
   },
-  'content-with-regular-scroll': {
+  'content-with-regular-scroll-area': {
     ...contentWithScroll,
     height: 'calc(100% - 3.5rem)',
   },
-  'content-with-large-scroll': {
+  'content-with-large-scroll-area': {
     ...contentWithScroll,
     height: 'calc(100% - 5rem)',
   },
-  'content-with-larger-scroll': {
+  'content-with-larger-scroll-area': {
     ...contentWithScroll,
     height: 'calc(100% - 7rem)',
   },
-  'content-with-extra-large-scroll': {
+  'content-with-extra-large-scroll-area': {
     ...contentWithScroll,
     height: 'calc(100% - 10rem)',
+  },
+  'content-with-mixed-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 8.5rem)',
   },
   'footer-small': {
     ...footer,

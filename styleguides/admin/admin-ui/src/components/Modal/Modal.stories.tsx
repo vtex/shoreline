@@ -132,7 +132,7 @@ export const RegularModal: Story<ModalProps> = () => {
           user who creates the cart. For others, these same data are
         </Text>
       </Modal.Content>
-      <Modal.Footer>
+      <Modal.Footer size="large">
         <Label display="flex" position="relative" items="center">
           <Checkbox {...checkbox} />
           <Text pl="2">I accept the terms and conditions above</Text>

@@ -2,7 +2,7 @@ import React from 'react'
 import { DialogStateReturn } from 'reakit/Dialog'
 import invariant from 'tiny-invariant'
 
-import { ModalSize } from './Stateless'
+import { ModalFooterSize, ModalSize } from './Stateless'
 
 const ModalContext = React.createContext<{
   state: DialogStateReturn
@@ -11,6 +11,7 @@ const ModalContext = React.createContext<{
   hasHeader: boolean
   hasFooter: boolean
   size: ModalSize
+  footerSize?: ModalFooterSize
 } | null>(null)
 
 export function useModalContext() {
