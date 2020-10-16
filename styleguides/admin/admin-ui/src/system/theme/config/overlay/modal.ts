@@ -2,6 +2,7 @@ import { SxStyleProp } from 'theme-ui'
 import { rgba } from 'polished'
 
 import colors from '../colors'
+import { scrollbar } from '../scrollbar'
 
 const surface = {
   outline: 'none',
@@ -63,6 +64,18 @@ const footer = {
   p: 6,
 }
 
+const content = {
+  pt: 4,
+  px: 6,
+  pb: 6,
+}
+
+const contentWithScroll = {
+  ...content,
+  ...scrollbar,
+  overflowY: 'auto',
+}
+
 export default {
   backdrop: {
     display: 'flex',
@@ -84,9 +97,31 @@ export default {
   'header-regular': { ...header, height: '3.5rem' },
   'header-large': { ...header, height: '5rem' },
   content: {
-    pt: 4,
-    px: 6,
-    pb: 6,
+    ...content,
+  },
+  'content-with-small-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 3.5rem)',
+  },
+  'content-with-regular-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 3.5rem)',
+  },
+  'content-with-large-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 5rem)',
+  },
+  'content-with-larger-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 7rem)',
+  },
+  'content-with-extra-large-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 10rem)',
+  },
+  'content-with-mixed-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 8.5rem)',
   },
   'footer-small': {
     ...footer,
@@ -95,7 +130,8 @@ export default {
     '>button': {
       width: 'full',
     },
+    height: '3.5rem',
   },
-  'footer-regular': { ...footer, borderTopWidth: 1 },
-  'footer.-large': { ...footer, borderTopWidth: 1 },
+  'footer-regular': { ...footer, borderTopWidth: 1, height: '3.5rem' },
+  'footer-large': { ...footer, borderTopWidth: 1, height: '5rem' },
 } as Record<string, SxStyleProp>

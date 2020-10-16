@@ -132,7 +132,7 @@ export const RegularModal: Story<ModalProps> = () => {
           user who creates the cart. For others, these same data are
         </Text>
       </Modal.Content>
-      <Modal.Footer>
+      <Modal.Footer size="large">
         <Label display="flex" position="relative" items="center">
           <Checkbox {...checkbox} />
           <Text pl="2">I accept the terms and conditions above</Text>
@@ -277,16 +277,18 @@ export const AnnouncementsModal: Story<ModalProps> = () => {
       size="large"
     >
       <Modal.Header title="Announcements" />
-      <List>
-        {list.map(({ id, image: Image, ...info }) => (
-          <Announcement key={id}>
-            <Box px="5" w="full" h="full" display="flex" items="center">
-              <Image />
-              <List.TextGroup ml="4" {...info} descLineCount={3} />
-            </Box>
-          </Announcement>
-        ))}
-      </List>
+      <Modal.Content>
+        <List>
+          {list.map(({ id, image: Image, ...info }) => (
+            <Announcement key={id}>
+              <Box px="5" w="full" h="full" display="flex" items="center">
+                <Image />
+                <List.TextGroup ml="4" {...info} descLineCount={3} />
+              </Box>
+            </Announcement>
+          ))}
+        </List>
+      </Modal.Content>
     </Modal>
   )
 }
