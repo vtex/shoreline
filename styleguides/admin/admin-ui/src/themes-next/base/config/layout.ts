@@ -6,7 +6,8 @@ export default {
   layout: {
     ...skeleton,
   },
-  breakpoints: ['20em', '48em', '56em', '64em'],
+  // [mobile, tablet, desktop, fullHD]
+  breakpoints: ['40rem', '48rem', '64rem', '80rem'],
   fontSizes: {
     '0': '0.75rem',
     '1': '0.875rem',

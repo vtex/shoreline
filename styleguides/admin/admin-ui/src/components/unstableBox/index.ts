@@ -7,7 +7,6 @@ import {
   omitCSSProps,
   pickHTMLProps,
   useCx,
-  compose,
 } from '../../system-next'
 import {
   ColorStyleProps,
@@ -17,11 +16,11 @@ import {
 } from './types'
 
 export interface BoxProps
-  extends Omit<BoxHTMLProps, 'color' | 'translate'>,
+  extends Omit<BoxHTMLProps, 'color' | 'translate' | 'ref'>,
     ColorStyleProps,
     BorderStyleProps {
   element?: 'div' | 'span' | SemanticTags | HeadingTags
-  sx?: SxStyleProp
+  styles?: SxStyleProp
   children?: React.ReactNode | ((props: BoxProps) => React.ReactNode)
 }
 
@@ -40,15 +39,12 @@ export const unstableBox = forwardRef(function Box(
 })
 
 export function useBox(props: BoxProps): BoxProps {
-  const compoundProps = compose(props)
-  const className = useCx(compoundProps)
-  const htmlProps = omitCSSProps(pickHTMLProps(compoundProps))
+  const className = useCx(props)
+  const htmlProps = omitCSSProps(pickHTMLProps(props))
 
-  const { ref } = compoundProps
-
-  const wrapElement = compoundProps.wrapElement ?? {
-    wrapElement: compoundProps.wrapElement,
+  const wrapElement = props.wrapElement ?? {
+    wrapElement: props.wrapElement,
   }
 
-  return { ...htmlProps, className, ref, ...wrapElement }
+  return { ...htmlProps, className, ...wrapElement }
 }

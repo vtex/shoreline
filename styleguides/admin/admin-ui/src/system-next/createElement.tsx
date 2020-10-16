@@ -33,7 +33,7 @@ export function createElement<T>(params: CreateElementParams<T>) {
     // ✨ Reakit as composition
     // 🚫 components, just plain elements
     { as: element, ...htmlProps, ref },
-    htmlProps?.children ?? children
+    children ?? htmlProps?.children
   )
 }
 

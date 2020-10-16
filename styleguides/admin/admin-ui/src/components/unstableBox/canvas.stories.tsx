@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { unstableBox as Box } from './index'
@@ -17,11 +17,11 @@ export const Basic: Story = () => {
   )
 }
 
-export const Sx: Story = () => {
+export const Styles: Story = () => {
   return (
     <ThemeProviderNext theme={baseTheme}>
       <Box
-        sx={{
+        styles={{
           fontSize: 64,
         }}
       >
@@ -35,7 +35,7 @@ export const ConsumeTheme: Story = () => {
   return (
     <ThemeProviderNext theme={baseTheme}>
       <Box
-        sx={{
+        styles={{
           fontSize: 64,
           bg: 'primary.base',
           color: 'primary.contrast',
@@ -70,14 +70,14 @@ export const CustomTheme: Story = () => {
       }}
     >
       <Box
-        sx={{
+        styles={{
           variant: 'box.default',
         }}
       >
         Default Box
       </Box>
       <Box
-        sx={{
+        styles={{
           variant: 'box.inverted',
         }}
       >
@@ -94,28 +94,12 @@ export const StyleProps: Story = () => {
         bg="primary.base"
         color="primary.contrast"
         borderRadius="3"
-        sx={{
+        styles={{
           variant: 'text.headline',
         }}
       >
         Primary Box
       </Box>
-    </ThemeProviderNext>
-  )
-}
-
-export const Ref: Story = () => {
-  const ref = useRef<HTMLInputElement>(null)
-  const handleFocus = () => {
-    if (ref.current) {
-      ref.current.focus()
-    }
-  }
-
-  return (
-    <ThemeProviderNext theme={baseTheme}>
-      <Box ref={ref} borderRadius="3" borderStyle="solid" element="section" />
-      <button onClick={handleFocus}>Focus</button>
     </ThemeProviderNext>
   )
 }
