@@ -59,6 +59,7 @@ export function StatelessMenu(props: StatelessMenuProps) {
         border: 0,
         padding: 0,
         outline: 'none',
+        zIndex: 999,
       }}
       {...state}
       {...baseProps}
