@@ -7,6 +7,6 @@ interface Props {
   theme?: any
 }
 
-export function ThemeProviderNext({ children, theme }: Props) {
+export function unstableThemeProvider({ children, theme }: Props) {
   return <ThemeUIProvider theme={theme}>{children}</ThemeUIProvider>
 }

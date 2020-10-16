@@ -2,8 +2,8 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { unstableBox as Box } from './index'
-import { ThemeProviderNext } from '../../system-next'
-import { baseTheme } from '../../themes-next'
+import { unstableThemeProvider as ThemeProvider } from '../../unstableSystem'
+import { baseTheme } from '../../unstableTheme'
 
 export default {
   title: 'system-next/box',
@@ -11,15 +11,15 @@ export default {
 
 export const Basic: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={baseTheme}>
       <Box>Cool Box</Box>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 export const Styles: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={baseTheme}>
       <Box
         styles={{
           fontSize: 64,
@@ -27,13 +27,13 @@ export const Styles: Story = () => {
       >
         Huge Text
       </Box>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 export const ConsumeTheme: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={baseTheme}>
       <Box
         styles={{
           fontSize: 64,
@@ -44,13 +44,13 @@ export const ConsumeTheme: Story = () => {
       >
         Primary Box
       </Box>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 export const Surfaces: Story = () => {
   return (
-    <ThemeProviderNext
+    <ThemeProvider
       theme={{
         ...baseTheme,
       }}
@@ -60,26 +60,26 @@ export const Surfaces: Story = () => {
       </Box>
       <Box surface="inverted">Inverted Box</Box>
       <Box surface="primary">Primary Box</Box>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 export const Texts: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={baseTheme}>
       <Box text="headline">Headline</Box>
       <Box text="subtitle">Subtitle</Box>
       <Box text="action">Box with actions text</Box>
       <Box text="highlight">Highlight text</Box>
       <Box text="body">Box with body text</Box>
       <Box text="small">Box with small text</Box>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 export const CustomTheme: Story = () => {
   return (
-    <ThemeProviderNext
+    <ThemeProvider
       theme={{
         ...baseTheme,
         box: {
@@ -112,7 +112,7 @@ export const CustomTheme: Story = () => {
       >
         Inverted Box
       </Box>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
