@@ -18,7 +18,7 @@ const styles = {
 }
 
 export default {
-  'controlGroup-horizontal-regular': {
+  'horizontal-regular': {
     ...styles,
     fontSize: '2',
     flexDirection: 'row',
@@ -26,7 +26,7 @@ export default {
       marginRight: 6,
     },
   },
-  'controlGroup-horizontal-small': {
+  'horizontal-small': {
     ...styles,
     fontSize: '1',
     flexDirection: 'row',
@@ -34,7 +34,7 @@ export default {
       marginRight: 5,
     },
   },
-  'controlGroup-vertical-regular': {
+  'vertical-regular': {
     ...styles,
     fontSize: '2',
     flexDirection: 'column',
@@ -42,7 +42,7 @@ export default {
       marginBottom: 4,
     },
   },
-  'controlGroup-vertical-small': {
+  'vertical-small': {
     ...styles,
     fontSize: '1',
     flexDirection: 'column',

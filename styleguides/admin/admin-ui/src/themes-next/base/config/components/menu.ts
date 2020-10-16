@@ -1,6 +1,4 @@
-import { SxStyleProp } from 'theme-ui'
-
-import space from '../space'
+import { space } from '../base'
 
 export default {
   display: 'flex',
@@ -50,4 +48,4 @@ export default {
       marginRight: 2,
     },
   },
-} as SxStyleProp
+}

@@ -26,6 +26,7 @@ export const flexBox = {
   flexGrow: 'flex-grow',
   flexShrink: 'flex-shrink',
   flexWrap: 'flex-wrap',
+  surface: 'surface',
 }
 
 export const cssProps = {

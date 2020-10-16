@@ -1,6 +1,6 @@
 import { keyframes } from '@emotion/core'
 
-import colors from './colors'
+import { colors } from '../base'
 
 const load = keyframes`
   0% {
@@ -30,11 +30,11 @@ const styles = {
 }
 
 export default {
-  skeleton: {
+  square: {
     ...styles,
     borderRadius: 3,
   },
-  'skeleton-circle': {
+  circle: {
     ...styles,
     borderRadius: '100%',
   },

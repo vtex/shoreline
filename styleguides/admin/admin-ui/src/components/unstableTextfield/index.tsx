@@ -4,12 +4,12 @@ import { useCx } from '../../system-next'
 import { unstableInput as Input, InputProps } from '../unstableInput'
 import { Label } from '../Label'
 
-export const unstableTextfield = forwardRef(function Textfield(
-  props: TextfieldProps,
+export const unstableTextField = forwardRef(function Textfield(
+  props: TextFieldProps,
   ref: Ref<HTMLInputElement>
 ) {
   const { id, label, styles, ...inputProps } = props
-  const className = useCx({ styles }, 'forms.text-field')
+  const className = useCx({ styles }, 'components.textField')
 
   return (
     <div className={className}>
@@ -19,7 +19,7 @@ export const unstableTextfield = forwardRef(function Textfield(
   )
 })
 
-interface TextfieldProps extends InputProps {
+interface TextFieldProps extends InputProps {
   /** label text */
   label: string
   /** unique id of the component */

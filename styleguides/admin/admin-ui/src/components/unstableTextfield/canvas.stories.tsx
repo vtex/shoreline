@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { unstableTextfield as Textfield } from './index'
+import { unstableTextField as TextField } from './index'
 import { ThemeProviderNext } from '../../system-next'
 import { baseTheme } from '../../themes-next'
 
@@ -12,7 +12,7 @@ export default {
 export const Field: Story = () => {
   return (
     <ThemeProviderNext theme={baseTheme}>
-      <Textfield id="username" label="Username" />
+      <TextField id="username" label="Username" />
     </ThemeProviderNext>
   )
 }
@@ -28,7 +28,7 @@ export const Ref: Story = () => {
 
   return (
     <ThemeProviderNext theme={baseTheme}>
-      <Textfield ref={ref} id="username" label="Username" />
+      <TextField ref={ref} id="with-ref" label="With Ref" />
       <button onClick={handleFocus}>Focus</button>
     </ThemeProviderNext>
   )

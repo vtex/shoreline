@@ -80,14 +80,14 @@ const styles = {
 }
 
 export default {
-  'checkbox-regular': {
+  regular: {
     ...styles,
     height: 20,
     width: 20,
     minWidth: 20,
     minHeight: 20,
   },
-  'checkbox-small': {
+  small: {
     ...styles,
     height: 16,
     width: 16,

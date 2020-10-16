@@ -1,31 +1,20 @@
-import layout from './layout'
-import colors from './colors'
-import space from './space'
-import sizes from './sizes'
-// components
-import buttons from './buttons'
-import text from './text'
-import avatar from './avatar'
-import overlay from './overlay'
-import divider from './divider'
-import forms from './forms'
-import collapsible from './collapsible'
-import data from './data'
+import base from './base'
+import components from './components'
+import patterns from './patterns'
+
+export * from './patterns'
 
 export const baseTheme = {
-  ...layout,
-  space,
-  sizes,
-  colors,
-  buttons,
-  avatar,
-  overlay,
-  data,
-  divider,
-  forms,
-  collapsible,
-  text,
+  ...base,
+  components,
+  patterns,
 }
+
+export type Theme = typeof baseTheme
+
+// ///////////// ///////////// ///////////// ///////////// ///////////
+// WAGNI
+// ///////////// ///////////// ///////////// ///////////// ///////////
 
 export type FontSizes = '0' | '1' | '2' | '3' | '4'
 export type BorderWidths = '0' | '1' | '2' | '3'
@@ -47,7 +36,7 @@ export type Space =
   | 'px'
   | '2px'
 
-export type Sizes = keyof typeof sizes
+export type Sizes = keyof typeof baseTheme.sizes
 
 export type ThemeColors =
   | 'text'
@@ -79,5 +68,3 @@ export type ThemeColors =
   | 'success.contrast'
   | 'success.washed.0'
   | 'warning.base'
-
-export type Theme = typeof baseTheme
