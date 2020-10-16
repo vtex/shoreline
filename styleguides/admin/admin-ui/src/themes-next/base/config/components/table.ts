@@ -1,7 +1,6 @@
-import { mergeSx } from '@vtex-components/theme'
-import { SxStyleProp } from 'theme-ui'
+import merge from 'deepmerge'
 
-const styles: SxStyleProp = {
+const styles = {
   reset: {
     borderCollapse: 'collapse',
     'td, th': {
@@ -95,7 +94,7 @@ export default {
       variant: 'text.body',
     },
   },
-  variable: mergeSx<SxStyleProp>(styles, {
+  variable: merge(styles, {
     tbody: {
       verticalAlign: 'top',
     },
@@ -108,4 +107,4 @@ export default {
       variant: 'text.body',
     },
   }),
-} as Record<string, SxStyleProp>
+}

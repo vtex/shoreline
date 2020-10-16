@@ -1,4 +1,4 @@
-import { mergeSx } from '@vtex-components/theme'
+import merge from 'deepmerge'
 
 const styles = {
   appearance: 'none',
@@ -61,7 +61,7 @@ const styles = {
 }
 
 export default {
-  'toggle-regular': mergeSx(styles, {
+  regular: merge(styles, {
     height: 20,
     width: 36,
     '&:after': {
@@ -74,7 +74,7 @@ export default {
       },
     },
   }),
-  'toggle-small': mergeSx(styles, {
+  small: merge(styles, {
     height: 16,
     width: 28,
     '&:after': {

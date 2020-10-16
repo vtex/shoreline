@@ -8,17 +8,10 @@ import {
   pickHTMLProps,
   useCx,
 } from '../../system-next'
-import {
-  ColorStyleProps,
-  BorderStyleProps,
-  SemanticTags,
-  HeadingTags,
-} from './types'
+import { LayoutPatterns } from '../../themes-next'
+import { SemanticTags, HeadingTags } from './types'
 
-export interface BoxProps
-  extends Omit<BoxHTMLProps, 'color' | 'translate' | 'ref'>,
-    ColorStyleProps,
-    BorderStyleProps {
+export interface BoxProps extends Omit<BoxHTMLProps, 'ref'>, LayoutPatterns {
   element?: 'div' | 'span' | SemanticTags | HeadingTags
   styles?: SxStyleProp
   children?: React.ReactNode | ((props: BoxProps) => React.ReactNode)

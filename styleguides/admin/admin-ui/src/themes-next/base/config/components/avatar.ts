@@ -1,6 +1,4 @@
-import { SxStyleProp } from 'theme-ui'
-
-const styles: SxStyleProp = {
+const styles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

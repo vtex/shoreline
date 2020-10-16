@@ -207,7 +207,7 @@ const variant = {
 
 const styles = {
   border: 'none',
-  borderRadius: 3,
+  borderRadius: 'default',
   cursor: 'pointer',
   position: 'relative',
   ':focus:not([data-focus-visible-added])': {

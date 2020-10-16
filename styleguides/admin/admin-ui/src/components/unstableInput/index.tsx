@@ -29,7 +29,7 @@ export const unstableInput = forwardRef(function Input(
 })
 
 export function useInput(props: InputProps): InputProps {
-  const className = useCx(props, 'forms.input')
+  const className = useCx(props, 'components.input')
   const htmlProps = omitCSSProps(pickHTMLProps(props))
 
   return { ...htmlProps, className }
