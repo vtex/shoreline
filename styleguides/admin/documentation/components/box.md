@@ -1,5 +1,6 @@
 ---
 path: /docs/box/
+nightly: true
 ---
 
 # Box

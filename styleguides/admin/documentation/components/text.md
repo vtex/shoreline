@@ -1,35 +1,25 @@
-# Admin UI Text
+---
+path: /docs/text/
+---
+
+# Text
 
 The component that abstracts all text variants from admin's styleguide
 
-> 💡 Also check [VTEX Admin Theme](../../theme/README.md) for detailed info.
+> 💡 Also check Theme Documentation for detailed info.
 
 ## Usage
 
 ```jsx
-import { Text } from '@vtex/admin-ui'
+import { Text, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
-  return <Text variant="headline">Here goes your text!</Text>
+function Example() {
+  return (
+    <ThemeProvider>
+      <Text variant="headline">Here goes your text!</Text>
+    </ThemeProvider>
+  )
 }
-```
-
-## Types
-
-| prop    | type              | description                        | required | default |
-| ------- | ----------------- | ---------------------------------- | -------- | ------- |
-| el      | React.ElementType | Used to render a specific HTML Tag | 🚫       | -       |
-| variant | TextVariant       | Text variants                      | 🚫       | 'body'  |
-| sx      | SxStyleProp       | ThemeUI style prop                 | 🚫       | {}      |
-
-```ts
-type TextVariant =
-  | 'small'
-  | 'body'
-  | 'highlight'
-  | 'action'
-  | 'subtitle'
-  | 'headline'
 ```
 
 ### Customization
@@ -62,25 +52,29 @@ If you want to render the component using a different HTML tag, you should use t
 #### Examples
 
 ```jsx
-import { Text } from '@vtex/admin-ui'
+import { Text, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   return (
-    <Text el="p" variant="body">
-      Look, a paragraph
-    </Text>
+    <ThemeProvider>
+      <Text el="p" variant="body">
+        Look, a paragraph
+      </Text>
+    </ThemeProvider>
   )
 }
 ```
 
 ```jsx
-import { Text } from '@vtex/admin-ui'
+import { Text, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   return (
-    <Text el="h3" variant="headline">
-      Look, a heading 3
-    </Text>
+    <ThemeProvider>
+      <Text el="h3" variant="headline">
+        Look, a heading 3
+      </Text>
+    </ThemeProvider>
   )
 }
 ```
@@ -93,13 +87,15 @@ But you can set this using `sx` prop!
 ### Example
 
 ```jsx
-import { Text } from '@vtex/admin-ui'
+import { Text, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   return (
-    <Text sx={{ color: 'text' }} variant="body">
-      Look, a text with 'text' color... 🤔
-    </Text>
+    <ThemeProvider>
+      <Text sx={{ color: 'text' }} variant="body">
+        Look, a text with 'text' color... 🤔
+      </Text>
+    </ThemeProvider>
   )
 }
 ```
@@ -117,3 +113,5 @@ A variable font is a specification that can significantly reduce font file sizes
 Most of the browsers have support to variable fonts, but for the remaining browsers who do not, we have a fallback using `sans-serif` font.
 
 [Read more about the Browsers Support](https://caniuse.com/variable-fonts)
+
+<proptypes heading="Text" component="Text"/>

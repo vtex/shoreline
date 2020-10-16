@@ -1,43 +1,30 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+---
+path: /docs/checkbox/
+---
 
-<Meta title="design-system/components/Checkbox" />
-
-# Admin UI Checkbox
+# Checkbox
 
 An accessible Checkbox input component.
 
 ## Usage
 
 ```jsx
-import { Checkbox } from '@vtex/admin-ui'
+import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   const [checked, setChecked] = React.useState(false)
 
   return (
-    <Checkbox
-      ariaLabel="label"
-      checked={checked}
-      onChange={() => setChecked(!checked)}
-    />
+    <ThemeProvider>
+      <Checkbox
+        aria-label="label"
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+      />
+    </ThemeProvider>
   )
 }
 ```
-
-## Types
-
-| prop     | type                                   | description                         | required | default   |
-| -------- | -------------------------------------- | ----------------------------------- | -------- | --------- |
-| size     | 'regular', 'small'                     | Checkbox size                       | 🚫       | 'regular' |
-| sx       | SxStyleProp                            | ThemeUI style prop                  | 🚫       | {}        |
-| checked  | bool                                   | Whether Checkbox is checked or not  | 🚫       | false     |
-| required | bool                                   | Whether Checkbox is required or not | 🚫       | false     |
-| disabled | bool                                   | Whether Checkbox is disabled or not | 🚫       | false     |
-| value    | string, number                         | Checkbox value                      | 🚫       | -         |
-| name     | string                                 | Checkbox name                       | 🚫       | -         |
-| onChange | func                                   | onChange event                      | 🚫       | -         |
-| state    | CheckboxState                          | `reakit` Checkbox state             | 🚫       | -         |
-| setState | SetStateAction<boolean, CheckboxState> | `reakit` Checkbox setState          | 🚫       | -         |
 
 ### aria-label
 
@@ -46,18 +33,20 @@ function UseCase() {
 #### Example
 
 ```jsx
-import { Checkbox } from '@vtex/admin-ui'
+import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   const [checked, setChecked] = React.useState(false)
 
   return (
-    <Checkbox
-      checked={checked}
-      aria-label="your label goes here!"
-      checked={checked}
-      onChange={() => setChecked(!checked)}
-    />
+    <ThemeProvider>
+      <Checkbox
+        checked={checked}
+        aria-label="your label goes here!"
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+      />
+    </ThemeProvider>
   )
 }
 ```
@@ -71,12 +60,16 @@ We can implement our state logic, just using the properties `checked` and `onCha
 #### Example
 
 ```jsx
-import { Checkbox } from '@vtex/admin-ui'
+import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   const [checked, setChecked] = React.useState(false)
 
-  return <Checkbox checked={checked} onChange={() => setChecked(!checked)} />
+  return (
+    <ThemeProvider>
+      <Checkbox checked={checked} onChange={() => setChecked(!checked)} />
+    </ThemeProvider>
+  )
 }
 ```
 
@@ -88,7 +81,7 @@ We provide the `useCheckbox` hook that already handles the state logic for these
 - Multiple Checkboxes
 - Indeterminate state
 
-```ts
+```js
 interface CheckboxStateReturn {
   /**
    * Stores the state of the Checkbox.
@@ -112,12 +105,16 @@ It can be very handy if you have a group of Checkboxes and want to handle the st
 - **Simple Checkbox**
 
 ```jsx
-import { Checkbox, useCheckbox } from '@vtex/admin-ui'
+import { Checkbox, useCheckbox, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   const checkboxProps = useCheckbox({ state: true })
 
-  return <Checkbox {...checkboxProps} />
+  return (
+    <ThemeProvider>
+      <Checkbox {...checkboxProps} />
+    </ThemeProvider>
+  )
 }
 ```
 
@@ -126,17 +123,17 @@ function UseCase() {
   Remember that all checkboxes need to have a value set!
 
 ```jsx
-import { Checkbox, useCheckbox } from '@vtex/admin-ui'
+import { Checkbox, useCheckbox, ThemeProvider } from '@vtex/admin-ui'
 
-function UseCase() {
+function Example() {
   const checkboxProps = useCheckbox({ state: [] })
 
   return (
-    <>
+    <ThemeProvider>
       <Checkbox {...checkboxProps} value="checkbox1" />
       <Checkbox {...checkboxProps} value="checkbox2" />
       <Checkbox {...checkboxProps} value="checkbox3" />
-    </>
+    </ThemeProvider>
   )
 }
 ```
@@ -156,3 +153,7 @@ Admin's `Checkbox` component, follows the [WAI-Aria Checkbox Pattern](https://ww
   `check`, `not checked`, and `partially checked` (true, false, mixed)
 
 > 💡 You can check [Reakit Checkbox Inderterminate](https://reakit.io/docs/checkbox/#indeterminate-or-mixed-state) documentation, for detailed info.
+
+## Props
+
+<proptypes heading="Checkbox" component="Checkbox" />
