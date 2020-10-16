@@ -1,6 +1,6 @@
 import React, { forwardRef, Ref } from 'react'
 
-import { useCx } from '../../system-next'
+import { useCx } from '../../unstableSystem'
 import { unstableInput as Input, InputProps } from '../unstableInput'
 import { Label } from '../Label'
 

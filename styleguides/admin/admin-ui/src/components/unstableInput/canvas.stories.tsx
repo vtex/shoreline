@@ -2,8 +2,8 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { unstableInput as Input } from './index'
-import { ThemeProviderNext } from '../../system-next'
-import { baseTheme } from '../../themes-next'
+import { unstableThemeProvider as ThemeProvider } from '../../unstableSystem'
+import { unstableTheme } from '../../unstableTheme'
 
 export default {
   title: 'system-next/input',
@@ -11,8 +11,8 @@ export default {
 
 export const Base: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
-      <Input border="default" aria-label="Label" />
-    </ThemeProviderNext>
+    <ThemeProvider theme={unstableTheme}>
+      <Input aria-label="Label" />
+    </ThemeProvider>
   )
 }

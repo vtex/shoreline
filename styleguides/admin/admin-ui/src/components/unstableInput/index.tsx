@@ -7,7 +7,7 @@ import {
   omitCSSProps,
   pickHTMLProps,
   useCx,
-} from '../../system-next'
+} from '../../unstableSystem'
 
 export interface InputProps extends Omit<ReakitInputProps, 'ref'> {
   styles?: SxStyleProp
