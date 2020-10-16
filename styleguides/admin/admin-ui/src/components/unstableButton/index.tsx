@@ -14,7 +14,7 @@ import { Variant, Size, Palette } from './types'
 
 export const unstableButton = forwardRef(function Box(
   props: ButtonProps,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLButtonElement>
 ) {
   const buttonProps = useButton(props)
 
@@ -74,7 +74,6 @@ export function useButton(props: ButtonProps): ButtonProps {
   )
 
   const htmlProps = omitCSSProps(pickHTMLProps(compoundProps))
-  const { ref } = compoundProps
   const wrapElement = compoundProps.wrapElement ?? {
     wrapElement: compoundProps.wrapElement,
   }
@@ -96,7 +95,7 @@ export function useButton(props: ButtonProps): ButtonProps {
     </div>
   )
 
-  return { ...htmlProps, ...wrapElement, className, ref, children }
+  return { ...htmlProps, ...wrapElement, className, children }
 }
 
 export interface ButtonProps extends ReakitButtonProps {

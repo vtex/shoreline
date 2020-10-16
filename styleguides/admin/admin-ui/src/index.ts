@@ -51,5 +51,6 @@ export {
 export { Tag, TagProps } from './components/Tag'
 export { DisplayTable, defineColumns } from './components/DisplayTable'
 export { unstableBox } from './components/unstableBox'
+export { unstableButton } from './components/unstableButton'
 export { ThemeProviderNext } from './system-next'
 export { baseTheme } from './themes-next'
