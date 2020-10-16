@@ -6,6 +6,7 @@ import { cssProps } from './mappings'
 
 export const isFunction = (obj: any): obj is Function =>
   typeof obj === 'function'
+
 export const isObjectEmpty = (obj: any) =>
   Object.keys(obj).length === 0 && obj.constructor === Object
 

@@ -1,12 +1,13 @@
-import skeleton from './skeleton'
 import colors from './colors'
 import space from './space'
+import sizes from './sizes'
+
+export { colors, space }
 
 export default {
-  layout: {
-    ...skeleton,
-  },
-  // [mobile, tablet, desktop, fullHD]
+  sizes,
+  colors,
+  space,
   breakpoints: ['40rem', '48rem', '64rem', '80rem'],
   fontSizes: {
     '0': '0.75rem',
@@ -51,22 +52,15 @@ export default {
     subtitle: 1.5,
     headline: 1.5,
   },
-  borderWidths: {
-    '0': '0rem',
-    '1': '0.0625rem',
-    '2': '0.125rem',
-    '3': '0.250rem',
-  },
-  borderRadius: {
-    '0': '0rem',
-    '1': '0.0625rem',
-    '2': '0.125rem',
-    '3': '0.250rem',
-    full: '100%',
-  },
   shadows: {
     menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
     subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
     focus: `0rem 0rem 0rem ${space['2px']} ${colors.focus}`,
+  },
+  borderRadius: {
+    default: '4px',
+    flat: '0px',
+    pill: '100px',
+    circle: '100%',
   },
 }

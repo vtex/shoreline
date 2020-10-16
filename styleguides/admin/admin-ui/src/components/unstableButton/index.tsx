@@ -70,7 +70,7 @@ export function useButton(props: ButtonProps): ButtonProps {
 
   const className = useCx(
     compoundProps,
-    `buttons.${variant}-${palette}-${resolvedSize}`
+    `components.button.${variant}-${palette}-${resolvedSize}`
   )
 
   const htmlProps = omitCSSProps(pickHTMLProps(compoundProps))

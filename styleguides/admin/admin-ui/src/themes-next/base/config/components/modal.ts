@@ -1,7 +1,6 @@
-import { SxStyleProp } from 'theme-ui'
 import { rgba } from 'polished'
 
-import colors from '../colors'
+import { colors } from '../base'
 
 const surface = {
   outline: 'none',
@@ -98,4 +97,4 @@ export default {
   },
   'footer-regular': { ...footer, borderTopWidth: 1 },
   'footer.-large': { ...footer, borderTopWidth: 1 },
-} as Record<string, SxStyleProp>
+}

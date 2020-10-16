@@ -1,5 +1,4 @@
-import { mergeSx } from '@vtex-components/theme'
-import { SxStyleProp } from 'theme-ui'
+import merge from 'deepmerge'
 
 const style = {
   appearance: 'none',
@@ -59,7 +58,7 @@ const style = {
 }
 
 export default {
-  'radio-regular': mergeSx<SxStyleProp>(style, {
+  regular: merge(style, {
     height: 20,
     width: 20,
     padding: '0.3125rem',
@@ -68,7 +67,7 @@ export default {
       height: 8,
     },
   }),
-  'radio-small': mergeSx<SxStyleProp>(style, {
+  small: merge(style, {
     height: 16,
     width: 16,
     padding: 1,

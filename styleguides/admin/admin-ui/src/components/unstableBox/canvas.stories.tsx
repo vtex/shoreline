@@ -48,6 +48,35 @@ export const ConsumeTheme: Story = () => {
   )
 }
 
+export const Surfaces: Story = () => {
+  return (
+    <ThemeProviderNext
+      theme={{
+        ...baseTheme,
+      }}
+    >
+      <Box surface="default" border="default">
+        Default Box
+      </Box>
+      <Box surface="inverted">Inverted Box</Box>
+      <Box surface="primary">Primary Box</Box>
+    </ThemeProviderNext>
+  )
+}
+
+export const Texts: Story = () => {
+  return (
+    <ThemeProviderNext theme={baseTheme}>
+      <Box text="headline">Headline</Box>
+      <Box text="subtitle">Subtitle</Box>
+      <Box text="action">Box with actions text</Box>
+      <Box text="highlight">Highlight text</Box>
+      <Box text="body">Box with body text</Box>
+      <Box text="small">Box with small text</Box>
+    </ThemeProviderNext>
+  )
+}
+
 export const CustomTheme: Story = () => {
   return (
     <ThemeProviderNext
@@ -87,22 +116,22 @@ export const CustomTheme: Story = () => {
   )
 }
 
-export const StyleProps: Story = () => {
-  return (
-    <ThemeProviderNext theme={baseTheme}>
-      <Box
-        bg="primary.base"
-        color="primary.contrast"
-        borderRadius="3"
-        styles={{
-          variant: 'text.headline',
-        }}
-      >
-        Primary Box
-      </Box>
-    </ThemeProviderNext>
-  )
-}
+// export const StyleProps: Story = () => {
+//   return (
+//     <ThemeProviderNext theme={baseTheme}>
+//       <Box
+//         bg="primary.base"
+//         color="primary.contrast"
+//         borderRadius="3"
+//         styles={{
+//           variant: 'text.headline',
+//         }}
+//       >
+//         Primary Box
+//       </Box>
+//     </ThemeProviderNext>
+//   )
+// }
 
 // export const FullUse: Story = () => {
 //   const ref = useRef<HTMLInputElement>(null)

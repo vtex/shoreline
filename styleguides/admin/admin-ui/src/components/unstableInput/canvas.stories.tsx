@@ -12,7 +12,7 @@ export default {
 export const Base: Story = () => {
   return (
     <ThemeProviderNext theme={baseTheme}>
-      <Input aria-label="Label" />
+      <Input border="default" aria-label="Label" />
     </ThemeProviderNext>
   )
 }
