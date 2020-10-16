@@ -11,6 +11,7 @@
     - /docs/box/
     - /docs/list/
     - /docs/button/
+    - /docs/tag/
 - section: Documentation Templates
   paths:
     - /docs/documentation-template/

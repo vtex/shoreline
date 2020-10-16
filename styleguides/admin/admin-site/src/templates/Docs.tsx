@@ -90,15 +90,15 @@ const { Compiler: renderAst } = new RehypeReact({
     },
     colorblock: function Render(props) {
       return (
-        <tr
+        <AdminUI.Box
+          w="full"
+          bc="muted.2"
+          bw="1"
+          bs="solid"
+          h={32}
+          br="3"
           sx={{
             boxShadow: 'subtle',
-            width: 'full',
-            borderColor: 'muted.2',
-            borderWidth: 1,
-            borderStyle: 'solid',
-            height: 32,
-            borderRadius: 3,
           }}
           {...props}
         />

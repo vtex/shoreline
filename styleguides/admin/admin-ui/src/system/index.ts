@@ -4,17 +4,6 @@ export { default as styled } from '@emotion/styled'
 export { get } from '@theme-ui/css'
 export * from './theme'
 export { default as merge } from 'deepmerge'
-export { useColor, useTheme } from './theme/hooks'
-export {
-  BorderRadius,
-  BorderWidths,
-  FontSizes,
-  FontWeights,
-  ZIndexes,
-  Space,
-  Sizes,
-  LineHeights,
-} from './theme/config'
 
 // Tokens
 export { typographyTokens, TypographyTokensProps } from './tokens/typography'
