@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.19.2...@vtex/brand-ui@0.20.0) (2020-10-16)
+
+
+### Features
+
+* add vtex symbol icon ([8251265](https://github.com/vtex/onda/commit/825126539a0e1ddaa186f6d42820156a57d88c01))
+
+
+
+
+
 ## [0.19.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.19.1...@vtex/brand-ui@0.19.2) (2020-10-16)
 
 

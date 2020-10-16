@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.51.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.51.0...@vtex/admin-ui@0.51.1) (2020-10-16)
+
+
+### Bug Fixes
+
+* **display-table:** export DisplayTable and defineColumns ([35604ee](https://github.com/vtex/onda/commit/35604eed3ae7debe567a767e260e8733db6138f7))
+* **radio:** add missing hook export ([f05e048](https://github.com/vtex/onda/commit/f05e048eab3e2e1fbade98ef5e9126395779a404))
+* **storybook:** remove mdx documentation ([b11b9ea](https://github.com/vtex/onda/commit/b11b9ea311a3f59a5b8ee9d6780080215e14e18c))
+
+
+
+
+
 # [0.51.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.50.2...@vtex/admin-ui@0.51.0) (2020-10-16)
 
 
