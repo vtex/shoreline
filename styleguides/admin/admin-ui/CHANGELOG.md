@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.52.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.51.2...@vtex/admin-ui@0.52.0) (2020-10-16)
+
+
+### Features
+
+* let modal footer have an independent size if prop is provided ([fd4dfa3](https://github.com/vtex/onda/commit/fd4dfa3fc22071226595167b58b32e791d852ac4))
+
+
+
+
+
 ## [0.51.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.51.1...@vtex/admin-ui@0.51.2) (2020-10-16)
 
 
