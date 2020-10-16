@@ -20,18 +20,6 @@ const omitProps = [
   'colorMode',
 ]
 
-export function compose(params: any) {
-  const { use, ...props } = params
-
-  if (!use || typeof use === 'string' || !use.useProps) {
-    return props
-  }
-
-  const enhancedProps = use.useProps({ ...props, use: undefined })
-
-  return { ...props, ...enhancedProps }
-}
-
 export function pickHTMLProps<P extends object>(props: P) {
   const filteredProps: Partial<P> = {}
 

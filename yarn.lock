@@ -4143,6 +4143,14 @@
     "@theme-ui/css" "^0.3.1"
     deepmerge "^4.2.2"
 
+"@theme-ui/color@^0.4.0-rc.5":
+  version "0.4.0-rc.5"
+  resolved "https://registry.yarnpkg.com/@theme-ui/color/-/color-0.4.0-rc.5.tgz#d638f089d2030e17438810b2b760fc9704850cc4"
+  integrity sha512-cmKnIXKC/br+qDbzmjaHg0YDgDuGdN7slKwUc2j3aSLmvx7aKdiSFBkVUMGeFhgBy32y9SIH6jmT6g3UqhogmQ==
+  dependencies:
+    "@theme-ui/css" "^0.4.0-rc.5"
+    polished "^3.4.1"
+
 "@theme-ui/components@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@theme-ui/components/-/components-0.3.1.tgz#fe023e156c1e1c076d5f2258466426e94adc2765"
@@ -18343,7 +18351,7 @@ pnp-webpack-plugin@1.6.4, pnp-webpack-plugin@^1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
-polished@^3.4.4, polished@^3.6.7:
+polished@^3.4.1, polished@^3.4.4, polished@^3.6.7:
   version "3.6.7"
   resolved "https://registry.yarnpkg.com/polished/-/polished-3.6.7.tgz#44cbd0047f3187d83db0c479ef0c7d5583af5fb6"
   integrity sha512-b4OViUOihwV0icb9PHmWbR+vPqaSzSAEbgLskvb7ANPATVXGiYv/TQFHQo65S53WU9i5EQ1I03YDOJW7K0bmYg==
