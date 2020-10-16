@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 
 import { unstableBox as Box } from './index'
 import { unstableThemeProvider as ThemeProvider } from '../../unstableSystem'
-import { baseTheme } from '../../unstableTheme'
+import { unstableTheme } from '../../unstableTheme'
 
 export default {
   title: 'system-next/box',
@@ -11,7 +11,7 @@ export default {
 
 export const Basic: Story = () => {
   return (
-    <ThemeProvider theme={baseTheme}>
+    <ThemeProvider theme={unstableTheme}>
       <Box>Cool Box</Box>
     </ThemeProvider>
   )
@@ -19,7 +19,7 @@ export const Basic: Story = () => {
 
 export const Styles: Story = () => {
   return (
-    <ThemeProvider theme={baseTheme}>
+    <ThemeProvider theme={unstableTheme}>
       <Box
         styles={{
           fontSize: 64,
@@ -33,7 +33,7 @@ export const Styles: Story = () => {
 
 export const ConsumeTheme: Story = () => {
   return (
-    <ThemeProvider theme={baseTheme}>
+    <ThemeProvider theme={unstableTheme}>
       <Box
         styles={{
           fontSize: 64,
@@ -52,7 +52,7 @@ export const Surfaces: Story = () => {
   return (
     <ThemeProvider
       theme={{
-        ...baseTheme,
+        ...unstableTheme,
       }}
     >
       <Box surface="default" border="default">
@@ -66,7 +66,7 @@ export const Surfaces: Story = () => {
 
 export const Texts: Story = () => {
   return (
-    <ThemeProvider theme={baseTheme}>
+    <ThemeProvider theme={unstableTheme}>
       <Box text="headline">Headline</Box>
       <Box text="subtitle">Subtitle</Box>
       <Box text="action">Box with actions text</Box>
@@ -81,7 +81,7 @@ export const CustomTheme: Story = () => {
   return (
     <ThemeProvider
       theme={{
-        ...baseTheme,
+        ...unstableTheme,
         box: {
           default: {
             bg: 'background',
@@ -118,7 +118,7 @@ export const CustomTheme: Story = () => {
 
 // export const StyleProps: Story = () => {
 //   return (
-//     <ThemeProviderNext theme={baseTheme}>
+//     <ThemeProviderNext theme={unstableTheme}>
 //       <Box
 //         bg="primary.base"
 //         color="primary.contrast"
