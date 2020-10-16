@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.51.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.51.1...@vtex/admin-ui@0.51.2) (2020-10-16)
+
+
+### Bug Fixes
+
+* **menu:** adjust overlay zIndex ([9a043fe](https://github.com/vtex/onda/commit/9a043fe0d309970bffaf7ea0fe54e4db3f848a72))
+
+
+
+
+
 ## [0.51.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.51.0...@vtex/admin-ui@0.51.1) (2020-10-16)
 
 
