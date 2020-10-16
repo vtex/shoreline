@@ -30,6 +30,7 @@
     - /docs/avatar/
     - /docs/menu/
     - /docs/box-next/
+    - /docs/unstable-button/
 - section: Documentation Templates
   paths:
     - /docs/documentation-template/
