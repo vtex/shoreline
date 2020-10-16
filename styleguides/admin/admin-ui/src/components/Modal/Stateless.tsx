@@ -11,6 +11,7 @@ import {
   useMemo,
   useCallback,
   ReactElement,
+  useRef,
 } from 'react'
 import {
   useDialogState,
@@ -35,30 +36,31 @@ function isReactElement(
   return !!(child as ReactElement).type
 }
 
-function getComponentsExistence(
+function useComponentsExistence(
   children: ReactNode,
   sx: SxStyleProp
 ): [boolean, boolean, ModalFooterSize | undefined] {
-  let headerExists = false
-  let footerExists = false
-  let footerSize: ModalFooterSize | undefined = undefined
+  const headerExists = useRef(false)
+  const footerExists = useRef(false)
+  const footerSize = useRef<ModalFooterSize | undefined>(undefined)
 
   Children.forEach(children, function (child) {
     const displayName = isReactElement(child) && child.type.displayName
 
     if (displayName === 'Modal.Header' || displayName === 'Stateless.Modal') {
       Object.assign(sx, { overflowY: 'hidden' })
-      headerExists = true
+      headerExists.current = true
     }
 
     if (displayName === 'Modal.Footer' || displayName === 'Stateless.Footer') {
       Object.assign(sx, { overflowY: 'hidden' })
-      footerExists = true
-      footerSize = (isReactElement(child) && child.props['size']) ?? undefined
+      footerExists.current = true
+      footerSize.current =
+        (isReactElement(child) && child.props['size']) ?? undefined
     }
   })
 
-  return [headerExists, footerExists, footerSize]
+  return [headerExists.current, footerExists.current, footerSize.current]
 }
 
 function getScrollAreaSize(
@@ -132,9 +134,9 @@ export function StatelessModal(props: StatelessModalProps) {
     onClose()
   }, [onClose, state])
 
-  const [hasHeader, hasFooter, footerSize] = useMemo(
-    () => getComponentsExistence(children, sx),
-    [children, sx]
+  const [hasHeader, hasFooter, footerSize] = useComponentsExistence(
+    children,
+    sx
   )
 
   return (
