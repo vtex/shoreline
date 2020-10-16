@@ -5,13 +5,10 @@ import sizes from './sizes'
 // components
 import buttons from './buttons'
 import text from './text'
-import toggle from './toggle'
 import avatar from './avatar'
 import overlay from './overlay'
-import checkbox from './checkbox'
 import divider from './divider'
-import controlGroup from './controlGroup'
-import radio from './radio'
+import forms from './forms'
 import collapsible from './collapsible'
 import data from './data'
 
@@ -25,13 +22,8 @@ export const baseTheme = {
   overlay,
   data,
   divider,
+  forms,
   collapsible,
-  forms: {
-    ...controlGroup,
-    ...toggle,
-    ...checkbox,
-    ...radio,
-  },
   text,
 }
 
