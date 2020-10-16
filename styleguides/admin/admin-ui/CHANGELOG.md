@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.51.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.50.2...@vtex/admin-ui@0.51.0) (2020-10-16)
+
+
+### Features
+
+* **tag:** add Tag component ([a3b585b](https://github.com/vtex/onda/commit/a3b585b85a5e30dfa887448474f83b44bd8d23df))
+
+
+
+
+
 ## [0.50.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.50.1...@vtex/admin-ui@0.50.2) (2020-10-14)
 
 

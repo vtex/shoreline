@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.19.1...@vtex/brand-ui@0.19.2) (2020-10-16)
+
+
+### Bug Fixes
+
+* card props ([335d08f](https://github.com/vtex/onda/commit/335d08f0833da582a45c800e6ee9b5a3e33346a9))
+* export Link ([c6d69d5](https://github.com/vtex/onda/commit/c6d69d50e112cb3ad53eb77b3562e27ee281cdc9))
+
+
+
+
+
 ## [0.19.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.19.0...@vtex/brand-ui@0.19.1) (2020-10-14)
 
 
