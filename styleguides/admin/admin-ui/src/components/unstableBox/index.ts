@@ -7,8 +7,8 @@ import {
   omitCSSProps,
   pickHTMLProps,
   useCx,
-} from '../../system-next'
-import { LayoutPatterns } from '../../themes-next'
+} from '../../unstableSystem'
+import { LayoutPatterns } from '../../unstableTheme'
 import { SemanticTags, HeadingTags } from './types'
 
 export interface BoxProps extends Omit<BoxHTMLProps, 'ref'>, LayoutPatterns {

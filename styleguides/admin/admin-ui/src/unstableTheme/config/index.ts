@@ -4,13 +4,13 @@ import patterns from './patterns'
 
 export * from './patterns'
 
-export const baseTheme = {
+export const unstableTheme = {
   ...base,
   components,
   patterns,
 }
 
-export type Theme = typeof baseTheme
+export type Theme = typeof unstableTheme
 
 // ///////////// ///////////// ///////////// ///////////// ///////////
 // WAGNI
@@ -19,8 +19,8 @@ export type Theme = typeof baseTheme
 export type FontSizes = '0' | '1' | '2' | '3' | '4'
 export type BorderWidths = '0' | '1' | '2' | '3'
 export type BorderRadius = '0' | '1' | '2' | '3' | 'full'
-export type FontWeights = keyof typeof baseTheme.fontWeights
-export type LineHeights = keyof typeof baseTheme.lineHeights
+export type FontWeights = keyof typeof unstableTheme.fontWeights
+export type LineHeights = keyof typeof unstableTheme.lineHeights
 export type ZIndexes = 'under' | 'plain' | 'over' | '1' | '2' | '3' | '4' | '5'
 
 export type Space =
@@ -36,7 +36,7 @@ export type Space =
   | 'px'
   | '2px'
 
-export type Sizes = keyof typeof baseTheme.sizes
+export type Sizes = keyof typeof unstableTheme.sizes
 
 export type ThemeColors =
   | 'text'

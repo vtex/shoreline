@@ -4,8 +4,8 @@ import { darken } from '@theme-ui/color'
 import { Story, Meta } from '@storybook/react'
 
 import { unstableButton as Button } from './index'
-import { ThemeProviderNext } from '../../system-next'
-import { baseTheme } from '../../themes-next'
+import { unstableThemeProvider as ThemeProvider } from '../../unstableSystem'
+import { unstableTheme } from '../../unstableTheme'
 import { IconAppStore } from '../../icons'
 
 export default {
@@ -14,7 +14,7 @@ export default {
 
 export const Styles: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={unstableTheme}>
       <Button
         styles={{
           bg: 'text',
@@ -28,47 +28,47 @@ export const Styles: Story = () => {
       >
         Trust Button
       </Button>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 export const Palette: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={unstableTheme}>
       <div sx={{ 'button + button': { marginLeft: 4 } }}>
         <Button>Primary Button</Button>
         <Button palette="danger">Danger Button</Button>
       </div>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 export const Size: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={unstableTheme}>
       <div sx={{ 'button + button': { marginLeft: 4 } }}>
         <Button>Regular Button</Button>
         <Button size="small">Small</Button>
       </div>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 export const Variant: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={unstableTheme}>
       <div sx={{ 'button + button': { marginLeft: 4 } }}>
         <Button variant="filled">Filled Button</Button>
         <Button variant="subtle">Subtle Button</Button>
         <Button variant="text">Text Button</Button>
       </div>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 export const WithIcon: Story = () => {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={unstableTheme}>
       <div sx={{ 'button + button': { marginLeft: 4 } }}>
         <Button icon={<IconAppStore />} variant="filled">
           Icon Start
@@ -78,13 +78,13 @@ export const WithIcon: Story = () => {
         </Button>
         <Button icon={<IconAppStore title="Icon only" />} variant="text" />
       </div>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 
 // export const Sx: Story = () => {
 //   return (
-//     <ThemeProviderNext theme={baseTheme}>
+//     <ThemeProvider theme={unstableTheme}>
 //       <Box
 //         sx={{
 //           fontSize: 64,
@@ -92,13 +92,13 @@ export const WithIcon: Story = () => {
 //       >
 //         Huge Text
 //       </Box>
-//     </ThemeProviderNext>
+//     </ThemeProvider>
 //   )
 // }
 
 // export const ConsumeTheme: Story = () => {
 //   return (
-//     <ThemeProviderNext theme={baseTheme}>
+//     <ThemeProvider theme={unstableTheme}>
 //       <Box
 //         sx={{
 //           fontSize: 64,
@@ -109,15 +109,15 @@ export const WithIcon: Story = () => {
 //       >
 //         Primary Box
 //       </Box>
-//     </ThemeProviderNext>
+//     </ThemeProvider>
 //   )
 // }
 
 // export const CustomTheme: Story = () => {
 //   return (
-//     <ThemeProviderNext
+//     <ThemeProvider
 //       theme={{
-//         ...baseTheme,
+//         ...unstableTheme,
 //         box: {
 //           default: {
 //             bg: 'background',
@@ -148,13 +148,13 @@ export const WithIcon: Story = () => {
 //       >
 //         Inverted Box
 //       </Box>
-//     </ThemeProviderNext>
+//     </ThemeProvider>
 //   )
 // }
 
 // export const StyleProps: Story = () => {
 //   return (
-//     <ThemeProviderNext theme={baseTheme}>
+//     <ThemeProvider theme={unstableTheme}>
 //       <Box
 //         bg="primary.base"
 //         color="primary.contrast"
@@ -165,7 +165,7 @@ export const WithIcon: Story = () => {
 //       >
 //         Primary Box
 //       </Box>
-//     </ThemeProviderNext>
+//     </ThemeProvider>
 //   )
 // }
 
@@ -178,10 +178,10 @@ export const WithIcon: Story = () => {
 //   }
 
 //   return (
-//     <ThemeProviderNext theme={baseTheme}>
+//     <ThemeProvider theme={unstableTheme}>
 //       <Box ref={ref} borderRadius="3" borderStyle="solid" element="section" />
 //       <button onClick={handleFocus}>Focus</button>
-//     </ThemeProviderNext>
+//     </ThemeProvider>
 //   )
 // }
 
@@ -194,7 +194,7 @@ export const WithIcon: Story = () => {
 //   }
 
 //   return (
-//     <ThemeProviderNext theme={theme}>
+//     <ThemeProvider theme={theme}>
 //       <Box
 //         ref={ref}
 //         borderRadius={4}
@@ -204,17 +204,17 @@ export const WithIcon: Story = () => {
 //         type="text"
 //       />
 //       <button onClick={handleFocus}>Focus</button>
-//     </ThemeProviderNext>
+//     </ThemeProvider>
 //   )
 // }
 
 // export const Flexbox: Story = () => {
 //   return (
-//     <ThemeProviderNext theme={theme}>
+//     <ThemeProvider theme={theme}>
 //       <Box display="flex" width="100%" direction="column">
 //         <Box width="20%" height={120} bg="primary" />
 //         <Box width="20%" height={120} bg="secondary" />
 //       </Box>
-//     </ThemeProviderNext>
+//     </ThemeProvider>
 //   )
 // }

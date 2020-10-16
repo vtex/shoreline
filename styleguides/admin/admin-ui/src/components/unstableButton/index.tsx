@@ -9,7 +9,7 @@ import {
   pickHTMLProps,
   useCx,
   // compose,
-} from '../../system-next'
+} from '../../unstableSystem'
 import { Variant, Size, Palette } from './types'
 
 export const unstableButton = forwardRef(function Box(
