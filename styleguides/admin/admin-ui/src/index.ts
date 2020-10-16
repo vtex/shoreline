@@ -49,3 +49,4 @@ export {
   CollapsibleGroupProps,
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
+export { DisplayTable, defineColumns } from './components/DisplayTable'
