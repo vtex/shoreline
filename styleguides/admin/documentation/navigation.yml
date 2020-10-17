@@ -6,6 +6,7 @@
 - section: Theme
   paths:
     - /docs/style-props/
+    - /docs/unstable-theme/
 - section: Components
   paths:
     - /docs/box/
@@ -29,7 +30,7 @@
     - /docs/visually-hidden/
     - /docs/avatar/
     - /docs/menu/
-    - /docs/box-next/
+    - /docs/unstable-box/
     - /docs/unstable-button/
 - section: Documentation Templates
   paths:

@@ -1,5 +1,5 @@
 ---
-path: /docs/box-next/
+path: /docs/unstable-box/
 ---
 
 # Unstable Box
@@ -17,13 +17,13 @@ Learn more in [Get started](/docs/get-started/).
 ```jsx
 import {
   unstableBox as Box,
-  ThemeProviderNext,
-  baseTheme,
+  unstableThemeProvider as ThemeProvider,
+  unstableTheme as theme,
 } from '@vtex/admin-ui'
 
 function Example() {
   return (
-    <ThemeProviderNext theme={baseTheme}>
+    <ThemeProvider theme={theme}>
       <Box
         bg="primary.washed"
         padding="5"
@@ -33,7 +33,7 @@ function Example() {
       >
         This is also a Box, but styled
       </Box>
-    </ThemeProviderNext>
+    </ThemeProvider>
   )
 }
 ```

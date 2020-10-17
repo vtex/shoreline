@@ -2,8 +2,7 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { unstableBox as Box } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../../unstableSystem'
-import { unstableTheme } from '../../unstableTheme'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 export default {
   title: 'system-next/box',
@@ -11,7 +10,7 @@ export default {
 
 export const Basic: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <Box>Cool Box</Box>
     </ThemeProvider>
   )
@@ -19,7 +18,7 @@ export const Basic: Story = () => {
 
 export const Styles: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <Box
         styles={{
           fontSize: 64,
@@ -33,7 +32,7 @@ export const Styles: Story = () => {
 
 export const ConsumeTheme: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <Box
         styles={{
           fontSize: 64,
@@ -50,11 +49,7 @@ export const ConsumeTheme: Story = () => {
 
 export const Surfaces: Story = () => {
   return (
-    <ThemeProvider
-      theme={{
-        ...unstableTheme,
-      }}
-    >
+    <ThemeProvider>
       <Box surface="default" border="default">
         Default Box
       </Box>
@@ -66,7 +61,7 @@ export const Surfaces: Story = () => {
 
 export const Texts: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <Box text="headline">Headline</Box>
       <Box text="subtitle">Subtitle</Box>
       <Box text="action">Box with actions text</Box>
@@ -77,48 +72,48 @@ export const Texts: Story = () => {
   )
 }
 
-export const CustomTheme: Story = () => {
-  return (
-    <ThemeProvider
-      theme={{
-        ...unstableTheme,
-        box: {
-          default: {
-            bg: 'background',
-            color: 'text',
-            padding: 4,
-            margin: 2,
-          },
-          inverted: {
-            bg: 'text',
-            color: 'background',
-            padding: 4,
-            margin: 2,
-          },
-        },
-      }}
-    >
-      <Box
-        styles={{
-          variant: 'box.default',
-        }}
-      >
-        Default Box
-      </Box>
-      <Box
-        styles={{
-          variant: 'box.inverted',
-        }}
-      >
-        Inverted Box
-      </Box>
-    </ThemeProvider>
-  )
-}
+// export const CustomTheme: Story = () => {
+//   return (
+//     <ThemeProvider
+//       theme={{
+//         ...unstableTheme,
+//         box: {
+//           default: {
+//             bg: 'background',
+//             color: 'text',
+//             padding: 4,
+//             margin: 2,
+//           },
+//           inverted: {
+//             bg: 'text',
+//             color: 'background',
+//             padding: 4,
+//             margin: 2,
+//           },
+//         },
+//       }}
+//     >
+//       <Box
+//         styles={{
+//           variant: 'box.default',
+//         }}
+//       >
+//         Default Box
+//       </Box>
+//       <Box
+//         styles={{
+//           variant: 'box.inverted',
+//         }}
+//       >
+//         Inverted Box
+//       </Box>
+//     </ThemeProvider>
+//   )
+// }
 
 // export const StyleProps: Story = () => {
 //   return (
-//     <ThemeProviderNext theme={unstableTheme}>
+//     <ThemeProviderNext >
 //       <Box
 //         bg="primary.base"
 //         color="primary.contrast"
