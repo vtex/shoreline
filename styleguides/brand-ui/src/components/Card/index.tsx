@@ -1,5 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Flex, Box, BoxProps, Image as ReakitImage, ImageProps } from 'theme-ui'
+import {
+  Box,
+  BoxProps,
+  Image as ThemeUIImage,
+  ImageProps,
+  SxStyleProp,
+} from 'theme-ui'
 import React, { Ref, PropsWithChildren } from 'react'
 import { forwardRef } from '@vtex-components/utils'
 
@@ -12,11 +17,11 @@ const Body = (props: PropsWithChildren<BoxProps>) => (
 )
 
 const Image = forwardRef((props: ImageProps, ref: Ref<HTMLImageElement>) => (
-  <ReakitImage {...props} ref={ref} />
+  <ThemeUIImage {...props} ref={ref} />
 ))
 
 const Footer = (props: PropsWithChildren<BoxProps>) => (
-  <Flex {...props} variant="card.footer" />
+  <Box {...props} variant="card.footer" />
 )
 
 export const Card = ({
@@ -25,8 +30,8 @@ export const Card = ({
   size = 'regular',
   ...props
 }: PropsWithChildren<CardProps>) => (
-    <Flex {...props} variant={`card.${size}`} as={el} sx={sx} />
-  )
+  <Box {...props} variant={`card.${size}`} as={el} sx={sx} />
+)
 
 export interface CardProps extends BoxProps {
   /**
@@ -39,6 +44,7 @@ export interface CardProps extends BoxProps {
    * @default 'regular'
    */
   size?: 'small' | 'regular'
+  sx?: SxStyleProp
 }
 
 Card.Header = Header
