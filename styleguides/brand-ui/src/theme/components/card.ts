@@ -1,4 +1,5 @@
 const baseCard = {
+  display: 'flex',
   bg: 'primary.contrast',
   flexDirection: 'column',
   borderRadius: 3,
