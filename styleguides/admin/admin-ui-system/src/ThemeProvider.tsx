@@ -4,6 +4,8 @@ import 'focus-visible/dist/focus-visible'
 
 interface Props {
   children: ReactNode
+  // TODO: Fix type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   theme?: any
 }
 

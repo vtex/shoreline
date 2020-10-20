@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from '@theme-ui/core'
 import { ReactNode } from 'react'
-import { useCx } from '@vtex/admin-ui-system'
+import { useClassName } from '@vtex/admin-ui-system'
 
 import { useModalContext } from '../context'
 
@@ -22,7 +22,10 @@ export function ModalFooter(props: ModalFooterProps) {
   const { styles, ...footerProps } = props
   const { size } = useModalContext()
 
-  const className = useCx({ styles }, `components.modal.footer-${size}`)
+  const className = useClassName({
+    props: { styles },
+    themeKey: `components.modal.footer-${size}`,
+  })
 
   return <footer className={className} {...footerProps} />
 }

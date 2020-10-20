@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from '@theme-ui/core'
 import { useMemo, ReactNode } from 'react'
-import { useCx } from '@vtex/admin-ui-system'
+import { useClassName } from '@vtex/admin-ui-system'
 
 import { useModalContext } from '../context'
 import { IconClose } from '../../../icons'
@@ -24,9 +24,15 @@ export function ModalHeader(props: ModalHeaderProps) {
   const { children, title = null, containerStyles = {}, styles = {} } = props
 
   const { omitCloseButton, size } = useModalContext()
-  const className = useCx({ styles }, `components.modal.header-${size}`)
-  const containerCn = useCx({
-    styles: { display: 'flex', alignItems: 'center', ...containerStyles },
+  const className = useClassName({
+    props: { styles },
+    themeKey: `components.modal.header-${size}`,
+  })
+
+  const containerCn = useClassName({
+    props: {
+      styles: { display: 'flex', alignItems: 'center', ...containerStyles },
+    },
   })
 
   const renderTitle = useMemo(() => {
