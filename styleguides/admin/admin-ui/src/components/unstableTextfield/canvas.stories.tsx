@@ -1,9 +1,8 @@
 import React, { useRef } from 'react'
 import { Story, Meta } from '@storybook/react'
 
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { unstableTextField as TextField } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../../unstableSystem'
-import { unstableTheme } from '../../unstableTheme'
 
 export default {
   title: 'system-next/text-field',
@@ -11,7 +10,7 @@ export default {
 
 export const Field: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <TextField id="username" label="Username" />
     </ThemeProvider>
   )
@@ -27,7 +26,7 @@ export const Ref: Story = () => {
   }
 
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <TextField ref={ref} id="with-ref" label="With Ref" />
       <button onClick={handleFocus}>Focus</button>
     </ThemeProvider>
@@ -36,7 +35,7 @@ export const Ref: Story = () => {
 
 // export const Sx: Story = () => {
 //   return (
-//     <ThemeProvider theme={unstableTheme}>
+//     <ThemeProvider >
 //       <Box
 //         sx={{
 //           fontSize: 64,
@@ -50,7 +49,7 @@ export const Ref: Story = () => {
 
 // export const ConsumeTheme: Story = () => {
 //   return (
-//     <ThemeProvider theme={unstableTheme}>
+//     <ThemeProvider >
 //       <Box
 //         sx={{
 //           fontSize: 64,
@@ -106,7 +105,7 @@ export const Ref: Story = () => {
 
 // export const StyleProps: Story = () => {
 //   return (
-//     <ThemeProvider theme={unstableTheme}>
+//     <ThemeProvider >
 //       <Box
 //         bg="primary.base"
 //         color="primary.contrast"
@@ -130,7 +129,7 @@ export const Ref: Story = () => {
 //   }
 
 //   return (
-//     <ThemeProvider theme={unstableTheme}>
+//     <ThemeProvider >
 //       <Box ref={ref} borderRadius="3" borderStyle="solid" element="section" />
 //       <button onClick={handleFocus}>Focus</button>
 //     </ThemeProvider>

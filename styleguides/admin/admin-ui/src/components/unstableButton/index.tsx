@@ -2,14 +2,13 @@
 import { jsx, SxStyleProp } from '@theme-ui/core'
 import { forwardRef, Ref, ReactNode } from 'react'
 import { Box as ReakitButton, ButtonProps as ReakitButtonProps } from 'reakit'
-
 import {
   createElement,
   omitCSSProps,
   pickHTMLProps,
   useCx,
-  // compose,
-} from '../../unstableSystem'
+} from '@vtex/admin-ui-system'
+
 import { Variant, Size, Palette } from './types'
 
 export const unstableButton = forwardRef(function Box(

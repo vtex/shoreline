@@ -1,14 +1,14 @@
 import React, { forwardRef, Ref } from 'react'
 import { Box as ReakitBox, BoxHTMLProps } from 'reakit'
 import { SxStyleProp } from '@theme-ui/core'
-
 import {
   createElement,
   omitCSSProps,
   pickHTMLProps,
   useCx,
-} from '../../unstableSystem'
-import { LayoutPatterns } from '../../unstableTheme'
+} from '@vtex/admin-ui-system'
+import { LayoutPatterns } from '@vtex/admin-ui-theme'
+
 import { SemanticTags, HeadingTags } from './types'
 
 export interface BoxProps extends Omit<BoxHTMLProps, 'ref'>, LayoutPatterns {

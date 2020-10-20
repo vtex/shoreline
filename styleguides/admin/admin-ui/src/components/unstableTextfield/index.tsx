@@ -1,6 +1,6 @@
 import React, { forwardRef, Ref } from 'react'
+import { useCx } from '@vtex/admin-ui-system'
 
-import { useCx } from '../../unstableSystem'
 import { unstableInput as Input, InputProps } from '../unstableInput'
 import { Label } from '../Label'
 
