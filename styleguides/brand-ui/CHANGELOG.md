@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.20.1...@vtex/brand-ui@0.21.0) (2020-10-20)
+
+
+### Features
+
+* add brand checkbox ([6859dee](https://github.com/vtex/onda/commit/6859deed5335b8fe1078523cb5fa90e60d89703e))
+
+
+
+
+
 ## [0.20.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.20.0...@vtex/brand-ui@0.20.1) (2020-10-19)
 
 
