@@ -1,0 +1,48 @@
+{
+  "name": "@vtex/admin-ui-system",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/admin-ui-system.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "styleguides/admin/admin-ui-system",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "test": "tsdx test"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "dependencies": {
+    "@emotion/is-prop-valid": "^0.8.8",
+    "@emotion/core": "^10.0.35",
+    "@theme-ui/css": "^0.4.0-rc.5",
+    "@theme-ui/core": "^0.4.0-rc.5",
+    "@theme-ui/color": "^0.4.0-rc.5",
+    "csstype": "^3.0.3",
+    "deepmerge": "^4.2.2",
+    "emotion": "^10.0.27",
+    "focus-visible": "^5.1.0",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
+  }
+}
