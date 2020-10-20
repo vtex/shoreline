@@ -1,8 +1,7 @@
 import React, { ReactNode, useMemo } from 'react'
 import { merge, Theme, SxStyleProp } from '@theme-ui/core'
-
-import { unstableThemeProvider as ThemeProvider } from '../../unstableSystem'
-import { unstableTheme } from '../../unstableTheme'
+import { unstableThemeProvider as ThemeProvider } from '@vtex/admin-ui-system'
+import { unstableTheme, Preflight } from '@vtex/admin-ui-theme'
 
 interface UnstableThemeProviderProps {
   children?: ReactNode
@@ -19,7 +18,12 @@ function Provider(props: UnstableThemeProviderProps) {
     [custonTheme]
   )
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  return (
+    <ThemeProvider theme={theme}>
+      <Preflight />
+      {children}
+    </ThemeProvider>
+  )
 }
 
 export { Provider as unstableThemeProvider }

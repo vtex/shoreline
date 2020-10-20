@@ -3,9 +3,8 @@ import { jsx } from '@theme-ui/core'
 import { darken } from '@theme-ui/color'
 import { Story, Meta } from '@storybook/react'
 
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { unstableButton as Button } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../../unstableSystem'
-import { unstableTheme } from '../../unstableTheme'
 import { IconAppStore } from '../../icons'
 
 export default {
@@ -14,7 +13,7 @@ export default {
 
 export const Styles: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <Button
         styles={{
           bg: 'text',
@@ -34,9 +33,9 @@ export const Styles: Story = () => {
 
 export const Palette: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <div sx={{ 'button + button': { marginLeft: 4 } }}>
-        <Button>Primary Button</Button>
+        <Button sx={{ bg: 'black' }}>Primary Button</Button>
         <Button palette="danger">Danger Button</Button>
       </div>
     </ThemeProvider>
@@ -45,7 +44,7 @@ export const Palette: Story = () => {
 
 export const Size: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <div sx={{ 'button + button': { marginLeft: 4 } }}>
         <Button>Regular Button</Button>
         <Button size="small">Small</Button>
@@ -56,7 +55,7 @@ export const Size: Story = () => {
 
 export const Variant: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <div sx={{ 'button + button': { marginLeft: 4 } }}>
         <Button variant="filled">Filled Button</Button>
         <Button variant="subtle">Subtle Button</Button>
@@ -68,7 +67,7 @@ export const Variant: Story = () => {
 
 export const WithIcon: Story = () => {
   return (
-    <ThemeProvider theme={unstableTheme}>
+    <ThemeProvider>
       <div sx={{ 'button + button': { marginLeft: 4 } }}>
         <Button icon={<IconAppStore />} variant="filled">
           Icon Start
@@ -84,7 +83,7 @@ export const WithIcon: Story = () => {
 
 // export const Sx: Story = () => {
 //   return (
-//     <ThemeProvider theme={unstableTheme}>
+//     <ThemeProvider >
 //       <Box
 //         sx={{
 //           fontSize: 64,
@@ -98,7 +97,7 @@ export const WithIcon: Story = () => {
 
 // export const ConsumeTheme: Story = () => {
 //   return (
-//     <ThemeProvider theme={unstableTheme}>
+//     <ThemeProvider >
 //       <Box
 //         sx={{
 //           fontSize: 64,
@@ -154,7 +153,7 @@ export const WithIcon: Story = () => {
 
 // export const StyleProps: Story = () => {
 //   return (
-//     <ThemeProvider theme={unstableTheme}>
+//     <ThemeProvider >
 //       <Box
 //         bg="primary.base"
 //         color="primary.contrast"
@@ -178,7 +177,7 @@ export const WithIcon: Story = () => {
 //   }
 
 //   return (
-//     <ThemeProvider theme={unstableTheme}>
+//     <ThemeProvider >
 //       <Box ref={ref} borderRadius="3" borderStyle="solid" element="section" />
 //       <button onClick={handleFocus}>Focus</button>
 //     </ThemeProvider>

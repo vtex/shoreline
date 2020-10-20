@@ -1,13 +1,12 @@
 import { SxStyleProp } from '@theme-ui/core'
 import { forwardRef, Ref } from 'react'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
-
 import {
   createElement,
   omitCSSProps,
   pickHTMLProps,
   useCx,
-} from '../../unstableSystem'
+} from '@vtex/admin-ui-system'
 
 export interface InputProps extends Omit<ReakitInputProps, 'ref'> {
   styles?: SxStyleProp
