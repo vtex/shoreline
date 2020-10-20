@@ -2,9 +2,11 @@
 import { jsx, SxStyleProp } from '@theme-ui/core'
 import { forwardRef, Ref, ReactNode } from 'react'
 import { Box as ReakitButton, ButtonProps as ReakitButtonProps } from 'reakit'
-import { createElement, cleanProps, useClassName } from '@vtex/admin-ui-system'
+import { createElement } from '@vtex/admin-ui-system'
 
 import { Variant, Size, Palette } from './types'
+import { useComponent } from '../../hooks/useComponent'
+import { Overridable } from '../../types'
 
 export const unstableButton = forwardRef(function Box(
   props: ButtonProps,
@@ -62,37 +64,33 @@ export function useButton(props: ButtonProps): ButtonProps {
     children: prevChildren,
   })
 
-  const className = useClassName({
-    props: compoundProps,
+  const buttonProps = useComponent({
+    props: {
+      ...compoundProps,
+      children: (
+        <div
+          sx={{
+            display: 'flex',
+            height: 'full',
+            width: 'full',
+            margin: 'auto',
+            alignItems: 'center',
+            justifyContent: 'center',
+            ...containerStyles,
+          }}
+        >
+          {icon}
+          {prevChildren}
+        </div>
+      ),
+    },
     themeKey: `components.button.${variant}-${palette}-${resolvedSize}`,
   })
 
-  const htmlProps = cleanProps(compoundProps)
-  const wrapElement = compoundProps.wrapElement ?? {
-    wrapElement: compoundProps.wrapElement,
-  }
-
-  const children = (
-    <div
-      sx={{
-        display: 'flex',
-        height: 'full',
-        width: 'full',
-        margin: 'auto',
-        alignItems: 'center',
-        justifyContent: 'center',
-        ...containerStyles,
-      }}
-    >
-      {icon}
-      {prevChildren}
-    </div>
-  )
-
-  return { ...htmlProps, ...wrapElement, className, children }
+  return buttonProps
 }
 
-export interface ButtonProps extends ReakitButtonProps {
+export interface ButtonProps extends ReakitButtonProps, Overridable {
   /** Size of the button
    * @default regular
    * */
@@ -106,11 +104,6 @@ export interface ButtonProps extends ReakitButtonProps {
    * @default primary
    */
   palette?: Palette
-  /**
-   * ThemeUI styles
-   * @default {}
-   */
-  styles?: SxStyleProp
   /**
    * Icon of the button
    */
