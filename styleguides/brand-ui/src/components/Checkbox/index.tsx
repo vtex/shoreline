@@ -3,9 +3,9 @@ import { jsx, SxStyleProp } from 'theme-ui'
 import { Ref } from 'react'
 import {
   Checkbox as ReakitCheckbox,
-  CheckboxProps as BaseProps,
+  CheckboxProps as ReakitCheckboxProps,
   useCheckboxState,
-} from 'reakit'
+} from 'reakit/Checkbox'
 import { Box, Label, Text } from 'theme-ui'
 import { forwardRef } from '@vtex-components/utils'
 
@@ -32,7 +32,7 @@ const BrandCheckbox = (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
 
 export interface CheckboxProps
   extends Pick<
-    BaseProps,
+  ReakitCheckboxProps,
     | 'checked'
     | 'disabled'
     | 'onChange'
