@@ -15,7 +15,7 @@ export const Styles: Story = () => {
   return (
     <ThemeProvider>
       <Button
-        styles={{
+        styleOverrides={{
           bg: 'text',
           ':hover': {
             bg: darken('text', 0.05),

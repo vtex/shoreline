@@ -1,12 +1,14 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref, PropsWithChildren } from 'react'
-import { useClassName, createElement, cleanProps } from '@vtex/admin-ui-system'
+import { createElement } from '@vtex/admin-ui-system'
+
+import { useComponent } from '../../hooks/useComponent'
 
 export const unstableParagraph = forwardRef(function Paragraph(
   props: PropsWithChildren<ParagraphProps>,
   ref: Ref<HTMLParagraphElement>
 ) {
-  const paragraphProps = useParagraph(props)
+  const paragraphProps = useComponent({ props: { text: 'body', ...props } })
 
   return createElement({
     ref,
@@ -15,13 +17,6 @@ export const unstableParagraph = forwardRef(function Paragraph(
     htmlProps: paragraphProps,
   })
 })
-
-export function useParagraph(props: ParagraphProps) {
-  const className = useClassName({ props: { text: 'body', ...props } })
-  const htmlProps = cleanProps(props)
-
-  return { ...htmlProps, className }
-}
 
 export interface ParagraphProps {
   children?: ReactNode

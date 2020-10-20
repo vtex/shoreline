@@ -1,10 +1,11 @@
-import { SxStyleProp } from '@theme-ui/core'
 import { forwardRef, Ref } from 'react'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
-import { cleanProps, createElement, useClassName } from '@vtex/admin-ui-system'
+import { createElement } from '@vtex/admin-ui-system'
 
-export interface InputProps extends Omit<ReakitInputProps, 'ref'> {
-  styles?: SxStyleProp
+import { useComponent } from '../../hooks/useComponent'
+import { Overridable } from '../../types'
+
+export interface InputProps extends Omit<ReakitInputProps, 'ref'>, Overridable {
   children?: React.ReactNode | ((props: InputProps) => React.ReactNode)
 }
 
@@ -12,7 +13,7 @@ export const unstableInput = forwardRef(function Input(
   props: InputProps,
   ref: Ref<HTMLInputElement>
 ) {
-  const inputProps = useInput(props)
+  const inputProps = useComponent({ props, themeKey: 'components.input' })
 
   return createElement({
     component: ReakitInput,
@@ -21,10 +22,3 @@ export const unstableInput = forwardRef(function Input(
     ref,
   })
 })
-
-export function useInput(props: InputProps): InputProps {
-  const className = useClassName({ props, themeKey: 'components.input' })
-  const htmlProps = cleanProps(props)
-
-  return { ...htmlProps, className }
-}

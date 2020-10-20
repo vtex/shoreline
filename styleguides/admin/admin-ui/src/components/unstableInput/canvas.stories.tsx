@@ -15,3 +15,11 @@ export const Base: Story = () => {
     </ThemeProvider>
   )
 }
+
+export const OverrideStyles: Story = () => {
+  return (
+    <ThemeProvider>
+      <Input aria-label="Label" styleOverrides={{ borderColor: 'text' }} />
+    </ThemeProvider>
+  )
+}
