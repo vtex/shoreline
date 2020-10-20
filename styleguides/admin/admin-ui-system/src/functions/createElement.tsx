@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { Ref, ReactNode, ComponentType, PropsWithChildren } from 'react'
 
-import { isFunction } from './util'
+import { isFunction } from './is'
 
 /**
  * calls react.createElement within a reakit component

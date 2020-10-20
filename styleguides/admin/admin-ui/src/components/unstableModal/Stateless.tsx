@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from '@theme-ui/core'
 import { ReactNode, useCallback } from 'react'
-import { useCx } from '@vtex/admin-ui-system'
+import { useClassName } from '@vtex/admin-ui-system'
 
 import { ModalStateReturn } from './state'
 import { ModalProvider } from './context'
@@ -54,12 +54,15 @@ export function StatelessModal(props: StatelessModalProps) {
     onClose()
   }, [onClose, state])
 
-  const backdropCn = useCx(
-    { styles: backdropStyles },
-    'components.modal.backdrop'
-  )
+  const backdropCn = useClassName({
+    props: { styles: backdropStyles },
+    themeKey: 'components.modal.backdrop',
+  })
 
-  const modalCn = useCx({ styles }, `components.modal.surface-${size}`)
+  const modalCn = useClassName({
+    props: { styles },
+    themeKey: `components.modal.surface-${size}`,
+  })
 
   return (
     <AbstractModalBackdrop className={backdropCn} {...state}>
