@@ -1,12 +1,7 @@
 import { SxStyleProp } from '@theme-ui/core'
 import { forwardRef, Ref } from 'react'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
-import {
-  createElement,
-  omitCSSProps,
-  pickHTMLProps,
-  useCx,
-} from '@vtex/admin-ui-system'
+import { cleanProps, createElement, useClassName } from '@vtex/admin-ui-system'
 
 export interface InputProps extends Omit<ReakitInputProps, 'ref'> {
   styles?: SxStyleProp
@@ -28,8 +23,8 @@ export const unstableInput = forwardRef(function Input(
 })
 
 export function useInput(props: InputProps): InputProps {
-  const className = useCx(props, 'components.input')
-  const htmlProps = omitCSSProps(pickHTMLProps(props))
+  const className = useClassName({ props, themeKey: 'components.input' })
+  const htmlProps = cleanProps(props)
 
   return { ...htmlProps, className }
 }

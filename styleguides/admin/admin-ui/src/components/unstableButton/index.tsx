@@ -2,12 +2,7 @@
 import { jsx, SxStyleProp } from '@theme-ui/core'
 import { forwardRef, Ref, ReactNode } from 'react'
 import { Box as ReakitButton, ButtonProps as ReakitButtonProps } from 'reakit'
-import {
-  createElement,
-  omitCSSProps,
-  pickHTMLProps,
-  useCx,
-} from '@vtex/admin-ui-system'
+import { createElement, cleanProps, useClassName } from '@vtex/admin-ui-system'
 
 import { Variant, Size, Palette } from './types'
 
@@ -67,12 +62,12 @@ export function useButton(props: ButtonProps): ButtonProps {
     children: prevChildren,
   })
 
-  const className = useCx(
-    compoundProps,
-    `components.button.${variant}-${palette}-${resolvedSize}`
-  )
+  const className = useClassName({
+    props: compoundProps,
+    themeKey: `components.button.${variant}-${palette}-${resolvedSize}`,
+  })
 
-  const htmlProps = omitCSSProps(pickHTMLProps(compoundProps))
+  const htmlProps = cleanProps(compoundProps)
   const wrapElement = compoundProps.wrapElement ?? {
     wrapElement: compoundProps.wrapElement,
   }

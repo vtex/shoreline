@@ -1,6 +1,6 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
-import { useCleanProps, useCx, createElement } from '@vtex/admin-ui-system'
+import { cleanProps, useClassName, createElement } from '@vtex/admin-ui-system'
 
 import { useHeadingLevel } from './context'
 
@@ -22,8 +22,8 @@ export const unstableHeading = forwardRef(function Heading(
 })
 
 export function useHeading(props: HeadingProps) {
-  const className = useCx({ text: 'headline', ...props })
-  const htmlProps = useCleanProps(props)
+  const className = useClassName({ props: { text: 'headline', ...props } })
+  const htmlProps = cleanProps(props)
 
   return { ...htmlProps, className }
 }

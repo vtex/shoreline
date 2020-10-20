@@ -1,4 +1,4 @@
-export const cssEventProps = {
+export const cssProps = {
   _hover: ':hover',
   _hoveractive: ':hover:active',
   _focus: ':focus',
@@ -10,9 +10,6 @@ export const cssEventProps = {
   _groupFocus: '[role=group]:focus &',
   _groupVisited: '[role=group]:visited &',
   _groupDisabled: '[role=group]:disabled &',
-}
-
-export const flexBox = {
   alignContent: 'align-content',
   alignSelf: 'align-self',
   alignItems: 'align-items',
@@ -26,12 +23,6 @@ export const flexBox = {
   flexGrow: 'flex-grow',
   flexShrink: 'flex-shrink',
   flexWrap: 'flex-wrap',
-  surface: 'surface',
-}
-
-export const cssProps = {
-  ...cssEventProps,
-  ...flexBox,
   alignmentBaseline: 'alignment-baseline',
   all: 'all',
   animation: 'animation',

@@ -1,5 +1,5 @@
 import React, { forwardRef, Ref } from 'react'
-import { useCx } from '@vtex/admin-ui-system'
+import { useClassName } from '@vtex/admin-ui-system'
 
 import { unstableInput as Input, InputProps } from '../unstableInput'
 import { Label } from '../Label'
@@ -9,7 +9,10 @@ export const unstableTextField = forwardRef(function Textfield(
   ref: Ref<HTMLInputElement>
 ) {
   const { id, label, styles, ...inputProps } = props
-  const className = useCx({ styles }, 'components.textField')
+  const className = useClassName({
+    props: { styles },
+    themeKey: 'components.textField',
+  })
 
   return (
     <div className={className}>
