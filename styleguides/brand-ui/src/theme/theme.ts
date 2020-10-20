@@ -1,4 +1,5 @@
 import buttons from './components/buttons'
+import checkbox from './components/checkbox'
 import collapsible from './components/collapsible'
 import header from './components/header'
 import hamburgerMenu from './components/hamburgerMenu'
@@ -58,6 +59,7 @@ export const theme = {
     },
   },
   buttons,
+  checkbox,
   collapsible,
   header,
   hamburgerMenu,

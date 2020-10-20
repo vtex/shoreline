@@ -18,6 +18,7 @@ export {
 } from './components/Accordion'
 export * from './icons'
 export { Card, CardProps } from './components/Card'
+export { Checkbox, CheckboxProps } from './components/Checkbox'
 export { useFocusHollow } from './hooks'
 export { Header, HamburgerMenu } from './components/Header'
 export { Input, InputProps } from './components/Input'
