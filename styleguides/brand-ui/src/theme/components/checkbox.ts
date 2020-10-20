@@ -33,6 +33,7 @@ const styles = {
     borderColor: 'muted.2',
   },
   ':focus': {
+    boxShadow: (t: any) => `0 0 0 ${t.borderWidths[1]}px ${t.colors.focus}`,
     outline: 'none',
   },
 }
