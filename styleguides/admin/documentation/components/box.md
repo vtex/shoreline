@@ -1,6 +1,6 @@
 ---
 path: /docs/box/
-nightly: true
+next: true
 ---
 
 # Box

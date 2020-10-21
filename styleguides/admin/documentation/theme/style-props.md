@@ -1,6 +1,6 @@
 ---
 path: /docs/style-props/
-nightly: true
+next: true
 ---
 
 # Style Props

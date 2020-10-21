@@ -1,14 +1,14 @@
 ---
 path: /docs/styling/
-nightly: true
+next: true
 ---
 
 # Styling
 
 💡 Also check [ThemeUI API](https://theme-ui.com/api/) for detailed info.
 
-<blockquote nightly="true">
-  This is a nightly feature. Use it with care 😬.
+<blockquote next="true">
+  This is a next feature. Use it with care 😬.
 </blockquote>
 
 ## ThemeProvider
