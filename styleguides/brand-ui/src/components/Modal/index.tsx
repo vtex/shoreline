@@ -1,6 +1,12 @@
 /** @jsx jsx */
 import { jsx, Text, Flex } from 'theme-ui'
-import { Fragment, MouseEvent } from 'react'
+import {
+  Fragment,
+  MouseEvent,
+  cloneElement,
+  ReactNode,
+  FunctionComponentElement,
+} from 'react'
 import {
   useDialogState,
   Dialog,
@@ -31,6 +37,7 @@ const surfaceAnimation = css`
 
 interface TitleProps {
   handleClick: () => void
+  title: string
 }
 
 interface ActionsBarProps {
@@ -38,7 +45,7 @@ interface ActionsBarProps {
   handleConfirm: (event: MouseEvent<unknown, globalThis.MouseEvent>) => void
 }
 
-const Title = ({ handleClick }: TitleProps) => {
+const Title = ({ title, handleClick }: TitleProps) => {
   return (
     <Box
       sx={{
@@ -63,7 +70,7 @@ const Title = ({ handleClick }: TitleProps) => {
         variant="tertiary"
         onClick={handleClick}
       />
-      <Text sx={{ fontSize: '.875rem' }}>Confirm Payment</Text>
+      <Text sx={{ fontSize: '.875rem' }}>{title}</Text>
     </Box>
   )
 }
@@ -102,7 +109,12 @@ const ActionsBar = ({ handleClose, handleConfirm }: ActionsBarProps) => {
   )
 }
 
-export const Modal = () => {
+export const Modal = ({
+  children,
+  title,
+  disclosure,
+  onConfirm,
+}: ModalProps) => {
   const dialog = useDialogState({ animated: true })
 
   const handleClose = () => {
@@ -111,8 +123,8 @@ export const Modal = () => {
 
   return (
     <Fragment>
-      <DialogDisclosure {...dialog} as={Button}>
-        Open dialog
+      <DialogDisclosure {...dialog}>
+        {(disclosureProps) => cloneElement(disclosure, { ...disclosureProps })}
       </DialogDisclosure>
       <DialogBackdrop
         {...dialog}
@@ -142,30 +154,44 @@ export const Modal = () => {
             boxShadow: '2px 4px 16px rgba(0, 0, 0, 0.3)',
             outline: 'none',
             position: 'relative',
+            zIndex: '100000000',
           }}
         >
-          <Title handleClick={handleClose} />
+          <Title handleClick={handleClose} title={title} />
           <Box
             sx={{
-              maxHeight: '100%',
+              maxHeight: '50vh',
               overflowY: 'auto',
               paddingX: '2rem',
               paddingTop: '2rem',
+              fontSize: '.75rem',
+              maxWidth: '100%',
             }}
           >
-            <Text
-              sx={{
-                maxWidth: '100%',
-                fontSize: '.75rem',
-                maxHeight: '40vh',
-              }}
-            >
-              Choose another payment method to split your purchase value.
-            </Text>
+            {children}
           </Box>
           <ActionsBar handleClose={handleClose} handleConfirm={handleClose} />
         </Dialog>
       </DialogBackdrop>
     </Fragment>
   )
+}
+
+export interface ModalProps {
+  /**
+   * Modal content children
+   */
+  children: ReactNode
+  /**
+   * Modal disclosure
+   */
+  disclosure: FunctionComponentElement<unknown>
+  /**
+   * Modal title
+   */
+  title: string
+  /**
+   * Function run when the `confirm` button is clicked
+   */
+  onConfirm?: () => void
 }
