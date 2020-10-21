@@ -9,7 +9,7 @@ import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
 import Blockquote from '../components/Blockquote'
-import Nightly from '../icons/Nightly'
+import Next from '../icons/Next'
 import Heading from '../components/Heading'
 import Seo from '../components/SEO'
 import DocsBackNext from '../components/DocsBackNext'
@@ -69,7 +69,7 @@ const { Compiler: renderAst } = new RehypeReact({
       return (
         <span {...props}>
           {children}
-          {title === 'Nightly' && <Nightly />}
+          {title === 'Next' && <Next />}
         </span>
       )
     },
@@ -165,7 +165,7 @@ type DocsProps = {
       excerpt: string
       frontmatter: {
         path: string
-        nightly: boolean
+        next: boolean
       }
     }
   }

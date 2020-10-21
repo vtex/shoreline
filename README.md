@@ -42,10 +42,10 @@ yarn publish:packages
 or
 
 ```bash
-yarn publish:nightly
+yarn publish:next
 ```
 
-To publish a canary version
+To publish a next version
 
 ### Commit Messages
 
