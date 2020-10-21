@@ -50,11 +50,11 @@ export const ConsumeTheme: Story = () => {
 export const Surfaces: Story = () => {
   return (
     <ThemeProvider>
-      <Box surface="default" border="default">
+      <Box palette="base" border="default">
         Default Box
       </Box>
-      <Box surface="inverted">Inverted Box</Box>
-      <Box surface="primary">Primary Box</Box>
+      <Box palette="inverted">Inverted Box</Box>
+      <Box palette="primary">Primary Box</Box>
     </ThemeProvider>
   )
 }
