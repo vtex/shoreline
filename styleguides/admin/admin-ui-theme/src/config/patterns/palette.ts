@@ -1,5 +1,3 @@
-import { ResponsiveValue } from '@vtex/admin-ui-system'
-
 const palette = {
   base: {
     bg: 'background',
@@ -57,5 +55,5 @@ export type PalettePattern = {
    * @default base
    * @see ...palette-pattern-documentation
    */
-  palette?: ResponsiveValue<keyof typeof palette>
+  palette?: keyof typeof palette
 }
