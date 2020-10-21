@@ -38,6 +38,7 @@
     "@theme-ui/css": "^0.4.0-rc.5",
     "@theme-ui/core": "^0.4.0-rc.5",
     "@theme-ui/color": "^0.4.0-rc.5",
+    "@theme-ui/match-media": "^0.4.0-rc.5",
     "csstype": "^3.0.3",
     "deepmerge": "^4.2.2",
     "emotion": "^10.0.27",
