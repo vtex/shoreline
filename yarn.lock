@@ -4200,6 +4200,11 @@
   dependencies:
     csstype "^2.5.7"
 
+"@theme-ui/match-media@^0.4.0-rc.5":
+  version "0.4.0-rc.6"
+  resolved "https://registry.yarnpkg.com/@theme-ui/match-media/-/match-media-0.4.0-rc.6.tgz#d83ea37c18a8bc44bf8fdbf62ef7f1737be51722"
+  integrity sha512-KfN1RlbCYp83vW63TCSvTinHNCvWCmTIlFYB2QF3mqb9681xOVAw+kKzweHLsdjYOs+T6J/G/lC7JfGiTiFUzw==
+
 "@theme-ui/mdx@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@theme-ui/mdx/-/mdx-0.3.0.tgz#8bb1342204acfaa69914d6b6567c5c49d9a8c1e6"
@@ -4666,10 +4671,18 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.9.19", "@types/react@^16.9.47":
+"@types/react@*", "@types/react@^16.9.19":
   version "16.9.51"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.51.tgz#f8aa51ffa9996f1387f63686696d9b59713d2b60"
   integrity sha512-lQa12IyO+DMlnSZ3+AGHRUiUcpK47aakMMoBG8f7HGxJT8Yfe+WE128HIXaHOHVPReAW0oDS3KAI0JI2DDe1PQ==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^3.0.2"
+
+"@types/react@^16.9.47":
+  version "16.9.53"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.53.tgz#40cd4f8b8d6b9528aedd1fff8fcffe7a112a3d23"
+  integrity sha512-4nW60Sd4L7+WMXH1D6jCdVftuW7j4Za6zdp6tJ33Rqv0nk1ZAmQKML9ZLD4H0dehA3FZxXR/GM8gXplf82oNGw==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
