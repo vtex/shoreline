@@ -1,3 +1,5 @@
+import { ResponsiveValue } from '@vtex/admin-ui-system'
+
 const borderStyles = {
   borderWidth: '1px',
   borderStyle: 'solid',
@@ -41,7 +43,7 @@ export type BorderPattern = {
    * @default default
    * @see ...border-pattern-documentation
    */
-  border?: keyof typeof border
+  border?: ResponsiveValue<keyof typeof border>
 }
 
 export { border }
