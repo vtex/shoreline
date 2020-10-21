@@ -12,7 +12,7 @@ import {
 } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
-import Nightly from '../icons/Nightly'
+import Next from '../icons/Next'
 
 const query = graphql`
   query DocsQuery {
@@ -27,7 +27,7 @@ const query = graphql`
         title
         frontmatter {
           path
-          nightly
+          next
         }
       }
     }
@@ -80,7 +80,7 @@ function ExperimentalLink(props: GatsbyLinkProps<{}>) {
     <Fragment>
       <TooltipReference as={Link} sx={linkStyles} {...props} {...tooltip}>
         {props.children}
-        <Nightly
+        <Next
           role="presentation"
           ref={(ref as unknown) as Ref<SVGSVGElement>}
         />
@@ -96,7 +96,7 @@ function ExperimentalLink(props: GatsbyLinkProps<{}>) {
       >
         <Text el="span" variant="small">
           <TooltipArrow {...tooltip} />
-          Nightly
+          Next
         </Text>
       </Tooltip>
     </Fragment>
@@ -114,7 +114,7 @@ export default function DocsNavigation() {
   const getTitle = (path: string) => findMeta(path)?.title
 
   const getIsExperimental = (path: string) =>
-    Boolean(findMeta(path)?.frontmatter.nightly)
+    Boolean(findMeta(path)?.frontmatter.next)
 
   return (
     <Box
@@ -184,7 +184,7 @@ interface Data {
       title: string
       frontmatter: {
         path: string
-        nightly?: boolean
+        next?: boolean
       }
     }>
   }

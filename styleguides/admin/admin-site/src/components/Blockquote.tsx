@@ -4,16 +4,16 @@ import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
 import { useColor, darken, lighten, ThemeColors } from '@vtex/admin-ui'
 
-import Nightly from '../icons/Nightly'
+import Next from '../icons/Next'
 
 export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
   {
     name: 'Blockquote',
     compose: useBox,
-    keys: ['nightly', 'palette'],
+    keys: ['next', 'palette'],
 
     useProps(options, htmlProps) {
-      const isNightly = options.nightly === 'true'
+      const isNext = options.next === 'true'
       const palette = useColor(
         `${options.palette ?? 'warning'}.base` as ThemeColors
       )
@@ -36,7 +36,7 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
           margin: 0;
         }
 
-        ${isNightly &&
+        ${isNext &&
           css`
             display: flex;
             svg {
@@ -50,9 +50,9 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
 
       return {
         ...htmlProps,
-        children: isNightly ? (
+        children: isNext ? (
           <Fragment>
-            <Nightly />
+            <Next />
             <div>{htmlProps.children}</div>
           </Fragment>
         ) : (
@@ -70,7 +70,7 @@ const Blockquote = createComponent({
 })
 
 export type BlockquoteOptions = BoxOptions & {
-  nightly?: 'true' | 'false'
+  next?: 'true' | 'false'
   palette?: 'primary' | 'success' | 'danger' | 'warning'
 }
 
