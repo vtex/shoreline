@@ -1,5 +1,3 @@
-import { ResponsiveValue } from '@vtex/admin-ui-system'
-
 const text = {
   small: {
     lineHeight: 'small',
@@ -49,5 +47,5 @@ export type TextPattern = {
    * @default headline
    * @see ...text-pattern-documentation
    */
-  text?: ResponsiveValue<keyof typeof text>
+  text?: keyof typeof text
 }
