@@ -14,17 +14,17 @@ export const Auto = () => {
     <ThemeProvider>
       <Columns spacing={1}>
         <Columns.Item>
-          <Box surface="primary" styles={{ padding: 2 }}>
+          <Box palette="primary" styles={{ padding: 2 }}>
             6 units
           </Box>
         </Columns.Item>
         <Columns.Item>
-          <Box surface="inverted" styles={{ padding: 2 }}>
+          <Box palette="inverted" styles={{ padding: 2 }}>
             6 units
           </Box>
         </Columns.Item>
         <Columns.Item>
-          <Box surface="primary" styles={{ padding: 2 }}>
+          <Box palette="primary" styles={{ padding: 2 }}>
             6 units
           </Box>
         </Columns.Item>
@@ -38,17 +38,17 @@ export const AutoGapless = () => {
     <ThemeProvider>
       <Columns spacing={0}>
         <Columns.Item>
-          <Box surface="primary" styles={{ padding: 2 }}>
+          <Box palette="primary" styles={{ padding: 2 }}>
             6 units
           </Box>
         </Columns.Item>
         <Columns.Item>
-          <Box surface="inverted" styles={{ padding: 2 }}>
+          <Box palette="inverted" styles={{ padding: 2 }}>
             6 units
           </Box>
         </Columns.Item>
         <Columns.Item>
-          <Box surface="primary" styles={{ padding: 2 }}>
+          <Box palette="primary" styles={{ padding: 2 }}>
             6 units
           </Box>
         </Columns.Item>
@@ -62,17 +62,17 @@ export const Units = () => {
     <ThemeProvider>
       <Columns spacing={1}>
         <Columns.Item units={3}>
-          <Box surface="primary" styles={{ padding: 2 }}>
+          <Box palette="primary" styles={{ padding: 2 }}>
             3 units
           </Box>
         </Columns.Item>
         <Columns.Item units={6}>
-          <Box surface="inverted" styles={{ padding: 2 }}>
+          <Box palette="inverted" styles={{ padding: 2 }}>
             6 units
           </Box>
         </Columns.Item>
         <Columns.Item units={3}>
-          <Box surface="primary" styles={{ padding: 2 }}>
+          <Box palette="primary" styles={{ padding: 2 }}>
             3 units
           </Box>
         </Columns.Item>
@@ -86,12 +86,12 @@ export const ResponsiveUnits = () => {
     <ThemeProvider>
       <Columns spacing={1}>
         <Columns.Item units={6} offset={['right', 'right', 'none']}>
-          <Box surface="primary" styles={{ padding: 2 }}>
+          <Box palette="primary" styles={{ padding: 2 }}>
             6 units
           </Box>
         </Columns.Item>
         <Columns.Item units={3}>
-          <Box surface="inverted" styles={{ padding: 2 }}>
+          <Box palette="inverted" styles={{ padding: 2 }}>
             3 units
           </Box>
         </Columns.Item>
