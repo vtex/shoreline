@@ -8,9 +8,9 @@ export const unstableTextField = forwardRef(function Textfield(
   props: TextFieldProps,
   ref: Ref<HTMLInputElement>
 ) {
-  const { id, label, styles, ...inputProps } = props
+  const { id, label, styleOverrides, ...inputProps } = props
   const className = useClassName({
-    props: { styles },
+    props: { styles: styleOverrides },
     themeKey: 'components.textField',
   })
 

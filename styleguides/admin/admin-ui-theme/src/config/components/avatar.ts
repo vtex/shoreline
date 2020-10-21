@@ -5,29 +5,24 @@ const styles = {
   width: 24,
   height: 24,
   padding: 2,
-  borderRadius: 'full',
+  borderRadius: 'circle',
   textTransform: 'uppercase',
 }
 
 export default {
   base: {
     ...styles,
-    bg: 'muted.4',
-    color: 'text',
+    bg: 'text',
+    color: 'background',
   },
   primary: {
     ...styles,
-    bg: 'primary.washed.0',
-    color: 'primary.base',
+    bg: 'primary.base',
+    color: 'primary.contrast',
   },
   danger: {
     ...styles,
-    bg: 'danger.washed.0',
-    color: 'danger.base',
-  },
-  success: {
-    ...styles,
-    bg: 'success.washed.0',
-    color: 'success.base',
+    bg: 'danger.base',
+    color: 'danger.contrast',
   },
 }
