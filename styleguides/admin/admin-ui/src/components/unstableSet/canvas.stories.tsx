@@ -26,6 +26,18 @@ export const SetLayout = () => {
   )
 }
 
+export const End = () => {
+  return (
+    <ThemeProvider>
+      <Set align="end" spacing={2}>
+        <Button>First</Button>
+        <Button>Second</Button>
+        <Button>Third</Button>
+      </Set>
+    </ThemeProvider>
+  )
+}
+
 export const SetResponsive = () => {
   return (
     <ThemeProvider>
