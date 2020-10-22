@@ -1,6 +1,7 @@
 import { get, merge, cssResolver, cssExtractor } from './lib'
 import { pick } from './pick'
 import { Theme, SxStyleProp, PropsWithStyles } from '../types'
+import { availableStyleProps } from '../constants'
 
 type GetClassNameParams = {
   props?: PropsWithStyles<unknown>
@@ -10,7 +11,7 @@ type GetClassNameParams = {
 
 export function getClassName({ props, themeKey, theme }: GetClassNameParams) {
   const draftStyles = selectVariant({ props, themeKey })
-  const styles = getPatternStyles({
+  const styles = getStyleProps({
     theme,
     props,
     styles: draftStyles,
@@ -64,11 +65,12 @@ type GetPatternParams = {
  * Picks all variants from token entries
  * TODO: Rename properties
  */
-export function getPatternStyles(params: GetPatternParams) {
+export function getStyleProps(params: GetPatternParams) {
   const { theme, props = {}, styles } = params
 
   const patternKeys = Object.keys(get(theme, 'patterns', {}))
   const patterns = pick(props, ...patternKeys)
+  const styleProps = pick(props, ...availableStyleProps)
 
   const patternsStyleObject = Object.keys(patterns).reduce((acc, key) => {
     const patternPath = `patterns.${key}.${get(patterns, key, '')}`
@@ -77,7 +79,10 @@ export function getPatternStyles(params: GetPatternParams) {
     return { ...acc, ...styleObject }
   }, {})
 
-  const mergedTheme = merge<SxStyleProp>(patternsStyleObject, styles)
+  const mergedTheme = merge<SxStyleProp>(
+    { ...patternsStyleObject, ...styleProps },
+    styles
+  )
 
   return mergedTheme
 }

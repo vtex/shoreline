@@ -3,6 +3,7 @@ import components from './components'
 import patterns from './patterns'
 
 export * from './patterns'
+export * from './styleProps'
 
 export const unstableTheme = {
   ...base,
