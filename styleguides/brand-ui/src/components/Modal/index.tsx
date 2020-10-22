@@ -2,7 +2,6 @@
 import { jsx, Text, Flex, Box } from 'theme-ui'
 import {
   Fragment,
-  MouseEvent,
   cloneElement,
   ReactNode,
   FunctionComponentElement,
@@ -14,8 +13,9 @@ import {
   DialogBackdrop,
 } from 'reakit/Dialog'
 import { css } from '@emotion/core'
+import { DialogStateReturn } from 'reakit/ts'
 
-import { Button } from '../Button'
+import { Button, ButtonProps } from '../Button'
 import { IconClose } from '../../icons/Close'
 
 const backdropAnimation = css`
@@ -39,10 +39,12 @@ interface TitleProps {
   title: string
 }
 
-interface ActionsBarProps {
-  handleClose: () => void
-  handleConfirm: (event: MouseEvent<unknown, globalThis.MouseEvent>) => void
-  confirmLabel: string
+interface BottomBarProps {
+  children: ReactNode[]
+}
+
+interface BodyProps {
+  children: ReactNode[]
 }
 
 const Title = ({ title, handleClick }: TitleProps) => {
@@ -66,85 +68,64 @@ const Title = ({ title, handleClick }: TitleProps) => {
   )
 }
 
-const ActionsBar = ({
-  handleClose,
-  handleConfirm,
-  confirmLabel,
-}: ActionsBarProps) => {
-  const handleClick = (event: MouseEvent<unknown, globalThis.MouseEvent>) => {
-    handleConfirm(event)
-    handleClose()
-  }
+const ModalButton = (props: ButtonProps) => {
+  const { children, ...args } = props
 
   return (
-    <Flex variant="modal.actionsBar">
-      <Button
-        variant="tertiary"
-        sx={{
-          bg: 'transparent',
-          color: 'secondary.base',
-          marginX: '1rem',
-        }}
-        onClick={handleClose}
-      >
-        Cancel
-      </Button>
-      <Button variant="primary" onClick={handleClick}>
-        {confirmLabel}
-      </Button>
-    </Flex>
+    <Button sx={{ marginLeft: '1rem' }} {...args}>
+      {children}
+    </Button>
   )
+}
+
+const BottomBar = ({ children }: BottomBarProps) => {
+  return <Flex variant="modal.actionsBar">{children}</Flex>
+}
+
+const Body = ({ children }: BodyProps) => {
+  return <Box variant="modal.body">{children}</Box>
 }
 
 export const Modal = ({
   children,
   title,
   disclosure,
-  onConfirm,
-  confirmLabel = 'Confirm',
+  modalState,
 }: ModalProps) => {
-  const dialog = useDialogState({ animated: true })
-
-  const handleClose = () => {
-    dialog.hide()
-  }
-
   return (
     <Fragment>
-      <DialogDisclosure {...dialog}>
+      <DialogDisclosure {...modalState}>
         {(disclosureProps) => cloneElement(disclosure, { ...disclosureProps })}
       </DialogDisclosure>
       <DialogBackdrop
-        {...dialog}
-        css={backdropAnimation}
+        {...modalState}
+        css={modalState.animated && backdropAnimation}
         variant="modal.backdrop"
         as={Box}
       >
         <Dialog
-          {...dialog}
-          aria-label="Welcome"
-          css={surfaceAnimation}
+          {...modalState}
+          css={modalState.animated && surfaceAnimation}
           variant="modal.dialog"
           as={Box}
         >
-          <Title handleClick={handleClose} title={title} />
-          <Box variant="modal.body">{children}</Box>
-          <ActionsBar
-            handleClose={handleClose}
-            handleConfirm={onConfirm}
-            confirmLabel={confirmLabel}
-          />
+          <Title handleClick={modalState.hide} title={title} />
+          {children}
         </Dialog>
       </DialogBackdrop>
     </Fragment>
   )
 }
 
+Modal.Body = Body
+Modal.BottomBar = BottomBar
+Modal.Button = ModalButton
+
 export interface ModalProps {
   /**
    * Modal content children
    */
-  children: ReactNode
+  children: ReactNode[]
   /**
    * Modal disclosure
    */
@@ -154,11 +135,9 @@ export interface ModalProps {
    */
   title: string
   /**
-   * Function run when the `confirm` button is clicked
+   * Return of useModalState hook
    */
-  onConfirm: () => void
-  /**
-   * Confirm button label
-   */
-  confirmLabel?: string
+  modalState: DialogStateReturn
 }
+
+export { useDialogState as useModalState }
