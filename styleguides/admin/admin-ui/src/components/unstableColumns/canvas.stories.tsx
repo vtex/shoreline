@@ -1,9 +1,9 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { Columns } from '../Columns'
-import { unstableThemeProvider as ThemeProvider } from '../../unstableThemeProvider'
-import { unstableBox as Box } from '../../unstableBox'
+import { Columns } from './index'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
+import { unstableBox as Box } from '../unstableBox'
 
 export default {
   title: 'system-next/layout/columns',

@@ -6,7 +6,9 @@ import { PatternsProps } from '@vtex/admin-ui-theme'
 
 import { SemanticTags, HeadingTags } from './types'
 
-export interface BoxProps extends Omit<BoxHTMLProps, 'ref'>, PatternsProps {
+export interface BoxProps
+  extends Omit<BoxHTMLProps, 'ref' | 'sytle' | 'className' | 'sx'>,
+    PatternsProps {
   element?: 'div' | 'span' | SemanticTags | HeadingTags
   styles?: SxStyleProp
   children?: React.ReactNode | ((props: BoxProps) => React.ReactNode)
@@ -26,7 +28,7 @@ export const unstableBox = forwardRef(function Box(
   })
 })
 
-export function useBox(props: BoxProps): BoxProps {
+export function useBox(props: BoxProps) {
   const className = useClassName({ props })
   const htmlProps = cleanProps(props)
 
