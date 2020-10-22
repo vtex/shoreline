@@ -1,9 +1,8 @@
 ---
 path: /docs/style-props/
-next: true
 ---
 
-# Style Props
+# 🚧 Style Props
 
 ## Typography
 
