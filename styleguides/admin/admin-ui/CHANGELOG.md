@@ -16,6 +16,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.54.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0...@vtex/admin-ui@0.54.0) (2020-10-29)
 
+**Note:** Version bump only for package @vtex/admin-ui
+
+# [0.53.0-alpha.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.1...@vtex/admin-ui@0.53.0-alpha.2) (2020-10-22)
+
+### Bug Fixes
+
+- **unstable:** add missing exports ([3f1bef3](https://github.com/vtex/onda/commit/3f1bef37b13f29a9e3e6cf55eb813ee18777b3e6))
+
+# [0.53.0-alpha.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.0...@vtex/admin-ui@0.53.0-alpha.1) (2020-10-22)
+
 ### Bug Fixes
 
 - camel-casefy svg props ([4d91c17](https://github.com/vtex/onda/commit/4d91c173d67a175091e5a180587216475484f4d3))

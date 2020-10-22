@@ -5,7 +5,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## [0.2.9](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.2.8...admin-site@0.2.9) (2020-11-05)
+=======
+# [0.3.0-alpha.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.3.0-alpha.1...admin-site@0.3.0-alpha.2) (2020-10-22)
+>>>>>>> chore(release): publish [skip ci]
 
 **Note:** Version bump only for package admin-site
 
@@ -13,10 +17,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+<<<<<<< HEAD
 ## [0.2.8](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.2.7...admin-site@0.2.8) (2020-10-29)
 =======
 >>>>>>> chore(release): publish [skip ci]
 =======
+=======
+>>>>>>> chore(release): publish [skip ci]
 # [0.3.0-alpha.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.3.0-alpha.0...admin-site@0.3.0-alpha.1) (2020-10-22)
 >>>>>>> chore(release): publish [skip ci]
 
