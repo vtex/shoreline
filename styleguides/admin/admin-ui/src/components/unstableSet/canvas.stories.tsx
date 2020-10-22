@@ -1,9 +1,9 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { unstableSet as Set } from '../Set'
-import { unstableButton as Button } from '../../unstableButton'
-import { unstableThemeProvider as ThemeProvider } from '../../unstableThemeProvider'
+import { unstableSet as Set } from './index'
+import { unstableButton as Button } from '../unstableButton'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 export default {
   title: 'system-next/layout/set',
@@ -32,6 +32,7 @@ export const SetResponsive = () => {
       <Set
         spacing={[1, 1, 3]}
         orientation={['vertical', 'vertical', 'horizontal']}
+        fluid
       >
         <Button>First</Button>
         <Button>Second</Button>

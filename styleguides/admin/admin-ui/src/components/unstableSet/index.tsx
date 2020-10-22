@@ -17,28 +17,21 @@ export interface SetProps extends Overridable {
   spacing?: ResponsiveValue<number>
 }
 
-const styles: Record<string, SxStyleProp> = {
-  vertical: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  'vertical-fluid': {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  horizontal: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-}
-
 export const unstableSet = forwardRef(function Input(
   props: SetProps,
   ref: Ref<HTMLElement>
 ) {
+  const { setProps } = useSet(props)
+
+  return createElement({
+    component: ReakitBox,
+    element: 'div',
+    htmlProps: setProps,
+    ref,
+  })
+})
+
+export function useSet(props: SetProps) {
   const {
     orientation = 'horizontal',
     fluid = false,
@@ -46,7 +39,25 @@ export const unstableSet = forwardRef(function Input(
     ...layoutProps
   } = props
 
-  const responsiveOrientation = useResponsiveValue(orientation)
+  const currentOrientation = useResponsiveValue(orientation)
+
+  const styles: Record<string, SxStyleProp> = {
+    vertical: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+    },
+    'vertical-fluid': {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    horizontal: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+    },
+  }
 
   const childrenSpacing = {
     horizontal: {
@@ -60,22 +71,17 @@ export const unstableSet = forwardRef(function Input(
         marginBottom: spacing,
       },
     },
-  }[responsiveOrientation]
+  }[currentOrientation]
 
-  const variant = `${responsiveOrientation}${fluid ? '-fluid' : ''}`
+  const variant = `${currentOrientation}${fluid ? '-fluid' : ''}`
 
   const setProps = useComponent({
     props: {
       ...layoutProps,
       styles: { ...styles[variant], ...childrenSpacing },
     },
-    themeKey: 'components.set',
+    // themeKey: 'components.set',
   })
 
-  return createElement({
-    component: ReakitBox,
-    element: 'div',
-    htmlProps: setProps,
-    ref,
-  })
-})
+  return { setProps, currentOrientation }
+}
