@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.53.0-alpha.5",
+  "version": "0.53.0-alpha.6",
   "main": "dist/index.js",
   "module": "dist/admin-ui.esm.js",
   "typings": "dist/index.d.ts",
@@ -53,8 +53,8 @@
     "@vtex-components/theme": "^0.1.1",
     "@vtex-components/tooltip": "^0.2.1",
     "@vtex-components/utils": "^0.0.3",
-    "@vtex/admin-ui-system": "^0.1.0-alpha.0",
-    "@vtex/admin-ui-theme": "^0.1.0-alpha.0",
+    "@vtex/admin-ui-system": "^0.1.0-alpha.1",
+    "@vtex/admin-ui-theme": "^0.1.0-alpha.1",
     "csstype": "^3.0.3",
     "deepmerge": "^4.2.2",
     "emotion": "^10.0.27",
