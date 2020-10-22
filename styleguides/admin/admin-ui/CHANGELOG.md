@@ -5,22 +5,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.54.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0...@vtex/admin-ui@0.54.0) (2020-10-29)
 
-
 ### Bug Fixes
 
-* camel-casefy svg props ([4d91c17](https://github.com/vtex/onda/commit/4d91c173d67a175091e5a180587216475484f4d3))
-
+- camel-casefy svg props ([4d91c17](https://github.com/vtex/onda/commit/4d91c173d67a175091e5a180587216475484f4d3))
 
 ### Features
 
-* add new admin-shell billings and user settings icons ([f88bf07](https://github.com/vtex/onda/commit/f88bf0753647317162544a6c6a105b6a0fc54103))
+- add new admin-shell billings and user settings icons ([f88bf07](https://github.com/vtex/onda/commit/f88bf0753647317162544a6c6a105b6a0fc54103))
 
+# [0.53.0-alpha.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.0...@vtex/admin-ui@0.53.0-alpha.1) (2020-10-22)
 
+**Note:** Version bump only for package @vtex/admin-ui
 
-
-
-# [0.53.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.52.0...@vtex/admin-ui@0.53.0) (2020-10-22)
-
+# [0.53.0-alpha.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.52.0...@vtex/admin-ui@0.53.0-alpha.0) (2020-10-22)
 
 ### Features
 
