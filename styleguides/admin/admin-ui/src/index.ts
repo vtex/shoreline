@@ -50,6 +50,11 @@ export {
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
 export { DisplayTable, defineColumns } from './components/DisplayTable'
+export {
+  unstableHeading,
+  unstableParagraph,
+  TextBlock as unstableTextBlock,
+} from './components/unstableTypography'
 export { unstableAvatar } from './components/unstableAvatar'
 export { unstableCard } from './components/unstableCard'
 export { unstableSet } from './components/unstableSet'
