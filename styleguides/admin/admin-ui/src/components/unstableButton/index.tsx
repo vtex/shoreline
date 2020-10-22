@@ -1,7 +1,10 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from '@theme-ui/core'
 import { forwardRef, Ref, ReactNode } from 'react'
-import { Box as ReakitButton, ButtonProps as ReakitButtonProps } from 'reakit'
+import {
+  Button as ReakitButton,
+  ButtonProps as ReakitButtonProps,
+} from 'reakit'
 import { createElement } from '@vtex/admin-ui-system'
 
 import { Variant, Size, Palette } from './types'
