@@ -3,9 +3,11 @@ import { jsx } from '@theme-ui/core'
 import { darken } from '@theme-ui/color'
 import { Story, Meta } from '@storybook/react'
 
+import { theme } from '../../system'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { unstableButton as Button } from './index'
 import { IconAppStore } from '../../icons'
+import { Tooltip } from '../Tooltip'
 
 export default {
   title: 'system-next/button',
@@ -27,6 +29,16 @@ export const Styles: Story = () => {
       >
         Trust Button
       </Button>
+    </ThemeProvider>
+  )
+}
+
+export const WithTooltip: Story = () => {
+  return (
+    <ThemeProvider theme={theme as any}>
+      <Tooltip label="Description">
+        <Button disabled>With Tooltip</Button>
+      </Tooltip>
     </ThemeProvider>
   )
 }
