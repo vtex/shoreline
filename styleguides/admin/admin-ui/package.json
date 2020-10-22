@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.54.1",
+  "version": "0.53.0-alpha.0",
   "main": "dist/index.js",
   "module": "dist/admin-ui.esm.js",
   "typings": "dist/index.d.ts",
@@ -38,12 +38,12 @@
     "react-dom": ">=16"
   },
   "dependencies": {
-    "@emotion/is-prop-valid": "^0.8.8",
     "@emotion/core": "^10.0.35",
+    "@emotion/is-prop-valid": "^0.8.8",
     "@emotion/styled": "^10.0.27",
-    "@theme-ui/css": "^0.4.0-rc.5",
-    "@theme-ui/core": "^0.4.0-rc.5",
     "@theme-ui/color": "^0.4.0-rc.5",
+    "@theme-ui/core": "^0.4.0-rc.5",
+    "@theme-ui/css": "^0.4.0-rc.5",
     "@types/react-truncate": "^2.3.3",
     "@types/styled-system": "^5.1.10",
     "@types/theme-ui": "^0.3.6",
@@ -53,6 +53,8 @@
     "@vtex-components/theme": "^0.1.1",
     "@vtex-components/tooltip": "^0.2.1",
     "@vtex-components/utils": "^0.0.3",
+    "@vtex/admin-ui-system": "^0.1.0-alpha.0",
+    "@vtex/admin-ui-theme": "^0.1.0-alpha.0",
     "csstype": "^3.0.3",
     "deepmerge": "^4.2.2",
     "emotion": "^10.0.27",
@@ -64,8 +66,6 @@
     "styled-system": "^5.1.5",
     "theme-ui": "^0.3.1",
     "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3",
-    "@vtex/admin-ui-system": "*",
-    "@vtex/admin-ui-theme": "*"
+    "tiny-warning": "^1.0.3"
   }
 }
