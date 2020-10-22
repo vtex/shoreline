@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0-alpha.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.2...@vtex/admin-ui@0.53.0-alpha.3) (2020-10-22)
+
+
+### Bug Fixes
+
+* **unstable-button:** fix button import ([1dbad15](https://github.com/vtex/onda/commit/1dbad151ff88ec0b0e5a22abdba21f7680e09cca))
+
+
+
+
+
 # [0.53.0-alpha.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.1...@vtex/admin-ui@0.53.0-alpha.2) (2020-10-22)
 
 
