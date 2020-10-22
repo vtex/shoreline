@@ -1,6 +1,5 @@
 ---
 path: /docs/box/
-next: true
 ---
 
 # Box

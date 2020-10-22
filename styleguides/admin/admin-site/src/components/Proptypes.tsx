@@ -1,17 +1,23 @@
 import React from 'react'
 import warning from 'tiny-warning'
 // @ts-expect-error
-import { PropsTable } from 'pretty-proptypes'
+import Props, { PropsTable } from 'pretty-proptypes'
 
 import * as AdminUILib from '../../../admin-ui/src'
 
 interface Props {
+  /** target component */
   component: string
+  /** title */
   heading?: string
+  /** if should collapse shapes */
+  collapse?: boolean
+  /** if is a table */
+  table?: boolean
 }
 
 export function Proptypes(props: Props) {
-  const { component, heading = '' } = props
+  const { component, heading = '', collapse = false, table = false } = props
 
   const targetComponent = (AdminUILib as Record<string, unknown>)[component]
 
@@ -21,5 +27,13 @@ export function Proptypes(props: Props) {
     return <div>No props to show</div>
   }
 
-  return <PropsTable heading={heading} component={targetComponent} />
+  const Component = table ? PropsTable : Props
+
+  return (
+    <Component
+      heading={heading}
+      shouldCollapseProps={collapse}
+      component={targetComponent}
+    />
+  )
 }

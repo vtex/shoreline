@@ -29,6 +29,9 @@
     - /docs/visually-hidden/
     - /docs/avatar/
     - /docs/menu/
+- section: Deep dive 🐋
+  paths:
+    - /docs/deep-dive/system
 - section: Documentation Templates
   paths:
     - /docs/documentation-template/

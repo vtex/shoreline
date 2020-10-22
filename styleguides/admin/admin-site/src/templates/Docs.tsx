@@ -2,9 +2,9 @@
 import { jsx } from '@vtex/admin-ui'
 import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
-import * as AdminUI from '@vtex/admin-ui'
 import React, { createElement } from 'react'
 
+import * as AdminUI from '../../../admin-ui/src'
 import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
