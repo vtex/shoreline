@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui-theme",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "main": "dist/index.js",
   "module": "dist/admin-ui-theme.esm.js",
   "typings": "dist/index.d.ts",
@@ -29,11 +29,11 @@
     "test": "tsdx test"
   },
   "peerDependencies": {
+    "@vtex/admin-ui-system": "*",
     "react": ">=16",
-    "react-dom": ">=16",
-    "@vtex/admin-ui-system": "*"
+    "react-dom": ">=16"
   },
   "devDependencies": {
-    "@vtex/admin-ui-system": "*"
+    "@vtex/admin-ui-system": "^0.1.0-alpha.0"
   }
 }

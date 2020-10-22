@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0-alpha.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.21.0...@vtex/brand-ui@0.22.0-alpha.0) (2020-10-22)
+
+
+### Features
+
+* add locale switcher on brand header ([76bb2c6](https://github.com/vtex/onda/commit/76bb2c6f04b2d7bb6dfbd08809791b720d47a6c3))
+
+
+
+
+
 # [0.21.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.20.1...@vtex/brand-ui@0.21.0) (2020-10-20)
 
 
