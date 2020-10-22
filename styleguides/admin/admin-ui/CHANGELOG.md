@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0-alpha.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.1...@vtex/admin-ui@0.53.0-alpha.2) (2020-10-22)
+
+
+### Bug Fixes
+
+* **unstable:** add missing exports ([3f1bef3](https://github.com/vtex/onda/commit/3f1bef37b13f29a9e3e6cf55eb813ee18777b3e6))
+
+
+
+
+
 # [0.53.0-alpha.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.0...@vtex/admin-ui@0.53.0-alpha.1) (2020-10-22)
 
 **Note:** Version bump only for package @vtex/admin-ui
