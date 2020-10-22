@@ -1,9 +1,8 @@
 ---
 path: /docs/styling/
-next: true
 ---
 
-# Styling
+# 🚧 Styling
 
 💡 Also check [ThemeUI API](https://theme-ui.com/api/) for detailed info.
 
