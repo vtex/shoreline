@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0-alpha.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.4...@vtex/admin-ui@0.53.0-alpha.5) (2020-10-22)
+
+
+### Features
+
+* **set:** add align prop ([cedc99a](https://github.com/vtex/onda/commit/cedc99a3bb1e78e97f436484ad7ee997c172ce3c))
+
+
+
+
+
 # [0.53.0-alpha.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.3...@vtex/admin-ui@0.53.0-alpha.4) (2020-10-22)
 
 
