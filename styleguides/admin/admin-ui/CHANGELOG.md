@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0-alpha.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.3...@vtex/admin-ui@0.53.0-alpha.4) (2020-10-22)
+
+
+### Bug Fixes
+
+* **typography:** export unstable typography components ([4449cbd](https://github.com/vtex/onda/commit/4449cbda8aa92fde58f4da6b29a18961b4bff390))
+
+
+
+
+
 # [0.53.0-alpha.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.2...@vtex/admin-ui@0.53.0-alpha.3) (2020-10-22)
 
 
