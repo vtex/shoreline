@@ -5,16 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.54.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.54.0...@vtex/admin-ui@0.54.1) (2020-11-05)
 
+### Bug Fixes
+
+- **collapsible-group:** fix children type ([ac18f15](https://github.com/vtex/onda/commit/ac18f157af3d4f026904dbeef8d7e5b8fd453f6a))
+
+# [0.54.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0...@vtex/admin-ui@0.54.0) (2020-10-29)
+
+# [0.53.0-alpha.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.3...@vtex/admin-ui@0.53.0-alpha.4) (2020-10-22)
 
 ### Bug Fixes
 
-* **collapsible-group:** fix children type ([ac18f15](https://github.com/vtex/onda/commit/ac18f157af3d4f026904dbeef8d7e5b8fd453f6a))
+- **typography:** export unstable typography components ([4449cbd](https://github.com/vtex/onda/commit/4449cbda8aa92fde58f4da6b29a18961b4bff390))
 
+# [0.53.0-alpha.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.2...@vtex/admin-ui@0.53.0-alpha.3) (2020-10-22)
 
+### Bug Fixes
 
-
-
-# [0.54.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0...@vtex/admin-ui@0.54.0) (2020-10-29)
+- **unstable-button:** fix button import ([1dbad15](https://github.com/vtex/onda/commit/1dbad151ff88ec0b0e5a22abdba21f7680e09cca))
 
 **Note:** Version bump only for package @vtex/admin-ui
 
