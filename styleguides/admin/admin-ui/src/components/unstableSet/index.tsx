@@ -15,9 +15,10 @@ export interface SetProps extends Overridable {
   orientation?: ResponsiveValue<'vertical' | 'horizontal'>
   fluid?: boolean
   spacing?: ResponsiveValue<number>
+  align?: ResponsiveValue<'start' | 'end'>
 }
 
-export const unstableSet = forwardRef(function Input(
+export const unstableSet = forwardRef(function Set(
   props: SetProps,
   ref: Ref<HTMLElement>
 ) {
@@ -36,16 +37,18 @@ export function useSet(props: SetProps) {
     orientation = 'horizontal',
     fluid = false,
     spacing = 1,
+    align = 'start',
     ...layoutProps
   } = props
 
   const currentOrientation = useResponsiveValue(orientation)
+  const currentAlign = useResponsiveValue(align)
 
   const styles: Record<string, SxStyleProp> = {
     vertical: {
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'flex-start',
+      alignItems: `flex-${currentAlign}`,
     },
     'vertical-fluid': {
       display: 'flex',
@@ -55,7 +58,7 @@ export function useSet(props: SetProps) {
       display: 'flex',
       flexWrap: 'wrap',
       alignItems: 'center',
-      justifyContent: 'flex-start',
+      justifyContent: `flex-${currentAlign}`,
     },
   }
 
