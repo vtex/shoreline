@@ -2,13 +2,19 @@ import React, { forwardRef, Ref } from 'react'
 import { Box as ReakitBox, BoxHTMLProps } from 'reakit'
 import { SxStyleProp } from '@theme-ui/core'
 import { cleanProps, createElement, useClassName } from '@vtex/admin-ui-system'
-import { PatternsProps } from '@vtex/admin-ui-theme'
+import {
+  PatternsProps,
+  SpaceStyleProps,
+  SizeStyleProps,
+} from '@vtex/admin-ui-theme'
 
 import { SemanticTags, HeadingTags } from './types'
 
 export interface BoxProps
-  extends Omit<BoxHTMLProps, 'ref' | 'sytle' | 'className' | 'sx'>,
-    PatternsProps {
+  extends Omit<BoxHTMLProps, 'ref' | 'style' | 'className' | 'sx'>,
+    PatternsProps,
+    SpaceStyleProps,
+    SizeStyleProps {
   element?: 'div' | 'span' | SemanticTags | HeadingTags
   styles?: SxStyleProp
   children?: React.ReactNode | ((props: BoxProps) => React.ReactNode)
