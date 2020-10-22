@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0-alpha.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.5...@vtex/admin-ui@0.53.0-alpha.6) (2020-10-22)
+
+
+### Features
+
+* **style-props:** add space and size style-props ([7098f06](https://github.com/vtex/onda/commit/7098f06843f0e02d29c6366eca2cb76e84616802))
+
+
+
+
+
 # [0.53.0-alpha.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.4...@vtex/admin-ui@0.53.0-alpha.5) (2020-10-22)
 
 
