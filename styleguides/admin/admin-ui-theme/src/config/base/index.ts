@@ -2,7 +2,7 @@ import colors from './colors'
 import space from './space'
 import sizes from './sizes'
 
-export { colors, space }
+export { colors, space, sizes }
 
 export default {
   sizes,
@@ -49,6 +49,9 @@ export default {
       fontVariationSettings: "'wght' 108",
       fontWeight: 600,
     },
+  },
+  fontVariationSettings: {
+    regular: "'wght' 92",
   },
   lineHeights: {
     small: 1.125,

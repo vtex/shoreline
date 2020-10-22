@@ -72,6 +72,21 @@ export const Texts: Story = () => {
   )
 }
 
+export const Divider: Story = () => {
+  return (
+    <ThemeProvider>
+      <Box text="headline" border="divider-bottom" width={100}>
+        Headline
+      </Box>
+      <Box text="subtitle">Subtitle</Box>
+      <Box text="action">Box with actions text</Box>
+      <Box text="highlight">Highlight text</Box>
+      <Box text="body">Box with body text</Box>
+      <Box text="small">Box with small text</Box>
+    </ThemeProvider>
+  )
+}
+
 // export const CustomTheme: Story = () => {
 //   return (
 //     <ThemeProvider

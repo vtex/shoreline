@@ -9,6 +9,20 @@ const border = {
     ...borderStyles,
     borderColor: 'muted.3',
   },
+  'divider-bottom': {
+    borderBottomWidth: '1px',
+    borderBottomStyle: 'solid',
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    borderColor: 'muted.3',
+  },
+  'divider-top': {
+    borderTopWidth: '1px',
+    borderTopStyle: 'solid',
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderColor: 'muted.3',
+  },
   strong: {
     ...borderStyles,
     borderColor: 'text',

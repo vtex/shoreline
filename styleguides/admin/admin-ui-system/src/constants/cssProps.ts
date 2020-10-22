@@ -1,3 +1,18 @@
+export const availableStyleProps = [
+  'padding',
+  'margin',
+  'paddingX',
+  'paddingY',
+  'marginX',
+  'marginY',
+  'height',
+  'width',
+  'minHeight',
+  'minWidth',
+  'maxHeight',
+  'maxWidth',
+]
+
 export const cssProps = {
   _hover: ':hover',
   _hoveractive: ':hover:active',
