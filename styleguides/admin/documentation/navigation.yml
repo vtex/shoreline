@@ -6,7 +6,6 @@
 - section: Theme
   paths:
     - /docs/style-props/
-    - /docs/unstable-theme/
 - section: Components
   paths:
     - /docs/box/
@@ -30,8 +29,9 @@
     - /docs/visually-hidden/
     - /docs/avatar/
     - /docs/menu/
-    - /docs/unstable-box/
-    - /docs/unstable-button/
+- section: Deep dive 🐋
+  paths:
+    - /docs/deep-dive/system
 - section: Documentation Templates
   paths:
     - /docs/documentation-template/
