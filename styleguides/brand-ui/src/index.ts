@@ -20,7 +20,12 @@ export * from './icons'
 export { Card, CardProps } from './components/Card'
 export { Checkbox, CheckboxProps } from './components/Checkbox'
 export { useFocusHollow } from './hooks'
-export { Header, HamburgerMenu } from './components/Header'
+export {
+  Header,
+  HamburgerMenu,
+  LocaleSwitcher,
+  LinksProps,
+} from './components/Header'
 export { Input, InputProps } from './components/Input'
 export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Popover, PopoverProps } from './components/Popover'

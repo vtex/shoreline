@@ -75,6 +75,7 @@ const actionButton = {
   gridArea: 'actionbutton',
   height: '100%',
   alignItems: 'center',
+  justifyContent: 'flex-end',
 }
 
 const header = {
@@ -86,7 +87,7 @@ const header = {
   left: '0',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gridTemplateColumns: '1fr 4.25fr 2fr 2fr 0.75fr',
+  gridTemplateColumns: '1fr 4.25fr 2fr 2fr minmax(6.75rem, auto)',
   gridTemplateAreas: '"brand leftlinks search rightlinks actionbutton"',
   backgroundColor: 'primary.contrast',
   borderBottom: 'solid',

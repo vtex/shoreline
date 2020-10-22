@@ -1,31 +1,36 @@
-import React, { PropsWithChildren, useState } from 'react'
-import { Box, Flex, Link, SxProps } from 'theme-ui'
+/** @jsx jsx */
+import { Box, Link, SxProps, jsx } from 'theme-ui'
+import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
+import { PropsWithChildren, Fragment } from 'react'
 
 import { IconExit, IconHamburger } from '../../icons'
 import { LinksProps } from '.'
 
 export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
-  const [open, setOpen] = useState(false)
+  const disclosure = useDisclosureState({ visible: false })
 
   return (
-    <Box
-      role="presentation"
-      variant="hamburgerMenu"
-      onClick={() => setOpen(!open)}
-    >
-      {open ? (
-        <>
+    <Fragment>
+      <Disclosure
+        {...disclosure}
+        role="presentation"
+        sx={{ variant: 'hamburgerMenu' }}
+      >
+        {disclosure.visible ? (
           <Box sx={{ color: 'secondary.base' }}>
             <IconExit size={18} />
           </Box>
-          <Flex variant="hamburgerMenu.open" sx={sx}>
-            {children}
-          </Flex>
-        </>
-      ) : (
-        <IconHamburger size={24} />
-      )}
-    </Box>
+        ) : (
+            <IconHamburger size={24} />
+          )}
+      </Disclosure>
+      <DisclosureContent
+        {...disclosure}
+        sx={{ ...sx, variant: 'hamburgerMenu.open' }}
+      >
+        {children}
+      </DisclosureContent>
+    </Fragment>
   )
 }
 

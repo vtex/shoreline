@@ -1,41 +1,87 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, Box } from 'theme-ui'
 
-import { Header, HamburgerMenu, LinksProps } from '.'
+import { Header, HamburgerMenu, LinksProps, LocaleSwitcher } from '.'
 import { IconExternalLink } from '../../icons'
+import { LocaleOption } from './LocaleSwitcher'
 
 export default {
   title: 'beta/Header',
   component: Header,
 }
 
-const Template = (args: LinksProps) => (
-  <Header>
-    <Header.Brand title="Status" />
-    <Header.LeftLinks>
-      <Header.LeftLinks.Links {...args} />
-      <Header.LeftLinks.Links to="/" title="History" />
-    </Header.LeftLinks>
-    <Header.RightLinks>
-      <Link href="/">CONTACT</Link>
-      <Link href="/">
-        Help Center
-        <Box sx={{ paddingLeft: 3 }}>
-          <IconExternalLink size={14} />
+const options: LocaleOption[] = [
+  {
+    label: 'EN',
+    value: 'en',
+  },
+  {
+    label: 'PT | BR',
+    value: 'pt-br',
+  },
+  {
+    label: 'ES',
+    value: 'es',
+  },
+  {
+    label: 'ES | LATAM',
+    value: 'es-latam',
+  },
+  {
+    label: 'IT',
+    value: 'it',
+  },
+]
+
+const Template = (args: LinksProps) => {
+  const [locale, setLocale] = useState('en')
+
+  return (
+    <Header>
+      <Header.Brand title="Status" />
+      <Header.LeftLinks>
+        <Header.LeftLinks.Links {...args} />
+        <Header.LeftLinks.Links to="/" title="History" />
+      </Header.LeftLinks>
+      <Header.RightLinks>
+        <Link href="/">CONTACT</Link>
+        <Link href="/">
+          Help Center
+          <Box sx={{ paddingLeft: 3 }}>
+            <IconExternalLink size={14} />
+          </Box>
+        </Link>
+      </Header.RightLinks>
+      <Header.ActionButton>
+        <HamburgerMenu>
+          <HamburgerMenu.Menu>
+            <HamburgerMenu.Menu.Links {...args} />
+            <HamburgerMenu.Menu.Links to="/" title="History" />
+            <HamburgerMenu.Menu.Links to="/" title="Help Center" />
+            <LocaleSwitcher
+              locale={locale}
+              options={options}
+              onChange={setLocale}
+            />
+          </HamburgerMenu.Menu>
+        </HamburgerMenu>
+        <Box
+          sx={{
+            display: ['none', 'none', 'none', 'block'],
+            height: '100%',
+            width: '100%',
+          }}
+        >
+          <LocaleSwitcher
+            locale={locale}
+            options={options}
+            onChange={setLocale}
+          />
         </Box>
-      </Link>
-    </Header.RightLinks>
-    <Header.ActionButton>
-      <HamburgerMenu>
-        <HamburgerMenu.Menu>
-          <HamburgerMenu.Menu.Links {...args} />
-          <HamburgerMenu.Menu.Links to="/" title="History" />
-          <HamburgerMenu.Menu.Links to="/" title="Help Center" />
-        </HamburgerMenu.Menu>
-      </HamburgerMenu>
-    </Header.ActionButton>
-  </Header>
-)
+      </Header.ActionButton>
+    </Header>
+  )
+}
 
 export const Playground = Template.bind({})
 Playground.args = {

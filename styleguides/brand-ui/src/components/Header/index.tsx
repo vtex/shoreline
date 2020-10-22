@@ -4,6 +4,7 @@ import { Box, Flex, Link, Text, SxProps } from 'theme-ui'
 import { IconVTEXExpanded } from '../../icons'
 
 export { HamburgerMenu } from './HamburgerMenu'
+export { LocaleSwitcher } from './LocaleSwitcher'
 
 interface BrandProps {
   noMargin?: boolean
