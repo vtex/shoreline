@@ -9,8 +9,22 @@ export default {
   component: Modal,
 } as Meta
 
-const Template: Story<ModalProps> = ({ children, title, ...args }) => (
-  <Modal title={title} {...args} disclosure={<Button>Open Modal</Button>}>
+const onConfirmFunc = () => {}
+
+const Template: Story<ModalProps> = ({
+  children,
+  title,
+  onConfirm,
+  confirmLabel,
+  ...args
+}) => (
+  <Modal
+    title={title}
+    {...args}
+    disclosure={<Button>Open Modal</Button>}
+    confirmLabel={confirmLabel}
+    onConfirm={onConfirm}
+  >
     {children}
   </Modal>
 )
@@ -20,4 +34,6 @@ SimpleUsage.args = {
   title: 'Betty',
   children:
     'But if I just showed up at your party, would you have me? Would you want me?',
+  confirmLabel: 'Accept',
+  onConfirm: onConfirmFunc,
 }

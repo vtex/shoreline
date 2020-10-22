@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Text, Flex } from 'theme-ui'
+import { jsx, Text, Flex, Box } from 'theme-ui'
 import {
   Fragment,
   MouseEvent,
@@ -14,7 +14,6 @@ import {
   DialogBackdrop,
 } from 'reakit/Dialog'
 import { css } from '@emotion/core'
-import { Box } from 'reakit'
 
 import { Button } from '../Button'
 import { IconClose } from '../../icons/Close'
@@ -43,20 +42,12 @@ interface TitleProps {
 interface ActionsBarProps {
   handleClose: () => void
   handleConfirm: (event: MouseEvent<unknown, globalThis.MouseEvent>) => void
+  confirmLabel: string
 }
 
 const Title = ({ title, handleClick }: TitleProps) => {
   return (
-    <Box
-      sx={{
-        padding: '2rem',
-        paddingLeft: ['1rem', '2rem', '2rem', '2rem'],
-        borderRadius: '5px 5px 0px 0px',
-        borderBottomWidth: '1px',
-        borderBottomStyle: 'solid',
-        borderBottomColor: 'muted.3',
-      }}
-    >
+    <Box variant="modal.title">
       <Button
         icon={() => <IconClose size={39} />}
         sx={{
@@ -75,22 +66,18 @@ const Title = ({ title, handleClick }: TitleProps) => {
   )
 }
 
-const ActionsBar = ({ handleClose, handleConfirm }: ActionsBarProps) => {
+const ActionsBar = ({
+  handleClose,
+  handleConfirm,
+  confirmLabel,
+}: ActionsBarProps) => {
   const handleClick = (event: MouseEvent<unknown, globalThis.MouseEvent>) => {
     handleConfirm(event)
     handleClose()
   }
 
   return (
-    <Flex
-      sx={{
-        justifyContent: 'flex-end',
-        flexDirection: 'row',
-        marginTop: ['1.5rem', '2rem', '2rem', '2rem'],
-        paddingX: ['1rem', '2rem', '2rem', '2rem'],
-        paddingBottom: ['1.5rem', '2rem', '2rem', '2rem'],
-      }}
-    >
+    <Flex variant="modal.actionsBar">
       <Button
         variant="tertiary"
         sx={{
@@ -103,7 +90,7 @@ const ActionsBar = ({ handleClose, handleConfirm }: ActionsBarProps) => {
         Cancel
       </Button>
       <Button variant="primary" onClick={handleClick}>
-        Confirm
+        {confirmLabel}
       </Button>
     </Flex>
   )
@@ -114,6 +101,7 @@ export const Modal = ({
   title,
   disclosure,
   onConfirm,
+  confirmLabel = 'Confirm',
 }: ModalProps) => {
   const dialog = useDialogState({ animated: true })
 
@@ -129,48 +117,23 @@ export const Modal = ({
       <DialogBackdrop
         {...dialog}
         css={backdropAnimation}
-        sx={{
-          width: '100%',
-          height: '100%',
-          bg: 'rgba(52, 52, 52, 0.3)',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          flexDirection: 'column',
-          alignItems: 'center',
-          display: 'flex',
-        }}
+        variant="modal.backdrop"
+        as={Box}
       >
         <Dialog
           {...dialog}
           aria-label="Welcome"
           css={surfaceAnimation}
-          sx={{
-            width: ['20rem', '40rem', '40rem', '56rem'],
-            bg: 'white',
-            justifyContent: 'center',
-            margin: 'auto',
-            borderRadius: '5px',
-            boxShadow: '2px 4px 16px rgba(0, 0, 0, 0.3)',
-            outline: 'none',
-            position: 'relative',
-            zIndex: '100000000',
-          }}
+          variant="modal.dialog"
+          as={Box}
         >
           <Title handleClick={handleClose} title={title} />
-          <Box
-            sx={{
-              maxHeight: '50vh',
-              overflowY: 'auto',
-              paddingX: '2rem',
-              paddingTop: '2rem',
-              fontSize: '.75rem',
-              maxWidth: '100%',
-            }}
-          >
-            {children}
-          </Box>
-          <ActionsBar handleClose={handleClose} handleConfirm={handleClose} />
+          <Box variant="modal.body">{children}</Box>
+          <ActionsBar
+            handleClose={handleClose}
+            handleConfirm={onConfirm}
+            confirmLabel={confirmLabel}
+          />
         </Dialog>
       </DialogBackdrop>
     </Fragment>
@@ -193,5 +156,9 @@ export interface ModalProps {
   /**
    * Function run when the `confirm` button is clicked
    */
-  onConfirm?: () => void
+  onConfirm: () => void
+  /**
+   * Confirm button label
+   */
+  confirmLabel?: string
 }
