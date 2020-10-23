@@ -55,6 +55,7 @@ export {
   unstableParagraph,
   TextBlock as unstableTextBlock,
 } from './components/unstableTypography'
+export { useResponsiveValue as unstableUseResponsiveValue } from '@vtex/admin-ui-system'
 export { unstableAvatar } from './components/unstableAvatar'
 export { unstableCard } from './components/unstableCard'
 export { unstableSet } from './components/unstableSet'

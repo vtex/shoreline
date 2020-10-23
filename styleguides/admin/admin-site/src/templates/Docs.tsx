@@ -4,6 +4,11 @@ import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
 import React, { createElement } from 'react'
 
+import {
+  unstableThemeProvider as ThemeProvider,
+  theme,
+  unstableParagraph as Paragraph,
+} from '../../../admin-ui/src'
 import * as AdminUI from '../../../admin-ui/src'
 import Anchor from '../components/Anchor'
 import List from '../components/List'
@@ -36,7 +41,7 @@ const { Compiler: renderAst } = new RehypeReact({
     a: Anchor,
     proptypes: Proptypes,
     p: function Render(props) {
-      return <AdminUI.Text el="p" fs="2" {...props} />
+      return <Paragraph styles={{ fontSize: 2, marginY: 4 }} {...props} />
     },
     ul: List,
     ol: function Render(props) {
@@ -80,6 +85,7 @@ const { Compiler: renderAst } = new RehypeReact({
           sx={{
             borderRadius: 3,
             borderCollapse: 'collapse',
+            verticalAlign: 'middle',
           }}
           {...props}
         />
@@ -112,6 +118,7 @@ const { Compiler: renderAst } = new RehypeReact({
             borderBottomColor: 'muted.2',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
+            verticalAlign: 'middle',
           }}
           {...props}
         />
@@ -125,6 +132,7 @@ const { Compiler: renderAst } = new RehypeReact({
             borderBottomColor: 'muted.2',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
+            verticalAlign: 'middle',
           }}
           {...props}
         />
@@ -141,12 +149,12 @@ export default function Docs({ data, pageContext }: DocsProps) {
   const { nextPagePath, prevPagePath } = pageContext
 
   return (
-    <AdminUI.ThemeProvider>
+    <ThemeProvider theme={theme as any}>
       <Seo title={`${title} – AdminUI`} description={excerpt} />
       <Heading>{title}</Heading>
       {renderAst(htmlAst)}
       <DocsBackNext nextPath={nextPagePath} prevPath={prevPagePath} />
-    </AdminUI.ThemeProvider>
+    </ThemeProvider>
   )
 }
 
