@@ -73,7 +73,7 @@ function Example() {
 
 ### Orientation
 
-Orientation can be either `vertical` or `horizontal` (default). It can be controled with the `orientation` property.
+Orientation can be either `vertical` or `horizontal` (default). It can be controlled with the `orientation` property.
 
 ```jsx
 import {
@@ -99,7 +99,7 @@ function Example() {
 
 ### Fluid
 
-While on `vertical` orientation, you can alternativelly the `fluid` property. This will make the inner children, match the container width.
+While on `vertical` orientation, you can alternatively the `fluid` property. This will make the inner children, match the container width.
 
 ```jsx
 import {
@@ -121,6 +121,32 @@ function Example() {
           <Button>Button 5</Button>
         </Set>
       </Box>
+    </ThemeProvider>
+  )
+}
+```
+
+### Align
+
+You can set items alignment (`start` [default], `end`) through the `align` prop.
+
+```jsx
+import {
+  unstableThemeProvider as ThemeProvider,
+  unstableButton as Button,
+  unstableSet as Set,
+} from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Set align="end">
+        <Button>Button 1</Button>
+        <Button>Button 2</Button>
+        <Button>Button 3</Button>
+        <Button>Button 4</Button>
+        <Button>Button 5</Button>
+      </Set>
     </ThemeProvider>
   )
 }
@@ -128,7 +154,7 @@ function Example() {
 
 ### Responsive Design
 
-`orientation`, `spacing` and `align` are `ResponsiveValues`.
+`orientation`, `spacing` and `align` are [`ResponsiveValues`](/docs/guide/responsive-design/#responsive-values). It means that you can pass an array to them.
 
 ```jsx
 import {
@@ -141,8 +167,8 @@ import {
 function Example() {
   return (
     <ThemeProvider>
-      <Box maxWidth={320}>
-        <Set orientation="vertical" fluid>
+      <Box maxWidth={['full', 'full', 560]}>
+        <Set orientation={['vertical', 'vertical', 'horizontal']} fluid>
           <Button>Button 1</Button>
           <Button>Button 2</Button>
           <Button>Button 3</Button>
@@ -155,41 +181,38 @@ function Example() {
 }
 ```
 
-## 5. Code example
+## Customization
 
-For each variation, include code examples in React.
+You can use the `styleOverrides` property to handle different styles.
 
-## 6. Props
+```jsx
+import {
+  unstableThemeProvider as ThemeProvider,
+  unstableButton as Button,
+  unstableSet as Set,
+} from '@vtex/admin-ui'
 
-In a table, include the following attributes for each prop:
+function Example() {
+  return (
+    <ThemeProvider>
+      <Set
+        styleOverrides={{ bg: 'muted.4', borderRadius: 'default', padding: 4 }}
+      >
+        <Button>Button 1</Button>
+        <Button>Button 2</Button>
+        <Button>Button 3</Button>
+        <Button>Button 4</Button>
+        <Button>Button 5</Button>
+      </Set>
+    </ThemeProvider>
+  )
+}
+```
 
-- Prop name
-- Description
-- Type
-- Default value
-- Required
-- Optional props
+## Limitations
 
-| Prop name | Description | Type | Default value | Required?  |
-| --------- | ----------- | ---- | ------------- | ---------- |
-|           |             |      |               | true/false |
+This component uses a flexbox under the hood. Knowing that it has the same limitations.
 
-## 7. State objects
+# Props
 
-Include code examples for stateful components.
-
-## 8. Labels
-
-Include any labels present in the component.
-
-## 9. Customization
-
-For each customization possible, make sure to include:
-
-- Description
-- Code example
-- Labels
-
-## 10. Limitations
-
-Include here any behaviors or customizations that the component doesn't yet support.
+<proptypes component="unstableSet" />
