@@ -1,3 +1,7 @@
+/**
+ * Props to be omited
+ * ! We should merge it with availableStyleProps
+ */
 export const omitProps = [
   'focusable',
   'spacing',

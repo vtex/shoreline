@@ -9,6 +9,10 @@ type GetClassNameParams = {
   theme: Theme
 }
 
+/**
+ * Return a className after resolve styles, styleProps and stylePatterns
+ * ? Should we make the name smaller to that it can be used inline ?
+ */
 export function getClassName({ props, themeKey, theme }: GetClassNameParams) {
   const draftStyles = selectVariant({ props, themeKey })
   const styles = getStyleProps({

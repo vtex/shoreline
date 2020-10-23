@@ -40,23 +40,23 @@ export function createElement<T>(params: CreateElementParams<T>) {
 interface CreateElementParams<T> {
   /**
    * base component
-   * ✅ do: pass a reakit component
+   * * ✅ do: pass a reakit component
    */
   component: string | ComponentType<T>
   /**
    * optional children
-   * ℹ️ normally it comes within htmlProps
+   * * ℹ️ normally it comes within htmlProps
    */
   children?: ReactNode
   /**
    * tag to render
-   * ✅ do: pass a string of a valid html element
-   * 🚫 dont: pass components
+   * * ✅ do: pass a string of a valid html element
+   * ! 🚫 dont: pass components
    */
   element?: string
   /**
-   * HTMLProps
-   * 🚫 dont: pass illegal props
+   * * HTMLProps
+   * ! 🚫 dont: pass illegal props
    */
   htmlProps?: PropsWithChildren<any>
   /**
