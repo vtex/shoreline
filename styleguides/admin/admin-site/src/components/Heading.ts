@@ -13,7 +13,7 @@ export const useHeading = createHook<HeadingOptions, HeadingHTMLProps>({
 
   useProps(_, htmlProps) {
     const heading = css`
-      line-height: 1.5;
+      line-height: 2;
       & > .anchor:focus > *,
       &:hover > .anchor > * {
         visibility: visible;
