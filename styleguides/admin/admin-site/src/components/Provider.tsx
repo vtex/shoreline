@@ -3,7 +3,7 @@ import { Provider as ReakitProvider } from 'reakit'
 import { mergeSystem } from 'reakit-system'
 import * as bootstrapSystem from 'reakit-system-bootstrap'
 import * as playgroundSystem from 'reakit-playground/system'
-import { ThemeProvider } from '@vtex/admin-ui'
+import { unstableThemeProvider as ThemeProvider, theme } from '@vtex/admin-ui'
 
 const system = mergeSystem(playgroundSystem, {
   palette: {
@@ -16,7 +16,7 @@ const system = mergeSystem(playgroundSystem, {
 
 function Provider(props: { children: React.ReactNode }) {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={theme as any}>
       <ReakitProvider unstable_system={system}>{props.children}</ReakitProvider>
     </ThemeProvider>
   )

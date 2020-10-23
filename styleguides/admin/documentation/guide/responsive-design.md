@@ -4,36 +4,38 @@ path: /docs/guide/responsive-design/
 
 # Responsive Design
 
-## Media Queries
+## Breakpoints
 
-If you prefer standard CSS media query syntax, you can use nested objects for responsive styles as well.
+`admin-ui` uses 5 mobile-first breakpoints, which are
 
-```jsx static
-<div
-  sx={{
-    width: '100%',
-    '@media screen and (min-width: 40em)': {
-      width: '50%',
-    },
-  }}
-/>
-```
+| name         | min-width em | min-width px |
+| ------------ | ------------ | ------------ |
+| small-mobile | `30rem`      | `480px`      |
+| large-mobile | `40rem`      | `640px`      |
+| tablet       | `48rem`      | `768px`      |
+| desktop      | `64rem`      | `1024px`     |
+| widescreen   | `80rem`      | `1280px`     |
 
 ## Responsive Values
 
-Theme UI, like Styled System, includes a shorthand syntax for writing mobile-first responsive styles using arrays as values. This is useful when you want to change a single property across multiple breakpoints without needing to write verbose media query syntax.
+A Responsive value accept an array of values. The current value will be the one that matches the breakpoint:
 
-```jsx static
-import { ThemeProvider, Box } from '@vtex/admin-ui'
+```static
+[small-mobile, large-mobile, tablet, desktop, widescreen]
+```
+
+In the example below, the `<Box>` has full width while on `small-mobie` and `large-mobile`, and half on tablet and above.
+
+```jsx
+import {
+  unstableThemeProvider as ThemeProvider,
+  unstableBox as Box,
+} from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Box
-        styles={{
-          width: ['full', 'full', '1/2'],
-        }}
-      />
+      <Box padding={4} width={['full', 'full', '1/2']} palette="primary" />
     </ThemeProvider>
   )
 }
@@ -43,15 +45,49 @@ function Example() {
 
 If you want to skip a breakpoint, you can use the value null. This is useful if you want to set a value for only the largest breakpoint, for example.
 
-```jsx static
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-export default (props) => (
-  <div
-    {...props}
-    sx={{
-      width: [null, null, '25%'],
-    }}
-  />
-)
+```jsx
+import {
+  unstableThemeProvider as ThemeProvider,
+  unstableBox as Box,
+} from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box padding={4} width={[null, null, 'full']} palette="inverted" />
+    </ThemeProvider>
+  )
+}
+```
+
+## 🎣 React hooks
+
+<blockquote next="true">
+
+This is a next feature. To use it you must install the unstable version of admin-ui using <code>yarn add @vtex/admin-ui@latest</code>
+
+</blockquote>
+
+You can also use the `useResponsiveValue` hook. It can turn any value in a responsive value.
+
+```jsx
+import {
+  unstableThemeProvider as ThemeProvider,
+  unstableBox as Box,
+  unstableUseResponsiveValue as useResponsiveValue,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const mobileText = '📱 mobile'
+  const aboveTabletText = '🖥 tablet & above'
+  const text = useResponsiveValue([mobileText, mobileText, aboveTabletText])
+
+  return (
+    <ThemeProvider>
+      <Box padding={4} palette="inverted">
+        {text}
+      </Box>
+    </ThemeProvider>
+  )
+}
 ```
