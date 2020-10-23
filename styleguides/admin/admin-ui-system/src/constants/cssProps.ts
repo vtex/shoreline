@@ -1,3 +1,8 @@
+/**
+ * Style props that are actually picked
+ * * They're declared on admin-ui-theme package
+ * ? Should we receive it as a parameter ?
+ */
 export const availableStyleProps = [
   'padding',
   'margin',
@@ -13,6 +18,10 @@ export const availableStyleProps = [
   'maxWidth',
 ]
 
+/**
+ * Map with all used css properties
+ * ! This will probably be deprecated in a near future
+ */
 export const cssProps = {
   _hover: ':hover',
   _hoveractive: ':hover:active',
