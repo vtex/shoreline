@@ -21,6 +21,7 @@ import DocsBackNext from '../components/DocsBackNext'
 import Summary from '../components/Summary'
 import { Proptypes } from '../components/Proptypes'
 import CodeBlock from '../components/Codeblock'
+import PaletteBlock from '../components/PaletteBlock'
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -94,22 +95,7 @@ const { Compiler: renderAst } = new RehypeReact({
     tr: function Render(props) {
       return <tr sx={{ textAlign: 'left', height: 48 }} {...props} />
     },
-    colorblock: function Render(props) {
-      return (
-        <AdminUI.Box
-          w="full"
-          bc="muted.2"
-          bw="1"
-          bs="solid"
-          h={32}
-          br="3"
-          sx={{
-            boxShadow: 'subtle',
-          }}
-          {...props}
-        />
-      )
-    },
+    paletteblock: PaletteBlock,
     th: function Render(props) {
       return (
         <th
