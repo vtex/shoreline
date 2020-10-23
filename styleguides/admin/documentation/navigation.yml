@@ -2,6 +2,7 @@
   paths:
     - /docs/get-started/
     - /docs/styling/
+    - /docs/palettes/
     - /docs/guide/next/
     - /docs/guide/responsive-design/
 - section: Theme
