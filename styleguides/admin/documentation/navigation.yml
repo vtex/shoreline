@@ -3,9 +3,13 @@
     - /docs/get-started/
     - /docs/styling/
     - /docs/next/
+    - /docs/guide/responsive-design/
 - section: Theme
   paths:
     - /docs/style-props/
+- section: Layouts
+  paths:
+    - /docs/layouts/set/
 - section: Components
   paths:
     - /docs/box/

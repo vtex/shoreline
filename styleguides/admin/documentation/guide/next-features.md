@@ -1,11 +1,9 @@
 ---
-path: /docs/next/
+path: /docs/guide/next/
 next: true
 ---
 
 # Next features
-
-TODO: Description
 
 <blockquote next="true">
 
