@@ -9,7 +9,6 @@ import {
   theme,
   unstableParagraph as Paragraph,
 } from '../../../admin-ui/src'
-import * as AdminUI from '../../../admin-ui/src'
 import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
@@ -22,6 +21,7 @@ import Summary from '../components/Summary'
 import { Proptypes } from '../components/Proptypes'
 import CodeBlock from '../components/Codeblock'
 import PaletteBlock from '../components/PaletteBlock'
+import PropDetails from '../components/PropDetails'
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -51,6 +51,7 @@ const { Compiler: renderAst } = new RehypeReact({
     kbd: Kbd,
     blockquote: Blockquote,
     summary: Summary,
+    propdetails: PropDetails,
     h1: Heading,
     h2: function Render(props) {
       return <Heading as="h2" {...props} />

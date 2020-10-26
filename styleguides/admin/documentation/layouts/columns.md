@@ -225,17 +225,8 @@ function Example() {
 
 This component uses a flexbox under the hood. Knowing that it has the same limitations.
 
-<details>
-  <summary>
-    Columns
-  </summary>
-  <div><proptypes component="unstableColumns" /></div>
-</details>
+<propdetails heading="Columns" component="unstableColumns">
+</propdetails>
 
-</summary>
-<details>
-  <summary>
-    Columns.Item
-  </summary>
-  <div><proptypes component="unstableColumnsItem" /></div>
-</details>
+<propdetails heading="Columns.Item" component="unstableColumnsItem">
+</propdetails>
