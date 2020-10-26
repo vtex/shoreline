@@ -275,6 +275,15 @@ function Example() {
 }
 ```
 
+# <<<<<<< HEAD
+
+## Props
+
+<propdetails heading="Modal" component="Modal">
+</propdetails>
+
+> > > > > > > docs(propdetails): add PropDetails component
+
 # Stateless Modal
 
 Sometimes, you may need to access the modal states or open it on async updates (like data fetching). For this, need to use the stateless approach.
@@ -405,6 +414,5 @@ function Example() {
 
 ## Props
 
-### WIP
-
-<proptypes heading="Modal" component="Modal" />
+<propdetails heading="StatelessModal" component="StatelessModal">
+</propdetails>
