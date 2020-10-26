@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import React from 'react'
 import BasePopover, {
   PopoverProps as BaseProps,
@@ -21,9 +22,17 @@ export const Popover = ({
   variant = 'regular',
   showClose,
   sx = {},
+  fixed = false,
   ...props
 }: PopoverProps) => {
-  const popover = usePopoverState({ placement, visible, gutter: 20 })
+  const popover = usePopoverState({
+    placement,
+    visible,
+    gutter: 20,
+    unstable_fixed: fixed,
+  })
+
+  const handleClickClose = () => popover.hide()
 
   return (
     <BasePopover
@@ -39,9 +48,7 @@ export const Popover = ({
             variant={`popover.arrow.${popover.placement}`}
             placement={popover.placement}
           />
-        ) : (
-            undefined
-          )
+        ) : undefined
       }
     >
       {children}
@@ -51,7 +58,7 @@ export const Popover = ({
             size="small"
             variant="tertiary"
             icon={() => <IconClose size={30} />}
-            onClick={() => popover.hide()}
+            onClick={handleClickClose}
           />
         </Box>
       )}
@@ -73,5 +80,10 @@ export interface PopoverProps
    * @default false
    */
   showClose?: boolean
+  /**
+   * Whether the popover position must be set to fixed or not
+   * @default false
+   */
+  fixed?: boolean
   variant?: 'regular' | 'small'
 }
