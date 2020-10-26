@@ -59,7 +59,10 @@ export { useResponsiveValue as unstableUseResponsiveValue } from '@vtex/admin-ui
 export { unstableAvatar } from './components/unstableAvatar'
 export { unstableCard } from './components/unstableCard'
 export { unstableSet } from './components/unstableSet'
-export { Columns as unstableColumns } from './components/unstableColumns'
+export {
+  Columns as unstableColumns,
+  Column as unstableColumnsItem,
+} from './components/unstableColumns'
 export { unstableBox } from './components/unstableBox'
 export { unstableButton } from './components/unstableButton'
 export { unstableInput } from './components/unstableInput'

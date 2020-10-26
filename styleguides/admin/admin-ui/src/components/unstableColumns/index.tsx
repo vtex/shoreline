@@ -15,13 +15,15 @@ export interface ColumnsProps extends Overridable {
 }
 
 export function Columns(props: ColumnsProps) {
-  const { spacing = 1, children } = props
+  const { spacing = 1, children, styleOverrides } = props
   const styles: SxStyleProp = {
     display: 'flex',
     flexWrap: 'wrap',
   }
 
-  const className = useClassName({ props: { styles } })
+  const className = useClassName({
+    props: { styles: { ...styles, ...styleOverrides } },
+  })
 
   return (
     <div className={className}>
@@ -37,7 +39,7 @@ export interface ColumnProps extends Overridable {
 }
 
 export function Column(props: ColumnProps) {
-  const { units, offset = 'none', ...layoutProps } = props
+  const { units, offset = 'none', styleOverrides, ...layoutProps } = props
   const { spacing } = useColumnsContext()
   const responsiveUnits = useResponsiveValue(units)
   const responsiveOffset = useResponsiveValue(offset)
@@ -73,7 +75,9 @@ export function Column(props: ColumnProps) {
         maxWidth: '100%',
       }
 
-  const className = useClassName({ props: { styles } })
+  const className = useClassName({
+    props: { styles: { ...styles, ...styleOverrides } },
+  })
 
   return <div className={className} {...layoutProps} />
 }
