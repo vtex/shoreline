@@ -42,7 +42,7 @@ function Example() {
 }
 ```
 
-## 3. Installation
+## Installation
 
 <Columns> uses the upcoming @vtex/admin-ui-system package. This means you need to install the latest version:
 
@@ -50,7 +50,7 @@ function Example() {
 yarn add @vtex/admin-ui@latest
 ```
 
-## 4. Variation
+## Variation
 
 ### Auto
 
@@ -189,7 +189,7 @@ function Example() {
 }
 ```
 
-## 9. Customization
+## Customization
 
 You can use the styleOverrides property to handle different styles in both `Columns`, and `Columns.Item`.
 
@@ -221,7 +221,7 @@ function Example() {
 }
 ```
 
-## 10. Limitations
+## Limitations
 
 This component uses a flexbox under the hood. Knowing that it has the same limitations.
 
