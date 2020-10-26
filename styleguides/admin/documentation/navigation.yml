@@ -11,6 +11,7 @@
 - section: Layouts
   paths:
     - /docs/layouts/set/
+    - /docs/layouts/columns/
 - section: Components
   paths:
     - /docs/box/
