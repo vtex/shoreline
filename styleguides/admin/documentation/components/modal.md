@@ -267,12 +267,8 @@ function Example() {
 
 ## Props
 
-<details>
-  <summary>
-    Modal
-  </summary>
-  <div><proptypes component="Modal" /></div>
-</details>
+<propdetails heading="Modal" component="Modal">
+</propdetails>
 
 # Stateless Modal
 
@@ -408,9 +404,5 @@ Same as [Reakit useDialogState](https://reakit.io/docs/dialog/#usedialogstate)
 
 ## Props
 
-<details>
-  <summary>
-    StatelessModal
-  </summary>
-  <div><proptypes component="StatelessModal" /></div>
-</details>
+<propdetails heading="StatelessModal" component="StatelessModal">
+</propdetails>

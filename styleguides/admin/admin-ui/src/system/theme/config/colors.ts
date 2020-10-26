@@ -30,7 +30,7 @@ export default {
     hover: '#005C31',
     active: '#26AE6E',
     contrast: '#FFFFFF',
-    washed: ['#CCECE3'],
+    washed: ['#D6EFE5'],
   },
   basic: {
     blue: '#DAE3F5',

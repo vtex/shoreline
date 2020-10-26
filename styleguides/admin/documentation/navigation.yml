@@ -2,7 +2,8 @@
   paths:
     - /docs/get-started/
     - /docs/styling/
-    - /docs/next/
+    - /docs/palettes/
+    - /docs/guide/next/
     - /docs/guide/responsive-design/
 - section: Theme
   paths:
@@ -10,6 +11,7 @@
 - section: Layouts
   paths:
     - /docs/layouts/set/
+    - /docs/layouts/columns/
 - section: Components
   paths:
     - /docs/box/
