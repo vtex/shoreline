@@ -19,7 +19,7 @@ export const CellRoleContext = createContext<CellRole | null>(null)
 export function useStylesContext() {
   const ctx = useContext(StylesContext)
 
-  invariant(ctx, 'Table composies must not be used outside of its context')
+  invariant(ctx, 'Table composites must not be used outside of its context')
 
   return ctx
 }
