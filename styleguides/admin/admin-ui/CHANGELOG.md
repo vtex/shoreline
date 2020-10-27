@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0-alpha.7](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.6...@vtex/admin-ui@0.53.0-alpha.7) (2020-10-27)
+
+
+### Bug Fixes
+
+* **colors:** update theme colors values ([8c512df](https://github.com/vtex/onda/commit/8c512dfcb2385a6a56a15ee5c1cfd36106237e4e))
+* **columns:** add styleOverrides ([56dde5f](https://github.com/vtex/onda/commit/56dde5fe4330ece2536d8c7577ddc7377766c20f))
+
+
+### Features
+
+* **unstable-table:** add table component ([cb8fef8](https://github.com/vtex/onda/commit/cb8fef8689de54c04be0e8562bcf15a134fa61fe))
+
+
+
+
+
 # [0.53.0-alpha.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.5...@vtex/admin-ui@0.53.0-alpha.6) (2020-10-22)
 
 

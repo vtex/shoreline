@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.1.0-alpha.1...@vtex/admin-ui-theme@0.1.0-alpha.2) (2020-10-27)
+
+
+### Bug Fixes
+
+* **colors:** update theme colors values ([8c512df](https://github.com/vtex/onda/commit/8c512dfcb2385a6a56a15ee5c1cfd36106237e4e))
+
+
+### Features
+
+* **unstable-table:** add table component ([cb8fef8](https://github.com/vtex/onda/commit/cb8fef8689de54c04be0e8562bcf15a134fa61fe))
+
+
+
+
+
 # [0.1.0-alpha.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.1.0-alpha.0...@vtex/admin-ui-theme@0.1.0-alpha.1) (2020-10-22)
 
 
