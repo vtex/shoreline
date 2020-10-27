@@ -2,8 +2,9 @@ import { Theme, FeedbackPalette } from '@vtex-components/theme'
 
 const brand = {
   alignItems: 'center',
+  justifyContent: 'center',
   gridArea: 'brand',
-  marginLeft: 5,
+  marginRight: 5,
 }
 
 const linksBase = {

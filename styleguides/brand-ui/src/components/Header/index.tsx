@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
-import { Box, Flex, Link, Text, SxProps } from 'theme-ui'
+import { Box, Flex, Link, SxProps } from 'theme-ui'
 
-import IconVTEXStatus from '../../icons/VTEXStatus'
+import { IconVTEXExpanded } from '../../icons'
 
 export { HamburgerMenu } from './HamburgerMenu'
 export { LocaleSwitcher } from './LocaleSwitcher'
@@ -22,12 +22,15 @@ export const Header = ({ children, sx }: PropsWithChildren<SxProps>) => (
   </Box>
 )
 
-const Brand = ({ noMargin = false }: BrandProps) => {
+const Brand = ({
+  noMargin = false,
+  children = <IconVTEXExpanded size={80} />,
+}: PropsWithChildren<BrandProps>) => {
   const sx = noMargin ? { marginX: '0' } : {}
 
   return (
     <Flex variant="header.brand" sx={sx}>
-      <IconVTEXStatus />
+      {children}
     </Flex>
   )
 }
