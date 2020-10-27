@@ -4,7 +4,7 @@ import { get } from '../../system'
 import { ResolverContext } from './resolvers/core'
 import { TableDensity, TableDir } from './typings'
 import { useTable, UseTableParams } from './useTable'
-import { Table } from './Stateless'
+import { Table } from './components'
 import { Overridable } from '../../types'
 
 /**
