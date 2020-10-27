@@ -1,23 +1,39 @@
 import { merge } from '@vtex/admin-ui-system'
 
 const styles = {
-  reset: {
-    borderCollapse: 'collapse',
-    'td, th': {
-      borderBottomWidth: 1,
-      borderBottomStyle: 'solid',
-      borderBottomColor: 'muted.3',
-    },
+  table: {},
+  'row-ltr': {
+    display: 'flex',
+    textAlign: 'left',
   },
-  lead: {
+  'row-rtl': {
+    display: 'flex',
+    textAlign: 'right',
+  },
+  cell: {
+    bg: 'background',
+    flex: 1,
+    borderBottomWidth: 1,
+    borderBottomStyle: 'solid',
+    borderBottomColor: 'muted.3',
+    display: 'flex',
+    alignItems: 'center',
+    paddingX: 2,
+    variant: 'text.body',
+  },
+  columnheader: {
+    bg: 'background',
     height: 48,
     display: 'flex',
     alignItems: 'center',
-    verticalAlign: 'middle',
     paddingX: 2,
     color: 'muted.0',
     fontWeight: 'normal',
     variant: 'text.body',
+    flex: 1,
+    borderBottomWidth: 1,
+    borderBottomStyle: 'solid',
+    borderBottomColor: 'muted.3',
   },
 }
 
@@ -72,39 +88,21 @@ export default {
       boxShadow: 'menu',
     },
   },
-  regular: {
-    ...styles,
+  regular: merge(styles, {
     cell: {
-      display: 'flex',
-      alignItems: 'center',
-      verticalAlign: 'middle',
       height: 80,
-      paddingX: 2,
-      variant: 'text.body',
     },
-  },
-  compact: {
-    ...styles,
+  }),
+  compact: merge(styles, {
     cell: {
-      display: 'flex',
-      alignItems: 'center',
-      verticalAlign: 'middle',
       height: 48,
-      paddingX: 2,
-      variant: 'text.body',
     },
-  },
+  }),
   variable: merge(styles, {
-    tbody: {
-      verticalAlign: 'top',
-    },
     cell: {
-      display: 'flex',
       alignItems: 'flex-start',
       minHeight: 48,
       paddingY: 4,
-      paddingX: 2,
-      variant: 'text.body',
     },
   }),
 }

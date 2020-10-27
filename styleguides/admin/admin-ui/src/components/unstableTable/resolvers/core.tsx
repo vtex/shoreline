@@ -3,10 +3,9 @@
 
 import React, { ReactNode, Fragment } from 'react'
 import warning from 'tiny-warning'
-import { get } from '@vtex-components/theme'
 
-import { Column } from '../typings'
-import { TableDensity, TableDir } from '..'
+import { get } from '../../../system'
+import { Column, TableDensity, TableDir } from '../typings'
 
 /**
  * Used to recursive define resolver
@@ -50,17 +49,20 @@ export type ResolverRenderProps<D, T> = {
  * @generic S: Aditional resolver specs
  */
 export interface Resolver<T = any, I = any, S = any> {
-  field: (helpers: {
+  cell: (helpers: {
     /** current data extractor */
     getData: Function
     /** current item */
     item: T
     /** current column */
     column: Column<T, ResolverShorcut<I, S>>
-    /** field context */
+    /** cell context */
     context: ResolverContext
   }) => ReactNode
-  lead?: (helpers: { getData: Function; context: ResolverContext }) => ReactNode
+  header?: (helpers: {
+    getData: Function
+    context: ResolverContext
+  }) => ReactNode
 }
 
 /**
@@ -76,30 +78,30 @@ export function createResolver<T, I, S = {}>(
   return resolver
 }
 
-type ResolveLeadArgs<T> = {
+export type ResolveHeaderArgs<T> = {
   column: Column<T>
   resolvers: Record<string, Resolver<T>>
   context: ResolverContext
 }
 
 /**
- * Resolve current lead within a loop
+ * Resolve current header within a loop
  * @param column
  * @param resolvers
  */
-export function resolveLead<T>(args: ResolveLeadArgs<T>) {
+export function resolveHeader<T>(args: ResolveHeaderArgs<T>) {
   const { column, resolvers, context } = args
 
   const id = get(column, 'resolver.type', 'plain')
 
-  const { lead } = resolvers[id]
+  const { header } = resolvers[id]
 
-  return lead
-    ? lead({ getData: () => accessLead(column), context })
-    : accessLead(column)
+  return header
+    ? header({ getData: () => accessHeader(column), context })
+    : accessHeader(column)
 }
 
-type ResolveFieldArgs<T> = {
+export type ResolveCellArgs<T> = {
   column: Column<T>
   item: T
   resolvers: Record<string, Resolver<T>>
@@ -107,18 +109,18 @@ type ResolveFieldArgs<T> = {
 }
 
 /**
- * Resolve current field within a loop
+ * Resolve current cell within a loop
  * @param column
  * @param item
  * @param resolvers
  */
-export function resolveField<T>(args: ResolveFieldArgs<T>) {
+export function resolveCell<T>(args: ResolveCellArgs<T>) {
   const { column, item, resolvers, context } = args
   const id = get(column, 'resolver.type', 'plain')
-  const { field } = resolvers[id]
+  const { cell } = resolvers[id]
 
-  return field({
-    getData: () => accessField(column, item),
+  return cell({
+    getData: () => accessCell(column, item),
     item,
     column,
     context,
@@ -126,19 +128,19 @@ export function resolveField<T>(args: ResolveFieldArgs<T>) {
 }
 
 /**
- * Call the lead of column
+ * Call the column header
  * @param column current column
  */
-function accessLead<T>(column: Column<T>) {
-  const { lead } = column
+function accessHeader<T>(column: Column<T>) {
+  const { header } = column
 
-  switch (typeof lead) {
+  switch (typeof header) {
     case 'string': {
-      return lead
+      return header
     }
 
     case 'function': {
-      return lead(column)
+      return header(column)
     }
 
     default: {
@@ -148,11 +150,11 @@ function accessLead<T>(column: Column<T>) {
 }
 
 /**
- * Call the acessor of fields
+ * Call the acessor of cells
  * @param column current column
  * @param item current item
  */
-function accessField<T>(column: Column<T>, item: T) {
+function accessCell<T>(column: Column<T>, item: T) {
   const { acessor } = column
 
   switch (typeof acessor) {
@@ -161,7 +163,7 @@ function accessField<T>(column: Column<T>, item: T) {
 
       warning(
         resolved,
-        `The data is undefined. Make sure that you are using the correct resolver/acessor for the field: ${column.id}`
+        `The data is undefined. Make sure that you are using the correct resolver/acessor for the cell: ${column.id}`
       )
 
       return resolved
@@ -177,7 +179,7 @@ function accessField<T>(column: Column<T>, item: T) {
 
       warning(
         resolved !== undefined,
-        `The data is undefined. Make sure that you are using the correct resolver/acessor for the field: ${column.id}`
+        `The data is undefined. Make sure that you are using the correct resolver/acessor for the cell: ${column.id}`
       )
 
       return resolved ?? ''

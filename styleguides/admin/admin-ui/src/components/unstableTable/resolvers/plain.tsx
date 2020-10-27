@@ -5,7 +5,7 @@ import { createResolver, defaultRender, ResolverRenderProps } from './core'
 
 export function plainResolver<T>() {
   return createResolver<T, 'plain', PlainResolver<T>>({
-    field: function Resolver({ getData, item, column, context }) {
+    cell: function PlainResolver({ getData, item, column, context }) {
       if (context.loading) {
         return <Skeleton sx={{ height: 24 }} />
       }
