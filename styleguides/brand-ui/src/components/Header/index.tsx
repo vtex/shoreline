@@ -1,14 +1,13 @@
 import React, { PropsWithChildren } from 'react'
 import { Box, Flex, Link, Text, SxProps } from 'theme-ui'
 
-import { IconVTEXExpanded } from '../../icons'
+import IconVTEXStatus from '../../icons/VTEXStatus'
 
 export { HamburgerMenu } from './HamburgerMenu'
 export { LocaleSwitcher } from './LocaleSwitcher'
 
 interface BrandProps {
   noMargin?: boolean
-  title?: string
 }
 
 export interface LinksProps extends SxProps {
@@ -23,13 +22,12 @@ export const Header = ({ children, sx }: PropsWithChildren<SxProps>) => (
   </Box>
 )
 
-const Brand = ({ noMargin = false, title }: BrandProps) => {
+const Brand = ({ noMargin = false }: BrandProps) => {
   const sx = noMargin ? { marginX: '0' } : {}
 
   return (
     <Flex variant="header.brand" sx={sx}>
-      <IconVTEXExpanded size={80} />
-      <Text>{title}</Text>
+      <IconVTEXStatus />
     </Flex>
   )
 }
