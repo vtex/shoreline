@@ -5,7 +5,7 @@ import { createResolver, ResolverRenderProps } from './core'
 
 export function rootResolver<T>() {
   return createResolver<T, 'root', RootResolver<T>>({
-    field: function RootResolver({ item, column, context }) {
+    cell: function RootResolver({ item, column, context }) {
       const { resolver } = column
 
       invariant(resolver, 'resolver is required while using the root resolver')

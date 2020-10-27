@@ -37,6 +37,14 @@
     "react": ">=16",
     "react-dom": ">=16"
   },
+  "devDependencies": {
+    "@types/faker": "^5.1.2",
+    "@types/react-beautiful-dnd": "^13.0.0",
+    "@types/react-window": "^1.8.2",
+    "faker": "^5.1.0",
+    "react-beautiful-dnd": "^13.0.0",
+    "react-window": "^1.8.5"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@emotion/is-prop-valid": "^0.8.8",

@@ -225,6 +225,8 @@ function Example() {
 
 This component uses a flexbox under the hood. Knowing that it has the same limitations.
 
+## Props
+
 <propdetails heading="Columns" component="unstableColumns">
 </propdetails>
 
