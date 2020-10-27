@@ -12,8 +12,11 @@ export const TableBody = forwardRef(function Tbody(
 ) {
   const { element = 'div', children, styleOverrides = {}, ...htmlProps } = props
 
-  const { dir } = useStylesContext()
-  const className = useClassName({ props: { styles: styleOverrides } })
+  const { dir, variants } = useStylesContext()
+  const className = useClassName({
+    props: { styles: styleOverrides },
+    themeKey: variants.body,
+  })
 
   return createElement({
     component: ReakitBox,

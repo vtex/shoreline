@@ -39,6 +39,8 @@ type StylesContextType = {
   variants: {
     base: string
     table: string
+    header: string
+    body: string
     row: string
     cell: string
     columnheader: string
