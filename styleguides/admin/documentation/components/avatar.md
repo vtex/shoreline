@@ -4,6 +4,16 @@ path: /docs/avatar/
 
 # Avatar
 
+Component to create a user avatar from a passed label. It shows the first letter capitalized in the center.
+
+## Installation
+
+```sh
+yarn add @vtex/admin-ui
+```
+
+Learn more in [Get started](/docs/get-started/).
+
 ## Usage
 
 ```jsx
@@ -22,3 +32,6 @@ function Example() {
   )
 }
 ```
+# Props
+
+<proptypes heading="Avatar" component="Avatar" />
