@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.1.0-alpha.3...@vtex/admin-ui-theme@0.1.0-alpha.4) (2020-10-27)
+
+
+### Bug Fixes
+
+* **breakpoints:** merge small mobile and mobile ([8e59e62](https://github.com/vtex/onda/commit/8e59e6240e071c7d2f8895acc8ea7fbfe3f60872))
+
+
+
+
+
 # [0.1.0-alpha.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.1.0-alpha.2...@vtex/admin-ui-theme@0.1.0-alpha.3) (2020-10-27)
 
 
