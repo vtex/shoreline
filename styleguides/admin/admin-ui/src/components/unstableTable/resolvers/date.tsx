@@ -6,7 +6,7 @@ import { createResolver, defaultRender, ResolverRenderProps } from './core'
 
 export function dateResolver<T>() {
   return createResolver<T, 'date', DateResolver<T>>({
-    field: function DateResolver({ getData, item, column, context }) {
+    cell: function DateResolver({ getData, item, column, context }) {
       if (context.loading) {
         return <Skeleton sx={{ height: 24 }} />
       }

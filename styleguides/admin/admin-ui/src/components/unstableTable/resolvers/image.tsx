@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { css } from '@emotion/core'
+import { jsx, css } from '@vtex/admin-ui-system'
 import { ReactNode, Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
@@ -25,7 +24,7 @@ const defaultPreview: ImagePreview = {
  */
 export function imageResolver<T>() {
   return createResolver<T, 'image', ImageResolver<T>>({
-    field: function Field({ getData, item, column, context }) {
+    cell: function ImageResolver({ getData, item, column, context }) {
       if (context.loading) {
         return <Skeleton sx={{ height: 24 }} />
       }
@@ -51,14 +50,14 @@ export function imageResolver<T>() {
         ) : (
           <img
             alt={resolver.alt}
-            sx={{ variant: `data.table.image.${context.density}` }}
+            sx={{ variant: `components.table.image.${context.density}` }}
             src={url}
           />
         )
       ) : (
         <Skeleton
           sx={{
-            variant: `data.table.image.${context.density}`,
+            variant: `components.table.image.${context.density}`,
             animation: '',
           }}
         />
@@ -98,7 +97,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
             {...referenceProps}
             alt={alt}
             sx={{
-              variant: `data.table.image.${density}`,
+              variant: `components.table.image.${density}`,
               cursor: 'zoom-in',
               transition: 'transform 150ms ease-in-out',
               ':hover': {
@@ -143,7 +142,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
         <img
           alt={`${alt} large`}
           sx={{
-            variant: `data.table.image-preview.${preview.size}`,
+            variant: `components.table.image-preview.${preview.size}`,
           }}
           src={url}
         />

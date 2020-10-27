@@ -1,14 +1,15 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { DisplayTable, DisplayTableProps } from '../index'
+import { StatefulTable, StatefulTableProps } from '../index'
 import { baseResolvers } from '../resolvers/base'
 import { Box } from '../../Box'
 import { Button } from '../../Button'
+import { unstableThemeProvider as ThemeProvider } from '../../unstableThemeProvider'
 
 export default {
-  title: 'alpha/DisplayTable/States',
-  component: DisplayTable,
+  title: 'alpha/Table/States',
+  component: StatefulTable,
 } as Meta
 
 interface Item {
@@ -18,28 +19,30 @@ interface Item {
   status: string
 }
 
-const Template: Story<DisplayTableProps<Item>> = (args) => (
-  <DisplayTable
-    {...args}
-    columns={[
-      {
-        id: 'location',
-        lead: 'Location',
-        width: 148,
-      },
-      {
-        id: 'date',
-        lead: 'Date',
-        width: 148,
-      },
-      {
-        id: 'status',
-        lead: 'Status',
-        width: 156,
-      },
-    ]}
-    items={[]}
-  />
+const Template: Story<StatefulTableProps<Item>> = (args) => (
+  <ThemeProvider>
+    <StatefulTable
+      {...args}
+      columns={[
+        {
+          id: 'location',
+          header: 'Location',
+          width: 148,
+        },
+        {
+          id: 'date',
+          header: 'Date',
+          width: 148,
+        },
+        {
+          id: 'status',
+          header: 'Status',
+          width: 156,
+        },
+      ]}
+      items={[]}
+    />
+  </ThemeProvider>
 )
 
 export const Loading = Template.bind({})
@@ -93,33 +96,35 @@ export function DataFetch() {
   }
 
   return (
-    <Box>
-      <Button onClick={() => fetchData()} disabled={loading}>
-        fetch items
-      </Button>
-      <DisplayTable
-        density="compact"
-        columns={[
-          {
-            id: 'location',
-            lead: 'Location',
-            width: 148,
-          },
-          {
-            id: 'date',
-            lead: 'Date',
-            width: 148,
-          },
-          {
-            id: 'status',
-            lead: 'Status',
-            width: 156,
-          },
-        ]}
-        loading={loading}
-        items={data}
-        length={4}
-      />
-    </Box>
+    <ThemeProvider>
+      <Box>
+        <Button onClick={() => fetchData()} disabled={loading}>
+          fetch items
+        </Button>
+        <StatefulTable
+          density="compact"
+          columns={[
+            {
+              id: 'location',
+              header: 'Location',
+              width: 148,
+            },
+            {
+              id: 'date',
+              header: 'Date',
+              width: 148,
+            },
+            {
+              id: 'status',
+              header: 'Status',
+              width: 156,
+            },
+          ]}
+          loading={loading}
+          items={data}
+          length={4}
+        />
+      </Box>
+    </ThemeProvider>
   )
 }
