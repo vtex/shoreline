@@ -44,7 +44,6 @@ const events = {
 
 | prop     | type      | description                 | required | default |
 | -------- | --------- | --------------------------- | -------- | -------- |
-| children | boolean | content of the card header | ✔️       | - |
 | onChange | function | the function that handles changes on the date selected | 🚫       | - |
 | day | number | the day that will be displayed | 🚫       | current day |
 | month | number | the month that will be displayed | 🚫       | current month |
