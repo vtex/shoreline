@@ -6,6 +6,7 @@ import { TableDensity, TableDir } from './typings'
 import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { Overridable } from '../../types'
+import { unstableBox as Box } from '../unstableBox'
 
 /**
  * Table used to show static & simple information
@@ -61,28 +62,12 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
   })
 
   return (
-    <Table dir={context.dir} density={density} styleOverrides={styleOverrides}>
-      <Table.Head>
-        <Table.Row>
-          {columns.map((column) => {
-            const content = resolveHeader({ column })
-
-            return (
-              <Table.Cell key={column.id as string} column={column}>
-                {content}
-              </Table.Cell>
-            )
-          })}
-        </Table.Row>
-      </Table.Head>
-      <Table.Body>
-        {data.map((item) => (
-          <Table.Row key={getRowKey(item)}>
+    <Box styles={{ overflow: 'auto', width: 'full', ...styleOverrides }}>
+      <Table dir={context.dir} density={density}>
+        <Table.Head>
+          <Table.Row>
             {columns.map((column) => {
-              const content = resolveCell({
-                column,
-                item,
-              })
+              const content = resolveHeader({ column })
 
               return (
                 <Table.Cell key={column.id as string} column={column}>
@@ -91,9 +76,27 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
               )
             })}
           </Table.Row>
-        ))}
-      </Table.Body>
-    </Table>
+        </Table.Head>
+        <Table.Body>
+          {data.map((item) => (
+            <Table.Row key={getRowKey(item)}>
+              {columns.map((column) => {
+                const content = resolveCell({
+                  column,
+                  item,
+                })
+
+                return (
+                  <Table.Cell key={column.id as string} column={column}>
+                    {content}
+                  </Table.Cell>
+                )
+              })}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Box>
   )
 }
 
