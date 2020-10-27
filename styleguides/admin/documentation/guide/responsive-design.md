@@ -8,23 +8,22 @@ path: /docs/guide/responsive-design/
 
 `admin-ui` uses 5 mobile-first breakpoints, which are
 
-| name         | min-width em | min-width px |
-| ------------ | ------------ | ------------ |
-| small-mobile | `30rem`      | `480px`      |
-| large-mobile | `40rem`      | `640px`      |
-| tablet       | `48rem`      | `768px`      |
-| desktop      | `64rem`      | `1024px`     |
-| widescreen   | `80rem`      | `1280px`     |
+| name       | min-width em | min-width px |
+| ---------- | ------------ | ------------ |
+| mobile     | `40rem`      | `640px`      |
+| tablet     | `48rem`      | `768px`      |
+| desktop    | `64rem`      | `1024px`     |
+| widescreen | `80rem`      | `1280px`     |
 
 ## Responsive Values
 
 A Responsive value accept an array of values. The current value will be the one that matches the breakpoint:
 
 ```static
-[small-mobile, large-mobile, tablet, desktop, widescreen]
+[mobile, tablet, desktop, widescreen]
 ```
 
-In the example below, the `<Box>` has full width while on `small-mobie` and `large-mobile`, and half on tablet and above.
+In the example below, the `<Box>` has full width while on `mobile`, and half on tablet and above.
 
 ```jsx
 import {
@@ -35,7 +34,7 @@ import {
 function Example() {
   return (
     <ThemeProvider>
-      <Box padding={4} width={['full', 'full', '1/2']} palette="primary" />
+      <Box padding={4} width={['full', '1/2']} palette="primary" />
     </ThemeProvider>
   )
 }
@@ -80,7 +79,7 @@ import {
 function Example() {
   const mobileText = '📱 mobile'
   const aboveTabletText = '🖥 tablet & above'
-  const text = useResponsiveValue([mobileText, mobileText, aboveTabletText])
+  const text = useResponsiveValue([mobileText, aboveTabletText])
 
   return (
     <ThemeProvider>
