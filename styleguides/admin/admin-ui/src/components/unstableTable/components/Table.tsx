@@ -57,7 +57,7 @@ Table.Row = TableRow
 
 Table.Cell = TableCell
 
-export interface TableProps extends Overridable {
+export type TableProps = Overridable & {
   /**
    * layout direction
    * @default ltr
