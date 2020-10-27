@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0-alpha.8](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.7...@vtex/admin-ui@0.53.0-alpha.8) (2020-10-27)
+
+
+### Bug Fixes
+
+* **unstable-table:** use table styles instead of flex ([e74a4db](https://github.com/vtex/onda/commit/e74a4db58c867f8216ad7cb5f9b2f42a44752a53))
+
+
+
+
+
 # [0.53.0-alpha.7](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.6...@vtex/admin-ui@0.53.0-alpha.7) (2020-10-27)
 
 
