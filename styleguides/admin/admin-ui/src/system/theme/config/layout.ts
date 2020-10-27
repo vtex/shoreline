@@ -6,7 +6,7 @@ export default {
   layout: {
     ...skeleton,
   },
-  breakpoints: ['480px', '640px', '768px', '1024px', '1280px'],
+  breakpoints: ['640px', '768px', '1024px', '1280px'],
   fontSizes: {
     '0': '0.75rem',
     '1': '0.875rem',
