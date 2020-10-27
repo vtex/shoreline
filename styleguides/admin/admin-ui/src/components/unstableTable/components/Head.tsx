@@ -12,8 +12,11 @@ export const TableHead = forwardRef(function Thead(
 ) {
   const { element = 'header', children, styleOverrides, ...htmlProps } = props
 
-  const { dir } = useStylesContext()
-  const className = useClassName({ props: { styles: styleOverrides } })
+  const { dir, variants } = useStylesContext()
+  const className = useClassName({
+    props: { styles: styleOverrides },
+    themeKey: variants.header,
+  })
 
   return createElement({
     component: ReakitBox,

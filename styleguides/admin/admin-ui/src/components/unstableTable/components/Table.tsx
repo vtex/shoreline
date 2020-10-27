@@ -26,6 +26,8 @@ export function Table(props: TableProps) {
       variants: {
         base,
         table: `${base}.table`,
+        header: `${base}.header`,
+        body: `${base}.body`,
         row: `${base}.row`,
         cell: `${base}.cell`,
         columnheader: `${base}.columnheader`,

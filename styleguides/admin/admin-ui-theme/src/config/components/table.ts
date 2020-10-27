@@ -1,13 +1,22 @@
 import { merge } from '@vtex/admin-ui-system'
 
 const styles = {
-  table: {},
+  table: {
+    display: 'table',
+    width: 'full',
+  },
+  header: {
+    display: 'table-header-group',
+  },
+  body: {
+    display: 'table-row-group',
+  },
   'row-ltr': {
-    display: 'flex',
+    display: 'table-row',
     textAlign: 'left',
   },
   'row-rtl': {
-    display: 'flex',
+    display: 'table-row',
     textAlign: 'right',
   },
   cell: {
@@ -16,16 +25,16 @@ const styles = {
     borderBottomWidth: 1,
     borderBottomStyle: 'solid',
     borderBottomColor: 'muted.3',
-    display: 'flex',
-    alignItems: 'center',
+    display: 'table-cell',
+    verticalAlign: 'middle',
     paddingX: 2,
     variant: 'text.body',
   },
   columnheader: {
     bg: 'background',
     height: 48,
-    display: 'flex',
-    alignItems: 'center',
+    display: 'table-cell',
+    verticalAlign: 'middle',
     paddingX: 2,
     color: 'muted.0',
     fontWeight: 'normal',
@@ -100,7 +109,7 @@ export default {
   }),
   variable: merge(styles, {
     cell: {
-      alignItems: 'flex-start',
+      verticalAlign: 'top',
       minHeight: 48,
       paddingY: 4,
     },
