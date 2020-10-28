@@ -1,41 +1,39 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
-import { Fragment } from 'react'
+import React, { Fragment, ReactNode } from 'react'
+import { useClassName } from '@vtex/admin-ui-system'
 import {
   RadioGroup as ReakitRadioGroup,
   RadioGroupProps as ReakitRadioGroupProps,
 } from 'reakit/Radio'
 
+import { Overridable } from '../../types'
 import { Label } from '../Label'
 
 export function RadioGroup(props: RadioGroupProps) {
   const {
-    sx = {},
     label,
-    id,
     orientation = 'horizontal',
     size = 'regular',
+    styleOverrides,
+    id,
+    state,
     children,
-    ...reakitProps
+    ...htmlProps
   } = props
 
-  const styles = {
-    variant: `forms.controlGroup-${orientation}-${size}`,
-    ...sx,
-  }
+  const className = useClassName({
+    props: { styles: styleOverrides },
+    themeKey: `components.controlGroup.${orientation}-${size}`,
+  })
 
   return (
     <Fragment>
-      {label && (
-        <Label htmlFor={id} c="muted.0" fs="0" fw="regular">
-          {label}
-        </Label>
-      )}
+      {label && <Label htmlFor={id}>{label}</Label>}
       <ReakitRadioGroup
-        sx={styles}
+        className={className}
         orientation={orientation}
         id={id}
-        {...reakitProps}
+        {...state}
+        {...htmlProps}
       >
         {children}
       </ReakitRadioGroup>
@@ -43,9 +41,11 @@ export function RadioGroup(props: RadioGroupProps) {
   )
 }
 
-export interface RadioGroupProps extends ReakitRadioGroupProps {
-  sx?: SxStyleProp
+export interface RadioGroupProps extends Overridable {
   label?: string
   size?: 'regular' | 'small'
   orientation?: 'horizontal' | 'vertical'
+  state: ReakitRadioGroupProps
+  children?: ReactNode
+  id?: string
 }

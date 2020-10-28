@@ -42,8 +42,8 @@ export {
 export { Divider, DividerProps } from './components/Divider'
 export { Label, LabelProps } from './components/Label'
 export { CheckboxGroup, CheckboxGroupProps } from './components/CheckboxGroup'
-export { Radio, RadioProps, useRadio } from './components/Radio'
-export { RadioGroup, RadioGroupProps } from './components/RadioGroup'
+export * from './components/Radio'
+export * from './components/RadioGroup'
 export {
   CollapsibleGroup,
   CollapsibleGroupProps,
