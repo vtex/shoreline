@@ -1,10 +1,12 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref, PropsWithChildren } from 'react'
 import { createElement } from '@vtex/admin-ui-system'
+import { TextPattern } from '@vtex/admin-ui-theme'
 
 import { useComponent } from '../../hooks/useComponent'
+import { Overridable } from '../../types'
 
-export const unstableParagraph = forwardRef(function Paragraph(
+export const Paragraph = forwardRef(function Paragraph(
   props: PropsWithChildren<ParagraphProps>,
   ref: Ref<HTMLParagraphElement>
 ) {
@@ -18,6 +20,6 @@ export const unstableParagraph = forwardRef(function Paragraph(
   })
 })
 
-export interface ParagraphProps {
+export interface ParagraphProps extends Overridable, TextPattern {
   children?: ReactNode
 }
