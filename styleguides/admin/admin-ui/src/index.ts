@@ -32,24 +32,13 @@ export {
 } from './components/Collapsible'
 export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Toggle, ToggleProps, useToggle } from './components/Toggle'
-export * from './components/Avatar'
-export {
-  Checkbox,
-  CheckboxProps,
-  useCheckbox,
-  CheckboxStateReturn,
-} from './components/Checkbox'
 export { Divider, DividerProps } from './components/Divider'
 export { Label, LabelProps } from './components/Label'
-export { CheckboxGroup, CheckboxGroupProps } from './components/CheckboxGroup'
-export * from './components/Radio'
-export * from './components/RadioGroup'
 export {
   CollapsibleGroup,
   CollapsibleGroupProps,
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
-export * from './components/Paragraph'
 export {
   unstableHeading,
   TextBlock as unstableTextBlock,
@@ -68,3 +57,11 @@ export { unstableTextField } from './components/unstableTextField'
 export { unstableThemeProvider } from './components/unstableThemeProvider'
 export * from './components/unstableTable'
 export { unstableTheme } from '@vtex/admin-ui-theme'
+
+/** on new structure */
+export * from './components/Avatar'
+export * from './components/Checkbox'
+export * from './components/CheckboxGroup'
+export * from './components/Radio'
+export * from './components/RadioGroup'
+export * from './components/Paragraph'
