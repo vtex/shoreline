@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react'
-import { SxStyleProp } from 'theme-ui'
+import { useClassName } from '@vtex/admin-ui-system'
 
 import { Label } from '../Label'
-import { Box } from '../Box'
+import { Overridable } from '../../types'
 
 export function CheckboxGroup(props: CheckboxGroupProps) {
   const {
-    sx = {},
+    styleOverrides,
     label,
     id,
     orientation = 'horizontal',
@@ -14,29 +14,24 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
     children,
   } = props
 
-  const styles = {
-    variant: `forms.controlGroup-${orientation}-${size}`,
-    ...sx,
-  }
+  const className = useClassName({
+    props: { styles: styleOverrides },
+    themeKey: `components.controlGroup.${orientation}-${size}`,
+  })
 
   return (
     <>
-      {label && (
-        <Label htmlFor={id} c="muted.0" fs="0" fw="regular">
-          {label}
-        </Label>
-      )}
-      <Box role="group" id={id} sx={styles}>
+      {label && <Label htmlFor={id}>{label}</Label>}
+      <div role="group" id={id} className={className}>
         {children}
-      </Box>
+      </div>
     </>
   )
 }
 
-export interface CheckboxGroupProps {
+export interface CheckboxGroupProps extends Overridable {
   children?: ReactNode
   id?: string
-  sx?: SxStyleProp
   label?: string
   size?: 'regular' | 'small'
   orientation?: 'horizontal' | 'vertical'

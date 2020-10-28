@@ -2,7 +2,8 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Label } from '../Label'
-import { Checkbox, useCheckbox, CheckboxProps } from './index'
+import { Checkbox, useCheckboxState, CheckboxProps } from './index'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { Text } from '../Text'
 
 export default {
@@ -14,11 +15,13 @@ const Template: Story<Omit<CheckboxProps, 'checked'>> = (args) => {
   const [checked, setChecked] = React.useState(false)
 
   return (
-    <Checkbox
-      {...args}
-      checked={checked}
-      onChange={() => setChecked(!checked)}
-    />
+    <ThemeProvider>
+      <Checkbox
+        {...args}
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+      />
+    </ThemeProvider>
   )
 }
 
@@ -26,82 +29,34 @@ export const Playground = Template.bind({})
 Playground.args = {
   'aria-label': 'label',
 }
-Playground.parameters = {
-  playroom: {
-    code: `
-<Play.ToggleState>
-  {({ toggle, setToggle }) => (
-    <Checkbox
-      aria-label="label"
-      checked={toggle}
-      onChange={() => setToggle(!toggle)}
-    />
-  )}
-</Play.ToggleState>
-    `,
-  },
-}
 
 export const MultipleCheckboxes = () => {
-  const props = useCheckbox({ state: [] })
+  const props = useCheckboxState({ state: [] })
 
   return (
-    <>
+    <ThemeProvider>
       <Text>Checkboxes marked: {props.state}</Text>
       <Checkbox {...props} aria-label="label" value="checkbox1" />
       <Checkbox {...props} aria-label="label" value="checkbox2" />
       <Checkbox {...props} aria-label="label" value="checkbox3" />
-    </>
+    </ThemeProvider>
   )
-}
-
-MultipleCheckboxes.parameters = {
-  playroom: {
-    code: `
-<Play.CheckboxState state={[]}>
-    {({ state, setState }) => (
-      <>
-        <Text>State: {state}</Text>
-        <br />
-        <Checkbox
-          state={state}
-          setState={setState}
-          aria-label="label1"
-          value="toggle1"
-        />
-        <Checkbox
-          state={state}
-          setState={setState}
-          aria-label="label2"
-          value="toggle2"
-        />
-        <Checkbox
-          state={state}
-          setState={setState}
-          aria-label="label3"
-          value="toggle3"
-        />
-      </>
-    )}
-  </Play.CheckboxState>
-    `,
-  },
 }
 
 export const Disabled = () => {
   return (
-    <>
+    <ThemeProvider>
       <Checkbox checked disabled />
       <Checkbox state="indeterminate" checked disabled />
       <Checkbox disabled />
-    </>
+    </ThemeProvider>
   )
 }
 
 export const IndeterminateExample = () => {
   function useTreeState({ values }: { values: string[] }) {
-    const { state: group, setState: setGroup } = useCheckbox({ state: [] })
-    const { state: items, setState: setItems } = useCheckbox({ state: [] })
+    const { state: group, setState: setGroup } = useCheckboxState({ state: [] })
+    const { state: items, setState: setItems } = useCheckboxState({ state: [] })
 
     // updates items when group is toggled
     React.useEffect(() => {
@@ -130,7 +85,7 @@ export const IndeterminateExample = () => {
   const { group, setGroup, items, setItems } = useTreeState({ values })
 
   return (
-    <>
+    <ThemeProvider>
       <Label display="flex" items="center">
         <Checkbox state={group} setState={setGroup} />
         Fruits ( Group Control )
@@ -144,7 +99,7 @@ export const IndeterminateExample = () => {
           </Label>
         )
       })}
-    </>
+    </ThemeProvider>
   )
 }
 

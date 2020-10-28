@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
 import { Ref } from 'react'
 import {
   Checkbox as ReakitCheckbox,
@@ -7,41 +5,46 @@ import {
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit'
-import { mergeSx } from '@vtex-components/theme'
+import { createElement } from '@vtex/admin-ui-system'
 import { forwardRef } from '@vtex-components/utils'
+
+import { Overridable } from '../../types'
+import { useComponent } from '../../hooks/useComponent'
 
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
-    const { sx = {}, size = 'regular', ...reakitProps } = props
+    const { size = 'regular', ...htmlProps } = props
 
-    const styles = mergeSx<SxStyleProp>(
-      { variant: `forms.checkbox-${size}` },
-      sx
-    )
+    const checkboxProps = useComponent({
+      props: htmlProps,
+      themeKey: `components.checkbox.${size}`,
+    })
 
-    return <ReakitCheckbox ref={ref} {...reakitProps} sx={styles} />
+    return createElement({
+      component: ReakitCheckbox,
+      htmlProps: { ...checkboxProps, ...htmlProps },
+      ref,
+    })
   }
 )
-export interface CheckboxProps
-  extends Pick<
-    ReakitProps,
-    | 'checked'
-    | 'required'
-    | 'disabled'
-    | 'value'
-    | 'name'
-    | 'onChange'
-    | 'state'
-    | 'setState'
-    | 'onClick'
-    | 'aria-label'
-    | 'aria-labelledby'
-    | 'id'
-  > {
-  /** ThemeUI style prop
-   *  @default {}
-   */
-  sx?: SxStyleProp
+
+type AbstractCheckboxProps = Pick<
+  ReakitProps,
+  | 'checked'
+  | 'required'
+  | 'disabled'
+  | 'value'
+  | 'name'
+  | 'onChange'
+  | 'state'
+  | 'setState'
+  | 'onClick'
+  | 'aria-label'
+  | 'aria-labelledby'
+  | 'id'
+>
+
+export interface CheckboxProps extends AbstractCheckboxProps, Overridable {
   /**
    *  Checkbox Size
    * @default regular
@@ -49,5 +52,5 @@ export interface CheckboxProps
   size?: 'regular' | 'small'
 }
 
-export { useCheckboxState as useCheckbox }
+export { useCheckboxState }
 export { CheckboxStateReturn }
