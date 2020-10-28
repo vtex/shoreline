@@ -27,7 +27,8 @@ yarn add @vtex/admin-ui
 
 Learn more in [Get started](/docs/get-started/).
 
-## Styled Props
+## Variation
+### Styled Props
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
@@ -43,7 +44,7 @@ function Example() {
 }
 ```
 
-## `el` Prop
+### `el` Prop
 
 ```jsx
 import { Box } from '@vtex/admin-ui'
@@ -60,5 +61,8 @@ function Example() {
 ```
 
 # Props
-
+### WIP
 <proptypes heading="Box" component="Box" />
+
+
+
