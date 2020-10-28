@@ -82,7 +82,7 @@ function Example() {
 
 ## Customization
 
-To add custom styles
+You can use the `styleOverrides` property to customize any style.
 
 # Props
 
