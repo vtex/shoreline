@@ -10,6 +10,7 @@ import popover from './components/popover'
 import helloBar from './components/helloBar'
 import localeSwitcher from './components/localeSwitcher'
 import timeline from './components/timeline'
+import calendar from './components/calendar'
 
 export const theme = {
   colors: {
@@ -72,6 +73,7 @@ export const theme = {
   helloBar,
   localeSwitcher,
   timeline,
+  calendar,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
