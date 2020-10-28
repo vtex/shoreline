@@ -1,35 +1,45 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
+import { Ref } from 'react'
 import {
   Radio as ReakitRadio,
   RadioProps as ReakitRadioProps,
   RadioStateReturn,
 } from 'reakit/Radio'
-import { Ref } from 'react'
 import { forwardRef } from '@vtex-components/utils'
+import { createElement } from '@vtex/admin-ui-system'
+
+import { Overridable } from '../../types'
+import { useComponent } from '../../hooks/useComponent'
 
 export const Radio = forwardRef(
   (props: RadioProps, ref: Ref<HTMLInputElement>) => {
-    const { size = 'regular', sx, state, ...baseProps } = props
+    const { size = 'regular', state, ...htmlProps } = props
 
-    const styles = { variant: `forms.radio-${size}`, ...sx }
+    const radioProps = useComponent({
+      props: htmlProps,
+      themeKey: `components.radio.${size}`,
+    })
 
-    return <ReakitRadio ref={ref} sx={styles} {...state} {...baseProps} />
+    return createElement({
+      component: ReakitRadio,
+      htmlProps: { ...radioProps, ...state },
+      ref,
+    })
   }
 )
 
-export interface RadioProps
-  extends Pick<
-    ReakitRadioProps,
-    | 'value'
-    | 'disabled'
-    | 'required'
-    | 'name'
-    | 'id'
-    | 'checked'
-    | 'aria-label'
-    | 'aria-labelledby'
-  > {
+type AbstractRadioProps = Pick<
+  ReakitRadioProps,
+  | 'value'
+  | 'disabled'
+  | 'required'
+  | 'name'
+  | 'id'
+  | 'checked'
+  | 'aria-label'
+  | 'aria-labelledby'
+>
+
+export interface RadioProps extends AbstractRadioProps, Overridable {
   /**
    * Radio size
    * @default 'regular'
@@ -39,10 +49,6 @@ export interface RadioProps
    * useRadio() hook return
    */
   state: RadioStateReturn
-  /**
-   * ThemeUI Style prop
-   */
-  sx?: SxStyleProp
 }
 
-export { useRadioState as useRadio, RadioStateReturn } from 'reakit/Radio'
+export { useRadioState, RadioStateReturn } from 'reakit/Radio'

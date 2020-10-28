@@ -1,7 +1,8 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Radio, RadioProps, useRadio } from './index'
+import { Radio, RadioProps, useRadioState } from './index'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { RadioGroup } from '../RadioGroup'
 import { Text } from '../Text'
 import { Label } from '../Label'
@@ -12,28 +13,20 @@ export default {
 } as Meta
 
 export const Playground: Story<RadioProps> = () => {
-  const state = useRadio()
+  const state = useRadioState()
 
-  return <Radio state={state} value="playground" aria-label="playground" />
-}
-
-Playground.parameters = {
-  playroom: {
-    code: `
-<Play.RadioState>
-  {(state) => (
-    <Radio state={state} value="playground" aria-label="playground" />
-  )}
-</Play.RadioState>
-    `,
-  },
+  return (
+    <ThemeProvider>
+      <Radio state={state} value="playground" aria-label="playground" />
+    </ThemeProvider>
+  )
 }
 
 export function Disabled() {
-  const state = useRadio()
+  const state = useRadioState()
 
   return (
-    <>
+    <ThemeProvider>
       <Radio value="disabled" aria-label="label" disabled state={state} />
       <br />
       <Radio
@@ -43,12 +36,12 @@ export function Disabled() {
         disabled
         state={state}
       />
-    </>
+    </ThemeProvider>
   )
 }
 
 export function Group() {
-  const state = useRadio({ state: 'oms' })
+  const state = useRadioState({ state: 'oms' })
   const values = [
     'Marketplace Ecommerce',
     'B2C Commerce',
@@ -58,9 +51,9 @@ export function Group() {
   ]
 
   return (
-    <>
+    <ThemeProvider>
       <Text variant="subtitle">Selected solution: {state.state}</Text>
-      <RadioGroup {...state} orientation="vertical" aria-label="Solutions">
+      <RadioGroup state={state} orientation="vertical" aria-label="Solutions">
         {values.map((value, key) => {
           return (
             <Label key={key}>
@@ -74,47 +67,6 @@ export function Group() {
           )
         })}
       </RadioGroup>
-    </>
+    </ThemeProvider>
   )
-}
-
-Group.parameters = {
-  playroom: {
-    code: `
-<Play.RadioState>
-  {(state) => (
-    <>
-      <Text variant="subtitle">Selected solution: {state.state}</Text>
-      <RadioGroup
-        {...state}
-        id="radio-group"
-        label="Solutions"
-        orientation="vertical"
-      >
-        <Label>
-          <Radio state={state} value="Marketplace Ecommerce" />
-          Marketplace Ecommerce
-        </Label>
-        <Label>
-          <Radio state={state} value="B2C Commerce" />
-          B2C Commerce
-        </Label>
-        <Label>
-          <Radio state={state} value="B2B Commerce" />
-          B2B Commerce
-        </Label>
-        <Label>
-          <Radio state={state} value="Order Management System" />
-          Order Management System
-        </Label>
-        <Label>
-          <Radio state={state} disabled value="Disabled" />
-          Disabled
-        </Label>      
-      </RadioGroup>
-    </>
-  )}
-</Play.RadioState>
-    `,
-  },
 }

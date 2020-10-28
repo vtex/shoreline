@@ -6,14 +6,14 @@ const style = {
   position: 'relative',
   cursor: 'pointer',
   borderStyle: 'solid',
-  borderWidth: '1',
+  borderWidth: '1px',
   borderColor: 'muted.2',
   backgroundColor: 'transparent',
-  borderRadius: '50%',
+  borderRadius: 'circle',
   ':after': {
     content: '""',
     display: 'block',
-    borderRadius: '50%',
+    borderRadius: 'circle',
     backgroundColor: 'white',
     opacity: 0,
   },
@@ -61,7 +61,7 @@ export default {
   regular: merge(style, {
     height: 20,
     width: 20,
-    padding: '0.3125rem',
+    padding: '5px',
     ':after': {
       width: 8,
       height: 8,
