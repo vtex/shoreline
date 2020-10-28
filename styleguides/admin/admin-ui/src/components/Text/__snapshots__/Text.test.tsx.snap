@@ -5,73 +5,85 @@ exports[`Text tests should match snapshot 1`] = `
   .emotion-0 {
   line-height: 1.125;
   font-variation-settings: 'wght' 80;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 0.75rem;
 }
 
 <span
     class="emotion-0"
     sx="[object Object]"
+    variant="text.small"
   >
     small
   </span>
   .emotion-0 {
   line-height: 1.25;
   font-variation-settings: 'wght' 80;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 0.875rem;
 }
 
 <span
     class="emotion-0"
     sx="[object Object]"
+    variant="text.body"
   >
     body
   </span>
   .emotion-0 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 0.875rem;
 }
 
 <span
     class="emotion-0"
     sx="[object Object]"
+    variant="text.highlight"
   >
     highlight
   </span>
   .emotion-0 {
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 0.875rem;
   text-transform: uppercase;
 }
 
 <span
     class="emotion-0"
     sx="[object Object]"
+    variant="text.action"
   >
     action
   </span>
   .emotion-0 {
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 <h2
     class="emotion-0"
     sx="[object Object]"
+    variant="text.subtitle"
   >
     subtitle
   </h2>
   .emotion-0 {
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 1.25rem;
 }
 
 <h1
     class="emotion-0"
     sx="[object Object]"
+    variant="text.headline"
   >
     headline
   </h1>
