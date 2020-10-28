@@ -68,4 +68,6 @@ export {
   IconRocket,
   IconSupport,
   IconClose,
+  IconBilling,
+  IconUserSettings,
 } from '../icons'
