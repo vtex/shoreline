@@ -12,19 +12,28 @@ Further read [reakit/Styling](https://reakit.io/docs/styling/), [reakit/Composit
 ## Behavior
 
 ```jsx
-import { Box } from 'reakit/Box'
+import { Box, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  return <Box>Box</Box>
+  return (
+    <ThemeProvider>
+      <Box>
+        This is a Box
+      </Box>
+    </ThemeProvider>
+  )
 }
 ```
 
 ## Installation
 
-```sh
+```static
 yarn add @vtex/admin-ui
 ```
 
+```jsx static
+import { Box } from '@vtex/admin-ui'
+```
 Learn more in [Get started](/docs/get-started/).
 
 ## Variation
