@@ -61,6 +61,7 @@ const extraCell: SxStyleProp = {
 const title: SxStyleProp = {
   fontSize: 3,
   textAlign: 'center',
+  '&:first-letter': { textTransform: 'capitalize' },
 }
 
 const baseCalendar: SxStyleProp = {
