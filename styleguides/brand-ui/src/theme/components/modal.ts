@@ -1,4 +1,4 @@
-const actionsBar = {
+const bottomBar = {
   justifyContent: 'flex-end',
   flexDirection: 'row',
   marginTop: ['1.5rem', '2rem', '2rem', '2rem'],
@@ -49,7 +49,7 @@ const body = {
 }
 
 const modal = {
-  actionsBar,
+  bottomBar,
   title,
   backdrop,
   dialog,

@@ -27,7 +27,7 @@ const backdropAnimation = css`
 `
 
 const surfaceAnimation = css`
-  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out 50ms;
+  transition: opacity 250ms ease-in-out;
   opacity: 0;
   &[data-enter] {
     opacity: 1;
@@ -40,11 +40,11 @@ interface TitleProps {
 }
 
 interface BottomBarProps {
-  children: ReactNode[]
+  children: ReactNode | ReactNode[]
 }
 
 interface BodyProps {
-  children: ReactNode[]
+  children: ReactNode | ReactNode[]
 }
 
 const Title = ({ title, handleClick }: TitleProps) => {
@@ -79,7 +79,7 @@ const ModalButton = (props: ButtonProps) => {
 }
 
 const BottomBar = ({ children }: BottomBarProps) => {
-  return <Flex variant="modal.actionsBar">{children}</Flex>
+  return <Flex variant="modal.bottomBar">{children}</Flex>
 }
 
 const Body = ({ children }: BodyProps) => {
@@ -91,6 +91,7 @@ export const Modal = ({
   title,
   disclosure,
   modalState,
+  onClose,
 }: ModalProps) => {
   return (
     <Fragment>
@@ -108,8 +109,9 @@ export const Modal = ({
           css={modalState.animated && surfaceAnimation}
           variant="modal.dialog"
           as={Box}
+          hideOnClickOutside={false}
         >
-          <Title handleClick={modalState.hide} title={title} />
+          <Title handleClick={onClose ?? modalState.hide} title={title} />
           {children}
         </Dialog>
       </DialogBackdrop>
@@ -125,7 +127,7 @@ export interface ModalProps {
   /**
    * Modal content children
    */
-  children: ReactNode[]
+  children: ReactNode | ReactNode[]
   /**
    * Modal disclosure
    */
@@ -138,6 +140,10 @@ export interface ModalProps {
    * Return of useModalState hook
    */
   modalState: DialogStateReturn
+  /**
+   * Function to be run when the modal is closed
+   */
+  onClose?: () => void
 }
 
 export { useDialogState as useModalState }
