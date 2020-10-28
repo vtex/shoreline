@@ -9,7 +9,41 @@ Accessible Dialog component that follows the [WAI-ARIA Dialog
 rendered within a [Portal](https://reactjs.org/docs/portals.html) by default.
 It has both stateful (Modal) and stateless components (StatelessModal).
 
-## Usage
+## Behavior
+
+Modal is a compound component with the following composites:
+
+| Name            | Description                                       | Props               |
+| --------------- | ------------------------------------------------- | ------------------- |
+| `Modal.Header`  | Modal header. Renders `header` element            | `Modal.HeaderProps` |
+| `Modal.Content` | Content of the modal. Renders a `section` element | `BoxProps`          |
+| `Modal.Footer`  | Modal footer. Renders a `footer` element          | `BoxProps`          |
+| `Modal.Button`  | Renders a admin-ui/Button                         | `Modal.ButtonProps` |
+
+#### Modal.Header
+
+Same as `BoxProps` with aditional,
+
+| Name        | Description                     | Type          | Default |
+| ----------- | ------------------------------- | ------------- | ------- |
+| title       | Title of the modal              | `ReactNode`   | null    |
+| containerSx | Styles of the buttons container | `SxStyleProp` | {}      |
+
+#### Modal.Button Props
+
+Same as `ButtonProps` with aditional,
+
+| Name              | Description                        | Type      | Default |
+| ----------------- | ---------------------------------- | --------- | ------- |
+| closeModalOnClick | If should close the modal on click | `boolean` | false   |
+
+#### Modal.Content Props
+
+Same as `BoxProps`.
+
+#### Modal.Footer Props
+
+Same as `BoxProps`.
 
 Stateful is the default way of using the Modal component within admin-ui.
 
@@ -41,45 +75,49 @@ function Example() {
 }
 ```
 
-### Composites
+## Installation
 
-Modal is a compound component with the following composites:
+```static
+yarn add @vtex/admin-ui
+```
 
-| Name            | Description                                       | Props               |
-| --------------- | ------------------------------------------------- | ------------------- |
-| `Modal.Header`  | Modal header. Renders `header` element            | `Modal.HeaderProps` |
-| `Modal.Content` | Content of the modal. Renders a `section` element | `BoxProps`          |
-| `Modal.Footer`  | Modal footer. Renders a `footer` element          | `BoxProps`          |
-| `Modal.Button`  | Renders a admin-ui/Button                         | `Modal.ButtonProps` |
+```jsx static
+import { Modal } from '@vtex/admin-ui'
+```
 
-**Modal.Header Props**
-
-Same as `BoxProps` with aditional,
-
-| Name        | Description                     | Type          | Default |
-| ----------- | ------------------------------- | ------------- | ------- |
-| title       | Title of the modal              | `ReactNode`   | null    |
-| containerSx | Styles of the buttons container | `SxStyleProp` | {}      |
-
-**Modal.Button Props**
-
-Same as `ButtonProps` with aditional,
-
-| Name              | Description                        | Type      | Default |
-| ----------------- | ---------------------------------- | --------- | ------- |
-| closeModalOnClick | If should close the modal on click | `boolean` | false   |
-
-**Modal.Content Props**
-
-Same as `BoxProps`.
-
-**Modal.Footer Props**
-
-Same as `BoxProps`.
+### Variations
 
 ### Sizes
 
 The modal comes in three different sizes: `small`, `regular`, and `large`.
+
+#### Small
+
+```jsx
+import { Modal, ThemeProvider, Text, Button } from '@vtex/admin-ui'
+function Example() {
+  return (
+    <ThemeProvider>
+      <Modal
+        aria-label="News modal"
+        disclosure={<Button>Small</Button>}
+        size="small"
+      >
+        <Modal.Header title="We have good news!" />
+        <Modal.Content>
+          <Text>
+            This is our new experience for inventory update. Feel free to leave
+            feedback.
+          </Text>
+        </Modal.Content>
+        <Modal.Footer>
+          <Button>Okay, got it</Button>
+        </Modal.Footer>
+      </Modal>
+    </ThemeProvider>
+  )
+}
+```
 
 #### Regular (default)
 
@@ -135,34 +173,6 @@ function Example() {
             <Text pl="2">I accept the terms and conditions above</Text>
           </Label>
           <Button disabled={!checkbox.state}>Next</Button>
-        </Modal.Footer>
-      </Modal>
-    </ThemeProvider>
-  )
-}
-```
-
-#### Small
-
-```jsx
-import { Modal, ThemeProvider, Text, Button } from '@vtex/admin-ui'
-function Example() {
-  return (
-    <ThemeProvider>
-      <Modal
-        aria-label="News modal"
-        disclosure={<Button>Small</Button>}
-        size="small"
-      >
-        <Modal.Header title="We have good news!" />
-        <Modal.Content>
-          <Text>
-            This is our new experience for inventory update. Feel free to leave
-            feedback.
-          </Text>
-        </Modal.Content>
-        <Modal.Footer>
-          <Button>Okay, got it</Button>
         </Modal.Footer>
       </Modal>
     </ThemeProvider>
@@ -265,22 +275,13 @@ function Example() {
 }
 ```
 
-## Props
-
-<details>
-  <summary>
-    Modal
-  </summary>
-  <div><proptypes component="Modal" /></div>
-</details>
-
 # Stateless Modal
 
 Sometimes, you may need to access the modal states or open it on async updates (like data fetching). For this, need to use the stateless approach.
 You will also need the `ModalDisclosure` component and the `useModalState` hook.
 
 ```jsx static
-import { useModalState, ModalDisclosure } from '@vtex/admin-ui'
+import { useModalState, ModalDisclosure, Button } from '@vtex/admin-ui'
 
 function Example() {
   const state = useModalState()
@@ -402,15 +403,8 @@ function Example() {
 }
 ```
 
-## useModalState Props
-
-Same as [Reakit useDialogState](https://reakit.io/docs/dialog/#usedialogstate)
-
 ## Props
 
-<details>
-  <summary>
-    StatelessModal
-  </summary>
-  <div><proptypes component="StatelessModal" /></div>
-</details>
+### WIP
+
+<proptypes heading="Modal" component="Modal" />
