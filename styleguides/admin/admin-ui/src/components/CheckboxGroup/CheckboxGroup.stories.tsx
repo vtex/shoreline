@@ -12,7 +12,7 @@ export default {
 } as Meta
 
 export const Horizontal = () => {
-  const checkboxProps = useCheckboxState({ state: [] })
+  const state = useCheckboxState({ state: [] })
 
   return (
     <ThemeProvider>
@@ -22,11 +22,11 @@ export const Horizontal = () => {
         label="Checkbox Group Label!"
       >
         <Label>
-          <Checkbox {...checkboxProps} value="1" />
+          <Checkbox state={state} value="1" />
           First Checkbox
         </Label>
         <Label>
-          <Checkbox {...checkboxProps} value="2" />
+          <Checkbox state={state} value="2" />
           Second Checkbox
         </Label>
       </CheckboxGroup>
@@ -35,17 +35,17 @@ export const Horizontal = () => {
 }
 
 export const Vertical = () => {
-  const checkboxProps = useCheckboxState({ state: [] })
+  const state = useCheckboxState({ state: [] })
 
   return (
     <ThemeProvider>
       <CheckboxGroup orientation="vertical" label="Checkbox Group Label!">
         <Label>
-          <Checkbox {...checkboxProps} value="1" />
+          <Checkbox state={state} value="1" />
           First Checkbox
         </Label>
         <Label>
-          <Checkbox {...checkboxProps} value="2" />
+          <Checkbox state={state} value="2" />
           Second Checkbox
         </Label>
       </CheckboxGroup>

@@ -5,24 +5,23 @@ import {
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit'
-import { createElement } from '@vtex/admin-ui-system'
+import { createElement, useClassName } from '@vtex/admin-ui-system'
 import { forwardRef } from '@vtex-components/utils'
 
 import { Overridable } from '../../types'
-import { useComponent } from '../../hooks/useComponent'
 
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
-    const { size = 'regular', ...htmlProps } = props
+    const { size = 'regular', styleOverrides, state, ...htmlProps } = props
 
-    const checkboxProps = useComponent({
-      props: htmlProps,
+    const className = useClassName({
+      props: { styles: styleOverrides },
       themeKey: `components.checkbox.${size}`,
     })
 
     return createElement({
       component: ReakitCheckbox,
-      htmlProps: { ...checkboxProps, ...htmlProps },
+      htmlProps: { className, ...htmlProps, ...state },
       ref,
     })
   }
@@ -36,13 +35,13 @@ type AbstractCheckboxProps = Pick<
   | 'value'
   | 'name'
   | 'onChange'
-  | 'state'
-  | 'setState'
   | 'onClick'
   | 'aria-label'
   | 'aria-labelledby'
   | 'id'
 >
+
+type State = Pick<ReakitProps, 'state' | 'setState'>
 
 export interface CheckboxProps extends AbstractCheckboxProps, Overridable {
   /**
@@ -50,6 +49,10 @@ export interface CheckboxProps extends AbstractCheckboxProps, Overridable {
    * @default regular
    */
   size?: 'regular' | 'small'
+  /**
+   * Return of `useCheckboxState`
+   */
+  state?: State
 }
 
 export { useCheckboxState }

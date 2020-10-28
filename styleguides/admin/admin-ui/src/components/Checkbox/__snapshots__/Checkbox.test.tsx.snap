@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #898F9E;
+  border-radius: 3px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.emotion-0:checked {
+  background-color: #2953B2;
+  border-color: #2953B2;
+}
+
+.emotion-0:checked:after {
+  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>");
+}
+
+.emotion-0:checked[disabled]:after {
+  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='%238B9299' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>");
+}
+
+.emotion-0:checked:hover {
+  background-color: #1E4397;
+  border-color: #1E4397;
+}
+
+.emotion-0:checked:active {
+  background-color: #3F6FDB;
+  border-color: #3F6FDB;
+}
+
+.emotion-0:indeterminate {
+  background-color: #DAE3F5;
+  border-color: #2953B2;
+  color: #2953B2;
+}
+
+.emotion-0:indeterminate:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 3px;
+  border-color: currentColor;
+}
+
+.emotion-0:indeterminate:disabled {
+  background-color: #C4C5CA;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:indeterminate:hover {
+  border-color: #1E4397;
+  color: #1E4397;
+  background-color: #E8F1FF;
+}
+
+.emotion-0:indeterminate:active {
+  border-color: #3F6FDB;
+  color: #3F6FDB;
+}
+
+.emotion-0:disabled {
+  background-color: #C4C5CA;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:active {
+  background-color: #DAE3F5;
+  border-color: #707685;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+<input
+    aria-checked="false"
+    aria-label="checkbox"
+    class="emotion-0"
+    data-testid="checkbox"
+    type="checkbox"
+    value="checkbox"
+  />
+  .emotion-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #898F9E;
+  border-radius: 3px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  min-width: 16px;
+  min-height: 16px;
+}
+
+.emotion-0:checked {
+  background-color: #2953B2;
+  border-color: #2953B2;
+}
+
+.emotion-0:checked:after {
+  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>");
+}
+
+.emotion-0:checked[disabled]:after {
+  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='%238B9299' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>");
+}
+
+.emotion-0:checked:hover {
+  background-color: #1E4397;
+  border-color: #1E4397;
+}
+
+.emotion-0:checked:active {
+  background-color: #3F6FDB;
+  border-color: #3F6FDB;
+}
+
+.emotion-0:indeterminate {
+  background-color: #DAE3F5;
+  border-color: #2953B2;
+  color: #2953B2;
+}
+
+.emotion-0:indeterminate:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 3px;
+  border-color: currentColor;
+}
+
+.emotion-0:indeterminate:disabled {
+  background-color: #C4C5CA;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:indeterminate:hover {
+  border-color: #1E4397;
+  color: #1E4397;
+  background-color: #E8F1FF;
+}
+
+.emotion-0:indeterminate:active {
+  border-color: #3F6FDB;
+  color: #3F6FDB;
+}
+
+.emotion-0:disabled {
+  background-color: #C4C5CA;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:active {
+  background-color: #DAE3F5;
+  border-color: #707685;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+<input
+    aria-checked="false"
+    aria-label="checkbox"
+    class="emotion-0"
+    data-testid="checkbox"
+    type="checkbox"
+    value="checkbox"
+  />
+</DocumentFragment>
+`;

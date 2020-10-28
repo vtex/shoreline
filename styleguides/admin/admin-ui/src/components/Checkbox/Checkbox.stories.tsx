@@ -36,9 +36,9 @@ export const MultipleCheckboxes = () => {
   return (
     <ThemeProvider>
       <Text>Checkboxes marked: {props.state}</Text>
-      <Checkbox {...props} aria-label="label" value="checkbox1" />
-      <Checkbox {...props} aria-label="label" value="checkbox2" />
-      <Checkbox {...props} aria-label="label" value="checkbox3" />
+      <Checkbox state={props} aria-label="label" value="checkbox1" />
+      <Checkbox state={props} aria-label="label" value="checkbox2" />
+      <Checkbox state={props} aria-label="label" value="checkbox3" />
     </ThemeProvider>
   )
 }
@@ -47,7 +47,7 @@ export const Disabled = () => {
   return (
     <ThemeProvider>
       <Checkbox checked disabled />
-      <Checkbox state="indeterminate" checked disabled />
+      <Checkbox state={{ state: 'indeterminate' }} checked disabled />
       <Checkbox disabled />
     </ThemeProvider>
   )
@@ -87,26 +87,21 @@ export const IndeterminateExample = () => {
   return (
     <ThemeProvider>
       <Label display="flex" items="center">
-        <Checkbox state={group} setState={setGroup} />
+        <Checkbox state={{ state: group, setState: setGroup }} />
         Fruits ( Group Control )
       </Label>
       <br />
       {values.map((fruit, key) => {
         return (
           <Label key={key} display="flex" items="center">
-            <Checkbox state={items} setState={setItems} value={fruit} />
+            <Checkbox
+              state={{ state: items, setState: setItems }}
+              value={fruit}
+            />
             {fruit}
           </Label>
         )
       })}
     </ThemeProvider>
   )
-}
-
-IndeterminateExample.parameters = {
-  previewTabs: {
-    'storybook/playroom/panel': {
-      hidden: true,
-    },
-  },
 }
