@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<p
+    class="emotion-0"
+  >
+    test paragraph
+  </p>
+</DocumentFragment>
+`;

@@ -49,9 +49,9 @@ export {
   CollapsibleGroupProps,
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
+export * from './components/Paragraph'
 export {
   unstableHeading,
-  unstableParagraph,
   TextBlock as unstableTextBlock,
 } from './components/unstableTypography'
 export { useResponsiveValue as unstableUseResponsiveValue } from '@vtex/admin-ui-system'
