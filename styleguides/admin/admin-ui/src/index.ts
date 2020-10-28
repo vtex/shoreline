@@ -32,7 +32,7 @@ export {
 } from './components/Collapsible'
 export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Toggle, ToggleProps, useToggle } from './components/Toggle'
-export { Avatar } from './components/Avatar'
+export * from './components/Avatar'
 export {
   Checkbox,
   CheckboxProps,
@@ -55,7 +55,6 @@ export {
   TextBlock as unstableTextBlock,
 } from './components/unstableTypography'
 export { useResponsiveValue as unstableUseResponsiveValue } from '@vtex/admin-ui-system'
-export { unstableAvatar } from './components/unstableAvatar'
 export { unstableCard } from './components/unstableCard'
 export { unstableSet } from './components/unstableSet'
 export {

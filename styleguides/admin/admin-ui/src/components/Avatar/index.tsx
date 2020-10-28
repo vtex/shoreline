@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { forwardRef, Ref } from 'react'
+import { createElement } from '@vtex/admin-ui-system'
+import { Box as ReakitBox } from 'reakit/Box'
 
-import { Surface, SurfaceProps } from './styled'
-import { Text } from '../Text'
+import { unstableBox as Box } from '../unstableBox'
+import { useComponent } from '../../hooks/useComponent'
+import { Overridable } from '../../types'
 
 /**
  * Component to create a user avatar from a passed label
@@ -13,19 +16,29 @@ import { Text } from '../Text'
  * <Avatar label="label" palette="danger" />
  * ```
  */
-export function Avatar(props: AvatarProps) {
-  const { palette = 'base', sx = {}, label, ...containerProps } = props
-
+export const Avatar = forwardRef(function Avatar(
+  props: AvatarProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { palette = 'base', label, ...containerProps } = props
   const firstLetter = label?.charAt(0)
+  const avatarProps = useComponent({
+    props: {
+      ...containerProps,
+      children: <Box text="highlight">{firstLetter}</Box>,
+    },
+    themeKey: `components.avatar.${palette}`,
+  })
 
-  return (
-    <Surface variant={`avatar.${palette}`} sx={sx} {...containerProps}>
-      <Text variant="highlight">{firstLetter}</Text>
-    </Surface>
-  )
-}
+  return createElement({
+    component: ReakitBox,
+    element: 'div',
+    htmlProps: avatarProps,
+    ref,
+  })
+})
 
-export interface AvatarProps extends SurfaceProps {
+export interface AvatarProps extends Overridable {
   /**
    * String that will have its first letter capitalized
    */
@@ -34,5 +47,5 @@ export interface AvatarProps extends SurfaceProps {
    * Avatar theme
    * @default base
    */
-  palette?: 'base' | 'primary' | 'danger' | 'success'
+  palette?: 'base' | 'primary' | 'danger'
 }

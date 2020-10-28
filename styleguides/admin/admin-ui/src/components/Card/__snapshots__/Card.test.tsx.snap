@@ -5,18 +5,20 @@ exports[`Card tests should match snapshot 1`] = `
   .emotion-0 {
   padding: 1.5rem;
   background-color: var(--theme-ui-colors-background,#FFFFFF);
-  border-color: var(--theme-ui-colors-muted-3,#D7DADF);
+  border-color: var(--theme-ui-colors-muted-3,#E0E2E7);
+  border-width: 0.0625rem;
   border-style: solid;
-  border-width: 1px;
-  border-radius: 4px;
+  border-radius: 0.250rem;
 }
 
 <div
     bc="muted.3"
     bg="background"
+    br="3"
+    bs="solid"
+    bw="1"
     class="emotion-0"
-    p="13"
-    sx="[object Object]"
+    p="6"
   >
     Example card
   </div>

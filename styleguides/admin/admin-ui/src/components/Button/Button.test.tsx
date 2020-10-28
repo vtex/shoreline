@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
 import serializer from 'jest-emotion'
 
-import { ThemeProvider } from '../../theme'
+import { ThemeProvider } from '../../system'
 import { Button, Palette, Size, Variant } from './index'
 
 expect.addSnapshotSerializer(serializer)
