@@ -38,7 +38,7 @@ const Template = (args: LinksProps) => {
 
   return (
     <Header>
-      <Header.Brand title="Status" />
+      <Header.Brand />
       <Header.LeftLinks>
         <Header.LeftLinks.Links {...args} />
         <Header.LeftLinks.Links to="/" title="History" />
@@ -47,8 +47,8 @@ const Template = (args: LinksProps) => {
         <Link href="/">CONTACT</Link>
         <Link href="/">
           Help Center
-          <Box sx={{ paddingLeft: 3 }}>
-            <IconExternalLink size={14} />
+          <Box sx={{ paddingLeft: 3, color: 'primary.base' }}>
+            <IconExternalLink size={16} />
           </Box>
         </Link>
       </Header.RightLinks>

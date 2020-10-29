@@ -18,11 +18,11 @@ export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
       >
         {disclosure.visible ? (
           <Box sx={{ color: 'secondary.base' }}>
-            <IconExit size={18} />
+            <IconExit size={24} />
           </Box>
         ) : (
-            <IconHamburger size={24} />
-          )}
+          <IconHamburger size={24} />
+        )}
       </Disclosure>
       <DisclosureContent
         {...disclosure}

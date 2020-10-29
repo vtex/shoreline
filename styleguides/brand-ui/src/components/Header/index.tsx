@@ -24,7 +24,7 @@ export const Header = ({ children, sx }: PropsWithChildren<SxProps>) => (
 
 const Brand = ({
   noMargin = false,
-  children = <IconVTEXExpanded size={80} />,
+  children = <IconVTEXExpanded size={35} />,
 }: PropsWithChildren<BrandProps>) => {
   const sx = noMargin ? { marginX: '0' } : {}
 

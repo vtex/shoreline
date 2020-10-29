@@ -5,19 +5,23 @@ export const IconExternalLink = (props: IconProps) => {
   return (
     <Icon
       {...props}
-      viewBox="0 0 25 25"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M2.77778 22.1602H22.2222V12.4651H25V22.1602C25 23.6906 23.7569 24.9302 22.2222 24.9302H2.77778C1.24306 24.9302 0 23.6906 0 22.1602V2.77002C0 1.23958 1.24306 0 2.77778 0H12.5V2.77002H2.77778V22.1602Z"
-        fill="#F71963"
-        fillOpacity={1}
+        d="M12 12L21 3V10V3H14"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        d="M15.4211 2.86378V0H25V10.0232H22.2632V4.88991L14.0526 13.9609L12 11.8131L20.3268 2.86378H15.4211Z"
-        fill="#F71963"
-        fillOpacity={1}
+        d="M9 3H5C3.895 3 3 3.895 3 5V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V15"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </Icon>
   )
