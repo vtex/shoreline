@@ -6,7 +6,7 @@ path: /docs/checkbox/
 
 An accessible Checkbox input component.
 
-## Usage
+## Behavior
 
 ```jsx
 import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
@@ -25,12 +25,21 @@ function Example() {
   )
 }
 ```
+## Installation
+
+```static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { Checkbox } from '@vtex/admin-ui'
+```
+
+## Variation
 
 ### aria-label
 
 `aria-label` is an optional prop, but, as a `form` component, the Checkbox should have a label specified to be accessible, so we grant this using this property.
-
-#### Example
 
 ```jsx
 import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
@@ -51,13 +60,11 @@ function Example() {
 }
 ```
 
-## State
+### State
 
-### `checked` and `onChange`
+#### `checked` and `onChange`
 
 We can implement our state logic, just using the properties `checked` and `onChange`.
-
-#### Example
 
 ```jsx
 import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
@@ -100,9 +107,7 @@ It can be very handy if you have a group of Checkboxes and want to handle the st
 
 > 💡 You can check [Reakit documentation](https://reakit.io/docs/checkbox/#usecheckboxstate) for detailed info
 
-#### Usage Examples
-
-- **Simple Checkbox**
+### Simple Checkbox
 
 ```jsx
 import { Checkbox, useCheckbox, ThemeProvider } from '@vtex/admin-ui'
@@ -118,7 +123,7 @@ function Example() {
 }
 ```
 
-- **Multiple Checkboxes**
+### Multiple Checkboxes
 
   Remember that all checkboxes need to have a value set!
 

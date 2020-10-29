@@ -66,8 +66,8 @@ yarn add @vtex/admin-ui
 ```jsx static
 import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
 ```
-
-## Basic
+## Variation
+### Basic
 
 ```jsx
 import {
@@ -116,7 +116,7 @@ function Example() {
 }
 ```
 
-## Nested
+### Nested
 
 ```jsx
 import {
@@ -252,7 +252,7 @@ function Example() {
 }
 ```
 
-## Composites
+### Composites
 
 - `<CollapsibleGroup.Item>`
 - `<CollapsibleGroup.Item.Header>`
@@ -260,13 +260,13 @@ function Example() {
 
 > 💡 Check the Collapsible Component Documentation for detailed info.
 
-## State
+### State
 
 - `useCollapsible` hook
 
 Since the `CollapsibleGroup.Item` is a Collapsible Component, you should use this hook to add state logic to them.
 
-## Customization
+### Customization
 
 `CollapsibleGroup` is a container component, so you can customize it using `Border`, `Space`, `Color`, and `Layout` tokens defined in our theme, or you can do it using the `sx` prop as well.
 
