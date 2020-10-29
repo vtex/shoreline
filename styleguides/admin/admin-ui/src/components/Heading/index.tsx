@@ -10,7 +10,7 @@ export const Heading = forwardRef(function Heading(
   props: HeadingProps,
   ref: Ref<HTMLHeadingElement>
 ) {
-  const { element, ...htmlProps } = props
+  const { element = 'h1', ...htmlProps } = props
   const headingProps = useComponent({
     props: { text: 'headline', ...htmlProps },
   })

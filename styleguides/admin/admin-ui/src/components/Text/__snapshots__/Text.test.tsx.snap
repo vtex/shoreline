@@ -2,90 +2,80 @@
 
 exports[`Text tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  line-height: 1.125;
-  font-variation-settings: 'wght' 80;
-  font-weight: 400;
-  font-size: 0.75rem;
-}
-
-<span
+  <span
     class="emotion-0"
-    sx="[object Object]"
-    variant="text.small"
   >
-    small
+    Span
   </span>
-  .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 80;
-  font-weight: 400;
-  font-size: 0.875rem;
-}
-
-<span
+  <strong
     class="emotion-0"
-    sx="[object Object]"
-    variant="text.body"
   >
-    body
-  </span>
-  .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-<span
+    Bold
+  </strong>
+  <i
     class="emotion-0"
-    sx="[object Object]"
-    variant="text.highlight"
   >
-    highlight
-  </span>
-  .emotion-0 {
-  line-height: 1.5;
-  font-variation-settings: 'wght' 92;
-  font-weight: 500;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-}
-
-<span
+    Italic
+  </i>
+  <u
     class="emotion-0"
-    sx="[object Object]"
-    variant="text.action"
   >
-    action
-  </span>
-  .emotion-0 {
-  line-height: 1.5;
-  font-variation-settings: 'wght' 92;
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-<h2
+    Underline
+  </u>
+  <abbr
     class="emotion-0"
-    sx="[object Object]"
-    variant="text.subtitle"
   >
-    subtitle
-  </h2>
-  .emotion-0 {
-  line-height: 1.5;
-  font-variation-settings: 'wght' 92;
-  font-weight: 500;
-  font-size: 1.25rem;
-}
-
-<h1
+    I18N
+  </abbr>
+  <cite
     class="emotion-0"
-    sx="[object Object]"
-    variant="text.headline"
   >
-    headline
-  </h1>
+    Citation
+  </cite>
+  <del
+    class="emotion-0"
+  >
+    Deleted
+  </del>
+  <em
+    class="emotion-0"
+  >
+    Emphasis
+  </em>
+  <ins
+    class="emotion-0"
+  >
+    Inserted
+  </ins>
+  <kbd
+    class="emotion-0"
+  >
+    Ctrl + C
+  </kbd>
+  <mark
+    class="emotion-0"
+  >
+    Highlighted
+  </mark>
+  <s
+    class="emotion-0"
+  >
+    Strikethrough
+  </s>
+  <samp
+    class="emotion-0"
+  >
+    Sample
+  </samp>
+  <sub
+    class="emotion-0"
+  >
+    sub
+  </sub>
+  <sup
+    class="emotion-0"
+  >
+    sup
+  </sup>
 </DocumentFragment>
 `;

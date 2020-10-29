@@ -8,11 +8,11 @@ exports[`Heading tests should match snapshot 1`] = `
   font-size: 1.25rem;
 }
 
-<div
+<h1
     class="emotion-0"
   >
     Heading 1
-  </div>
+  </h1>
   .emotion-0 {
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
