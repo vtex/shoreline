@@ -1,11 +1,11 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { unstableHeading as Heading, TextBlock } from './index'
+import { Heading } from './index'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 export default {
-  title: 'system-next/typography',
+  title: 'beta/typography/heading',
 } as Meta
 
 export function heading() {
@@ -21,24 +21,10 @@ export function heading() {
   )
 }
 
-export function smartHeading() {
+export function StyleOverrides() {
   return (
     <ThemeProvider>
-      <TextBlock>
-        <Heading>Heading 1</Heading>
-        <TextBlock>
-          <Heading>Heading 2</Heading>
-          <TextBlock>
-            <Heading>Heading 3</Heading>
-          </TextBlock>
-        </TextBlock>
-      </TextBlock>
-      <TextBlock>
-        <Heading>Heading 1</Heading>
-        <TextBlock>
-          <Heading>Heading 2</Heading>
-        </TextBlock>
-      </TextBlock>
+      <Heading styleOverrides={{ color: 'primary.base' }}>Heading 1</Heading>
     </ThemeProvider>
   )
 }

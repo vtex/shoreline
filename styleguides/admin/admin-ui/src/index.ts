@@ -38,10 +38,6 @@ export {
   CollapsibleGroupProps,
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
-export {
-  unstableHeading,
-  TextBlock as unstableTextBlock,
-} from './components/unstableTypography'
 export { useResponsiveValue as unstableUseResponsiveValue } from '@vtex/admin-ui-system'
 export { unstableCard } from './components/unstableCard'
 export { unstableSet } from './components/unstableSet'
@@ -65,3 +61,4 @@ export * from './components/Radio'
 export * from './components/RadioGroup'
 export * from './components/Paragraph'
 export * from './components/List'
+export * from './components/Heading'
