@@ -7,7 +7,7 @@ import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider
 import { Text } from '../Text'
 
 export default {
-  title: 'beta/Checkbox',
+  title: 'beta/forms/Checkbox',
   component: Checkbox,
 } as Meta
 
@@ -86,14 +86,17 @@ export const IndeterminateExample = () => {
 
   return (
     <ThemeProvider>
-      <Label display="flex" items="center">
+      <Label styleOverrides={{ display: 'flex', alignItems: 'center' }}>
         <Checkbox state={{ state: group, setState: setGroup }} />
         Fruits ( Group Control )
       </Label>
       <br />
       {values.map((fruit, key) => {
         return (
-          <Label key={key} display="flex" items="center">
+          <Label
+            key={key}
+            styleOverrides={{ display: 'flex', alignItems: 'center' }}
+          >
             <Checkbox
               state={{ state: items, setState: setItems }}
               value={fruit}
