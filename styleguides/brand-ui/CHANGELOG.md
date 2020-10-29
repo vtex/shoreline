@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.22.0...@vtex/brand-ui@0.22.1) (2020-10-29)
+
+
+### Bug Fixes
+
+* popover fixed bug ([ec4ff4b](https://github.com/vtex/onda/commit/ec4ff4b6f9207c6803e294c4a438fa7269541dc2))
+
+
+
+
+
 # [0.22.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.21.0...@vtex/brand-ui@0.22.0) (2020-10-22)
 
 
