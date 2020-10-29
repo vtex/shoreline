@@ -13,7 +13,7 @@ It implements a 12 column flexbox based responsive column system.
 import {
   unstableThemeProvider as ThemeProvider,
   theme,
-  unstableColumns as Columns,
+  Columns,
   unstableBox as Box,
 } from '@vtex/admin-ui'
 
@@ -58,7 +58,7 @@ yarn add @vtex/admin-ui@latest
 import {
   unstableThemeProvider as ThemeProvider,
   theme,
-  unstableColumns as Columns,
+  Columns,
   unstableBox as Box,
 } from '@vtex/admin-ui'
 
@@ -93,7 +93,7 @@ function Example() {
 import {
   unstableThemeProvider as ThemeProvider,
   theme,
-  unstableColumns as Columns,
+  Columns,
   unstableBox as Box,
 } from '@vtex/admin-ui'
 
@@ -128,7 +128,7 @@ function Example() {
 import {
   unstableThemeProvider as ThemeProvider,
   theme,
-  unstableColumns as Columns,
+  Columns,
   unstableBox as Box,
 } from '@vtex/admin-ui'
 
@@ -165,7 +165,7 @@ function Example() {
 import {
   unstableThemeProvider as ThemeProvider,
   theme,
-  unstableColumns as Columns,
+  Columns,
   unstableBox as Box,
 } from '@vtex/admin-ui'
 
@@ -197,7 +197,7 @@ You can use the styleOverrides property to handle different styles in both `Colu
 import {
   unstableThemeProvider as ThemeProvider,
   theme,
-  unstableColumns as Columns,
+  Columns,
   unstableBox as Box,
 } from '@vtex/admin-ui'
 
@@ -227,8 +227,8 @@ This component uses a flexbox under the hood. Knowing that it has the same limit
 
 ## Props
 
-<propdetails heading="Columns" component="unstableColumns">
+<propdetails heading="Columns" component="Columns">
 </propdetails>
 
-<propdetails heading="Columns.Item" component="unstableColumnsItem">
+<propdetails heading="Columns.Item" component="ColumnsItem">
 </propdetails>

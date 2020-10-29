@@ -7,38 +7,9 @@ import {
 } from '@vtex/admin-ui-system'
 
 import { Overridable } from '../../types'
-import { ColumnsProvider, useColumnsContext } from './context'
+import { useColumnsContext } from './context'
 
-export interface ColumnsProps extends Overridable {
-  children?: ReactNode
-  spacing?: ResponsiveValue<number>
-}
-
-export function Columns(props: ColumnsProps) {
-  const { spacing = 1, children, styleOverrides } = props
-  const styles: SxStyleProp = {
-    display: 'flex',
-    flexWrap: 'wrap',
-  }
-
-  const className = useClassName({
-    props: { styles: { ...styles, ...styleOverrides } },
-  })
-
-  return (
-    <div className={className}>
-      <ColumnsProvider value={{ spacing }}>{children}</ColumnsProvider>
-    </div>
-  )
-}
-
-export interface ColumnProps extends Overridable {
-  children?: ReactNode
-  units?: ResponsiveValue<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>
-  offset?: ResponsiveValue<'left' | 'right' | 'both' | 'none'>
-}
-
-export function Column(props: ColumnProps) {
+export function ColumnsItem(props: ColumnsItemProps) {
   const { units, offset = 'none', styleOverrides, ...layoutProps } = props
   const { spacing } = useColumnsContext()
   const responsiveUnits = useResponsiveValue(units)
@@ -82,4 +53,8 @@ export function Column(props: ColumnProps) {
   return <div className={className} {...layoutProps} />
 }
 
-Columns.Item = Column
+export interface ColumnsItemProps extends Overridable {
+  children?: ReactNode
+  units?: ResponsiveValue<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>
+  offset?: ResponsiveValue<'left' | 'right' | 'both' | 'none'>
+}
