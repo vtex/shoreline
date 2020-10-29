@@ -57,9 +57,7 @@ export const TextExample = () => {
             </Text>
           </Box>
         )}
-        <Button mx="0" onClick={() => setLoading((s) => !s)}>
-          Toggle Loading
-        </Button>
+        <Button onClick={() => setLoading((s) => !s)}>Toggle Loading</Button>
       </Box>
     </Fragment>
   )

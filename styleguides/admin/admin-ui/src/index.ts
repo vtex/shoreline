@@ -1,7 +1,6 @@
 export * from './system'
 export * from './icons'
 export { Box, BoxProps } from './components/Box'
-export { Button, ButtonProps } from './components/Button'
 export { Text, TextProps } from './components/Text'
 export { Skeleton, SkeletonProps } from './components/Skeleton'
 export {
@@ -44,7 +43,6 @@ export {
   Column as unstableColumnsItem,
 } from './components/unstableColumns'
 export { unstableBox } from './components/unstableBox'
-export { unstableButton } from './components/unstableButton'
 export { unstableInput } from './components/unstableInput'
 export { unstableTextField } from './components/unstableTextField'
 export { unstableThemeProvider } from './components/unstableThemeProvider'
@@ -61,3 +59,4 @@ export * from './components/Paragraph'
 export * from './components/List'
 export * from './components/Heading'
 export * from './components/Card'
+export * from './components/Button'

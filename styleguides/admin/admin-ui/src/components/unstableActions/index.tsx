@@ -3,7 +3,7 @@ import { Box as ReakitBox } from 'reakit/Box'
 import { createElement } from '@vtex/admin-ui-system'
 
 import { SetProps, useSet } from '../unstableSet'
-import { unstableButton as Button, ButtonProps } from '../unstableButton'
+import { Button, ButtonProps } from '../Button'
 import { ActionsProvider, useActionsContext } from './context'
 
 type ActionsProps = SetProps & Pick<ButtonProps, 'size' | 'palette'>
