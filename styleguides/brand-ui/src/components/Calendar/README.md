@@ -12,7 +12,7 @@ A `Calendar` is a container that displays date data in a form, which allows the 
 | year | number | the year that will be displayed | 🚫       | current year |
 | events | Events | events that should have a mark on the calendar | 🚫       | [] |
 | locale | string | internationalization of the dates and weekdays | 🚫       | `en` |
-| disabled | boolean | whether the checkbox is calendar or not | 🚫       | `false` |
+| disabled | boolean | whether the calendar is disabled or not | 🚫       | `false` |
 
 The `Events` type is specified below:
 
