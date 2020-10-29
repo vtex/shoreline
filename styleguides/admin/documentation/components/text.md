@@ -104,36 +104,37 @@ function Example() {
 ### Font Variation
 
 ```jsx
-import { Text, ThemeProvider } from '@vtex/admin-ui'
+import { Text, Box } from '@vtex/admin-ui'
 
 function Example() {
-  return(
-  <Box>
-    <Text el="span" variant="small">
-      Small
-    </Text>
-    <br />
-    <Text el="span" variant="body">
-      Body
-    </Text>
-    <br />
-    <Text el="span" variant="highlight">
-      Highlight
-    </Text>
-    <br />
-    <Text el="span" variant="action">
-      Action
-    </Text>
-    <br />
-    <Text el="span" variant="subtitle">
-      Subtitle
-    </Text>
-    <br />
-    <Text el="span" variant="headline" fw="bold">
-      Headline
-    </Text>
-  </Box>
-)
+  return (
+    <Box>
+      <Text el="span" variant="small">
+        Small
+      </Text>
+      <br />
+      <Text el="span" variant="body">
+        Body
+      </Text>
+      <br />
+      <Text el="span" variant="highlight">
+        Highlight
+      </Text>
+      <br />
+      <Text el="span" variant="action">
+        Action
+      </Text>
+      <br />
+      <Text el="span" variant="subtitle">
+        Subtitle
+      </Text>
+      <br />
+      <Text el="span" variant="headline" fw="bold">
+        Headline
+      </Text>
+    </Box>
+  )
+}
 ```
 
 ## Customization
