@@ -6,7 +6,7 @@ import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider
 import { unstableBox as Box } from '../unstableBox'
 
 export default {
-  title: 'system-next/layout/columns',
+  title: 'beta/layout/columns',
 } as Meta
 
 export const Auto = () => {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
-import { Columns } from '../unstableColumns'
+import { Columns } from '../Columns'
 import { Card } from './index'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'

@@ -36,10 +36,6 @@ export {
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
 export { useResponsiveValue as unstableUseResponsiveValue } from '@vtex/admin-ui-system'
-export {
-  Columns as unstableColumns,
-  Column as unstableColumnsItem,
-} from './components/unstableColumns'
 export { unstableBox } from './components/unstableBox'
 export { unstableInput } from './components/unstableInput'
 export { unstableTextField } from './components/unstableTextField'
@@ -60,3 +56,4 @@ export * from './components/Card'
 export * from './components/Button'
 export * from './components/Set'
 export * from './components/Text'
+export * from './components/Columns'
