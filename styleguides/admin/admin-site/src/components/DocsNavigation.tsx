@@ -94,7 +94,7 @@ function ExperimentalLink(props: GatsbyLinkProps<{}>) {
         }}
         {...tooltip}
       >
-        <Text el="span" variant="small">
+        <Text variant="small">
           <TooltipArrow {...tooltip} />
           Next
         </Text>

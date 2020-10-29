@@ -60,7 +60,7 @@ export const Plain = () => {
               render: function Render({ data }) {
                 return (
                   <Text
-                    text="highlight"
+                    variant="highlight"
                     styleOverrides={{
                       color: Number(data) > 0 ? 'primary.base' : 'danger.base',
                     }}
@@ -316,9 +316,9 @@ export const Root = () => {
 
                 return (
                   <Fragment>
-                    <Text text="highlight">{item.productName}</Text>
+                    <Text variant="highlight">{item.productName}</Text>
                     <br />
-                    <Text text="body">{item.category}</Text>
+                    <Text variant="body">{item.category}</Text>
                   </Fragment>
                 )
               },

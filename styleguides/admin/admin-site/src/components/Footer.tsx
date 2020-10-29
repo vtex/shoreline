@@ -45,7 +45,7 @@ export default function Footer() {
           <VisuallyHidden>GitHub</VisuallyHidden>
         </Anchor>
       </div>
-      <Text el="p">Copyright © 2020 VTEX</Text>
+      <Text>Copyright © 2020 VTEX</Text>
     </footer>
   )
 }
