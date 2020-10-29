@@ -4,7 +4,7 @@ path: /docs/card/
 
 # Card
 
-## Usage
+## Behavior
 
 ```jsx
 import { Card, Text, ThemeProvider } from '@vtex/admin-ui'
@@ -32,3 +32,17 @@ function Example() {
   )
 }
 ```
+
+## Installation
+
+```static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { Card } from '@vtex/admin-ui'
+```
+
+# Props
+
+<proptypes heading="Card" component="Card" />
