@@ -137,7 +137,7 @@ import { Button, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Button icon={<IconFavorite />} iconPosition="start">
+      <Button icon={<IconFavorite />} iconPosition="start" mr="20px">
         Icon start
       </Button>
       <Button icon={<IconFavorite />} iconPosition="end">
