@@ -4,7 +4,6 @@ export { Box, BoxProps } from './components/Box'
 export { Button, ButtonProps } from './components/Button'
 export { Text, TextProps } from './components/Text'
 export { Skeleton, SkeletonProps } from './components/Skeleton'
-export { Card, CardProps } from './components/Card'
 export {
   Menu,
   MenuProps,
@@ -39,7 +38,6 @@ export {
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
 export { useResponsiveValue as unstableUseResponsiveValue } from '@vtex/admin-ui-system'
-export { unstableCard } from './components/unstableCard'
 export { unstableSet } from './components/unstableSet'
 export {
   Columns as unstableColumns,
@@ -62,3 +60,4 @@ export * from './components/RadioGroup'
 export * from './components/Paragraph'
 export * from './components/List'
 export * from './components/Heading'
+export * from './components/Card'
