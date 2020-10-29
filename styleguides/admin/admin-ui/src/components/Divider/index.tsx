@@ -1,20 +1,28 @@
-import styled from '@emotion/styled'
-import Divider, { DividerProps as BaseProps } from '@vtex-components/divider'
+import { Separator as ReakitSeparator } from 'reakit'
+import { createElement } from '@vtex/admin-ui-system'
+import { SpaceStyleProps } from '@vtex/admin-ui-theme'
 
-import {
-  spaceTokens,
-  SpaceTokensProps,
-  sxTokens,
-  SxTokensProps,
-} from '../../system'
+import { useComponent } from '../../hooks/useComponent'
+import { Overridable } from '../../types'
 
-export type DividerProps = Pick<BaseProps, 'orientation'> &
-  Pick<SpaceTokensProps, 'm' | 'mt' | 'mb' | 'mr' | 'ml' | 'mx' | 'my'> &
-  SxTokensProps
+export function Divider(props: DividerProps) {
+  const { orientation = 'horizontal', ...htmlProps } = props
+  const dividerProps = useComponent({
+    props: { text: 'headline', ...htmlProps },
+    themeKey: `components.divider.${orientation}`,
+  })
 
-const StyledDivider = styled(Divider)<DividerProps>`
-  ${spaceTokens}
-  ${sxTokens}
-`
+  return createElement({
+    element: 'hr',
+    component: ReakitSeparator,
+    htmlProps: { orientation, ...dividerProps },
+  })
+}
 
-export { StyledDivider as Divider }
+export interface DividerProps extends Overridable, SpaceStyleProps {
+  /**
+   * Divider orientation
+   * @default 'horizontal'
+   */
+  orientation?: 'horizontal' | 'vertical'
+}
