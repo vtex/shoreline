@@ -4,9 +4,9 @@ path: /docs/radio/
 
 # Radio
 
-> An accessible Radio input component.
+An accessible Radio input component.
 
-## Usage
+## Behavior
 
 ```jsx
 import { Radio, useRadio, ThemeProvider } from '@vtex/admin-ui'
@@ -22,21 +22,21 @@ function Example() {
 }
 ```
 
-### value prop
+**value prop**
 
 The `Radio` is used mostly in a `RadioGroup` context, so every Radio should have a value set.
 
-### aria-label prop
+**aria-label prop**
 
 `aria-label` is an optional prop, but, as a `form` component, the Radio should have a label specified to be accessible, so we grant this using this property.
 
-## State
+### State
 
-### `useRadio` hook
+#### `useRadio` hook
 
 The `Radio` component is always used in a `RadioGroup` context, so we provide this hook that already handles the state and accessible navigation logic for both `Radio` and `RadioGroup` components.
 
-### Hook return
+#### Hook return
 
 ```jsx static
 interface RadioStateReturn {
@@ -57,7 +57,17 @@ interface RadioStateReturn {
 }
 ```
 
-### Usage
+## Installation
+
+```jsx static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { Radio } from '@vtex/admin-ui'
+```
+
+## Variation
 
 ```jsx
 import {
@@ -100,8 +110,8 @@ function Example() {
 }
 ```
 
-> 💡 You can check [Reakit documentation](https://reakit.io/docs/radio/#useradiostate) for detailed info
-
 ## Props
+
+### WIP
 
 <proptypes heading="Radio" component="Radio" />

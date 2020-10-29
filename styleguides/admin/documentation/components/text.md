@@ -8,7 +8,7 @@ The component that abstracts all text variants from admin's styleguide
 
 > 💡 Also check Theme Documentation for detailed info.
 
-## Usage
+## Behavior
 
 ```jsx
 import { Text, ThemeProvider } from '@vtex/admin-ui'
@@ -22,11 +22,19 @@ function Example() {
 }
 ```
 
-### Customization
+## Installation
 
-Use `sx` prop if you want to add any style to your `Text` component.
+```jsx static
+yarn add @vtex/admin-ui
+```
 
-### `variant` prop
+```jsx static
+import { Text } from '@vtex/admin-ui'
+```
+
+## Variation
+
+Variant Prop
 
 By default `<Text />` render three HTML elements
 
@@ -79,12 +87,66 @@ function Example() {
 }
 ```
 
-## Color
+```jsx
+import { Text, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Text el="h3" variant="headline">
+        Look, a heading 3
+      </Text>
+    </ThemeProvider>
+  )
+}
+```
+
+### Font Variation
+
+```jsx
+import { Text, Box } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <Box>
+      <Text el="span" variant="small">
+        Small
+      </Text>
+      <br />
+      <Text el="span" variant="body">
+        Body
+      </Text>
+      <br />
+      <Text el="span" variant="highlight">
+        Highlight
+      </Text>
+      <br />
+      <Text el="span" variant="action">
+        Action
+      </Text>
+      <br />
+      <Text el="span" variant="subtitle">
+        Subtitle
+      </Text>
+      <br />
+      <Text el="span" variant="headline" fw="bold">
+        Headline
+      </Text>
+    </Box>
+  )
+}
+```
+
+## Customization
+
+Use `sx` prop if you want to add any style to your `Text` component.
+
+### Color
 
 This component doesn't have a default color, we do this so that the component can inherit the color defined on its parent.
 But you can set this using `sx` prop!
 
-### Example
+#### Example
 
 ```jsx
 import { Text, ThemeProvider } from '@vtex/admin-ui'
@@ -102,16 +164,20 @@ function Example() {
 
 ⚠️ Remember that color values are based on `Admin's Theme`
 
-## VTEX Trust variable font
+### VTEX Trust variable font
 
 A variable font is a specification that can significantly reduce font file sizes and make it possible to animate font characters. We've implemented `VTEX Trust font` using this feature.
 
 [Read more about Variable Fonts](https://web.dev/variable-fonts/)
 
-### Fallback
+#### Fallback
 
 Most of the browsers have support to variable fonts, but for the remaining browsers who do not, we have a fallback using `sans-serif` font.
 
 [Read more about the Browsers Support](https://caniuse.com/variable-fonts)
+
+## Props
+
+### WIP
 
 <proptypes heading="Text" component="Text"/>

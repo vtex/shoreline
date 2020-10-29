@@ -6,7 +6,7 @@ path: /docs/radio-group/
 
 Used to group `Radio` components.
 
-## Usage
+## Behavior
 
 ```jsx
 import {
@@ -55,11 +55,23 @@ function Example() {
 }
 ```
 
+## Installation
+
+```jsx static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { RadioGroup } from '@vtex/admin-ui'
+```
+
 ## `useRadio` hook
 
 You should use this hook to grants navigation accessibility in the `RadioGroup` children.
 
-### Usage
+### Variation
+
+Orientation Horizontal
 
 ```jsx
 import {
@@ -107,8 +119,6 @@ function Example() {
   )
 }
 ```
-
-> 💡 You can check [Reakit documentation](https://reakit.io/docs/radio/#useradiostate) for detailed info
 
 ## RadioGroup Label
 
@@ -161,5 +171,7 @@ Components with `role="radiogroup"` should have children of type `Radio`. We don
 The labels involved by `RadioGroup` are customized with `display="flex"` and `items="center"` by default. You can override these styles if necessary.
 
 ## Props
+
+### WIP
 
 <proptypes heading="RadioGroup" component="RadioGroup"/>

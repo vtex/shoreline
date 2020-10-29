@@ -9,7 +9,7 @@ Skeletons represent a UI that doesn’t contain actual content; instead, it show
 - It shows users that content is loading, offering a vague preview of how content will look once it fully loads.
 - It's being used internally by AdminUI to handle the loading state of specific components.
 
-## Usage
+## Behavior
 
 By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
 
@@ -28,6 +28,18 @@ function Example() {
   )
 }
 ```
+
+## Installation
+
+```jsx static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { Skeleton } from '@vtex/admin-ui'
+```
+
+## Variation
 
 - **Rect Example**
 
