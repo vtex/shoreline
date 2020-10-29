@@ -33,6 +33,10 @@ const events: Events = {
     name: 'Collections and Checkout are having some instabilities',
     colors: ['#FFB100', '#FF4C4C'],
   },
+  '2020-03-17': {
+    name: 'Collections and Checkout are having some instabilities',
+    colors: ['#FFB100'],
+  },
 }
 
 const Template: Story<CalendarProps> = (props) => {
