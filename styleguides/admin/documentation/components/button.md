@@ -4,17 +4,9 @@ path: /docs/button/
 
 # Button
 
-Accessible button component
+Component that handles all Button variants of the DS. It renders a button jsx element by default.
 
-## Installation
-
-```sh
-yarn add @vtex/admin-ui
-```
-
-Learn more in [Get started](/docs/get-started/).
-
-## Usage
+## Behavior
 
 ```jsx
 import { ThemeProvider, Button } from '@vtex/admin-ui'
@@ -22,41 +14,122 @@ import { ThemeProvider, Button } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Button>Button</Button>
+      <Button>Admin UI Button</Button>
     </ThemeProvider>
   )
 }
 ```
 
-## Migration Guide
+## Installation
 
-This section is designated for users coming from [Styleguide v9](https://styleguide.vtex.com/)
+```static
+yarn add @vtex/admin-ui
+```
 
-### Button Style
+```jsx static
+import { Button } from '@vtex/admin-ui'
+```
 
-- `variation` -> Refer to the structure of the button and how it will behave on the states of hover, pressed, and focused.
-- `palette` -> Refer to the color palette of the button (Primary and Danger palettes)
-- `sx` -> It's used for styling, so if it's necessary to add or override some style, is possible to do this using this property.
+Learn more in [Get started](/docs/get-started/).
 
-### Variant and Palette
+## Variation
+### Text
 
-In the `styleguide v9`, we used `variation` to define the type and color of the button. Now we've separated it into two props `variant` and `palette`.
+```jsx
+import { ThemeProvider, Button } from '@vtex/admin-ui'
 
-#### How we use
+function Example() {
+  return (
+    <ThemeProvider>
+      <Button variant="text">Admin UI Button Text</Button>
+    </ThemeProvider>
+  )
+}
+```
+### Filled
 
-- `variation="primary"` -> `variant="filled" palette="primary"`
-- `variation="secondary"` -> `variant="subtle" palette="primary"`
-- `variation="tertiary"` -> `variant="text" palette="primary"`
-- `variation="danger"` -> `variant="filled" palette="danger"`
-- `variation="danger-tertiary"` -> `variant="text" palette="danger"`
+```jsx
+import { ThemeProvider, Button } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Button variant="filled">Admin UI Button Filled</Button>
+    </ThemeProvider>
+  )
+}
+```
+### Subtle
+
+```jsx
+import { ThemeProvider, Button } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Button variant="subtle">Admin UI Button Subtle</Button>
+    </ThemeProvider>
+  )
+}
+```
+### Primary
+
+```jsx
+import { ThemeProvider, Button } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Button palette="primary">Admin UI Button Primary</Button>
+    </ThemeProvider>
+  )
+}
+```
+### Danger
+
+```jsx
+import { ThemeProvider, Button } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Button palette="danger">Admin UI Button Danger</Button>
+    </ThemeProvider>
+  )
+}
+```
+### Small
+
+```jsx
+import { ThemeProvider, Button } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Button size="small">Admin UI Button Small</Button>
+    </ThemeProvider>
+  )
+}
+```
+### Regular
+
+```jsx
+import { ThemeProvider, Button } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Button size="regular">Admin UI Button Regular</Button>
+    </ThemeProvider>
+  )
+}
+```
 
 ### Button with Icon
 
 To use a button with an icon before, we needed to import another component, but now we can have this behavior only using the main Button.
 
-#### Example
-
-- Icon and Label
+#### Icon and Label
 
 ```jsx
 import { Button, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
@@ -64,7 +137,7 @@ import { Button, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Button icon={<IconFavorite />} iconPosition="start">
+      <Button icon={<IconFavorite />} iconPosition="start" mr="20px">
         Icon start
       </Button>
       <Button icon={<IconFavorite />} iconPosition="end">
@@ -75,7 +148,7 @@ function Example() {
 }
 ```
 
-- Only Icon
+#### Only Icon
 
 ```jsx
 import { Button, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
@@ -91,4 +164,4 @@ function Example() {
 
 ## Props
 
-<proptypes component="Button" />
+<proptypes heading="Button" component="Button" />
