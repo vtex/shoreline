@@ -6,7 +6,7 @@ path: /docs/divider/
 
 It renders an `hr` element and grants accessibility described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator)
 
-## Usage
+## Behavior
 
 ```jsx
 import { Divider, ThemeProvider } from '@vtex/admin-ui'
@@ -20,6 +20,17 @@ function Example() {
 }
 ```
 
+## Installation
+
+```static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { Divider } from '@vtex/admin-ui'
+```
+
+## Variation
 ### Horizontal
 
 ```jsx
@@ -91,7 +102,7 @@ You can use all margin's `SpaceTokens` to customize your divider, and also you c
 
 > 💡 You can check the Theme Documentation for detailed info.
 
-### Example
+### Examples
 
 - Increasing vertical margin using `SpaceTokens`
 
@@ -114,5 +125,4 @@ function UseCase() {
 ```
 
 ## Props
-
-<proptypes heading="Divider" component="Divider" />
+### WIP
