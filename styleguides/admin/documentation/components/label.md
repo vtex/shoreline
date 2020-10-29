@@ -6,9 +6,7 @@ path: /docs/label/
 
 Form label component
 
-## Usage
-
-- Simple usage
+## Behavior
 
 ```jsx
 import { Label, ThemeProvider } from '@vtex/admin-ui'
@@ -26,7 +24,18 @@ function Example() {
 }
 ```
 
-- Using `htmlFor` prop
+## Installation
+
+```static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { Label } from '@vtex/admin-ui'
+```
+
+## Variation
+### Using `htmlFor` prop
 
 ```jsx
 import { Label, ThemeProvider } from '@vtex/admin-ui'
@@ -41,14 +50,6 @@ function Example() {
   )
 }
 ```
-
-## Props
-
-| prop    | type   | description                                       | required | default |
-| ------- | ------ | ------------------------------------------------- | -------- | ------- |
-| htmlFor | string | specifies which form element a label is bound to. | 🚫       | -       |
-
-It also receives all the props from `BoxProps` except the `el` prop.
 
 ## Customization
 
@@ -72,5 +73,9 @@ function Example() {
   )
 }
 ```
+
+## Props
+
+It also receives all the props from `BoxProps` except the `el` prop.
 
 <proptypes heading="Label" component="Label">
