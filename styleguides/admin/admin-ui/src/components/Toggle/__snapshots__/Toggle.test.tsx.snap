@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  cursor: pointer;
+  border-radius: 6.25rem;
+  background-color: #898F9E;
+  border-style: solid;
+  border-color: #898F9E;
+  border-width: 1px;
+  height: 20px;
+  width: 36px;
+}
+
+.emotion-0:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 1.25rem;
+  background-color: #FFFFFF;
+  -webkit-transition: -webkit-transform .25s ease;
+  -webkit-transition: transform .25s ease;
+  transition: transform .25s ease;
+  width: 18px;
+  height: 18px;
+}
+
+.emotion-0:checked {
+  background-color: #368369;
+  border-color: #368369;
+}
+
+.emotion-0:checked:hover {
+  background-color: #005C31;
+  border-color: #005C31;
+}
+
+.emotion-0:checked:disabled {
+  background-color: #898F9E;
+  border-color: #898F9E;
+}
+
+.emotion-0:checked:disabled:after {
+  background-color: #C4C5CA;
+}
+
+.emotion-0:checked:after {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+.emotion-0:hover {
+  background-color: #707685;
+  border-color: #707685;
+}
+
+.emotion-0:disabled {
+  background-color: #898F9E;
+  border-color: #898F9E;
+}
+
+.emotion-0:disabled:after {
+  background-color: #C4C5CA;
+}
+
+.emotion-0:not(:checked):active {
+  background-color: #707685;
+  border-color: #707685;
+}
+
+.emotion-0:not(:checked):active:after {
+  background-color: #DAE3F5;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+<input
+    aria-checked="false"
+    aria-label="toggle 1"
+    class="emotion-0"
+    role="switch"
+    type="checkbox"
+    value="toggle 1"
+  />
+  .emotion-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  cursor: pointer;
+  border-radius: 6.25rem;
+  background-color: #898F9E;
+  border-style: solid;
+  border-color: #898F9E;
+  border-width: 1px;
+  height: 16px;
+  width: 28px;
+}
+
+.emotion-0:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 1.25rem;
+  background-color: #FFFFFF;
+  -webkit-transition: -webkit-transform .25s ease;
+  -webkit-transition: transform .25s ease;
+  transition: transform .25s ease;
+  width: 14px;
+  height: 14px;
+}
+
+.emotion-0:checked {
+  background-color: #368369;
+  border-color: #368369;
+}
+
+.emotion-0:checked:hover {
+  background-color: #005C31;
+  border-color: #005C31;
+}
+
+.emotion-0:checked:disabled {
+  background-color: #898F9E;
+  border-color: #898F9E;
+}
+
+.emotion-0:checked:disabled:after {
+  background-color: #C4C5CA;
+}
+
+.emotion-0:checked:after {
+  -webkit-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
+}
+
+.emotion-0:hover {
+  background-color: #707685;
+  border-color: #707685;
+}
+
+.emotion-0:disabled {
+  background-color: #898F9E;
+  border-color: #898F9E;
+}
+
+.emotion-0:disabled:after {
+  background-color: #C4C5CA;
+}
+
+.emotion-0:not(:checked):active {
+  background-color: #707685;
+  border-color: #707685;
+}
+
+.emotion-0:not(:checked):active:after {
+  background-color: #DAE3F5;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+<input
+    aria-checked="false"
+    aria-label="toggle 2"
+    class="emotion-0"
+    role="switch"
+    type="checkbox"
+    value="toggle 2"
+  />
+</DocumentFragment>
+`;

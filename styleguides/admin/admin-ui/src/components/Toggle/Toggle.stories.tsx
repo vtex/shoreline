@@ -2,7 +2,8 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Text } from '../Text'
-import { Toggle, useToggle, ToggleProps } from './index'
+import { Toggle, useToggleState, ToggleProps } from './index'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 export default {
   title: 'beta/Toggle',
@@ -13,72 +14,41 @@ const Template: Story<ToggleProps> = (args) => {
   const [checked, setChecked] = React.useState(false)
 
   return (
-    <Toggle
-      aria-label="label"
-      checked={checked}
-      onChange={() => setChecked(!checked)}
-      {...args}
-    />
+    <ThemeProvider>
+      <Toggle
+        aria-label="label"
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+        {...args}
+      />
+    </ThemeProvider>
   )
 }
 
 export const Playground = Template.bind({})
-Playground.parameters = {
-  playroom: {
-    code: `
-<Play.ToggleState>
-  {({ toggle, setToggle }) => (
-    <Toggle
-      aria-label="label"
-      checked={toggle}
-      onChange={() => setToggle(!toggle)}
-    />
-  )}
-</Play.ToggleState>
-    `,
-  },
-}
 
 export function MultipleSwitches() {
-  const props = useToggle({ state: [] })
+  const props = useToggleState({ state: [] })
 
   return (
-    <>
+    <ThemeProvider>
       <Text>State: {props.state}</Text>
       <br />
-      <Toggle {...props} aria-label="label1" value="toggle1" />
-      <Toggle {...props} aria-label="label2" value="toggle2" />
-      <Toggle {...props} aria-label="label3" value="toggle3" />
-    </>
+      <Toggle state={props} aria-label="label1" value="toggle1" />
+      <Toggle state={props} aria-label="label2" value="toggle2" />
+      <Toggle state={props} aria-label="label3" value="toggle3" />
+    </ThemeProvider>
   )
-}
-
-MultipleSwitches.parameters = {
-  playroom: {
-    code: `
-<Play.CheckboxState state={[]}>
-  {({ state, setState }) => (
-    <>
-      <Text>State: {state}</Text>
-      <br />
-      <Toggle state={state} setState={setState} aria-label="label1" value="toggle1" />
-      <Toggle state={state} setState={setState} aria-label="label2" value="toggle2" />
-      <Toggle state={state} setState={setState} aria-label="label3" value="toggle3" />
-    </>
-  )}
-</Play.CheckboxState>
-    `,
-  },
 }
 
 export function Disabled() {
   return (
-    <>
+    <ThemeProvider>
       <Toggle disabled aria-label="label1" />
       <Toggle checked disabled aria-label="label2" />
       <br />
       <Toggle disabled size="small" aria-label="label3" />
       <Toggle checked disabled size="small" aria-label="label4" />
-    </>
+    </ThemeProvider>
   )
 }

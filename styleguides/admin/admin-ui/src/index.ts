@@ -27,7 +27,7 @@ export {
   CollapsibleHeaderProps,
 } from './components/Collapsible'
 export { Tooltip, TooltipProps } from './components/Tooltip'
-export { Toggle, ToggleProps, useToggle } from './components/Toggle'
+
 export { Label, LabelProps } from './components/Label'
 export {
   CollapsibleGroup,
@@ -57,3 +57,4 @@ export * from './components/Set'
 export * from './components/Text'
 export * from './components/Columns'
 export * from './components/Divider'
+export * from './components/Toggle'

@@ -1,13 +1,9 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
-import serializer, { matchers } from 'jest-emotion'
 
 import { Checkbox, useCheckboxState, CheckboxStateReturn } from './index'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
-
-expect.addSnapshotSerializer(serializer)
-expect.extend(matchers)
 
 function CheckboxState({
   children,

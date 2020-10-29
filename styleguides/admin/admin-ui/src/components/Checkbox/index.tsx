@@ -12,20 +12,29 @@ import { Overridable } from '../../types'
 
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
-    const { size = 'regular', styleOverrides, state, ...htmlProps } = props
-
-    const className = useClassName({
-      props: { styles: styleOverrides },
-      themeKey: `components.checkbox.${size}`,
-    })
+    const htmlProps = useCheckbox(props)
 
     return createElement({
       component: ReakitCheckbox,
-      htmlProps: { className, ...htmlProps, ...state },
+      htmlProps,
       ref,
     })
   }
 )
+
+export function useCheckbox(
+  props: CheckboxProps,
+  themeKey = 'components.checkbox'
+) {
+  const { size = 'regular', styleOverrides, state, ...htmlProps } = props
+
+  const className = useClassName({
+    props: { styles: styleOverrides },
+    themeKey: `${themeKey}.${size}`,
+  })
+
+  return { className, ...htmlProps, ...state }
+}
 
 type AbstractCheckboxProps = Pick<
   ReakitProps,
