@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 
 import { Avatar, AvatarProps } from './index'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
-import { unstableSet as Set } from '../unstableSet'
+import { Set } from '../Set'
 
 export default {
   title: 'beta/avatar',

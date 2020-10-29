@@ -432,7 +432,7 @@ import {
   unstableThemeProvider as ThemeProvider,
   StatefulTable,
   Skeleton,
-  unstableSet as Set,
+  Set,
   unstableBox as Box,
 } from '@vtex/admin-ui'
 

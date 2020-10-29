@@ -10,32 +10,7 @@ import {
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 
-export interface SetProps extends Overridable {
-  /** component children */
-  children?: ReactNode
-  /**
-   * orientation of items
-   * @default vertical
-   */
-  orientation?: ResponsiveValue<'vertical' | 'horizontal'>
-  /**
-   * if the items should grow in width to match the container
-   * @default false
-   */
-  fluid?: boolean
-  /**
-   * space between items
-   * @default 1
-   */
-  spacing?: ResponsiveValue<number>
-  /**
-   * items alignment
-   * @default start
-   */
-  align?: ResponsiveValue<'start' | 'end'>
-}
-
-export const unstableSet = forwardRef(function Set(
+export const Set = forwardRef(function Set(
   props: SetProps,
   ref: Ref<HTMLElement>
 ) {
@@ -101,8 +76,32 @@ export function useSet(props: SetProps) {
       ...layoutProps,
       styles: { ...styles[variant], ...childrenSpacing, ...styleOverrides },
     },
-    // themeKey: 'components.set',
   })
 
   return { setProps, currentOrientation }
+}
+
+export interface SetProps extends Overridable {
+  /** component children */
+  children?: ReactNode
+  /**
+   * orientation of items
+   * @default vertical
+   */
+  orientation?: ResponsiveValue<'vertical' | 'horizontal'>
+  /**
+   * if the items should grow in width to match the container
+   * @default false
+   */
+  fluid?: boolean
+  /**
+   * space between items
+   * @default 1
+   */
+  spacing?: ResponsiveValue<number>
+  /**
+   * items alignment
+   * @default start
+   */
+  align?: ResponsiveValue<'start' | 'end'>
 }

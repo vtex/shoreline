@@ -11,7 +11,7 @@ Component to create a user avatar from a passed label. It shows the first letter
 ```jsx
 import {
   Avatar,
-  unstableSet as Set,
+  Set,
   unstableThemeProvider as ThemeProvider,
 } from '@vtex/admin-ui'
 

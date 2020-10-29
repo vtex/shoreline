@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { Button } from './index'
 import { IconAppStore } from '../../icons'
-import { unstableSet as Set } from '../unstableSet'
+import { Set } from '../Set'
 
 export default {
   title: 'beta/button',
