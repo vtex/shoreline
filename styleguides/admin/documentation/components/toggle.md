@@ -6,7 +6,7 @@ path: /docs/toggle/
 
 An accessible Toggle component, allows the user to toggle the state of a single setting on or off.
 
-## Usage
+## Behavior
 
 ```jsx
 import { Toggle, ThemeProvider } from '@vtex/admin-ui'
@@ -25,6 +25,74 @@ function Example() {
   )
 }
 ```
+
+## Installation
+
+```static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { Toggle } from '@vtex/admin-ui'
+```
+
+## Variation
+
+Size
+
+```jsx
+import { Toggle, ThemeProvider, Text } from '@vtex/admin-ui'
+
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <ThemeProvider>
+      <Text el="p" variant="body">
+        Regular
+      </Text>
+      <Toggle
+        checked={checked}
+        checked={checked}
+        size="regular"
+        onChange={() => setChecked(!checked)}
+      />
+      <Text el="p" variant="body">
+        Small
+      </Text>
+      <Toggle
+        checked={checked}
+        checked={checked}
+        size="small"
+        onChange={() => setChecked(!checked)}
+      />
+    </ThemeProvider>
+  )
+}
+```
+
+Disabled
+
+```jsx
+import { Toggle, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <ThemeProvider>
+      <Toggle
+        checked={checked}
+        checked={checked}
+        disabled
+        onChange={() => setChecked(!checked)}
+      />
+    </ThemeProvider>
+  )
+}
+```
+
+## Customization
 
 ### aria-label
 
@@ -50,8 +118,6 @@ function Example() {
   )
 }
 ```
-
-## State
 
 ### `checked` and `onChange`
 

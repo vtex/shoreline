@@ -34,7 +34,9 @@ yarn add @vtex/admin-ui
 import { Tooltip } from '@vtex/admin-ui'
 ```
 
-## String label
+## Variation
+
+String label
 
 ```jsx
 import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
@@ -50,7 +52,7 @@ function Example() {
 }
 ```
 
-## ReactNode label
+ReactNode label
 
 ```jsx
 import {

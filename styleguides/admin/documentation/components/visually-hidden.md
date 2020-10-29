@@ -4,7 +4,9 @@ path: /docs/visually-hidden/
 
 # VisuallyHidden
 
-## Usage
+VisuallyHidden is a utility component that can be used to hide its children visually, while keeping them visible to screen readers and other assistive technology.
+
+## Behavior
 
 ```jsx
 import { VisuallyHidden, Box, Text, ThemeProvider } from '@vtex/admin-ui'
@@ -24,4 +26,14 @@ function Example() {
     </ThemeProvider>
   )
 }
+```
+
+## Installation
+
+```static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { VisuallyHidden } from '@vtex/admin-ui'
 ```
