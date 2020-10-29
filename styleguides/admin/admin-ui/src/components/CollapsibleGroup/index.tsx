@@ -51,7 +51,7 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
     <Card p="0" sx={sx} {...restProps}>
       {Children.map(children, (child, index) => (
         <>
-          {index > FIRST_CHILD && <Divider m="0" />}
+          {index > FIRST_CHILD && <Divider margin={0} />}
           {child}
         </>
       ))}
