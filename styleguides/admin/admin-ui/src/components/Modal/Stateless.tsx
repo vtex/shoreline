@@ -24,9 +24,9 @@ import {
 
 import { IconClose } from '../../icons'
 import { Box, BoxProps } from '../Box'
-import { Text } from '../Text'
 import { Button, ButtonProps } from '../Button'
 import { ModalProvider, useModalContext } from './context'
+import { Heading } from '../Heading'
 
 export { useDialogState as useModalState }
 
@@ -44,7 +44,7 @@ function useComponentsExistence(
   const footerExists = useRef(false)
   const footerSize = useRef<ModalFooterSize | undefined>(undefined)
 
-  Children.forEach(children, function (child) {
+  Children.forEach(children, function(child) {
     const displayName = isReactElement(child) && child.type.displayName
 
     if (displayName === 'Modal.Header' || displayName === 'Stateless.Modal') {
@@ -56,7 +56,7 @@ function useComponentsExistence(
       Object.assign(sx, { overflowY: 'hidden' })
       footerExists.current = true
       footerSize.current =
-        (isReactElement(child) && child.props['size']) ?? undefined
+        (isReactElement(child) && child.props.size) ?? undefined
     }
   })
 
@@ -73,24 +73,24 @@ function getScrollAreaSize(
     if (hasHeader && hasFooter) {
       if (size === 'small' || size === 'regular') {
         return '-with-larger-scroll-area'
-      } else {
-        return '-with-extra-large-scroll-area'
       }
-    } else if (hasHeader || hasFooter) {
+
+      return '-with-extra-large-scroll-area'
+    }
+
+    if (hasHeader || hasFooter) {
       return `-with-${size}-scroll-area`
     }
-  } else {
-    if (hasHeader) {
-      if (size === footerSize) {
-        if (footerSize === 'small' || footerSize === 'regular') {
-          return '-with-larger-scroll-area'
-        } else {
-          return '-with-extra-large-scroll-area'
-        }
-      } else {
-        return '-with-mixed-scroll-area'
+  } else if (hasHeader) {
+    if (size === footerSize) {
+      if (footerSize === 'small' || footerSize === 'regular') {
+        return '-with-larger-scroll-area'
       }
+
+      return '-with-extra-large-scroll-area'
     }
+
+    return '-with-mixed-scroll-area'
   }
 
   return ''
@@ -223,7 +223,7 @@ StatelessModal.Header = function Header(props: ModalHeaderProps) {
 
   const renderTitle = useMemo(() => {
     if (typeof title === 'string') {
-      return <Text el="h1">{title}</Text>
+      return <Heading>{title}</Heading>
     }
 
     return title

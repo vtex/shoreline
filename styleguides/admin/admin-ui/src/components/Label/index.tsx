@@ -1,6 +1,10 @@
-import React from 'react'
+import { ReactNode, forwardRef, Ref } from 'react'
+import { Box as ReakitBox } from 'reakit'
+import { createElement } from '@vtex/admin-ui-system'
+import { TextPattern, SpaceStyleProps } from '@vtex/admin-ui-theme'
 
-import { Box, BoxProps } from '../Box'
+import { useComponent } from '../../hooks/useComponent'
+import { Overridable } from '../../types'
 
 /**
  * Form label component.
@@ -13,14 +17,29 @@ import { Box, BoxProps } from '../Box'
  *   return <Label>Your label here!</Label>
  * }
  */
-export function Label({ children, ...props }: LabelProps) {
-  return (
-    <Box el="label" {...props}>
-      {children}
-    </Box>
-  )
-}
+export const Label = forwardRef(function Heading(
+  props: LabelProps,
+  ref: Ref<HTMLHeadingElement>
+) {
+  const labelProps = useComponent({
+    props: { text: 'body', ...props },
+  })
 
-export interface LabelProps extends Omit<BoxProps, 'el'> {
+  return createElement({
+    ref,
+    element: 'label',
+    component: ReakitBox,
+    htmlProps: labelProps,
+  })
+})
+
+export interface LabelProps extends Overridable, TextPattern, SpaceStyleProps {
+  /**
+   * label children
+   */
+  children?: ReactNode
+  /**
+   * label native htmlFor
+   */
   htmlFor?: string
 }

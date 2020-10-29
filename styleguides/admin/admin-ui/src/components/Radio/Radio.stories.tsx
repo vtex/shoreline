@@ -4,11 +4,11 @@ import { Story, Meta } from '@storybook/react'
 import { Radio, RadioProps, useRadioState } from './index'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { RadioGroup } from '../RadioGroup'
-import { Text } from '../Text'
 import { Label } from '../Label'
+import { Heading } from '../Heading'
 
 export default {
-  title: 'beta/Radio',
+  title: 'beta/formsRadio',
   component: Radio,
 } as Meta
 
@@ -52,7 +52,7 @@ export function Group() {
 
   return (
     <ThemeProvider>
-      <Text variant="subtitle">Selected solution: {state.state}</Text>
+      <Heading text="highlight">Selected solution: {state.state}</Heading>
       <RadioGroup state={state} orientation="vertical" aria-label="Solutions">
         {values.map((value, key) => {
           return (

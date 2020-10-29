@@ -5,13 +5,13 @@ import { Label, LabelProps } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'beta/Label',
+  title: 'beta/forms/Label',
   component: Label,
 } as Meta
 
 export const Basic: Story<LabelProps> = () => {
   return (
-    <Label display="flex">
+    <Label styleOverrides={{ display: 'flex' }}>
       <input type="checkbox" />
       Checkbox Input Label!
     </Label>

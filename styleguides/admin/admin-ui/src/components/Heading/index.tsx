@@ -1,7 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
 import { createElement } from '@vtex/admin-ui-system'
-import { TextPattern } from '@vtex/admin-ui-theme'
+import { SpaceStyleProps, TextPattern } from '@vtex/admin-ui-theme'
 
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
@@ -23,7 +23,10 @@ export const Heading = forwardRef(function Heading(
   })
 })
 
-export interface HeadingProps extends Overridable, TextPattern {
+export interface HeadingProps
+  extends Overridable,
+    TextPattern,
+    SpaceStyleProps {
   /**
    * Element to render
    * @default h1

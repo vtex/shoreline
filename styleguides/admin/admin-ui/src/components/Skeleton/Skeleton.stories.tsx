@@ -5,6 +5,7 @@ import { Skeleton, SkeletonProps } from './index'
 import { Box } from '../Box'
 import { Text } from '../Text'
 import { Button } from '../Button'
+import { Heading } from '../Heading'
 
 export default {
   title: 'beta/Skeleton',
@@ -45,7 +46,7 @@ export const TextExample = () => {
           </Box>
         ) : (
           <Box>
-            <Text variant="headline">Developing</Text>
+            <Heading>Developing</Heading>
             <Text>
               The VTEX team welcomes and thanks you for developing with us. We
               are committed in provide the best developer experience through
@@ -62,45 +63,4 @@ export const TextExample = () => {
       </Box>
     </Fragment>
   )
-}
-
-TextExample.parameters = {
-  playroom: {
-    code: `
-<Play.ToggleState>
-  {({ toggle, setToggle }) => (
-    <>
-      <Box w="sm">
-        {toggle ? (
-          <Box>
-            <Skeleton h={24} w="5/12" />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} w="1/2" />
-          </Box>
-        ) : (
-          <Box>
-            <Text variant="headline">Developing</Text>
-            <Text>
-              The VTEX team welcomes and thanks you for developing with us. We
-              are committed in provide the best developer experience through
-              consistency and quality of our guidelines. We are open and
-              appreciate all the feedbacks, tips and ideas to keep this
-              experience the best as possible. Bellow we describe the way we
-              work and the best practices.
-            </Text>
-          </Box>
-        )}
-        <Button mx="0" onClick={() => setToggle((s) => !s)}>
-          Toggle Loading
-        </Button>
-      </Box>
-    </>
-  )}
-</Play.ToggleState>
-    `,
-  },
 }
