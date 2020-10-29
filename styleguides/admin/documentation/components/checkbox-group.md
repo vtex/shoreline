@@ -6,7 +6,7 @@ path: /docs/checkbox-group/
 
 Used to group `Checkbox` components.
 
-## Usage
+## Behavior
 
 ```jsx
 import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
@@ -33,7 +33,45 @@ function Example() {
 }
 ```
 
-## CheckboxGroup Label
+## Installation
+
+```static
+yarn add @vtex/admin-ui
+```
+
+```jsx static
+import { CheckboxGroup } from '@vtex/admin-ui'
+```
+
+## Variation
+### Vertical
+
+```jsx
+import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <CheckboxGroup
+        orientation="vertical"
+        id="form-group-id"
+        label="Group label!"
+      >
+        <Label>
+          <Checkbox />
+          Label 1
+        </Label>
+        <Label>
+          <Checkbox />
+          Label 2
+        </Label>
+      </CheckboxGroup>
+    </ThemeProvider>
+  )
+}
+```
+
+### CheckboxGroup Label
 
 You can easily add a label using the `label` prop.
 
@@ -59,41 +97,14 @@ function Example() {
 }
 ```
 
-> ⚠️ To guarantee accessibility, always that a `CheckboxGroup` has a label, it should have an `id` set as well.
+> ⚠️ To guarantee accessibility, always check that a `CheckboxGroup` has a label, it should have an `id` set as well.
 
-## CheckboxGroup items
+### CheckboxGroup items
 
 Components with `role="group"` should have children of the same type. We don't do this restriction on the code, so you should keep in mind that when using the `CheckboxGroup` the children should be of `Checkbox` type.
 
-### Items label
+#### Items label
 
 The labels involved by `CheckboxGroup` are customized with `display="flex"` and `items="center"` by default. You can override these styles if necessary.
-
-### Usage Example
-
-```jsx
-import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <CheckboxGroup
-        orientation="horizontal"
-        id="form-group-id"
-        label="Group label!"
-      >
-        <Label>
-          <Checkbox />
-          Label 1
-        </Label>
-        <Label>
-          <Checkbox />
-          Label 2
-        </Label>
-      </CheckboxGroup>
-    </ThemeProvider>
-  )
-}
-```
 
 <proptypes heading="CheckboxGroup" component="CheckboxGroup" />

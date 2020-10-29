@@ -35,15 +35,16 @@ function Example() {
 
 ## Installation
 
-```bash
+```sh
 yarn add @vtex/admin-ui
 ```
 
-```tsx
-import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
+```jsx static
+import { Collapsible, useCollapsible } from '@vtex/admin-ui'
 ```
 
-## With Buttons
+## Variation
+### With Buttons
 
 ```jsx
 import {
@@ -79,7 +80,7 @@ function Example() {
 }
 ```
 
-## Nested
+### Nested
 
 ```jsx
 import { Collapsible, useCollapsible, ThemeProvider } from '@vtex/admin-ui'
@@ -109,7 +110,7 @@ function Example() {
 }
 ```
 
-## Initially Visible
+### Initially Visible
 
 ```jsx
 import { Collapsible, useCollapsible, ThemeProvider } from '@vtex/admin-ui'
@@ -133,38 +134,38 @@ function Example() {
 }
 ```
 
-## State
+### State
 
-### `useCollapsible` hook
+#### `useCollapsible` hook
 
 It returns an object of type `DisclosureStateReturn`, and you should use this hook to add state logic to the `Collapsible` component. Add the returned value to the Collapsible's `state` prop.
 
 > 💡 This hook is extracted directly from `reakit/disclosure` with the same props. You can check [Reakit docs](https://reakit.io/docs/disclosure/#usedisclosurestate) for detailed info
 
-## Composites
+### Composites
 
-### `<Collapsible.Header>`
+#### `<Collapsible.Header>`
 
 It renders a `header` HTML element, and is always visible.<br/>
 
 **Disclosure Button**: Always on the left side, and is responsible for controlling the content visibility. Use the `label` prop to define the button label. <br />
 **Actions Panel**: Always on the right side. You should pass it as the header children.
 
-### `<Collapsible.Content>`
+#### `<Collapsible.Content>`
 
 It renders a `section` HTML element, can be `Hidden` or `Visible`.
 
-## Customization
+### Customization
 
-### Collapsible
+#### Collapsible
 
 You can use the `Border`, `Layout`, `Space`, and `Color` tokens defined on our theme, or you can do it using the `sx` prop as well.
 
-### Collapsible.Header
+#### Collapsible.Header
 
 You can use the `Space` and `Color` tokens defined on our theme, or you can do it using the `sx` prop as well.
 
-### Collapsible.Content
+#### Collapsible.Content
 
 You can use the `Flex`, `Space` and `Color` tokens defined on our theme, or you can do it using the `sx` prop as well.
 
@@ -173,11 +174,3 @@ You can use the `Flex`, `Space` and `Color` tokens defined on our theme, or you 
 ## Props
 
 <proptypes heading="Collapsible" component="Collapsible" />
-
-## Header Props
-
-<proptypes heading="Collapsible.Header" component="Collapsible.Header" />
-
-### Content Props
-
-<proptypes heading="Collapsible.Content" component="Collapsible.Content" />
