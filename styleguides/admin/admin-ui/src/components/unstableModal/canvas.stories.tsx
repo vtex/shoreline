@@ -2,11 +2,11 @@ import React, { FunctionComponent, useEffect, useRef, useState } from 'react'
 import { Meta, Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
-import { Checkbox, useCheckbox } from '../Checkbox'
+import { Checkbox, useCheckboxState } from '../Checkbox'
 import { unstableBox as Box } from '../unstableBox'
 import { List } from '../List'
 import { Label } from '../Label'
-import { unstableButton as Button } from '../unstableButton'
+import { Button } from '../Button'
 import { Modal, ModalDisclosure, StatelessModal, useModalState } from './index'
 import { Text } from '../Text'
 import { ModalProps } from './Stateful'
@@ -105,7 +105,7 @@ export const SmallModal: Story<ModalProps> = () => {
 }
 
 export const RegularModal: Story<ModalProps> = () => {
-  const checkbox = useCheckbox()
+  const checkbox = useCheckboxState()
 
   const handleClose = () => checkbox.setState(false)
 
@@ -141,9 +141,15 @@ export const RegularModal: Story<ModalProps> = () => {
           </Text>
         </Modal.Content>
         <Modal.Footer>
-          <Label display="flex" position="relative" items="center">
-            <Checkbox {...checkbox} />
-            <Text pl="2">I accept the terms and conditions above</Text>
+          <Label
+            styleOverrides={{
+              display: 'flex',
+              position: 'relative',
+              alignItems: 'center',
+            }}
+          >
+            <Checkbox state={checkbox} />
+            <Text paddingLeft={2}>I accept the terms and conditions above</Text>
           </Label>
           <Button disabled={!checkbox.state}>Next</Button>
         </Modal.Footer>
@@ -152,87 +158,87 @@ export const RegularModal: Story<ModalProps> = () => {
   )
 }
 
-export const LargeModal: Story<ModalProps> = () => {
-  return (
-    <ThemeProvider>
-      <Modal
-        aria-label="Transactions Modal"
-        disclosure={<Button>Transactions settings</Button>}
-        size="large"
-        omitCloseButton
-      >
-        <Modal.Header title="Transactions settings">
-          <Modal.Button variant="subtle" size="small" closeModalOnClick>
-            Cancel
-          </Modal.Button>
-          <Modal.Button closeModalOnClick size="small">
-            Save Changes
-          </Modal.Button>
-        </Modal.Header>
-        <Modal.Content>
-          <List
-            density="compact"
-            label="General"
-            sx={{
-              div: {
-                justifyContent: 'space-between',
-              },
-            }}
-          >
-            <List.Item>
-              <Text>Default markup for external integration</Text>
-              <Text c="muted.1">100%</Text>
-            </List.Item>
-            <List.Item>
-              <Text>Use price variation limit</Text>
-              <Toggle state />
-            </List.Item>
-            <List.Item>
-              <Text>Inherit prices from parent account</Text>
-              <Toggle state />
-            </List.Item>
-            <List.Item>
-              <Text>Overwrite seller prices</Text>
-              <Toggle state />
-            </List.Item>
-          </List>
-        </Modal.Content>
-        <Modal.Content>
-          <List
-            density="compact"
-            label="Psychological pricing"
-            sx={{
-              div: {
-                justifyContent: 'space-between',
-              },
-            }}
-          >
-            <List.Item>
-              <List.TextGroup
-                variant="body"
-                title="Apply this method to all prices"
-                subtitle="Inactive"
-              />
-              <Toggle state />
-            </List.Item>
-            <List.Item>
-              <Text>At what price range will this rule apply?</Text>
-              <Text c="muted.1">From 9.90 to 20.00</Text>
-            </List.Item>
-            <List.Item>
-              <Text>How many digits will be rounded?</Text>
-              <Text c="muted.1">2</Text>
-            </List.Item>
-            <List.Item>
-              <Text>Which rounding method will be applied to?</Text>
-              <Text c="muted.1">Nines</Text>
-            </List.Item>
-          </List>
-        </Modal.Content>
-      </Modal>
-    </ThemeProvider>
-  )
-}
+// export const LargeModal: Story<ModalProps> = () => {
+//   return (
+//     <ThemeProvider>
+//       <Modal
+//         aria-label="Transactions Modal"
+//         disclosure={<Button>Transactions settings</Button>}
+//         size="large"
+//         omitCloseButton
+//       >
+//         <Modal.Header title="Transactions settings">
+//           <Modal.Button variant="subtle" size="small" closeModalOnClick>
+//             Cancel
+//           </Modal.Button>
+//           <Modal.Button closeModalOnClick size="small">
+//             Save Changes
+//           </Modal.Button>
+//         </Modal.Header>
+//         <Modal.Content>
+//           <List
+//             density="compact"
+//             label="General"
+//             sx={{
+//               div: {
+//                 justifyContent: 'space-between',
+//               },
+//             }}
+//           >
+//             <List.Item>
+//               <Text>Default markup for external integration</Text>
+//               <Text c="muted.1">100%</Text>
+//             </List.Item>
+//             <List.Item>
+//               <Text>Use price variation limit</Text>
+//               <Toggle state />
+//             </List.Item>
+//             <List.Item>
+//               <Text>Inherit prices from parent account</Text>
+//               <Toggle state />
+//             </List.Item>
+//             <List.Item>
+//               <Text>Overwrite seller prices</Text>
+//               <Toggle state />
+//             </List.Item>
+//           </List>
+//         </Modal.Content>
+//         <Modal.Content>
+//           <List
+//             density="compact"
+//             label="Psychological pricing"
+//             sx={{
+//               div: {
+//                 justifyContent: 'space-between',
+//               },
+//             }}
+//           >
+//             <List.Item>
+//               <List.TextGroup
+//                 variant="body"
+//                 title="Apply this method to all prices"
+//                 subtitle="Inactive"
+//               />
+//               <Toggle state />
+//             </List.Item>
+//             <List.Item>
+//               <Text>At what price range will this rule apply?</Text>
+//               <Text c="muted.1">From 9.90 to 20.00</Text>
+//             </List.Item>
+//             <List.Item>
+//               <Text>How many digits will be rounded?</Text>
+//               <Text c="muted.1">2</Text>
+//             </List.Item>
+//             <List.Item>
+//               <Text>Which rounding method will be applied to?</Text>
+//               <Text c="muted.1">Nines</Text>
+//             </List.Item>
+//           </List>
+//         </Modal.Content>
+//       </Modal>
+//     </ThemeProvider>
+//   )
+// }
 
 // export const AnnouncementsModal: Story<ModalProps> = () => {
 //   const list = [

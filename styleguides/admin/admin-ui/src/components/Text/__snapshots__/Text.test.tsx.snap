@@ -2,77 +2,167 @@
 
 exports[`Text tests should match snapshot 1`] = `
 <DocumentFragment>
-  <span
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<span
     class="emotion-0"
   >
     Span
   </span>
-  <strong
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<strong
     class="emotion-0"
   >
     Bold
   </strong>
-  <i
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<i
     class="emotion-0"
   >
     Italic
   </i>
-  <u
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<u
     class="emotion-0"
   >
     Underline
   </u>
-  <abbr
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<abbr
     class="emotion-0"
   >
     I18N
   </abbr>
-  <cite
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<cite
     class="emotion-0"
   >
     Citation
   </cite>
-  <del
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<del
     class="emotion-0"
   >
     Deleted
   </del>
-  <em
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<em
     class="emotion-0"
   >
     Emphasis
   </em>
-  <ins
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<ins
     class="emotion-0"
   >
     Inserted
   </ins>
-  <kbd
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<kbd
     class="emotion-0"
   >
     Ctrl + C
   </kbd>
-  <mark
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<mark
     class="emotion-0"
   >
     Highlighted
   </mark>
-  <s
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<s
     class="emotion-0"
   >
     Strikethrough
   </s>
-  <samp
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<samp
     class="emotion-0"
   >
     Sample
   </samp>
-  <sub
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<sub
     class="emotion-0"
   >
     sub
   </sub>
-  <sup
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<sup
     class="emotion-0"
   >
     sup

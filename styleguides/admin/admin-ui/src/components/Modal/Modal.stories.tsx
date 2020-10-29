@@ -133,9 +133,15 @@ export const RegularModal: Story<ModalProps> = () => {
         </Text>
       </Modal.Content>
       <Modal.Footer size="large">
-        <Label display="flex" position="relative" items="center">
+        <Label
+          styleOverrides={{
+            display: 'flex',
+            position: 'relative',
+            alignItems: 'center',
+          }}
+        >
           <Checkbox {...checkbox} />
-          <Text pl="2">I accept the terms and conditions above</Text>
+          <Text paddingLeft={2}>I accept the terms and conditions above</Text>
         </Label>
         <Button disabled={!checkbox.state}>Next</Button>
       </Modal.Footer>
@@ -171,7 +177,7 @@ export const LargeModal: Story<ModalProps> = () => {
         >
           <List.Item>
             <Text>Default markup for external integration</Text>
-            <Text c="muted.1">100%</Text>
+            <Text styleOverrides={{ color: 'muted.1' }}>100%</Text>
           </List.Item>
           <List.Item>
             <Text>Use price variation limit</Text>
@@ -207,15 +213,17 @@ export const LargeModal: Story<ModalProps> = () => {
           </List.Item>
           <List.Item>
             <Text>At what price range will this rule apply?</Text>
-            <Text c="muted.1">From 9.90 to 20.00</Text>
+            <Text styleOverrides={{ color: 'muted.1' }}>
+              From 9.90 to 20.00
+            </Text>
           </List.Item>
           <List.Item>
             <Text>How many digits will be rounded?</Text>
-            <Text c="muted.1">2</Text>
+            <Text styleOverrides={{ color: 'muted.1' }}>2</Text>
           </List.Item>
           <List.Item>
             <Text>Which rounding method will be applied to?</Text>
-            <Text c="muted.1">Nines</Text>
+            <Text styleOverrides={{ color: 'muted.1' }}>Nines</Text>
           </List.Item>
         </List>
       </Modal.Content>

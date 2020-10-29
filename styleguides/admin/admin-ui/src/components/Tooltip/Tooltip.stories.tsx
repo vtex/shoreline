@@ -23,7 +23,7 @@ export const ReactNodeLabel: Story<TooltipProps> = () => {
     return (
       <Box my="2">
         <Text
-          text="small"
+          variant="small"
           styleOverrides={{
             bg: 'success.washed.0',
             color: 'success.active',
@@ -42,17 +42,17 @@ export const ReactNodeLabel: Story<TooltipProps> = () => {
       <Tooltip
         label={
           <Box display="flex" direction="col">
-            <Text text="small" styleOverrides={{ color: 'muted.2' }}>
+            <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
               Previous Order:
             </Text>
-            <Text text="small" margin={1}>
+            <Text variant="small" margin={1}>
               1020391283 (21031-213)
             </Text>
             <Tag />
-            <Text text="small" margin={3}>
+            <Text variant="small" margin={3}>
               João da Silva
             </Text>
-            <Text text="small">49,00 BRL</Text>
+            <Text variant="small">49,00 BRL</Text>
           </Box>
         }
       >

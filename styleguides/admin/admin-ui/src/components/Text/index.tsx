@@ -1,7 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
 import { createElement } from '@vtex/admin-ui-system'
-import { TextPattern, SpaceStyleProps } from '@vtex/admin-ui-theme'
+import { SpaceStyleProps, TextVariant } from '@vtex/admin-ui-theme'
 
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
@@ -10,9 +10,9 @@ export const Text = forwardRef(function Heading(
   props: TextProps,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'span', ...htmlProps } = props
+  const { element = 'span', variant = 'body', ...htmlProps } = props
   const textProps = useComponent({
-    props: htmlProps,
+    props: { text: variant, ...htmlProps },
   })
 
   return createElement({
@@ -23,7 +23,7 @@ export const Text = forwardRef(function Heading(
   })
 })
 
-export interface TextProps extends Overridable, TextPattern, SpaceStyleProps {
+export interface TextProps extends Overridable, SpaceStyleProps {
   /**
    * Element to render
    * @default span
@@ -48,4 +48,9 @@ export interface TextProps extends Overridable, TextPattern, SpaceStyleProps {
    * heading children
    */
   children?: ReactNode
+  /**
+   * Text variant. Consumes the text pattern
+   * @default body
+   */
+  variant?: TextVariant
 }

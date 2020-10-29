@@ -44,8 +44,8 @@ export const Example = () => {
 
                   return (
                     <Fragment>
-                      <Text text="highlight">{item.productName}</Text>
-                      <Text text="body">{item.category}</Text>
+                      <Text variant="highlight">{item.productName}</Text>
+                      <Text variant="body">{item.category}</Text>
                     </Fragment>
                   )
                 },

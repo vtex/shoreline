@@ -34,6 +34,8 @@ const text = {
 
 export { text }
 
+export type TextVariant = keyof typeof text
+
 export type TextPattern = {
   /**
    * @description Sets a text style pattern, customizing the following typography properties.
@@ -47,5 +49,5 @@ export type TextPattern = {
    * @default headline
    * @see ...text-pattern-documentation
    */
-  text?: keyof typeof text
+  text?: TextVariant
 }

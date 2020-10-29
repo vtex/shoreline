@@ -36,10 +36,8 @@ export default function IndexPage() {
           }}
         >
           <Text
-            fw={800}
-            sx={{
+            styleOverrides={{
               fontSize: 140,
-              color: 'text',
             }}
           >
             VTEX ADMIN UI
