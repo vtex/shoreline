@@ -16,7 +16,6 @@ export {
   ActionButtonProps,
   MenuDisclosure,
 } from './components/Menu'
-export { List, ListProps, TextGroupProps } from './components/List'
 export * from './components/Modal'
 export {
   VisuallyHidden,
@@ -65,3 +64,4 @@ export * from './components/CheckboxGroup'
 export * from './components/Radio'
 export * from './components/RadioGroup'
 export * from './components/Paragraph'
+export * from './components/List'
