@@ -35,34 +35,22 @@ const surfaceAnimation = css`
 `
 
 interface TitleProps {
-  handleClick: () => void
   title: string
 }
 
 interface BottomBarProps {
   children: ReactNode | ReactNode[]
+  variant?: 'modal' | 'dialog'
 }
 
 interface BodyProps {
   children: ReactNode | ReactNode[]
+  variant?: 'modal' | 'dialog'
 }
 
-const Title = ({ title, handleClick }: TitleProps) => {
+const Title = ({ title }: TitleProps) => {
   return (
     <Box variant="modal.title">
-      <Button
-        icon={() => <IconClose size={39} />}
-        sx={{
-          position: 'absolute',
-          right: '1.25rem',
-          top: '1.25rem',
-          color: 'secondary.base',
-          padding: '0',
-          height: 'auto',
-        }}
-        variant="tertiary"
-        onClick={handleClick}
-      />
       <Text sx={{ fontSize: '.875rem' }}>{title}</Text>
     </Box>
   )
@@ -78,40 +66,61 @@ const ModalButton = (props: ButtonProps) => {
   )
 }
 
-const BottomBar = ({ children }: BottomBarProps) => {
-  return <Flex variant="modal.bottomBar">{children}</Flex>
+const BottomBar = ({ children, variant = 'modal' }: BottomBarProps) => {
+  return <Flex variant={`modal.bottomBar.${variant}`}>{children}</Flex>
 }
 
-const Body = ({ children }: BodyProps) => {
-  return <Box variant="modal.body">{children}</Box>
+const Body = ({ children, variant = 'modal' }: BodyProps) => {
+  return <Box variant={`modal.body.${variant}`}>{children}</Box>
 }
 
 export const Modal = ({
   children,
-  title,
+  title = '',
   disclosure,
-  modalState,
+  state,
   onClose,
+  variant = 'modal',
 }: ModalProps) => {
+  const handleClose = () => {
+    state.hide()
+    if (onClose) {
+      onClose()
+    }
+  }
+
   return (
     <Fragment>
-      <DialogDisclosure {...modalState}>
+      <DialogDisclosure {...state}>
         {(disclosureProps) => cloneElement(disclosure, { ...disclosureProps })}
       </DialogDisclosure>
       <DialogBackdrop
-        {...modalState}
-        css={modalState.animated && backdropAnimation}
+        {...state}
+        css={state.animated && backdropAnimation}
         variant="modal.backdrop"
         as={Box}
       >
         <Dialog
-          {...modalState}
-          css={modalState.animated && surfaceAnimation}
-          variant="modal.dialog"
+          {...state}
+          css={state.animated && surfaceAnimation}
+          variant={`modal.box.${variant}`}
           as={Box}
           hideOnClickOutside={false}
         >
-          <Title handleClick={onClose ?? modalState.hide} title={title} />
+          <Button
+            icon={() => <IconClose size={39} />}
+            sx={{
+              position: 'absolute',
+              right: '1.25rem',
+              top: '1.25rem',
+              color: 'secondary.base',
+              padding: '0',
+              height: 'auto',
+            }}
+            variant="tertiary"
+            onClick={handleClose}
+          />
+          {variant === 'modal' && <Title title={title} />}
           {children}
         </Dialog>
       </DialogBackdrop>
@@ -133,17 +142,22 @@ export interface ModalProps {
    */
   disclosure: FunctionComponentElement<unknown>
   /**
-   * Modal title
-   */
-  title: string
-  /**
    * Return of useModalState hook
    */
-  modalState: DialogStateReturn
+  state: DialogStateReturn
   /**
-   * Function to be run when the modal is closed
+   * Modal title, does not work on dialog variant
+   */
+  title?: string
+  /**
+   * Function to be run after the modal is closed
    */
   onClose?: () => void
+  /**
+   * Modal variant
+   * @default 'modal'
+   */
+  variant?: 'modal' | 'dialog'
 }
 
 export { useDialogState as useModalState }
