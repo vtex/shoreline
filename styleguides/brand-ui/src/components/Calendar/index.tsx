@@ -5,11 +5,31 @@ import { DateTime, Info } from 'luxon'
 
 const today = DateTime.local()
 
+const Event = ({ event }: EventProps) => {
+  const defaultColor = 'muted.2'
+
+  let firstColor = defaultColor
+  let secondColor = defaultColor
+
+  if (event.colors) {
+    firstColor = event.colors[0] ?? defaultColor
+    secondColor = event.colors[1] ?? firstColor
+  }
+
+  return (
+    <Box variant="calendar.eventContainer">
+      <Box variant="calendar.event.leftEv" sx={{ bg: firstColor }} />
+      <Box variant="calendar.event.rightEv" sx={{ bg: secondColor }} />
+    </Box>
+  )
+}
+
 const Day = ({
   value,
   variant,
   onClick,
   selectedDate,
+  events = {},
   ...restProps
 }: DayProps) => {
   let active = false
@@ -20,6 +40,9 @@ const Day = ({
     active = value.ordinal === selected.ordinal
   }
 
+  const dateString = value.toFormat('yyyy-MM-dd')
+  const event = events[dateString]
+
   return (
     <button
       sx={{ variant: `${variant}${active ? '.active' : ''}` }}
@@ -27,6 +50,7 @@ const Day = ({
       {...restProps}
     >
       {value.day}
+      {event && <Event event={event} />}
     </button>
   )
 }
@@ -37,7 +61,7 @@ export const Calendar = ({
   year = today.year,
   disabled = false,
   onChange,
-  // events,
+  events,
   locale = 'pt',
 }: CalendarProps) => {
   const date = DateTime.local(year, month, day).setLocale(locale)
@@ -64,10 +88,10 @@ export const Calendar = ({
   const getWeekDays = (): string[] => {
     const weekdays = Info.weekdays('narrow', { locale })
 
-    const lastWeekday = weekdays.slice(-1)
+    const [lastWeekday] = weekdays.slice(-1)
     const restWeekdays = weekdays.slice(0, 6)
 
-    return [...lastWeekday, ...restWeekdays]
+    return [lastWeekday, ...restWeekdays]
   }
 
   const getInitialCells = (): DateTime[] => {
@@ -111,6 +135,24 @@ export const Calendar = ({
     return finalCells.reverse()
   }
 
+  const renderDayCell = ({
+    value,
+    variant,
+  }: {
+    value: DateTime
+    variant: string
+  }) => (
+    <Day
+      key={`${value.day} - ${value.month}`}
+      value={value}
+      variant={variant}
+      disabled={disabled}
+      selectedDate={selectedDate}
+      onClick={handleCellClick}
+      events={events}
+    />
+  )
+
   return (
     <Box variant={`calendar${disabled ? '.disabled' : ''}`}>
       <Text variant="calendar.title">{date.toFormat('MMMM yyyy')}</Text>
@@ -120,66 +162,46 @@ export const Calendar = ({
             {weekDay}
           </Box>
         ))}
-        {getInitialCells().map((initialCell) => (
-          // renderCell({ value: initialCell, variant: 'calendar.extraCell' })
-          <Day
-            key={`${initialCell.day} - ${initialCell.month}`}
-            value={initialCell}
-            variant="calendar.extraCell"
-            onClick={handleCellClick}
-            disabled={disabled}
-            selectedDate={selectedDate as Date}
-          />
-        ))}
-        {getMonthCells().map((monthCell) => (
-          // renderCell({ value: monthCell, variant: 'calendar.monthCell' })
-          <Day
-            key={`${monthCell.day} - ${monthCell.month}`}
-            value={monthCell}
-            variant="calendar.monthCell"
-            onClick={handleCellClick}
-            disabled={disabled}
-            selectedDate={selectedDate as Date}
-          />
-        ))}
-        {getFinalCells().map((finalCell) => (
-          // renderCell({ value: finalCell, variant: 'calendar.extraCell' })
-          <Day
-            key={`${finalCell.day} - ${finalCell.month}`}
-            value={finalCell}
-            variant="calendar.extraCell"
-            onClick={handleCellClick}
-            disabled={disabled}
-            selectedDate={selectedDate as Date}
-          />
-        ))}
+        {getInitialCells().map((initialCell) =>
+          renderDayCell({ value: initialCell, variant: 'calendar.extraCell' })
+        )}
+        {getMonthCells().map((monthCell) =>
+          renderDayCell({ value: monthCell, variant: 'calendar.monthCell' })
+        )}
+        {getFinalCells().map((finalCell) =>
+          renderDayCell({ value: finalCell, variant: 'calendar.extraCell' })
+        )}
       </Grid>
     </Box>
   )
 }
 
-type Event = Record<
-  string,
-  {
-    name: string
-    colors?: string[]
-  }
->
+interface EventProps {
+  event: Event
+}
 
 interface DayProps {
   value: DateTime
   variant: string
   onClick: (date: DateTime) => void
-  selectedDate: Date
+  selectedDate: Date | undefined
   disabled?: boolean
+  events?: Events
 }
+
+export interface Event {
+  name: string
+  colors?: string[]
+}
+
+export type Events = Record<string, Event>
 
 export interface CalendarProps {
   onChange?: (date: Date) => void
   day?: number
   month?: number
   year?: number
-  events?: Event[]
+  events?: Events
   locale?: string
   disabled?: boolean
 }
