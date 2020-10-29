@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { forwardRef, Ref, MouseEvent } from 'react'
 
-import { unstableButton as Button, ButtonProps } from '../../unstableButton'
+import { Button, ButtonProps } from '../../Button'
 import { useModalContext } from '../context'
 
 /**

@@ -1,7 +1,7 @@
 import React from 'react'
 import invariant from 'tiny-invariant'
 
-import { ButtonProps } from '../unstableButton'
+import { ButtonProps } from '../Button'
 import { SetProps } from '../unstableSet'
 
 const ActionsContext = React.createContext<

@@ -1,34 +1,52 @@
 import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
-import serializer from 'jest-emotion'
+import { axe } from 'jest-axe'
 
-import { ThemeProvider } from '../../system'
-import { Button, Palette, Size, Variant } from './index'
-
-expect.addSnapshotSerializer(serializer)
+import { Button } from './index'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 describe('Button tests', () => {
-  it('should match snapshot', () => {
-    const variants = ['filled', 'subtle', 'text'] as Variant[]
-    const palettes = ['primary', 'danger'] as Palette[]
-    const sizes = ['regular', 'small'] as Size[]
+  it('should have overridable styles', () => {
+    const { getByTestId } = render(
+      <ThemeProvider>
+        <Button data-testid="button" styleOverrides={{ bg: 'black' }}>
+          Black Button
+        </Button>
+      </ThemeProvider>
+    )
 
+    expect(getByTestId('button')).toHaveStyleRule('background-color', 'black')
+  })
+
+  it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <Button>Default</Button>
-        {variants.map((variant) =>
-          palettes.map((palette) =>
-            sizes.map((size, i) => (
-              <Button key={i} variant={variant} palette={palette} size={size}>
-                {variant} - {palette} - {size}
-              </Button>
-            ))
-          )
-        )}
+        <Button>Button</Button>
+        <Button variant="filled">Button</Button>
+        <Button variant="subtle">Button</Button>
+        <Button variant="text">Button</Button>
+        <Button size="small">Button</Button>
+        <Button palette="danger">Button</Button>
       </ThemeProvider>
     )
 
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should not have a11y violations', async () => {
+    const { container } = render(
+      <ThemeProvider>
+        <Button>Button</Button>
+        <Button variant="filled">Button</Button>
+        <Button variant="subtle">Button</Button>
+        <Button variant="text">Button</Button>
+        <Button size="small">Button</Button>
+        <Button palette="danger">Button</Button>
+      </ThemeProvider>
+    )
+
+    const results = await axe(container)
+
+    expect(results).toHaveNoViolations()
   })
 })

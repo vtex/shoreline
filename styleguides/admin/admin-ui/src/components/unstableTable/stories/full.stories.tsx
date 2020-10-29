@@ -18,7 +18,10 @@ export const Example = () => {
 
   return (
     <ThemeProvider>
-      <Card w={560} display="flex" direction="col">
+      <Card
+        width={560}
+        styleOverrides={{ display: 'flex', flexDirection: 'column' }}
+      >
         <Button onClick={() => setLoading((l) => !l)}>Load</Button>
         <StatefulTable
           columns={[
@@ -41,8 +44,8 @@ export const Example = () => {
 
                   return (
                     <Fragment>
-                      <Text variant="highlight">{item.productName}</Text>
-                      <Text variant="body">{item.category}</Text>
+                      <Text text="highlight">{item.productName}</Text>
+                      <Text text="body">{item.category}</Text>
                     </Fragment>
                   )
                 },

@@ -1,93 +1,82 @@
-/* eslint-disable react/display-name */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
+import { darken } from '@theme-ui/color'
 import { Story, Meta } from '@storybook/react'
-import { useToolbarState, Toolbar, ToolbarItem } from 'reakit/Toolbar'
 
-import { IconCancel } from '../../icons'
-import { Button, ButtonProps } from './index'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
+import { Button } from './index'
+import { IconAppStore } from '../../icons'
+import { unstableSet as Set } from '../unstableSet'
 
 export default {
-  title: 'beta/Button',
-  component: Button,
+  title: 'beta/button',
 } as Meta
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />
-
-export const Playground = Template.bind({})
-Playground.args = {
-  children: 'Admin UI Button',
-}
-
-export const WithIconOnly = Template.bind({})
-
-WithIconOnly.args = {
-  icon: <IconCancel title="Icon title" />,
-}
-WithIconOnly.parameters = {
-  playroom: {
-    code: `
-<Button iconPosition="start" icon={<IconCancel />} />
-    `,
-  },
-}
-
-export const WithIconStart = Template.bind({})
-WithIconStart.args = {
-  icon: <IconCancel />,
-  children: 'Admin UI Button',
-}
-WithIconStart.parameters = {
-  playroom: {
-    code: `
-<Button iconPosition="start" icon={<IconCancel />} >
-  Admin UI Button
-</Button>
-    `,
-  },
-}
-
-export const WithIconEnd = Template.bind({})
-WithIconEnd.args = {
-  icon: <IconCancel />,
-  iconPosition: 'end',
-  children: 'Admin UI Button',
-}
-WithIconEnd.parameters = {
-  playroom: {
-    code: `
-<Button iconPosition="end" icon={<IconCancel />} >
-  Admin UI Button
-</Button>
-    `,
-  },
-}
-export const WithinAToolbar = () => {
-  const toolbar = useToolbarState({ loop: true })
-
+export const StyleOverrides: Story = () => {
   return (
-    <Toolbar {...toolbar} aria-label="Sample toolbar">
-      <ToolbarItem {...toolbar}>
-        {(props) => (
-          <Button {...props} variant="filled" palette="danger">
-            Delete
-          </Button>
-        )}
-      </ToolbarItem>
-      <ToolbarItem {...toolbar}>
-        {(props) => (
-          <Button {...props} variant="subtle">
-            File
-          </Button>
-        )}
-      </ToolbarItem>
-      <ToolbarItem {...toolbar}>
-        {(props) => (
-          <Button {...props} variant="text">
-            Selection
-          </Button>
-        )}
-      </ToolbarItem>
-    </Toolbar>
+    <ThemeProvider>
+      <Button
+        styleOverrides={{
+          bg: 'text',
+          ':hover': {
+            bg: darken('text', 0.05),
+          },
+          ':active': {
+            bg: darken('text', 0.1),
+          },
+        }}
+      >
+        Trust Button
+      </Button>
+    </ThemeProvider>
+  )
+}
+
+export const Palette: Story = () => {
+  return (
+    <ThemeProvider>
+      <Set>
+        <Button>Primary Button</Button>
+        <Button palette="danger">Danger Button</Button>
+      </Set>
+    </ThemeProvider>
+  )
+}
+
+export const Size: Story = () => {
+  return (
+    <ThemeProvider>
+      <Set>
+        <Button>Regular Button</Button>
+        <Button size="small">Small Button</Button>
+      </Set>
+    </ThemeProvider>
+  )
+}
+
+export const Variant: Story = () => {
+  return (
+    <ThemeProvider>
+      <Set>
+        <Button variant="filled">Filled Button</Button>
+        <Button variant="subtle">Subtle Button</Button>
+        <Button variant="text">Text Button</Button>
+      </Set>
+    </ThemeProvider>
+  )
+}
+
+export const WithIcon: Story = () => {
+  return (
+    <ThemeProvider>
+      <Set>
+        <Button icon={<IconAppStore />} variant="filled">
+          Icon Start
+        </Button>
+        <Button icon={<IconAppStore />} iconPosition="end" variant="subtle">
+          IconEnd
+        </Button>
+        <Button icon={<IconAppStore title="Icon only" />} variant="text" />
+      </Set>
+    </ThemeProvider>
   )
 }

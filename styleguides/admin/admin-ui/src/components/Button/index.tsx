@@ -1,59 +1,39 @@
-import React, { Ref, forwardRef, ReactNode } from 'react'
+import React, { forwardRef, Ref, ReactNode } from 'react'
+import {
+  Button as ReakitButton,
+  ButtonProps as ReakitButtonProps,
+} from 'reakit'
+import { createElement, SxStyleProp } from '@vtex/admin-ui-system'
 
-import { SxStyleProp } from '../../system'
-import { Box } from '../Box'
-import { StyledButton, StyledButtonProps } from './styled'
+import { Variant, Size, Palette } from './types'
+import { useComponent } from '../../hooks/useComponent'
+import { Overridable } from '../../types'
+import { unstableBox as Box } from '../unstableBox'
 
 /**
  * Component that handles all Button variants of the DS.
  * It renders a button jsx element by default
  * @example
- * import { Button, ButtonProps } from 'admin-ui'
+ * ```jsx
+ * import { Button, ButtonProps } from `@vtex/admin-ui`
  * <Button>Default Button</Button>
+ * ```
  */
-export const Button = forwardRef(
-  (props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
-    const {
-      size = 'regular',
-      variant = 'filled',
-      palette = 'primary',
-      iconPosition = 'start',
-      icon,
-      children,
-      ...buttonProps
-    } = props
+export const Button = forwardRef(function Button(
+  props: ButtonProps,
+  ref: Ref<HTMLButtonElement>
+) {
+  const buttonProps = useButton(props)
 
-    const { resolvedSize, containerStyles } = getSizeVariant({
-      size,
-      icon,
-      iconPosition,
-      children,
-    })
+  return createElement({
+    component: ReakitButton,
+    element: 'button',
+    htmlProps: buttonProps,
+    ref,
+  })
+})
 
-    return (
-      <StyledButton
-        variant={`buttons.${variant}-${palette}-${resolvedSize}`}
-        ref={ref}
-        {...buttonProps}
-      >
-        <Box
-          display="flex"
-          h="full"
-          w="full"
-          m="auto"
-          items="center"
-          justify="center"
-          sx={containerStyles}
-        >
-          {icon}
-          {children}
-        </Box>
-      </StyledButton>
-    )
-  }
-)
-
-function getSizeVariant({
+function useButtonSize({
   size,
   icon,
   iconPosition,
@@ -77,11 +57,51 @@ function getSizeVariant({
   }
 }
 
-export type Variant = 'filled' | 'subtle' | 'text'
-export type Size = 'small' | 'regular'
-export type Palette = 'primary' | 'danger'
-export interface ButtonProps
-  extends Omit<StyledButtonProps, 'ref' | 'size' | 'variant'> {
+export function useButton(props: ButtonProps): ButtonProps {
+  const {
+    variant = 'filled',
+    palette = 'primary',
+    size = 'regular',
+    iconPosition = 'start',
+    icon,
+    children: prevChildren,
+    ...compoundProps
+  } = props
+
+  const { resolvedSize, containerStyles } = useButtonSize({
+    size,
+    icon,
+    iconPosition,
+    children: prevChildren,
+  })
+
+  const buttonProps = useComponent({
+    props: {
+      ...compoundProps,
+      children: (
+        <Box
+          styles={{
+            display: 'flex',
+            height: 'full',
+            width: 'full',
+            margin: 'auto',
+            alignItems: 'center',
+            justifyContent: 'center',
+            ...containerStyles,
+          }}
+        >
+          {icon}
+          {prevChildren}
+        </Box>
+      ),
+    },
+    themeKey: `components.button.${variant}-${palette}-${resolvedSize}`,
+  })
+
+  return buttonProps
+}
+
+export interface ButtonProps extends ReakitButtonProps, Overridable {
   /** Size of the button
    * @default regular
    * */
@@ -104,4 +124,9 @@ export interface ButtonProps
    * @default start
    */
   iconPosition?: 'start' | 'end'
+  /**
+   * React children
+   * Also support render prop
+   */
+  children?: React.ReactNode | ((props: ButtonProps) => React.ReactNode)
 }

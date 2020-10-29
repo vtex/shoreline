@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import { unstableSet as Set } from './index'
-import { unstableButton as Button } from '../unstableButton'
+import { Button } from '../Button'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 export default {

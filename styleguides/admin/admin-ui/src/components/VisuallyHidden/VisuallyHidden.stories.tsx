@@ -17,7 +17,11 @@ export function WithSimpleSearchField() {
         <label htmlFor="search">Hidden Label</label>
       </VisuallyHidden>
       <input id="search" type="search" placeholder="A11y Search Input" />
-      <Text mt="3" self="end" variant="small">
+      <Text
+        marginTop={3}
+        styleOverrides={{ alignSelf: 'flex-end' }}
+        text="small"
+      >
         Use this input to search things
       </Text>
     </Box>

@@ -2,14 +2,35 @@
 
 exports[`Button tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
   border: none;
-  border-radius: 0.250rem;
+  border-radius: 4px;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
-  color: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-primary-base,#2953B2);
+  color: #FFFFFF;
+  background-color: #2953B2;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
@@ -29,37 +50,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-hover,#1E4397);
+  background-color: #1E4397;
 }
 
 .emotion-1:active {
-  background-color: var(--theme-ui-colors-primary-active,#3F6FDB);
+  background-color: #3F6FDB;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-text,#323845);
-  background-color: var(--theme-ui-colors-muted-2,#C4C5CA);
-}
-
-.emotion-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  color: #323845;
+  background-color: #C4C5CA;
 }
 
 <button
@@ -68,25 +68,39 @@ exports[`Button tests should match snapshot 1`] = `
   >
     <div
       class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
     >
-      Default
+      Button
     </div>
   </button>
-  .emotion-1 {
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
   border: none;
-  border-radius: 0.250rem;
+  border-radius: 4px;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
-  color: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-primary-base,#2953B2);
+  color: #FFFFFF;
+  background-color: #2953B2;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
@@ -106,37 +120,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-hover,#1E4397);
+  background-color: #1E4397;
 }
 
 .emotion-1:active {
-  background-color: var(--theme-ui-colors-primary-active,#3F6FDB);
+  background-color: #3F6FDB;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-text,#323845);
-  background-color: var(--theme-ui-colors-muted-2,#C4C5CA);
-}
-
-.emotion-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  color: #323845;
+  background-color: #C4C5CA;
 }
 
 <button
@@ -145,18 +138,18 @@ exports[`Button tests should match snapshot 1`] = `
   >
     <div
       class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
     >
-      filled - primary - regular
+      Button
     </div>
   </button>
   .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -165,13 +158,6 @@ exports[`Button tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -179,89 +165,12 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-1 {
   border: none;
-  border-radius: 0.250rem;
+  border-radius: 4px;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
-  color: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-primary-base,#2953B2);
-  font-variation-settings: 'wght' 92;
-  font-size: 0.75rem;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-hover,#1E4397);
-}
-
-.emotion-1:active {
-  background-color: var(--theme-ui-colors-primary-active,#3F6FDB);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-text,#323845);
-  background-color: var(--theme-ui-colors-muted-2,#C4C5CA);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
-    >
-      filled - primary - small
-    </div>
-  </button>
-  .emotion-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-1 {
-  border: none;
-  border-radius: 0.250rem;
-  cursor: pointer;
-  position: relative;
-  text-transform: uppercase;
-  color: var(--theme-ui-colors-danger-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-danger-base,#CE454F);
+  background-color: #DAE3F5;
+  color: #2953B2;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
@@ -281,16 +190,18 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: var(--theme-ui-colors-danger-hover,#A70C0C);
+  background-color: #E8F1FF;
+  color: #1E4397;
 }
 
 .emotion-1:active {
-  background-color: var(--theme-ui-colors-danger-active,#DE0404);
+  background-color: #DBE9FF;
+  color: #3F6FDB;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-text,#323845);
-  background-color: var(--theme-ui-colors-muted-2,#C4C5CA);
+  color: #898F9E;
+  background-color: #F4F6FB;
 }
 
 <button
@@ -299,18 +210,18 @@ exports[`Button tests should match snapshot 1`] = `
   >
     <div
       class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
     >
-      filled - danger - regular
+      Button
     </div>
   </button>
   .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -319,13 +230,6 @@ exports[`Button tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -333,405 +237,12 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-1 {
   border: none;
-  border-radius: 0.250rem;
-  cursor: pointer;
-  position: relative;
-  text-transform: uppercase;
-  color: var(--theme-ui-colors-danger-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-danger-base,#CE454F);
-  font-variation-settings: 'wght' 92;
-  font-size: 0.75rem;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-danger-hover,#A70C0C);
-}
-
-.emotion-1:active {
-  background-color: var(--theme-ui-colors-danger-active,#DE0404);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-text,#323845);
-  background-color: var(--theme-ui-colors-muted-2,#C4C5CA);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
-    >
-      filled - danger - small
-    </div>
-  </button>
-  .emotion-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-1 {
-  border: none;
-  border-radius: 0.250rem;
-  cursor: pointer;
-  position: relative;
-  text-transform: uppercase;
-  background-color: var(--theme-ui-colors-primary-washed-0,#DAE3F5);
-  color: var(--theme-ui-colors-primary-base,#2953B2);
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.emotion-1:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-washed-1,#E8F1FF);
-  color: var(--theme-ui-colors-primary-hover,#1E4397);
-}
-
-.emotion-1:active {
-  background-color: var(--theme-ui-colors-primary-washed-2,#DBE9FF);
-  color: var(--theme-ui-colors-primary-active,#3F6FDB);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#898F9E);
-  background-color: var(--theme-ui-colors-muted-4,#F4F6FB);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
-    >
-      subtle - primary - regular
-    </div>
-  </button>
-  .emotion-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-1 {
-  border: none;
-  border-radius: 0.250rem;
-  cursor: pointer;
-  position: relative;
-  text-transform: uppercase;
-  background-color: var(--theme-ui-colors-primary-washed-0,#DAE3F5);
-  color: var(--theme-ui-colors-primary-base,#2953B2);
-  font-variation-settings: 'wght' 92;
-  font-size: 0.75rem;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-washed-1,#E8F1FF);
-  color: var(--theme-ui-colors-primary-hover,#1E4397);
-}
-
-.emotion-1:active {
-  background-color: var(--theme-ui-colors-primary-washed-2,#DBE9FF);
-  color: var(--theme-ui-colors-primary-active,#3F6FDB);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#898F9E);
-  background-color: var(--theme-ui-colors-muted-4,#F4F6FB);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
-    >
-      subtle - primary - small
-    </div>
-  </button>
-  .emotion-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-1 {
-  border: none;
-  border-radius: 0.250rem;
-  cursor: pointer;
-  position: relative;
-  text-transform: uppercase;
-  background-color: var(--theme-ui-colors-danger-washed-0,#FEE3E3);
-  color: var(--theme-ui-colors-danger-base,#CE454F);
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.emotion-1:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-danger-washed-1,#FFE3E3);
-  color: var(--theme-ui-colors-danger-hover,#A70C0C);
-}
-
-.emotion-1:active {
-  background-color: var(--theme-ui-colors-danger-washed-2,#FFD0D0);
-  color: var(--theme-ui-colors-danger-active,#DE0404);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#898F9E);
-  background-color: var(--theme-ui-colors-muted-4,#F4F6FB);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
-    >
-      subtle - danger - regular
-    </div>
-  </button>
-  .emotion-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-1 {
-  border: none;
-  border-radius: 0.250rem;
-  cursor: pointer;
-  position: relative;
-  text-transform: uppercase;
-  background-color: var(--theme-ui-colors-danger-washed-0,#FEE3E3);
-  color: var(--theme-ui-colors-danger-base,#CE454F);
-  font-variation-settings: 'wght' 92;
-  font-size: 0.75rem;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-danger-washed-1,#FFE3E3);
-  color: var(--theme-ui-colors-danger-hover,#A70C0C);
-}
-
-.emotion-1:active {
-  background-color: var(--theme-ui-colors-danger-washed-2,#FFD0D0);
-  color: var(--theme-ui-colors-danger-active,#DE0404);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#898F9E);
-  background-color: var(--theme-ui-colors-muted-4,#F4F6FB);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
-    >
-      subtle - danger - small
-    </div>
-  </button>
-  .emotion-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-1 {
-  border: none;
-  border-radius: 0.250rem;
+  border-radius: 4px;
   cursor: pointer;
   position: relative;
   text-transform: capitalize;
   background-color: transparent;
-  color: var(--theme-ui-colors-primary-base,#2953B2);
+  color: #2953B2;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
@@ -751,17 +262,17 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  color: var(--theme-ui-colors-primary-hover,#1E4397);
-  background-color: var(--theme-ui-colors-primary-washed-1,#E8F1FF);
+  color: #1E4397;
+  background-color: #E8F1FF;
 }
 
 .emotion-1:active {
-  color: var(--theme-ui-colors-primary-active,#3F6FDB);
-  background-color: var(--theme-ui-colors-primary-washed-2,#DBE9FF);
+  color: #3F6FDB;
+  background-color: #DBE9FF;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#898F9E);
+  color: #898F9E;
 }
 
 <button
@@ -770,18 +281,18 @@ exports[`Button tests should match snapshot 1`] = `
   >
     <div
       class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
     >
-      text - primary - regular
+      Button
     </div>
   </button>
   .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -790,13 +301,6 @@ exports[`Button tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -804,12 +308,12 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-1 {
   border: none;
-  border-radius: 0.250rem;
+  border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: capitalize;
-  background-color: transparent;
-  color: var(--theme-ui-colors-primary-base,#2953B2);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #2953B2;
   font-variation-settings: 'wght' 92;
   font-size: 0.75rem;
   height: 32px;
@@ -829,17 +333,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  color: var(--theme-ui-colors-primary-hover,#1E4397);
-  background-color: var(--theme-ui-colors-primary-washed-1,#E8F1FF);
+  background-color: #1E4397;
 }
 
 .emotion-1:active {
-  color: var(--theme-ui-colors-primary-active,#3F6FDB);
-  background-color: var(--theme-ui-colors-primary-washed-2,#DBE9FF);
+  background-color: #3F6FDB;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#898F9E);
+  color: #323845;
+  background-color: #C4C5CA;
 }
 
 <button
@@ -848,18 +351,18 @@ exports[`Button tests should match snapshot 1`] = `
   >
     <div
       class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
     >
-      text - primary - small
+      Button
     </div>
   </button>
   .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -868,13 +371,6 @@ exports[`Button tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -882,12 +378,12 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-1 {
   border: none;
-  border-radius: 0.250rem;
+  border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: capitalize;
-  background-color: transparent;
-  color: var(--theme-ui-colors-danger-base,#CE454F);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #CE454F;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
@@ -907,17 +403,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  color: var(--theme-ui-colors-danger-hover,#A70C0C);
-  background-color: var(--theme-ui-colors-danger-washed-1,#FFE3E3);
+  background-color: #A70C0C;
 }
 
 .emotion-1:active {
-  color: var(--theme-ui-colors-danger-active,#DE0404);
-  background-color: var(--theme-ui-colors-danger-washed-2,#FFD0D0);
+  background-color: #DE0404;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#898F9E);
+  color: #323845;
+  background-color: #C4C5CA;
 }
 
 <button
@@ -926,93 +421,8 @@ exports[`Button tests should match snapshot 1`] = `
   >
     <div
       class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
     >
-      text - danger - regular
-    </div>
-  </button>
-  .emotion-0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-1 {
-  border: none;
-  border-radius: 0.250rem;
-  cursor: pointer;
-  position: relative;
-  text-transform: capitalize;
-  background-color: transparent;
-  color: var(--theme-ui-colors-danger-base,#CE454F);
-  font-variation-settings: 'wght' 92;
-  font-size: 0.75rem;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-1:hover {
-  color: var(--theme-ui-colors-danger-hover,#A70C0C);
-  background-color: var(--theme-ui-colors-danger-washed-1,#FFE3E3);
-}
-
-.emotion-1:active {
-  color: var(--theme-ui-colors-danger-active,#DE0404);
-  background-color: var(--theme-ui-colors-danger-washed-2,#FFD0D0);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#898F9E);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-      display="flex"
-      h="full"
-      items="center"
-      justify="center"
-      m="auto"
-      sx="[object Object]"
-      w="full"
-    >
-      text - danger - small
+      Button
     </div>
   </button>
 </DocumentFragment>

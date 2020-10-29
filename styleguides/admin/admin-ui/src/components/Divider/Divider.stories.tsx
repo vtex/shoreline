@@ -14,7 +14,7 @@ export default {
 
 export const Horizontal: Story<DividerProps> = () => {
   return (
-    <Card w="5/12">
+    <Card styleOverrides={{ width: '5/12' }}>
       <Heading marginY={2}>Tolerance</Heading>
       <Paragraph>
         Allows orders to be placed even if they pass X% of the account`s credit
@@ -31,7 +31,13 @@ export const Horizontal: Story<DividerProps> = () => {
 
 export const Vertical: Story<DividerProps> = () => {
   return (
-    <Card display="flex" w="5/12" justify="center">
+    <Card
+      styleOverrides={{
+        display: 'flex',
+        width: '5/12',
+        justifyContent: 'center',
+      }}
+    >
       <Box w="5/12">
         <Heading marginY={2}>Cards</Heading>
         <Paragraph>
