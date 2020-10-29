@@ -5,6 +5,32 @@ import { DateTime, Info } from 'luxon'
 
 const today = DateTime.local()
 
+const Day = ({
+  value,
+  variant,
+  onClick,
+  selectedDate,
+  ...restProps
+}: DayProps) => {
+  let active = false
+
+  if (selectedDate) {
+    const selected = DateTime.fromJSDate(selectedDate)
+
+    active = value.ordinal === selected.ordinal
+  }
+
+  return (
+    <button
+      sx={{ variant: `${variant}${active ? '.active' : ''}` }}
+      onClick={() => onClick(value)}
+      {...restProps}
+    >
+      {value.day}
+    </button>
+  )
+}
+
 export const Calendar = ({
   day = today.day,
   month = today.month,
@@ -85,33 +111,6 @@ export const Calendar = ({
     return finalCells.reverse()
   }
 
-  const renderCell = ({
-    value,
-    variant,
-  }: {
-    value: DateTime
-    variant: string
-  }) => {
-    let active = false
-
-    if (selectedDate) {
-      const selected = DateTime.fromJSDate(selectedDate)
-
-      active = value.ordinal === selected.ordinal
-    }
-
-    return (
-      <button
-        key={`${value.day} - ${value.month}`}
-        sx={{ variant: `${variant}${active ? '.active' : ''}` }}
-        onClick={() => handleCellClick(value)}
-        disabled={disabled}
-      >
-        {value.day}
-      </button>
-    )
-  }
-
   return (
     <Box variant={`calendar${disabled ? '.disabled' : ''}`}>
       <Text variant="calendar.title">{date.toFormat('MMMM yyyy')}</Text>
@@ -121,15 +120,39 @@ export const Calendar = ({
             {weekDay}
           </Box>
         ))}
-        {getInitialCells().map((initialCell) =>
-          renderCell({ value: initialCell, variant: 'calendar.extraCell' })
-        )}
-        {getMonthCells().map((monthCell) =>
-          renderCell({ value: monthCell, variant: 'calendar.monthCell' })
-        )}
-        {getFinalCells().map((finalCell) =>
-          renderCell({ value: finalCell, variant: 'calendar.extraCell' })
-        )}
+        {getInitialCells().map((initialCell) => (
+          // renderCell({ value: initialCell, variant: 'calendar.extraCell' })
+          <Day
+            key={`${initialCell.day} - ${initialCell.month}`}
+            value={initialCell}
+            variant="calendar.extraCell"
+            onClick={handleCellClick}
+            disabled={disabled}
+            selectedDate={selectedDate as Date}
+          />
+        ))}
+        {getMonthCells().map((monthCell) => (
+          // renderCell({ value: monthCell, variant: 'calendar.monthCell' })
+          <Day
+            key={`${monthCell.day} - ${monthCell.month}`}
+            value={monthCell}
+            variant="calendar.monthCell"
+            onClick={handleCellClick}
+            disabled={disabled}
+            selectedDate={selectedDate as Date}
+          />
+        ))}
+        {getFinalCells().map((finalCell) => (
+          // renderCell({ value: finalCell, variant: 'calendar.extraCell' })
+          <Day
+            key={`${finalCell.day} - ${finalCell.month}`}
+            value={finalCell}
+            variant="calendar.extraCell"
+            onClick={handleCellClick}
+            disabled={disabled}
+            selectedDate={selectedDate as Date}
+          />
+        ))}
       </Grid>
     </Box>
   )
@@ -142,6 +165,14 @@ type Event = Record<
     colors?: string[]
   }
 >
+
+interface DayProps {
+  value: DateTime
+  variant: string
+  onClick: (date: DateTime) => void
+  selectedDate: Date
+  disabled?: boolean
+}
 
 export interface CalendarProps {
   onChange?: (date: Date) => void
