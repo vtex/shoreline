@@ -1,7 +1,6 @@
 export * from './system'
 export * from './icons'
 export { Box, BoxProps } from './components/Box'
-export { Text, TextProps } from './components/Text'
 export { Skeleton, SkeletonProps } from './components/Skeleton'
 export {
   Menu,
@@ -37,7 +36,6 @@ export {
 } from './components/CollapsibleGroup'
 export { Tag, TagProps } from './components/Tag'
 export { useResponsiveValue as unstableUseResponsiveValue } from '@vtex/admin-ui-system'
-export { unstableSet } from './components/unstableSet'
 export {
   Columns as unstableColumns,
   Column as unstableColumnsItem,
@@ -60,3 +58,5 @@ export * from './components/List'
 export * from './components/Heading'
 export * from './components/Card'
 export * from './components/Button'
+export * from './components/Set'
+export * from './components/Text'

@@ -13,7 +13,7 @@ A `<Set>` can be used to list a set of components. It will automatically space o
 import {
   unstableThemeProvider as ThemeProvider,
   unstableButton as Button,
-  unstableSet as Set,
+  Set,
 } from '@vtex/admin-ui'
 
 function Example() {
@@ -53,7 +53,7 @@ The spacing between components can be controlled using the `spacing` property.
 import {
   unstableThemeProvider as ThemeProvider,
   unstableButton as Button,
-  unstableSet as Set,
+  Set,
 } from '@vtex/admin-ui'
 
 function Example() {
@@ -79,7 +79,7 @@ Orientation can be either `vertical` or `horizontal` (default). It can be contro
 import {
   unstableThemeProvider as ThemeProvider,
   unstableButton as Button,
-  unstableSet as Set,
+  Set,
 } from '@vtex/admin-ui'
 
 function Example() {
@@ -105,7 +105,7 @@ While on `vertical` orientation, you can alternatively the `fluid` property. Thi
 import {
   unstableThemeProvider as ThemeProvider,
   unstableButton as Button,
-  unstableSet as Set,
+  Set,
   unstableBox as Box,
 } from '@vtex/admin-ui'
 
@@ -134,7 +134,7 @@ You can set items alignment (`start` [default], `end`) through the `align` prop.
 import {
   unstableThemeProvider as ThemeProvider,
   unstableButton as Button,
-  unstableSet as Set,
+  Set,
 } from '@vtex/admin-ui'
 
 function Example() {
@@ -160,7 +160,7 @@ function Example() {
 import {
   unstableThemeProvider as ThemeProvider,
   unstableButton as Button,
-  unstableSet as Set,
+  Set,
   unstableBox as Box,
 } from '@vtex/admin-ui'
 
@@ -189,7 +189,7 @@ You can use the `styleOverrides` property to handle different styles.
 import {
   unstableThemeProvider as ThemeProvider,
   unstableButton as Button,
-  unstableSet as Set,
+  Set,
 } from '@vtex/admin-ui'
 
 function Example() {
@@ -215,4 +215,4 @@ This component uses a flexbox under the hood. Knowing that it has the same limit
 
 # Props
 
-<proptypes component="unstableSet" />
+<proptypes component="Set" />

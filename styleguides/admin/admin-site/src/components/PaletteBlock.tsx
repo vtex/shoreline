@@ -2,7 +2,7 @@ import React from 'react'
 import {
   unstableBox as Box,
   unstableThemeProvider as ThemeProvider,
-  unstableSet as Set,
+  Set,
   BoxProps,
   theme,
 } from '@vtex/admin-ui'

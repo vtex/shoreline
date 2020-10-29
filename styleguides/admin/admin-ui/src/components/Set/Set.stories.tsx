@@ -1,12 +1,12 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { unstableSet as Set } from './index'
+import { Set } from './index'
 import { Button } from '../Button'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 export default {
-  title: 'system-next/layout/set',
+  title: 'beta/layout/set',
 } as Meta
 
 export const SetLayout = () => {

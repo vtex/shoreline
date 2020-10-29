@@ -2,7 +2,7 @@ import React from 'react'
 import invariant from 'tiny-invariant'
 
 import { ButtonProps } from '../Button'
-import { SetProps } from '../unstableSet'
+import { SetProps } from '../Set'
 
 const ActionsContext = React.createContext<
   (Pick<ButtonProps, 'size' | 'palette'> & Pick<SetProps, 'orientation'>) | null
