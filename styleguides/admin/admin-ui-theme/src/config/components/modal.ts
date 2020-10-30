@@ -75,6 +75,33 @@ const footer = {
   },
 }
 
+const content = {
+  pt: 4,
+  px: 6,
+  pb: 6,
+}
+
+// TODO: Make it global
+const scrollbar = {
+  scrollbarWidth: 'thin',
+  scrollbarColor: 'background',
+  '::-webkit-scrollbar': {
+    width: '8px',
+  },
+  '::-webkit-scrollbar-thumb': {
+    backgroundColor: 'muted.3',
+    borderRadius: '6px',
+    border: '2px solid',
+    color: 'background',
+  },
+}
+
+const contentWithScroll = {
+  ...content,
+  ...scrollbar,
+  overflowY: 'auto',
+}
+
 export default {
   backdrop: {
     display: 'flex',
@@ -109,10 +136,28 @@ export default {
   'header-small': { ...header, height: 56 },
   'header-regular': { ...header, height: 56 },
   'header-large': { ...header, height: 80 },
+  'content-with-small-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 3.5rem)',
+  },
+  'content-with-regular-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 3.5rem)',
+  },
+  'content-with-large-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 5rem)',
+  },
+  'content-with-larger-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 7rem)',
+  },
+  'content-with-extra-large-scroll-area': {
+    ...contentWithScroll,
+    height: 'calc(100% - 10rem)',
+  },
   content: {
-    pt: 4,
-    px: 6,
-    pb: 6,
+    ...content,
   },
   'footer-small': {
     ...footer,
@@ -121,7 +166,8 @@ export default {
     '>button': {
       width: 'full',
     },
+    minHeight: '3.5rem',
   },
-  'footer-regular': { ...footer, borderTopWidth: 1 },
-  'footer.-large': { ...footer, borderTopWidth: 1 },
+  'footer-regular': { ...footer, borderTopWidth: 1, minHeight: '3.5rem' },
+  'footer-large': { ...footer, borderTopWidth: 1, minHeight: '5rem' },
 }
