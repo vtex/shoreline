@@ -1,9 +1,10 @@
 /** @jsx jsx */
-import { jsx, SxStyleProp } from '@theme-ui/core'
+import { jsx } from '@theme-ui/core'
 import { ReactNode } from 'react'
 import { useClassName } from '@vtex/admin-ui-system'
 
 import { useModalContext } from '../context'
+import { Overridable } from '../../../types'
 
 /**
  * Footer of the modal
@@ -19,18 +20,17 @@ import { useModalContext } from '../context'
  * ```
  */
 export function ModalFooter(props: ModalFooterProps) {
-  const { styles, ...footerProps } = props
+  const { styleOverrides, ...footerProps } = props
   const { size } = useModalContext()
 
   const className = useClassName({
-    props: { styles },
+    props: { styles: styleOverrides },
     themeKey: `components.modal.footer-${size}`,
   })
 
   return <footer className={className} {...footerProps} />
 }
 
-interface ModalFooterProps {
+interface ModalFooterProps extends Overridable {
   children?: ReactNode
-  styles?: SxStyleProp
 }
