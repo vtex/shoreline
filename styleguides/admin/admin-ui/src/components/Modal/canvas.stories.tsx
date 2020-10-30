@@ -1,30 +1,19 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import styled from '@emotion/styled'
 
 import { Checkbox, useCheckboxState } from '../Checkbox'
 import { unstableBox as Box } from '../unstableBox'
-import { List } from '../List'
 import { Label } from '../Label'
 import { Button } from '../Button'
 import { Modal, ModalDisclosure, StatelessModal, useModalState } from './index'
 import { Text } from '../Text'
 import { ModalProps } from './Stateful'
-import { Toggle } from '../Toggle'
-import { Ballon } from '../../../assets/Ballon'
-import { WrappingBox } from '../../../assets/WrappingBox'
-import { Stairs } from '../../../assets/Stairs'
-import {
-  IconCarousel,
-  IconShelf,
-  IconInfoCard,
-  IconRichText,
-  IconVitrine,
-} from '../../../assets/ComponentIcons'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
+import { Heading } from '../Heading'
+import { Paragraph } from '../Paragraph'
 
 export default {
-  title: 'system-next/modal',
+  title: 'beta/modal',
   component: Modal,
 } as Meta
 
@@ -119,14 +108,22 @@ export const RegularModal: Story<ModalProps> = () => {
       >
         <Modal.Header title="Terms and Conditions" />
         <Modal.Content>
-          <Text variant="subtitle">Shared Cart</Text>
-          <Text>
+          <Heading>Shared Cart</Heading>
+          <Paragraph>
             The shared cart is a tool that allows more than one customer to add,
-            remove or update items and informations from the same cart.
-            <br />
-            For your customer, the shared cart means practicality when making a
-            purchase. For your store, it means:
-            <Text variant="subtitle">How this is technically possible</Text>
+            remove or update items and informations from the same cart. For your
+            customer, the shared cart means practicality when making a purchase.
+            For your store, it means:
+          </Paragraph>
+          <Heading element="h2">Information security</Heading>
+          <Paragraph>
+            The payment is still done by one person whose informations remain
+            secure, since the profile and delivery data are visible only to the
+            user who creates the cart. For others, these same data are
+          </Paragraph>
+
+          <Heading element="h2">How this is technically possible</Heading>
+          <Paragraph>
             We started using a parameter in the URL to identify the cart. As a
             result, the URL can be shared with other users, who can view the
             items, add and remove products, and even pay for the order. However,
@@ -134,11 +131,7 @@ export const RegularModal: Story<ModalProps> = () => {
             automatically in the checkout), all personal informations are
             secure: only the informations owner has access to them, after he is
             authenticated in the store.
-            <Text variant="subtitle">Information security</Text>
-            The payment is still done by one person whose informations remain
-            secure, since the profile and delivery data are visible only to the
-            user who creates the cart. For others, these same data are
-          </Text>
+          </Paragraph>
         </Modal.Content>
         <Modal.Footer>
           <Label

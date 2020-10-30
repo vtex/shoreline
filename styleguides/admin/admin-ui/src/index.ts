@@ -13,7 +13,7 @@ export {
   ActionButtonProps,
   MenuDisclosure,
 } from './components/Menu'
-export * from './components/Modal'
+
 export {
   Collapsible,
   useCollapsible,
@@ -55,3 +55,4 @@ export * from './components/Divider'
 export * from './components/Toggle'
 export * from './components/VisuallyHidden'
 export * from './components/Table'
+export * from './components/Modal'

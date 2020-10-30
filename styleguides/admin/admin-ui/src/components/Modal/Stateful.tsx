@@ -1,12 +1,14 @@
 import React, { Fragment, FunctionComponentElement } from 'react'
-import { DisclosureInitialState } from 'reakit/ts'
 
+import { StatelessModal, StatelessModalProps } from './Stateless'
 import {
-  StatelessModal,
-  StatelessModalProps,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalButton,
   ModalDisclosure,
-  useModalState,
-} from './Stateless'
+} from './components'
+import { ModalState, ModalInitialState } from './state'
 
 /**
  * Stateful Modal
@@ -24,14 +26,17 @@ import {
  * ```
  */
 export function Modal(props: ModalProps) {
-  const { disclosure, visible, ...modalProps } = props
-  const state = useModalState({ visible })
+  const { disclosure, visible, animated = true, ...modalProps } = props
 
   return (
-    <Fragment>
-      <ModalDisclosure {...state}>{disclosure}</ModalDisclosure>
-      <StatelessModal state={state} {...modalProps} />
-    </Fragment>
+    <ModalState initialState={{ visible, animated }}>
+      {(state) => (
+        <Fragment>
+          <ModalDisclosure state={state}>{disclosure}</ModalDisclosure>
+          <StatelessModal state={state} {...modalProps} />
+        </Fragment>
+      )}
+    </ModalState>
   )
 }
 
@@ -48,7 +53,7 @@ export function Modal(props: ModalProps) {
  * </Modal>
  * ```
  */
-Modal.Header = StatelessModal.Header
+Modal.Header = ModalHeader
 
 /**
  * Content of the modal
@@ -63,7 +68,7 @@ Modal.Header = StatelessModal.Header
  * </Modal>
  * ```
  */
-Modal.Content = StatelessModal.Content
+Modal.Content = ModalContent
 /**
  * Footer of the modal
  * Renders a footer element
@@ -77,7 +82,7 @@ Modal.Content = StatelessModal.Content
  * </Modal>
  * ```
  */
-Modal.Footer = StatelessModal.Footer
+Modal.Footer = ModalFooter
 
 /**
  * Button capable of close the modal when clicked
@@ -93,11 +98,11 @@ Modal.Footer = StatelessModal.Footer
  * </Modal>
  * ```
  */
-Modal.Button = StatelessModal.Button
+Modal.Button = ModalButton
 
 export interface ModalProps
   extends Omit<StatelessModalProps, 'state'>,
-    Pick<DisclosureInitialState, 'visible'> {
+    Pick<ModalInitialState, 'visible' | 'animated'> {
   /**
    * Visibility toggle. It implements the [WAI-ARIA Disclosure Pattern](https://www.w3.org/TR/wai-aria-practices/#disclosure)
    */
