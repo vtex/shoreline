@@ -1,6 +1,7 @@
 import { Theme, FeedbackPalette } from '@vtex-components/theme'
 
 const brand = {
+  width: 'fit-content',
   justifyContent: 'center',
   gridArea: 'brand',
   marginLeft: [4, 6, 6],
@@ -84,7 +85,7 @@ const header = {
   left: '0',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gridTemplateColumns: '1.5fr 4fr 1.75fr 2fr minmax(6.75rem, auto)',
+  gridTemplateColumns: '1.25fr 4fr 2fr 2fr minmax(6.75rem, auto)',
   gridTemplateAreas: '"brand leftlinks search rightlinks actionbutton"',
   backgroundColor: 'primary.contrast',
   borderBottom: 'solid',
