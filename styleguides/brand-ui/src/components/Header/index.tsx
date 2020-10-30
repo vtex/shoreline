@@ -29,9 +29,9 @@ const Brand = ({
   const sx = noMargin ? { marginX: '0' } : {}
 
   return (
-    <Flex variant="header.brand" sx={sx}>
+    <Link href="/" variant="header.brand" sx={sx}>
       {children}
-    </Flex>
+    </Link>
   )
 }
 
