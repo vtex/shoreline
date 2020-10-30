@@ -1,12 +1,12 @@
 import React, { ReactNode, useMemo } from 'react'
-import { SxStyleProp } from '@theme-ui/core'
 import { useClassName } from '@vtex/admin-ui-system'
 
 import { useModalContext } from '../context'
 import { getScrollAreaSize } from '../util'
+import { Overridable } from '../../../types'
 
 export function ModalContent(props: ModalContentProps) {
-  const { styles, ...contentProps } = props
+  const { styleOverrides, ...contentProps } = props
 
   const { hasHeader, hasFooter, size } = useModalContext()
 
@@ -16,14 +16,13 @@ export function ModalContent(props: ModalContentProps) {
   )
 
   const className = useClassName({
-    props: { styles },
+    props: { styles: styleOverrides },
     themeKey: `components.modal.content${scrollSize}`,
   })
 
   return <section className={className} {...contentProps} />
 }
 
-interface ModalContentProps {
+interface ModalContentProps extends Overridable {
   children?: ReactNode
-  styles?: SxStyleProp
 }

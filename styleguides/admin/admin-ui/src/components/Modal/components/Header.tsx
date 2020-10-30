@@ -7,6 +7,7 @@ import { useModalContext } from '../context'
 import { IconClose } from '../../../icons'
 import { ModalButton } from './Button'
 import { unstableBox as Box } from '../../unstableBox'
+import { Overridable } from '../../../types'
 /**
  * Header of the modal
  * Renders a header element
@@ -21,17 +22,26 @@ import { unstableBox as Box } from '../../unstableBox'
  * ```
  */
 export function ModalHeader(props: ModalHeaderProps) {
-  const { children, title = null, containerStyles = {}, styles = {} } = props
+  const {
+    children,
+    title = null,
+    containerStyleOverrides = {},
+    styleOverrides = {},
+  } = props
 
   const { omitCloseButton, size } = useModalContext()
   const className = useClassName({
-    props: { styles },
+    props: { styles: styleOverrides },
     themeKey: `components.modal.header-${size}`,
   })
 
   const containerCn = useClassName({
     props: {
-      styles: { display: 'flex', alignItems: 'center', ...containerStyles },
+      styles: {
+        display: 'flex',
+        alignItems: 'center',
+        ...containerStyleOverrides,
+      },
     },
   })
 
@@ -63,7 +73,7 @@ export function ModalHeader(props: ModalHeaderProps) {
   )
 }
 
-export interface ModalHeaderProps {
+export interface ModalHeaderProps extends Overridable {
   /**
    * Title of the modal
    * @default null
@@ -73,13 +83,9 @@ export interface ModalHeaderProps {
    * Styles of the buttons container
    * @default {}
    */
-  containerStyles?: SxStyleProp
+  containerStyleOverrides?: SxStyleProp
   /**
    * component children
    */
   children?: ReactNode
-  /**
-   * theme-ui sx prop
-   */
-  styles?: SxStyleProp
 }

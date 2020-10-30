@@ -16,6 +16,7 @@ import {
 } from './components'
 import { ModalSize } from './types'
 import { useComponentsExistence } from './util'
+import { Overridable } from '../../types'
 
 /**
  * Stateless Modal
@@ -45,7 +46,7 @@ export function StatelessModal(props: StatelessModalProps) {
     size = 'regular',
     omitCloseButton = false,
     backdropStyles = {},
-    styles = {},
+    styleOverrides = {},
     onClose = () => null,
     ...baseProps
   } = props
@@ -63,7 +64,7 @@ export function StatelessModal(props: StatelessModalProps) {
   const { hasHeader, hasFooter, scrollStyle } = useComponentsExistence(children)
 
   const modalCn = useClassName({
-    props: { styles: { ...scrollStyle, ...styles } },
+    props: { styles: { ...scrollStyle, ...styleOverrides } },
     themeKey: `components.modal.surface-${size}`,
   })
 
@@ -149,7 +150,7 @@ StatelessModal.Footer = ModalFooter
  */
 StatelessModal.Button = ModalButton
 
-export interface StatelessModalProps extends AbstractModalProps {
+export interface StatelessModalProps extends AbstractModalProps, Overridable {
   /**
    * Component children
    */
@@ -172,11 +173,6 @@ export interface StatelessModalProps extends AbstractModalProps {
    * @default false
    */
   omitCloseButton?: boolean
-  /**
-   * Modal box styles
-   * @default {}
-   */
-  styles?: SxStyleProp
   /**
    * Backdrop styles
    * @default {}
