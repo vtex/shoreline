@@ -15,10 +15,6 @@ export {
 } from './components/Menu'
 export * from './components/Modal'
 export {
-  VisuallyHidden,
-  VisuallyHiddenProps,
-} from './components/VisuallyHidden'
-export {
   Collapsible,
   useCollapsible,
   CollapsibleProps,
@@ -39,7 +35,6 @@ export { unstableBox } from './components/unstableBox'
 export { unstableInput } from './components/unstableInput'
 export { unstableTextField } from './components/unstableTextField'
 export { unstableThemeProvider } from './components/unstableThemeProvider'
-export * from './components/unstableTable'
 export { unstableTheme } from '@vtex/admin-ui-theme'
 
 /** on new structure */
@@ -58,3 +53,5 @@ export * from './components/Text'
 export * from './components/Columns'
 export * from './components/Divider'
 export * from './components/Toggle'
+export * from './components/VisuallyHidden'
+export * from './components/Table'
