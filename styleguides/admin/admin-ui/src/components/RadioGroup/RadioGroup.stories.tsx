@@ -8,7 +8,7 @@ import { Label } from '../Label'
 import { Heading } from '../Heading'
 
 export default {
-  title: 'beta/forms/RadioGroup',
+  title: 'beta/forms/radio-group',
   component: Radio,
 } as Meta
 

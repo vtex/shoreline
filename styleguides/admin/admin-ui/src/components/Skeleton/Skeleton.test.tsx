@@ -1,25 +1,41 @@
 import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
-import serializer from 'jest-emotion'
+import { axe } from 'jest-axe'
 
-import { ThemeProvider } from '../../system'
-import { Skeleton, Shape } from './index'
-
-expect.addSnapshotSerializer(serializer)
+import { Skeleton } from './index'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 describe('Skeleton tests', () => {
-  it('should match snapshot', () => {
-    const shapes = ['circle', 'rect'] as Shape[]
+  it('should have overridable styles', () => {
+    const { getByTestId } = render(
+      <ThemeProvider>
+        <Skeleton data-testid="skeleton" styles={{ bg: 'blue' }} />
+      </ThemeProvider>
+    )
 
+    expect(getByTestId('skeleton')).toHaveStyleRule('background-color', 'blue')
+  })
+
+  it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        {shapes.map((shape, i) => (
-          <Skeleton key={i} shape={shape} />
-        ))}
+        <Skeleton />
+        <Skeleton shape="circle" />
       </ThemeProvider>
     )
 
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should not have a11y violations', async () => {
+    const { container } = render(
+      <ThemeProvider>
+        <Skeleton />
+      </ThemeProvider>
+    )
+
+    const results = await axe(container)
+
+    expect(results).toHaveNoViolations()
   })
 })

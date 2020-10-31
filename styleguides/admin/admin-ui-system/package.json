@@ -32,6 +32,9 @@
     "react": ">=16",
     "react-dom": ">=16"
   },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.6"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@emotion/is-prop-valid": "^0.8.8",
@@ -40,10 +43,10 @@
     "@theme-ui/css": "^0.4.0-rc.5",
     "@theme-ui/match-media": "^0.4.0-rc.5",
     "csstype": "^3.0.3",
-    "deepmerge": "^4.2.2",
     "emotion": "^10.0.27",
     "focus-visible": "^5.1.0",
     "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3"
+    "tiny-warning": "^1.0.3",
+    "lodash.merge": "^4.6.2"
   }
 }
