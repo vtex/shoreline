@@ -57,23 +57,27 @@ const style = {
   },
 }
 
+const regular = merge(style, {
+  height: 20,
+  width: 20,
+  padding: '5px',
+  ':after': {
+    width: 8,
+    height: 8,
+  },
+})
+
+const small = merge(style, {
+  height: 16,
+  width: 16,
+  padding: 1,
+  ':after': {
+    width: 6,
+    height: 6,
+  },
+})
+
 export default {
-  regular: merge(style, {
-    height: 20,
-    width: 20,
-    padding: '5px',
-    ':after': {
-      width: 8,
-      height: 8,
-    },
-  }),
-  small: merge(style, {
-    height: 16,
-    width: 16,
-    padding: 1,
-    ':after': {
-      width: 6,
-      height: 6,
-    },
-  }),
+  regular,
+  small,
 }

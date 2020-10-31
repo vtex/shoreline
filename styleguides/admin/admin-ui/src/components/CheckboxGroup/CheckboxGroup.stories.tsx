@@ -7,7 +7,7 @@ import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider
 import { Label } from '../Label'
 
 export default {
-  title: 'beta/forms/CheckboxGroup',
+  title: 'beta/forms/checkbox-group',
   component: CheckboxGroup,
 } as Meta
 

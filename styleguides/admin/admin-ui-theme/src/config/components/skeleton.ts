@@ -30,12 +30,12 @@ const styles = {
 }
 
 export default {
-  square: {
+  rect: {
     ...styles,
-    borderRadius: 3,
+    borderRadius: 'default',
   },
   circle: {
     ...styles,
-    borderRadius: '100%',
+    borderRadius: 'circle',
   },
 }

@@ -47,10 +47,9 @@ describe('Radio tests', () => {
           {(state) => (
             <Radio
               state={state}
-              data-testid="radio"
               value="radio"
               aria-label="radio"
-              styleOverrides={{ bg: 'azure' }}
+              size="regular"
             />
           )}
         </RadioState>
@@ -58,11 +57,9 @@ describe('Radio tests', () => {
           {(state) => (
             <Radio
               state={state}
-              data-testid="radio"
               value="radio"
               aria-label="radio"
               size="small"
-              styleOverrides={{ bg: 'azure' }}
             />
           )}
         </RadioState>

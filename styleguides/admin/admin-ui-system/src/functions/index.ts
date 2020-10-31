@@ -1,4 +1,5 @@
 export * from './cleanProps'
+export * from './merge'
 export * from './createElement'
 export * from './is'
 export * from './omit'

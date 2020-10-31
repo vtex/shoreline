@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Skeleton, SkeletonProps } from './index'
-import { Box } from '../Box'
+import { unstableBox as Box } from '../unstableBox'
 import { Button } from '../Button'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
+import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 export default {
   title: 'beta/Skeleton',
@@ -13,18 +14,28 @@ export default {
 } as Meta
 
 export const Rect: Story<SkeletonProps> = () => {
-  return <Skeleton h={128} w={128} />
+  return (
+    <ThemeProvider>
+      <Skeleton styles={{ height: 128, width: 128 }} />
+    </ThemeProvider>
+  )
 }
 
 export const Circle: Story<SkeletonProps> = () => {
-  return <Skeleton shape="circle" w={100} h={100} />
+  return (
+    <ThemeProvider>
+      <Skeleton shape="circle" styles={{ width: 100, height: 100 }} />
+    </ThemeProvider>
+  )
 }
 
 export const Fluid: Story<SkeletonProps> = () => {
   return (
-    <Box w="full" h={192}>
-      <Skeleton />
-    </Box>
+    <ThemeProvider>
+      <Box width="full" height={192}>
+        <Skeleton />
+      </Box>
+    </ThemeProvider>
   )
 }
 
@@ -32,17 +43,17 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(false)
 
   return (
-    <Fragment>
-      <Box w="sm">
+    <ThemeProvider>
+      <Box width="sm">
         {loading ? (
           <Box>
-            <Skeleton h={24} w="5/12" />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} w="1/2" />
+            <Skeleton height={24} width="5/12" />
+            <Skeleton height={16} />
+            <Skeleton height={16} />
+            <Skeleton height={16} />
+            <Skeleton height={16} />
+            <Skeleton height={16} />
+            <Skeleton height={16} width="1/2" />
           </Box>
         ) : (
           <Box>
@@ -59,6 +70,6 @@ export const TextExample = () => {
         )}
         <Button onClick={() => setLoading((s) => !s)}>Toggle Loading</Button>
       </Box>
-    </Fragment>
+    </ThemeProvider>
   )
 }

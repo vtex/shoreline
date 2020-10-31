@@ -6,7 +6,7 @@ import { Box } from '../Box'
 import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 export default {
-  title: 'beta/forms/Label',
+  title: 'beta/forms/label',
   component: Label,
 } as Meta
 

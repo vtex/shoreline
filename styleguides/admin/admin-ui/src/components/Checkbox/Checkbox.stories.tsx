@@ -7,7 +7,7 @@ import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider
 import { Text } from '../Text'
 
 export default {
-  title: 'beta/forms/Checkbox',
+  title: 'beta/forms/checkbox',
   component: Checkbox,
 } as Meta
 

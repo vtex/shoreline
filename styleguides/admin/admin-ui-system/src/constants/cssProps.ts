@@ -5,7 +5,15 @@
  */
 export const availableStyleProps = [
   'padding',
+  'paddingLeft',
+  'paddingRight',
+  'paddingTop',
+  'paddingBottom',
   'margin',
+  'marginLeft',
+  'marginRight',
+  'marginTop',
+  'marginBottom',
   'paddingX',
   'paddingY',
   'marginX',
