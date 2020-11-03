@@ -1,21 +1,8 @@
 import React, { Children, ReactNode } from 'react'
-import { SxStyleProp } from 'theme-ui'
 
-import {
-  BorderTokensProps,
-  ColorTokensProps,
-  LayoutTokensProps,
-  SpaceTokensProps,
-} from '../../system'
+import { Overridable } from '../../types'
 import { Card } from '../Card'
-import {
-  Collapsible,
-  CollapsibleContentProps,
-  CollapsibleHeaderProps,
-  CollapsibleProps,
-  Content,
-  Header,
-} from '../Collapsible'
+import { Collapsible, CollapsibleProps, Content, Header } from '../Collapsible'
 import { Divider } from '../Divider'
 
 const FIRST_CHILD = 0
@@ -45,10 +32,10 @@ const FIRST_CHILD = 0
  * ```
  */
 export function CollapsibleGroup(props: CollapsibleGroupProps) {
-  const { children, sx, ...restProps } = props
+  const { children, styleOverrides, ...cardProps } = props
 
   return (
-    <Card p="0" sx={sx} {...restProps}>
+    <Card styleOverrides={styleOverrides} padding={0} {...cardProps}>
       {Children.map(children, (child, index) => (
         <>
           {index > FIRST_CHILD && <Divider margin={0} />}
@@ -60,7 +47,14 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
 }
 
 function CollapsibleGroupItem(props: CollapsibleProps) {
-  return <Collapsible bs="none" {...props} />
+  const { styleOverrides, ...collapsibleProps } = props
+
+  return (
+    <Collapsible
+      styleOverrides={{ borderStyle: 'none', ...styleOverrides }}
+      {...collapsibleProps}
+    />
+  )
 }
 
 /**
@@ -70,11 +64,7 @@ function CollapsibleGroupItem(props: CollapsibleProps) {
  * Actions Panel -> always on the right side.
  * ```
  */
-CollapsibleGroupItem.Header = function ItemHeader(
-  props: CollapsibleHeaderProps
-) {
-  return <Header p="4" pl="2" {...props} />
-}
+CollapsibleGroupItem.Header = Header
 
 /**
  * ```
@@ -82,11 +72,7 @@ CollapsibleGroupItem.Header = function ItemHeader(
  * Can be visible or hidden.
  * ```
  */
-CollapsibleGroupItem.Content = function ItemContent(
-  props: CollapsibleContentProps
-) {
-  return <Content p="4" pt="0" {...props} />
-}
+CollapsibleGroupItem.Content = Content
 
 /**
  * Same as the `Collapsible` component.
@@ -107,12 +93,6 @@ CollapsibleGroupItem.Content = function ItemContent(
  */
 CollapsibleGroup.Item = CollapsibleGroupItem
 
-export interface CollapsibleGroupProps
-  extends BorderTokensProps,
-    SpaceTokensProps,
-    LayoutTokensProps,
-    Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc'> {
-  children: ReactNode
-  /** ThemeUI Style Prop */
-  sx?: SxStyleProp
+export interface CollapsibleGroupProps extends Overridable {
+  children?: ReactNode
 }

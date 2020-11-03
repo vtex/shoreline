@@ -11,15 +11,17 @@ export const Card = forwardRef(function Card(
     styleOverrides,
     palette = 'base',
     border = 'default',
+    padding = 6,
     ...boxProps
   } = props
 
   return (
     <Box
       ref={ref}
-      styles={{ padding: 6, ...styleOverrides }}
+      styles={styleOverrides}
       palette={palette}
       border={border}
+      padding={padding}
       {...boxProps}
     />
   )
