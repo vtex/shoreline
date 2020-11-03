@@ -14,7 +14,7 @@ export const Basic = () => {
   const state = useCollapsible()
 
   return (
-    <Collapsible state={state} w="5/12">
+    <Collapsible state={state} styleOverrides={{ width: '5/12' }}>
       <Collapsible.Header label={<Heading>Build for Community #1</Heading>} />
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
@@ -30,7 +30,10 @@ export const WithButtons = () => {
   const { toggle, ...props } = useCollapsible()
 
   return (
-    <Collapsible state={{ toggle, ...props }} w="6/12">
+    <Collapsible
+      state={{ toggle, ...props }}
+      styleOverrides={{ width: '6/12' }}
+    >
       <Collapsible.Header label="Build for Community #1">
         <Button size="small" variant="subtle">
           Button
@@ -54,7 +57,7 @@ export const Nested = () => {
   const secondState = useCollapsible()
 
   return (
-    <Collapsible state={firstState} w="5/12">
+    <Collapsible state={firstState} styleOverrides={{ width: '5/12' }}>
       <Collapsible.Header
         label={<Heading text="highlight">Build for Community #1</Heading>}
       />
@@ -79,7 +82,7 @@ export const InitiallyVisible = () => {
   const state = useCollapsible({ visible: true })
 
   return (
-    <Collapsible state={state} w="5/12">
+    <Collapsible state={state} styleOverrides={{ width: '5/12' }}>
       <Collapsible.Header
         label={<Heading text="highlight">Build for Community #1</Heading>}
       />
