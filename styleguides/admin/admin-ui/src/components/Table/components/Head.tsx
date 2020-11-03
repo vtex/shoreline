@@ -1,8 +1,9 @@
-import React, { ReactNode, Ref } from 'react'
+import React, { ElementType, ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex-components/utils'
-import { createElement, useClassName } from '@vtex/admin-ui-system'
-import { Box as ReakitBox } from 'reakit/Box'
+import { useClassName } from '@vtex/admin-ui-system'
+import { Box as ReakitBox, BoxHTMLProps } from 'reakit/Box'
 
+import { createElement } from '../../unstableThemeProvider'
 import { useStylesContext, CellRoleContext } from '../context'
 import { Overridable } from '../../../types'
 
@@ -18,7 +19,7 @@ export const TableHead = forwardRef(function Thead(
     themeKey: variants.header,
   })
 
-  return createElement({
+  return createElement<Omit<BoxHTMLProps, 'ref'>>({
     component: ReakitBox,
     element,
     children: (
@@ -36,7 +37,7 @@ export type TableHeadProps = Overridable & {
    * element to be rendered
    * @default header
    */
-  element?: string
+  element?: ElementType
   /**
    * children
    */

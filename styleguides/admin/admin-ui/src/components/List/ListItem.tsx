@@ -1,8 +1,8 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode } from 'react'
-import { createElement } from '@vtex/admin-ui-system'
 import { TextPattern } from '@vtex/admin-ui-theme'
 
+import { createElement } from '../unstableThemeProvider'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 

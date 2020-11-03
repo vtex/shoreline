@@ -3,8 +3,9 @@ import {
   Button as ReakitButton,
   ButtonProps as ReakitButtonProps,
 } from 'reakit'
-import { createElement, SxStyleProp } from '@vtex/admin-ui-system'
+import { SxStyleProp } from '@vtex/admin-ui-system'
 
+import { createElement } from '../unstableThemeProvider'
 import { Variant, Size, Palette } from './types'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'

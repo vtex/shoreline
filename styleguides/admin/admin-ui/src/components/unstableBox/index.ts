@@ -1,13 +1,14 @@
 import React, { forwardRef, Ref } from 'react'
 import { Box as ReakitBox, BoxHTMLProps } from 'reakit'
 import { SxStyleProp } from '@theme-ui/core'
-import { cleanProps, createElement, useClassName } from '@vtex/admin-ui-system'
+import { cleanProps, useClassName } from '@vtex/admin-ui-system'
 import {
   PatternsProps,
   SpaceStyleProps,
   SizeStyleProps,
 } from '@vtex/admin-ui-theme'
 
+import { createElement } from '../unstableThemeProvider'
 import { SemanticTags, HeadingTags } from './types'
 
 export interface BoxProps

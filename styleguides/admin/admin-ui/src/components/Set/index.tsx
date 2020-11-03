@@ -1,12 +1,12 @@
 import { forwardRef, Ref, ReactNode } from 'react'
 import { Box as ReakitBox } from 'reakit/Box'
 import {
-  createElement,
   SxStyleProp,
   useResponsiveValue,
   ResponsiveValue,
 } from '@vtex/admin-ui-system'
 
+import { createElement } from '../unstableThemeProvider'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 
