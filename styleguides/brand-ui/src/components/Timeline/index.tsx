@@ -1,15 +1,26 @@
 import React, { PropsWithChildren, ReactNode } from 'react'
 import { Box, Flex, SxProps } from 'theme-ui'
 
+/**
+ * The timeline displays a list of events in chronological order.
+ * @example
+ * ```jsx
+ * import { Timeline } from `@vtex/brand-ui`
+ * const Example = () => (
+ *  <Timeline>
+ *    <Timeline.Event title="Event 1" />
+ *    <Timeline.Event title="Event 2" />
+ *  </Timeline>
+ * )
+ * ```
+ */
 export function Timeline(props: PropsWithChildren<SxProps>) {
   return <Box {...props} variant="timeline" />
 }
 
-export interface EventProps extends SxProps {
-  title: ReactNode
-  icon?: ReactNode
-}
-
+/**
+ * The default icon setted for all events
+ */
 const Circle = () => (
   <Box variant="timeline.event.icon.default">
     <Box />
@@ -36,4 +47,18 @@ export function Event({
   )
 }
 
+/**
+ * Timeline's event
+ */
 Timeline.Event = Event
+
+export interface EventProps extends SxProps {
+  /**
+   * Event title
+   */
+  title: ReactNode
+  /**
+   * Event icon
+   */
+  icon?: ReactNode
+}
