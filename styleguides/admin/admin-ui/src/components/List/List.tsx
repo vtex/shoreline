@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { useClassName } from '@vtex/admin-ui-system'
 import { TextPattern } from '@vtex/admin-ui-theme'
 
-import { createElement } from '../unstableThemeProvider'
+import { createElement } from '../../system'
 import { Overridable } from '../../types'
 import { ListItem } from './ListItem'
 

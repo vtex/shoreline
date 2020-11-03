@@ -5,7 +5,7 @@ import serializer, { matchers } from 'jest-emotion'
 
 import { RadioGroup } from './index'
 import { Radio, useRadioState, RadioStateReturn } from '../Radio'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
+import { ThemeProvider } from '../../system'
 
 expect.addSnapshotSerializer(serializer)
 expect.extend(matchers)

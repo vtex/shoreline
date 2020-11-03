@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
 
 import { Checkbox, useCheckboxState, CheckboxStateReturn } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
+import { ThemeProvider } from '../../system'
 
 function CheckboxState({
   children,

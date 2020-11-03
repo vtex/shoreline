@@ -6,7 +6,7 @@ import {
   ResponsiveValue,
 } from '@vtex/admin-ui-system'
 
-import { createElement } from '../unstableThemeProvider'
+import { createElement } from '../../system'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 

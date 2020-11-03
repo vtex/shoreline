@@ -3,7 +3,7 @@ import { SxStyleProp, useClassName } from '@vtex/admin-ui-system'
 import { SpaceStyleProps, SizeStyleProps } from '@vtex/admin-ui-theme'
 import { Box as ReakitBox } from 'reakit/Box'
 
-import { createElement } from '../unstableThemeProvider'
+import { createElement } from '../../system'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.

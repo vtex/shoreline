@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 import serializer, { matchers } from 'jest-emotion'
 
 import { Paragraph } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
+import { ThemeProvider } from '../../system'
 
 expect.addSnapshotSerializer(serializer)
 expect.extend(matchers)

@@ -5,7 +5,7 @@ import {
 } from 'reakit'
 import { SxStyleProp } from '@vtex/admin-ui-system'
 
-import { createElement } from '../unstableThemeProvider'
+import { createElement } from '../../system'
 import { Variant, Size, Palette } from './types'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'

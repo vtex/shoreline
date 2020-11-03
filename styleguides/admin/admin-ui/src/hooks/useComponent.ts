@@ -1,4 +1,4 @@
-import { useClassName } from '@vtex/admin-ui-system'
+import { useClassName } from '../system'
 
 interface Params<T> {
   props: T

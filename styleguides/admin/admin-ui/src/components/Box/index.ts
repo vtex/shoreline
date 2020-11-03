@@ -1,14 +1,13 @@
 import { forwardRef, Ref, ElementType, ReactNode } from 'react'
 import { Box as ReakitBox, BoxHTMLProps } from 'reakit'
 import { SxStyleProp } from '@theme-ui/core'
-import { useClassName } from '@vtex/admin-ui-system'
 import {
   PatternsProps,
   SpaceStyleProps,
   SizeStyleProps,
 } from '@vtex/admin-ui-theme'
 
-import { createElement } from '../unstableThemeProvider'
+import { useClassName, createElement } from '../../system'
 
 export const Box = forwardRef(function Box(
   props: BoxProps,
