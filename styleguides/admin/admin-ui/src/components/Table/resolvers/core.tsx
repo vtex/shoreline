@@ -3,8 +3,8 @@
 
 import React, { ReactNode, Fragment } from 'react'
 import warning from 'tiny-warning'
+import { get } from '@vtex/admin-ui-system'
 
-import { get } from '../../../system'
 import { Column, TableDensity, TableDir } from '../typings'
 
 /**

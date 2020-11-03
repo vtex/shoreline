@@ -1,4 +1,3 @@
-export * from './system'
 export * from './icons'
 export { Skeleton, SkeletonProps } from './components/Skeleton'
 export {

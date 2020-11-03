@@ -29,7 +29,6 @@
     "test": "tsdx test --passWithNoTests"
   },
   "peerDependencies": {
-    "@vtex/admin-ui-system": "*",
     "react": ">=16",
     "react-dom": ">=16"
   },
