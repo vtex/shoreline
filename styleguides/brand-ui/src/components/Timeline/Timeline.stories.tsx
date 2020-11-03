@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { Box } from 'theme-ui'
 
-import Timeline from './index'
+import { Timeline } from './index'
 
 export default {
   title: 'beta/Timeline',
