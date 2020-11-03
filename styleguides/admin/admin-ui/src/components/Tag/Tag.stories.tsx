@@ -40,12 +40,12 @@ export const Variants = () => {
   return (
     <>
       <Set>
-        <Tag label="Rio de Janeiro" m="1" />
+        <Tag label="Rio de Janeiro" />
         <Tag size="small" label="Rio de Janeiro" />
       </Set>
       <br />
       <Set>
-        <Tag label="Rio de Janeiro" icon={<IconFavorite />} m="1" />
+        <Tag label="Rio de Janeiro" icon={<IconFavorite />} />
         <Tag size="small" label="Rio de Janeiro" icon={<IconFavorite />} />
       </Set>
       <br />
@@ -53,7 +53,6 @@ export const Variants = () => {
         <Tag
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
-          m="1"
         />
         <Tag
           size="small"
@@ -67,7 +66,6 @@ export const Variants = () => {
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
           icon={<IconFavorite />}
-          m="1"
         />
         <Tag
           size="small"
