@@ -6,7 +6,7 @@ import { TableDensity, TableDir } from './typings'
 import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { Overridable } from '../../types'
-import { unstableBox as Box } from '../unstableBox'
+import { Box } from '../Box'
 
 /**
  * Table used to show static & simple information

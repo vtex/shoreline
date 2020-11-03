@@ -10,7 +10,7 @@ import {
 } from '../../system'
 import { Box } from '../Box'
 
-export const Tag = forwardRef((props: TagProps, ref: Ref<SVGSVGElement>) => {
+export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
   const {
     palette = 'blue',
     size = 'regular',
@@ -21,7 +21,11 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<SVGSVGElement>) => {
   } = props
 
   return (
-    <Box variant={`tag.${palette}-${size}`} {...restProps} ref={ref}>
+    <Box
+      themeKey={`components.tag.${palette}-${size}`}
+      {...restProps}
+      ref={ref}
+    >
       {icon}
       {label}
       {!!handleDelete && (

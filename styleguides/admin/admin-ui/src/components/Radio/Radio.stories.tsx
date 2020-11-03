@@ -2,7 +2,6 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Radio, RadioProps, useRadioState } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { RadioGroup } from '../RadioGroup'
 import { Label } from '../Label'
 import { Heading } from '../Heading'
@@ -15,18 +14,14 @@ export default {
 export const Playground: Story<RadioProps> = () => {
   const state = useRadioState()
 
-  return (
-    <ThemeProvider>
-      <Radio state={state} value="playground" aria-label="playground" />
-    </ThemeProvider>
-  )
+  return <Radio state={state} value="playground" aria-label="playground" />
 }
 
 export function Disabled() {
   const state = useRadioState()
 
   return (
-    <ThemeProvider>
+    <>
       <Radio value="disabled" aria-label="label" disabled state={state} />
       <br />
       <Radio
@@ -36,7 +31,7 @@ export function Disabled() {
         disabled
         state={state}
       />
-    </ThemeProvider>
+    </>
   )
 }
 
@@ -51,7 +46,7 @@ export function Group() {
   ]
 
   return (
-    <ThemeProvider>
+    <>
       <Heading text="highlight">Selected solution: {state.state}</Heading>
       <RadioGroup state={state} orientation="vertical" aria-label="Solutions">
         {values.map((value, key) => {
@@ -67,6 +62,6 @@ export function Group() {
           )
         })}
       </RadioGroup>
-    </ThemeProvider>
+    </>
   )
 }

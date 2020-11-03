@@ -1,7 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { Actions } from './index'
 
 export default {
@@ -11,53 +10,45 @@ export default {
 
 export const Horizontal = () => {
   return (
-    <ThemeProvider>
-      <Actions>
-        <Actions.Primary>Primary Action</Actions.Primary>
-        <Actions.Secondary>Secondary Action</Actions.Secondary>
-        <Actions.Tertiary>Tertiary Action</Actions.Tertiary>
-      </Actions>
-    </ThemeProvider>
+    <Actions>
+      <Actions.Primary>Primary Action</Actions.Primary>
+      <Actions.Secondary>Secondary Action</Actions.Secondary>
+      <Actions.Tertiary>Tertiary Action</Actions.Tertiary>
+    </Actions>
   )
 }
 
 export const Vertial = () => {
   return (
-    <ThemeProvider>
-      <Actions orientation="vertical">
-        <Actions.Primary>Primary Action</Actions.Primary>
-        <Actions.Secondary>Secondary Action</Actions.Secondary>
-        <Actions.Tertiary>Tertiary Action</Actions.Tertiary>
-      </Actions>
-    </ThemeProvider>
+    <Actions orientation="vertical">
+      <Actions.Primary>Primary Action</Actions.Primary>
+      <Actions.Secondary>Secondary Action</Actions.Secondary>
+      <Actions.Tertiary>Tertiary Action</Actions.Tertiary>
+    </Actions>
   )
 }
 
 export const VertialFluid = () => {
   return (
-    <ThemeProvider>
-      <Actions orientation="vertical" fluid>
-        <Actions.Primary>Primary Action</Actions.Primary>
-        <Actions.Secondary>Secondary Action</Actions.Secondary>
-        <Actions.Tertiary>Tertiary Action</Actions.Tertiary>
-      </Actions>
-    </ThemeProvider>
+    <Actions orientation="vertical" fluid>
+      <Actions.Primary>Primary Action</Actions.Primary>
+      <Actions.Secondary>Secondary Action</Actions.Secondary>
+      <Actions.Tertiary>Tertiary Action</Actions.Tertiary>
+    </Actions>
   )
 }
 
 export const Responsive = () => {
   return (
-    <ThemeProvider>
-      <Actions
-        palette="danger"
-        size="small"
-        orientation={['vertical', 'vertical', 'horizontal']}
-        fluid
-      >
-        <Actions.Primary>Primary Action</Actions.Primary>
-        <Actions.Secondary>Secondary Action</Actions.Secondary>
-        <Actions.Tertiary>Tertiary Action</Actions.Tertiary>
-      </Actions>
-    </ThemeProvider>
+    <Actions
+      palette="danger"
+      size="small"
+      orientation={['vertical', 'vertical', 'horizontal']}
+      fluid
+    >
+      <Actions.Primary>Primary Action</Actions.Primary>
+      <Actions.Secondary>Secondary Action</Actions.Secondary>
+      <Actions.Tertiary>Tertiary Action</Actions.Tertiary>
+    </Actions>
   )
 }

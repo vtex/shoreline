@@ -2,7 +2,7 @@ import React, { forwardRef, Ref } from 'react'
 import { Box as ReakitBox } from 'reakit/Box'
 
 import { createElement } from '../unstableThemeProvider'
-import { unstableBox as Box } from '../unstableBox'
+import { Box } from '../Box'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 

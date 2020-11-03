@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { SxStyleProp } from 'theme-ui'
+import { SxStyleProp } from '@vtex/admin-ui-system'
 import {
   useDisclosureState,
   Disclosure as ReakitDisclosure,
@@ -35,7 +35,7 @@ import { Button } from '../Button'
  * ```
  */
 export function Collapsible(props: CollapsibleProps) {
-  const { sx, children, disabled, focusable, state, ...tokensProps } = props
+  const { styles, children, disabled, focusable, state, ...tokensProps } = props
 
   const reakitProps = {
     focusable,
@@ -44,19 +44,24 @@ export function Collapsible(props: CollapsibleProps) {
   }
 
   return (
-    <Box variant="collapsible.container" sx={sx} {...tokensProps}>
+    <Box themeKey="collapsible.container" styles={styles} {...tokensProps}>
       <CollapsibleProvider {...reakitProps}>{children}</CollapsibleProvider>
     </Box>
   )
 }
 
 export function Header(props: CollapsibleHeaderProps) {
-  const { children, label, sx, ...tokens } = props
+  const { children, label, styles, ...tokens } = props
 
   return (
-    <Box el="header" variant="collapsible.header" sx={sx} {...tokens}>
+    <Box
+      element="header"
+      themeKey="components.collapsible.header"
+      styles={styles}
+      {...tokens}
+    >
       <Disclosure>{label}</Disclosure>
-      <Box display="flex">{children}</Box>
+      <Box styles={{ display: 'flex' }}>{children}</Box>
     </Box>
   )
 }
@@ -89,17 +94,17 @@ function Disclosure({ children }: { children: ReactNode }) {
 }
 
 export function Content(props: CollapsibleContentProps) {
-  const { children, sx, ...tokens } = props
+  const { children, styles, ...tokens } = props
   const disclosureProps = useCollapsibleContext()
 
   return (
     <DisclosureContent {...disclosureProps}>
       {(enhancedProps) => (
         <Box
-          el="section"
-          variant="collapsible.section"
+          element="section"
+          themeKey="collapsible.section"
           {...enhancedProps}
-          sx={sx}
+          styles={styles}
           {...tokens}
         >
           {children}
@@ -132,7 +137,7 @@ export interface CollapsibleProps
     SpaceTokensProps,
     Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc'> {
   /** ThemeUI style prop */
-  sx?: SxStyleProp
+  styles?: SxStyleProp
   /** useCollapsible hook return */
   state: DisclosureStateReturn
 }
@@ -149,7 +154,7 @@ export interface CollapsibleHeaderProps
    */
   children?: ReactNode
   /** ThemeUI style prop */
-  sx?: SxStyleProp
+  styles?: SxStyleProp
 }
 
 export interface CollapsibleContentProps
@@ -159,7 +164,7 @@ export interface CollapsibleContentProps
     Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc' | 'c'> {
   children?: ReactNode
   /** ThemeUI style prop */
-  sx?: SxStyleProp
+  styles?: SxStyleProp
 }
 
 export { useDisclosureState as useCollapsible }

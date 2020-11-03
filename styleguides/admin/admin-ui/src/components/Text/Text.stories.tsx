@@ -2,7 +2,6 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import { Text } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 
 export default {
   title: 'beta/typography/text',
@@ -10,7 +9,7 @@ export default {
 
 export function Elements() {
   return (
-    <ThemeProvider>
+    <>
       <Text element="strong">Bold</Text>
       <br />
       <Text element="i">Italic</Text>
@@ -38,14 +37,10 @@ export function Elements() {
       <Text element="sub">sub</Text>
       <br />
       <Text element="sup">sup</Text>
-    </ThemeProvider>
+    </>
   )
 }
 
 export function StyleOverrides() {
-  return (
-    <ThemeProvider>
-      <Text styleOverrides={{ color: 'primary.base' }}>Primary text</Text>
-    </ThemeProvider>
-  )
+  return <Text styleOverrides={{ color: 'primary.base' }}>Primary text</Text>
 }

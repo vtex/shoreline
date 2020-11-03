@@ -10,7 +10,6 @@ import {
 import faker from 'faker'
 import { SxStyleProp } from '@vtex/admin-ui-system'
 
-import { unstableThemeProvider as ThemeProvider } from '../../unstableThemeProvider'
 import { IconDrag } from '../../../icons'
 import { Table } from '../index'
 import { useTable } from '../useTable'
@@ -63,42 +62,40 @@ export function LowerLevel() {
   })
 
   return (
-    <ThemeProvider>
-      <Table styleOverrides={{ width: 560 }}>
-        <Table.Head>
-          <Table.Row>
+    <Table styleOverrides={{ width: 560 }}>
+      <Table.Head>
+        <Table.Row>
+          {table.columns.map((column) => {
+            const content = table.resolveHeader({ column })
+
+            return (
+              <Table.Cell key={column.id as string} column={column}>
+                {content}
+              </Table.Cell>
+            )
+          })}
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        {table.data.map((item) => (
+          <Table.Row id={item.id} key={item.id}>
             {table.columns.map((column) => {
-              const content = table.resolveHeader({ column })
+              const content = table.resolveCell({ item, column })
 
               return (
-                <Table.Cell key={column.id as string} column={column}>
+                <Table.Cell
+                  id={`${item.id}-${column.id}`}
+                  key={`${item.id}-${column.id}`}
+                  column={column}
+                >
                   {content}
                 </Table.Cell>
               )
             })}
           </Table.Row>
-        </Table.Head>
-        <Table.Body>
-          {table.data.map((item) => (
-            <Table.Row id={item.id} key={item.id}>
-              {table.columns.map((column) => {
-                const content = table.resolveCell({ item, column })
-
-                return (
-                  <Table.Cell
-                    id={`${item.id}-${column.id}`}
-                    key={`${item.id}-${column.id}`}
-                    column={column}
-                  >
-                    {content}
-                  </Table.Cell>
-                )
-              })}
-            </Table.Row>
-          ))}
-        </Table.Body>
-      </Table>
-    </ThemeProvider>
+        ))}
+      </Table.Body>
+    </Table>
   )
 }
 
@@ -168,38 +165,36 @@ export function Windowing() {
   }
 
   return (
-    <ThemeProvider>
-      <Table styleOverrides={{ width: 560 }}>
-        <Table.Head>
-          <Table.Row>
-            {table.columns.map((column) => {
-              const content = table.resolveHeader({ column })
+    <Table styleOverrides={{ width: 560 }}>
+      <Table.Head>
+        <Table.Row>
+          {table.columns.map((column) => {
+            const content = table.resolveHeader({ column })
 
-              return (
-                <Table.Cell key={column.id as string} column={column}>
-                  {content}
-                </Table.Cell>
-              )
-            })}
-          </Table.Row>
-        </Table.Head>
-        <FixedSizeList
-          height={560}
-          itemSize={80}
-          itemCount={1000}
-          width={560}
-          itemKey={(index, items) => {
-            const item = items[index]
+            return (
+              <Table.Cell key={column.id as string} column={column}>
+                {content}
+              </Table.Cell>
+            )
+          })}
+        </Table.Row>
+      </Table.Head>
+      <FixedSizeList
+        height={560}
+        itemSize={80}
+        itemCount={1000}
+        width={560}
+        itemKey={(index, items) => {
+          const item = items[index]
 
-            return `row-${item.id}`
-          }}
-          itemData={table.data}
-          innerElementType={Table.Body}
-        >
-          {VirtualRow}
-        </FixedSizeList>
-      </Table>
-    </ThemeProvider>
+          return `row-${item.id}`
+        }}
+        itemData={table.data}
+        innerElementType={Table.Body}
+      >
+        {VirtualRow}
+      </FixedSizeList>
+    </Table>
   )
 }
 
@@ -279,64 +274,62 @@ export function Dnd() {
   }
 
   return (
-    <ThemeProvider>
-      <Table density="compact" styleOverrides={{ width: 800 }}>
-        <Table.Head>
-          <Table.Row>
-            {table.columns.map((column) => {
-              const content = table.resolveHeader({ column })
+    <Table density="compact" styleOverrides={{ width: 800 }}>
+      <Table.Head>
+        <Table.Row>
+          {table.columns.map((column) => {
+            const content = table.resolveHeader({ column })
 
-              return (
-                <Table.Cell key={column.id as string} column={column}>
-                  {content}
-                </Table.Cell>
-              )
-            })}
-          </Table.Row>
-        </Table.Head>
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="droppable">
-            {(droppableProvided) => (
-              <Table.Body ref={droppableProvided.innerRef}>
-                {table.data.map((item, index) => (
-                  <Draggable key={item.id} draggableId={item.id} index={index}>
-                    {(draggableProvided, draggableSnapshot) => (
-                      <Table.Row
-                        id={item.id}
-                        key={item.id}
-                        ref={draggableProvided.innerRef}
-                        {...draggableProvided.draggableProps}
-                        {...draggableProvided.dragHandleProps}
-                        styleOverrides={{
-                          ...draggableProvided.draggableProps.style,
-                          boxShadow: draggableSnapshot.isDragging
-                            ? 'menu'
-                            : 'none',
-                        }}
-                      >
-                        {table.columns.map((column) => {
-                          const content = table.resolveCell({ item, column })
+            return (
+              <Table.Cell key={column.id as string} column={column}>
+                {content}
+              </Table.Cell>
+            )
+          })}
+        </Table.Row>
+      </Table.Head>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="droppable">
+          {(droppableProvided) => (
+            <Table.Body ref={droppableProvided.innerRef}>
+              {table.data.map((item, index) => (
+                <Draggable key={item.id} draggableId={item.id} index={index}>
+                  {(draggableProvided, draggableSnapshot) => (
+                    <Table.Row
+                      id={item.id}
+                      key={item.id}
+                      ref={draggableProvided.innerRef}
+                      {...draggableProvided.draggableProps}
+                      {...draggableProvided.dragHandleProps}
+                      styleOverrides={{
+                        ...draggableProvided.draggableProps.style,
+                        boxShadow: draggableSnapshot.isDragging
+                          ? 'menu'
+                          : 'none',
+                      }}
+                    >
+                      {table.columns.map((column) => {
+                        const content = table.resolveCell({ item, column })
 
-                          return (
-                            <Table.Cell
-                              id={`${item.id}-${column.id}`}
-                              key={`${item.id}-${column.id}`}
-                              column={column}
-                            >
-                              {content}
-                            </Table.Cell>
-                          )
-                        })}
-                      </Table.Row>
-                    )}
-                  </Draggable>
-                ))}
-                {droppableProvided.placeholder}
-              </Table.Body>
-            )}
-          </Droppable>
-        </DragDropContext>
-      </Table>
-    </ThemeProvider>
+                        return (
+                          <Table.Cell
+                            id={`${item.id}-${column.id}`}
+                            key={`${item.id}-${column.id}`}
+                            column={column}
+                          >
+                            {content}
+                          </Table.Cell>
+                        )
+                      })}
+                    </Table.Row>
+                  )}
+                </Draggable>
+              ))}
+              {droppableProvided.placeholder}
+            </Table.Body>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </Table>
   )
 }

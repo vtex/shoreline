@@ -1,7 +1,7 @@
 import React, { Ref, forwardRef } from 'react'
 
 import { Overridable } from '../../types'
-import { unstableBox as Box, BoxProps } from '../unstableBox'
+import { Box, BoxProps } from '../Box'
 
 export const Card = forwardRef(function Card(
   props: CardProps,

@@ -1,7 +1,7 @@
 import { create } from '@storybook/theming/create'
-import { theme } from '../src/system'
+import { unstableTheme } from '@vtex/admin-ui-theme'
 
-const { colors, borderRadius } = theme
+const { colors, borderRadius } = unstableTheme
 
 export default create({
   base: 'light',
