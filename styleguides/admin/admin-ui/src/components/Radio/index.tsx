@@ -6,7 +6,7 @@ import {
 } from 'reakit/Radio'
 import { forwardRef } from '@vtex/admin-ui-system'
 
-import { createElement } from '../unstableThemeProvider'
+import { createElement } from '../../system'
 import { Overridable } from '../../types'
 import { useComponent } from '../../hooks/useComponent'
 

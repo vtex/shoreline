@@ -1,5 +1,5 @@
 import React from 'react'
-import { unstableThemeProvider as ThemeProvider } from '../src/components/unstableThemeProvider'
+import { ThemeProvider } from '../src/system'
 
 export function themeDecorator(storyFn) {
   return <ThemeProvider>{storyFn()}</ThemeProvider>

@@ -2,7 +2,7 @@ import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
 import { SpaceStyleProps, TextVariant } from '@vtex/admin-ui-theme'
 
-import { createElement } from '../unstableThemeProvider'
+import { createElement } from '../../system'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 

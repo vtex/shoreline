@@ -2,7 +2,7 @@ import React, { ElementType, ReactNode, useMemo } from 'react'
 import { useClassName } from '@vtex/admin-ui-system'
 import { Box as ReakitBox } from 'reakit/Box'
 
-import { createElement } from '../../unstableThemeProvider'
+import { createElement } from '../../../system'
 import { TableDensity, TableDir } from '../typings'
 import { StylesContext } from '../context'
 import { Overridable } from '../../../types'

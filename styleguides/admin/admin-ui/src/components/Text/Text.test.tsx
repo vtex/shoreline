@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import { Text } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
+import { ThemeProvider } from '../../system'
 
 describe('Text tests', () => {
   it('should have overridable styles', () => {

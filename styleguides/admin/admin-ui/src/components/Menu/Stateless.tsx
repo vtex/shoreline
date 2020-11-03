@@ -20,7 +20,7 @@ import {
 import { Overridable } from '../../types'
 import { Box } from '../Box'
 import { Button, ButtonProps } from '../Button'
-import { cn } from '../unstableThemeProvider'
+import { cn } from '../../system'
 
 export { useMenuState, MenuState }
 export { MenuStateReturn }

@@ -3,7 +3,7 @@ import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
 
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
-import { createElement } from '../unstableThemeProvider'
+import { createElement } from '../../system'
 
 export interface InputProps extends Omit<ReakitInputProps, 'ref'>, Overridable {
   children?: React.ReactNode | ((props: InputProps) => React.ReactNode)

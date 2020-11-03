@@ -2,7 +2,7 @@ import { ElementType, ReactNode, Ref } from 'react'
 import { forwardRef, useClassName } from '@vtex/admin-ui-system'
 import { Box as ReakitBox, BoxHTMLProps } from 'reakit/Box'
 
-import { createElement } from '../../unstableThemeProvider'
+import { createElement } from '../../../system'
 import { useStylesContext } from '../context'
 import { Overridable } from '../../../types'
 

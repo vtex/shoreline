@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from 'react'
 import { Box as ReakitBox } from 'reakit/Box'
 
-import { createElement } from '../unstableThemeProvider'
+import { createElement } from '../../system'
 import { Box } from '../Box'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'

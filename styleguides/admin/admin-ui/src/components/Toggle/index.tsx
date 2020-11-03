@@ -1,7 +1,7 @@
 import { Ref, forwardRef } from 'react'
 import { Checkbox as ReakitCheckbox } from 'reakit'
 
-import { createElement } from '../unstableThemeProvider'
+import { createElement } from '../../system'
 import {
   useCheckbox,
   CheckboxProps,

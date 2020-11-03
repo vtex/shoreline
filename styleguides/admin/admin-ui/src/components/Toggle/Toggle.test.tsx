@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import { Toggle, useToggleState, ToggleStateReturn } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
+import { ThemeProvider } from '../../system'
 
 function ToggleState({
   children,
