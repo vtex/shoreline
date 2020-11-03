@@ -30,3 +30,7 @@ export { Input, InputProps } from './components/Input'
 export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Popover, PopoverProps } from './components/Popover'
 export { HelloBar, HelloBarProps } from './components/HelloBar'
+export {
+  Timeline,
+  EventProps as TimelineEventProps,
+} from './components/Timeline'

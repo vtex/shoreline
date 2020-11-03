@@ -1,11 +1,11 @@
 import React, { PropsWithChildren, ReactNode } from 'react'
 import { Box, Flex, SxProps } from 'theme-ui'
 
-function Timeline(props: PropsWithChildren<SxProps>) {
+export function Timeline(props: PropsWithChildren<SxProps>) {
   return <Box {...props} variant="timeline" />
 }
 
-interface EventProps extends SxProps {
+export interface EventProps extends SxProps {
   title: ReactNode
   icon?: ReactNode
 }
@@ -16,7 +16,12 @@ const Circle = () => (
   </Box>
 )
 
-function Event({ children, title, icon, sx }: PropsWithChildren<EventProps>) {
+export function Event({
+  children,
+  title,
+  icon,
+  sx,
+}: PropsWithChildren<EventProps>) {
   return (
     <Flex sx={sx}>
       <Box variant="timeline.event.icon">
@@ -32,5 +37,3 @@ function Event({ children, title, icon, sx }: PropsWithChildren<EventProps>) {
 }
 
 Timeline.Event = Event
-
-export default Timeline
