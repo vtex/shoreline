@@ -1,5 +1,5 @@
 import React, { ReactNode, Ref } from 'react'
-import { forwardRef } from '@vtex-components/utils'
+import { forwardRef } from '@vtex/admin-ui-system'
 
 import { IconRemove } from '../../icons'
 import { Box } from '../Box'

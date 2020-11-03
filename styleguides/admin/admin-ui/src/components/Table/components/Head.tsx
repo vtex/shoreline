@@ -1,6 +1,5 @@
 import React, { ElementType, ReactNode, Ref } from 'react'
-import { forwardRef } from '@vtex-components/utils'
-import { useClassName } from '@vtex/admin-ui-system'
+import { forwardRef, useClassName } from '@vtex/admin-ui-system'
 import { Box as ReakitBox, BoxHTMLProps } from 'reakit/Box'
 
 import { createElement } from '../../unstableThemeProvider'

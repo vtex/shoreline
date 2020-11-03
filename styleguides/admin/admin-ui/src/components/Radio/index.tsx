@@ -4,7 +4,7 @@ import {
   RadioProps as ReakitRadioProps,
   RadioStateReturn,
 } from 'reakit/Radio'
-import { forwardRef } from '@vtex-components/utils'
+import { forwardRef } from '@vtex/admin-ui-system'
 
 import { createElement } from '../unstableThemeProvider'
 import { Overridable } from '../../types'

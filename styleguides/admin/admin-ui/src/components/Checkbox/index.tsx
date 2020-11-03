@@ -5,8 +5,7 @@ import {
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit'
-import { useClassName } from '@vtex/admin-ui-system'
-import { forwardRef } from '@vtex-components/utils'
+import { useClassName, forwardRef } from '@vtex/admin-ui-system'
 
 import { createElement } from '../unstableThemeProvider'
 import { Overridable } from '../../types'

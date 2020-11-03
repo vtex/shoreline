@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { ForwardRefRenderFunction } from 'react'
 import get from 'lodash.get'
 import pick from 'lodash.pick'
 import omit from 'lodash.omit'
@@ -51,6 +53,16 @@ function pickHTMLProps<P extends object>(props: P, commonProps: string[]) {
   return filteredProps
 }
 
+/**
+ * Credits to reakit
+ * https://github.com/reakit/reakit/blob/master/packages/reakit-system/src/__utils/forwardRef.ts
+ */
+function forwardRef<T extends ForwardRefRenderFunction<any, any>>(
+  component: T
+) {
+  return (React.forwardRef(component) as unknown) as T
+}
+
 export {
   get,
   pick,
@@ -61,4 +73,5 @@ export {
   cleanProps,
   pickHTMLProps,
   isPropValid,
+  forwardRef,
 }
