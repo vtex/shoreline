@@ -2,7 +2,6 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Radio, useRadioState } from '../Radio'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { RadioGroup, RadioGroupProps } from './index'
 import { Label } from '../Label'
 import { Heading } from '../Heading'
@@ -23,7 +22,7 @@ export function Horizontal() {
   ]
 
   return (
-    <ThemeProvider>
+    <>
       <Heading text="highlight">Selected solution: {radio.state}</Heading>
       <RadioGroup
         state={radio}
@@ -44,7 +43,7 @@ export function Horizontal() {
           )
         })}
       </RadioGroup>
-    </ThemeProvider>
+    </>
   )
 }
 
@@ -59,7 +58,7 @@ export function Vertical() {
   ]
 
   return (
-    <ThemeProvider>
+    <>
       <Heading text="highlight">Selected solution: {radio.state}</Heading>
       <RadioGroup
         state={radio}
@@ -80,7 +79,7 @@ export function Vertical() {
           )
         })}
       </RadioGroup>
-    </ThemeProvider>
+    </>
   )
 }
 
@@ -88,7 +87,7 @@ export const WithoutLabelProp: Story<RadioGroupProps> = () => {
   const state = useRadioState()
 
   return (
-    <ThemeProvider>
+    <>
       <Label htmlFor="radio-group-id">Fruits</Label>
       <RadioGroup id="radio-group-id" state={state}>
         <Label>
@@ -104,6 +103,6 @@ export const WithoutLabelProp: Story<RadioGroupProps> = () => {
           Orange
         </Label>
       </RadioGroup>
-    </ThemeProvider>
+    </>
   )
 }

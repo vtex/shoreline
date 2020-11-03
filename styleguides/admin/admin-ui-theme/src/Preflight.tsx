@@ -15,12 +15,22 @@ export function Preflight() {
             'Fira Code Retina', 'Fira Code', 'FiraCode-Retina', Consolas, Monaco,
             monospace !important;
         }
+        body: {
+          margin: 0;
+        }
         html,
         body,
         * {
           font-family: VTEXTrustVF, -apple-system, system-ui, BlinkMacSystemFont,
             sans-serif !important;
           font-variation-settings: 'wght' 92;
+        }
+        *,
+        ::before,
+        ::after {
+          box-sizing: border-box;
+          border-width: 0;
+          border-style: solid;
         }
         html,
         body,

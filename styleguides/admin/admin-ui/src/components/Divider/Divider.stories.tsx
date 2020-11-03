@@ -43,7 +43,7 @@ export const Vertical: Story<DividerProps> = () => {
           justifyContent: 'center',
         }}
       >
-        <Box w="5/12">
+        <Box width="5/12">
           <Heading marginY={2}>Cards</Heading>
           <Paragraph>
             In Cards, your customer is given autonomy to manage credit cards
@@ -52,7 +52,7 @@ export const Vertical: Story<DividerProps> = () => {
           </Paragraph>
         </Box>
         <Divider orientation="vertical" marginX={6} />
-        <Box w="5/12">
+        <Box width="5/12">
           <Heading marginY={2}>Personal data</Heading>
           <Paragraph>
             In this section, the user can manage their personal data registered

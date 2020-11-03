@@ -9,7 +9,7 @@ import { createElement } from '../unstableThemeProvider'
 import { Variant, Size, Palette } from './types'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
-import { unstableBox as Box } from '../unstableBox'
+import { Box } from '../Box'
 
 /**
  * Component that handles all Button variants of the DS.

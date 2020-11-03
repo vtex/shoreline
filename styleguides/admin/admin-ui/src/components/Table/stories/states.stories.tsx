@@ -5,7 +5,6 @@ import { StatefulTable, StatefulTableProps } from '../index'
 import { baseResolvers } from '../resolvers/base'
 import { Box } from '../../Box'
 import { Button } from '../../Button'
-import { unstableThemeProvider as ThemeProvider } from '../../unstableThemeProvider'
 
 export default {
   title: 'alpha/Table/States',
@@ -20,29 +19,27 @@ interface Item {
 }
 
 const Template: Story<StatefulTableProps<Item>> = (args) => (
-  <ThemeProvider>
-    <StatefulTable
-      {...args}
-      columns={[
-        {
-          id: 'location',
-          header: 'Location',
-          width: 148,
-        },
-        {
-          id: 'date',
-          header: 'Date',
-          width: 148,
-        },
-        {
-          id: 'status',
-          header: 'Status',
-          width: 156,
-        },
-      ]}
-      items={[]}
-    />
-  </ThemeProvider>
+  <StatefulTable
+    {...args}
+    columns={[
+      {
+        id: 'location',
+        header: 'Location',
+        width: 148,
+      },
+      {
+        id: 'date',
+        header: 'Date',
+        width: 148,
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        width: 156,
+      },
+    ]}
+    items={[]}
+  />
 )
 
 export const Loading = Template.bind({})
@@ -96,35 +93,33 @@ export function DataFetch() {
   }
 
   return (
-    <ThemeProvider>
-      <Box>
-        <Button onClick={() => fetchData()} disabled={loading}>
-          fetch items
-        </Button>
-        <StatefulTable
-          density="compact"
-          columns={[
-            {
-              id: 'location',
-              header: 'Location',
-              width: 148,
-            },
-            {
-              id: 'date',
-              header: 'Date',
-              width: 148,
-            },
-            {
-              id: 'status',
-              header: 'Status',
-              width: 156,
-            },
-          ]}
-          loading={loading}
-          items={data}
-          length={4}
-        />
-      </Box>
-    </ThemeProvider>
+    <Box>
+      <Button onClick={() => fetchData()} disabled={loading}>
+        fetch items
+      </Button>
+      <StatefulTable
+        density="compact"
+        columns={[
+          {
+            id: 'location',
+            header: 'Location',
+            width: 148,
+          },
+          {
+            id: 'date',
+            header: 'Date',
+            width: 148,
+          },
+          {
+            id: 'status',
+            header: 'Status',
+            width: 156,
+          },
+        ]}
+        loading={loading}
+        items={data}
+        length={4}
+      />
+    </Box>
   )
 }

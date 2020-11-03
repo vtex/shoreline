@@ -1,80 +1,71 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { unstableBox as Box } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
+import { Box } from './index'
 
 export default {
   title: 'system-next/box',
 } as Meta
 
 export const Basic: Story = () => {
-  return (
-    <ThemeProvider>
-      <Box>Cool Box</Box>
-    </ThemeProvider>
-  )
+  return <Box>Cool Box</Box>
 }
 
 export const Styles: Story = () => {
   return (
-    <ThemeProvider>
-      <Box
-        styles={{
-          fontSize: 64,
-        }}
-      >
-        Huge Text
-      </Box>
-    </ThemeProvider>
+    <Box
+      styles={{
+        fontSize: 64,
+      }}
+    >
+      Huge Text
+    </Box>
   )
 }
 
 export const ConsumeTheme: Story = () => {
   return (
-    <ThemeProvider>
-      <Box
-        styles={{
-          fontSize: 64,
-          bg: 'primary.base',
-          color: 'primary.contrast',
-          borderRadius: 4,
-        }}
-      >
-        Primary Box
-      </Box>
-    </ThemeProvider>
+    <Box
+      styles={{
+        fontSize: 64,
+        bg: 'primary.base',
+        color: 'primary.contrast',
+        borderRadius: 4,
+      }}
+    >
+      Primary Box
+    </Box>
   )
 }
 
 export const Surfaces: Story = () => {
   return (
-    <ThemeProvider>
+    <>
       <Box palette="base" border="default">
         Default Box
       </Box>
       <Box palette="inverted">Inverted Box</Box>
       <Box palette="primary">Primary Box</Box>
-    </ThemeProvider>
+    </>
   )
 }
 
 export const Texts: Story = () => {
   return (
-    <ThemeProvider>
+    <>
       <Box text="headline">Headline</Box>
       <Box text="subtitle">Subtitle</Box>
       <Box text="action">Box with actions text</Box>
       <Box text="highlight">Highlight text</Box>
       <Box text="body">Box with body text</Box>
       <Box text="small">Box with small text</Box>
-    </ThemeProvider>
+    </>
   )
 }
 
 export const Divider: Story = () => {
   return (
-    <ThemeProvider>
+    <>
       <Box text="headline" border="divider-bottom" width={100}>
         Headline
       </Box>
@@ -83,7 +74,7 @@ export const Divider: Story = () => {
       <Box text="highlight">Highlight text</Box>
       <Box text="body">Box with body text</Box>
       <Box text="small">Box with small text</Box>
-    </ThemeProvider>
+    </>
   )
 }
 

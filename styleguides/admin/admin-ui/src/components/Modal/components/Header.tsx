@@ -6,7 +6,7 @@ import { useClassName } from '@vtex/admin-ui-system'
 import { useModalContext } from '../context'
 import { IconClose } from '../../../icons'
 import { ModalButton } from './Button'
-import { unstableBox as Box } from '../../unstableBox'
+import { Box } from '../../Box'
 import { Overridable } from '../../../types'
 /**
  * Header of the modal

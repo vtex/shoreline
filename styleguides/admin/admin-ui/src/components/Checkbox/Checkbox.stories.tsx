@@ -3,7 +3,6 @@ import { Meta, Story } from '@storybook/react'
 
 import { Label } from '../Label'
 import { Checkbox, useCheckboxState, CheckboxProps } from './index'
-import { unstableThemeProvider as ThemeProvider } from '../unstableThemeProvider'
 import { Text } from '../Text'
 
 export default {
@@ -15,13 +14,11 @@ const Template: Story<Omit<CheckboxProps, 'checked'>> = (args) => {
   const [checked, setChecked] = React.useState(false)
 
   return (
-    <ThemeProvider>
-      <Checkbox
-        {...args}
-        checked={checked}
-        onChange={() => setChecked(!checked)}
-      />
-    </ThemeProvider>
+    <Checkbox
+      {...args}
+      checked={checked}
+      onChange={() => setChecked(!checked)}
+    />
   )
 }
 
@@ -34,22 +31,22 @@ export const MultipleCheckboxes = () => {
   const props = useCheckboxState({ state: [] })
 
   return (
-    <ThemeProvider>
+    <>
       <Text>Checkboxes marked: {props.state}</Text>
       <Checkbox state={props} aria-label="label" value="checkbox1" />
       <Checkbox state={props} aria-label="label" value="checkbox2" />
       <Checkbox state={props} aria-label="label" value="checkbox3" />
-    </ThemeProvider>
+    </>
   )
 }
 
 export const Disabled = () => {
   return (
-    <ThemeProvider>
+    <>
       <Checkbox checked disabled />
       <Checkbox state={{ state: 'indeterminate' }} checked disabled />
       <Checkbox disabled />
-    </ThemeProvider>
+    </>
   )
 }
 
@@ -85,7 +82,7 @@ export const IndeterminateExample = () => {
   const { group, setGroup, items, setItems } = useTreeState({ values })
 
   return (
-    <ThemeProvider>
+    <>
       <Label styleOverrides={{ display: 'flex', alignItems: 'center' }}>
         <Checkbox state={{ state: group, setState: setGroup }} />
         Fruits ( Group Control )
@@ -105,6 +102,6 @@ export const IndeterminateExample = () => {
           </Label>
         )
       })}
-    </ThemeProvider>
+    </>
   )
 }

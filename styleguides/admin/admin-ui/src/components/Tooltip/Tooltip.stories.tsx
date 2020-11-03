@@ -6,6 +6,7 @@ import { Tooltip, TooltipProps } from './index'
 import { Button } from '../Button'
 import { Box } from '../Box'
 import { Text } from '../Text'
+import { Set } from '../Set'
 
 export default {
   title: 'beta/Tooltip',
@@ -21,7 +22,7 @@ export const StringLabel: Story<TooltipProps> = () => (
 export const ReactNodeLabel: Story<TooltipProps> = () => {
   function Tag() {
     return (
-      <Box my="2">
+      <Box marginY={2}>
         <Text
           variant="small"
           styleOverrides={{
@@ -38,10 +39,10 @@ export const ReactNodeLabel: Story<TooltipProps> = () => {
   }
 
   return (
-    <Box display="flex" w="full">
+    <Set>
       <Tooltip
         label={
-          <Box display="flex" direction="col">
+          <Set orientation="vertical">
             <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
               Previous Order:
             </Text>
@@ -53,12 +54,12 @@ export const ReactNodeLabel: Story<TooltipProps> = () => {
               João da Silva
             </Text>
             <Text variant="small">49,00 BRL</Text>
-          </Box>
+          </Set>
         }
       >
         <Button icon={<IconCaret direction="left" />} variant="text" />
       </Tooltip>
-    </Box>
+    </Set>
   )
 }
 

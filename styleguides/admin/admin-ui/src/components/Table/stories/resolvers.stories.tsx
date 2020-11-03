@@ -4,7 +4,6 @@ import { Meta } from '@storybook/react'
 import { Text } from '../../Text'
 import { StatefulTable } from '../index'
 import { Skeleton } from '../../Skeleton'
-import { unstableThemeProvider as ThemeProvider } from '../../unstableThemeProvider'
 
 export default {
   title: 'alpha/Table/Resolvers',
@@ -37,48 +36,46 @@ export const Plain = () => {
   ]
 
   return (
-    <ThemeProvider>
-      <StatefulTable
-        columns={[
-          {
-            id: 'product-name',
-            header: 'ProductName',
-            acessor: 'productName',
+    <StatefulTable
+      columns={[
+        {
+          id: 'product-name',
+          header: 'ProductName',
+          acessor: 'productName',
+        },
+        {
+          id: 'inStock',
+          header: 'In Stock',
+          resolver: {
+            type: 'plain',
           },
-          {
-            id: 'inStock',
-            header: 'In Stock',
-            resolver: {
-              type: 'plain',
+        },
+        {
+          id: 'skus',
+          header: 'SKUs',
+          resolver: {
+            type: 'plain',
+            render: function Render({ data }) {
+              return (
+                <Text
+                  variant="highlight"
+                  styleOverrides={{
+                    color: Number(data) > 0 ? 'primary.base' : 'danger.base',
+                  }}
+                >
+                  {data}
+                </Text>
+              )
             },
           },
-          {
-            id: 'skus',
-            header: 'SKUs',
-            resolver: {
-              type: 'plain',
-              render: function Render({ data }) {
-                return (
-                  <Text
-                    variant="highlight"
-                    styleOverrides={{
-                      color: Number(data) > 0 ? 'primary.base' : 'danger.base',
-                    }}
-                  >
-                    {data}
-                  </Text>
-                )
-              },
-            },
-          },
-          {
-            id: 'price',
-            header: 'Price',
-          },
-        ]}
-        items={fruits}
-      />
-    </ThemeProvider>
+        },
+        {
+          id: 'price',
+          header: 'Price',
+        },
+      ]}
+      items={fruits}
+    />
   )
 }
 
@@ -93,40 +90,38 @@ export const Currency = () => {
   ]
 
   return (
-    <ThemeProvider>
-      <StatefulTable
-        columns={[
-          {
-            id: 'brl',
-            header: 'Preço',
-            resolver: {
-              type: 'currency',
-              locale: 'pt-BR',
-              currency: 'BRL',
-            },
+    <StatefulTable
+      columns={[
+        {
+          id: 'brl',
+          header: 'Preço',
+          resolver: {
+            type: 'currency',
+            locale: 'pt-BR',
+            currency: 'BRL',
           },
-          {
-            id: 'usd',
-            header: 'Price',
-            resolver: {
-              type: 'currency',
-              locale: 'en-US',
-              currency: 'USD',
-            },
+        },
+        {
+          id: 'usd',
+          header: 'Price',
+          resolver: {
+            type: 'currency',
+            locale: 'en-US',
+            currency: 'USD',
           },
-          {
-            id: 'cny',
-            header: '价格',
-            resolver: {
-              type: 'currency',
-              locale: 'zh-CN',
-              currency: 'CNY',
-            },
+        },
+        {
+          id: 'cny',
+          header: '价格',
+          resolver: {
+            type: 'currency',
+            locale: 'zh-CN',
+            currency: 'CNY',
           },
-        ]}
-        items={currencies}
-      />
-    </ThemeProvider>
+        },
+      ]}
+      items={currencies}
+    />
   )
 }
 
@@ -142,65 +137,63 @@ export const Date = () => {
   ]
 
   return (
-    <ThemeProvider>
-      <StatefulTable
-        columns={[
-          {
-            id: 'pt',
-            header: 'Data',
-            resolver: {
-              type: 'date',
-              locale: 'pt-BR',
-              options: {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              },
+    <StatefulTable
+      columns={[
+        {
+          id: 'pt',
+          header: 'Data',
+          resolver: {
+            type: 'date',
+            locale: 'pt-BR',
+            options: {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
             },
           },
-          {
-            id: 'ar',
-            header: 'تاريخ',
-            resolver: {
-              type: 'date',
-              locale: 'ar-AE',
-              options: {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              },
+        },
+        {
+          id: 'ar',
+          header: 'تاريخ',
+          resolver: {
+            type: 'date',
+            locale: 'ar-AE',
+            options: {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
             },
           },
-          {
-            id: 'en',
-            header: 'Date',
-            resolver: {
-              type: 'date',
-              locale: 'en-US',
-              options: {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              },
+        },
+        {
+          id: 'en',
+          header: 'Date',
+          resolver: {
+            type: 'date',
+            locale: 'en-US',
+            options: {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
             },
           },
-          {
-            id: 'cn',
-            header: '日期',
-            resolver: {
-              type: 'date',
-              locale: 'zh-CN',
-              options: {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              },
+        },
+        {
+          id: 'cn',
+          header: '日期',
+          resolver: {
+            type: 'date',
+            locale: 'zh-CN',
+            options: {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
             },
           },
-        ]}
-        items={dates}
-      />
-    </ThemeProvider>
+        },
+      ]}
+      items={dates}
+    />
   )
 }
 
@@ -233,121 +226,117 @@ export const Image = () => {
   ]
 
   return (
-    <ThemeProvider>
-      <StatefulTable
-        dir="ltr"
-        columns={[
-          {
-            id: 'image',
-            header: 'Image',
-            resolver: {
-              type: 'image',
+    <StatefulTable
+      dir="ltr"
+      columns={[
+        {
+          id: 'image',
+          header: 'Image',
+          resolver: {
+            type: 'image',
+          },
+        },
+        {
+          id: 'image',
+          header: 'Image With Delay',
+          resolver: {
+            type: 'image',
+            preview: {
+              display: true,
+              size: 'regular',
+              delay: 450,
             },
           },
-          {
-            id: 'image',
-            header: 'Image With Delay',
-            resolver: {
-              type: 'image',
-              preview: {
-                display: true,
-                size: 'regular',
-                delay: 450,
-              },
+        },
+        {
+          id: 'image',
+          header: 'Image Without Preview',
+          resolver: {
+            type: 'image',
+            preview: {
+              display: false,
+              size: 'regular',
+              delay: 0,
             },
           },
-          {
-            id: 'image',
-            header: 'Image Without Preview',
-            resolver: {
-              type: 'image',
-              preview: {
-                display: false,
-                size: 'regular',
-                delay: 0,
-              },
-            },
+        },
+        {
+          id: 'productName',
+          header: 'Name',
+        },
+        {
+          id: 'stock',
+          header: 'Stock',
+        },
+        {
+          id: 'price',
+          header: 'Stock',
+          resolver: {
+            type: 'currency',
+            locale: 'en-US',
+            currency: 'USD',
           },
-          {
-            id: 'productName',
-            header: 'Name',
-          },
-          {
-            id: 'stock',
-            header: 'Stock',
-          },
-          {
-            id: 'price',
-            header: 'Stock',
-            resolver: {
-              type: 'currency',
-              locale: 'en-US',
-              currency: 'USD',
-            },
-          },
-        ]}
-        items={fruits}
-      />
-    </ThemeProvider>
+        },
+      ]}
+      items={fruits}
+    />
   )
 }
 
 export const Root = () => {
   return (
-    <ThemeProvider>
-      <StatefulTable
-        columns={[
-          {
-            id: 'image',
-            header: 'Image',
-            resolver: {
-              type: 'image',
-            },
+    <StatefulTable
+      columns={[
+        {
+          id: 'image',
+          header: 'Image',
+          resolver: {
+            type: 'image',
           },
-          {
-            id: 'description',
-            header: 'Description',
-            resolver: {
-              type: 'root',
-              render: function Description({ item, context }) {
-                if (context.loading) {
-                  return <Skeleton sx={{ height: 24 }} />
-                }
+        },
+        {
+          id: 'description',
+          header: 'Description',
+          resolver: {
+            type: 'root',
+            render: function Description({ item, context }) {
+              if (context.loading) {
+                return <Skeleton sx={{ height: 24 }} />
+              }
 
-                return (
-                  <Fragment>
-                    <Text variant="highlight">{item.productName}</Text>
-                    <br />
-                    <Text variant="body">{item.category}</Text>
-                  </Fragment>
-                )
-              },
+              return (
+                <Fragment>
+                  <Text variant="highlight">{item.productName}</Text>
+                  <br />
+                  <Text variant="body">{item.category}</Text>
+                </Fragment>
+              )
             },
           },
-          {
-            id: 'inStock',
-            header: 'In Stock',
-          },
-        ]}
-        items={[
-          {
-            id: 1,
-            image:
-              'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
-            productName: 'Orange',
-            category: 'fruit',
-            inStock: 380,
-          },
-          {
-            id: 2,
-            image:
-              'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
-            productName: 'Lemon',
-            category: 'fruit',
-            inStock: 380,
-          },
-        ]}
-      />
-    </ThemeProvider>
+        },
+        {
+          id: 'inStock',
+          header: 'In Stock',
+        },
+      ]}
+      items={[
+        {
+          id: 1,
+          image:
+            'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
+          productName: 'Orange',
+          category: 'fruit',
+          inStock: 380,
+        },
+        {
+          id: 2,
+          image:
+            'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
+          productName: 'Lemon',
+          category: 'fruit',
+          inStock: 380,
+        },
+      ]}
+    />
   )
 }
