@@ -1,14 +1,9 @@
 import React, { ReactNode, Ref } from 'react'
-import BaseButton from '@vtex-components/button'
 import { forwardRef } from '@vtex-components/utils'
 
 import { IconRemove } from '../../icons'
-import {
-  FlexTokensProps,
-  LayoutTokensProps,
-  SpaceTokensProps,
-} from '../../system'
 import { Box } from '../Box'
+import { Overridable } from '../../types'
 
 export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
   const {
@@ -17,34 +12,36 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
     label,
     icon,
     handleDelete,
-    ...restProps
+    styleOverrides,
+    ...boxProps
   } = props
 
   return (
     <Box
       themeKey={`components.tag.${palette}-${size}`}
-      {...restProps}
+      styles={styleOverrides}
       ref={ref}
+      {...boxProps}
     >
       {icon}
       {label}
       {!!handleDelete && (
-        <BaseButton
+        <Box
+          element="button"
           aria-label={`${label}-tag-button-delete`}
           onClick={handleDelete}
-          variant={`tag.${palette === 'black' ? palette : 'default'}-button`}
+          themeKey={`components.tag.${
+            palette === 'black' ? palette : 'default'
+          }-button`}
         >
           <IconRemove />
-        </BaseButton>
+        </Box>
       )}
     </Box>
   )
 })
 
-export interface TagProps
-  extends SpaceTokensProps,
-    LayoutTokensProps,
-    FlexTokensProps {
+export interface TagProps extends Overridable {
   /**
    *  Tag Palette
    *  @default blue
