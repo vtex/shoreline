@@ -1,7 +1,9 @@
 const timeline = {
-  '& > *:last-child > *:first-child': {
-    pb: 0,
-    '& > *:last-child': {
+  '& > *:last-child': {
+    '& > *:nth-child(2)': {
+      pb: 0,
+    },
+    '& > *:first-child > *:last-child': {
       display: 'none',
     },
   },
@@ -9,23 +11,24 @@ const timeline = {
   maxWidth: '100%',
   event: {
     pl: 5,
-    pb: 7,
+    pb: 6,
     title: {
-      width: '100%',
-      mb: 4,
-      fontSize: 2,
-      fontWeight: 'bold',
-      lineHeight: '20px',
+      mb: 2,
+      fontSize: [2, 3],
+      fontWeight: 'regular',
+    },
+    content: {
+      fontSize: 1,
     },
     icon: {
       display: 'flex',
       flexDirection: 'column',
-      width: '16px',
-      minWidth: '16px',
+      width: '18px',
+      minWidth: '18px',
       alignItems: 'center',
       default: {
-        width: '16px',
-        height: '16px',
+        width: '18px',
+        height: '18px',
         p: 1,
         '& > div': {
           backgroundColor: 'muted.2',
