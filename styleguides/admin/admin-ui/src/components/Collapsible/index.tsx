@@ -44,7 +44,11 @@ export function Collapsible(props: CollapsibleProps) {
   }
 
   return (
-    <Box themeKey="collapsible.container" styles={styles} {...tokensProps}>
+    <Box
+      themeKey="components.collapsible.container"
+      styles={styles}
+      {...tokensProps}
+    >
       <CollapsibleProvider {...reakitProps}>{children}</CollapsibleProvider>
     </Box>
   )
@@ -78,8 +82,7 @@ function Disclosure({ children }: { children: ReactNode }) {
             iconPosition="start"
             icon={<IconCaret direction={visible ? 'down' : 'right'} />}
             variant="text"
-            sx={{
-              // reset
+            styleOverrides={{
               color: 'text',
               '&:hover': { backgroundColor: 'transparent' },
               '&:active': { backgroundColor: 'transparent' },
@@ -102,9 +105,9 @@ export function Content(props: CollapsibleContentProps) {
       {(enhancedProps) => (
         <Box
           element="section"
-          themeKey="collapsible.section"
-          {...enhancedProps}
+          themeKey="components.collapsible.section"
           styles={styles}
+          {...enhancedProps}
           {...tokens}
         >
           {children}

@@ -1,6 +1,7 @@
 // elements
 import button from './button'
 import divider from './divider'
+import tag from './tag'
 // data
 import table from './table'
 import list from './list'
@@ -37,4 +38,5 @@ export default {
   divider,
   collapsible,
   avatar,
+  tag,
 }
