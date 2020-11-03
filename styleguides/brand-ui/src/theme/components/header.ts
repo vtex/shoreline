@@ -1,16 +1,13 @@
 import { Theme, FeedbackPalette } from '@vtex-components/theme'
 
 const brand = {
-  alignItems: 'center',
-  color: 'primary.base',
+  width: 'fit-content',
   justifyContent: 'center',
   gridArea: 'brand',
-  marginX: 4,
-  '> div': {
-    display: ['flex', 'flex', 'flex', 'none'],
-    boxShadow: `inset 1px 0px 0px 0px`,
-    paddingLeft: 3,
-    marginLeft: 3,
+  marginLeft: [4, 6, 6],
+  marginBottom: 1,
+  '> svg': {
+    width: 'auto',
   },
 }
 
@@ -20,7 +17,7 @@ const linksBase = {
   minWidth: 'max-content',
   textDecoration: 'none',
   transition: 'all 0.15s ease-in',
-  marginX: 5,
+  marginX: '1.25rem',
   '&:hover': {
     color: 'primary.base',
   },
@@ -46,6 +43,7 @@ const leftLinks = {
   gridArea: 'leftlinks',
   width: '100%',
   height: '100%',
+  marginLeft: '1.75rem',
   links,
 }
 
@@ -87,7 +85,7 @@ const header = {
   left: '0',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gridTemplateColumns: '1fr 4.25fr 2fr 2fr minmax(6.75rem, auto)',
+  gridTemplateColumns: '1.25fr 4fr 2fr 2fr minmax(6.75rem, auto)',
   gridTemplateAreas: '"brand leftlinks search rightlinks actionbutton"',
   backgroundColor: 'primary.contrast',
   borderBottom: 'solid',

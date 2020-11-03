@@ -98,7 +98,6 @@ const large: SxStyleProp = {
   height: '100%',
   justifyContent: 'flex-start',
   borderLeft: '1px solid',
-  borderBottom: '1px solid',
   borderColor: 'muted.3',
   optionContainer: optionContainerLarge,
   label: labelLarge,
