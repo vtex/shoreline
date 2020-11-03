@@ -1,8 +1,9 @@
-import { ReactNode, Ref } from 'react'
+import { ElementType, ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex-components/utils'
-import { createElement, useClassName } from '@vtex/admin-ui-system'
-import { Box as ReakitBox } from 'reakit/Box'
+import { useClassName } from '@vtex/admin-ui-system'
+import { Box as ReakitBox, BoxHTMLProps } from 'reakit/Box'
 
+import { createElement } from '../../unstableThemeProvider'
 import { Column } from '../typings'
 import { useStylesContext, useCellRoleContext } from '../context'
 import { Overridable } from '../../../types'
@@ -33,7 +34,7 @@ export const TableCell = forwardRef(function Td<T>(
     themeKey: variants[role],
   })
 
-  return createElement({
+  return createElement<Omit<BoxHTMLProps, 'ref'>>({
     component: ReakitBox,
     element,
     children,
@@ -51,7 +52,7 @@ export type TableCellProps<T> = Overridable & {
    * elements to be rendered
    * @default div
    */
-  element?: string
+  element?: ElementType
   /**
    * children
    */

@@ -1,11 +1,9 @@
-import {
-  createElement,
-  SxStyleProp,
-  useClassName,
-  cleanProps,
-} from '@vtex/admin-ui-system'
+import { ElementType } from 'react'
+import { SxStyleProp, useClassName, cleanProps } from '@vtex/admin-ui-system'
 import { SpaceStyleProps, SizeStyleProps } from '@vtex/admin-ui-theme'
 import { Box as ReakitBox } from 'reakit/Box'
+
+import { createElement } from '../unstableThemeProvider'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -67,5 +65,5 @@ export interface SkeletonProps extends SpaceStyleProps, SizeStyleProps {
    * Element type
    * @default div
    */
-  element?: string
+  element?: ElementType
 }

@@ -1,9 +1,9 @@
 import { forwardRef, Ref } from 'react'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
-import { createElement } from '@vtex/admin-ui-system'
 
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
+import { createElement } from '../unstableThemeProvider'
 
 export interface InputProps extends Omit<ReakitInputProps, 'ref'>, Overridable {
   children?: React.ReactNode | ((props: InputProps) => React.ReactNode)

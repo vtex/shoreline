@@ -1,6 +1,6 @@
-import React, { ReactNode, useMemo } from 'react'
-import { merge, Theme, SxStyleProp } from '@theme-ui/core'
-import { unstableThemeProvider as ThemeProvider } from '@vtex/admin-ui-system'
+import React, { ReactNode } from 'react'
+import { Theme, SxStyleProp } from '@theme-ui/core'
+import { createSystem } from '@vtex/admin-ui-system'
 import { unstableTheme, Preflight } from '@vtex/admin-ui-theme'
 
 interface UnstableThemeProviderProps {
@@ -9,21 +9,25 @@ interface UnstableThemeProviderProps {
   components?: Record<string, SxStyleProp>
 }
 
+const { ThemeProvider, cn, createElement } = createSystem({
+  theme: unstableTheme,
+})
+
 function Provider(props: UnstableThemeProviderProps) {
-  const { children, theme: custonTheme = {} } = props
+  const { children } = props
 
   // This allow custom themes
-  const theme = useMemo(
-    () => merge((unstableTheme as unknown) as Theme, custonTheme),
-    [custonTheme]
-  )
+  // const theme = useMemo(
+  //   () => merge((unstableTheme as unknown) as Theme, custonTheme),
+  //   [custonTheme]
+  // )
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <Preflight />
       {children}
     </ThemeProvider>
   )
 }
 
-export { Provider as unstableThemeProvider }
+export { Provider as unstableThemeProvider, cn, createElement }

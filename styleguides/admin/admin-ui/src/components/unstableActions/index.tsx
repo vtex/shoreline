@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from 'react'
 import { Box as ReakitBox } from 'reakit/Box'
-import { createElement } from '@vtex/admin-ui-system'
 
+import { createElement } from '../unstableThemeProvider'
 import { SetProps, useSet } from '../Set'
 import { Button, ButtonProps } from '../Button'
 import { ActionsProvider, useActionsContext } from './context'

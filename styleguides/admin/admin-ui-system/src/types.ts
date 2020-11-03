@@ -2,7 +2,7 @@ import { SxStyleProp } from '@theme-ui/core'
 
 export { SxStyleProp, Theme } from '@theme-ui/core'
 
-export type PropsWithStyles<P> = P & {
+export type WithStyles<P> = P & {
   styles?: SxStyleProp
 }
 

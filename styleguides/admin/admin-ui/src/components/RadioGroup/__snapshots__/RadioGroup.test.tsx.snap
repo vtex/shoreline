@@ -137,18 +137,18 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
     <input
       aria-checked="false"
       class="emotion-0"
-      id="id-2"
+      id="id-1"
       name="id"
-      tabindex="-1"
+      tabindex="0"
       type="radio"
       value="Watermelon"
     />
     <input
       aria-checked="false"
       class="emotion-0"
-      id="id-3"
+      id="id-1"
       name="id"
-      tabindex="-1"
+      tabindex="0"
       type="radio"
       value="Orange"
     />
@@ -288,18 +288,18 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
     <input
       aria-checked="false"
       class="emotion-0"
-      id="id-2"
+      id="id-1"
       name="id"
-      tabindex="-1"
+      tabindex="0"
       type="radio"
       value="Watermelon"
     />
     <input
       aria-checked="false"
       class="emotion-0"
-      id="id-3"
+      id="id-1"
       name="id"
-      tabindex="-1"
+      tabindex="0"
       type="radio"
       value="Orange"
     />

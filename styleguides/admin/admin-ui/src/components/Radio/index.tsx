@@ -5,8 +5,8 @@ import {
   RadioStateReturn,
 } from 'reakit/Radio'
 import { forwardRef } from '@vtex-components/utils'
-import { createElement } from '@vtex/admin-ui-system'
 
+import { createElement } from '../unstableThemeProvider'
 import { Overridable } from '../../types'
 import { useComponent } from '../../hooks/useComponent'
 
@@ -19,9 +19,12 @@ export const Radio = forwardRef(
       themeKey: `components.radio.${size}`,
     })
 
-    return createElement({
+    // TODO Fix type
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return createElement<any>({
       component: ReakitRadio,
-      htmlProps: { ...radioProps, ...state },
+      htmlProps: radioProps,
+      state,
       ref,
     })
   }

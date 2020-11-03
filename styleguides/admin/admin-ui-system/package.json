@@ -26,14 +26,18 @@
   "scripts": {
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
-    "test": "tsdx test --passWithNoTests"
+    "test": "tsdx test"
   },
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@types/lodash.merge": "^4.6.6"
+    "@types/lodash.merge": "^4.6.6",
+    "@types/lodash.omit": "^4.5.6",
+    "@types/lodash.pick": "^4.4.6",
+    "@types/lodash.get": "^4.4.6",
+    "reakit": "^1.2.5"
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
@@ -47,6 +51,9 @@
     "focus-visible": "^5.1.0",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3",
-    "lodash.merge": "^4.6.2"
+    "lodash.merge": "^4.6.2",
+    "lodash.omit": "^4.5.0",
+    "lodash.pick": "^4.4.0",
+    "lodash.get": "^4.4.2"
   }
 }

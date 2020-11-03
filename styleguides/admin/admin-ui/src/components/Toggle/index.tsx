@@ -1,7 +1,7 @@
 import { Ref, forwardRef } from 'react'
-import { createElement } from '@vtex/admin-ui-system'
 import { Checkbox as ReakitCheckbox } from 'reakit'
 
+import { createElement } from '../unstableThemeProvider'
 import {
   useCheckbox,
   CheckboxProps,
@@ -13,11 +13,12 @@ export const Toggle = forwardRef(function Toggle(
   props: ToggleProps,
   ref: Ref<HTMLInputElement>
 ) {
-  const htmlProps = useCheckbox(props, 'components.toggle')
+  const { htmlProps, state } = useCheckbox(props, 'components.toggle')
 
   return createElement({
     component: ReakitCheckbox,
     htmlProps: { role: 'switch', ...htmlProps },
+    state,
     ref,
   })
 })

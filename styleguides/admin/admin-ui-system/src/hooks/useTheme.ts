@@ -1,7 +1,7 @@
 import { useThemeUI } from '@theme-ui/core'
 import invariant from 'tiny-invariant'
 
-import { isObjectEmpty } from '../functions'
+import { isObjectEmpty } from '../util'
 
 export function useTheme() {
   const { theme } = useThemeUI()

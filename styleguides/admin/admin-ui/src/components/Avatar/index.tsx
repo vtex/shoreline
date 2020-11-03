@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from 'react'
-import { createElement } from '@vtex/admin-ui-system'
 import { Box as ReakitBox } from 'reakit/Box'
 
+import { createElement } from '../unstableThemeProvider'
 import { unstableBox as Box } from '../unstableBox'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
