@@ -14,7 +14,7 @@ import BaseTooltip, {
  * ```
  */
 export function Tooltip(props: TooltipProps) {
-  return <BaseTooltip variant="overlay.tooltip" {...props} />
+  return <BaseTooltip variant="components.tooltip" {...props} />
 }
 
 export type TooltipProps = Pick<

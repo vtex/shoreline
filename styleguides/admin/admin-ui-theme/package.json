@@ -35,5 +35,8 @@
   },
   "devDependencies": {
     "@vtex/admin-ui-system": "^0.1.0-alpha.2"
+  },
+  "dependencies": {
+    "polished": "^4.0.3"
   }
 }
