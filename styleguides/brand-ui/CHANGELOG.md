@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.2-rc.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.22.1...@vtex/brand-ui@0.22.2-rc.0) (2020-11-04)
+
+
+### Bug Fixes
+
+* add link to brand ([0d85513](https://github.com/vtex/onda/commit/0d8551368bb733ddd509128e1dc20044b5193534))
+* adjust brand ([f7055df](https://github.com/vtex/onda/commit/f7055dfa5418927aa9409bd7cedbb6b7f6902e5d))
+* adjust brand and spaces ([51ce6dc](https://github.com/vtex/onda/commit/51ce6dce6de2ddbb97666e1a6351f2974b84b997))
+* adjust dimensions ([acd9578](https://github.com/vtex/onda/commit/acd9578b50f913aea1fd128be72bda32d1706989))
+* remove icon ([b1ff20b](https://github.com/vtex/onda/commit/b1ff20b93460cdd36fc0861eb7ea852e2e2dd78f))
+* replace icons ([9742762](https://github.com/vtex/onda/commit/9742762fc05db57487c51aa815e43ae21a0ecf90))
+
+
+
+
+
 ## [0.22.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.22.0...@vtex/brand-ui@0.22.1) (2020-10-29)
 
 

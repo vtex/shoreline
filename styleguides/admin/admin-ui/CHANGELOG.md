@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0-rc.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.54.0...@vtex/admin-ui@0.53.0-rc.0) (2020-11-04)
+
+
+### Bug Fixes
+
+* **breakpoints:** merge small mobile and mobile ([2418007](https://github.com/vtex/onda/commit/2418007442425cc2fed7362f5060ff010a31fa84))
+* **colors:** update theme colors values ([d8d525a](https://github.com/vtex/onda/commit/d8d525a537007c27f75921fa116a43ece914f461))
+* **columns:** add styleOverrides ([80acf75](https://github.com/vtex/onda/commit/80acf75f37a8232aaf140c985d12c11339a24576))
+* **exports:** fix checkbox exports ([8afe2a8](https://github.com/vtex/onda/commit/8afe2a8f800367f399ffb69ad677b880ab803604))
+* **system:** fix old breakpoints ([23b2e8e](https://github.com/vtex/onda/commit/23b2e8e93216a7c488bfdf7399cfc2927088400d))
+* **text:** change from text to variant prop ([5aa42a9](https://github.com/vtex/onda/commit/5aa42a9562319e3aeb0bfe0581311b1739ee1c19))
+* **typography:** export unstable typography components ([6625994](https://github.com/vtex/onda/commit/6625994eb0e4001dea45717d4af96dcb004679e6))
+* **unstable:** add missing exports ([540c7b1](https://github.com/vtex/onda/commit/540c7b1e64f5add4c3e5b37e5a1db0d5fd6af8d4))
+* **unstable-button:** fix button import ([aecf760](https://github.com/vtex/onda/commit/aecf76090aa039373d44efbeac3eae85898f3908))
+* **unstable-table:** use table styles instead of flex ([7623036](https://github.com/vtex/onda/commit/7623036803e281cea3d884a655c8788d4875ad24))
+* **vercel:** build ([7d5af58](https://github.com/vtex/onda/commit/7d5af5820a039698926fa9a6b3f97cd256a14ddd))
+
+
+### Features
+
+* **box:** migrate box to new structure ([890f91f](https://github.com/vtex/onda/commit/890f91f7b3081fbd7f53d3576500211995956744))
+* **button:** migrate to new structure ([6880291](https://github.com/vtex/onda/commit/68802914f574a260d1fe5e797571d634cc781c6d))
+* **card:** migrate to new structure ([16924ec](https://github.com/vtex/onda/commit/16924ec8c0dcbc9d0ad78c94eafdcf459440a71e))
+* **collapsible:** migrate collapsible & collapsible-group to new structure ([8e6231b](https://github.com/vtex/onda/commit/8e6231b5f3f06e530546154bd9d57f1fd82e42fa))
+* **columns:** add columns unstable component ([0bfb696](https://github.com/vtex/onda/commit/0bfb696866b296c44cf9feb0b9720e6dfbe5c590))
+* **columns:** promote from unstable to beta ([6ffb1dc](https://github.com/vtex/onda/commit/6ffb1dcf2855488f73b5603a4815c650a8c4d648))
+* **divider:** migrate to new structure ([d66dfac](https://github.com/vtex/onda/commit/d66dfaccae7f70ad227b38fb177f0f625c4ac6e0))
+* **heading:** add component ([94ccca0](https://github.com/vtex/onda/commit/94ccca0a3c4e71d1739b2f27d46c5c3d175c430a))
+* **label:** migrate label to new structure ([0a5e0fe](https://github.com/vtex/onda/commit/0a5e0fea1ccea884de20f42f0271582658abce7e))
+* **layout:** add set component ([f9e2890](https://github.com/vtex/onda/commit/f9e28907a14e675e5fdc935f8ebfe3cf15179f5f))
+* **list:** add component ([ba9a91a](https://github.com/vtex/onda/commit/ba9a91a5647506e023de6a558d69d89b45721ccc))
+* **modal:** migrate to new structure ([5165767](https://github.com/vtex/onda/commit/5165767fc5788fbccf811ad383a3f08a72aedf60))
+* **paragraph:** add component ([39c186b](https://github.com/vtex/onda/commit/39c186bb9d2cc2255b14638d077d4f7d443fe5bc))
+* **patterns:** add border, palette, and text patterns ([4ebd4f7](https://github.com/vtex/onda/commit/4ebd4f75f87cf88c1a182e7795e558ab9616d186))
+* **set:** add align prop ([e50b5b4](https://github.com/vtex/onda/commit/e50b5b4b2b1d1179b090d7ec793ce467e4d51bab))
+* **set:** promote set from unstable to beta ([45c54bf](https://github.com/vtex/onda/commit/45c54bf98ed8984601005b52bd7c9f42f8ca1306))
+* **skeleton:** migrate to new structure ([a118507](https://github.com/vtex/onda/commit/a11850778379d4e3f5bb608878daf4d280b3934b))
+* **style-props:** add space and size style-props ([a1c7154](https://github.com/vtex/onda/commit/a1c715425062829102452d86ad3fd2887178a30b))
+* **system:** allow system create ([e481e73](https://github.com/vtex/onda/commit/e481e73c65bbd35891617e5cb047102f9c251dac))
+* **system-next:** add new component system & box-next ([ce35ddd](https://github.com/vtex/onda/commit/ce35dddf593687d85d3f1447b512b21df5ecb362))
+* **tag:** add tag to admin-ui-theme ([75db8ef](https://github.com/vtex/onda/commit/75db8effb1be25d0f63de7590d5216cb02cea3a5))
+* **tag:** migrate to new structure ([bdb55a4](https://github.com/vtex/onda/commit/bdb55a48c484de79b36b8e55dc7aa19f834691de))
+* **text:** add new component ([e48beac](https://github.com/vtex/onda/commit/e48beac998fe3d87aeb8a83baf1af7e98c305060))
+* **toggle:** migrate to new structure ([718681b](https://github.com/vtex/onda/commit/718681b6e647d2f9e1eacf1bb06dbe1d8f3f6837))
+* **tooltip-menu:** migrate tooltip & menu to the new structure ([f17d002](https://github.com/vtex/onda/commit/f17d0025523f9878beab79caf281220155a02887))
+* **unstable-actions:** add next actions component ([2b946fb](https://github.com/vtex/onda/commit/2b946fb136a7c6380dc74593d3e42435b1599b0a))
+* **unstable-components:** add button, input & textfield ([2520722](https://github.com/vtex/onda/commit/2520722b4bfaeffe48d75713833989d51f2f7bd6))
+* **unstable-table:** add table component ([41ba514](https://github.com/vtex/onda/commit/41ba5148e41de9dc430d3dff72e4d4a5afcdcb7c))
+
+
+
+
+
 # [0.53.0-alpha.10](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-alpha.9...@vtex/admin-ui@0.53.0-alpha.10) (2020-10-27)
 
 
