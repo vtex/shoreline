@@ -11,6 +11,7 @@ import helloBar from './components/helloBar'
 import localeSwitcher from './components/localeSwitcher'
 import timeline from './components/timeline'
 import calendar from './components/calendar'
+import carousel from './components/carousel'
 
 export const theme = {
   colors: {
@@ -74,6 +75,7 @@ export const theme = {
   localeSwitcher,
   timeline,
   calendar,
+  carousel,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
