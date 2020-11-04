@@ -2,7 +2,7 @@ import { SxStyleProp } from 'theme-ui'
 
 const slidesContainer: SxStyleProp = {
   height: '100%',
-  width: '100%'
+  width: '100%',
 }
 
 const navigationContainerBase: SxStyleProp = {
@@ -14,12 +14,12 @@ const navigationContainerBase: SxStyleProp = {
 const navigationContainer: SxStyleProp = {
   previous: {
     ...navigationContainerBase,
-    left: 0
+    left: 0,
   },
   next: {
     ...navigationContainerBase,
-    right: 0
-  }
+    right: 0,
+  },
 }
 
 const navigationButton: SxStyleProp = {
@@ -32,7 +32,7 @@ const navigationButton: SxStyleProp = {
   color: 'secondary.base',
   boxShadow: '0px 3px 9px rgba(61, 62, 64, 0.25)',
   ':hover': {
-    backgroundColor: 'muted.3'
+    backgroundColor: 'muted.3',
   },
   '&:focus': {
     outline: 'none',
@@ -68,7 +68,7 @@ const indicatorStyles: SxStyleProp = {
   opacity: 0.5,
   ':hover': {
     opacity: 1,
-    backgroundColor: 'muted.3'
+    backgroundColor: 'muted.3',
   },
   '&:focus': {
     outline: 'none',
@@ -106,14 +106,14 @@ const slide: SxStyleProp = {
     ...slideBase,
     position: 'absolute',
     opacity: 0,
-    visibility: 'hidden'
+    visibility: 'hidden',
   },
   visible: {
     ...slideBase,
     position: 'static',
     opacity: 1,
-    visibility: 'visible'
-  }
+    visibility: 'visible',
+  },
 }
 
 export default {
@@ -123,5 +123,5 @@ export default {
   previousButton,
   indicatorBar,
   indicator,
-  slide
+  slide,
 }

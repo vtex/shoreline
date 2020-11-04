@@ -21,7 +21,12 @@ const BasicCard = ({ children }: { children: ReactNode }) => (
 )
 
 const pageStyles = {
-  paddingX: 112, height: 600, alignItems: 'center', backgroundColor: 'bubblegum.base', width: '100%', justifyContent: 'space-around'
+  paddingX: 112,
+  height: 600,
+  alignItems: 'center',
+  backgroundColor: 'bubblegum.base',
+  width: '100%',
+  justifyContent: 'space-around',
 }
 
 export const MultipleCardsCarousel = () => (
@@ -62,7 +67,7 @@ export const CarouselExample = () => (
         content: "You're my, my, my, my...",
       },
       {
-        backgroundColor: 'bubblegum.base',
+        backgroundColor: 'muted.0',
         content: 'Lover',
       },
     ].map(({ backgroundColor, content }, index) => (
