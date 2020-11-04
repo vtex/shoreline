@@ -255,7 +255,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  color: #1E4397;
+  color: #323845;
 }
 
 .emotion-3 > div {
@@ -277,10 +277,10 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
-  min-width: 16px;
-  min-height: 16px;
-  width: 16px;
-  height: 16px;
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 <div
@@ -846,7 +846,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  color: #1E4397;
+  color: #323845;
 }
 
 .emotion-5 > div {
@@ -868,10 +868,10 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
-  min-width: 16px;
-  min-height: 16px;
-  width: 16px;
-  height: 16px;
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .emotion-7 {
@@ -1797,7 +1797,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  color: #1E4397;
+  color: #323845;
 }
 
 .emotion-5 > div {
@@ -1819,10 +1819,10 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
-  min-width: 16px;
-  min-height: 16px;
-  width: 16px;
-  height: 16px;
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .emotion-8 {

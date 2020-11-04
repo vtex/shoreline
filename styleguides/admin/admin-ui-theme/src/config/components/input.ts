@@ -63,7 +63,7 @@ const clearButtonStyle = {
     boxShadow: 'focus',
   },
   ':hover': {
-    color: 'primary.base',
+    color: 'text',
   },
   '> div': {
     display: 'flex',
