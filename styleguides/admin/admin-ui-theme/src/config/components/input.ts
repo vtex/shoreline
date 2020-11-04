@@ -46,14 +46,12 @@ const inputStyle = {
 
 const clearButtonStyle = {
   color: 'muted.1',
-  marginY: 4,
-  marginRight: 2,
-  height: 15,
-  width: 15,
-  borderStyle: 'solid',
-  borderWidth: '1px',
-  borderColor: 'muted.1',
-  borderRadius: 'circle',
+  marginY: '14px',
+  marginRight: 1,
+  height: 20,
+  width: 20,
+  border: 'none',
+  borderRadius: 'default',
   bg: 'transparent',
   cursor: 'pointer',
   ':focus:not([data-focus-visible-added])': {
@@ -63,6 +61,9 @@ const clearButtonStyle = {
   ':focus': {
     outline: 'none',
     boxShadow: 'focus',
+  },
+  ':hover': {
+    color: 'primary.base',
   },
   '> div': {
     display: 'flex',
