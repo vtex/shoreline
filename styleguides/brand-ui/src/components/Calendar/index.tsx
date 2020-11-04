@@ -6,7 +6,7 @@ import { DateTime, Info } from 'luxon'
 const today = DateTime.local()
 
 const Event = ({ event }: EventProps) => {
-  const defaultColor = 'muted.2'
+  const defaultColor = 'muted.1'
 
   let firstColor = defaultColor
   let secondColor = defaultColor
@@ -142,16 +142,16 @@ export const Calendar = ({
     value: DateTime
     variant: string
   }) => (
-      <Day
-        key={`${value.day} - ${value.month}`}
-        value={value}
-        variant={variant}
-        disabled={disabled}
-        selectedDate={selectedDate}
-        onClick={handleCellClick}
-        events={events}
-      />
-    )
+    <Day
+      key={`${value.day} - ${value.month}`}
+      value={value}
+      variant={variant}
+      disabled={disabled}
+      selectedDate={selectedDate}
+      onClick={handleCellClick}
+      events={events}
+    />
+  )
 
   return (
     <Box variant={`calendar${disabled ? '.disabled' : ''}`}>
