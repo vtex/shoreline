@@ -1,6 +1,3 @@
-export { unstableInput } from './components/unstableInput'
-export { unstableTextField } from './components/unstableTextField'
-
 export * from './system'
 export * from './icons'
 export * from './components/Skeleton'
