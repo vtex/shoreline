@@ -8,6 +8,7 @@ import {
   merge,
 } from '@vtex/admin-ui-system'
 import { theme, Preflight } from '@vtex/admin-ui-theme'
+import 'focus-visible/dist/focus-visible'
 
 interface UnstableThemeProviderProps {
   children?: ReactNode
