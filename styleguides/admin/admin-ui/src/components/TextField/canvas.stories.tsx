@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
-import { unstableTextField as TextField } from './index'
+import { TextField } from './index'
 import { useInputState } from '../unstableInput'
 import { IconBook } from '../../icons'
 import { Box } from '../Box'

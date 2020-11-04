@@ -7,7 +7,7 @@ import { Label } from '../Label'
 import { Overridable } from '../../types'
 import { Columns } from '../Columns'
 
-export const unstableTextField = forwardRef(function Textfield(
+export const TextField = forwardRef(function Textfield(
   props: TextFieldProps,
   ref: Ref<HTMLInputElement>
 ) {
