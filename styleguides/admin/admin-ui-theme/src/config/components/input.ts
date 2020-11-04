@@ -30,17 +30,17 @@ const inputStyle = {
   },
   // Label styles
   ':focus + label': {
-    transform: 'translate(4px, 4px) scale(0.875)',
+    transform: 'translate(1px, 4px) scale(0.875)',
     color: 'primary.base',
   },
   ':placeholder-shown:not(:focus) + label': {
     paddingTop: 1,
   },
   ':active + label': {
-    transform: 'translate(4px, 4px) scale(0.875)',
+    transform: 'translate(1px, 4px) scale(0.875)',
   },
   ':not(:placeholder-shown) + label': {
-    transform: 'translate(4px, 4px) scale(0.875)',
+    transform: 'translate(1px, 4px) scale(0.875)',
   },
 }
 
@@ -142,7 +142,7 @@ export default {
   container: { ...containerStyles },
   'container-with-icon': {
     ...containerStyles,
-    label: { left: '41px' },
+    label: { left: '44px' },
   },
   'icon-style': { ...iconStyle },
   'suffix-style': { ...suffixStyle },

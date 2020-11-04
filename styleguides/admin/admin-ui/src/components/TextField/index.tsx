@@ -1,11 +1,11 @@
 import React, { forwardRef, ReactNode, Ref } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
 
 import { unstableInput as Input, InputProps } from '../unstableInput'
 import { Text } from '../Text'
 import { Label } from '../Label'
 import { Overridable } from '../../types'
 import { Columns } from '../Columns'
+import { Box } from '../Box'
 
 export const TextField = forwardRef(function Textfield(
   props: TextFieldProps,
@@ -24,12 +24,10 @@ export const TextField = forwardRef(function Textfield(
     ...inputProps
   } = props
 
-  const className = useClassName({
-    themeKey: `components.textField.${errorMessage ? 'error' : 'default'}`,
-  })
-
   return (
-    <div className={className}>
+    <Box
+      themeKey={`components.textField.${errorMessage ? 'error' : 'default'}`}
+    >
       <Input
         id={id}
         ref={ref}
@@ -76,7 +74,7 @@ export const TextField = forwardRef(function Textfield(
           )}
         </Columns>
       )}
-    </div>
+    </Box>
   )
 })
 
