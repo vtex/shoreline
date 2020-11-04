@@ -18,8 +18,10 @@ function Example() {
     <ThemeProvider>
       <Toggle
         ariaLabel="label"
-        checked={checked}
-        onChange={() => setChecked(!checked)}
+        state={{
+          checked,
+          onChange: () => setChecked(!checked),
+        }}
       />
     </ThemeProvider>
   )
@@ -111,8 +113,10 @@ function Example() {
       <Toggle
         checked={checked}
         aria-label="your label goes here!"
-        checked={checked}
-        onChange={() => setChecked(!checked)}
+        state={{
+          checked,
+          onChange: () => setChecked(!checked),
+        }}
       />
     </ThemeProvider>
   )
@@ -133,7 +137,12 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <Toggle checked={checked} onChange={() => setChecked(!checked)} />
+      <Toggle
+        state={{
+          checked,
+          onChange: () => setChecked(!checked),
+        }}
+      />
     </ThemeProvider>
   )
 }
@@ -170,14 +179,14 @@ It can be very handy if you have a group of togglees and want to handle the stat
 - **Simple toggle**
 
 ```jsx
-import { Toggle, useToggle, ThemeProvider } from '@vtex/admin-ui'
+import { Toggle, useToggleState, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const toggleProps = useToggle({ state: true })
+  const state = useToggleState({ state: true })
 
   return (
     <ThemeProvider>
-      <Toggle {...toggleProps} />
+      <Toggle state={state} />
     </ThemeProvider>
   )
 }
@@ -187,16 +196,16 @@ function Example() {
   Remember that all toggles need to have a value set.
 
 ```jsx
-import { Toggle, useToggle, ThemeProvider } from '@vtex/admin-ui'
+import { Toggle, useToggleState, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const toggleProps = useToggle({ state: [] })
+  const state = useToggleState({ state: [] })
 
   return (
     <ThemeProvider>
-      <Toggle {...toggleProps} value="toggle1" />
-      <Toggle {...toggleProps} value="toggle2" />
-      <Toggle {...toggleProps} value="toggle3" />
+      <Toggle state={state} value="toggle1" />
+      <Toggle state={state} value="toggle2" />
+      <Toggle state={state} value="toggle3" />
     </ThemeProvider>
   )
 }
