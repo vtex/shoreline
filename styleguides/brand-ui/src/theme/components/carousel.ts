@@ -39,13 +39,12 @@ const navigationButton: SxStyleProp = {
   },
 }
 
-const indicatorBar: SxStyleProp = {
+const indicatorBarBase: SxStyleProp = {
   left: 0,
   right: 0,
   bottom: 0,
   justifyContent: 'center',
   marginX: 5,
-  marginBottom: 48,
   position: 'absolute',
   button: {
     marginRight: 5,
@@ -55,7 +54,18 @@ const indicatorBar: SxStyleProp = {
   },
 }
 
-const indicatorStyles: SxStyleProp = {
+const indicatorBar: SxStyleProp = {
+  small: {
+    ...indicatorBarBase,
+    marginBottom: 6,
+  },
+  regular: {
+    ...indicatorBarBase,
+    marginBottom: 48,
+  },
+}
+
+const indicatorBase: SxStyleProp = {
   height: 16,
   width: 16,
   minHeight: 16,
@@ -76,9 +86,9 @@ const indicatorStyles: SxStyleProp = {
 }
 
 const indicator: SxStyleProp = {
-  ...indicatorStyles,
+  ...indicatorBase,
   active: {
-    ...indicatorStyles,
+    ...indicatorBase,
     opacity: 1,
   },
 }
@@ -94,7 +104,6 @@ const previousButton: SxStyleProp = {
 }
 
 const slideBase: SxStyleProp = {
-  height: 600,
   width: '100%',
   alignItems: 'center',
   justifyContent: 'center',
@@ -117,6 +126,7 @@ const slide: SxStyleProp = {
 }
 
 export default {
+  position: 'relative',
   slidesContainer,
   navigationContainer,
   nextButton,
