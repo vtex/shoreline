@@ -1,5 +1,6 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { Box } from 'theme-ui'
 
 import { Calendar, CalendarProps } from '.'
 import events from './mockEvents'
@@ -22,9 +23,9 @@ export default {
   },
 } as Meta
 
-const Template: Story<CalendarProps> = (props) => {
-  return <Calendar events={events} {...props} />
-}
+const Template: Story<CalendarProps> = (props) => (
+  <Calendar events={events} {...props} />
+)
 
 export const Playground = Template.bind({})
 Playground.args = {
@@ -34,3 +35,9 @@ Playground.args = {
   disabled: false,
   locale: 'en',
 }
+
+export const BottomSection = () => (
+  <Calendar month={3} events={events}>
+    <Box sx={{ width: '100%', textAlign: 'center' }}>98.7% Uptime</Box>
+  </Calendar>
+)

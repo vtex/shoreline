@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Box, Text, Grid, jsx } from 'theme-ui'
-import { useState } from 'react'
+import { useState, PropsWithChildren } from 'react'
 import { DateTime, Info } from 'luxon'
 
 const today = DateTime.local()
@@ -63,7 +63,8 @@ export const Calendar = ({
   onChange,
   events,
   locale = 'pt',
-}: CalendarProps) => {
+  children,
+}: PropsWithChildren<CalendarProps>) => {
   const date = DateTime.local(year, month, day).setLocale(locale)
   const [selectedDate, setSelectedDate] = useState<Date>()
 
@@ -172,6 +173,7 @@ export const Calendar = ({
           renderDayCell({ value: finalCell, variant: 'calendar.extraCell' })
         )}
       </Grid>
+      {children}
     </Box>
   )
 }
