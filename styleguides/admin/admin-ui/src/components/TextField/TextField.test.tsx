@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
-import { unstableTextField as TextField } from './index'
+import { TextField } from './index'
 import { ThemeProvider } from '../../system'
 import { IconBook } from '../../icons'
 
