@@ -165,8 +165,12 @@ import { Text, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Text styleOverrides={{ color: 'muted.2' }} variant="body" element="span">
-        Look, a text with 'text' color... 🤔
+      <Text
+        styleOverrides={{ color: 'primary.hover' }}
+        variant="body"
+        element="span"
+      >
+        Look, a text with 'primary.hover' color... 🤔
       </Text>
     </ThemeProvider>
   )
