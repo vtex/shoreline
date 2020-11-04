@@ -53,4 +53,8 @@ export interface TextProps extends Overridable, SpaceStyleProps {
    * @default body
    */
   variant?: TextVariant
+  /**
+   * html id
+   */
+  id?: string
 }

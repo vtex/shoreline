@@ -9,10 +9,10 @@ An accessible Radio input component.
 ## Behavior
 
 ```jsx
-import { Radio, useRadio, ThemeProvider } from '@vtex/admin-ui'
+import { Radio, useRadioState, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useRadio({})
+  const state = useRadioState({})
 
   return (
     <ThemeProvider>
@@ -72,7 +72,7 @@ import { Radio } from '@vtex/admin-ui'
 ```jsx
 import {
   Radio,
-  useRadio,
+  useRadioState,
   ThemeProvider,
   Text,
   RadioGroup,
@@ -80,7 +80,7 @@ import {
 } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useRadio({ state: 'oms' })
+  const state = useRadioState({ state: 'oms' })
   const values = [
     'Marketplace Ecommerce',
     'B2C Commerce',
@@ -91,7 +91,7 @@ function Example() {
   return (
     <ThemeProvider>
       <Text variant="subtitle">Selected solution: {state.state}</Text>
-      <RadioGroup {...state} orientation="vertical" aria-label="Solutions">
+      <RadioGroup state={state} orientation="vertical" aria-label="Solutions">
         {values.map((value, key) => {
           return (
             <Label key={key}>

@@ -26,10 +26,7 @@ A Responsive value accept an array of values. The current value will be the one 
 In the example below, the `<Box>` has full width while on `mobile`, and half on tablet and above.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -45,10 +42,7 @@ function Example() {
 If you want to skip a breakpoint, you can use the value null. This is useful if you want to set a value for only the largest breakpoint, for example.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -61,20 +55,10 @@ function Example() {
 
 ## 🎣 React hooks
 
-<blockquote next="true">
-
-This is a next feature. To use it you must install the unstable version of admin-ui using <code>yarn add @vtex/admin-ui@latest</code>
-
-</blockquote>
-
 You can also use the `useResponsiveValue` hook. It can turn any value in a responsive value.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableBox as Box,
-  unstableUseResponsiveValue as useResponsiveValue,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Box, useResponsiveValue } from '@vtex/admin-ui'
 
 function Example() {
   const mobileText = '📱 mobile'

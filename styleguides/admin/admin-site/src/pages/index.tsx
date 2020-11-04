@@ -1,24 +1,18 @@
-/** @jsx jsx */
-import {
-  jsx,
-  Box,
-  Text,
-  unstableThemeProvider as ThemeProvider,
-  theme,
-} from '@vtex/admin-ui'
+import React from 'react'
+import { Box, Text, ThemeProvider, get } from '@vtex/admin-ui'
 
 import Seo from '../components/SEO'
 import IndexIllustration from '../icons/IndexIllustration'
 
 export default function IndexPage() {
   return (
-    <ThemeProvider theme={theme as any}>
+    <ThemeProvider>
       <Seo title="AdminUI - VTEX admin component library" />
       <Box
-        display="flex"
-        justify="around"
-        items="center"
-        sx={{
+        styles={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center',
           height: '100vh',
           position: 'relative',
           width: 'full',
@@ -26,9 +20,12 @@ export default function IndexPage() {
         }}
       >
         <Box
-          sx={{
-            backgroundImage: (th) =>
-              `radial-gradient(${th.colors.muted[4]} 4px, transparent 4px)`,
+          styles={{
+            backgroundImage: (theme) =>
+              `radial-gradient(${get(
+                theme,
+                'colors.muted.4'
+              )} 4px, transparent 4px)`,
             backgroundSize: 'calc(10 * 2px) calc(10 * 2px)',
             backgroundClip: 'text',
             maxWidth: 256,

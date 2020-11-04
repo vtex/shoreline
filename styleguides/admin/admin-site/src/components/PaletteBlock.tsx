@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  unstableBox as Box,
-  unstableThemeProvider as ThemeProvider,
-  Set,
-  BoxProps,
-  theme,
-} from '@vtex/admin-ui'
+import { Box, ThemeProvider, Set, BoxProps } from '@vtex/admin-ui'
 
 import Heading from './Heading'
 
@@ -47,7 +41,7 @@ function PaletteCard(props: CardProps) {
 
 export default function PaletteBlock(props: SetProps) {
   return (
-    <ThemeProvider theme={theme as any}>
+    <ThemeProvider>
       <Set
         orientation="vertical"
         spacing={6}

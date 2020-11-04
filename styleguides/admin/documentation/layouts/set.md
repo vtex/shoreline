@@ -10,11 +10,7 @@ next: true
 A `<Set>` can be used to list a set of components. It will automatically space out the components, and wrap them when they reach the width of the viewport.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableButton as Button,
-  Set,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -50,11 +46,7 @@ The spacing between components can be controlled using the `spacing` property.
 > 💡 Spacing consumes the 'space' values from the theme.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableButton as Button,
-  Set,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -76,11 +68,7 @@ function Example() {
 Orientation can be either `vertical` or `horizontal` (default). It can be controlled with the `orientation` property.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableButton as Button,
-  Set,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -102,12 +90,7 @@ function Example() {
 While on `vertical` orientation, you can alternatively the `fluid` property. This will make the inner children, match the container width.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableButton as Button,
-  Set,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -131,11 +114,7 @@ function Example() {
 You can set items alignment (`start` [default], `end`) through the `align` prop.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableButton as Button,
-  Set,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -157,12 +136,7 @@ function Example() {
 `orientation`, `spacing` and `align` are [`ResponsiveValues`](/docs/guide/responsive-design/#responsive-values). It means that you can pass an array to them.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableButton as Button,
-  Set,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -186,11 +160,7 @@ function Example() {
 You can use the `styleOverrides` property to handle different styles.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  unstableButton as Button,
-  Set,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
 
 function Example() {
   return (

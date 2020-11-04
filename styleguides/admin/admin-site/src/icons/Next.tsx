@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 function Next(
   props: React.SVGAttributes<SVGElement>,

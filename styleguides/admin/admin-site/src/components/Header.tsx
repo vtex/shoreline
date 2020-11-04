@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx, Box } from '@vtex/admin-ui'
-import { useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
+import { Box, cn } from '@vtex/admin-ui'
 import { Link } from 'gatsby'
-import { css } from 'emotion'
 import {
   VisuallyHidden,
   DialogDisclosure,
@@ -45,8 +43,8 @@ export default function Header({ isHome }: HeaderProps) {
 
   return (
     <Box
-      el="header"
-      sx={{
+      element="header"
+      styles={{
         position: 'fixed',
         top: 0,
         left: 0,
@@ -101,14 +99,14 @@ export default function Header({ isHome }: HeaderProps) {
         <DialogDisclosure
           {...dialog}
           unstable_system={{ palette: 'background' }}
-          sx={{
+          className={cn({
             background: 'transparent',
             color: 'inherit',
             fontSize: '20px',
             padding: 2,
             borderRadius: '50%',
             border: 'none',
-          }}
+          })}
         >
           <MdMenu />
           <VisuallyHidden>Open sidebar</VisuallyHidden>
@@ -121,7 +119,7 @@ export default function Header({ isHome }: HeaderProps) {
           ref={ref}
           aria-label="Sidebar"
           unstable_initialFocusRef={ref}
-          sx={{
+          className={cn({
             top: 0,
             left: 0,
             height: '100vh',
@@ -134,10 +132,7 @@ export default function Header({ isHome }: HeaderProps) {
             '&[data-enter]': {
               transform: 'translateX(0)',
             },
-          }}
-          className={css`
-            transform: translateX(-100%);
-          `}
+          })}
         >
           <DocsNavigation />
         </Dialog>
@@ -146,7 +141,7 @@ export default function Header({ isHome }: HeaderProps) {
         <Logo />
         <VisuallyHidden>Reakit</VisuallyHidden>
       </Anchor>
-      <Box sx={{ flex: 1 }} />
+      <Box styles={{ flex: 1 }} />
       <HiddenMediaQuery query="max-width: 768px">
         {(props) => (
           <Anchor as={Link} to="/docs/" getProps={getLinkProps} {...props}>
@@ -158,7 +153,7 @@ export default function Header({ isHome }: HeaderProps) {
         href="https://github.com/vtex/onda/tree/master/styleguides/admin/admin-ui"
         target="blank"
       >
-        <FaGithub sx={{ fontSize: '1.2em', marginRight: 2 }} />
+        <FaGithub className={cn({ fontSize: '1.2em', marginRight: 2 })} />
         <HiddenMediaQuery query="max-width: 900px">GitHub</HiddenMediaQuery>
         {!isLarge && <VisuallyHidden>GitHub</VisuallyHidden>}
       </Anchor>

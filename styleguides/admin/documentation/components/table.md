@@ -32,10 +32,7 @@ Still TDB. Suited for advanced usages such as Windowing and Drag n Drop. If that
 ## Density
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  StatefulTable,
-} from '@vtex/admin-ui'
+import { ThemeProvider, StatefulTable } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -123,11 +120,7 @@ By default, the column's width is defined to fit the available space without bre
 ### Plain
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  StatefulTable,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, StatefulTable, Box } from '@vtex/admin-ui'
 
 function Example() {
   const fruits = [
@@ -204,10 +197,7 @@ function Example() {
 ### Currency
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  StatefulTable,
-} from '@vtex/admin-ui'
+import { ThemeProvider, StatefulTable } from '@vtex/admin-ui'
 
 function Example() {
   const currencies = [
@@ -261,10 +251,7 @@ function Example() {
 ### Date
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  StatefulTable,
-} from '@vtex/admin-ui'
+import { ThemeProvider, StatefulTable } from '@vtex/admin-ui'
 
 function Example() {
   const dates = [
@@ -350,10 +337,7 @@ function Example() {
 | delay   | number                    | delay of preview display in ms | 0       |
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  StatefulTable,
-} from '@vtex/admin-ui'
+import { ThemeProvider, StatefulTable } from '@vtex/admin-ui'
 
 function Example() {
   const fruits = [
@@ -429,11 +413,11 @@ function Example() {
 
 ```jsx
 import {
-  unstableThemeProvider as ThemeProvider,
+  ThemeProvider,
   StatefulTable,
   Skeleton,
   Set,
-  unstableBox as Box,
+  Box,
 } from '@vtex/admin-ui'
 
 function Example() {

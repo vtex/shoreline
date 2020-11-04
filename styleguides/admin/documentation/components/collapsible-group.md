@@ -16,6 +16,7 @@ import {
   useCollapsible,
   ThemeProvider,
   Text,
+  Set,
 } from '@vtex/admin-ui'
 
 function Example() {
@@ -24,7 +25,7 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <CollapsibleGroup w={400}>
+      <CollapsibleGroup styleOverrides={{ width: 400 }}>
         <CollapsibleGroup.Item state={promos}>
           <CollapsibleGroup.Item.Header label="Promos" />
           <CollapsibleGroup.Item.Content display="flex" direction="col">
@@ -39,16 +40,18 @@ function Example() {
         </CollapsibleGroup.Item>
         <CollapsibleGroup.Item state={marketing}>
           <CollapsibleGroup.Item.Header label="Marketing" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
-            <Text variant="small" c="muted.2" fs="0">
-              Partner
-            </Text>
-            <Text variant="small">app_ios</Text>
-            <br />
-            <Text variant="small" c="muted.2" fs="0">
-              Campaign
-            </Text>
-            <Text variant="small">Campaign name</Text>
+          <CollapsibleGroup.Item.Content>
+            <Set orientation="verical">
+              <Text variant="small" c="muted.2" fs="0">
+                Partner
+              </Text>
+              <Text variant="small">app_ios</Text>
+              <br />
+              <Text variant="small" c="muted.2" fs="0">
+                Campaign
+              </Text>
+              <Text variant="small">Campaign name</Text>
+            </Set>
           </CollapsibleGroup.Item.Content>
         </CollapsibleGroup.Item>
       </CollapsibleGroup>

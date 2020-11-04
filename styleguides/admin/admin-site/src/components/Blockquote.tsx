@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
-import { css, cx } from 'emotion'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
-import { useColor, darken, lighten, ThemeColors } from '@vtex/admin-ui'
+import { cn } from '@vtex/admin-ui'
 
 import Next from '../icons/Next'
 
@@ -14,39 +13,18 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
 
     useProps(options, htmlProps) {
       const isNext = options.next === 'true'
-      const palette = useColor(
-        `${options.palette ?? 'warning'}.base` as ThemeColors
-      )
 
-      const backgroundColor = lighten(0.32, `${palette}`)
-      const borderColor = darken(0.2, backgroundColor)
-      const color = useColor('text')
-
-      const blockquote = css`
-        color: ${color};
-        background-color: ${backgroundColor};
-        border-left-color: ${borderColor};
-        border-left-width: 8px;
-        border-left-style: solid;
-        padding: 20px 16px 20px 25px;
-        margin: 20px 0;
-        line-height: 1.5;
-        border-radius: 4px;
-        p {
-          margin: 0;
-        }
-
-        ${isNext &&
-          css`
-            display: flex;
-            svg {
-              flex: none;
-              width: 50px;
-              height: 50px;
-              margin-right: 20px;
-            }
-          `}
-      `
+      const nextStyles = isNext
+        ? {
+            display: 'flex',
+            svg: {
+              flex: 'none',
+              width: 50,
+              height: 50,
+              marginRight: 5,
+            },
+          }
+        : {}
 
       return {
         ...htmlProps,
@@ -58,7 +36,22 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
         ) : (
           htmlProps.children
         ),
-        className: cx(blockquote, htmlProps.className),
+        className: cn({
+          color: 'text',
+          backgroundColor: `${options.palette ?? 'warning'}.washed.0`,
+          borderLeftColor: `${options.palette ?? 'warning'}.base`,
+          borderLeftWidth: 8,
+          borderLeftStyle: 'solid',
+          paddingY: 5,
+          paddingX: 6,
+          marginY: 5,
+          lineHeight: '1.5',
+          borderRadius: 'default',
+          p: {
+            margin: 0,
+          },
+          ...nextStyles,
+        }),
       }
     },
   }

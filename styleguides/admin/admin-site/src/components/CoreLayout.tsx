@@ -45,26 +45,26 @@ export default function CoreLayout(props: Props) {
 
       {title && (
         <Box
-          position="fixed"
-          bg="background"
-          w={256}
-          z="plain"
-          left="0"
-          sx={{
+          styles={{
+            position: 'fixed',
+            bg: 'background',
+            width: 256,
+            zIndex: 'plain',
+            left: 0,
             top: 60,
             height: 'calc(100vh - 60px)',
             paddingBottom: 100,
+            overflow: 'auto',
+            padding: 4,
+            display: ['none', 'none', 'initial'],
           }}
-          overflow="auto"
-          p="4"
-          display={['none', 'none', 'initial']}
         >
           <DocsNavigation />
         </Box>
       )}
       <Box
-        el="main"
-        sx={{
+        element="main"
+        styles={{
           code: {
             borderRadius: 3,
             padding: '0.2em 0.4em',
@@ -78,19 +78,19 @@ export default function CoreLayout(props: Props) {
       </Box>
       {title && props.pageContext.tableOfContentsAst && (
         <Box
-          el="aside"
-          position="fixed"
-          sx={{
+          element="aside"
+          styles={{
+            position: 'fixed',
+            right: 0,
+            width: 210,
+            bg: 'background',
+            overflow: 'auto',
+            paddingX: 4,
             top: 80,
             paddingY: '72px',
             height: 'calc(100vh - 60px)',
             display: ['none', 'none', 'none', 'initial'],
           }}
-          right="0"
-          w={210}
-          bg="background"
-          overflow="auto"
-          px="4"
         >
           <DocsInnerNavigation
             sourceUrl={sourceUrl}
@@ -101,7 +101,7 @@ export default function CoreLayout(props: Props) {
         </Box>
       )}
       {!isHome && (
-        <Box sx={{ marginTop: 100 }}>
+        <Box styles={{ marginTop: 100 }}>
           <Footer />
         </Box>
       )}
