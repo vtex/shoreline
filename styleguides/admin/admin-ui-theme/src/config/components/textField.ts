@@ -1,34 +1,33 @@
-export default {
+import { colors } from '../base'
+
+const styles = {
   display: 'flex',
   position: 'relative',
   justifyContent: 'flex-start',
   flexDirection: 'column',
+}
+
+const error = {
   input: {
-    paddingTop: 4,
+    borderColor: 'danger.base',
+    ':focus': {
+      borderColor: 'danger.base',
+      boxShadow: `0 0 0 1px  ${colors.danger.base}`,
+    },
+    ':focus + label': {
+      transform: 'translate(1px, 4px) scale(0.875)',
+      color: 'danger.base',
+    },
+    ':hover': {
+      borderColor: 'danger.hover',
+    },
   },
   label: {
-    fontSize: 1,
-    paddingX: 4,
-    paddingTop: 2,
-    color: 'muted.0',
-    marginBottom: 3,
-    pointerEvents: 'none',
-    position: 'absolute',
-    transform: 'translate(0, 16px) scale(1)',
-    transformOrigin: 'top left',
-    transition: 'all 0.2s ease-out;',
+    color: 'danger.base',
   },
-  ':focus-within > label': {
-    transform: 'translate(4px, 4px) scale(0.875)',
-    color: 'primary.base',
-  },
-  'input:placeholder-shown:not(:focus) + label': {
-    paddingTop: 1,
-  },
-  'input:active + label': {
-    transform: 'translate(4px, 4px) scale(0.875)',
-  },
-  'input:not(:placeholder-shown) + label': {
-    transform: 'translate(4px, 4px) scale(0.875)',
-  },
+}
+
+export default {
+  default: { ...styles },
+  error: { ...styles, ...error },
 }
