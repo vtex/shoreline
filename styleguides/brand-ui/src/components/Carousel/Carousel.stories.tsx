@@ -2,89 +2,94 @@ import React, { ReactNode } from 'react'
 import { Meta } from '@storybook/react'
 import { Flex } from 'theme-ui'
 
-import { Button, Card } from '../..'
-import { Carousel } from './index'
+import { Card } from '../..'
+import { Carousel, CarouselProps } from './index'
 
 export default {
   title: 'beta/Carousel',
   component: Carousel,
 } as Meta
 
-const BasicCard = ({ children }: { children: ReactNode }) => (
-  <Card sx={{ height: 'fit-content' }}>
-    <Card.Header>Hard Feelings</Card.Header>
-    <Card.Body>{children}</Card.Body>
-    <Card.Footer sx={{ width: '100%', justifyContent: 'flex-end' }}>
-      <Button variant="primary">Primary</Button>
-    </Card.Footer>
-  </Card>
-)
-
-const pageStyles = {
-  paddingX: 112,
-  height: 600,
+const carouselPageStyles = {
+  padding: 112,
   alignItems: 'center',
-  backgroundColor: 'bubblegum.base',
+  height: 300,
   width: '100%',
+  color: 'muted.5',
   justifyContent: 'space-around',
+  fontSize: 32,
 }
 
-export const MultipleCardsCarousel = () => (
-  <Carousel>
-    <Flex sx={pageStyles}>
-      <BasicCard>Let go of your umbrella!</BasicCard>
-      <BasicCard>Darling I'm just trying to tell ya</BasicCard>
-      <BasicCard>Hard... Fee... lings...</BasicCard>
+const SimpleCarousel = ({
+  size,
+  indicators,
+}: Pick<CarouselProps, 'size' | 'indicators'>) => (
+  <Carousel size={size} indicators={indicators}>
+    <Flex
+      sx={{
+        ...carouselPageStyles,
+        backgroundColor: 'muted.0',
+      }}
+    >
+      Take me out! And take me home!
     </Flex>
-    <Flex sx={pageStyles}>
-      <BasicCard>Let go of your umbrella!</BasicCard>
-      <BasicCard>Darling I'm just trying to tell ya</BasicCard>
+    <Flex
+      sx={{
+        ...carouselPageStyles,
+        backgroundColor: 'success.base',
+      }}
+    >
+      You're my, my, my, my...
+    </Flex>
+    <Flex
+      sx={{
+        ...carouselPageStyles,
+        backgroundColor: 'primary.base',
+      }}
+    >
+      Lover
     </Flex>
   </Carousel>
 )
 
-export const CarouselExample = () => (
+export const BasicCarousel = () => <SimpleCarousel />
+
+export const SmallCarousel = () => <SimpleCarousel size="small" />
+
+export const CarouselWithoutIndicators = () => (
+  <SimpleCarousel indicators={false} />
+)
+
+const SimpleCard = ({ children }: { children: ReactNode }) => (
+  <Card sx={{ height: 'fit-content' }}>
+    <Card.Header>Loveless</Card.Header>
+    <Card.Body>{children}</Card.Body>
+  </Card>
+)
+
+const cardContainerStyles = {
+  ...carouselPageStyles,
+  backgroundColor: 'bubblegum.base',
+  color: 'text',
+  div: {
+    marginRight: 5,
+    ':last-child': {
+      marginRight: 0,
+    },
+  },
+}
+
+export const MultipleCardsCarousel = () => (
   <Carousel>
-    {[
-      {
-        backgroundColor: 'primary.base',
-        content: 'Can I go where you go?',
-      },
-      {
-        backgroundColor: 'muted.0',
-        content: 'Can we always be this close?',
-      },
-      {
-        backgroundColor: 'success.base',
-        content: 'Forever and ever and ah',
-      },
-      {
-        backgroundColor: 'danger.base',
-        content: 'Take me out! And take me home!',
-      },
-      {
-        backgroundColor: 'secondary.base',
-        content: "You're my, my, my, my...",
-      },
-      {
-        backgroundColor: 'muted.0',
-        content: 'Lover',
-      },
-    ].map(({ backgroundColor, content }, index) => (
-      <Flex
-        key={index}
-        sx={{
-          height: 600,
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%',
-          backgroundColor,
-          color: 'muted.5',
-          fontSize: 32,
-        }}
-      >
-        {content}
-      </Flex>
-    ))}
+    <Flex sx={cardContainerStyles}>
+      <SimpleCard>Bet you wanna rip my heart out</SimpleCard>
+      <SimpleCard>Bet you wanna skip my calls now</SimpleCard>
+      <SimpleCard>Well guess what? I like that</SimpleCard>
+    </Flex>
+    <Flex sx={cardContainerStyles}>
+      <SimpleCard>'Cause I'm gonna mess your life up</SimpleCard>
+      <SimpleCard>Gonna wanna tape my mouth shut</SimpleCard>
+      <SimpleCard>Look out, lovers</SimpleCard>
+    </Flex>
   </Carousel>
 )

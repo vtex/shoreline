@@ -40,3 +40,4 @@ export {
   Events,
   DayProps,
 } from './components/Calendar'
+export { Carousel, CarouselProps } from './components/Carousel'

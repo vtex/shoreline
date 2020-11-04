@@ -2,7 +2,7 @@ import React, { useState, ReactNode } from 'react'
 import { Flex, Button, IconCaret } from '@vtex/brand-ui'
 import { VisuallyHidden } from 'reakit/VisuallyHidden'
 
-interface Props {
+export interface CarouselProps {
   children: ReactNode[]
   indicators?: boolean
   size?: 'regular' | 'small'
@@ -12,7 +12,7 @@ export const Carousel = ({
   children: slides,
   indicators = true,
   size = 'regular',
-}: Props) => {
+}: CarouselProps) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const totalSlides = slides.length
 
