@@ -3,7 +3,7 @@ import { useClassName, SxStyleProp } from '@vtex/admin-ui-system'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
 
 import { Overridable } from '../../types'
-import { IconRemove } from '../../icons'
+import { IconCancel } from '../../icons'
 import { Box } from '../Box'
 
 export const unstableInput = forwardRef(function Input(
@@ -84,7 +84,7 @@ export const unstableInput = forwardRef(function Input(
               onClick={onClear}
             >
               <Box>
-                <IconRemove size={15} />
+                <IconCancel size={16} />
               </Box>
             </Box>
           )}
