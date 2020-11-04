@@ -1,12 +1,13 @@
-/** @jsx jsx */
-import { jsx, useColor } from '@vtex/admin-ui'
+import React from 'react'
+import { useTheme, get } from '@vtex/admin-ui'
 
 export type LogoProps = React.SVGAttributes<SVGElement>
 
 export default function IndexIllustration(props: LogoProps) {
-  const substract = useColor('background')
-  const surface = useColor('muted.3')
-  const lines = useColor('text')
+  const theme = useTheme()
+  const substract = get(theme, 'colors.background')
+  const surface = get(theme, 'colors.muted.3')
+  const lines = get(theme, 'colors.text')
 
   const colors = {
     substract,

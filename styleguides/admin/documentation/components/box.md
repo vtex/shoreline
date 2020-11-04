@@ -16,9 +16,7 @@ import { Box, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box>
-        This is a Box
-      </Box>
+      <Box>This is a Box</Box>
     </ThemeProvider>
   )
 }
@@ -33,9 +31,11 @@ yarn add @vtex/admin-ui
 ```jsx static
 import { Box } from '@vtex/admin-ui'
 ```
+
 Learn more in [Get started](/docs/get-started/).
 
 ## Variation
+
 ### Styled Props
 
 ```jsx
@@ -44,33 +44,32 @@ import { Box, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box bg="primary.washed" p="5" c="primary.base" fs="3" br="3">
-        This is also a Box, but styled
+      <Box palette="inverted">This is also a Box, but styled</Box>
+    </ThemeProvider>
+  )
+}
+```
+
+## `element` Prop
+
+```jsx
+import { ThemeProvider, Box } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box element="article">
+        <Box element="h1">👻 I'm a h1</Box>
+        <Box element="p">👻 I'm a p</Box>
+        <Box>👻 I'm a div</Box>
       </Box>
     </ThemeProvider>
   )
 }
 ```
 
-### `el` Prop
-
-```jsx
-import { Box } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <Box el="article">
-      <Box el="h1">👻 I'm a h1</Box>
-      <Box el="p">👻 I'm a p</Box>
-      <Box>👻 I'm a div</Box>
-    </Box>
-  )
-}
-```
-
 # Props
+
 ### WIP
+
 <proptypes heading="Box" component="Box" />
-
-
-

@@ -1,14 +1,8 @@
-/** @jsx jsx */
-import { jsx } from '@vtex/admin-ui'
+import React, { createElement } from 'react'
 import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
-import React, { createElement } from 'react'
 
-import {
-  unstableThemeProvider as ThemeProvider,
-  theme,
-  unstableParagraph as Paragraph,
-} from '../../../admin-ui/src'
+import { ThemeProvider, Paragraph, cn } from '../../../admin-ui/src'
 import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
@@ -84,29 +78,29 @@ const { Compiler: renderAst } = new RehypeReact({
     table: function Render(props) {
       return (
         <table
-          sx={{
+          className={cn({
             borderRadius: 3,
             borderCollapse: 'collapse',
             verticalAlign: 'middle',
-          }}
+          })}
           {...props}
         />
       )
     },
     tr: function Render(props) {
-      return <tr sx={{ textAlign: 'left', height: 48 }} {...props} />
+      return <tr className={cn({ textAlign: 'left', height: 48 })} {...props} />
     },
     paletteblock: PaletteBlock,
     th: function Render(props) {
       return (
         <th
-          sx={{
+          className={cn({
             paddingX: 3,
             borderBottomColor: 'muted.2',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',
-          }}
+          })}
           {...props}
         />
       )
@@ -114,13 +108,13 @@ const { Compiler: renderAst } = new RehypeReact({
     td: function Render(props) {
       return (
         <td
-          sx={{
+          className={cn({
             paddingX: 3,
             borderBottomColor: 'muted.2',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',
-          }}
+          })}
           {...props}
         />
       )
@@ -136,7 +130,7 @@ export default function Docs({ data, pageContext }: DocsProps) {
   const { nextPagePath, prevPagePath } = pageContext
 
   return (
-    <ThemeProvider theme={theme as any}>
+    <ThemeProvider>
       <Seo title={`${title} – AdminUI`} description={excerpt} />
       <Heading>{title}</Heading>
       {renderAst(htmlAst)}

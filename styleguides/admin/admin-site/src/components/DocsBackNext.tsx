@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx, Box, VisuallyHidden, Divider } from '@vtex/admin-ui'
+import React from 'react'
+import { Box, VisuallyHidden, Divider, cn } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 
 const query = graphql`
@@ -28,8 +28,8 @@ export default function DocsBackNext({
 
   return (
     <Box
-      c="text"
-      sx={{
+      styles={{
+        color: 'text',
         li: {
           listStyle: 'none',
         },
@@ -47,9 +47,9 @@ export default function DocsBackNext({
         },
       }}
     >
-      <nav sx={{ margin: '3em 0 0 0' }}>
+      <nav className={cn({ margin: '3em 0 0 0' })}>
         <Divider orientation="horizontal" />
-        <ul sx={{ padding: '0', display: 'flex' }}>
+        <ul className={cn({ padding: 0, display: 'flex' })}>
           {prevPath && (
             <li>
               <Link to={prevPath}>
@@ -59,7 +59,7 @@ export default function DocsBackNext({
             </li>
           )}
           {nextPath && (
-            <li sx={{ marginLeft: 'auto' }}>
+            <li className={cn({ marginLeft: 'auto' })}>
               <Link to={nextPath}>
                 <VisuallyHidden>Next </VisuallyHidden>
                 {getTitle(nextPath)}

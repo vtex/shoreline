@@ -50,10 +50,8 @@ function Example() {
   return (
     <ThemeProvider>
       <Checkbox
-        checked={checked}
+        state={{ checked, onChange: () => setChecked(!checked) }}
         aria-label="your label goes here!"
-        checked={checked}
-        onChange={() => setChecked(!checked)}
       />
     </ThemeProvider>
   )
@@ -74,7 +72,7 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <Checkbox checked={checked} onChange={() => setChecked(!checked)} />
+      <Checkbox state={{ checked, onChange: () => setChecked(!checked) }} />
     </ThemeProvider>
   )
 }
@@ -110,14 +108,14 @@ It can be very handy if you have a group of Checkboxes and want to handle the st
 ### Simple Checkbox
 
 ```jsx
-import { Checkbox, useCheckbox, ThemeProvider } from '@vtex/admin-ui'
+import { Checkbox, useCheckboxState, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const checkboxProps = useCheckbox({ state: true })
+  const state = useCheckboxState({ state: true })
 
   return (
     <ThemeProvider>
-      <Checkbox {...checkboxProps} />
+      <Checkbox state={state} />
     </ThemeProvider>
   )
 }
@@ -128,16 +126,16 @@ function Example() {
   Remember that all checkboxes need to have a value set!
 
 ```jsx
-import { Checkbox, useCheckbox, ThemeProvider } from '@vtex/admin-ui'
+import { Checkbox, useCheckboxState, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const checkboxProps = useCheckbox({ state: [] })
+  const state = useCheckboxState({ state: [] })
 
   return (
     <ThemeProvider>
-      <Checkbox {...checkboxProps} value="checkbox1" />
-      <Checkbox {...checkboxProps} value="checkbox2" />
-      <Checkbox {...checkboxProps} value="checkbox3" />
+      <Checkbox state={state} value="checkbox1" />
+      <Checkbox state={state} value="checkbox2" />
+      <Checkbox state={state} value="checkbox3" />
     </ThemeProvider>
   )
 }

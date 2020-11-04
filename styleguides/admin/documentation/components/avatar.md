@@ -9,11 +9,7 @@ Component to create a user avatar from a passed label. It shows the first letter
 ## Behavior
 
 ```jsx
-import {
-  Avatar,
-  Set,
-  unstableThemeProvider as ThemeProvider,
-} from '@vtex/admin-ui'
+import { Avatar, Set, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -41,7 +37,7 @@ Learn more in [Get started](/docs/get-started/).
 ### Base
 
 ```jsx
-import { Avatar, unstableThemeProvider as ThemeProvider } from '@vtex/admin-ui'
+import { Avatar, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -55,7 +51,7 @@ function Example() {
 ### Primary
 
 ```jsx
-import { Avatar, unstableThemeProvider as ThemeProvider } from '@vtex/admin-ui'
+import { Avatar, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -69,7 +65,7 @@ function Example() {
 ### Danger
 
 ```jsx
-import { Avatar, unstableThemeProvider as ThemeProvider } from '@vtex/admin-ui'
+import { Avatar, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (

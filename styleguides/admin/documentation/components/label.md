@@ -65,8 +65,8 @@ import { Label, Toggle, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Label display="flex" items="center">
-        <Toggle checked={true} />
+      <Label styleOverrides={{ display: 'flex', alignItems: 'center' }}>
+        <Toggle state={{ checked: true }} />
         Toggle Label!
       </Label>
     </ThemeProvider>

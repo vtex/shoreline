@@ -10,12 +10,7 @@ It implements a 12 column flexbox based responsive column system.
 ## Behavior
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  theme,
-  Columns,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, theme, Columns, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -55,12 +50,7 @@ yarn add @vtex/admin-ui@latest
 ### Auto
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  theme,
-  Columns,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, theme, Columns, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -90,12 +80,7 @@ function Example() {
 ### AutoGapless
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  theme,
-  Columns,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, theme, Columns, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -125,12 +110,7 @@ function Example() {
 ### Units
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  theme,
-  Columns,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, theme, Columns, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -162,12 +142,7 @@ function Example() {
 `spacing`, `units`, and `offset` are [`ResponsiveValues`](/docs/guide/responsive-design/#responsive-values)
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  theme,
-  Columns,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, theme, Columns, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -194,12 +169,7 @@ function Example() {
 You can use the styleOverrides property to handle different styles in both `Columns`, and `Columns.Item`.
 
 ```jsx
-import {
-  unstableThemeProvider as ThemeProvider,
-  theme,
-  Columns,
-  unstableBox as Box,
-} from '@vtex/admin-ui'
+import { ThemeProvider, theme, Columns, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (

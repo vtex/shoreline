@@ -5,9 +5,6 @@
     - /docs/palettes/
     - /docs/guide/next/
     - /docs/guide/responsive-design/
-- section: Theme
-  paths:
-    - /docs/style-props/
 - section: Layouts
   paths:
     - /docs/layouts/set/
@@ -16,7 +13,6 @@
   paths:
     - /docs/components/table/
     - /docs/box/
-    - /docs/list/
     - /docs/button/
     - /docs/tag/
     - /docs/checkbox/

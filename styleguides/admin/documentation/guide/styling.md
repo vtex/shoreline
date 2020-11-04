@@ -24,26 +24,6 @@ function ProjectRoot() {
 }
 ```
 
-## jsx
-
-Same as [JSX Pragma](https://theme-ui.com/guides/how-it-works/#jsx-pragma)
-
-Usage:
-
-```jsx static
-/** @jsx jsx */
-import { jsx } from '@vtex/admin-ui'
-
-export default (props) => (
-  <div
-    {...props}
-    sx={{
-      color: 'primary.base',
-    }}
-  />
-)
-```
-
 ## `useTheme` hook
 
 Returns the theme object
@@ -59,7 +39,7 @@ function Component() {
 }
 ```
 
-## `sx` property
+## `styles` & `styleOverrides` properties
 
 The sx prop lets you add any valid CSS to an element, while using values from your theme to keep styles consistent. You can think of the style object that the sx prop accepts as a superset of CSS.
 

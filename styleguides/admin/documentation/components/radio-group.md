@@ -12,14 +12,14 @@ Used to group `Radio` components.
 import {
   Radio,
   RadioGroup,
-  useRadio,
+  useRadioState,
   Label,
   Text,
   ThemeProvider,
 } from '@vtex/admin-ui'
 
 function Example() {
-  const radio = useRadio({ state: 'oms' })
+  const radio = useRadioState({ state: 'oms' })
   const values = [
     'Marketplace Ecommerce',
     'B2C Commerce',
@@ -32,7 +32,7 @@ function Example() {
     <ThemeProvider>
       <Text variant="subtitle">Selected solution: {radio.state}</Text>
       <RadioGroup
-        {...radio}
+        state={radio}
         id="radio-group"
         orientation="vertical"
         label="Solutions"
@@ -77,14 +77,14 @@ Orientation Horizontal
 import {
   Radio,
   RadioGroup,
-  useRadio,
+  useRadioState,
   Label,
   Text,
   ThemeProvider,
 } from '@vtex/admin-ui'
 
 function Example() {
-  const radio = useRadio({ state: 'oms' })
+  const radio = useRadioState({ state: 'oms' })
   const values = [
     'Marketplace Ecommerce',
     'B2C Commerce',
@@ -97,7 +97,7 @@ function Example() {
     <ThemeProvider>
       <Text variant="subtitle">Selected solution: {radio.state}</Text>
       <RadioGroup
-        {...radio}
+        state={radio}
         id="radio-group"
         orientation="horizontal"
         label="Solutions"
@@ -130,18 +130,18 @@ You can easily add a label using the `label` prop, but it is also possible to ad
 import {
   Radio,
   RadioGroup,
-  useRadio,
+  useRadioState,
   Label,
   ThemeProvider,
 } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useRadio({ state: '' })
+  const state = useRadioState({ state: '' })
 
   return (
     <ThemeProvider>
       <Label htmlFor="radio-group-id">Fruits</Label>
-      <RadioGroup id="radio-group-id" {...state}>
+      <RadioGroup id="radio-group-id" state={state}>
         <Label>
           <Radio state={state} value="Apple" />
           Apple
