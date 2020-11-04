@@ -15,7 +15,7 @@ const error = {
       boxShadow: `0 0 0 1px  ${colors.danger.base}`,
     },
     ':focus + label': {
-      transform: 'translate(4px, 4px) scale(0.875)',
+      transform: 'translate(1px, 4px) scale(0.875)',
       color: 'danger.base',
     },
     ':hover': {

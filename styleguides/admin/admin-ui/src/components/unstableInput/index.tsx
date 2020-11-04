@@ -38,7 +38,7 @@ export const unstableInput = forwardRef(function Input(
   function renderFeature() {
     const styles = {
       fontSize: 1,
-      left: 9,
+      left: 12,
       paddingTop: 2,
       color: 'muted.1',
       marginBottom: 3,
