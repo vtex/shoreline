@@ -84,7 +84,7 @@ export const unstableInput = forwardRef(function Input(
               onClick={onClear}
             >
               <Box>
-                <IconCancel size={16} />
+                <IconCancel size={20} />
               </Box>
             </Box>
           )}
