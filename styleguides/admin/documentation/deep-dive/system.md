@@ -4,7 +4,7 @@ path: /docs/deep-dive/system
 
 # Admin UI System
 
-> 🐋 This is a deep dive content. Is recommended for new developers within admin-ui or enthusiasts.
+> 🐋 This is a deep dive content. Is recommended for new developers within admin-ui or advanced (low level) users.
 
 ```bash
 yarn add @vtex/admin-ui-system
@@ -13,6 +13,14 @@ npm install @vtex/admin-ui-system
 ```
 
 `react` and `react-dom` are peer dependencies, so make sure that you also installed them.
+
+## In our context, what is a system ?
+
+For us, system is the architecture that the rules a series of components. It takes care of how components are crearted internally and if their API is consistent throughout (props with same name, should have the same behavior within a system, for example).
+
+## createSystem
+
+Function designed to create .
 
 ## createElement
 
