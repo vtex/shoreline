@@ -6,8 +6,6 @@ path: /docs/text/
 
 The component that abstracts all text variants from admin's styleguide
 
-> 💡 Also check Theme Documentation for detailed info.
-
 ## Behavior
 
 ```jsx
@@ -24,7 +22,7 @@ function Example() {
 
 ## Installation
 
-```jsx static
+```sh static
 yarn add @vtex/admin-ui
 ```
 
@@ -34,43 +32,12 @@ import { Text } from '@vtex/admin-ui'
 
 ## Variation
 
-Variant Prop
+### Small
 
-By default `<Text />` render three HTML elements
-
-- **variant='headline'** -> `<h1 />`
-- **variant='subtitle'** -> `<h2 />`
-- **other variants** -> `<span />`
-
-| variant    | Admin's Theme                                                                                                       |
-| ---------- | ------------------------------------------------------------------------------------------------------------------- |
-| 'small'    | `fontVariationSettings: "'wght' 80"`,<br>`fontSize: 0`                                                              |
-| 'body'     | `lineHeight: 'body'`,<br> `fontVariationSettings: "'wght' 80"`,<br> `fontSize: 1`                                   |
-| 'highlight | `lineHeight: 'highlight'`,<br> `fontVariationSettings: "'wght' 100"`,<br> `fontSize: 1`                             |
-| 'action'   | `lineHeight: 'action'`,<br>`fontVariationSettings: "'wght' 100"`,<br>`fontSize: 1`,<br>`textTransform: 'uppercase'` |
-| 'subtitle' | `lineHeight: 'subtitle'`,<br> `fontVariationSettings: "'wght' 100"`,<br> `fontSize: 2`                              |
-| 'headline' | `lineHeight: 'headline'`,<br> `fontVariationSettings: "'wght' 100"`,<br>`fontSize: 3`                               |
-
-⚠️ Remember that variant styles are based on `Admin's Theme`
-
-### `el` prop
-
-If you want to render the component using a different HTML tag, you should use this prop.
-
-#### Examples
-
-```jsx
-import { Text, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Text el="p" variant="body">
-        Look, a paragraph
-      </Text>
-    </ThemeProvider>
-  )
-}
+```jsx static
+lineHeight: 'small', // 1.125
+fontVariationSettings: 'regular', // "'wght' 92"
+fontSize: 0, // 0.75rem
 ```
 
 ```jsx
@@ -79,12 +46,18 @@ import { Text, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Text el="h3" variant="headline">
-        Look, a heading 3
-      </Text>
+      <Text variant="small">Here goes your text!</Text>
     </ThemeProvider>
   )
 }
+```
+
+### Body
+
+```jsx static
+lineHeight: 'body', // 1.25
+fontVariationSettings: 'regular', // "'wght' 92"
+fontSize: 1, // 0.875rem
 ```
 
 ```jsx
@@ -93,60 +66,98 @@ import { Text, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Text el="h3" variant="headline">
-        Look, a heading 3
-      </Text>
+      <Text variant="body">Here goes your text!</Text>
     </ThemeProvider>
   )
 }
 ```
 
-### Font Variation
+### Highlight
+
+```jsx static
+lineHeight: 'highlight', // 1.25
+fontVariationSettings: 'regular', // "'wght' 92"
+fontSize: 1, // 0.875rem
+```
 
 ```jsx
-import { Text, Box } from '@vtex/admin-ui'
+import { Text, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
-    <Box>
-      <Text el="span" variant="small">
-        Small
-      </Text>
-      <br />
-      <Text el="span" variant="body">
-        Body
-      </Text>
-      <br />
-      <Text el="span" variant="highlight">
-        Highlight
-      </Text>
-      <br />
-      <Text el="span" variant="action">
-        Action
-      </Text>
-      <br />
-      <Text el="span" variant="subtitle">
-        Subtitle
-      </Text>
-      <br />
-      <Text el="span" variant="headline" fw="bold">
-        Headline
-      </Text>
-    </Box>
+    <ThemeProvider>
+      <Text variant="highlight">Here goes your text!</Text>
+    </ThemeProvider>
+  )
+}
+```
+
+### Action
+
+```jsx static
+lineHeight: 'action', // 1.5
+fontVariationSettings: 'regular', // "'wght' 92"
+fontSize: 1, // 0.875rem
+textTransform: 'uppercase',
+```
+
+```jsx
+import { Text, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Text variant="action">Here goes your text!</Text>
+    </ThemeProvider>
+  )
+}
+```
+
+### Subtitle
+
+```jsx static
+lineHeight: 'subtitle', // 1.5
+fontVariationSettings: 'regular', // "'wght' 92"
+fontSize: 2, // 1rem
+```
+
+```jsx
+import { Text, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Text variant="subtitle">Here goes your text!</Text>
+    </ThemeProvider>
+  )
+}
+```
+
+### Headline
+
+```jsx static
+lineHeight: 'headline', // 1.5
+fontVariationSettings: 'regular', // "'wght' 92"
+fontSize: 4, // 1.25rem
+```
+
+```jsx
+import { Text, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Text variant="headline">Here goes your text!</Text>
+    </ThemeProvider>
   )
 }
 ```
 
 ## Customization
 
-Use `sx` prop if you want to add any style to your `Text` component.
+You can use the `styleOverrides` property to handle different styles.
 
-### Color
-
-This component doesn't have a default color, we do this so that the component can inherit the color defined on its parent.
-But you can set this using `sx` prop!
-
-#### Example
+### Example
 
 ```jsx
 import { Text, ThemeProvider } from '@vtex/admin-ui'
@@ -154,7 +165,7 @@ import { Text, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Text sx={{ color: 'text' }} variant="body">
+      <Text styleOverrides={{ color: 'muted.2' }} variant="body" element="span">
         Look, a text with 'text' color... 🤔
       </Text>
     </ThemeProvider>
@@ -162,22 +173,25 @@ function Example() {
 }
 ```
 
-⚠️ Remember that color values are based on `Admin's Theme`
-
 ### VTEX Trust variable font
 
-A variable font is a specification that can significantly reduce font file sizes and make it possible to animate font characters. We've implemented `VTEX Trust font` using this feature.
+<blockquote palette="primary">
 
+A variable font is a specification that can significantly reduce font file sizes and make it possible to animate font characters. We've implemented `VTEX Trust font` using this feature.
 [Read more about Variable Fonts](https://web.dev/variable-fonts/)
 
-#### Fallback
+</blockquote>
+
+### Fallback
+
+<blockquote palette="primary">
 
 Most of the browsers have support to variable fonts, but for the remaining browsers who do not, we have a fallback using `sans-serif` font.
 
 [Read more about the Browsers Support](https://caniuse.com/variable-fonts)
 
-## Props
+</blockquote>
 
-### WIP
+## Props
 
 <proptypes heading="Text" component="Text"/>
