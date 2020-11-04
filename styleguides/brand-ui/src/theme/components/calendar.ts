@@ -5,18 +5,20 @@ const baseCell: SxStyleProp = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  textAlign: 'center',
+  placeItems: 'center',
   color: 'secondary.base',
   bg: 'transparent',
   borderRadius: '100%',
   border: '2px transparent solid',
-  width: ['1.8rem', '2rem', '3rem'],
-  height: ['1.8rem', '2rem', '3rem'],
+  width: ['35px', '44px'],
+  height: ['35px', '44px'],
   position: 'relative',
+  fontSize: 3,
 }
 
 const weekdayCell: SxStyleProp = {
   ...baseCell,
-  fontSize: 3,
   color: ['secondary.base', 'secondary.base', 'muted.1'],
 }
 
@@ -26,12 +28,10 @@ const activeDayCell: SxStyleProp = {
   borderStyle: 'solid',
   borderWidth: '2px',
   color: 'secondary.base',
-  fontSize: 2,
 }
 
 const baseDayCell: SxStyleProp = {
   ...baseCell,
-  fontSize: 2,
   transition: 'all .3s ease-in-out',
   ':hover': {
     ...activeDayCell,
@@ -66,30 +66,18 @@ const title: SxStyleProp = {
   '&:first-letter': { textTransform: 'capitalize' },
 }
 
-const baseCalendar: SxStyleProp = {
-  bg: 'primary.contrast',
-  borderRadius: 3,
-  px: 5,
-  py: 7,
-  maxWidth: '30rem',
-  boxShadow: ['none', 'none', '0px 6px 10px rgba(61, 62, 64, 0.25)'],
-}
-
-const disabled: SxStyleProp = {
-  opacity: 0.5,
-}
-
 const grid: SxStyleProp = {
   width: '100%',
   py: 4,
-  rowGap: 4,
+  columnGap: 0,
+  rowGap: ['10px', 0],
   gridTemplateColumns: 'repeat(7, 1fr)',
   alignItems: 'center',
 }
 
 const baseEvent: SxStyleProp = {
-  width: '50%',
-  height: '6px',
+  width: '11px',
+  height: '4px',
 }
 
 const event: SxStyleProp = {
@@ -110,9 +98,21 @@ const event: SxStyleProp = {
 const eventContainer: SxStyleProp = {
   display: 'flex',
   px: [0, 0, '10px'],
-  width: '100%',
   position: 'absolute',
-  bottom: [-2, 3],
+  bottom: [0, 2],
+}
+
+const baseCalendar: SxStyleProp = {
+  bg: 'primary.contrast',
+  borderRadius: 3,
+  px: 4,
+  py: 7,
+  maxWidth: '22rem',
+  boxShadow: ['none', 'none', '0px 6px 10px rgba(61, 62, 64, 0.25)'],
+}
+
+const disabled: SxStyleProp = {
+  opacity: 0.5,
 }
 
 const calendar: SxStyleProp = {

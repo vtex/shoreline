@@ -49,7 +49,7 @@ const Day = ({
       onClick={() => onClick(value)}
       {...restProps}
     >
-      {value.day}
+      <Text>{value.day}</Text>
       {event && <Event event={event} />}
     </button>
   )
@@ -142,16 +142,16 @@ export const Calendar = ({
     value: DateTime
     variant: string
   }) => (
-    <Day
-      key={`${value.day} - ${value.month}`}
-      value={value}
-      variant={variant}
-      disabled={disabled}
-      selectedDate={selectedDate}
-      onClick={handleCellClick}
-      events={events}
-    />
-  )
+      <Day
+        key={`${value.day} - ${value.month}`}
+        value={value}
+        variant={variant}
+        disabled={disabled}
+        selectedDate={selectedDate}
+        onClick={handleCellClick}
+        events={events}
+      />
+    )
 
   return (
     <Box variant={`calendar${disabled ? '.disabled' : ''}`}>

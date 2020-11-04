@@ -1,7 +1,8 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Calendar, CalendarProps, Events } from '.'
+import { Calendar, CalendarProps } from '.'
+import events from './mockEvents'
 
 export default {
   title: 'beta/Calendar',
@@ -20,24 +21,6 @@ export default {
     },
   },
 } as Meta
-
-const events: Events = {
-  '2020-03-12': {
-    name: 'Collections and Checkout are having some instabilities',
-    colors: ['#3D5980'],
-  },
-  '2020-03-27': {
-    name: 'Collections and Checkout are having some instabilities',
-  },
-  '2020-03-15': {
-    name: 'Collections and Checkout are having some instabilities',
-    colors: ['#FFB100', '#FF4C4C'],
-  },
-  '2020-03-17': {
-    name: 'Collections and Checkout are having some instabilities',
-    colors: ['#FFB100'],
-  },
-}
 
 const Template: Story<CalendarProps> = (props) => {
   return <Calendar events={events} {...props} />
