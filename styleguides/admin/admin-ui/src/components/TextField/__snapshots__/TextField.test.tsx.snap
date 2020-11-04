@@ -10,7 +10,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  left: 9px;
+  left: 12px;
   padding-top: 0.5rem;
   color: #898F9E;
   margin-bottom: 0.75rem;
@@ -80,9 +80,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-6 input:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #CE454F;
 }
 
@@ -131,9 +131,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #2953B2;
 }
 
@@ -142,15 +142,15 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:active + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-3 {
@@ -216,7 +216,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  left: 9px;
+  left: 12px;
   padding-top: 0.5rem;
   color: #898F9E;
   margin-bottom: 0.75rem;
@@ -305,9 +305,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #2953B2;
 }
 
@@ -316,15 +316,15 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:active + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 <div
@@ -383,7 +383,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  left: 9px;
+  left: 12px;
   padding-top: 0.5rem;
   color: #898F9E;
   margin-bottom: 0.75rem;
@@ -472,9 +472,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #2953B2;
 }
 
@@ -483,15 +483,15 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:active + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 <div
@@ -551,7 +551,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  left: 9px;
+  left: 12px;
   padding-top: 0.5rem;
   color: #898F9E;
   margin-bottom: 0.75rem;
@@ -659,9 +659,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #2953B2;
 }
 
@@ -670,15 +670,15 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:active + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 <div
@@ -732,7 +732,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  left: 9px;
+  left: 12px;
   padding-top: 0.5rem;
   color: #898F9E;
   margin-bottom: 0.75rem;
@@ -828,9 +828,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-8 input:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #CE454F;
 }
 
@@ -879,9 +879,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #2953B2;
 }
 
@@ -890,15 +890,15 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:active + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-3 {
@@ -970,7 +970,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  left: 9px;
+  left: 12px;
   padding-top: 0.5rem;
   color: #898F9E;
   margin-bottom: 0.75rem;
@@ -1078,9 +1078,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-2:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #2953B2;
 }
 
@@ -1089,15 +1089,15 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-2:active + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-2:not(:placeholder-shown) + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-6 {
@@ -1105,7 +1105,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-6 label {
-  left: 41px;
+  left: 44px;
 }
 
 .emotion-1 {
@@ -1270,7 +1270,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  left: 9px;
+  left: 12px;
   padding-top: 0.5rem;
   color: #898F9E;
   margin-bottom: 0.75rem;
@@ -1366,9 +1366,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-12 input:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #CE454F;
 }
 
@@ -1424,9 +1424,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-2:focus + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
   color: #2953B2;
 }
 
@@ -1435,15 +1435,15 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-2:active + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-2:not(:placeholder-shown) + label {
-  -webkit-transform: translate(4px,4px) scale(0.875);
-  -ms-transform: translate(4px,4px) scale(0.875);
-  transform: translate(4px,4px) scale(0.875);
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-6 {
@@ -1451,7 +1451,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-6 label {
-  left: 41px;
+  left: 44px;
 }
 
 .emotion-1 {
