@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0-rc.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.3.0-rc.0...admin-site@0.3.0-rc.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **admin-ui-version:** bump version ([367df63](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/367df635c4c7655160a49f8d707d6e029510b4d4))
+
+
+
+
+
 # [0.3.0-rc.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.2.8...admin-site@0.3.0-rc.0) (2020-11-04)
 
 

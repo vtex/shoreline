@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-rc.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.1.0-rc.0...@vtex/admin-ui-theme@0.1.0-rc.1) (2020-11-04)
+
+
+### Features
+
+* **input:** add Input component ([9d2fe30](https://github.com/vtex/onda/commit/9d2fe305e9a88980e13e3e05d2f235e730d4c070))
+* **text-field:** add TextField component ([89c2764](https://github.com/vtex/onda/commit/89c27643988363beb80b57e06d25ad05cca300da))
+
+
+
+
+
 # 0.1.0-rc.0 (2020-11-04)
 
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.55.0-rc.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-rc.0...@vtex/admin-ui@0.55.0-rc.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **admin-ui-version:** bump version ([367df63](https://github.com/vtex/onda/commit/367df635c4c7655160a49f8d707d6e029510b4d4))
+* **focus-visible:** fix focus-visible import ([9840376](https://github.com/vtex/onda/commit/984037601cf857bf491e109a50972e313fbb8435))
+
+
+### Features
+
+* **input:** add Input component ([9d2fe30](https://github.com/vtex/onda/commit/9d2fe305e9a88980e13e3e05d2f235e730d4c070))
+* **text-field:** add TextField component ([89c2764](https://github.com/vtex/onda/commit/89c27643988363beb80b57e06d25ad05cca300da))
+
+
+
+
+
 # [0.53.0-rc.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.54.0...@vtex/admin-ui@0.53.0-rc.0) (2020-11-04)
 
 
