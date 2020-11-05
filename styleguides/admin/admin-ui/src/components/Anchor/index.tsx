@@ -27,9 +27,12 @@ export const Anchor = forwardRef(function Anchor(
 
 export interface AnchorProps
   extends Overridable,
-    React.DetailedHTMLProps<
-      React.AnchorHTMLAttributes<HTMLAnchorElement>,
-      HTMLAnchorElement
+    Omit<
+      React.DetailedHTMLProps<
+        React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        HTMLAnchorElement
+      >,
+      'className' | 'style'
     > {
   /**
    * anchor children
