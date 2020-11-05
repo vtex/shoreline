@@ -13,11 +13,17 @@ const timeline = {
     pl: 5,
     pb: 6,
     title: {
-      mb: 2,
       fontSize: [2, 3],
       fontWeight: 'regular',
     },
+    subtitle: {
+      mt: 2,
+      color: 'muted.0',
+      fontSize: 1,
+      lineHeight: '17px',
+    },
     content: {
+      mt: 5,
       fontSize: 1,
     },
     icon: {

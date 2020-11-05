@@ -30,6 +30,7 @@ const Circle = () => (
 export function Event({
   children,
   title,
+  subtitle,
   icon,
   sx,
 }: PropsWithChildren<EventProps>) {
@@ -41,6 +42,7 @@ export function Event({
       </Box>
       <Box variant="timeline.event">
         <Box variant="timeline.event.title">{title}</Box>
+        {subtitle && <Box variant="timeline.event.subtitle">{subtitle}</Box>}
         {children && <Box variant="timeline.event.content">{children}</Box>}
       </Box>
     </Flex>
@@ -57,6 +59,10 @@ export interface EventProps extends SxProps {
    * Event title
    */
   title: ReactNode
+  /**
+   * Event subtitle
+   */
+  subtitle?: ReactNode
   /**
    * Event icon
    */
