@@ -2,6 +2,7 @@
 import button from './button'
 import divider from './divider'
 import tag from './tag'
+import anchor from './anchor'
 // data
 import table from './table'
 import list from './list'
@@ -39,4 +40,5 @@ export default {
   collapsible,
   avatar,
   tag,
+  anchor,
 }

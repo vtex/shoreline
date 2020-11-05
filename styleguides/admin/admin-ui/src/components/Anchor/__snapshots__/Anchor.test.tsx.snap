@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font: inherit;
+  color: #2953B2;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:active {
+  color: #3F6FDB;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0:hover {
+  color: #1E4397;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<a
+    class="emotion-0"
+    href="/"
+  >
+    Link 1
+  </a>
+  .emotion-0 {
+  font: inherit;
+  color: #2953B2;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:active {
+  color: #3F6FDB;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0:hover {
+  color: #1E4397;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<a
+    class="emotion-0"
+    href="/"
+  >
+    Link 2
+  </a>
+  .emotion-0 {
+  font: inherit;
+  color: #2953B2;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:active {
+  color: #3F6FDB;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0:hover {
+  color: #1E4397;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<a
+    class="emotion-0"
+    href="/"
+  >
+    Link 3
+  </a>
+  .emotion-0 {
+  font: inherit;
+  color: #2953B2;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:active {
+  color: #3F6FDB;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0:hover {
+  color: #1E4397;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<a
+    class="emotion-0"
+    href="/"
+  >
+    Link 4
+  </a>
+</DocumentFragment>
+`;
