@@ -29,6 +29,8 @@ export function useSet(props: SetProps) {
     orientation = 'horizontal',
     fluid = false,
     spacing = 1,
+    spacingX,
+    spacingY,
     align = 'start',
     styleOverrides,
     ...layoutProps
@@ -58,8 +60,8 @@ export function useSet(props: SetProps) {
   const childrenSpacing = {
     horizontal: {
       '> *': {
-        marginTop: spacing,
-        marginLeft: spacing,
+        marginTop: spacingY ?? spacing,
+        marginLeft: spacingX ?? spacing,
       },
     },
     vertical: {
@@ -96,9 +98,18 @@ export interface SetProps extends Overridable {
   fluid?: boolean
   /**
    * space between items
-   * @default 1
+   * @default 0
    */
   spacing?: ResponsiveValue<number>
+  /**
+   * horizontal spacing
+   */
+  spacingX?: ResponsiveValue<number>
+  /**
+   * vertical spacing
+   * @default 0
+   */
+  spacingY?: ResponsiveValue<number>
   /**
    * items alignment
    * @default start

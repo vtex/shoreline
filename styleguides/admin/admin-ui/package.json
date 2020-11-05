@@ -53,6 +53,7 @@
     "@vtex/admin-ui-system": "^0.1.0-rc.1",
     "@vtex/admin-ui-theme": "^0.1.0-rc.3",
     "deepmerge": "^4.2.2",
+    "downshift": "^6.0.6",
     "emotion": "^10.0.27",
     "focus-visible": "^5.1.0",
     "polished": "^3.6.7",
