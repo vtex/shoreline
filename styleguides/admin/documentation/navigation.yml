@@ -9,29 +9,36 @@
   paths:
     - /docs/layouts/set/
     - /docs/layouts/columns/
+- section: Typography
+  paths:
+    - /docs/typography/variable-font/
+    - /docs/typography/heading/
+    - /docs/typography/list/
+    - /docs/typography/text/
+    - /docs/typography/paragraph/
 - section: Components
   paths:
-    - /docs/components/table/
+    - /docs/avatar/
     - /docs/box/
     - /docs/button/
-    - /docs/tag/
+    - /docs/card/
     - /docs/checkbox/
     - /docs/checkbox-group/
     - /docs/collapsible/
     - /docs/collapsible-group/
     - /docs/divider/
     - /docs/label/
+    - /docs/menu/
     - /docs/modal/
     - /docs/radio/
     - /docs/radio-group/
     - /docs/skeleton/
+    - /docs/components/table/
+    - /docs/tag/
     - /docs/text/
     - /docs/toggle/
     - /docs/tooltip/
-    - /docs/card/
     - /docs/visually-hidden/
-    - /docs/avatar/
-    - /docs/menu/
 - section: Deep dive 🐋
   paths:
     - /docs/deep-dive/system
