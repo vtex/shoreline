@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { darken, lighten } from '@vtex/admin-ui-system'
+
 const size = {
   regular: {
     fontSize: 1,
@@ -198,6 +200,58 @@ const variant = {
     ':active': {
       color: 'danger.active',
       backgroundColor: 'danger.washed.2',
+    },
+    ':disabled': {
+      color: 'muted.1',
+    },
+  },
+  'filled-base': {
+    textTransform: 'uppercase',
+    color: 'background',
+    backgroundColor: 'text',
+    fontVariationSettings: "'wght' 92",
+    ':hover': {
+      color: 'background',
+      backgroundColor: darken('text', 0.05),
+    },
+    ':active': {
+      color: 'background',
+      backgroundColor: lighten('text', 0.05),
+    },
+    ':disabled': {
+      color: 'text',
+      backgroundColor: 'muted.2',
+    },
+  },
+  'subtle-base': {
+    textTransform: 'uppercase',
+    backgroundColor: lighten('text', 0.7),
+    color: 'text',
+    fontVariationSettings: "'wght' 92",
+    ':hover': {
+      backgroundColor: lighten('text', 0.68),
+      color: 'text',
+    },
+    ':active': {
+      backgroundColor: lighten('text', 0.65),
+      color: 'text',
+    },
+    ':disabled': {
+      color: 'muted.1',
+      backgroundColor: 'muted.4',
+    },
+  },
+  'text-base': {
+    backgroundColor: 'transparent',
+    color: 'text',
+    fontVariationSettings: "'wght' 92",
+    ':hover': {
+      color: 'text',
+      backgroundColor: lighten('text', 0.72),
+    },
+    ':active': {
+      color: 'text',
+      backgroundColor: lighten('text', 0.68),
     },
     ':disabled': {
       color: 'muted.1',

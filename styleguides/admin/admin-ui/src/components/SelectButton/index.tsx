@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { useSelect, UseSelectProps, UseSelectReturnValue } from 'downshift'
+import { useSelect, UseSelectReturnValue } from 'downshift'
 
 import { Button, ButtonProps } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
@@ -16,6 +16,7 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
     size = 'regular',
     state,
     renderItem = (item) => item,
+    palette = 'primary',
     ...buttonProps
   } = props
 
@@ -30,7 +31,7 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
       </VisuallyHidden>
       <Button
         variant={variant}
-        palette="primary"
+        palette={palette}
         size={size}
         icon={<IconCaret direction="down" />}
         iconPosition="end"
@@ -89,20 +90,9 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
 
 export { useSelect as useSelectState }
 
-export function SelectState<T>(
-  props: UseSelectProps<T> & {
-    children: (state: UseSelectReturnValue<T>) => JSX.Element
-  }
-) {
-  const { children, ...hookParams } = props
-  const state = useSelect(hookParams)
-
-  return children(state)
-}
-
 export interface SelectButtonProps<T>
   extends Overridable,
-    Pick<ButtonProps, 'variant' | 'size' | 'disabled'> {
+    Pick<ButtonProps, 'variant' | 'size' | 'disabled' | 'palette'> {
   /**
    * aria-label. will be visually hidden
    */

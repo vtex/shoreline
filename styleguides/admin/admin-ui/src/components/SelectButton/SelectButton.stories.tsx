@@ -2,10 +2,11 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import { Set } from '../Set'
-import { SelectButton, useSelectState, SelectState } from './index'
+import { SelectButton, useSelectState } from './index'
+import { Card } from '../Card'
 
 export default {
-  title: 'forms/select-button',
+  title: 'beta/forms/select-button',
   component: SelectButton,
 } as Meta
 
@@ -16,11 +17,13 @@ export const Basic = () => {
   })
 
   return (
-    <SelectButton
-      items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-      state={state}
-      label="Date"
-    />
+    <Card>
+      <SelectButton
+        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+        state={state}
+        label="Date"
+      />
+    </Card>
   )
 }
 
@@ -50,58 +53,82 @@ export const WithObject = () => {
 
 export const Variants = () => {
   const species = ['Arabica', 'Robusta']
+  const speciesState = useSelectState({
+    items: species,
+    initialSelectedItem: 'Arabica',
+  })
+
   const brewMethods = ['French Press', 'Chemex', 'Cold Brew', 'Aeropress']
+  const brewState = useSelectState({
+    items: brewMethods,
+    initialSelectedItem: 'Chemex',
+  })
+
   const recipes = ['Latte', 'Espresso', 'Irish Coffee']
+  const recipesState = useSelectState({
+    items: recipes,
+    initialSelectedItem: 'Chemex',
+  })
 
   return (
     <Set>
-      <SelectState items={species} initialSelectedItem="Arabica">
-        {(state) => (
-          <SelectButton items={species} state={state} label="Species" />
-        )}
-      </SelectState>
-      <SelectState items={brewMethods} initialSelectedItem="Chemex">
-        {(state) => (
-          <SelectButton
-            variant="subtle"
-            items={brewMethods}
-            state={state}
-            label="Methods"
-          />
-        )}
-      </SelectState>
-      <SelectState items={recipes} initialSelectedItem="Espresso">
-        {(state) => (
-          <SelectButton
-            variant="filled"
-            items={recipes}
-            state={state}
-            label="Recipes"
-          />
-        )}
-      </SelectState>
+      <SelectButton items={species} state={speciesState} label="Species" />
+      <SelectButton
+        variant="subtle"
+        items={brewMethods}
+        state={brewState}
+        label="Methods"
+      />
+      <SelectButton
+        variant="filled"
+        items={recipes}
+        state={recipesState}
+        label="Recipes"
+      />
     </Set>
   )
 }
 
-export const StateHandler = () => {
-  const items = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
+export const Palette = () => {
+  const species = ['Arabica', 'Robusta']
+  const speciesState = useSelectState({
+    items: species,
+    initialSelectedItem: 'Arabica',
+  })
+
+  const brewMethods = ['French Press', 'Chemex', 'Cold Brew', 'Aeropress']
+  const brewState = useSelectState({
+    items: brewMethods,
+    initialSelectedItem: 'Chemex',
+  })
 
   return (
-    <SelectState items={items} initialSelectedItem="7 days ago">
-      {(state) => <SelectButton items={items} state={state} label="Date" />}
-    </SelectState>
+    <Card>
+      <Set>
+        <SelectButton items={brewMethods} state={brewState} label="Methods" />
+        <SelectButton
+          items={species}
+          state={speciesState}
+          label="Species"
+          palette="base"
+        />
+      </Set>
+    </Card>
   )
 }
 
 export const Disabled = () => {
-  const items = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
+  const state = useSelectState({
+    items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
+    initialSelectedItem: '7 days ago',
+  })
 
   return (
-    <SelectState items={items} initialSelectedItem="7 days ago">
-      {(state) => (
-        <SelectButton items={items} state={state} label="Date" disabled />
-      )}
-    </SelectState>
+    <SelectButton
+      items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+      state={state}
+      label="Date"
+      disabled
+    />
   )
 }
