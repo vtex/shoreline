@@ -47,7 +47,7 @@ export type TextPattern = {
    * <Component text="headline"/>
    * ```
    * @default headline
-   * @see ...text-pattern-documentation
+   * @see https://admin-ui-docs.vercel.app/docs/guide/patterns/#text
    */
   text?: TextVariant
 }

@@ -1,8 +1,10 @@
 - section: Guide
   paths:
-    - /docs/get-started/
-    - /docs/styling/
-    - /docs/palettes/
+    - /docs/guide/get-started/
+    - /docs/guide/styling/
+    - /docs/guide/palettes/
+    - /docs/guide/patterns/
+    - /docs/guide/style-props/
     - /docs/guide/next/
     - /docs/guide/responsive-design/
 - section: Layouts

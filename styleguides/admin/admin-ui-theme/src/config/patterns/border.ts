@@ -53,7 +53,7 @@ export type BorderPattern = {
    * <Component border="default"/>
    * ```
    * @default default
-   * @see ...border-pattern-documentation
+   * @see https://admin-ui-docs.vercel.app/docs/guide/patterns/#border
    */
   border?: keyof typeof border
 }

@@ -1,5 +1,5 @@
 ---
-path: /docs/palettes/
+path: /docs/guide/palettes/
 ---
 
 # Palette

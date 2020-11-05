@@ -53,7 +53,7 @@ export type PalettePattern = {
    * <Component palette="base"/>
    * ```
    * @default base
-   * @see ...palette-pattern-documentation
+   * @see https://admin-ui-docs.vercel.app/docs/guide/patterns/#palette
    */
   palette?: keyof typeof palette
 }
