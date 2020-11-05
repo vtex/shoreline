@@ -24,5 +24,8 @@ export interface ParagraphProps
   extends Overridable,
     TextPattern,
     SpaceStyleProps {
+  /**
+   * paragraph children
+   */
   children?: ReactNode
 }
