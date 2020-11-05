@@ -5,6 +5,9 @@ import { createElement } from '../../system'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 
+/**
+ * Component to add links within an admin page
+ */
 export const Anchor = forwardRef(function Anchor(
   props: AnchorProps,
   ref: Ref<HTMLAnchorElement>
@@ -28,5 +31,8 @@ export interface AnchorProps
       React.AnchorHTMLAttributes<HTMLAnchorElement>,
       HTMLAnchorElement
     > {
+  /**
+   * anchor children
+   */
   children?: ReactNode
 }
