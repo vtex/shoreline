@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.54.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.54.0...@vtex/admin-ui@0.54.1) (2020-11-05)
+
+
+### Bug Fixes
+
+* **collapsible-group:** fix children type ([ac18f15](https://github.com/vtex/onda/commit/ac18f157af3d4f026904dbeef8d7e5b8fd453f6a))
+
+
+
+
+
 # [0.54.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0...@vtex/admin-ui@0.54.0) (2020-10-29)
 
 
