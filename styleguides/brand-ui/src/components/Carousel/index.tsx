@@ -1,17 +1,19 @@
 import React, { useState, ReactNode } from 'react'
-import { Flex, Button, IconCaret } from '@vtex/brand-ui'
+import { Flex, Button, IconCaret, SxStyleProp } from '../..'
 import { VisuallyHidden } from 'reakit/VisuallyHidden'
 
 export interface CarouselProps {
   children: ReactNode[]
   indicators?: boolean
   size?: 'regular' | 'small'
+  sx?: SxStyleProp
 }
 
 export const Carousel = ({
   children: slides,
   indicators = true,
   size = 'regular',
+  sx = {},
 }: CarouselProps) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const totalSlides = slides.length
@@ -22,7 +24,7 @@ export const Carousel = ({
     setCurrentSlide((currentSlide - 1 + totalSlides) % totalSlides)
 
   return (
-    <Flex variant="carousel">
+    <Flex variant="carousel" sx={sx}>
       <Flex variant="carousel.slidesContainer">
         {slides.map((slide, index) => (
           <Flex
