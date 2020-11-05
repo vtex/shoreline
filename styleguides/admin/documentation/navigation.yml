@@ -9,6 +9,13 @@
   paths:
     - /docs/layouts/set/
     - /docs/layouts/columns/
+- section: Typography
+  paths:
+    - /docs/typography/variable-font/
+    - /docs/typography/heading/
+    - /docs/typography/list/
+    - /docs/typography/text/
+    - /docs/typography/paragraph/
 - section: Components
   paths:
     - /docs/avatar/
