@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, ReactElement } from 'react'
+import React, { Children, ReactNode } from 'react'
 import { SxStyleProp } from 'theme-ui'
 
 import {
@@ -52,7 +52,7 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
       {Children.map(children, (child, index) => (
         <>
           {index > FIRST_CHILD && <Divider m="0" />}
-          {cloneElement(child)}
+          {child}
         </>
       ))}
     </Card>
@@ -112,7 +112,7 @@ export interface CollapsibleGroupProps
     SpaceTokensProps,
     LayoutTokensProps,
     Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc'> {
-  children: ReactElement | ReactElement[]
+  children: ReactNode
   /** ThemeUI Style Prop */
   sx?: SxStyleProp
 }
