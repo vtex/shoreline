@@ -35,25 +35,28 @@ yarn add @vtex/admin-ui
 ```
 
 ```jsx static
-import { Heading, HeadingProps } from '@vtex/admin-ui'
+import { List, ListProps } from '@vtex/admin-ui'
 ```
 
 ## Variation
 
-### Headers
+### Ordered
 
 ```jsx
-import { Heading, ThemeProvider } from '@vtex/admin-ui'
+import { List, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Heading>Heading 1</Heading>
-      <Heading element="h2">Heading 2</Heading>
-      <Heading element="h3">Heading 3</Heading>
-      <Heading element="h4">Heading 4</Heading>
-      <Heading element="h5">Heading 5</Heading>
-      <Heading element="h6">Heading 6</Heading>
+      <List ordered>
+        <List.Item>Coffee</List.Item>
+        <List.Item>Juice</List.Item>
+        <List.Item>Tea</List.Item>
+        <List ordered>
+          <List.Item>With Milk</List.Item>
+          <List.Item>Without Milk</List.Item>
+        </List>
+      </List>
     </ThemeProvider>
   )
 }
@@ -61,23 +64,30 @@ function Example() {
 
 ## Customization
 
-You can use the `styleOverrides` property to handle different styles, and also the `TextPattern` and `SpaceStyleProps`.
+You can use the `styleOverrides` property to handle different styles, and also the `TextPattern`.
 
 ### Example
 
 ```jsx
-import { Heading, ThemeProvider } from '@vtex/admin-ui'
+import { List, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Heading
-        text="body"
-        marginBottom={2}
-        styleOverrides={{ fontSize: 4, bg: 'muted.4', color: 'primary.base' }}
-      >
-        Heading 1
-      </Heading>
+      <List style="square">
+        <List.Item
+          text="subtitle"
+          styleOverrides={{ bg: 'primary.base', color: 'background' }}
+        >
+          Coffe
+        </List.Item>
+        <List>
+          <List.Item text="highlight">Arabica</List.Item>
+          <List.Item text="highlight">Robusta</List.Item>
+        </List>
+        <List.Item text="highlight">Juice</List.Item>
+        <List.Item text="highlight">Tea</List.Item>
+      </List>
     </ThemeProvider>
   )
 }
@@ -85,4 +95,8 @@ function Example() {
 
 ## Props
 
-<proptypes heading="List" component="List"/>
+<propdetails heading="List" component="List">
+</propdetails>
+
+<propdetails heading="List.Item" component="ListItem">
+</propdetails>

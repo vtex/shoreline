@@ -184,14 +184,10 @@ function Example() {
 
 TODO
 
-# <<<<<<< HEAD
-
 ## Props
 
 <propdetails heading="Modal" component="Modal">
 </propdetails>
-
-> > > > > > > docs(propdetails): add PropDetails component
 
 # Stateless Modal
 
