@@ -46,38 +46,17 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
         spacingX={0}
         spacingY={2}
         {...state.getMenuProps()}
-        styleOverrides={{
-          visibility: state.isOpen ? 'visible' : 'hidden',
-          cursor: 'pointer',
-          bg: 'background',
-          borderRadius: 'default',
-          borderWidth: 1,
-          borderStyle: 'solid',
-          borderColor: 'muted.2',
-          boxShadow: 'menu',
-          outline: 'none',
-          marginTop: 1,
-          paddingY: 4,
-          width: 'max-content',
-          position: 'absolute',
-          zIndex: 999,
-        }}
+        themeKey={`components.selectButton.menu${
+          state.isOpen ? '-visible' : ''
+        }`}
       >
         {state.isOpen &&
           items.map((item, index) => (
             <Box
               text="body"
-              styles={{
-                display: 'flex',
-                alignItems: 'center',
-                height: 24,
-                paddingX: 4,
-                cursor: 'pointer',
-                bg:
-                  state.highlightedIndex === index
-                    ? 'primary.washed.0'
-                    : 'background',
-              }}
+              themeKey={`components.selectButton.item${
+                state.highlightedIndex === index ? '-active' : ''
+              }`}
               key={index}
               {...state.getItemProps({ item, index })}
             >

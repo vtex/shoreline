@@ -33,6 +33,7 @@ export function useSet(props: SetProps) {
     spacingY,
     align = 'start',
     styleOverrides,
+    themeKey,
     ...layoutProps
   } = props
 
@@ -78,6 +79,7 @@ export function useSet(props: SetProps) {
       ...layoutProps,
       styles: { ...styles[variant], ...childrenSpacing, ...styleOverrides },
     },
+    themeKey,
   })
 
   return { setProps, currentOrientation }
@@ -115,4 +117,8 @@ export interface SetProps extends Overridable {
    * @default start
    */
   align?: ResponsiveValue<'start' | 'end'>
+  /**
+   * optional themeKey
+   */
+  themeKey?: string
 }
