@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.55.0-rc.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.0-rc.1...@vtex/admin-ui@0.55.0-rc.2) (2020-11-06)
+
+
+### Bug Fixes
+
+* **admin-ui:** remove theme-ui ([b206ad9](https://github.com/vtex/onda/commit/b206ad94f3953ddacc472f860d31d7efdc3d4f45))
+
+
+### Features
+
+* anchor [WIP] ([54f2acd](https://github.com/vtex/onda/commit/54f2acd758ffbbe6a8be9b6ca1f95aaa97ad8735))
+* anchor component ([15f854c](https://github.com/vtex/onda/commit/15f854cb80b80cd5adc0b8d55ba8f3d339c110cb))
+* anchor component -- adding comments ([c1c7eec](https://github.com/vtex/onda/commit/c1c7eec071cc85808ae99ac69d64522cd15ea35d))
+* anchor component -- omitting className and styles from React.DetailedHTMLProps ([590d503](https://github.com/vtex/onda/commit/590d5037c2ca9b1ccbc8d2a9b7439de8be6f5405))
+* link [WIP] ([3748582](https://github.com/vtex/onda/commit/3748582786583d0ad4d08a51be3b48fdefd593bd))
+
+
+
+
+
 # [0.55.0-rc.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.53.0-rc.0...@vtex/admin-ui@0.55.0-rc.1) (2020-11-04)
 
 
