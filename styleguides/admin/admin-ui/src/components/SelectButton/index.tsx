@@ -66,6 +66,7 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
         {state.isOpen &&
           items.map((item, index) => (
             <Box
+              text="body"
               styles={{
                 display: 'flex',
                 alignItems: 'center',
