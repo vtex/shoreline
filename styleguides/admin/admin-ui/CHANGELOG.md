@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.55.0-rc.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.0-rc.3...@vtex/admin-ui@0.55.0-rc.4) (2020-11-06)
+
+
+### Features
+
+* **modal:** add forward ref to modal composites ([f3d941e](https://github.com/vtex/onda/commit/f3d941ee0089f2e43e72cdaede71d8eb352483e2))
+
+
+
+
+
 # [0.55.0-rc.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.0-rc.2...@vtex/admin-ui@0.55.0-rc.3) (2020-11-06)
 
 
