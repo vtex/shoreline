@@ -1,5 +1,5 @@
 ---
-path: /docs/components/table/
+path: /docs/table/
 next: true
 ---
 

@@ -1,5 +1,5 @@
 ---
-path: /docs/checkbox/
+path: /docs/form/checkbox/
 ---
 
 # Checkbox
@@ -25,6 +25,7 @@ function Example() {
   )
 }
 ```
+
 ## Installation
 
 ```static
@@ -123,7 +124,7 @@ function Example() {
 
 ### Multiple Checkboxes
 
-  Remember that all checkboxes need to have a value set!
+Remember that all checkboxes need to have a value set!
 
 ```jsx
 import { Checkbox, useCheckboxState, ThemeProvider } from '@vtex/admin-ui'

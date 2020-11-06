@@ -1,12 +1,17 @@
 - section: Guide
   paths:
     - /docs/guide/get-started/
-    - /docs/guide/styling/
-    - /docs/guide/palettes/
-    - /docs/guide/patterns/
-    - /docs/guide/style-props/
     - /docs/guide/next/
-    - /docs/guide/responsive-design/
+- section: Theming
+  paths:
+    - /docs/theming/styling/
+    - /docs/theming/palettes/
+    - /docs/theming/patterns/
+    - /docs/theming/style-props/
+    - /docs/theming/responsive-design/
+- section: Primitives
+  paths:
+    - /docs/primitives/box/
 - section: Layouts
   paths:
     - /docs/layouts/set/
@@ -24,23 +29,26 @@
     - /docs/box/
     - /docs/button/
     - /docs/card/
-    - /docs/checkbox/
-    - /docs/checkbox-group/
     - /docs/collapsible/
     - /docs/collapsible-group/
     - /docs/divider/
     - /docs/label/
     - /docs/menu/
     - /docs/modal/
-    - /docs/radio/
-    - /docs/radio-group/
     - /docs/skeleton/
     - /docs/components/table/
     - /docs/tag/
     - /docs/text/
-    - /docs/toggle/
     - /docs/tooltip/
     - /docs/visually-hidden/
+- section: Form
+  paths:
+    - /docs/form/checkbox/
+    - /docs/form/checkbox-group/
+    - /docs/form/label/
+    - /docs/form/radio/
+    - /docs/form/radio-group/
+    - /docs/form/toggle/
 - section: Deep dive 🐋
   paths:
     - /docs/deep-dive/system

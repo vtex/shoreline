@@ -1,5 +1,5 @@
 ---
-path: /docs/guide/responsive-design/
+path: /docs/theming/responsive-design/
 ---
 
 # Responsive Design

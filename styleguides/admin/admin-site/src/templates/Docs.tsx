@@ -16,6 +16,7 @@ import { Proptypes } from '../components/Proptypes'
 import CodeBlock from '../components/Codeblock'
 import PaletteBlock from '../components/PaletteBlock'
 import PropDetails from '../components/PropDetails'
+import ThemeAwareProps from '../components/ThemeAwareProps'
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -35,6 +36,7 @@ const { Compiler: renderAst } = new RehypeReact({
   components: {
     a: Anchor,
     proptypes: Proptypes,
+    themeawareprops: ThemeAwareProps,
     p: function Render(props) {
       return <Paragraph styles={{ fontSize: 2, marginY: 4 }} {...props} />
     },

@@ -1,5 +1,5 @@
 ---
-path: /docs/checkbox-group/
+path: /docs/form/checkbox-group/
 ---
 
 # CheckboxGroup
@@ -44,6 +44,7 @@ import { CheckboxGroup } from '@vtex/admin-ui'
 ```
 
 ## Variation
+
 ### Vertical
 
 ```jsx

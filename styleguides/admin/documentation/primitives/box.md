@@ -1,12 +1,10 @@
 ---
-path: /docs/box/
+path: /docs/primitives/box/
 ---
 
 # Box
 
-We wrap a reakit Box with a `@emotion/styled`. To select different tag elements, we need to remap the `as` prop to be `el`. The composition is enabled through the render-props API.
-
-Further read [reakit/Styling](https://reakit.io/docs/styling/), [reakit/Composition](https://reakit.io/docs/composition/).
+By default it renders a `<div>` element.
 
 ## Behavior
 
@@ -32,11 +30,7 @@ yarn add @vtex/admin-ui
 import { Box } from '@vtex/admin-ui'
 ```
 
-Learn more in [Get started](/docs/get-started/).
-
-## Variation
-
-### Styled Props
+## styles
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
@@ -44,7 +38,43 @@ import { Box, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box palette="inverted">This is also a Box, but styled</Box>
+      <Box styles={{ display: 'flex', div: { paddingX: 2, marginX: 2 } }}>
+        <Box border="default">First</Box>
+        <Box border="default">Second</Box>
+        <Box border="default">Third</Box>
+      </Box>
+    </ThemeProvider>
+  )
+}
+```
+
+## patterns
+
+```jsx
+import { Box, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box text="headline" palette="primary">
+        This is also a Box, but styled with a pattern
+      </Box>
+    </ThemeProvider>
+  )
+}
+```
+
+## style-Props
+
+```jsx
+import { Box, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box padding="4" width="1/2">
+        This is also a Box, but styled
+      </Box>
     </ThemeProvider>
   )
 }
@@ -69,7 +99,5 @@ function Example() {
 ```
 
 # Props
-
-### WIP
 
 <proptypes heading="Box" component="Box" />

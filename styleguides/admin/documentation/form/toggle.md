@@ -1,5 +1,5 @@
 ---
-path: /docs/toggle/
+path: /docs/form/toggle/
 ---
 
 # Toggle

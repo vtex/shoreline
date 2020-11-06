@@ -1,5 +1,5 @@
 ---
-path: /docs/label/
+path: /docs/form/label/
 ---
 
 # Label
@@ -35,6 +35,7 @@ import { Label } from '@vtex/admin-ui'
 ```
 
 ## Variation
+
 ### Using `htmlFor` prop
 
 ```jsx
