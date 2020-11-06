@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.22.2...@vtex/brand-ui@0.23.0) (2020-11-06)
+
+
+### Features
+
+* add brand-ui timeline component ([b16a4a6](https://github.com/vtex/onda/commit/b16a4a683af7a8df828a9a60ac505bdd661dcf2f))
+
+
+
+
+
 ## [0.22.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.22.1...@vtex/brand-ui@0.22.2) (2020-11-05)
 
 
