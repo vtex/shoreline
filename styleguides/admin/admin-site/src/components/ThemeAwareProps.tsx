@@ -77,7 +77,7 @@ export default function ThemeAwareProps() {
         <PropRow value="bottom" themeKey="space" />
         <PropRow value="left" themeKey="space" />
         <PropRow value="right" themeKey="space" />
-        <PropRow value="borderColor" themeKey="color" />
+        <PropRow value="borderColor" themeKey="colors" />
         <PropRow value="borderRadius" themeKey="borderRadius" />
         <PropRow value="boxShadow" themeKey="shadows" />
         <PropRow value="textShadow" themeKey="shadows" />
