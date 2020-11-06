@@ -1,5 +1,5 @@
 export { ThemeProvider } from './theme'
-export { Box, Flex, Text, SxStyleProp, Grid, Link } from 'theme-ui'
+export { Box, Flex, Text, SxStyleProp, SxProps, Grid, Link } from 'theme-ui'
 export { useTheme, Theme } from '@vtex-components/theme'
 export { Button, ButtonProps } from './components/Button'
 export { FooterLanding } from './components/FooterLanding'
@@ -30,3 +30,7 @@ export { Input, InputProps } from './components/Input'
 export { Tooltip, TooltipProps } from './components/Tooltip'
 export { Popover, PopoverProps } from './components/Popover'
 export { HelloBar, HelloBarProps } from './components/HelloBar'
+export {
+  Timeline,
+  EventProps as TimelineEventProps,
+} from './components/Timeline'

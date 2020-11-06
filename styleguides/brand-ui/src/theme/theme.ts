@@ -9,6 +9,7 @@ import input from './components/input'
 import popover from './components/popover'
 import helloBar from './components/helloBar'
 import localeSwitcher from './components/localeSwitcher'
+import timeline from './components/timeline'
 
 export const theme = {
   colors: {
@@ -70,6 +71,7 @@ export const theme = {
   popover,
   helloBar,
   localeSwitcher,
+  timeline,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
