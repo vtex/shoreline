@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.55.0-rc.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.0-rc.2...@vtex/admin-ui@0.55.0-rc.3) (2020-11-06)
+
+
+### Bug Fixes
+
+* **admin:** add theme-ui deps ([8e3b855](https://github.com/vtex/onda/commit/8e3b855d0ba1268c13837d3859fee112078405c3))
+
+
+
+
+
 # [0.55.0-rc.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.0-rc.1...@vtex/admin-ui@0.55.0-rc.2) (2020-11-06)
 
 

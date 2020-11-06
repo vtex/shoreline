@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.55.0-rc.2",
+  "version": "0.55.0-rc.3",
   "main": "dist/index.js",
   "module": "dist/admin-ui.esm.js",
   "typings": "dist/index.d.ts",
@@ -44,21 +44,21 @@
     "react-window": "^1.8.5"
   },
   "dependencies": {
-    "theme-ui": "^0.3.1",
     "@emotion/core": "^10.0.35",
     "@emotion/is-prop-valid": "^0.8.8",
     "@emotion/styled": "^10.0.27",
     "@theme-ui/color": "^0.4.0-rc.5",
     "@theme-ui/core": "^0.4.0-rc.5",
     "@theme-ui/css": "^0.4.0-rc.5",
-    "@vtex/admin-ui-system": "^0.1.0-rc.0",
-    "@vtex/admin-ui-theme": "^0.1.0-rc.2",
+    "@vtex/admin-ui-system": "^0.1.0-rc.1",
+    "@vtex/admin-ui-theme": "^0.1.0-rc.3",
     "deepmerge": "^4.2.2",
     "emotion": "^10.0.27",
     "focus-visible": "^5.1.0",
     "polished": "^3.6.7",
     "reakit": "1.2.3",
     "reakit-utils": "^0.14.3",
+    "theme-ui": "^0.3.1",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"
   }
