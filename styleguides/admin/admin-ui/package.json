@@ -44,6 +44,7 @@
     "react-window": "^1.8.5"
   },
   "dependencies": {
+    "theme-ui": "^0.3.1",
     "@emotion/core": "^10.0.35",
     "@emotion/is-prop-valid": "^0.8.8",
     "@emotion/styled": "^10.0.27",
