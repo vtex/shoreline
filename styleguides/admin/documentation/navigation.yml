@@ -6,48 +6,46 @@
   paths:
     - /docs/theming/styling/
     - /docs/theming/palettes/
+    - /docs/theming/responsive-design/
     - /docs/theming/patterns/
     - /docs/theming/style-props/
-    - /docs/theming/responsive-design/
 - section: Primitives
   paths:
     - /docs/primitives/box/
 - section: Layouts
   paths:
-    - /docs/layouts/set/
     - /docs/layouts/columns/
+    - /docs/layouts/set/
 - section: Typography
   paths:
     - /docs/typography/variable-font/
     - /docs/typography/heading/
     - /docs/typography/list/
-    - /docs/typography/text/
     - /docs/typography/paragraph/
+    - /docs/typography/text/
 - section: Components
   paths:
     - /docs/avatar/
-    - /docs/box/
     - /docs/button/
     - /docs/card/
-    - /docs/collapsible/
     - /docs/collapsible-group/
+    - /docs/collapsible/
     - /docs/divider/
     - /docs/label/
     - /docs/menu/
     - /docs/modal/
     - /docs/skeleton/
-    - /docs/components/table/
+    - /docs/table/
     - /docs/tag/
-    - /docs/text/
     - /docs/tooltip/
     - /docs/visually-hidden/
 - section: Form
   paths:
-    - /docs/form/checkbox/
     - /docs/form/checkbox-group/
+    - /docs/form/checkbox/
     - /docs/form/label/
-    - /docs/form/radio/
     - /docs/form/radio-group/
+    - /docs/form/radio/
     - /docs/form/toggle/
 - section: Deep dive 🐋
   paths:
