@@ -2,10 +2,9 @@ import React, { forwardRef, Ref, ReactNode } from 'react'
 import {
   Button as ReakitButton,
   ButtonProps as ReakitButtonProps,
-} from 'reakit'
-import { SxStyleProp } from '@vtex/admin-ui-system'
+} from 'reakit/Button'
 
-import { createElement } from '../../system'
+import { createElement, SxStyleProp } from '../../system'
 import { Variant, Size, Palette } from './types'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'

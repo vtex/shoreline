@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { forwardRef, Ref, MouseEvent } from 'react'
+import React, { forwardRef, Ref, MouseEvent } from 'react'
 
 import { Button, ButtonProps } from '../../Button'
 import { useModalContext } from '../context'

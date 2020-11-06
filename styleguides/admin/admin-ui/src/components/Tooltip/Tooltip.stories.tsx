@@ -68,12 +68,7 @@ export const CustomComponent = () => {
     props: IconProps,
     ref: Ref<SVGSVGElement>
   ) {
-    const {
-      viewBox = '0 0 12 12',
-      width = 24,
-      height = 24,
-      ...restProps
-    } = props
+    const { viewBox = '0 0 12 12', width = 24, height = 24 } = props
 
     return (
       <Icon
@@ -82,7 +77,6 @@ export const CustomComponent = () => {
         height={height}
         viewBox={viewBox}
         fill="none"
-        {...restProps}
       >
         <circle cx="6" cy="6" r="6" fill="#D7DADF" />
         <path

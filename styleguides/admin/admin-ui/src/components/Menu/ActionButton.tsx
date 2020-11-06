@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { forwardRef, Ref } from 'react'
+import React, { Ref } from 'react'
+import { forwardRef } from '@vtex/admin-ui-system'
 
 import { IconActions, IconCaret } from '../../icons'
 import { Button, ButtonProps } from '../Button'

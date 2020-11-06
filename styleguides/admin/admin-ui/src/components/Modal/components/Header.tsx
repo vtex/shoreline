@@ -1,7 +1,5 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from '@theme-ui/core'
-import { useMemo, ReactNode } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
+import React, { useMemo, ReactNode } from 'react'
+import { useClassName, SxStyleProp } from '@vtex/admin-ui-system'
 
 import { useModalContext } from '../context'
 import { IconClose } from '../../../icons'

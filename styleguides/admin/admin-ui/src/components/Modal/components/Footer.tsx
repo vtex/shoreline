@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import { useClassName } from '@vtex/admin-ui-system'
 
 import { useModalContext } from '../context'
