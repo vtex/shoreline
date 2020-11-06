@@ -6,6 +6,7 @@ import {
   useResponsiveValue,
   get,
   merge,
+  SxStyleProp,
 } from '@vtex/admin-ui-system'
 import { theme, Preflight } from '@vtex/admin-ui-theme'
 import 'focus-visible/dist/focus-visible'
@@ -47,4 +48,5 @@ export {
   get,
   merge,
   theme,
+  SxStyleProp,
 }

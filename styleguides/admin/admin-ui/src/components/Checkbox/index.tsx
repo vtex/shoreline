@@ -4,10 +4,10 @@ import {
   CheckboxProps as ReakitProps,
   CheckboxStateReturn,
   useCheckboxState,
-} from 'reakit'
-import { useClassName, forwardRef } from '@vtex/admin-ui-system'
+} from 'reakit/Checkbox'
+import { forwardRef } from '@vtex/admin-ui-system'
 
-import { createElement } from '../../system'
+import { createElement, useClassName } from '../../system'
 import { Overridable } from '../../types'
 
 export const Checkbox = forwardRef(
