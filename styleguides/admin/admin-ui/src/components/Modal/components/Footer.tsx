@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
+import React, { ReactNode, Ref } from 'react'
+import { forwardRef, useClassName } from '@vtex/admin-ui-system'
 
 import { useModalContext } from '../context'
 import { Overridable } from '../../../types'
@@ -17,7 +17,10 @@ import { Overridable } from '../../../types'
  * </StatelessModal>
  * ```
  */
-export function ModalFooter(props: ModalFooterProps) {
+export const ModalFooter = forwardRef(function ModalFooter(
+  props: ModalFooterProps,
+  ref: Ref<HTMLDivElement>
+) {
   const { styleOverrides, ...footerProps } = props
   const { size } = useModalContext()
 
@@ -26,8 +29,8 @@ export function ModalFooter(props: ModalFooterProps) {
     themeKey: `components.modal.footer-${size}`,
   })
 
-  return <footer className={className} {...footerProps} />
-}
+  return <footer ref={ref} className={className} {...footerProps} />
+})
 
 interface ModalFooterProps extends Overridable {
   children?: ReactNode
