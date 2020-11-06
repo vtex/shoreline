@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-rc.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.1.0-rc.1...@vtex/admin-ui-theme@0.1.0-rc.2) (2020-11-06)
+
+
+### Features
+
+* anchor [WIP] ([54f2acd](https://github.com/vtex/onda/commit/54f2acd758ffbbe6a8be9b6ca1f95aaa97ad8735))
+* link [WIP] ([3748582](https://github.com/vtex/onda/commit/3748582786583d0ad4d08a51be3b48fdefd593bd))
+
+
+
+
+
 # [0.1.0-rc.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.1.0-rc.0...@vtex/admin-ui-theme@0.1.0-rc.1) (2020-11-04)
 
 
