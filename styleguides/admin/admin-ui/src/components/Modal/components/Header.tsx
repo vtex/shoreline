@@ -1,4 +1,4 @@
-import React, { useMemo, ReactNode } from 'react'
+import React, { useMemo, ReactNode, forwardRef, Ref } from 'react'
 import { useClassName, SxStyleProp } from '@vtex/admin-ui-system'
 
 import { useModalContext } from '../context'
@@ -19,7 +19,10 @@ import { Overridable } from '../../../types'
  * </StatelessModal>
  * ```
  */
-export function ModalHeader(props: ModalHeaderProps) {
+export const ModalHeader = forwardRef(function ModalHeader(
+  props: ModalHeaderProps,
+  ref: Ref<HTMLDivElement>
+) {
   const {
     children,
     title = null,
@@ -52,7 +55,7 @@ export function ModalHeader(props: ModalHeaderProps) {
   }, [title])
 
   return (
-    <header className={className}>
+    <header ref={ref} className={className}>
       {renderTitle}
       <div className={containerCn}>
         {children}
@@ -69,7 +72,7 @@ export function ModalHeader(props: ModalHeaderProps) {
       </div>
     </header>
   )
-}
+})
 
 export interface ModalHeaderProps extends Overridable {
   /**
