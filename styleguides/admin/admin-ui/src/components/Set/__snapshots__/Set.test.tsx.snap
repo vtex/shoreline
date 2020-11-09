@@ -7,9 +7,6 @@ exports[`Set tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -20,8 +17,7 @@ exports[`Set tests should match snapshot 1`] = `
   justify-content: flex-start;
 }
 
-.emotion-0 > * {
-  margin-top: 0.25rem;
+.emotion-0 > *:not(:first-child) {
   margin-left: 0.25rem;
 }
 
@@ -40,9 +36,6 @@ exports[`Set tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -53,8 +46,7 @@ exports[`Set tests should match snapshot 1`] = `
   justify-content: flex-end;
 }
 
-.emotion-0 > * {
-  margin-top: 0.25rem;
+.emotion-0 > *:not(:first-child) {
   margin-left: 0.25rem;
 }
 
