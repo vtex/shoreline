@@ -32,6 +32,6 @@ export const ModalFooter = forwardRef(function ModalFooter(
   return <footer ref={ref} className={className} {...footerProps} />
 })
 
-interface ModalFooterProps extends Overridable {
+export interface ModalFooterProps extends Overridable {
   children?: ReactNode
 }
