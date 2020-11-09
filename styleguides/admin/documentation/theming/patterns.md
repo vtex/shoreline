@@ -6,8 +6,6 @@ path: /docs/theming/patterns/
 
 Some style patterns are common along with our admin applications. To make the application of these styles easier and consistent you can use the following properties defined in our theme.
 
-> You may want to try to use one of our components before using a pattern in a Primitive component.
-
 ## border
 
 You can use it in the `Box` component.

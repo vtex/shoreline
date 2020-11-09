@@ -12,6 +12,7 @@
 - section: Primitives
   paths:
     - /docs/primitives/box/
+    - /docs/skeleton/
 - section: Layouts
   paths:
     - /docs/layouts/columns/
@@ -33,7 +34,6 @@
     - /docs/divider/
     - /docs/menu/
     - /docs/modal/
-    - /docs/skeleton/
     - /docs/table/
     - /docs/tag/
     - /docs/tooltip/

@@ -6,8 +6,6 @@ path: /docs/theming/style-props/
 
 Properties that you can use in specific components to add `space` or `size` styles.
 
-> You may want to try to use one of our `Layout` components before using Style Props in a Primitive component.
-
 ## Spacing
 
 You can use it in `Box`, `Divider`, `Heading`, `Text`, `Label`, `Paragraph` and `Skeleton` components.

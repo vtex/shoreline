@@ -4,7 +4,9 @@ path: /docs/primitives/box/
 
 # Box
 
-By default it renders a `<div>` element.
+The majority of our components are built on top of the `<Box>` primitive. By default it renders a `<div>` element.
+
+> You may want to try to use one of our `Layout` components before using Box to build layouts, and also, check one of our Typography components before using it to render a text.
 
 ## Behavior
 
