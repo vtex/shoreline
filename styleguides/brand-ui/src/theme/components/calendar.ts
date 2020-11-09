@@ -14,12 +14,12 @@ const baseCell: SxStyleProp = {
   width: ['35px', '44px'],
   height: ['35px', '44px'],
   position: 'relative',
-  fontSize: 3,
+  fontSize: [2, 3],
 }
 
 const weekdayCell: SxStyleProp = {
   ...baseCell,
-  color: ['secondary.base', 'secondary.base', 'muted.1'],
+  color: 'muted.1',
 }
 
 const activeDayCell: SxStyleProp = {
