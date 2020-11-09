@@ -96,7 +96,7 @@ This section contains features with different ways of using our theme to add sty
 
 ### cn
 
-To add styles from the theme in a native element or an external component that doesn't have our API you can this function.
+To add styles from the theme in a native element or an external component that doesn't have our API you can use this function.
 
 The function receives an object in the same way as `styles` and `styleOverrides` and turns into a `className`.
 
@@ -118,7 +118,7 @@ function Example() {
 
 ### get
 
-A getter function to access and returns a value from our theme.
+A getter function to access and return a value from our theme.
 
 ### useTheme hook
 
