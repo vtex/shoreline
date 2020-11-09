@@ -26,6 +26,6 @@ export const ModalContent = forwardRef(function ModalContent(
   return <section ref={ref} className={className} {...contentProps} />
 })
 
-interface ModalContentProps extends Overridable {
+export interface ModalContentProps extends Overridable {
   children?: ReactNode
 }
