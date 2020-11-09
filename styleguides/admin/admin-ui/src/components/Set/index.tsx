@@ -29,8 +29,6 @@ export function useSet(props: SetProps) {
     orientation = 'horizontal',
     fluid = false,
     spacing = 1,
-    spacingX,
-    spacingY,
     align = 'start',
     styleOverrides,
     themeKey,
@@ -52,7 +50,6 @@ export function useSet(props: SetProps) {
     },
     horizontal: {
       display: 'flex',
-      flexWrap: 'wrap',
       alignItems: 'center',
       justifyContent: `flex-${currentAlign}`,
     },
@@ -60,9 +57,8 @@ export function useSet(props: SetProps) {
 
   const childrenSpacing = {
     horizontal: {
-      '> *': {
-        marginTop: spacingY ?? spacing,
-        marginLeft: spacingX ?? spacing,
+      '> *:not(:first-child)': {
+        marginLeft: spacing,
       },
     },
     vertical: {
@@ -103,15 +99,6 @@ export interface SetProps extends Overridable {
    * @default 0
    */
   spacing?: ResponsiveValue<number>
-  /**
-   * horizontal spacing
-   */
-  spacingX?: ResponsiveValue<number>
-  /**
-   * vertical spacing
-   * @default 0
-   */
-  spacingY?: ResponsiveValue<number>
   /**
    * items alignment
    * @default start

@@ -42,9 +42,8 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
       </Button>
       <Set
         fluid
+        spacing={2}
         orientation="vertical"
-        spacingX={0}
-        spacingY={2}
         {...state.getMenuProps()}
         themeKey={`components.selectButton.menu${
           state.isOpen ? '-visible' : ''
