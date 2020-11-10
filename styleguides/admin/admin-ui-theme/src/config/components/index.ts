@@ -13,6 +13,7 @@ import checkbox from './checkbox'
 import toggle from './toggle'
 import input from './input'
 import textField from './textField'
+import TextArea from './TextArea'
 import selectButton from './selectButton'
 // overlay
 import tooltip from './tooltip'
@@ -43,4 +44,5 @@ export default {
   tag,
   anchor,
   selectButton,
+  TextArea,
 }
