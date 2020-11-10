@@ -96,8 +96,8 @@ Rule to generate colors
 | Secondary           | value                             |
 | ------------------- | --------------------------------- |
 | `secondary.base`    | '#DAE3F5'                         |
-| `secondary.hover`   | ligthen('secondary.base', '0.08') |
-| `secondary.pressed` | ligthen('secondary.base', '0.16') |
+| `secondary.hover`   | ligthen('secondary.base', '0.04') |
+| `secondary.pressed` | ligthen('secondary.base', '0.08') |
 | `secondary.accent`  | '#2953B2'                         |
 
 | Danger           | value                         |
@@ -110,8 +110,8 @@ Rule to generate colors
 | Danger Washed           | value                                 |
 | ----------------------- | ------------------------------------- |
 | `danger.washed.base`    | '#FEDADA'                             |
-| `danger.washed.hover`   | ligthen('danger.washed.base', '0.08') |
-| `danger.washed.pressed` | ligthen('danger.washed.base', '0.16') |
+| `danger.washed.hover`   | ligthen('danger.washed.base', '0.04') |
+| `danger.washed.pressed` | ligthen('danger.washed.base', '0.08') |
 | `danger.washed.accent`  | '#CB4242'                             |
 
 | Warning           | value                          |
@@ -124,8 +124,8 @@ Rule to generate colors
 | Warning Washed           | value                                  |
 | ------------------------ | -------------------------------------- |
 | `warning.washed.base`    | '#F6E0BA'                              |
-| `warning.washed.hover`   | ligthen('warning.washed.base', '0.08') |
-| `warning.washed.pressed` | ligthen('warning.washed.base', '0.16') |
+| `warning.washed.hover`   | ligthen('warning.washed.base', '0.04') |
+| `warning.washed.pressed` | ligthen('warning.washed.base', '0.08') |
 | `warning.washed.accent`  | '#FFBA52'                              |
 
 | Success           | value                          |
@@ -138,8 +138,8 @@ Rule to generate colors
 | Success Washed           | value                                  |
 | ------------------------ | -------------------------------------- |
 | `success.washed.base`    | '#CEE8DE'                              |
-| `success.washed.hover`   | ligthen('success.washed.base', '0.08') |
-| `success.washed.pressed` | ligthen('success.washed.base', '0.16') |
+| `success.washed.hover`   | ligthen('success.washed.base', '0.04') |
+| `success.washed.pressed` | ligthen('success.washed.base', '0.08') |
 | `success.washed.accent`  | '#368369'                              |
 
 # Drawbacks
@@ -155,5 +155,3 @@ Rule to generate colors
 # Education
 
 - Add solid documentation on the designer and engineering sides.
-
-# Unresolved questions
