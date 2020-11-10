@@ -29,12 +29,10 @@ function Example() {
 
 ## Installation
 
-`<Set>` uses the upcoming `@vtex/admin-ui-system` package. This means you need to install the `latest` version:
-
 ```bash
-yarn add @vtex/admin-ui@latest
+yarn add @vtex/admin-ui
 ---
-npm install @vtex/admin-ui@latest
+npm install @vtex/admin-ui
 ```
 
 ## Variation
