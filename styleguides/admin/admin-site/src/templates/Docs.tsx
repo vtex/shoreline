@@ -2,7 +2,7 @@ import React, { createElement } from 'react'
 import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
-import { ThemeProvider, Paragraph, cn, Box } from '../../../admin-ui/src'
+import { ThemeProvider, Paragraph, cn, Text } from '../../../admin-ui/src'
 import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
@@ -40,13 +40,9 @@ const { Compiler: renderAst } = new RehypeReact({
       const { message, ...restProps } = props
 
       return (
-        <Box
-          element="code"
-          {...restProps}
-          styles={{ bg: 'muted.4', color: 'text' }}
-        >
+        <Text {...restProps} styles={{ bg: 'muted.4', color: 'text' }}>
           {message}
-        </Box>
+        </Text>
       )
     },
     themeawareprops: ThemeAwareProps,

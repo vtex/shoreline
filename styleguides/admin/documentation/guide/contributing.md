@@ -26,7 +26,7 @@ After cloning `vtex/onda`, run yarn to fetch its dependencies. Then, you can run
 - <highlight message="yarn storybook:admin"></highlight> runs the storybook locally
 - <highlight message="yarn build-storybook:admin"></highlight> builds storybook
 
-We recommend running <highlight message="yarn test"></highlight> to make sure you don’t introduce any regressions as you work on your change. However, it can be handy to try your build to React in a real project.
+We recommend running <highlight message="yarn test"></highlight> to make sure you don’t introduce any regressions as you work on your change.
 
 ## Storybook
 
