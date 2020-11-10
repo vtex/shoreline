@@ -2,6 +2,7 @@
   paths:
     - /docs/guide/get-started/
     - /docs/guide/next/
+    - /docs/guide/contributing/
 - section: Theming
   paths:
     - /docs/theming/styling/
