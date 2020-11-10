@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.2.9...admin-site@0.3.0) (2020-11-10)
+
+
+### Bug Fixes
+
+* **admin-ui-version:** bump version ([70fe51b](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/70fe51bd17397631bd15ee55e97af3991f7a0257))
+* **text:** change from text to variant prop ([4a4f3f9](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/4a4f3f9eb0f40b519a7e702405467d7cca34a06b))
+
+
+### Features
+
+* **set:** promote set from unstable to beta ([f3372ae](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/f3372ae2101235fde299b26f64094e0b590d000c))
+
+
+
+
+
 # [0.3.0-rc.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.3.0-rc.3...admin-site@0.3.0-rc.4) (2020-11-06)
 
 **Note:** Version bump only for package admin-site
