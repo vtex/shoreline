@@ -40,7 +40,11 @@ const { Compiler: renderAst } = new RehypeReact({
       const { message, ...restProps } = props
 
       return (
-        <Text {...restProps} styles={{ bg: 'muted.4', color: 'text' }}>
+        <Text
+          {...restProps}
+          padding={1}
+          styles={{ bg: 'muted.4', color: 'text' }}
+        >
           {message}
         </Text>
       )
