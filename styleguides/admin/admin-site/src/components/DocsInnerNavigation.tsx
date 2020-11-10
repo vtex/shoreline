@@ -1,6 +1,11 @@
-/** @jsx jsx */
-import { jsx, Theme, VisuallyHidden } from '@vtex/admin-ui'
-import { useState, useCallback, createElement, useMemo, useEffect } from 'react'
+import React, {
+  useState,
+  useCallback,
+  createElement,
+  useMemo,
+  useEffect,
+} from 'react'
+import { cn, VisuallyHidden } from '@vtex/admin-ui'
 import RehypeReact from 'rehype-react'
 import { unstable_useId as useId } from 'reakit'
 import constate from 'constate'
@@ -83,7 +88,7 @@ const { Compiler: renderAst } = new RehypeReact({
     p: function Render(props: React.PropsWithChildren<{}>) {
       return <span {...props} />
     },
-    a: function Render(props: React.AnchorHTMLAttributes<any>) {
+    a: function Render(props: React.AnchorHTMLAttributes<unknown>) {
       const [href] = useState(
         () => props.href && props.href.replace(/^.*(#.+)$/, '$1')
       )
@@ -105,7 +110,7 @@ const { Compiler: renderAst } = new RehypeReact({
             {...props}
             href={href}
             aria-current={currentId === id ? 'page' : undefined}
-            sx={{
+            className={cn({
               color: 'text',
               fontSize: 2,
               textDecoration: 'none',
@@ -119,7 +124,7 @@ const { Compiler: renderAst } = new RehypeReact({
                 transform: 'scale(1.1)',
                 color: 'primary.base',
               },
-            }}
+            })}
           >
             {props.children}
           </a>
@@ -140,7 +145,7 @@ export default function DocsInnerNavigation(props: Props) {
     <CollectionProvider>
       <ScrollSpyProvider>
         <aside
-          sx={{
+          className={cn({
             fontSize: '0.875em',
             bg: 'background',
             color: 'primary.base',
@@ -156,11 +161,12 @@ export default function DocsInnerNavigation(props: Props) {
               ul: {
                 listStyle: 'none',
                 paddingLeft: 4,
-                borderLeft: (theme: Theme) =>
-                  `1px solid ${theme.colors.muted[3]}`,
+                borderLeftColor: 'muted.3',
+                borderLeftStyle: 'solid',
+                borderLeftWidth: 1,
               },
             },
-          }}
+          })}
           key={title}
         >
           <VisuallyHidden id={id}>{title} Sections</VisuallyHidden>

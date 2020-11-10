@@ -1,21 +1,42 @@
 import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
-import serializer from 'jest-emotion'
+import { axe } from 'jest-axe'
 
-import { ThemeProvider } from '../../theme'
 import { Card } from './index'
-
-expect.addSnapshotSerializer(serializer)
+import { ThemeProvider } from '../../system'
 
 describe('Card tests', () => {
+  it('should have overridable styles', () => {
+    const { getByTestId } = render(
+      <ThemeProvider>
+        <Card data-testid="card" styleOverrides={{ bg: 'black' }}>
+          Card text
+        </Card>
+      </ThemeProvider>
+    )
+
+    expect(getByTestId('card')).toHaveStyleRule('background-color', 'black')
+  })
+
   it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <Card>Example card</Card>
+        <Card>Card text</Card>
       </ThemeProvider>
     )
 
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should not have a11y violations', async () => {
+    const { container } = render(
+      <ThemeProvider>
+        <Card>Card text</Card>
+      </ThemeProvider>
+    )
+
+    const results = await axe(container)
+
+    expect(results).toHaveNoViolations()
   })
 })

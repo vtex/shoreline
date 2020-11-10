@@ -1,51 +1,44 @@
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
-import { VisuallyHidden } from 'reakit'
-import { css } from '@emotion/core'
-import { usePalette, useLighten } from 'reakit-system-palette/utils'
-import { Text } from '@vtex/admin-ui'
+import { Text, cn, VisuallyHidden } from '@vtex/admin-ui'
 
 import Anchor from './Anchor'
 
 export default function Footer() {
-  const foreground = usePalette('foreground')
-  const color = useLighten(foreground, 0.35)
-
   return (
     <footer
-      css={css`
-        text-align: center;
-        color: ${color};
-        padding: 3rem 1rem;
-        a {
-          color: ${color};
-          &:hover {
-            color: ${foreground};
-          }
-        }
-
-        p {
-          font-size: 0.875em;
-          margin: 4px 0;
-        }
-      `}
+      className={cn({
+        textAlign: 'center',
+        color: 'text',
+        padding: '3rem 1rem',
+        a: {
+          color: 'text',
+          ':hover': {
+            color: 'muted.0',
+          },
+        },
+        p: {
+          fontSize: 0,
+          margin: '4px 0px',
+        },
+      })}
     >
-      <div
-        css={css`
-          display: grid;
-          grid-auto-flow: column;
-          grid-auto-columns: min-content;
-          justify-content: center;
-          grid-gap: 16px;
-          margin-bottom: 20px;
-        `}
+      <nav
+        className={cn({
+          display: 'grid',
+          gridAutoFlow: 'column',
+          gridAutoColumns: 'min-content',
+          justifyContent: 'center',
+          gridGap: '16px',
+          marginBottom: '20px',
+        })}
       >
         <Anchor href="https://github.com/vtex/onda" target="_blank">
           <FaGithub />
           <VisuallyHidden>GitHub</VisuallyHidden>
         </Anchor>
-      </div>
-      <Text el="p">Copyright © 2020 VTEX</Text>
+      </nav>
+      <Text>Copyright © 2020 VTEX</Text>
     </footer>
   )
 }

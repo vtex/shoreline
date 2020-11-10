@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
-import {
+import React, {
   cloneElement,
   Children,
   ReactElement,
@@ -19,8 +17,10 @@ import {
   MenuSeparator,
 } from 'reakit/Menu'
 
+import { Overridable } from '../../types'
 import { Box } from '../Box'
 import { Button, ButtonProps } from '../Button'
+import { cn } from '../../system'
 
 export { useMenuState, MenuState }
 export { MenuStateReturn }
@@ -47,25 +47,24 @@ export function StatelessMenu(props: StatelessMenuProps) {
     children,
     disabled = false,
     hideOnClick = false,
-    sx = {},
+    styleOverrides,
     state,
     ...baseProps
   } = props
 
   return (
     <ReakitMenu
-      sx={{
-        // css reset
+      className={cn({
         border: 0,
         padding: 0,
         outline: 'none',
         zIndex: 999,
-      }}
+      })}
       {...state}
       {...baseProps}
       disabled={disabled}
     >
-      <Box sx={{ variant: 'overlay.menu', ...sx }}>
+      <Box themeKey="components.menu" styles={styleOverrides}>
         {Children.map(children, (child, index) => (
           <ReakitMenuItem {...state} {...child.props} key={index}>
             {(itemProps) =>
@@ -137,7 +136,7 @@ StatelessMenu.Separator = MenuSeparator
 
 export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
 
-export interface StatelessMenuProps {
+export interface StatelessMenuProps extends Overridable {
   /**
    * Menu items
    */
@@ -146,11 +145,7 @@ export interface StatelessMenuProps {
    * aria-label of menu
    */
   'aria-label': string
-  /**
-   * Custom box sytles
-   * @default {}
-   */
-  sx?: SxStyleProp
+
   /**
    * If is disabled or not
    * @default false

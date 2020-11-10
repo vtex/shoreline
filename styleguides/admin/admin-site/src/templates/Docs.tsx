@@ -1,21 +1,22 @@
-/** @jsx jsx */
-import { jsx } from '@vtex/admin-ui'
+import React, { createElement } from 'react'
 import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
-import * as AdminUI from '@vtex/admin-ui'
-import React, { createElement } from 'react'
 
+import { ThemeProvider, Paragraph, cn } from '../../../admin-ui/src'
 import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
 import Blockquote from '../components/Blockquote'
-import Nightly from '../icons/Nightly'
+import Next from '../icons/Next'
 import Heading from '../components/Heading'
 import Seo from '../components/SEO'
 import DocsBackNext from '../components/DocsBackNext'
 import Summary from '../components/Summary'
 import { Proptypes } from '../components/Proptypes'
 import CodeBlock from '../components/Codeblock'
+import PaletteBlock from '../components/PaletteBlock'
+import PropDetails from '../components/PropDetails'
+import ThemeAwareProps from '../components/ThemeAwareProps'
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -35,8 +36,9 @@ const { Compiler: renderAst } = new RehypeReact({
   components: {
     a: Anchor,
     proptypes: Proptypes,
+    themeawareprops: ThemeAwareProps,
     p: function Render(props) {
-      return <AdminUI.Text el="p" fs="2" {...props} />
+      return <Paragraph styles={{ fontSize: 2, marginY: 4 }} {...props} />
     },
     ul: List,
     ol: function Render(props) {
@@ -45,6 +47,7 @@ const { Compiler: renderAst } = new RehypeReact({
     kbd: Kbd,
     blockquote: Blockquote,
     summary: Summary,
+    propdetails: PropDetails,
     h1: Heading,
     h2: function Render(props) {
       return <Heading as="h2" {...props} />
@@ -69,7 +72,7 @@ const { Compiler: renderAst } = new RehypeReact({
       return (
         <span {...props}>
           {children}
-          {title === 'Nightly' && <Nightly />}
+          {title === 'Next' && <Next />}
         </span>
       )
     },
@@ -77,42 +80,29 @@ const { Compiler: renderAst } = new RehypeReact({
     table: function Render(props) {
       return (
         <table
-          sx={{
+          className={cn({
             borderRadius: 3,
             borderCollapse: 'collapse',
-          }}
+            verticalAlign: 'middle',
+          })}
           {...props}
         />
       )
     },
     tr: function Render(props) {
-      return <tr sx={{ textAlign: 'left', height: 48 }} {...props} />
+      return <tr className={cn({ textAlign: 'left', height: 48 })} {...props} />
     },
-    colorblock: function Render(props) {
-      return (
-        <AdminUI.Box
-          w="full"
-          bc="muted.2"
-          bw="1"
-          bs="solid"
-          h={32}
-          br="3"
-          sx={{
-            boxShadow: 'subtle',
-          }}
-          {...props}
-        />
-      )
-    },
+    paletteblock: PaletteBlock,
     th: function Render(props) {
       return (
         <th
-          sx={{
+          className={cn({
             paddingX: 3,
             borderBottomColor: 'muted.2',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
-          }}
+            verticalAlign: 'middle',
+          })}
           {...props}
         />
       )
@@ -120,12 +110,13 @@ const { Compiler: renderAst } = new RehypeReact({
     td: function Render(props) {
       return (
         <td
-          sx={{
+          className={cn({
             paddingX: 3,
             borderBottomColor: 'muted.2',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
-          }}
+            verticalAlign: 'middle',
+          })}
           {...props}
         />
       )
@@ -141,12 +132,12 @@ export default function Docs({ data, pageContext }: DocsProps) {
   const { nextPagePath, prevPagePath } = pageContext
 
   return (
-    <AdminUI.ThemeProvider>
+    <ThemeProvider>
       <Seo title={`${title} – AdminUI`} description={excerpt} />
       <Heading>{title}</Heading>
       {renderAst(htmlAst)}
       <DocsBackNext nextPath={nextPagePath} prevPath={prevPagePath} />
-    </AdminUI.ThemeProvider>
+    </ThemeProvider>
   )
 }
 
@@ -165,7 +156,7 @@ type DocsProps = {
       excerpt: string
       frontmatter: {
         path: string
-        nightly: boolean
+        next: boolean
       }
     }
   }

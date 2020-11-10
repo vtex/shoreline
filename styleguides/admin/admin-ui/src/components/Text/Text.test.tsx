@@ -1,34 +1,70 @@
 import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
-import serializer from 'jest-emotion'
+import { axe } from 'jest-axe'
 
-import { ThemeProvider } from '../../theme'
-import { Text, TextVariant } from './index'
-
-expect.addSnapshotSerializer(serializer)
+import { Text } from './index'
+import { ThemeProvider } from '../../system'
 
 describe('Text tests', () => {
-  it('should match snapshot', () => {
-    const variants = [
-      'small',
-      'body',
-      'highlight',
-      'action',
-      'subtitle',
-      'headline',
-    ] as TextVariant[]
+  it('should have overridable styles', () => {
+    const { getByTestId } = render(
+      <ThemeProvider>
+        <Text data-testid="text" styleOverrides={{ color: 'azure' }}>
+          Text test
+        </Text>
+      </ThemeProvider>
+    )
 
+    expect(getByTestId('text')).toHaveStyleRule('color', 'azure')
+  })
+
+  it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        {variants.map((variant, i) => (
-          <Text key={i} variant={variant}>
-            {variant}
-          </Text>
-        ))}
+        <Text>Span</Text>
+        <Text element="strong">Bold</Text>
+        <Text element="i">Italic</Text>
+        <Text element="u">Underline</Text>
+        <Text element="abbr">I18N</Text>
+        <Text element="cite">Citation</Text>
+        <Text element="del">Deleted</Text>
+        <Text element="em">Emphasis</Text>
+        <Text element="ins">Inserted</Text>
+        <Text element="kbd">Ctrl + C</Text>
+        <Text element="mark">Highlighted</Text>
+        <Text element="s">Strikethrough</Text>
+        <Text element="samp">Sample</Text>
+        <Text element="sub">sub</Text>
+        <Text element="sup">sup</Text>
       </ThemeProvider>
     )
 
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should not have a11y violations', async () => {
+    const { container } = render(
+      <ThemeProvider>
+        <Text>Span</Text>
+        <Text element="strong">Bold</Text>
+        <Text element="i">Italic</Text>
+        <Text element="u">Underline</Text>
+        <Text element="abbr">I18N</Text>
+        <Text element="cite">Citation</Text>
+        <Text element="del">Deleted</Text>
+        <Text element="em">Emphasis</Text>
+        <Text element="ins">Inserted</Text>
+        <Text element="kbd">Ctrl + C</Text>
+        <Text element="mark">Highlighted</Text>
+        <Text element="s">Strikethrough</Text>
+        <Text element="samp">Sample</Text>
+        <Text element="sub">sub</Text>
+        <Text element="sup">sup</Text>
+      </ThemeProvider>
+    )
+
+    const results = await axe(container)
+
+    expect(results).toHaveNoViolations()
   })
 })

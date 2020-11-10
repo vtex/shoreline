@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Set tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.emotion-0 > *:not(:first-child) {
+  margin-left: 0.25rem;
+}
+
+<div
+    class="emotion-0"
+  >
+    <button>
+      element 1
+    </button>
+    <button>
+      element 2
+    </button>
+  </div>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.emotion-0 > *:not(:first-child) {
+  margin-left: 0.25rem;
+}
+
+<div
+    class="emotion-0"
+  >
+    <button>
+      element 1
+    </button>
+    <button>
+      element 2
+    </button>
+  </div>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-0 > *:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+<div
+    class="emotion-0"
+  >
+    <button>
+      element 1
+    </button>
+    <button>
+      element 2
+    </button>
+  </div>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-0 > *:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+<div
+    class="emotion-0"
+  >
+    <button>
+      element 1
+    </button>
+    <button>
+      element 2
+    </button>
+  </div>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-0 > *:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+<div
+    class="emotion-0"
+  >
+    <button>
+      element 1
+    </button>
+    <button>
+      element 2
+    </button>
+  </div>
+</DocumentFragment>
+`;

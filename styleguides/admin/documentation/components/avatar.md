@@ -9,17 +9,16 @@ Component to create a user avatar from a passed label. It shows the first letter
 ## Behavior
 
 ```jsx
-import { Avatar, Box, ThemeProvider } from '@vtex/admin-ui'
+import { Avatar, Set, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Box display="flex" w={140} justify="around">
+      <Set>
         <Avatar label="base" />
         <Avatar label="primary" palette="primary" />
         <Avatar label="danger" palette="danger" />
-        <Avatar label="success" palette="success" />
-      </Box>
+      </Set>
     </ThemeProvider>
   )
 }
@@ -34,17 +33,30 @@ yarn add @vtex/admin-ui
 Learn more in [Get started](/docs/get-started/).
 
 ## Variation
-### Primary
+
+### Base
 
 ```jsx
-import { Avatar, Box, ThemeProvider } from '@vtex/admin-ui'
+import { Avatar, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Box display="flex" w={140} justify="around">
-        <Avatar label="primary" palette="primary" />
-      </Box>
+      <Avatar label="base" palette="base" />
+    </ThemeProvider>
+  )
+}
+```
+
+### Primary
+
+```jsx
+import { Avatar, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Avatar label="primary" palette="primary" />
     </ThemeProvider>
   )
 }
@@ -53,34 +65,20 @@ function Example() {
 ### Danger
 
 ```jsx
-import { Avatar, Box, ThemeProvider } from '@vtex/admin-ui'
+import { Avatar, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Box display="flex" w={140} justify="around">
-        <Avatar label="danger" palette="danger" />
-      </Box>
+      <Avatar label="danger" palette="danger" />
     </ThemeProvider>
   )
 }
 ```
 
-### Success
+## Customization
 
-```jsx
-import { Avatar, Box, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box display="flex" w={140} justify="around">
-        <Avatar label="success" palette="success" />
-      </Box>
-    </ThemeProvider>
-  )
-}
-```
+You can use the `styleOverrides` property to customize any style.
 
 # Props
 

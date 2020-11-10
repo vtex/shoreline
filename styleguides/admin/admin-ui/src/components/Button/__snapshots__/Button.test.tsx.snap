@@ -2,95 +2,67 @@
 
 exports[`Button tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  border-style: solid;
   text-transform: uppercase;
-  color: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-primary-base,#2953B2);
+  color: #FFFFFF;
+  background-color: #2953B2;
   font-variation-settings: 'wght' 92;
-  border-color: var(--theme-ui-colors-primary-base,#2953B2);
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 14px;
-  height: 2.5rem;
+  font-size: 0.875rem;
+  height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-1:focus {
   outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
 .emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-hover,#1E4397);
-  border-color: var(--theme-ui-colors-primary-hover,#1E4397);
+  background-color: #1E4397;
 }
 
 .emotion-1:active {
-  background-color: var(--theme-ui-colors-primary-active,#3F6FDB);
-  border-color: var(--theme-ui-colors-primary-active,#3F6FDB);
+  background-color: #3F6FDB;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-text,#323845);
-  border-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-  background-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  color: #323845;
+  background-color: #C4C5CA;
 }
 
 <button
@@ -100,98 +72,70 @@ exports[`Button tests should match snapshot 1`] = `
     <div
       class="emotion-0"
     >
-      Default
+      Button
     </div>
   </button>
-  .emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  border-style: solid;
   text-transform: uppercase;
-  color: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-primary-base,#2953B2);
+  color: #FFFFFF;
+  background-color: #2953B2;
   font-variation-settings: 'wght' 92;
-  border-color: var(--theme-ui-colors-primary-base,#2953B2);
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 14px;
-  height: 2.5rem;
+  font-size: 0.875rem;
+  height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-1:focus {
   outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
 .emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-hover,#1E4397);
-  border-color: var(--theme-ui-colors-primary-hover,#1E4397);
+  background-color: #1E4397;
 }
 
 .emotion-1:active {
-  background-color: var(--theme-ui-colors-primary-active,#3F6FDB);
-  border-color: var(--theme-ui-colors-primary-active,#3F6FDB);
+  background-color: #3F6FDB;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-text,#323845);
-  border-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-  background-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  color: #323845;
+  background-color: #C4C5CA;
 }
 
 <button
@@ -201,13 +145,20 @@ exports[`Button tests should match snapshot 1`] = `
     <div
       class="emotion-0"
     >
-      filled - primary - regular
+      Button
     </div>
   </button>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -216,184 +167,50 @@ exports[`Button tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  border-style: solid;
   text-transform: uppercase;
-  color: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-primary-base,#2953B2);
+  background-color: #DAE3F5;
+  color: #2953B2;
   font-variation-settings: 'wght' 92;
-  border-color: var(--theme-ui-colors-primary-base,#2953B2);
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: 12px;
-  height: 2rem;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
-}
-
-.emotion-1:focus {
-  outline: none;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-hover,#1E4397);
-  border-color: var(--theme-ui-colors-primary-hover,#1E4397);
-}
-
-.emotion-1:active {
-  background-color: var(--theme-ui-colors-primary-active,#3F6FDB);
-  border-color: var(--theme-ui-colors-primary-active,#3F6FDB);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-text,#323845);
-  border-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-  background-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-    >
-      filled - primary - small
-    </div>
-  </button>
-  .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  border-style: solid;
-  text-transform: uppercase;
-  color: var(--theme-ui-colors-danger-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-danger-base,#D23030);
-  font-variation-settings: 'wght' 92;
-  border-color: var(--theme-ui-colors-danger-base,#D23030);
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 14px;
-  height: 2.5rem;
+  font-size: 0.875rem;
+  height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-1:focus {
   outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
 .emotion-1:hover {
-  border-color: var(--theme-ui-colors-danger-hover,#A70C0C);
-  background-color: var(--theme-ui-colors-danger-hover,#A70C0C);
+  background-color: #E8F1FF;
+  color: #1E4397;
 }
 
 .emotion-1:active {
-  border-color: var(--theme-ui-colors-danger-active,#DE0404);
-  background-color: var(--theme-ui-colors-danger-active,#DE0404);
+  background-color: #DBE9FF;
+  color: #3F6FDB;
 }
 
 .emotion-1:disabled {
-  border-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-  color: var(--theme-ui-colors-text,#323845);
-  background-color: var(--theme-ui-colors-muted-2,#C1C6CC);
+  color: #898F9E;
+  background-color: #F4F6FB;
 }
 
 <button
@@ -403,114 +220,20 @@ exports[`Button tests should match snapshot 1`] = `
     <div
       class="emotion-0"
     >
-      filled - danger - regular
+      Button
     </div>
   </button>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  border-style: solid;
-  text-transform: uppercase;
-  color: var(--theme-ui-colors-danger-contrast,#FFFFFF);
-  background-color: var(--theme-ui-colors-danger-base,#D23030);
+  line-height: 1.25;
   font-variation-settings: 'wght' 92;
-  border-color: var(--theme-ui-colors-danger-base,#D23030);
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: 12px;
-  height: 2rem;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
-}
-
-.emotion-1:focus {
-  outline: none;
-}
-
-.emotion-1:hover {
-  border-color: var(--theme-ui-colors-danger-hover,#A70C0C);
-  background-color: var(--theme-ui-colors-danger-hover,#A70C0C);
-}
-
-.emotion-1:active {
-  border-color: var(--theme-ui-colors-danger-active,#DE0404);
-  background-color: var(--theme-ui-colors-danger-active,#DE0404);
-}
-
-.emotion-1:disabled {
-  border-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-  color: var(--theme-ui-colors-text,#323845);
-  background-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-    >
-      filled - danger - small
-    </div>
-  </button>
-  .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -519,477 +242,49 @@ exports[`Button tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  border-style: solid;
-  text-transform: uppercase;
-  background-color: transparent;
-  border-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-  color: var(--theme-ui-colors-primary-base,#2953B2);
-  font-variation-settings: 'wght' 92;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 14px;
-  height: 2.5rem;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
-}
-
-.emotion-1:focus {
-  outline: none;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-washed,#F4F8FE);
-  color: var(--theme-ui-colors-primary-hover,#1E4397);
-}
-
-.emotion-1:active {
-  color: var(--theme-ui-colors-primary-active,#3F6FDB);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#8B9299);
-  background-color: var(--theme-ui-colors-muted-4,#F3F5F9);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-    >
-      outlined - primary - regular
-    </div>
-  </button>
-  .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  border-style: solid;
-  text-transform: uppercase;
-  background-color: transparent;
-  border-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-  color: var(--theme-ui-colors-primary-base,#2953B2);
-  font-variation-settings: 'wght' 92;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: 12px;
-  height: 2rem;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
-}
-
-.emotion-1:focus {
-  outline: none;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-primary-washed,#F4F8FE);
-  color: var(--theme-ui-colors-primary-hover,#1E4397);
-}
-
-.emotion-1:active {
-  color: var(--theme-ui-colors-primary-active,#3F6FDB);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#8B9299);
-  background-color: var(--theme-ui-colors-muted-4,#F3F5F9);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-    >
-      outlined - primary - small
-    </div>
-  </button>
-  .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  border-style: solid;
-  text-transform: uppercase;
-  background-color: transparent;
-  border-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-  color: var(--theme-ui-colors-danger-base,#D23030);
-  font-variation-settings: 'wght' 92;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 14px;
-  height: 2.5rem;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
-}
-
-.emotion-1:focus {
-  outline: none;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-danger-washed,#FFF0F0);
-  color: var(--theme-ui-colors-danger-hover,#A70C0C);
-}
-
-.emotion-1:active {
-  color: var(--theme-ui-colors-danger-active,#DE0404);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#8B9299);
-  background-color: var(--theme-ui-colors-muted-4,#F3F5F9);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-    >
-      outlined - danger - regular
-    </div>
-  </button>
-  .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  border-style: solid;
-  text-transform: uppercase;
-  background-color: transparent;
-  border-color: var(--theme-ui-colors-muted-2,#C1C6CC);
-  color: var(--theme-ui-colors-danger-base,#D23030);
-  font-variation-settings: 'wght' 92;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: 12px;
-  height: 2rem;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
-}
-
-.emotion-1:focus {
-  outline: none;
-}
-
-.emotion-1:hover {
-  background-color: var(--theme-ui-colors-danger-washed,#FFF0F0);
-  color: var(--theme-ui-colors-danger-hover,#A70C0C);
-}
-
-.emotion-1:active {
-  color: var(--theme-ui-colors-danger-active,#DE0404);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#8B9299);
-  background-color: var(--theme-ui-colors-muted-4,#F3F5F9);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-    >
-      outlined - danger - small
-    </div>
-  </button>
-  .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  border-style: solid;
-  border-color: transparent;
   text-transform: capitalize;
   background-color: transparent;
-  color: var(--theme-ui-colors-primary-base,#2953B2);
+  color: #2953B2;
   font-variation-settings: 'wght' 92;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 14px;
-  height: 2.5rem;
+  font-size: 0.875rem;
+  height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-1:focus {
   outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
 .emotion-1:hover {
-  color: var(--theme-ui-colors-primary-hover,#1E4397);
-  background-color: var(--theme-ui-colors-primary-washed,#F4F8FE);
+  color: #1E4397;
+  background-color: #E8F1FF;
 }
 
 .emotion-1:active {
-  color: var(--theme-ui-colors-primary-active,#3F6FDB);
-  background-color: var(--theme-ui-colors-primary-washed,#F4F8FE);
+  color: #3F6FDB;
+  background-color: #DBE9FF;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#8B9299);
+  color: #898F9E;
 }
 
 <button
@@ -999,13 +294,20 @@ exports[`Button tests should match snapshot 1`] = `
     <div
       class="emotion-0"
     >
-      subtle - primary - regular
+      Button
     </div>
   </button>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1014,81 +316,48 @@ exports[`Button tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  border-style: solid;
-  border-color: transparent;
-  text-transform: capitalize;
-  background-color: transparent;
-  color: var(--theme-ui-colors-primary-base,#2953B2);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #2953B2;
   font-variation-settings: 'wght' 92;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: 12px;
-  height: 2rem;
+  font-size: 0.75rem;
+  height: 32px;
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
 
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-1:focus {
   outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
 .emotion-1:hover {
-  color: var(--theme-ui-colors-primary-hover,#1E4397);
-  background-color: var(--theme-ui-colors-primary-washed,#F4F8FE);
+  background-color: #1E4397;
 }
 
 .emotion-1:active {
-  color: var(--theme-ui-colors-primary-active,#3F6FDB);
-  background-color: var(--theme-ui-colors-primary-washed,#F4F8FE);
+  background-color: #3F6FDB;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#8B9299);
+  color: #323845;
+  background-color: #C4C5CA;
 }
 
 <button
@@ -1098,13 +367,20 @@ exports[`Button tests should match snapshot 1`] = `
     <div
       class="emotion-0"
     >
-      subtle - primary - small
+      Button
     </div>
   </button>
   .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1113,81 +389,48 @@ exports[`Button tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  border-style: solid;
-  border-color: transparent;
-  text-transform: capitalize;
-  background-color: transparent;
-  color: var(--theme-ui-colors-danger-base,#D23030);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #CE454F;
   font-variation-settings: 'wght' 92;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 14px;
-  height: 2.5rem;
+  font-size: 0.875rem;
+  height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-1:focus {
   outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
 .emotion-1:hover {
-  color: var(--theme-ui-colors-danger-hover,#A70C0C);
-  background-color: var(--theme-ui-colors-danger-washed,#FFF0F0);
+  background-color: #A70C0C;
 }
 
 .emotion-1:active {
-  color: var(--theme-ui-colors-danger-active,#DE0404);
-  background-color: var(--theme-ui-colors-danger-washed,#FFF0F0);
+  background-color: #DE0404;
 }
 
 .emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#8B9299);
+  color: #323845;
+  background-color: #C4C5CA;
 }
 
 <button
@@ -1197,106 +440,7 @@ exports[`Button tests should match snapshot 1`] = `
     <div
       class="emotion-0"
     >
-      subtle - danger - regular
-    </div>
-  </button>
-  .emotion-0 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: inherit;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  border-width: 1px;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  border-style: solid;
-  border-color: transparent;
-  text-transform: capitalize;
-  background-color: transparent;
-  color: var(--theme-ui-colors-danger-base,#D23030);
-  font-variation-settings: 'wght' 92;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: 12px;
-  height: 2rem;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.emotion-1 backgroundColor {
-  base: var(--theme-ui-colors-primary-base,#2953B2);
-  hover: var(--theme-ui-colors-primary-hover,#1E4397);
-  active: var(--theme-ui-colors-primary-active,#3F6FDB);
-  contrast: var(--theme-ui-colors-primary-contrast,#FFFFFF);
-  washed: var(--theme-ui-colors-primary-washed,#F4F8FE);
-}
-
-.emotion-1:focus {
-  outline: none;
-}
-
-.emotion-1:hover {
-  color: var(--theme-ui-colors-danger-hover,#A70C0C);
-  background-color: var(--theme-ui-colors-danger-washed,#FFF0F0);
-}
-
-.emotion-1:active {
-  color: var(--theme-ui-colors-danger-active,#DE0404);
-  background-color: var(--theme-ui-colors-danger-washed,#FFF0F0);
-}
-
-.emotion-1:disabled {
-  color: var(--theme-ui-colors-muted-1,#8B9299);
-}
-
-<button
-    class="emotion-1"
-    type="button"
-  >
-    <div
-      class="emotion-0"
-    >
-      subtle - danger - small
+      Button
     </div>
   </button>
 </DocumentFragment>

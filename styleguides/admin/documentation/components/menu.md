@@ -1,6 +1,5 @@
 ---
 path: /docs/menu/
-nightly: true
 ---
 
 # Menu

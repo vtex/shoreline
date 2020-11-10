@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 
 import { Tag } from './index'
 import { IconFavorite } from '../../icons'
-import { Box } from '../Box'
+import { Set } from '../Set'
 
 export default {
   title: 'beta/Tag',
@@ -14,14 +14,14 @@ export default {
 export function Palettes() {
   return (
     <>
-      <Box display="flex" items="center">
+      <Set>
         <Tag label="Rio de Janeiro" palette="blue" />
         <Tag label="Rio de Janeiro" palette="red" />
         <Tag label="Rio de Janeiro" palette="yellow" />
         <Tag label="Rio de Janeiro" palette="green" />
         <Tag label="Rio de Janeiro" palette="black" />
         <Tag label="Rio de Janeiro" palette="purple" />
-      </Box>
+      </Set>
     </>
   )
 }
@@ -39,35 +39,33 @@ export function WithIcon() {
 export const Variants = () => {
   return (
     <>
-      <Box display="flex" items="center">
-        <Tag label="Rio de Janeiro" m="1" />
+      <Set>
+        <Tag label="Rio de Janeiro" />
         <Tag size="small" label="Rio de Janeiro" />
-      </Box>
+      </Set>
       <br />
-      <Box display="flex" items="center">
-        <Tag label="Rio de Janeiro" icon={<IconFavorite />} m="1" />
+      <Set>
+        <Tag label="Rio de Janeiro" icon={<IconFavorite />} />
         <Tag size="small" label="Rio de Janeiro" icon={<IconFavorite />} />
-      </Box>
+      </Set>
       <br />
-      <Box display="flex" items="center">
+      <Set>
         <Tag
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
-          m="1"
         />
         <Tag
           size="small"
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
         />
-      </Box>
+      </Set>
       <br />
-      <Box display="flex" items="center">
+      <Set>
         <Tag
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
           icon={<IconFavorite />}
-          m="1"
         />
         <Tag
           size="small"
@@ -75,7 +73,7 @@ export const Variants = () => {
           label="Rio de Janeiro"
           icon={<IconFavorite />}
         />
-      </Box>
+      </Set>
     </>
   )
 }

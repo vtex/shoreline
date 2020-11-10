@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Skeleton, SkeletonProps } from './index'
 import { Box } from '../Box'
-import { Text } from '../Text'
 import { Button } from '../Button'
+import { Heading } from '../Heading'
+import { Paragraph } from '../Paragraph'
 
 export default {
   title: 'beta/Skeleton',
@@ -12,16 +13,16 @@ export default {
 } as Meta
 
 export const Rect: Story<SkeletonProps> = () => {
-  return <Skeleton h={128} w={128} />
+  return <Skeleton styles={{ height: 128, width: 128 }} />
 }
 
 export const Circle: Story<SkeletonProps> = () => {
-  return <Skeleton shape="circle" w={100} h={100} />
+  return <Skeleton shape="circle" styles={{ width: 100, height: 100 }} />
 }
 
 export const Fluid: Story<SkeletonProps> = () => {
   return (
-    <Box w="full" h={192}>
+    <Box width="full" height={192}>
       <Skeleton />
     </Box>
   )
@@ -31,76 +32,31 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(false)
 
   return (
-    <Fragment>
-      <Box w="sm">
-        {loading ? (
-          <Box>
-            <Skeleton h={24} w="5/12" />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} w="1/2" />
-          </Box>
-        ) : (
-          <Box>
-            <Text variant="headline">Developing</Text>
-            <Text>
-              The VTEX team welcomes and thanks you for developing with us. We
-              are committed in provide the best developer experience through
-              consistency and quality of our guidelines. We are open and
-              appreciate all the feedbacks, tips and ideas to keep this
-              experience the best as possible. Bellow we describe the way we
-              work and the best practices.
-            </Text>
-          </Box>
-        )}
-        <Button mx="0" onClick={() => setLoading((s) => !s)}>
-          Toggle Loading
-        </Button>
-      </Box>
-    </Fragment>
+    <Box width="sm">
+      {loading ? (
+        <Box>
+          <Skeleton height={24} width="5/12" />
+          <Skeleton height={16} />
+          <Skeleton height={16} />
+          <Skeleton height={16} />
+          <Skeleton height={16} />
+          <Skeleton height={16} />
+          <Skeleton height={16} width="1/2" />
+        </Box>
+      ) : (
+        <Box>
+          <Heading>Developing</Heading>
+          <Paragraph>
+            The VTEX team welcomes and thanks you for developing with us. We are
+            committed in provide the best developer experience through
+            consistency and quality of our guidelines. We are open and
+            appreciate all the feedbacks, tips and ideas to keep this experience
+            the best as possible. Bellow we describe the way we work and the
+            best practices.
+          </Paragraph>
+        </Box>
+      )}
+      <Button onClick={() => setLoading((s) => !s)}>Toggle Loading</Button>
+    </Box>
   )
-}
-
-TextExample.parameters = {
-  playroom: {
-    code: `
-<Play.ToggleState>
-  {({ toggle, setToggle }) => (
-    <>
-      <Box w="sm">
-        {toggle ? (
-          <Box>
-            <Skeleton h={24} w="5/12" />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} />
-            <Skeleton h={16} w="1/2" />
-          </Box>
-        ) : (
-          <Box>
-            <Text variant="headline">Developing</Text>
-            <Text>
-              The VTEX team welcomes and thanks you for developing with us. We
-              are committed in provide the best developer experience through
-              consistency and quality of our guidelines. We are open and
-              appreciate all the feedbacks, tips and ideas to keep this
-              experience the best as possible. Bellow we describe the way we
-              work and the best practices.
-            </Text>
-          </Box>
-        )}
-        <Button mx="0" onClick={() => setToggle((s) => !s)}>
-          Toggle Loading
-        </Button>
-      </Box>
-    </>
-  )}
-</Play.ToggleState>
-    `,
-  },
 }

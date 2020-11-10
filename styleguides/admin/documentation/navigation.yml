@@ -1,34 +1,54 @@
 - section: Guide
   paths:
-    - /docs/get-started/
-    - /docs/styling/
-    - /docs/nightly/
-- section: Theme
+    - /docs/guide/get-started/
+    - /docs/guide/next/
+- section: Theming
   paths:
-    - /docs/style-props/
+    - /docs/theming/styling/
+    - /docs/theming/palettes/
+    - /docs/theming/responsive-design/
+    - /docs/theming/patterns/
+    - /docs/theming/style-props/
+- section: Primitives
+  paths:
+    - /docs/primitives/box/
+    - /docs/skeleton/
+- section: Layouts
+  paths:
+    - /docs/layouts/columns/
+    - /docs/layouts/set/
+- section: Typography
+  paths:
+    - /docs/typography/variable-font/
+    - /docs/typography/heading/
+    - /docs/typography/list/
+    - /docs/typography/paragraph/
+    - /docs/typography/text/
 - section: Components
   paths:
-    - /docs/box/
-    - /docs/list/
-    - /docs/button/
-    - /docs/tag/
-    - /docs/checkbox/
-    - /docs/checkbox-group/
-    - /docs/collapsible/
-    - /docs/collapsible-group/
-    - /docs/divider/
-    - /docs/label/
-    - /docs/modal/
-    - /docs/radio/
-    - /docs/radio-group/
-    - /docs/skeleton/
-    - /docs/text/
-    - /docs/toggle/
-    - /docs/tooltip/
-    - /docs/card/
-    - /docs/visually-hidden/
     - /docs/avatar/
+    - /docs/button/
+    - /docs/card/
+    - /docs/collapsible-group/
+    - /docs/collapsible/
+    - /docs/divider/
     - /docs/menu/
+    - /docs/modal/
+    - /docs/table/
+    - /docs/tag/
+    - /docs/tooltip/
+    - /docs/visually-hidden/
+- section: Form
+  paths:
+    - /docs/form/checkbox-group/
+    - /docs/form/checkbox/
+    - /docs/form/label/
+    - /docs/form/radio-group/
+    - /docs/form/radio/
+    - /docs/form/toggle/
+- section: Deep dive 🐋
+  paths:
+    - /docs/deep-dive/system
 - section: Documentation Templates
   paths:
     - /docs/documentation-template/

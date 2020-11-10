@@ -2,11 +2,11 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Label } from '../Label'
-import { Checkbox, useCheckbox, CheckboxProps } from './index'
+import { Checkbox, useCheckboxState, CheckboxProps } from './index'
 import { Text } from '../Text'
 
 export default {
-  title: 'beta/Checkbox',
+  title: 'beta/forms/checkbox',
   component: Checkbox,
 } as Meta
 
@@ -26,73 +26,25 @@ export const Playground = Template.bind({})
 Playground.args = {
   'aria-label': 'label',
 }
-Playground.parameters = {
-  playroom: {
-    code: `
-<Play.ToggleState>
-  {({ toggle, setToggle }) => (
-    <Checkbox
-      aria-label="label"
-      checked={toggle}
-      onChange={() => setToggle(!toggle)}
-    />
-  )}
-</Play.ToggleState>
-    `,
-  },
-}
 
 export const MultipleCheckboxes = () => {
-  const props = useCheckbox({ state: [] })
+  const props = useCheckboxState({ state: [] })
 
   return (
     <>
       <Text>Checkboxes marked: {props.state}</Text>
-      <Checkbox {...props} aria-label="label" value="checkbox1" />
-      <Checkbox {...props} aria-label="label" value="checkbox2" />
-      <Checkbox {...props} aria-label="label" value="checkbox3" />
+      <Checkbox state={props} aria-label="label" value="checkbox1" />
+      <Checkbox state={props} aria-label="label" value="checkbox2" />
+      <Checkbox state={props} aria-label="label" value="checkbox3" />
     </>
   )
-}
-
-MultipleCheckboxes.parameters = {
-  playroom: {
-    code: `
-<Play.CheckboxState state={[]}>
-    {({ state, setState }) => (
-      <>
-        <Text>State: {state}</Text>
-        <br />
-        <Checkbox
-          state={state}
-          setState={setState}
-          aria-label="label1"
-          value="toggle1"
-        />
-        <Checkbox
-          state={state}
-          setState={setState}
-          aria-label="label2"
-          value="toggle2"
-        />
-        <Checkbox
-          state={state}
-          setState={setState}
-          aria-label="label3"
-          value="toggle3"
-        />
-      </>
-    )}
-  </Play.CheckboxState>
-    `,
-  },
 }
 
 export const Disabled = () => {
   return (
     <>
       <Checkbox checked disabled />
-      <Checkbox state="indeterminate" checked disabled />
+      <Checkbox state={{ state: 'indeterminate' }} checked disabled />
       <Checkbox disabled />
     </>
   )
@@ -100,8 +52,8 @@ export const Disabled = () => {
 
 export const IndeterminateExample = () => {
   function useTreeState({ values }: { values: string[] }) {
-    const { state: group, setState: setGroup } = useCheckbox({ state: [] })
-    const { state: items, setState: setItems } = useCheckbox({ state: [] })
+    const { state: group, setState: setGroup } = useCheckboxState({ state: [] })
+    const { state: items, setState: setItems } = useCheckboxState({ state: [] })
 
     // updates items when group is toggled
     React.useEffect(() => {
@@ -131,27 +83,25 @@ export const IndeterminateExample = () => {
 
   return (
     <>
-      <Label display="flex" items="center">
-        <Checkbox state={group} setState={setGroup} />
+      <Label styleOverrides={{ display: 'flex', alignItems: 'center' }}>
+        <Checkbox state={{ state: group, setState: setGroup }} />
         Fruits ( Group Control )
       </Label>
       <br />
       {values.map((fruit, key) => {
         return (
-          <Label key={key} display="flex" items="center">
-            <Checkbox state={items} setState={setItems} value={fruit} />
+          <Label
+            key={key}
+            styleOverrides={{ display: 'flex', alignItems: 'center' }}
+          >
+            <Checkbox
+              state={{ state: items, setState: setItems }}
+              value={fruit}
+            />
             {fruit}
           </Label>
         )
       })}
     </>
   )
-}
-
-IndeterminateExample.parameters = {
-  previewTabs: {
-    'storybook/playroom/panel': {
-      hidden: true,
-    },
-  },
 }

@@ -22,23 +22,32 @@ exports[`Skeleton tests should match snapshot 1`] = `
   }
 }
 
+@keyframes animation-0 {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
 .emotion-0 {
-  background-image: linear-gradient( 90deg, var(--theme-ui-colors-muted-4,#F3F5F9), white, var(--theme-ui-colors-muted-4,#F3F5F9) );
-  -webkit-animation: animation-0 1.2s ease-in-out infinite;
-  animation: animation-0 1.2s ease-in-out infinite;
   display: inline-block;
   width: 100%;
   height: 100%;
-  background-color: var(--theme-ui-colors-muted-4,#F3F5F9);
+  background-color: #F4F6FB;
   background-size: 200px 100%;
   background-repeat: no-repeat;
   line-height: 1;
-  border-radius: 100%;
+  border-radius: 4px;
+  background-image: linear-gradient( 90deg, #F4F6FB, white, #F4F6FB );
+  -webkit-animation: animation-0 1.2s ease-in-out infinite;
+  animation: animation-0 1.2s ease-in-out infinite;
 }
 
 <div
     class="emotion-0"
-    sx="[object Object]"
   />
   @keyframes animation-0 {
   0% {
@@ -60,23 +69,33 @@ exports[`Skeleton tests should match snapshot 1`] = `
   }
 }
 
+@keyframes animation-0 {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
 .emotion-0 {
-  background-image: linear-gradient( 90deg, var(--theme-ui-colors-muted-4,#F3F5F9), white, var(--theme-ui-colors-muted-4,#F3F5F9) );
-  -webkit-animation: animation-0 1.2s ease-in-out infinite;
-  animation: animation-0 1.2s ease-in-out infinite;
   display: inline-block;
   width: 100%;
   height: 100%;
-  background-color: var(--theme-ui-colors-muted-4,#F3F5F9);
+  background-color: #F4F6FB;
   background-size: 200px 100%;
   background-repeat: no-repeat;
   line-height: 1;
-  border-radius: 6px;
+  border-radius: 100%;
+  background-image: linear-gradient( 90deg, #F4F6FB, white, #F4F6FB );
+  -webkit-animation: animation-0 1.2s ease-in-out infinite;
+  animation: animation-0 1.2s ease-in-out infinite;
 }
 
 <div
     class="emotion-0"
-    sx="[object Object]"
+    shape="circle"
   />
 </DocumentFragment>
 `;

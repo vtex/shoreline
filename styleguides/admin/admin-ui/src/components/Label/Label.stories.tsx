@@ -5,13 +5,13 @@ import { Label, LabelProps } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'beta/Label',
+  title: 'beta/forms/label',
   component: Label,
 } as Meta
 
 export const Basic: Story<LabelProps> = () => {
   return (
-    <Label display="flex">
+    <Label styleOverrides={{ display: 'flex' }}>
       <input type="checkbox" />
       Checkbox Input Label!
     </Label>
@@ -20,7 +20,7 @@ export const Basic: Story<LabelProps> = () => {
 
 export const HtmlFor: Story<LabelProps> = () => {
   return (
-    <Box display="flex" direction="col" w={160}>
+    <Box styles={{ display: 'flex', flexDirection: 'column', width: 160 }}>
       <Label htmlFor="text-id">Text Input Label!</Label>
       <input type="text" id="text-id" />
     </Box>

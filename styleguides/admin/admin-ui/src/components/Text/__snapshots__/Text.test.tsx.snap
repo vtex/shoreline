@@ -3,77 +3,169 @@
 exports[`Text tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  line-height: 1.125;
-  font-variation-settings: 'wght' 80;
-  font-size: 12px;
-}
-
-<span
-    class="emotion-0"
-    sx="[object Object]"
-  >
-    small
-  </span>
-  .emotion-0 {
   line-height: 1.25;
-  font-variation-settings: 'wght' 80;
-  font-size: 14px;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 <span
     class="emotion-0"
-    sx="[object Object]"
   >
-    body
+    Span
   </span>
   .emotion-0 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
-<span
+<strong
     class="emotion-0"
-    sx="[object Object]"
   >
-    highlight
-  </span>
+    Bold
+  </strong>
   .emotion-0 {
-  line-height: 1.5;
+  line-height: 1.25;
   font-variation-settings: 'wght' 92;
-  font-size: 14px;
-  text-transform: uppercase;
+  font-size: 0.875rem;
 }
 
-<span
+<i
     class="emotion-0"
-    sx="[object Object]"
   >
-    action
-  </span>
+    Italic
+  </i>
   .emotion-0 {
-  line-height: 1.5;
+  line-height: 1.25;
   font-variation-settings: 'wght' 92;
-  font-size: 16px;
+  font-size: 0.875rem;
 }
 
-<h2
+<u
     class="emotion-0"
-    sx="[object Object]"
   >
-    subtitle
-  </h2>
+    Underline
+  </u>
   .emotion-0 {
-  line-height: 1.5;
+  line-height: 1.25;
   font-variation-settings: 'wght' 92;
-  font-size: 20px;
+  font-size: 0.875rem;
 }
 
-<h1
+<abbr
     class="emotion-0"
-    sx="[object Object]"
   >
-    headline
-  </h1>
+    I18N
+  </abbr>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<cite
+    class="emotion-0"
+  >
+    Citation
+  </cite>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<del
+    class="emotion-0"
+  >
+    Deleted
+  </del>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<em
+    class="emotion-0"
+  >
+    Emphasis
+  </em>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<ins
+    class="emotion-0"
+  >
+    Inserted
+  </ins>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<kbd
+    class="emotion-0"
+  >
+    Ctrl + C
+  </kbd>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<mark
+    class="emotion-0"
+  >
+    Highlighted
+  </mark>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<s
+    class="emotion-0"
+  >
+    Strikethrough
+  </s>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<samp
+    class="emotion-0"
+  >
+    Sample
+  </samp>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<sub
+    class="emotion-0"
+  >
+    sub
+  </sub>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<sup
+    class="emotion-0"
+  >
+    sup
+  </sup>
 </DocumentFragment>
 `;

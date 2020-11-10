@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border: solid;
+  border-width: 1px;
+  border-color: #E0E2E7;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  border-bottom: 0;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1.25rem;
+}
+
+<hr
+    aria-orientation="horizontal"
+    class="emotion-0"
+    role="separator"
+  />
+  .emotion-0 {
+  border: solid;
+  border-width: 1px;
+  border-color: #E0E2E7;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  border-left: 0;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1.25rem;
+}
+
+<hr
+    aria-orientation="vertical"
+    class="emotion-0"
+    role="separator"
+  />
+</DocumentFragment>
+`;

@@ -1,21 +1,30 @@
-import React, { Ref } from 'react'
-import { forwardRef } from '@vtex-components/utils'
+import React, { Ref, forwardRef } from 'react'
 
-import { Box, BoxProps as CardProps } from '../Box'
+import { Overridable } from '../../types'
+import { Box, BoxProps } from '../Box'
 
-export const Card = forwardRef((props: CardProps, ref: Ref<HTMLDivElement>) => {
+export const Card = forwardRef(function Card(
+  props: CardProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const {
+    styleOverrides,
+    palette = 'base',
+    border = 'default',
+    padding = 6,
+    ...boxProps
+  } = props
+
   return (
     <Box
       ref={ref}
-      bg="background"
-      bc="muted.3"
-      p="6"
-      bw="1"
-      bs="solid"
-      br="3"
-      {...props}
+      styles={styleOverrides}
+      palette={palette}
+      border={border}
+      padding={padding}
+      {...boxProps}
     />
   )
 })
 
-export { CardProps }
+export type CardProps = Overridable & Omit<BoxProps, 'styles'>

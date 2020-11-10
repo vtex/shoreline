@@ -1,14 +1,14 @@
-import React from 'react'
-import { SxStyleProp } from 'theme-ui'
+import { ElementType } from 'react'
+import { SxStyleProp, useClassName } from '@vtex/admin-ui-system'
+import { SpaceStyleProps, SizeStyleProps } from '@vtex/admin-ui-theme'
+import { Box as ReakitBox } from 'reakit/Box'
 
-import { LayoutTokensProps, SpaceTokensProps } from '../../system'
-import { Box } from '../Box'
+import { createElement } from '../../system'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
  * It show users that content is loading, offering a vague preview of how content will look once it fully loads.
  * It's beeing used internally by AdminUI to handle the loading state of specyfic components.
- * @returns A styled & full-feature theme-ui/Box component
  * @example
  * import { Skeleton } from 'admin-ui'
  *
@@ -16,39 +16,52 @@ import { Box } from '../Box'
  *
  * function Component() {
  *  const { loading, data } = useFetch()
- *  return loading ? <Skeleton sx={{ ... }} /> : <h1>{data}</h1>
+ *  return loading ? <Skeleton styles={{ ... }} /> : <h1>{data}</h1>
  * }
  *
  */
 export function Skeleton(props: SkeletonProps) {
-  const { sx = {}, shape = 'rect', ...boxProps } = props
-  const variant =
-    shape === 'circle' ? 'layout.skeleton-circle' : 'layout.skeleton'
+  const { element = 'div', ...restProps } = props
+  const htmlProps = useSkeleton(restProps)
 
-  return <Box {...boxProps} variant={variant} sx={sx} />
+  return createElement({
+    component: ReakitBox,
+    htmlProps,
+    element,
+  })
 }
 
-export type Shape = 'rect' | 'circle'
+/**
+ * Skeleton lower level api
+ * @returns skeleton htmlProps
+ */
+export function useSkeleton(props: SkeletonProps) {
+  const { shape = 'rect' } = props
 
-export interface SkeletonProps
-  extends Pick<
-      LayoutTokensProps,
-      'w' | 'h' | 'maxH' | 'minH' | 'maxW' | 'minW'
-    >,
-    Pick<SpaceTokensProps, 'm' | 'mt' | 'mb' | 'ml' | 'mr' | 'mx' | 'my'> {
+  const className = useClassName({
+    props,
+    themeKey: `components.skeleton.${shape}`,
+  })
+
+  return { ...props, className }
+}
+
+export type SkeletonShape = 'rect' | 'circle'
+
+export interface SkeletonProps extends SpaceStyleProps, SizeStyleProps {
+  /**
+   * Aditional styles
+   * @default {}
+   */
+  styles?: SxStyleProp
   /**
    * Shape of the skeleton
    * @default 'rect'
    */
-  shape?: Shape
-  /**
-   * Custom styles
-   * @default {}
-   */
-  sx?: SxStyleProp
+  shape?: SkeletonShape
   /**
    * Element type
    * @default div
    */
-  el?: React.ElementType
+  element?: ElementType
 }

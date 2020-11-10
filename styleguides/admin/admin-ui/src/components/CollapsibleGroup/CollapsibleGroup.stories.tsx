@@ -4,6 +4,7 @@ import { Meta, Story } from '@storybook/react'
 import { CollapsibleGroup, CollapsibleGroupProps } from './index'
 import { useCollapsible } from '../Collapsible'
 import { Text } from '../Text'
+import { Set } from '../Set'
 
 export default {
   title: 'beta/CollapsibleGroup',
@@ -15,31 +16,35 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
   const marketing = useCollapsible()
 
   return (
-    <CollapsibleGroup w={400}>
+    <CollapsibleGroup styleOverrides={{ width: 400 }}>
       <CollapsibleGroup.Item state={promos}>
         <CollapsibleGroup.Item.Header label="Promos" />
-        <CollapsibleGroup.Item.Content display="flex" direction="col">
-          <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
-          <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
-          <br />
-          <Text variant="action">TMP OFERTA - 899 OIS : CAE SEMANA</Text>
-          <Text variant="action">ALEMANA</Text>
-          <br />
-          <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
+        <CollapsibleGroup.Item.Content>
+          <Set orientation="vertical">
+            <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
+            <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
+            <br />
+            <Text variant="action">TMP OFERTA - 899 OIS : CAE SEMANA</Text>
+            <Text variant="action">ALEMANA</Text>
+            <br />
+            <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
+          </Set>
         </CollapsibleGroup.Item.Content>
       </CollapsibleGroup.Item>
       <CollapsibleGroup.Item state={marketing}>
         <CollapsibleGroup.Item.Header label="Marketing" />
-        <CollapsibleGroup.Item.Content display="flex" direction="col">
-          <Text variant="small" c="muted.2" fs="0">
-            Partner
-          </Text>
-          <Text variant="small">app_ios</Text>
-          <br />
-          <Text variant="small" c="muted.2" fs="0">
-            Campaign
-          </Text>
-          <Text variant="small">Campaign name</Text>
+        <CollapsibleGroup.Item.Content>
+          <Set orientation="vertical">
+            <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+              Partner
+            </Text>
+            <Text variant="small">app_ios</Text>
+            <br />
+            <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+              Campaign
+            </Text>
+            <Text variant="small">Campaign name</Text>
+          </Set>
         </CollapsibleGroup.Item.Content>
       </CollapsibleGroup.Item>
     </CollapsibleGroup>
@@ -73,12 +78,12 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
   function PartnershipsContent() {
     return (
       <>
-        <Text variant="small" c="muted.2" fs="0">
+        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
           Partner
         </Text>
         <Text variant="small">app_ios</Text>
         <br />
-        <Text variant="small" c="muted.2" fs="0">
+        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
           Campaign
         </Text>
         <Text variant="small">Campaign name</Text>
@@ -89,45 +94,51 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
   function PackagesContent() {
     return (
       <>
-        <Text variant="small" c="muted.2" fs="0">
+        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
           Bill
         </Text>
-        <Text c="primary.base">N 00025755809</Text>
+        <Text variant="small" styleOverrides={{ color: 'primary.base' }}>
+          N 00025755809
+        </Text>
         <br />
-        <Text variant="small" c="muted.2" fs="0">
+        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
           Total cost of items
         </Text>
-        <Text c="text">39,00 BRL</Text>
+        <Text styleOverrides={{ color: 'muted.2' }}>39,00 BRL</Text>
         <br />
-        <Text variant="small" c="muted.2" fs="0">
+        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
           Type
         </Text>
         <Text>Total Express</Text>
         <br />
-        <Text variant="small" c="muted.2" fs="0">
+        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
           Tracking
         </Text>
-        <Text c="primary.base">XSDFE231675</Text>{' '}
+        <Text styleOverrides={{ color: 'muted.2' }}>XSDFE231675</Text>{' '}
       </>
     )
   }
 
   return (
-    <CollapsibleGroup w={400}>
+    <CollapsibleGroup styleOverrides={{ width: 400 }}>
       <CollapsibleGroup.Item state={promosAndPartner}>
         <CollapsibleGroup.Item.Header label="Promos and Partnerships" />
         <CollapsibleGroup.Item.Content>
           <CollapsibleGroup>
             <CollapsibleGroup.Item state={promos}>
               <CollapsibleGroup.Item.Header label="Promos" />
-              <CollapsibleGroup.Item.Content display="flex" direction="col">
-                <PromosContent />
+              <CollapsibleGroup.Item.Content>
+                <Set orientation="vertical">
+                  <PromosContent />
+                </Set>
               </CollapsibleGroup.Item.Content>
             </CollapsibleGroup.Item>
             <CollapsibleGroup.Item state={marketing}>
               <CollapsibleGroup.Item.Header label="Marketing" />
-              <CollapsibleGroup.Item.Content display="flex" direction="col">
-                <PartnershipsContent />
+              <CollapsibleGroup.Item.Content>
+                <Set orientation="vertical">
+                  <PartnershipsContent />
+                </Set>
               </CollapsibleGroup.Item.Content>
             </CollapsibleGroup.Item>
           </CollapsibleGroup>
@@ -144,8 +155,10 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
                   key={index}
                 >
                   <CollapsibleGroup.Item.Header label={value} />
-                  <CollapsibleGroup.Item.Content display="flex" direction="col">
-                    <PackagesContent />
+                  <CollapsibleGroup.Item.Content>
+                    <Set orientation="vertical">
+                      <PackagesContent />
+                    </Set>
                   </CollapsibleGroup.Item.Content>
                 </CollapsibleGroup.Item>
               )

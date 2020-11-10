@@ -1,50 +1,29 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
-import { Ref } from 'react'
+import { Ref, forwardRef } from 'react'
+import { Checkbox as ReakitCheckbox } from 'reakit'
+
+import { createElement } from '../../system'
 import {
-  Checkbox,
+  useCheckbox,
   CheckboxProps,
   useCheckboxState,
   CheckboxStateReturn,
-} from 'reakit'
-import { mergeSx } from '@vtex-components/theme'
-import { forwardRef } from '@vtex-components/utils'
+} from '../Checkbox'
 
-export const Toggle = forwardRef(
-  (props: ToggleProps, ref: Ref<HTMLInputElement>) => {
-    const { sx = {}, size = 'regular', ...reakitProps } = props
+export const Toggle = forwardRef(function Toggle(
+  props: ToggleProps,
+  ref: Ref<HTMLInputElement>
+) {
+  const { htmlProps, state } = useCheckbox(props, 'components.toggle')
 
-    const styles = mergeSx<SxStyleProp>({ variant: `forms.toggle-${size}` }, sx)
+  return createElement({
+    component: ReakitCheckbox,
+    htmlProps: { role: 'switch', ...htmlProps },
+    state,
+    ref,
+  })
+})
 
-    return <Checkbox ref={ref} role="switch" {...reakitProps} sx={styles} />
-  }
-)
+export type ToggleProps = CheckboxProps
+export type ToggleStateReturn = CheckboxStateReturn
 
-export interface ToggleProps
-  extends Pick<
-    CheckboxProps,
-    | 'checked'
-    | 'required'
-    | 'disabled'
-    | 'value'
-    | 'name'
-    | 'onChange'
-    | 'state'
-    | 'setState'
-    | 'aria-labelledby'
-    | 'aria-label'
-    | 'id'
-  > {
-  /** ThemeUI style prop
-   * @default {}
-   */
-  sx?: SxStyleProp
-  /**
-   * Switch Size
-   * @default regular
-   */
-  size?: 'regular' | 'small'
-}
-
-export { useCheckboxState as useToggle }
-export { CheckboxStateReturn }
+export { useCheckboxState as useToggleState }

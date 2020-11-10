@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { SxStyleProp } from 'theme-ui'
+import { SxStyleProp } from '@vtex/admin-ui-system'
 import {
   useDisclosureState,
   Disclosure as ReakitDisclosure,
@@ -8,17 +8,11 @@ import {
   DisclosureStateReturn,
 } from 'reakit/Disclosure'
 
-import {
-  BorderTokensProps,
-  ColorTokensProps,
-  FlexTokensProps,
-  LayoutTokensProps,
-  SpaceTokensProps,
-} from '../../system'
 import { IconCaret } from '../../icons'
 import { Box } from '../Box'
 import { CollapsibleProvider, useCollapsibleContext } from './context'
 import { Button } from '../Button'
+import { Overridable } from '../../types'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
@@ -35,7 +29,14 @@ import { Button } from '../Button'
  * ```
  */
 export function Collapsible(props: CollapsibleProps) {
-  const { sx, children, disabled, focusable, state, ...tokensProps } = props
+  const {
+    styleOverrides,
+    children,
+    disabled,
+    focusable,
+    state,
+    ...boxProps
+  } = props
 
   const reakitProps = {
     focusable,
@@ -44,19 +45,28 @@ export function Collapsible(props: CollapsibleProps) {
   }
 
   return (
-    <Box variant="collapsible.container" sx={sx} {...tokensProps}>
+    <Box
+      themeKey="components.collapsible.container"
+      styles={styleOverrides}
+      {...boxProps}
+    >
       <CollapsibleProvider {...reakitProps}>{children}</CollapsibleProvider>
     </Box>
   )
 }
 
 export function Header(props: CollapsibleHeaderProps) {
-  const { children, label, sx, ...tokens } = props
+  const { children, label, styles, ...boxProps } = props
 
   return (
-    <Box el="header" variant="collapsible.header" sx={sx} {...tokens}>
+    <Box
+      element="header"
+      themeKey="components.collapsible.header"
+      styles={styles}
+      {...boxProps}
+    >
       <Disclosure>{label}</Disclosure>
-      <Box display="flex">{children}</Box>
+      <Box styles={{ display: 'flex' }}>{children}</Box>
     </Box>
   )
 }
@@ -73,8 +83,7 @@ function Disclosure({ children }: { children: ReactNode }) {
             iconPosition="start"
             icon={<IconCaret direction={visible ? 'down' : 'right'} />}
             variant="text"
-            sx={{
-              // reset
+            styleOverrides={{
               color: 'text',
               '&:hover': { backgroundColor: 'transparent' },
               '&:active': { backgroundColor: 'transparent' },
@@ -89,17 +98,17 @@ function Disclosure({ children }: { children: ReactNode }) {
 }
 
 export function Content(props: CollapsibleContentProps) {
-  const { children, sx, ...tokens } = props
+  const { children, styleOverrides, ...tokens } = props
   const disclosureProps = useCollapsibleContext()
 
   return (
     <DisclosureContent {...disclosureProps}>
       {(enhancedProps) => (
         <Box
-          el="section"
-          variant="collapsible.section"
+          element="section"
+          themeKey="components.collapsible.section"
+          styles={styleOverrides}
           {...enhancedProps}
-          sx={sx}
           {...tokens}
         >
           {children}
@@ -127,19 +136,12 @@ Collapsible.Content = Content
 
 export interface CollapsibleProps
   extends Pick<DisclosureProps, 'focusable' | 'disabled' | 'children'>,
-    BorderTokensProps,
-    LayoutTokensProps,
-    SpaceTokensProps,
-    Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc'> {
-  /** ThemeUI style prop */
-  sx?: SxStyleProp
+    Overridable {
   /** useCollapsible hook return */
   state: DisclosureStateReturn
 }
 
-export interface CollapsibleHeaderProps
-  extends SpaceTokensProps,
-    Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc' | 'c'> {
+export interface CollapsibleHeaderProps extends Overridable {
   /**
    * Disclosure Button label
    */
@@ -149,17 +151,11 @@ export interface CollapsibleHeaderProps
    */
   children?: ReactNode
   /** ThemeUI style prop */
-  sx?: SxStyleProp
+  styles?: SxStyleProp
 }
 
-export interface CollapsibleContentProps
-  extends Pick<LayoutTokensProps, 'display'>,
-    FlexTokensProps,
-    SpaceTokensProps,
-    Pick<ColorTokensProps, 'bg' | 'bc' | 'btc' | 'bbc' | 'blc' | 'brc' | 'c'> {
+export interface CollapsibleContentProps extends Overridable {
   children?: ReactNode
-  /** ThemeUI style prop */
-  sx?: SxStyleProp
 }
 
 export { useDisclosureState as useCollapsible }

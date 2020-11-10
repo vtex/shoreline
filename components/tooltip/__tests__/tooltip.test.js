@@ -1,7 +1,5 @@
-'use strict';
-
-const tooltip = require('..');
+'use strict'
 
 describe('tooltip', () => {
-    it('needs tests');
-});
+  it.todo('needs tests')
+})

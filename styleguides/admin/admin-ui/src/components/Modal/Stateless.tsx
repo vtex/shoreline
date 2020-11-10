@@ -1,100 +1,22 @@
 /** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
+import { jsx, SxStyleProp } from '@theme-ui/core'
+import { ReactNode, useCallback } from 'react'
+import { useClassName } from '@vtex/admin-ui-system'
+
+import { ModalStateReturn } from './state'
+import { ModalProvider } from './context'
 import {
-  Children,
-  cloneElement,
-  forwardRef,
-  FunctionComponentElement,
-  ReactNode,
-  Ref,
-  MouseEvent,
-  useMemo,
-  useCallback,
-  ReactElement,
-  useRef,
-} from 'react'
-import {
-  useDialogState,
-  Dialog as BaseDialog,
-  DialogBackdrop,
-  DialogDisclosure,
-  DialogStateReturn,
-  DialogOptions,
-} from 'reakit/Dialog'
-
-import { IconClose } from '../../icons'
-import { Box, BoxProps } from '../Box'
-import { Text } from '../Text'
-import { Button, ButtonProps } from '../Button'
-import { ModalProvider, useModalContext } from './context'
-
-export { useDialogState as useModalState }
-
-function isReactElement(
-  child: ReactNode
-): child is Omit<ReactElement, 'type'> & { type: { displayName: string } } {
-  return !!(child as ReactElement).type
-}
-
-function useComponentsExistence(
-  children: ReactNode,
-  sx: SxStyleProp
-): [boolean, boolean, ModalFooterSize | undefined] {
-  const headerExists = useRef(false)
-  const footerExists = useRef(false)
-  const footerSize = useRef<ModalFooterSize | undefined>(undefined)
-
-  Children.forEach(children, function (child) {
-    const displayName = isReactElement(child) && child.type.displayName
-
-    if (displayName === 'Modal.Header' || displayName === 'Stateless.Modal') {
-      Object.assign(sx, { overflowY: 'hidden' })
-      headerExists.current = true
-    }
-
-    if (displayName === 'Modal.Footer' || displayName === 'Stateless.Footer') {
-      Object.assign(sx, { overflowY: 'hidden' })
-      footerExists.current = true
-      footerSize.current =
-        (isReactElement(child) && child.props['size']) ?? undefined
-    }
-  })
-
-  return [headerExists.current, footerExists.current, footerSize.current]
-}
-
-function getScrollAreaSize(
-  hasHeader: boolean,
-  hasFooter: boolean,
-  size: ModalSize,
-  footerSize?: ModalFooterSize
-) {
-  if (!footerSize) {
-    if (hasHeader && hasFooter) {
-      if (size === 'small' || size === 'regular') {
-        return '-with-larger-scroll-area'
-      } else {
-        return '-with-extra-large-scroll-area'
-      }
-    } else if (hasHeader || hasFooter) {
-      return `-with-${size}-scroll-area`
-    }
-  } else {
-    if (hasHeader) {
-      if (size === footerSize) {
-        if (footerSize === 'small' || footerSize === 'regular') {
-          return '-with-larger-scroll-area'
-        } else {
-          return '-with-extra-large-scroll-area'
-        }
-      } else {
-        return '-with-mixed-scroll-area'
-      }
-    }
-  }
-
-  return ''
-}
+  AbstractModal,
+  AbstractModalBackdrop,
+  AbstractModalProps,
+  ModalHeader,
+  ModalButton,
+  ModalFooter,
+  ModalContent,
+} from './components'
+import { ModalSize } from './types'
+import { useComponentsExistence } from './util'
+import { Overridable } from '../../types'
 
 /**
  * Stateless Modal
@@ -123,8 +45,8 @@ export function StatelessModal(props: StatelessModalProps) {
     state,
     size = 'regular',
     omitCloseButton = false,
-    backdropSx = {},
-    sx = {},
+    backdropStyles = {},
+    styleOverrides = {},
     onClose = () => null,
     ...baseProps
   } = props
@@ -134,66 +56,35 @@ export function StatelessModal(props: StatelessModalProps) {
     onClose()
   }, [onClose, state])
 
-  const [hasHeader, hasFooter, footerSize] = useComponentsExistence(
-    children,
-    sx
-  )
+  const backdropCn = useClassName({
+    props: { styles: backdropStyles },
+    themeKey: 'components.modal.backdrop',
+  })
+
+  const { hasHeader, hasFooter, scrollStyle } = useComponentsExistence(children)
+
+  const modalCn = useClassName({
+    props: { styles: { ...scrollStyle, ...styleOverrides } },
+    themeKey: `components.modal.surface-${size}`,
+  })
 
   return (
-    <DialogBackdrop
-      sx={{ variant: 'overlay.modal.backdrop', ...backdropSx }}
-      {...state}
-    >
-      <BaseDialog
-        sx={{
-          variant: `overlay.modal.surface-${size}`,
-          ...sx,
-        }}
-        {...state}
-        {...baseProps}
-      >
+    <AbstractModalBackdrop className={backdropCn} {...state}>
+      <AbstractModal className={modalCn} {...state} {...baseProps}>
         <ModalProvider
           value={{
             state,
+            hasHeader,
+            hasFooter,
             handleClose,
             size,
             omitCloseButton,
-            hasHeader,
-            hasFooter,
-            footerSize,
           }}
         >
           {children}
         </ModalProvider>
-      </BaseDialog>
-    </DialogBackdrop>
-  )
-}
-
-/**
- * Toggle StatelessModal visibility
- *
- * @example
- * ```jsx
- * import { useModalState, ModalDisclosure } from `@vtex/admin-ui`
- *
- * const state = useModalState()
- * <ModalDisclosure {...state}>
- *  <button>Open Modal</button>
- * </ModalDisclosure>
- * ```
- */
-export function ModalDisclosure(
-  props: DialogStateReturn & { children: FunctionComponentElement<unknown> }
-) {
-  const { children, ...baseProps } = props
-
-  Children.only(children)
-
-  return (
-    <DialogDisclosure {...baseProps} ref={children.ref} {...children.props}>
-      {(enhancedProps) => cloneElement(children, enhancedProps)}
-    </DialogDisclosure>
+      </AbstractModal>
+    </AbstractModalBackdrop>
   )
 }
 
@@ -210,48 +101,7 @@ export function ModalDisclosure(
  * </StatelessModal>
  * ```
  */
-StatelessModal.Header = function Header(props: ModalHeaderProps) {
-  const {
-    children,
-    title = null,
-    containerSx = {},
-    sx = {},
-    ...boxProps
-  } = props
-
-  const { omitCloseButton, size } = useModalContext()
-
-  const renderTitle = useMemo(() => {
-    if (typeof title === 'string') {
-      return <Text el="h1">{title}</Text>
-    }
-
-    return title
-  }, [title])
-
-  return (
-    <Box
-      el="header"
-      sx={{ variant: `overlay.modal.header-${size}`, ...sx }}
-      {...boxProps}
-    >
-      {renderTitle}
-      <Box sx={containerSx} display="flex" items="center">
-        {children}
-        {!omitCloseButton && (
-          <StatelessModal.Button
-            closeModalOnClick
-            variant="text"
-            icon={<IconClose />}
-            sx={{
-              color: 'text',
-            }}
-          />
-        )}
-      </Box>
-    </Box>
-  )
-}
+StatelessModal.Header = ModalHeader
 
 /**
  * Content of the modal
@@ -266,25 +116,7 @@ StatelessModal.Header = function Header(props: ModalHeaderProps) {
  * </StatelessModal>
  * ```
  */
-StatelessModal.Content = function Content(props: ModalContentProps) {
-  const { sx, ...boxProps } = props
-  const { hasHeader, hasFooter, size, footerSize } = useModalContext()
-
-  const scrollSize = useMemo(
-    () => getScrollAreaSize(hasHeader, hasFooter, size, footerSize),
-    [hasHeader, hasFooter, size, footerSize]
-  )
-
-  return (
-    <Box
-      sx={{
-        variant: `overlay.modal.content${scrollSize}`,
-        ...sx,
-      }}
-      {...boxProps}
-    />
-  )
-}
+StatelessModal.Content = ModalContent
 
 /**
  * Footer of the modal
@@ -299,18 +131,7 @@ StatelessModal.Content = function Content(props: ModalContentProps) {
  * </StatelessModal>
  * ```
  */
-StatelessModal.Footer = function Footer(props: ModalFooterProps) {
-  const { sx, size: footerSize, ...boxProps } = props
-  const { size } = useModalContext()
-
-  return (
-    <Box
-      el="footer"
-      sx={{ variant: `overlay.modal.footer-${footerSize ?? size}`, ...sx }}
-      {...boxProps}
-    />
-  )
-}
+StatelessModal.Footer = ModalFooter
 
 /**
  * Button capable of close the modal when clicked
@@ -327,63 +148,9 @@ StatelessModal.Footer = function Footer(props: ModalFooterProps) {
  * </StatelessModal>
  * ```
  */
-StatelessModal.Button = forwardRef(function ModalButton(
-  props: ModalButtonProps,
-  ref: Ref<HTMLButtonElement>
-) {
-  const {
-    closeModalOnClick = false,
-    onClick = () => null,
-    ...buttonProps
-  } = props
+StatelessModal.Button = ModalButton
 
-  const { handleClose } = useModalContext()
-
-  const handleClick = (event: MouseEvent<unknown, globalThis.MouseEvent>) => {
-    onClick(event)
-
-    if (closeModalOnClick) {
-      handleClose()
-    }
-  }
-
-  return <Button onClick={handleClick} ref={ref} {...buttonProps} />
-})
-
-export interface ModalHeaderProps extends Omit<BoxProps, 'title'> {
-  /**
-   * Title of the modal
-   * @default null
-   */
-  title?: ReactNode
-  /**
-   * Styles of the buttons container
-   * @default {}
-   */
-  containerSx?: SxStyleProp
-}
-export interface ModalButtonProps extends ButtonProps {
-  /**
-   * If it should close the modal on click
-   * @default false
-   */
-  closeModalOnClick?: boolean
-}
-
-export type ModalContentProps = BoxProps
-export type ModalSize = 'small' | 'regular' | 'large'
-export type ModalFooterSize = ModalSize
-
-export interface ModalFooterProps extends BoxProps {
-  /**
-   * Modal footer size
-   * @default matches the Modal size
-   */
-  size?: ModalFooterSize
-}
-
-export interface StatelessModalProps
-  extends Pick<DialogOptions, 'hideOnEsc' | 'hideOnClickOutside'> {
+export interface StatelessModalProps extends AbstractModalProps, Overridable {
   /**
    * Component children
    */
@@ -391,7 +158,7 @@ export interface StatelessModalProps
   /**
    * Return of useModalState hook
    */
-  state: DialogStateReturn
+  state: ModalStateReturn
   /**
    * Label of the modal
    */
@@ -407,15 +174,10 @@ export interface StatelessModalProps
    */
   omitCloseButton?: boolean
   /**
-   * Modal box styles
-   * @default {}
-   */
-  sx?: SxStyleProp
-  /**
    * Backdrop styles
    * @default {}
    */
-  backdropSx?: SxStyleProp
+  backdropStyles?: SxStyleProp
   /**
    * Action to dispatch on close modal
    * @default ()=>null

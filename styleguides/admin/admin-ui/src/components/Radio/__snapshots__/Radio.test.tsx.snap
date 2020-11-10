@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio tests should match snapshot with diferent sizes 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0rem;
+  position: relative;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #C4C5CA;
+  background-color: transparent;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  padding: 5px;
+}
+
+.emotion-0:after {
+  content: "";
+  display: block;
+  border-radius: 100%;
+  background-color: white;
+  opacity: 0;
+  width: 8px;
+  height: 8px;
+}
+
+.emotion-0:checked {
+  background-color: #2953B2;
+  border-color: #2953B2;
+}
+
+.emotion-0:checked:after {
+  opacity: 1;
+}
+
+.emotion-0:checked:hover {
+  background-color: #1E4397;
+  border-color: #1E4397;
+}
+
+.emotion-0:checked:active {
+  border-color: #3F6FDB;
+  background-color: #3F6FDB;
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  background-color: #E0E2E7;
+  border-color: #898F9E;
+}
+
+.emotion-0:disabled:after {
+  background-color: #898F9E;
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:active {
+  border-color: #707685;
+  background-color: #DAE3F5;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+<input
+    aria-checked="false"
+    aria-label="radio"
+    class="emotion-0"
+    id="id-1"
+    name="id"
+    tabindex="0"
+    type="radio"
+    value="radio"
+  />
+  .emotion-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0rem;
+  position: relative;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #C4C5CA;
+  background-color: transparent;
+  border-radius: 100%;
+  height: 16px;
+  width: 16px;
+  padding: 0.25rem;
+}
+
+.emotion-0:after {
+  content: "";
+  display: block;
+  border-radius: 100%;
+  background-color: white;
+  opacity: 0;
+  width: 6px;
+  height: 6px;
+}
+
+.emotion-0:checked {
+  background-color: #2953B2;
+  border-color: #2953B2;
+}
+
+.emotion-0:checked:after {
+  opacity: 1;
+}
+
+.emotion-0:checked:hover {
+  background-color: #1E4397;
+  border-color: #1E4397;
+}
+
+.emotion-0:checked:active {
+  border-color: #3F6FDB;
+  background-color: #3F6FDB;
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  background-color: #E0E2E7;
+  border-color: #898F9E;
+}
+
+.emotion-0:disabled:after {
+  background-color: #898F9E;
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:active {
+  border-color: #707685;
+  background-color: #DAE3F5;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+<input
+    aria-checked="false"
+    aria-label="radio"
+    class="emotion-0"
+    id="id-1"
+    name="id"
+    tabindex="0"
+    type="radio"
+    value="radio"
+  />
+</DocumentFragment>
+`;

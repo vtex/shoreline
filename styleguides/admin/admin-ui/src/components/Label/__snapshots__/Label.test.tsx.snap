@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<label
+    class="emotion-0"
+    for="text-id"
+  >
+    Text Input Label!
+  </label>
+  <input
+    id="text-id"
+    type="text"
+  />
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<label
+    class="emotion-0"
+  >
+    <input
+      type="checkbox"
+    />
+    Checkbox Input Label!
+  </label>
+</DocumentFragment>
+`;

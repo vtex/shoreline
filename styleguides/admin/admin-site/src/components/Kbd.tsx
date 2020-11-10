@@ -1,24 +1,25 @@
 import React from 'react'
-import { Box, BoxProps } from '@vtex/admin-ui'
+import { Text, TextProps } from '@vtex/admin-ui'
 
 export default function Kbd(props: KbdProps) {
   return (
-    <Box
-      el="kbd"
-      px="2"
-      py="1"
-      br="3"
-      bs="solid"
-      bc="muted.2"
-      bg="muted.4"
-      bbw="3"
-      btw="1"
-      blw="1"
-      brw="1"
-      fs="0"
+    <Text
+      element="kbd"
+      variant="small"
+      styleOverrides={{
+        paddingX: 2,
+        paddingY: 1,
+        borderRadius: 'default',
+        borderColor: 'muted.2',
+        bg: 'muted.4',
+        borderBottomWidth: 3,
+        borderTopWidth: '1',
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+      }}
       {...props}
     />
   )
 }
 
-export type KbdProps = BoxProps
+export type KbdProps = TextProps

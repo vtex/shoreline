@@ -1,7 +1,6 @@
 // TODO Refactor Tooltip (arrow Icon, use admin's tooltip)
-/** @jsx jsx */
-import { jsx, Box, Text, SxStyleProp } from '@vtex/admin-ui'
-import { Fragment, Ref } from 'react'
+import React, { Fragment, Ref } from 'react'
+import { Box, cn, Text } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link, GatsbyLinkProps } from 'gatsby'
 import {
   unstable_useId as useId,
@@ -12,7 +11,7 @@ import {
 } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
-import Nightly from '../icons/Nightly'
+import Next from '../icons/Next'
 
 const query = graphql`
   query DocsQuery {
@@ -27,14 +26,14 @@ const query = graphql`
         title
         frontmatter {
           path
-          nightly
+          next
         }
       }
     }
   }
 `
 
-const linkStyles: SxStyleProp = {
+const linkStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   width: 'full',
@@ -78,25 +77,30 @@ function ExperimentalLink(props: GatsbyLinkProps<{}>) {
 
   return (
     <Fragment>
-      <TooltipReference as={Link} sx={linkStyles} {...props} {...tooltip}>
+      <TooltipReference
+        as={Link}
+        className={cn(linkStyles)}
+        {...props}
+        {...tooltip}
+      >
         {props.children}
-        <Nightly
+        <Next
           role="presentation"
           ref={(ref as unknown) as Ref<SVGSVGElement>}
         />
       </TooltipReference>
       <Tooltip
-        sx={{
+        className={cn({
           bg: 'text',
           color: 'background',
           padding: 2,
           borderRadius: 4,
-        }}
+        })}
         {...tooltip}
       >
-        <Text el="span" variant="small">
+        <Text variant="small">
           <TooltipArrow {...tooltip} />
-          Nightly
+          Next
         </Text>
       </Tooltip>
     </Fragment>
@@ -114,13 +118,12 @@ export default function DocsNavigation() {
   const getTitle = (path: string) => findMeta(path)?.title
 
   const getIsExperimental = (path: string) =>
-    Boolean(findMeta(path)?.frontmatter.nightly)
+    Boolean(findMeta(path)?.frontmatter.next)
 
   return (
     <Box
-      bg="background"
-      c="text"
-      sx={{
+      palette="base"
+      styles={{
         'nav:first-of-type': {
           margin: 0,
         },
@@ -128,30 +131,32 @@ export default function DocsNavigation() {
     >
       {data.allNavigationYaml.nodes.map((node) => (
         <nav
-          sx={{
+          className={cn({
             marginTop: 4,
-          }}
+          })}
           key={node.section}
           aria-labelledby={getId(node.section)}
         >
           <Text
-            py="0"
-            px="0"
+            styleOverrides={{
+              paddingY: 0,
+              paddingX: 0,
+              color: 'muted.0',
+            }}
             variant="highlight"
-            c="muted.0"
             id={getId(node.section)}
           >
             {node.section}
           </Text>
-          <ul sx={{ padding: 0 }}>
+          <ul className={cn({ padding: 0 })}>
             {node.paths.map((path) => (
               <li
-                sx={{
+                className={cn({
                   listStyle: 'none',
                   display: 'flex',
                   width: 'full',
                   justifyContent: 'space-between',
-                }}
+                })}
                 key={path}
               >
                 {getIsExperimental(path) ? (
@@ -159,7 +164,7 @@ export default function DocsNavigation() {
                     {getTitle(path)}
                   </ExperimentalLink>
                 ) : (
-                  <Link sx={linkStyles} to={path}>
+                  <Link className={cn(linkStyles)} to={path}>
                     {getTitle(path)}
                   </Link>
                 )}
@@ -184,7 +189,7 @@ interface Data {
       title: string
       frontmatter: {
         path: string
-        nightly?: boolean
+        next?: boolean
       }
     }>
   }

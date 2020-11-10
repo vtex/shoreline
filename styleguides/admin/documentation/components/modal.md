@@ -129,10 +129,10 @@ import {
   Button,
   Label,
   Checkbox,
-  useCheckbox,
+  useCheckboxState,
 } from '@vtex/admin-ui'
 function Example() {
-  const checkbox = useCheckbox()
+  const checkbox = useCheckboxState()
 
   const handleClose = () => checkbox.setState(false)
 
@@ -169,7 +169,7 @@ function Example() {
         </Modal.Content>
         <Modal.Footer>
           <Label display="flex" position="relative" items="center">
-            <Checkbox {...checkbox} />
+            <Checkbox state={checkbox} />
             <Text pl="2">I accept the terms and conditions above</Text>
           </Label>
           <Button disabled={!checkbox.state}>Next</Button>
@@ -182,98 +182,12 @@ function Example() {
 
 #### Large
 
-```jsx
-import {
-  Modal,
-  ThemeProvider,
-  Text,
-  Toggle,
-  Button,
-  List,
-} from '@vtex/admin-ui'
+TODO
 
-function Example() {
-  return (
-    <ThemeProvider>
-      <Modal
-        aria-label="Transactions Modal"
-        disclosure={<Button>Transactions settings</Button>}
-        size="large"
-        omitCloseButton
-      >
-        <Modal.Header title="Transactions settings">
-          <Modal.Button variant="subtle" size="small" closeModalOnClick>
-            Cancel
-          </Modal.Button>
-          <Modal.Button closeModalOnClick size="small">
-            Save Changes
-          </Modal.Button>
-        </Modal.Header>
-        <Modal.Content>
-          <List
-            density="compact"
-            label="General"
-            sx={{
-              div: {
-                justifyContent: 'space-between',
-              },
-            }}
-          >
-            <List.Item>
-              <Text>Default markup for external integration</Text>
-              <Text c="muted.1">100%</Text>
-            </List.Item>
-            <List.Item>
-              <Text>Use price variation limit</Text>
-              <Toggle state />
-            </List.Item>
-            <List.Item>
-              <Text>Inherit prices from parent account</Text>
-              <Toggle state />
-            </List.Item>
-            <List.Item>
-              <Text>Overwrite seller prices</Text>
-              <Toggle state />
-            </List.Item>
-          </List>
-        </Modal.Content>
-        <Modal.Content>
-          <List
-            density="compact"
-            label="Psychological pricing"
-            sx={{
-              div: {
-                justifyContent: 'space-between',
-              },
-            }}
-          >
-            <List.Item>
-              <List.TextGroup
-                variant="body"
-                title="Apply this method to all prices"
-                subtitle="Inactive"
-              />
-              <Toggle state />
-            </List.Item>
-            <List.Item>
-              <Text>At what price range will this rule apply?</Text>
-              <Text c="muted.1">From 9.90 to 20.00</Text>
-            </List.Item>
-            <List.Item>
-              <Text>How many digits will be rounded?</Text>
-              <Text c="muted.1">2</Text>
-            </List.Item>
-            <List.Item>
-              <Text>Which rounding method will be applied to?</Text>
-              <Text c="muted.1">Nines</Text>
-            </List.Item>
-          </List>
-        </Modal.Content>
-      </Modal>
-    </ThemeProvider>
-  )
-}
-```
+## Props
+
+<propdetails heading="Modal" component="Modal">
+</propdetails>
 
 # Stateless Modal
 
@@ -405,6 +319,5 @@ function Example() {
 
 ## Props
 
-### WIP
-
-<proptypes heading="Modal" component="Modal" />
+<propdetails heading="StatelessModal" component="StatelessModal">
+</propdetails>

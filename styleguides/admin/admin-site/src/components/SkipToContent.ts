@@ -1,6 +1,5 @@
-import { css, cx } from 'emotion'
+import { cn } from '@vtex/admin-ui'
 import { createHook, createComponent } from 'reakit-system'
-import { usePalette } from 'reakit-system-palette/utils'
 
 import { useAnchor, AnchorOptions, AnchorProps } from './Anchor'
 
@@ -16,37 +15,32 @@ export const useSkipToContent = createHook<
   compose: useAnchor,
 
   useProps(_, htmlProps) {
-    const background = usePalette('background')
-
-    const skipToContent = css`
-      left: -999px;
-      position: absolute;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      z-index: -999;
-      &:focus,
-      &:active {
-        background-color: ${background} !important;
-        left: auto;
-        top: auto;
-        height: auto;
-        width: max-content;
-        overflow: auto;
-        padding: 1em;
-        margin: 1em;
-        text-align: center;
-        z-index: 999;
-      }
-    `
-
     return {
       tabIndex: 0,
-      children: 'Skip to main content',
+      children: '',
       href: '#main',
       ...htmlProps,
-      className: cx(skipToContent, htmlProps.className),
+      className: cn({
+        left: '-999px',
+        position: 'absolute',
+        top: 'auto',
+        width: 1,
+        height: 1,
+        overflow: 'hidden',
+        zIndex: -999,
+        ':focus, :active': {
+          bg: 'background',
+          left: 'auto',
+          top: 'auto',
+          height: 'auto',
+          width: 'max-content',
+          overflow: 'auto',
+          padding: '1em',
+          margin: '1em',
+          textAlign: 'center',
+          zIndex: 999,
+        },
+      }),
     }
   },
 })

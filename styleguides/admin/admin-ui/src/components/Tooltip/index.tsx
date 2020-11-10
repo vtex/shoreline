@@ -1,7 +1,13 @@
-import React from 'react'
-import BaseTooltip, {
-  TooltipProps as BaseProps,
-} from '@vtex-components/tooltip'
+import React, { FunctionComponentElement, cloneElement, ReactNode } from 'react'
+import {
+  useTooltipState,
+  Tooltip as ReakitTooltip,
+  TooltipReference,
+} from 'reakit/Tooltip'
+import { PopoverState } from 'reakit/ts'
+
+import { Overridable } from '../../types'
+import { Box } from '../Box'
 
 /**
  * Popup that displays information related to an element on :focus (by keyboard) or :hover (by mouse).
@@ -14,10 +20,50 @@ import BaseTooltip, {
  * ```
  */
 export function Tooltip(props: TooltipProps) {
-  return <BaseTooltip variant="overlay.tooltip" {...props} />
+  const {
+    styleOverrides = {},
+    children,
+    label,
+    placement = 'top',
+    visible,
+    ...tooltipProps
+  } = props
+
+  const tooltip = useTooltipState({ placement, visible })
+
+  return (
+    <>
+      <TooltipReference {...tooltip} {...children.props} ref={children.ref}>
+        {(referenceProps) => cloneElement(children, { ...referenceProps })}
+      </TooltipReference>
+      <ReakitTooltip {...tooltip} {...tooltipProps}>
+        <Box themeKey="components.tooltip" styles={styleOverrides}>
+          {label}
+        </Box>
+      </ReakitTooltip>
+    </>
+  )
 }
 
-export type TooltipProps = Pick<
-  BaseProps,
-  'children' | 'label' | 'placement' | 'visible' | 'sx'
->
+export type TooltipPlacement = Pick<PopoverState, 'placement'>['placement']
+
+export interface TooltipProps extends Overridable {
+  /**
+   * The element that triggers the tooltip
+   */
+  children: FunctionComponentElement<unknown>
+  /**
+   * Label shown inside the tooltip
+   */
+  label: ReactNode
+  /**
+   * The placement of the tooltip relative to its children
+   * @default 'top'
+   */
+  placement?: TooltipPlacement
+  /**
+   * Whether the tooltip is visible or not
+   * @default false
+   */
+  visible?: boolean
+}

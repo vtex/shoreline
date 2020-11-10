@@ -1,56 +1,60 @@
-import React from 'react'
-import { SxStyleProp } from 'theme-ui'
+import { Box as ReakitBox } from 'reakit'
+import { ReactNode, forwardRef, Ref } from 'react'
+import { SpaceStyleProps, TextVariant } from '@vtex/admin-ui-theme'
 
-import { Box, BoxProps } from '../Box'
-/**
- * The component that abstracts all text variants from admin's styleguide.
- * - It renders a h1 if variant === headline.
- * - It renders a h2 if variant === subtitle.
- * - It renders a span for other variants.
- * @example
- * ```jsx
- * import { Text } from `@vtex/admin-ui`
- * <Text variant="small">A small text</Text>
- * <Text as="p" variant="body">Look, a paragraph</Text>
- * ```
- */
-export function Text(props: TextProps) {
-  const { el = undefined, variant = 'body', sx = {}, ...boxProps } = props
-  const tag = getTag(variant)
-  const element: typeof el = el ?? tag
+import { createElement } from '../../system'
+import { useComponent } from '../../hooks/useComponent'
+import { Overridable } from '../../types'
 
-  return <Box el={element} {...boxProps} variant={`text.${variant}`} sx={sx} />
-}
+export const Text = forwardRef(function Heading(
+  props: TextProps,
+  ref: Ref<HTMLElement>
+) {
+  const { element = 'span', variant = 'body', ...htmlProps } = props
+  const textProps = useComponent({
+    props: { text: variant, ...htmlProps },
+  })
 
-function getTag(variant: TextVariant) {
-  switch (variant) {
-    case 'headline':
-      return 'h1'
+  return createElement({
+    ref,
+    element,
+    component: ReakitBox,
+    htmlProps: textProps,
+  })
+})
 
-    case 'subtitle':
-      return 'h2'
-
-    default:
-      return 'span'
-  }
-}
-
-export type TextVariant =
-  | 'small'
-  | 'body'
-  | 'highlight'
-  | 'action'
-  | 'subtitle'
-  | 'headline'
-
-export interface TextProps extends Omit<BoxProps, 'variant'> {
+export interface TextProps extends Overridable, SpaceStyleProps {
   /**
-   * Text Variant
+   * Element to render
+   * @default span
+   */
+  element?:
+    | 'span'
+    | 'strong'
+    | 'i'
+    | 'u'
+    | 'abbr'
+    | 'cite'
+    | 'del'
+    | 'em'
+    | 'ins'
+    | 'kbd'
+    | 'mark'
+    | 's'
+    | 'samp'
+    | 'sub'
+    | 'sup'
+  /**
+   * heading children
+   */
+  children?: ReactNode
+  /**
+   * Text variant. Consumes the text pattern
    * @default body
    */
   variant?: TextVariant
   /**
-   * ThemeUI style prop
+   * html id
    */
-  sx?: SxStyleProp
+  id?: string
 }

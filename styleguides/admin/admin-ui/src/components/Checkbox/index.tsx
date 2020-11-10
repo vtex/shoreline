@@ -1,53 +1,69 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
 import { Ref } from 'react'
 import {
   Checkbox as ReakitCheckbox,
   CheckboxProps as ReakitProps,
   CheckboxStateReturn,
   useCheckboxState,
-} from 'reakit'
-import { mergeSx } from '@vtex-components/theme'
-import { forwardRef } from '@vtex-components/utils'
+} from 'reakit/Checkbox'
+import { forwardRef } from '@vtex/admin-ui-system'
+
+import { createElement, useClassName } from '../../system'
+import { Overridable } from '../../types'
 
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
-    const { sx = {}, size = 'regular', ...reakitProps } = props
+    const { htmlProps, state } = useCheckbox(props)
 
-    const styles = mergeSx<SxStyleProp>(
-      { variant: `forms.checkbox-${size}` },
-      sx
-    )
-
-    return <ReakitCheckbox ref={ref} {...reakitProps} sx={styles} />
+    return createElement({
+      component: ReakitCheckbox,
+      htmlProps,
+      state,
+      ref,
+    })
   }
 )
-export interface CheckboxProps
-  extends Pick<
-    ReakitProps,
-    | 'checked'
-    | 'required'
-    | 'disabled'
-    | 'value'
-    | 'name'
-    | 'onChange'
-    | 'state'
-    | 'setState'
-    | 'onClick'
-    | 'aria-label'
-    | 'aria-labelledby'
-    | 'id'
-  > {
-  /** ThemeUI style prop
-   *  @default {}
-   */
-  sx?: SxStyleProp
+
+export function useCheckbox(
+  props: CheckboxProps,
+  themeKey = 'components.checkbox'
+) {
+  const { size = 'regular', styleOverrides, state, ...restProps } = props
+
+  const className = useClassName({
+    props: { styles: styleOverrides },
+    themeKey: `${themeKey}.${size}`,
+  })
+
+  return { htmlProps: { className, ...restProps }, state }
+}
+
+type AbstractCheckboxProps = Pick<
+  ReakitProps,
+  | 'checked'
+  | 'required'
+  | 'disabled'
+  | 'value'
+  | 'name'
+  | 'onChange'
+  | 'onClick'
+  | 'aria-label'
+  | 'aria-labelledby'
+  | 'id'
+>
+
+type State = Pick<ReakitProps, 'state' | 'setState'>
+
+export interface CheckboxProps extends AbstractCheckboxProps, Overridable {
   /**
    *  Checkbox Size
    * @default regular
    */
   size?: 'regular' | 'small'
+  /**
+   * Return of `useCheckboxState`
+   */
+  state?: State
 }
 
-export { useCheckboxState as useCheckbox }
+export { useCheckboxState }
 export { CheckboxStateReturn }

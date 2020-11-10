@@ -3,22 +3,22 @@
 exports[`Card tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: 1.5rem;
-  background-color: var(--theme-ui-colors-background,#FFFFFF);
-  border-color: var(--theme-ui-colors-muted-3,#D7DADF);
-  border-style: solid;
+  background-color: #FFFFFF;
+  color: #323845;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   border-width: 1px;
+  border-style: solid;
   border-radius: 4px;
+  border-color: #E0E2E7;
+  padding: 1.5rem;
 }
 
 <div
-    bc="muted.3"
-    bg="background"
     class="emotion-0"
-    p="13"
-    sx="[object Object]"
   >
-    Example card
+    Card text
   </div>
 </DocumentFragment>
 `;

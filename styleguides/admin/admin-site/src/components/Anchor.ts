@@ -1,6 +1,5 @@
 import React from 'react'
-import { cx, css } from 'emotion'
-import { useColor } from '@vtex/admin-ui'
+import { cn } from '@vtex/admin-ui'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent, useCreateElement } from 'reakit-system'
 import { Link } from 'gatsby'
@@ -9,18 +8,14 @@ export const useAnchor = createHook<AnchorOptions, AnchorHTMLProps>({
   name: 'Anchor',
   compose: useBox,
   useProps(_, htmlProps) {
-    const color = useColor('primary.base')
-    const anchor = css`
-      color: ${color};
-      font-weight: 500;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    `
-
-    return { ...htmlProps, className: cx(anchor, htmlProps.className) }
+    return {
+      ...htmlProps,
+      className: cn({
+        color: 'primary.base',
+        textDecoration: 'none',
+        ':hover': { textDecoration: 'underline' },
+      }),
+    }
   },
 })
 
