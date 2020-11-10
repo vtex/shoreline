@@ -1,7 +1,14 @@
 /** @jsx jsx */
 import { Box, Text, Grid, jsx } from 'theme-ui'
 import { useState, PropsWithChildren } from 'react'
-import { DateTime, Info } from 'luxon'
+import { DateTime } from 'luxon'
+
+import {
+  getFinalCells,
+  getInitialCells,
+  getMonthCells,
+  getWeekDays,
+} from './util'
 
 const today = DateTime.local()
 
@@ -77,65 +84,6 @@ export const Calendar = ({
     }
   }
 
-  const getFirstDayOfMonth = () => date.startOf('month')
-  const getLastDayOfMonth = () => date.endOf('month')
-
-  /**
-   * Get all the days in a week. Since luxon weekdays start with Monday and
-   * end with Sunday, this method does a workaround for starting with Sunday.
-   *
-   * @returns array with weekdays initials
-   */
-  const getWeekDays = (): string[] => {
-    const weekdays = Info.weekdays('narrow', { locale })
-
-    const [lastWeekday] = weekdays.slice(-1)
-    const restWeekdays = weekdays.slice(0, 6)
-
-    return [lastWeekday, ...restWeekdays]
-  }
-
-  const getInitialCells = (): DateTime[] => {
-    const initialCells: DateTime[] = []
-    const firstDay = getFirstDayOfMonth()
-    const firstDayWeekday = firstDay.weekday % 7
-
-    for (let i = 0; i < firstDayWeekday; i++) {
-      const cell = firstDay.minus({ days: firstDayWeekday - i })
-
-      initialCells.push(cell)
-    }
-
-    return initialCells
-  }
-
-  const getMonthCells = (): DateTime[] => {
-    const monthCells: DateTime[] = []
-    const firstDay = getFirstDayOfMonth()
-
-    for (let i = 0; i < date.daysInMonth; i++) {
-      const cell = firstDay.plus({ days: i })
-
-      monthCells.push(cell)
-    }
-
-    return monthCells
-  }
-
-  const getFinalCells = (): DateTime[] => {
-    const finalCells: DateTime[] = []
-    const lastDay = getLastDayOfMonth()
-    const lastDayWeekday = lastDay.weekday % 7
-
-    for (let i = 6; i > lastDayWeekday; i--) {
-      const cell = lastDay.plus({ days: i - lastDayWeekday })
-
-      finalCells.push(cell)
-    }
-
-    return finalCells.reverse()
-  }
-
   const renderDayCell = ({
     value,
     variant,
@@ -158,18 +106,18 @@ export const Calendar = ({
     <Box variant={`calendar${disabled ? '.disabled' : ''}`}>
       <Text variant="calendar.title">{date.toFormat('MMMM yyyy')}</Text>
       <Grid variant="calendar.grid">
-        {getWeekDays().map((weekDay, index) => (
+        {getWeekDays(locale).map((weekDay, index) => (
           <Box key={index} variant="calendar.weekdayCell">
             {weekDay}
           </Box>
         ))}
-        {getInitialCells().map((initialCell) =>
+        {getInitialCells(date).map((initialCell) =>
           renderDayCell({ value: initialCell, variant: 'calendar.extraCell' })
         )}
-        {getMonthCells().map((monthCell) =>
+        {getMonthCells(date).map((monthCell) =>
           renderDayCell({ value: monthCell, variant: 'calendar.monthCell' })
         )}
-        {getFinalCells().map((finalCell) =>
+        {getFinalCells(date).map((finalCell) =>
           renderDayCell({ value: finalCell, variant: 'calendar.extraCell' })
         )}
       </Grid>
