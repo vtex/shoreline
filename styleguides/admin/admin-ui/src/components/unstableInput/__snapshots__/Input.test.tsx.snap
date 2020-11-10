@@ -4,6 +4,9 @@ exports[`Input tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-1 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-0 {
@@ -75,6 +78,9 @@ exports[`Input tests should match snapshot 1`] = `
   </div>
   .emotion-2 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-0 {
@@ -136,6 +142,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -159,6 +168,9 @@ exports[`Input tests should match snapshot 1`] = `
   </div>
   .emotion-5 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-0 {
@@ -220,6 +232,9 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -242,6 +257,9 @@ exports[`Input tests should match snapshot 1`] = `
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -274,6 +292,12 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.emotion-2 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-1 {
@@ -394,6 +418,9 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-3 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-3 label {
@@ -410,6 +437,9 @@ exports[`Input tests should match snapshot 1`] = `
   position: absolute;
   width: 44px;
   height: 48px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-1 svg {
@@ -547,6 +577,9 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-3 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-3 label {
@@ -563,6 +596,9 @@ exports[`Input tests should match snapshot 1`] = `
   position: absolute;
   width: 44px;
   height: 48px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-1 svg {
@@ -643,6 +679,9 @@ exports[`Input tests should match snapshot 1`] = `
     />
   </div>
   .emotion-3 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -656,6 +695,9 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-4 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-4 label {
@@ -672,6 +714,9 @@ exports[`Input tests should match snapshot 1`] = `
   position: absolute;
   width: 44px;
   height: 48px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-1 svg {
@@ -811,6 +856,9 @@ exports[`Input tests should match snapshot 1`] = `
     />
   </div>
   .emotion-6 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -833,6 +881,9 @@ exports[`Input tests should match snapshot 1`] = `
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -867,6 +918,12 @@ exports[`Input tests should match snapshot 1`] = `
   justify-content: center;
 }
 
+.emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
 .emotion-3 {
   min-width: 20px;
   min-height: 20px;
@@ -876,6 +933,9 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-7 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-7 label {
@@ -892,6 +952,9 @@ exports[`Input tests should match snapshot 1`] = `
   position: absolute;
   width: 44px;
   height: 48px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-1 svg {
@@ -1073,9 +1136,15 @@ exports[`Input tests should match snapshot 1`] = `
   </div>
   .emotion-3 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-2 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1177,9 +1246,15 @@ exports[`Input tests should match snapshot 1`] = `
   </div>
   .emotion-3 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-2 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1283,9 +1358,15 @@ exports[`Input tests should match snapshot 1`] = `
   </div>
   .emotion-3 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-2 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1386,6 +1467,9 @@ exports[`Input tests should match snapshot 1`] = `
     </div>
   </div>
   .emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1399,6 +1483,9 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-5 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-5 label {
@@ -1415,6 +1502,9 @@ exports[`Input tests should match snapshot 1`] = `
   position: absolute;
   width: 44px;
   height: 48px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-1 svg {
@@ -1574,6 +1664,9 @@ exports[`Input tests should match snapshot 1`] = `
     </div>
   </div>
   .emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1587,6 +1680,9 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-5 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-5 label {
@@ -1603,6 +1699,9 @@ exports[`Input tests should match snapshot 1`] = `
   position: absolute;
   width: 44px;
   height: 48px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-1 svg {
@@ -1762,6 +1861,9 @@ exports[`Input tests should match snapshot 1`] = `
     </div>
   </div>
   .emotion-7 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1784,6 +1886,9 @@ exports[`Input tests should match snapshot 1`] = `
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -1818,6 +1923,12 @@ exports[`Input tests should match snapshot 1`] = `
   justify-content: center;
 }
 
+.emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
 .emotion-3 {
   min-width: 20px;
   min-height: 20px;
@@ -1827,6 +1938,9 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-8 {
   position: relative;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-8 label {
@@ -1843,6 +1957,9 @@ exports[`Input tests should match snapshot 1`] = `
   position: absolute;
   width: 44px;
   height: 48px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-1 svg {

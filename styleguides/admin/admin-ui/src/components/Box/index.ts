@@ -23,8 +23,8 @@ export const Box = forwardRef(function Box(
 })
 
 export function useBox(props: BoxProps) {
-  const { themeKey, ...htmlProps } = props
-  const className = useClassName({ props: htmlProps, themeKey })
+  const { themeKey, text = 'body', ...htmlProps } = props
+  const className = useClassName({ props: { text, ...htmlProps }, themeKey })
 
   return { ...props, className }
 }

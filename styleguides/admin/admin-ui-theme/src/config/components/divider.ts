@@ -7,12 +7,12 @@ const styles = {
 export default {
   horizontal: {
     ...styles,
-    marginY: 4,
+    marginY: 0,
     borderBottom: 0,
   },
   vertical: {
     ...styles,
-    marginX: 4,
+    marginX: 0,
     borderLeft: 0,
   },
 }

@@ -6,8 +6,8 @@ exports[`Heading tests should match snapshot 1`] = `
   border: solid;
   border-width: 1px;
   border-color: #E0E2E7;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
   border-bottom: 0;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
@@ -23,8 +23,8 @@ exports[`Heading tests should match snapshot 1`] = `
   border: solid;
   border-width: 1px;
   border-color: #E0E2E7;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
   border-left: 0;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
