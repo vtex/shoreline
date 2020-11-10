@@ -36,13 +36,17 @@ const { Compiler: renderAst } = new RehypeReact({
   components: {
     a: Anchor,
     proptypes: Proptypes,
-    code: function Render(props) {
+    highlight: function Render(props) {
+      const { message, ...restProps } = props
+
       return (
         <Box
           element="code"
-          {...props}
+          {...restProps}
           styles={{ bg: 'muted.4', color: 'text' }}
-        />
+        >
+          {message}
+        </Box>
       )
     },
     themeawareprops: ThemeAwareProps,
