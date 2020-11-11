@@ -14,8 +14,9 @@
     - /theming/css-props/
 - section: Primitives
   paths:
-    - /primitives/box/
-    - /skeleton/
+    - /docs/primitives/introduction/
+    - /docs/primitives/box/
+    - /docs/skeleton/
 - section: Layouts
   paths:
     - /layouts/introduction/
