@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Box, Text, Grid, jsx } from 'theme-ui'
+import { Box, Text, Grid, jsx, SxStyleProp } from 'theme-ui'
 import { useState, PropsWithChildren } from 'react'
 import { DateTime } from 'luxon'
 
@@ -12,7 +12,7 @@ import {
 
 const today = DateTime.local()
 
-const Event = ({ event }: EventProps) => {
+const EventCell = ({ event }: EventProps) => {
   const defaultColor = 'muted.1'
 
   let firstColor = defaultColor
@@ -39,25 +39,32 @@ const Day = ({
   events = {},
   ...restProps
 }: DayProps) => {
-  let active = false
-
-  if (selectedDate) {
-    const selected = DateTime.fromJSDate(selectedDate)
-
-    active = value.ordinal === selected.ordinal
-  }
-
   const dateString = value.toFormat('yyyy-MM-dd')
   const event = events[dateString]
+  const RenderComponent = event?.component
+
+  if (RenderComponent) {
+    return (
+      <RenderComponent
+        value={value}
+        variant={variant}
+        onClick={onClick}
+        selectedDate={selectedDate}
+      >
+        <Text>{value.day}</Text>
+        <EventCell event={event} />
+      </RenderComponent>
+    )
+  }
 
   return (
     <button
-      sx={{ variant: `${variant}${active ? '.active' : ''}` }}
+      sx={{ variant: `${variant}` }}
       onClick={() => onClick(value)}
       {...restProps}
     >
       <Text>{value.day}</Text>
-      {event && <Event event={event} />}
+      {event && <EventCell event={event} />}
     </button>
   )
 }
@@ -130,7 +137,7 @@ interface EventProps {
   event: Event
 }
 
-interface DayProps {
+export interface DayProps {
   value: DateTime
   variant: string
   onClick: (date: DateTime) => void
@@ -142,6 +149,7 @@ interface DayProps {
 export interface Event {
   name: string
   colors?: string[]
+  component?: (props: PropsWithChildren<DayProps>) => JSX.Element
 }
 
 export type Events = Record<string, Event>

@@ -1,9 +1,11 @@
-import React from 'react'
+/** @jsx jsx */
+import { PropsWithChildren } from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Box } from 'theme-ui'
+import { Box, jsx } from 'theme-ui'
 
-import { Calendar, CalendarProps } from '.'
+import { Calendar, CalendarProps, DayProps, Events } from '.'
 import events from './mockEvents'
+import { Popover } from '../Popover'
 
 export default {
   title: 'beta/Calendar',
@@ -36,8 +38,45 @@ Playground.args = {
   locale: 'en',
 }
 
-export const BottomSection = () => (
+export const WithBottomSection = () => (
   <Calendar month={3} events={events}>
     <Box sx={{ width: '100%', textAlign: 'center' }}>98.7% Uptime</Box>
   </Calendar>
+)
+
+const CustomComponent = ({
+  children,
+  variant,
+  value,
+  onClick,
+  ...restProps
+}: PropsWithChildren<DayProps>) => {
+  return (
+    <Popover
+      disclosure={
+        <button sx={{ variant }} {...restProps}>
+          {children}
+        </button>
+      }
+      showClose
+    >
+      <Popover.Content>{value.toFormat('dd MMMM yyyy')}</Popover.Content>
+    </Popover>
+  )
+}
+
+const eventsWithCustomComponent: Events = {
+  '2020-03-12': {
+    name: 'Collections and Checkout are having some instabilities',
+    colors: ['#FF4C4C'],
+    component: CustomComponent,
+  },
+  '2020-03-30': {
+    name: 'Collections and Checkout are having some instabilities',
+    component: CustomComponent,
+  },
+}
+
+export const WithCustomComponent = () => (
+  <Calendar month={3} events={eventsWithCustomComponent} locale="en" />
 )
