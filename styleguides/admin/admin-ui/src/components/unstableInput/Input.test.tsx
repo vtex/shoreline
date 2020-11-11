@@ -105,7 +105,6 @@ describe('Input tests', () => {
           aria-label="input-suffix-icon-clear-value"
           readOnly
         />
-        <Input onClear={() => {}} value="Test7" id="password" type="password" />
       </ThemeProvider>
     )
 
