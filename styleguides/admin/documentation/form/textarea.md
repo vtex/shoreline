@@ -1,5 +1,5 @@
 ---
-path: /docs/textarea/
+path: /docs/form/textarea/
 ---
 
 # TextArea
