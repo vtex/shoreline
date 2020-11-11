@@ -1,16 +1,9 @@
-import React, {
-  useState,
-  useCallback,
-  createElement,
-  useMemo,
-  useEffect,
-} from 'react'
+import React, { useState, createElement, useEffect } from 'react'
 import { cn, VisuallyHidden } from '@vtex/admin-ui'
 import RehypeReact from 'rehype-react'
 import { unstable_useId as useId } from 'reakit'
-import constate from 'constate'
 
-import useLocation from '../hooks/useLocation'
+import { useCollectionContext, useScrollSpyContext } from './ScrollSpy'
 
 type Props = {
   readmeUrl: string
@@ -18,69 +11,6 @@ type Props = {
   title: string
   tableOfContentsAst: object
 }
-
-function useCollection() {
-  const [items, setItems] = useState<string[]>([])
-  const add = useCallback((item: string) => {
-    setItems((prevItems) => [...prevItems, item])
-  }, [])
-
-  const remove = useCallback((item: string) => {
-    setItems((prevItems) => {
-      const idx = prevItems.indexOf(item)
-
-      return [...prevItems.slice(0, idx), ...prevItems.slice(idx + 1)]
-    })
-  }, [])
-
-  return {
-    items,
-    add,
-    remove,
-  }
-}
-
-const [CollectionProvider, useCollectionContext] = constate(() => {
-  const value = useCollection()
-
-  return useMemo(() => value, [value])
-})
-
-function useScrollSpy() {
-  const { items } = useCollectionContext()
-  const [currentId, setCurrentId] = useState<string | null>(null)
-  const location = useLocation()
-
-  useEffect(() => setCurrentId(null), [location.pathname])
-
-  useEffect(() => {
-    if (!items.length) return undefined
-
-    const elements = document.querySelectorAll<HTMLElement>(
-      items.map((item) => `[id="${item}"]`).join(',')
-    )
-
-    const elementsArray = Array.from(elements)
-
-    const handleScroll = () => {
-      elementsArray.forEach((element) => {
-        if (element.offsetTop <= window.scrollY + 100) {
-          setCurrentId(element.id)
-        }
-      })
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [items])
-
-  return currentId
-}
-
-const [ScrollSpyProvider, useScrollSpyContext] = constate(useScrollSpy)
 
 const { Compiler: renderAst } = new RehypeReact({
   createElement,
@@ -95,7 +25,7 @@ const { Compiler: renderAst } = new RehypeReact({
 
       const id = href?.substr(1)
       const { add, remove } = useCollectionContext()
-      const currentId = useScrollSpyContext()
+      const { currentId } = useScrollSpyContext()
 
       useEffect(() => {
         if (!id) return undefined
@@ -149,37 +79,33 @@ export default function DocsInnerNavigation(props: Props) {
   const { id } = useId()
 
   return (
-    <CollectionProvider>
-      <ScrollSpyProvider>
-        <aside
-          className={cn({
-            fontSize: '0.875em',
-            bg: 'background',
-            color: 'primary.base',
-            borderColor: 'muted.3',
-            nav: {
-              listStyle: 'none',
-              margin: 0,
-              padding: 0,
-              li: {
-                display: 'flex',
-                flexDirection: 'column',
-              },
-              ul: {
-                listStyle: 'none',
-                paddingLeft: 4,
-                borderLeftColor: 'muted.3',
-                borderLeftStyle: 'solid',
-                borderLeftWidth: 1,
-              },
-            },
-          })}
-          key={title}
-        >
-          <VisuallyHidden id={id}>{title} Sections</VisuallyHidden>
-          <nav aria-labelledby={id}>{renderAst(tableOfContentsAst)}</nav>
-        </aside>
-      </ScrollSpyProvider>
-    </CollectionProvider>
+    <aside
+      className={cn({
+        fontSize: '0.875em',
+        bg: 'background',
+        color: 'primary.base',
+        borderColor: 'muted.3',
+        nav: {
+          listStyle: 'none',
+          margin: 0,
+          padding: 0,
+          li: {
+            display: 'flex',
+            flexDirection: 'column',
+          },
+          ul: {
+            listStyle: 'none',
+            paddingLeft: 4,
+            borderLeftColor: 'muted.3',
+            borderLeftStyle: 'solid',
+            borderLeftWidth: 1,
+          },
+        },
+      })}
+      key={title}
+    >
+      <VisuallyHidden id={id}>{title} Sections</VisuallyHidden>
+      <nav aria-labelledby={id}>{renderAst(tableOfContentsAst)}</nav>
+    </aside>
   )
 }

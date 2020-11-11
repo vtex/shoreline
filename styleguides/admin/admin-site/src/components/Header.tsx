@@ -20,11 +20,7 @@ import SkipToContent from './SkipToContent'
 import HiddenMediaQuery from './HiddenMediaQuery'
 import DocsNavigation from './DocsNavigation'
 
-export type HeaderProps = {
-  isHome?: boolean
-}
-
-export default function Header({ isHome }: HeaderProps) {
+export default function Header() {
   const ref = useRef<HTMLDivElement>(null)
   const isLarge = useViewportWidthGreaterThan(768)
   const dialog = useDialogState({ animated: true })
@@ -35,17 +31,14 @@ export default function Header({ isHome }: HeaderProps) {
   return (
     <Box
       element="header"
+      palette="base"
       border="divider-bottom"
       styles={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
+        gridArea: 'header',
         width: 'full',
-        height: 60,
         display: 'flex',
         alignContent: 'center',
-        bg: isHome ? 'black' : 'background',
-        zIndex: 910,
+        zIndex: 999,
         padding: '0 56px',
         '& > *:not(:last-child)': {
           marginRight: 4,
@@ -65,7 +58,7 @@ export default function Header({ isHome }: HeaderProps) {
           display: 'inline-flex',
           alignItems: 'center',
           height: 'calc(100% - 5px)',
-          color: isHome ? 'muted.4' : 'inherit',
+          color: 'inherit',
           marginTop: 1,
           borderBottom: '2px solid transparent',
           textTransform: 'uppercase',
@@ -73,13 +66,8 @@ export default function Header({ isHome }: HeaderProps) {
           "&:not([href='/'])": {
             paddingX: 4,
             '&:hover': {
-              color: isHome ? 'primary.washed.2' : 'primary.hover',
+              color: 'emphasis',
               textDecoration: 'none',
-              borderColor: isHome ? 'primary.washed.2' : 'primary.washed.1',
-            },
-            "&[aria-current='page']": {
-              color: 'primary.base',
-              borderColor: 'primary.base',
             },
           },
         },
@@ -89,7 +77,6 @@ export default function Header({ isHome }: HeaderProps) {
       <HiddenMediaQuery query="min-width: 769px">
         <DialogDisclosure
           {...dialog}
-          unstable_system={{ palette: 'background' }}
           className={cn({
             background: 'transparent',
             color: 'inherit',
