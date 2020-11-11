@@ -44,6 +44,7 @@ describe('Input tests', () => {
           value="Test6"
           readOnly
         />
+        <Input onClear={() => {}} value="Test7" id="password" type="password" />
       </ThemeProvider>
     )
 
@@ -104,6 +105,7 @@ describe('Input tests', () => {
           aria-label="input-suffix-icon-clear-value"
           readOnly
         />
+        <Input onClear={() => {}} value="Test7" id="password" type="password" />
       </ThemeProvider>
     )
 

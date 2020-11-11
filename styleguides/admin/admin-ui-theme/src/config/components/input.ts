@@ -106,8 +106,54 @@ const suffixStyle = {
   fontSize: 1,
 }
 
+const passwordStyle = {
+  color: 'muted.1',
+  borderLeftStyle: 'solid',
+  borderLeftWidth: '1px',
+  borderLeftColor: 'muted.3',
+  paddingTop: '14px',
+  marginTop: 'px',
+  width: '32px',
+  paddingLeft: 3,
+  lineHeight: 'body',
+  fontVariationSettings: 'regular',
+  fontSize: 1,
+}
+
+const passwordButtonStyle = {
+  color: 'muted.1',
+  marginY: '14px',
+  marginRight: 1,
+  height: 20,
+  width: 20,
+  border: 'none',
+  borderRadius: 'default',
+  bg: 'transparent',
+  cursor: 'pointer',
+  ':focus:not([data-focus-visible-added])': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
+  ':focus': {
+    outline: 'none',
+    boxShadow: 'focus',
+  },
+  ':hover': {
+    color: 'text',
+  },
+  '> div': {
+    display: 'flex',
+    height: 'full',
+    width: 'full',
+    margin: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}
+
 const inputVariants = {
   default: { ...inputStyle },
+  'with-type': { ...inputStyle, paddingRight: '64px' },
   'with-icon': { ...inputStyle, paddingLeft: '44px' },
   'with-suffix': { ...inputStyle, paddingRight: '64px' },
   'with-clear': {
@@ -148,5 +194,7 @@ export default {
   'icon-style': { ...iconStyle },
   'suffix-style': { ...suffixStyle },
   'clear-button-style': { ...clearButtonStyle },
+  'password-style': { ...passwordStyle },
+  'password-button-style': { ...passwordButtonStyle },
   ...inputVariants,
 }

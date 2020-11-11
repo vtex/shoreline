@@ -2,68 +2,40 @@
 
 exports[`TextArea tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-4 {
+  .emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
-.emotion-4 label {
-  font-size: 0.875rem;
-  left: 12px;
-  padding-top: 0.5rem;
-  color: #898F9E;
-  margin-bottom: 0.75rem;
-  position: absolute;
-  -webkit-transform: translate(0,16px) scale(1);
-  -ms-transform: translate(0,16px) scale(1);
-  transform: translate(0,16px) scale(1);
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-}
-
-.emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-3 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-top: 0.25rem;
-}
-
-.emotion-2 {
-  line-height: 1.125;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.75rem;
-  color: #898F9E;
+.emotion-3:not(:first-child) {
+  padding-left: 0.25rem;
 }
 
 .emotion-0 {
@@ -114,19 +86,106 @@ exports[`TextArea tests should match snapshot 1`] = `
   padding-top: 0.25rem;
 }
 
+.emotion-0:active + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
 .emotion-0:not(:placeholder-shown) + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
 }
 
+.emotion-0 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-5 label {
+  color: #CE454F;
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.emotion-5 textarea {
+  border-color: #CE454F;
+}
+
+.emotion-5 textarea:focus {
+  border-color: #CE454F;
+  box-shadow: 0 0 0 1px #CE454F;
+}
+
+.emotion-5 textarea:focus + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+  color: #CE454F;
+}
+
+.emotion-5 textarea:hover {
+  border-color: #A70C0C;
+}
+
+.emotion-2 {
+  line-height: 1.125;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  color: #CE454F;
+}
+
 <div
-    class="emotion-4"
+    class="emotion-5"
   >
     <textarea
       class="emotion-0"
       id="text-area-1"
       placeholder=" "
+      themekey="components.textArea.default"
     />
     <label
       class="emotion-1"
@@ -135,318 +194,17 @@ exports[`TextArea tests should match snapshot 1`] = `
       Label
     </label>
     <div
-      class="emotion-3"
+      class="emotion-4"
     >
-      <span
-        class="emotion-2"
+      <div
+        class="emotion-3"
       >
-        Helper Text
-      </span>
-    </div>
-  </div>
-  .emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-4 label {
-  font-size: 0.875rem;
-  left: 12px;
-  padding-top: 0.5rem;
-  color: #898F9E;
-  margin-bottom: 0.75rem;
-  position: absolute;
-  -webkit-transform: translate(0,16px) scale(1);
-  -ms-transform: translate(0,16px) scale(1);
-  transform: translate(0,16px) scale(1);
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-}
-
-.emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-2 {
-  line-height: 1.125;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.75rem;
-  color: #898F9E;
-}
-
-.emotion-0 {
-  padding-top: 24px;
-  height: 100px;
-  resize: none;
-  font-variation-settings: "wght" 92;
-  width: 100%;
-  border-style: solid;
-  border-width: 1px;
-  padding-left: 0.75rem;
-  padding-right: 1rem;
-  border-color: #E0E2E7;
-  border-radius: 4px;
-  background-color: inherit;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  font-size: 0.875rem;
-  color: #323845;
-  outline: 0;
-  -webkit-transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
-  transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
-}
-
-.emotion-0:hover {
-  border-color: #323845;
-}
-
-.emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
-}
-
-.emotion-0:disabled {
-  background-color: #F4F6FB;
-  border-color: #898F9E;
-  color: #898F9E;
-}
-
-.emotion-0:focus + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
-}
-
-.emotion-0:placeholder-shown:not(:focus) + label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown) + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-3 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding-top: 0.25rem;
-}
-
-<div
-    class="emotion-4"
-  >
-    <textarea
-      class="emotion-0"
-      id="text-area-2"
-      maxlength="120"
-      placeholder=" "
-    />
-    <label
-      class="emotion-1"
-      for="text-area-2"
-    >
-      Label
-    </label>
-    <div
-      class="emotion-3"
-    >
-      <span
-        class="emotion-2"
-      >
-        0/120
-      </span>
-    </div>
-  </div>
-  .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-3 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-top: 0.25rem;
-}
-
-.emotion-0 {
-  padding-top: 24px;
-  height: 100px;
-  resize: none;
-  font-variation-settings: "wght" 92;
-  width: 100%;
-  border-style: solid;
-  border-width: 1px;
-  padding-left: 0.75rem;
-  padding-right: 1rem;
-  border-color: #E0E2E7;
-  border-radius: 4px;
-  background-color: inherit;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  font-size: 0.875rem;
-  color: #323845;
-  outline: 0;
-  -webkit-transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
-  transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
-}
-
-.emotion-0:hover {
-  border-color: #323845;
-}
-
-.emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
-}
-
-.emotion-0:disabled {
-  background-color: #F4F6FB;
-  border-color: #898F9E;
-  color: #898F9E;
-}
-
-.emotion-0:focus + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
-}
-
-.emotion-0:placeholder-shown:not(:focus) + label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown) + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-4 label {
-  color: #CB4242;
-  font-size: 0.875rem;
-  left: 12px;
-  padding-top: 0.5rem;
-  margin-bottom: 0.75rem;
-  position: absolute;
-  -webkit-transform: translate(0,16px) scale(1);
-  -ms-transform: translate(0,16px) scale(1);
-  transform: translate(0,16px) scale(1);
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-}
-
-.emotion-4 textarea {
-  border-color: #CB4242;
-}
-
-.emotion-4 textarea:focus {
-  border-color: #CB4242;
-  box-shadow: 0 0 0 1px #CB4242;
-}
-
-.emotion-4 textarea:focus + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-  color: #CB4242;
-}
-
-.emotion-4 textarea:hover {
-  border-color: #b33131;
-}
-
-.emotion-2 {
-  line-height: 1.125;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.75rem;
-  color: #CB4242;
-}
-
-<div
-    class="emotion-4"
-  >
-    <textarea
-      class="emotion-0"
-      id="text-area-3"
-      placeholder=" "
-    />
-    <label
-      class="emotion-1"
-      for="text-area-3"
-    >
-      Label
-    </label>
-    <div
-      class="emotion-3"
-    >
-      <span
-        class="emotion-2"
-      >
-        Error Message
-      </span>
+        <span
+          class="emotion-2"
+        >
+          Error Message
+        </span>
+      </div>
     </div>
   </div>
   .emotion-5 {
@@ -492,18 +250,33 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   padding-top: 0.25rem;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.emotion-3:not(:first-child) {
+  padding-left: 0.25rem;
 }
 
 .emotion-2 {
@@ -561,10 +334,33 @@ exports[`TextArea tests should match snapshot 1`] = `
   padding-top: 0.25rem;
 }
 
+.emotion-0:active + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
 .emotion-0:not(:placeholder-shown) + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 <div
@@ -572,114 +368,31 @@ exports[`TextArea tests should match snapshot 1`] = `
   >
     <textarea
       class="emotion-0"
-      id="text-area-4"
-      maxlength="120"
+      id="text-area-2"
       placeholder=" "
+      themekey="components.textArea.default"
     />
     <label
       class="emotion-1"
-      for="text-area-4"
+      for="text-area-2"
     >
       Label
     </label>
     <div
       class="emotion-4"
     >
-      <span
-        class="emotion-2"
+      <div
+        class="emotion-3"
       >
-        Helper Text
-      </span>
-      <span
-        class="emotion-2"
-      >
-        0/120
-      </span>
+        <span
+          class="emotion-2"
+        >
+          Helper Text
+        </span>
+      </div>
     </div>
   </div>
-  .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-top: 0.25rem;
-}
-
-.emotion-3 {
-  line-height: 1.125;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.75rem;
-  color: #898F9E;
-}
-
-.emotion-0 {
-  padding-top: 24px;
-  height: 100px;
-  resize: none;
-  font-variation-settings: "wght" 92;
-  width: 100%;
-  border-style: solid;
-  border-width: 1px;
-  padding-left: 0.75rem;
-  padding-right: 1rem;
-  border-color: #E0E2E7;
-  border-radius: 4px;
-  background-color: inherit;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  font-size: 0.875rem;
-  color: #323845;
-  outline: 0;
-  -webkit-transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
-  transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
-}
-
-.emotion-0:hover {
-  border-color: #323845;
-}
-
-.emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
-}
-
-.emotion-0:disabled {
-  background-color: #F4F6FB;
-  border-color: #898F9E;
-  color: #898F9E;
-}
-
-.emotion-0:focus + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
-}
-
-.emotion-0:placeholder-shown:not(:focus) + label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown) + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-5 {
+  .emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -699,7 +412,546 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-5 label {
-  color: #CB4242;
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.emotion-2 {
+  line-height: 1.125;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  color: #898F9E;
+}
+
+.emotion-3 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.emotion-3:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-0 {
+  padding-top: 24px;
+  height: 100px;
+  resize: none;
+  font-variation-settings: "wght" 92;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  border-color: #E0E2E7;
+  border-radius: 4px;
+  background-color: inherit;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #323845;
+  outline: 0;
+  -webkit-transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+  transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:focus {
+  border-color: #2953B2;
+  box-shadow: 0 0 0 1px #2953B2;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:focus + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+  color: #2953B2;
+}
+
+.emotion-0:placeholder-shown:not(:focus) + label {
+  padding-top: 0.25rem;
+}
+
+.emotion-0:active + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0:not(:placeholder-shown) + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+<div
+    class="emotion-5"
+  >
+    <textarea
+      class="emotion-0"
+      id="text-area-3"
+      maxlength="120"
+      placeholder=" "
+      themekey="components.textArea.default"
+    />
+    <label
+      class="emotion-1"
+      for="text-area-3"
+    >
+      Label
+    </label>
+    <div
+      class="emotion-4"
+    >
+      <div
+        class="emotion-3"
+      >
+        <span
+          class="emotion-2"
+        >
+          0/120
+        </span>
+      </div>
+    </div>
+  </div>
+  .emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-7 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.emotion-3:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-2 {
+  line-height: 1.125;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  color: #898F9E;
+}
+
+.emotion-5 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.emotion-5:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-0 {
+  padding-top: 24px;
+  height: 100px;
+  resize: none;
+  font-variation-settings: "wght" 92;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  border-color: #E0E2E7;
+  border-radius: 4px;
+  background-color: inherit;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #323845;
+  outline: 0;
+  -webkit-transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+  transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:focus {
+  border-color: #2953B2;
+  box-shadow: 0 0 0 1px #2953B2;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:focus + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+  color: #2953B2;
+}
+
+.emotion-0:placeholder-shown:not(:focus) + label {
+  padding-top: 0.25rem;
+}
+
+.emotion-0:active + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0:not(:placeholder-shown) + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+<div
+    class="emotion-7"
+  >
+    <textarea
+      class="emotion-0"
+      id="text-area-4"
+      maxlength="120"
+      placeholder=" "
+      themekey="components.textArea.default"
+    />
+    <label
+      class="emotion-1"
+      for="text-area-4"
+    >
+      Label
+    </label>
+    <div
+      class="emotion-6"
+    >
+      <div
+        class="emotion-3"
+      >
+        <span
+          class="emotion-2"
+        >
+          Helper Text
+        </span>
+      </div>
+      <div
+        class="emotion-5"
+      >
+        <span
+          class="emotion-2"
+        >
+          0/120
+        </span>
+      </div>
+    </div>
+  </div>
+  .emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.emotion-3:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-4 {
+  line-height: 1.125;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  color: #898F9E;
+}
+
+.emotion-5 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.emotion-5:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-0 {
+  padding-top: 24px;
+  height: 100px;
+  resize: none;
+  font-variation-settings: "wght" 92;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  border-color: #E0E2E7;
+  border-radius: 4px;
+  background-color: inherit;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #323845;
+  outline: 0;
+  -webkit-transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+  transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:focus {
+  border-color: #2953B2;
+  box-shadow: 0 0 0 1px #2953B2;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:focus + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+  color: #2953B2;
+}
+
+.emotion-0:placeholder-shown:not(:focus) + label {
+  padding-top: 0.25rem;
+}
+
+.emotion-0:active + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0:not(:placeholder-shown) + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-7 label {
+  color: #CE454F;
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
@@ -715,41 +967,42 @@ exports[`TextArea tests should match snapshot 1`] = `
   transition: all 0.2s ease-out;
 }
 
-.emotion-5 textarea {
-  border-color: #CB4242;
+.emotion-7 textarea {
+  border-color: #CE454F;
 }
 
-.emotion-5 textarea:focus {
-  border-color: #CB4242;
-  box-shadow: 0 0 0 1px #CB4242;
+.emotion-7 textarea:focus {
+  border-color: #CE454F;
+  box-shadow: 0 0 0 1px #CE454F;
 }
 
-.emotion-5 textarea:focus + label {
+.emotion-7 textarea:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #CB4242;
+  color: #CE454F;
 }
 
-.emotion-5 textarea:hover {
-  border-color: #b33131;
+.emotion-7 textarea:hover {
+  border-color: #A70C0C;
 }
 
 .emotion-2 {
   line-height: 1.125;
   font-variation-settings: 'wght' 92;
   font-size: 0.75rem;
-  color: #CB4242;
+  color: #CE454F;
 }
 
 <div
-    class="emotion-5"
+    class="emotion-7"
   >
     <textarea
       class="emotion-0"
       id="text-area-5"
       maxlength="120"
       placeholder=" "
+      themekey="components.textArea.default"
     />
     <label
       class="emotion-1"
@@ -758,18 +1011,696 @@ exports[`TextArea tests should match snapshot 1`] = `
       Label
     </label>
     <div
-      class="emotion-4"
+      class="emotion-6"
     >
-      <span
-        class="emotion-2"
-      >
-        Error Message
-      </span>
-      <span
+      <div
         class="emotion-3"
       >
-        0/120
-      </span>
+        <span
+          class="emotion-2"
+        >
+          Error Message
+        </span>
+      </div>
+      <div
+        class="emotion-5"
+      >
+        <span
+          class="emotion-4"
+        >
+          0/120
+        </span>
+      </div>
+    </div>
+  </div>
+  .emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-7 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.emotion-3:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-2 {
+  line-height: 1.125;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  color: #898F9E;
+}
+
+.emotion-5 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.emotion-5:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-0 {
+  padding-top: 24px;
+  height: 100px;
+  resize: none;
+  font-variation-settings: "wght" 92;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  border-color: #E0E2E7;
+  border-radius: 4px;
+  background-color: inherit;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #323845;
+  outline: 0;
+  -webkit-transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+  transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:focus {
+  border-color: #2953B2;
+  box-shadow: 0 0 0 1px #2953B2;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:focus + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+  color: #2953B2;
+}
+
+.emotion-0:placeholder-shown:not(:focus) + label {
+  padding-top: 0.25rem;
+}
+
+.emotion-0:active + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0:not(:placeholder-shown) + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+<div
+    class="emotion-7"
+  >
+    <textarea
+      class="emotion-0"
+      id="text-area-6"
+      maxlength="120"
+      placeholder=" "
+      themekey="components.textArea.default"
+    />
+    <label
+      class="emotion-1"
+      for="text-area-6"
+    >
+      Label
+    </label>
+    <div
+      class="emotion-6"
+    >
+      <div
+        class="emotion-3"
+      >
+        <span
+          class="emotion-2"
+        >
+          Helper Text
+        </span>
+      </div>
+      <div
+        class="emotion-5"
+      >
+        <span
+          class="emotion-2"
+        >
+          0/120
+        </span>
+      </div>
+    </div>
+  </div>
+  .emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.emotion-3:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-4 {
+  line-height: 1.125;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  color: #898F9E;
+}
+
+.emotion-5 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.emotion-5:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-0 {
+  padding-top: 24px;
+  height: 100px;
+  resize: none;
+  font-variation-settings: "wght" 92;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  border-color: #E0E2E7;
+  border-radius: 4px;
+  background-color: inherit;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #323845;
+  outline: 0;
+  -webkit-transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+  transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:focus {
+  border-color: #2953B2;
+  box-shadow: 0 0 0 1px #2953B2;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:focus + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+  color: #2953B2;
+}
+
+.emotion-0:placeholder-shown:not(:focus) + label {
+  padding-top: 0.25rem;
+}
+
+.emotion-0:active + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0:not(:placeholder-shown) + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-7 label {
+  color: #CE454F;
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.emotion-7 textarea {
+  border-color: #CE454F;
+}
+
+.emotion-7 textarea:focus {
+  border-color: #CE454F;
+  box-shadow: 0 0 0 1px #CE454F;
+}
+
+.emotion-7 textarea:focus + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+  color: #CE454F;
+}
+
+.emotion-7 textarea:hover {
+  border-color: #A70C0C;
+}
+
+.emotion-2 {
+  line-height: 1.125;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  color: #CE454F;
+}
+
+<div
+    class="emotion-7"
+  >
+    <textarea
+      class="emotion-0"
+      id="text-area-7"
+      maxlength="120"
+      placeholder=" "
+      themekey="components.textArea.default"
+    />
+    <label
+      class="emotion-1"
+      for="text-area-7"
+    >
+      Label
+    </label>
+    <div
+      class="emotion-6"
+    >
+      <div
+        class="emotion-3"
+      >
+        <span
+          class="emotion-2"
+        >
+          Error Message
+        </span>
+      </div>
+      <div
+        class="emotion-5"
+      >
+        <span
+          class="emotion-4"
+        >
+          0/120
+        </span>
+      </div>
+    </div>
+  </div>
+  .emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-7 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.emotion-3:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-2 {
+  line-height: 1.125;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  color: #898F9E;
+}
+
+.emotion-5 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.emotion-5:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-0 {
+  padding-top: 24px;
+  height: 100px;
+  resize: none;
+  font-variation-settings: "wght" 92;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  border-color: #E0E2E7;
+  border-radius: 4px;
+  background-color: inherit;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #323845;
+  outline: 0;
+  -webkit-transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+  transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:focus {
+  border-color: #2953B2;
+  box-shadow: 0 0 0 1px #2953B2;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  border-color: #898F9E;
+  color: #898F9E;
+}
+
+.emotion-0:focus + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+  color: #2953B2;
+}
+
+.emotion-0:placeholder-shown:not(:focus) + label {
+  padding-top: 0.25rem;
+}
+
+.emotion-0:active + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0:not(:placeholder-shown) + label {
+  -webkit-transform: translate(1px,4px) scale(0.875);
+  -ms-transform: translate(1px,4px) scale(0.875);
+  transform: translate(1px,4px) scale(0.875);
+}
+
+.emotion-0 label {
+  font-size: 0.875rem;
+  left: 12px;
+  padding-top: 0.5rem;
+  color: #898F9E;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  -webkit-transform: translate(0,16px) scale(1);
+  -ms-transform: translate(0,16px) scale(1);
+  transform: translate(0,16px) scale(1);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+<div
+    class="emotion-7"
+  >
+    <textarea
+      class="emotion-0"
+      disabled=""
+      id="text-area-8"
+      maxlength="120"
+      placeholder=" "
+      themekey="components.textArea.default"
+    />
+    <label
+      class="emotion-1"
+      for="text-area-8"
+    >
+      Label
+    </label>
+    <div
+      class="emotion-6"
+    >
+      <div
+        class="emotion-3"
+      >
+        <span
+          class="emotion-2"
+        >
+          Helper Text
+        </span>
+      </div>
+      <div
+        class="emotion-5"
+      >
+        <span
+          class="emotion-2"
+        >
+          0/120
+        </span>
+      </div>
     </div>
   </div>
 </DocumentFragment>

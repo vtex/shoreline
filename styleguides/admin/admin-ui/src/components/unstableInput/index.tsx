@@ -16,6 +16,7 @@ export const unstableInput = forwardRef(function Input(
     onClear,
     styleOverrides,
     id,
+    type,
     optionalFeature,
     ...htmlProps
   } = props
@@ -25,6 +26,7 @@ export const unstableInput = forwardRef(function Input(
   const resolvedThemeKey = `components.input.${getVariants({
     icon,
     suffix,
+    type,
     onClear,
   })}`
 
@@ -51,6 +53,10 @@ export const unstableInput = forwardRef(function Input(
     return optionalFeature?.(styles)
   }
 
+  function showPassword() {
+    return ''
+  }
+
   return (
     <Box themeKey={`components.input.container${icon ? '-with-icon' : ''}`}>
       {icon && (
@@ -60,6 +66,7 @@ export const unstableInput = forwardRef(function Input(
       )}
       <ReakitInput
         ref={ref}
+        type={type}
         className={inputClassName}
         id={id}
         {...htmlProps}
@@ -76,7 +83,7 @@ export const unstableInput = forwardRef(function Input(
             display: 'flex',
           }}
         >
-          {!!onClear && value.toString().length > 0 && (
+          {!!onClear && type !== 'password' && value.toString().length > 0 && (
             <Box
               element="button"
               themeKey="components.input.clear-button-style"
@@ -93,6 +100,20 @@ export const unstableInput = forwardRef(function Input(
               {suffix}
             </Box>
           )}
+          {type === 'password' && (
+            <Box element="span" themeKey="components.input.password-style">
+              <Box
+                element="button"
+                themeKey="components.input.password-button-style"
+                aria-label={`${id}-show-password-button`}
+                onClick={showPassword}
+              >
+                <Box>
+                  <IconCancel size={20} />
+                </Box>
+              </Box>
+            </Box>
+          )}
         </Box>
       )}
     </Box>
@@ -102,10 +123,15 @@ export const unstableInput = forwardRef(function Input(
 function getVariants({
   icon,
   suffix,
+  type,
   onClear,
-}: Pick<InputProps, 'icon' | 'suffix' | 'onClear'>) {
-  if (!icon && !suffix && !onClear) {
+}: Pick<InputProps, 'icon' | 'suffix' | 'type' | 'onClear'>) {
+  if (!icon && !suffix && !type && !onClear) {
     return 'default'
+  }
+
+  if (type) {
+    return `with${type ? '-type' : ''}`
   }
 
   return `with${icon ? '-icon' : ''}${suffix ? '-suffix' : ''}${
@@ -142,6 +168,8 @@ export interface InputProps extends Omit<ReakitInputProps, 'ref'>, Overridable {
   icon?: ReactNode
   /** Input Suffix */
   suffix?: string
+  /** Input Type */
+  type?: string
   /** onClear input */
   onClear?: () => void
   /**

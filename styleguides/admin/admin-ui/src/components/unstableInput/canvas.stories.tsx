@@ -43,3 +43,19 @@ export const OverrideStyles: Story = () => {
     </Box>
   )
 }
+
+export const WithPassword: Story = () => {
+  const { onClear, onChange, value } = useInputState()
+
+  return (
+    <Box width={300}>
+      <Input
+        onClear={onClear}
+        onChange={onChange}
+        value={value}
+        id="password"
+        type="password"
+      />
+    </Box>
+  )
+}
