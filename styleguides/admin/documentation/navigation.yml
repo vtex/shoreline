@@ -1,55 +1,57 @@
 - section: Guide
   paths:
-    - /docs/guide/get-started/
-    - /docs/guide/next/
-    - /docs/guide/contributing/
+    - /guide/get-started/
+    - /guide/next/
+    - /guide/contributing/
 - section: Theming
   paths:
-    - /docs/theming/styling/
-    - /docs/theming/palettes/
-    - /docs/theming/responsive-design/
-    - /docs/theming/patterns/
-    - /docs/theming/style-props/
+    - /theming/theme-provider/
+    - /theming/style-object/
+    - /theming/styling/
+    - /theming/palettes/
+    - /theming/responsive-design/
+    - /theming/patterns/
+    - /theming/css-props/
 - section: Primitives
   paths:
-    - /docs/primitives/box/
-    - /docs/skeleton/
+    - /primitives/box/
+    - /skeleton/
 - section: Layouts
   paths:
-    - /docs/layouts/columns/
-    - /docs/layouts/set/
+    - /layouts/columns/
+    - /layouts/set/
 - section: Typography
   paths:
-    - /docs/typography/variable-font/
-    - /docs/typography/heading/
-    - /docs/typography/list/
-    - /docs/typography/paragraph/
-    - /docs/typography/text/
+    - /typography/variable-font/
+    - /typography/heading/
+    - /typography/list/
+    - /typography/paragraph/
+    - /typography/text/
 - section: Components
   paths:
-    - /docs/avatar/
-    - /docs/button/
-    - /docs/card/
-    - /docs/collapsible-group/
-    - /docs/collapsible/
-    - /docs/divider/
-    - /docs/menu/
-    - /docs/modal/
-    - /docs/table/
-    - /docs/tag/
-    - /docs/tooltip/
-    - /docs/visually-hidden/
+    - /avatar/
+    - /button/
+    - /card/
+    - /collapsible-group/
+    - /collapsible/
+    - /divider/
+    - /menu/
+    - /modal/
+    - /table/
+    - /tag/
+    - /tooltip/
+    - /visually-hidden/
 - section: Form
   paths:
-    - /docs/form/checkbox-group/
-    - /docs/form/checkbox/
-    - /docs/form/label/
-    - /docs/form/radio-group/
-    - /docs/form/radio/
-    - /docs/form/toggle/
+    - /form/checkbox-group/
+    - /form/checkbox/
+    - /form/label/
+    - /form/radio-group/
+    - /form/radio/
+    - /form/toggle/
 - section: Deep dive 🐋
   paths:
-    - /docs/deep-dive/system
+    - /deep-dive/system
 - section: Documentation Templates
   paths:
-    - /docs/documentation-template/
+    - /documentation-template/

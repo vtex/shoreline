@@ -1,8 +1,7 @@
 ---
-path: /docs/guide/get-started/
+path: /guide/get-started/
 redirect_from:
-  - /docs/
-  - /guide/get-started/
+  - /
 ---
 
 # Get started

@@ -1,5 +1,5 @@
 ---
-path: /docs/skeleton/
+path: /skeleton/
 ---
 
 # Skeleton

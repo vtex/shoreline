@@ -115,14 +115,21 @@ const { Compiler: renderAst } = new RehypeReact({
               fontSize: 2,
               textDecoration: 'none',
               transition: 'all 150ms ease',
+              position: 'relative',
               paddingY: 2,
               ':hover': {
-                transform: 'scale(1.1)',
-                color: 'primary.base',
+                color: 'emphasis',
               },
-              "[aria-current='page']": {
-                transform: 'scale(1.1)',
-                color: 'primary.base',
+              "&[aria-current='page']": {
+                color: 'emphasis',
+                '::before': {
+                  content: "' '",
+                  height: '80%',
+                  width: 2,
+                  position: 'absolute',
+                  bg: 'emphasis',
+                  left: -4,
+                },
               },
             })}
           >

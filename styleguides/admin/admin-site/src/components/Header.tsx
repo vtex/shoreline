@@ -11,7 +11,6 @@ import {
 } from 'reakit'
 import { FaGithub } from 'react-icons/fa'
 import { MdMenu } from 'react-icons/md'
-import { LinkGetProps } from '@reach/router'
 
 import Logo from '../icons/LogoSkeleton'
 import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
@@ -25,14 +24,6 @@ export type HeaderProps = {
   isHome?: boolean
 }
 
-function getLinkProps({ isPartiallyCurrent }: LinkGetProps) {
-  if (isPartiallyCurrent) {
-    return { 'aria-current': 'page' }
-  }
-
-  return {}
-}
-
 export default function Header({ isHome }: HeaderProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isLarge = useViewportWidthGreaterThan(768)
@@ -44,6 +35,7 @@ export default function Header({ isHome }: HeaderProps) {
   return (
     <Box
       element="header"
+      border="divider-bottom"
       styles={{
         position: 'fixed',
         top: 0,
@@ -55,7 +47,6 @@ export default function Header({ isHome }: HeaderProps) {
         bg: isHome ? 'black' : 'background',
         zIndex: 910,
         padding: '0 56px',
-        boxShadow: 'subtle',
         '& > *:not(:last-child)': {
           marginRight: 4,
         },
@@ -139,16 +130,9 @@ export default function Header({ isHome }: HeaderProps) {
       </HiddenMediaQuery>
       <Anchor as={Link} to="/">
         <Logo />
-        <VisuallyHidden>Reakit</VisuallyHidden>
+        <VisuallyHidden>VTEX</VisuallyHidden>
       </Anchor>
       <Box styles={{ flex: 1 }} />
-      <HiddenMediaQuery query="max-width: 768px">
-        {(props) => (
-          <Anchor as={Link} to="/docs/" getProps={getLinkProps} {...props}>
-            Documentation
-          </Anchor>
-        )}
-      </HiddenMediaQuery>
       <Anchor
         href="https://github.com/vtex/onda/tree/master/styleguides/admin/admin-ui"
         target="blank"

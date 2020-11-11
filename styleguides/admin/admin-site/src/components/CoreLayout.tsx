@@ -47,7 +47,7 @@ export default function CoreLayout(props: Props) {
         <Box
           styles={{
             position: 'fixed',
-            bg: 'background',
+            bg: 'muted.4',
             width: 256,
             zIndex: 'plain',
             left: 0,
@@ -64,12 +64,14 @@ export default function CoreLayout(props: Props) {
       )}
       <Box
         element="main"
+        palette="base"
         styles={{
           code: {
             borderRadius: 3,
             padding: '0.2em 0.4em',
           },
-          maxWidth: ['full', 756, 756, 960],
+          maxWidth: ['full', 640, 640, 640, 820],
+          paddingX: [8, 8, 8, 8, 8],
           ...withTitleSx,
           ...homeSx,
         }}
@@ -82,7 +84,7 @@ export default function CoreLayout(props: Props) {
           styles={{
             position: 'fixed',
             right: 0,
-            width: 210,
+            width: 256,
             bg: 'background',
             overflow: 'auto',
             paddingX: 4,

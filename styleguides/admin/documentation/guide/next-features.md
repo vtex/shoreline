@@ -1,5 +1,5 @@
 ---
-path: /docs/guide/next/
+path: /guide/next/
 next: true
 ---
 

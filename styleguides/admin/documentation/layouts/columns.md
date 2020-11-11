@@ -1,5 +1,5 @@
 ---
-path: /docs/layouts/columns/
+path: /layouts/columns/
 next: true
 ---
 

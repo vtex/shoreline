@@ -1,5 +1,5 @@
 ---
-path: /docs/guide/contributing/
+path: /guide/contributing/
 ---
 
 # Contributing

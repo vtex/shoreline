@@ -1,5 +1,5 @@
 ---
-path: /docs/avatar/
+path: /avatar/
 ---
 
 # Avatar

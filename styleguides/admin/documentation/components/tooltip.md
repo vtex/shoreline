@@ -1,5 +1,5 @@
 ---
-path: /docs/tooltip/
+path: /tooltip/
 ---
 
 # Tooltip

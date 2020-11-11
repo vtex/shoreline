@@ -1,5 +1,5 @@
 ---
-path: /docs/layouts/set/
+path: /layouts/set/
 next: true
 ---
 

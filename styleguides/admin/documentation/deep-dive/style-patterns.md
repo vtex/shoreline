@@ -1,5 +1,5 @@
 ---
-path: /docs/deep-dive/style-patterns
+path: /deep-dive/style-patterns
 ---
 
 # Style patterns evolution

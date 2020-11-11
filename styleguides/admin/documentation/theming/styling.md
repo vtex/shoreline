@@ -1,22 +1,8 @@
 ---
-path: /docs/theming/styling/
+path: /theming/styling/
 ---
 
 # Styling
-
-## ThemeProvider
-
-Provides a context so we can consume our theme along with our design system.
-
-The `<ThemeProvider>` component accepts the theme as a prop, where you can specify overrides to the default theme. Since all of our components are theme aware, remember that every application should have a `<ThemeProvider>` defined in the project root.
-
-```jsx static
-import { ThemeProvider } from '@vtex/admin-ui'
-
-function ProjectRoot() {
-  return <ThemeProvider>{/** Your app here */}</ThemeProvider>
-}
-```
 
 ## Styles prop
 
@@ -24,13 +10,7 @@ There are two props that you can use to add style to our components, `styles` an
 
 This property lets you add any valid CSS to an element while using values from your theme to keep styles consistent. You can think of the style object that this prop accepts as a superset of CSS.
 
-<blockquote palette="primary">
-
-Some CSS properties are theme-aware and can consume specific sections of the theme context. [Click here](/docs/theming/styling/#theme-aware-properties) to check the full list.
-
-</blockquote>
-
-## Inline style
+## styles vs styleOverrides
 
 You can consume the theme context by combining theme aware properties with the theme values.
 
@@ -43,10 +23,22 @@ function Example() {
       <Box styles={{ color: 'primary.base' }}>
         Text with primary.base color!
       </Box>
+
+      <Button styleOverrides={{ bg: 'darkorchid', color: 'orange' }}>
+        messed-up button
+      </Button>
     </ThemeProvider>
   )
 }
 ```
+
+### So, why styleOverrides exists ?
+
+#### Component hotfixes
+
+#### Pattern discovery
+
+We are capable of find new patterns and components from repetitive cases of `styleOverrides`.
 
 ## CSS Selectors
 
@@ -88,19 +80,11 @@ function Example() {
 }
 ```
 
-## Advanced Section
+## cn
 
-This section contains features with different ways of using our theme to add styles.
+Function that transforms a valid [`StyleObject`]() into a className. It's mostly used to style native JSX elements and support integration with other libraries while being consistent.
 
-> You may want to try to use features from the section above before getting into this one.
-
-### cn
-
-To add styles from the theme in a native element or an external component that doesn't have our API you can use this function.
-
-The function receives an object in the same way as `styles` and `styleOverrides` and turns into a `className`.
-
-> You may want to try to use one of our components before using this function.
+### Example
 
 ```jsx
 import { cn, ThemeProvider } from '@vtex/admin-ui'
@@ -116,64 +100,45 @@ function Example() {
 }
 ```
 
-### get
+### Do's:
 
-A getter function to access and return a value from our theme.
+### Dont's:
 
-### useTheme hook
+## useTheme
 
 A hook that returns the entire theme object. Must be used under a `<ThemeProvider>` context.
 
-> You may want to try use a [Inline Style](/docs/theming/styling/#inline-style) before using this hook.
+### Do:
 
-```jsx
-import { useTheme, get, Box, ThemeProvider } from '@vtex/admin-ui'
+#### Use it if you need theme values on your custom hooks
 
-function Component() {
+```jsx static
+// function that mix two colors
+import { mix } from 'polished'
+
+// mixes primary and success color by weight
+function usePrimarySuccess(weight = 0.5) {
   const theme = useTheme()
-  const primaryColor = get(theme, 'colors.primary.base')
-  return (
-    <Box styles={{ color: `${primaryColor}` }}>
-      {' '}
-      Text with primary.base color!
-    </Box>
-  )
-}
+  const primary = theme.colors.primary.base
+  const success = theme.colors.success.base
 
-function Example() {
-  return (
-    <ThemeProvider>
-      <Component />
-    </ThemeProvider>
-  )
+  return mix(weight, primary, success)
 }
 ```
 
-### Functional Style
+### Dont:
 
-For shorthand CSS properties or ones that are not automatically mapped to values in the theme, use an inline function to reference values from the theme object.
+#### Use it to pass values to StyleObject
 
-> You may want to try to use a [Inline Style](/docs/theming/styling/#inline-style) before using functional style.
+```jsx static
+const theme = useTheme()
 
-```jsx
-import { get, Box, ThemeProvider } from '@vtex/admin-ui'
+// 🚫 Wrong
+<Box styles={{ color: theme.colors.primary.base  }} />
+<div className={cn({ color: theme.colors.primary.base  })} />
 
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box
-        styles={{ color: (theme) => `${get(theme, 'colors.primary.base')}` }}
-      >
-        Text with primary.base color!
-      </Box>
-    </ThemeProvider>
-  )
-}
+
+// ✅ Correct
+<Box styles={{ color: 'primary.base'  }} />
+<div className={cn({ color: 'primary.base'  })} />
 ```
-
-## Theme Aware Properties
-
-The following CSS properties will use values defined in the theme, when available.
-
-<themeawareprops>
-</themeawareprops>

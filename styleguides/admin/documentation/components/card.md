@@ -1,5 +1,5 @@
 ---
-path: /docs/card/
+path: /card/
 ---
 
 # Card

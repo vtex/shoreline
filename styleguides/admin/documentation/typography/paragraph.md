@@ -1,5 +1,5 @@
 ---
-path: /docs/typography/paragraph/
+path: /typography/paragraph/
 ---
 
 # Paragraph

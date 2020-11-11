@@ -1,5 +1,5 @@
 ---
-path: /docs/typography/list/
+path: /typography/list/
 ---
 
 # List

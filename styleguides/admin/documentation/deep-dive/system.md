@@ -1,5 +1,5 @@
 ---
-path: /docs/deep-dive/system
+path: /deep-dive/system
 ---
 
 # Admin UI System

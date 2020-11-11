@@ -1,5 +1,5 @@
 ---
-path: /docs/typography/heading/
+path: /typography/heading/
 ---
 
 # Heading
