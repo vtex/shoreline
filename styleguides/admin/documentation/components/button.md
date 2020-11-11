@@ -1,5 +1,5 @@
 ---
-path: /docs/button/
+path: /button/
 ---
 
 # Button
@@ -33,6 +33,7 @@ import { Button } from '@vtex/admin-ui'
 Learn more in [Get started](/docs/get-started/).
 
 ## Variation
+
 ### Text
 
 ```jsx
@@ -46,6 +47,7 @@ function Example() {
   )
 }
 ```
+
 ### Filled
 
 ```jsx
@@ -59,6 +61,7 @@ function Example() {
   )
 }
 ```
+
 ### Subtle
 
 ```jsx
@@ -72,6 +75,7 @@ function Example() {
   )
 }
 ```
+
 ### Primary
 
 ```jsx
@@ -85,6 +89,7 @@ function Example() {
   )
 }
 ```
+
 ### Danger
 
 ```jsx
@@ -98,6 +103,7 @@ function Example() {
   )
 }
 ```
+
 ### Small
 
 ```jsx
@@ -111,6 +117,7 @@ function Example() {
   )
 }
 ```
+
 ### Regular
 
 ```jsx

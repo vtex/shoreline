@@ -1,5 +1,5 @@
 ---
-path: /docs/form/label/
+path: /form/label/
 ---
 
 # Label

@@ -1,5 +1,5 @@
 ---
-path: /docs/tag/
+path: /tag/
 ---
 
 # Tag

@@ -49,7 +49,7 @@ export default function PaletteBlock(props: SetProps) {
         styleOverrides={{ marginTop: 6 }}
       >
         <Box>
-          <Heading as="h2">Default</Heading>
+          <Heading element="h2">Default</Heading>
           <Set spacing={2}>
             <PaletteCard color="#323845" name="text" />
             <PaletteCard color="#FFFFFF" name="background" />
@@ -58,7 +58,7 @@ export default function PaletteBlock(props: SetProps) {
           </Set>
         </Box>
         <Box>
-          <Heading as="h2">Muted</Heading>
+          <Heading element="h2">Muted</Heading>
           <Set spacing={2}>
             <PaletteCard color="#707685" name="muted.0" />
             <PaletteCard color="#898F9E" name="muted.1" />
@@ -68,7 +68,7 @@ export default function PaletteBlock(props: SetProps) {
           </Set>
         </Box>
         <Box>
-          <Heading as="h2">Primary</Heading>
+          <Heading element="h2">Primary</Heading>
           <Set spacing={2}>
             <PaletteCard color="#2953B2" name="primary.base" />
             <PaletteCard color="#1E4397" name="primary.hover" />
@@ -80,7 +80,7 @@ export default function PaletteBlock(props: SetProps) {
           </Set>
         </Box>
         <Box>
-          <Heading as="h2">Danger</Heading>
+          <Heading element="h2">Danger</Heading>
           <Set spacing={2}>
             <PaletteCard color="#D23030" name="danger.base" />
             <PaletteCard color="#A70C0C" name="danger.hover" />
@@ -92,7 +92,7 @@ export default function PaletteBlock(props: SetProps) {
           </Set>
         </Box>
         <Box>
-          <Heading as="h2">Success</Heading>
+          <Heading element="h2">Success</Heading>
           <Set spacing={2}>
             <PaletteCard color="#368369" name="success.base" />
             <PaletteCard color="#005C31" name="success.hover" />
@@ -102,7 +102,7 @@ export default function PaletteBlock(props: SetProps) {
           </Set>
         </Box>
         <Box>
-          <Heading as="h2">Warning</Heading>
+          <Heading element="h2">Warning</Heading>
           <Set spacing={2}>
             <PaletteCard color="#FFBA52" name="warning.base" />
             <PaletteCard color="#E6A30A" name="warning.hover" />
@@ -112,7 +112,7 @@ export default function PaletteBlock(props: SetProps) {
           </Set>
         </Box>
         <Box>
-          <Heading as="h2">Basic</Heading>
+          <Heading element="h2">Basic</Heading>
           <Set spacing={2}>
             <PaletteCard color="#DAE3F5" name="blue" />
             <PaletteCard color="#F4EFFF" name="purple" />

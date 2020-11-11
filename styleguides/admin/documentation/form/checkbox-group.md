@@ -1,5 +1,5 @@
 ---
-path: /docs/form/checkbox-group/
+path: /form/checkbox-group/
 ---
 
 # CheckboxGroup

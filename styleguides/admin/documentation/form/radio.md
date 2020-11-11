@@ -1,5 +1,5 @@
 ---
-path: /docs/form/radio/
+path: /form/radio/
 ---
 
 # Radio

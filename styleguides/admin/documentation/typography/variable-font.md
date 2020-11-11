@@ -1,5 +1,5 @@
 ---
-path: /docs/typography/variable-font/
+path: /typography/variable-font/
 ---
 
 # VTEX Trust

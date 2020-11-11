@@ -1,5 +1,5 @@
 ---
-path: /docs/typography/text/
+path: /typography/text/
 ---
 
 # Text

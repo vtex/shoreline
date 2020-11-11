@@ -1,5 +1,5 @@
 ---
-path: /docs/form/radio-group/
+path: /form/radio-group/
 ---
 
 # RadioGroup

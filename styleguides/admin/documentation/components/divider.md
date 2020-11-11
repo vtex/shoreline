@@ -1,5 +1,5 @@
 ---
-path: /docs/divider/
+path: /divider/
 ---
 
 # Divider
@@ -31,6 +31,7 @@ import { Divider } from '@vtex/admin-ui'
 ```
 
 ## Variation
+
 ### Horizontal
 
 ```jsx
@@ -125,4 +126,5 @@ function UseCase() {
 ```
 
 ## Props
+
 ### WIP

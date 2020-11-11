@@ -1,5 +1,5 @@
 ---
-path: /docs/deep-dive/introduction
+path: /deep-dive/introduction
 ---
 
 # Introduction

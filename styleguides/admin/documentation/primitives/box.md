@@ -1,5 +1,5 @@
 ---
-path: /docs/primitives/box/
+path: /primitives/box/
 ---
 
 # Box
