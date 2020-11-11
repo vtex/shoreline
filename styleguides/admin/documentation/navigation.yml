@@ -7,7 +7,7 @@
   paths:
     - /theming/theme-provider/
     - /theming/style-object/
-    - /theming/styling/
+    - /theming/inline-styles/
     - /theming/palettes/
     - /theming/responsive-design/
     - /theming/patterns/
