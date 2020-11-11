@@ -32,7 +32,9 @@ yarn add @vtex/admin-ui
 import { Box } from '@vtex/admin-ui'
 ```
 
-## styles
+## Styles
+
+With the <highlight message="styles"></highlight> property you can add any customization to the Box component. Check the `StyleObjects` section for detailed info.
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
@@ -50,7 +52,9 @@ function Example() {
 }
 ```
 
-## patterns
+## Patterns
+
+The Box accepts all the Patterns properties, you can use it to add admin's applications common customization. Check the `Patterns` section for detailed info.
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
@@ -66,7 +70,9 @@ function Example() {
 }
 ```
 
-## style-Props
+## Style Props
+
+The Box accepts all Style Props defined on our design system, you can use it to add customization. Check the `Style Props` section for detailed info.
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
@@ -84,6 +90,8 @@ function Example() {
 
 ## `element` Prop
 
+Box can be rendered as any HTML tag.
+
 ```jsx
 import { ThemeProvider, Box } from '@vtex/admin-ui'
 
@@ -91,9 +99,9 @@ function Example() {
   return (
     <ThemeProvider>
       <Box element="article">
-        <Box element="h1">👻 I'm a h1</Box>
-        <Box element="p">👻 I'm a p</Box>
+        <Box element="section">👻 I'm a section</Box>
         <Box>👻 I'm a div</Box>
+        <Box element="footer">👻 I'm a footer</Box>
       </Box>
     </ThemeProvider>
   )
