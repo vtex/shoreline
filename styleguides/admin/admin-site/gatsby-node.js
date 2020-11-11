@@ -20,7 +20,7 @@ function getAdjacentPaths(arr, index) {
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage, createRedirect } = actions
-  const template = resolve(`src/pages/index.tsx`)
+  const template = resolve(`src/pages/Docs.tsx`)
 
   return graphql(`
     {
@@ -94,6 +94,7 @@ exports.createPages = ({ actions, graphql }) => {
         redirects.forEach((redirectPath) => {
           createRedirect({
             fromPath: redirectPath,
+            exactPath: true,
             toPath: path,
             isPermanent: true,
             redirectInBrowser: true,
