@@ -37,7 +37,6 @@ export default function CoreLayout(props: Props) {
             }}
           >
             <Header />
-
             <Box
               styles={{
                 gridArea: 'leftnav',
@@ -64,8 +63,7 @@ export default function CoreLayout(props: Props) {
                       borderRadius: 3,
                       padding: '0.2em 0.4em',
                     },
-                    paddingX: 8,
-                    paddingY: 8,
+                    padding: '64px',
                   }}
                 >
                   {children}
