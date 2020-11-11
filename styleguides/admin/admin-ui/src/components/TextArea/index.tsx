@@ -1,6 +1,5 @@
 import React, { forwardRef, Ref } from 'react'
-import { SxStyleProp, useClassName } from '@vtex/admin-ui-system'
-import { ThemeDerivedStyles, ThemeUICSSObject } from '@theme-ui/css'
+import { useClassName } from '@vtex/admin-ui-system'
 
 import { Text } from '../Text'
 import { Label } from '../Label'
@@ -26,44 +25,19 @@ export const TextArea = forwardRef(function Textarea(
   const labelClassName = useClassName({
     props: {
       styles: {
-        paddingTop: 24,
-        height: 100,
-        resize: 'none',
         ...styleOverrides,
       },
     },
-    themeKey: 'components.input.default',
+    themeKey: 'components.textArea.default',
   })
 
-  function renderFeature() {
-    const styles = {
-      fontSize: 1,
-      left: 12,
-      paddingTop: 2,
-      color: 'muted.1',
-      marginBottom: 3,
-      position: 'absolute',
-      transform: 'translate(0, 16px) scale(1)',
-      transformOrigin: 'top left',
-      transition: 'all 0.2s ease-out;',
-    } as SxStyleProp
-
-    const generateLabel = (
-      style: ThemeUICSSObject | ThemeDerivedStyles | undefined
-    ) => (
-      <Label styleOverrides={style} htmlFor={id}>
-        {label}
-      </Label>
-    )
-
-    return generateLabel?.(styles)
-  }
-
   return (
-    <Box themeKey={`components.textArea.${errorMessage ? 'error' : 'default'}`}>
+    <Box
+      themeKey={`components.textArea.${errorMessage ? 'error' : 'container'}`}
+    >
       <textarea
         className={labelClassName}
-        themeKey="components.input.default"
+        themeKey="components.textArea.default"
         id={id}
         ref={ref}
         placeholder=" "
@@ -72,7 +46,7 @@ export const TextArea = forwardRef(function Textarea(
         onChange={onChange}
         {...textareaProps}
       />
-      {renderFeature()}
+      <Label htmlFor={id}>{label}</Label>
       {(!!helperText || !!errorMessage || !!charLimit) && (
         <Columns styleOverrides={{ paddingTop: 1 }}>
           {(!!helperText || !!errorMessage) && (
