@@ -47,7 +47,6 @@ const linkStyles = {
   cursor: 'pointer',
   marginY: '2px',
   ':hover:not(:focus)': {
-    // bg: 'primary.washed.0',
     color: 'emphasis',
   },
   '&[aria-current="page"]': {
