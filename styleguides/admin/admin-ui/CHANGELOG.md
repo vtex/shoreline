@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.55.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.1...@vtex/admin-ui@0.55.2) (2020-11-12)
+
+
+### Bug Fixes
+
+* **tooltip:** popover not overriding another components ([19222fc](https://github.com/vtex/onda/commit/19222fc18b1b2bd109d82ae0eeabf4d2853ef2c8))
+
+
+
+
+
 ## [0.55.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.0...@vtex/admin-ui@0.55.1) (2020-11-12)
 
 
