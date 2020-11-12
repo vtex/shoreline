@@ -220,12 +220,6 @@ const slideCrossfade: SxStyleProp = {
 export default {
   position: 'relative',
   overflow: 'hidden',
-  '&[data-enter]': {
-    div: {
-      animation: 'none',
-      color: 'black',
-    },
-  },
   slidesContainer,
   navigationContainer,
   nextButton,
