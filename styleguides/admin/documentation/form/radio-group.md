@@ -4,7 +4,11 @@ path: /form/radio-group/
 
 # RadioGroup
 
-Used to group `Radio` components.
+Used to group a set of `Radio` components. Has `role="radiogroup"` defined.
+
+`Children`: Group components should have children of the same type. We don't do this restriction on the code, but you should keep in mind that when using the `RadioGroup` the children should have the `Radio` type.
+
+`Child Label`: By default, the children labels are customized with `display: 'flex'` and `align-items: 'center'`. You can override these styles if necessary.
 
 ## Behavior
 
@@ -14,41 +18,28 @@ import {
   RadioGroup,
   useRadioState,
   Label,
-  Text,
+  Heading,
   ThemeProvider,
 } from '@vtex/admin-ui'
 
 function Example() {
-  const radio = useRadioState({ state: 'oms' })
-  const values = [
-    'Marketplace Ecommerce',
-    'B2C Commerce',
-    'B2B Commerce',
-    'Order Management System',
-    'Disabled',
-  ]
-
+  const radio = useRadioState({ state: [] })
   return (
     <ThemeProvider>
-      <Text variant="subtitle">Selected solution: {radio.state}</Text>
-      <RadioGroup
-        state={radio}
-        id="radio-group"
-        orientation="vertical"
-        label="Solutions"
-      >
-        {values.map((value, key) => {
-          return (
-            <Label key={key}>
-              <Radio
-                value={value}
-                state={radio}
-                disabled={value === 'Disabled'}
-              />
-              {value}
-            </Label>
-          )
-        })}
+      <Heading>Selected Radios: {radio.state.join(', ')}</Heading>
+      <RadioGroup state={radio} id="radio-group" label="Solutions">
+        <Label>
+          <Radio value="Marketplace Ecommerce" state={radio} />
+          Marketplace Ecommerce
+        </Label>
+        <Label>
+          <Radio value="B2C Commerce" state={radio} />
+          B2C Commerce
+        </Label>
+        <Label>
+          <Radio value="Order Management System" state={radio} />
+          Order Management System
+        </Label>
       </RadioGroup>
     </ThemeProvider>
   )
@@ -57,7 +48,7 @@ function Example() {
 
 ## Installation
 
-```jsx static
+```sh static
 yarn add @vtex/admin-ui
 ```
 
@@ -65,13 +56,15 @@ yarn add @vtex/admin-ui
 import { RadioGroup } from '@vtex/admin-ui'
 ```
 
-## `useRadio` hook
+## `useRadioState` hook
 
-You should use this hook to grants navigation accessibility in the `RadioGroup` children.
+To guarantee accessibility and keyboard navigation along with the `Radios` inside the `RadioGroup`, we provide a hook that already implements the state logic for you. You should pass the hook return to the `state` property to the `RadioGroup` and all `Radio` children.
 
-### Variation
+## Variation
 
-Orientation Horizontal
+### Horizontal
+
+By default, the RadioGroup is rendered in a horizontal orientation. This means that the `orientation` property has a `horizontal` value.
 
 ```jsx
 import {
@@ -79,52 +72,82 @@ import {
   RadioGroup,
   useRadioState,
   Label,
-  Text,
+  Heading,
   ThemeProvider,
 } from '@vtex/admin-ui'
 
 function Example() {
-  const radio = useRadioState({ state: 'oms' })
-  const values = [
-    'Marketplace Ecommerce',
-    'B2C Commerce',
-    'B2B Commerce',
-    'Order Management System',
-    'Disabled',
-  ]
-
+  const radio = useRadioState({ state: [] })
   return (
     <ThemeProvider>
-      <Text variant="subtitle">Selected solution: {radio.state}</Text>
-      <RadioGroup
-        state={radio}
-        id="radio-group"
-        orientation="horizontal"
-        label="Solutions"
-      >
-        {values.map((value, key) => {
-          return (
-            <Label key={key}>
-              <Radio
-                value={value}
-                state={radio}
-                disabled={value === 'Disabled'}
-              />
-              {value}
-            </Label>
-          )
-        })}
+      <Heading>Selected Radios: {radio.state.join(', ')}</Heading>
+      <RadioGroup state={radio} id="radio-group" label="Solutions">
+        <Label>
+          <Radio value="Marketplace Ecommerce" state={radio} />
+          Marketplace Ecommerce
+        </Label>
+        <Label>
+          <Radio value="B2C Commerce" state={radio} />
+          B2C Commerce
+        </Label>
+        <Label>
+          <Radio value="Order Management System" state={radio} />
+          Order Management System
+        </Label>
       </RadioGroup>
     </ThemeProvider>
   )
 }
 ```
 
-## RadioGroup Label
+### Vertical
 
-You can easily add a label using the `label` prop, but it is also possible to add a custom one, or even not add any label (just remember to use `aria-label` prop, in this case).
+The RadioGroup can also be rendered in a vertical orientation. This means that the `orientation` property should have a `vertical` value.
 
-- **Custom Label**
+```jsx
+import {
+  Radio,
+  RadioGroup,
+  useRadioState,
+  Label,
+  Heading,
+  ThemeProvider,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const radio = useRadioState({ state: [] })
+  return (
+    <ThemeProvider>
+      <Heading>Selected Radios: {radio.state.join(', ')}</Heading>
+      <RadioGroup
+        state={radio}
+        id="radio-group"
+        orientation="vertical"
+        label="Solutions"
+      >
+        <Label>
+          <Radio value="Marketplace Ecommerce" state={radio} />
+          Marketplace Ecommerce
+        </Label>
+        <Label>
+          <Radio value="B2C Commerce" state={radio} />
+          B2C Commerce
+        </Label>
+        <Label>
+          <Radio value="Order Management System" state={radio} />
+          Order Management System
+        </Label>
+      </RadioGroup>
+    </ThemeProvider>
+  )
+}
+```
+
+### Label
+
+You can easily add a label to the RadioGroup using the `label` property. Just keep in mind that to guarantee accessibility, always that you define this property, you should define the `id` as well.
+
+You can also add a custom label!
 
 ```jsx
 import {
@@ -160,18 +183,6 @@ function Example() {
 }
 ```
 
-> ⚠️ To guarantee accessibility, always that a `RadioGroup` has a label, it should have an `id` set as well.
-
-## RadioGroup children
-
-Components with `role="radiogroup"` should have children of type `Radio`. We don't do this restriction on the code, so you should keep in mind that when using the `RadioGroup` the children should be of `Radio` type.
-
-### Child label
-
-The labels involved by `RadioGroup` are customized with `display="flex"` and `items="center"` by default. You can override these styles if necessary.
-
 ## Props
-
-### WIP
 
 <proptypes heading="RadioGroup" component="RadioGroup"/>

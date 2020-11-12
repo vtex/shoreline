@@ -106,6 +106,64 @@ function Example() {
 }
 ```
 
+### Checked States
+
+There are three checked states: `not checked`, `checked`, and `partially checked`.
+
+```jsx
+import { Checkbox, Set, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <ThemeProvider>
+      <Set>
+        <Checkbox aria-label="label-1" />
+        <Checkbox aria-label="label-disabled-1" disabled />
+      </Set>
+      <Set>
+        <Checkbox aria-label="label-2" checked />
+        <Checkbox aria-label="label-disabled-2" checked disabled />
+      </Set>
+      <Set>
+        <Checkbox aria-label="label-3" state={{ state: 'indeterminate' }} />
+        <Checkbox
+          aria-label="label-disabled-3"
+          state={{ state: 'indeterminate' }}
+          disabled
+        />
+      </Set>
+    </ThemeProvider>
+  )
+}
+```
+
+### Size
+
+There are two size variants: `small`, `regular`. By default it will render `regular`.
+
+```jsx
+import { Checkbox, Set, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <ThemeProvider>
+      <Set>
+        <Checkbox aria-label="label-small-1" size="small" />
+        <Checkbox aria-label="label-1" />
+      </Set>
+      <Set>
+        <Checkbox aria-label="label-small-2" checked size="small" />
+        <Checkbox aria-label="label-2" checked />
+      </Set>
+    </ThemeProvider>
+  )
+}
+```
+
 ### Multiple Checkboxes
 
 Oftentimes we need to render multiple checkboxes and store the checked values in an array. It can be easily done using our `useCheckboxState` hook, just pass the hook return object to the checkboxes `state` property.
@@ -123,7 +181,7 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <Heading>Checkboxes: {state.state.join(', ')}</Heading>
+      <Heading>Selected Checkboxes: {state.state.join(', ')}</Heading>
       <Checkbox state={state} value="checkbox1" />
       <Checkbox state={state} value="checkbox2" />
       <Checkbox state={state} value="checkbox3" />
