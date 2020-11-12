@@ -6,7 +6,7 @@ import {
   IconPlusDisabled,
   IconMinusDisabled,
 } from '../../icons'
-import { cn } from '@vtex/admin-ui'
+import { cn } from '../../system'
 import { Input } from 'reakit'
 
 const normalizeMin = (min: number | null) => (min == null ? -Infinity : min)

@@ -1,0 +1,206 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stepper tests should match snaphot with pallette 1`] = `
+<DocumentFragment>
+  .emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: #8DB6FA;
+  padding: 0.8px;
+  width: 112px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 54px;
+}
+
+.emotion-1 {
+  font-size: 14px;
+  text-align: center;
+  width: 34px;
+  height: 45px;
+  background-color: #FFFFFF;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 48px;
+  width: 106px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background-color: #FFFFFF;
+  border-color: #E0E2E7;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+<div>
+    <div
+      class="emotion-4"
+    >
+      <div
+        class="emotion-3"
+      >
+        <svg
+          class="emotion-0"
+          fill="none"
+          style="padding-right: 4px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.0007 10H4.00066"
+            stroke="#2953B2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+        <input
+          aria-label="input"
+          class="emotion-1"
+          type="tel"
+          value="1"
+        />
+        <svg
+          class="emotion-0"
+          fill="none"
+          style="padding-left: 4px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 10H4"
+            stroke="#2953B2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+          <path
+            d="M10 15.9995L10 3.99951"
+            stroke="#2953B2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Stepper tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-1 {
+  font-size: 14px;
+  text-align: center;
+  width: 34px;
+  height: 45px;
+  background-color: #FFFFFF;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 48px;
+  width: 106px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background-color: #FFFFFF;
+  border-color: #E0E2E7;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+<div>
+    <div
+      class="emotion-3"
+    >
+      <svg
+        class="emotion-0"
+        fill="none"
+        style="padding-right: 4px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16.0007 10H4.00066"
+          stroke="#2953B2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+      </svg>
+      <input
+        aria-label="input"
+        class="emotion-1"
+        type="tel"
+        value="1"
+      />
+      <svg
+        class="emotion-0"
+        fill="none"
+        style="padding-left: 4px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16 10H4"
+          stroke="#2953B2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+        <path
+          d="M10 15.9995L10 3.99951"
+          stroke="#2953B2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;

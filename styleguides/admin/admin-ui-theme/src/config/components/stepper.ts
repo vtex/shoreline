@@ -10,5 +10,9 @@ const styles = {
 
 export default {
   disable: { ...styles, backgroundColor: 'muted.4' },
-  usual: { ...styles, backgroundColor: 'primary.contrast' },
+  usual: {
+    ...styles,
+    backgroundColor: 'primary.contrast',
+    borderColor: '898F9E',
+  },
 }
