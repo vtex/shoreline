@@ -1,6 +1,5 @@
 ---
 path: /layouts/set/
-next: true
 ---
 
 # Set

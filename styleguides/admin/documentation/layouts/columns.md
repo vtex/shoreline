@@ -1,6 +1,5 @@
 ---
 path: /layouts/columns/
-next: true
 ---
 
 # Columns
