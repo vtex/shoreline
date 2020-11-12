@@ -45,6 +45,7 @@
     "@vtex-components/popover": "^0.2.0",
     "@vtex-components/theme": "^0.1.1",
     "@vtex-components/tooltip": "^0.2.1",
+    "react-swipeable": "^6.0.0",
     "reakit": "1.2.3",
     "theme-ui": "^0.3.1",
     "tiny-invariant": "^1.1.0",
