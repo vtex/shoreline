@@ -23,10 +23,10 @@ import {
 } from '@vtex/admin-ui'
 
 function Example() {
-  const radio = useRadioState({ state: [] })
+  const radio = useRadioState()
   return (
     <ThemeProvider>
-      <Heading>Selected Radios: {radio.state.join(', ')}</Heading>
+      <Heading>Selected Radio: {radio.state}</Heading>
       <RadioGroup state={radio} id="radio-group" label="Solutions">
         <Label>
           <Radio value="Marketplace Ecommerce" state={radio} />
@@ -77,10 +77,10 @@ import {
 } from '@vtex/admin-ui'
 
 function Example() {
-  const radio = useRadioState({ state: [] })
+  const radio = useRadioState()
   return (
     <ThemeProvider>
-      <Heading>Selected Radios: {radio.state.join(', ')}</Heading>
+      <Heading>Selected Radios: {radio.state}</Heading>
       <RadioGroup state={radio} id="radio-group" label="Solutions">
         <Label>
           <Radio value="Marketplace Ecommerce" state={radio} />
@@ -115,10 +115,10 @@ import {
 } from '@vtex/admin-ui'
 
 function Example() {
-  const radio = useRadioState({ state: [] })
+  const radio = useRadioState()
   return (
     <ThemeProvider>
-      <Heading>Selected Radios: {radio.state.join(', ')}</Heading>
+      <Heading>Selected Radio: {radio.state}</Heading>
       <RadioGroup
         state={radio}
         id="radio-group"

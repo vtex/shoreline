@@ -46,7 +46,7 @@ import { Checkbox } from '@vtex/admin-ui'
 
 There are two ways of handling the state in our `Checkbox`.
 
-### `checked` and `onChange`
+### checked and onChange
 
 You can use the properties `checked` and `onChange` to handle if the Checkbox is checked and its values have changed.
 
@@ -64,7 +64,7 @@ function Example() {
 }
 ```
 
-### `useCheckboxState`
+### useCheckboxState
 
 For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of checkboxes and want to handle the states of each one. You should pass the hook return to the `state` property.
 
@@ -114,8 +114,6 @@ There are three checked states: `not checked`, `checked`, and `partially checked
 import { Checkbox, Set, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const [checked, setChecked] = React.useState(false)
-
   return (
     <ThemeProvider>
       <Set>
@@ -147,8 +145,6 @@ There are two size variants: `small`, `regular`. By default it will render `regu
 import { Checkbox, Set, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const [checked, setChecked] = React.useState(false)
-
   return (
     <ThemeProvider>
       <Set>
@@ -166,7 +162,7 @@ function Example() {
 
 ### Multiple Checkboxes
 
-Oftentimes we need to render multiple checkboxes and store the checked values in an array. It can be easily done using our `useCheckboxState` hook, just pass the hook return object to the checkboxes `state` property.
+Oftentimes we need to render multiple checkboxes and store the checked values in an array. It can be easily done using our `useCheckboxState` hook, you just need to pass the hook return object to the checkboxes `state` property and define a `value` for each `Checkbox`.
 
 ```jsx
 import {
@@ -192,7 +188,7 @@ function Example() {
 
 ### Indeterminate State
 
-Sometimes you need to implement a Checkbox that controls a set of Checkboxes. It can be easily done using our `useCheckboxState` hook combined with our Checkbox tri-state: `checked`, `not checked`, and `indeterminate`.
+Sometimes you need to implement a Checkbox that controls the state of a set of Checkboxes. It can be easily done using our `useCheckboxState` hook combined with our Checkbox tri-state: `checked`, `not checked`, and `indeterminate`.
 
 ```jsx
 import React from 'react'
