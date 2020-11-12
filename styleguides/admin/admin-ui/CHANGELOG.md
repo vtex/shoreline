@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.55.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.0...@vtex/admin-ui@0.55.1) (2020-11-12)
+
+
+### Bug Fixes
+
+* **icons:** spread styleOverrides to IconsWithDirection ([28958cd](https://github.com/vtex/onda/commit/28958cd7f440ff982e931cf63c01b6c17d14b554))
+
+
+
+
+
 # [0.55.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.54.1...@vtex/admin-ui@0.55.0) (2020-11-10)
 
 
