@@ -36,8 +36,6 @@ export const Disabled: Story<StepperProps> = () => {
 export const Error: Story<StepperProps> = () => {
   let initial: number = 1
   return (
-    <Set spacing={4} orientation="vertical">
-      <Stepper value={initial} variant="danger" errorMessage="Minimum of 6" />
-    </Set>
+    <Stepper value={initial} variant="danger" errorMessage="Minimum of 6" />
   )
 }

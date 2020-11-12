@@ -122,7 +122,7 @@ export function Stepper(props: StepperProps) {
   const { errorMessage, helperText, variant } = props
 
   return (
-    <div>
+    <>
       {variant === 'focus' ? (
         <Box
           border={'default'}
@@ -148,6 +148,7 @@ export function Stepper(props: StepperProps) {
           {errorMessage}
         </Box>
       )}
+
       {helperText && (
         <Box
           text="body"
@@ -156,7 +157,7 @@ export function Stepper(props: StepperProps) {
           {helperText}
         </Box>
       )}
-    </div>
+    </>
   )
 }
 
