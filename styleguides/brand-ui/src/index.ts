@@ -34,3 +34,9 @@ export {
   Timeline,
   EventProps as TimelineEventProps,
 } from './components/Timeline'
+export {
+  Calendar,
+  CalendarProps,
+  Events,
+  DayProps,
+} from './components/Calendar'
