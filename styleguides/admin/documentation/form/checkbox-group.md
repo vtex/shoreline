@@ -4,7 +4,11 @@ path: /form/checkbox-group/
 
 # CheckboxGroup
 
-Used to group `Checkbox` components.
+Used to group a set of `Checkbox` components. Has `role="group"` defined.
+
+`Children`: Group components should have children of the same type. We don't do this restriction on the code, but you should keep in mind that when using the `CheckboxGroup` the children should have the `Checkbox` type.
+
+`Child Label`: By default, the children labels are customized with `display: 'flex'` and `align-items: 'center'`. You can override these styles if necessary.
 
 ## Behavior
 
@@ -14,11 +18,7 @@ import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <CheckboxGroup
-        orientation="horizontal"
-        id="form-group-id"
-        label="Group label!"
-      >
+      <CheckboxGroup id="form-group-id" label="Group label!">
         <Label>
           <Checkbox />
           Label 1
@@ -45,7 +45,9 @@ import { CheckboxGroup } from '@vtex/admin-ui'
 
 ## Variation
 
-### Vertical
+### Horizontal
+
+By default, the CheckboxGroup is rendered in a horizontal orientation. This means that the `orientation` property has a `horizontal` value.
 
 ```jsx
 import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
@@ -72,13 +74,40 @@ function Example() {
 }
 ```
 
-### CheckboxGroup Label
+### Vertical
 
-You can easily add a label using the `label` prop.
+The CheckboxGroup can also be rendered in a vertical orientation. This means that the `orientation` property should have a `vertical` value.
 
-- **Without using label prop**
+```jsx
+import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
 
-If you want to add a custom label, that differs of the defined one in the `label` prop, it is possible.
+function Example() {
+  return (
+    <ThemeProvider>
+      <CheckboxGroup
+        orientation="vertical"
+        id="form-group-id"
+        label="Group label!"
+      >
+        <Label>
+          <Checkbox />
+          Label 1
+        </Label>
+        <Label>
+          <Checkbox />
+          Label 2
+        </Label>
+      </CheckboxGroup>
+    </ThemeProvider>
+  )
+}
+```
+
+### Label
+
+You can easily add a label to the CheckboxGroup using the `label` property. Just keep in mind that to guarantee accessibility, always that you define this property, you should define the `id` as well.
+
+You can also add a custom label!
 
 ```jsx
 import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
@@ -98,14 +127,6 @@ function Example() {
 }
 ```
 
-> ⚠️ To guarantee accessibility, always check that a `CheckboxGroup` has a label, it should have an `id` set as well.
-
-### CheckboxGroup items
-
-Components with `role="group"` should have children of the same type. We don't do this restriction on the code, so you should keep in mind that when using the `CheckboxGroup` the children should be of `Checkbox` type.
-
-#### Items label
-
-The labels involved by `CheckboxGroup` are customized with `display="flex"` and `items="center"` by default. You can override these styles if necessary.
+## Props
 
 <proptypes heading="CheckboxGroup" component="CheckboxGroup" />
