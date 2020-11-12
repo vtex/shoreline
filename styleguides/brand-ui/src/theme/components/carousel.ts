@@ -22,9 +22,7 @@ const navigationContainer: SxStyleProp = {
   },
 }
 
-const navigationButton: SxStyleProp = {
-  height: 64,
-  width: 64,
+const navigationButtonBase: SxStyleProp = {
   cursor: 'pointer',
   border: 'none',
   borderRadius: '100%',
@@ -39,7 +37,20 @@ const navigationButton: SxStyleProp = {
   },
 }
 
-const indicatorBarBase: SxStyleProp = {
+const navigationButton: SxStyleProp = {
+  regular: {
+    ...navigationButtonBase,
+    height: 64,
+    width: 64,
+  },
+  small: {
+    ...navigationButtonBase,
+    height: 40,
+    width: 40,
+  },
+}
+
+const indicatorBar: SxStyleProp = {
   left: 0,
   right: 0,
   bottom: 0,
@@ -52,17 +63,7 @@ const indicatorBarBase: SxStyleProp = {
   'button:last-child': {
     marginRight: 0,
   },
-}
-
-const indicatorBar: SxStyleProp = {
-  small: {
-    ...indicatorBarBase,
-    marginBottom: 6,
-  },
-  regular: {
-    ...indicatorBarBase,
-    marginBottom: 48,
-  },
+  marginBottom: 6,
 }
 
 const indicatorBase: SxStyleProp = {
@@ -94,13 +95,25 @@ const indicator: SxStyleProp = {
 }
 
 const nextButton: SxStyleProp = {
-  ...navigationButton,
-  marginRight: 5,
+  small: {
+    ...navigationButton.small,
+    marginRight: 4,
+  },
+  regular: {
+    ...navigationButton.regular,
+    marginRight: 4,
+  },
 }
 
 const previousButton: SxStyleProp = {
-  ...navigationButton,
-  marginLeft: 5,
+  small: {
+    ...navigationButton.small,
+    marginLeft: 4,
+  },
+  regular: {
+    ...navigationButton.regular,
+    marginLeft: 4,
+  },
 }
 
 const slideBase: SxStyleProp = {
@@ -110,14 +123,93 @@ const slideBase: SxStyleProp = {
   transition: '0.5s linear',
 }
 
-const slide: SxStyleProp = {
-  hidden: {
+const slideAnimations: SxStyleProp = {
+  '@keyframes slideInLTR': {
+    '0%': {
+      transform: 'translateX(100%)',
+    },
+    '100%': {
+      transform: 'translateX(0)',
+    },
+  },
+  '@keyframes slideOutLTR': {
+    '0%': {
+      transform: 'translateX(0)',
+      visibility: 'visible',
+    },
+    '100%': {
+      transform: 'translateX(-100%)',
+    },
+  },
+  '@keyframes slideInRTL': {
+    '0%': {
+      transform: 'translateX(-100%)',
+    },
+    '100%': {
+      transform: 'translateX(0)',
+    },
+  },
+  '@keyframes slideOutRTL': {
+    '0%': {
+      transform: 'translateX(0)',
+      visibility: 'visible',
+    },
+    '100%': {
+      transform: 'translateX(100%)',
+    },
+  },
+}
+
+const slideDefault: SxStyleProp = {
+  ...slideAnimations,
+  ltr: {
+    current: {
+      ...slideBase,
+      animation: 'slideInLTR 1s forwards',
+      position: 'static',
+      visibility: 'visible',
+    },
+    swap: {
+      ...slideBase,
+      animation: 'slideOutLTR 1s forwards',
+      position: 'absolute',
+      visibility: 'hidden',
+    },
+    default: {
+      ...slideBase,
+      position: 'absolute',
+      visibility: 'hidden',
+    },
+  },
+  rtl: {
+    current: {
+      ...slideBase,
+      animation: 'slideInRTL 1s forwards',
+      position: 'static',
+      visibility: 'visible',
+    },
+    swap: {
+      ...slideBase,
+      animation: 'slideOutRTL 1s forwards',
+      position: 'absolute',
+      visibility: 'hidden',
+    },
+    default: {
+      ...slideBase,
+      position: 'absolute',
+      visibility: 'hidden',
+    },
+  },
+}
+
+const slideCrossfade: SxStyleProp = {
+  default: {
     ...slideBase,
     position: 'absolute',
     opacity: 0,
     visibility: 'hidden',
   },
-  visible: {
+  current: {
     ...slideBase,
     position: 'static',
     opacity: 1,
@@ -127,11 +219,21 @@ const slide: SxStyleProp = {
 
 export default {
   position: 'relative',
+  overflow: 'hidden',
+  '&[data-enter]': {
+    div: {
+      animation: 'none',
+      color: 'black',
+    },
+  },
   slidesContainer,
   navigationContainer,
   nextButton,
   previousButton,
   indicatorBar,
   indicator,
-  slide,
+  slide: {
+    crossfade: slideCrossfade,
+    ...slideDefault,
+  },
 }

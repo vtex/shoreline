@@ -1,62 +1,71 @@
-import React, { useState, ReactNode } from 'react'
-import { Flex, Button, IconCaret, SxStyleProp } from '../..'
+import React, { ReactNode } from 'react'
+import { SwipeableHandlers } from 'react-swipeable'
 import { VisuallyHidden } from 'reakit/VisuallyHidden'
+import { Flex, Button, IconCaret, SxStyleProp } from '../..'
+
+import useCarouselState from './useCarouselState'
 
 export interface CarouselProps {
   children: ReactNode[]
   indicators?: boolean
   size?: 'regular' | 'small'
   sx?: SxStyleProp
+  crossfade?: boolean
 }
 
 export const Carousel = ({
   children: slides,
   indicators = true,
   size = 'regular',
+  crossfade = false,
   sx = {},
 }: CarouselProps) => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const totalSlides = slides.length
-
-  const handleNext = () => setCurrentSlide((currentSlide + 1) % totalSlides)
-
-  const handlePrevious = () =>
-    setCurrentSlide((currentSlide - 1 + totalSlides) % totalSlides)
+  const {
+    currentSlide,
+    swapSlide,
+    direction,
+    handleChangeSlide,
+    handleNext,
+    handlePrevious,
+    swipeHandlers,
+  } = useCarouselState({ totalSlides: slides.length })
 
   return (
     <Flex variant="carousel" sx={sx}>
-      <Flex variant="carousel.slidesContainer">
-        {slides.map((slide, index) => (
-          <Flex
-            key={index}
-            variant={`carousel.slide.${
-              index === currentSlide ? 'visible' : 'hidden'
-            }`}
-          >
-            {slide}
-          </Flex>
-        ))}
-      </Flex>
+      <SlidesContainer
+        swipeHandlers={swipeHandlers}
+        slides={slides}
+        direction={direction}
+        currentSlide={currentSlide}
+        swapSlide={swapSlide}
+        crossfade={crossfade}
+      />
       <Flex variant="carousel.navigationContainer.previous">
         <Button
           onClick={handlePrevious}
-          sx={{ variant: 'carousel.previousButton' }}
+          sx={{
+            variant: `carousel.previousButton.${size}`,
+          }}
         >
-          <IconCaret size={48} direction="left" />
+          <IconCaret size={size === 'regular' ? 48 : 24} direction="left" />
           <VisuallyHidden>Previous slide</VisuallyHidden>
         </Button>
       </Flex>
       <Flex variant="carousel.navigationContainer.next">
-        <Button onClick={handleNext} sx={{ variant: 'carousel.nextButton' }}>
-          <IconCaret size={48} direction="right" />
+        <Button
+          onClick={handleNext}
+          sx={{
+            variant: `carousel.nextButton.${size}`,
+          }}
+        >
+          <IconCaret size={size === 'regular' ? 48 : 24} direction="right" />
           <VisuallyHidden>Next slide</VisuallyHidden>
         </Button>
       </Flex>
       {indicators && (
         <IndicatorBar
-          size={size}
           slides={slides}
-          setCurrentSlide={setCurrentSlide}
+          handleChangeSlide={handleChangeSlide}
           currentSlide={currentSlide}
         />
       )}
@@ -64,24 +73,66 @@ export const Carousel = ({
   )
 }
 
+interface SlidesContainerProps {
+  slides: ReactNode[]
+  direction: 'ltr' | 'rtl'
+  swipeHandlers: SwipeableHandlers
+  currentSlide: number
+  swapSlide: number
+  crossfade: boolean
+}
+
+const SlidesContainer = ({
+  swipeHandlers,
+  slides,
+  direction,
+  currentSlide,
+  swapSlide,
+  crossfade,
+}: SlidesContainerProps) => (
+  <Flex {...swipeHandlers} variant="carousel.slidesContainer">
+    {slides.map((slide, index) => {
+      let variant = ''
+      if (index === currentSlide) {
+        variant = 'current'
+      } else if (crossfade || index !== swapSlide) {
+        variant = 'default'
+      } else {
+        variant = 'swap'
+      }
+      const disableAnimation = currentSlide === swapSlide
+
+      return (
+        <Flex
+          key={index}
+          variant={`carousel.slide.${
+            crossfade ? 'crossfade' : direction
+          }.${variant}`}
+          sx={disableAnimation ? { animation: 'none' } : {}}
+        >
+          {slide}
+        </Flex>
+      )
+    })}
+  </Flex>
+)
+
 interface IndicatorBarProps {
   slides: ReactNode[]
-  setCurrentSlide: (slide: number) => void
+  handleChangeSlide: (slide: number) => void
   currentSlide: number
-  size: 'regular' | 'small'
 }
 
 const IndicatorBar = ({
   slides,
-  setCurrentSlide,
+  handleChangeSlide,
   currentSlide,
-  size,
 }: IndicatorBarProps) => (
-  <Flex variant={`carousel.indicatorBar.${size}`}>
+  <Flex variant={`carousel.indicatorBar`}>
     {slides.map((_slide: ReactNode, slideIndex: number) => (
       <Indicator
         slideIndex={slideIndex}
-        setCurrentSlide={setCurrentSlide}
+        handleChangeSlide={handleChangeSlide}
         active={currentSlide == slideIndex}
       />
     ))}
@@ -90,14 +141,18 @@ const IndicatorBar = ({
 
 interface IndicatorProps {
   slideIndex: number
-  setCurrentSlide: (slide: number) => void
+  handleChangeSlide: (slide: number) => void
   active: boolean
 }
 
-const Indicator = ({ slideIndex, setCurrentSlide, active }: IndicatorProps) => (
+const Indicator = ({
+  slideIndex,
+  handleChangeSlide,
+  active,
+}: IndicatorProps) => (
   <Button
     key={slideIndex}
-    onClick={() => setCurrentSlide(slideIndex)}
+    onClick={() => handleChangeSlide(slideIndex)}
     sx={{ variant: `carousel.indicator${active ? '.active' : ''}` }}
   >
     <VisuallyHidden>Slide {slideIndex}</VisuallyHidden>

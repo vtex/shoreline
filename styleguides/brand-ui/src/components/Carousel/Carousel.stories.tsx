@@ -13,7 +13,7 @@ export default {
 const carouselPageStyles = {
   padding: 112,
   alignItems: 'center',
-  height: 300,
+  height: 400,
   width: '100%',
   color: 'muted.5',
   justifyContent: 'space-around',
@@ -23,8 +23,13 @@ const carouselPageStyles = {
 const SimpleCarousel = ({
   size,
   indicators,
-}: Pick<CarouselProps, 'size' | 'indicators'>) => (
-  <Carousel size={size} indicators={indicators}>
+  crossfade,
+}: Pick<CarouselProps, 'size' | 'indicators' | 'crossfade'>) => (
+  <Carousel
+    size={size}
+    indicators={indicators}
+    crossfade={crossfade}
+  >
     <Flex
       sx={{
         ...carouselPageStyles,
@@ -53,6 +58,8 @@ const SimpleCarousel = ({
 )
 
 export const BasicCarousel = () => <SimpleCarousel />
+
+export const CrossfadeCarousel = () => <SimpleCarousel crossfade />
 
 export const SmallCarousel = () => <SimpleCarousel size="small" />
 
