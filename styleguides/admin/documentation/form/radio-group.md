@@ -48,7 +48,7 @@ function Example() {
 
 ## Installation
 
-```sh static
+```static
 yarn add @vtex/admin-ui
 ```
 
