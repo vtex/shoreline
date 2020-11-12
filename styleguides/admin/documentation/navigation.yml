@@ -18,6 +18,7 @@
     - /skeleton/
 - section: Layouts
   paths:
+    - /layouts/introduction/
     - /layouts/columns/
     - /layouts/set/
 - section: Typography

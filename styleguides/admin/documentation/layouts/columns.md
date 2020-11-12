@@ -1,11 +1,12 @@
 ---
 path: /layouts/columns/
-next: true
 ---
 
 # Columns
 
-It implements a 12 column flexbox based responsive column system.
+It implements a 12 column flexbox based responsive column system. By default, each `<Columns.Item>` will have an equal width and you can have up to 12 columns.
+
+To create a basic columned layout, add a `<Columns>` component and then add your `<Columns.Item>`.
 
 ## Behavior
 
@@ -39,10 +40,8 @@ function Example() {
 
 ## Installation
 
-<Columns> uses the upcoming @vtex/admin-ui-system package. This means you need to install the latest version:
-
 ```sh static
-yarn add @vtex/admin-ui@latest
+yarn add @vtex/admin-ui
 ```
 
 ## Variation
