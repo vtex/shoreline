@@ -6,6 +6,7 @@ const inputStyle = {
   height: 48,
   borderStyle: 'solid',
   borderWidth: 1,
+  paddingTop: 2,
   paddingLeft: 3,
   paddingRight: 4,
   borderColor: 'muted.2',
@@ -108,9 +109,6 @@ const suffixStyle = {
 
 const passwordStyle = {
   color: 'muted.1',
-  borderLeftStyle: 'solid',
-  borderLeftWidth: '1px',
-  borderLeftColor: 'muted.3',
   paddingTop: '14px',
   marginTop: 'px',
   width: '32px',
@@ -122,7 +120,7 @@ const passwordStyle = {
 
 const passwordButtonStyle = {
   color: 'muted.1',
-  marginY: '14px',
+  marginY: '20px',
   marginRight: 1,
   height: 20,
   width: 20,

@@ -44,7 +44,6 @@ describe('Input tests', () => {
           value="Test6"
           readOnly
         />
-        <Input onClear={() => {}} value="Test7" id="password" type="password" />
       </ThemeProvider>
     )
 

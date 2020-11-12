@@ -5,6 +5,7 @@ import { IconAdd } from '@vtex/admin-ui-icons'
 import { TextField } from './index'
 import { useInputState } from '../unstableInput'
 import { Box } from '../Box'
+import { Label } from '../Label'
 
 export default {
   title: 'system-next/text-field',
@@ -77,6 +78,23 @@ export const Error = () => {
         charLimit={120}
         suffix="Kg"
         icon={<IconAdd />}
+      />
+    </Box>
+  )
+}
+
+export const WithPassword = () => {
+  const input = useInputState()
+
+  return (
+    <Box width={300}>
+      <TextField
+        state={input}
+        id="textfield-5"
+        type="password"
+        label="Password"
+        helperText="Helper Text"
+        charLimit={120}
       />
     </Box>
   )

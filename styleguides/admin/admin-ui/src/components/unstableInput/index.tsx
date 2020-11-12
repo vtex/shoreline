@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode, Ref, useCallback, useState } from 'react'
 import { useClassName, SxStyleProp } from '@vtex/admin-ui-system'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
-import { IconCancel } from '@vtex/admin-ui-icons'
+import { IconCancel, IconHide, IconPreview } from '@vtex/admin-ui-icons'
 
 import { Overridable } from '../../types'
 import { Box } from '../Box'
@@ -14,6 +14,7 @@ export const unstableInput = forwardRef(function Input(
     icon,
     suffix,
     onClear,
+    onClick,
     styleOverrides,
     id,
     type,
@@ -53,10 +54,6 @@ export const unstableInput = forwardRef(function Input(
     return optionalFeature?.(styles)
   }
 
-  function showPassword() {
-    return ''
-  }
-
   return (
     <Box themeKey={`components.input.container${icon ? '-with-icon' : ''}`}>
       {icon && (
@@ -83,7 +80,7 @@ export const unstableInput = forwardRef(function Input(
             display: 'flex',
           }}
         >
-          {!!onClear && type !== 'password' && value.toString().length > 0 && (
+          {!!onClear && !type && value.toString().length > 0 && (
             <Box
               element="button"
               themeKey="components.input.clear-button-style"
@@ -100,17 +97,19 @@ export const unstableInput = forwardRef(function Input(
               {suffix}
             </Box>
           )}
-          {type === 'password' && (
-            <Box element="span" themeKey="components.input.password-style">
-              <Box
-                element="button"
-                themeKey="components.input.password-button-style"
-                aria-label={`${id}-show-password-button`}
-                onClick={showPassword}
-              >
-                <Box>
-                  <IconCancel size={20} />
-                </Box>
+          {!!type && (
+            <Box
+              element="button"
+              themeKey="components.input.password-button-style"
+              aria-label={`${id}-show-password-button`}
+              onClick={onClick}
+            >
+              <Box>
+                {type === 'password' ? (
+                  <IconPreview size={24} />
+                ) : (
+                  <IconHide size={24} />
+                )}
               </Box>
             </Box>
           )}
@@ -172,6 +171,8 @@ export interface InputProps extends Omit<ReakitInputProps, 'ref'>, Overridable {
   type?: string
   /** onClear input */
   onClear?: () => void
+  /** onClick input */
+  onClick?: () => void
   /**
    * Render an optional feature
    */

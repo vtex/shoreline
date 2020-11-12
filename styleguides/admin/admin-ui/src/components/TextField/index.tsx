@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode, Ref } from 'react'
+import React, { useState, forwardRef, ReactNode, Ref } from 'react'
 
 import { unstableInput as Input, InputProps } from '../unstableInput'
 import { Text } from '../Text'
@@ -17,35 +17,66 @@ export const TextField = forwardRef(function Textfield(
     styleOverrides,
     helperText,
     charLimit,
+    type,
     icon,
     suffix,
+    onClick,
     state: { value = '', onChange, onClear },
     errorMessage,
     ...inputProps
   } = props
 
+  const [passwordShown, setPasswordShown] = useState(false)
+
+  function togglePasswordVisibility() {
+    setPasswordShown(!passwordShown)
+  }
+
   return (
     <Box
       themeKey={`components.textField.${errorMessage ? 'error' : 'default'}`}
     >
-      <Input
-        id={id}
-        ref={ref}
-        placeholder=" "
-        maxLength={charLimit}
-        value={value}
-        suffix={suffix}
-        icon={icon}
-        onClear={onClear}
-        onChange={onChange}
-        styleOverrides={{ paddingTop: 4, ...styleOverrides }}
-        optionalFeature={(styles) => (
-          <Label styleOverrides={styles} htmlFor={id}>
-            {label}
-          </Label>
-        )}
-        {...inputProps}
-      />
+      {type === 'password' ? (
+        <Input
+          id={id}
+          ref={ref}
+          placeholder=" "
+          maxLength={charLimit}
+          value={value}
+          suffix={suffix}
+          icon={icon}
+          type={passwordShown ? 'text' : 'password'}
+          onClear={onClear}
+          onClick={onClick ?? togglePasswordVisibility}
+          onChange={onChange}
+          styleOverrides={{ paddingTop: 4, ...styleOverrides }}
+          optionalFeature={(styles) => (
+            <Label styleOverrides={styles} htmlFor={id}>
+              {label}
+            </Label>
+          )}
+          {...inputProps}
+        />
+      ) : (
+        <Input
+          id={id}
+          ref={ref}
+          placeholder=" "
+          maxLength={charLimit}
+          value={value}
+          suffix={suffix}
+          icon={icon}
+          onClear={onClear}
+          onChange={onChange}
+          styleOverrides={{ paddingTop: 4, ...styleOverrides }}
+          optionalFeature={(styles) => (
+            <Label styleOverrides={styles} htmlFor={id}>
+              {label}
+            </Label>
+          )}
+          {...inputProps}
+        />
+      )}
       {(!!helperText || !!errorMessage || !!charLimit) && (
         <Columns styleOverrides={{ paddingTop: 1 }}>
           {(!!helperText || !!errorMessage) && (
@@ -93,6 +124,8 @@ export interface TextFieldProps
   icon?: ReactNode
   /** Input Suffix */
   suffix?: string
+  /** Input Type */
+  type?: string
   /**
    * Input state
    */
@@ -101,6 +134,8 @@ export interface TextFieldProps
    * TextField error message
    */
   errorMessage?: string
+  /** onChange input value event */
+  onClick?: () => void
 }
 
 export interface StateProps {
