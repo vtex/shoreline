@@ -1,6 +1,6 @@
 {
   "name": "@vtex/brand-ui",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "main": "dist/index.js",
   "module": "dist/brand-ui.esm.js",
   "typings": "dist/index.d.ts",
@@ -45,10 +45,10 @@
     "@vtex-components/popover": "^0.2.0",
     "@vtex-components/theme": "^0.1.1",
     "@vtex-components/tooltip": "^0.2.1",
+    "luxon": "^1.25.0",
     "react-swipeable": "^6.0.0",
     "reakit": "1.2.3",
     "theme-ui": "^0.3.1",
-    "tiny-invariant": "^1.1.0",
-    "luxon": "^1.25.0"
+    "tiny-invariant": "^1.1.0"
   }
 }
