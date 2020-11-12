@@ -20,7 +20,6 @@ export function Preflight() {
           margin: 0;
           background-color: ${get(theme, 'colors.background')};
           color: ${get(theme, 'colors.text')};
-          overflow: hidden;
         }
 
         html,

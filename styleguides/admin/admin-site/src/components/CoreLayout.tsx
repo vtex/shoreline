@@ -34,6 +34,7 @@ export default function CoreLayout(props: Props) {
               gridTemplateColumns: '1fr 3fr 1fr',
               gridTemplateRows: '80px 1fr',
               gridTemplateAreas: '"header header header" "leftnav main toc"',
+              overflow: 'hidden',
             }}
           >
             <Header />
