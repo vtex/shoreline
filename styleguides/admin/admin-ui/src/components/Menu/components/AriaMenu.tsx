@@ -1,18 +1,18 @@
 import {
   useMenuState,
-  Menu as AriaMenu,
-  MenuItem as AriaMenuItem,
-  MenuButton as AriaMenuButton,
+  Menu as ReakitMenu,
+  MenuItem as ReakitMenuItem,
+  MenuButton as ReakitMenuButton,
   MenuState,
   MenuStateReturn,
-  MenuSeparator as AriaMenuSeparator,
+  MenuSeparator as ReakitMenuSeparator,
 } from 'reakit/Menu'
 
 export {
-  AriaMenuButton,
-  AriaMenuSeparator,
-  AriaMenu,
-  AriaMenuItem,
+  ReakitMenuButton,
+  ReakitMenuSeparator,
+  ReakitMenu,
+  ReakitMenuItem,
   MenuStateReturn,
   MenuState,
   useMenuState,

@@ -2,10 +2,10 @@ import React, { cloneElement, Children, MouseEvent, ReactNode } from 'react'
 import { isElement } from 'react-is'
 
 import {
-  AriaMenu,
-  AriaMenuSeparator,
+  ReakitMenu,
+  ReakitMenuSeparator,
   MenuStateReturn,
-  AriaMenuItem,
+  ReakitMenuItem,
   MenuItem,
 } from './components'
 import { Overridable } from '../../types'
@@ -41,7 +41,7 @@ export function StatelessMenu(props: StatelessMenuProps) {
   } = props
 
   return (
-    <AriaMenu
+    <ReakitMenu
       className={cn({
         border: 0,
         padding: 0,
@@ -61,7 +61,7 @@ export function StatelessMenu(props: StatelessMenuProps) {
           children,
           (child, index) =>
             isElement(child) && (
-              <AriaMenuItem {...state} {...child.props} key={index}>
+              <ReakitMenuItem {...state} {...child.props} key={index}>
                 {(itemProps) =>
                   cloneElement(child, {
                     ...itemProps,
@@ -71,11 +71,11 @@ export function StatelessMenu(props: StatelessMenuProps) {
                     },
                   })
                 }
-              </AriaMenuItem>
+              </ReakitMenuItem>
             )
         )}
       </Box>
-    </AriaMenu>
+    </ReakitMenu>
   )
 }
 
@@ -109,7 +109,7 @@ StatelessMenu.Item = MenuItem
  * </StatelessMenu>
  * ```
  */
-StatelessMenu.Separator = AriaMenuSeparator
+StatelessMenu.Separator = ReakitMenuSeparator
 
 export interface StatelessMenuProps extends Overridable {
   /**

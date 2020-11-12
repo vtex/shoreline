@@ -5,7 +5,7 @@ import {
   MenuItem,
   MenuState,
   useMenuState,
-  AriaMenuSeparator,
+  ReakitMenuSeparator,
   MenuDisclosure,
 } from './components'
 
@@ -76,7 +76,7 @@ Menu.Item = MenuItem
  * </Menu>
  * ```
  */
-Menu.Separator = AriaMenuSeparator
+Menu.Separator = ReakitMenuSeparator
 
 export interface MenuProps
   extends Omit<StatelessMenuProps, 'state'>,
