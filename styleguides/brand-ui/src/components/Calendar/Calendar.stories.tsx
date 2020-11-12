@@ -60,6 +60,7 @@ const CustomComponent = ({
       }
       showClose
       fixed
+      placement="top"
     >
       <Popover.Content>{value.toFormat('dd MMMM yyyy')}</Popover.Content>
     </Popover>
