@@ -1,5 +1,5 @@
 ---
-path: /skeleton/
+path: /primitives/skeleton/
 ---
 
 # Skeleton

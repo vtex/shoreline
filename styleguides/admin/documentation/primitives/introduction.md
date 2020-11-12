@@ -1,5 +1,5 @@
 ---
-path: /docs/primitives/introduction/
+path: /primitives/introduction/
 ---
 
 # Introduction

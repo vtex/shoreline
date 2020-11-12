@@ -34,7 +34,7 @@ import { Box } from '@vtex/admin-ui'
 
 ## Styles
 
-With the <highlight message="styles"></highlight> property you can add any customization to the Box component. Check the `StyleObjects` section for detailed info.
+With the `styles` property, you can add any customization to the Box component. Check the [StyleObject](/theming/style-object) section for detailed info.
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
@@ -54,7 +54,7 @@ function Example() {
 
 ## Patterns
 
-The Box accepts all the Patterns properties, you can use it to add admin's applications common customization. Check the `Patterns` section for detailed info.
+The Box accepts all the Patterns properties, you can use it to add admin's applications common customization. Check the [Patterns](/theming/patterns) section for detailed info.
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
@@ -70,9 +70,9 @@ function Example() {
 }
 ```
 
-## Style Props
+## CSS Props
 
-The Box accepts all Style Props defined on our design system, you can use it to add customization. Check the `Style Props` section for detailed info.
+The Box accepts all Style Props defined on our design system, you can use it to add customization. Check the [CSS Props](/theming/css-props) section for detailed info.
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
