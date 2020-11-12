@@ -1,5 +1,5 @@
 ---
-path: /docs/stepper/
+path: /stepper/
 ---
 
 # Stepper

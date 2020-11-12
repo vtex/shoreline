@@ -44,7 +44,7 @@
     - /tag/
     - /tooltip/
     - /visually-hidden/
-    - /docs/stepper/
+    - /stepper/
 - section: Form
   paths:
     - /form/checkbox-group/
