@@ -26,10 +26,12 @@ export function Tooltip(props: TooltipProps) {
     label,
     placement = 'top',
     visible,
+    fixed,
     ...tooltipProps
   } = props
 
-  const tooltip = useTooltipState({ placement, visible })
+  // eslint-disable-next-line @typescript-eslint/camelcase
+  const tooltip = useTooltipState({ placement, visible, unstable_fixed: fixed })
 
   return (
     <>
@@ -66,4 +68,9 @@ export interface TooltipProps extends Overridable {
    * @default false
    */
   visible?: boolean
+  /**
+   * Whether or not the tooltip popover should have position set to fixed.
+   * @default false
+   */
+  fixed?: boolean
 }
