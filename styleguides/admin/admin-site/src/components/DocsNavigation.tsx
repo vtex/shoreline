@@ -120,7 +120,6 @@ export default function DocsNavigation() {
   return (
     <Box
       styles={{
-        overflow: 'scroll',
         'nav:first-of-type': {
           margin: 0,
         },
