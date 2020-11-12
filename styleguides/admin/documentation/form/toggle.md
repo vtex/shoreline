@@ -62,7 +62,7 @@ function Example() {
 
 ### useToggleState
 
-For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of togglees and want to handle the states of each one. You should pass the hook return to the `state` property and also define a `value` for each `Toggle`.
+For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of toggles and want to handle the states of each one. You should pass the hook return to the `state` property and also define a `value` for each `Toggle`.
 
 ```jsx
 import { Toggle, useToggleState, ThemeProvider } from '@vtex/admin-ui'
@@ -127,7 +127,7 @@ function Example() {
 
 ### Size
 
-There are two size variants: `small`, `regular`. By default it will render `regular`.
+There are two size variants: `small`, `regular`. By default, it will render `regular`.
 
 ```jsx
 import { Toggle, Set, ThemeProvider } from '@vtex/admin-ui'
@@ -148,9 +148,9 @@ function Example() {
 }
 ```
 
-### Multiple Togglees
+### Multiple Toggle
 
-Oftentimes we need to render multiple togglees and store the checked values in an array. It can be easily done using our `useToggleState` hook, you just need to pass the hook return object to the toglees `state` property and define a `value` for each `Toggle`.
+Oftentimes we need to render multiple toggles and store the checked values in an array. It can be easily done using our `useToggleState` hook, you just need to pass the hook return object to the toggles `state` property and define a `value` for each `Toggle`.
 
 ```jsx
 import { Toggle, Heading, useToggleState, ThemeProvider } from '@vtex/admin-ui'

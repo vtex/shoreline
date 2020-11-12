@@ -139,7 +139,7 @@ function Example() {
 
 ### Size
 
-There are two size variants: `small`, `regular`. By default it will render `regular`.
+There are two size variants: `small`, `regular`. By default, it will render `regular`.
 
 ```jsx
 import { Checkbox, Set, ThemeProvider } from '@vtex/admin-ui'

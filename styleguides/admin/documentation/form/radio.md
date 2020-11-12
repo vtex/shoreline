@@ -4,7 +4,7 @@ path: /form/radio/
 
 # Radio
 
-In multiple choice forms, use `Radio` for a single option to be selected. This component is always used in a `RadioGroup` context.
+In multiple-choice forms, use `Radio` for a single option to be selected. This component is always used in a `RadioGroup` context.
 
 ## Behavior
 
@@ -38,7 +38,7 @@ The `Radio` component is always used in a `RadioGroup` context, so handling the 
 
 ### useRadioState hook
 
-For convenience, we provide this hook that already handles the state logic and and accessible navigation for both `Radio` and `RadioGroup` components. You should pass the hook return to the `state` property and define a `value` to the `Radio`.
+For convenience, we provide this hook that already handles the state logic and accessible navigation for both `Radio` and `RadioGroup` components. You should pass the hook return to the `state` property and define a `value` to the `Radio`.
 
 ### Example
 
@@ -104,7 +104,7 @@ function Example() {
 
 ### Size
 
-There are two size variants: `small`, `regular`. By default it will render `regular`.
+There are two size variants: `small`, `regular`. By default, it will render `regular`.
 
 ```jsx
 import { Radio, Set, ThemeProvider } from '@vtex/admin-ui'
@@ -128,7 +128,7 @@ function Example() {
 
 ### Multiple Radios
 
-As we always use `Radio` in a multiple choice forms, we also always need to render multiple Radios and store the current checked state. It can be easily done using our `useRadioState` hook, you just need to pass the hook return object to the radios `state` property and define a `value` for each `Radio`.
+As we always use `Radio` in multiple-choice forms, we also always need to render multiple Radios and store the current checked state. It can be easily done using our `useRadioState` hook, you just need to pass the hook return object to the radios `state` property and define a `value` for each `Radio`.
 
 ```jsx
 import {
