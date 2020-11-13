@@ -14,7 +14,6 @@ export const unstableInput = forwardRef(function Input(
     icon,
     suffix,
     onClear,
-    onClick,
     styleOverrides,
     id,
     type,
@@ -117,7 +116,7 @@ export const unstableInput = forwardRef(function Input(
               element="button"
               themeKey="components.input.password-button-style"
               aria-label={`${id}-show-password-button`}
-              onClick={onClick ?? togglePasswordVisibility}
+              onClick={togglePasswordVisibility}
             >
               <Box>
                 {type === 'password' ? (
@@ -186,8 +185,6 @@ export interface InputProps extends Omit<ReakitInputProps, 'ref'>, Overridable {
   type?: string
   /** onClear input */
   onClear?: () => void
-  /** onClick input */
-  onClick?: () => void
   /**
    * Render an optional feature
    */

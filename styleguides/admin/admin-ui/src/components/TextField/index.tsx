@@ -20,7 +20,6 @@ export const TextField = forwardRef(function Textfield(
     type,
     icon,
     suffix,
-    onClick,
     state: { value = '', onChange, onClear },
     errorMessage,
     ...inputProps
@@ -106,8 +105,6 @@ export interface TextFieldProps
    * TextField error message
    */
   errorMessage?: string
-  /** onChange input value event */
-  onClick?: () => void
 }
 
 export interface StateProps {
