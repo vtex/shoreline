@@ -12,14 +12,14 @@ describe('Input tests', () => {
       <ThemeProvider>
         <Input
           data-testid="input"
-          styleOverrides={{ color: 'blue' }}
+          styleOverrides={{ color: 'coral' }}
           value="Test1"
           readOnly
         />
       </ThemeProvider>
     )
 
-    expect(getByTestId('input')).toHaveStyleRule('color', 'blue')
+    expect(getByTestId('input')).toHaveStyleRule('color', 'coral')
   })
 
   it('should match snapshot', () => {

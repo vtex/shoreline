@@ -32,7 +32,7 @@ describe('Input tests', () => {
       <ThemeProvider>
         <TextField
           data-testid="text-field"
-          styleOverrides={{ backgroundColor: 'blue' }}
+          styleOverrides={{ backgroundColor: 'coral' }}
           state={{ value: '', onChange: () => {} }}
           label="TextField label"
           id="text-field-1"
@@ -45,7 +45,7 @@ describe('Input tests', () => {
 
     expect(getByTestId('text-field')).toHaveStyleRule(
       'background-color',
-      'blue'
+      'coral'
     )
   })
 

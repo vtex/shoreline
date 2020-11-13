@@ -27,6 +27,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -34,7 +35,6 @@ exports[`Button tests should match snapshot 1`] = `
   text-transform: uppercase;
   color: #FFFFFF;
   background-color: #2953B2;
-  font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
@@ -100,6 +100,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -107,7 +108,6 @@ exports[`Button tests should match snapshot 1`] = `
   text-transform: uppercase;
   color: #FFFFFF;
   background-color: #2953B2;
-  font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
@@ -173,6 +173,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -180,7 +181,6 @@ exports[`Button tests should match snapshot 1`] = `
   text-transform: uppercase;
   background-color: #DAE3F5;
   color: #2953B2;
-  font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
@@ -246,6 +246,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -253,7 +254,6 @@ exports[`Button tests should match snapshot 1`] = `
   text-transform: capitalize;
   background-color: transparent;
   color: #2953B2;
-  font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
@@ -320,6 +320,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -327,7 +328,6 @@ exports[`Button tests should match snapshot 1`] = `
   text-transform: uppercase;
   color: #FFFFFF;
   background-color: #2953B2;
-  font-variation-settings: 'wght' 92;
   font-size: 0.75rem;
   height: 32px;
   width: auto;
@@ -393,6 +393,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -400,7 +401,6 @@ exports[`Button tests should match snapshot 1`] = `
   text-transform: uppercase;
   color: #FFFFFF;
   background-color: #CB4242;
-  font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
