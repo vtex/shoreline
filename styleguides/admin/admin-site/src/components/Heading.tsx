@@ -12,12 +12,22 @@ function Heading(props: HeadingProps) {
     h6: '1em',
   }[element]
 
+  const marginTop = {
+    h1: 0,
+    h2: 64,
+    h3: 8,
+    h4: 6,
+    h5: 2,
+    h6: 2,
+  }[element]
+
   return (
     <BaseHeading
       styleOverrides={{
         fontSize,
         position: 'relative',
         color: 'text.primary',
+        marginTop,
         '> a > *': {
           visibility: 'hidden',
           position: 'absolute',

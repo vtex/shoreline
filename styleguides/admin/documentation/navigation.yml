@@ -8,9 +8,8 @@
     - /theming/theme-provider/
     - /theming/style-object/
     - /theming/inline-styles/
-    - /theming/palettes/
+    - /theming/colors/
     - /theming/responsive-design/
-    - /theming/patterns/
     - /theming/css-props/
 - section: Primitives
   paths:

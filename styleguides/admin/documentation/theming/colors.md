@@ -1,47 +1,74 @@
 ---
-path: /theming/palettes/
+path: /theming/colors/
 ---
 
-# Palette
+# Colors
 
 Our styleguide provides an accessible default palette to get you up and running.
 
-## Backgrounds
+## Complete color set
+
+### Backgrounds
 
 <backgroundcolors></backgroundcolors>
 
-## Text
+### Text
 
 <textcolors></textcolors>
 
-## Primary
+### Complementary
+
+<complementarycolors></complementarycolors>
+
+### Primary
 
 <semanticcolor color="primary"></semanticcolor>
 
-## Secondary
+### Secondary
 
 <semanticcolor color="secondary"></semanticcolor>
 
-## Danger
+### Danger
 
 <semanticcolor color="danger"></semanticcolor>
 
-### Washed
+#### Washed
 
 <semanticcolor color="danger.washed"></semanticcolor>
 
-## Warning
+### Warning
 
 <semanticcolor color="warning"></semanticcolor>
 
-### Washed
+#### Washed
 
 <semanticcolor color="warning.washed"></semanticcolor>
 
-## Success
+### Success
 
 <semanticcolor color="success"></semanticcolor>
 
-### Washed
+#### Washed
 
 <semanticcolor color="success.washed"></semanticcolor>
+
+## Accessing color
+
+### StyleObject
+
+#### Example
+
+```jsx
+import { cn } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <div
+      className={cn({
+        size: 96,
+        bg: 'primary.base',
+      })}
+    />
+  )
+}
+```

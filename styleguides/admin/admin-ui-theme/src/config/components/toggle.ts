@@ -47,7 +47,7 @@ const styles = {
     backgroundColor: 'text.secondary',
     borderColor: 'text.secondary',
     ':after': {
-      backgroundColor: 'secondary',
+      backgroundColor: 'secondary.base',
     },
   },
   ':focus:not([data-focus-visible-added])': {

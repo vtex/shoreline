@@ -45,7 +45,7 @@ const style = {
   },
   ':active': {
     borderColor: 'text.secondary',
-    backgroundColor: 'secondary',
+    backgroundColor: 'secondary.base',
   },
   ':focus:not([data-focus-visible-added])': {
     outline: 'none',

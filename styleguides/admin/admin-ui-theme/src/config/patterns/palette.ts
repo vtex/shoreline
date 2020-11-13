@@ -12,7 +12,7 @@ const palette = {
     color: 'primary.accent',
   },
   'primary-washed': {
-    bg: 'secondary',
+    bg: 'secondary.base',
     color: 'primary.base',
   },
   danger: {

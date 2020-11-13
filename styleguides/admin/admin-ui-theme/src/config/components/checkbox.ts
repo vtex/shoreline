@@ -27,7 +27,7 @@ const styles = {
     },
   },
   '&:indeterminate': {
-    backgroundColor: 'secondary',
+    backgroundColor: 'secondary.base',
     borderColor: 'primary.base',
     color: 'primary.base',
     '&:after': {
@@ -66,7 +66,7 @@ const styles = {
     borderColor: 'text.primary',
   },
   '&:active': {
-    backgroundColor: 'secondary',
+    backgroundColor: 'secondary.base',
     borderColor: 'text.secondary',
   },
   ':focus:not([data-focus-visible-added])': {

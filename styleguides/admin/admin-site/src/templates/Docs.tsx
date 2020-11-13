@@ -14,13 +14,12 @@ import DocsBackNext from '../components/DocsBackNext'
 import Summary from '../components/Summary'
 import { Proptypes } from '../components/Proptypes'
 import CodeBlock from '../components/Codeblock'
-import PaletteBlock, {
+import {
   BackgroundColors,
   TextColors,
-  PrimaryColors,
-  SecondaryColors,
+  ComplementaryColors,
   SemanticColor,
-} from '../components/PaletteBlock'
+} from '../components/ColorBlock'
 import PropDetails from '../components/PropDetails'
 import ThemeAwareProps from '../components/ThemeAwareProps'
 
@@ -57,8 +56,7 @@ const { Compiler: renderAst } = new RehypeReact({
     },
     backgroundcolors: BackgroundColors,
     textcolors: TextColors,
-    primarycolors: PrimaryColors,
-    secondarycolors: SecondaryColors,
+    complementarycolors: ComplementaryColors,
     semanticcolor: SemanticColor,
     themeawareprops: ThemeAwareProps,
     p: function Render(props) {
@@ -133,7 +131,6 @@ const { Compiler: renderAst } = new RehypeReact({
     tr: function Render(props) {
       return <tr className={cn({ textAlign: 'left', height: 48 })} {...props} />
     },
-    paletteblock: PaletteBlock,
     th: function Render(props) {
       return (
         <th

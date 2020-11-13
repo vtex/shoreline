@@ -53,7 +53,7 @@ export type ThemeColors =
   | 'primary.hover'
   | 'primary.pressed'
   | 'primary.accent'
-  | 'secondary'
+  | 'secondary.base'
   | 'secondary.hover'
   | 'secondary.pressed'
   | 'danger.base'

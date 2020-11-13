@@ -24,7 +24,7 @@ function Example() {
     <div
       className={cn({
         color: 'primary.base',
-        backgroundColor: 'secondary',
+        backgroundColor: 'secondary.base',
         padding: 3,
         fontSize: 3,
       })}
