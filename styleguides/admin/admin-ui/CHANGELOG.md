@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.56.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.3...@vtex/admin-ui@0.56.0) (2020-11-13)
+
+
+### Features
+
+* **menu:** graduate it to a beta component ([3146544](https://github.com/vtex/onda/commit/3146544456f23dd7314e7f0fa110772959402386))
+
+
+
+
+
 ## [0.55.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.2...@vtex/admin-ui@0.55.3) (2020-11-12)
 
 **Note:** Version bump only for package @vtex/admin-ui
