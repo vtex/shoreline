@@ -4,19 +4,23 @@ path: /theming/inline-styles/
 
 # Inline Styles
 
-Present our inline styles techniques. Each one has its pros and cons and will be used dependeding of the use case. available techniques.
+This page presents all the inline style techniques available within admin-ui.
 
 ## styles & styleOverrides
 
+Both have the same behavior, and accepts a valid [`StyleObject`](/theming/style-object/). The difference is the semantic of their usage.
+
 Styles:
 
-- used on `Primitives`, where style changes are expected and ecouraged.
+- use it on `Primitives` where style changes are expected and encouraged.
+- use it with confidence since it does not break predefined styles.
+- do not break element consistency.
 
 StyleOverrides:
 
-- used on `ThemedComponents`, where changes are not common and can defualt theme styles.
-
-They have the same behavior, both accepting a valid [`StyleObject`](/theming/style-object/). The difference is semantic. While on primitives are out blank canvas, and styles are desired and encoutraged - In `ThemedComponents`
+- use it on `ThemedComponents` where changes are not common and can default theme styles.
+- use it with care since it can override styles.
+- can break element consistency.
 
 ```jsx
 import { Box, Button, ThemeProvider } from '@vtex/admin-ui'
@@ -28,6 +32,7 @@ function Example() {
         Text with primary.base color!
       </Box>
 
+      {/** ☢️ Be careful while overriding styles, you can achieve undesired results */}
       <Button styleOverrides={{ bg: 'darkorchid', color: 'orange' }}>
         messed-up button
       </Button>
@@ -38,7 +43,7 @@ function Example() {
 
 ## cn function
 
-Function that transforms a valid [`StyleObject`](/theming/style-object/) into a className. It's mostly used to style native JSX elements and support integration with other libraries while being consistent.
+Function that transforms a valid [`StyleObject`](/theming/style-object/) into a className. It's used to style native JSX elements and support integration with other libraries while being consistent.
 
 ### Example
 
@@ -127,7 +132,7 @@ import { Input } from 'reakit/Input'
 
 ## useTheme
 
-A hook that returns the entire theme object. Must be used under a `<ThemeProvider>` context.
+Hook that returns the entire theme object. Must be used under a `<ThemeProvider>` context.
 
 ### Do:
 
