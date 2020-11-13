@@ -34,7 +34,7 @@ import { Box } from '@vtex/admin-ui'
 
 ## Styles
 
-With the `styles` property, you can add any customization to the Box component. Check the [StyleObject](/theming/style-object) section for detailed info.
+With the `styles` property, you can add any customization to the Box component. Check the [StyleObject](/theming/style-object) page for detailed info.
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'

@@ -4,7 +4,7 @@ path: /primitives/introduction/
 
 # Introduction
 
-Our design system comes with a set of "primitive components" that represent our most elementary components and you can build anything from them.
+Our design system comes with a set of primitive components that represent our most elementary components and you can build anything from them.
 
 ## Components Overview
 
@@ -13,7 +13,7 @@ Our design system comes with a set of "primitive components" that represent our 
 
 ## `Do's`:
 
-### Build a specific component.
+### ✅ Build a specific component.
 
 ```jsx static
 function CustomComponent({ heading, children }) {
@@ -52,10 +52,10 @@ function Example() {
 }
 ```
 
-### Build a container component.
+### ✅ Build a container component.
 
 ```jsx static
-// 🚫 wrong
+// 🚫 Wrong
 function Example() {
   return (
     <div className={cn({ padding: 2, margin: 2, bg: 'muted.2' })}>
@@ -64,7 +64,7 @@ function Example() {
   )
 }
 
-// ✅ right
+// ✅ Correct
 function Example() {
   return (
     <Box padding={2} margin={2} styles={{ bg: 'muted.2' }}>
@@ -76,10 +76,10 @@ function Example() {
 
 ## `Don'ts`:
 
-### Build layouts
+### 🚫 Build layouts
 
 ```jsx static
-// 🚫 wrong
+// 🚫 Wrong
 function Example() {
   return (
     <Box styles={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -89,7 +89,7 @@ function Example() {
   )
 }
 
-// ✅ right
+// ✅ Correct
 function Example() {
   return (
     <Columns>
@@ -102,10 +102,10 @@ function Example() {
 }
 ```
 
-### Render texts
+### 🚫 Render texts
 
 ```jsx static
-// 🚫 wrong
+// 🚫 Wrong
 function Example() {
   return (
     <Box element="h1" text="headline">
@@ -114,16 +114,16 @@ function Example() {
   )
 }
 
-// ✅ right
+// ✅ Correct
 function Example() {
   return <Heading text="headline">Headline 1 text</Heading>
 }
 ```
 
-### Reacreate components already defined on our design system.
+### 🚫 Reacreate components already defined on our design system.
 
 ```jsx static
-// 🚫 wrong
+// 🚫 Wrong
 function Example() {
   return (
     <Box
@@ -148,7 +148,7 @@ function Example() {
   )
 }
 
-// ✅ right
+// ✅ Correct
 function Example() {
   return (
     <Card>
@@ -160,4 +160,4 @@ function Example() {
 
 ## Suggestions
 
-If you find a primitive component not implemented yet and you think that could be useful to have it in our design system, feel free to create an issue in our repository. Suggestions are welcome!
+If you find a primitive component not implemented yet and you think that could be useful to have it in our design system, feel free to create an [issue in our repository](https://github.com/vtex/onda/issues/new/choose). Suggestions are welcome!
