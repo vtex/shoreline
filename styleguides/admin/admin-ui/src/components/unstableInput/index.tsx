@@ -54,6 +54,12 @@ export const unstableInput = forwardRef(function Input(
     return optionalFeature?.(styles)
   }
 
+  const [passwordShown, setPasswordShown] = useState(false)
+
+  function togglePasswordVisibility() {
+    setPasswordShown(!passwordShown)
+  }
+
   return (
     <Box themeKey={`components.input.container${icon ? '-with-icon' : ''}`}>
       {icon && (
@@ -61,13 +67,22 @@ export const unstableInput = forwardRef(function Input(
           {icon}
         </Box>
       )}
-      <ReakitInput
-        ref={ref}
-        type={type}
-        className={inputClassName}
-        id={id}
-        {...htmlProps}
-      />
+      {type === 'password' ? (
+        <ReakitInput
+          ref={ref}
+          type={passwordShown ? 'text' : 'password'}
+          className={inputClassName}
+          id={id}
+          {...htmlProps}
+        />
+      ) : (
+        <ReakitInput
+          ref={ref}
+          className={inputClassName}
+          id={id}
+          {...htmlProps}
+        />
+      )}
       {renderFeature()}
       {(!!suffix || onClear) && (
         <Box
@@ -102,7 +117,7 @@ export const unstableInput = forwardRef(function Input(
               element="button"
               themeKey="components.input.password-button-style"
               aria-label={`${id}-show-password-button`}
-              onClick={onClick}
+              onClick={onClick ?? togglePasswordVisibility}
             >
               <Box>
                 {type === 'password' ? (
