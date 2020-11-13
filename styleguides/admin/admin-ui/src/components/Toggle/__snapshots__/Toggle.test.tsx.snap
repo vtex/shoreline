@@ -74,11 +74,8 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
   border-color: #707685;
 }
 
-.emotion-0:not(:checked):active:after backgroundColor {
-  base: #DAE3F5;
-  hover: #cad7f1;
-  pressed: #bacbec;
-  accent: #2953B2;
+.emotion-0:not(:checked):active:after {
+  background-color: #DAE3F5;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -171,11 +168,8 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
   border-color: #707685;
 }
 
-.emotion-0:not(:checked):active:after backgroundColor {
-  base: #DAE3F5;
-  hover: #cad7f1;
-  pressed: #bacbec;
-  accent: #2953B2;
+.emotion-0:not(:checked):active:after {
+  background-color: #DAE3F5;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {

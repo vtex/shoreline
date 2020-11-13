@@ -53,15 +53,9 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:indeterminate {
+  background-color: #DAE3F5;
   border-color: #2953B2;
   color: #2953B2;
-}
-
-.emotion-0:indeterminate backgroundColor {
-  base: #DAE3F5;
-  hover: #cad7f1;
-  pressed: #bacbec;
-  accent: #2953B2;
 }
 
 .emotion-0:indeterminate:after {
@@ -105,14 +99,8 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:active {
+  background-color: #DAE3F5;
   border-color: #707685;
-}
-
-.emotion-0:active backgroundColor {
-  base: #DAE3F5;
-  hover: #cad7f1;
-  pressed: #bacbec;
-  accent: #2953B2;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -184,15 +172,9 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:indeterminate {
+  background-color: #DAE3F5;
   border-color: #2953B2;
   color: #2953B2;
-}
-
-.emotion-0:indeterminate backgroundColor {
-  base: #DAE3F5;
-  hover: #cad7f1;
-  pressed: #bacbec;
-  accent: #2953B2;
 }
 
 .emotion-0:indeterminate:after {
@@ -236,14 +218,8 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:active {
+  background-color: #DAE3F5;
   border-color: #707685;
-}
-
-.emotion-0:active backgroundColor {
-  base: #DAE3F5;
-  hover: #cad7f1;
-  pressed: #bacbec;
-  accent: #2953B2;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {

@@ -64,13 +64,7 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:active {
   border-color: #707685;
-}
-
-.emotion-0:active backgroundColor {
-  base: #DAE3F5;
-  hover: #cad7f1;
-  pressed: #bacbec;
-  accent: #2953B2;
+  background-color: #DAE3F5;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -155,13 +149,7 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:active {
   border-color: #707685;
-}
-
-.emotion-0:active backgroundColor {
-  base: #DAE3F5;
-  hover: #cad7f1;
-  pressed: #bacbec;
-  accent: #2953B2;
+  background-color: #DAE3F5;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
