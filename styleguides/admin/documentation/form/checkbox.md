@@ -4,9 +4,15 @@ path: /form/checkbox/
 
 # Checkbox
 
-An accessible Checkbox input component.
+Checkboxes are used when a user needs to select one or more values from a series of options, or they can be used as a dual or tri-state toggle button. By default, it renders the native `<input type="checkbox">`.
+
+- dual-state: `check` and `not checked` (true, false)
+
+- tri-state: `check`, `not checked`, and `partially checked` (true, false, mixed)
 
 ## Behavior
+
+It receives the same props as controlled inputs, such as checked and onChange:
 
 ```jsx
 import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
@@ -36,11 +42,51 @@ yarn add @vtex/admin-ui
 import { Checkbox } from '@vtex/admin-ui'
 ```
 
+## State
+
+There are two ways of handling the state in our `Checkbox`.
+
+### checked and onChange
+
+You can use the properties `checked` and `onChange` to handle if the Checkbox is checked and its values have changed.
+
+```jsx
+import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <ThemeProvider>
+      <Checkbox checked={checked} onChange={() => setChecked(!checked)} />
+    </ThemeProvider>
+  )
+}
+```
+
+### useCheckboxState
+
+For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of checkboxes and want to handle the states of each one. You should pass the hook return to the `state` property.
+
+```jsx
+import { Checkbox, useCheckboxState, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  const checkboxState = useCheckboxState({ state: false })
+
+  return (
+    <ThemeProvider>
+      <Checkbox state={checkboxState} />
+    </ThemeProvider>
+  )
+}
+```
+
 ## Variation
 
-### aria-label
+### Standalone
 
-`aria-label` is an optional prop, but, as a `form` component, the Checkbox should have a label specified to be accessible, so we grant this using this property.
+When using a standalone `Checkbox` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
 
 ```jsx
 import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
@@ -51,72 +97,64 @@ function Example() {
   return (
     <ThemeProvider>
       <Checkbox
-        state={{ checked, onChange: () => setChecked(!checked) }}
-        aria-label="your label goes here!"
+        aria-label="label"
+        checked={checked}
+        onChange={() => setChecked(!checked)}
       />
     </ThemeProvider>
   )
 }
 ```
 
-### State
+### Checked States
 
-#### `checked` and `onChange`
-
-We can implement our state logic, just using the properties `checked` and `onChange`.
+There are three checked states: `not checked`, `checked`, and `partially checked`.
 
 ```jsx
-import { Checkbox, ThemeProvider } from '@vtex/admin-ui'
+import { Checkbox, Set, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const [checked, setChecked] = React.useState(false)
-
   return (
     <ThemeProvider>
-      <Checkbox state={{ checked, onChange: () => setChecked(!checked) }} />
+      <Set>
+        <Checkbox aria-label="label-1" />
+        <Checkbox aria-label="label-disabled-1" disabled />
+      </Set>
+      <Set>
+        <Checkbox aria-label="label-2" checked />
+        <Checkbox aria-label="label-disabled-2" checked disabled />
+      </Set>
+      <Set>
+        <Checkbox aria-label="label-3" state={{ state: 'indeterminate' }} />
+        <Checkbox
+          aria-label="label-disabled-3"
+          state={{ state: 'indeterminate' }}
+          disabled
+        />
+      </Set>
     </ThemeProvider>
   )
 }
 ```
 
-### `useCheckbox` hook
+### Size
 
-We provide the `useCheckbox` hook that already handles the state logic for these use cases:
-
-- Simple Checkbox
-- Multiple Checkboxes
-- Indeterminate state
-
-```js
-interface CheckboxStateReturn {
-  /**
-   * Stores the state of the Checkbox.
-   * If checkboxes that share this state have defined a `value` prop, it's
-   * going to be an array.
-   */
-  state: boolean | 'indeterminate' | Array<number | string>
-  /**
-   * Sets `state`.
-   */
-  setState: React.Dispatch<React.SetStateAction<CheckboxState['state']>>
-}
-```
-
-It can be very handy if you have a group of Checkboxes and want to handle the states of each one.
-
-> 💡 You can check [Reakit documentation](https://reakit.io/docs/checkbox/#usecheckboxstate) for detailed info
-
-### Simple Checkbox
+There are two size variants: `small`, `regular`. By default, it will render `regular`.
 
 ```jsx
-import { Checkbox, useCheckboxState, ThemeProvider } from '@vtex/admin-ui'
+import { Checkbox, Set, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useCheckboxState({ state: true })
-
   return (
     <ThemeProvider>
-      <Checkbox state={state} />
+      <Set>
+        <Checkbox aria-label="label-small-1" size="small" />
+        <Checkbox aria-label="label-1" />
+      </Set>
+      <Set>
+        <Checkbox aria-label="label-small-2" checked size="small" />
+        <Checkbox aria-label="label-2" checked />
+      </Set>
     </ThemeProvider>
   )
 }
@@ -124,16 +162,22 @@ function Example() {
 
 ### Multiple Checkboxes
 
-Remember that all checkboxes need to have a value set!
+Oftentimes we need to render multiple checkboxes and store the checked values in an array. It can be easily done using our `useCheckboxState` hook, you just need to pass the hook return object to the checkboxes `state` property and define a `value` for each `Checkbox`.
 
 ```jsx
-import { Checkbox, useCheckboxState, ThemeProvider } from '@vtex/admin-ui'
+import {
+  Checkbox,
+  Heading,
+  useCheckboxState,
+  ThemeProvider,
+} from '@vtex/admin-ui'
 
 function Example() {
   const state = useCheckboxState({ state: [] })
 
   return (
     <ThemeProvider>
+      <Heading>Selected Checkboxes: {state.state.join(', ')}</Heading>
       <Checkbox state={state} value="checkbox1" />
       <Checkbox state={state} value="checkbox2" />
       <Checkbox state={state} value="checkbox3" />
@@ -142,21 +186,78 @@ function Example() {
 }
 ```
 
-In this case, if we have the `first` and the `second` checkbox checked the state will be: `[checkbox1, checkbox2]`
+### Indeterminate State
 
-### Indeterminate state
+Sometimes you need to implement a Checkbox that controls the state of a set of Checkboxes. It can be easily done using our `useCheckboxState` hook combined with our Checkbox tri-state: `checked`, `not checked`, and `indeterminate`.
 
-Admin's `Checkbox` component, follows the [WAI-Aria Checkbox Pattern](https://www.w3.org/TR/wai-aria-practices/#checkbox), which means you'll have a working dual or tri-state toggle button regardless of the type of the underlying element.
+```jsx
+import React from 'react'
+import {
+  Checkbox,
+  Set,
+  Box,
+  useCheckboxState,
+  Label,
+  CheckboxGroup,
+  ThemeProvider,
+} from '@vtex/admin-ui'
 
-- **dual-state**
+function Example() {
+  function useTreeState({ values }) {
+    const { state: group, setState: setGroup } = useCheckboxState({ state: [] })
+    const { state: items, setState: setItems } = useCheckboxState({ state: [] })
 
-  `check` and `not checked` (true, false)
+    // updates items when group is toggled
+    React.useEffect(() => {
+      if (group === true) {
+        setItems(values)
+      } else if (group === false) {
+        setItems([])
+      }
+    }, [group, setItems, values])
 
-- **tri-state**
+    // updates group when items is toggled
+    React.useEffect(() => {
+      if (items instanceof Array && items.length === values.length) {
+        setGroup(true)
+      } else if (items instanceof Array && items.length) {
+        setGroup('indeterminate')
+      } else {
+        setGroup(false)
+      }
+    }, [items, setGroup, values])
 
-  `check`, `not checked`, and `partially checked` (true, false, mixed)
+    return { group, items, setItems, setGroup }
+  }
 
-> 💡 You can check [Reakit Checkbox Inderterminate](https://reakit.io/docs/checkbox/#indeterminate-or-mixed-state) documentation, for detailed info.
+  const values = React.useMemo(() => ['Apple', 'Orange', 'Watermelon'], [])
+  const { group, setGroup, items, setItems } = useTreeState({ values })
+
+  return (
+    <ThemeProvider>
+      <CheckboxGroup
+        label="Fruits"
+        id="fruits-checkbox-group"
+        orientation="vertical"
+      >
+        <Label>
+          <Checkbox state={{ state: group, setState: setGroup }} />
+          Select All (Group Control)
+        </Label>
+        {values.map((fruit, key) => (
+          <Label key={key}>
+            <Checkbox
+              state={{ state: items, setState: setItems }}
+              value={fruit}
+            />
+            {fruit}
+          </Label>
+        ))}
+      </CheckboxGroup>
+    </ThemeProvider>
+  )
+}
+```
 
 ## Props
 

@@ -4,7 +4,7 @@ path: /form/toggle/
 
 # Toggle
 
-An accessible Toggle component, allows the user to toggle the state of a single setting on or off.
+`<Toggle>` is essentially a customized checkbox with a toggleable interface to toggle between an enable and disabled state.
 
 ## Behavior
 
@@ -38,181 +38,137 @@ yarn add @vtex/admin-ui
 import { Toggle } from '@vtex/admin-ui'
 ```
 
+## State
+
+There are two ways of handling the state in the `Toggle`.
+
+### checked and onChange
+
+You can use the properties `checked` and `onChange` to handle if the Toggle is checked and its values have changed.
+
+```jsx
+import { Toggle, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  const [toggled, setToggle] = React.useState(false)
+
+  return (
+    <ThemeProvider>
+      <Toggle checked={toggled} onChange={() => setToggle(!toggled)} />
+    </ThemeProvider>
+  )
+}
+```
+
+### useToggleState
+
+For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of toggles and want to handle the states of each one. You should pass the hook return to the `state` property and also define a `value` for each `Toggle`.
+
+```jsx
+import { Toggle, useToggleState, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  const toggle = useToggleState({ state: false })
+
+  return (
+    <ThemeProvider>
+      <Toggle state={toggle} />
+    </ThemeProvider>
+  )
+}
+```
+
 ## Variation
 
-Size
+### Standalone
 
-```jsx
-import { Toggle, ThemeProvider, Text } from '@vtex/admin-ui'
-
-function Example() {
-  const [checked, setChecked] = React.useState(false)
-
-  return (
-    <ThemeProvider>
-      <Text el="p" variant="body">
-        Regular
-      </Text>
-      <Toggle
-        checked={checked}
-        checked={checked}
-        size="regular"
-        onChange={() => setChecked(!checked)}
-      />
-      <Text el="p" variant="body">
-        Small
-      </Text>
-      <Toggle
-        checked={checked}
-        checked={checked}
-        size="small"
-        onChange={() => setChecked(!checked)}
-      />
-    </ThemeProvider>
-  )
-}
-```
-
-Disabled
+When using a standalone `Toggle` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
 
 ```jsx
 import { Toggle, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const [checked, setChecked] = React.useState(false)
+  const [toggled, setToggle] = React.useState(false)
 
   return (
     <ThemeProvider>
       <Toggle
-        checked={checked}
-        checked={checked}
-        disabled
-        onChange={() => setChecked(!checked)}
+        aria-label="label"
+        checked={toggled}
+        onChange={() => setToggle(!toggled)}
       />
     </ThemeProvider>
   )
 }
 ```
 
-## Customization
+### Checked States
 
-### aria-label
-
-`aria-label` is an optional prop, but, as a `form` component, the Toggle should have a label specified to be accessible, so we grant this using this property.
-
-#### Example
+There are two checked states: `not checked`, and `checked`.
 
 ```jsx
-import { Toggle, ThemeProvider } from '@vtex/admin-ui'
+import { Toggle, Set, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const [checked, setChecked] = React.useState(false)
-
   return (
     <ThemeProvider>
-      <Toggle
-        checked={checked}
-        aria-label="your label goes here!"
-        state={{
-          checked,
-          onChange: () => setChecked(!checked),
-        }}
-      />
+      <Set>
+        <Toggle aria-label="label-1" />
+        <Toggle aria-label="label-disabled-1" disabled />
+      </Set>
+      <Set>
+        <Toggle aria-label="label-2" checked />
+        <Toggle aria-label="label-disabled-2" checked disabled />
+      </Set>
     </ThemeProvider>
   )
 }
 ```
 
-### `checked` and `onChange`
+### Size
 
-We can implement our state logic, just using the properties `checked` and `onChange`.
-
-#### Example
+There are two size variants: `small`, `regular`. By default, it will render `regular`.
 
 ```jsx
-import { Toggle, ThemeProvider } from '@vtex/admin-ui'
+import { Toggle, Set, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const [checked, setChecked] = React.useState(false)
-
   return (
     <ThemeProvider>
-      <Toggle
-        state={{
-          checked,
-          onChange: () => setChecked(!checked),
-        }}
-      />
+      <Set>
+        <Toggle aria-label="label-small-1" size="small" />
+        <Toggle aria-label="label-1" />
+      </Set>
+      <Set>
+        <Toggle aria-label="label-small-2" checked size="small" />
+        <Toggle aria-label="label-2" checked />
+      </Set>
     </ThemeProvider>
   )
 }
 ```
 
-### `useToggle` hook
+### Multiple Toggle
 
-Since the `Toggle` has the same state behavior of a `Checkbox`, we also provide the `useToggle` hook that already handles the state logic for these use cases:
-
-- Simple toggle
-- Multiple togglees
-
-```js
-interface CheckboxStateReturn {
-  /**
-   * Stores the state of the toggle.
-   * If togglees that share this state have defined a `value` prop, it's
-   * going to be an array.
-   */
-  state: boolean | Array<number | string>
-  /**
-   * Sets `state`.
-   */
-  setState: React.Dispatch<React.SetStateAction<CheckboxState['state']>>
-}
-```
-
-It can be very handy if you have a group of togglees and want to handle the states of each one
-
-> 💡You can check [Reakit documentation](https://reakit.io/docs/checkbox/#usecheckboxstate) for detailed info
-
-#### Usage Examples
-
-- **Simple toggle**
+Oftentimes we need to render multiple toggles and store the checked values in an array. It can be easily done using our `useToggleState` hook, you just need to pass the hook return object to the toggles `state` property and define a `value` for each `Toggle`.
 
 ```jsx
-import { Toggle, useToggleState, ThemeProvider } from '@vtex/admin-ui'
+import { Toggle, Heading, useToggleState, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useToggleState({ state: true })
+  const toggle = useToggleState({ state: [] })
 
   return (
     <ThemeProvider>
-      <Toggle state={state} />
+      <Heading>Selected Toglees: {toggle.state.join(', ')}</Heading>
+      <Toggle state={toggle} value="toggle1" />
+      <Toggle state={toggle} value="toggle2" />
+      <Toggle state={toggle} value="toggle3" />
     </ThemeProvider>
   )
 }
 ```
-
-- **Multiple Toggles**
-  Remember that all toggles need to have a value set.
-
-```jsx
-import { Toggle, useToggleState, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  const state = useToggleState({ state: [] })
-
-  return (
-    <ThemeProvider>
-      <Toggle state={state} value="toggle1" />
-      <Toggle state={state} value="toggle2" />
-      <Toggle state={state} value="toggle3" />
-    </ThemeProvider>
-  )
-}
-```
-
-In this case, if we have the `first` and the `second` toggle toggled the state will be: `[toggle1, toggle2]`
 
 ## Props
 
-<proptypes heading="Toggle" component="Toggle"/>
+<proptypes heading="Toggle" component="Toggle"/> -->
