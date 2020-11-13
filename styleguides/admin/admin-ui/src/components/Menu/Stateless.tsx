@@ -1,29 +1,16 @@
-import React, {
-  cloneElement,
-  Children,
-  ReactElement,
-  MouseEvent,
-  forwardRef,
-  Ref,
-  FunctionComponentElement,
-} from 'react'
-import {
-  useMenuState,
-  Menu as ReakitMenu,
-  MenuItem as ReakitMenuItem,
-  MenuButton,
-  MenuState,
-  MenuStateReturn,
-  MenuSeparator,
-} from 'reakit/Menu'
+import React, { cloneElement, Children, MouseEvent, ReactNode } from 'react'
+import { isElement } from 'react-is'
 
+import {
+  ReakitMenu,
+  ReakitMenuSeparator,
+  MenuStateReturn,
+  ReakitMenuItem,
+  MenuItem,
+} from './components'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
-import { Button, ButtonProps } from '../Button'
 import { cn } from '../../system'
-
-export { useMenuState, MenuState }
-export { MenuStateReturn }
 
 /**
  * Stateless accessible menu component
@@ -49,6 +36,7 @@ export function StatelessMenu(props: StatelessMenuProps) {
     hideOnClick = false,
     styleOverrides,
     state,
+    'data-boxtestid': boxTestId,
     ...baseProps
   } = props
 
@@ -64,36 +52,30 @@ export function StatelessMenu(props: StatelessMenuProps) {
       {...baseProps}
       disabled={disabled}
     >
-      <Box themeKey="components.menu" styles={styleOverrides}>
-        {Children.map(children, (child, index) => (
-          <ReakitMenuItem {...state} {...child.props} key={index}>
-            {(itemProps) =>
-              cloneElement(child, {
-                ...itemProps,
-                onClick: (e: MouseEvent) => {
-                  hideOnClick && state.hide()
-                  itemProps?.onClick?.(e)
-                },
-              })
-            }
-          </ReakitMenuItem>
-        ))}
+      <Box
+        themeKey="components.menu"
+        styles={styleOverrides}
+        data-testid={boxTestId}
+      >
+        {Children.map(
+          children,
+          (child, index) =>
+            isElement(child) && (
+              <ReakitMenuItem {...state} {...child.props} key={index}>
+                {(itemProps) =>
+                  cloneElement(child, {
+                    ...itemProps,
+                    onClick: (e: MouseEvent) => {
+                      hideOnClick && state.hide()
+                      itemProps?.onClick?.(e)
+                    },
+                  })
+                }
+              </ReakitMenuItem>
+            )
+        )}
       </Box>
     </ReakitMenu>
-  )
-}
-
-interface MenuDisclosureProps extends MenuStateReturn {
-  children: FunctionComponentElement<unknown>
-}
-
-export function MenuDisclosure({ children, ...props }: MenuDisclosureProps) {
-  Children.only(children)
-
-  return (
-    <MenuButton {...props} ref={children.ref} {...children.props}>
-      {(enhancedProps) => cloneElement(children, enhancedProps)}
-    </MenuButton>
   )
 }
 
@@ -110,12 +92,7 @@ export function MenuDisclosure({ children, ...props }: MenuDisclosureProps) {
  * </StatelessMenu>
  * ```
  */
-StatelessMenu.Item = forwardRef(function MenuItem(
-  props: MenuItemProps,
-  ref: Ref<HTMLButtonElement>
-) {
-  return <Button ref={ref} size="small" variant="text" {...props} />
-})
+StatelessMenu.Item = MenuItem
 
 /**
  * Accessible menu separator
@@ -132,20 +109,17 @@ StatelessMenu.Item = forwardRef(function MenuItem(
  * </StatelessMenu>
  * ```
  */
-StatelessMenu.Separator = MenuSeparator
-
-export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
+StatelessMenu.Separator = ReakitMenuSeparator
 
 export interface StatelessMenuProps extends Overridable {
   /**
    * Menu items
    */
-  children: ReactElement | ReactElement[]
+  children?: ReactNode
   /**
    * aria-label of menu
    */
   'aria-label': string
-
   /**
    * If is disabled or not
    * @default false
@@ -160,4 +134,8 @@ export interface StatelessMenuProps extends Overridable {
    * Return of reakit's useMenuState
    */
   state: MenuStateReturn
+  /**
+   * testid of the menu box
+   */
+  'data-boxtestid'?: string
 }

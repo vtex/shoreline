@@ -41,7 +41,9 @@
     "@types/react-window": "^1.8.2",
     "faker": "^5.1.0",
     "react-beautiful-dnd": "^13.0.0",
-    "react-window": "^1.8.5"
+    "react-window": "^1.8.5",
+    "@types/react-is": "^16.7.1",
+    "mutationobserver-shim": "^0.3.7"
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
@@ -61,6 +63,7 @@
     "reakit-utils": "^0.14.3",
     "theme-ui": "^0.3.1",
     "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3"
+    "tiny-warning": "^1.0.3",
+    "react-is": "^17.0.1"
   }
 }
