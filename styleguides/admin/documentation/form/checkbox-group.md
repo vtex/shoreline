@@ -13,7 +13,13 @@ Used to group a set of `Checkbox` components. Has `role="group"` defined.
 ## Behavior
 
 ```jsx
-import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
+import {
+  CheckboxGroup,
+  useCheckboxState,
+  Label,
+  Checkbox,
+  ThemeProvider,
+} from '@vtex/admin-ui'
 
 function Example() {
   const checkbox = useCheckboxState()
@@ -89,7 +95,13 @@ function Example() {
 The CheckboxGroup can also be rendered in a vertical orientation. This means that the `orientation` property should have a `vertical` value.
 
 ```jsx
-import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
+import {
+  CheckboxGroup,
+  useCheckboxState,
+  Label,
+  Checkbox,
+  ThemeProvider,
+} from '@vtex/admin-ui'
 
 function Example() {
   const checkbox = useCheckboxState()
@@ -122,7 +134,13 @@ You can easily add a label to the CheckboxGroup using the `label` property. Just
 You can also add a custom label!
 
 ```jsx
-import { CheckboxGroup, Label, Checkbox, ThemeProvider } from '@vtex/admin-ui'
+import {
+  CheckboxGroup,
+  useCheckboxState,
+  Label,
+  Checkbox,
+  ThemeProvider,
+} from '@vtex/admin-ui'
 
 function Example() {
   const checkbox = useCheckboxState()

@@ -44,22 +44,6 @@ For convenience, we provide this hook that already handles the state logic and a
 
 ## Variation
 
-```jsx
-import { Radio, useRadioState, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  const radio = useRadioState()
-
-  return (
-    <ThemeProvider>
-      <Radio aria-label="label" value="Radio" state={radio} />
-      <Radio aria-label="label" value="Radio" state={radio} />
-      <Radio aria-label="label" value="Radio" state={radio} />
-    </ThemeProvider>
-  )
-}
-```
-
 ### Standalone
 
 When using a standalone `Radio` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.

@@ -207,7 +207,13 @@ function Example() {
 Example of the `TextField` with all its features.
 
 ```jsx
-import { TextField, cn, IconHelp, ThemeProvider } from '@vtex/admin-ui'
+import {
+  TextField,
+  useInputState,
+  cn,
+  IconHelp,
+  ThemeProvider,
+} from '@vtex/admin-ui'
 
 function Example() {
   const textfield = useInputState()
@@ -282,4 +288,4 @@ function Example() {
 
 ## Props
 
-<proptypes />
+<proptypes heading="TextField" components="TextField"/>
