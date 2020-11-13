@@ -1,7 +1,7 @@
 export default {
   container: {
     bg: 'background',
-    borderColor: 'muted.3',
+    borderColor: 'muted.2',
     borderStyle: 'solid',
     borderWidth: 1,
     borderRadius: 3,

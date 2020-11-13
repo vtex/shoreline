@@ -66,7 +66,7 @@ export default function Header() {
           "&:not([href='/'])": {
             paddingX: 4,
             '&:hover': {
-              color: 'emphasis',
+              color: 'brand',
               textDecoration: 'none',
             },
           },

@@ -17,7 +17,7 @@ function Heading(props: HeadingProps) {
       styleOverrides={{
         fontSize,
         position: 'relative',
-        color: 'text',
+        color: 'text.primary',
         '> a > *': {
           visibility: 'hidden',
           position: 'absolute',

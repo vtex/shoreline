@@ -6,10 +6,10 @@ import { SetProps, useSet } from '../Set'
 import { Button, ButtonProps } from '../Button'
 import { ActionsProvider, useActionsContext } from './context'
 
-type ActionsProps = SetProps & Pick<ButtonProps, 'size' | 'palette'>
+type ActionsProps = SetProps & Pick<ButtonProps, 'size'>
 
 export function Actions(props: ActionsProps) {
-  const { size, palette, children, ...draftSetProps } = props
+  const { size, children, ...draftSetProps } = props
   const { setProps, currentOrientation } = useSet(draftSetProps)
 
   return createElement({
@@ -17,9 +17,7 @@ export function Actions(props: ActionsProps) {
     htmlProps: setProps,
     element: 'div',
     children: (
-      <ActionsProvider
-        value={{ size, palette, orientation: currentOrientation }}
-      >
+      <ActionsProvider value={{ size, orientation: currentOrientation }}>
         {children}
       </ActionsProvider>
     ),
@@ -32,13 +30,11 @@ Actions.Primary = forwardRef(function PrimaryAction(
   props: ActionProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { size, palette, orientation } = useActionsContext()
+  const { size, orientation } = useActionsContext()
 
   return (
     <Button
       ref={ref}
-      variant="filled"
-      palette={palette}
       size={size}
       styleOverrides={{ order: orientation === 'vertical' ? 1 : 3 }}
       {...props}
@@ -50,13 +46,12 @@ Actions.Secondary = forwardRef(function SecondaryAction(
   props: ActionProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { size, palette } = useActionsContext()
+  const { size } = useActionsContext()
 
   return (
     <Button
       ref={ref}
-      variant="subtle"
-      palette={palette}
+      variant="secondary"
       size={size}
       styleOverrides={{ order: 2 }}
       {...props}
@@ -68,13 +63,12 @@ Actions.Tertiary = forwardRef(function TertiaryAction(
   props: ActionProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { size, palette, orientation } = useActionsContext()
+  const { size, orientation } = useActionsContext()
 
   return (
     <Button
       ref={ref}
-      variant="text"
-      palette={palette}
+      variant="tertiary"
       size={size}
       styleOverrides={{ order: orientation === 'vertical' ? 3 : 1 }}
       {...props}

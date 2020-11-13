@@ -10,7 +10,7 @@ export default {
   borderRadius: 3,
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: 'muted.2',
+  borderColor: 'muted.1',
   boxShadow: 'menu',
   hr: {
     marginY: 2,
@@ -19,7 +19,7 @@ export default {
     borderTop: 'none',
     borderLeft: 'none',
     borderRight: 'none',
-    borderColor: 'muted.2',
+    borderColor: 'muted.1',
     width: `calc(100% -${space[3]})`,
     marginX: `-${space[3]}`,
     outline: 'none',
@@ -27,17 +27,17 @@ export default {
   '> button': {
     marginY: '2px',
     paddingX: 1,
-    color: 'text',
+    color: 'text.primary',
     fontSize: 1,
     border: 'none',
     textTransform: 'initial',
     ':focus': {
-      bg: 'primary.washed.0',
+      bg: 'secondary.base',
       outline: 'none',
       boxShadow: 'none',
     },
     ':hover': {
-      color: 'text',
+      color: 'text.primary',
     },
     width: 'full',
     div: {

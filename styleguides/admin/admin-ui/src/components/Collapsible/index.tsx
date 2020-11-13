@@ -82,9 +82,9 @@ function Disclosure({ children }: { children: ReactNode }) {
             {...enhancedProps}
             iconPosition="start"
             icon={<IconCaret direction={visible ? 'down' : 'right'} />}
-            variant="text"
+            variant="tertiary"
             styleOverrides={{
-              color: 'text',
+              color: 'text.primary',
               '&:hover': { backgroundColor: 'transparent' },
               '&:active': { backgroundColor: 'transparent' },
             }}

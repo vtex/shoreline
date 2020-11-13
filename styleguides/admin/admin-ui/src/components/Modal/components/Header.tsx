@@ -62,10 +62,10 @@ export const ModalHeader = forwardRef(function ModalHeader(
         {!omitCloseButton && (
           <ModalButton
             closeModalOnClick
-            variant="text"
+            variant="tertiary"
             icon={<IconClose />}
             sx={{
-              color: 'text',
+              color: 'text.primary',
             }}
           />
         )}

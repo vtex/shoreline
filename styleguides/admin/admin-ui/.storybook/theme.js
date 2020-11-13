@@ -7,13 +7,13 @@ export default create({
   base: 'light',
 
   colorPrimary: colors.primary.base,
-  colorSecondary: colors.text,
+  colorSecondary: colors.text.primary,
 
   // UI
   appBg: colors.background,
-  appContentBg: colors.muted[4],
-  appBorderColor: colors.muted[3],
-  appBorderRadius: borderRadius[3],
+  appContentBg: colors.muted[3],
+  appBorderColor: colors.muted[2],
+  appBorderRadius: borderRadius[2],
 
   // Typography
   fontBase:
@@ -22,19 +22,19 @@ export default create({
     '"Dank Mono", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Consolas", "Monaco", monospace',
 
   // Text colors
-  textColor: colors.text,
+  textColor: colors.text.primary,
   textInverseColor: colors.background,
 
   // Toolbar default and active colors
   barTextColor: colors.background,
   barSelectedColor: colors.background,
-  barBg: colors.text,
+  barBg: colors.text.primary,
 
   // Form colors
   inputBg: colors.background,
-  inputBorder: colors.muted[3],
-  inputTextColor: colors.text,
-  inputBorderRadius: borderRadius[3],
+  inputBorder: colors.muted[2],
+  inputTextColor: colors.text.primary,
+  inputBorderRadius: borderRadius.default,
 
   brandTitle: 'Admin UI',
   brandUrl: 'https://github.com/vtex/onda',

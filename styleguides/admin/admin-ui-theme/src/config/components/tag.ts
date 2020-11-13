@@ -26,7 +26,7 @@ const styles = {
   display: 'inline-flex',
   alignItems: 'center',
   borderRadius: '100px',
-  color: 'text',
+  color: 'text.primary',
   border: 'none',
   '> svg:nth-of-type(1)': {
     marginRight: 1,
@@ -113,10 +113,10 @@ export default {
   'default-button': {
     ...buttonStyles,
     '&:hover': {
-      backgroundColor: rgba(colors.text, 0.1),
+      backgroundColor: rgba(colors.text.primary, 0.1),
     },
     '&:active': {
-      backgroundColor: rgba(colors.text, 0.13),
+      backgroundColor: rgba(colors.text.primary, 0.13),
     },
   },
   'black-button': {

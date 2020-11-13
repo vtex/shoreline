@@ -35,7 +35,7 @@ export const WithButtons = () => {
       styleOverrides={{ width: '6/12' }}
     >
       <Collapsible.Header label="Build for Community #1">
-        <Button size="small" variant="subtle">
+        <Button size="small" variant="secondary">
           Button
         </Button>
         <Button size="small" onClick={toggle}>

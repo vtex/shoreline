@@ -1,42 +1,42 @@
 const palette = {
   base: {
     bg: 'background',
-    color: 'text',
+    color: 'text.primary',
   },
   inverted: {
-    bg: 'text',
+    bg: 'text.primary',
     color: 'background',
   },
   primary: {
     bg: 'primary.base',
-    color: 'primary.contrast',
+    color: 'primary.accent',
   },
   'primary-washed': {
-    bg: 'primary.washed.0',
+    bg: 'secondary',
     color: 'primary.base',
   },
   danger: {
     bg: 'danger.base',
-    color: 'danger.contrast',
+    color: 'danger.accent',
   },
   'danger-washed': {
-    bg: 'danger.washed.0',
+    bg: 'danger.washed.base',
     color: 'danger.base',
   },
   success: {
     bg: 'success.base',
-    color: 'success.contrast',
+    color: 'success.accent',
   },
   'success-washed': {
-    bg: 'success.washed.0',
+    bg: 'success.washed.base',
     color: 'success.base',
   },
   warning: {
     bg: 'warning.base',
-    color: 'warning.contrast',
+    color: 'warning.accent',
   },
   'warning-washed': {
-    bg: 'warning.washed.0',
+    bg: 'warning.washed.base',
     color: 'warning.base',
   },
 }

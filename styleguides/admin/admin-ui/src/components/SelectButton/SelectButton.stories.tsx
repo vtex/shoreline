@@ -74,46 +74,18 @@ export const Variants = () => {
     <Set>
       <SelectButton items={species} state={speciesState} label="Species" />
       <SelectButton
-        variant="subtle"
+        variant="secondary"
         items={brewMethods}
         state={brewState}
         label="Methods"
       />
       <SelectButton
-        variant="filled"
+        variant="tertiary"
         items={recipes}
         state={recipesState}
         label="Recipes"
       />
     </Set>
-  )
-}
-
-export const Palette = () => {
-  const species = ['Arabica', 'Robusta']
-  const speciesState = useSelectState({
-    items: species,
-    initialSelectedItem: 'Arabica',
-  })
-
-  const brewMethods = ['French Press', 'Chemex', 'Cold Brew', 'Aeropress']
-  const brewState = useSelectState({
-    items: brewMethods,
-    initialSelectedItem: 'Chemex',
-  })
-
-  return (
-    <Card>
-      <Set>
-        <SelectButton items={brewMethods} state={brewState} label="Methods" />
-        <SelectButton
-          items={species}
-          state={speciesState}
-          label="Species"
-          palette="base"
-        />
-      </Set>
-    </Card>
   )
 }
 

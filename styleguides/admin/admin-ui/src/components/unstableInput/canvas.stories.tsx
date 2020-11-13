@@ -38,7 +38,7 @@ export const OverrideStyles: Story = () => {
         id="username"
         suffix="kg"
         icon={<IconBook />}
-        styleOverrides={{ borderColor: 'text' }}
+        styleOverrides={{ borderColor: 'text.primary' }}
       />
     </Box>
   )

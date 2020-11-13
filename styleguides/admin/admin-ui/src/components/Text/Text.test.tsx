@@ -15,7 +15,7 @@ describe('Text tests', () => {
       </ThemeProvider>
     )
 
-    expect(getByTestId('text')).toHaveStyleRule('color', 'azure')
+    expect(getByTestId('text.primary')).toHaveStyleRule('color', 'azure')
   })
 
   it('should match snapshot', () => {

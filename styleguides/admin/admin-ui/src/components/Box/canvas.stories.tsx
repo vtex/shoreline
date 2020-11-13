@@ -29,7 +29,7 @@ export const ConsumeTheme: Story = () => {
       styles={{
         fontSize: 64,
         bg: 'primary.base',
-        color: 'primary.contrast',
+        color: 'primary.accent',
         borderRadius: 4,
       }}
     >
@@ -86,12 +86,12 @@ export const Divider: Story = () => {
 //         box: {
 //           default: {
 //             bg: 'background',
-//             color: 'text',
+//             color: 'text.primary',
 //             padding: 4,
 //             margin: 2,
 //           },
 //           inverted: {
-//             bg: 'text',
+//             bg: 'text.primary',
 //             color: 'background',
 //             padding: 4,
 //             margin: 2,
@@ -122,7 +122,7 @@ export const Divider: Story = () => {
 //     <ThemeProviderNext >
 //       <Box
 //         bg="primary.base"
-//         color="primary.contrast"
+//         color="primary.accent"
 //         borderRadius="3"
 //         styles={{
 //           variant: 'text.headline',

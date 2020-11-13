@@ -24,7 +24,7 @@ function Example() {
     <div
       className={cn({
         color: 'primary.base',
-        backgroundColor: 'primary.washed.0',
+        backgroundColor: 'secondary',
         padding: 3,
         fontSize: 3,
       })}
@@ -100,7 +100,7 @@ function Example() {
     <div
       className={cn({
         bg: 'primary.base',
-        color: 'primary.contrast',
+        color: 'primary.accent',
         padding: 1,
         size: 64,
         transition: 'snap',

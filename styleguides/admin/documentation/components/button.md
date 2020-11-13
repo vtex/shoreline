@@ -42,7 +42,7 @@ import { ThemeProvider, Button } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Button variant="text">Admin UI Button Text</Button>
+      <Button variant="tertiary">Admin UI Button Text</Button>
     </ThemeProvider>
   )
 }
@@ -56,7 +56,7 @@ import { ThemeProvider, Button } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Button variant="filled">Admin UI Button Filled</Button>
+      <Button>Admin UI Button Filled</Button>
     </ThemeProvider>
   )
 }
@@ -70,7 +70,7 @@ import { ThemeProvider, Button } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Button variant="subtle">Admin UI Button Subtle</Button>
+      <Button variant="secondary">Admin UI Button Subtle</Button>
     </ThemeProvider>
   )
 }

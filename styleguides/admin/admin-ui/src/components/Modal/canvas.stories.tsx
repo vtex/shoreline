@@ -30,7 +30,7 @@ export const Stateful: Story<ModalProps> = () => (
       </Box>
     </Modal.Content>
     <Modal.Footer>
-      <Button variant="subtle">Cancel</Button>
+      <Button variant="secondary">Cancel</Button>
       <Button>Confirm</Button>
     </Modal.Footer>
   </Modal>
@@ -57,7 +57,7 @@ export const Stateless = () => {
           </Text>
         </StatelessModal.Content>
         <StatelessModal.Footer>
-          <Button variant="subtle">Cancel</Button>
+          <Button variant="secondary">Cancel</Button>
           <Button>Confirm</Button>
         </StatelessModal.Footer>
       </StatelessModal>
@@ -152,7 +152,7 @@ export const RegularModal: Story<ModalProps> = () => {
 //         omitCloseButton
 //       >
 //         <Modal.Header title="Transactions settings">
-//           <Modal.Button variant="subtle" size="small" closeModalOnClick>
+//           <Modal.Button variant="secondary" size="small" closeModalOnClick>
 //             Cancel
 //           </Modal.Button>
 //           <Modal.Button closeModalOnClick size="small">

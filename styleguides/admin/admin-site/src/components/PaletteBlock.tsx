@@ -1,5 +1,12 @@
-import React from 'react'
-import { Box, ThemeProvider, Set, BoxProps } from '@vtex/admin-ui'
+import React, { Fragment } from 'react'
+import {
+  Box,
+  ThemeProvider,
+  Set,
+  BoxProps,
+  useTheme,
+  get,
+} from '@vtex/admin-ui'
 
 import Heading from './Heading'
 
@@ -19,12 +26,12 @@ function PaletteCard(props: CardProps) {
   const { color, name, ...restProps } = props
 
   return (
-    <Box border="default" padding={1} width={150} {...restProps}>
+    <Box border="default" padding={1} width={164} {...restProps}>
       <Box
         styles={{
           backgroundColor: color,
           borderRadius: 'default',
-          height: 64,
+          height: 72,
           width: 'full',
           boxShadow: 'subtle',
           marginBottom: 1,
@@ -32,14 +39,106 @@ function PaletteCard(props: CardProps) {
       />
 
       <Box text="highlight">{name}</Box>
-      <Box text="small" styles={{ color: 'muted.0' }}>
+      <Box text="small" styles={{ color: 'text.secondary' }}>
         {color}
       </Box>
     </Box>
   )
 }
 
+export function BackgroundColors() {
+  const theme = useTheme()
+
+  const getColor = (color: string) => get(theme, `colors.${color}`)
+
+  return (
+    <Set spacing={2}>
+      <PaletteCard color={getColor('background')} name="background" />
+      <PaletteCard color={getColor('muted.0')} name="muted.0" />
+      <PaletteCard color={getColor('muted.1')} name="muted.1" />
+      <PaletteCard color={getColor('muted.2')} name="muted.2" />
+      <PaletteCard color={getColor('muted.3')} name="muted.3" />
+    </Set>
+  )
+}
+
+export function TextColors() {
+  const theme = useTheme()
+
+  const getColor = (color: string) => get(theme, `colors.${color}`)
+
+  return (
+    <Set spacing={2}>
+      <PaletteCard color={getColor('text.primary')} name="text.primary" />
+      <PaletteCard color={getColor('text.secondary')} name="text.secondary" />
+    </Set>
+  )
+}
+
+export function PrimaryColors() {
+  const theme = useTheme()
+
+  const getColor = (color: string) => get(theme, `colors.${color}`)
+
+  return (
+    <Set spacing={2}>
+      <PaletteCard color={getColor('primary.base')} name="primary.base" />
+      <PaletteCard color={getColor('primary.hover')} name="primary.hover" />
+      <PaletteCard color={getColor('primary.pressed')} name="primary.pressed" />
+      <PaletteCard color={getColor('primary.accent')} name="primary.accent" />
+    </Set>
+  )
+}
+
+export function SecondaryColors() {
+  const theme = useTheme()
+
+  const getColor = (color: string) => get(theme, `colors.${color}`)
+
+  return (
+    <Set spacing={2}>
+      <PaletteCard color={getColor('secondary.base')} name="secondary.base" />
+      <PaletteCard color={getColor('secondary.hover')} name="secondary.hover" />
+      <PaletteCard
+        color={getColor('secondary.pressed')}
+        name="secondary.pressed"
+      />
+      <PaletteCard
+        color={getColor('secondary.accent')}
+        name="secondary.accent"
+      />
+    </Set>
+  )
+}
+
+export function SemanticColor(props: { color: string }) {
+  const { color } = props
+
+  const theme = useTheme()
+
+  const getColor = (c: string) => get(theme, `colors.${c}`)
+
+  return (
+    <Set spacing={2}>
+      <PaletteCard color={getColor(`${color}.base`)} name={`${color}.base`} />
+      <PaletteCard color={getColor(`${color}.hover`)} name={`${color}.hover`} />
+      <PaletteCard
+        color={getColor(`${color}.pressed`)}
+        name={`${color}.pressed`}
+      />
+      <PaletteCard
+        color={getColor(`${color}.accent`)}
+        name={`${color}.accent`}
+      />
+    </Set>
+  )
+}
+
 export default function PaletteBlock(props: SetProps) {
+  const theme = useTheme()
+
+  const getColor = (color: string) => get(theme, `colors.${color}`)
+
   return (
     <ThemeProvider>
       <Set
@@ -49,77 +148,82 @@ export default function PaletteBlock(props: SetProps) {
         styleOverrides={{ marginTop: 6 }}
       >
         <Box>
-          <Heading element="h2">Default</Heading>
+          <Heading element="h2">Complementary</Heading>
           <Set spacing={2}>
-            <PaletteCard color="#323845" name="text" />
-            <PaletteCard color="#FFFFFF" name="background" />
-            <PaletteCard color="#8DB6FA" name="focus" />
-            <PaletteCard color="#F71963" name="emphasis" />
+            <PaletteCard color={getColor('focus')} name="focus" />
+            <PaletteCard color={getColor('brand')} name="brand" />
           </Set>
         </Box>
-        <Box>
-          <Heading element="h2">Muted</Heading>
-          <Set spacing={2}>
-            <PaletteCard color="#707685" name="muted.0" />
-            <PaletteCard color="#898F9E" name="muted.1" />
-            <PaletteCard color="#C4C5CA" name="muted.2" />
-            <PaletteCard color="#E0E2E7" name="muted.3" />
-            <PaletteCard color="#F4F6FB" name="muted.4" />
-          </Set>
-        </Box>
-        <Box>
-          <Heading element="h2">Primary</Heading>
-          <Set spacing={2}>
-            <PaletteCard color="#2953B2" name="primary.base" />
-            <PaletteCard color="#1E4397" name="primary.hover" />
-            <PaletteCard color="#3F6FDB" name="primary.active" />
-            <PaletteCard color="#FFFFFF" name="primary.contrast" />
-            <PaletteCard color="#F4F8FE" name="primary.washed.0" />
-            <PaletteCard color="#E8F1FF" name="primary.washed.1" />
-            <PaletteCard color="#DBE9FF" name="primary.washed.2" />
-          </Set>
-        </Box>
-        <Box>
-          <Heading element="h2">Danger</Heading>
-          <Set spacing={2}>
-            <PaletteCard color="#D23030" name="danger.base" />
-            <PaletteCard color="#A70C0C" name="danger.hover" />
-            <PaletteCard color="#DE0404" name="danger.active" />
-            <PaletteCard color="#FFFFFF" name="danger.contrast" />
-            <PaletteCard color="#FFF0F0" name="danger.washed.0" />
-            <PaletteCard color="#FFE3E3" name="danger.washed.1" />
-            <PaletteCard color="#FFD0D0" name="danger.washed.2" />
-          </Set>
-        </Box>
-        <Box>
-          <Heading element="h2">Success</Heading>
-          <Set spacing={2}>
-            <PaletteCard color="#368369" name="success.base" />
-            <PaletteCard color="#005C31" name="success.hover" />
-            <PaletteCard color="#26AE6E" name="success.active" />
-            <PaletteCard color="#FFFFFF" name="success.contrast" />
-            <PaletteCard color="#D6EFE5" name="success.washed.0" />
-          </Set>
-        </Box>
-        <Box>
-          <Heading element="h2">Warning</Heading>
-          <Set spacing={2}>
-            <PaletteCard color="#FFBA52" name="warning.base" />
-            <PaletteCard color="#E6A30A" name="warning.hover" />
-            <PaletteCard color="#EFA906" name="warning.active" />
-            <PaletteCard color="#FFFFFF" name="warning.contrast" />
-            <PaletteCard color="#FDE6C0" name="warning.washed.0" />
-          </Set>
-        </Box>
+        {['danger', 'success', 'warning'].map((color) => (
+          <Fragment key={color}>
+            <Box>
+              <Heading
+                element="h2"
+                styleOverrides={{ textTransform: 'capitalize' }}
+              >
+                {color}
+              </Heading>
+              <Set spacing={2}>
+                <PaletteCard
+                  color={getColor(`${color}.base`)}
+                  name={`${color}.base`}
+                />
+                <PaletteCard
+                  color={getColor(`${color}.hover`)}
+                  name={`${color}.hover`}
+                />
+                <PaletteCard
+                  color={getColor(`${color}.pressed`)}
+                  name={`${color}.pressed`}
+                />
+                <PaletteCard
+                  color={getColor(`${color}.accent`)}
+                  name={`${color}.accent`}
+                />
+              </Set>
+            </Box>
+            <Box>
+              <Heading
+                element="h2"
+                styleOverrides={{ textTransform: 'capitalize' }}
+              >
+                {color} Washed
+              </Heading>
+              <Set spacing={2}>
+                <PaletteCard
+                  color={getColor(`${color}.washed.base`)}
+                  name={`${color}.washed.base`}
+                />
+                <PaletteCard
+                  color={getColor(`${color}.washed.hover`)}
+                  name={`${color}.washed.hover`}
+                />
+                <PaletteCard
+                  color={getColor(`${color}.washed.pressed`)}
+                  name={`${color}.washed.pressed`}
+                />
+                <PaletteCard
+                  color={getColor(`${color}.washed.accent`)}
+                  name={`${color}.washed.accent`}
+                />
+              </Set>
+            </Box>
+          </Fragment>
+        ))}
         <Box>
           <Heading element="h2">Basic</Heading>
-          <Set spacing={2}>
+          <Set
+            spacing={2}
+            styleOverrides={{
+              flexWrap: 'wrap',
+            }}
+          >
             <PaletteCard color="#DAE3F5" name="blue" />
             <PaletteCard color="#F4EFFF" name="purple" />
             <PaletteCard color="#FDE6C0" name="yellow" />
             <PaletteCard color="#D6EFE5" name="green" />
             <PaletteCard color="#FEE3E3" name="red" />
-            <PaletteCard color="#323845" name="black" />
+            <PaletteCard color={getColor('text.primary')} name="black" />
           </Set>
         </Box>
       </Set>

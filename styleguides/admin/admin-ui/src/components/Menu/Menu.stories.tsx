@@ -58,7 +58,7 @@ export const Stateless: Story<StatelessMenuProps> = () => {
   return (
     <Fragment>
       <MenuDisclosure state={state}>
-        <ActionButton variant="subtle">Post options</ActionButton>
+        <ActionButton variant="secondary">Post options</ActionButton>
       </MenuDisclosure>
       <StatelessMenu aria-label="actions" state={state}>
         <StatelessMenu.Item icon={<IconDownload />}>

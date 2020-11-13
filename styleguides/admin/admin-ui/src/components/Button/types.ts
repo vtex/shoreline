@@ -1,5 +1,11 @@
 export type ComponentType<R> = React.ComponentType<R>
 
-export type Variant = 'filled' | 'subtle' | 'text'
+export type Variant =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'text'
+  | 'danger'
+  | 'danger-secondary'
+  | 'danger-tertiary'
 export type Size = 'small' | 'regular'
-export type Palette = 'primary' | 'danger' | 'base'

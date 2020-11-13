@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { darken, lighten } from '@vtex/admin-ui-system'
+import { lighten } from '@vtex/admin-ui-system'
 
 const size = {
   regular: {
@@ -103,158 +103,120 @@ const size = {
 }
 
 const variant = {
-  'filled-primary': {
+  primary: {
     textTransform: 'uppercase',
-    color: 'primary.contrast',
+    color: 'primary.accent',
     backgroundColor: 'primary.base',
     fontVariationSettings: "'wght' 92",
     ':hover': {
       backgroundColor: 'primary.hover',
     },
     ':active': {
-      backgroundColor: 'primary.active',
+      backgroundColor: 'primary.pressed',
     },
     ':disabled': {
-      color: 'text',
-      backgroundColor: 'muted.2',
+      color: 'text.primary',
+      backgroundColor: 'muted.1',
     },
   },
-  'subtle-primary': {
+  secondary: {
     textTransform: 'uppercase',
-    backgroundColor: 'primary.washed.0',
-    color: 'primary.base',
+    backgroundColor: 'secondary.base',
+    color: 'secondary.accent',
     fontVariationSettings: "'wght' 92",
     ':hover': {
-      backgroundColor: 'primary.washed.1',
-      color: 'primary.hover',
+      backgroundColor: 'secondary.hover',
     },
     ':active': {
-      backgroundColor: 'primary.washed.2',
-      color: 'primary.active',
+      backgroundColor: 'secondary.pressed',
     },
     ':disabled': {
-      color: 'muted.1',
-      backgroundColor: 'muted.4',
+      color: 'muted.0',
+      backgroundColor: 'muted.3',
     },
   },
-  'text-primary': {
+  tertiary: {
     textTransform: 'capitalize',
     backgroundColor: 'transparent',
     color: 'primary.base',
     fontVariationSettings: "'wght' 92",
     ':hover': {
       color: 'primary.hover',
-      backgroundColor: 'primary.washed.1',
+      backgroundColor: 'secondary.hover',
     },
     ':active': {
-      color: 'primary.active',
-      backgroundColor: 'primary.washed.2',
+      color: 'primary.pressed',
+      backgroundColor: 'secondary.pressed',
     },
     ':disabled': {
-      color: 'muted.1',
+      color: 'muted.0',
     },
   },
-  'filled-danger': {
+  danger: {
     textTransform: 'uppercase',
-    color: 'danger.contrast',
+    color: 'danger.accent',
     backgroundColor: 'danger.base',
     fontVariationSettings: "'wght' 92",
     ':hover': {
       backgroundColor: 'danger.hover',
     },
     ':active': {
-      backgroundColor: 'danger.active',
+      backgroundColor: 'danger.pressed',
     },
     ':disabled': {
-      color: 'text',
-      backgroundColor: 'muted.2',
+      color: 'text.primary',
+      backgroundColor: 'muted.1',
     },
   },
-  'subtle-danger': {
+  'danger-secondary': {
     textTransform: 'uppercase',
-    backgroundColor: 'danger.washed.0',
+    backgroundColor: 'danger.washed.base',
     color: 'danger.base',
     fontVariationSettings: "'wght' 92",
     ':hover': {
-      backgroundColor: 'danger.washed.1',
+      backgroundColor: 'danger.washed.hover',
       color: 'danger.hover',
     },
     ':active': {
-      backgroundColor: 'danger.washed.2',
-      color: 'danger.active',
+      backgroundColor: 'danger.washed.pressed',
+      color: 'danger.pressed',
     },
     ':disabled': {
-      color: 'muted.1',
-      backgroundColor: 'muted.4',
+      color: 'muted.0',
+      backgroundColor: 'muted.3',
     },
   },
-  'text-danger': {
+  'danger-tertiary': {
     textTransform: 'capitalize',
     backgroundColor: 'transparent',
-    color: 'danger.base',
+    color: 'danger.washed.accent',
     fontVariationSettings: "'wght' 92",
     ':hover': {
       color: 'danger.hover',
-      backgroundColor: 'danger.washed.1',
+      backgroundColor: 'danger.washed.hover',
     },
     ':active': {
-      color: 'danger.active',
-      backgroundColor: 'danger.washed.2',
+      color: 'danger.pressed',
+      backgroundColor: 'danger.washed.pressed',
     },
     ':disabled': {
-      color: 'muted.1',
+      color: 'muted.0',
     },
   },
-  'filled-base': {
-    textTransform: 'uppercase',
-    color: 'background',
-    backgroundColor: 'text',
-    fontVariationSettings: "'wght' 92",
-    ':hover': {
-      color: 'background',
-      backgroundColor: darken('text', 0.05),
-    },
-    ':active': {
-      color: 'background',
-      backgroundColor: lighten('text', 0.05),
-    },
-    ':disabled': {
-      color: 'text',
-      backgroundColor: 'muted.2',
-    },
-  },
-  'subtle-base': {
-    textTransform: 'uppercase',
-    backgroundColor: lighten('text', 0.7),
-    color: 'text',
-    fontVariationSettings: "'wght' 92",
-    ':hover': {
-      backgroundColor: lighten('text', 0.68),
-      color: 'text',
-    },
-    ':active': {
-      backgroundColor: lighten('text', 0.65),
-      color: 'text',
-    },
-    ':disabled': {
-      color: 'muted.1',
-      backgroundColor: 'muted.4',
-    },
-  },
-  'text-base': {
+  text: {
     backgroundColor: 'transparent',
-    color: 'text',
+    color: 'text.primary',
     fontVariationSettings: "'wght' 92",
     ':hover': {
-      color: 'text',
-      backgroundColor: lighten('text', 0.72),
+      color: 'text.primary',
+      backgroundColor: lighten('text.primary', 0.72),
     },
     ':active': {
-      color: 'text',
-      backgroundColor: lighten('text', 0.68),
+      color: 'text.primary',
+      backgroundColor: lighten('text.primary', 0.68),
     },
     ':disabled': {
-      color: 'muted.1',
+      color: 'muted.0',
     },
   },
 }

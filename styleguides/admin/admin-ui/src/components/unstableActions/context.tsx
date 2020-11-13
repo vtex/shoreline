@@ -5,7 +5,7 @@ import { ButtonProps } from '../Button'
 import { SetProps } from '../Set'
 
 const ActionsContext = React.createContext<
-  (Pick<ButtonProps, 'size' | 'palette'> & Pick<SetProps, 'orientation'>) | null
+  (Pick<ButtonProps, 'size'> & Pick<SetProps, 'orientation'>) | null
 >(null)
 
 export function useActionsContext() {

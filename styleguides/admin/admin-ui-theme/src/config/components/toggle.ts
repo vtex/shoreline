@@ -5,16 +5,16 @@ const styles = {
   position: 'relative',
   cursor: 'pointer',
   borderRadius: '6.25rem',
-  backgroundColor: 'muted.1',
+  backgroundColor: 'muted.0',
   borderStyle: 'solid',
-  borderColor: 'muted.1',
+  borderColor: 'muted.0',
   borderWidth: 1,
   '&:after': {
     content: '""',
     display: 'block',
     position: 'absolute',
     borderRadius: '1.25rem',
-    backgroundColor: 'success.contrast',
+    backgroundColor: 'success.accent',
     transition: 'transform .25s ease',
   },
   '&:checked': {
@@ -25,29 +25,29 @@ const styles = {
       borderColor: 'success.hover',
     },
     '&:disabled': {
-      backgroundColor: 'muted.1',
-      borderColor: 'muted.1',
+      backgroundColor: 'muted.0',
+      borderColor: 'muted.0',
       '&:after': {
-        backgroundColor: 'muted.2',
+        backgroundColor: 'muted.1',
       },
     },
   },
   '&:hover': {
-    backgroundColor: 'muted.0',
-    borderColor: 'muted.0',
+    backgroundColor: 'text.secondary',
+    borderColor: 'text.secondary',
   },
   '&:disabled': {
-    backgroundColor: 'muted.1',
-    borderColor: 'muted.1',
+    backgroundColor: 'muted.0',
+    borderColor: 'muted.0',
     '&:after': {
-      backgroundColor: 'muted.2',
+      backgroundColor: 'muted.1',
     },
   },
   ':not(:checked):active': {
-    backgroundColor: 'muted.0',
-    borderColor: 'muted.0',
+    backgroundColor: 'text.secondary',
+    borderColor: 'text.secondary',
     ':after': {
-      backgroundColor: 'primary.washed.0',
+      backgroundColor: 'secondary',
     },
   },
   ':focus:not([data-focus-visible-added])': {

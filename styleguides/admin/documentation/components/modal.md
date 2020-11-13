@@ -66,7 +66,7 @@ function Example() {
           </Text>
         </Modal.Content>
         <Modal.Footer>
-          <Button variant="subtle">Cancel</Button>
+          <Button variant="secondary">Cancel</Button>
           <Button>Confirm</Button>
         </Modal.Footer>
       </Modal>
@@ -241,7 +241,7 @@ function Example() {
             </Text>
           </StatelessModal.Content>
           <StatelessModal.Footer>
-            <Button variant="subtle">Cancel</Button>
+            <Button variant="secondary">Cancel</Button>
             <Button>Confirm</Button>
           </StatelessModal.Footer>
         </StatelessModal>
