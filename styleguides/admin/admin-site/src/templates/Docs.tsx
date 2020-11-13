@@ -19,6 +19,7 @@ import {
   TextColors,
   ComplementaryColors,
   SemanticColor,
+  ElementaryColors,
 } from '../components/ColorBlock'
 import PropDetails from '../components/PropDetails'
 import ThemeAwareProps from '../components/ThemeAwareProps'
@@ -56,6 +57,7 @@ const { Compiler: renderAst } = new RehypeReact({
     },
     backgroundcolors: BackgroundColors,
     textcolors: TextColors,
+    elementarycolors: ElementaryColors,
     complementarycolors: ComplementaryColors,
     semanticcolor: SemanticColor,
     themeawareprops: ThemeAwareProps,

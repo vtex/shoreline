@@ -52,9 +52,11 @@ Our styleguide provides an accessible default palette to get you up and running.
 
 <semanticcolor color="success.washed"></semanticcolor>
 
-## Accessing color
+### Elementary 
 
-### StyleObject
+<elementarycolors></elementarycolors>
+
+## Accessing colors
 
 #### Example
 

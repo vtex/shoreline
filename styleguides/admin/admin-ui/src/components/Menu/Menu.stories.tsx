@@ -90,7 +90,7 @@ export const StatelessWithConstraint: Story<StatelessMenuProps> = () => {
         {canDownload ? 'Cannot' : 'Can'} download
       </Button>
       <MenuDisclosure state={state}>
-        <ActionButton variant="subtle">Post options</ActionButton>
+        <ActionButton variant="secondary">Post options</ActionButton>
       </MenuDisclosure>
       <StatelessMenu aria-label="actions" state={state}>
         {canDownload && (

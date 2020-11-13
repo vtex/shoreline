@@ -1,26 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { rgba } from 'polished'
 
-import { colors } from '../base'
-
-const buttonStyles = {
-  padding: 0,
-  border: 'none',
-  borderRadius: 3,
-  cursor: 'pointer',
-  position: 'relative',
-  color: 'currentColor',
-  backgroundColor: 'transparent',
-  ':focus:not([data-focus-visible-added])': {
-    outline: 'none',
-    boxShadow: 'none',
-  },
-  ':focus': {
-    outline: 'none',
-    boxShadow: 'focus',
-  },
-  marginLeft: '1',
-}
+// const buttonStyles = {
+//   padding: 0,
+//   border: 'none',
+//   borderRadius: 3,
+//   cursor: 'pointer',
+//   position: 'relative',
+//   color: 'currentColor',
+//   backgroundColor: 'transparent',
+//   ':focus:not([data-focus-visible-added])': {
+//     outline: 'none',
+//     boxShadow: 'none',
+//   },
+//   ':focus': {
+//     outline: 'none',
+//     boxShadow: 'focus',
+//   },
+//   marginLeft: '1',
+// }
 
 const styles = {
   display: 'inline-flex',
@@ -35,23 +32,23 @@ const styles = {
 
 const palette = {
   blue: {
-    bg: 'basic.blue',
+    bg: 'blue',
   },
   green: {
-    bg: 'basic.green',
+    bg: 'green',
   },
   red: {
-    bg: 'basic.red',
+    bg: 'red',
   },
   black: {
-    bg: 'basic.black',
-    color: 'background',
+    bg: 'black',
+    color: 'white',
   },
   yellow: {
-    bg: 'basic.yellow',
+    bg: 'yellow',
   },
   purple: {
-    bg: 'basic.purple',
+    bg: 'purple',
   },
 }
 
@@ -110,22 +107,4 @@ export default {
       }, []),
     }
   }, {}),
-  'default-button': {
-    ...buttonStyles,
-    '&:hover': {
-      backgroundColor: rgba(colors.text.primary, 0.1),
-    },
-    '&:active': {
-      backgroundColor: rgba(colors.text.primary, 0.13),
-    },
-  },
-  'black-button': {
-    ...buttonStyles,
-    '&:hover': {
-      backgroundColor: rgba(colors.background, 0.1),
-    },
-    '&:active': {
-      backgroundColor: rgba(colors.background, 0.13),
-    },
-  },
 }

@@ -62,6 +62,23 @@ export function BackgroundColors() {
   )
 }
 
+export function ElementaryColors() {
+  const theme = useTheme()
+
+  const getColor = (color: string) => get(theme, `colors.${color}`)
+
+  return (
+    <Set spacing={2}>
+      <ColorCard color={getColor('blue')} name="blue" />
+      <ColorCard color={getColor('purple')} name="purple" />
+      <ColorCard color={getColor('yellow')} name="yellow" />
+      <ColorCard color={getColor('green')} name="green" />
+      <ColorCard color={getColor('red')} name="red" />
+      <ColorCard color={getColor('black')} name="black" />
+    </Set>
+  )
+}
+
 export function TextColors() {
   const theme = useTheme()
 

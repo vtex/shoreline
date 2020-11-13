@@ -2,6 +2,7 @@ import React from 'react'
 import { darken } from '@theme-ui/color'
 import { Story, Meta } from '@storybook/react'
 
+import { Box } from '../Box'
 import { Button } from './index'
 import { IconAppStore } from '../../icons'
 import { Set } from '../Set'
@@ -39,18 +40,26 @@ export const Size: Story = () => {
 
 export const Variant: Story = () => {
   return (
-    <Set
-      styleOverrides={{
-        flexWrap: 'wrap',
-      }}
-    >
+    <Set orientation="vertical">
       <Button>Primary Button</Button>
       <Button variant="secondary">Secondary Button</Button>
       <Button variant="tertiary">Tertiary Button</Button>
       <Button variant="danger">Danger Button</Button>
       <Button variant="danger-secondary">Danger Secondary Button</Button>
       <Button variant="danger-tertiary">Danger Tertiary Button</Button>
-      <Button variant="text">Text Button</Button>
+    </Set>
+  )
+}
+
+export const Adaptative: Story = () => {
+  return (
+    <Set orientation="vertical">
+      <Box palette="inverted" padding={4}>
+        <Button variant="adaptative-light">Adaptative light</Button>
+      </Box>
+      <Box palette="base" padding={4}>
+        <Button variant="adaptative-dark">Adaptative Dark</Button>
+      </Box>
     </Set>
   )
 }

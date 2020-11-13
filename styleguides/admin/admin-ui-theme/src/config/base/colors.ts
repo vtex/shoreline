@@ -1,5 +1,15 @@
 import { darken } from 'polished'
 
+const elementaryColors = {
+  white: '#FFFFFF',
+  blue: '#DAE3F5',
+  purple: '#F4EFFF',
+  yellow: '#FDE6C0',
+  green: '#D6EFE5',
+  red: '#FEE3E3',
+  black: '#323845',
+}
+
 const semanticColors = {
   primary: '#2953B2',
   secondary: '#DAE3F5',
@@ -12,6 +22,7 @@ const semanticColors = {
 }
 
 export default {
+  ...elementaryColors,
   text: {
     primary: '#323845',
     secondary: '#707685',
@@ -67,14 +78,5 @@ export default {
       pressed: darken(0.08, semanticColors.successWashed),
       accent: semanticColors.success,
     },
-  },
-  // WIP - complementary
-  basic: {
-    blue: 'blue',
-    purple: 'purple',
-    yellow: 'yellow',
-    green: 'green',
-    red: 'red',
-    black: 'black',
   },
 }

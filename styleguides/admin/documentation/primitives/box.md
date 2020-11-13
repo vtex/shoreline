@@ -54,35 +54,11 @@ function Example() {
 
 ## Patterns
 
-The Box accepts all the Patterns properties, you can use it to add admin's applications common customization. Check the [Patterns](/theming/patterns) section for detailed info.
+The Box accepts all the Patterns properties, you can use it to add admin's applications common customization.
 
-```jsx
-import { Box, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box text="headline" palette="primary">
-        This is also a Box, but styled with a pattern
-      </Box>
-    </ThemeProvider>
-  )
-}
-```
-
-## CSS Props
-
-The Box accepts all Style Props defined on our design system, you can use it to add customization. Check the [CSS Props](/theming/css-props) section for detailed info.
-
-## Text
-
-You can use it in `Label`, `Heading`, `List`, `List.Item`, and `Paragraph` components.
-
-### Values
+### text
 
 `small`, `body`, `highlight`, `action`, `subtitle`, `headline`.
-
-### Example
 
 ```jsx
 import { Box, Label, List, ThemeProvider } from '@vtex/admin-ui'
@@ -102,15 +78,11 @@ function Example() {
 }
 ```
 
-## border
+### border
 
 You can use it in the `Box` component.
 
-### Values
-
 `default`, `divider-bottom`, `divider-top`, `strong`, `disabled`, `primary`, `danger`.
-
-### Example
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
@@ -132,26 +104,20 @@ function Example() {
 }
 ```
 
-### Palette css-prop
+### Palette
 
-You can use it in the `Box` component.
-
-#### Values
-
-| variant             | description |
-| ------------------- | ----------- |
-| `base`              |             |
-| `inverted`          |             |
-| `primary`           |             |
-| `secondary`         |             |
-| `danger`            |             |
-| `danger-secondary`  |             |
-| `success`           |             |
-| `success-secondary` |             |
-| `warning`           |             |
-| `warning-secondary` |             |
-
-### Example
+| value            | description |
+| ---------------- | ----------- |
+| `base`           | TODO        |
+| `inverted`       | TODO        |
+| `primary`        | TODO        |
+| `secondary`      | TODO        |
+| `danger`         | TODO        |
+| `danger-washed`  | TODO        |
+| `success`        | TODO        |
+| `success-washed` | TODO        |
+| `warning`        | TODO        |
+| `warning-washed` | TODO        |
 
 ```jsx
 import { Box, Set, ThemeProvider } from '@vtex/admin-ui'
@@ -169,6 +135,10 @@ function Example() {
   )
 }
 ```
+
+## CSS Props
+
+The Box accepts all Style Props defined on our design system, you can use it to add customization. Check the [CSS Props](/theming/css-props) section for detailed info.
 
 ## style-Props
 

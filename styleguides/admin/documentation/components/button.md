@@ -32,101 +32,116 @@ import { Button } from '@vtex/admin-ui'
 
 Learn more in [Get started](/docs/get-started/).
 
-## Variation
-
-### Text
-
-```jsx
-import { ThemeProvider, Button } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Button variant="tertiary">Admin UI Button Text</Button>
-    </ThemeProvider>
-  )
-}
-```
-
-### Filled
-
-```jsx
-import { ThemeProvider, Button } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Button>Admin UI Button Filled</Button>
-    </ThemeProvider>
-  )
-}
-```
-
-### Subtle
-
-```jsx
-import { ThemeProvider, Button } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Button variant="secondary">Admin UI Button Subtle</Button>
-    </ThemeProvider>
-  )
-}
-```
+## Variants
 
 ### Primary
 
+This option should be used for the most important action of the page.
+
+#### ✅ Do's:
+
+- Use this on topbars and confirmation modals.
+- Use it only once per page / modal.
+
+#### 🚫 Dont's:
+
+- Avoid using more than 2 words.
+- Buttons should be in all caps.
+- Prefer imperative verbs.
+- No punctuation.
+
+#### Example
+
 ```jsx
-import { ThemeProvider, Button } from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Button palette="primary">Admin UI Button Primary</Button>
+      <Set orientation="vertical">
+        <Button variant="primary">Primary Action</Button>
+        <Button variant="danger">Dangerous Primary Action</Button>
+      </Set>
     </ThemeProvider>
   )
 }
 ```
 
-### Danger
+### Secondary
+
+This option should be used for optional actions.
+
+#### ✅ Do's:
+
+- Use this option for topbars, tables, lists and forms.
+- Non-urgent actions
+
+#### 🚫 Dont's:
+
+- Avoid using more than 2 words.
+- Buttons should be in all caps.
+- Prefer imperative verbs.
+- No punctuation.
+
+#### Example
 
 ```jsx
-import { ThemeProvider, Button } from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Button palette="danger">Admin UI Button Danger</Button>
+      <Set orientation="vertical">
+        <Button variant="secondary">Secondary Action</Button>
+        <Button variant="danger-secondary">Dangerous Secondary Action</Button>
+      </Set>
     </ThemeProvider>
   )
 }
 ```
 
-### Small
+### Tertiary
+
+This option should be used for optional/tertiary actions.
+
+#### ✅ Do's:
+
+- Non-urgent, teritiary actions
+
+#### 🚫 Dont's:
+
+- Avoid using more than 3 words.
+- Sentence case.
+- Prefer imperative verbs.
+- No punctuation.
 
 ```jsx
-import { ThemeProvider, Button } from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Button size="small">Admin UI Button Small</Button>
+      <Set orientation="vertical">
+        <Button variant="tertiary">Tertiary Action</Button>
+        <Button variant="danger-tertiary">Dangerous Tertiary Action</Button>
+      </Set>
     </ThemeProvider>
   )
 }
 ```
 
-### Regular
+### Sizes
 
 ```jsx
-import { ThemeProvider, Button } from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Button size="regular">Admin UI Button Regular</Button>
+      <Set orientation="vertical">
+        <Button size="regular">Regular Button</Button>
+        <Button size="small">Small Button</Button>
+      </Set>
     </ThemeProvider>
   )
 }

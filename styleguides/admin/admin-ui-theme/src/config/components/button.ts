@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { lighten } from '@vtex/admin-ui-system'
+import { alpha } from '@vtex/admin-ui-system'
 
 const size = {
   regular: {
@@ -107,7 +107,6 @@ const variant = {
     textTransform: 'uppercase',
     color: 'primary.accent',
     backgroundColor: 'primary.base',
-    fontVariationSettings: "'wght' 92",
     ':hover': {
       backgroundColor: 'primary.hover',
     },
@@ -123,7 +122,6 @@ const variant = {
     textTransform: 'uppercase',
     backgroundColor: 'secondary.base',
     color: 'secondary.accent',
-    fontVariationSettings: "'wght' 92",
     ':hover': {
       backgroundColor: 'secondary.hover',
     },
@@ -139,7 +137,6 @@ const variant = {
     textTransform: 'capitalize',
     backgroundColor: 'transparent',
     color: 'primary.base',
-    fontVariationSettings: "'wght' 92",
     ':hover': {
       color: 'primary.hover',
       backgroundColor: 'secondary.hover',
@@ -156,7 +153,6 @@ const variant = {
     textTransform: 'uppercase',
     color: 'danger.accent',
     backgroundColor: 'danger.base',
-    fontVariationSettings: "'wght' 92",
     ':hover': {
       backgroundColor: 'danger.hover',
     },
@@ -172,7 +168,6 @@ const variant = {
     textTransform: 'uppercase',
     backgroundColor: 'danger.washed.base',
     color: 'danger.base',
-    fontVariationSettings: "'wght' 92",
     ':hover': {
       backgroundColor: 'danger.washed.hover',
       color: 'danger.hover',
@@ -190,7 +185,6 @@ const variant = {
     textTransform: 'capitalize',
     backgroundColor: 'transparent',
     color: 'danger.washed.accent',
-    fontVariationSettings: "'wght' 92",
     ':hover': {
       color: 'danger.hover',
       backgroundColor: 'danger.washed.hover',
@@ -203,17 +197,27 @@ const variant = {
       color: 'muted.0',
     },
   },
-  text: {
+  'adaptative-dark': {
+    color: 'currentColor',
     backgroundColor: 'transparent',
-    color: 'text.primary',
-    fontVariationSettings: "'wght' 92",
     ':hover': {
-      color: 'text.primary',
-      backgroundColor: lighten('text.primary', 0.72),
+      backgroundColor: alpha('text.primary', 0.04),
     },
     ':active': {
-      color: 'text.primary',
-      backgroundColor: lighten('text.primary', 0.68),
+      backgroundColor: alpha('text.primary', 0.08),
+    },
+    ':disabled': {
+      color: 'muted.0',
+    },
+  },
+  'adaptative-light': {
+    color: 'currentColor',
+    backgroundColor: 'transparent',
+    ':hover': {
+      backgroundColor: alpha('background', 0.04),
+    },
+    ':active': {
+      backgroundColor: alpha('background', 0.08),
     },
     ':disabled': {
       color: 'muted.0',
@@ -222,6 +226,7 @@ const variant = {
 }
 
 const styles = {
+  fontVariationSettings: "'wght' 92",
   border: 'none',
   borderRadius: 'default',
   cursor: 'pointer',

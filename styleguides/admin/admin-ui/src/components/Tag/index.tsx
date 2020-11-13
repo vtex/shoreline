@@ -4,6 +4,7 @@ import { forwardRef } from '@vtex/admin-ui-system'
 import { IconRemove } from '../../icons'
 import { Box } from '../Box'
 import { Overridable } from '../../types'
+import { Button } from '../Button'
 
 export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
   const {
@@ -26,16 +27,16 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
       {icon}
       {label}
       {!!handleDelete && (
-        <Box
-          element="button"
+        <Button
+          icon={<IconRemove />}
           aria-label={`${label}-tag-button-delete`}
           onClick={handleDelete}
-          themeKey={`components.tag.${
-            palette === 'black' ? palette : 'default'
-          }-button`}
-        >
-          <IconRemove />
-        </Box>
+          variant={palette === 'black' ? 'adaptative-light' : 'adaptative-dark'}
+          size="small"
+          styleOverrides={{
+            marginLeft: 1,
+          }}
+        />
       )}
     </Box>
   )

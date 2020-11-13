@@ -11,9 +11,9 @@ const palette = {
     bg: 'primary.base',
     color: 'primary.accent',
   },
-  'primary-washed': {
+  secondary: {
     bg: 'secondary.base',
-    color: 'primary.base',
+    color: 'secondary.accent',
   },
   danger: {
     bg: 'danger.base',
@@ -21,7 +21,7 @@ const palette = {
   },
   'danger-washed': {
     bg: 'danger.washed.base',
-    color: 'danger.base',
+    color: 'danger.washed.accent',
   },
   success: {
     bg: 'success.base',
@@ -29,7 +29,7 @@ const palette = {
   },
   'success-washed': {
     bg: 'success.washed.base',
-    color: 'success.base',
+    color: 'success.washed.accent',
   },
   warning: {
     bg: 'warning.base',
@@ -37,7 +37,7 @@ const palette = {
   },
   'warning-washed': {
     bg: 'warning.washed.base',
-    color: 'warning.base',
+    color: 'warning.washed.accent',
   },
 }
 
