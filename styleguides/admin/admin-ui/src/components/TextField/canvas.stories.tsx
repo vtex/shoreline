@@ -5,7 +5,6 @@ import { IconAdd } from '@vtex/admin-ui-icons'
 import { TextField } from './index'
 import { useInputState } from '../unstableInput'
 import { Box } from '../Box'
-import { Label } from '../Label'
 
 export default {
   title: 'system-next/text-field',
