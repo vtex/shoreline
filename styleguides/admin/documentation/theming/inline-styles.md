@@ -12,14 +12,14 @@ Both have the same behavior, and accepts a valid [`StyleObject`](/theming/style-
 
 Styles:
 
-- used on `Primitives` where style changes are expected and encouraged.
-- used with confidence since it does not break predefined styles.
+- use it on `Primitives` where style changes are expected and encouraged.
+- use it with confidence since it does not break predefined styles.
 - do not break element consistency.
 
 StyleOverrides:
 
-- used on `ThemedComponents` where changes are not common and can default theme styles.
-- used with care since it can override styles.
+- use it on `ThemedComponents` where changes are not common and can default theme styles.
+- use it with care since it can override styles.
 - can break element consistency.
 
 ```jsx
