@@ -22,7 +22,7 @@ export const TextArea = forwardRef(function Textarea(
     ...textareaProps
   } = props
 
-  const labelClassName = useClassName({
+  const className = useClassName({
     props: {
       styles: {
         ...styleOverrides,
@@ -36,8 +36,7 @@ export const TextArea = forwardRef(function Textarea(
       themeKey={`components.textArea.${errorMessage ? 'error' : 'container'}`}
     >
       <textarea
-        className={labelClassName}
-        themeKey="components.textArea.default"
+        className={className}
         id={id}
         ref={ref}
         placeholder=" "
@@ -101,14 +100,6 @@ export interface TextAreaProps
    * TextArea error message
    */
   errorMessage?: string
-  /**
-   * TextArea element
-   */
-  as?: string
-  /**
-   * themeKey
-   */
-  themeKey?: string
 }
 
 export interface TextAreaStateProps {
