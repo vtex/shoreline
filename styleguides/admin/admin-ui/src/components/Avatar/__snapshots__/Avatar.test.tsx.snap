@@ -105,7 +105,7 @@ exports[`Avatar tests should match snaphot with pallette 1`] = `
   padding: 0.5rem;
   border-radius: 100%;
   text-transform: uppercase;
-  background-color: #CE454F;
+  background-color: #CB4242;
   color: #FFFFFF;
 }
 
