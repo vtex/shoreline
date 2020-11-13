@@ -1,25 +1,11 @@
 import React from 'react'
-import {
-  Box,
-  ThemeProvider,
-  Set,
-  BoxProps,
-  useTheme,
-  get,
-} from '@vtex/admin-ui'
-
-import Heading from './Heading'
+import { Box, Set, BoxProps, useTheme, get } from '@vtex/admin-ui'
 
 interface CardProps extends BoxProps {
   /** Color Value */
   color?: string
   /** Semantic color name */
   name?: string
-}
-
-interface SetProps {
-  /** Spacing between palettes */
-  spacing?: number
 }
 
 function ColorCard(props: CardProps) {
@@ -122,39 +108,5 @@ export function SemanticColor(props: { color: string }) {
       />
       <ColorCard color={getColor(`${color}.accent`)} name={`${color}.accent`} />
     </Set>
-  )
-}
-
-export function PaletteBlock(props: SetProps) {
-  const theme = useTheme()
-
-  const getColor = (color: string) => get(theme, `colors.${color}`)
-
-  return (
-    <ThemeProvider>
-      <Set
-        orientation="vertical"
-        spacing={6}
-        {...props}
-        styleOverrides={{ marginTop: 6 }}
-      >
-        <Box>
-          <Heading element="h2">Basic</Heading>
-          <Set
-            spacing={2}
-            styleOverrides={{
-              flexWrap: 'wrap',
-            }}
-          >
-            <ColorCard color="#DAE3F5" name="blue" />
-            <ColorCard color="#F4EFFF" name="purple" />
-            <ColorCard color="#FDE6C0" name="yellow" />
-            <ColorCard color="#D6EFE5" name="green" />
-            <ColorCard color="#FEE3E3" name="red" />
-            <ColorCard color={getColor('text.primary')} name="black" />
-          </Set>
-        </Box>
-      </Set>
-    </ThemeProvider>
   )
 }

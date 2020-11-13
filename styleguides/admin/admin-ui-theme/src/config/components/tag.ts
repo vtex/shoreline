@@ -1,24 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-// const buttonStyles = {
-//   padding: 0,
-//   border: 'none',
-//   borderRadius: 3,
-//   cursor: 'pointer',
-//   position: 'relative',
-//   color: 'currentColor',
-//   backgroundColor: 'transparent',
-//   ':focus:not([data-focus-visible-added])': {
-//     outline: 'none',
-//     boxShadow: 'none',
-//   },
-//   ':focus': {
-//     outline: 'none',
-//     boxShadow: 'focus',
-//   },
-//   marginLeft: '1',
-// }
-
 const styles = {
   display: 'inline-flex',
   alignItems: 'center',

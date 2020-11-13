@@ -4,7 +4,7 @@ path: /button/
 
 # Button
 
-Component that handles all Button variants of the DS. It renders a button jsx element by default.
+A component that handles all Button variants of the DS. It renders a button element by default.
 
 ## Behavior
 
@@ -41,7 +41,7 @@ This option should be used for the most important action of the page.
 #### ✅ Do's:
 
 - Use this on topbars and confirmation modals.
-- Use it only once per page / modal.
+- Use it only once per page/modal.
 
 #### 🚫 Dont's:
 
@@ -73,14 +73,14 @@ This option should be used for optional actions.
 
 #### ✅ Do's:
 
-- Use this option for topbars, tables, lists and forms.
+- Use this option for topbars, tables, lists, and forms.
+- Buttons should be in all caps.
+- Prefer imperative verbs.
 - Non-urgent actions
 
 #### 🚫 Dont's:
 
 - Avoid using more than 2 words.
-- Buttons should be in all caps.
-- Prefer imperative verbs.
 - No punctuation.
 
 #### Example
@@ -106,13 +106,12 @@ This option should be used for optional/tertiary actions.
 
 #### ✅ Do's:
 
-- Non-urgent, teritiary actions
+- Non-urgent, tertiary actions
+- Prefer imperative verbs.
 
 #### 🚫 Dont's:
 
 - Avoid using more than 3 words.
-- Sentence case.
-- Prefer imperative verbs.
 - No punctuation.
 
 ```jsx
@@ -130,7 +129,53 @@ function Example() {
 }
 ```
 
+### Adaptative
+
+Adapts to the context that is inserted.
+
+#### ✅ Do's:
+
+- Non-urgent, tertiary actions
+- Close, dismiss, or collapse actions.
+- Prefer imperative verbs.
+
+#### 🚫 Dont's:
+
+- Avoid using more than 3 words.
+- No punctuation.
+
+```jsx
+import { ThemeProvider, Button, Set, Box, IconClose } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Set orientation="vertical">
+        <Box
+          palette="base"
+          styles={{
+            padding: 4,
+          }}
+        >
+          <Button variant="adaptative-dark" icon={<IconClose />} />
+        </Box>
+        <Box
+          palette="inverted"
+          styles={{
+            padding: 4,
+          }}
+        >
+          <Button variant="adaptative-light" icon={<IconClose />} />
+        </Box>
+      </Set>
+    </ThemeProvider>
+  )
+}
+```
+
 ### Sizes
+
+The button comes in two sizes: `regular` (default) and `small`.
 
 ```jsx
 import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
@@ -139,7 +184,7 @@ function Example() {
   return (
     <ThemeProvider>
       <Set orientation="vertical">
-        <Button size="regular">Regular Button</Button>
+        <Button>Regular Button</Button>
         <Button size="small">Small Button</Button>
       </Set>
     </ThemeProvider>
@@ -147,30 +192,16 @@ function Example() {
 }
 ```
 
-### Button with Icon
+### Icon
 
-To use a button with an icon before, we needed to import another component, but now we can have this behavior only using the main Button.
+This type of button replaces text with an icon. The action needs to be clear enough to be represented with just an icon. It is the lowest type of button in the hierarchy.
 
-#### Icon and Label
+#### ✅ Do's:
 
-```jsx
-import { Button, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Button icon={<IconFavorite />} iconPosition="start" mr="20px">
-        Icon start
-      </Button>
-      <Button icon={<IconFavorite />} iconPosition="end">
-        Icon end
-      </Button>
-    </ThemeProvider>
-  )
-}
-```
-
-#### Only Icon
+- Tight spaces such as modals, sidebars, or cards.
+- Non-urgent, tertiary actions
+- Add descriptions in the alt tag to improve accessibility.
+- Be consistent with what action it represents, pay attention to the icon's use on other screens,
 
 ```jsx
 import { Button, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
@@ -184,6 +215,46 @@ function Example() {
 }
 ```
 
+### Icon + Text
+
+This type of button combines an icon and an action. It embodies more complex actions, and therefore require an additional copy, but at the same time aren't urgent, or the page's primary focus.
+
+#### ✅ Do's:
+
+- If there's a need to be more specific and detail the action.
+- Prefer imperative verbs.
+- Non-urgent, tertiary actions
+
+#### 🚫 Dont's:
+
+- Avoid using more than 3 words.
+- No punctuation.
+
+```jsx
+import {
+  Button,
+  IconFavorite,
+  IconCaret,
+  ThemeProvider,
+  Set,
+} from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Set orientation="vertical">
+        <Button icon={<IconFavorite />} iconPosition="start" mr="20px">
+          Icon start
+        </Button>
+        <Button icon={<IconCaret direction="down" />} iconPosition="end">
+          Icon end
+        </Button>
+      </Set>
+    </ThemeProvider>
+  )
+}
+```
+
 ## Props
 
-<proptypes heading="Button" component="Button" />
+<propdetails heading="Button" component="Button"></propdetails>
