@@ -10,7 +10,7 @@ describe('List tests', () => {
     const { getByTestId } = render(
       <ThemeProvider>
         <List data-testid="list" styleOverrides={{ bg: 'azure' }}>
-          <List.Item data-testid="listitem" styleOverrides={{ bg: 'yellow' }}>
+          <List.Item data-testid="listitem" styleOverrides={{ bg: 'coral' }}>
             Item
           </List.Item>
         </List>
@@ -18,10 +18,7 @@ describe('List tests', () => {
     )
 
     expect(getByTestId('list')).toHaveStyleRule('background-color', 'azure')
-    expect(getByTestId('listitem')).toHaveStyleRule(
-      'background-color',
-      'yellow'
-    )
+    expect(getByTestId('listitem')).toHaveStyleRule('background-color', 'coral')
   })
 
   it('should match snapshot', () => {
