@@ -7,29 +7,29 @@ const borderStyles = {
 const border = {
   default: {
     ...borderStyles,
-    borderColor: 'muted.3',
+    borderColor: 'muted.2',
   },
   'divider-bottom': {
     borderBottomWidth: '1px',
     borderBottomStyle: 'solid',
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    borderColor: 'muted.3',
+    borderColor: 'muted.2',
   },
   'divider-top': {
     borderTopWidth: '1px',
     borderTopStyle: 'solid',
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-    borderColor: 'muted.3',
+    borderColor: 'muted.2',
   },
   strong: {
     ...borderStyles,
-    borderColor: 'text',
+    borderColor: 'text.primary',
   },
   disabled: {
     ...borderStyles,
-    borderColor: 'muted.2',
+    borderColor: 'muted.1',
   },
   primary: {
     ...borderStyles,
