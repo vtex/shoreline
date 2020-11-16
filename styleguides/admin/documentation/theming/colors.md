@@ -6,6 +6,25 @@ path: /theming/colors/
 
 Our styleguide provides an accessible default palette to get you up and running.
 
+## Accessing colors
+
+#### Example
+
+```jsx
+import { cn } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <div
+      className={cn({
+        size: 96,
+        bg: 'primary.base',
+      })}
+    />
+  )
+}
+```
+
 ## Complete color set
 
 ### Backgrounds
@@ -56,21 +75,4 @@ Our styleguide provides an accessible default palette to get you up and running.
 
 <elementarycolors></elementarycolors>
 
-## Accessing colors
 
-#### Example
-
-```jsx
-import { cn } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <div
-      className={cn({
-        size: 96,
-        bg: 'primary.base',
-      })}
-    />
-  )
-}
-```
