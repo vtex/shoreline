@@ -10,7 +10,12 @@ import {
 
 import { IconCaret } from '../../icons'
 import { Box } from '../Box'
-import { CollapsibleProvider, useCollapsibleContext } from './context'
+import {
+  CollapsibleProvider,
+  useCollapsibleContext,
+  TreeProvider,
+  useTree,
+} from './context'
 import { Button } from '../Button'
 import { Overridable } from '../../types'
 
@@ -29,6 +34,8 @@ import { Overridable } from '../../types'
  * ```
  */
 export function Collapsible(props: CollapsibleProps) {
+  const { isRoot } = useTree()
+
   const {
     styleOverrides,
     children,
@@ -44,24 +51,29 @@ export function Collapsible(props: CollapsibleProps) {
     ...state,
   }
 
+  const variant = {
+    container: 'components.collapsible.container',
+    header: `components.collapsible.header${!isRoot ? '-nested' : ''}`,
+    content: `components.collapsible.section${!isRoot ? '-nested' : ''}`,
+  }
+
   return (
-    <Box
-      themeKey="components.collapsible.container"
-      styles={styleOverrides}
-      {...boxProps}
-    >
-      <CollapsibleProvider {...reakitProps}>{children}</CollapsibleProvider>
+    <Box themeKey={variant.container} styles={styleOverrides} {...boxProps}>
+      <CollapsibleProvider variant={variant} {...reakitProps}>
+        <TreeProvider isRoot={false}>{children}</TreeProvider>
+      </CollapsibleProvider>
     </Box>
   )
 }
 
 export function Header(props: CollapsibleHeaderProps) {
   const { children, label, styles, ...boxProps } = props
+  const { variant } = useCollapsibleContext()
 
   return (
     <Box
       element="header"
-      themeKey="components.collapsible.header"
+      themeKey={variant.header}
       styles={styles}
       {...boxProps}
     >
@@ -82,9 +94,9 @@ function Disclosure({ children }: { children: ReactNode }) {
             {...enhancedProps}
             iconPosition="start"
             icon={<IconCaret direction={visible ? 'down' : 'right'} />}
-            variant="text"
+            variant="tertiary"
             styleOverrides={{
-              color: 'text',
+              color: 'text.primary',
               '&:hover': { backgroundColor: 'transparent' },
               '&:active': { backgroundColor: 'transparent' },
             }}
@@ -99,14 +111,14 @@ function Disclosure({ children }: { children: ReactNode }) {
 
 export function Content(props: CollapsibleContentProps) {
   const { children, styleOverrides, ...tokens } = props
-  const disclosureProps = useCollapsibleContext()
+  const { variant, ...disclosureProps } = useCollapsibleContext()
 
   return (
     <DisclosureContent {...disclosureProps}>
       {(enhancedProps) => (
         <Box
           element="section"
-          themeKey="components.collapsible.section"
+          themeKey={variant.content}
           styles={styleOverrides}
           {...enhancedProps}
           {...tokens}
