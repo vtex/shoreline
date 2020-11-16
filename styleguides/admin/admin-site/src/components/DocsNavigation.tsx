@@ -47,16 +47,16 @@ const linkStyles = {
   cursor: 'pointer',
   marginY: '2px',
   ':hover:not(:focus)': {
-    color: 'emphasis',
+    color: 'brand',
   },
   '&[aria-current="page"]': {
     borderLeftWidth: 2,
-    borderLeftColor: 'emphasis',
+    borderLeftColor: 'brand',
     borderLeftStyle: 'solid',
-    color: 'emphasis',
+    color: 'brand',
   },
   ':focus': {
-    color: 'emphasis',
+    color: 'brand',
     outline: 'none',
   },
   svg: {
@@ -88,7 +88,7 @@ function ExperimentalLink(props: GatsbyLinkProps<{}>) {
       </TooltipReference>
       <Tooltip
         className={cn({
-          bg: 'text',
+          bg: 'text.primary',
           color: 'background',
           padding: 2,
           borderRadius: 4,
@@ -137,7 +137,7 @@ export default function DocsNavigation() {
             styleOverrides={{
               paddingY: 0,
               paddingX: 0,
-              color: 'muted.0',
+              color: 'text.secondary',
             }}
             variant="highlight"
             id={getId(node.section)}
