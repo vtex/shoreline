@@ -15,7 +15,7 @@ export default {
 
 export const StringLabel: Story<TooltipProps> = () => (
   <Tooltip label="Tooltip Label" placement="right">
-    <Button icon={<IconAddChannel />} variant="text" />
+    <Button icon={<IconAddChannel />} variant="tertiary" />
   </Tooltip>
 )
 
@@ -26,8 +26,8 @@ export const ReactNodeLabel: Story<TooltipProps> = () => {
         <Text
           variant="small"
           styleOverrides={{
-            bg: 'success.washed.0',
-            color: 'success.active',
+            bg: 'success.washed.base',
+            color: 'success.pressed',
             borderRadius: '16px',
           }}
           padding={1}
@@ -43,7 +43,7 @@ export const ReactNodeLabel: Story<TooltipProps> = () => {
       <Tooltip
         label={
           <Set orientation="vertical">
-            <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+            <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
               Previous Order:
             </Text>
             <Text variant="small" margin={1}>
@@ -57,7 +57,7 @@ export const ReactNodeLabel: Story<TooltipProps> = () => {
           </Set>
         }
       >
-        <Button icon={<IconCaret direction="left" />} variant="text" />
+        <Button icon={<IconCaret direction="left" />} variant="tertiary" />
       </Tooltip>
     </Set>
   )
