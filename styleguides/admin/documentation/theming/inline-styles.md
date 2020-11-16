@@ -4,7 +4,7 @@ path: /theming/inline-styles/
 
 # Inline Styles
 
-This page presents all the inline style techniques available within our Admin. Each style presented here has its own particularities and use cases. 
+This page presents all the inline style techniques available within our Admin. Each style presented here has its own particularities and use cases. Check out our [Style Object](/theming/style-object/) page  for more details about this superset of CSS and their API calls to style objects.
 
 ## styles & styleOverrides
 
