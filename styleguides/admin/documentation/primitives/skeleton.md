@@ -10,6 +10,8 @@ Our design system comes with a set of primitive components that represent our mo
 - It shows users that content is loading, offering a vague preview of how content will look once it fully loads.
 - It's being used internally by AdminUI to handle the loading state of specific components.
 
+If you want to know more about how to style a primitive component, check out our [Inline Styles](/theming/inline-styles/) page.
+
 *Note that you may want to use one of our `Layout` components before using Box to build layouts. Also check one of our `Typography` components before using it to render a text.*
 
 
