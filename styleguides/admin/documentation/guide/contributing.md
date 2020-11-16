@@ -4,7 +4,7 @@ path: /guide/contributing/
 
 # Contributing
 
-VTEX Admin v4 is a collaborative effort. We want to make contributing to this project as easy and transparent as possible, and this document aims to guide you through the process. If your questions weren't clarified here, feel free to reach us at #dev-adminv4. Follow the steps below to contribute with our Admin v4's development.
+VTEX Admin v4 is a collaborative effort. We want to make contributing to this project as easy and transparent as possible, and this document aims to guide you through the process. If your questions weren't clarified here, feel free to reach us at #dev-adminv4. Follow the steps below to contribute to our VTEX Admin v4's development.
 
 ## Tools and conventions
 
