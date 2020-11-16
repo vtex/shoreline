@@ -1,25 +1,25 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { CollapsibleTree, CollapsibleTreeProps } from './index'
+import { CollapsibleGroup, CollapsibleGroupProps } from './index'
 import { useCollapsible } from '../Collapsible'
 import { Text } from '../Text'
 import { Set } from '../Set'
 
 export default {
-  title: 'beta/CollapsibleTree',
-  component: CollapsibleTree,
+  title: 'beta/CollapsibleGroup',
+  component: CollapsibleGroup,
 } as Meta
 
-export const Basic: Story<CollapsibleTreeProps> = () => {
+export const Basic: Story<CollapsibleGroupProps> = () => {
   const promos = useCollapsible()
   const marketing = useCollapsible()
 
   return (
-    <CollapsibleTree styleOverrides={{ width: 400 }}>
-      <CollapsibleTree.Item state={promos}>
-        <CollapsibleTree.Item.Header label="Promos" />
-        <CollapsibleTree.Item.Content>
+    <CollapsibleGroup styleOverrides={{ width: 400 }}>
+      <CollapsibleGroup.Item state={promos}>
+        <CollapsibleGroup.Item.Header label="Promos" />
+        <CollapsibleGroup.Item.Content>
           <Set orientation="vertical">
             <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
             <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
@@ -29,11 +29,11 @@ export const Basic: Story<CollapsibleTreeProps> = () => {
             <br />
             <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
           </Set>
-        </CollapsibleTree.Item.Content>
-      </CollapsibleTree.Item>
-      <CollapsibleTree.Item state={marketing}>
-        <CollapsibleTree.Item.Header label="Marketing" />
-        <CollapsibleTree.Item.Content>
+        </CollapsibleGroup.Item.Content>
+      </CollapsibleGroup.Item>
+      <CollapsibleGroup.Item state={marketing}>
+        <CollapsibleGroup.Item.Header label="Marketing" />
+        <CollapsibleGroup.Item.Content>
           <Set orientation="vertical">
             <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
               Partner
@@ -45,13 +45,13 @@ export const Basic: Story<CollapsibleTreeProps> = () => {
             </Text>
             <Text variant="small">Campaign name</Text>
           </Set>
-        </CollapsibleTree.Item.Content>
-      </CollapsibleTree.Item>
-    </CollapsibleTree>
+        </CollapsibleGroup.Item.Content>
+      </CollapsibleGroup.Item>
+    </CollapsibleGroup>
   )
 }
 
-export const Nested: Story<CollapsibleTreeProps> = () => {
+export const Nested: Story<CollapsibleGroupProps> = () => {
   const promosAndPartner = useCollapsible()
   const shipping = useCollapsible()
   const promos = useCollapsible()
@@ -120,52 +120,52 @@ export const Nested: Story<CollapsibleTreeProps> = () => {
   }
 
   return (
-    <CollapsibleTree styleOverrides={{ width: 400 }}>
-      <CollapsibleTree.Item state={promosAndPartner}>
-        <CollapsibleTree.Item.Header label="Promos and Partnerships" />
-        <CollapsibleTree.Item.Content>
-          <CollapsibleTree>
-            <CollapsibleTree.Item state={promos}>
-              <CollapsibleTree.Item.Header label="Promos" />
-              <CollapsibleTree.Item.Content>
+    <CollapsibleGroup styleOverrides={{ width: 400 }}>
+      <CollapsibleGroup.Item state={promosAndPartner}>
+        <CollapsibleGroup.Item.Header label="Promos and Partnerships" />
+        <CollapsibleGroup.Item.Content>
+          <CollapsibleGroup>
+            <CollapsibleGroup.Item state={promos}>
+              <CollapsibleGroup.Item.Header label="Promos" />
+              <CollapsibleGroup.Item.Content>
                 <Set orientation="vertical">
                   <PromosContent />
                 </Set>
-              </CollapsibleTree.Item.Content>
-            </CollapsibleTree.Item>
-            <CollapsibleTree.Item state={marketing}>
-              <CollapsibleTree.Item.Header label="Marketing" />
-              <CollapsibleTree.Item.Content>
+              </CollapsibleGroup.Item.Content>
+            </CollapsibleGroup.Item>
+            <CollapsibleGroup.Item state={marketing}>
+              <CollapsibleGroup.Item.Header label="Marketing" />
+              <CollapsibleGroup.Item.Content>
                 <Set orientation="vertical">
                   <PartnershipsContent />
                 </Set>
-              </CollapsibleTree.Item.Content>
-            </CollapsibleTree.Item>
-          </CollapsibleTree>
-        </CollapsibleTree.Item.Content>
-      </CollapsibleTree.Item>
-      <CollapsibleTree.Item state={shipping}>
-        <CollapsibleTree.Item.Header label="Shipping" />
-        <CollapsibleTree.Item.Content>
-          <CollapsibleTree>
+              </CollapsibleGroup.Item.Content>
+            </CollapsibleGroup.Item>
+          </CollapsibleGroup>
+        </CollapsibleGroup.Item.Content>
+      </CollapsibleGroup.Item>
+      <CollapsibleGroup.Item state={shipping}>
+        <CollapsibleGroup.Item.Header label="Shipping" />
+        <CollapsibleGroup.Item.Content>
+          <CollapsibleGroup>
             {packages.map((value, index) => {
               return (
-                <CollapsibleTree.Item
+                <CollapsibleGroup.Item
                   state={index ? packageOne : packageTwo}
                   key={index}
                 >
-                  <CollapsibleTree.Item.Header label={value} />
-                  <CollapsibleTree.Item.Content>
+                  <CollapsibleGroup.Item.Header label={value} />
+                  <CollapsibleGroup.Item.Content>
                     <Set orientation="vertical">
                       <PackagesContent />
                     </Set>
-                  </CollapsibleTree.Item.Content>
-                </CollapsibleTree.Item>
+                  </CollapsibleGroup.Item.Content>
+                </CollapsibleGroup.Item>
               )
             })}
-          </CollapsibleTree>
-        </CollapsibleTree.Item.Content>
-      </CollapsibleTree.Item>
-    </CollapsibleTree>
+          </CollapsibleGroup>
+        </CollapsibleGroup.Item.Content>
+      </CollapsibleGroup.Item>
+    </CollapsibleGroup>
   )
 }
