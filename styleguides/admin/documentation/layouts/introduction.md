@@ -56,6 +56,8 @@ Layout components should *not* be used during the following cases:
 
 - 🚫 You are handling with just one atomic component.
 
+- 🚫 Apply styles of color, border, background, etc. The component should only handle the layout behavior.
+
 ```jsx static
 // 🚫 Wrong
 function Example() {
@@ -74,7 +76,6 @@ function Example() {
 }
 ```
 
-- 🚫 Apply styles of color, border, background, etc. The component should only handle the layout behavior.
 
 ```jsx static
 // 🚫 Wrong
