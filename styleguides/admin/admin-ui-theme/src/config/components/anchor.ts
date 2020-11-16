@@ -3,7 +3,7 @@ export default {
   color: 'primary.base',
   textDecoration: 'none',
   ':active': {
-    color: 'primary.active',
+    color: 'primary.pressed',
     textDecoration: 'underline',
   },
   ':hover': {
