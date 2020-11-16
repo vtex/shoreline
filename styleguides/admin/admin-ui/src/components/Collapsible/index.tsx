@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react'
-import { SxStyleProp } from '@vtex/admin-ui-system'
 import {
   useDisclosureState,
   Disclosure as ReakitDisclosure,
@@ -67,14 +66,14 @@ export function Collapsible(props: CollapsibleProps) {
 }
 
 export function Header(props: CollapsibleHeaderProps) {
-  const { children, label, styles, ...boxProps } = props
+  const { children, label, styleOverrides, ...boxProps } = props
   const { variant } = useCollapsibleContext()
 
   return (
     <Box
       element="header"
       themeKey={variant.header}
-      styles={styles}
+      styles={styleOverrides}
       {...boxProps}
     >
       <Disclosure>{label}</Disclosure>
@@ -162,8 +161,6 @@ export interface CollapsibleHeaderProps extends Overridable {
    * Actions panel
    */
   children?: ReactNode
-  /** ThemeUI style prop */
-  styles?: SxStyleProp
 }
 
 export interface CollapsibleContentProps extends Overridable {
