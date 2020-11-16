@@ -4,7 +4,7 @@ path: /primitives/box/
 
 # Box
 
-Our design system comes with a set of primitive components that represent our most elementary components, through which other components are built. They are basic elements, with no determined style, that are used as a starting point for other components. Checkout our [Introduction](/primitives/introduction) page, to see Do's and Don'ts about primitive components. 
+Our design system comes with a set of primitive components that represent our most elementary components, through which other components are built. They are basic elements, with no determined style, that are used as a starting point for other components. Check out our [Introduction](/primitives/introduction) page, to see Do's and Don'ts about primitive components. 
 
 `Box` is versatile primitive component, with no defined style, that can be used to leverage other elementary components. The majority of our components are built on top of the `<Box>`. By default it renders a `<div>` element.  
 
