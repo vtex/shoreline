@@ -5,7 +5,7 @@ import {
 } from 'reakit/Button'
 
 import { createElement, SxStyleProp } from '../../system'
-import { Variant, Size, Palette } from './types'
+import { Variant, Size } from './types'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
@@ -59,8 +59,7 @@ function useButtonSize({
 
 export function useButton(props: ButtonProps): ButtonProps {
   const {
-    variant = 'filled',
-    palette = 'primary',
+    variant = 'primary',
     size = 'regular',
     iconPosition = 'start',
     icon,
@@ -95,7 +94,7 @@ export function useButton(props: ButtonProps): ButtonProps {
         </Box>
       ),
     },
-    themeKey: `components.button.${variant}-${palette}-${resolvedSize}`,
+    themeKey: `components.button.${variant}-${resolvedSize}`,
   })
 
   return buttonProps
@@ -107,14 +106,9 @@ export interface ButtonProps extends ReakitButtonProps, Overridable {
    * */
   size?: Size
   /** Button variant
-   * @default filled
+   * @default primary
    * */
   variant?: Variant
-  /**
-   * Button palette
-   * @default primary
-   */
-  palette?: Palette
   /**
    * Icon of the button
    */
