@@ -37,8 +37,8 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
           htmlProps.children
         ),
         className: cn({
-          color: 'text',
-          backgroundColor: `${options.palette ?? 'warning'}.washed.0`,
+          color: 'text.primary',
+          backgroundColor: `${options.palette ?? 'warning'}.washed.base`,
           borderLeftColor: `${options.palette ?? 'warning'}.base`,
           borderLeftWidth: 8,
           borderLeftStyle: 'solid',
