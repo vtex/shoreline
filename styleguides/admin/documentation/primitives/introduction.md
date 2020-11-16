@@ -4,10 +4,10 @@ path: /primitives/introduction/
 
 # Introduction
 
-Our design system comes with a set of primitive components that represent our most elementary components, through which other components are built. They are basic elements, with no determined style. Primitive components include the following basic structures:
+Our design system comes with a set of primitive components that represent our most elementary components, through which other components are built. They are basic elements, with no determined style, that are used as a starting point for other components. They include the following basic structures:
 
-- `Box:` one of the most versatile of primitive components, with no defined style, that can be used to leverage other components. The majority of our components are built on top of the `<Box>`. By default it renders a `<div>` element.  
-- `Skeleton:` represent a UI that doesn’t contain actual content, instead, it shows the loading elements of a page in a shape similar to the actual content.
+- `Box:` versatile primitive component, with no defined style, that can be used to leverage other elementary components. The majority of our components are built on top of the `<Box>`. By default it renders a `<div>` element.  
+- `Skeleton:` versatile primitive component, with no defined style, that can be used to leverage UIs that don't contain actual content yet. Instead, it shows the loading elements of a page in a shape similar to the actual content.
 
 If you find a primitive component not implemented yet and you think that could be useful to have it in our design system, feel free to create an [issue in our repository](https://github.com/vtex/onda/issues/new/choose). Suggestions are welcome!
 
