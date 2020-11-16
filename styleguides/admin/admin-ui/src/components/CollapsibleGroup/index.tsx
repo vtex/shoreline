@@ -8,7 +8,7 @@ import { Divider } from '../Divider'
 const FIRST_CHILD = 0
 
 /**
- * Component that group Collapsible's components.
+ * Component that nests Collapsible's components.
  * Composites: CollapsibleGroup.Item
  *
  * @example
