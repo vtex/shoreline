@@ -29,14 +29,14 @@ describe('Set tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Set data-testid="set" styleOverrides={{ bg: 'black' }}>
+        <Set data-testid="set" styleOverrides={{ bg: 'coral' }}>
           <button>element 1</button>
           <button>element 2</button>
         </Set>
       </ThemeProvider>
     )
 
-    expect(getByTestId('set')).toHaveStyleRule('background-color', 'black')
+    expect(getByTestId('set')).toHaveStyleRule('background-color', 'coral')
   })
 
   it('should match snapshot', () => {
