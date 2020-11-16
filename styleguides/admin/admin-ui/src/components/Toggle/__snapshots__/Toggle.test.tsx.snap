@@ -36,8 +36,8 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:checked:hover {
-  background-color: #005C31;
-  border-color: #005C31;
+  background-color: #2a6652;
+  border-color: #2a6652;
 }
 
 .emotion-0:checked:disabled {
@@ -130,8 +130,8 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:checked:hover {
-  background-color: #005C31;
-  border-color: #005C31;
+  background-color: #2a6652;
+  border-color: #2a6652;
 }
 
 .emotion-0:checked:disabled {
