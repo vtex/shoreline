@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.3.4...admin-site@0.4.0) (2020-11-16)
+
+
+### Features
+
+* **admin-colors:** generate admin colors using polished ([63cb978](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/63cb978051c86f6da32ecd0ff6e9c6395ee99e40))
+* **button:** add new adaptative variants ([93eb56a](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/93eb56aded60f54e37db21b19ee1332d4f1a6309))
+
+
+
+
+
 ## [0.3.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.3.3...admin-site@0.3.4) (2020-11-13)
 
 **Note:** Version bump only for package admin-site

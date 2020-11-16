@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.57.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.56.0...@vtex/admin-ui@0.57.0) (2020-11-16)
+
+
+### Features
+
+* **admin-colors:** generate admin colors using polished ([63cb978](https://github.com/vtex/onda/commit/63cb978051c86f6da32ecd0ff6e9c6395ee99e40))
+* **button:** add new adaptative variants ([93eb56a](https://github.com/vtex/onda/commit/93eb56aded60f54e37db21b19ee1332d4f1a6309))
+
+
+
+
+
 # [0.56.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.3...@vtex/admin-ui@0.56.0) (2020-11-13)
 
 
