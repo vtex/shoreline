@@ -4,7 +4,7 @@ path: /theming/inline-styles/
 
 # Inline Styles
 
-This page presents all the inline style techniques available within admin-ui.
+This page presents all the inline style techniques available within our Admin. Each style presented here has its own particularities and use cases. 
 
 ## styles & styleOverrides
 
