@@ -8,6 +8,8 @@ Our design system comes with a set of primitive components that represent our mo
 
 `Box` is versatile primitive component, with no defined style, that can be used to leverage other elementary components. The majority of our components are built on top of the `<Box>`. By default it renders a `<div>` element.  
 
+If you want to know more about how to style a primitive component, check out our [Inline Styles](/theming/inline-styles/) page.
+
 *Note that you may want to use one of our `Layout` components before using Box to build layouts. Also check one of our `Typography` components before using it to render a text.*
 
 
@@ -58,9 +60,6 @@ function Example() {
 
 ## Patterns
 
-<<<<<<< HEAD
-The Box accepts all the Patterns' properties. You can use it to add common customizations from Admin's applications. Check the [Patterns](/theming/patterns) section for detailed info.
-=======
 The Box accepts all the Patterns properties, you can use it to add admin's applications common customization.
 
 ### text
@@ -90,7 +89,6 @@ function Example() {
 You can use it in the `Box` component.
 
 `default`, `divider-bottom`, `divider-top`, `strong`, `disabled`, `primary`, `danger`.
->>>>>>> master
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
