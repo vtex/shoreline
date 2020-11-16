@@ -18,6 +18,7 @@ exports[`Menu tests should match snapshot hidden 1`] = `
 }
 
 .emotion-1 {
+  font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -25,7 +26,6 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   text-transform: capitalize;
   background-color: transparent;
   color: #2953B2;
-  font-variation-settings: 'wght' 92;
   font-size: 0.75rem;
   height: 32px;
   width: auto;
@@ -44,13 +44,13 @@ exports[`Menu tests should match snapshot hidden 1`] = `
 }
 
 .emotion-1:hover {
-  color: #1E4397;
-  background-color: #E8F1FF;
+  color: #214491;
+  background-color: #cad7f1;
 }
 
 .emotion-1:active {
-  color: #3F6FDB;
-  background-color: #DBE9FF;
+  color: #1a3470;
+  background-color: #bacbec;
 }
 
 .emotion-1:disabled {
@@ -249,6 +249,7 @@ exports[`Menu tests should match snapshot visible 1`] = `
 }
 
 .emotion-1 {
+  font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -256,7 +257,6 @@ exports[`Menu tests should match snapshot visible 1`] = `
   text-transform: capitalize;
   background-color: transparent;
   color: #2953B2;
-  font-variation-settings: 'wght' 92;
   font-size: 0.75rem;
   height: 32px;
   width: auto;
@@ -275,13 +275,13 @@ exports[`Menu tests should match snapshot visible 1`] = `
 }
 
 .emotion-1:hover {
-  color: #1E4397;
-  background-color: #E8F1FF;
+  color: #214491;
+  background-color: #cad7f1;
 }
 
 .emotion-1:active {
-  color: #3F6FDB;
-  background-color: #DBE9FF;
+  color: #1a3470;
+  background-color: #bacbec;
 }
 
 .emotion-1:disabled {
