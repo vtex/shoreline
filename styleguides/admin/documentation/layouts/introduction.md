@@ -4,20 +4,23 @@ path: /layouts/introduction/
 
 # Introduction
 
-Our design system comes with a set of layout components to help you build common layouts inside your application.
+Our design system comes with a set of layout components to help you build common layouts inside your application. They include the following basic structures:
 
-### Components Overview
+- `Columns:` represents a basic columned layout. It implements a 12 column flexbox-based, responsive column system.
+- `Set:` represents a set of components, that automatically space out the components.
 
-- `Columns:` Represents a basic columned layout. It implements a 12 column flexbox based responsive column system.
-- `Set:` Represents a set of components, that automatically space out the components.
+If you find a layout behavior not implemented yet and you think that could be useful to have it in our design system, feel free to create an [issue in our repository](https://github.com/vtex/onda/issues/new/choose). Suggestions are welcome!
 
-## `Do's`:
 
-### ✅ You are building a layout inside your application.
+## Do's:
 
-### ✅ You want to add consistency between common layouts.
+Layout components should be used during the following cases:
 
-### ✅ You want to avoid handling layout behavior in atomic components.
+- ✅ You are building a layout inside your application.
+
+- ✅ You want to add consistency between common layouts.
+
+- ✅ You want to avoid handling layout behavior in atomic components.
 
 ```jsx static
 // 🚫 Wrong
@@ -45,11 +48,13 @@ function Example() {
 }
 ```
 
-## `Don'ts`:
+## Don'ts:
 
-### 🚫 You are not building a layout inside your application.
+Layout components should *not* be used during the following cases:
 
-### 🚫 You are handling with just one atomic component.
+- 🚫 You are not building a layout inside your application.
+
+- 🚫 You are handling with just one atomic component.
 
 ```jsx static
 // 🚫 Wrong
@@ -69,7 +74,7 @@ function Example() {
 }
 ```
 
-### 🚫 Apply styles of color, border, background, etc. The component should only handle the layout behavior.
+- 🚫 Apply styles of color, border, background, etc. The component should only handle the layout behavior.
 
 ```jsx static
 // 🚫 Wrong
@@ -109,6 +114,4 @@ function Example() {
 }
 ```
 
-## Suggestions
 
-If you find a layout behavior not implemented yet and you think that could be useful to have it in our design system, feel free to create an [issue in our repository](https://github.com/vtex/onda/issues/new/choose). Suggestions are welcome!
