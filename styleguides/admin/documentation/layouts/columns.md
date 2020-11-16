@@ -173,7 +173,7 @@ import { ThemeProvider, theme, Columns, Box } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Columns spacing={1} styleOverrides={{ bg: 'muted.3' }}>
+      <Columns spacing={1} styleOverrides={{ bg: 'muted.2' }}>
         <Columns.Item units={6} offset="right">
           <Box palette="primary" padding={2}>
             6 units
