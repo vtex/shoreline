@@ -10,8 +10,8 @@ exports[`Stepper tests should match snapshot 1`] = `
   text-align: center;
   width: 34px;
   height: 45px;
-  color: #323845;
-  background-color: #FFFFFF;
+  color: basic.black;
+  background-color: primary.contrast;
 }
 
 .emotion-1::-webkit-inner-spin-button {
@@ -42,7 +42,7 @@ exports[`Stepper tests should match snapshot 1`] = `
   border-width: 1px;
   border-color: #898F9E;
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: primary.contrast;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
