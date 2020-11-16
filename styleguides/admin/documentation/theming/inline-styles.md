@@ -8,7 +8,7 @@ This page presents all the inline style techniques available within admin-ui.
 
 ## styles & styleOverrides
 
-Both have the same behavior, and accept a valid [`StyleObject`](/theming/style-object/). The difference is the semantic of their usage.
+Both have the same behavior, and accept a valid [`StyleObject`](/theming/style-object/). The difference is the semantic of their usage, and where they should be applied.
 
 **Styles:**
 
@@ -43,7 +43,7 @@ function Example() {
 
 ## cn function
 
-Function that transforms a valid [`StyleObject`](/theming/style-object/) into a className. It is used to style native JSX elements and support integration with other libraries while being consistent.
+Function that transforms a valid [`StyleObject`](/theming/style-object/) into a `className`. It is used to style native JSX elements and support integrations with other libraries while being consistent.
 
 ### Example
 
@@ -134,7 +134,7 @@ import { Input } from 'reakit/Input'
 
 Hook that returns the entire theme object. Must be used under a `<ThemeProvider>` context.
 
-### Do:
+### Do's:
 
 - ✅ Use it if you need theme values on your custom hooks
 
@@ -152,7 +152,7 @@ function usePrimarySuccess(weight = 0.5) {
 }
 ```
 
-### Dont:
+### Don'ts:
 
 - 🚫 Use it to pass values to StyleObject
 
