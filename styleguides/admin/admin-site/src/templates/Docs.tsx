@@ -14,7 +14,13 @@ import DocsBackNext from '../components/DocsBackNext'
 import Summary from '../components/Summary'
 import { Proptypes } from '../components/Proptypes'
 import CodeBlock from '../components/Codeblock'
-import PaletteBlock from '../components/PaletteBlock'
+import {
+  BackgroundColors,
+  TextColors,
+  ComplementaryColors,
+  SemanticColor,
+  ElementaryColors,
+} from '../components/ColorBlock'
 import PropDetails from '../components/PropDetails'
 import ThemeAwareProps from '../components/ThemeAwareProps'
 
@@ -43,27 +49,32 @@ const { Compiler: renderAst } = new RehypeReact({
         <Text
           {...restProps}
           padding={1}
-          styles={{ bg: 'muted.4', color: 'text' }}
+          styles={{ bg: 'muted.3', color: 'text.primary' }}
         >
           {message}
         </Text>
       )
     },
+    backgroundcolors: BackgroundColors,
+    textcolors: TextColors,
+    elementarycolors: ElementaryColors,
+    complementarycolors: ComplementaryColors,
+    semanticcolor: SemanticColor,
     themeawareprops: ThemeAwareProps,
     p: function Render(props) {
       return (
         <Paragraph
           text="body"
           styleOverrides={{
-            color: 'text',
+            color: 'text.primary',
             fontSize: 2,
             marginY: 4,
             textAlign: 'justify',
             code: {
               fontFamily:
                 'VTEXTrustVF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif !important',
-              bg: 'muted.4',
-              color: 'text',
+              bg: 'muted.3',
+              color: 'text.primary',
             },
           }}
           {...props}
@@ -122,13 +133,12 @@ const { Compiler: renderAst } = new RehypeReact({
     tr: function Render(props) {
       return <tr className={cn({ textAlign: 'left', height: 48 })} {...props} />
     },
-    paletteblock: PaletteBlock,
     th: function Render(props) {
       return (
         <th
           className={cn({
             paddingX: 3,
-            borderBottomColor: 'muted.2',
+            borderBottomColor: 'muted.1',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',
@@ -142,7 +152,7 @@ const { Compiler: renderAst } = new RehypeReact({
         <td
           className={cn({
             paddingX: 3,
-            borderBottomColor: 'muted.2',
+            borderBottomColor: 'muted.1',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',
