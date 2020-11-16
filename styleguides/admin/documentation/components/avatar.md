@@ -4,7 +4,7 @@ path: /avatar/
 
 # Avatar
 
-Component to create a user avatar from a passed label. It shows the first letter capitalized in the center.
+Showing the first letter capitalized in the center, this component creates a user avatar from a label.
 
 ## Behavior
 
