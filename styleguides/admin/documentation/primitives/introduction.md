@@ -18,6 +18,7 @@ If you find a primitive component not implemented yet and you think that could b
 
 Primitive components should be used during the following cases:
 
+
 ### ✅ Build a specific component.
 
 ```jsx static
@@ -82,6 +83,8 @@ function Example() {
 ## Don'ts
 
 Primitive components should *not* be used during the following cases:
+
+*Note that you may want to use one of our `Layout` components before using Box to build layouts. Also check one of our `Typography` components before using it to render a text.*
 
 ### 🚫 Build layouts
 
