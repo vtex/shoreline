@@ -7,12 +7,16 @@ path: /primitives/introduction/
 Our design system comes with a set of primitive components that represent our most elementary components, through which other components are built. They are basic elements, with no determined style, that are used as a starting point for other components. They include the following basic structures:
 
 - `Box:` versatile primitive component, with no defined style, that can be used to leverage other elementary components. The majority of our components are built on top of the `<Box>`. By default it renders a `<div>` element.  
+Find out more about `Box` [here](/primitives/box) 
 - `Skeleton:` versatile primitive component, with no defined style, that can be used to leverage UIs that don't contain actual content yet. Instead, it shows the loading elements of a page in a shape similar to the actual content.
+Find out more about `Skeleton` [here](/primitives/skeleton) 
 
 If you find a primitive component not implemented yet and you think that could be useful to have it in our design system, feel free to create an [issue in our repository](https://github.com/vtex/onda/issues/new/choose). Suggestions are welcome!
 
 
-## Do's:
+## Do's
+
+Primitive components should be used during the following cases:
 
 ### ✅ Build a specific component.
 
@@ -75,7 +79,9 @@ function Example() {
 }
 ```
 
-## Don'ts:
+## Don'ts
+
+Primitive components should *not* be used during the following cases:
 
 ### 🚫 Build layouts
 
