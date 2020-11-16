@@ -20,4 +20,18 @@ export default {
     paddingX: 6,
     paddingBottom: 6,
   },
+  'header-nested': {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 4,
+    paddingLeft: 2,
+    'div > button:nth-of-type(n+2)': {
+      marginLeft: 1,
+    },
+  },
+  'section-nested': {
+    paddingX: 4,
+    paddingBottom: 4,
+  },
 }
