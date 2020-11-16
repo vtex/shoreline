@@ -165,7 +165,7 @@ function Example() {
   return (
     <ThemeProvider>
       <Set
-        styleOverrides={{ bg: 'muted.4', borderRadius: 'default', padding: 4 }}
+        styleOverrides={{ bg: 'muted.3', borderRadius: 'default', padding: 4 }}
       >
         <Button>Button 1</Button>
         <Button>Button 2</Button>
