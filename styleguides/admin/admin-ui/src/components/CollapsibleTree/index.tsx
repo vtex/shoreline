@@ -8,30 +8,30 @@ import { Divider } from '../Divider'
 const FIRST_CHILD = 0
 
 /**
- * Component that group Collapsible's components.
- * Composites: CollapsibleGroup.Item
+ * Component that nests Collapsible's components.
+ * Composites: CollapsibleTree.Item
  *
  * @example
  * ```jsx
- * import { CollapsibleGroup, useCollapsible } from `@vtex/admin-ui`
+ * import { CollapsibleTree, useCollapsible } from `@vtex/admin-ui`
  *
  * function UseCase() {
  *   const state = useCollapsible()
  *
  *   return (
- *     <CollapsibleGroup>
- *       <CollapsibleGroup.Item state={state}>
- *         <CollapsibleGroup.Item.Header label="Collapsible Label"/>
- *         <CollapsibleGroup.Item.Content>
+ *     <CollapsibleTree>
+ *       <CollapsibleTree.Item state={state}>
+ *         <CollapsibleTree.Item.Header label="Collapsible Label"/>
+ *         <CollapsibleTree.Item.Content>
  *           {content}
- *         </CollapsibleGroup.Item.Content>
- *       </CollapsibleGroup.Item>
- *     </CollapsibleGroup>
+ *         </CollapsibleTree.Item.Content>
+ *       </CollapsibleTree.Item>
+ *     </CollapsibleTree>
  *   )
  * }
  * ```
  */
-export function CollapsibleGroup(props: CollapsibleGroupProps) {
+export function CollapsibleTree(props: CollapsibleTreeProps) {
   const { children, styleOverrides, ...cardProps } = props
 
   return (
@@ -46,7 +46,7 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
   )
 }
 
-function CollapsibleGroupItem(props: CollapsibleProps) {
+function CollapsibleTreeItem(props: CollapsibleProps) {
   const { styleOverrides, ...collapsibleProps } = props
 
   return (
@@ -59,40 +59,40 @@ function CollapsibleGroupItem(props: CollapsibleProps) {
 
 /**
  * ```
- * CollapsibleGroup.Item header is always visible.
+ * CollapsibleTree.Item header is always visible.
  * Disclosure Button -> always on the left side, and is responsible for controlling the content visibility.
  * Actions Panel -> always on the right side.
  * ```
  */
-CollapsibleGroupItem.Header = Header
+CollapsibleTreeItem.Header = Header
 
 /**
  * ```
- * CollapsibleGroup.Item content.
+ * CollapsibleTree.Item content.
  * Can be visible or hidden.
  * ```
  */
-CollapsibleGroupItem.Content = Content
+CollapsibleTreeItem.Content = Content
 
 /**
  * Same as the `Collapsible` component.
  *
  * @example
  * ```jsx
- * import { CollapsibleGroup, useCollapsible } from `@vtex/admin-ui`
+ * import { CollapsibleTree, useCollapsible } from `@vtex/admin-ui`
  * const state = useCollapsible()
- * <CollapsibleGroup>
- *   <CollapsibleGroup.Item state={state}>
- *     <CollapsibleGroup.Item.Header label="Title goes here">
+ * <CollapsibleTree>
+ *   <CollapsibleTree.Item state={state}>
+ *     <CollapsibleTree.Item.Header label="Title goes here">
  *       {children}
- *     </CollapsibleGroup.Item.Header>
- *     <CollapsibleGroup.Item.Content>{content}</CollapsibleGroup.Item.Content>
- *   </CollapsibleGroup.Item>
- * </CollapsibleGroup>
+ *     </CollapsibleTree.Item.Header>
+ *     <CollapsibleTree.Item.Content>{content}</CollapsibleTree.Item.Content>
+ *   </CollapsibleTree.Item>
+ * </CollapsibleTree>
  * ```
  */
-CollapsibleGroup.Item = CollapsibleGroupItem
+CollapsibleTree.Item = CollapsibleTreeItem
 
-export interface CollapsibleGroupProps extends Overridable {
+export interface CollapsibleTreeProps extends Overridable {
   children?: ReactNode
 }

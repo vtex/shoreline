@@ -1,8 +1,8 @@
 ---
-path: /collapsible-group/
+path: /collapsible-tree/
 ---
 
-# CollapsibleGroup
+# CollapsibleTree
 
 A Component that groups Collapsible components
 
@@ -12,7 +12,7 @@ A Component that groups Collapsible components
 
 ```jsx
 import {
-  CollapsibleGroup,
+  CollapsibleTree,
   useCollapsible,
   ThemeProvider,
   Text,
@@ -25,10 +25,10 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <CollapsibleGroup styleOverrides={{ width: 400 }}>
-        <CollapsibleGroup.Item state={promos}>
-          <CollapsibleGroup.Item.Header label="Promos" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
+      <CollapsibleTree styleOverrides={{ width: 400 }}>
+        <CollapsibleTree.Item state={promos}>
+          <CollapsibleTree.Item.Header label="Promos" />
+          <CollapsibleTree.Item.Content display="flex" direction="col">
             <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
             <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
             <br />
@@ -36,11 +36,11 @@ function Example() {
             <Text variant="action">ALEMANA</Text>
             <br />
             <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-        <CollapsibleGroup.Item state={marketing}>
-          <CollapsibleGroup.Item.Header label="Marketing" />
-          <CollapsibleGroup.Item.Content>
+          </CollapsibleTree.Item.Content>
+        </CollapsibleTree.Item>
+        <CollapsibleTree.Item state={marketing}>
+          <CollapsibleTree.Item.Header label="Marketing" />
+          <CollapsibleTree.Item.Content>
             <Set orientation="verical">
               <Text variant="small" c="muted.2" fs="0">
                 Partner
@@ -52,9 +52,9 @@ function Example() {
               </Text>
               <Text variant="small">Campaign name</Text>
             </Set>
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-      </CollapsibleGroup>
+          </CollapsibleTree.Item.Content>
+        </CollapsibleTree.Item>
+      </CollapsibleTree>
     </ThemeProvider>
   )
 }
@@ -67,7 +67,7 @@ yarn add @vtex/admin-ui
 ```
 
 ```jsx static
-import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
+import { CollapsibleTree, useCollapsible } from '@vtex/admin-ui'
 ```
 
 ## Variation
@@ -76,7 +76,7 @@ import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
 
 ```jsx
 import {
-  CollapsibleGroup,
+  CollapsibleTree,
   useCollapsible,
   ThemeProvider,
   Text,
@@ -88,10 +88,10 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <CollapsibleGroup w={400}>
-        <CollapsibleGroup.Item state={promos}>
-          <CollapsibleGroup.Item.Header label="Promos" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
+      <CollapsibleTree w={400}>
+        <CollapsibleTree.Item state={promos}>
+          <CollapsibleTree.Item.Header label="Promos" />
+          <CollapsibleTree.Item.Content display="flex" direction="col">
             <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
             <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
             <br />
@@ -99,11 +99,11 @@ function Example() {
             <Text variant="action">ALEMANA</Text>
             <br />
             <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-        <CollapsibleGroup.Item state={marketing}>
-          <CollapsibleGroup.Item.Header label="Marketing" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
+          </CollapsibleTree.Item.Content>
+        </CollapsibleTree.Item>
+        <CollapsibleTree.Item state={marketing}>
+          <CollapsibleTree.Item.Header label="Marketing" />
+          <CollapsibleTree.Item.Content display="flex" direction="col">
             <Text variant="small" c="muted.2" fs="0">
               Partner
             </Text>
@@ -113,9 +113,9 @@ function Example() {
               Campaign
             </Text>
             <Text variant="small">Campaign name</Text>
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-      </CollapsibleGroup>
+          </CollapsibleTree.Item.Content>
+        </CollapsibleTree.Item>
+      </CollapsibleTree>
     </ThemeProvider>
   )
 }
@@ -127,7 +127,7 @@ function Example() {
 import {
   Text,
   useCollapsible,
-  CollapsibleGroup,
+  CollapsibleTree,
   ThemeProvider,
 } from '@vtex/admin-ui'
 
@@ -199,59 +199,59 @@ function Example() {
 
   function PromosGroup() {
     return (
-      <CollapsibleGroup>
-        <CollapsibleGroup.Item state={promos}>
-          <CollapsibleGroup.Item.Header label="Promos" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
+      <CollapsibleTree>
+        <CollapsibleTree.Item state={promos}>
+          <CollapsibleTree.Item.Header label="Promos" />
+          <CollapsibleTree.Item.Content display="flex" direction="col">
             <PromosContent />
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-        <CollapsibleGroup.Item state={marketing}>
-          <CollapsibleGroup.Item.Header label="Marketing" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
+          </CollapsibleTree.Item.Content>
+        </CollapsibleTree.Item>
+        <CollapsibleTree.Item state={marketing}>
+          <CollapsibleTree.Item.Header label="Marketing" />
+          <CollapsibleTree.Item.Content display="flex" direction="col">
             <PartnershipsContent />
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-      </CollapsibleGroup>
+          </CollapsibleTree.Item.Content>
+        </CollapsibleTree.Item>
+      </CollapsibleTree>
     )
   }
 
   function PackagesGroup() {
     return (
-      <CollapsibleGroup>
+      <CollapsibleTree>
         {packages.map((value, index) => {
           return (
-            <CollapsibleGroup.Item
+            <CollapsibleTree.Item
               state={index ? packageOne : packageTwo}
               key={index}
             >
-              <CollapsibleGroup.Item.Header label={value} />
-              <CollapsibleGroup.Item.Content display="flex" direction="col">
+              <CollapsibleTree.Item.Header label={value} />
+              <CollapsibleTree.Item.Content display="flex" direction="col">
                 <PackagesContent />
-              </CollapsibleGroup.Item.Content>
-            </CollapsibleGroup.Item>
+              </CollapsibleTree.Item.Content>
+            </CollapsibleTree.Item>
           )
         })}
-      </CollapsibleGroup>
+      </CollapsibleTree>
     )
   }
 
   return (
     <ThemeProvider>
-      <CollapsibleGroup w={400}>
-        <CollapsibleGroup.Item state={promosAndPartner}>
-          <CollapsibleGroup.Item.Header label="Promos and Partnerships" />
-          <CollapsibleGroup.Item.Content>
+      <CollapsibleTree w={400}>
+        <CollapsibleTree.Item state={promosAndPartner}>
+          <CollapsibleTree.Item.Header label="Promos and Partnerships" />
+          <CollapsibleTree.Item.Content>
             <PromosGroup />
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-        <CollapsibleGroup.Item state={shipping}>
-          <CollapsibleGroup.Item.Header label="Shipping" />
-          <CollapsibleGroup.Item.Content>
+          </CollapsibleTree.Item.Content>
+        </CollapsibleTree.Item>
+        <CollapsibleTree.Item state={shipping}>
+          <CollapsibleTree.Item.Header label="Shipping" />
+          <CollapsibleTree.Item.Content>
             <PackagesGroup />
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-      </CollapsibleGroup>
+          </CollapsibleTree.Item.Content>
+        </CollapsibleTree.Item>
+      </CollapsibleTree>
     </ThemeProvider>
   )
 }
@@ -259,9 +259,9 @@ function Example() {
 
 ### Composites
 
-- `<CollapsibleGroup.Item>`
-- `<CollapsibleGroup.Item.Header>`
-- `<CollapsibleGroup.Item.Content>`
+- `<CollapsibleTree.Item>`
+- `<CollapsibleTree.Item.Header>`
+- `<CollapsibleTree.Item.Content>`
 
 > 💡 Check the Collapsible Component Documentation for detailed info.
 
@@ -269,14 +269,14 @@ function Example() {
 
 - `useCollapsible` hook
 
-Since the `CollapsibleGroup.Item` is a Collapsible Component, you should use this hook to add state logic to them.
+Since the `CollapsibleTree.Item` is a Collapsible Component, you should use this hook to add state logic to them.
 
 ### Customization
 
-`CollapsibleGroup` is a container component, so you can customize it using `Border`, `Space`, `Color`, and `Layout` tokens defined in our theme, or you can do it using the `sx` prop as well.
+`CollapsibleTree` is a container component, so you can customize it using `Border`, `Space`, `Color`, and `Layout` tokens defined in our theme, or you can do it using the `sx` prop as well.
 
 > 💡 You can check the props table to verify which token you can use.
 
 ## Props
 
-<proptypes heading="CollapsibleGroup" component="CollapsibleGroup" />
+<proptypes heading="CollapsibleTree" component="CollapsibleTree" />

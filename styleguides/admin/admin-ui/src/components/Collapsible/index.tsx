@@ -51,14 +51,16 @@ export function Collapsible(props: CollapsibleProps) {
     ...state,
   }
 
+  const variant = {
+    container: 'components.collapsible.container',
+    header: `components.collapsible.header${!isRoot ? '-nested' : ''}`,
+    content: `components.collapsible.section${!isRoot ? '-nested' : ''}`,
+  }
+
   return (
-    <Box
-      themeKey="components.collapsible.container"
-      styles={styleOverrides}
-      {...boxProps}
-    >
-      <CollapsibleProvider isRoot={isRoot} {...reakitProps}>
-        <TreeProvider>{children}</TreeProvider>
+    <Box themeKey={variant.container} styles={styleOverrides} {...boxProps}>
+      <CollapsibleProvider variant={variant} {...reakitProps}>
+        <TreeProvider isRoot={false}>{children}</TreeProvider>
       </CollapsibleProvider>
     </Box>
   )
@@ -66,12 +68,12 @@ export function Collapsible(props: CollapsibleProps) {
 
 export function Header(props: CollapsibleHeaderProps) {
   const { children, label, styles, ...boxProps } = props
-  const { isRoot } = useCollapsibleContext()
+  const { variant } = useCollapsibleContext()
 
   return (
     <Box
       element="header"
-      themeKey={`components.collapsible.header${!isRoot ? '-nested' : ''}`}
+      themeKey={variant.header}
       styles={styles}
       {...boxProps}
     >
@@ -109,14 +111,14 @@ function Disclosure({ children }: { children: ReactNode }) {
 
 export function Content(props: CollapsibleContentProps) {
   const { children, styleOverrides, ...tokens } = props
-  const { isRoot, ...disclosureProps } = useCollapsibleContext()
+  const { variant, ...disclosureProps } = useCollapsibleContext()
 
   return (
     <DisclosureContent {...disclosureProps}>
       {(enhancedProps) => (
         <Box
           element="section"
-          themeKey={`components.collapsible.section${!isRoot ? '-nested' : ''}`}
+          themeKey={variant.content}
           styles={styleOverrides}
           {...enhancedProps}
           {...tokens}

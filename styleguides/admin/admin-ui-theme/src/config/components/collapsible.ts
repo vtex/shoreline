@@ -25,7 +25,7 @@ export default {
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 4,
-    paddingLeft: 2,
+    paddingLeft: 1,
     'div > button:nth-of-type(n+2)': {
       marginLeft: 1,
     },
