@@ -1,0 +1,235 @@
+---
+path: /theming/style-object/
+---
+
+# StyleObject
+
+The admin-ui `StyleObject` lets you style elements while consuming values from the theme. Think it as a superset of css. You will encounter this API in mainly three places: `cn` function, `style`, and `styleOverride` properties. To know more about the difference between those, you can check the [Styling Documentation](/docs/theming/styling/)
+
+<blockquote palette="primary">
+
+The `cn` function will be used on the examples below, due to its simplicity. The same behavior applies to `style` and `styleOverrides`.
+
+</blockquote>
+
+## Consuming theme keys
+
+Within a `StyleObject` you are able to reuse the predefined styles of [`@vtex/admin-ui-theme`](https://www.npmjs.com/package/@vtex/admin-ui-theme) by using a [theme-aware property](/docs/theming/style-object/#theme-aware-properties).
+
+```jsx
+import { cn } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <div
+      className={cn({
+        color: 'primary.base',
+        backgroundColor: 'primary.washed.0',
+        padding: 3,
+        fontSize: 3,
+      })}
+    >
+      styled div
+    </div>
+  )
+}
+```
+
+## Plain CSS
+
+Any valid css object is accepted within the `StyleObject`. Like on the example below:
+
+```jsx
+import { cn } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <div
+      className={cn({
+        color: 'darkorchid',
+        backgroundColor: 'orange',
+        height: 48,
+        fontSize: '2em',
+      })}
+    >
+      styled div
+    </div>
+  )
+}
+```
+
+## Nesting & Child Selectors
+
+In some cases, you might want to apply styles to children of the current element.
+You can do so with Emotion's [nested selectors](https://emotion.sh/docs/nested).
+
+```jsx
+import { cn } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <div
+      className={cn({
+        button: {
+          border: '1px solid',
+          padding: 1,
+          borderRadius: 'default',
+        },
+        'button + button': {
+          marginLeft: 2,
+        },
+      })}
+    >
+      <button>Button</button>
+      <button>Button</button>
+      <button>Button</button>
+    </div>
+  )
+}
+```
+
+## Pseudo-classes
+
+You can use all [CSS Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) such as `:hover`, `:active`, `:focus` and more. For example:
+
+```jsx
+import { cn } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <div
+      className={cn({
+        bg: 'primary.base',
+        color: 'primary.contrast',
+        padding: 1,
+        size: 64,
+        transition: 'snap',
+
+        ':hover': {
+          transform: 'scale(1.2)',
+        },
+      })}
+    >
+      Scales on :hover
+    </div>
+  )
+}
+```
+
+## Pseudo-elements
+
+You can use all [CSS Pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) such as `:before` and `:after`. For example:
+
+```jsx
+import { cn } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <div
+      className={cn({
+        boxSizing: 'border-box',
+        position: 'relative',
+        display: 'block',
+        transform: 'scale(1)',
+        width: '22px',
+        height: '22px',
+        ':before,:after': {
+          content: '""',
+          display: 'block',
+          boxSizing: 'border-box',
+          position: 'absolute',
+          left: '3px',
+        },
+        ':after': {
+          width: '8px',
+          height: '8px',
+          borderBottom: '2px solid',
+          borderLeft: '2px solid',
+          transform: 'rotate(45deg)',
+          bottom: '7px',
+        },
+        ':before': {
+          width: '16px',
+          height: '2px',
+          bottom: '10px',
+          background: 'currentColor',
+        },
+      })}
+    />
+  )
+}
+```
+
+## Responsive values
+
+Responsive values accept an array of values. The current value will be the one that matches the breakpoint:
+
+```static
+[mobile, tablet, desktop, widescreen]
+```
+
+This is useful when you want to change a single property across multiple breakpoints without needing to write verbose media query syntax.
+
+In the example below, the `<div>` has full width while on `mobile`, and half on `desktop` and above.
+
+```jsx static
+<div
+  className={cn({
+    width: ['full', 'full', '1/2'],
+  })}
+/>
+```
+
+### Skipping breakpoints
+
+If you want to skip a breakpoint, you can use the value `null`. This is useful if you want to set a value for only the largest breakpoint, for example.
+
+```jsx static
+<div
+  className={cn({
+    width: [null, null, '25%'],
+  })}
+/>
+```
+
+### Media queries
+
+If you prefer standard CSS media query syntax, you can use nested objects for responsive styles as well.
+
+```jsx static
+<div
+  className={cn({
+    width: 'full',
+    '@media screen and (min-width: 40em)': {
+      width: '1/2',
+    },
+  })}
+/>
+```
+
+## Functional style
+
+For shorthand CSS properties or ones that are not automatically mapped to values in the theme, use an inline function to reference values from the theme object.
+
+```jsx
+import { cn } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <div
+      className={cn({
+        boxShadow: (theme) => `0 0 .5em ${theme.colors.danger.washed[0]}`,
+      })}
+    >
+      Red glow box shadow
+    </div>
+  )
+}
+```
+
+## Theme aware properties
+
+The following CSS properties will use values defined in the theme, when available.
+
+<themeawareprops>
+</themeawareprops>

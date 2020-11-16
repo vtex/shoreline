@@ -1,5 +1,5 @@
 ---
-path: /docs/documentation-template/
+path: /documentation-template/
 ---
 
 # Components

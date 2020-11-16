@@ -1,5 +1,5 @@
 ---
-path: /docs/collapsible/
+path: /collapsible/
 ---
 
 # Collapsible
@@ -44,6 +44,7 @@ import { Collapsible, useCollapsible } from '@vtex/admin-ui'
 ```
 
 ## Variation
+
 ### With Buttons
 
 ```jsx

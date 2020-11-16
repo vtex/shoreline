@@ -1,5 +1,5 @@
 ---
-path: /docs/theming/patterns/
+path: /theming/patterns/
 ---
 
 # Patterns

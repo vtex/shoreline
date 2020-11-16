@@ -1,12 +1,12 @@
 ---
-path: /docs/theming/responsive-design/
+path: /theming/responsive-design/
 ---
 
 # Responsive Design
 
 ## Breakpoints
 
-`admin-ui` uses 5 mobile-first breakpoints, which are
+`admin-ui` uses 4 mobile-first breakpoints, which are
 
 | name       | min-width em | min-width px |
 | ---------- | ------------ | ------------ |

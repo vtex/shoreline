@@ -1,10 +1,10 @@
 ---
-path: /docs/form/label/
+path: /form/label/
 ---
 
 # Label
 
-Form label component
+The `<Label>` component renders a `<label>` by default with basic reset styling.
 
 ## Behavior
 
@@ -34,29 +34,9 @@ yarn add @vtex/admin-ui
 import { Label } from '@vtex/admin-ui'
 ```
 
-## Variation
-
-### Using `htmlFor` prop
-
-```jsx
-import { Label, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Label htmlFor="my-input">Input Label!</Label>
-      <br />
-      <input id="my-input" value="input value" />
-    </ThemeProvider>
-  )
-}
-```
-
 ## Customization
 
-You can use all the theme tokens to make customizations, and you can also use the `sx` prop.
-
-> 💡 You can check the Theme Documentation for detailed info.
+You can use the `styleOverrides` property to handle different styles.
 
 ### Example
 
@@ -76,7 +56,5 @@ function Example() {
 ```
 
 ## Props
-
-It also receives all the props from `BoxProps` except the `el` prop.
 
 <proptypes heading="Label" component="Label">

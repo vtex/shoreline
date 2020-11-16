@@ -1,5 +1,5 @@
 ---
-path: /docs/visually-hidden/
+path: /visually-hidden/
 ---
 
 # VisuallyHidden

@@ -1,10 +1,10 @@
 import React from 'react'
-import { Global, css } from '@vtex/admin-ui-system'
+import { Global, css, get } from '@vtex/admin-ui-system'
 
 export function Preflight() {
   return (
     <Global
-      styles={css`
+      styles={(theme) => css`
         @import 'https://io.vtex.com.br/fonts/vtex-trust/style.css';
 
         code > * > *,
@@ -15,9 +15,13 @@ export function Preflight() {
             'Fira Code Retina', 'Fira Code', 'FiraCode-Retina', Consolas, Monaco,
             monospace !important;
         }
-        body: {
+
+        body {
           margin: 0;
+          background-color: ${get(theme, 'colors.background')};
+          color: ${get(theme, 'colors.text')};
         }
+
         html,
         body,
         * {
@@ -25,6 +29,7 @@ export function Preflight() {
             sans-serif !important;
           font-variation-settings: 'wght' 92;
         }
+
         *,
         ::before,
         ::after {
@@ -32,6 +37,7 @@ export function Preflight() {
           border-width: 0;
           border-style: solid;
         }
+
         html,
         body,
         div,
@@ -120,6 +126,7 @@ export function Preflight() {
           font: inherit;
           vertical-align: baseline;
         }
+
         /* HTML5 display-role reset for older browsers */
         article,
         aside,
@@ -134,13 +141,16 @@ export function Preflight() {
         section {
           display: block;
         }
+
         body {
           line-height: 1;
         }
+
         blockquote,
         q {
           quotes: none;
         }
+
         blockquote:before,
         blockquote:after,
         q:before,
@@ -148,6 +158,7 @@ export function Preflight() {
           content: '';
           content: none;
         }
+
         table {
           border-collapse: collapse;
           border-spacing: 0;

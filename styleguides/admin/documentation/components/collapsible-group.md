@@ -1,5 +1,5 @@
 ---
-path: /docs/collapsible-group/
+path: /collapsible-group/
 ---
 
 # CollapsibleGroup
@@ -69,7 +69,9 @@ yarn add @vtex/admin-ui
 ```jsx static
 import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
 ```
+
 ## Variation
+
 ### Basic
 
 ```jsx

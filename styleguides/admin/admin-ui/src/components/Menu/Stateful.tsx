@@ -1,12 +1,13 @@
 import React, { Fragment, FunctionComponentElement } from 'react'
 
+import { StatelessMenu, StatelessMenuProps } from './Stateless'
 import {
-  StatelessMenu,
-  StatelessMenuProps,
+  MenuItem,
   MenuState,
   useMenuState,
+  ReakitMenuSeparator,
   MenuDisclosure,
-} from './Stateless'
+} from './components'
 
 /**
  * Accessible menu component
@@ -20,14 +21,26 @@ import {
  * </Menu>
  * ```
  */
-function Menu(props: MenuProps) {
-  const { placement = 'bottom-start', disclosure, ...baseProps } = props
+export function Menu(props: MenuProps) {
+  const {
+    placement = 'bottom-start',
+    disclosure,
+    visible,
+    baseId,
+    ...baseProps
+  } = props
 
-  const state = useMenuState({ orientation: 'vertical', loop: true, placement })
+  const state = useMenuState({
+    orientation: 'vertical',
+    loop: true,
+    placement,
+    visible,
+    baseId,
+  })
 
   return (
     <Fragment>
-      <MenuDisclosure {...state}>{disclosure}</MenuDisclosure>
+      <MenuDisclosure state={state}>{disclosure}</MenuDisclosure>
       <StatelessMenu {...baseProps} state={state} />
     </Fragment>
   )
@@ -46,7 +59,7 @@ function Menu(props: MenuProps) {
  * </Menu>
  * ```
  */
-Menu.Item = StatelessMenu.Item
+Menu.Item = MenuItem
 
 /**
  * Accessible menu separator
@@ -63,7 +76,7 @@ Menu.Item = StatelessMenu.Item
  * </Menu>
  * ```
  */
-Menu.Separator = StatelessMenu.Separator
+Menu.Separator = ReakitMenuSeparator
 
 export interface MenuProps
   extends Omit<StatelessMenuProps, 'state'>,
@@ -72,6 +85,13 @@ export interface MenuProps
    * Menu visibility toggle
    */
   disclosure: FunctionComponentElement<unknown>
+  /**
+   * If is initiallty visible
+   * @default false
+   */
+  visible?: boolean
+  /**
+   * reakit baseId
+   */
+  baseId?: string
 }
-
-export { Menu }

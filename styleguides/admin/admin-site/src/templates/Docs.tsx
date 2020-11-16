@@ -51,7 +51,24 @@ const { Compiler: renderAst } = new RehypeReact({
     },
     themeawareprops: ThemeAwareProps,
     p: function Render(props) {
-      return <Paragraph styles={{ fontSize: 2, marginY: 4 }} {...props} />
+      return (
+        <Paragraph
+          text="body"
+          styleOverrides={{
+            color: 'text',
+            fontSize: 2,
+            marginY: 4,
+            textAlign: 'justify',
+            code: {
+              fontFamily:
+                'VTEXTrustVF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif !important',
+              bg: 'muted.4',
+              color: 'text',
+            },
+          }}
+          {...props}
+        />
+      )
     },
     ul: List,
     ol: function Render(props) {
@@ -63,19 +80,19 @@ const { Compiler: renderAst } = new RehypeReact({
     propdetails: PropDetails,
     h1: Heading,
     h2: function Render(props) {
-      return <Heading as="h2" {...props} />
+      return <Heading element="h2" {...props} />
     },
     h3: function Render(props) {
-      return <Heading as="h3" {...props} />
+      return <Heading element="h3" {...props} />
     },
     h4: function Render(props) {
-      return <Heading as="h4" {...props} />
+      return <Heading element="h4" {...props} />
     },
     h5: function Render(props) {
-      return <Heading as="h5" {...props} />
+      return <Heading element="h5" {...props} />
     },
     h6: function Render(props) {
-      return <Heading as="h6" {...props} />
+      return <Heading element="h6" {...props} />
     },
     span: function Render({
       title,

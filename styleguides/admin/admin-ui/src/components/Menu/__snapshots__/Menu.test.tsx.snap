@@ -1,0 +1,461 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu tests should match snapshot hidden 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="id"
+    aria-expanded="false"
+    aria-haspopup="menu"
+    type="button"
+  >
+    Open
+  </button>
+  .emotion-9 {
+  border: 0;
+  padding: 0rem;
+  outline: none;
+  z-index: 999;
+}
+
+.emotion-1 {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: #2953B2;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  height: 32px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-1:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-1:hover {
+  color: #1E4397;
+  background-color: #E8F1FF;
+}
+
+.emotion-1:active {
+  color: #3F6FDB;
+  background-color: #DBE9FF;
+}
+
+.emotion-1:disabled {
+  color: #898F9E;
+}
+
+.emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+  min-width: 18px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C4C5CA;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-8 hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #C4C5CA;
+  width: calc(100% -0.75rem);
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  outline: none;
+}
+
+.emotion-8 > button {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  color: #323845;
+  font-size: 0.875rem;
+  border: none;
+  text-transform: initial;
+  width: 100%;
+}
+
+.emotion-8 > button:focus {
+  background-color: #DAE3F5;
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-8 > button:hover {
+  color: #323845;
+}
+
+.emotion-8 > button div {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.emotion-8 > button svg {
+  margin-left: 0rem;
+  margin-right: 0.5rem;
+}
+
+<div
+    aria-label="menu label"
+    aria-orientation="vertical"
+    class="emotion-9"
+    data-dialog="true"
+    data-testid="menu"
+    hidden=""
+    id="id"
+    role="menu"
+    style="display: none;"
+    tabindex="-1"
+  >
+    <div
+      class="emotion-8"
+      data-testid="menubox"
+    >
+      <button
+        class="emotion-1"
+        id="id-1"
+        role="menuitem"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="emotion-0"
+        >
+          Download
+        </div>
+      </button>
+      <button
+        class="emotion-1"
+        id="id-2"
+        role="menuitem"
+        tabindex="-1"
+        type="button"
+      >
+        <div
+          class="emotion-0"
+        >
+          Link to
+        </div>
+      </button>
+      <button
+        class="emotion-1"
+        id="id-3"
+        role="menuitem"
+        tabindex="-1"
+        type="button"
+      >
+        <div
+          class="emotion-0"
+        >
+          Favorite
+        </div>
+      </button>
+      <hr
+        aria-orientation="horizontal"
+        id="id-4"
+        role="menuitem"
+        tabindex="-1"
+      />
+      <button
+        class="emotion-1"
+        id="id-5"
+        role="menuitem"
+        tabindex="-1"
+        type="button"
+      >
+        <div
+          class="emotion-0"
+        >
+          Delete
+        </div>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Menu tests should match snapshot visible 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="id"
+    aria-expanded="true"
+    aria-haspopup="menu"
+    type="button"
+  >
+    Open
+  </button>
+  .emotion-9 {
+  border: 0;
+  padding: 0rem;
+  outline: none;
+  z-index: 999;
+}
+
+.emotion-1 {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: #2953B2;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  height: 32px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-1:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-1:hover {
+  color: #1E4397;
+  background-color: #E8F1FF;
+}
+
+.emotion-1:active {
+  color: #3F6FDB;
+  background-color: #DBE9FF;
+}
+
+.emotion-1:disabled {
+  color: #898F9E;
+}
+
+.emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+  min-width: 18px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C4C5CA;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-8 hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #C4C5CA;
+  width: calc(100% -0.75rem);
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  outline: none;
+}
+
+.emotion-8 > button {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  color: #323845;
+  font-size: 0.875rem;
+  border: none;
+  text-transform: initial;
+  width: 100%;
+}
+
+.emotion-8 > button:focus {
+  background-color: #DAE3F5;
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-8 > button:hover {
+  color: #323845;
+}
+
+.emotion-8 > button div {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.emotion-8 > button svg {
+  margin-left: 0rem;
+  margin-right: 0.5rem;
+}
+
+<div
+    aria-label="menu label"
+    aria-orientation="vertical"
+    class="emotion-9"
+    data-dialog="true"
+    data-testid="menu"
+    id="id"
+    role="menu"
+    tabindex="-1"
+  >
+    <div
+      class="emotion-8"
+      data-testid="menubox"
+    >
+      <button
+        class="emotion-1"
+        id="id-1"
+        role="menuitem"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="emotion-0"
+        >
+          Download
+        </div>
+      </button>
+      <button
+        class="emotion-1"
+        id="id-2"
+        role="menuitem"
+        tabindex="-1"
+        type="button"
+      >
+        <div
+          class="emotion-0"
+        >
+          Link to
+        </div>
+      </button>
+      <button
+        class="emotion-1"
+        id="id-3"
+        role="menuitem"
+        tabindex="-1"
+        type="button"
+      >
+        <div
+          class="emotion-0"
+        >
+          Favorite
+        </div>
+      </button>
+      <hr
+        aria-orientation="horizontal"
+        id="id-4"
+        role="menuitem"
+        tabindex="-1"
+      />
+      <button
+        class="emotion-1"
+        id="id-5"
+        role="menuitem"
+        tabindex="-1"
+        type="button"
+      >
+        <div
+          class="emotion-0"
+        >
+          Delete
+        </div>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

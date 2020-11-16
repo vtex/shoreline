@@ -3,8 +3,12 @@ import { Box, ThemeProvider } from '@vtex/admin-ui'
 
 import DocsNavigation from './DocsNavigation'
 import DocsInnerNavigation from './DocsInnerNavigation'
-import Footer from './Footer'
 import Header from './Header'
+import {
+  ScrollSpyProvider,
+  CollectionProvider,
+  ScrollHandler,
+} from './ScrollSpy'
 
 /**
  * Full site adaptable layout
@@ -12,99 +16,85 @@ import Header from './Header'
 export default function CoreLayout(props: Props) {
   const {
     data,
-    location,
     children,
     pageContext: { sourceUrl = '', readmeUrl = '', tableOfContentsAst = {} },
   } = props
 
   const title = data?.markdownRemark?.title
 
-  const isHome = location.pathname === '/'
-
-  const withTitleSx = title
-    ? {
-        marginTop: [120, 120, 100],
-        marginBottom: 72,
-        marginRight: [2, 2, 8, 256, 'auto'],
-        marginLeft: [2, 2, 256, 280, 'auto'],
-      }
-    : {}
-
-  const homeSx = isHome
-    ? {
-        minWidth: 'full',
-        maxWidth: 'full',
-        marginTop: 0,
-        marginBottom: 0,
-      }
-    : {}
-
   return (
     <ThemeProvider>
-      <Header isHome={isHome} />
+      <CollectionProvider>
+        <ScrollSpyProvider>
+          <Box
+            styles={{
+              display: 'grid',
+              height: '100vh',
+              width: '100vw',
+              gridTemplateColumns: '1fr 3fr 1fr',
+              gridTemplateRows: '80px 1fr',
+              gridTemplateAreas: '"header header header" "leftnav main toc"',
+              overflow: 'hidden',
+            }}
+          >
+            <Header />
+            <Box
+              styles={{
+                gridArea: 'leftnav',
+                bg: 'muted.4',
+                zIndex: 'plain',
+                overflowY: 'auto',
+                padding: 4,
+                display: ['none', 'none', 'initial'],
+              }}
+            >
+              <DocsNavigation />
+            </Box>
+            <ScrollHandler>
+              {({ handleScroll, ref }) => (
+                <Box
+                  ref={ref}
+                  onScroll={handleScroll}
+                  element="main"
+                  palette="base"
+                  styles={{
+                    gridArea: 'main',
+                    overflowY: 'auto',
+                    code: {
+                      borderRadius: 3,
+                      padding: '0.2em 0.4em',
+                    },
+                    padding: '64px',
+                  }}
+                >
+                  {children}
+                </Box>
+              )}
+            </ScrollHandler>
 
-      {title && (
-        <Box
-          styles={{
-            position: 'fixed',
-            bg: 'background',
-            width: 256,
-            zIndex: 'plain',
-            left: 0,
-            top: 60,
-            height: 'calc(100vh - 60px)',
-            paddingBottom: 100,
-            overflow: 'auto',
-            padding: 4,
-            display: ['none', 'none', 'initial'],
-          }}
-        >
-          <DocsNavigation />
-        </Box>
-      )}
-      <Box
-        element="main"
-        styles={{
-          code: {
-            borderRadius: 3,
-            padding: '0.2em 0.4em',
-          },
-          maxWidth: ['full', 756, 756, 960],
-          ...withTitleSx,
-          ...homeSx,
-        }}
-      >
-        {children}
-      </Box>
-      {title && props.pageContext.tableOfContentsAst && (
-        <Box
-          element="aside"
-          styles={{
-            position: 'fixed',
-            right: 0,
-            width: 210,
-            bg: 'background',
-            overflow: 'auto',
-            paddingX: 4,
-            top: 80,
-            paddingY: '72px',
-            height: 'calc(100vh - 60px)',
-            display: ['none', 'none', 'none', 'initial'],
-          }}
-        >
-          <DocsInnerNavigation
-            sourceUrl={sourceUrl}
-            readmeUrl={readmeUrl}
-            tableOfContentsAst={tableOfContentsAst}
-            title={title}
-          />
-        </Box>
-      )}
-      {!isHome && (
-        <Box styles={{ marginTop: 100 }}>
-          <Footer />
-        </Box>
-      )}
+            {title && props.pageContext.tableOfContentsAst && (
+              <Box
+                element="aside"
+                styles={{
+                  gridArea: 'toc',
+                  overflow: 'auto',
+                  paddingX: 4,
+                  paddingY: '72px',
+                  height: 'calc(100vh - 60px)',
+                  display: ['none', 'none', 'none', 'initial'],
+                }}
+              >
+                <DocsInnerNavigation
+                  sourceUrl={sourceUrl}
+                  readmeUrl={readmeUrl}
+                  tableOfContentsAst={tableOfContentsAst}
+                  title={title}
+                />
+              </Box>
+            )}
+          </Box>
+        </ScrollSpyProvider>
+      </CollectionProvider>
     </ThemeProvider>
   )
 }

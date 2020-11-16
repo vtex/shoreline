@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.56.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.3...@vtex/admin-ui@0.56.0) (2020-11-13)
+
+
+### Features
+
+* **menu:** graduate it to a beta component ([3146544](https://github.com/vtex/onda/commit/3146544456f23dd7314e7f0fa110772959402386))
+
+
+
+
+
+## [0.55.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.2...@vtex/admin-ui@0.55.3) (2020-11-12)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
+## [0.55.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.1...@vtex/admin-ui@0.55.2) (2020-11-12)
+
+
+### Bug Fixes
+
+* **tooltip:** popover not overriding another components ([19222fc](https://github.com/vtex/onda/commit/19222fc18b1b2bd109d82ae0eeabf4d2853ef2c8))
+
+
+
+
+
+## [0.55.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.0...@vtex/admin-ui@0.55.1) (2020-11-12)
+
+
+### Bug Fixes
+
+* **icons:** spread styleOverrides to IconsWithDirection ([28958cd](https://github.com/vtex/onda/commit/28958cd7f440ff982e931cf63c01b6c17d14b554))
+
+
+
+
+
 # [0.55.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.54.1...@vtex/admin-ui@0.55.0) (2020-11-10)
 
 

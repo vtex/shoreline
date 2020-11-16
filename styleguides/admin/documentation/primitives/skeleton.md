@@ -1,5 +1,5 @@
 ---
-path: /docs/skeleton/
+path: /primitives/skeleton/
 ---
 
 # Skeleton
@@ -13,15 +13,13 @@ Skeletons represent a UI that doesn’t contain actual content; instead, it show
 
 By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
 
-- **Fluid Example**
-
 ```jsx
 import { ThemeProvider, Skeleton, Box } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Box w="full" h={192}>
+      <Box width="full" height={192}>
         <Skeleton />
       </Box>
     </ThemeProvider>
@@ -31,7 +29,7 @@ function Example() {
 
 ## Installation
 
-```jsx static
+```sh static
 yarn add @vtex/admin-ui
 ```
 
@@ -41,7 +39,9 @@ import { Skeleton } from '@vtex/admin-ui'
 
 ## Variation
 
-- **Rect Example**
+### Rect
+
+By default Skeleton shape is rectangular. This means that the <highlight message="shape"></highlight> property has the `rect` value.
 
 ```jsx
 import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
@@ -49,13 +49,15 @@ import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Skeleton h={128} w={128} />
+      <Skeleton height={128} width={128} />
     </ThemeProvider>
   )
 }
 ```
 
-- **Circle Example**
+### Circle
+
+The shape can also be circular. To do this add the <highlight message="shape"></highlight> property with the `circle` value.
 
 ```jsx
 import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
@@ -63,7 +65,7 @@ import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Skeleton shape="circle" w={100} h={100} />
+      <Skeleton shape="circle" width={100} height={100} />
     </ThemeProvider>
   )
 }

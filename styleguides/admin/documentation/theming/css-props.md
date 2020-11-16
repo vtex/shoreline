@@ -1,8 +1,8 @@
 ---
-path: /docs/theming/style-props/
+path: /theming/css-props/
 ---
 
-# Style Props
+# CSS Props
 
 Properties that you can use in specific components to add `space` or `size` styles.
 

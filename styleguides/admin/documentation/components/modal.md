@@ -1,5 +1,5 @@
 ---
-path: /docs/modal/
+path: /modal/
 ---
 
 # Modal

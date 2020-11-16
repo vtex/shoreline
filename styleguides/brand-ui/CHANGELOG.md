@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.23.0...@vtex/brand-ui@0.24.0) (2020-11-12)
+
+
+### Features
+
+* **event:** brand-ui calendar event component ([3e49601](https://github.com/vtex/onda/commit/3e49601b6e270550941a837b41d85e94f8326d77))
+* add brand carousel ([2d34bf5](https://github.com/vtex/onda/commit/2d34bf5e889c3082eaffe1d5e75519467e725e58))
+* add brand-ui calendar ([4cefcb9](https://github.com/vtex/onda/commit/4cefcb9237db6d74674bc1d91d03b83071f63d27))
+
+
+
+
+
 # [0.23.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.22.2...@vtex/brand-ui@0.23.0) (2020-11-06)
 
 

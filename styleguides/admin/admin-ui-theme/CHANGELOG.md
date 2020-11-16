@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.1.1...@vtex/admin-ui-theme@0.1.2) (2020-11-12)
+
+
+### Bug Fixes
+
+* **admin-ui-theme:** body scroll blocked ([7df2860](https://github.com/vtex/onda/commit/7df2860fb4c0593485dd12d81a6a1cc53b8d6d86))
+
+
+
+
+
+## [0.1.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.1.0...@vtex/admin-ui-theme@0.1.1) (2020-11-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-theme
+
+
+
+
+
 # 0.1.0 (2020-11-10)
 
 

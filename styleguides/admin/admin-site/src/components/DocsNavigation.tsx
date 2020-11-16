@@ -37,7 +37,7 @@ const linkStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   width: 'full',
-  borderRadius: 3,
+  borderRadius: 'flat',
   alignItems: 'center',
   // padding: '0.5em 1em 0.5em 2em',
   paddingY: 2,
@@ -47,19 +47,16 @@ const linkStyles = {
   cursor: 'pointer',
   marginY: '2px',
   ':hover:not(:focus)': {
-    bg: 'primary.washed.0',
-    color: 'text',
+    color: 'emphasis',
   },
   '&[aria-current="page"]': {
-    bg: 'primary.washed.2',
-    borderLeftColor: 'primary.base',
+    borderLeftWidth: 2,
+    borderLeftColor: 'emphasis',
     borderLeftStyle: 'solid',
-    borderLeftWidth: 4,
-    color: 'text',
+    color: 'emphasis',
   },
   ':focus': {
-    bg: 'primary.washed.2',
-    color: 'text',
+    color: 'emphasis',
     outline: 'none',
   },
   svg: {
@@ -122,7 +119,6 @@ export default function DocsNavigation() {
 
   return (
     <Box
-      palette="base"
       styles={{
         'nav:first-of-type': {
           margin: 0,

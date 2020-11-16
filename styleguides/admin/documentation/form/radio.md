@@ -1,10 +1,10 @@
 ---
-path: /docs/form/radio/
+path: /form/radio/
 ---
 
 # Radio
 
-An accessible Radio input component.
+In multiple-choice forms, use `Radio` for a single option to be selected. This component is always used in a `RadioGroup` context.
 
 ## Behavior
 
@@ -12,54 +12,19 @@ An accessible Radio input component.
 import { Radio, useRadioState, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useRadioState({})
+  const state = useRadioState()
 
   return (
     <ThemeProvider>
-      <Radio state={state} value="playground" aria-label="playground" />
+      <Radio state={state} value="Radio" aria-label="radio button" />
     </ThemeProvider>
   )
 }
 ```
 
-**value prop**
-
-The `Radio` is used mostly in a `RadioGroup` context, so every Radio should have a value set.
-
-**aria-label prop**
-
-`aria-label` is an optional prop, but, as a `form` component, the Radio should have a label specified to be accessible, so we grant this using this property.
-
-### State
-
-#### `useRadio` hook
-
-The `Radio` component is always used in a `RadioGroup` context, so we provide this hook that already handles the state and accessible navigation logic for both `Radio` and `RadioGroup` components.
-
-#### Hook return
-
-```jsx static
-interface RadioStateReturn {
-  baseId: string
-  state: string | number | undefined
-  setState: React.Dispatch<React.SetStateAction<string | number | undefined>>
-  rtl: boolean
-  orientation?: 'horizontal' | 'vertical' | undefined
-  items: Item[]
-  groups: Group[]
-  currentId?: string | null | undefined
-  loop: boolean | Orientation
-  wrap: boolean | Orientation
-  unstable_virtual: boolean
-  unstable_moves: number
-  unstable_angular: boolean
-  unstable_hasActiveWidget: boolean
-}
-```
-
 ## Installation
 
-```jsx static
+```static
 yarn add @vtex/admin-ui
 ```
 
@@ -67,43 +32,117 @@ yarn add @vtex/admin-ui
 import { Radio } from '@vtex/admin-ui'
 ```
 
+## State
+
+The `Radio` component is always used in a `RadioGroup` context, so handling the states of each one of them and maintain accessibility can be tricky.
+
+### useRadioState hook
+
+For convenience, we provide this hook that already handles the state logic and accessible navigation for both `Radio` and `RadioGroup` components. You should pass the hook return to the `state` property and define a `value` to the `Radio`.
+
+### Example
+
 ## Variation
+
+### Standalone
+
+When using a standalone `Radio` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
+
+```jsx
+import { Radio, useRadioState, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  const radio = useRadioState()
+
+  return (
+    <ThemeProvider>
+      <Radio aria-label="label" value="Radio" state={radio} />
+    </ThemeProvider>
+  )
+}
+```
+
+### Checked States
+
+There are two checked states: `not checked`, and `checked`.
+
+```jsx
+import { Radio, Set, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Set>
+        <Radio aria-label="label-1" />
+        <Radio aria-label="label-disabled-1" disabled />
+      </Set>
+      <br />
+      <Set>
+        <Radio aria-label="label-2" checked />
+        <Radio aria-label="label-disabled-2" checked disabled />
+      </Set>
+    </ThemeProvider>
+  )
+}
+```
+
+### Size
+
+There are two size variants: `small`, `regular`. By default, it will render `regular`.
+
+```jsx
+import { Radio, Set, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Set>
+        <Radio aria-label="label-small-1" size="small" />
+        <Radio aria-label="label-1" />
+      </Set>
+      <br />
+      <Set>
+        <Radio aria-label="label-small-2" checked size="small" />
+        <Radio aria-label="label-2" checked />
+      </Set>
+    </ThemeProvider>
+  )
+}
+```
+
+### Multiple Radios
+
+As we always use `Radio` in multiple-choice forms, we also always need to render multiple Radios and store the current checked state. It can be easily done using our `useRadioState` hook, you just need to pass the hook return object to the radios `state` property and define a `value` for each `Radio`.
 
 ```jsx
 import {
   Radio,
-  useRadioState,
-  ThemeProvider,
-  Text,
   RadioGroup,
+  useRadioState,
+  Heading,
   Label,
+  ThemeProvider,
 } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useRadioState({ state: 'oms' })
-  const values = [
-    'Marketplace Ecommerce',
-    'B2C Commerce',
-    'B2B Commerce',
-    'Order Management System',
-    'Disabled',
-  ]
+  const radio = useRadioState()
+
   return (
     <ThemeProvider>
-      <Text variant="subtitle">Selected solution: {state.state}</Text>
-      <RadioGroup state={state} orientation="vertical" aria-label="Solutions">
-        {values.map((value, key) => {
-          return (
-            <Label key={key}>
-              <Radio
-                value={value}
-                state={state}
-                disabled={value === 'Disabled'}
-              />
-              {value}
-            </Label>
-          )
-        })}
+      <Heading>Selected Radio: {radio.state}</Heading>
+      <RadioGroup state={radio}>
+        <Label>
+          <Radio state={radio} value="First Radio" />
+          First Radio
+        </Label>
+        <Label>
+          <Radio state={radio} value="Second Radio" />
+          Second Radio
+        </Label>
+        <Label>
+          <Radio state={radio} value="Third Radio" />
+          Third Radio
+        </Label>
       </RadioGroup>
     </ThemeProvider>
   )
@@ -111,7 +150,5 @@ function Example() {
 ```
 
 ## Props
-
-### WIP
 
 <proptypes heading="Radio" component="Radio" />
