@@ -15,7 +15,7 @@ import { Box } from '../Box'
  * ```jsx
  * import { Tooltip, Button, IconClose } from `@vtex/admin-ui`
  * <Tooltip label="Close something">
- *   <Button icon={<IconClose />} variant="text" />
+ *   <Button icon={<IconClose />} variant="tertiary" />
  * </Tooltip>
  * ```
  */
