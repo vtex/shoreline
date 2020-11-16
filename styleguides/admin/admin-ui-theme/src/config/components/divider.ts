@@ -1,7 +1,7 @@
 const styles = {
   border: 'solid',
   borderWidth: 1,
-  borderColor: 'muted.3',
+  borderColor: 'muted.2',
 }
 
 export default {
