@@ -9,7 +9,8 @@ Our design system comes with a set of primitive components that represent our mo
 - `Box:` versatile primitive component, with no defined style, that can be used to leverage other elementary components. The majority of our components are built on top of the `<Box>`. By default it renders a `<div>` element.  
 Find out more about `Box` [here](/primitives/box) 
 - `Skeleton:` versatile primitive component, with no defined style, that can be used to leverage UIs that don't contain actual content yet. Instead, it shows the loading elements of a page in a shape similar to the actual content.
-Find out more about `Skeleton` [here](/primitives/skeleton) 
+Find out more about `Skeleton` [here](/primitives/skeleton).
+If you want to know more about how to style a primitive component, check out our [Inline Styles](/theming/inline-styles/) page. 
 
 If you find a primitive component not implemented yet and you think that could be useful to have it in our design system, feel free to create an [issue in our repository](https://github.com/vtex/onda/issues/new/choose). Suggestions are welcome!
 
