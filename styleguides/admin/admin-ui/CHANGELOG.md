@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.58.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.57.0...@vtex/admin-ui@0.58.0) (2020-11-16)
+
+
+### Bug Fixes
+
+* **collapsible-tree:** change from CollapsibleGroup to CollapsibleTree ([16cd720](https://github.com/vtex/onda/commit/16cd7203e129a8db4740adf6ed7aae4650ace007))
+
+
+### Features
+
+* **collapsible:** adjust collapsible's paddings when it's a nested one ([393dccd](https://github.com/vtex/onda/commit/393dccdc90e31382f83a4aee55d780d59ec9a055))
+* **icons:** add check & edit icons to admin-ui ([2ccc2af](https://github.com/vtex/onda/commit/2ccc2affff22b96c90f6a4588c2043307e179f49))
+
+
+
+
+
+# [0.57.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.56.0...@vtex/admin-ui@0.57.0) (2020-11-16)
+
+
+### Features
+
+* **admin-colors:** generate admin colors using polished ([63cb978](https://github.com/vtex/onda/commit/63cb978051c86f6da32ecd0ff6e9c6395ee99e40))
+* **button:** add new adaptative variants ([93eb56a](https://github.com/vtex/onda/commit/93eb56aded60f54e37db21b19ee1332d4f1a6309))
+
+
+
+
+
 # [0.56.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.55.3...@vtex/admin-ui@0.56.0) (2020-11-13)
 
 
