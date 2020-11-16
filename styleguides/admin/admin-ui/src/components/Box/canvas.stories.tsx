@@ -29,7 +29,7 @@ export const ConsumeTheme: Story = () => {
       styles={{
         fontSize: 64,
         bg: 'primary.base',
-        color: 'primary.contrast',
+        color: 'primary.accent',
         borderRadius: 4,
       }}
     >
@@ -77,93 +77,3 @@ export const Divider: Story = () => {
     </>
   )
 }
-
-// export const CustomTheme: Story = () => {
-//   return (
-//     <ThemeProvider
-//       theme={{
-//         ...unstableTheme,
-//         box: {
-//           default: {
-//             bg: 'background',
-//             color: 'text',
-//             padding: 4,
-//             margin: 2,
-//           },
-//           inverted: {
-//             bg: 'text',
-//             color: 'background',
-//             padding: 4,
-//             margin: 2,
-//           },
-//         },
-//       }}
-//     >
-//       <Box
-//         styles={{
-//           variant: 'box.default',
-//         }}
-//       >
-//         Default Box
-//       </Box>
-//       <Box
-//         styles={{
-//           variant: 'box.inverted',
-//         }}
-//       >
-//         Inverted Box
-//       </Box>
-//     </ThemeProvider>
-//   )
-// }
-
-// export const StyleProps: Story = () => {
-//   return (
-//     <ThemeProviderNext >
-//       <Box
-//         bg="primary.base"
-//         color="primary.contrast"
-//         borderRadius="3"
-//         styles={{
-//           variant: 'text.headline',
-//         }}
-//       >
-//         Primary Box
-//       </Box>
-//     </ThemeProviderNext>
-//   )
-// }
-
-// export const FullUse: Story = () => {
-//   const ref = useRef<HTMLInputElement>(null)
-//   const handleFocus = () => {
-//     if (ref.current) {
-//       ref.current.focus()
-//     }
-//   }
-
-//   return (
-//     <ThemeProviderNext theme={theme}>
-//       <Box
-//         ref={ref}
-//         borderRadius={4}
-//         borderStyle="solid"
-//         fontSize={18}
-//         use={Input}
-//         type="text"
-//       />
-//       <button onClick={handleFocus}>Focus</button>
-//     </ThemeProviderNext>
-//   )
-// }
-
-// export const Flexbox: Story = () => {
-//   return (
-//     <ThemeProviderNext theme={theme}>
-//       <Box display="flex" width="100%" direction="column">
-//         <Box width="20%" height={120} bg="primary" />
-//         <Box width="20%" height={120} bg="secondary" />
-//       </Box>
-//     </ThemeProviderNext>
-//   )
-// }

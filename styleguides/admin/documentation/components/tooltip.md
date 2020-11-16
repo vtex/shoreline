@@ -17,7 +17,7 @@ function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconAddChannel />} variant="tertiary" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -45,7 +45,7 @@ function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconAddChannel />} variant="tertiary" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -72,8 +72,8 @@ function Example() {
           variant="small"
           sx={{ borderRadius: '16px' }}
           p="1"
-          c="success.active"
-          bg="success.washed.0"
+          c="success.pressed"
+          bg="success.washed.base"
         >
           Ready for Handling
         </Text>
@@ -101,7 +101,7 @@ function Example() {
             </Box>
           }
         >
-          <Button icon={<IconCaret direction="left" />} variant="text" />
+          <Button icon={<IconCaret direction="left" />} variant="tertiary" />
         </Tooltip>
       </Box>
     </ThemeProvider>

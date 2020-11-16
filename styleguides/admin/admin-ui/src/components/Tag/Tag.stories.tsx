@@ -71,6 +71,7 @@ export const Variants = () => {
           size="small"
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
+          palette="black"
           icon={<IconFavorite />}
         />
       </Set>

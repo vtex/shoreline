@@ -41,23 +41,23 @@ const { Compiler: renderAst } = new RehypeReact({
             href={href}
             aria-current={currentId === id ? 'page' : undefined}
             className={cn({
-              color: 'text',
+              color: 'text.primary',
               fontSize: 2,
               textDecoration: 'none',
               transition: 'all 150ms ease',
               position: 'relative',
               paddingY: 2,
               ':hover': {
-                color: 'emphasis',
+                color: 'brand',
               },
               "&[aria-current='page']": {
-                color: 'emphasis',
+                color: 'brand',
                 '::before': {
                   content: "' '",
                   height: '80%',
                   width: 2,
                   position: 'absolute',
-                  bg: 'emphasis',
+                  bg: 'brand',
                   left: -4,
                 },
               },
@@ -84,7 +84,7 @@ export default function DocsInnerNavigation(props: Props) {
         fontSize: '0.875em',
         bg: 'background',
         color: 'primary.base',
-        borderColor: 'muted.3',
+        borderColor: 'muted.2',
         nav: {
           listStyle: 'none',
           margin: 0,
@@ -96,7 +96,7 @@ export default function DocsInnerNavigation(props: Props) {
           ul: {
             listStyle: 'none',
             paddingLeft: 4,
-            borderLeftColor: 'muted.3',
+            borderLeftColor: 'muted.2',
             borderLeftStyle: 'solid',
             borderLeftWidth: 1,
           },

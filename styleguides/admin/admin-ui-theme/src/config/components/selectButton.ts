@@ -5,7 +5,7 @@ const menu = {
   borderRadius: 'default',
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: 'muted.2',
+  borderColor: 'muted.1',
   boxShadow: 'menu',
   outline: 'none',
   marginTop: 1,
@@ -33,6 +33,6 @@ export default {
   item,
   'item-active': {
     ...item,
-    bg: 'primary.washed.0',
+    bg: 'secondary.base',
   },
 }

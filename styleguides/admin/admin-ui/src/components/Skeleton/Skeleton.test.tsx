@@ -9,11 +9,11 @@ describe('Skeleton tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Skeleton data-testid="skeleton" styles={{ bg: 'blue' }} />
+        <Skeleton data-testid="skeleton" styles={{ bg: 'coral' }} />
       </ThemeProvider>
     )
 
-    expect(getByTestId('skeleton')).toHaveStyleRule('background-color', 'blue')
+    expect(getByTestId('skeleton')).toHaveStyleRule('background-color', 'coral')
   })
 
   it('should match snapshot', () => {

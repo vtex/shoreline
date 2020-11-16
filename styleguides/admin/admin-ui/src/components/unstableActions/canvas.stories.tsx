@@ -41,7 +41,6 @@ export const VertialFluid = () => {
 export const Responsive = () => {
   return (
     <Actions
-      palette="danger"
       size="small"
       orientation={['vertical', 'vertical', 'horizontal']}
       fluid

@@ -62,11 +62,8 @@ export const ModalHeader = forwardRef(function ModalHeader(
         {!omitCloseButton && (
           <ModalButton
             closeModalOnClick
-            variant="text"
+            variant="adaptative-dark"
             icon={<IconClose />}
-            sx={{
-              color: 'text',
-            }}
           />
         )}
       </div>

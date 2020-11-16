@@ -35,12 +35,12 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
         <CollapsibleGroup.Item.Header label="Marketing" />
         <CollapsibleGroup.Item.Content>
           <Set orientation="vertical">
-            <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+            <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
               Partner
             </Text>
             <Text variant="small">app_ios</Text>
             <br />
-            <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+            <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
               Campaign
             </Text>
             <Text variant="small">Campaign name</Text>
@@ -78,12 +78,12 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
   function PartnershipsContent() {
     return (
       <>
-        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
           Partner
         </Text>
         <Text variant="small">app_ios</Text>
         <br />
-        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
           Campaign
         </Text>
         <Text variant="small">Campaign name</Text>
@@ -94,27 +94,27 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
   function PackagesContent() {
     return (
       <>
-        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
           Bill
         </Text>
         <Text variant="small" styleOverrides={{ color: 'primary.base' }}>
           N 00025755809
         </Text>
         <br />
-        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
           Total cost of items
         </Text>
-        <Text styleOverrides={{ color: 'muted.2' }}>39,00 BRL</Text>
+        <Text styleOverrides={{ color: 'muted.1' }}>39,00 BRL</Text>
         <br />
-        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
           Type
         </Text>
         <Text>Total Express</Text>
         <br />
-        <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
           Tracking
         </Text>
-        <Text styleOverrides={{ color: 'muted.2' }}>XSDFE231675</Text>{' '}
+        <Text styleOverrides={{ color: 'muted.1' }}>XSDFE231675</Text>{' '}
       </>
     )
   }

@@ -77,27 +77,27 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-6 input {
-  border-color: #CE454F;
+  border-color: #CB4242;
 }
 
 .emotion-6 input:focus {
-  border-color: #CE454F;
-  box-shadow: 0 0 0 1px #CE454F;
+  border-color: #CB4242;
+  box-shadow: 0 0 0 1px #CB4242;
 }
 
 .emotion-6 input:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #CE454F;
+  color: #CB4242;
 }
 
 .emotion-6 input:hover {
-  border-color: #A70C0C;
+  border-color: #b33131;
 }
 
 .emotion-6 label {
-  color: #CE454F;
+  color: #CB4242;
 }
 
 .emotion-0 {
@@ -163,7 +163,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'wght' 92;
   font-size: 0.75rem;
-  color: #CE454F;
+  color: #CB4242;
 }
 
 <div
@@ -849,27 +849,27 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-8 input {
-  border-color: #CE454F;
+  border-color: #CB4242;
 }
 
 .emotion-8 input:focus {
-  border-color: #CE454F;
-  box-shadow: 0 0 0 1px #CE454F;
+  border-color: #CB4242;
+  box-shadow: 0 0 0 1px #CB4242;
 }
 
 .emotion-8 input:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #CE454F;
+  color: #CB4242;
 }
 
 .emotion-8 input:hover {
-  border-color: #A70C0C;
+  border-color: #b33131;
 }
 
 .emotion-8 label {
-  color: #CE454F;
+  color: #CB4242;
 }
 
 .emotion-0 {
@@ -935,7 +935,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'wght' 92;
   font-size: 0.75rem;
-  color: #CE454F;
+  color: #CB4242;
 }
 
 <div
@@ -1402,34 +1402,34 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-12 input {
-  border-color: #CE454F;
+  border-color: #CB4242;
 }
 
 .emotion-12 input:focus {
-  border-color: #CE454F;
-  box-shadow: 0 0 0 1px #CE454F;
+  border-color: #CB4242;
+  box-shadow: 0 0 0 1px #CB4242;
 }
 
 .emotion-12 input:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #CE454F;
+  color: #CB4242;
 }
 
 .emotion-12 input:hover {
-  border-color: #A70C0C;
+  border-color: #b33131;
 }
 
 .emotion-12 label {
-  color: #CE454F;
+  color: #CB4242;
 }
 
 .emotion-7 {
   line-height: 1.125;
   font-variation-settings: 'wght' 92;
   font-size: 0.75rem;
-  color: #CE454F;
+  color: #CB4242;
 }
 
 .emotion-2 {

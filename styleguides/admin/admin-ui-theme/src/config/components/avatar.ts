@@ -12,17 +12,17 @@ const styles = {
 export default {
   base: {
     ...styles,
-    bg: 'text',
+    bg: 'text.primary',
     color: 'background',
   },
   primary: {
     ...styles,
     bg: 'primary.base',
-    color: 'primary.contrast',
+    color: 'primary.accent',
   },
   danger: {
     ...styles,
     bg: 'danger.base',
-    color: 'danger.contrast',
+    color: 'danger.accent',
   },
 }

@@ -7,7 +7,7 @@ const style = {
   cursor: 'pointer',
   borderStyle: 'solid',
   borderWidth: '1px',
-  borderColor: 'muted.2',
+  borderColor: 'muted.1',
   backgroundColor: 'transparent',
   borderRadius: 'circle',
   ':after': {
@@ -28,24 +28,24 @@ const style = {
       borderColor: 'primary.hover',
     },
     ':active': {
-      borderColor: 'primary.active',
-      backgroundColor: 'primary.active',
+      borderColor: 'primary.pressed',
+      backgroundColor: 'primary.pressed',
     },
   },
   ':disabled': {
     cursor: 'not-allowed',
-    backgroundColor: 'muted.3',
-    borderColor: 'muted.1',
+    backgroundColor: 'muted.2',
+    borderColor: 'muted.0',
     ':after': {
-      backgroundColor: 'muted.1',
+      backgroundColor: 'muted.0',
     },
   },
   ':hover': {
-    borderColor: 'text',
+    borderColor: 'text.primary',
   },
   ':active': {
-    borderColor: 'muted.0',
-    backgroundColor: 'primary.washed.0',
+    borderColor: 'text.secondary',
+    backgroundColor: 'secondary.base',
   },
   ':focus:not([data-focus-visible-added])': {
     outline: 'none',

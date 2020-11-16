@@ -68,7 +68,7 @@ function Example() {
 ```jsx static
 <nav
   className={cn({
-    bg: 'muted.3',
+    bg: 'muted.2',
     'button + button': { marginLeft: 2 },
   })}
 />
@@ -80,9 +80,9 @@ function Example() {
 import { Input } from 'reakit/Input'
 ;<Input
   className={cn({
-    borderColor: 'muted.3',
+    borderColor: 'muted.2',
     ':hover': {
-      borderColor: 'text',
+      borderColor: 'text.primary',
     },
   })}
 />
@@ -96,7 +96,7 @@ import { Input } from 'reakit/Input'
 // 🚫 Wrong
 <Box
   styles={cn({
-    bg: 'muted.3',
+    bg: 'muted.2',
     'button + button': { marginLeft: 2 },
   })}
 />
@@ -104,7 +104,7 @@ import { Input } from 'reakit/Input'
 // ✅ Correct
 <Box
   styles={{
-    bg: 'muted.3',
+    bg: 'muted.2',
     'button + button': { marginLeft: 2 },
   }}
 />
@@ -116,7 +116,7 @@ import { Input } from 'reakit/Input'
 // 🚫 Wrong
 <Button
   styleOverrides={cn({
-    bg: 'muted.3',
+    bg: 'muted.2',
     'button + button': { marginLeft: 2 },
   })}
 />
@@ -124,7 +124,7 @@ import { Input } from 'reakit/Input'
 // ✅ Correct
 <Button
   styleOverrides={{
-    bg: 'muted.3',
+    bg: 'muted.2',
     'button + button': { marginLeft: 2 },
   }}
 />

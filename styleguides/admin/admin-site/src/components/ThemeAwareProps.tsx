@@ -11,11 +11,11 @@ function PropRow({ value, themeKey }: Props) {
     <Columns
       spacing={3}
       styleOverrides={{
-        color: 'text',
+        color: 'text.primary',
         paddingY: 2,
         borderBottomStyle: 'solid',
         borderBottomWidth: '1px',
-        borderBottomColor: 'muted.2',
+        borderBottomColor: 'muted.1',
       }}
     >
       <Columns.Item styleOverrides={{ paddingLeft: 6 }}>{value}</Columns.Item>
@@ -34,7 +34,7 @@ function TitleColumn() {
         paddingY: 4,
         borderBottomStyle: 'solid',
         borderBottomWidth: '1px',
-        borderBottomColor: 'muted.2',
+        borderBottomColor: 'muted.1',
       }}
     >
       <Columns.Item styleOverrides={{ paddingLeft: 6 }}>

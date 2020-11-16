@@ -2,7 +2,7 @@ const styles = {
   appearance: 'none',
   borderStyle: 'solid',
   borderWidth: 1,
-  borderColor: 'muted.1',
+  borderColor: 'muted.0',
   borderRadius: 3,
   cursor: 'pointer',
   display: 'flex',
@@ -22,12 +22,12 @@ const styles = {
       borderColor: 'primary.hover',
     },
     '&:active': {
-      backgroundColor: 'primary.active',
-      borderColor: 'primary.active',
+      backgroundColor: 'primary.pressed',
+      borderColor: 'primary.pressed',
     },
   },
   '&:indeterminate': {
-    backgroundColor: 'primary.washed.0',
+    backgroundColor: 'secondary.base',
     borderColor: 'primary.base',
     color: 'primary.base',
     '&:after': {
@@ -43,31 +43,31 @@ const styles = {
       borderColor: 'currentColor',
     },
     '&:disabled': {
-      backgroundColor: 'muted.2',
-      borderColor: 'muted.1',
-      color: 'muted.1',
+      backgroundColor: 'muted.1',
+      borderColor: 'muted.0',
+      color: 'muted.0',
     },
     '&:hover': {
       borderColor: 'primary.hover',
       color: 'primary.hover',
-      bg: 'primary.washed.1',
+      bg: 'secondary.hover',
     },
     '&:active': {
-      borderColor: 'primary.active',
-      color: 'primary.active',
+      borderColor: 'primary.pressed',
+      color: 'primary.pressed',
     },
   },
   '&:disabled': {
-    backgroundColor: 'muted.2',
-    borderColor: 'muted.1',
-    color: 'muted.1',
+    backgroundColor: 'muted.1',
+    borderColor: 'muted.0',
+    color: 'muted.0',
   },
   '&:hover': {
-    borderColor: 'text',
+    borderColor: 'text.primary',
   },
   '&:active': {
-    backgroundColor: 'primary.washed.0',
-    borderColor: 'muted.0',
+    backgroundColor: 'secondary.base',
+    borderColor: 'text.secondary',
   },
   ':focus:not([data-focus-visible-added])': {
     outline: 'none',

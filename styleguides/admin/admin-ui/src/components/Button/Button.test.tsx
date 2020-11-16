@@ -9,24 +9,24 @@ describe('Button tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Button data-testid="button" styleOverrides={{ bg: 'black' }}>
+        <Button data-testid="button" styleOverrides={{ bg: 'coral' }}>
           Black Button
         </Button>
       </ThemeProvider>
     )
 
-    expect(getByTestId('button')).toHaveStyleRule('background-color', 'black')
+    expect(getByTestId('button')).toHaveStyleRule('background-color', 'coral')
   })
 
   it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
         <Button>Button</Button>
-        <Button variant="filled">Button</Button>
-        <Button variant="subtle">Button</Button>
-        <Button variant="text">Button</Button>
+        <Button>Button</Button>
+        <Button variant="secondary">Button</Button>
+        <Button variant="tertiary">Button</Button>
         <Button size="small">Button</Button>
-        <Button palette="danger">Button</Button>
+        <Button variant="danger">Button</Button>
       </ThemeProvider>
     )
 
@@ -37,11 +37,11 @@ describe('Button tests', () => {
     const { container } = render(
       <ThemeProvider>
         <Button>Button</Button>
-        <Button variant="filled">Button</Button>
-        <Button variant="subtle">Button</Button>
-        <Button variant="text">Button</Button>
+        <Button>Button</Button>
+        <Button variant="secondary">Button</Button>
+        <Button variant="tertiary">Button</Button>
         <Button size="small">Button</Button>
-        <Button palette="danger">Button</Button>
+        <Button variant="danger">Button</Button>
       </ThemeProvider>
     )
 

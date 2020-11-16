@@ -54,7 +54,35 @@ function Example() {
 
 ## Patterns
 
-The Box accepts all the Patterns properties, you can use it to add admin's applications common customization. Check the [Patterns](/theming/patterns) section for detailed info.
+The Box accepts all the Patterns properties, you can use it to add admin's applications common customization.
+
+### text
+
+`small`, `body`, `highlight`, `action`, `subtitle`, `headline`.
+
+```jsx
+import { Box, Label, List, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box text="small">Small Text</Box>
+      <Label text="subtitle">Subtitle Text</Label>
+      <List>
+        <List.Item text="action">First</List.Item>
+        <List.Item text="action">Second</List.Item>
+        <List.Item text="action">Third</List.Item>
+      </List>
+    </ThemeProvider>
+  )
+}
+```
+
+### border
+
+You can use it in the `Box` component.
+
+`default`, `divider-bottom`, `divider-top`, `strong`, `disabled`, `primary`, `danger`.
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'
@@ -62,9 +90,47 @@ import { Box, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box text="headline" palette="primary">
-        This is also a Box, but styled with a pattern
+      <Box border="primary" paddingX={3}>
+        <Box border="divider-bottom" paddingY={4}>
+          First
+        </Box>
+        <Box border="divider-bottom" paddingY={4}>
+          Second
+        </Box>
+        <Box paddingY={4}>Third</Box>
       </Box>
+    </ThemeProvider>
+  )
+}
+```
+
+### Palette
+
+| value            | description |
+| ---------------- | ----------- |
+| `base`           | TODO        |
+| `inverted`       | TODO        |
+| `primary`        | TODO        |
+| `secondary`      | TODO        |
+| `danger`         | TODO        |
+| `danger-washed`  | TODO        |
+| `success`        | TODO        |
+| `success-washed` | TODO        |
+| `warning`        | TODO        |
+| `warning-washed` | TODO        |
+
+```jsx
+import { Box, Set, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Set orientation="vertical" fluid>
+        <Box palette="base">Base Text</Box>
+        <Box palette="inverted">Inverted Text</Box>
+        <Box palette="primary">Primary Text</Box>
+        <Box palette="danger">Danger Text</Box>
+      </Set>
     </ThemeProvider>
   )
 }
@@ -73,6 +139,8 @@ function Example() {
 ## CSS Props
 
 The Box accepts all Style Props defined on our design system, you can use it to add customization. Check the [CSS Props](/theming/css-props) section for detailed info.
+
+## style-Props
 
 ```jsx
 import { Box, ThemeProvider } from '@vtex/admin-ui'

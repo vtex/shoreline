@@ -18,7 +18,7 @@ describe('Menu tests', () => {
           data-boxtestid="menubox"
           aria-label="menu label"
           styleOverrides={{
-            bg: 'black',
+            bg: 'coral',
           }}
           disclosure={<button>Open</button>}
         >
@@ -31,7 +31,7 @@ describe('Menu tests', () => {
       </ThemeProvider>
     )
 
-    expect(getByTestId('menubox')).toHaveStyleRule('background-color', 'black')
+    expect(getByTestId('menubox')).toHaveStyleRule('background-color', 'coral')
   })
 
   it('should match snapshot visible', () => {

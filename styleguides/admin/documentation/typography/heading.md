@@ -66,7 +66,7 @@ function Example() {
       <Heading
         text="body"
         marginBottom={2}
-        styleOverrides={{ fontSize: 4, bg: 'muted.4', color: 'primary.base' }}
+        styleOverrides={{ fontSize: 4, bg: 'muted.3', color: 'primary.base' }}
       >
         Heading 1
       </Heading>

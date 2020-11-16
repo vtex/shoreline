@@ -15,16 +15,16 @@ const styles = {
   display: 'inline-block',
   width: 'full',
   height: 'full',
-  backgroundColor: 'muted.4',
+  backgroundColor: 'muted.3',
   backgroundSize: `200px 100%`,
   backgroundRepeat: 'no-repeat',
   lineHeight: 1,
   borderRadius: 3,
   backgroundImage: `linear-gradient(
     90deg,
-    ${colors.muted[4]},
+    ${colors.muted[3]},
     white,
-    ${colors.muted[4]}
+    ${colors.muted[3]}
   )`,
   animation: `${load} 1.2s ease-in-out infinite`,
 }

@@ -8,25 +8,25 @@ const inputStyle = {
   borderWidth: 1,
   paddingLeft: 3,
   paddingRight: 4,
-  borderColor: 'muted.3',
+  borderColor: 'muted.2',
   borderRadius: 'default',
   bg: 'inherit',
   marginY: 1,
   fontSize: 1,
-  color: 'text',
+  color: 'text.primary',
   outline: 0,
   transition: 'snap',
   ':hover': {
-    borderColor: 'text',
+    borderColor: 'text.primary',
   },
   ':focus': {
     borderColor: 'primary.base',
     boxShadow: `0 0 0 1px  ${colors.primary.base}`,
   },
   ':disabled': {
-    bg: 'muted.4',
-    borderColor: 'muted.1',
-    color: 'muted.1',
+    bg: 'muted.3',
+    borderColor: 'muted.0',
+    color: 'muted.0',
   },
   // Label styles
   ':focus + label': {
@@ -45,7 +45,7 @@ const inputStyle = {
 }
 
 const clearButtonStyle = {
-  color: 'muted.1',
+  color: 'muted.0',
   marginY: '14px',
   marginRight: 1,
   height: 20,
@@ -63,7 +63,7 @@ const clearButtonStyle = {
     boxShadow: 'focus',
   },
   ':hover': {
-    color: 'text',
+    color: 'text.primary',
   },
   '> div': {
     display: 'flex',
@@ -76,7 +76,7 @@ const clearButtonStyle = {
 }
 
 const iconStyle = {
-  color: 'muted.1',
+  color: 'muted.0',
   top: 1,
   left: 0,
   paddingX: 3,
@@ -93,10 +93,10 @@ const iconStyle = {
 }
 
 const suffixStyle = {
-  color: 'muted.1',
+  color: 'muted.0',
   borderLeftStyle: 'solid',
   borderLeftWidth: '1px',
-  borderLeftColor: 'muted.3',
+  borderLeftColor: 'muted.2',
   paddingTop: '14px',
   marginTop: 'px',
   width: '32px',

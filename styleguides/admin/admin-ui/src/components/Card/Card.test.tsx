@@ -9,13 +9,13 @@ describe('Card tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Card data-testid="card" styleOverrides={{ bg: 'black' }}>
+        <Card data-testid="card" styleOverrides={{ bg: 'coral' }}>
           Card text
         </Card>
       </ThemeProvider>
     )
 
-    expect(getByTestId('card')).toHaveStyleRule('background-color', 'black')
+    expect(getByTestId('card')).toHaveStyleRule('background-color', 'coral')
   })
 
   it('should match snapshot', () => {
