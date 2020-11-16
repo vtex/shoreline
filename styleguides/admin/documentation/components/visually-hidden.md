@@ -4,7 +4,7 @@ path: /visually-hidden/
 
 # VisuallyHidden
 
-VisuallyHidden is a utility component that can be used to hide its children visually, while keeping them visible to screen readers and other assistive technology.
+VisuallyHidden is a common technique used in web accessibility to hide content from the visual client, but keep it readable for screen readers.
 
 ## Behavior
 
@@ -14,12 +14,15 @@ import { VisuallyHidden, Box, Text, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box display="flex" direction="col" w={200}>
+      <Box styles={{ display: 'flex', flexDirection: 'column' }} width={200}>
         <VisuallyHidden>
           <label htmlFor="search">Hidden Label</label>
         </VisuallyHidden>
         <input id="search" type="search" placeholder="A11y Search Input" />
-        <Text mt="3" self="end" variant="small">
+        <Text
+          variant="small"
+          styleOverrides={{ alignSelf: 'flex-end', marginTop: 3 }}
+        >
           Use this input to search things
         </Text>
       </Box>
@@ -37,3 +40,7 @@ yarn add @vtex/admin-ui
 ```jsx static
 import { VisuallyHidden } from '@vtex/admin-ui'
 ```
+
+## Props
+
+<proptypes heading="VisuallyHidden" component="VisuallyHidden">

@@ -4,7 +4,7 @@ path: /divider/
 
 # Divider
 
-It renders an `hr` element and grants accessibility described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator)
+It renders an `hr` element and grants accessibility described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator).
 
 ## Behavior
 
@@ -14,7 +14,7 @@ import { Divider, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Divider orientation="horizontal" />
+      <Divider />
     </ThemeProvider>
   )
 }
@@ -34,28 +34,38 @@ import { Divider } from '@vtex/admin-ui'
 
 ### Horizontal
 
+By default, the orientation property has a `horizontal` value.
+
 ```jsx
-import { Divider, ThemeProvider, Card, Text } from '@vtex/admin-ui'
+import {
+  Divider,
+  Paragraph,
+  Heading,
+  Set,
+  ThemeProvider,
+  Card,
+  Text,
+} from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Card w="6/12">
-        <Text variant="headline" mt="0" mb="2">
-          Tolerance
-        </Text>
-        <Text el="p" fs="4" m="0" c="muted.0">
-          Allows orders to be placed even if they pass X% of the account`s
-          credit limit. Tolerance is set per account.
-        </Text>
-        <Divider orientation="horizontal" my="6" />
-        <Text variant="headline" mt="0" mb="2">
-          Automatic account creation
-        </Text>
-        <Text el="p" fs="4" m="0" c="muted.0">
-          Allows users who have not been previously credited to close a
-          purchase.
-        </Text>
+      <Card width={500}>
+        <Set orientation="vertical" spacing={2}>
+          <Heading>Tolerance</Heading>
+          <Paragraph styleOverrides={{ color: 'muted.0' }}>
+            Allows orders to be placed even if they pass X% of the account`s
+            credit limit. Tolerance is set per account.
+          </Paragraph>
+        </Set>
+        <Divider marginY={6} />
+        <Set orientation="vertical" spacing={2}>
+          <Heading>Automatic account creation</Heading>
+          <Paragraph styleOverrides={{ color: 'muted.0' }}>
+            Allows users who have not been previously credited to close a
+            purchase.
+          </Paragraph>
+        </Set>
       </Card>
     </ThemeProvider>
   )
@@ -64,33 +74,44 @@ function Example() {
 
 ### Vertical
 
+The orientation property can also have a `vertical` value.
+
 ```jsx
-import { Divider, ThemeProvider, Card, Text, Box } from '@vtex/admin-ui'
+import {
+  Divider,
+  Heading,
+  Paragraph,
+  ThemeProvider,
+  Card,
+  Columns,
+  Text,
+  Box,
+} from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Card display="flex" w="6/12" justify="center">
-        <Box w="5/12">
-          <Text variant="headline" mt="0" mb="2">
-            Cards
-          </Text>
-          <Text el="p" fs="4" m="0" c="muted.0">
-            In Cards, your customer is given autonomy to manage credit cards
-            related to his account, and can add, remove or edit credit card
-            data.
-          </Text>
-        </Box>
-        <Divider orientation="vertical" mx="6" />
-        <Box w="5/12">
-          <Text variant="headline" mt="0" mb="2">
-            Personal data
-          </Text>
-          <Text el="p" fs="4" m="0" c="muted.0">
-            In this section, the user can manage their personal data registered
-            on the store site.
-          </Text>
-        </Box>
+      <Card width={600}>
+        <Columns>
+          <Columns.Item>
+            <Heading>Cards</Heading>
+            <Paragraph styleOverrides={{ color: 'muted.0' }}>
+              In Cards, your customer is given autonomy to manage credit cards
+              related to his account, and can add, remove or edit credit card
+              data.
+            </Paragraph>
+          </Columns.Item>
+
+          <Divider orientation="vertical" marginX={6} />
+
+          <Columns.Item>
+            <Heading>Personal data</Heading>
+            <Paragraph styleOverrides={{ color: 'muted.0' }}>
+              In this section, the user can manage their personal data
+              registered on the store site.
+            </Paragraph>
+          </Columns.Item>
+        </Columns>
       </Card>
     </ThemeProvider>
   )
@@ -99,32 +120,24 @@ function Example() {
 
 ## Customization
 
-You can use all margin's `SpaceTokens` to customize your divider, and also you can use the `sx` prop to add any style to your component.
+You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides) property to handle different styles, and also [Space Style Props](/theming/css-props/#spacing).
 
-> 💡 You can check the Theme Documentation for detailed info.
+### Example
 
-### Examples
+For example, you can customize the Divider `margin` and `color`. One way to do this is by combining `Space Style Props` and `styleOverrides`, check the example below!
 
-- Increasing vertical margin using `SpaceTokens`
+```jsx
+import { Divider, ThemeProvider } from '@vtex/admin-ui'
 
-```jsx static
-import { Divider } from '@vtex/admin-ui'
-
-function UseCase() {
-  return <Divider my="13" orientation="horizontal" />
-}
-```
-
-- Increasing vertical margin using `sx`
-
-```jsx static
-import { Divider } from '@vtex/admin-ui'
-
-function UseCase() {
-  return <Divider my="13" orientation="horizontal" />
+function Example() {
+  return (
+    <ThemeProvider>
+      <Divider margin={6} styleOverrides={{ borderColor: 'text' }} />
+    </ThemeProvider>
+  )
 }
 ```
 
 ## Props
 
-### WIP
+<proptypes heading="Divider" component="Divider"/>

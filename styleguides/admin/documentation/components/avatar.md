@@ -8,6 +8,8 @@ Component to create a user avatar from a passed label. It shows the first letter
 
 ## Behavior
 
+The `Avatar` can be rendered in multiple palettes, this means that the `color` and `background-color` properties change according to its `palette` property value.
+
 ```jsx
 import { Avatar, Set, ThemeProvider } from '@vtex/admin-ui'
 
@@ -36,19 +38,23 @@ Learn more in [Get started](/docs/get-started/).
 
 ### Base
 
+By default, it has a `base` palette.
+
 ```jsx
 import { Avatar, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Avatar label="base" palette="base" />
+      <Avatar label="base" />
     </ThemeProvider>
   )
 }
 ```
 
 ### Primary
+
+Palette with `primary` value.
 
 ```jsx
 import { Avatar, ThemeProvider } from '@vtex/admin-ui'
@@ -64,6 +70,8 @@ function Example() {
 
 ### Danger
 
+Palette with `danger` value.
+
 ```jsx
 import { Avatar, ThemeProvider } from '@vtex/admin-ui'
 
@@ -78,7 +86,7 @@ function Example() {
 
 ## Customization
 
-You can use the `styleOverrides` property to customize any style.
+You can also use the `styleOverrides` property to customize any style.
 
 # Props
 
