@@ -35,12 +35,11 @@ import { Stepper } from '@vtex/admin-ui'
 ### Error
 
 ```jsx
-
 import { ThemeProvider, Stepper } from '@vtex/admin-ui'
+import { useState } from 'react'
 
 function Example() {
-  return (
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(5)
   const stepperData = { minValue: 0, maxValue: 4 }
   return (
     <ThemeProvider>
@@ -49,23 +48,17 @@ function Example() {
         minValue={stepperData.minValue}
         maxValue={stepperData.maxValue}
         onChange={(newValue) => {
-          setValue(Number(newValue))
+          setValue(newValue)
         }}
-        error={Number(value) > stepperData.maxValue}
-        helperText="Helper Text"
+        error={value > stepperData.maxValue || value < stepperData.minValue}
+        errorMessage={
+          value > stepperData.maxValue
+            ? 'Maximum value exceeded'
+            : value < stepperData.minValue
+            ? 'Invalid Value'
+            : undefined
+        }
       />
-    </ThemeProvider>
-  )
-}
-```
-
-```jsx
-import { ThemeProvider, Stepper } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Stepper error value={1}></Stepper>
     </ThemeProvider>
   )
 }
@@ -133,22 +126,6 @@ function Example() {
   return (
     <ThemeProvider>
       <Stepper variant="focus" value={0} unitMultiplier={5}></Stepper>
-    </ThemeProvider>
-  )
-}
-```
-
-### Default Value
-
-If an error occurs or an alphabet character is written in the entry, the default value assumes the value
-
-```jsx
-import { ThemeProvider, Stepper } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Stepper variant="hover" value={0} defaultValue={5}></Stepper>
     </ThemeProvider>
   )
 }

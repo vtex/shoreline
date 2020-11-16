@@ -16,7 +16,7 @@ export const Basic: Story<StepperProps> = () => {
       value={initial}
       minValue={1}
       maxValue={4}
-      // helperText="Helper Text"
+      helperText="Helper Text"
     />
   )
 }

@@ -14,15 +14,6 @@ const styles = {
   ':hover': {
     borderColor: '#323845',
   },
-  // ':focus:not([data-focus-visible-added])': {
-  //   outline: 'none',
-  //   boxShadow: 'none',
-  // },
-  // ':focus': {
-  //   outline: 'none',
-  //   borderColor: 'danger.base',
-  //   boxShadow: 'focus',
-  // },
   ':active': {
     borderColor: '#898F9E',
     boxShadow: `${`0 0 0 1px  white,0 0 0 3px  #8DB6FA`}`,
