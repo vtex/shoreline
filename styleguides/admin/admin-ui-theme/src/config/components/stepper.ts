@@ -6,13 +6,49 @@ const styles = {
   paddingLeft: 12,
   paddingRight: 12,
   paddingY: 14,
+  borderStyle: 'solid',
+  borderWidth: 1,
+  borderColor: '#898F9E',
+  borderRadius: 'default',
+  backgroundColor: 'primary.contrast',
+  ':hover': {
+    borderColor: '#323845',
+  },
+  // ':focus:not([data-focus-visible-added])': {
+  //   outline: 'none',
+  //   boxShadow: 'none',
+  // },
+  // ':focus': {
+  //   outline: 'none',
+  //   borderColor: 'danger.base',
+  //   boxShadow: 'focus',
+  // },
+  ':active': {
+    borderColor: '#898F9E',
+    boxShadow: `${`0 0 0 1px  white,0 0 0 3px  #8DB6FA`}`,
+    outline: 'none',
+  },
 }
 
 export default {
-  disable: { ...styles, backgroundColor: 'muted.4' },
+  error: {
+    ...styles,
+    borderColor: 'danger.base',
+    ':hover': {
+      borderColor: 'danger.base',
+    },
+    ':active': {
+      borderColor: 'danger.base',
+      boxShadow: 'none',
+    },
+  },
+  disable: {
+    ...styles,
+    backgroundColor: '#F4F6FB',
+    ':hover': { borderColor: 'none' },
+    ':active': { borderColor: 'none', boxShadow: 'none' },
+  },
   usual: {
     ...styles,
-    backgroundColor: 'primary.contrast',
-    borderColor: '898F9E',
   },
 }

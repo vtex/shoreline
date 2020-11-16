@@ -1,11 +1,6 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { useState } from 'react'
 import { Box } from '../Box'
-import {
-  IconMinus,
-  IconPlus,
-  IconPlusDisabled,
-  IconMinusDisabled,
-} from '../../icons'
+import { IconMinus, IconPlus } from '../../icons'
 import { cn } from '../../system'
 import { Input } from 'reakit'
 
@@ -13,41 +8,32 @@ const normalizeMin = (min: number | null) => (min == null ? -Infinity : min)
 const normalizeMax = (max: number | undefined) =>
   max == undefined ? Infinity : max
 
-const validateValue = (
-  value: any,
-  min: number,
-  max: number | undefined,
-  defaultValue: number
-) => {
+const validateValue = (value: number, min: number, max: number | undefined) => {
   min = normalizeMin(min)
   max = normalizeMax(max)
 
-  if (isNaN(value) || value == null || !value) {
-    if (defaultValue < min) return min
-    if (defaultValue > max) return max
-    return defaultValue
-  } else if (value < min) {
+  if (value < min) {
     return min
   } else if (value > max) {
     return max
   }
-  return parseInt(value, 10)
+  return value
 }
 
-export function StepperInside(props: StepperProps) {
+export function Stepper(props: StepperProps) {
   const {
     value: initialValue,
-    variant,
     minValue,
     maxValue,
-    defaultValue,
     disable,
     unitMultiplier,
     onChange: onChangeInputed,
+    errorMessage,
+    helperText,
+    error,
   } = props
   const [value, setValue] = useState(initialValue)
   const minimum = minValue ?? 0
-  const valueDefault = defaultValue ?? 0
   const multiplier = unitMultiplier ?? 1
   const isMinusDisabled = () => {
     return disable ? true : value === minimum ? true : false
@@ -55,19 +41,20 @@ export function StepperInside(props: StepperProps) {
   const isPlusDisabled = () => {
     return disable ? true : maxValue && value === maxValue ? true : false
   }
-  const borderStyle =
-    variant === 'hover' ? 'strong' : variant === 'danger' ? 'danger' : 'default'
 
-  const changeValue = (value: any) => {
-    const parsedValue = validateValue(value, minimum, maxValue, valueDefault)
+  const changeValue = (value: number) => {
+    const parsedValue = validateValue(value, minimum, maxValue)
     setValue(parsedValue)
     if (onChangeInputed) {
-      onChangeInputed(parsedValue)
+      onChangeInputed(parsedValue.toString())
     }
   }
 
-  const handleTypeQuantity = (event: ChangeEvent<HTMLInputElement>) => {
-    changeValue(event.target.value)
+  const changeInputValue = (value: string) => {
+    setValue(Number(value))
+    if (onChangeInputed) {
+      onChangeInputed(value)
+    }
   }
 
   const handleIncreaseValue = () => {
@@ -83,77 +70,62 @@ export function StepperInside(props: StepperProps) {
   }
 
   return (
-    <Box
-      border={borderStyle}
-      themeKey={
-        disable ? 'components.stepper.disable' : 'components.stepper.usual'
-      }
-    >
-      {isMinusDisabled() ? (
-        <IconMinusDisabled style={{ paddingRight: 4 }} />
-      ) : (
-        <IconMinus style={{ paddingRight: 4 }} onClick={handleDecreaseValue} />
-      )}
-
-      <Input
-        value={value}
-        type="tel"
-        aria-label="input"
-        onChange={handleTypeQuantity}
-        disabled={disable}
-        className={cn({
-          fontSize: 14,
-          textAlign: 'center',
-          width: 34,
-          height: 45,
-          backgroundColor: disable ? 'muted.4' : 'primary.contrast',
-        })}
-      />
-      {isPlusDisabled() ? (
-        <IconPlusDisabled style={{ paddingLeft: 4 }} />
-      ) : (
-        <IconPlus style={{ paddingLeft: 4 }} onClick={handleIncreaseValue} />
-      )}
-    </Box>
-  )
-}
-
-export function Stepper(props: StepperProps) {
-  const { errorMessage, helperText, variant } = props
-
-  return (
     <>
-      {variant === 'focus' ? (
-        <Box
-          border={'default'}
-          styles={{
-            borderWidth: 2,
-            padding: 0.8,
-            borderColor: '#8DB6FA',
-            width: 112,
-            alignItems: 'center',
-            height: 54,
+      <Box
+        themeKey={`components.stepper${
+          error ? '.error' : disable ? '.disable' : '.usual'
+        }`}
+      >
+        <IconMinus
+          style={{
+            color: isMinusDisabled() ? '#898F9E' : '#2953B2',
+            paddingRight: 4,
           }}
-        >
-          <StepperInside {...props}></StepperInside>
-        </Box>
-      ) : (
-        <StepperInside {...props}></StepperInside>
-      )}
+          onClick={handleDecreaseValue}
+        />
+
+        <Input
+          value={value}
+          type="number"
+          min={minimum}
+          max={maxValue}
+          onChange={(e) => changeInputValue(e.target.value)}
+          disabled={disable}
+          aria-label="input"
+          className={cn({
+            fontSize: 14,
+            appearance: 'none',
+            '::-webkit-inner-spin-button ': {
+              WebkitAppearance: 'none',
+              margin: 0,
+            },
+            textAlign: 'center',
+            width: 34,
+            height: 45,
+            color: disable ? '#898F9E' : 'basic.black',
+            backgroundColor: disable ? 'muted.4' : 'primary.contrast',
+            ':focus': {
+              outline: 'none',
+            },
+          })}
+        />
+
+        <IconPlus
+          style={{
+            color: isPlusDisabled() ? '#898F9E' : '#2953B2',
+            paddingLeft: 4,
+          }}
+          onClick={handleIncreaseValue}
+        />
+      </Box>
       {errorMessage && (
-        <Box
-          text="body"
-          styles={{ color: 'danger.base', fontSize: 12, marginTop: 2 }}
-        >
+        <Box text="small" styles={{ color: 'danger.base', marginTop: 2 }}>
           {errorMessage}
         </Box>
       )}
 
       {helperText && (
-        <Box
-          text="body"
-          styles={{ color: 'muted.1', fontSize: 12, marginTop: 2 }}
-        >
+        <Box text="small" styles={{ color: 'muted.1', marginTop: 2 }}>
           {helperText}
         </Box>
       )}
@@ -165,11 +137,10 @@ export interface StepperProps {
   value: number
   minValue?: number
   maxValue?: number
-  variant?: 'hover' | 'danger' | 'focus'
   disable?: boolean
-  onChange?: (value: number) => void
+  error?: boolean
+  onChange?: (value: string) => void
   errorMessage?: string
   helperText?: string
-  defaultValue?: number
   unitMultiplier?: number
 }

@@ -14,7 +14,7 @@ import { ThemeProvider, Stepper } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Stepper value={1}></Stepper>
+      <Stepper value={1} helperText="Helper Text"></Stepper>
     </ThemeProvider>
   )
 }
@@ -32,43 +32,40 @@ import { Stepper } from '@vtex/admin-ui'
 
 ## Variation
 
-### Focus
-
-```jsx
-import { ThemeProvider, Stepper } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Stepper variant="focus" value={1}></Stepper>
-    </ThemeProvider>
-  )
-}
-```
-
-### Hover
-
-```jsx
-import { ThemeProvider, Stepper } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Stepper variant="hover" value={1}></Stepper>
-    </ThemeProvider>
-  )
-}
-```
-
 ### Error
 
 ```jsx
+
+import { ThemeProvider, Stepper } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+  const [value, setValue] = useState(0)
+  const stepperData = { minValue: 0, maxValue: 4 }
+  return (
+    <ThemeProvider>
+      <Stepper
+        value={value}
+        minValue={stepperData.minValue}
+        maxValue={stepperData.maxValue}
+        onChange={(newValue) => {
+          setValue(Number(newValue))
+        }}
+        error={Number(value) > stepperData.maxValue}
+        helperText="Helper Text"
+      />
+    </ThemeProvider>
+  )
+}
+```
+
+```jsx
 import { ThemeProvider, Stepper } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Stepper variant="danger" value={1}></Stepper>
+      <Stepper error value={1}></Stepper>
     </ThemeProvider>
   )
 }
@@ -83,7 +80,7 @@ function Example() {
   return (
     <ThemeProvider>
       <Set orientation="horizontal">
-        <Stepper value={9} disable={true} />
+        <Stepper value={9} disable />
         <Stepper value={1} minValue={1} />
       </Set>
     </ThemeProvider>
