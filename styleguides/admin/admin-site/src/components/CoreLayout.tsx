@@ -41,7 +41,7 @@ export default function CoreLayout(props: Props) {
             <Box
               styles={{
                 gridArea: 'leftnav',
-                bg: 'muted.4',
+                bg: 'muted.3',
                 zIndex: 'plain',
                 overflowY: 'auto',
                 padding: 4,
