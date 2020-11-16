@@ -30,8 +30,8 @@ describe('Columns tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Columns data-testid="columns" styleOverrides={{ bg: 'black' }}>
-          <ColumnsItem data-testid="item" styleOverrides={{ bg: 'pink' }}>
+        <Columns data-testid="columns" styleOverrides={{ bg: 'coral' }}>
+          <ColumnsItem data-testid="item" styleOverrides={{ bg: 'azure' }}>
             <button>element 1</button>
           </ColumnsItem>
           <Columns.Item>
@@ -41,8 +41,8 @@ describe('Columns tests', () => {
       </ThemeProvider>
     )
 
-    expect(getByTestId('columns')).toHaveStyleRule('background-color', 'black')
-    expect(getByTestId('item')).toHaveStyleRule('background-color', 'pink')
+    expect(getByTestId('columns')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('item')).toHaveStyleRule('background-color', 'azure')
   })
 
   it('should match snapshot', () => {
