@@ -88,7 +88,7 @@ function Example() {
         borderStyle: 'solid',
         borderWidth: '1px',
         borderRadius: 'default',
-        borderColor: 'muted.2',
+        borderColor: 'muted.1',
         padding: 6,
       }}
     >
