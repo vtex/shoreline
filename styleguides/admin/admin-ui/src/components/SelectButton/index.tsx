@@ -12,11 +12,10 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
   const {
     items,
     label,
-    variant = 'text',
+    variant = 'primary',
     size = 'regular',
     state,
     renderItem = (item) => item,
-    palette = 'primary',
     ...buttonProps
   } = props
 
@@ -31,7 +30,6 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
       </VisuallyHidden>
       <Button
         variant={variant}
-        palette={palette}
         size={size}
         icon={<IconCaret direction="down" />}
         iconPosition="end"
@@ -71,7 +69,7 @@ export { useSelect as useSelectState }
 
 export interface SelectButtonProps<T>
   extends Overridable,
-    Pick<ButtonProps, 'variant' | 'size' | 'disabled' | 'palette'> {
+    Pick<ButtonProps, 'variant' | 'size' | 'disabled'> {
   /**
    * aria-label. will be visually hidden
    */
