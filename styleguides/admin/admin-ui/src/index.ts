@@ -1,5 +1,4 @@
 export * from './system'
-export * from './icons'
 export * from './components/Skeleton'
 export * from './components/Label'
 export * from './components/Menu'

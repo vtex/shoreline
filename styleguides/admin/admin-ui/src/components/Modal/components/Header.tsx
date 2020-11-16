@@ -1,8 +1,8 @@
 import React, { useMemo, ReactNode, forwardRef, Ref } from 'react'
 import { useClassName, SxStyleProp } from '@vtex/admin-ui-system'
+import { IconClose } from '@vtex/admin-ui-icons'
 
 import { useModalContext } from '../context'
-import { IconClose } from '../../../icons'
 import { ModalButton } from './Button'
 import { Box } from '../../Box'
 import { Overridable } from '../../../types'

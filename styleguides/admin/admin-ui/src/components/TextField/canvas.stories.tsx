@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
+import { IconBook } from '@vtex/admin-ui-icons'
 
 import { TextField } from './index'
 import { useInputState } from '../unstableInput'
-import { IconBook } from '../../icons'
 import { Box } from '../Box'
 
 export default {

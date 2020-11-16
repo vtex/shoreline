@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon, cn } from '@vtex/admin-ui'
+import { cn } from '@vtex/admin-ui'
+import { Icon } from '@vtex/admin-ui-icons'
 
 export default function LogoSkeleton() {
   return (

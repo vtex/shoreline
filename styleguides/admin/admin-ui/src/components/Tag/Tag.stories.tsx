@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import React from 'react'
 import { Meta } from '@storybook/react'
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 import { Tag } from './index'
-import { IconFavorite } from '../../icons'
 import { Set } from '../Set'
 
 export default {

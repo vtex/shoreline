@@ -57,7 +57,8 @@ import { TextField } from '@vtex/admin-ui'
 You can add one Icon on the left side of the `TextField`. Just use the `icon` property.
 
 ```jsx
-import { TextField, IconHelp, cn, ThemeProvider } from '@vtex/admin-ui'
+import { TextField, cn, ThemeProvider } from '@vtex/admin-ui'
+import { IconHelp } from '@vtex/admin-ui-icons'
 
 function Example() {
   const [value, setValue] = React.useState('')
@@ -207,13 +208,8 @@ function Example() {
 Example of the `TextField` with all its features.
 
 ```jsx
-import {
-  TextField,
-  useInputState,
-  cn,
-  IconHelp,
-  ThemeProvider,
-} from '@vtex/admin-ui'
+import { TextField, useInputState, cn, ThemeProvider } from '@vtex/admin-ui'
+import { IconHelp } from '@vtex/admin-ui-icons'
 
 function Example() {
   const textfield = useInputState()

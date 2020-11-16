@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react'
 import { useSelect, UseSelectReturnValue } from 'downshift'
+import { IconCaret } from '@vtex/admin-ui-icons'
 
 import { Button, ButtonProps } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { Overridable } from '../../types'
 import { Set } from '../Set'
 import { Box } from '../Box'
-import { IconCaret } from '../../icons'
 
 export function SelectButton<T>(props: SelectButtonProps<T>) {
   const {

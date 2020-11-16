@@ -1,7 +1,7 @@
 import React, { Ref } from 'react'
 import { forwardRef } from '@vtex/admin-ui-system'
+import { IconActions, IconCaret } from '@vtex/admin-ui-icons'
 
-import { IconActions, IconCaret } from '../../../icons'
 import { Button, ButtonProps } from '../../Button'
 
 /**

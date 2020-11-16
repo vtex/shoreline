@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
+import { IconBook } from '@vtex/admin-ui-icons'
 
 import { TextField } from './index'
 import { ThemeProvider } from '../../system'
-import { IconBook } from '../../icons'
 
 describe('Input tests', () => {
   beforeEach(() => {

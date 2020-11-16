@@ -9,6 +9,8 @@ import {
 import * as emotion from 'emotion'
 import * as styled from 'styled-components'
 import * as AdminUI from '@vtex/admin-ui'
+import * as System from '@vtex/admin-ui-system'
+import * as AdminIcons from '@vtex/admin-ui-icons'
 
 function getChildrenCode(props: { children?: React.ReactNode }) {
   const children = React.Children.toArray(props.children)
@@ -42,6 +44,8 @@ function Playground({
           unstyled
           modules={{
             '@vtex/admin-ui': AdminUI,
+            '@vtex/admin-ui-icons': AdminIcons,
+            '@vtex/admin-ui-system': System,
             emotion,
             'styled-components': styled,
           }}

@@ -9,7 +9,8 @@ Tag is a compact element that represents an input, attribute, or action. It rend
 ## Behavior
 
 ```jsx
-import { Tag, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
+import { Tag, ThemeProvider } from '@vtex/admin-ui'
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -98,7 +99,8 @@ function Example() {
 You can add one Icon on the left side of the `Tag`. Just use the `icon` property.
 
 ```jsx
-import { Tag, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
+import { Tag, ThemeProvider } from '@vtex/admin-ui'
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (

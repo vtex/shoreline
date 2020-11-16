@@ -45,16 +45,13 @@ Learn more in [Get started](/docs/get-started/).
 Handles the state internally.
 
 ```jsx
+import { Menu, ThemeProvider, Button, Box } from '@vtex/admin-ui'
 import {
-  Menu,
   IconDownload,
   IconLink,
   IconFavorite,
   IconDelete,
-  ThemeProvider,
-  Button,
-  Box,
-} from '@vtex/admin-ui'
+} from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -94,10 +91,8 @@ import {
   StatelessMenu,
   MenuDisclosure,
   Button,
-  IconDownload,
-  IconLink,
-  IconFavorite,
 } from '@vtex/admin-ui'
+import { IconDownload, IconLink, IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   const state = useMenuState({
@@ -148,7 +143,9 @@ Hook used to keep state. It has the same props of [Reakit/useMenuState](https://
 ### MenuItem
 
 ```jsx
-import { Menu, IconFavorite, ThemeProvider, Button } from '@vtex/admin-ui'
+import { Menu, ThemeProvider, Button } from '@vtex/admin-ui'
+
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -176,16 +173,14 @@ function Example() {
 Represents an `hr` used to separate the menu into sections
 
 ```jsx
+import { Menu, ThemeProvider, Button } from '@vtex/admin-ui'
 import {
-  Menu,
   IconDownload,
   IconLink,
   IconFavorite,
   IconDelete,
   IconArrow,
-  ThemeProvider,
-  Button,
-} from '@vtex/admin-ui'
+} from '@vtex/admin-ui-icons'
 
 function Example() {
   return (

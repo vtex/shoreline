@@ -1,7 +1,7 @@
 import React, { ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex/admin-ui-system'
+import { IconRemove } from '@vtex/admin-ui-icons'
 
-import { IconRemove } from '../../icons'
 import { Box } from '../Box'
 import { Overridable } from '../../types'
 import { Button } from '../Button'

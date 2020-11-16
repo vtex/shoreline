@@ -1,8 +1,8 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { IconBook } from '@vtex/admin-ui-icons'
 
 import { unstableInput as Input, useInputState } from './index'
-import { IconBook } from '../../icons'
 import { Box } from '../Box'
 
 export default {

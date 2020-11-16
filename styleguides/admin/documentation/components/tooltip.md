@@ -9,7 +9,8 @@ Tooltip follows the WAI-ARIA Tooltip Pattern. It's a popup that displays informa
 ## Behavior
 
 ```jsx
-import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
+import { IconAddChannel } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -41,7 +42,8 @@ The `label` property can be of `string` or `ReactNode` type. Check the examples 
 #### String Example
 
 ```jsx
-import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
+import { IconAddChannel } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (

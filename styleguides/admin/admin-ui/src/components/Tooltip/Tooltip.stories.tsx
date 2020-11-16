@@ -1,7 +1,12 @@
 import React, { Ref } from 'react'
 import { Story, Meta } from '@storybook/react'
+import {
+  Icon,
+  IconAddChannel,
+  IconCaret,
+  IconProps,
+} from '@vtex/admin-ui-icons'
 
-import { Icon, IconAddChannel, IconProps } from '../../icons'
 import { Tooltip, TooltipProps } from './index'
 import { Button } from '../Button'
 import { Tag } from '../Tag'
