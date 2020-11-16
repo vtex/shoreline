@@ -40,7 +40,7 @@ export const unstableInput = forwardRef(function Input(
       fontSize: 1,
       left: 12,
       paddingTop: 2,
-      color: 'muted.1',
+      color: 'muted.0',
       marginBottom: 3,
       position: 'absolute',
       transform: 'translate(0, 16px) scale(1)',
