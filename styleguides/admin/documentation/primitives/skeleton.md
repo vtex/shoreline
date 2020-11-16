@@ -4,10 +4,16 @@ path: /primitives/skeleton/
 
 # Skeleton
 
-Skeletons represent a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to the actual content.
+Our design system comes with a set of primitive components that represent our most elementary components, through which other components are built. They are basic elements, with no determined style, that are used as a starting point for other components. Checkout our [Introduction](/primitives/introduction) page, to see Do's and Don'ts about primitive components. 
 
+`Skeleton` is a versatile primitive component, with no defined style, that can be used to leverage UIs that don't contain actual content yet. Instead, it shows the loading elements of a page in a shape similar to the actual content. 
 - It shows users that content is loading, offering a vague preview of how content will look once it fully loads.
-- It's being used internally by AdminUI to handle the loading state of specific components.
+-  It's being used internally by AdminUI to handle the loading state of specific components.
+
+*Note that you may want to use one of our `Layout` components before using Box to build layouts. Also check one of our `Typography` components before using it to render a text.*
+
+
+
 
 ## Behavior
 
@@ -39,9 +45,9 @@ import { Skeleton } from '@vtex/admin-ui'
 
 ## Variation
 
-### Rect
+### Rectangle
 
-By default Skeleton shape is rectangular. This means that the <highlight message="shape"></highlight> property has the `rect` value.
+By default, Skeleton's shape is rectangular. To use this variation, the <highlight message="shape"></highlight> property has the `rect` value.
 
 ```jsx
 import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
@@ -57,7 +63,7 @@ function Example() {
 
 ### Circle
 
-The shape can also be circular. To do this add the <highlight message="shape"></highlight> property with the `circle` value.
+The shape can also be circular. To use this variation, the <highlight message="shape"></highlight> property has the `circle` value.
 
 ```jsx
 import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
