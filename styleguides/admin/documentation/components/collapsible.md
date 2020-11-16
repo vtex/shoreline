@@ -63,8 +63,8 @@ function Example() {
     <ThemeProvider>
       <Collapsible state={{ toggle, ...props }}>
         <Collapsible.Header label="Actions Panel">
-          <Button variant="subtle">Secondary</Button>
-          <Button onClick={toggle}>Toggle Collapsible's Content</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button onClick={toggle}>Toggle Collapsible Content</Button>
         </Collapsible.Header>
         <Collapsible.Content>
           It’s all about being ready to grow and reach new levels. Have a solid
@@ -104,24 +104,24 @@ function Example() {
 }
 ```
 
-### Nested 🚧
+### Nested
 
-It's possible to render a `Collapsible` inside another one, just pass the `Collapsible` child as the `Content` children.
+It is possible to render a `Collapsible` inside another, just pass the `Collapsible` as a child of `Collapsible.Content`. Note that each nested collapsible has different padding than the one at the root, this is a design requirement, each internal collapsible must have a `16px` padding, while the one in the root has a `24px` padding.
 
 ```jsx
 import { Collapsible, useCollapsible, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
-  const firstState = useCollapsible()
-  const secondState = useCollapsible()
+  const root = useCollapsible()
+  const nested = useCollapsible()
 
   return (
     <ThemeProvider>
-      <Collapsible state={firstState} w="5/12">
-        <Collapsible.Header label="Build for Community #1" />
+      <Collapsible state={root}>
+        <Collapsible.Header label="Root Collapsible" />
         <Collapsible.Content>
-          <Collapsible state={secondState}>
-            <Collapsible.Header label="Build for Community #2" />
+          <Collapsible state={nested}>
+            <Collapsible.Header label="Nested Collapsible" />
             <Collapsible.Content>
               It’s all about being ready to grow and reach new levels. Have a
               solid foundation, modular thinking and flexible essence, and
@@ -140,7 +140,7 @@ function Example() {
 
 The `Collapsible` component uses two composites, `Collapsible.Header` and `Collapsible.Content`.
 
-### Collapsible.Header
+### Header
 
 As the title says, it represents the `header` of the collapsible. It renders a `<header>` and is always visible.
 
@@ -150,9 +150,9 @@ It represents the `button` that controls the content visibility and it's always 
 
 #### Actions Panel
 
-It represents a set of `buttons` and it's always located in the right side of the header. You should pass this set of `buttons` to the `Collapsible.Header` children, to this panel to be rendered.
+It represents a set of `buttons` and it's always located on the right side of the header. You should pass this set of `buttons` to the `Collapsible.Header` children, to this panel to be rendered.
 
-### Collapsible.Content
+### Content
 
 As the name already says, it represents the `content` of the collapsible. It renders a `<section>` and can be `hidden` or `visible`.
 
@@ -176,7 +176,12 @@ function Example() {
     <ThemeProvider>
       <Collapsible state={collapsibleState} styleOverrides={{ width: 500 }}>
         <Collapsible.Header label="State Logic" />
-        <Collapsible.Content></Collapsible.Content>
+        <Collapsible.Content>
+          It’s all about being ready to grow and reach new levels. Have a solid
+          foundation, modular thinking and flexible essence, and you’re building
+          for scale. We are global but we’re audacious enough to aim for the
+          stars.
+        </Collapsible.Content>
       </Collapsible>
     </ThemeProvider>
   )
@@ -190,7 +195,12 @@ You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides)
 ### Example
 
 ```jsx
-import { Collapsible, useCollapsible, ThemeProvider } from '@vtex/admin-ui'
+import {
+  Collapsible,
+  Paragraph,
+  useCollapsible,
+  ThemeProvider,
+} from '@vtex/admin-ui'
 
 function Example() {
   const collapsibleState = useCollapsible()
@@ -206,7 +216,7 @@ function Example() {
           styleOverrides={{ bg: 'muted.3' }}
         />
         <Collapsible.Content styleOverrides={{ color: 'primary.base' }}>
-          Text with primary.base color!
+          <Paragraph>Text with primary.base color!</Paragraph>
         </Collapsible.Content>
       </Collapsible>
     </ThemeProvider>
@@ -216,4 +226,8 @@ function Example() {
 
 ## Props
 
-<proptypes heading="Collapsible" component="Collapsible" />
+<propdetails heading="Collapsible" component="Collapsible"></propdetails>
+
+<propdetails heading="Collapsible.Header" component="Header"></propdetails>
+
+<propdetails heading="Collapsible.Content" component="Content"></propdetails>
