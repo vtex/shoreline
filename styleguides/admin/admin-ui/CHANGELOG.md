@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.59.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.58.0...@vtex/admin-ui@0.59.0) (2020-11-17)
+
+
+### Features
+
+* textarea component next to master ([dba3923](https://github.com/vtex/onda/commit/dba39238a90276a2771df2d79945b569c2d11f24))
+* textarea component next to master ([3c4d12c](https://github.com/vtex/onda/commit/3c4d12cf518972850f6d489c526664eae077a09b))
+* textarea component next to master[wip] ([8b25c89](https://github.com/vtex/onda/commit/8b25c89f841d51c534f32daf7765982268f28325))
+* textarea component reviewed ([0a87861](https://github.com/vtex/onda/commit/0a878617fe024c1b58d869077c696ac1b799f47d))
+* textarea component reviewed ([d4b7540](https://github.com/vtex/onda/commit/d4b7540028f8acf2da41a735529244321b7ca7ab))
+
+
+
+
+
 # [0.58.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.57.0...@vtex/admin-ui@0.58.0) (2020-11-16)
 
 
