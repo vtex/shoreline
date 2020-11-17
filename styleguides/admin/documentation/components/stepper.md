@@ -14,7 +14,11 @@ import { ThemeProvider, Stepper } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Stepper value={1} helperText="Helper Text"></Stepper>
+      <Stepper
+        value={1}
+        helperText="Helper Text"
+        label="stepper number"
+      ></Stepper>
     </ThemeProvider>
   )
 }
@@ -58,6 +62,7 @@ function Example() {
             ? 'Invalid Value'
             : undefined
         }
+        label="stepper number"
       />
     </ThemeProvider>
   )
@@ -73,8 +78,8 @@ function Example() {
   return (
     <ThemeProvider>
       <Set orientation="horizontal">
-        <Stepper value={9} disable />
-        <Stepper value={1} minValue={1} />
+        <Stepper value={9} disable label="stepper number" />
+        <Stepper value={1} minValue={1} label="stepper number" />
       </Set>
     </ThemeProvider>
   )
@@ -91,7 +96,13 @@ import { ThemeProvider, Stepper } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Stepper variant="focus" value={2} minValue={0} maxValue={4}></Stepper>
+      <Stepper
+        variant="focus"
+        value={2}
+        minValue={0}
+        maxValue={4}
+        label="stepper number"
+      ></Stepper>
     </ThemeProvider>
   )
 }
@@ -111,6 +122,7 @@ function Example() {
         onChange={(value) => {
           alert(`Hi ${value}`)
         }}
+        label="stepper number"
       ></Stepper>
     </ThemeProvider>
   )
@@ -125,7 +137,12 @@ import { ThemeProvider, Stepper } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Stepper variant="focus" value={0} unitMultiplier={5}></Stepper>
+      <Stepper
+        variant="focus"
+        value={0}
+        unitMultiplier={5}
+        label="stepper number"
+      ></Stepper>
     </ThemeProvider>
   )
 }

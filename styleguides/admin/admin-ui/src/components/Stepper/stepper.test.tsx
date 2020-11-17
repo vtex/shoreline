@@ -9,14 +9,26 @@ describe('Stepper tests', () => {
   it('should not have any violations', async () => {
     const { container } = render(
       <ThemeProvider>
-        <Stepper value={1} />
-        <Stepper value={1} />
-        <Stepper value={1} helperText="Helper Text" />
-        <Stepper value={9} disable />
-        <Stepper value={1} minValue={1} />
-        <Stepper value={0} error errorMessage="Minimum of 6" />
-        <Stepper value={0} minValue={0} maxValue={50} unitMultiplier={5} />
+        <Stepper value={1} label="stepper number" />
+        <Stepper value={1} label="stepper number" />
+        <Stepper value={1} helperText="Helper Text" label="stepper number" />
+        <Stepper value={9} disable label="stepper number" />
+        <Stepper value={1} minValue={1} label="stepper number" />
         <Stepper
+          value={0}
+          error
+          errorMessage="Minimum of 6"
+          label="stepper number"
+        />
+        <Stepper
+          value={0}
+          minValue={0}
+          maxValue={50}
+          unitMultiplier={5}
+          label="stepper number"
+        />
+        <Stepper
+          label="stepper number"
           value={0}
           minValue={0}
           maxValue={50}
@@ -36,7 +48,7 @@ describe('Stepper tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <Stepper value={1}></Stepper>
+        <Stepper value={1} label="stepper number"></Stepper>
       </ThemeProvider>
     )
 

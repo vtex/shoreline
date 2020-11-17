@@ -1,11 +1,16 @@
 const styles = {
-  display: 'flex',
-  alignItems: 'center',
-  height: 48,
+  fontSize: 14,
   width: 106,
-  paddingLeft: 12,
-  paddingRight: 12,
-  paddingY: 14,
+  appearance: 'none',
+  '::-webkit-inner-spin-button ': {
+    WebkitAppearance: 'none',
+    margin: 0,
+  },
+  paddingLeft: 36,
+  paddingRight: 36,
+  textAlign: 'center',
+  height: 45,
+  color: 'basic.black',
   borderStyle: 'solid',
   borderWidth: 1,
   borderColor: '#898F9E',
@@ -14,10 +19,13 @@ const styles = {
   ':hover': {
     borderColor: '#323845',
   },
-  ':active': {
-    borderColor: '#898F9E',
-    boxShadow: `${`0 0 0 1px  white,0 0 0 3px  #8DB6FA`}`,
+  ':focus:not([data-focus-visible-added])': {
     outline: 'none',
+    boxShadow: 'none',
+  },
+  ':focus': {
+    outline: 'none',
+    boxShadow: 'focus',
   },
 }
 
@@ -28,8 +36,8 @@ export default {
     ':hover': {
       borderColor: 'danger.base',
     },
-    ':active': {
-      borderColor: 'danger.base',
+    ':focus': {
+      outline: 'none',
       boxShadow: 'none',
     },
   },
@@ -37,7 +45,10 @@ export default {
     ...styles,
     backgroundColor: '#F4F6FB',
     ':hover': { borderColor: 'none' },
-    ':active': { borderColor: 'none', boxShadow: 'none' },
+    ':focus': {
+      outline: 'none',
+      boxShadow: 'none',
+    },
   },
   usual: {
     ...styles,
