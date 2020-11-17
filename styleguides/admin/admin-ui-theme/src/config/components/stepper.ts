@@ -10,7 +10,7 @@ const styles = {
   borderWidth: 1,
   borderColor: '#898F9E',
   borderRadius: 'default',
-  backgroundColor: 'primary.contrast',
+  backgroundColor: 'primary.accent',
   ':hover': {
     borderColor: '#323845',
   },

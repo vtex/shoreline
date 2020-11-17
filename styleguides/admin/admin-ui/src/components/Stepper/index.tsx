@@ -125,7 +125,7 @@ export function Stepper(props: StepperProps) {
       )}
 
       {helperText && (
-        <Box text="small" styles={{ color: 'muted.1', marginTop: 2 }}>
+        <Box text="small" styles={{ color: '#898F9E', marginTop: 2 }}>
           {helperText}
         </Box>
       )}
