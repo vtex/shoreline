@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
-import { IconBook } from '@vtex/admin-ui-icons'
+import { IconAdd } from '@vtex/admin-ui-icons'
 
 import { TextField } from './index'
 import { useInputState } from '../unstableInput'
@@ -42,7 +42,7 @@ export const UsingInputHook = () => {
         helperText="Helper Text"
         charLimit={120}
         suffix="Kg"
-        icon={<IconBook />}
+        icon={<IconAdd />}
       />
     </Box>
   )
@@ -76,7 +76,7 @@ export const Error = () => {
         errorMessage="Error Message"
         charLimit={120}
         suffix="Kg"
-        icon={<IconBook />}
+        icon={<IconAdd />}
       />
     </Box>
   )

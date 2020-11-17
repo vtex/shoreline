@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
-import { IconBook } from '@vtex/admin-ui-icons'
+import { IconAdd } from '@vtex/admin-ui-icons'
 
 import { TextField } from './index'
 import { ThemeProvider } from '../../system'
@@ -86,7 +86,7 @@ describe('Input tests', () => {
           id="text-field-5"
         />
         <TextField
-          icon={<IconBook />}
+          icon={<IconAdd />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
@@ -95,7 +95,7 @@ describe('Input tests', () => {
           id="text-field-6"
         />
         <TextField
-          icon={<IconBook />}
+          icon={<IconAdd />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
@@ -129,7 +129,7 @@ describe('Input tests', () => {
           id="text-field-2"
         />
         <TextField
-          icon={<IconBook />}
+          icon={<IconAdd />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
@@ -138,7 +138,7 @@ describe('Input tests', () => {
           id="text-field-3"
         />
         <TextField
-          icon={<IconBook />}
+          icon={<IconAdd />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
