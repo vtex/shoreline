@@ -41,7 +41,10 @@ describe('TextArea tests', () => {
       </ThemeProvider>
     )
 
-    expect(getByTestId('text-area')).toHaveStyleRule('background-color', 'blue')
+    expect(getByTestId('text-area')).toHaveStyleRule(
+      'background-color',
+      '#DAE3F5'
+    )
   })
 
   it('should match snapshot', () => {
