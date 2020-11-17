@@ -1,6 +1,5 @@
 import { createElementFactory } from './createElementFactory'
 import { createThemeProvider } from './createThemeProvider'
-import { createSystemProvider } from './createSystemProvider'
 import { getThemeConsumers } from './getThemeConsumers'
 
 export interface SystemParams<T> {
@@ -21,11 +20,8 @@ export function createSystem<T>(params: SystemParams<T>) {
     ...styleConsumers,
   }
 
-  const systemProvider = createSystemProvider(system)
-
   return {
     ThemeProvider,
     ...system,
-    ...systemProvider,
   }
 }

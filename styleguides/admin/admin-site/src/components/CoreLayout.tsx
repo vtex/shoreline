@@ -22,6 +22,8 @@ export default function CoreLayout(props: Props) {
 
   const title = data?.markdownRemark?.title
 
+  const fullPage = data?.markdownRemark?.frontmatter?.fullPage
+
   return (
     <ThemeProvider>
       <CollectionProvider>
@@ -31,9 +33,11 @@ export default function CoreLayout(props: Props) {
               display: 'grid',
               height: '100vh',
               width: '100vw',
-              gridTemplateColumns: '1fr 3fr 1fr',
+              gridTemplateColumns: fullPage ? '1fr 4fr' : '1fr 3fr 1fr',
               gridTemplateRows: '80px 1fr',
-              gridTemplateAreas: '"header header header" "leftnav main toc"',
+              gridTemplateAreas: fullPage
+                ? '"header header" "leftnav main"'
+                : '"header header header" "leftnav main toc"',
               overflow: 'hidden',
             }}
           >
@@ -72,7 +76,7 @@ export default function CoreLayout(props: Props) {
               )}
             </ScrollHandler>
 
-            {title && props.pageContext.tableOfContentsAst && (
+            {!fullPage && title && props.pageContext.tableOfContentsAst && (
               <Box
                 element="aside"
                 styles={{
@@ -116,6 +120,7 @@ interface Props {
       frontmatter?: {
         path?: string
         experimental?: boolean
+        fullPage?: boolean
       }
     }
   }

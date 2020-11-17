@@ -23,6 +23,9 @@ import {
 } from '../components/ColorBlock'
 import PropDetails from '../components/PropDetails'
 import ThemeAwareProps from '../components/ThemeAwareProps'
+import { IconPage } from '../components/IconsPage'
+import IconPropDetails from '../components/IconPropDetails'
+import Collapsible from '../components/Collapsible'
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -32,6 +35,7 @@ export const pageQuery = graphql`
       excerpt
       frontmatter {
         path
+        fullPage
       }
     }
   }
@@ -55,6 +59,8 @@ const { Compiler: renderAst } = new RehypeReact({
         </Text>
       )
     },
+    iconpropdetails: IconPropDetails,
+    iconpage: IconPage,
     backgroundcolors: BackgroundColors,
     textcolors: TextColors,
     elementarycolors: ElementaryColors,
@@ -89,6 +95,7 @@ const { Compiler: renderAst } = new RehypeReact({
     blockquote: Blockquote,
     summary: Summary,
     propdetails: PropDetails,
+    collapsible: Collapsible,
     h1: Heading,
     h2: function Render(props) {
       return <Heading element="h2" {...props} />
