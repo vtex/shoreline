@@ -55,7 +55,7 @@ export const TextArea = forwardRef(function Textarea(
               <Text
                 variant="small"
                 styleOverrides={{
-                  color: errorMessage ? 'danger.base' : 'muted.1',
+                  color: errorMessage ? 'danger.base' : 'muted.0',
                 }}
               >
                 {errorMessage ?? helperText}
@@ -67,7 +67,7 @@ export const TextArea = forwardRef(function Textarea(
               units={3}
               styleOverrides={{ display: 'flex', justifyContent: 'flex-end' }}
             >
-              <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
+              <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
                 {`${value.toString().length}/${charLimit}`}
               </Text>
             </Columns.Item>

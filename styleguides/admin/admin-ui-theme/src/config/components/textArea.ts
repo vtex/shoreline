@@ -10,25 +10,25 @@ const textAreaInputStyle = {
   borderWidth: 1,
   paddingLeft: 3,
   paddingRight: 4,
-  borderColor: 'muted.3',
+  borderColor: 'muted.2',
   borderRadius: 'default',
   bg: 'inherit',
   marginY: 1,
   fontSize: 1,
-  color: 'text',
+  color: 'text.primary',
   outline: 0,
   transition: 'snap',
   ':hover': {
-    borderColor: 'text',
+    borderColor: 'text.primary',
   },
   ':focus': {
     borderColor: 'primary.base',
     boxShadow: `0 0 0 1px  ${colors.primary.base}`,
   },
   ':disabled': {
-    bg: 'muted.4',
-    borderColor: 'muted.1',
-    color: 'muted.1',
+    bg: 'muted.3',
+    borderColor: 'muted.0',
+    color: 'muted.0',
   },
   // Label styles
   ':focus + label': {
@@ -44,17 +44,6 @@ const textAreaInputStyle = {
   ':not(:placeholder-shown) + label': {
     transform: 'translate(1px, 4px) scale(0.875)',
   },
-  label: {
-    fontSize: 1,
-    left: 12,
-    paddingTop: 2,
-    color: 'muted.1',
-    marginBottom: 3,
-    position: 'absolute',
-    transform: 'translate(0, 16px) scale(1)',
-    transformOrigin: 'top left',
-    transition: 'all 0.2s ease-out;',
-  },
 }
 
 const styles = {
@@ -67,7 +56,7 @@ const styles = {
     fontSize: 1,
     left: 12,
     paddingTop: 2,
-    color: 'muted.1',
+    color: 'muted.0',
     marginBottom: 3,
     position: 'absolute',
     transform: 'translate(0, 16px) scale(1)',
