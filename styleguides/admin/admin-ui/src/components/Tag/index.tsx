@@ -1,6 +1,6 @@
 import React, { ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex/admin-ui-system'
-import { IconRemove } from '@vtex/admin-ui-icons'
+import { IconClose } from '@vtex/admin-ui-icons'
 
 import { Box } from '../Box'
 import { Overridable } from '../../types'
@@ -28,7 +28,7 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
       {label}
       {!!handleDelete && (
         <Button
-          icon={<IconRemove />}
+          icon={<IconClose />}
           aria-label={`${label}-tag-button-delete`}
           onClick={handleDelete}
           variant={palette === 'black' ? 'adaptative-light' : 'adaptative-dark'}

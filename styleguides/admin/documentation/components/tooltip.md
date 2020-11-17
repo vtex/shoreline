@@ -10,13 +10,13 @@ Tooltip follows the WAI-ARIA Tooltip Pattern. It's a popup that displays informa
 
 ```jsx
 import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
-import { IconAddChannel } from '@vtex/admin-ui-icons'
+import { IconDuplicate } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconDuplicate />} variant="tertiary" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -43,13 +43,13 @@ The `label` property can be of `string` or `ReactNode` type. Check the examples 
 
 ```jsx
 import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
-import { IconAddChannel } from '@vtex/admin-ui-icons'
+import { IconDuplicate } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconDuplicate />} variant="tertiary" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -59,15 +59,8 @@ function Example() {
 #### ReactNode Example
 
 ```jsx
-import {
-  ThemeProvider,
-  Text,
-  Tooltip,
-  Tag,
-  Set,
-  Button,
-  IconAddChannel,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Text, Tooltip, Tag, Set, Button } from '@vtex/admin-ui'
+import { IconCaret, IconDuplicate } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -84,7 +77,7 @@ function Example() {
           </Set>
         }
       >
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconDuplicate />} variant="text" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -140,7 +133,8 @@ When using the Tooltip with a custom component, you must provide a `ref` for the
 ### Custom Component
 
 ```jsx static
-import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
+import { Icon } from '@vtex/admin-ui-icons'
 
 function Example() {
   const CustomIcon = React.forwardRef(
