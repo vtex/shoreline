@@ -97,7 +97,6 @@ function Example() {
   return (
     <ThemeProvider>
       <Stepper
-        variant="focus"
         value={2}
         minValue={0}
         maxValue={4}
@@ -117,7 +116,6 @@ function Example() {
   return (
     <ThemeProvider>
       <Stepper
-        variant="focus"
         value={1}
         onChange={(value) => {
           alert(`Hi ${value}`)
@@ -137,12 +135,7 @@ import { ThemeProvider, Stepper } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Stepper
-        variant="focus"
-        value={0}
-        unitMultiplier={5}
-        label="stepper number"
-      ></Stepper>
+      <Stepper value={0} unitMultiplier={5} label="stepper number"></Stepper>
     </ThemeProvider>
   )
 }
