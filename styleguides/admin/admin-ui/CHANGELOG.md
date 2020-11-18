@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.59.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.59.0...@vtex/admin-ui@0.59.1) (2020-11-18)
+
+
+### Bug Fixes
+
+* **collapsible:** handle styleOverrides property on Collapsible.Header ([bc6e93b](https://github.com/vtex/onda/commit/bc6e93bb5b967e402ad66c5680dc47b704d6a561))
+
+
+
+
+
 # [0.59.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.58.0...@vtex/admin-ui@0.59.0) (2020-11-17)
 
 
