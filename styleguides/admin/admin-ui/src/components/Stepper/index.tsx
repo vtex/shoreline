@@ -115,8 +115,8 @@ export function Stepper(props: StepperProps) {
             position: 'absolute',
             top: 14,
             left: 12,
-            width: 24,
-            height: 24,
+            width: 20,
+            height: 20,
           }}
         />
 

@@ -68,8 +68,8 @@ exports[`Stepper tests should match snapshot 1`] = `
   background-color: transparent;
   color: #2953B2;
   font-size: 0.75rem;
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   top: 14px;
