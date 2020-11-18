@@ -29,11 +29,11 @@ describe('Alert tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Alert data-testid="alert" visible styleOverrides={{ bg: 'black' }} />
+        <Alert data-testid="alert" visible styleOverrides={{ bg: 'coral' }} />
       </ThemeProvider>
     )
 
-    expect(getByTestId('alert')).toHaveStyleRule('background-color', 'black')
+    expect(getByTestId('alert')).toHaveStyleRule('background-color', 'coral')
   })
 
   it('should match snapshot', () => {
