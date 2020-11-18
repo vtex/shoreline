@@ -5,7 +5,7 @@ fullPage: true
 
 # Icons
 
-The icon set of the AdminV4.
+The icon set of the AdminUI.
 
 ## Usage
 

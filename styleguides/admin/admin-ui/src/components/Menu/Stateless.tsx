@@ -1,5 +1,6 @@
 import React, { cloneElement, Children, MouseEvent, ReactNode } from 'react'
 import { isElement } from 'react-is'
+import { IconContainer } from '@vtex/admin-ui-icons'
 
 import {
   ReakitMenu,
@@ -57,23 +58,25 @@ export function StatelessMenu(props: StatelessMenuProps) {
         styles={styleOverrides}
         data-testid={boxTestId}
       >
-        {Children.map(
-          children,
-          (child, index) =>
-            isElement(child) && (
-              <ReakitMenuItem {...state} {...child.props} key={index}>
-                {(itemProps) =>
-                  cloneElement(child, {
-                    ...itemProps,
-                    onClick: (e: MouseEvent) => {
-                      hideOnClick && state.hide()
-                      itemProps?.onClick?.(e)
-                    },
-                  })
-                }
-              </ReakitMenuItem>
-            )
-        )}
+        <IconContainer space="small">
+          {Children.map(
+            children,
+            (child, index) =>
+              isElement(child) && (
+                <ReakitMenuItem {...state} {...child.props} key={index}>
+                  {(itemProps) =>
+                    cloneElement(child, {
+                      ...itemProps,
+                      onClick: (e: MouseEvent) => {
+                        hideOnClick && state.hide()
+                        itemProps?.onClick?.(e)
+                      },
+                    })
+                  }
+                </ReakitMenuItem>
+              )
+          )}
+        </IconContainer>
       </Box>
     </ReakitMenu>
   )
