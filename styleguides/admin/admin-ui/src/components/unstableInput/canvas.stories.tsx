@@ -4,7 +4,6 @@ import { IconAdd } from '@vtex/admin-ui-icons'
 
 import { unstableInput as Input, useInputState } from './index'
 import { Box } from '../Box'
-import { Label } from '../Label'
 
 export default {
   title: 'system-next/input',

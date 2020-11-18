@@ -96,7 +96,7 @@ export interface TextFieldProps
   /** Input Suffix */
   suffix?: string
   /** Input Type */
-  type?: string
+  type?: 'text' | 'password'
   /**
    * Input state
    */

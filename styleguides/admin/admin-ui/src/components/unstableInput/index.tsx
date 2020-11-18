@@ -16,7 +16,7 @@ export const unstableInput = forwardRef(function Input(
     onClear,
     styleOverrides,
     id,
-    type,
+    type = 'text',
     optionalFeature,
     ...htmlProps
   } = props
@@ -94,7 +94,7 @@ export const unstableInput = forwardRef(function Input(
             display: 'flex',
           }}
         >
-          {!!onClear && !type && value.toString().length > 0 && (
+          {!!onClear && type === 'text' && value.toString().length > 0 && (
             <Box
               element="button"
               themeKey="components.input.clear-button-style"
@@ -111,7 +111,7 @@ export const unstableInput = forwardRef(function Input(
               {suffix}
             </Box>
           )}
-          {!!type && (
+          {type === 'password' && (
             <Box
               element="button"
               themeKey="components.input.password-button-style"
@@ -139,12 +139,12 @@ function getVariants({
   type,
   onClear,
 }: Pick<InputProps, 'icon' | 'suffix' | 'type' | 'onClear'>) {
-  if (!icon && !suffix && !type && !onClear) {
+  if (!icon && !suffix && type === 'text' && !onClear) {
     return 'default'
   }
 
-  if (type) {
-    return `with${type ? '-type' : ''}`
+  if (type === 'password') {
+    return `with${type ? '-password' : ''}`
   }
 
   return `with${icon ? '-icon' : ''}${suffix ? '-suffix' : ''}${
@@ -182,7 +182,7 @@ export interface InputProps extends Omit<ReakitInputProps, 'ref'>, Overridable {
   /** Input Suffix */
   suffix?: string
   /** Input Type */
-  type?: string
+  type?: 'text' | 'password'
   /** onClear input */
   onClear?: () => void
   /**

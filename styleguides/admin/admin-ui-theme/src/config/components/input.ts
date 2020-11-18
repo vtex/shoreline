@@ -107,16 +107,16 @@ const suffixStyle = {
   fontSize: 1,
 }
 
-const passwordStyle = {
-  color: 'muted.1',
-  paddingTop: '14px',
-  marginTop: 'px',
-  width: '32px',
-  paddingLeft: 3,
-  lineHeight: 'body',
-  fontVariationSettings: 'regular',
-  fontSize: 1,
-}
+// const passwordStyle = {
+//   color: 'muted.1',
+//   paddingTop: '14px',
+//   marginTop: 'px',
+//   width: '32px',
+//   paddingLeft: 3,
+//   lineHeight: 'body',
+//   fontVariationSettings: 'regular',
+//   fontSize: 1,
+// }
 
 const passwordButtonStyle = {
   color: 'muted.1',
@@ -151,7 +151,7 @@ const passwordButtonStyle = {
 
 const inputVariants = {
   default: { ...inputStyle },
-  'with-type': { ...inputStyle, paddingRight: '64px' },
+  'with-password': { ...inputStyle, paddingRight: '64px' },
   'with-icon': { ...inputStyle, paddingLeft: '44px' },
   'with-suffix': { ...inputStyle, paddingRight: '64px' },
   'with-clear': {
@@ -192,7 +192,7 @@ export default {
   'icon-style': { ...iconStyle },
   'suffix-style': { ...suffixStyle },
   'clear-button-style': { ...clearButtonStyle },
-  'password-style': { ...passwordStyle },
+  // 'password-style': { ...passwordStyle },
   'password-button-style': { ...passwordButtonStyle },
   ...inputVariants,
 }
