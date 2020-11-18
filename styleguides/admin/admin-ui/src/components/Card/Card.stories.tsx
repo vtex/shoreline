@@ -56,7 +56,7 @@ export const WithColumns = () => {
 
 export const WithoutPadding = () => {
   return (
-    <Card styleOverrides={{ padding: 0 }}>
+    <Card styleOverrides={{ padding: 0 }} width={500}>
       <Heading padding={6}>Our People</Heading>
       <img
         width="100%"

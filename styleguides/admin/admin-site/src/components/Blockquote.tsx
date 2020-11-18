@@ -13,6 +13,7 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
 
     useProps(options, htmlProps) {
       const isNext = options.next === 'true'
+      const palette = options.palette ?? 'warning'
 
       const nextStyles = isNext
         ? {
@@ -38,8 +39,10 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
         ),
         className: cn({
           color: 'text.primary',
-          backgroundColor: `${options.palette ?? 'warning'}.washed.base`,
-          borderLeftColor: `${options.palette ?? 'warning'}.base`,
+          backgroundColor: `${
+            palette === 'primary' ? 'secondary.base' : `${palette}.washed.base`
+          }`,
+          borderLeftColor: `${palette}.base`,
           borderLeftWidth: 8,
           borderLeftStyle: 'solid',
           paddingY: 5,

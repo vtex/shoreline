@@ -4,9 +4,13 @@ path: /collapsible-group/
 
 # CollapsibleGroup
 
-A Component that groups Collapsible components
+A Component that groups Collapsible components. It's a container that separates its children with an `<hr>` element.
 
-- version: beta.1
+<blockquote palette="primary">
+
+You may want to check the [Collapsible Documentation](/collapsible/) before using the CollapsibleGroup component.
+
+</blockquote>
 
 ## Behavior
 
@@ -28,29 +32,29 @@ function Example() {
       <CollapsibleGroup styleOverrides={{ width: 400 }}>
         <CollapsibleGroup.Item state={promos}>
           <CollapsibleGroup.Item.Header label="Promos" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
-            <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
-            <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
-            <br />
-            <Text variant="action">TMP OFERTA - 899 OIS : CAE SEMANA</Text>
-            <Text variant="action">ALEMANA</Text>
-            <br />
-            <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
+          <CollapsibleGroup.Item.Content>
+            <Text variant="action">
+              APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
+              ALEMANA
+            </Text>
           </CollapsibleGroup.Item.Content>
         </CollapsibleGroup.Item>
         <CollapsibleGroup.Item state={marketing}>
           <CollapsibleGroup.Item.Header label="Marketing" />
           <CollapsibleGroup.Item.Content>
-            <Set orientation="verical">
-              <Text variant="small" c="muted.2" fs="0">
-                Partner
+            <Set orientation="vertical">
+              <Text
+                variant="small"
+                styleOverrides={{ color: 'text.secondary' }}
+              >
+                Partner - app_ios
               </Text>
-              <Text variant="small">app_ios</Text>
-              <br />
-              <Text variant="small" c="muted.2" fs="0">
-                Campaign
+              <Text
+                variant="small"
+                styleOverrides={{ color: 'text.secondary' }}
+              >
+                Campaign - Campaign Name
               </Text>
-              <Text variant="small">Campaign name</Text>
             </Set>
           </CollapsibleGroup.Item.Content>
         </CollapsibleGroup.Item>
@@ -72,63 +76,17 @@ import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
 
 ## Variation
 
-### Basic
-
-```jsx
-import {
-  CollapsibleGroup,
-  useCollapsible,
-  ThemeProvider,
-  Text,
-} from '@vtex/admin-ui'
-
-function Example() {
-  const promos = useCollapsible()
-  const marketing = useCollapsible()
-
-  return (
-    <ThemeProvider>
-      <CollapsibleGroup w={400}>
-        <CollapsibleGroup.Item state={promos}>
-          <CollapsibleGroup.Item.Header label="Promos" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
-            <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
-            <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
-            <br />
-            <Text variant="action">TMP OFERTA - 899 OIS : CAE SEMANA</Text>
-            <Text variant="action">ALEMANA</Text>
-            <br />
-            <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-        <CollapsibleGroup.Item state={marketing}>
-          <CollapsibleGroup.Item.Header label="Marketing" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
-            <Text variant="small" c="muted.2" fs="0">
-              Partner
-            </Text>
-            <Text variant="small">app_ios</Text>
-            <br />
-            <Text variant="small" c="muted.2" fs="0">
-              Campaign
-            </Text>
-            <Text variant="small">Campaign name</Text>
-          </CollapsibleGroup.Item.Content>
-        </CollapsibleGroup.Item>
-      </CollapsibleGroup>
-    </ThemeProvider>
-  )
-}
-```
-
 ### Nested
 
+It is possible to render a `CollapsibleGroup` inside a `CollapsibleGroup.Item`, just pass the `CollapsibleGroup` as a child of `CollapsibleGroup.Item.Content`. Note that when nesting, each internal collapsible will have different padding from the one on the root. Check [Nested Collapsible Documentation](/collapsible/#nested) for detailed info.
+
 ```jsx
 import {
   Text,
   useCollapsible,
   CollapsibleGroup,
   ThemeProvider,
+  Set,
 } from '@vtex/admin-ui'
 
 function Example() {
@@ -143,57 +101,42 @@ function Example() {
 
   function PromosContent() {
     return (
-      <>
-        <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
-        <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
-        <br />
-        <Text variant="action">TMP OFERTA - 899 OIS : CAE SEMANA</Text>
-        <Text variant="action">ALEMANA</Text>
-        <br />
-        <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
-      </>
+      <Text variant="action">
+        APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
+        ALEMANA
+      </Text>
     )
   }
 
   function PartnershipsContent() {
     return (
-      <>
-        <Text variant="small" c="muted.2" fs="0">
-          Partner
+      <Set orientation="vertical">
+        <Text variant="small" styleOverrides={{ color: 'text.secondary' }}>
+          Partner - app_ios
         </Text>
-        <Text variant="small">app_ios</Text>
-        <br />
-        <Text variant="small" c="muted.2" fs="0">
-          Campaign
+        <Text variant="small" styleOverrides={{ color: 'text.secondary' }}>
+          Campaign - Campaing Name
         </Text>
-        <Text variant="small">Campaign name</Text>
-      </>
+      </Set>
     )
   }
 
   function PackagesContent() {
     return (
-      <>
-        <Text variant="small" c="muted.2" fs="0">
-          Bill
+      <Set orientation="vertical" spacing={2}>
+        <Text variant="small" styleOverrides={{ color: 'primary.base' }}>
+          N 00025755809
         </Text>
-        <Text c="primary.base">N 00025755809</Text>
-        <br />
-        <Text variant="small" c="muted.2" fs="0">
-          Total cost of items
+        <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
+          Total cost of items - 39,00 BRL
         </Text>
-        <Text c="text">39,00 BRL</Text>
-        <br />
-        <Text variant="small" c="muted.2" fs="0">
-          Type
+        <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
+          Type - Total Express
         </Text>
-        <Text>Total Express</Text>
-        <br />
-        <Text variant="small" c="muted.2" fs="0">
-          Tracking
+        <Text styleOverrides={{ color: 'primary.base' }}>
+          Tracking - XSDFE231675
         </Text>
-        <Text c="primary.base">XSDFE231675</Text>{' '}
-      </>
+      </Set>
     )
   }
 
@@ -202,13 +145,13 @@ function Example() {
       <CollapsibleGroup>
         <CollapsibleGroup.Item state={promos}>
           <CollapsibleGroup.Item.Header label="Promos" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
+          <CollapsibleGroup.Item.Content>
             <PromosContent />
           </CollapsibleGroup.Item.Content>
         </CollapsibleGroup.Item>
         <CollapsibleGroup.Item state={marketing}>
           <CollapsibleGroup.Item.Header label="Marketing" />
-          <CollapsibleGroup.Item.Content display="flex" direction="col">
+          <CollapsibleGroup.Item.Content>
             <PartnershipsContent />
           </CollapsibleGroup.Item.Content>
         </CollapsibleGroup.Item>
@@ -226,7 +169,7 @@ function Example() {
               key={index}
             >
               <CollapsibleGroup.Item.Header label={value} />
-              <CollapsibleGroup.Item.Content display="flex" direction="col">
+              <CollapsibleGroup.Item.Content>
                 <PackagesContent />
               </CollapsibleGroup.Item.Content>
             </CollapsibleGroup.Item>
@@ -238,7 +181,7 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <CollapsibleGroup w={400}>
+      <CollapsibleGroup styleOverrides={{ width: 400 }}>
         <CollapsibleGroup.Item state={promosAndPartner}>
           <CollapsibleGroup.Item.Header label="Promos and Partnerships" />
           <CollapsibleGroup.Item.Content>
@@ -257,26 +200,28 @@ function Example() {
 }
 ```
 
-### Composites
+## Composites
 
-- `<CollapsibleGroup.Item>`
-- `<CollapsibleGroup.Item.Header>`
-- `<CollapsibleGroup.Item.Content>`
+`<CollapsibleGroup.Item>` -> Same as [Collapsible](/collapsible/)
 
-> 💡 Check the Collapsible Component Documentation for detailed info.
+`<CollapsibleGroup.Item.Header>` -> Same as [Collapsible.Header](/collapsible/#header)
 
-### State
+`<CollapsibleGroup.Item.Content>` -> Same as [Collapsible.Content](/collapsible/#content)
 
-- `useCollapsible` hook
+## State
 
-Since the `CollapsibleGroup.Item` is a Collapsible Component, you should use this hook to add state logic to them.
+As the `CollapsibleGroup.Item` is a Collapsible component, you will need to handle state logic for them. You can check [useCollapsible Documentation](/collapsible/#usecollapsible-hook) for detailed info.
 
-### Customization
+## Customization
 
-`CollapsibleGroup` is a container component, so you can customize it using `Border`, `Space`, `Color`, and `Layout` tokens defined in our theme, or you can do it using the `sx` prop as well.
-
-> 💡 You can check the props table to verify which token you can use.
+You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides) property to handle different styles. The `CollapsibleGroup` and its composites accepts this property.
 
 ## Props
 
-<proptypes heading="CollapsibleGroup" component="CollapsibleGroup" />
+<propdetails heading="CollapsibleGroup" component="CollapsibleGroup"></propdetails>
+
+<propdetails heading="CollapsibleGroup.Item" component="Collapsible"></propdetails>
+
+<propdetails heading="CollapsibleGroup.Item.Header" component="Header"></propdetails>
+
+<propdetails heading="CollapsibleGroup.Item.Content" component="Content"></propdetails>

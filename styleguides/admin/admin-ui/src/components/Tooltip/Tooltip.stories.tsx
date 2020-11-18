@@ -1,10 +1,10 @@
 import React, { Ref } from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Icon, IconAddChannel, IconCaret, IconProps } from '../../icons'
+import { Icon, IconAddChannel, IconProps } from '../../icons'
 import { Tooltip, TooltipProps } from './index'
 import { Button } from '../Button'
-import { Box } from '../Box'
+import { Tag } from '../Tag'
 import { Text } from '../Text'
 import { Set } from '../Set'
 
@@ -20,46 +20,21 @@ export const StringLabel: Story<TooltipProps> = () => (
 )
 
 export const ReactNodeLabel: Story<TooltipProps> = () => {
-  function Tag() {
-    return (
-      <Box marginY={2}>
-        <Text
-          variant="small"
-          styleOverrides={{
-            bg: 'success.washed.base',
-            color: 'success.pressed',
-            borderRadius: '16px',
-          }}
-          padding={1}
-        >
-          Ready for Handling
-        </Text>
-      </Box>
-    )
-  }
-
   return (
-    <Set>
-      <Tooltip
-        label={
-          <Set orientation="vertical">
-            <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
-              Previous Order:
-            </Text>
-            <Text variant="small" margin={1}>
-              1020391283 (21031-213)
-            </Text>
-            <Tag />
-            <Text variant="small" margin={3}>
-              João da Silva
-            </Text>
-            <Text variant="small">49,00 BRL</Text>
-          </Set>
-        }
-      >
-        <Button icon={<IconCaret direction="left" />} variant="tertiary" />
-      </Tooltip>
-    </Set>
+    <Tooltip
+      label={
+        <Set orientation="vertical" spacing={2}>
+          <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+            Previous Order: 102183 (211-213)
+          </Text>
+          <Tag palette="green" label="Ready for Handling" size="small" />
+          <Text variant="small">João da Silva</Text>
+          <Text variant="small">49,00 BRL</Text>
+        </Set>
+      }
+    >
+      <Button icon={<IconAddChannel />} variant="tertiary" />
+    </Tooltip>
   )
 }
 

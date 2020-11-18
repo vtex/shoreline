@@ -6,8 +6,6 @@ path: /tooltip/
 
 Tooltip follows the WAI-ARIA Tooltip Pattern. It's a popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
 
-- version: beta.1
-
 ## Behavior
 
 ```jsx
@@ -17,7 +15,7 @@ function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconAddChannel />} variant="tertiary" />
+        <Button icon={<IconAddChannel />} variant="text" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -26,17 +24,21 @@ function Example() {
 
 ## Installation
 
-```bash
+```static
 yarn add @vtex/admin-ui
 ```
 
-```tsx
+```jsx static
 import { Tooltip } from '@vtex/admin-ui'
 ```
 
 ## Variation
 
-String label
+### Label
+
+The `label` property can be of `string` or `ReactNode` type. Check the examples below!
+
+#### String Example
 
 ```jsx
 import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
@@ -45,65 +47,63 @@ function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconAddChannel />} variant="tertiary" />
+        <Button icon={<IconAddChannel />} variant="text" />
       </Tooltip>
     </ThemeProvider>
   )
 }
 ```
 
-ReactNode label
+#### ReactNode Example
 
 ```jsx
 import {
   ThemeProvider,
-  Box,
   Text,
   Tooltip,
+  Tag,
+  Set,
   Button,
-  IconCaret,
+  IconAddChannel,
 } from '@vtex/admin-ui'
 
 function Example() {
-  function Tag() {
-    return (
-      <Box my="2">
-        <Text
-          variant="small"
-          sx={{ borderRadius: '16px' }}
-          p="1"
-          c="success.pressed"
-          bg="success.washed.base"
-        >
-          Ready for Handling
-        </Text>
-      </Box>
-    )
-  }
-
   return (
     <ThemeProvider>
-      <Box display="flex" w="full">
-        <Tooltip
-          label={
-            <Box display="flex" direction="col">
-              <Text variant="small" c="muted.2">
-                Previous Order:
-              </Text>
-              <Text variant="small" mb="1">
-                1020391283 (21031-213)
-              </Text>
-              <Tag />
-              <Text variant="small" mt="3">
-                João da Silva
-              </Text>
-              <Text variant="small">49,00 BRL</Text>
-            </Box>
-          }
-        >
-          <Button icon={<IconCaret direction="left" />} variant="tertiary" />
-        </Tooltip>
-      </Box>
+      <Tooltip
+        label={
+          <Set orientation="vertical" spacing={2}>
+            <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+              Previous Order: 102183 (211-213)
+            </Text>
+            <Tag palette="green" label="Ready for Handling" size="small" />
+            <Text variant="small">João da Silva</Text>
+            <Text variant="small">49,00 BRL</Text>
+          </Set>
+        }
+      >
+        <Button icon={<IconAddChannel />} variant="text" />
+      </Tooltip>
+    </ThemeProvider>
+  )
+}
+```
+
+### Placement
+
+You can use the `placement` property, to change the position that the Tooltip popup will appears. By default, the property value is `top`, but you can also use the following values:
+
+`bottom` | `right` | `left` | `auto` | `auto-start` | `auto-end` | `top-start` | `top-end` | `right-start` | `right-end` | `bottom-end` | `bottom-start` | `left-end` | `left-start`
+
+```jsx
+import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Tooltip label="Tooltip Label" placement="right">
+        <Button icon={<IconAddChannel />} variant="text" />
+      </Tooltip>
     </ThemeProvider>
   )
 }
@@ -111,13 +111,31 @@ function Example() {
 
 ## Customization
 
-You can customize the tooltip using the `sx` prop.
+You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides) property to handle different styles.
+
+### Example
+
+For example, you can reduce the `Tooltip` opacity. One way to do this is by using the `styleOverrides` property, check the example below!
+
+```jsx
+import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Tooltip label="Tooltip Label" styleOverrides={{ opacity: 0.8 }}>
+        <Button icon={<IconAddChannel />} variant="text" />
+      </Tooltip>
+    </ThemeProvider>
+  )
+}
+```
 
 ## Limitations
 
 When using the Tooltip with a custom component, you must provide a `ref` for the Popup to work. You can easily do this using the `React.forwardRef`. Check the example below to see how it works.
 
-##### Custom component with forwardRef
+### Custom Component
 
 ```jsx static
 import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
@@ -125,22 +143,8 @@ import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
 function Example() {
   const CustomIcon = React.forwardRef(
     (props: IconProps, ref: Ref<SVGSVGElement>) => {
-      const {
-        viewBox = '0 0 12 12',
-        width = 24,
-        height = 24,
-        ...restProps
-      } = props
-
       return (
-        <Icon
-          ref={ref}
-          width={width}
-          height={height}
-          viewBox={viewBox}
-          fill="none"
-          {...restProps}
-        >
+        <Icon ref={ref} {...props}>
           <circle cx="6" cy="6" r="6" fill="#D7DADF" />
           <path
             d="M6.00016 6.90246V6.72246C6.00016 6.13221 6.36466 5.81271 6.73066 5.56746C7.08766 5.32746 7.44541 5.01396 7.44541 4.43571C7.44541 3.63771 6.79891 2.99121 6.00091 2.99121C5.20291 2.99121 4.55566 3.63621 4.55566 4.43421"

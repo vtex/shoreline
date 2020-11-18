@@ -20,30 +20,22 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
       <CollapsibleGroup.Item state={promos}>
         <CollapsibleGroup.Item.Header label="Promos" />
         <CollapsibleGroup.Item.Content>
-          <Set orientation="vertical">
-            <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
-            <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
-            <br />
-            <Text variant="action">TMP OFERTA - 899 OIS : CAE SEMANA</Text>
-            <Text variant="action">ALEMANA</Text>
-            <br />
-            <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
-          </Set>
+          <Text variant="action">
+            APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
+            ALEMANA
+          </Text>
         </CollapsibleGroup.Item.Content>
       </CollapsibleGroup.Item>
       <CollapsibleGroup.Item state={marketing}>
         <CollapsibleGroup.Item.Header label="Marketing" />
         <CollapsibleGroup.Item.Content>
           <Set orientation="vertical">
-            <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
-              Partner
+            <Text variant="small" styleOverrides={{ color: 'text.secondary' }}>
+              Partner - app_ios
             </Text>
-            <Text variant="small">app_ios</Text>
-            <br />
-            <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
-              Campaign
+            <Text variant="small" styleOverrides={{ color: 'text.secondary' }}>
+              Campaign - Campaing Name
             </Text>
-            <Text variant="small">Campaign name</Text>
           </Set>
         </CollapsibleGroup.Item.Content>
       </CollapsibleGroup.Item>
@@ -63,59 +55,81 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
 
   function PromosContent() {
     return (
-      <>
-        <Text variant="action">APP BRINDE - 59458 - MOBFIQ R$99</Text>
-        <Text variant="action">APP FRETE 99 - MOBFIQ</Text>
-        <br />
-        <Text variant="action">TMP OFERTA - 899 OIS : CAE SEMANA</Text>
-        <Text variant="action">ALEMANA</Text>
-        <br />
-        <Text variant="action">FLETE GRATIS - CUP : PLAN SOS 28092020</Text>
-      </>
+      <Text variant="action">
+        APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
+        ALEMANA
+      </Text>
     )
   }
 
   function PartnershipsContent() {
     return (
-      <>
-        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
-          Partner
+      <Set orientation="vertical">
+        <Text variant="small" styleOverrides={{ color: 'text.secondary' }}>
+          Partner - app_ios
         </Text>
-        <Text variant="small">app_ios</Text>
-        <br />
-        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
-          Campaign
+        <Text variant="small" styleOverrides={{ color: 'text.secondary' }}>
+          Campaign - Campaing Name
         </Text>
-        <Text variant="small">Campaign name</Text>
-      </>
+      </Set>
     )
   }
 
   function PackagesContent() {
     return (
-      <>
-        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
-          Bill
-        </Text>
+      <Set orientation="vertical" spacing={2}>
         <Text variant="small" styleOverrides={{ color: 'primary.base' }}>
           N 00025755809
         </Text>
-        <br />
-        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
-          Total cost of items
+        <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
+          Total cost of items - 39,00 BRL
         </Text>
-        <Text styleOverrides={{ color: 'muted.1' }}>39,00 BRL</Text>
-        <br />
-        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
-          Type
+        <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
+          Type - Total Express
         </Text>
-        <Text>Total Express</Text>
-        <br />
-        <Text variant="small" styleOverrides={{ color: 'muted.1' }}>
-          Tracking
+        <Text styleOverrides={{ color: 'primary.base' }}>
+          Tracking - XSDFE231675
         </Text>
-        <Text styleOverrides={{ color: 'muted.1' }}>XSDFE231675</Text>{' '}
-      </>
+      </Set>
+    )
+  }
+
+  function PromosGroup() {
+    return (
+      <CollapsibleGroup>
+        <CollapsibleGroup.Item state={promos}>
+          <CollapsibleGroup.Item.Header label="Promos" />
+          <CollapsibleGroup.Item.Content>
+            <PromosContent />
+          </CollapsibleGroup.Item.Content>
+        </CollapsibleGroup.Item>
+        <CollapsibleGroup.Item state={marketing}>
+          <CollapsibleGroup.Item.Header label="Marketing" />
+          <CollapsibleGroup.Item.Content>
+            <PartnershipsContent />
+          </CollapsibleGroup.Item.Content>
+        </CollapsibleGroup.Item>
+      </CollapsibleGroup>
+    )
+  }
+
+  function PackagesGroup() {
+    return (
+      <CollapsibleGroup>
+        {packages.map((value, index) => {
+          return (
+            <CollapsibleGroup.Item
+              state={index ? packageOne : packageTwo}
+              key={index}
+            >
+              <CollapsibleGroup.Item.Header label={value} />
+              <CollapsibleGroup.Item.Content>
+                <PackagesContent />
+              </CollapsibleGroup.Item.Content>
+            </CollapsibleGroup.Item>
+          )
+        })}
+      </CollapsibleGroup>
     )
   }
 
@@ -124,46 +138,13 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
       <CollapsibleGroup.Item state={promosAndPartner}>
         <CollapsibleGroup.Item.Header label="Promos and Partnerships" />
         <CollapsibleGroup.Item.Content>
-          <CollapsibleGroup>
-            <CollapsibleGroup.Item state={promos}>
-              <CollapsibleGroup.Item.Header label="Promos" />
-              <CollapsibleGroup.Item.Content>
-                <Set orientation="vertical">
-                  <PromosContent />
-                </Set>
-              </CollapsibleGroup.Item.Content>
-            </CollapsibleGroup.Item>
-            <CollapsibleGroup.Item state={marketing}>
-              <CollapsibleGroup.Item.Header label="Marketing" />
-              <CollapsibleGroup.Item.Content>
-                <Set orientation="vertical">
-                  <PartnershipsContent />
-                </Set>
-              </CollapsibleGroup.Item.Content>
-            </CollapsibleGroup.Item>
-          </CollapsibleGroup>
+          <PromosGroup />
         </CollapsibleGroup.Item.Content>
       </CollapsibleGroup.Item>
       <CollapsibleGroup.Item state={shipping}>
         <CollapsibleGroup.Item.Header label="Shipping" />
         <CollapsibleGroup.Item.Content>
-          <CollapsibleGroup>
-            {packages.map((value, index) => {
-              return (
-                <CollapsibleGroup.Item
-                  state={index ? packageOne : packageTwo}
-                  key={index}
-                >
-                  <CollapsibleGroup.Item.Header label={value} />
-                  <CollapsibleGroup.Item.Content>
-                    <Set orientation="vertical">
-                      <PackagesContent />
-                    </Set>
-                  </CollapsibleGroup.Item.Content>
-                </CollapsibleGroup.Item>
-              )
-            })}
-          </CollapsibleGroup>
+          <PackagesGroup />
         </CollapsibleGroup.Item.Content>
       </CollapsibleGroup.Item>
     </CollapsibleGroup>

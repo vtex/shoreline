@@ -6,8 +6,6 @@ path: /tag/
 
 Tag is a compact element that represents an input, attribute, or action. It renders a `div` element.
 
-- version: beta.1
-
 ## Behavior
 
 ```jsx
@@ -19,7 +17,7 @@ function Example() {
       <Tag
         icon={<IconFavorite />}
         label="Here goes the label!"
-        handleDelete={() => console.log('delete')}
+        handleDelete={() => window.alert('Tag deleted')}
       />
     </ThemeProvider>
   )
@@ -40,6 +38,8 @@ import { Tag, TagProps } from '@vtex/admin-ui'
 
 ### Sizes
 
+By default, the size property has a `regular` value, but you can also set it to `small`.
+
 ```jsx
 import { Tag, ThemeProvider } from '@vtex/admin-ui'
 
@@ -55,13 +55,15 @@ function Example() {
 
 ### Palettes
 
+By default, the palette property has the `blue` value, but you can also set it to the following values: `red`, `yellow`, `green`, `black`, and `purple`.
+
 ```jsx
 import { Tag, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Tag label="Rio de Janeiro" palette="blue" />
+      <Tag label="Rio de Janeiro" />
       <Tag label="Rio de Janeiro" palette="red" />
       <Tag label="Rio de Janeiro" palette="yellow" />
       <Tag label="Rio de Janeiro" palette="green" />
@@ -74,19 +76,26 @@ function Example() {
 
 ### Deletable
 
+You can add the `handleDelete` property to configure the tag as deletable. When this function is defined the tag will have a `button` where you can handle click events.
+
 ```jsx
 import { Tag, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
-      <Tag label="Rio de Janeiro" handleDelete={() => console.log('delete')} />
+      <Tag
+        label="Rio de Janeiro"
+        handleDelete={() => window.alert('Tag deleted')}
+      />
     </ThemeProvider>
   )
 }
 ```
 
-### With Icon
+### Icon
+
+You can add one Icon on the left side of the `Tag`. Just use the `icon` property.
 
 ```jsx
 import { Tag, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
@@ -102,9 +111,28 @@ function Example() {
 
 ## Customization
 
-You can use **Space Tokens**, **Layout Tokens**, **Flex Tokens**, and **Sx prop** to add styles to the tag component.
+You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides) property to handle different styles.
 
-> Check the theme documentation section for detailed info
+### Example
+
+For example, you can add a margin to the `Tag`. One way to do this is by using the `styleOverrides` property, check the example below!
+
+```jsx
+import { Tag, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Tag
+        icon={<IconFavorite />}
+        styleOverrides={{ margin: 4 }}
+        handleDelete={() => window.alert('Tag deleted')}
+        label="Rio de Janeiro"
+      />
+    </ThemeProvider>
+  )
+}
+```
 
 ## Props
 
