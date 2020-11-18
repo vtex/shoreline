@@ -24,6 +24,7 @@
 - section: Typography
   paths:
     - /typography/variable-font/
+    - /typography/anchor/
     - /typography/heading/
     - /typography/list/
     - /typography/paragraph/
@@ -50,6 +51,7 @@
     - /form/radio-group/
     - /form/radio/
     - /form/text-field/
+    - /form/text-area/
     - /form/toggle/
 - section: Deep dive 🐋
   paths:
