@@ -1,6 +1,6 @@
 {
   "name": "admin-site",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "private": true,
   "description": "AdminUI site",
   "license": "MIT",
@@ -13,13 +13,13 @@
     "develop": "gatsby develop -H 0.0.0.0 -p 8000"
   },
   "dependencies": {
-    "@vtex/admin-ui-icons": "*",
     "@emotion/core": "10.0.35",
     "@types/lodash": "4.14.161",
     "@types/qs": "6.9.5",
     "@types/react-helmet": "6.1.0",
     "@types/yup": "0.29.7",
-    "@vtex/admin-ui": "^0.59.1",
+    "@vtex/admin-ui": "^0.60.0",
+    "@vtex/admin-ui-icons": "^0.1.0",
     "babel-plugin-extract-react-types": "^0.1.10",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-gatsby": "^0.5.14",

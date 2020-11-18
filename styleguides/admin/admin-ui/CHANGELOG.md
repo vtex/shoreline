@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.60.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.59.1...@vtex/admin-ui@0.60.0) (2020-11-18)
+
+
+### Bug Fixes
+
+* **book:** remove icon book ([b24bb14](https://github.com/vtex/onda/commit/b24bb14c59f2227d32d3d099a42502e9f07aa40c))
+* **build:** remove unkown icons ([0311602](https://github.com/vtex/onda/commit/03116029e495bd0daee9cd33063423b9d82613ee))
+
+
+### Features
+
+* **admin-ui-icons:** create new icons package ([aa5817c](https://github.com/vtex/onda/commit/aa5817c96259555949744c0207b0106cd4ffd314))
+* **icons:** add icon container component ([fe63253](https://github.com/vtex/onda/commit/fe6325391215916984c99936c3b3f518d14f9ed4))
+
+
+
+
+
 ## [0.59.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.59.0...@vtex/admin-ui@0.59.1) (2020-11-18)
 
 

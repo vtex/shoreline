@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.1.0...@vtex/admin-ui-system@0.2.0) (2020-11-18)
+
+
+### Features
+
+* **admin-ui-icons:** create new icons package ([aa5817c](https://github.com/vtex/onda/commit/aa5817c96259555949744c0207b0106cd4ffd314))
+* **icons:** add essential, shell, ecommerce and rich-text icons ([8adbb38](https://github.com/vtex/onda/commit/8adbb383347bb9c79dd81f2d9742aad42695d05f))
+
+
+
+
+
 # 0.1.0 (2020-11-10)
 
 

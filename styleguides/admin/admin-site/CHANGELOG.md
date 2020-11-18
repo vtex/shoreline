@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.4.3...admin-site@0.5.0) (2020-11-18)
+
+
+### Bug Fixes
+
+* **build:** remove unkown icons ([0311602](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/03116029e495bd0daee9cd33063423b9d82613ee))
+
+
+### Features
+
+* **admin-ui-icons:** create new icons package ([aa5817c](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/aa5817c96259555949744c0207b0106cd4ffd314))
+* **icons:** add essential, shell, ecommerce and rich-text icons ([8adbb38](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/8adbb383347bb9c79dd81f2d9742aad42695d05f))
+
+
+
+
+
 ## [0.4.3](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.4.2...admin-site@0.4.3) (2020-11-18)
 
 **Note:** Version bump only for package admin-site
