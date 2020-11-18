@@ -1,7 +1,7 @@
 import React, { Ref } from 'react'
 import { forwardRef } from '@vtex/admin-ui-system'
+import { IconAction, IconCaret } from '@vtex/admin-ui-icons'
 
-import { IconActions, IconCaret } from '../../../icons'
 import { Button, ButtonProps } from '../../Button'
 
 /**
@@ -28,7 +28,7 @@ export const ActionButton = forwardRef(
     return (
       <Button
         ref={ref}
-        icon={isActions ? <IconActions /> : <IconCaret direction="down" />}
+        icon={isActions ? <IconAction /> : <IconCaret direction="down" />}
         iconPosition={iconPosition}
         {...buttonProps}
       />

@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
+import { IconAdd } from '@vtex/admin-ui-icons'
 
 import { unstableInput as Input } from './index'
 import { ThemeProvider } from '../../system'
-import { IconBook } from '../../icons'
 
 describe('Input tests', () => {
   it('should have overridable styles', () => {
@@ -28,18 +28,18 @@ describe('Input tests', () => {
         <Input value="Test1" readOnly />
         <Input onClear={() => {}} />
         <Input onClear={() => {}} value="Test2" readOnly />
-        <Input icon={<IconBook />} />
-        <Input icon={<IconBook />} value="Test3" readOnly />
-        <Input icon={<IconBook />} onClear={() => {}} />
-        <Input icon={<IconBook />} onClear={() => {}} value="Test4" readOnly />
+        <Input icon={<IconAdd />} />
+        <Input icon={<IconAdd />} value="Test3" readOnly />
+        <Input icon={<IconAdd />} onClear={() => {}} />
+        <Input icon={<IconAdd />} onClear={() => {}} value="Test4" readOnly />
         <Input suffix="Kg" />
         <Input suffix="Kg" value="Test5" readOnly />
         <Input suffix="Kg" onClear={() => {}} />
-        <Input suffix="Kg" icon={<IconBook />} />
-        <Input suffix="Kg" icon={<IconBook />} onClear={() => {}} />
+        <Input suffix="Kg" icon={<IconAdd />} />
+        <Input suffix="Kg" icon={<IconAdd />} onClear={() => {}} />
         <Input
           suffix="Kg"
-          icon={<IconBook />}
+          icon={<IconAdd />}
           onClear={() => {}}
           value="Test6"
           readOnly
@@ -62,20 +62,20 @@ describe('Input tests', () => {
           aria-label="input-clear-value"
           readOnly
         />
-        <Input icon={<IconBook />} aria-label="input-icon" />
+        <Input icon={<IconAdd />} aria-label="input-icon" />
         <Input
-          icon={<IconBook />}
+          icon={<IconAdd />}
           value="Test3"
           aria-label="input-icon-value"
           readOnly
         />
         <Input
-          icon={<IconBook />}
+          icon={<IconAdd />}
           onClear={() => {}}
           aria-label="input-icon-clear"
         />
         <Input
-          icon={<IconBook />}
+          icon={<IconAdd />}
           onClear={() => {}}
           value="Test4"
           aria-label="input-icon-clear-value"
@@ -89,16 +89,16 @@ describe('Input tests', () => {
           readOnly
         />
         <Input suffix="Kg" onClear={() => {}} aria-label="input-suffix-clear" />
-        <Input suffix="Kg" icon={<IconBook />} aria-label="input-suffix-icon" />
+        <Input suffix="Kg" icon={<IconAdd />} aria-label="input-suffix-icon" />
         <Input
           suffix="Kg"
-          icon={<IconBook />}
+          icon={<IconAdd />}
           onClear={() => {}}
           aria-label="input-suffix-icon-clear"
         />
         <Input
           suffix="Kg"
-          icon={<IconBook />}
+          icon={<IconAdd />}
           onClear={() => {}}
           value="Test6"
           aria-label="input-suffix-icon-clear-value"

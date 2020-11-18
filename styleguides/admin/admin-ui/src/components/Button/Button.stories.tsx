@@ -1,10 +1,10 @@
 import React from 'react'
 import { darken } from '@theme-ui/color'
 import { Story, Meta } from '@storybook/react'
+import { IconAppStore } from '@vtex/admin-ui-icons'
 
 import { Box } from '../Box'
 import { Button } from './index'
-import { IconAppStore } from '../../icons'
 import { Set } from '../Set'
 
 export default {

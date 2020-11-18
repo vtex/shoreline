@@ -27,6 +27,7 @@ const query = graphql`
         frontmatter {
           path
           next
+          fullPage
         }
       }
     }

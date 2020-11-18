@@ -9,8 +9,8 @@ import {
 } from 'react-beautiful-dnd'
 import faker from 'faker'
 import { SxStyleProp } from '@vtex/admin-ui-system'
+import { IconDrag } from '@vtex/admin-ui-icons'
 
-import { IconDrag } from '../../../icons'
 import { Table } from '../index'
 import { useTable } from '../useTable'
 

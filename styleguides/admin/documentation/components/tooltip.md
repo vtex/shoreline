@@ -9,13 +9,14 @@ Tooltip follows the WAI-ARIA Tooltip Pattern. It's a popup that displays informa
 ## Behavior
 
 ```jsx
-import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
+import { IconDuplicate } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconDuplicate />} variant="tertiary" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -41,13 +42,14 @@ The `label` property can be of `string` or `ReactNode` type. Check the examples 
 #### String Example
 
 ```jsx
-import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
+import { IconDuplicate } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconDuplicate />} variant="tertiary" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -57,15 +59,8 @@ function Example() {
 #### ReactNode Example
 
 ```jsx
-import {
-  ThemeProvider,
-  Text,
-  Tooltip,
-  Tag,
-  Set,
-  Button,
-  IconAddChannel,
-} from '@vtex/admin-ui'
+import { ThemeProvider, Text, Tooltip, Tag, Set, Button } from '@vtex/admin-ui'
+import { IconCaret, IconDuplicate } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -82,7 +77,7 @@ function Example() {
           </Set>
         }
       >
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconDuplicate />} variant="tertiary" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -96,13 +91,14 @@ You can use the `placement` property, to change the position that the Tooltip po
 `bottom` | `right` | `left` | `auto` | `auto-start` | `auto-end` | `top-start` | `top-end` | `right-start` | `right-end` | `bottom-end` | `bottom-start` | `left-end` | `left-start`
 
 ```jsx
-import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
+import { IconDuplicate } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconDuplicate />} variant="tertiary" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -118,13 +114,14 @@ You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides)
 For example, you can reduce the `Tooltip` opacity. One way to do this is by using the `styleOverrides` property, check the example below!
 
 ```jsx
-import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
+import { IconDuplicate } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
     <ThemeProvider>
       <Tooltip label="Tooltip Label" styleOverrides={{ opacity: 0.8 }}>
-        <Button icon={<IconAddChannel />} variant="text" />
+        <Button icon={<IconDuplicate />} variant="tertiary" />
       </Tooltip>
     </ThemeProvider>
   )
@@ -138,7 +135,8 @@ When using the Tooltip with a custom component, you must provide a `ref` for the
 ### Custom Component
 
 ```jsx static
-import { ThemeProvider, Tooltip, Button, IconAddChannel } from '@vtex/admin-ui'
+import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
+import { Icon } from '@vtex/admin-ui-icons'
 
 function Example() {
   const CustomIcon = React.forwardRef(

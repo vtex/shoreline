@@ -13,6 +13,7 @@
     "develop": "gatsby develop -H 0.0.0.0 -p 8000"
   },
   "dependencies": {
+    "@vtex/admin-ui-icons": "*",
     "@emotion/core": "10.0.35",
     "@types/lodash": "4.14.161",
     "@types/qs": "6.9.5",

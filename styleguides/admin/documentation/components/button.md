@@ -145,7 +145,8 @@ Adapts to the context that is inserted.
 - No punctuation.
 
 ```jsx
-import { ThemeProvider, Button, Set, Box, IconClose } from '@vtex/admin-ui'
+import { ThemeProvider, Button, Set, Box } from '@vtex/admin-ui'
+import { IconClose } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -204,7 +205,8 @@ This type of button replaces text with an icon. The action needs to be clear eno
 - Be consistent with what action it represents, pay attention to the icon's use on other screens,
 
 ```jsx
-import { Button, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
+import { Button, ThemeProvider } from '@vtex/admin-ui'
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -231,13 +233,8 @@ This type of button combines an icon and an action. It embodies more complex act
 - No punctuation.
 
 ```jsx
-import {
-  Button,
-  IconFavorite,
-  IconCaret,
-  ThemeProvider,
-  Set,
-} from '@vtex/admin-ui'
+import { Button, ThemeProvider, Set } from '@vtex/admin-ui'
+import { IconFavorite, IconCaret } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (

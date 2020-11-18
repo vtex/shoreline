@@ -3,6 +3,7 @@
     - /guide/get-started/
     - /guide/next/
     - /guide/contributing/
+    - /guide/icons/
 - section: Theming
   paths:
     - /theming/theme-provider/

@@ -45,16 +45,13 @@ Learn more in [Get started](/docs/get-started/).
 Handles the state internally.
 
 ```jsx
+import { Menu, ThemeProvider, Button, Box } from '@vtex/admin-ui'
 import {
-  Menu,
-  IconDownload,
+  IconImport,
   IconLink,
   IconFavorite,
   IconDelete,
-  ThemeProvider,
-  Button,
-  Box,
-} from '@vtex/admin-ui'
+} from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -64,7 +61,7 @@ function Example() {
         aria-label="menu label"
         disclosure={<Button>Actions</Button>}
       >
-        <Menu.Item icon={<IconDownload />}>Download</Menu.Item>
+        <Menu.Item icon={<IconImport />}>Download</Menu.Item>
         <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
         <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
         <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
@@ -94,10 +91,8 @@ import {
   StatelessMenu,
   MenuDisclosure,
   Button,
-  IconDownload,
-  IconLink,
-  IconFavorite,
 } from '@vtex/admin-ui'
+import { IconImport, IconLink, IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   const state = useMenuState({
@@ -112,9 +107,7 @@ function Example() {
         <Button>Post options</Button>
       </MenuDisclosure>
       <StatelessMenu aria-label="actions" state={state}>
-        <StatelessMenu.Item icon={<IconDownload />}>
-          Download
-        </StatelessMenu.Item>
+        <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
         <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
         <StatelessMenu.Item icon={<IconFavorite />}>
           Favorite
@@ -148,7 +141,8 @@ Hook used to keep state. It has the same props of [Reakit/useMenuState](https://
 ### MenuItem
 
 ```jsx
-import { Menu, IconFavorite, ThemeProvider, Button } from '@vtex/admin-ui'
+import { Menu, ThemeProvider, Button } from '@vtex/admin-ui'
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -176,16 +170,14 @@ function Example() {
 Represents an `hr` used to separate the menu into sections
 
 ```jsx
+import { Menu, ThemeProvider, Button } from '@vtex/admin-ui'
 import {
-  Menu,
-  IconDownload,
+  IconImport,
   IconLink,
   IconFavorite,
   IconDelete,
   IconArrow,
-  ThemeProvider,
-  Button,
-} from '@vtex/admin-ui'
+} from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -198,7 +190,7 @@ function Example() {
         <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
         <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
         <Menu.Separator />
-        <Menu.Item icon={<IconDownload />}>Download</Menu.Item>
+        <Menu.Item icon={<IconImport />}>Download</Menu.Item>
         <Menu.Item icon={<IconArrow direction="up" />}>Upload</Menu.Item>
         <Menu.Separator />
         <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>

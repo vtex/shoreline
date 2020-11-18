@@ -9,7 +9,8 @@ Tag is a compact element that represents an input, attribute, or action. It rend
 ## Behavior
 
 ```jsx
-import { Tag, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
+import { Tag, ThemeProvider } from '@vtex/admin-ui'
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -98,7 +99,8 @@ function Example() {
 You can add one Icon on the left side of the `Tag`. Just use the `icon` property.
 
 ```jsx
-import { Tag, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
+import { Tag, ThemeProvider } from '@vtex/admin-ui'
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -118,7 +120,8 @@ You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides)
 For example, you can add a margin to the `Tag`. One way to do this is by using the `styleOverrides` property, check the example below!
 
 ```jsx
-import { Tag, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
+import { Tag, ThemeProvider } from '@vtex/admin-ui'
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (

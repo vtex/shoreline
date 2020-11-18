@@ -1,8 +1,8 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { IconAdd } from '@vtex/admin-ui-icons'
 
 import { unstableInput as Input, useInputState } from './index'
-import { IconBook } from '../../icons'
 import { Box } from '../Box'
 
 export default {
@@ -20,7 +20,7 @@ export const Base: Story = () => {
         value={value}
         id="username"
         suffix="kg"
-        icon={<IconBook />}
+        icon={<IconAdd />}
       />
     </Box>
   )
@@ -37,7 +37,7 @@ export const OverrideStyles: Story = () => {
         value={value}
         id="username"
         suffix="kg"
-        icon={<IconBook />}
+        icon={<IconAdd />}
         styleOverrides={{ borderColor: 'text.primary' }}
       />
     </Box>

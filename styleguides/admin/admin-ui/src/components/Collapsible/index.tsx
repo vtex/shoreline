@@ -6,8 +6,8 @@ import {
   DisclosureProps,
   DisclosureStateReturn,
 } from 'reakit/Disclosure'
+import { IconCaret } from '@vtex/admin-ui-icons'
 
-import { IconCaret } from '../../icons'
 import { Box } from '../Box'
 import {
   CollapsibleProvider,

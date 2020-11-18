@@ -1,7 +1,13 @@
 import React, { Fragment, useState } from 'react'
 import { Meta, Story } from '@storybook/react'
+import {
+  IconFavorite,
+  IconLink,
+  IconImport,
+  IconDelete,
+  IconShippingTruck,
+} from '@vtex/admin-ui-icons'
 
-import { IconFavorite, IconLink, IconDownload, IconDelete } from '../../icons'
 import {
   Menu,
   MenuProps,
@@ -25,7 +31,7 @@ export const Stateful: Story<MenuProps> = () => (
     aria-label="menu label"
     disclosure={<ActionButton display="menu" />}
   >
-    <Menu.Item icon={<IconDownload />}>Download</Menu.Item>
+    <Menu.Item icon={<IconImport />}>Download</Menu.Item>
     <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
     <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
     <Menu.Separator />
@@ -40,7 +46,7 @@ export const StatefulInitallyVisible: Story<MenuProps> = () => (
     aria-label="menu label"
     disclosure={<ActionButton display="menu" />}
   >
-    <Menu.Item icon={<IconDownload />}>Download</Menu.Item>
+    <Menu.Item icon={<IconShippingTruck />}>Download</Menu.Item>
     <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
     <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
     <Menu.Separator />
@@ -61,9 +67,7 @@ export const Stateless: Story<StatelessMenuProps> = () => {
         <ActionButton variant="secondary">Post options</ActionButton>
       </MenuDisclosure>
       <StatelessMenu aria-label="actions" state={state}>
-        <StatelessMenu.Item icon={<IconDownload />}>
-          Download
-        </StatelessMenu.Item>
+        <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
         <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
         <StatelessMenu.Item icon={<IconFavorite />}>
           Favorite
@@ -94,7 +98,7 @@ export const StatelessWithConstraint: Story<StatelessMenuProps> = () => {
       </MenuDisclosure>
       <StatelessMenu aria-label="actions" state={state}>
         {canDownload && (
-          <StatelessMenu.Item icon={<IconDownload />}>
+          <StatelessMenu.Item icon={<IconImport />}>
             Download
           </StatelessMenu.Item>
         )}

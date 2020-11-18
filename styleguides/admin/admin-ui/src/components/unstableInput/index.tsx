@@ -1,9 +1,9 @@
 import React, { forwardRef, ReactNode, Ref, useCallback, useState } from 'react'
 import { useClassName, SxStyleProp } from '@vtex/admin-ui-system'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
+import { IconCancel } from '@vtex/admin-ui-icons'
 
 import { Overridable } from '../../types'
-import { IconCancel } from '../../icons'
 import { Box } from '../Box'
 
 export const unstableInput = forwardRef(function Input(
