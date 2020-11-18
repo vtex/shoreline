@@ -1,5 +1,5 @@
 ---
-path: /docs/form/textarea/
+path: /form/text-area/
 ---
 
 # TextArea
@@ -8,7 +8,7 @@ Component to create a TextArea.
 
 ## Behavior
 
-```jsx static
+```jsx
 import { Box, TextArea, useInputState, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
@@ -36,33 +36,11 @@ function Example() {
 yarn add @vtex/admin-ui
 ```
 
-Learn more in [Get started](/docs/get-started/).
+```jsx static
+import { TextArea } from '@vtex/admin-ui'
+```
 
 ## Variation
-
-### Regular
-
-```jsx
-import { Box, TextArea, useInputState, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  const state = useInputState()
-
-  return (
-    <ThemeProvider>
-      <Box width={300}>
-        <TextArea
-          state={state}
-          id="textarea-1"
-          label="Label"
-          helperText="Helper Text"
-          charLimit={120}
-        />
-      </Box>
-    </ThemeProvider>
-  )
-}
-```
 
 ### Error
 

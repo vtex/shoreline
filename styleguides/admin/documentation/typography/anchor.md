@@ -1,5 +1,5 @@
 ---
-path: /docs/anchor/
+path: /typography/anchor/
 ---
 
 # Anchor
@@ -8,14 +8,14 @@ Component to create an anchor.
 
 ## Behavior
 
-```jsx static
+```jsx
 import { Box, Anchor, ThemeProvider } from '@vtex/admin-ui'
 
 function Example() {
   return (
     <ThemeProvider>
       <Box width={300}>
-        <Anchor href='/'>Link</Anchor>
+        <Anchor href="/typography/anchor/#behavior">Link</Anchor>
       </Box>
     </ThemeProvider>
   )
@@ -28,23 +28,8 @@ function Example() {
 yarn add @vtex/admin-ui
 ```
 
-Learn more in [Get started](/docs/get-started/).
-
-## Variation
-### Regular
-
 ```jsx static
-import { Box, Anchor, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box width={300}>
-        <Anchor href='/'>Link</Anchor>
-      </Box>
-    </ThemeProvider>
-  )
-}
+import { Anchor } from '@vtex/admin-ui'
 ```
 
 ## Customization
