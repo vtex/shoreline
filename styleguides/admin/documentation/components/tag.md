@@ -120,7 +120,8 @@ You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides)
 For example, you can add a margin to the `Tag`. One way to do this is by using the `styleOverrides` property, check the example below!
 
 ```jsx
-import { Tag, IconFavorite, ThemeProvider } from '@vtex/admin-ui'
+import { Tag, ThemeProvider } from '@vtex/admin-ui'
+import { IconFavorite } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (

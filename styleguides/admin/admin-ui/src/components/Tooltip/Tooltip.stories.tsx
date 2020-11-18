@@ -1,11 +1,6 @@
 import React, { Ref } from 'react'
 import { Story, Meta } from '@storybook/react'
-import {
-  Icon,
-  IconAddChannel,
-  IconCaret,
-  IconProps,
-} from '@vtex/admin-ui-icons'
+import { Icon, IconDuplicate, IconProps } from '@vtex/admin-ui-icons'
 
 import { Tooltip, TooltipProps } from './index'
 import { Button } from '../Button'
@@ -20,7 +15,7 @@ export default {
 
 export const StringLabel: Story<TooltipProps> = () => (
   <Tooltip label="Tooltip Label" placement="right">
-    <Button icon={<IconAddChannel />} variant="tertiary" />
+    <Button icon={<IconDuplicate />} variant="tertiary" />
   </Tooltip>
 )
 
@@ -38,7 +33,7 @@ export const ReactNodeLabel: Story<TooltipProps> = () => {
         </Set>
       }
     >
-      <Button icon={<IconAddChannel />} variant="tertiary" />
+      <Button icon={<IconDuplicate />} variant="tertiary" />
     </Tooltip>
   )
 }
