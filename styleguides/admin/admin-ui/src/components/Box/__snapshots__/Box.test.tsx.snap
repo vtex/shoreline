@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<div
+    class="emotion-0"
+  >
+    box content
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Card tests should match snapshot using element 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<a
+    class="emotion-0"
+    data-testid="box"
+    href="https://github.com/"
+  >
+    link content
+  </a>
+</DocumentFragment>
+`;
