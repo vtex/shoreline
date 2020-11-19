@@ -31,4 +31,4 @@ export default function List(props: ListProps) {
   )
 }
 
-export type ListProps = BoxProps
+export type ListProps = BoxProps<'ul'>

@@ -156,12 +156,13 @@ function Example() {
 }
 ```
 
-## `element` Prop
+## Polymorphism
 
-Box can be rendered as any HTML tag.
+Box can be rendered as any HTML tag or component.
 
 ```jsx
-import { ThemeProvider, Box } from '@vtex/admin-ui'
+import { ThemeProvider, Box, Anchor } from '@vtex/admin-ui'
+import { IconLink } from '@vtex/admin-ui-icons'
 
 function Example() {
   return (
@@ -170,6 +171,13 @@ function Example() {
         <Box element="section">👻 I'm a section</Box>
         <Box>👻 I'm a div</Box>
         <Box element="footer">👻 I'm a footer</Box>
+        <Box
+          styles={{ display: 'block' }}
+          element="a"
+          href="/typography/anchor"
+        >
+          <IconLink /> I'm a link to anchor docs
+        </Box>
       </Box>
     </ThemeProvider>
   )

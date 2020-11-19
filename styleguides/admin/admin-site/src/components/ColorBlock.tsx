@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Set, BoxProps, useTheme, get } from '@vtex/admin-ui'
 
-interface CardProps extends BoxProps {
+interface CardProps extends BoxProps<'div'> {
   /** Color Value */
   color?: string
   /** Semantic color name */

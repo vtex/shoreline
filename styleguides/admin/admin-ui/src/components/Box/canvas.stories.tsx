@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { Box } from './index'
 
 export default {
-  title: 'system-next/box',
+  title: 'primitives/box',
 } as Meta
 
 export const Basic: Story = () => {
@@ -75,5 +75,13 @@ export const Divider: Story = () => {
       <Box text="body">Box with body text</Box>
       <Box text="small">Box with small text</Box>
     </>
+  )
+}
+
+export const Polymorphism: Story = () => {
+  return (
+    <Box element="a" href="https://reakit.io/docs/role/" target="blank">
+      Link
+    </Box>
   )
 }

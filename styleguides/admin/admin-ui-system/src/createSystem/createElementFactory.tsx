@@ -26,43 +26,32 @@ import { isFunction, cleanProps, merge } from '../util'
  * ))
  * ```
  */
-// export function createElement<T>(params: CreateElementParams<T>) {
-//   const { children, component, htmlProps, element, ref } = params
-
-//   /** ⤵️ Render props composition */
-//   if (isFunction(children)) {
-//     return children(htmlProps)
-//   }
-
-//   const safeProps = cleanProps(htmlProps, availableStyleProps)
-
-//   return React.createElement(
-//     component,
-//     // ✨ Reakit as composition
-//     // 🚫 components, just plain elements
-//     { as: element, ...safeProps, ref },
-//     children ?? safeProps?.children
-//   )
-// }
-
 export function createElementFactory(coreProps: string[]) {
   return function createElement<T>(params: CreateElementParams<T>) {
-    const { children, component, htmlProps, element, ref, state = {} } = params
+    const {
+      children,
+      component,
+      htmlProps,
+      element,
+      ref,
+      state = {},
+      swallow,
+    } = params
 
     /** ⤵️ Render props composition */
     if (isFunction(children)) {
       return children(htmlProps)
     }
 
-    const safeProps = cleanProps(htmlProps, coreProps)
-    const componentProps = merge(safeProps, state)
+    const elementProps = swallow ? htmlProps : cleanProps(htmlProps, coreProps)
+    const componentProps = merge(elementProps, state)
 
     return React.createElement(
       component,
       // ✨ Reakit as composition
       // 🚫 components, just plain elements
       { as: element, ...componentProps, ref },
-      children ?? safeProps?.children
+      children ?? elementProps?.children
     )
   }
 }
@@ -96,4 +85,9 @@ export interface CreateElementParams<T> {
    * reakit states
    */
   state?: any
+  /**
+   * If true, will let the props pass throught without cleaning
+   * ! 🚨 use it with caution
+   */
+  swallow?: boolean
 }
