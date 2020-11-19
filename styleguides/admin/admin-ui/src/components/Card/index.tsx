@@ -27,4 +27,4 @@ export const Card = forwardRef(function Card(
   )
 })
 
-export type CardProps = Overridable & Omit<BoxProps, 'styles'>
+export type CardProps = Overridable & Omit<BoxProps<'div'>, 'styles'>
