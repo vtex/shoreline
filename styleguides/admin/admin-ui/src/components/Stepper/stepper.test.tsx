@@ -12,7 +12,7 @@ describe('Stepper tests', () => {
         <Stepper value={1} label="stepper number" />
         <Stepper value={1} label="stepper number" />
         <Stepper value={1} helperText="Helper Text" label="stepper number" />
-        <Stepper value={9} disable label="stepper number" />
+        <Stepper value={9} disabled label="stepper number" />
         <Stepper value={1} minValue={1} label="stepper number" />
         <Stepper
           value={0}

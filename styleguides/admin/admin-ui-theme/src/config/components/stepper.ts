@@ -1,6 +1,7 @@
 const styles = {
   fontSize: 14,
   width: 106,
+  height: 48,
   appearance: 'none',
   '::-webkit-inner-spin-button ': {
     WebkitAppearance: 'none',
@@ -9,15 +10,18 @@ const styles = {
   paddingLeft: 36,
   paddingRight: 36,
   textAlign: 'center',
-  height: 45,
-  color: 'basic.black',
+  color: 'black',
   borderStyle: 'solid',
   borderWidth: 1,
-  borderColor: '#898F9E',
+  borderColor: 'muted.0',
   borderRadius: 'default',
   backgroundColor: 'primary.accent',
   ':hover': {
-    borderColor: '#323845',
+    borderColor: 'black',
+  },
+  ':disabled': {
+    backgroundColor: 'muted.3',
+    color: 'muted.0',
   },
   ':focus:not([data-focus-visible-added])': {
     outline: 'none',
@@ -26,6 +30,35 @@ const styles = {
   ':focus': {
     outline: 'none',
     boxShadow: 'focus',
+  },
+}
+
+const buttonStyle = {
+  position: 'absolute',
+  top: 14,
+  height: 20,
+  width: 20,
+  borderRadius: 'default',
+  backgroundColor: 'transparent',
+  color: 'primary.hover',
+  ':focus:not([data-focus-visible-added])': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
+  ':focus': {
+    outline: 'none',
+    boxShadow: 'focus',
+  },
+  ':disabled': {
+    color: 'muted.0',
+  },
+  '> div': {
+    display: 'flex',
+    height: 'full',
+    width: 'full',
+    margin: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }
 
@@ -41,16 +74,15 @@ export default {
       boxShadow: 'none',
     },
   },
-  disable: {
-    ...styles,
-    backgroundColor: '#F4F6FB',
-    ':hover': { borderColor: 'none' },
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
-  },
   usual: {
     ...styles,
+  },
+  buttonMinus: {
+    ...buttonStyle,
+    left: 12,
+  },
+  buttonPlus: {
+    ...buttonStyle,
+    right: 12,
   },
 }

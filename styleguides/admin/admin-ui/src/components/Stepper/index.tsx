@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { Box } from '../Box'
 import { IconMinus, IconPlus } from '../../icons'
 import { useClassName } from '../../system'
-import { Input } from 'reakit'
-import { Button } from '../Button'
+import { Input as ReakitInput } from 'reakit'
 
 const normalizeMin = (min: number | undefined) =>
   min == null ? -Infinity : min
@@ -31,28 +30,28 @@ export function Stepper(props: StepperProps) {
     value: initialValue,
     minValue,
     maxValue,
-    disable,
+    disabled,
     unitMultiplier,
     onChange: onChangeInputed,
     errorMessage,
     helperText,
     error,
     label,
+    ...inputProps
   } = props
   const [value, setValue] = useState(initialValue)
+  const hasHelper = error || helperText
 
   const className = useClassName({
-    themeKey: `components.stepper${
-      error ? '.error' : disable ? '.disable' : '.usual'
-    }`,
+    themeKey: `components.stepper${error ? '.error' : '.usual'}`,
   })
 
   const multiplier = unitMultiplier ?? 1
   const isMinusDisabled = () => {
-    return disable ? true : value === minValue ? true : false
+    return disabled ? true : value === minValue ? true : false
   }
   const isPlusDisabled = () => {
-    return disable ? true : maxValue && value === maxValue ? true : false
+    return disabled ? true : maxValue && value === maxValue ? true : false
   }
 
   const changeValue = (value: number) => {
@@ -91,57 +90,55 @@ export function Stepper(props: StepperProps) {
           alignItems: 'center',
           height: 48,
           width: 106,
-          paddingY: 14,
+          paddingY: 12,
         }}
       >
-        <Input
+        <ReakitInput
+          {...inputProps}
           value={value}
           type="number"
           min={minValue}
           max={maxValue}
           onChange={(e) => changeInputValue(e.target.value)}
-          disabled={disable}
+          disabled={disabled}
           aria-label={label}
           className={className}
         />
-        <Button
-          icon={<IconMinus title="Icon only" />}
-          variant="tertiary"
-          size="small"
-          aria-label="Decrease Value"
-          disabled={isMinusDisabled()}
-          onClick={handleDecreaseValue}
-          styleOverrides={{
-            position: 'absolute',
-            top: 14,
-            left: 12,
-            width: 20,
-            height: 20,
-          }}
-        />
 
-        <Button
-          icon={<IconPlus title="Icon only" />}
-          variant="tertiary"
-          disabled={isPlusDisabled()}
-          size="small"
+        <Box
+          element="button"
+          themeKey="components.stepper.buttonMinus"
+          aria-label="Decrease Value"
+          onClick={isMinusDisabled() ? undefined : handleDecreaseValue}
+        >
+          <Box
+            styles={{ color: isMinusDisabled() ? 'muted.0' : 'primary.base' }}
+          >
+            <IconMinus size={20} />
+          </Box>
+        </Box>
+
+        <Box
+          element="button"
+          themeKey="components.stepper.buttonPlus"
           aria-label="Increase Value"
-          onClick={handleIncreaseValue}
-          styleOverrides={{
-            position: 'absolute',
-            width: 20,
-            height: 20,
-            top: 14,
-            right: 12,
-          }}
-        />
+          onClick={isPlusDisabled() ? undefined : handleIncreaseValue}
+        >
+          <Box
+            styles={{ color: isPlusDisabled() ? 'muted.0' : 'primary.base' }}
+          >
+            <IconPlus size={20} />
+          </Box>
+        </Box>
       </Box>
-      <Box
-        text="small"
-        styles={{ color: error ? 'danger.base' : '#898F9E', marginTop: 2 }}
-      >
-        {error ? errorMessage : helperText}
-      </Box>
+      {hasHelper && (
+        <Box
+          text="small"
+          styles={{ color: error ? 'danger.base' : 'muted.0', marginTop: 2 }}
+        >
+          {error ? errorMessage : helperText}
+        </Box>
+      )}
     </>
   )
 }
@@ -149,7 +146,7 @@ export interface StepperProps {
   value: number
   minValue?: number
   maxValue?: number
-  disable?: boolean
+  disabled?: boolean
   error?: boolean
   onChange?: (value: string) => void
   errorMessage?: string
