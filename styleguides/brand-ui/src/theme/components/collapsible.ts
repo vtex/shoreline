@@ -77,8 +77,7 @@ const header = {
 }
 
 const contentBase = {
-  pt: 2,
-  pb: 5,
+  p: 4,
   color: 'muted.0',
 }
 
@@ -90,6 +89,8 @@ const content = {
   stacked: {
     ...contentBase,
     ml: 5,
+    pr: 0,
+    pt: 0,
   },
 }
 
