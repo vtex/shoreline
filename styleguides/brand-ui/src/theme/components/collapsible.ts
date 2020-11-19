@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 const headerBase = {
   backgroundColor: 'transparent',
   border: 'none',
   px: 2,
-  justifyContent: 'space-between',
+  py: 4,
   alignItems: 'center',
   width: '100%',
   cursor: 'pointer',
@@ -19,19 +21,58 @@ const headerBase = {
   },
 }
 
-const header = {
+const positions = {
+  right: {
+    justifyContent: 'space-between',
+  },
+  left: {
+    flexDirection: 'row-reverse',
+    justifyContent: 'flex-end',
+  },
+}
+
+const sizes = {
   regular: {
-    ...headerBase,
     fontSize: 2,
-    height: 64,
+    lineHeight: '28px',
   },
   small: {
-    ...headerBase,
     fontSize: 1,
     height: 48,
   },
+}
+
+const header = {
+  ...Object.keys(sizes).reduce(
+    (acc, size) => ({
+      ...acc,
+      ...Object.keys(positions).reduce(
+        (bcc, position) => ({
+          ...bcc,
+          [`${size}-${position}`]: {
+            ...headerBase,
+            ...(sizes as any)[size],
+            ...(positions as any)[position],
+          },
+        }),
+        {}
+      ),
+    }),
+    {}
+  ),
   content: {
     mr: 2,
+  },
+  arrow: {
+    center: {
+      alignSelf: 'center',
+    },
+    start: {
+      alignSelf: 'end',
+    },
+    end: {
+      alignSelf: 'flex-end',
+    },
   },
 }
 
