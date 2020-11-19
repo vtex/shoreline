@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.60.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.60.0...@vtex/admin-ui@0.60.1) (2020-11-19)
+
+
+### Bug Fixes
+
+* **text-area:** add error boolean property to the state property ([3d2d802](https://github.com/vtex/onda/commit/3d2d8027ee5267dcbf9c46ebefa6c623153abe6c))
+
+
+
+
+
 # [0.60.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.59.1...@vtex/admin-ui@0.60.0) (2020-11-18)
 
 

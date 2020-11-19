@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.4.1...@vtex/admin-ui-theme@0.4.2) (2020-11-19)
+
+
+### Bug Fixes
+
+* **text-area:** add error boolean property to the state property ([3d2d802](https://github.com/vtex/onda/commit/3d2d8027ee5267dcbf9c46ebefa6c623153abe6c))
+
+
+
+
+
 ## [0.4.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.4.0...@vtex/admin-ui-theme@0.4.1) (2020-11-18)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
