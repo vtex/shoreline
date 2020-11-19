@@ -4,7 +4,6 @@ import { useClassName } from '@vtex/admin-ui-system'
 import { Text } from '../Text'
 import { Label } from '../Label'
 import { Overridable } from '../../types'
-import { Columns } from '../Columns'
 import { Box } from '../Box'
 
 export const TextArea = forwardRef(function Textarea(
@@ -17,10 +16,13 @@ export const TextArea = forwardRef(function Textarea(
     styleOverrides,
     helperText,
     charLimit,
-    state: { value = '', onChange },
+    state: { value = '', error = false, onChange },
     errorMessage,
     ...textareaProps
   } = props
+
+  const hasHelpers = error || !!helperText || !!charLimit
+  const hasHelperMessage = !!helperText || error
 
   const className = useClassName({
     props: {
@@ -32,9 +34,7 @@ export const TextArea = forwardRef(function Textarea(
   })
 
   return (
-    <Box
-      themeKey={`components.textArea.${errorMessage ? 'error' : 'container'}`}
-    >
+    <Box themeKey={`components.textArea.${error ? 'error' : 'container'}`}>
       <textarea
         className={className}
         id={id}
@@ -46,33 +46,30 @@ export const TextArea = forwardRef(function Textarea(
         {...textareaProps}
       />
       <Label htmlFor={id}>{label}</Label>
-      {(!!helperText || !!errorMessage || !!charLimit) && (
-        <Columns styleOverrides={{ paddingTop: 1 }}>
-          {(!!helperText || !!errorMessage) && (
-            <Columns.Item
-              styleOverrides={{ display: 'flex', justifyContent: 'flex-start' }}
+      {hasHelpers && (
+        <Box
+          styles={{
+            display: 'flex',
+            justifyContent: hasHelperMessage ? 'space-between' : 'flex-end',
+            paddingTop: 1,
+          }}
+        >
+          {hasHelperMessage && (
+            <Text
+              variant="small"
+              styleOverrides={{
+                color: error ? 'danger.base' : 'muted.0',
+              }}
             >
-              <Text
-                variant="small"
-                styleOverrides={{
-                  color: errorMessage ? 'danger.base' : 'muted.0',
-                }}
-              >
-                {errorMessage ?? helperText}
-              </Text>
-            </Columns.Item>
+              {error ? errorMessage : helperText}
+            </Text>
           )}
-          {!!charLimit && (
-            <Columns.Item
-              units={3}
-              styleOverrides={{ display: 'flex', justifyContent: 'flex-end' }}
-            >
-              <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
-                {`${value.toString().length}/${charLimit}`}
-              </Text>
-            </Columns.Item>
+          {charLimit && (
+            <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
+              {`${value.toString().length}/${charLimit}`}
+            </Text>
           )}
-        </Columns>
+        </Box>
       )}
     </Box>
   )
@@ -84,16 +81,16 @@ export interface TextAreaProps
       React.ComponentPropsWithoutRef<'textarea'>,
       'value' | 'onChange' | 'maxLength' | 'onClear'
     > {
-  /** label text */
+  /** TextArea label */
   label: string
-  /** unique id of the component */
+  /** Unique id of the component */
   id: string
-  /** Input helper text */
+  /** TextArea helper text */
   helperText?: string
-  /** Input char limit */
+  /** TextArea char limit */
   charLimit?: number
   /**
-   * Input state
+   * TextArea state
    */
   state: TextAreaStateProps
   /**
@@ -103,8 +100,10 @@ export interface TextAreaProps
 }
 
 export interface TextAreaStateProps {
-  /** onChange input value event */
+  /** onChange TextArea value event */
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
-  /** Input value */
+  /** TextArea value */
   value: string | number
+  /** TextArea with error */
+  error?: boolean
 }
