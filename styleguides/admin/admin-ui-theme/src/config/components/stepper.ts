@@ -38,9 +38,13 @@ const buttonStyle = {
   top: 14,
   height: 20,
   width: 20,
+  cursor: 'pointer',
   borderRadius: 'default',
   backgroundColor: 'transparent',
-  color: 'primary.hover',
+  color: 'primary.base',
+  ':hover': {
+    color: 'primary.hover',
+  },
   ':focus:not([data-focus-visible-added])': {
     outline: 'none',
     boxShadow: 'none',
@@ -74,7 +78,7 @@ export default {
       boxShadow: 'none',
     },
   },
-  usual: {
+  default: {
     ...styles,
   },
   buttonMinus: {

@@ -3,6 +3,7 @@ import { Box } from '../Box'
 import { useClassName } from '../../system'
 import { Input as ReakitInput } from 'reakit'
 import { IconAdd, IconMinus } from '@vtex/admin-ui-icons'
+import { Overridable } from '../../types'
 
 const normalizeMin = (min: number | undefined) =>
   min == null ? -Infinity : min
@@ -43,7 +44,7 @@ export function Stepper(props: StepperProps) {
   const hasHelper = error || helperText
 
   const className = useClassName({
-    themeKey: `components.stepper${error ? '.error' : '.usual'}`,
+    themeKey: `components.stepper${error ? '.error' : '.default'}`,
   })
 
   const multiplier = unitMultiplier ?? 1
@@ -82,7 +83,7 @@ export function Stepper(props: StepperProps) {
   }
 
   return (
-    <>
+    <Box>
       <Box
         styles={{
           display: 'flex',
@@ -108,7 +109,7 @@ export function Stepper(props: StepperProps) {
         <Box
           element="button"
           themeKey="components.stepper.buttonMinus"
-          aria-label="Decrease Value"
+          aria-label={`${label}-decrease-button`}
           onClick={isMinusDisabled() ? undefined : handleDecreaseValue}
         >
           <Box
@@ -121,7 +122,7 @@ export function Stepper(props: StepperProps) {
         <Box
           element="button"
           themeKey="components.stepper.buttonPlus"
-          aria-label="Increase Value"
+          aria-label={`${label}-increase-button}`}
           onClick={isPlusDisabled() ? undefined : handleIncreaseValue}
         >
           <Box
@@ -139,10 +140,11 @@ export function Stepper(props: StepperProps) {
           {error ? errorMessage : helperText}
         </Box>
       )}
-    </>
+    </Box>
   )
 }
-export interface StepperProps {
+
+export interface StepperProps extends Overridable {
   value: number
   minValue?: number
   maxValue?: number
