@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.61.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.60.1...@vtex/admin-ui@0.61.0) (2020-11-19)
+
+
+### Bug Fixes
+
+* **box:** default type ([8afdd7d](https://github.com/vtex/onda/commit/8afdd7d05827f064e13a9445efd6eb6e08210991))
+* **box:** pr issues ([6493670](https://github.com/vtex/onda/commit/6493670d677b1a5042b683bb6a9d2284a652a9b5))
+
+
+### Features
+
+* **box:** allow polymorphism ([2ce788d](https://github.com/vtex/onda/commit/2ce788d8e239be1ce209c50d23792d289436e17c))
+
+
+
+
+
 ## [0.60.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.60.0...@vtex/admin-ui@0.60.1) (2020-11-19)
 
 

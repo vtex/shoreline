@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.2.0...@vtex/admin-ui-system@0.3.0) (2020-11-19)
+
+
+### Features
+
+* **box:** allow polymorphism ([2ce788d](https://github.com/vtex/onda/commit/2ce788d8e239be1ce209c50d23792d289436e17c))
+
+
+
+
+
 # [0.2.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.1.0...@vtex/admin-ui-system@0.2.0) (2020-11-18)
 
 
