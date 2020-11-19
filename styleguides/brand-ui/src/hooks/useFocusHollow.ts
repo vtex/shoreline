@@ -1,17 +1,22 @@
 import { useFocusRing } from '@react-aria/focus'
 import { get, useTheme } from '@vtex-components/theme'
 
-export function useFocusHollow() {
+interface FocusHollowParams {
+  showFocusOnInit?: boolean
+}
+
+export function useFocusHollow(params?: FocusHollowParams) {
   const theme = useTheme()
-  const { isFocusVisible, focusProps } = useFocusRing()
-  const focusStyles = isFocusVisible
-    ? {
-        boxShadow: `0px 0px 0px ${get(theme, 'space.2')}px ${get(
-          theme,
-          'colors.focus'
-        )}`,
-      }
-    : {}
+  const { isFocusVisible, focusProps, isFocused } = useFocusRing()
+  const focusStyles =
+    isFocusVisible || (params?.showFocusOnInit && isFocused)
+      ? {
+          boxShadow: `0px 0px 0px ${get(theme, 'space.2')}px ${get(
+            theme,
+            'colors.focus'
+          )}`,
+        }
+      : {}
 
   return { focusStyles, focusProps }
 }

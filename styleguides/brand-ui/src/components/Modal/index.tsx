@@ -109,6 +109,7 @@ export const Modal = ({
         >
           <Button
             icon={() => <IconClose size={39} />}
+            showFocusOnInit
             sx={{
               position: 'absolute',
               right: '1.25rem',

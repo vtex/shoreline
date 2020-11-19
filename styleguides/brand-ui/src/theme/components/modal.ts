@@ -11,7 +11,7 @@ const bottomBar = {
     ...bottomBarStyles,
   },
   dialog: {
-    padding: '5rem',
+    padding: '3rem',
     ...bottomBarStyles,
   },
 }
