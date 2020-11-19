@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Box } from '../Box'
-import { IconMinus, IconPlus } from '../../icons'
 import { useClassName } from '../../system'
 import { Input as ReakitInput } from 'reakit'
+import { IconAdd, IconMinus } from '@vtex/admin-ui-icons'
 
 const normalizeMin = (min: number | undefined) =>
   min == null ? -Infinity : min
@@ -127,7 +127,7 @@ export function Stepper(props: StepperProps) {
           <Box
             styles={{ color: isPlusDisabled() ? 'muted.0' : 'primary.base' }}
           >
-            <IconPlus size={20} />
+            <IconAdd size={20} />
           </Box>
         </Box>
       </Box>
