@@ -38,9 +38,6 @@ const textAreaInputStyle = {
   ':placeholder-shown:not(:focus) + label': {
     paddingTop: 1,
   },
-  ':active + label': {
-    transform: 'translate(1px, 4px) scale(0.875)',
-  },
   ':not(:placeholder-shown) + label': {
     transform: 'translate(1px, 4px) scale(0.875)',
   },
