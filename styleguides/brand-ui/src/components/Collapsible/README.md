@@ -10,13 +10,15 @@ The Collapsible has two composites: `Header` and `Content`. It states are contro
 
 #### Header
 
-| prop   | type                                                    | description               | default   | required |
-| ------ | ------------------------------------------------------- | ------------------------- | --------- | -------- |
-| label  | ReactNode                                               | content of the disclosure | -         | ✔️       |
-| prefix | (props: { size: number; sx: SxStyleProp }) => ReactNode | prefix icon of the header | -         | 🚫       |
-| suffix | (props: { size: number; sx: SxStyleProp }) => ReactNode | suffix icon of the header | -         | 🚫       |
-| size   | `regular` or `small`                                    | size of the header        | `regular` | 🚫       |
-| sx     | SxStyleProp                                             | Theme-ui style prop       | -         | 🚫       |
+| prop          | type                                                    | description                   | default   | required |
+| ------------- | ------------------------------------------------------- | ----------------------------- | --------- | -------- |
+| label         | ReactNode                                               | content of the disclosure     | -         | ✔️       |
+| prefix        | (props: { size: number; sx: SxStyleProp }) => ReactNode | prefix icon of the header     | -         | 🚫       |
+| suffix        | (props: { size: number; sx: SxStyleProp }) => ReactNode | suffix icon of the header     | -         | 🚫       |
+| size          | `regular` or `small`                                    | size of the header            | `regular` | 🚫       |
+| arrowPosition | `right` or `left`                                       | position of the arrow icon    | `right`   | 🚫       |
+| arrowAlign    | `center`, `start` or `end`                              | arrow icon vertical alignment | `center`  | 🚫       |
+| sx            | SxStyleProp                                             | Theme-ui style prop           | -         | 🚫       |
 
 #### Content
 
