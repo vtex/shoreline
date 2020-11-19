@@ -94,9 +94,6 @@ const content = {
 }
 
 const collapsible = {
-  borderBottom: 'solid',
-  borderBottomWidth: 1,
-  borderBottomColor: 'muted.2',
   backgroundColor: 'transparent',
   header,
   content,
