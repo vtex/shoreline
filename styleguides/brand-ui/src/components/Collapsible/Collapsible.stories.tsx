@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Meta } from '@storybook/react'
 
 import { Collapsible, useCollapsible } from './index'
@@ -123,18 +123,58 @@ export const WithSuffixIcon = () => {
   )
 }
 
-export const ArrowLeft = () => {
+export const Sizes = () => {
   const firstProps = useCollapsible()
+  const secondProps = useCollapsible()
 
   return (
-    <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
-      <Collapsible.Header label="Build for Community #2" arrowPosition="left" />
-      <Collapsible.Content>
-        It’s all about being ready to grow and reach new levels. Have a solid
-        foundation, modular thinking and flexible essence, and you’re building
-        for scale. We are global but we’re audacious enough to aim for the
-        stars.
-      </Collapsible.Content>
-    </Collapsible>
+    <Fragment>
+      <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
+        <Collapsible.Header size="regular" label="Header size: regular" />
+        <Collapsible.Content>
+          It’s all about being ready to grow and reach new levels. Have a solid
+          foundation, modular thinking and flexible essence, and you’re building
+          for scale. We are global but we’re audacious enough to aim for the
+          stars.
+        </Collapsible.Content>
+      </Collapsible>
+      <Collapsible {...secondProps} sx={{ width: ['100%', 500] }}>
+        <Collapsible.Header size="small" label="Header size: small" />
+        <Collapsible.Content>
+          It’s all about being ready to grow and reach new levels. Have a solid
+          foundation, modular thinking and flexible essence, and you’re building
+          for scale. We are global but we’re audacious enough to aim for the
+          stars.
+        </Collapsible.Content>
+      </Collapsible>
+    </Fragment>
+  )
+}
+
+export const ArrowPositions = () => {
+  const firstProps = useCollapsible()
+  const secondProps = useCollapsible()
+
+  return (
+    <Fragment>
+      <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
+        <Collapsible.Header label="Arrow position: right" />
+        <Collapsible.Content>
+          It’s all about being ready to grow and reach new levels. Have a solid
+          foundation, modular thinking and flexible essence, and you’re building
+          for scale. We are global but we’re audacious enough to aim for the
+          stars.
+        </Collapsible.Content>
+      </Collapsible>
+      <Collapsible {...secondProps} sx={{ width: ['100%', 500] }}>
+        <Collapsible.Header label="Arrow position: left" arrowPosition="left" />
+        <Collapsible.Content>
+          It’s all about being ready to grow and reach new levels. Have a solid
+          foundation, modular thinking and flexible essence, and you’re building
+          for scale. We are global but we’re audacious enough to aim for the
+          stars.
+        </Collapsible.Content>
+      </Collapsible>
+    </Fragment>
   )
 }

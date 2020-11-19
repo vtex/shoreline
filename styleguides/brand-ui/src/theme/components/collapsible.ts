@@ -38,7 +38,7 @@ const sizes = {
   },
   small: {
     fontSize: 1,
-    height: 48,
+    lineHeight: '20px',
   },
 }
 
