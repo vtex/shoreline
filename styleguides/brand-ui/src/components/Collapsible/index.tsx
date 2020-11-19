@@ -39,14 +39,17 @@ function Header({
   prefix,
   suffix,
   size = 'regular',
+  arrowPosition = 'right',
+  arrowAlign = 'center',
   sx = {},
 }: HeaderProps) {
   const { visible, ...disclosureProps } = useCollapsibleContext()
   const { focusStyles, focusProps } = useFocusHollow()
 
   const baseVariant = 'collapsible.header'
-  const headerVariant = `${baseVariant}.${size}`
+  const headerVariant = `${baseVariant}.${size}-${arrowPosition}`
   const contentVariant = `${baseVariant}.content`
+  const arrowVariant = `${baseVariant}.arrow.${arrowAlign}`
   const mergedSx = mergeSx<SxStyleProp>(focusStyles, sx)
 
   const renderIcon = (icon?: Function, variant = '') =>
@@ -67,7 +70,11 @@ function Header({
             <Text variant={contentVariant}>{label}</Text>
             {renderIcon(suffix)}
           </Flex>
-          <IconCaret duration={0.3} direction={visible ? 'up' : 'down'} />
+          <IconCaret
+            duration={0.3}
+            direction={visible ? 'up' : 'down'}
+            sx={{ variant: arrowVariant }}
+          />
         </Flex>
       )}
     </ReakitDisclosure>
@@ -133,6 +140,16 @@ interface HeaderProps extends SxProps {
    * @default regular
    */
   size?: 'small' | 'regular'
+  /**
+   * Caret icon position
+   * @default right
+   */
+  arrowPosition?: 'left' | 'right'
+  /**
+   * Caret icon alignment
+   * @default start
+   */
+  arrowAlign?: 'start' | 'center' | 'end'
 }
 
 export {

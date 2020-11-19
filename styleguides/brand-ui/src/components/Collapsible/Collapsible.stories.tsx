@@ -122,3 +122,19 @@ export const WithSuffixIcon = () => {
     </Collapsible>
   )
 }
+
+export const ArrowLeft = () => {
+  const firstProps = useCollapsible()
+
+  return (
+    <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
+      <Collapsible.Header label="Build for Community #2" arrowPosition="left" />
+      <Collapsible.Content>
+        It’s all about being ready to grow and reach new levels. Have a solid
+        foundation, modular thinking and flexible essence, and you’re building
+        for scale. We are global but we’re audacious enough to aim for the
+        stars.
+      </Collapsible.Content>
+    </Collapsible>
+  )
+}
