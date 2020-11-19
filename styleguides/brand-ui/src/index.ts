@@ -41,3 +41,4 @@ export {
   DayProps,
 } from './components/Calendar'
 export { Carousel, CarouselProps } from './components/Carousel'
+export { Modal, ModalProps } from './components/Modal'
