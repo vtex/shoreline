@@ -2,7 +2,6 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Box } from './index'
-import { Button } from '../Button'
 
 export default {
   title: 'primitives/box',
@@ -81,13 +80,8 @@ export const Divider: Story = () => {
 
 export const Polymorphism: Story = () => {
   return (
-    <>
-      <Box element="a" href="https://reakit.io/docs/role/" target="blank">
-        Link
-      </Box>
-      <Box element={Button} variant="tertiary">
-        Tertiary Button
-      </Box>
-    </>
+    <Box element="a" href="https://reakit.io/docs/role/" target="blank">
+      Link
+    </Box>
   )
 }

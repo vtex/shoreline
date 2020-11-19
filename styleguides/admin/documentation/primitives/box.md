@@ -178,10 +178,6 @@ function Example() {
         >
           <IconLink /> I'm a link to anchor docs
         </Box>
-        <Box element={Anchor} href="/components/anchor">
-          <IconLink />
-          I'm a link to anchor docs (that uses Anchor) :inception:
-        </Box>
       </Box>
     </ThemeProvider>
   )
