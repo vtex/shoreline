@@ -91,7 +91,11 @@ export default function DocsNavigation() {
           flexDirection: 'column',
         })}
       >
-        <Searchbar id="navgation-search" state={searchState} />
+        <Searchbar
+          placeholder="Search for component"
+          id="navgation-search"
+          state={searchState}
+        />
       </header>
       {data.allNavigationYaml.nodes.map((node) => (
         <nav

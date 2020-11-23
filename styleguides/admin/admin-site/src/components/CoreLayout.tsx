@@ -84,7 +84,6 @@ export default function CoreLayout(props: Props) {
                   overflow: 'auto',
                   paddingX: 4,
                   paddingY: '72px',
-                  // height: 'calc(100vh - 60px)',
                   display: ['none', 'none', 'none', 'initial'],
                 }}
               >

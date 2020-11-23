@@ -439,7 +439,11 @@ export function IconPage() {
 
   return (
     <Box>
-      <Searchbar id="searchbar" state={searchState} />
+      <Searchbar
+        placeholder="Search for icon"
+        id="searchbar"
+        state={searchState}
+      />
       {sections.map((section) => (
         <Box
           key={section.title}

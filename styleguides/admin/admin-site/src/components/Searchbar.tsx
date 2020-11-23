@@ -17,10 +17,11 @@ interface SearchbarProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   }
   styleOverrides?: SxStyleProp
+  placeholder?: string
 }
 
 export function Searchbar(props: SearchbarProps) {
-  const { state, id, styleOverrides = {} } = props
+  const { state, id, styleOverrides = {}, placeholder } = props
 
   return (
     <form className={cn(styleOverrides)}>
@@ -32,7 +33,7 @@ export function Searchbar(props: SearchbarProps) {
           id={id}
           {...state}
           icon={<IconSearch />}
-          placeholder="Search for icon"
+          placeholder={placeholder}
         />
         <VisuallyHidden>
           <input type="button" value="Search" />
