@@ -200,14 +200,13 @@ exports[`Stepper tests should match snapshot 1`] = `
           <svg
             class="emotion-1"
             fill="none"
-            viewBox="0 0 20 20"
+            viewBox="0 0 24 24"
           >
             <path
-              d="M16.0007 10H4.00066"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
+              clip-rule="evenodd"
+              d="M18.4112 12C18.4112 12.4142 18.0755 12.75 17.6612 12.75H6.34754C5.93333 12.75 5.59754 12.4142 5.59754 12C5.59754 11.5858 5.93333 11.25 6.34754 11.25H17.6612C18.0755 11.25 18.4112 11.5858 18.4112 12Z"
+              fill="currentColor"
+              fill-rule="evenodd"
             />
           </svg>
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box } from '../Box'
 import { useClassName } from '../../system'
 import { Input as ReakitInput } from 'reakit'
-import { IconAdd, IconMinus } from '@vtex/admin-ui-icons'
+import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
 import { Overridable } from '../../types'
 
 const normalizeMin = (min: number | undefined) =>
@@ -114,7 +114,7 @@ export function Stepper(props: StepperProps) {
           disabled={isMinusDisabled()}
         >
           <Box>
-            <IconMinus size={20} />
+            <IconRemove size={20} />
           </Box>
         </Box>
 
