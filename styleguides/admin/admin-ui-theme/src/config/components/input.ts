@@ -139,6 +139,7 @@ const passwordButtonStyle = {
   ':hover': {
     color: 'text',
   },
+
   '> div': {
     display: 'flex',
     height: 'full',
