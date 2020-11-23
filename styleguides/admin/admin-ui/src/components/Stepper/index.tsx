@@ -110,11 +110,10 @@ export function Stepper(props: StepperProps) {
           element="button"
           themeKey="components.stepper.buttonMinus"
           aria-label={`${label}-decrease-button`}
-          onClick={isMinusDisabled() ? undefined : handleDecreaseValue}
+          onClick={handleDecreaseValue}
+          disabled={isMinusDisabled()}
         >
-          <Box
-            styles={{ color: isMinusDisabled() ? 'muted.0' : 'primary.base' }}
-          >
+          <Box>
             <IconMinus size={20} />
           </Box>
         </Box>
@@ -123,11 +122,10 @@ export function Stepper(props: StepperProps) {
           element="button"
           themeKey="components.stepper.buttonPlus"
           aria-label={`${label}-increase-button}`}
-          onClick={isPlusDisabled() ? undefined : handleIncreaseValue}
+          onClick={handleIncreaseValue}
+          disabled={isPlusDisabled()}
         >
-          <Box
-            styles={{ color: isPlusDisabled() ? 'muted.0' : 'primary.base' }}
-          >
+          <Box>
             <IconAdd size={20} />
           </Box>
         </Box>
