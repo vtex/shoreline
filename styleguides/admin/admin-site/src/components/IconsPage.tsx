@@ -1,62 +1,12 @@
-import React, { useState, useRef } from 'react'
-import {
-  Box,
-  unstableInput as Input,
-  Label,
-  VisuallyHidden,
-  get,
-  Text,
-  Heading,
-} from '@vtex/admin-ui'
-import { IconProps, IconSearch } from '@vtex/admin-ui-icons'
+import React from 'react'
+import { Box, get, Text, Heading } from '@vtex/admin-ui'
+import { IconProps } from '@vtex/admin-ui-icons'
 import * as AdminIcon from '@vtex/admin-ui-icons'
-import { debounce } from 'lodash'
 
-interface SearchbarProps {
-  id: string
-  state: {
-    value: string
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  }
-}
-
-function Searchbar(props: SearchbarProps) {
-  const { state, id } = props
-
-  return (
-    <form>
-      <Box role="search">
-        <VisuallyHidden>
-          <Label htmlFor={id}>Icon search</Label>
-        </VisuallyHidden>
-        <Input
-          id={id}
-          {...state}
-          icon={<IconSearch />}
-          placeholder="Search for icon"
-        />
-        <VisuallyHidden>
-          <input type="button" value="Search" />
-        </VisuallyHidden>
-      </Box>
-    </form>
-  )
-}
+import { Searchbar, useSearch } from './Searchbar'
 
 export function IconPage() {
-  const [searchValue, setSearchValue] = useState('')
-  const [filterString, setFilterString] = useState('')
-
-  const decounceFilter = useRef(
-    debounce((nextValue) => setFilterString(nextValue), 50)
-  ).current
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value: nextValue } = event.target
-
-    setSearchValue(nextValue)
-    decounceFilter(nextValue)
-  }
+  const { current, searchState } = useSearch()
 
   const sections = [
     {
@@ -490,11 +440,9 @@ export function IconPage() {
   return (
     <Box>
       <Searchbar
+        placeholder="Search for icon"
         id="searchbar"
-        state={{
-          value: searchValue,
-          onChange: handleChange,
-        }}
+        state={searchState}
       />
       {sections.map((section) => (
         <Box
@@ -516,10 +464,10 @@ export function IconPage() {
           >
             {section.icons
               .filter((icon) =>
-                filterString !== ''
+                current !== ''
                   ? icon.label
                       .toLocaleLowerCase()
-                      .includes(filterString.toLowerCase())
+                      .includes(current.toLowerCase())
                   : icon
               )
               .map((icon) => {
