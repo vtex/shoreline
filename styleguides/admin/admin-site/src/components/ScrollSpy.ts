@@ -36,7 +36,9 @@ function useScrollSpy() {
   const location = useLocation()
   const ref = useRef<HTMLDivElement>(null)
 
-  useEffect(() => setCurrentId(null), [location.pathname])
+  useEffect(() => {
+    setCurrentId(null)
+  }, [location.pathname])
 
   const handleScroll = useCallback(() => {
     if (!items.length) return undefined

@@ -34,7 +34,7 @@ export default function CoreLayout(props: Props) {
               height: '100vh',
               width: '100vw',
               gridTemplateColumns: fullPage ? '1fr 4fr' : '1fr 3fr 1fr',
-              gridTemplateRows: '80px 1fr',
+              gridTemplateRows: '80px calc(100vh - 80px)',
               gridTemplateAreas: fullPage
                 ? '"header header" "leftnav main"'
                 : '"header header header" "leftnav main toc"',
@@ -47,8 +47,7 @@ export default function CoreLayout(props: Props) {
                 gridArea: 'leftnav',
                 bg: 'muted.3',
                 zIndex: 'plain',
-                overflowY: 'auto',
-                padding: 4,
+                overflow: 'auto',
                 display: ['none', 'none', 'initial'],
               }}
             >
@@ -64,6 +63,7 @@ export default function CoreLayout(props: Props) {
                   styles={{
                     gridArea: 'main',
                     overflowY: 'auto',
+                    scrollBehavior: 'smooth',
                     code: {
                       borderRadius: 3,
                       padding: '0.2em 0.4em',
@@ -84,7 +84,7 @@ export default function CoreLayout(props: Props) {
                   overflow: 'auto',
                   paddingX: 4,
                   paddingY: '72px',
-                  height: 'calc(100vh - 60px)',
+                  // height: 'calc(100vh - 60px)',
                   display: ['none', 'none', 'none', 'initial'],
                 }}
               >

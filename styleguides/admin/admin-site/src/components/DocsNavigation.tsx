@@ -1,17 +1,11 @@
-// TODO Refactor Tooltip (arrow Icon, use admin's tooltip)
-import React, { Fragment, Ref } from 'react'
-import { Box, cn, Text } from '@vtex/admin-ui'
-import { useStaticQuery, graphql, Link, GatsbyLinkProps } from 'gatsby'
-import {
-  unstable_useId as useId,
-  useTooltipState,
-  TooltipReference,
-  Tooltip,
-  TooltipArrow,
-} from 'reakit'
+import React from 'react'
+import { Box, cn, Text, Tooltip } from '@vtex/admin-ui'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
 import Next from '../icons/Next'
+import { Searchbar, useSearch } from './Searchbar'
 
 const query = graphql`
   query DocsQuery {
@@ -40,7 +34,6 @@ const linkStyles = {
   width: 'full',
   borderRadius: 'flat',
   alignItems: 'center',
-  // padding: '0.5em 1em 0.5em 2em',
   paddingY: 2,
   paddingX: 2,
   textDecoration: 'none',
@@ -66,45 +59,6 @@ const linkStyles = {
   },
 }
 
-function ExperimentalLink(props: GatsbyLinkProps<{}>) {
-  const { unstable_referenceRef: ref, ...tooltip } = useTooltipState({
-    placement: 'right',
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    unstable_fixed: true,
-  })
-
-  return (
-    <Fragment>
-      <TooltipReference
-        as={Link}
-        className={cn(linkStyles)}
-        {...props}
-        {...tooltip}
-      >
-        {props.children}
-        <Next
-          role="presentation"
-          ref={(ref as unknown) as Ref<SVGSVGElement>}
-        />
-      </TooltipReference>
-      <Tooltip
-        className={cn({
-          bg: 'text.primary',
-          color: 'background',
-          padding: 2,
-          borderRadius: 4,
-        })}
-        {...tooltip}
-      >
-        <Text variant="small">
-          <TooltipArrow {...tooltip} />
-          Next
-        </Text>
-      </Tooltip>
-    </Fragment>
-  )
-}
-
 export default function DocsNavigation() {
   const data: Data = useStaticQuery(query)
   const { id: baseId } = useId({ baseId: 'docs-navigation' })
@@ -113,10 +67,9 @@ export default function DocsNavigation() {
   const findMeta = (path: string) =>
     data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)
 
-  const getTitle = (path: string) => findMeta(path)?.title
-
-  const getIsExperimental = (path: string) =>
-    Boolean(findMeta(path)?.frontmatter.next)
+  const getTitle = (path: string) => findMeta(path)?.title ?? ''
+  const isNext = (path: string) => Boolean(findMeta(path)?.frontmatter.next)
+  const { searchState, current } = useSearch()
 
   return (
     <Box
@@ -126,10 +79,26 @@ export default function DocsNavigation() {
         },
       }}
     >
+      <header
+        className={cn({
+          position: 'sticky',
+          top: 0,
+          right: 0,
+          left: 0,
+          padding: 2,
+          bg: 'muted.2',
+          display: 'flex',
+          flexDirection: 'column',
+        })}
+      >
+        <Searchbar id="navgation-search" state={searchState} />
+      </header>
       {data.allNavigationYaml.nodes.map((node) => (
         <nav
           className={cn({
-            marginTop: 4,
+            // marginTop: 4,
+            paddingX: 4,
+            paddingY: 2,
           })}
           key={node.section}
           aria-labelledby={getId(node.section)}
@@ -146,27 +115,38 @@ export default function DocsNavigation() {
             {node.section}
           </Text>
           <ul className={cn({ padding: 0 })}>
-            {node.paths.map((path) => (
-              <li
-                className={cn({
-                  listStyle: 'none',
-                  display: 'flex',
-                  width: 'full',
-                  justifyContent: 'space-between',
-                })}
-                key={path}
-              >
-                {getIsExperimental(path) ? (
-                  <ExperimentalLink to={path}>
-                    {getTitle(path)}
-                  </ExperimentalLink>
-                ) : (
-                  <Link className={cn(linkStyles)} to={path}>
-                    {getTitle(path)}
-                  </Link>
-                )}
-              </li>
-            ))}
+            {node.paths
+              .filter((path) =>
+                current !== ''
+                  ? getTitle(path)
+                      .toLocaleLowerCase()
+                      .includes(current.toLowerCase())
+                  : path
+              )
+              .map((path) => (
+                <li
+                  className={cn({
+                    listStyle: 'none',
+                    display: 'flex',
+                    width: 'full',
+                    justifyContent: 'space-between',
+                  })}
+                  key={path}
+                >
+                  {isNext(path) ? (
+                    <Tooltip label="Next" placement="right">
+                      <Link className={cn(linkStyles)} to={path}>
+                        {getTitle(path)}
+                        <Next role="presentation" />
+                      </Link>
+                    </Tooltip>
+                  ) : (
+                    <Link className={cn(linkStyles)} to={path}>
+                      {getTitle(path)}
+                    </Link>
+                  )}
+                </li>
+              ))}
           </ul>
         </nav>
       ))}
