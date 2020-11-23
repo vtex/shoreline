@@ -47,7 +47,7 @@ export function useSearch() {
   const [searchValue, setSearchValue] = useState('')
   const [current, setFilterString] = useState('')
 
-  const decounceFilter = useRef(
+  const debounceFilter = useRef(
     debounce((nextValue) => setFilterString(nextValue), 50)
   ).current
 
@@ -55,7 +55,7 @@ export function useSearch() {
     const { value: nextValue } = event.target
 
     setSearchValue(nextValue)
-    decounceFilter(nextValue)
+    debounceFilter(nextValue)
   }
 
   return {

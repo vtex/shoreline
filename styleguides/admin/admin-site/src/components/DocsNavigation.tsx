@@ -100,7 +100,6 @@ export default function DocsNavigation() {
       {data.allNavigationYaml.nodes.map((node) => (
         <nav
           className={cn({
-            // marginTop: 4,
             paddingX: 4,
             paddingY: 2,
           })}
