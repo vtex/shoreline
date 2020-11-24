@@ -46,6 +46,7 @@ space: {
 
 You can use this prop in the following components: 
 - `Box`
+- `Card`
 - `Skeleton`
 
 ### Theme values
