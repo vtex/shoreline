@@ -64,7 +64,7 @@ function Example() {
 
 ### Circle
 
-The shape can also be circular. To use this variation, the <highlight message="shape"></highlight> property has the `circle` value.
+The shape can also be circular. To use this variation, the `shape` property has the `circle` value.
 
 ```jsx
 import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
