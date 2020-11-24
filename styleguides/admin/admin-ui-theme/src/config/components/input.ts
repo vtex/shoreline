@@ -6,6 +6,7 @@ const inputStyle = {
   height: 48,
   borderStyle: 'solid',
   borderWidth: 1,
+  // paddingTop: 2,
   paddingLeft: 3,
   paddingRight: 4,
   borderColor: 'muted.2',
@@ -106,8 +107,16 @@ const suffixStyle = {
   fontSize: 1,
 }
 
+const passwordButtonStyle = {
+  color: 'text.secondary',
+  marginY: '20px',
+  marginRight: 1,
+  cursor: 'pointer',
+}
+
 const inputVariants = {
   default: { ...inputStyle },
+  'with-password': { ...inputStyle, paddingRight: '64px' },
   'with-icon': { ...inputStyle, paddingLeft: '44px' },
   'with-suffix': { ...inputStyle, paddingRight: '64px' },
   'with-clear': {
@@ -148,5 +157,7 @@ export default {
   'icon-style': { ...iconStyle },
   'suffix-style': { ...suffixStyle },
   'clear-button-style': { ...clearButtonStyle },
+  // 'password-style': { ...passwordStyle },
+  'password-button-style': { ...passwordButtonStyle },
   ...inputVariants,
 }

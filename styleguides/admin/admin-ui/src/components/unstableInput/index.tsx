@@ -1,8 +1,9 @@
 import React, { forwardRef, ReactNode, Ref, useCallback, useState } from 'react'
 import { useClassName, SxStyleProp } from '@vtex/admin-ui-system'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
-import { IconCancel } from '@vtex/admin-ui-icons'
+import { IconCancel, IconHide, IconPreview } from '@vtex/admin-ui-icons'
 
+import { Button } from '../Button'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
 
@@ -16,6 +17,7 @@ export const unstableInput = forwardRef(function Input(
     onClear,
     styleOverrides,
     id,
+    type = 'text',
     optionalFeature,
     ...htmlProps
   } = props
@@ -25,6 +27,7 @@ export const unstableInput = forwardRef(function Input(
   const resolvedThemeKey = `components.input.${getVariants({
     icon,
     suffix,
+    type,
     onClear,
   })}`
 
@@ -51,6 +54,12 @@ export const unstableInput = forwardRef(function Input(
     return optionalFeature?.(styles)
   }
 
+  const [passwordShown, setPasswordShown] = useState(false)
+
+  function togglePasswordVisibility() {
+    setPasswordShown(!passwordShown)
+  }
+
   return (
     <Box themeKey={`components.input.container${icon ? '-with-icon' : ''}`}>
       {icon && (
@@ -58,12 +67,22 @@ export const unstableInput = forwardRef(function Input(
           {icon}
         </Box>
       )}
-      <ReakitInput
-        ref={ref}
-        className={inputClassName}
-        id={id}
-        {...htmlProps}
-      />
+      {type === 'password' ? (
+        <ReakitInput
+          ref={ref}
+          type={passwordShown ? 'text' : 'password'}
+          className={inputClassName}
+          id={id}
+          {...htmlProps}
+        />
+      ) : (
+        <ReakitInput
+          ref={ref}
+          className={inputClassName}
+          id={id}
+          {...htmlProps}
+        />
+      )}
       {renderFeature()}
       {(!!suffix || onClear) && (
         <Box
@@ -76,21 +95,44 @@ export const unstableInput = forwardRef(function Input(
             display: 'flex',
           }}
         >
-          {!!onClear && value.toString().length > 0 && (
+          {!!onClear && type === 'text' && value.toString().length > 0 && (
             <Box
-              element="button"
-              themeKey="components.input.clear-button-style"
-              aria-label={`${id}-clear-button`}
-              onClick={onClear}
+              styles={{
+                color: 'text.secondary',
+                marginTop: 2,
+                marginRight: 1,
+              }}
             >
-              <Box>
-                <IconCancel size={20} />
-              </Box>
+              <Button
+                icon={<IconCancel />}
+                aria-label="clear text"
+                onClick={onClear}
+                size="small"
+                variant="adaptative-dark"
+              />
             </Box>
           )}
           {!!suffix && (
             <Box element="span" themeKey="components.input.suffix-style">
               {suffix}
+            </Box>
+          )}
+          {type === 'password' && (
+            <Box
+              styles={{
+                color: 'text.secondary',
+                marginTop: 2,
+              }}
+            >
+              <Button
+                icon={passwordShown ? <IconHide /> : <IconPreview />}
+                aria-label={`${
+                  passwordShown ? 'hide' : 'show'
+                }  password content`}
+                onClick={togglePasswordVisibility}
+                size="small"
+                variant="adaptative-dark"
+              />
             </Box>
           )}
         </Box>
@@ -102,10 +144,15 @@ export const unstableInput = forwardRef(function Input(
 function getVariants({
   icon,
   suffix,
+  type,
   onClear,
-}: Pick<InputProps, 'icon' | 'suffix' | 'onClear'>) {
-  if (!icon && !suffix && !onClear) {
+}: Pick<InputProps, 'icon' | 'suffix' | 'type' | 'onClear'>) {
+  if (!icon && !suffix && type === 'text' && !onClear) {
     return 'default'
+  }
+
+  if (type === 'password') {
+    return `with${type ? '-password' : ''}`
   }
 
   return `with${icon ? '-icon' : ''}${suffix ? '-suffix' : ''}${

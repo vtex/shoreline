@@ -17,6 +17,7 @@ export const TextField = forwardRef(function Textfield(
     styleOverrides,
     helperText,
     charLimit,
+    type,
     icon,
     suffix,
     state: { value = '', onChange, onClear },
@@ -35,6 +36,7 @@ export const TextField = forwardRef(function Textfield(
         maxLength={charLimit}
         value={value}
         suffix={suffix}
+        type={type}
         icon={icon}
         onClear={onClear}
         onChange={onChange}

@@ -81,3 +81,20 @@ export const Error = () => {
     </Box>
   )
 }
+
+export const WithPassword = () => {
+  const input = useInputState()
+
+  return (
+    <Box width={300}>
+      <TextField
+        state={input}
+        id="textfield-5"
+        type="password"
+        label="Password"
+        helperText="Helper Text"
+        charLimit={120}
+      />
+    </Box>
+  )
+}

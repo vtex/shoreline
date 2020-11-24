@@ -166,7 +166,7 @@ exports[`Input tests should match snapshot 1`] = `
       class="emotion-1"
     />
   </div>
-  .emotion-5 {
+  .emotion-6 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
@@ -231,7 +231,7 @@ exports[`Input tests should match snapshot 1`] = `
   transform: translate(1px,4px) scale(0.875);
 }
 
-.emotion-4 {
+.emotion-5 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
@@ -246,20 +246,28 @@ exports[`Input tests should match snapshot 1`] = `
   display: flex;
 }
 
-.emotion-3 {
-  color: #898F9E;
-  margin-top: 14px;
-  margin-bottom: 14px;
-  margin-right: 0.25rem;
-  height: 20px;
-  width: 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: transparent;
-  cursor: pointer;
+.emotion-4 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #707685;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.emotion-3 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: currentColor;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -273,10 +281,29 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  color: #323845;
+  background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-3 > div {
+.emotion-3:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-3:disabled {
+  color: #898F9E;
+}
+
+.emotion-3 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -292,23 +319,20 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-}
-
-.emotion-2 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .emotion-1 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 <div
-    class="emotion-5"
+    class="emotion-6"
   >
     <input
       class="emotion-0"
@@ -316,49 +340,61 @@ exports[`Input tests should match snapshot 1`] = `
       value="Test2"
     />
     <div
-      class="emotion-4"
+      class="emotion-5"
     >
-      <button
-        aria-label="undefined-clear-button"
-        class="emotion-3"
+      <div
+        class="emotion-4"
       >
-        <div
-          class="emotion-2"
+        <button
+          aria-label="clear text"
+          class="emotion-3"
+          type="button"
         >
-          <svg
-            class="emotion-1"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-2"
           >
-            <path
-              clip-rule="evenodd"
-              d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
-              fill-rule="evenodd"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 9.16992L9.16998 14.8299"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 14.8299L9.16998 9.16992"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
-        </div>
-      </button>
+            <svg
+              class="emotion-1"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
-  .emotion-2 {
+  .emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-2 {
   font-variation-settings: "wght" 92;
   width: 100%;
   height: 48px;
@@ -447,13 +483,6 @@ exports[`Input tests should match snapshot 1`] = `
   width: 20px;
   min-width: 20px;
   min-height: 20px;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
 }
 
 <div
@@ -485,7 +514,14 @@ exports[`Input tests should match snapshot 1`] = `
       class="emotion-2"
     />
   </div>
-  .emotion-2 {
+  .emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-2 {
   font-variation-settings: "wght" 92;
   width: 100%;
   height: 48px;
@@ -574,13 +610,6 @@ exports[`Input tests should match snapshot 1`] = `
   width: 20px;
   min-width: 20px;
   min-height: 20px;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
 }
 
 <div
@@ -629,6 +658,13 @@ exports[`Input tests should match snapshot 1`] = `
   display: flex;
 }
 
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
 .emotion-4 {
   position: relative;
   line-height: 1.25;
@@ -660,13 +696,6 @@ exports[`Input tests should match snapshot 1`] = `
   width: 20px;
   min-width: 20px;
   min-height: 20px;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
 }
 
 .emotion-2 {
@@ -759,7 +788,7 @@ exports[`Input tests should match snapshot 1`] = `
       class="emotion-3"
     />
   </div>
-  .emotion-6 {
+  .emotion-7 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
@@ -774,20 +803,28 @@ exports[`Input tests should match snapshot 1`] = `
   display: flex;
 }
 
-.emotion-5 {
-  color: #898F9E;
-  margin-top: 14px;
-  margin-bottom: 14px;
-  margin-right: 0.25rem;
-  height: 20px;
-  width: 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: transparent;
-  cursor: pointer;
+.emotion-6 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #707685;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.emotion-5 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: currentColor;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -801,10 +838,29 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  color: #323845;
+  background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-5 > div {
+.emotion-5:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-5:disabled {
+  color: #898F9E;
+}
+
+.emotion-5 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -820,29 +876,26 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
-.emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
-.emotion-3 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-}
-
-.emotion-7 {
+.emotion-8 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
 }
 
-.emotion-7 label {
+.emotion-8 label {
   left: 44px;
 }
 
@@ -866,13 +919,6 @@ exports[`Input tests should match snapshot 1`] = `
   width: 20px;
   min-width: 20px;
   min-height: 20px;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
 }
 
 .emotion-2 {
@@ -934,7 +980,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-7"
+    class="emotion-8"
   >
     <span
       class="emotion-1"
@@ -964,46 +1010,51 @@ exports[`Input tests should match snapshot 1`] = `
       value="Test4"
     />
     <div
-      class="emotion-6"
+      class="emotion-7"
     >
-      <button
-        aria-label="undefined-clear-button"
-        class="emotion-5"
+      <div
+        class="emotion-6"
       >
-        <div
-          class="emotion-4"
+        <button
+          aria-label="clear text"
+          class="emotion-5"
+          type="button"
         >
-          <svg
-            class="emotion-3"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-4"
           >
-            <path
-              clip-rule="evenodd"
-              d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
-              fill-rule="evenodd"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 9.16992L9.16998 14.8299"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 14.8299L9.16998 9.16992"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
-        </div>
-      </button>
+            <svg
+              class="emotion-0"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
   .emotion-3 {
@@ -1353,6 +1404,13 @@ exports[`Input tests should match snapshot 1`] = `
   display: flex;
 }
 
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
 .emotion-5 {
   position: relative;
   line-height: 1.25;
@@ -1384,13 +1442,6 @@ exports[`Input tests should match snapshot 1`] = `
   width: 20px;
   min-width: 20px;
   min-height: 20px;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
 }
 
 .emotion-3 {
@@ -1518,6 +1569,13 @@ exports[`Input tests should match snapshot 1`] = `
   display: flex;
 }
 
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
 .emotion-5 {
   position: relative;
   line-height: 1.25;
@@ -1549,13 +1607,6 @@ exports[`Input tests should match snapshot 1`] = `
   width: 20px;
   min-width: 20px;
   min-height: 20px;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
 }
 
 .emotion-3 {
@@ -1668,7 +1719,7 @@ exports[`Input tests should match snapshot 1`] = `
       </span>
     </div>
   </div>
-  .emotion-7 {
+  .emotion-8 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
@@ -1683,20 +1734,28 @@ exports[`Input tests should match snapshot 1`] = `
   display: flex;
 }
 
-.emotion-5 {
-  color: #898F9E;
-  margin-top: 14px;
-  margin-bottom: 14px;
-  margin-right: 0.25rem;
-  height: 20px;
-  width: 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: transparent;
-  cursor: pointer;
+.emotion-6 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #707685;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.emotion-5 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: currentColor;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -1710,10 +1769,29 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  color: #323845;
+  background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-5 > div {
+.emotion-5:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-5:disabled {
+  color: #898F9E;
+}
+
+.emotion-5 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1729,29 +1807,26 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
-.emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
-.emotion-3 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-}
-
-.emotion-8 {
+.emotion-9 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
 }
 
-.emotion-8 label {
+.emotion-9 label {
   left: 44px;
 }
 
@@ -1777,14 +1852,7 @@ exports[`Input tests should match snapshot 1`] = `
   min-height: 20px;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
-.emotion-6 {
+.emotion-7 {
   color: #898F9E;
   border-left-style: solid;
   border-left-width: 1px;
@@ -1857,7 +1925,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-8"
+    class="emotion-9"
   >
     <span
       class="emotion-1"
@@ -1887,48 +1955,53 @@ exports[`Input tests should match snapshot 1`] = `
       value="Test6"
     />
     <div
-      class="emotion-7"
+      class="emotion-8"
     >
-      <button
-        aria-label="undefined-clear-button"
-        class="emotion-5"
-      >
-        <div
-          class="emotion-4"
-        >
-          <svg
-            class="emotion-3"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
-              fill-rule="evenodd"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 9.16992L9.16998 14.8299"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 14.8299L9.16998 9.16992"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
-        </div>
-      </button>
-      <span
+      <div
         class="emotion-6"
+      >
+        <button
+          aria-label="clear text"
+          class="emotion-5"
+          type="button"
+        >
+          <div
+            class="emotion-4"
+          >
+            <svg
+              class="emotion-0"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+      <span
+        class="emotion-7"
       >
         Kg
       </span>

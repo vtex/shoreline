@@ -26,6 +26,23 @@ export const Base: Story = () => {
   )
 }
 
+export const WithPassword: Story = () => {
+  const { onClear, onChange, value } = useInputState()
+
+  return (
+    <Box width={300}>
+      <Input
+        type="password"
+        onClear={onClear}
+        onChange={onChange}
+        value={value}
+        id="password"
+        icon={<IconAdd />}
+      />
+    </Box>
+  )
+}
+
 export const OverrideStyles: Story = () => {
   const { onClear, onChange, value } = useInputState()
 

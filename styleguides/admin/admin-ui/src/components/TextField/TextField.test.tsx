@@ -104,6 +104,14 @@ describe('Input tests', () => {
           label="Label"
           id="text-field-7"
         />
+        <TextField
+          state={{ value: '', onChange: () => {}, onClear: () => {} }}
+          id="text-field-8"
+          type="password"
+          label="Password"
+          helperText="Helper Text"
+          charLimit={120}
+        />
       </ThemeProvider>
     )
 
@@ -146,6 +154,14 @@ describe('Input tests', () => {
           state={{ value: '', onChange: () => {}, onClear: () => {} }}
           label="Label"
           id="text-field-4"
+        />
+        <TextField
+          state={{ value: '', onChange: () => {}, onClear: () => {} }}
+          id="text-field-5"
+          type="password"
+          label="Password"
+          helperText="Helper Text"
+          charLimit={120}
         />
       </ThemeProvider>
     )
