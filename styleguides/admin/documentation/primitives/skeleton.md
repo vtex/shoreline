@@ -48,7 +48,7 @@ import { Skeleton } from '@vtex/admin-ui'
 
 ### Rectangle
 
-By default, Skeleton's shape is rectangular. To use this variation, the <highlight message="shape"></highlight> property has the `rect` value.
+By default, Skeleton's shape is rectangular. To use this variation, the `shape` property has the `rect` value.
 
 ```jsx
 import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
