@@ -1,0 +1,167 @@
+import React, { useState } from 'react'
+import { Input as ReakitInput } from 'reakit'
+import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
+
+import { Box } from '../Box'
+import { useClassName } from '../../system'
+import { Overridable } from '../../types'
+
+const normalizeMin = (min: number | undefined) =>
+  min == null ? -Infinity : min
+
+const normalizeMax = (max: number | undefined) =>
+  max === undefined ? Infinity : max
+
+const validateValue = (
+  value: number,
+  min: number | undefined,
+  max: number | undefined
+) => {
+  min = normalizeMin(min)
+  max = normalizeMax(max)
+
+  if (value < min) {
+    return min
+  }
+
+  if (value > max) {
+    return max
+  }
+
+  return value
+}
+
+export function Stepper(props: StepperProps) {
+  const {
+    value: initialValue,
+    minValue,
+    maxValue,
+    disabled,
+    unitMultiplier,
+    onChange,
+    errorMessage,
+    helperText,
+    error,
+    label,
+    ...inputProps
+  } = props
+
+  const [value, setValue] = useState(initialValue)
+  const hasHelper = error ?? helperText
+
+  const className = useClassName({
+    themeKey: `components.stepper${error ? '.error' : '.default'}`,
+  })
+
+  const multiplier = unitMultiplier ?? 1
+
+  const isMinusDisabled = () => {
+    return disabled ? true : value === minValue
+  }
+
+  const isPlusDisabled = () => {
+    return disabled ? true : !!(maxValue && value === maxValue)
+  }
+
+  const changeValue = (__value: number) => {
+    const parsedValue = validateValue(__value, minValue, maxValue)
+
+    setValue(parsedValue)
+    if (onChange) {
+      onChange(parsedValue.toString())
+    }
+  }
+
+  const changeInputValue = (__value: string) => {
+    setValue(Number(__value))
+    if (onChange) {
+      onChange(__value)
+    }
+  }
+
+  const handleIncreaseValue = () => {
+    const newValue =
+      maxValue && value + multiplier > maxValue ? maxValue : value + multiplier
+
+    changeValue(newValue)
+  }
+
+  const handleDecreaseValue = () => {
+    const newValue =
+      minValue && value - multiplier <= minValue ? minValue : value - multiplier
+
+    changeValue(newValue)
+  }
+
+  return (
+    <Box>
+      <Box
+        styles={{
+          display: 'flex',
+          position: 'relative',
+          alignItems: 'center',
+          height: 48,
+          width: 106,
+          paddingY: 12,
+        }}
+      >
+        <ReakitInput
+          {...inputProps}
+          value={value}
+          type="number"
+          min={minValue}
+          max={maxValue}
+          onChange={(e) => changeInputValue(e.target.value)}
+          disabled={disabled}
+          aria-label={label}
+          className={className}
+        />
+
+        <Box
+          element="button"
+          themeKey="components.stepper.buttonMinus"
+          aria-label={`${label}-decrease-button`}
+          onClick={handleDecreaseValue}
+          disabled={isMinusDisabled()}
+        >
+          <Box>
+            <IconRemove size={20} />
+          </Box>
+        </Box>
+
+        <Box
+          element="button"
+          themeKey="components.stepper.buttonPlus"
+          aria-label={`${label}-increase-button}`}
+          onClick={handleIncreaseValue}
+          disabled={isPlusDisabled()}
+        >
+          <Box>
+            <IconAdd size={20} />
+          </Box>
+        </Box>
+      </Box>
+      {hasHelper && (
+        <Box
+          text="small"
+          styles={{ color: error ? 'danger.base' : 'muted.0', marginTop: 2 }}
+        >
+          {error ? errorMessage : helperText}
+        </Box>
+      )}
+    </Box>
+  )
+}
+
+export interface StepperProps extends Overridable {
+  value: number
+  minValue?: number
+  maxValue?: number
+  disabled?: boolean
+  error?: boolean
+  onChange?: (value: string) => void
+  errorMessage?: string
+  helperText?: string
+  unitMultiplier?: number
+  label: string
+}
