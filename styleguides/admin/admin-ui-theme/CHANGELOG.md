@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.4.3...@vtex/admin-ui-theme@0.5.0) (2020-11-24)
+
+
+### Features
+
+* input password component ([a77e6b1](https://github.com/vtex/onda/commit/a77e6b1ea8b7ab31855c13a0ab9d33c5e9141808))
+* input password component [wip] ([c68e8e0](https://github.com/vtex/onda/commit/c68e8e04d08d6e21ed6a1b9c1ca04dddffbae4af))
+* input password reviewed ([0d8e979](https://github.com/vtex/onda/commit/0d8e9790368df7235e2341026314dd75cd57ac3a))
+* input password reviewed icons ([a4d43ab](https://github.com/vtex/onda/commit/a4d43abd7d0a6a17a03281bc9ab1fbcfd4aeadcb))
+* stepper ([b654134](https://github.com/vtex/onda/commit/b654134f79207f5c9d977199aa2e6bc10b0b9a67))
+* stepper ([d81b486](https://github.com/vtex/onda/commit/d81b486a1d0c87788429e33ab02a899201222d0d))
+* stepper ([6d36dae](https://github.com/vtex/onda/commit/6d36daed623ee166726a42485f789819484b5ace))
+* stepper adjusts ([a679507](https://github.com/vtex/onda/commit/a6795074aa6a9bb34769476be0089f494bf85f83))
+* stepper adjusts ([03085c9](https://github.com/vtex/onda/commit/03085c9a37fb52c63bc6c1bc35cf4079df378b0d))
+* stepper changes ([a10bb95](https://github.com/vtex/onda/commit/a10bb954620de17c407ad4646acd2a05e6ddbbca))
+* stepper Component ([ecee786](https://github.com/vtex/onda/commit/ecee786524f5d7c44d3982da53f64caf5aa1fd7d))
+* stepper Component tests ([39faad1](https://github.com/vtex/onda/commit/39faad1a66d4b746855d6a2f4a0d7c98f257e94b))
+
+
+
+
+
 ## [0.4.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.4.2...@vtex/admin-ui-theme@0.4.3) (2020-11-19)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme

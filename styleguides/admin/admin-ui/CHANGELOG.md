@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.62.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.61.0...@vtex/admin-ui@0.62.0) (2020-11-24)
+
+
+### Features
+
+* icon remove ([701e7b9](https://github.com/vtex/onda/commit/701e7b929af745b287b37020cbbc1bf91ad5c69f))
+* input password component ([1578bd1](https://github.com/vtex/onda/commit/1578bd172c914039ed1c9880c6c81b03c5715806))
+* input password component ([a77e6b1](https://github.com/vtex/onda/commit/a77e6b1ea8b7ab31855c13a0ab9d33c5e9141808))
+* input password component [wip] ([6b3f870](https://github.com/vtex/onda/commit/6b3f870c74f46ef904e1d42bc715cb6f971b24c8))
+* input password component [wip] ([5f2e2dc](https://github.com/vtex/onda/commit/5f2e2dc6676a491196275ec3a97e0000ffb07877))
+* input password component [wip] ([c68e8e0](https://github.com/vtex/onda/commit/c68e8e04d08d6e21ed6a1b9c1ca04dddffbae4af))
+* input password component reviewed ([3f17a08](https://github.com/vtex/onda/commit/3f17a08233fde256d92d93dddc17667b82991113))
+* input password component spapshots ([8f0e25e](https://github.com/vtex/onda/commit/8f0e25e85315e419c35b64365749de97f84ff9cf))
+* input password reviewed ([0d8e979](https://github.com/vtex/onda/commit/0d8e9790368df7235e2341026314dd75cd57ac3a))
+* input password reviewed(removing label) ([5259afa](https://github.com/vtex/onda/commit/5259afa987bc7cacb207261a25fb3c2e000802ce))
+* input password reviewed(removing unecessary onClick prop) ([d94ab17](https://github.com/vtex/onda/commit/d94ab1759ca470c37aa0b48121b035d313ed6fad))
+* stepper ([7271aab](https://github.com/vtex/onda/commit/7271aab9114b0db5cabe50858b2e90b2432eede8))
+* stepper ([b654134](https://github.com/vtex/onda/commit/b654134f79207f5c9d977199aa2e6bc10b0b9a67))
+* stepper ([d81b486](https://github.com/vtex/onda/commit/d81b486a1d0c87788429e33ab02a899201222d0d))
+* stepper ([6d36dae](https://github.com/vtex/onda/commit/6d36daed623ee166726a42485f789819484b5ace))
+* stepper ([571f798](https://github.com/vtex/onda/commit/571f798f7d73f4ea0f73709286c4ed3b8ab21c9d))
+* stepper adjusts ([a679507](https://github.com/vtex/onda/commit/a6795074aa6a9bb34769476be0089f494bf85f83))
+* stepper adjusts ([03085c9](https://github.com/vtex/onda/commit/03085c9a37fb52c63bc6c1bc35cf4079df378b0d))
+* stepper changes ([a10bb95](https://github.com/vtex/onda/commit/a10bb954620de17c407ad4646acd2a05e6ddbbca))
+* stepper Component ([5e165aa](https://github.com/vtex/onda/commit/5e165aa313611fb34e5388e4ceb21f02ee4aa7fa))
+* stepper Component ([ecee786](https://github.com/vtex/onda/commit/ecee786524f5d7c44d3982da53f64caf5aa1fd7d))
+* stepper Component tests ([39faad1](https://github.com/vtex/onda/commit/39faad1a66d4b746855d6a2f4a0d7c98f257e94b))
+* stepper fix ([0e74c53](https://github.com/vtex/onda/commit/0e74c53291603b22447a1d698b0303e746c014a1))
+* stepper icons ([e79180d](https://github.com/vtex/onda/commit/e79180d33a45c6a32bb24bcfa6e7e14049284960))
+* stepper icons ([1737e5a](https://github.com/vtex/onda/commit/1737e5ab280c9df6c53ac0cc523d6c6211a08bda))
+* stepper snapshot ([4ae2712](https://github.com/vtex/onda/commit/4ae27123c241cce05e5a3125f3beec6a6496b7c8))
+
+
+
+
+
 # [0.61.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.60.1...@vtex/admin-ui@0.61.0) (2020-11-19)
 
 
