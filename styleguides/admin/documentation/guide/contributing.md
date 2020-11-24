@@ -22,7 +22,7 @@ We use storybook as a canvas to create stories and as a preview of our component
 It is essential that all commits follow an established convention. We ask you to please take the time to understand semantic versioning before committing.
 
 **Tools:** We use [commitlint](https://commitlint.js.org/#/) and [commitizen](http://commitizen.github.io/cz-cli/) to automate enforcement of [Conventional Commits](https://www.conventionalcommits.org/). 
-**Messages:** As a shorthand, we always use the <highlight message="git cz"></highlight> command to ensure that we are following our commitlint.
+**Messages:** As a shorthand, we always use the `git cz` command to ensure that we are following our commitlint.
 
 
 ## Development Workflow
