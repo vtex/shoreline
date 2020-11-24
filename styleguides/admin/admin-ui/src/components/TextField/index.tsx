@@ -95,8 +95,6 @@ export interface TextFieldProps
   icon?: ReactNode
   /** Input Suffix */
   suffix?: string
-  /** Input Type */
-  type?: 'text' | 'password'
   /**
    * Input state
    */

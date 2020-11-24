@@ -3,6 +3,7 @@ import { useClassName, SxStyleProp } from '@vtex/admin-ui-system'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
 import { IconCancel, IconHide, IconPreview } from '@vtex/admin-ui-icons'
 
+import { Button } from '../Button'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
 
@@ -96,14 +97,19 @@ export const unstableInput = forwardRef(function Input(
         >
           {!!onClear && type === 'text' && value.toString().length > 0 && (
             <Box
-              element="button"
-              themeKey="components.input.clear-button-style"
-              aria-label={`${id}-clear-button`}
-              onClick={onClear}
+              styles={{
+                color: 'text.secondary',
+                marginTop: 2,
+                marginRight: 1,
+              }}
             >
-              <Box>
-                <IconCancel size={20} />
-              </Box>
+              <Button
+                icon={<IconCancel />}
+                aria-label="clear text"
+                onClick={onClear}
+                size="small"
+                variant="adaptative-dark"
+              />
             </Box>
           )}
           {!!suffix && (
@@ -113,18 +119,20 @@ export const unstableInput = forwardRef(function Input(
           )}
           {type === 'password' && (
             <Box
-              element="button"
-              themeKey="components.input.password-button-style"
-              aria-label={`${id}-show-password-button`}
-              onClick={togglePasswordVisibility}
+              styles={{
+                color: 'text.secondary',
+                marginTop: 2,
+              }}
             >
-              <Box>
-                {type === 'password' ? (
-                  <IconPreview size={24} />
-                ) : (
-                  <IconHide size={24} />
-                )}
-              </Box>
+              <Button
+                icon={passwordShown ? <IconHide /> : <IconPreview />}
+                aria-label={`${
+                  passwordShown ? 'hide' : 'show'
+                }  password content`}
+                onClick={togglePasswordVisibility}
+                size="small"
+                variant="adaptative-dark"
+              />
             </Box>
           )}
         </Box>
@@ -181,8 +189,6 @@ export interface InputProps extends Omit<ReakitInputProps, 'ref'>, Overridable {
   icon?: ReactNode
   /** Input Suffix */
   suffix?: string
-  /** Input Type */
-  type?: 'text' | 'password'
   /** onClear input */
   onClear?: () => void
   /**

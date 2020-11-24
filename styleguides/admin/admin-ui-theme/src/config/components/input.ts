@@ -6,7 +6,7 @@ const inputStyle = {
   height: 48,
   borderStyle: 'solid',
   borderWidth: 1,
-  paddingTop: 2,
+  // paddingTop: 2,
   paddingLeft: 3,
   paddingRight: 4,
   borderColor: 'muted.2',
@@ -107,47 +107,11 @@ const suffixStyle = {
   fontSize: 1,
 }
 
-// const passwordStyle = {
-//   color: 'muted.1',
-//   paddingTop: '14px',
-//   marginTop: 'px',
-//   width: '32px',
-//   paddingLeft: 3,
-//   lineHeight: 'body',
-//   fontVariationSettings: 'regular',
-//   fontSize: 1,
-// }
-
 const passwordButtonStyle = {
-  color: 'muted.1',
+  color: 'text.secondary',
   marginY: '20px',
   marginRight: 1,
-  height: 20,
-  width: 20,
-  border: 'none',
-  borderRadius: 'default',
-  bg: 'transparent',
   cursor: 'pointer',
-  ':focus:not([data-focus-visible-added])': {
-    outline: 'none',
-    boxShadow: 'none',
-  },
-  ':focus': {
-    outline: 'none',
-    boxShadow: 'focus',
-  },
-  ':hover': {
-    color: 'text',
-  },
-
-  '> div': {
-    display: 'flex',
-    height: 'full',
-    width: 'full',
-    margin: 'auto',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 }
 
 const inputVariants = {
