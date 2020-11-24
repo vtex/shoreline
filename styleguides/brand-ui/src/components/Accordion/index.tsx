@@ -1,10 +1,11 @@
+import { mergeSx } from '@vtex-components/theme'
 import React, {
   Children,
   ReactElement,
   PropsWithChildren,
   useState,
 } from 'react'
-import { Box } from 'theme-ui'
+import { Box, SxStyleProp } from 'theme-ui'
 
 import { useCollapsible, Collapsible, CollapsibleProps } from '../Collapsible'
 
@@ -82,15 +83,25 @@ function Accordion({
   toggle,
   disabled = [],
   children,
+  sx = {},
   ...accordionProps
 }: AccordionProps) {
   const createSection = (child: ReactElement, key: number) => {
+    const style = {
+      '& > button': {
+        borderBottom: 'solid',
+        borderBottomWidth: '1px',
+        borderBottomColor: 'muted.2',
+      },
+    }
+
     const props = {
       ...accordionProps,
       visible: visible === key,
       toggle: () => toggle(key),
       disabled: disabled.some((id) => id === key),
       baseId: `id-${key}`,
+      sx: mergeSx<SxStyleProp>(sx, style),
     }
 
     return React.createElement(Collapsible, props, child.props.children)
