@@ -10,6 +10,7 @@ Properties that you can use in specific components to add `space` or `size` styl
 
 You can use this prop in the following components: 
 - `Box`
+- `Card`
 - `Divider`
 - `Heading`
 - `Text`
