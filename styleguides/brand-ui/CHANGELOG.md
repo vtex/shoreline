@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.24.0...@vtex/brand-ui@0.25.0) (2020-11-24)
+
+
+### Features
+
+* add arrow position and aligment ([c766083](https://github.com/vtex/onda/commit/c766083c2fbf8ca5218ba3695c25d1d92e06f22a))
+
+
+
+
+
 # [0.24.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.23.0...@vtex/brand-ui@0.24.0) (2020-11-12)
 
 
