@@ -10,7 +10,8 @@ export default {
 } as Meta
 
 export const Basic: Story<StepperProps> = () => {
-  let initial: number = 1
+  const initial = 1
+
   return (
     <Stepper
       label="stepper number"
@@ -32,7 +33,8 @@ export const Disabled: Story<StepperProps> = () => {
 }
 
 export const Error: Story<StepperProps> = () => {
-  let initial: number = 1
+  const initial = 1
+
   return (
     <Stepper
       value={initial}

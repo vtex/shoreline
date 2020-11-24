@@ -34,7 +34,7 @@ describe('Stepper tests', () => {
           maxValue={50}
           unitMultiplier={5}
           onChange={(value: string) => {
-            alert(value)
+            console.warn(value)
           }}
         />
       </ThemeProvider>
@@ -48,7 +48,7 @@ describe('Stepper tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <Stepper value={1} label="stepper number"></Stepper>
+        <Stepper value={1} label="stepper number" />
       </ThemeProvider>
     )
 

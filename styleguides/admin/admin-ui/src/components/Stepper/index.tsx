@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
-import { Box } from '../Box'
-import { useClassName } from '../../system'
 import { Input as ReakitInput } from 'reakit'
 import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
+
+import { Box } from '../Box'
+import { useClassName } from '../../system'
 import { Overridable } from '../../types'
 
 const normalizeMin = (min: number | undefined) =>
   min == null ? -Infinity : min
+
 const normalizeMax = (max: number | undefined) =>
-  max == undefined ? Infinity : max
+  max === undefined ? Infinity : max
 
 const validateValue = (
   value: number,
@@ -20,9 +22,12 @@ const validateValue = (
 
   if (value < min) {
     return min
-  } else if (value > max) {
+  }
+
+  if (value > max) {
     return max
   }
+
   return value
 }
 
@@ -33,52 +38,58 @@ export function Stepper(props: StepperProps) {
     maxValue,
     disabled,
     unitMultiplier,
-    onChange: onChangeInputed,
+    onChange,
     errorMessage,
     helperText,
     error,
     label,
     ...inputProps
   } = props
+
   const [value, setValue] = useState(initialValue)
-  const hasHelper = error || helperText
+  const hasHelper = error ?? helperText
 
   const className = useClassName({
     themeKey: `components.stepper${error ? '.error' : '.default'}`,
   })
 
   const multiplier = unitMultiplier ?? 1
+
   const isMinusDisabled = () => {
-    return disabled ? true : value === minValue ? true : false
-  }
-  const isPlusDisabled = () => {
-    return disabled ? true : maxValue && value === maxValue ? true : false
+    return disabled ? true : value === minValue
   }
 
-  const changeValue = (value: number) => {
-    const parsedValue = validateValue(value, minValue, maxValue)
+  const isPlusDisabled = () => {
+    return disabled ? true : !!(maxValue && value === maxValue)
+  }
+
+  const changeValue = (__value: number) => {
+    const parsedValue = validateValue(__value, minValue, maxValue)
+
     setValue(parsedValue)
-    if (onChangeInputed) {
-      onChangeInputed(parsedValue.toString())
+    if (onChange) {
+      onChange(parsedValue.toString())
     }
   }
 
-  const changeInputValue = (value: string) => {
-    setValue(Number(value))
-    if (onChangeInputed) {
-      onChangeInputed(value)
+  const changeInputValue = (__value: string) => {
+    setValue(Number(__value))
+    if (onChange) {
+      onChange(__value)
     }
   }
 
   const handleIncreaseValue = () => {
     const newValue =
       maxValue && value + multiplier > maxValue ? maxValue : value + multiplier
+
     changeValue(newValue)
   }
 
   const handleDecreaseValue = () => {
     const newValue =
       minValue && value - multiplier <= minValue ? minValue : value - multiplier
+
     changeValue(newValue)
   }
 
