@@ -4,23 +4,23 @@ path: /theming/inline-styles/
 
 # Inline Styles
 
-This page presents all the inline style techniques available within admin-ui.
+This page presents all the inline style techniques available within our Admin. Each style presented here has its own particularities and use cases. Check out our [Style Object](/theming/style-object/) page  for more details about this superset of CSS and their API calls to style objects.
 
 ## styles & styleOverrides
 
-Both have the same behavior, and accepts a valid [`StyleObject`](/theming/style-object/). The difference is the semantic of their usage.
+Both have the same behavior, and accept a valid [`StyleObject`](/theming/style-object/). The difference is the semantic of their usage, and where they should be applied.
 
-Styles:
+**Styles:**
 
-- use it on `Primitives` where style changes are expected and encouraged.
-- use it with confidence since it does not break predefined styles.
-- do not break element consistency.
+- Use it on `Primitives`, where style changes are expected and encouraged.
+- Use it with confidence, since it does not break predefined styles.
+- They don't break an element's consistency.
 
-StyleOverrides:
+**StyleOverrides:**
 
-- use it on `ThemedComponents` where changes are not common and can default theme styles.
-- use it with care since it can override styles.
-- can break element consistency.
+- Use it on `ThemedComponents` where changes are not common and already have default theme styles.
+- Use it with care, since it can override styles.
+- They can break an element's consistency.
 
 ```jsx
 import { Box, Button, ThemeProvider } from '@vtex/admin-ui'
@@ -43,7 +43,7 @@ function Example() {
 
 ## cn function
 
-Function that transforms a valid [`StyleObject`](/theming/style-object/) into a className. It's used to style native JSX elements and support integration with other libraries while being consistent.
+Function that transforms a valid [`StyleObject`](/theming/style-object/) into a `className`. It is used to style native JSX elements and support integrations with other libraries while being consistent.
 
 ### Example
 
@@ -63,7 +63,7 @@ function Example() {
 
 ### Do's:
 
-#### ✅ Use it with native elements:
+- ✅ Use it with native elements:
 
 ```jsx static
 <nav
@@ -74,7 +74,7 @@ function Example() {
 />
 ```
 
-#### ✅ Use it with custom libraries that accepts a className:
+- ✅ Use it with custom libraries that accepts a className:
 
 ```jsx static
 import { Input } from 'reakit/Input'
@@ -90,7 +90,7 @@ import { Input } from 'reakit/Input'
 
 ### Dont's:
 
-#### 🚫 Use it within Primitives:
+- 🚫 Use it within Primitives:
 
 ```jsx static
 // 🚫 Wrong
@@ -110,7 +110,7 @@ import { Input } from 'reakit/Input'
 />
 ```
 
-#### 🚫 Use it within ThemedComponents:
+- 🚫 Use it within ThemedComponents:
 
 ```jsx static
 // 🚫 Wrong
@@ -134,9 +134,9 @@ import { Input } from 'reakit/Input'
 
 Hook that returns the entire theme object. Must be used under a `<ThemeProvider>` context.
 
-### Do:
+### Do's:
 
-#### ✅ Use it if you need theme values on your custom hooks
+- ✅ Use it if you need theme values on your custom hooks
 
 ```jsx static
 // function that mix two colors
@@ -152,9 +152,9 @@ function usePrimarySuccess(weight = 0.5) {
 }
 ```
 
-### Dont:
+### Don'ts:
 
-#### 🚫 Use it to pass values to StyleObject
+- 🚫 Use it to pass values to StyleObject
 
 ```jsx static
 const theme = useTheme()

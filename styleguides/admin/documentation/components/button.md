@@ -4,7 +4,11 @@ path: /button/
 
 # Button
 
-A component that handles all Button variants of the DS. It renders a button element by default.
+A button triggers an action, or allows the user to advance a state. Where the user interacts with the screen. This component that handles all `Button` variations of the Design System. It renders a button element by default.
+
+## UX Writing: Tone and Voice 
+
+Keep in mind the Authority we want to transmit with our voice. Buttons are where the action takes place. We're always sure where we want to direct our users to, so they accomplish their goals. There's no space for ambiguity in the actions we guide them to take, we convey decisiveness.
 
 ## Behavior
 
@@ -32,10 +36,11 @@ import { Button } from '@vtex/admin-ui'
 
 Learn more in [Get started](/docs/get-started/).
 
-## Variants
+## Variations
 
 ### Primary
 
+This type of button only uses text to convey its action.
 This option should be used for the most important action of the page.
 
 #### ✅ Do's:

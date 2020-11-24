@@ -8,7 +8,15 @@ Properties that you can use in specific components to add `space` or `size` styl
 
 ## Spacing
 
-You can use it in `Box`, `Divider`, `Heading`, `Text`, `Label`, `Paragraph` and `Skeleton` components.
+You can use this prop in the following components: 
+- `Box`
+- `Card`
+- `Divider`
+- `Heading`
+- `Text`
+- `Label`
+- `Paragraph` 
+- `Skeleton` 
 
 ### Theme values
 
@@ -36,7 +44,10 @@ space: {
 
 ## Size
 
-You can use it in `Box` and `Skeleton` components.
+You can use this prop in the following components: 
+- `Box`
+- `Card`
+- `Skeleton`
 
 ### Theme values
 

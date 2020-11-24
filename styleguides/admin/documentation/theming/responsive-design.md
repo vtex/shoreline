@@ -39,7 +39,7 @@ function Example() {
 
 ### Skipping Breakpoints
 
-If you want to skip a breakpoint, you can use the value null. This is useful if you want to set a value for only the largest breakpoint, for example.
+If you want to skip a breakpoint, you can use the value `null`. This is useful if you want to set a value for only the largest breakpoint, for example.
 
 ```jsx
 import { ThemeProvider, Box } from '@vtex/admin-ui'

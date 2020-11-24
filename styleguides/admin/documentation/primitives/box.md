@@ -4,9 +4,15 @@ path: /primitives/box/
 
 # Box
 
-The majority of our components are built on top of the `<Box>` primitive. By default it renders a `<div>` element.
+Our design system comes with a set of primitive components that represent our most elementary components, through which other components are built. They are basic elements, with no determined style, that are used as a starting point for other components. Check out our [Introduction](/primitives/introduction) page, to see Do's and Don'ts about primitive components. 
 
-> You may want to try to use one of our `Layout` components before using Box to build layouts, and also, check one of our Typography components before using it to render a text.
+`Box` is versatile primitive component, with no defined style, that can be used to leverage other elementary components. The majority of our components are built on top of the `<Box>`. By default it renders a `<div>` element.  
+
+If you want to know more about how to style a primitive component, check out our [Inline Styles](/theming/inline-styles/) page.
+
+*Note that you may want to use one of our `Layout` components before using Box to build layouts. Also check one of our `Typography` components before using it to render a text.*
+
+
 
 ## Behavior
 

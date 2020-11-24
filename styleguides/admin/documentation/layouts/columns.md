@@ -4,7 +4,7 @@ path: /layouts/columns/
 
 # Columns
 
-It implements a 12 column flexbox based responsive column system. By default, each `<Columns.Item>` will have an equal width and you can have up to 12 columns.
+Our design system comes with a set of layout components to help you build common layouts inside your application. `Columns` implement a 12 column flexbox based responsive column system. By default, each `<Columns.Item>` will have an equal width and you can have up to 12 columns. Check out our [Introduction](/layouts/introduction) page, to see Do's and Don'ts about Layout components.
 
 To create a basic columned layout, add a `<Columns>` component and then add your `<Columns.Item>`.
 
