@@ -1,9 +1,174 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stepper tests should match snapshot 1`] = `
+exports[`NumericStepper tests should not have any violations 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  font-size: 14px;
+  .emotion-9 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-7 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 48px;
+  width: 106px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-7 button {
+  position: absolute;
+}
+
+.emotion-7 button:hover {
+  background-color: transparent;
+}
+
+.emotion-7 button:active {
+  background-color: transparent;
+}
+
+.emotion-3 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: #2953B2;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  left: 0.25rem;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-3:hover {
+  color: #214491;
+  background-color: #cad7f1;
+}
+
+.emotion-3:active {
+  color: #1a3470;
+  background-color: #bacbec;
+}
+
+.emotion-3:disabled {
+  color: #898F9E;
+}
+
+.emotion-3 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-6 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: #2953B2;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  right: 0.25rem;
+}
+
+.emotion-6:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-6:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-6:hover {
+  color: #214491;
+  background-color: #cad7f1;
+}
+
+.emotion-6:active {
+  color: #1a3470;
+  background-color: #bacbec;
+}
+
+.emotion-6:disabled {
+  color: #898F9E;
+}
+
+.emotion-6 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-0 {
   width: 106px;
   height: 48px;
   -webkit-appearance: none;
@@ -44,155 +209,32 @@ exports[`Stepper tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-2 {
-  line-height: 1.25;
+.emotion-8 {
+  line-height: 1.125;
   font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-7 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 48px;
-  width: 106px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-
-.emotion-3 {
-  position: absolute;
-  top: 14px;
-  height: 20px;
-  width: 20px;
-  cursor: pointer;
-  border-radius: 4px;
-  background-color: transparent;
-  color: #2953B2;
-  left: 12px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-3:hover {
-  color: #214491;
-}
-
-.emotion-3:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-3:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-3:disabled {
+  font-size: 0.75rem;
   color: #898F9E;
-}
-
-.emotion-3 > div {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.emotion-1 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-}
-
-.emotion-6 {
-  position: absolute;
-  top: 14px;
-  height: 20px;
-  width: 20px;
-  cursor: pointer;
-  border-radius: 4px;
-  background-color: transparent;
-  color: #2953B2;
-  right: 12px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-6:hover {
-  color: #214491;
-}
-
-.emotion-6:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-6:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-6:disabled {
-  color: #898F9E;
-}
-
-.emotion-6 > div {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  margin-top: 0.5rem;
 }
 
 <div
-    class="emotion-2"
+    class="emotion-9"
   >
     <div
       class="emotion-7"
     >
       <input
-        aria-label="stepper number"
+        aria-label="numeric-stepper"
         class="emotion-0"
+        max="3"
+        min="-3"
         type="number"
         value="1"
       />
       <button
-        aria-label="stepper number-decrease-button"
+        aria-label="numeric-stepper-decrease-button"
         class="emotion-3"
+        type="button"
       >
         <div
           class="emotion-2"
@@ -212,8 +254,9 @@ exports[`Stepper tests should match snapshot 1`] = `
         </div>
       </button>
       <button
-        aria-label="stepper number-increase-button}"
+        aria-label="numeric-stepper-increase-button}"
         class="emotion-6"
+        type="button"
       >
         <div
           class="emotion-2"
@@ -238,6 +281,11 @@ exports[`Stepper tests should match snapshot 1`] = `
           </svg>
         </div>
       </button>
+    </div>
+    <div
+      class="emotion-8"
+    >
+      Helper Text
     </div>
   </div>
 </DocumentFragment>

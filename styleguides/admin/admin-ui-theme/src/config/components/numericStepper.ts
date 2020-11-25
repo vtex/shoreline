@@ -1,5 +1,4 @@
 const styles = {
-  fontSize: 14,
   width: 106,
   height: 48,
   appearance: 'none',
@@ -33,36 +32,21 @@ const styles = {
   },
 }
 
-const buttonStyle = {
-  position: 'absolute',
-  top: 14,
-  height: 20,
-  width: 20,
-  cursor: 'pointer',
-  borderRadius: 'default',
-  backgroundColor: 'transparent',
-  color: 'primary.base',
-  ':hover': {
-    color: 'primary.hover',
-  },
-  ':focus:not([data-focus-visible-added])': {
-    outline: 'none',
-    boxShadow: 'none',
-  },
-  ':focus': {
-    outline: 'none',
-    boxShadow: 'focus',
-  },
-  ':disabled': {
-    color: 'muted.0',
-  },
-  '> div': {
-    display: 'flex',
-    height: 'full',
-    width: 'full',
-    margin: 'auto',
-    alignItems: 'center',
-    justifyContent: 'center',
+const containerStyles = {
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  height: 48,
+  width: 106,
+  paddingY: 12,
+  button: {
+    position: 'absolute',
+    ':hover': {
+      bg: 'transparent',
+    },
+    ':active': {
+      bg: 'transparent',
+    },
   },
 }
 
@@ -81,12 +65,7 @@ export default {
   default: {
     ...styles,
   },
-  buttonMinus: {
-    ...buttonStyle,
-    left: 12,
-  },
-  buttonPlus: {
-    ...buttonStyle,
-    right: 12,
+  container: {
+    ...containerStyles,
   },
 }
