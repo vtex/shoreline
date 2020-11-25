@@ -56,8 +56,8 @@ const TemplateDialog = (args: ModalProps) => {
         >
           <Box
             sx={{
-              width: ['17.5rem', '17.5rem', '20rem', '27.5rem'],
-              marginBottom: '1.5rem',
+              width: ['17rem', '17rem', '20rem', '24rem'],
+              marginBottom: ['1.5rem', '1.5rem', '0', '0'],
             }}
           >
             <Text
@@ -85,8 +85,10 @@ const TemplateDialog = (args: ModalProps) => {
               label="Default"
               size="large"
               sx={{
-                width: ['16rem', '16rem', '20rem', '22rem'],
+                width: ['17rem', '17rem', '20rem', '24rem'],
                 marginBottom: '1rem',
+                marginLeft: ['-4px', '-4px', '0', '0'],
+                marginRight: ['0', '0', '-0.25rem', '-0.25rem'],
               }}
             />
             <Input
@@ -94,8 +96,9 @@ const TemplateDialog = (args: ModalProps) => {
               label="Default"
               size="large"
               sx={{
-                width: ['16rem', '16rem', '20rem', '22rem'],
-                marginBottom: '1rem',
+                width: ['17rem', '17rem', '20rem', '24rem'],
+                marginLeft: ['-4px', '-4px', '0', '0'],
+                marginRight: ['0', '0', '-0.25rem', '-0.25rem'],
               }}
             />
           </Box>

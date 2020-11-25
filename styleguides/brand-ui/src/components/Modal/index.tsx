@@ -36,6 +36,7 @@ const surfaceAnimation = css`
 
 interface TitleProps {
   title: string
+  handleClose: () => void
 }
 
 interface BottomBarProps {
@@ -48,13 +49,33 @@ interface BodyProps {
   variant?: 'modal' | 'dialog'
 }
 
-const Title = ({ title }: TitleProps) => {
-  return (
-    <Box variant="modal.title">
-      <Text sx={{ fontSize: '.875rem' }}>{title}</Text>
-    </Box>
-  )
+interface CloseButtonProps {
+  handleClose: () => void
 }
+
+const CloseButton = ({ handleClose }: CloseButtonProps) => (
+  <Button
+    icon={() => <IconClose size={39} />}
+    showFocusOnInit
+    sx={{
+      position: 'absolute',
+      right: '1.25rem',
+      top: '1.25rem',
+      color: 'secondary.base',
+      padding: '0',
+      height: 'auto',
+    }}
+    variant="tertiary"
+    onClick={handleClose}
+  />
+)
+
+const Title = ({ title, handleClose }: TitleProps) => (
+  <Box variant="modal.title">
+    <CloseButton handleClose={handleClose} />
+    <Text sx={{ fontSize: '.875rem' }}>{title}</Text>
+  </Box>
+)
 
 const ModalButton = (props: ButtonProps) => {
   const { children, ...args } = props
@@ -66,13 +87,13 @@ const ModalButton = (props: ButtonProps) => {
   )
 }
 
-const BottomBar = ({ children, variant = 'modal' }: BottomBarProps) => {
-  return <Flex variant={`modal.bottomBar.${variant}`}>{children}</Flex>
-}
+const BottomBar = ({ children, variant = 'modal' }: BottomBarProps) => (
+  <Flex variant={`modal.bottomBar.${variant}`}>{children}</Flex>
+)
 
-const Body = ({ children, variant = 'modal' }: BodyProps) => {
-  return <Box variant={`modal.body.${variant}`}>{children}</Box>
-}
+const Body = ({ children, variant = 'modal' }: BodyProps) => (
+  <Box variant={`modal.body.${variant}`}>{children}</Box>
+)
 
 export const Modal = ({
   children,
@@ -107,21 +128,13 @@ export const Modal = ({
           as={Box}
           hideOnClickOutside={false}
         >
-          <Button
-            icon={() => <IconClose size={39} />}
-            showFocusOnInit
-            sx={{
-              position: 'absolute',
-              right: '1.25rem',
-              top: '1.25rem',
-              color: 'secondary.base',
-              padding: '0',
-              height: 'auto',
-            }}
-            variant="tertiary"
-            onClick={handleClose}
-          />
-          {variant === 'modal' && <Title title={title} />}
+          {variant === 'modal' ? (
+            <Title title={title} handleClose={handleClose} />
+          ) : (
+            <Box variant="modal.closeBar">
+              <CloseButton handleClose={handleClose} />
+            </Box>
+          )}
           {children}
         </Dialog>
       </DialogBackdrop>

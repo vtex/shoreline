@@ -11,8 +11,9 @@ const bottomBar = {
     ...bottomBarStyles,
   },
   dialog: {
-    paddingX: ['1.5rem', '1.5rem', '5.5rem', '5.5rem'],
-    paddingBottom: ['1.5rem', '1.5rem', '5.5rem', '5.5rem'],
+    paddingTop: ['1.5rem', '1.5rem', '2rem', '2rem'],
+    paddingX: ['1.5rem', '1.5rem', '4rem', '5.5rem'],
+    paddingBottom: ['1.5rem', '1.5rem', '4rem', '4rem'],
     ...bottomBarStyles,
   },
 }
@@ -56,7 +57,7 @@ const box = {
     ...boxStyles,
   },
   dialog: {
-    width: ['20rem', '20rem', '50rem', '1102px'],
+    width: ['20rem', '20rem', '50rem', '62.5rem', '68rem'],
     ...boxStyles,
   },
 }
@@ -64,6 +65,13 @@ const box = {
 const bodyStyles = {
   maxWidth: '100%',
   overflowY: 'auto',
+}
+
+const closeBar = {
+  paddingTop: ['1.5rem', '1.5rem', '2rem', '2rem'],
+  paddingBottom: ['1rem', '1rem', '2rem', '2rem'],
+  height: ['64px', '64px', '80px', '80px'],
+  paddingX: ['1.5rem', '2rem', '2rem', '2rem'],
 }
 
 const body = {
@@ -75,10 +83,8 @@ const body = {
     ...bodyStyles,
   },
   dialog: {
-    maxHeight: ['60vh', '70vh', '70vh', '70vh'],
+    maxHeight: ['50vh', '70vh', '50vh', '70vh', '70vh'],
     paddingX: ['1.5rem', '1.5rem', '3.5rem', '5.5rem'],
-    paddingTop: ['1.5rem', '1.5rem', '5rem', '8rem'],
-    paddingBottom: ['1.5rem', '1.5rem', '2rem', '2rem'],
     ...bodyStyles,
   },
 }
@@ -86,6 +92,7 @@ const body = {
 const modal = {
   bottomBar,
   title,
+  closeBar,
   backdrop,
   box,
   body,
