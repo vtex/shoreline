@@ -36,7 +36,7 @@ export function NumericStepper(props: NumericStepperProps) {
   })
 
   return (
-    <Box>
+    <Box styles={{ width: 106 }}>
       <Box themeKey="components.numericStepper.container">
         <ReakitInput
           value={state.value}
@@ -62,7 +62,7 @@ export function NumericStepper(props: NumericStepperProps) {
           size="small"
           variant="tertiary"
           icon={<IconRemove />}
-          styleOverrides={{ left: 1 }}
+          styleOverrides={{ position: 'absolute', left: 1 }}
           aria-label={`${label}-decrease-button`}
           onClick={() =>
             dispatch({
@@ -80,7 +80,7 @@ export function NumericStepper(props: NumericStepperProps) {
           variant="tertiary"
           icon={<IconAdd />}
           aria-label={`${label}-increase-button}`}
-          styleOverrides={{ right: 1 }}
+          styleOverrides={{ position: 'absolute', right: 1 }}
           onClick={() =>
             dispatch({
               type: 'increment',

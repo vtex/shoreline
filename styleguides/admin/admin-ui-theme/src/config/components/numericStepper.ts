@@ -39,15 +39,6 @@ const containerStyles = {
   height: 48,
   width: 106,
   paddingY: 12,
-  button: {
-    position: 'absolute',
-    ':hover': {
-      bg: 'transparent',
-    },
-    ':active': {
-      bg: 'transparent',
-    },
-  },
 }
 
 export default {
