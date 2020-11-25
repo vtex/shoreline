@@ -6,6 +6,7 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  width: 106px;
 }
 
 .emotion-7 {
@@ -27,24 +28,12 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   font-size: 0.875rem;
 }
 
-.emotion-7 button {
-  position: absolute;
-}
-
-.emotion-7 button:hover {
-  background-color: transparent;
-}
-
-.emotion-7 button:active {
-  background-color: transparent;
-}
-
 .emotion-3 {
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: relative;
+  position: absolute;
   text-transform: capitalize;
   background-color: transparent;
   color: #2953B2;
@@ -124,7 +113,7 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: relative;
+  position: absolute;
   text-transform: capitalize;
   background-color: transparent;
   color: #2953B2;
