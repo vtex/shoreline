@@ -8,7 +8,7 @@ import { Button } from './index'
 import { Set } from '../Set'
 
 export default {
-  title: 'beta/button',
+  title: 'components/Button',
 } as Meta
 
 export const StyleOverrides: Story = () => {

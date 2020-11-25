@@ -5,7 +5,7 @@ import { TextArea } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'beta/forms/text-area',
+  title: 'forms/TextArea',
 } as Meta
 
 export const Basic = () => {

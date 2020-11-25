@@ -5,7 +5,7 @@ import { Label, LabelProps } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'beta/forms/label',
+  title: 'forms/Label',
   component: Label,
 } as Meta
 

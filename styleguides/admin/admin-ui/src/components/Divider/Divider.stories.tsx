@@ -8,7 +8,7 @@ import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 
 export default {
-  title: 'beta/Divider',
+  title: 'components/Divider',
   component: Divider,
 } as Meta
 

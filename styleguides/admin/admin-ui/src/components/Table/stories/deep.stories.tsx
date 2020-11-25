@@ -15,7 +15,7 @@ import { Table } from '../index'
 import { useTable } from '../useTable'
 
 export default {
-  title: 'alpha/Table/Deep',
+  title: 'next/Table/Deep',
   component: Table,
 } as Meta
 

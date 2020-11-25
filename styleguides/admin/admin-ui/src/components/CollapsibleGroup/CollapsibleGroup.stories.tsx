@@ -7,7 +7,7 @@ import { Text } from '../Text'
 import { Set } from '../Set'
 
 export default {
-  title: 'beta/CollapsibleGroup',
+  title: 'components/CollapsibleGroup',
   component: CollapsibleGroup,
 } as Meta
 

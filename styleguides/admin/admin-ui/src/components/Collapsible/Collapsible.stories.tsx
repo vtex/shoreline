@@ -5,7 +5,7 @@ import { Collapsible, useCollapsible } from './index'
 import { Button } from '../Button'
 
 export default {
-  title: 'beta/Collapsible',
+  title: 'components/Collapsible',
   component: Collapsible,
 } as Meta
 

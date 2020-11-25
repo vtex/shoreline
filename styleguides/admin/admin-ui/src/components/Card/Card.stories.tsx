@@ -7,7 +7,7 @@ import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 
 export default {
-  title: 'beta/card',
+  title: 'components/Card',
   component: Card,
 } as Meta
 

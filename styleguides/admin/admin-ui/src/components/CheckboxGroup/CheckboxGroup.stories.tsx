@@ -6,7 +6,7 @@ import { Checkbox, useCheckboxState } from '../Checkbox'
 import { Label } from '../Label'
 
 export default {
-  title: 'beta/forms/checkbox-group',
+  title: 'forms/CheckboxGroup',
   component: CheckboxGroup,
 } as Meta
 

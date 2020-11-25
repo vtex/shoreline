@@ -7,7 +7,7 @@ import { Box } from '../../Box'
 import { Button } from '../../Button'
 
 export default {
-  title: 'alpha/Table/States',
+  title: 'next/Table/States',
   component: StatefulTable,
 } as Meta
 

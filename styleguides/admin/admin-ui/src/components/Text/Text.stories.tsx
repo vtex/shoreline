@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 import { Text } from './index'
 
 export default {
-  title: 'beta/typography/text',
+  title: 'typography/Text',
 } as Meta
 
 export function Elements() {

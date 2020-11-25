@@ -12,7 +12,7 @@ import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 
 export default {
-  title: 'beta/modal',
+  title: 'components/Modal',
   component: Modal,
 } as Meta
 

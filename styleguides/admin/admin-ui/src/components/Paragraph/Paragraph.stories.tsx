@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 import { Paragraph } from './index'
 
 export default {
-  title: 'beta/typography/paragraph',
+  title: 'typography/Paragraph',
 } as Meta
 
 export function Example() {
