@@ -4,17 +4,16 @@ import divider from './divider'
 import tag from './tag'
 import anchor from './anchor'
 import stepper from './stepper'
-
 // data
 import table from './table'
 import list from './list'
 // forms
+import abstractInput from './abstractInput'
 import controlGroup from './controlGroup'
 import radio from './radio'
 import checkbox from './checkbox'
 import toggle from './toggle'
 import input from './input'
-import textField from './textField'
 import textArea from './textArea'
 import selectButton from './selectButton'
 // overlay
@@ -34,8 +33,8 @@ export default {
   toggle,
   checkbox,
   radio,
+  abstractInput,
   input,
-  textField,
   tooltip,
   menu,
   modal,

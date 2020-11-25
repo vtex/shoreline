@@ -20,6 +20,7 @@ const {
   cn,
   createElement,
   componentStyles,
+  stylesOf,
   patternStyles,
 } = createSystem({
   theme,
@@ -49,4 +50,5 @@ export {
   merge,
   theme,
   SxStyleProp,
+  stylesOf,
 }
