@@ -9,7 +9,7 @@ import { Text } from '../Text'
 import { Set } from '../Set'
 
 export default {
-  title: 'beta/Tooltip',
+  title: 'components/Tooltip',
   component: Tooltip,
 } as Meta
 

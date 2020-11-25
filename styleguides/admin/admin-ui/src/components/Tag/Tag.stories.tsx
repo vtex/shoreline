@@ -7,7 +7,7 @@ import { Tag } from './index'
 import { Set } from '../Set'
 
 export default {
-  title: 'beta/Tag',
+  title: 'components/Tag',
   component: Tag,
 } as Meta
 

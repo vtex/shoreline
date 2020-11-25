@@ -21,7 +21,7 @@ import { Button } from '../Button'
 import { Set } from '../Set'
 
 export default {
-  title: 'beta/Menu',
+  title: 'components/Menu',
   component: Menu,
 } as Meta
 

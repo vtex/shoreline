@@ -5,7 +5,7 @@ import { Columns } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'beta/layout/columns',
+  title: 'layouts/Columns',
 } as Meta
 
 export const Auto = () => {

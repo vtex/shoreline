@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 import { StatefulTable } from '../index'
 
 export default {
-  title: 'alpha/Table/Directions',
+  title: 'next/Table/Directions',
   component: StatefulTable,
 } as Meta
 

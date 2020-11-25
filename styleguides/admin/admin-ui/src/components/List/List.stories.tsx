@@ -5,7 +5,7 @@ import { List } from './index'
 import { ListItem } from './ListItem'
 
 export default {
-  title: 'beta/typography/list',
+  title: 'typography/List',
 } as Meta
 
 export function Example() {

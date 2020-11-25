@@ -6,7 +6,7 @@ import { SelectButton, useSelectState } from './index'
 import { Card } from '../Card'
 
 export default {
-  title: 'beta/forms/select-button',
+  title: 'forms/SelectButton',
   component: SelectButton,
 } as Meta
 

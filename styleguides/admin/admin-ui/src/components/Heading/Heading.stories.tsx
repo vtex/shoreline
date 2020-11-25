@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 import { Heading } from './index'
 
 export default {
-  title: 'beta/typography/heading',
+  title: 'typography/Heading',
 } as Meta
 
 export function heading() {

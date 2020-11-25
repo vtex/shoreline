@@ -6,7 +6,7 @@ import { Checkbox, useCheckboxState, CheckboxProps } from './index'
 import { Text } from '../Text'
 
 export default {
-  title: 'beta/forms/checkbox',
+  title: 'forms/Checkbox',
   component: Checkbox,
 } as Meta
 

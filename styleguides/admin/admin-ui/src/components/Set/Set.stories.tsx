@@ -5,7 +5,7 @@ import { Set } from './index'
 import { Button } from '../Button'
 
 export default {
-  title: 'beta/layout/set',
+  title: 'layouts/Set',
 } as Meta
 
 export const SetLayout = () => {
