@@ -48,9 +48,24 @@ const TemplateDialog = (args: ModalProps) => {
       variant="dialog"
     >
       <Modal.Body variant="dialog">
-        <Flex sx={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-          <Box sx={{ width: '18rem' }}>
-            <Text sx={{ fontSize: '40px', color: 'secondary.base' }}>
+        <Flex
+          sx={{
+            justifyContent: 'space-between',
+            flexDirection: ['column', 'column', 'row', 'row'],
+          }}
+        >
+          <Box
+            sx={{
+              width: ['17.5rem', '17.5rem', '20rem', '27.5rem'],
+              marginBottom: '1.5rem',
+            }}
+          >
+            <Text
+              sx={{
+                fontSize: ['24px', '24px', '40px', '40px'],
+                color: 'secondary.base',
+              }}
+            >
               Get in touch
             </Text>
             <Text
@@ -66,23 +81,22 @@ const TemplateDialog = (args: ModalProps) => {
           </Box>
           <Box>
             <Input
-              id="firstName"
-              label="First Name"
+              id="default1"
+              label="Default"
               size="large"
-              sx={{ width: '32rem', marginBottom: '2rem' }}
+              sx={{
+                width: ['16rem', '16rem', '20rem', '22rem'],
+                marginBottom: '1rem',
+              }}
             />
             <Input
-              id="lastName"
-              label="Last Name"
+              id="default2"
+              label="Default"
               size="large"
-              sx={{ width: '32rem', marginBottom: '2rem' }}
-            />
-            <Input
-              id="feedback"
-              label="Please enter your feedbacks here..."
-              size="large"
-              helpMessage="Help message"
-              sx={{ width: '32rem', height: '8rem' }}
+              sx={{
+                width: ['16rem', '16rem', '20rem', '22rem'],
+                marginBottom: '1rem',
+              }}
             />
           </Box>
         </Flex>

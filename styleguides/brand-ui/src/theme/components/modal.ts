@@ -6,12 +6,13 @@ const bottomBarStyles = {
 const bottomBar = {
   modal: {
     marginTop: ['1.5rem', '2rem', '2rem', '2rem'],
-    paddingX: ['1rem', '2rem', '2rem', '2rem'],
+    paddingX: ['1.5rem', '2rem', '2rem', '2rem'],
     paddingBottom: ['1.5rem', '2rem', '2rem', '2rem'],
     ...bottomBarStyles,
   },
   dialog: {
-    padding: '3rem',
+    paddingX: ['1.5rem', '1.5rem', '5.5rem', '5.5rem'],
+    paddingBottom: ['1.5rem', '1.5rem', '5.5rem', '5.5rem'],
     ...bottomBarStyles,
   },
 }
@@ -19,7 +20,7 @@ const bottomBar = {
 const title = {
   padding: '2rem',
   height: '81px',
-  paddingLeft: ['1rem', '2rem', '2rem', '2rem'],
+  paddingX: ['1.5rem', '2rem', '2rem', '2rem'],
   borderRadius: '5px 5px 0px 0px',
   borderBottomWidth: '1px',
   borderBottomStyle: 'solid',
@@ -55,7 +56,7 @@ const box = {
     ...boxStyles,
   },
   dialog: {
-    width: '1110px',
+    width: ['20rem', '20rem', '50rem', '1102px'],
     ...boxStyles,
   },
 }
@@ -68,16 +69,16 @@ const bodyStyles = {
 const body = {
   modal: {
     maxHeight: '50vh',
-    paddingX: '2rem',
-    paddingTop: '2rem',
+    paddingX: ['1.5rem', '2rem', '2rem', '2rem'],
+    paddingTop: ['1.5rem', '2rem', '2rem', '2rem'],
     fontSize: '.75rem',
     ...bodyStyles,
   },
   dialog: {
-    maxHeight: '70vh',
-    paddingX: '4.12rem',
-    paddingTop: '8rem',
-    paddingBottom: '1.25rem',
+    maxHeight: ['60vh', '70vh', '70vh', '70vh'],
+    paddingX: ['1.5rem', '1.5rem', '3.5rem', '5.5rem'],
+    paddingTop: ['1.5rem', '1.5rem', '5rem', '8rem'],
+    paddingBottom: ['1.5rem', '1.5rem', '2rem', '2rem'],
     ...bodyStyles,
   },
 }
