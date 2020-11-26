@@ -252,6 +252,9 @@ export function IconPage() {
           label: 'AppStore',
         },
         {
+          label: 'StoreSettings',
+        },
+        {
           label: 'Notifications',
         },
         {
