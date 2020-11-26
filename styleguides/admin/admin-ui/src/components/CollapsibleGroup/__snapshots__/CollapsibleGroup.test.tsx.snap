@@ -1,0 +1,421 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollapsibleGroup tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-6 {
+  background-color: #FFFFFF;
+  border-color: #E0E2E7;
+  border-style: none;
+  border-width: 1px;
+  border-radius: 3px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1.5rem;
+  padding-left: 0.5rem;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-4 div > button:nth-of-type(n+2) {
+  margin-left: 0.25rem;
+}
+
+.emotion-2 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: #323845;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.75rem;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-2:hover {
+  color: #214491;
+  background-color: #cad7f1;
+}
+
+.emotion-2:active {
+  color: #1a3470;
+  background-color: #bacbec;
+}
+
+.emotion-2:disabled {
+  color: #898F9E;
+}
+
+.emotion-2 svg {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+.emotion-2:hover {
+  background-color: transparent;
+}
+
+.emotion-2:active {
+  background-color: transparent;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.emotion-3 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-5 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-7 {
+  background-color: #FFFFFF;
+  color: #323845;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: #E0E2E7;
+  padding: 0rem;
+}
+
+<div
+    class="emotion-7"
+  >
+    <div
+      class="emotion-6"
+    >
+      <header
+        class="emotion-4"
+      >
+        <button
+          aria-controls="mocked-id"
+          aria-expanded="false"
+          class="emotion-2"
+          type="button"
+        >
+          <div
+            class="emotion-1"
+          >
+            <svg
+              class="emotion-0"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16 14L12 10L8 14"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+            Collapsible Header
+          </div>
+        </button>
+        <div
+          class="emotion-3"
+        />
+      </header>
+      <section
+        class="emotion-5"
+        hidden=""
+        id="mocked-id"
+        style="display: none;"
+      >
+        Collapsible Content
+      </section>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CollapsibleGroup tests should not render invalid children 1`] = `
+<DocumentFragment>
+  .emotion-6 {
+  background-color: #FFFFFF;
+  border-color: #E0E2E7;
+  border-style: none;
+  border-width: 1px;
+  border-radius: 3px;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1.5rem;
+  padding-left: 0.5rem;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-4 div > button:nth-of-type(n+2) {
+  margin-left: 0.25rem;
+}
+
+.emotion-2 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: #323845;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.75rem;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-2:hover {
+  color: #214491;
+  background-color: #cad7f1;
+}
+
+.emotion-2:active {
+  color: #1a3470;
+  background-color: #bacbec;
+}
+
+.emotion-2:disabled {
+  color: #898F9E;
+}
+
+.emotion-2 svg {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+.emotion-2:hover {
+  background-color: transparent;
+}
+
+.emotion-2:active {
+  background-color: transparent;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.emotion-3 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-5 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+.emotion-7 {
+  background-color: #FFFFFF;
+  color: #323845;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: #E0E2E7;
+  padding: 0rem;
+}
+
+<div
+    class="emotion-7"
+  >
+    <div
+      class="emotion-6"
+    >
+      <header
+        class="emotion-4"
+      >
+        <button
+          aria-controls="mocked-id"
+          aria-expanded="false"
+          class="emotion-2"
+          type="button"
+        >
+          <div
+            class="emotion-1"
+          >
+            <svg
+              class="emotion-0"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16 14L12 10L8 14"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+            Collapsible Header
+          </div>
+        </button>
+        <div
+          class="emotion-3"
+        />
+      </header>
+      <section
+        class="emotion-5"
+        hidden=""
+        id="mocked-id"
+        style="display: none;"
+      >
+        Collapsible Content
+      </section>
+    </div>
+  </div>
+</DocumentFragment>
+`;

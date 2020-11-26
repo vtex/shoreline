@@ -1,4 +1,5 @@
 import React, { Children, ReactNode } from 'react'
+import { isElement } from 'react-is'
 
 import { Overridable } from '../../types'
 import { Card } from '../Card'
@@ -34,9 +35,13 @@ const FIRST_CHILD = 0
 export function CollapsibleGroup(props: CollapsibleGroupProps) {
   const { children, styleOverrides, ...cardProps } = props
 
+  const validChildren = Children.toArray(children).filter((child) =>
+    isElement(child)
+  )
+
   return (
     <Card styleOverrides={styleOverrides} padding={0} {...cardProps}>
-      {Children.map(children, (child, index) => (
+      {Children.map(validChildren, (child, index) => (
         <>
           {index > FIRST_CHILD && <Divider margin={0} />}
           {child}
