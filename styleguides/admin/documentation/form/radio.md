@@ -4,7 +4,7 @@ path: /form/radio/
 
 # Radio
 
-In multiple-choice forms, use `Radio` for a single option to be selected. This component is always used in a `RadioGroup` context.
+Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context.
 
 ## Behavior
 

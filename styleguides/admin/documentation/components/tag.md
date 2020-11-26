@@ -4,7 +4,7 @@ path: /tag/
 
 # Tag
 
-Tag is a compact element that represents an input, attribute, or action. It renders a `div` element.
+Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable. It renders a `div` element.
 
 ## Behavior
 

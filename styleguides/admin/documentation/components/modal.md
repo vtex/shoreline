@@ -4,10 +4,7 @@ path: /modal/
 
 # Modal
 
-Accessible Dialog component that follows the [WAI-ARIA Dialog
-(Modal)](https://www.w3.org/TR/wai-aria-practices/#dialog_modal) Pattern. It's
-rendered within a [Portal](https://reactjs.org/docs/portals.html) by default.
-It has both stateful (Modal) and stateless components (StatelessModal).
+A modal is an overlay that demands the attention and action from the user, preventing them from interacting with the rest of the page. It has both stateful (Modal) and stateless components (StatelessModal).
 
 ## Behavior
 

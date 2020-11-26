@@ -4,9 +4,10 @@ path: /button/
 
 # Button
 
-A button triggers an action, or allows the user to advance a state. Where the user interacts with the screen. This component that handles all `Button` variations of the Design System. It renders a button element by default.
+Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen.
+This component handles all `Button` variations of the Design System. It renders a `<button>` element by default.
 
-## UX Writing: Tone and Voice 
+## UX Writing: Tone and Voice
 
 Keep in mind the Authority we want to transmit with our voice. Buttons are where the action takes place. We're always sure where we want to direct our users to, so they accomplish their goals. There's no space for ambiguity in the actions we guide them to take, we convey decisiveness.
 
