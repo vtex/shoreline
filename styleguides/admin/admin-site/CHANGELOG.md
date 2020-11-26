@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.5.4...admin-site@0.6.0) (2020-11-26)
+
+
+### Features
+
+* **store-settings:** add IconStoreSetting ([16fd9e3](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/16fd9e31cb1b890c9c46da437beb50ebfc4eb3a6))
+
+
+
+
+
 ## [0.5.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.5.3...admin-site@0.5.4) (2020-11-26)
 
 **Note:** Version bump only for package admin-site
