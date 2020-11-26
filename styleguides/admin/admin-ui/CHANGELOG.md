@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.62.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.62.0...@vtex/admin-ui@0.62.1) (2020-11-26)
+
+
+### Bug Fixes
+
+* **collapsible-group:** fix <Divider> rendering even with only one valid child ([f3724c4](https://github.com/vtex/onda/commit/f3724c4f25fb0ae6d6449fb757cdf452ae89dc62))
+
+
+
+
+
 # [0.62.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.61.0...@vtex/admin-ui@0.62.0) (2020-11-24)
 
 
