@@ -41,7 +41,7 @@ export function Collapsible(props: CollapsibleProps) {
     disabled,
     focusable,
     state,
-    ...boxProps
+    ...collapsibleProps
   } = props
 
   const reakitProps = {
@@ -57,7 +57,11 @@ export function Collapsible(props: CollapsibleProps) {
   }
 
   return (
-    <Box themeKey={variant.container} styles={styleOverrides} {...boxProps}>
+    <Box
+      themeKey={variant.container}
+      styles={styleOverrides}
+      {...collapsibleProps}
+    >
       <CollapsibleProvider variant={variant} {...reakitProps}>
         <TreeProvider isRoot={false}>{children}</TreeProvider>
       </CollapsibleProvider>
@@ -66,7 +70,7 @@ export function Collapsible(props: CollapsibleProps) {
 }
 
 export function Header(props: CollapsibleHeaderProps) {
-  const { children, label, styleOverrides, ...boxProps } = props
+  const { children, label, styleOverrides, ...headerProps } = props
   const { variant } = useCollapsibleContext()
 
   return (
@@ -74,7 +78,7 @@ export function Header(props: CollapsibleHeaderProps) {
       element="header"
       themeKey={variant.header}
       styles={styleOverrides}
-      {...boxProps}
+      {...headerProps}
     >
       <Disclosure>{label}</Disclosure>
       <Box styles={{ display: 'flex' }}>{children}</Box>
@@ -109,7 +113,7 @@ function Disclosure({ children }: { children: ReactNode }) {
 }
 
 export function Content(props: CollapsibleContentProps) {
-  const { children, styleOverrides, ...tokens } = props
+  const { children, styleOverrides, ...contentProps } = props
   const { variant, ...disclosureProps } = useCollapsibleContext()
 
   return (
@@ -120,7 +124,7 @@ export function Content(props: CollapsibleContentProps) {
           themeKey={variant.content}
           styles={styleOverrides}
           {...enhancedProps}
-          {...tokens}
+          {...contentProps}
         >
           {children}
         </Box>
