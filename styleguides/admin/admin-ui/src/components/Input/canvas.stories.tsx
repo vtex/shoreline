@@ -104,13 +104,9 @@ export const Error = () => {
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        onClear={() => setValue('')}
         id="textfield"
         label="Label"
         errorMessage="Error Message"
-        charLimit={120}
-        suffix="Kg"
-        icon={<IconAdd />}
         error
       />
     </Box>

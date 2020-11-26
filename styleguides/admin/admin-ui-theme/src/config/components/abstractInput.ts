@@ -55,7 +55,7 @@ const errorState = {
 function getInputVariants(name: string, styles: object = {}) {
   return {
     // input variants
-    [name]: inputStyle,
+    [`${name}`]: merge(inputStyle, styles),
     [`${name}-icon`]: merge(inputStyle, styles, { paddingLeft: 44 }),
     [`${name}-suffix`]: merge(inputStyle, styles, { paddingRight: '64px' }),
     [`${name}-clear`]: merge(inputStyle, styles, { paddingRight: '44px' }),
