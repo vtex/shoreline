@@ -4,7 +4,7 @@ path: /form/checkbox/
 
 # Checkbox
 
-Checkboxes are used when a user needs to select one or more values from a series of options, or they can be used as a dual or tri-state toggle button. By default, it renders the native `<input type="checkbox">`.
+Checkboxes are tools that customize configurations. This control has three states: unselected, selected, and undetermined. They reflect the selection of an option and its execution usually requires another control, or confirmation. The user can select multiple choices, including zero. By default, it renders the native `<input type="checkbox">`.
 
 - dual-state: `check` and `not checked` (true, false)
 

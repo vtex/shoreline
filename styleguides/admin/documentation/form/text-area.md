@@ -4,7 +4,7 @@ path: /form/text-area/
 
 # TextArea
 
-The `TextArea` component allows you to easily create multi-line text inputs.
+Text Area is the space where longer text is inputted by users.
 
 ## Behavior
 

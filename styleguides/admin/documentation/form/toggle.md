@@ -4,7 +4,7 @@ path: /form/toggle/
 
 # Toggle
 
-`<Toggle>` is essentially a customized checkbox with a toggleable interface to toggle between an enable and disabled state.
+A Toggle is a tool that customize configurations. It represents a physical switch that allows users to turn things on or off, providing control over actions and preferences. Tapping a toggle switch is a two-step action: selection and execution. Should reflect an action that triggers a state, never both at once.
 
 ## Behavior
 

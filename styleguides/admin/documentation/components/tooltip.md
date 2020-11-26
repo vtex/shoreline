@@ -4,7 +4,7 @@ path: /tooltip/
 
 # Tooltip
 
-Tooltip follows the WAI-ARIA Tooltip Pattern. It's a popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+Tooltips are a small informative text that appear when an item is being, hovered, focused or touched.
 
 ## Behavior
 
