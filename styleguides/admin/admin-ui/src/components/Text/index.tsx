@@ -13,14 +13,15 @@ export const Text = forwardRef(function Heading(
   const {
     element = 'span',
     variant = 'body',
-    feedback = 'primary',
+    feedback = 'default',
     styleOverrides,
     ...htmlProps
   } = props
 
   const color = {
-    primary: 'text.primary',
+    default: 'text.primary',
     secondary: 'text.secondary',
+    primary: 'primary.base',
     success: 'success.base',
     danger: 'danger.base',
     warning: 'warning.base',
@@ -80,7 +81,13 @@ export interface TextProps extends Overridable, SpaceStyleProps {
   id?: string
   /**
    * text feedback
-   * @default 'primary'
+   * @default 'default'
    */
-  feedback?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning'
+  feedback?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
 }

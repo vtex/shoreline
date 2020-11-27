@@ -65,6 +65,8 @@ export const Input = forwardRef(function Input(
   )
 })
 
+export type InputType = 'text' | 'email' | 'url' | 'tel'
+
 export interface InputProps
   extends Omit<AbstractInputProps, 'maxLength' | 'placeholder' | 'id' | 'type'>,
     Overridable {
@@ -79,5 +81,5 @@ export interface InputProps
   /** Input error message */
   errorMessage?: string
   /** Input type */
-  type?: 'text' | 'email' | 'date'
+  type?: InputType
 }

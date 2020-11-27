@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 import { IconAdd } from '@vtex/admin-ui-icons'
 
-import { Input } from './index'
+import { Input, InputType } from './index'
 import { Box } from '../Box'
 
 export default {
@@ -109,6 +109,26 @@ export const Error = () => {
         errorMessage="Error Message"
         error
       />
+    </Box>
+  )
+}
+
+export const Types = () => {
+  const [value, setValue] = useState('')
+  const types = ['text', 'email', 'url', 'tel'] as InputType[]
+
+  return (
+    <Box width={300}>
+      {types.map((type) => (
+        <Input
+          type={type}
+          key={type}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          id={type}
+          label={type}
+        />
+      ))}
     </Box>
   )
 }

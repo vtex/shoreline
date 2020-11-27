@@ -153,6 +153,35 @@ function Example() {
 }
 ```
 
+### Feedback
+
+Feedback that the text should pass.
+
+```jsx
+import { Text, Box, ThemeProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <ThemeProvider>
+      <Box
+        styles={{
+          '> *': {
+            display: 'block',
+          },
+        }}
+      >
+        <Text>Default text</Text>
+        <Text feedback="secondary">Secondary text</Text>
+        <Text feedback="primary">Primary text</Text>
+        <Text feedback="danger">Danger text</Text>
+        <Text feedback="warning">Warning text</Text>
+        <Text feedback="success">Success text</Text>
+      </Box>
+    </ThemeProvider>
+  )
+}
+```
+
 ## Customization
 
 You can use the `styleOverrides` property to handle different styles.
