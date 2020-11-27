@@ -1,25 +1,47 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
 import { SpaceStyleProps, TextVariant } from '@vtex/admin-ui-theme'
+import { useClassName } from '@vtex/admin-ui-system'
 
 import { createElement } from '../../system'
-import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 
 export const Text = forwardRef(function Heading(
   props: TextProps,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'span', variant = 'body', ...htmlProps } = props
-  const textProps = useComponent({
-    props: { text: variant, ...htmlProps },
+  const {
+    element = 'span',
+    variant = 'body',
+    feedback = 'default',
+    styleOverrides,
+    ...htmlProps
+  } = props
+
+  const color = {
+    default: 'text.primary',
+    secondary: 'text.secondary',
+    primary: 'primary.base',
+    success: 'success.base',
+    danger: 'danger.base',
+    warning: 'warning.base',
+  }[feedback]
+
+  const className = useClassName({
+    props: {
+      text: variant,
+      styles: {
+        color,
+        ...styleOverrides,
+      },
+    },
   })
 
   return createElement({
     ref,
     element,
     component: ReakitBox,
-    htmlProps: textProps,
+    htmlProps: { className, ...htmlProps },
   })
 })
 
@@ -57,4 +79,15 @@ export interface TextProps extends Overridable, SpaceStyleProps {
    * html id
    */
   id?: string
+  /**
+   * text feedback
+   * @default 'default'
+   */
+  feedback?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
 }

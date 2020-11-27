@@ -6,6 +6,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <span
@@ -17,6 +18,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <strong
@@ -28,6 +30,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <i
@@ -39,6 +42,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <u
@@ -50,6 +54,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <abbr
@@ -61,6 +66,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <cite
@@ -72,6 +78,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <del
@@ -83,6 +90,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <em
@@ -94,6 +102,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <ins
@@ -105,6 +114,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <kbd
@@ -116,6 +126,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <mark
@@ -127,6 +138,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <s
@@ -138,6 +150,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <samp
@@ -149,6 +162,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <sub
@@ -160,6 +174,7 @@ exports[`Text tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  color: #323845;
 }
 
 <sup

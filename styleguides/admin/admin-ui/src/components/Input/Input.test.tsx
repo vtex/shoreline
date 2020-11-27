@@ -3,37 +3,18 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import { IconAdd } from '@vtex/admin-ui-icons'
 
-import { TextField } from './index'
+import { Input } from './index'
 import { ThemeProvider } from '../../system'
 
 describe('Input tests', () => {
-  beforeEach(() => {
-    /**
-     * 🚧 Workaround for window.match media
-     * @see https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
-     */
-    Object.defineProperty(window, 'matchMedia', {
-      writable: true,
-      value: jest.fn().mockImplementation((query) => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: jest.fn(), // Deprecated
-        removeListener: jest.fn(), // Deprecated
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      })),
-    })
-  })
-
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <TextField
+        <Input
           data-testid="text-field"
           styleOverrides={{ backgroundColor: 'coral' }}
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="TextField label"
           id="text-field-1"
           helperText="Helper"
@@ -52,65 +33,66 @@ describe('Input tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <TextField
+        <Input
           errorMessage="Error Message"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-field-1"
         />
-        <TextField
+        <Input
           helperText="Helper Text"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-field-2"
         />
-        <TextField
+        <Input
           charLimit={120}
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-field-3"
         />
-        <TextField
+        <Input
           charLimit={120}
           helperText="Helper Text"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-field-4"
         />
-        <TextField
+        <Input
           charLimit={120}
           helperText="Helper Text"
           errorMessage="Error Message"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-field-5"
         />
-        <TextField
+        <Input
           icon={<IconAdd />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
-          state={{ value: '', onChange: () => {}, onClear: () => {} }}
+          value=""
+          onChange={() => {}}
+          onClear={() => {}}
           label="Label"
           id="text-field-6"
         />
-        <TextField
+        <Input
           icon={<IconAdd />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
           errorMessage="Error Message"
-          state={{ value: '', onChange: () => {}, onClear: () => {} }}
+          value=""
+          onChange={() => {}}
+          onClear={() => {}}
           label="Label"
           id="text-field-7"
-        />
-        <TextField
-          state={{ value: '', onChange: () => {}, onClear: () => {} }}
-          id="text-field-8"
-          type="password"
-          label="Password"
-          helperText="Helper Text"
-          charLimit={120}
         />
       </ThemeProvider>
     )
@@ -121,47 +103,45 @@ describe('Input tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ThemeProvider>
-        <TextField
+        <Input
           charLimit={120}
           helperText="Helper Text"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-field-1"
         />
-        <TextField
+        <Input
           charLimit={120}
           helperText="Helper Text"
           errorMessage="Error Message"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-field-2"
         />
-        <TextField
+        <Input
           icon={<IconAdd />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
-          state={{ value: '', onChange: () => {}, onClear: () => {} }}
+          value=""
+          onChange={() => {}}
+          onClear={() => {}}
           label="Label"
           id="text-field-3"
         />
-        <TextField
+        <Input
           icon={<IconAdd />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
           errorMessage="Error Message"
-          state={{ value: '', onChange: () => {}, onClear: () => {} }}
+          value=""
+          onChange={() => {}}
+          onClear={() => {}}
           label="Label"
           id="text-field-4"
-        />
-        <TextField
-          state={{ value: '', onChange: () => {}, onClear: () => {} }}
-          id="text-field-5"
-          type="password"
-          label="Password"
-          helperText="Helper Text"
-          charLimit={120}
         />
       </ThemeProvider>
     )

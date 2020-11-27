@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input tests should match snapshot 1`] = `
+exports[`AbstractInput tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-1 {
   position: relative;
@@ -48,17 +48,10 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
 .emotion-0:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
-}
-
-.emotion-0:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
@@ -122,17 +115,10 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
 .emotion-0:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
-}
-
-.emotion-0:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
@@ -142,9 +128,6 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -154,6 +137,10 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  color: #707685;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 <div
@@ -161,12 +148,13 @@ exports[`Input tests should match snapshot 1`] = `
   >
     <input
       class="emotion-0"
+      value=""
     />
     <div
       class="emotion-1"
     />
   </div>
-  .emotion-6 {
+  .emotion-5 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
@@ -212,17 +200,10 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
 .emotion-0:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
-}
-
-.emotion-0:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
@@ -231,10 +212,7 @@ exports[`Input tests should match snapshot 1`] = `
   transform: translate(1px,4px) scale(0.875);
 }
 
-.emotion-5 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+.emotion-4 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -244,15 +222,10 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-}
-
-.emotion-4 {
+  color: #707685;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #707685;
-  margin-top: 0.5rem;
-  margin-right: 0.25rem;
 }
 
 .emotion-3 {
@@ -268,6 +241,8 @@ exports[`Input tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -332,7 +307,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-6"
+    class="emotion-5"
   >
     <input
       class="emotion-0"
@@ -340,61 +315,50 @@ exports[`Input tests should match snapshot 1`] = `
       value="Test2"
     />
     <div
-      class="emotion-5"
+      class="emotion-4"
     >
-      <div
-        class="emotion-4"
+      <button
+        aria-label="clear undefined text"
+        class="emotion-3"
+        type="button"
       >
-        <button
-          aria-label="clear text"
-          class="emotion-3"
-          type="button"
+        <div
+          class="emotion-2"
         >
-          <div
-            class="emotion-2"
+          <svg
+            class="emotion-1"
+            fill="none"
+            viewBox="0 0 24 24"
           >
-            <svg
-              class="emotion-1"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
-                fill-rule="evenodd"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M14.83 9.16992L9.16998 14.8299"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M14.83 14.8299L9.16998 9.16992"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-            </svg>
-          </div>
-        </button>
-      </div>
+            <path
+              clip-rule="evenodd"
+              d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+              fill-rule="evenodd"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+            <path
+              d="M14.83 9.16992L9.16998 14.8299"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+            <path
+              d="M14.83 14.8299L9.16998 9.16992"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
+      </button>
     </div>
   </div>
-  .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
-.emotion-2 {
+  .emotion-1 {
   font-variation-settings: "wght" 92;
   width: 100%;
   height: 48px;
@@ -414,114 +378,89 @@ exports[`Input tests should match snapshot 1`] = `
   transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   border-color: #323845;
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   border-color: #2953B2;
   box-shadow: 0 0 0 1px #2953B2;
 }
 
-.emotion-2:disabled {
+.emotion-1:disabled {
   background-color: #F4F6FB;
   border-color: #898F9E;
   color: #898F9E;
 }
 
-.emotion-2:focus + label {
+.emotion-1:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
-.emotion-2:placeholder-shown:not(:focus) + label {
+.emotion-1:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
 }
 
-.emotion-2:active + label {
+.emotion-1:not(:placeholder-shown) + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
 }
 
-.emotion-2:not(:placeholder-shown) + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-3 {
+.emotion-2 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
 }
 
-.emotion-3 label {
+.emotion-2 label {
   left: 44px;
 }
 
-.emotion-1 {
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
   color: #898F9E;
   top: 0.25rem;
   left: 0rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 14px;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
   position: absolute;
-  width: 44px;
-  height: 48px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-1 svg {
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  min-height: 20px;
 }
 
 <div
-    class="emotion-3"
+    class="emotion-2"
   >
-    <span
-      class="emotion-1"
+    <svg
+      class="emotion-0"
+      fill="none"
+      viewBox="0 0 24 24"
     >
-      <svg
-        class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-        <path
-          clip-rule="evenodd"
-          d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-    </span>
+      <path
+        clip-rule="evenodd"
+        d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     <input
-      class="emotion-2"
+      class="emotion-1"
+      value=""
     />
   </div>
-  .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
-.emotion-2 {
+  .emotion-1 {
   font-variation-settings: "wght" 92;
   width: 100%;
   height: 48px;
@@ -541,112 +480,90 @@ exports[`Input tests should match snapshot 1`] = `
   transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   border-color: #323845;
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   border-color: #2953B2;
   box-shadow: 0 0 0 1px #2953B2;
 }
 
-.emotion-2:disabled {
+.emotion-1:disabled {
   background-color: #F4F6FB;
   border-color: #898F9E;
   color: #898F9E;
 }
 
-.emotion-2:focus + label {
+.emotion-1:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
-.emotion-2:placeholder-shown:not(:focus) + label {
+.emotion-1:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
 }
 
-.emotion-2:active + label {
+.emotion-1:not(:placeholder-shown) + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
 }
 
-.emotion-2:not(:placeholder-shown) + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-3 {
+.emotion-2 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
 }
 
-.emotion-3 label {
+.emotion-2 label {
   left: 44px;
 }
 
-.emotion-1 {
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
   color: #898F9E;
   top: 0.25rem;
   left: 0rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 14px;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
   position: absolute;
-  width: 44px;
-  height: 48px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-1 svg {
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  min-height: 20px;
 }
 
 <div
-    class="emotion-3"
+    class="emotion-2"
   >
-    <span
-      class="emotion-1"
+    <svg
+      class="emotion-0"
+      fill="none"
+      viewBox="0 0 24 24"
     >
-      <svg
-        class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-        <path
-          clip-rule="evenodd"
-          d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-    </span>
+      <path
+        clip-rule="evenodd"
+        d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     <input
-      class="emotion-2"
+      class="emotion-1"
       readonly=""
       value="Test3"
     />
   </div>
-  .emotion-3 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  .emotion-2 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -656,49 +573,38 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  color: #707685;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
-.emotion-4 {
+.emotion-3 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
 }
 
-.emotion-4 label {
+.emotion-3 label {
   left: 44px;
 }
 
-.emotion-1 {
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
   color: #898F9E;
   top: 0.25rem;
   left: 0rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 14px;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
   position: absolute;
-  width: 44px;
-  height: 48px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
-.emotion-1 svg {
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  min-height: 20px;
-}
-
-.emotion-2 {
+.emotion-1 {
   font-variation-settings: "wght" 92;
   width: 100%;
   height: 48px;
@@ -718,80 +624,67 @@ exports[`Input tests should match snapshot 1`] = `
   transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   border-color: #323845;
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   border-color: #2953B2;
   box-shadow: 0 0 0 1px #2953B2;
 }
 
-.emotion-2:disabled {
+.emotion-1:disabled {
   background-color: #F4F6FB;
   border-color: #898F9E;
   color: #898F9E;
 }
 
-.emotion-2:focus + label {
+.emotion-1:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
-.emotion-2:placeholder-shown:not(:focus) + label {
+.emotion-1:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
 }
 
-.emotion-2:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-2:not(:placeholder-shown) + label {
+.emotion-1:not(:placeholder-shown) + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
 }
 
 <div
-    class="emotion-4"
+    class="emotion-3"
   >
-    <span
-      class="emotion-1"
+    <svg
+      class="emotion-0"
+      fill="none"
+      viewBox="0 0 24 24"
     >
-      <svg
-        class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-        <path
-          clip-rule="evenodd"
-          d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-    </span>
+      <path
+        clip-rule="evenodd"
+        d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     <input
-      class="emotion-2"
+      class="emotion-1"
+      value=""
     />
     <div
-      class="emotion-3"
+      class="emotion-2"
     />
   </div>
-  .emotion-7 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  .emotion-5 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -801,18 +694,13 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-}
-
-.emotion-6 {
+  color: #707685;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #707685;
-  margin-top: 0.5rem;
-  margin-right: 0.25rem;
 }
 
-.emotion-5 {
+.emotion-4 {
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -825,31 +713,33 @@ exports[`Input tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-4:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-4:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-5:active {
+.emotion-4:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-5:disabled {
+.emotion-4:disabled {
   color: #898F9E;
 }
 
-.emotion-5 svg {
+.emotion-4 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -857,7 +747,7 @@ exports[`Input tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-4 {
+.emotion-3 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
@@ -881,47 +771,39 @@ exports[`Input tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-0 {
+.emotion-2 {
   min-width: 24px;
   min-height: 24px;
   width: 24px;
   height: 24px;
 }
 
-.emotion-8 {
+.emotion-6 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
 }
 
-.emotion-8 label {
+.emotion-6 label {
   left: 44px;
 }
 
-.emotion-1 {
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
   color: #898F9E;
   top: 0.25rem;
   left: 0rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 14px;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
   position: absolute;
-  width: 44px;
-  height: 48px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
-.emotion-1 svg {
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  min-height: 20px;
-}
-
-.emotion-2 {
+.emotion-1 {
   font-variation-settings: "wght" 92;
   width: 100%;
   height: 48px;
@@ -941,120 +823,105 @@ exports[`Input tests should match snapshot 1`] = `
   transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   border-color: #323845;
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   border-color: #2953B2;
   box-shadow: 0 0 0 1px #2953B2;
 }
 
-.emotion-2:disabled {
+.emotion-1:disabled {
   background-color: #F4F6FB;
   border-color: #898F9E;
   color: #898F9E;
 }
 
-.emotion-2:focus + label {
+.emotion-1:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
-.emotion-2:placeholder-shown:not(:focus) + label {
+.emotion-1:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
 }
 
-.emotion-2:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-2:not(:placeholder-shown) + label {
+.emotion-1:not(:placeholder-shown) + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
 }
 
 <div
-    class="emotion-8"
+    class="emotion-6"
   >
-    <span
-      class="emotion-1"
+    <svg
+      class="emotion-0"
+      fill="none"
+      viewBox="0 0 24 24"
     >
-      <svg
-        class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-        <path
-          clip-rule="evenodd"
-          d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-    </span>
+      <path
+        clip-rule="evenodd"
+        d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     <input
-      class="emotion-2"
+      class="emotion-1"
       readonly=""
       value="Test4"
     />
     <div
-      class="emotion-7"
+      class="emotion-5"
     >
-      <div
-        class="emotion-6"
+      <button
+        aria-label="clear undefined text"
+        class="emotion-4"
+        type="button"
       >
-        <button
-          aria-label="clear text"
-          class="emotion-5"
-          type="button"
+        <div
+          class="emotion-3"
         >
-          <div
-            class="emotion-4"
+          <svg
+            class="emotion-2"
+            fill="none"
+            viewBox="0 0 24 24"
           >
-            <svg
-              class="emotion-0"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
-                fill-rule="evenodd"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M14.83 9.16992L9.16998 14.8299"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M14.83 14.8299L9.16998 9.16992"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-            </svg>
-          </div>
-        </button>
-      </div>
+            <path
+              clip-rule="evenodd"
+              d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+              fill-rule="evenodd"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+            <path
+              d="M14.83 9.16992L9.16998 14.8299"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+            <path
+              d="M14.83 14.8299L9.16998 9.16992"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
+      </button>
     </div>
   </div>
   .emotion-3 {
@@ -1065,9 +932,6 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1077,6 +941,10 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  color: #707685;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-0 {
@@ -1118,17 +986,10 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
 .emotion-0:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
-}
-
-.emotion-0:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
@@ -1156,6 +1017,7 @@ exports[`Input tests should match snapshot 1`] = `
   >
     <input
       class="emotion-0"
+      value=""
     />
     <div
       class="emotion-2"
@@ -1175,9 +1037,6 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1187,6 +1046,10 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  color: #707685;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-0 {
@@ -1228,17 +1091,10 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
 .emotion-0:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
-}
-
-.emotion-0:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
@@ -1287,9 +1143,6 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1299,6 +1152,10 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  color: #707685;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
 .emotion-1 {
@@ -1354,17 +1211,10 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
 .emotion-0:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
-}
-
-.emotion-0:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
 }
 
 .emotion-0:not(:placeholder-shown) + label {
@@ -1378,6 +1228,7 @@ exports[`Input tests should match snapshot 1`] = `
   >
     <input
       class="emotion-0"
+      value=""
     />
     <div
       class="emotion-2"
@@ -1389,10 +1240,7 @@ exports[`Input tests should match snapshot 1`] = `
       </span>
     </div>
   </div>
-  .emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  .emotion-3 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1402,49 +1250,38 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  color: #707685;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
-.emotion-5 {
+.emotion-4 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
 }
 
-.emotion-5 label {
+.emotion-4 label {
   left: 44px;
 }
 
-.emotion-1 {
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
   color: #898F9E;
   top: 0.25rem;
   left: 0rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 14px;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
   position: absolute;
-  width: 44px;
-  height: 48px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
-.emotion-1 svg {
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  min-height: 20px;
-}
-
-.emotion-3 {
+.emotion-2 {
   color: #898F9E;
   border-left-style: solid;
   border-left-width: 1px;
@@ -1458,7 +1295,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
 }
 
-.emotion-2 {
+.emotion-1 {
   font-variation-settings: "wght" 92;
   width: 100%;
   height: 48px;
@@ -1478,86 +1315,73 @@ exports[`Input tests should match snapshot 1`] = `
   transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   border-color: #323845;
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   border-color: #2953B2;
   box-shadow: 0 0 0 1px #2953B2;
 }
 
-.emotion-2:disabled {
+.emotion-1:disabled {
   background-color: #F4F6FB;
   border-color: #898F9E;
   color: #898F9E;
 }
 
-.emotion-2:focus + label {
+.emotion-1:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
-.emotion-2:placeholder-shown:not(:focus) + label {
+.emotion-1:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
 }
 
-.emotion-2:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-2:not(:placeholder-shown) + label {
+.emotion-1:not(:placeholder-shown) + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
 }
 
 <div
-    class="emotion-5"
+    class="emotion-4"
   >
-    <span
-      class="emotion-1"
+    <svg
+      class="emotion-0"
+      fill="none"
+      viewBox="0 0 24 24"
     >
-      <svg
-        class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-        <path
-          clip-rule="evenodd"
-          d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-    </span>
+      <path
+        clip-rule="evenodd"
+        d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     <input
-      class="emotion-2"
+      class="emotion-1"
+      value=""
     />
     <div
-      class="emotion-4"
+      class="emotion-3"
     >
       <span
-        class="emotion-3"
+        class="emotion-2"
       >
         Kg
       </span>
     </div>
   </div>
-  .emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  .emotion-3 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1567,49 +1391,38 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  color: #707685;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
-.emotion-5 {
+.emotion-4 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
 }
 
-.emotion-5 label {
+.emotion-4 label {
   left: 44px;
 }
 
-.emotion-1 {
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
   color: #898F9E;
   top: 0.25rem;
   left: 0rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 14px;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
   position: absolute;
-  width: 44px;
-  height: 48px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
-.emotion-1 svg {
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  min-height: 20px;
-}
-
-.emotion-3 {
+.emotion-2 {
   color: #898F9E;
   border-left-style: solid;
   border-left-width: 1px;
@@ -1623,7 +1436,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
 }
 
-.emotion-2 {
+.emotion-1 {
   font-variation-settings: "wght" 92;
   width: 100%;
   height: 48px;
@@ -1643,86 +1456,73 @@ exports[`Input tests should match snapshot 1`] = `
   transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   border-color: #323845;
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   border-color: #2953B2;
   box-shadow: 0 0 0 1px #2953B2;
 }
 
-.emotion-2:disabled {
+.emotion-1:disabled {
   background-color: #F4F6FB;
   border-color: #898F9E;
   color: #898F9E;
 }
 
-.emotion-2:focus + label {
+.emotion-1:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
-.emotion-2:placeholder-shown:not(:focus) + label {
+.emotion-1:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
 }
 
-.emotion-2:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-2:not(:placeholder-shown) + label {
+.emotion-1:not(:placeholder-shown) + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
 }
 
 <div
-    class="emotion-5"
+    class="emotion-4"
   >
-    <span
-      class="emotion-1"
+    <svg
+      class="emotion-0"
+      fill="none"
+      viewBox="0 0 24 24"
     >
-      <svg
-        class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-        <path
-          clip-rule="evenodd"
-          d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-    </span>
+      <path
+        clip-rule="evenodd"
+        d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     <input
-      class="emotion-2"
+      class="emotion-1"
+      value=""
     />
     <div
-      class="emotion-4"
+      class="emotion-3"
     >
       <span
-        class="emotion-3"
+        class="emotion-2"
       >
         Kg
       </span>
     </div>
   </div>
-  .emotion-8 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  .emotion-6 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1732,18 +1532,13 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-}
-
-.emotion-6 {
+  color: #707685;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #707685;
-  margin-top: 0.5rem;
-  margin-right: 0.25rem;
 }
 
-.emotion-5 {
+.emotion-4 {
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -1756,31 +1551,33 @@ exports[`Input tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-4:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-4:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-5:active {
+.emotion-4:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-5:disabled {
+.emotion-4:disabled {
   color: #898F9E;
 }
 
-.emotion-5 svg {
+.emotion-4 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -1788,7 +1585,7 @@ exports[`Input tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-4 {
+.emotion-3 {
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
@@ -1812,47 +1609,39 @@ exports[`Input tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-0 {
+.emotion-2 {
   min-width: 24px;
   min-height: 24px;
   width: 24px;
   height: 24px;
 }
 
-.emotion-9 {
+.emotion-7 {
   position: relative;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
 }
 
-.emotion-9 label {
+.emotion-7 label {
   left: 44px;
 }
 
-.emotion-1 {
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
   color: #898F9E;
   top: 0.25rem;
   left: 0rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 14px;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
   position: absolute;
-  width: 44px;
-  height: 48px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
-.emotion-1 svg {
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  min-height: 20px;
-}
-
-.emotion-7 {
+.emotion-5 {
   color: #898F9E;
   border-left-style: solid;
   border-left-width: 1px;
@@ -1866,7 +1655,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
 }
 
-.emotion-2 {
+.emotion-1 {
   font-variation-settings: "wght" 92;
   width: 100%;
   height: 48px;
@@ -1886,122 +1675,107 @@ exports[`Input tests should match snapshot 1`] = `
   transition: all 70ms cubic-bezier(0.2,0.2,0.38,0.9);
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   border-color: #323845;
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   border-color: #2953B2;
   box-shadow: 0 0 0 1px #2953B2;
 }
 
-.emotion-2:disabled {
+.emotion-1:disabled {
   background-color: #F4F6FB;
   border-color: #898F9E;
   color: #898F9E;
 }
 
-.emotion-2:focus + label {
+.emotion-1:focus + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
-  color: #2953B2;
 }
 
-.emotion-2:placeholder-shown:not(:focus) + label {
+.emotion-1:placeholder-shown:not(:focus) + label {
   padding-top: 0.25rem;
 }
 
-.emotion-2:active + label {
-  -webkit-transform: translate(1px,4px) scale(0.875);
-  -ms-transform: translate(1px,4px) scale(0.875);
-  transform: translate(1px,4px) scale(0.875);
-}
-
-.emotion-2:not(:placeholder-shown) + label {
+.emotion-1:not(:placeholder-shown) + label {
   -webkit-transform: translate(1px,4px) scale(0.875);
   -ms-transform: translate(1px,4px) scale(0.875);
   transform: translate(1px,4px) scale(0.875);
 }
 
 <div
-    class="emotion-9"
+    class="emotion-7"
   >
-    <span
-      class="emotion-1"
+    <svg
+      class="emotion-0"
+      fill="none"
+      viewBox="0 0 24 24"
     >
-      <svg
-        class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-        <path
-          clip-rule="evenodd"
-          d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-    </span>
+      <path
+        clip-rule="evenodd"
+        d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     <input
-      class="emotion-2"
+      class="emotion-1"
       readonly=""
       value="Test6"
     />
     <div
-      class="emotion-8"
+      class="emotion-6"
     >
-      <div
-        class="emotion-6"
+      <button
+        aria-label="clear undefined text"
+        class="emotion-4"
+        type="button"
       >
-        <button
-          aria-label="clear text"
-          class="emotion-5"
-          type="button"
+        <div
+          class="emotion-3"
         >
-          <div
-            class="emotion-4"
+          <svg
+            class="emotion-2"
+            fill="none"
+            viewBox="0 0 24 24"
           >
-            <svg
-              class="emotion-0"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
-                fill-rule="evenodd"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M14.83 9.16992L9.16998 14.8299"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M14.83 14.8299L9.16998 9.16992"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-            </svg>
-          </div>
-        </button>
-      </div>
+            <path
+              clip-rule="evenodd"
+              d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+              fill-rule="evenodd"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+            <path
+              d="M14.83 9.16992L9.16998 14.8299"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+            <path
+              d="M14.83 14.8299L9.16998 9.16992"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
+      </button>
       <span
-        class="emotion-7"
+        class="emotion-5"
       >
         Kg
       </span>

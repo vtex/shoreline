@@ -3,7 +3,7 @@ import {
   VisuallyHidden,
   Box,
   Label,
-  unstableInput as Input,
+  AbstractInput,
   SxStyleProp,
   cn,
 } from '@vtex/admin-ui'
@@ -29,7 +29,7 @@ export function Searchbar(props: SearchbarProps) {
         <VisuallyHidden>
           <Label htmlFor={id}>Icon search</Label>
         </VisuallyHidden>
-        <Input
+        <AbstractInput
           id={id}
           {...state}
           icon={<IconSearch />}

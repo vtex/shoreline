@@ -3,14 +3,14 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import { IconAdd } from '@vtex/admin-ui-icons'
 
-import { unstableInput as Input } from './index'
+import { AbstractInput } from './index'
 import { ThemeProvider } from '../../system'
 
-describe('Input tests', () => {
+describe('AbstractInput tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Input
+        <AbstractInput
           data-testid="input"
           styleOverrides={{ color: 'coral' }}
           value="Test1"
@@ -25,19 +25,24 @@ describe('Input tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <Input value="Test1" readOnly />
-        <Input onClear={() => {}} />
-        <Input onClear={() => {}} value="Test2" readOnly />
-        <Input icon={<IconAdd />} />
-        <Input icon={<IconAdd />} value="Test3" readOnly />
-        <Input icon={<IconAdd />} onClear={() => {}} />
-        <Input icon={<IconAdd />} onClear={() => {}} value="Test4" readOnly />
-        <Input suffix="Kg" />
-        <Input suffix="Kg" value="Test5" readOnly />
-        <Input suffix="Kg" onClear={() => {}} />
-        <Input suffix="Kg" icon={<IconAdd />} />
-        <Input suffix="Kg" icon={<IconAdd />} onClear={() => {}} />
-        <Input
+        <AbstractInput value="Test1" readOnly />
+        <AbstractInput onClear={() => {}} />
+        <AbstractInput onClear={() => {}} value="Test2" readOnly />
+        <AbstractInput icon={<IconAdd />} />
+        <AbstractInput icon={<IconAdd />} value="Test3" readOnly />
+        <AbstractInput icon={<IconAdd />} onClear={() => {}} />
+        <AbstractInput
+          icon={<IconAdd />}
+          onClear={() => {}}
+          value="Test4"
+          readOnly
+        />
+        <AbstractInput suffix="Kg" />
+        <AbstractInput suffix="Kg" value="Test5" readOnly />
+        <AbstractInput suffix="Kg" onClear={() => {}} />
+        <AbstractInput suffix="Kg" icon={<IconAdd />} />
+        <AbstractInput suffix="Kg" icon={<IconAdd />} onClear={() => {}} />
+        <AbstractInput
           suffix="Kg"
           icon={<IconAdd />}
           onClear={() => {}}
@@ -53,50 +58,58 @@ describe('Input tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ThemeProvider>
-        <Input aria-label="raw-input" />
-        <Input value="Test1" aria-label="input-value" readOnly />
-        <Input onClear={() => {}} aria-label="input-clear" />
-        <Input
+        <AbstractInput aria-label="raw-input" />
+        <AbstractInput value="Test1" aria-label="input-value" readOnly />
+        <AbstractInput onClear={() => {}} aria-label="input-clear" />
+        <AbstractInput
           onClear={() => {}}
           value="Test2"
           aria-label="input-clear-value"
           readOnly
         />
-        <Input icon={<IconAdd />} aria-label="input-icon" />
-        <Input
+        <AbstractInput icon={<IconAdd />} aria-label="input-icon" />
+        <AbstractInput
           icon={<IconAdd />}
           value="Test3"
           aria-label="input-icon-value"
           readOnly
         />
-        <Input
+        <AbstractInput
           icon={<IconAdd />}
           onClear={() => {}}
           aria-label="input-icon-clear"
         />
-        <Input
+        <AbstractInput
           icon={<IconAdd />}
           onClear={() => {}}
           value="Test4"
           aria-label="input-icon-clear-value"
           readOnly
         />
-        <Input suffix="Kg" aria-label="input-suffix" />
-        <Input
+        <AbstractInput suffix="Kg" aria-label="input-suffix" />
+        <AbstractInput
           suffix="Kg"
           aria-label="input-suffix-value"
           value="Test5"
           readOnly
         />
-        <Input suffix="Kg" onClear={() => {}} aria-label="input-suffix-clear" />
-        <Input suffix="Kg" icon={<IconAdd />} aria-label="input-suffix-icon" />
-        <Input
+        <AbstractInput
+          suffix="Kg"
+          onClear={() => {}}
+          aria-label="input-suffix-clear"
+        />
+        <AbstractInput
+          suffix="Kg"
+          icon={<IconAdd />}
+          aria-label="input-suffix-icon"
+        />
+        <AbstractInput
           suffix="Kg"
           icon={<IconAdd />}
           onClear={() => {}}
           aria-label="input-suffix-icon-clear"
         />
-        <Input
+        <AbstractInput
           suffix="Kg"
           icon={<IconAdd />}
           onClear={() => {}}

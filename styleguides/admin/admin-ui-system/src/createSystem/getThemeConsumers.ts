@@ -41,6 +41,11 @@ export function getThemeConsumers<T>({
 
       return resolveStyles({ theme, styles })
     },
+    stylesOf(themeKey: string) {
+      const styles = get((theme as unknown) as object, themeKey, {})
+
+      return styles as SxStyleProp
+    },
     patternStyles(props: unknown) {
       const { patternProps, styleProps } = getStyleProps({
         theme,

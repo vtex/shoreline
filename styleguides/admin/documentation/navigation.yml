@@ -52,7 +52,8 @@
     - /form/label/
     - /form/radio-group/
     - /form/radio/
-    - /form/text-field/
+    - /form/input/
+    - /form/input-password/
     - /form/text-area/
     - /form/toggle/
 - section: Deep dive 🐋

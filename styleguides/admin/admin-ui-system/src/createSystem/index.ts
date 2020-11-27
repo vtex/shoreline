@@ -8,7 +8,12 @@ export interface SystemParams<T> {
   styleKeys?: string[]
 }
 
-export function createSystem<T>(params: SystemParams<T>) {
+export type CreateSystemReturn = {
+  ThemeProvider: ReturnType<typeof createThemeProvider>
+  createElement: ReturnType<typeof createElementFactory>
+} & ReturnType<typeof getThemeConsumers>
+
+export function createSystem<T>(params: SystemParams<T>): CreateSystemReturn {
   const { theme, patternKey = 'patterns', styleKeys = [] } = params
 
   const ThemeProvider = createThemeProvider(theme)
