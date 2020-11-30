@@ -137,9 +137,6 @@ export function Content(props: CollapsibleContentProps) {
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
-                style={{
-                  overflow: 'auto',
-                }}
                 variants={{
                   visible: {
                     transition: {
