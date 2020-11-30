@@ -177,7 +177,7 @@ exports[`Collapsible tests should match snapshot 1`] = `
     </header>
     <section
       id="mocked-id"
-      style="overflow: auto; height: 0px; opacity: 0;"
+      style="height: 0px; opacity: 0;"
     >
       <div
         class="emotion-5"
@@ -396,7 +396,7 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
     </header>
     <section
       id="mocked-id"
-      style="overflow: auto; height: 0px; opacity: 0;"
+      style="height: 0px; opacity: 0;"
     >
       <div
         class="emotion-12"
@@ -438,7 +438,7 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
           </header>
           <section
             id="mocked-id"
-            style="overflow: auto; height: 0px; opacity: 0;"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="emotion-10"
