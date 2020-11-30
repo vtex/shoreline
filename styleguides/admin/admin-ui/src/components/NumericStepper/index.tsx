@@ -77,9 +77,14 @@ export function NumericStepper(props: NumericStepperProps) {
 
         <Button
           size="small"
-          variant="tertiary"
+          variant="adaptative-dark"
           icon={<IconRemove />}
-          styleOverrides={{ position: 'absolute', left: 1 }}
+          styleOverrides={{
+            color: 'primary.base',
+            height: 40,
+            position: 'absolute',
+            left: 1,
+          }}
           aria-label={`${label}-decrease-button`}
           onClick={handleDecrement}
           disabled={disabled ?? state.value === minValue}
@@ -87,10 +92,15 @@ export function NumericStepper(props: NumericStepperProps) {
 
         <Button
           size="small"
-          variant="tertiary"
+          variant="adaptative-dark"
           icon={<IconAdd />}
           aria-label={`${label}-increase-button}`}
-          styleOverrides={{ position: 'absolute', right: 1 }}
+          styleOverrides={{
+            color: 'primary.base',
+            height: 40,
+            position: 'absolute',
+            right: 1,
+          }}
           onClick={handleIncrement}
           disabled={disabled ?? state.value === maxValue}
         />
