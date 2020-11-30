@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.62.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.62.4...@vtex/admin-ui@0.62.5) (2020-11-30)
+
+
+### Bug Fixes
+
+* **z-index:** fix zIndex property not consuming from theme ([bc82ba9](https://github.com/vtex/onda/commit/bc82ba983f38984e7bf7774f8a119bbbecd7766a))
+
+
+
+
+
 ## [0.62.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.62.3...@vtex/admin-ui@0.62.4) (2020-11-30)
 
 
