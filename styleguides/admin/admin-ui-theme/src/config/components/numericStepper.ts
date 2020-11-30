@@ -42,7 +42,7 @@ const containerStyles = {
 }
 
 export default {
-  error: {
+  'default-error': {
     ...styles,
     borderColor: 'danger.base',
     ':hover': {
@@ -53,10 +53,6 @@ export default {
       boxShadow: 'none',
     },
   },
-  default: {
-    ...styles,
-  },
-  container: {
-    ...containerStyles,
-  },
+  default: styles,
+  container: containerStyles,
 }

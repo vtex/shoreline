@@ -39,9 +39,9 @@ import { NumericStepper } from '@vtex/admin-ui'
 
 ## Variations
 
-### Unit Multiplier
+### Step Multiplier
 
-The NumericStepper has two buttons: one to increment the value and the other to decrement. By default, you can increase or decrease the value one by one, but you can also set a `unitMultiplier`, so the value will increase or decrease according to the multiplier defined.
+The NumericStepper has two buttons: one to increment the value and the other to decrement. By default, you can increase or decrease the value one by one, but you can also set a `step`, so the value will increase or decrease according to the multiplier defined.
 
 ```jsx
 import { ThemeProvider, NumericStepper } from '@vtex/admin-ui'
@@ -53,7 +53,7 @@ function Example() {
     <ThemeProvider>
       <NumericStepper
         value={value}
-        unitMultiplier={5}
+        step={5}
         helperText="Helper Text"
         label="numeric-stepper"
         onChange={(event) => setValue(event.value)}

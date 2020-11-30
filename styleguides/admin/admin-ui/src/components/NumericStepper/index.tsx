@@ -14,7 +14,7 @@ export function NumericStepper(props: NumericStepperProps) {
     minValue = -10e9,
     maxValue = 10e9,
     disabled,
-    unitMultiplier = 1,
+    step = 1,
     onChange,
     errorMessage,
     helperText,
@@ -32,8 +32,33 @@ export function NumericStepper(props: NumericStepperProps) {
 
   const className = useClassName({
     props: { styles: styleOverrides },
-    themeKey: `components.numericStepper${error ? '.error' : '.default'}`,
+    themeKey: `components.numericStepper.default${error ? '-error' : ''}`,
   })
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    dispatch({
+      type: 'change',
+      value: Number(event.target.value),
+      onChange,
+      minValue,
+      maxValue,
+    })
+
+  const handleIncrement = () =>
+    dispatch({
+      type: 'increment',
+      maxValue,
+      onChange,
+      step,
+    })
+
+  const handleDecrement = () =>
+    dispatch({
+      type: 'decrement',
+      minValue,
+      onChange,
+      step,
+    })
 
   return (
     <Box styles={{ width: 106 }}>
@@ -43,15 +68,7 @@ export function NumericStepper(props: NumericStepperProps) {
           type="number"
           min={minValue}
           max={maxValue}
-          onChange={(event) =>
-            dispatch({
-              type: 'change',
-              value: Number(event.target.value),
-              onChange,
-              minValue,
-              maxValue,
-            })
-          }
+          onChange={(event) => handleChange(event)}
           disabled={disabled}
           aria-label={label}
           className={className}
@@ -64,14 +81,7 @@ export function NumericStepper(props: NumericStepperProps) {
           icon={<IconRemove />}
           styleOverrides={{ position: 'absolute', left: 1 }}
           aria-label={`${label}-decrease-button`}
-          onClick={() =>
-            dispatch({
-              type: 'decrement',
-              minValue,
-              onChange,
-              unitMultiplier,
-            })
-          }
+          onClick={handleDecrement}
           disabled={disabled ?? state.value === minValue}
         />
 
@@ -81,14 +91,7 @@ export function NumericStepper(props: NumericStepperProps) {
           icon={<IconAdd />}
           aria-label={`${label}-increase-button}`}
           styleOverrides={{ position: 'absolute', right: 1 }}
-          onClick={() =>
-            dispatch({
-              type: 'increment',
-              maxValue,
-              onChange,
-              unitMultiplier,
-            })
-          }
+          onClick={handleIncrement}
           disabled={disabled ?? state.value === maxValue}
         />
       </Box>
@@ -107,8 +110,8 @@ export function NumericStepper(props: NumericStepperProps) {
 function reducer(state: StateValue, action: Action): StateValue {
   switch (action.type) {
     case 'increment': {
-      const { unitMultiplier, maxValue, onChange } = action
-      const incrementedValue = state.value + unitMultiplier
+      const { step, maxValue, onChange } = action
+      const incrementedValue = state.value + step
       const nextValue =
         incrementedValue > maxValue ? maxValue : incrementedValue
 
@@ -120,8 +123,8 @@ function reducer(state: StateValue, action: Action): StateValue {
     }
 
     case 'decrement': {
-      const { unitMultiplier, minValue, onChange } = action
-      const decrementedValue = state.value - unitMultiplier
+      const { step, minValue, onChange } = action
+      const decrementedValue = state.value - step
       const nextValue =
         decrementedValue < minValue ? minValue : decrementedValue
 
@@ -163,13 +166,13 @@ interface StateValue {
 type Action =
   | {
       type: 'increment'
-      unitMultiplier: number
+      step: number
       maxValue: number
       onChange: (value: StateValue) => void
     }
   | {
       type: 'decrement'
-      unitMultiplier: number
+      step: number
       minValue: number
       onChange: (value: StateValue) => void
     }
@@ -231,5 +234,5 @@ export interface NumericStepperProps extends Overridable {
    * Increment and Decrement multiplier value
    * @default 1
    */
-  unitMultiplier?: number
+  step?: number
 }

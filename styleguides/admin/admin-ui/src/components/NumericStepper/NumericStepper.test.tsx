@@ -52,7 +52,7 @@ describe('NumericStepper tests', () => {
           value={0}
           minValue={0}
           maxValue={50}
-          unitMultiplier={5}
+          step={5}
           onChange={(event) => {
             console.warn(event.value)
           }}
