@@ -16,6 +16,7 @@ export const Styles: Story = () => {
     <Box
       styles={{
         fontSize: 64,
+        zIndex: 'over',
       }}
     >
       Huge Text
