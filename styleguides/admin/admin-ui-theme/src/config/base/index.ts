@@ -22,7 +22,7 @@ export default {
     '3': '1.125rem',
     '4': '1.25rem',
   },
-  zIndexes: {
+  zIndices: {
     under: -1,
     plain: 0,
     over: 999,
