@@ -160,16 +160,18 @@ function Example() {
   )
 
   return (
-    <CollapsibleGroup styleOverrides={{ width: 400 }}>
-      <Collapsible state={promosAndPartner}>
-        <Collapsible.Header label="Promos and Partnerships" />
-        <Collapsible.Content>{PromosGroup}</Collapsible.Content>
-      </Collapsible>
-      <Collapsible state={shipping}>
-        <Collapsible.Header label="Shipping" />
-        <Collapsible.Content>{PackagesGroup}</Collapsible.Content>
-      </Collapsible>
-    </CollapsibleGroup>
+    <ThemeProvider>
+      <CollapsibleGroup styleOverrides={{ width: 400 }}>
+        <Collapsible state={promosAndPartner}>
+          <Collapsible.Header label="Promos and Partnerships" />
+          <Collapsible.Content>{PromosGroup}</Collapsible.Content>
+        </Collapsible>
+        <Collapsible state={shipping}>
+          <Collapsible.Header label="Shipping" />
+          <Collapsible.Content>{PackagesGroup}</Collapsible.Content>
+        </Collapsible>
+      </CollapsibleGroup>
+    </ThemeProvider>
   )
 }
 ```
