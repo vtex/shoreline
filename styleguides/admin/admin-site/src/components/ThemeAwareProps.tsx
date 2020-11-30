@@ -81,7 +81,7 @@ export default function ThemeAwareProps() {
         <PropRow value="borderRadius" themeKey="borderRadius" />
         <PropRow value="boxShadow" themeKey="shadows" />
         <PropRow value="textShadow" themeKey="shadows" />
-        <PropRow value="zIndex" themeKey="zIndexes" />
+        <PropRow value="zIndex" themeKey="zIndices" />
         <PropRow value="width" themeKey="sizes" />
         <PropRow value="minWidth" themeKey="sizes" />
         <PropRow value="maxWidth" themeKey="sizes" />
