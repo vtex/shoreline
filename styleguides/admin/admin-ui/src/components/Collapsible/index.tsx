@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { PropsWithoutRef, ReactNode } from 'react'
 import {
   useDisclosureState,
   Disclosure as ReakitDisclosure,
@@ -7,6 +7,8 @@ import {
   DisclosureStateReturn,
 } from 'reakit/Disclosure'
 import { IconCaret } from '@vtex/admin-ui-icons'
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
+import { useClassName } from '@vtex/admin-ui-system'
 
 import { Box } from '../Box'
 import {
@@ -17,6 +19,7 @@ import {
 } from './context'
 import { Button } from '../Button'
 import { Overridable } from '../../types'
+import { useGroup } from '../Group'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
@@ -34,6 +37,7 @@ import { Overridable } from '../../types'
  */
 export function Collapsible(props: CollapsibleProps) {
   const { isRoot } = useTree()
+  const { grouped } = useGroup()
 
   const {
     styleOverrides,
@@ -51,38 +55,44 @@ export function Collapsible(props: CollapsibleProps) {
   }
 
   const variant = {
-    container: 'components.collapsible.container',
+    container: `components.collapsible.container${grouped ? '-grouped' : ''}`,
     header: `components.collapsible.header${!isRoot ? '-nested' : ''}`,
     content: `components.collapsible.section${!isRoot ? '-nested' : ''}`,
   }
 
+  const className = useClassName({
+    props: {
+      styles: styleOverrides,
+    },
+    themeKey: variant.container,
+  })
+
   return (
-    <Box
-      themeKey={variant.container}
-      styles={styleOverrides}
-      {...collapsibleProps}
-    >
-      <CollapsibleProvider variant={variant} {...reakitProps}>
-        <TreeProvider isRoot={false}>{children}</TreeProvider>
-      </CollapsibleProvider>
-    </Box>
+    <AnimateSharedLayout>
+      <motion.div layout className={className} {...collapsibleProps}>
+        <CollapsibleProvider variant={variant} {...reakitProps}>
+          <TreeProvider isRoot={false}>{children}</TreeProvider>
+        </CollapsibleProvider>
+      </motion.div>
+    </AnimateSharedLayout>
   )
 }
 
 export function Header(props: CollapsibleHeaderProps) {
   const { children, label, styleOverrides, ...headerProps } = props
   const { variant } = useCollapsibleContext()
+  const className = useClassName({
+    props: {
+      styles: styleOverrides,
+    },
+    themeKey: variant.header,
+  })
 
   return (
-    <Box
-      element="header"
-      themeKey={variant.header}
-      styles={styleOverrides}
-      {...headerProps}
-    >
+    <motion.header layout className={className} {...headerProps}>
       <Disclosure>{label}</Disclosure>
       <Box styles={{ display: 'flex' }}>{children}</Box>
-    </Box>
+    </motion.header>
   )
 }
 
@@ -118,17 +128,48 @@ export function Content(props: CollapsibleContentProps) {
 
   return (
     <DisclosureContent {...disclosureProps}>
-      {(enhancedProps) => (
-        <Box
-          element="section"
-          themeKey={variant.content}
-          styles={styleOverrides}
-          {...enhancedProps}
-          {...contentProps}
-        >
-          {children}
-        </Box>
-      )}
+      {({ style, ...enhancedProps }) => {
+        return (
+          <AnimatePresence>
+            {disclosureProps.visible && (
+              <motion.section
+                layout
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                style={{
+                  overflow: 'auto',
+                }}
+                variants={{
+                  visible: {
+                    transition: {
+                      duration: 0.15,
+                    },
+                    height: 'auto',
+                    opacity: 1,
+                  },
+                  hidden: {
+                    transition: {
+                      duration: 0.15,
+                    },
+                    height: 0,
+                    opacity: 0,
+                  },
+                }}
+                {...(enhancedProps as PropsWithoutRef<'section'>)}
+              >
+                <Box
+                  styles={styleOverrides}
+                  themeKey={variant.content}
+                  {...contentProps}
+                >
+                  {children}
+                </Box>
+              </motion.section>
+            )}
+          </AnimatePresence>
+        )
+      }}
     </DisclosureContent>
   )
 }

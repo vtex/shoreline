@@ -87,9 +87,9 @@ exports[`Collapsible tests should match snapshot 1`] = `
   min-height: 24px;
   width: 24px;
   height: 24px;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .emotion-3 {
@@ -107,10 +107,7 @@ exports[`Collapsible tests should match snapshot 1`] = `
   border-color: #E0E2E7;
   border-style: solid;
   border-width: 1px;
-  border-radius: 3px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  border-radius: 4px;
 }
 
 .emotion-4 {
@@ -128,9 +125,6 @@ exports[`Collapsible tests should match snapshot 1`] = `
   justify-content: space-between;
   padding: 1.5rem;
   padding-left: 0.5rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-4 div > button:nth-of-type(n+2) {
@@ -154,7 +148,7 @@ exports[`Collapsible tests should match snapshot 1`] = `
     >
       <button
         aria-controls="mocked-id"
-        aria-expanded="false"
+        aria-expanded="true"
         class="emotion-2"
         type="button"
       >
@@ -182,12 +176,14 @@ exports[`Collapsible tests should match snapshot 1`] = `
       />
     </header>
     <section
-      class="emotion-5"
-      hidden=""
       id="mocked-id"
-      style="display: none;"
+      style="overflow: auto; height: 0px; opacity: 0;"
     >
-      Collapsible Content
+      <div
+        class="emotion-5"
+      >
+        Collapsible Content
+      </div>
     </section>
   </div>
 </DocumentFragment>
@@ -280,9 +276,9 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   min-height: 24px;
   width: 24px;
   height: 24px;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .emotion-3 {
@@ -300,10 +296,7 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   border-color: #E0E2E7;
   border-style: solid;
   border-width: 1px;
-  border-radius: 3px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  border-radius: 4px;
 }
 
 .emotion-4 {
@@ -321,9 +314,6 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   justify-content: space-between;
   padding: 1.5rem;
   padding-left: 0.5rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-4 div > button:nth-of-type(n+2) {
@@ -354,9 +344,6 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   justify-content: space-between;
   padding: 1rem;
   padding-left: 0rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-9 div > button:nth-of-type(n+2) {
@@ -380,7 +367,7 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
     >
       <button
         aria-controls="mocked-id"
-        aria-expanded="false"
+        aria-expanded="true"
         class="emotion-2"
         type="button"
       >
@@ -408,54 +395,58 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
       />
     </header>
     <section
-      class="emotion-12"
-      hidden=""
       id="mocked-id"
-      style="display: none;"
+      style="overflow: auto; height: 0px; opacity: 0;"
     >
       <div
-        class="emotion-11"
+        class="emotion-12"
       >
-        <header
-          class="emotion-9"
+        <div
+          class="emotion-11"
         >
-          <button
-            aria-controls="mocked-id"
-            aria-expanded="false"
-            class="emotion-2"
-            type="button"
+          <header
+            class="emotion-9"
+          >
+            <button
+              aria-controls="mocked-id"
+              aria-expanded="true"
+              class="emotion-2"
+              type="button"
+            >
+              <div
+                class="emotion-1"
+              >
+                <svg
+                  class="emotion-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16 14L12 10L8 14"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                Collapsible Label
+              </div>
+            </button>
+            <div
+              class="emotion-3"
+            />
+          </header>
+          <section
+            id="mocked-id"
+            style="overflow: auto; height: 0px; opacity: 0;"
           >
             <div
-              class="emotion-1"
+              class="emotion-10"
             >
-              <svg
-                class="emotion-0"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16 14L12 10L8 14"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                />
-              </svg>
-              Collapsible Label
+              Collapsible Content
             </div>
-          </button>
-          <div
-            class="emotion-3"
-          />
-        </header>
-        <section
-          class="emotion-10"
-          hidden=""
-          id="mocked-id"
-          style="display: none;"
-        >
-          Collapsible Content
-        </section>
+          </section>
+        </div>
       </div>
     </section>
   </div>

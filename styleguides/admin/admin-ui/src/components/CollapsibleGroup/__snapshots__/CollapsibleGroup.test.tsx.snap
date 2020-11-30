@@ -2,15 +2,9 @@
 
 exports[`CollapsibleGroup tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-6 {
+  .emotion-5 {
   background-color: #FFFFFF;
-  border-color: #E0E2E7;
-  border-style: none;
-  border-width: 1px;
-  border-radius: 3px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  border-radius: 4px;
 }
 
 .emotion-4 {
@@ -28,9 +22,6 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   justify-content: space-between;
   padding: 1.5rem;
   padding-left: 0.5rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-4 div > button:nth-of-type(n+2) {
@@ -137,16 +128,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   display: flex;
 }
 
-.emotion-5 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-7 {
+.emotion-6 {
   background-color: #FFFFFF;
   color: #323845;
   line-height: 1.25;
@@ -160,10 +142,10 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-7"
+    class="emotion-6"
   >
     <div
-      class="emotion-6"
+      class="emotion-5"
     >
       <header
         class="emotion-4"
@@ -197,14 +179,6 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
           class="emotion-3"
         />
       </header>
-      <section
-        class="emotion-5"
-        hidden=""
-        id="mocked-id"
-        style="display: none;"
-      >
-        Collapsible Content
-      </section>
     </div>
   </div>
 </DocumentFragment>
@@ -212,15 +186,9 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 <DocumentFragment>
-  .emotion-6 {
+  .emotion-5 {
   background-color: #FFFFFF;
-  border-color: #E0E2E7;
-  border-style: none;
-  border-width: 1px;
-  border-radius: 3px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  border-radius: 4px;
 }
 
 .emotion-4 {
@@ -238,9 +206,6 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   justify-content: space-between;
   padding: 1.5rem;
   padding-left: 0.5rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-4 div > button:nth-of-type(n+2) {
@@ -347,16 +312,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   display: flex;
 }
 
-.emotion-5 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-7 {
+.emotion-6 {
   background-color: #FFFFFF;
   color: #323845;
   line-height: 1.25;
@@ -370,10 +326,10 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 <div
-    class="emotion-7"
+    class="emotion-6"
   >
     <div
-      class="emotion-6"
+      class="emotion-5"
     >
       <header
         class="emotion-4"
@@ -407,14 +363,6 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
           class="emotion-3"
         />
       </header>
-      <section
-        class="emotion-5"
-        hidden=""
-        id="mocked-id"
-        style="display: none;"
-      >
-        Collapsible Content
-      </section>
     </div>
   </div>
 </DocumentFragment>

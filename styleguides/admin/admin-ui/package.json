@@ -59,6 +59,7 @@
     "downshift": "^6.0.6",
     "emotion": "^10.0.27",
     "focus-visible": "^5.1.0",
+    "framer-motion": "^2.9.4",
     "polished": "^3.6.7",
     "react-is": "^17.0.1",
     "reakit": "1.2.3",

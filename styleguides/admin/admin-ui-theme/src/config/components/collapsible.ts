@@ -4,7 +4,11 @@ export default {
     borderColor: 'muted.2',
     borderStyle: 'solid',
     borderWidth: 1,
-    borderRadius: 3,
+    borderRadius: 'default',
+  },
+  'container-grouped': {
+    bg: 'background',
+    borderRadius: 'default',
   },
   header: {
     display: 'flex',
