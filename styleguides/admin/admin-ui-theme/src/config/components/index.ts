@@ -3,7 +3,6 @@ import button from './button'
 import divider from './divider'
 import tag from './tag'
 import anchor from './anchor'
-import stepper from './stepper'
 // data
 import table from './table'
 import list from './list'
@@ -16,6 +15,7 @@ import toggle from './toggle'
 import input from './input'
 import textArea from './textArea'
 import selectButton from './selectButton'
+import numericStepper from './numericStepper'
 // overlay
 import tooltip from './tooltip'
 import menu from './menu'
@@ -46,5 +46,5 @@ export default {
   anchor,
   selectButton,
   textArea,
-  stepper,
+  numericStepper,
 }

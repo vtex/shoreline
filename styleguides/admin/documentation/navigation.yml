@@ -44,12 +44,12 @@
     - /tag/
     - /tooltip/
     - /visually-hidden/
-    - /stepper/
 - section: Form
   paths:
     - /form/checkbox-group/
     - /form/checkbox/
     - /form/label/
+    - /form/numeric-stepper/
     - /form/radio-group/
     - /form/radio/
     - /form/input/
