@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.62.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.62.3...@vtex/admin-ui@0.62.4) (2020-11-30)
+
+
+### Bug Fixes
+
+* **numeric-stepper:** rename Stepper to NumericStepper and refactor state logic ([ce442cf](https://github.com/vtex/onda/commit/ce442cf7b2f96fe9b6ca90a4d7cf507275dce47b))
+
+
+
+
+
 ## [0.62.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.62.2...@vtex/admin-ui@0.62.3) (2020-11-27)
 
 **Note:** Version bump only for package @vtex/admin-ui
