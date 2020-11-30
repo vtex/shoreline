@@ -34,11 +34,10 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  text-transform: capitalize;
-  background-color: transparent;
   color: #2953B2;
+  background-color: transparent;
   font-size: 0.75rem;
-  height: 32px;
+  height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
@@ -56,13 +55,11 @@ exports[`NumericStepper tests should not have any violations 1`] = `
 }
 
 .emotion-3:hover {
-  color: #214491;
-  background-color: #cad7f1;
+  background-color: rgba(50,56,69,0.04);
 }
 
 .emotion-3:active {
-  color: #1a3470;
-  background-color: #bacbec;
+  background-color: rgba(50,56,69,0.08);
 }
 
 .emotion-3:disabled {
@@ -114,11 +111,10 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  text-transform: capitalize;
-  background-color: transparent;
   color: #2953B2;
+  background-color: transparent;
   font-size: 0.75rem;
-  height: 32px;
+  height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
@@ -136,13 +132,11 @@ exports[`NumericStepper tests should not have any violations 1`] = `
 }
 
 .emotion-6:hover {
-  color: #214491;
-  background-color: #cad7f1;
+  background-color: rgba(50,56,69,0.04);
 }
 
 .emotion-6:active {
-  color: #1a3470;
-  background-color: #bacbec;
+  background-color: rgba(50,56,69,0.08);
 }
 
 .emotion-6:disabled {
