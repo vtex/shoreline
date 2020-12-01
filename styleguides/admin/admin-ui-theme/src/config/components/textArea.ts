@@ -33,7 +33,6 @@ const textAreaInputStyle = {
   // Label styles
   ':focus + label': {
     transform: 'translate(1px, 4px) scale(0.875)',
-    color: 'primary.base',
   },
   ':placeholder-shown:not(:focus) + label': {
     paddingTop: 1,
@@ -49,7 +48,31 @@ const styles = {
   justifyContent: 'flex-start',
   flexDirection: 'column',
   width: 'full',
-  label: {
+}
+
+const error = {
+  textarea: {
+    borderColor: 'danger.base',
+    ':focus': {
+      borderColor: 'danger.base',
+      boxShadow: `0 0 0 1px  ${colors.danger.base}`,
+    },
+    ':hover': {
+      borderColor: 'danger.hover',
+    },
+  },
+}
+
+export default {
+  container: { ...styles },
+  default: { ...textAreaInputStyle },
+  'container-error': { ...styles, ...error },
+  'text-container': {
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingTop: 1,
+  },
+  'floating-label': {
     fontSize: 1,
     left: 12,
     paddingTop: 2,
@@ -60,38 +83,4 @@ const styles = {
     transformOrigin: 'top left',
     transition: 'all 0.2s ease-out;',
   },
-}
-
-const error = {
-  textarea: {
-    borderColor: 'danger.base',
-    ':focus': {
-      borderColor: 'danger.base',
-      boxShadow: `0 0 0 1px  ${colors.danger.base}`,
-    },
-    ':focus + label': {
-      transform: 'translate(1px, 4px) scale(0.875)',
-      color: 'danger.base',
-    },
-    ':hover': {
-      borderColor: 'danger.hover',
-    },
-  },
-  label: {
-    color: 'danger.base',
-    fontSize: 1,
-    left: 12,
-    paddingTop: 2,
-    marginBottom: 3,
-    position: 'absolute',
-    transform: 'translate(0, 16px) scale(1)',
-    transformOrigin: 'top left',
-    transition: 'all 0.2s ease-out;',
-  },
-}
-
-export default {
-  container: { ...styles },
-  default: { ...textAreaInputStyle },
-  error: { ...styles, ...error },
 }

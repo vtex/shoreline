@@ -14,10 +14,8 @@ export const Basic = () => {
   return (
     <Box width={300}>
       <TextArea
-        state={{
-          value,
-          onChange: (e) => setValue(e.target.value),
-        }}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
         id="textarea-1"
         label="Basic"
         helperText="Helper Text"
@@ -42,16 +40,14 @@ export const Error = () => {
   return (
     <Box width={300}>
       <TextArea
-        state={{
-          value,
-          onChange: (e) => {
-            const newValue = e.target.value
+        value={value}
+        onChange={(e) => {
+          const newValue = e.target.value
 
-            setValue(newValue)
-            handleError(newValue)
-          },
-          error,
+          setValue(newValue)
+          handleError(newValue)
         }}
+        error={error}
         id="textarea-2"
         label="Error"
         helperText="Helper Text"
@@ -68,10 +64,8 @@ export const Disabled = () => {
   return (
     <Box width={300}>
       <TextArea
-        state={{
-          value,
-          onChange: (e) => setValue(e.target.value),
-        }}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
         id="textarea-3"
         label="Disabled"
         helperText="Helper Text"

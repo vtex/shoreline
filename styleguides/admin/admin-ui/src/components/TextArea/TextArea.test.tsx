@@ -12,7 +12,8 @@ describe('TextArea tests', () => {
         <TextArea
           data-testid="text-area"
           styleOverrides={{ backgroundColor: 'blue' }}
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="TextArea label"
           id="text-area-1"
           helperText="Helper"
@@ -32,19 +33,23 @@ describe('TextArea tests', () => {
       <ThemeProvider>
         <TextArea
           helperText="Helper Text"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-area-1"
         />
         <TextArea
           charLimit={120}
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-area-2"
         />
         <TextArea
           errorMessage="Error Message"
-          state={{ value: '', error: true, onChange: () => {} }}
+          value=""
+          onChange={() => {}}
+          error
           label="Label"
           id="text-area-3"
         />
@@ -52,7 +57,8 @@ describe('TextArea tests', () => {
           charLimit={120}
           helperText="Helper Text"
           errorMessage="Error Message"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-area-4"
         />
@@ -60,7 +66,9 @@ describe('TextArea tests', () => {
           charLimit={120}
           helperText="Helper Text"
           errorMessage="Error Message"
-          state={{ value: '', error: true, onChange: () => {} }}
+          value=""
+          onChange={() => {}}
+          error
           label="Label"
           id="text-area-5"
         />
@@ -77,7 +85,8 @@ describe('TextArea tests', () => {
           charLimit={120}
           helperText="Helper Text"
           errorMessage="Error Message"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
           label="Label"
           id="text-area-1"
         />
@@ -85,14 +94,18 @@ describe('TextArea tests', () => {
           charLimit={120}
           helperText="Helper Text"
           errorMessage="Error Message"
-          state={{ value: '', error: true, onChange: () => {} }}
+          value=""
+          onChange={() => {}}
+          error
           label="Label"
           id="text-area-2"
         />
         <TextArea
           charLimit={120}
           helperText="Helper Text"
-          state={{ value: '', onChange: () => {} }}
+          value=""
+          onChange={() => {}}
+          error
           label="Label"
           disabled
           id="text-area-3"

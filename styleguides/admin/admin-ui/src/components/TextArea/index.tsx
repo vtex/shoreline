@@ -5,6 +5,7 @@ import { Text } from '../Text'
 import { Label } from '../Label'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
+import { stylesOf } from '../../system'
 
 export const TextArea = forwardRef(function Textarea(
   props: TextAreaProps,
@@ -16,13 +17,14 @@ export const TextArea = forwardRef(function Textarea(
     styleOverrides,
     helperText,
     charLimit,
-    state: { value = '', error = false, onChange },
+    value = '',
+    error = false,
+    onChange,
     errorMessage,
     ...textareaProps
   } = props
 
-  const hasHelpers = error || !!helperText || !!charLimit
-  const hasHelperMessage = !!helperText || error
+  const message = error ? errorMessage : helperText
 
   const className = useClassName({
     props: {
@@ -34,7 +36,7 @@ export const TextArea = forwardRef(function Textarea(
   })
 
   return (
-    <Box themeKey={`components.textArea.${error ? 'error' : 'container'}`}>
+    <Box themeKey={`components.textArea.container${error ? '-error' : ''}`}>
       <textarea
         className={className}
         id={id}
@@ -45,24 +47,20 @@ export const TextArea = forwardRef(function Textarea(
         onChange={onChange}
         {...textareaProps}
       />
-      <Label htmlFor={id}>{label}</Label>
-      {hasHelpers && (
-        <Box
-          styles={{
-            display: 'flex',
-            justifyContent: hasHelperMessage ? 'space-between' : 'flex-end',
-            paddingTop: 1,
-          }}
-        >
-          {hasHelperMessage && (
-            <Text
-              variant="small"
-              styleOverrides={{
-                color: error ? 'danger.base' : 'muted.0',
-              }}
-            >
-              {error ? errorMessage : helperText}
+      <Label
+        htmlFor={id}
+        styleOverrides={stylesOf('components.textArea.floating-label')}
+      >
+        {label}
+      </Label>
+      {(message || !!charLimit) && (
+        <Box themeKey="components.textArea.text-container">
+          {message ? (
+            <Text variant="small" feedback={error ? 'danger' : 'secondary'}>
+              {message}
             </Text>
+          ) : (
+            <div>{/** spacer element */}</div>
           )}
           {charLimit && (
             <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
@@ -89,21 +87,14 @@ export interface TextAreaProps
   helperText?: string
   /** TextArea char limit */
   charLimit?: number
-  /**
-   * TextArea state
-   */
-  state: TextAreaStateProps
-  /**
-   * TextArea error message
-   */
-  errorMessage?: string
-}
-
-export interface TextAreaStateProps {
   /** onChange TextArea value event */
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
   /** TextArea value */
   value: string | number
   /** TextArea with error */
   error?: boolean
+  /**
+   * TextArea error message
+   */
+  errorMessage?: string
 }
