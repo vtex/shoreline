@@ -44,10 +44,11 @@
     - /tag/
     - /tooltip/
     - /visually-hidden/
-- section: Form
+- section: Forms
   paths:
     - /form/checkbox-group/
     - /form/checkbox/
+    - /form/dropdown/
     - /form/label/
     - /form/numeric-stepper/
     - /form/radio-group/

@@ -8,7 +8,7 @@ import { Overridable } from '../../types'
 import { Set } from '../Set'
 import { Box } from '../Box'
 
-export function SelectButton<T>(props: SelectButtonProps<T>) {
+export function Dropdown<T>(props: DropdownProps<T>) {
   const {
     items,
     label,
@@ -43,15 +43,13 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
         spacing={2}
         orientation="vertical"
         {...state.getMenuProps()}
-        themeKey={`components.selectButton.menu${
-          state.isOpen ? '-visible' : ''
-        }`}
+        themeKey={`components.dropdown.menu${state.isOpen ? '-visible' : ''}`}
       >
         {state.isOpen &&
           items.map((item, index) => (
             <Box
               text="body"
-              themeKey={`components.selectButton.item${
+              themeKey={`components.dropdown.item${
                 state.highlightedIndex === index ? '-active' : ''
               }`}
               key={index}
@@ -65,9 +63,10 @@ export function SelectButton<T>(props: SelectButtonProps<T>) {
   )
 }
 
-export { useSelect as useSelectState }
+export { useSelect as useDropdownState }
+export { UseSelectReturnValue as UseDropdownReturnValue }
 
-export interface SelectButtonProps<T>
+export interface DropdownProps<T>
   extends Overridable,
     Pick<ButtonProps, 'variant' | 'size' | 'disabled'> {
   /**
@@ -75,7 +74,7 @@ export interface SelectButtonProps<T>
    */
   label: string
   /**
-   * return of useSelectState
+   * return of useDropdownState
    */
   state: UseSelectReturnValue<T>
   /**

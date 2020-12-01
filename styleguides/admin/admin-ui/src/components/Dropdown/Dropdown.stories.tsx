@@ -2,23 +2,23 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import { Set } from '../Set'
-import { SelectButton, useSelectState } from './index'
+import { Dropdown, useDropdownState } from './index'
 import { Card } from '../Card'
 
 export default {
-  title: 'forms/SelectButton',
-  component: SelectButton,
+  title: 'forms/Dropdown',
+  component: Dropdown,
 } as Meta
 
 export const Basic = () => {
-  const state = useSelectState({
+  const state = useDropdownState({
     items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
     initialSelectedItem: '7 days ago',
   })
 
   return (
     <Card>
-      <SelectButton
+      <Dropdown
         items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
         state={state}
         label="Date"
@@ -35,14 +35,14 @@ export const WithObject = () => {
     { id: 4, label: 'One year ago' },
   ]
 
-  const state = useSelectState({
+  const state = useDropdownState({
     items,
     itemToString: (item) => item?.label ?? '',
     initialSelectedItem: items[1],
   })
 
   return (
-    <SelectButton
+    <Dropdown
       items={items}
       state={state}
       label="Date"
@@ -53,33 +53,33 @@ export const WithObject = () => {
 
 export const Variants = () => {
   const species = ['Arabica', 'Robusta']
-  const speciesState = useSelectState({
+  const speciesState = useDropdownState({
     items: species,
     initialSelectedItem: 'Arabica',
   })
 
   const brewMethods = ['French Press', 'Chemex', 'Cold Brew', 'Aeropress']
-  const brewState = useSelectState({
+  const brewState = useDropdownState({
     items: brewMethods,
     initialSelectedItem: 'Chemex',
   })
 
   const recipes = ['Latte', 'Espresso', 'Irish Coffee']
-  const recipesState = useSelectState({
+  const recipesState = useDropdownState({
     items: recipes,
     initialSelectedItem: 'Chemex',
   })
 
   return (
     <Set>
-      <SelectButton items={species} state={speciesState} label="Species" />
-      <SelectButton
+      <Dropdown items={species} state={speciesState} label="Species" />
+      <Dropdown
         variant="secondary"
         items={brewMethods}
         state={brewState}
         label="Methods"
       />
-      <SelectButton
+      <Dropdown
         variant="tertiary"
         items={recipes}
         state={recipesState}
@@ -90,13 +90,13 @@ export const Variants = () => {
 }
 
 export const Disabled = () => {
-  const state = useSelectState({
+  const state = useDropdownState({
     items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
     initialSelectedItem: '7 days ago',
   })
 
   return (
-    <SelectButton
+    <Dropdown
       items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
       state={state}
       label="Date"
