@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.5.3...@vtex/admin-ui-theme@0.5.4) (2020-12-01)
+
+
+### Bug Fixes
+
+* **dropdown:** rename SelectButton to Dropdown ([b329fc7](https://github.com/vtex/onda/commit/b329fc79427142837b6061710ba36dbc6682ab3e))
+
+
+
+
+
 ## [0.5.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.5.2...@vtex/admin-ui-theme@0.5.3) (2020-11-30)
 
 
