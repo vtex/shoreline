@@ -1,0 +1,847 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-3 {
+  visibility: hidden;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C4C5CA;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+  outline: none;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-3 > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.emotion-2 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #2953B2;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-2:hover {
+  background-color: #214491;
+}
+
+.emotion-2:active {
+  background-color: #1a3470;
+}
+
+.emotion-2:disabled {
+  color: #323845;
+  background-color: #C4C5CA;
+}
+
+.emotion-2 svg {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+<div
+    class="emotion-4"
+  >
+    <span
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
+    >
+      <label
+        for="downshift-3-toggle-button"
+        id="downshift-3-label"
+      >
+        Species
+      </label>
+    </span>
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-3-label downshift-3-toggle-button"
+      class="emotion-2"
+      id="downshift-3-toggle-button"
+      type="button"
+    >
+      <div
+        class="emotion-1"
+      >
+        <svg
+          class="emotion-0"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 14L12 10L8 14"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+        Arabica
+      </div>
+    </button>
+    <div
+      aria-labelledby="downshift-3-label"
+      class="emotion-3"
+      id="downshift-3-menu"
+      role="listbox"
+      tabindex="-1"
+    />
+  </div>
+  .emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-3 {
+  visibility: hidden;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C4C5CA;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+  outline: none;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-3 > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.emotion-2 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  background-color: #DAE3F5;
+  color: #2953B2;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-2:hover {
+  background-color: #cad7f1;
+}
+
+.emotion-2:active {
+  background-color: #bacbec;
+}
+
+.emotion-2:disabled {
+  color: #898F9E;
+  background-color: #F4F6FB;
+}
+
+.emotion-2 svg {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+<div
+    class="emotion-4"
+  >
+    <span
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
+    >
+      <label
+        for="downshift-4-toggle-button"
+        id="downshift-4-label"
+      >
+        Brew Methods
+      </label>
+    </span>
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-4-label downshift-4-toggle-button"
+      class="emotion-2"
+      id="downshift-4-toggle-button"
+      type="button"
+    >
+      <div
+        class="emotion-1"
+      >
+        <svg
+          class="emotion-0"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 14L12 10L8 14"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+        French Press
+      </div>
+    </button>
+    <div
+      aria-labelledby="downshift-4-label"
+      class="emotion-3"
+      id="downshift-4-menu"
+      role="listbox"
+      tabindex="-1"
+    />
+  </div>
+  .emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-3 {
+  visibility: hidden;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C4C5CA;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+  outline: none;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-3 > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.emotion-2 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: #2953B2;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-2:hover {
+  color: #214491;
+  background-color: #cad7f1;
+}
+
+.emotion-2:active {
+  color: #1a3470;
+  background-color: #bacbec;
+}
+
+.emotion-2:disabled {
+  color: #898F9E;
+}
+
+.emotion-2 svg {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+<div
+    class="emotion-4"
+  >
+    <span
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
+    >
+      <label
+        for="downshift-5-toggle-button"
+        id="downshift-5-label"
+      >
+        Recipes
+      </label>
+    </span>
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-5-label downshift-5-toggle-button"
+      class="emotion-2"
+      id="downshift-5-toggle-button"
+      type="button"
+    >
+      <div
+        class="emotion-1"
+      >
+        <svg
+          class="emotion-0"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 14L12 10L8 14"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+        Latte
+      </div>
+    </button>
+    <div
+      aria-labelledby="downshift-5-label"
+      class="emotion-3"
+      id="downshift-5-menu"
+      role="listbox"
+      tabindex="-1"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Heading tests should render a Dropdown with a list of string and other with a list of object 1`] = `
+<DocumentFragment>
+  .emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-3 {
+  visibility: hidden;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C4C5CA;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+  outline: none;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-3 > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.emotion-2 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #2953B2;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-2:hover {
+  background-color: #214491;
+}
+
+.emotion-2:active {
+  background-color: #1a3470;
+}
+
+.emotion-2:disabled {
+  color: #323845;
+  background-color: #C4C5CA;
+}
+
+.emotion-2 svg {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+<div
+    class="emotion-4"
+  >
+    <span
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
+    >
+      <label
+        for="downshift-1-toggle-button"
+        id="downshift-1-label"
+      >
+        Date
+      </label>
+    </span>
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-1-label downshift-1-toggle-button"
+      class="emotion-2"
+      id="downshift-1-toggle-button"
+      type="button"
+    >
+      <div
+        class="emotion-1"
+      >
+        <svg
+          class="emotion-0"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 14L12 10L8 14"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+        7 days ago
+      </div>
+    </button>
+    <div
+      aria-labelledby="downshift-1-label"
+      class="emotion-3"
+      id="downshift-1-menu"
+      role="listbox"
+      tabindex="-1"
+    />
+  </div>
+  .emotion-4 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.emotion-1 {
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-3 {
+  visibility: hidden;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C4C5CA;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+  outline: none;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-3 > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.emotion-2 {
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #2953B2;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-2:hover {
+  background-color: #214491;
+}
+
+.emotion-2:active {
+  background-color: #1a3470;
+}
+
+.emotion-2:disabled {
+  color: #323845;
+  background-color: #C4C5CA;
+}
+
+.emotion-2 svg {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+<div
+    class="emotion-4"
+  >
+    <span
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
+    >
+      <label
+        for="downshift-2-toggle-button"
+        id="downshift-2-label"
+      >
+        Date
+      </label>
+    </span>
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-2-label downshift-2-toggle-button"
+      class="emotion-2"
+      id="downshift-2-toggle-button"
+      type="button"
+    >
+      <div
+        class="emotion-1"
+      >
+        <svg
+          class="emotion-0"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 14L12 10L8 14"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+        7 days ago
+      </div>
+    </button>
+    <div
+      aria-labelledby="downshift-2-label"
+      class="emotion-3"
+      id="downshift-2-menu"
+      role="listbox"
+      tabindex="-1"
+    />
+  </div>
+</DocumentFragment>
+`;
