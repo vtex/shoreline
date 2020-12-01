@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Heading tests should match snapshot 1`] = `
+exports[`Dropdown tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-4 {
   line-height: 1.25;
@@ -507,7 +507,7 @@ exports[`Heading tests should match snapshot 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Heading tests should render a Dropdown with a list of string and other with a list of object 1`] = `
+exports[`Dropdown tests should render a Dropdown with a list of string and other with a list of object 1`] = `
 <DocumentFragment>
   .emotion-4 {
   line-height: 1.25;
