@@ -14,7 +14,7 @@ import checkbox from './checkbox'
 import toggle from './toggle'
 import input from './input'
 import textArea from './textArea'
-import selectButton from './selectButton'
+import dropdown from './dropdown'
 import numericStepper from './numericStepper'
 // overlay
 import tooltip from './tooltip'
@@ -44,7 +44,7 @@ export default {
   avatar,
   tag,
   anchor,
-  selectButton,
+  dropdown,
   textArea,
   numericStepper,
 }
