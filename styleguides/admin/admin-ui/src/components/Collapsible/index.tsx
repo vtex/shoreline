@@ -106,7 +106,14 @@ function Disclosure({ children }: { children: ReactNode }) {
           <Button
             {...enhancedProps}
             iconPosition="start"
-            icon={<IconCaret direction={visible ? 'down' : 'right'} />}
+            icon={
+              <IconCaret
+                styleOverrides={{
+                  transition: 'transform 150ms ease',
+                  transform: `rotate(${visible ? 180 : 90}deg)`,
+                }}
+              />
+            }
             variant="tertiary"
             styleOverrides={{
               color: 'text.primary',
