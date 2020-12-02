@@ -90,6 +90,9 @@ exports[`Collapsible tests should match snapshot 1`] = `
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+  -webkit-transition: -webkit-transform 150ms ease;
+  -webkit-transition: transform 150ms ease;
+  transition: transform 150ms ease;
 }
 
 .emotion-3 {
@@ -279,6 +282,9 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+  -webkit-transition: -webkit-transform 150ms ease;
+  -webkit-transition: transform 150ms ease;
+  transition: transform 150ms ease;
 }
 
 .emotion-3 {

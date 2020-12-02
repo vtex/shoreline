@@ -116,6 +116,9 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+  -webkit-transition: -webkit-transform 150ms ease;
+  -webkit-transition: transform 150ms ease;
+  transition: transform 150ms ease;
 }
 
 .emotion-3 {
@@ -300,6 +303,9 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+  -webkit-transition: -webkit-transform 150ms ease;
+  -webkit-transition: transform 150ms ease;
+  transition: transform 150ms ease;
 }
 
 .emotion-3 {
