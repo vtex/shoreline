@@ -51,7 +51,13 @@ export default {
     },
   },
   fontVariationSettings: {
+    hairline: "'wght' 30",
+    thin: "'wght' 50",
+    light: "'wght' 65",
     regular: "'wght' 92",
+    medium: "'wght' 120",
+    bold: "'wght' 170",
+    black: "'wght' 200",
   },
   lineHeights: {
     small: 1.125,
