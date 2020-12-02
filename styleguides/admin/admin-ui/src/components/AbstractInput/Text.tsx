@@ -1,12 +1,11 @@
 import React, { forwardRef, ReactNode, Ref } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
 import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
 
 import { Button } from '../Button'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
-import { stylesOf } from '../../system'
+import { stylesOf, cn } from '../../system'
 
 const inlineVariant = (sequence: Array<[boolean, string]>) =>
   sequence.reduce((acc, item) => {
@@ -34,16 +33,14 @@ export const AbstractInput = forwardRef(function AbstractInput(
   const showClear = !!onClear && value.toString().length > 0
   const showButtons = !!suffix || !!buttonElements || onClear
 
-  const inputClassName = useClassName({
-    props: {
-      styles: styleOverrides,
-    },
+  const inputClassName = cn({
     themeKey: `components.abstractInput.input${inlineVariant([
       [error, '-error'],
       [!!icon, '-icon'],
       [!!suffix, '-suffix'],
       [!!onClear, '-clear'],
     ])}`,
+    ...styleOverrides,
   })
 
   return (

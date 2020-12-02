@@ -1,5 +1,4 @@
 import React from 'react'
-import { darken } from '@theme-ui/color'
 import { Story, Meta } from '@storybook/react'
 import { IconAppStore } from '@vtex/admin-ui-icons'
 
@@ -10,24 +9,6 @@ import { Set } from '../Set'
 export default {
   title: 'components/Button',
 } as Meta
-
-export const StyleOverrides: Story = () => {
-  return (
-    <Button
-      styleOverrides={{
-        bg: 'text.primary',
-        ':hover': {
-          bg: darken('text.primary', 0.05),
-        },
-        ':active': {
-          bg: darken('text.primary', 0.1),
-        },
-      }}
-    >
-      Trust Button
-    </Button>
-  )
-}
 
 export const Size: Story = () => {
   return (
@@ -54,10 +35,10 @@ export const Variant: Story = () => {
 export const Adaptative: Story = () => {
   return (
     <Set orientation="vertical">
-      <Box palette="inverted" padding={4}>
+      <Box styles={{ padding: 4 }}>
         <Button variant="adaptative-light">Adaptative light</Button>
       </Box>
-      <Box palette="base" padding={4}>
+      <Box styles={{ padding: 4 }}>
         <Button variant="adaptative-dark">Adaptative Dark</Button>
       </Box>
     </Set>

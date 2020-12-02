@@ -40,20 +40,18 @@
     "reakit": "^1.2.5"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.35",
-    "@emotion/is-prop-valid": "^0.8.8",
+    "@emotion/react": "^11.1.1",
+    "@emotion/css": "^11.0.0",
+    "@emotion/is-prop-valid": "^1.0.0",
     "@theme-ui/color": "^0.4.0-rc.5",
     "@theme-ui/core": "^0.4.0-rc.5",
-    "@theme-ui/css": "^0.4.0-rc.5",
     "@theme-ui/match-media": "^0.4.0-rc.5",
-    "csstype": "^3.0.3",
-    "emotion": "^10.0.27",
+    "csstype": "^3.0.5",
     "focus-visible": "^5.1.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",
-    "theme-ui": "^0.3.1",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"
   }

@@ -6,13 +6,8 @@ import {
   ComponentProps,
 } from 'react'
 import { Box as ReakitBox } from 'reakit'
-import {
-  PatternsProps,
-  SpaceStyleProps,
-  SizeStyleProps,
-} from '@vtex/admin-ui-theme'
 
-import { useClassName, createElement, SxStyleProp } from '../../system'
+import { cn, createElement, StyleProp } from '../../system'
 
 /**
  * box default element
@@ -31,28 +26,23 @@ export const Box: <E extends ElementType = typeof defaultElement>(
 ) {
   const { element = defaultElement, ...propsWithoutElement } = props
   const boxProps = useBox(propsWithoutElement)
-  const swallow = typeof element !== 'string'
 
   return createElement({
     component: ReakitBox,
     htmlProps: boxProps,
     element,
-    swallow,
     ref,
   })
 })
 
 export function useBox(props: BoxOwnProps) {
-  const { themeKey, text = 'body', ...htmlProps } = props
-  const className = useClassName({ props: { text, ...htmlProps }, themeKey })
+  const { themeKey, styles, ...htmlProps } = props
+  const className = cn({ ...styles, themeKey })
 
-  return { ...props, className }
+  return { ...htmlProps, className }
 }
 
-export interface BoxOwnProps<E extends ElementType = ElementType>
-  extends PatternsProps,
-    SpaceStyleProps,
-    SizeStyleProps {
+export interface BoxOwnProps<E extends ElementType = ElementType> {
   /**
    * element that should be rendered
    * @default div
@@ -63,7 +53,7 @@ export interface BoxOwnProps<E extends ElementType = ElementType>
    * @default {}
    * @see https://admin-ui-docs.vercel.app/theming/style-object/
    */
-  styles?: SxStyleProp
+  styles?: StyleProp
   /**
    * theme key to me consumed from admin-ui-theme
    * @private this is for internal usage only

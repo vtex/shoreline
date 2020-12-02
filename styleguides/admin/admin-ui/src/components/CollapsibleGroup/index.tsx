@@ -40,11 +40,11 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
   )
 
   return (
-    <Card styleOverrides={styleOverrides} padding={0} {...cardProps}>
+    <Card styleOverrides={{ padding: 0, ...styleOverrides }} {...cardProps}>
       <Group>
         {Children.map(validChildren, (child, index) => (
           <Fragment>
-            {index > FIRST_CHILD_INDEX && <Divider margin={0} />}
+            {index > FIRST_CHILD_INDEX && <Divider />}
             {child}
           </Fragment>
         ))}

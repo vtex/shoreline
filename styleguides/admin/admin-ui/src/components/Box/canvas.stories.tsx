@@ -39,42 +39,25 @@ export const ConsumeTheme: Story = () => {
   )
 }
 
-export const Surfaces: Story = () => {
-  return (
-    <>
-      <Box palette="base" border="default">
-        Default Box
-      </Box>
-      <Box palette="inverted">Inverted Box</Box>
-      <Box palette="primary">Primary Box</Box>
-    </>
-  )
-}
-
-export const Texts: Story = () => {
-  return (
-    <>
-      <Box text="headline">Headline</Box>
-      <Box text="subtitle">Subtitle</Box>
-      <Box text="action">Box with actions text</Box>
-      <Box text="highlight">Highlight text</Box>
-      <Box text="body">Box with body text</Box>
-      <Box text="small">Box with small text</Box>
-    </>
-  )
-}
-
 export const Divider: Story = () => {
   return (
     <>
-      <Box text="headline" border="divider-bottom" width={100}>
+      <Box
+        styles={{
+          text: 'headline',
+          border: 'divider-bottom',
+          width: 100,
+        }}
+      >
         Headline
       </Box>
-      <Box text="subtitle">Subtitle</Box>
-      <Box text="action">Box with actions text</Box>
-      <Box text="highlight">Highlight text</Box>
-      <Box text="body">Box with body text</Box>
-      <Box text="small">Box with small text</Box>
+      <Box
+        styles={{
+          text: 'subtitle',
+        }}
+      >
+        Subtitle
+      </Box>
     </>
   )
 }

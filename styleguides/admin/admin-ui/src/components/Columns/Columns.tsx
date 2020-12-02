@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import {
-  SxStyleProp,
+  StyleProp,
   ResponsiveValue,
   useClassName,
 } from '@vtex/admin-ui-system'
@@ -11,7 +11,7 @@ import { ColumnsItem } from './Item'
 
 export function Columns(props: ColumnsProps) {
   const { spacing = 1, children, styleOverrides, ...restProps } = props
-  const styles: SxStyleProp = {
+  const styles: StyleProp = {
     display: 'flex',
     flexWrap: 'wrap',
   }

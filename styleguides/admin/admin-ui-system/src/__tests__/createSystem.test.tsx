@@ -1,19 +1,19 @@
 import React, { PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
-import { Box as ReakitBox, BoxHTMLProps } from 'reakit/Box'
+import { Box as ReakitBox } from 'reakit/Box'
 
-import { createSystem, SxStyleProp, useTheme } from '..'
+import { createSystem, useTheme } from '..'
 import { get } from '../util'
 import { useClassName } from '../hooks'
+import { StyleProp } from '../styles'
+import { createElement } from '../createElement'
 
-describe('creatSystem test', () => {
+describe('createSystem test', () => {
   it('should create a functional cn', () => {
-    const theme = {
+    const { cn } = createSystem({
       space: ['0px', '2px', '4px'],
-    }
-
-    const { cn } = createSystem({ theme })
+    })
 
     const { getByRole } = render(
       <button
@@ -31,16 +31,14 @@ describe('creatSystem test', () => {
   })
 
   it('should create a functional ThemeProvider', () => {
-    const theme = {
+    const { ThemeProvider } = createSystem({
       space: ['0px', '2px', '4px'],
       colors: {
         primary: {
           base: '#000',
         },
       },
-    }
-
-    const { ThemeProvider } = createSystem({ theme })
+    })
 
     const wrapper = ({ children }: PropsWithChildren<{}>) => (
       <ThemeProvider>{children}</ThemeProvider>
@@ -53,7 +51,7 @@ describe('creatSystem test', () => {
   })
 
   it('should be able to consume component keys', () => {
-    const theme = {
+    const { cn } = createSystem({
       colors: {
         base: '#fff',
         primary: '#000',
@@ -64,14 +62,12 @@ describe('creatSystem test', () => {
           color: 'primary',
         },
       },
-    }
-
-    const { componentStyles } = createSystem({ theme })
+    })
 
     const { getByTestId } = render(
       <header
         data-testid="header"
-        className={componentStyles('components.header')}
+        className={cn({ themeKey: 'components.header' })}
       >
         button
       </header>
@@ -81,81 +77,11 @@ describe('creatSystem test', () => {
     expect(getByTestId('header')).toHaveStyleRule('color', '#000')
   })
 
-  it('should be able to create an element', () => {
-    const { createElement } = createSystem({ theme: {} })
-
-    function View(props: PropsWithChildren<{}>) {
-      return createElement({
-        component: ReakitBox,
-        htmlProps: props,
-      })
-    }
-
-    const { getByTestId } = render(<View data-testid="view">view-text</View>)
-
-    expect(getByTestId('view')).toBeInTheDocument()
-    expect(getByTestId('view')).toHaveTextContent('view-text')
-  })
-
-  it('should be able to use renderProps within a created element', () => {
-    const { createElement } = createSystem({ theme: {} })
-
-    function View(props: BoxHTMLProps) {
-      return createElement<BoxHTMLProps>({
-        component: ReakitBox,
-        htmlProps: props,
-      })
-    }
-
-    const { getByRole } = render(
-      <View onClick={() => null}>
-        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-        {(props: any) => <button {...props}>button</button>}
-      </View>
-    )
-
-    expect(getByRole('button')).toBeInTheDocument()
-    expect(getByRole('button')).toHaveTextContent('button')
-  })
-
-  it('should be able to switch the tag of a created element', () => {
-    const { createElement } = createSystem({ theme: {} })
-
-    interface ViewProps {
-      element?: React.ElementType
-      children?: React.ReactNode
-    }
-
-    function View(props: ViewProps) {
-      return createElement({
-        component: ReakitBox,
-        htmlProps: props,
-        element: props.element,
-      })
-    }
-
-    const button = render(
-      <View element="button" data-testid="view">
-        button-text
-      </View>
-    )
-
-    const nav = render(<View element="nav">nav-text</View>)
-
-    expect(button.getByRole('button')).toBeInTheDocument()
-    expect(button.getByRole('button')).toHaveTextContent('button-text')
-
-    expect(nav.getByRole('navigation')).toBeInTheDocument()
-    expect(nav.getByRole('navigation')).toHaveTextContent('nav-text')
-  })
-
   it('should be able to consume the theme within a created element className', () => {
-    const { createElement, cn } = createSystem({
-      theme: {
-        colors: {
-          base: '#fff',
-          primary: '#000',
-        },
+    const { cn } = createSystem({
+      colors: {
+        base: '#fff',
+        primary: '#000',
       },
     })
 
@@ -192,17 +118,15 @@ describe('creatSystem test', () => {
   })
 
   it('should be able to consume the component key from the theme', () => {
-    const { createElement, getClassName } = createSystem({
-      theme: {
-        colors: {
-          base: '#fff',
-          primary: '#000',
-        },
-        components: {
-          navbar: {
-            backgroundColor: 'primary',
-            color: 'base',
-          },
+    const { cn } = createSystem({
+      colors: {
+        base: '#fff',
+        primary: '#000',
+      },
+      components: {
+        navbar: {
+          backgroundColor: 'primary',
+          color: 'base',
         },
       },
     })
@@ -210,11 +134,11 @@ describe('creatSystem test', () => {
     interface NavbarProps {
       children?: React.ReactNode
       className?: string
-      styles?: SxStyleProp
+      styles?: StyleProp
     }
 
     function Nav(props: NavbarProps) {
-      const className = getClassName({ props, themeKey: 'components.navbar' })
+      const className = cn({ themeKey: 'components.navbar' })
 
       return createElement({
         component: ReakitBox,
@@ -232,17 +156,15 @@ describe('creatSystem test', () => {
   })
 
   it('should be able to consume the component key from the theme context', () => {
-    const { createElement, ThemeProvider } = createSystem({
-      theme: {
-        colors: {
-          base: '#fff',
-          primary: '#000',
-        },
-        components: {
-          navbar: {
-            backgroundColor: 'primary',
-            color: 'base',
-          },
+    const { ThemeProvider } = createSystem({
+      colors: {
+        base: '#fff',
+        primary: '#000',
+      },
+      components: {
+        navbar: {
+          backgroundColor: 'primary',
+          color: 'base',
         },
       },
     })
@@ -250,7 +172,7 @@ describe('creatSystem test', () => {
     interface NavbarProps {
       children?: React.ReactNode
       className?: string
-      styles?: SxStyleProp
+      styles?: StyleProp
     }
 
     function Nav(props: NavbarProps) {

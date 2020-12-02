@@ -1,7 +1,5 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from '@theme-ui/core'
-import { ReactNode, useCallback } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
+import React, { ReactNode, useCallback } from 'react'
+import { useClassName, StyleProp } from '@vtex/admin-ui-system'
 
 import { ModalStateReturn } from './state'
 import { ModalProvider } from './context'
@@ -177,7 +175,7 @@ export interface StatelessModalProps extends AbstractModalProps, Overridable {
    * Backdrop styles
    * @default {}
    */
-  backdropStyles?: SxStyleProp
+  backdropStyles?: StyleProp
   /**
    * Action to dispatch on close modal
    * @default ()=>null

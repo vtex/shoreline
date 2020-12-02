@@ -9,5 +9,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['emotion', 'babel-plugin-extract-react-types'],
+  plugins: ['@emotion', 'babel-plugin-extract-react-types'],
 }

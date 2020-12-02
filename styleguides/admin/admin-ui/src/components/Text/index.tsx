@@ -1,9 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
-import { SpaceStyleProps, TextVariant } from '@vtex/admin-ui-theme'
-import { useClassName } from '@vtex/admin-ui-system'
 
-import { createElement } from '../../system'
+import { cn, createElement } from '../../system'
 import { Overridable } from '../../types'
 
 export const Text = forwardRef(function Heading(
@@ -12,11 +10,27 @@ export const Text = forwardRef(function Heading(
 ) {
   const {
     element = 'span',
+    ...htmlProps
+  } = props
+
+  const textProps = useText(htmlProps)
+
+  return createElement({
+    ref,
+    element,
+    component: ReakitBox,
+    htmlProps: textProps,
+  })
+})
+
+function useText(props: TextProps){
+  const {
     variant = 'body',
     feedback = 'default',
     styleOverrides,
     ...htmlProps
-  } = props
+   } = props
+
 
   const color = {
     default: 'text.primary',
@@ -27,25 +41,16 @@ export const Text = forwardRef(function Heading(
     warning: 'warning.base',
   }[feedback]
 
-  const className = useClassName({
-    props: {
-      text: variant,
-      styles: {
-        color,
-        ...styleOverrides,
-      },
-    },
+  const className = cn({
+    color,
+    text: variant,
+    ...styleOverrides
   })
 
-  return createElement({
-    ref,
-    element,
-    component: ReakitBox,
-    htmlProps: { className, ...htmlProps },
-  })
-})
+  return { className, ...htmlProps}
+}
 
-export interface TextProps extends Overridable, SpaceStyleProps {
+export interface TextProps extends Overridable {
   /**
    * Element to render
    * @default span
@@ -74,7 +79,7 @@ export interface TextProps extends Overridable, SpaceStyleProps {
    * Text variant. Consumes the text pattern
    * @default body
    */
-  variant?: TextVariant
+  variant?: 'headline' | 'subtitle' | 'body' | 'small' | 'action' | 'highlight'
   /**
    * html id
    */

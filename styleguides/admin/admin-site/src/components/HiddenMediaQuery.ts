@@ -1,4 +1,4 @@
-import { css, cx } from 'emotion'
+import { cn } from '@vtex/admin-ui'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
 
@@ -20,15 +20,15 @@ export const useHiddenMediaQuery = createHook<
   keys: ['query'],
 
   useProps(options, htmlProps) {
-    const hiddenMediaQuery = css`
-      @media (${options.query}) {
-        display: none !important;
+    const className = cn({
+     [`@media (${options.query})`]: {
+        display: 'none !important',
       }
-    `
+    })
 
     return {
       ...htmlProps,
-      className: cx(hiddenMediaQuery, htmlProps.className),
+      className: `${className} ${htmlProps.className}`,
     }
   },
 })
