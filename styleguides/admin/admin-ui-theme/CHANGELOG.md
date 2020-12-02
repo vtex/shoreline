@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.6.1...@vtex/admin-ui-theme@0.7.0) (2020-12-02)
+
+
+### Features
+
+* **admin-theme:** add hairline, thin, light, medium, bold & black font-variation-settings ([f2e9027](https://github.com/vtex/onda/commit/f2e90276d387dd1bce59155985b3b81274def333))
+
+
+
+
+
 ## [0.6.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.6.0...@vtex/admin-ui-theme@0.6.1) (2020-12-02)
 
 
