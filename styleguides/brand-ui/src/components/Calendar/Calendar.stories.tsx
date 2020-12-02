@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { PropsWithChildren } from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Box, jsx } from 'theme-ui'
+import { Box, Flex, jsx, Text } from 'theme-ui'
 
 import { Calendar, CalendarProps, DayProps, Events } from '.'
 import events from './mockEvents'
@@ -37,6 +37,34 @@ Playground.args = {
   disabled: false,
   locale: 'en',
 }
+
+const IconArrow = () => (
+  <svg
+    width={16}
+    height={16}
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    sx={{ transform: 'rotate(90deg)', color: '#80BE80', margin: 2 }}
+  >
+    <path
+      d="M0.499779 7.5C0.499779 7.75781 0.583112 7.92969 0.749779 8.10156L5.49978 13L6.66644 11.7969L3.33311 8.35938L16 8.35938V6.64063L3.33311 6.64063L6.66644 3.20313L5.49978 2L0.749779 6.89844C0.583112 7.07031 0.499779 7.24219 0.499779 7.5Z"
+      fill="currentColor"
+    />
+  </svg>
+)
+
+export const WithHeaderAccessory = () => (
+  <Calendar
+    month={3}
+    events={events}
+    headerAccessory={
+      <Flex sx={{ alignItems: 'center' }}>
+        <IconArrow /> <Text sx={{ opacity: 0.6 }}>99.98%</Text>
+      </Flex>
+    }
+  />
+)
 
 export const WithBottomSection = () => (
   <Calendar month={3} events={events}>

@@ -61,9 +61,18 @@ const extraCell: SxStyleProp = {
 }
 
 const title: SxStyleProp = {
+  '&:first-letter': { textTransform: 'capitalize' },
+  center: {
+    '&:first-letter': { textTransform: 'capitalize' },
+    width: '100%',
+  },
+}
+
+const header: SxStyleProp = {
   fontSize: 3,
   textAlign: 'center',
-  '&:first-letter': { textTransform: 'capitalize' },
+  marginX: 3,
+  justifyContent: 'space-between',
 }
 
 const grid: SxStyleProp = {
@@ -106,7 +115,8 @@ const baseCalendar: SxStyleProp = {
   bg: 'primary.contrast',
   borderRadius: 3,
   px: 4,
-  py: 7,
+  pt: 48,
+  pb: 7,
   maxWidth: '22rem',
   boxShadow: ['none', 'none', '0px 6px 10px rgba(61, 62, 64, 0.25)'],
 }
@@ -121,6 +131,7 @@ const calendar: SxStyleProp = {
     ...baseCalendar,
     ...disabled,
   },
+  header,
   title,
   grid,
   weekdayCell,
