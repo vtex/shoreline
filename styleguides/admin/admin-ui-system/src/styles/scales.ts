@@ -127,7 +127,7 @@ export const scales = {
   minInlineSize: 'sizes',
   fill: 'colors',
   stroke: 'colors',
-  fontVariationSettings: 'fontVariant',
+  fontVariationSettings: 'fontSettings',
   text: 'text',
 }
 

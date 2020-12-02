@@ -226,7 +226,7 @@ const variant = {
 }
 
 const styles = {
-  fontVariationSettings: "'wght' 92",
+  fontSettings: 'regular',
   border: 'none',
   borderRadius: 'default',
   cursor: 'pointer',

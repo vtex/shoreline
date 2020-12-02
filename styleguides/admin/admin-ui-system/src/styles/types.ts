@@ -99,7 +99,6 @@ interface AliasesCSSProperties {
   // TODO: use generics
   text?: 'small' | 'body' | 'highlight' | 'action' | 'subtitle' | 'headline'
   // TODO: use generics
-  // TODO: change on theme
   fontSettings?: 'regular'
 }
 
