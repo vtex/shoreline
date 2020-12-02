@@ -115,8 +115,7 @@ const baseCalendar: SxStyleProp = {
   bg: 'primary.contrast',
   borderRadius: 3,
   px: 4,
-  pt: 48,
-  pb: 7,
+  py: 48,
   maxWidth: '22rem',
   boxShadow: ['none', 'none', '0px 6px 10px rgba(61, 62, 64, 0.25)'],
 }
