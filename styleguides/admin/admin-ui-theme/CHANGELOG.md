@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.5.4...@vtex/admin-ui-theme@0.6.0) (2020-12-02)
+
+
+### Features
+
+* **collapsible:** add animation to collapsible ([a7c509d](https://github.com/vtex/onda/commit/a7c509d2bebe0443bc3e8e69866850c85610f18b))
+
+
+### BREAKING CHANGES
+
+* **collapsible:** The Collpasible component should now be used directly instead within
+CollpasibleGroup.Item
+
+
+
+
+
 ## [0.5.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.5.3...@vtex/admin-ui-theme@0.5.4) (2020-12-01)
 
 
