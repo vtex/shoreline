@@ -1,8 +1,9 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { Flex } from './index'
+import { Flex, FlexProps, useFlex } from './index'
 import { Box } from '../Box'
+import { Card, CardProps } from '../Card'
 
 export default {
   title: 'primitives/Flex',
@@ -96,5 +97,34 @@ export function Around() {
         Box 2
       </Box>
     </Flex>
+  )
+}
+
+export function LowLevel() {
+  function FlexCard(props: FlexProps & CardProps) {
+    const flexProps = useFlex(props)
+
+    return <Card {...flexProps} />
+  }
+
+  return (
+    <FlexCard justify="space-around">
+      <Box
+        styles={{
+          bg: 'red',
+          size: 100,
+        }}
+      >
+        Box 1
+      </Box>
+      <Box
+        styles={{
+          bg: 'green',
+          size: 100,
+        }}
+      >
+        Box 2
+      </Box>
+    </FlexCard>
   )
 }

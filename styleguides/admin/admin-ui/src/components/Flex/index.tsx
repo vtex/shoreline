@@ -1,35 +1,14 @@
-import React from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { PropsWithoutRef } from 'react'
 import * as CSS from 'csstype'
 import { ResponsiveValue, omit, pick } from '@vtex/admin-ui-system'
 
 import { Box, BoxProps } from '../Box'
 
-const propertyMap = {
-  basis: 'flexBasis',
-  direction: 'flexDirection',
-  wrap: 'flexWrap',
-  align: 'alignItems',
-  justify: 'justifyContent',
-  grow: 'flexGrow',
-  shrink: 'flexShrink',
-  order: 'order',
-}
-
 export function Flex(props: FlexProps) {
-  const { styles, ...boxProps } = props
-  const cssProps = Object.keys(propertyMap)
-  const cssPropsStyle = renameKeys(propertyMap, pick(boxProps, cssProps))
+  const flexProps = useFlex(props)
 
-  return (
-    <Box
-      styles={{
-        display: 'flex',
-        ...cssPropsStyle,
-        ...styles,
-      }}
-      {...omit(boxProps, cssProps)}
-    />
-  )
+  return <Box {...flexProps} />
 }
 
 Flex.Spacer = function Spacer() {
@@ -44,15 +23,43 @@ Flex.Spacer = function Spacer() {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function renameKeys(keysMap: { [x: string]: any }, obj: { [x: string]: any }) {
-  return Object.keys(obj).reduce(
-    (acc, key) => ({
-      ...acc,
-      ...{ [keysMap[key] || key]: obj[key] },
-    }),
-    {}
-  )
+export function useFlex(props: FlexProps): PropsWithoutRef<BoxProps<'div'>> {
+  const propertyMap = {
+    basis: 'flexBasis',
+    direction: 'flexDirection',
+    wrap: 'flexWrap',
+    align: 'alignItems',
+    justify: 'justifyContent',
+    grow: 'flexGrow',
+    shrink: 'flexShrink',
+    order: 'order',
+  }
+
+  const { styles, ...boxProps } = props
+  const cssProps = Object.keys(propertyMap)
+  const cssPropsStyle = renameKeys(propertyMap, pick(boxProps, cssProps))
+
+  function renameKeys(
+    keysMap: { [x: string]: any },
+    obj: { [x: string]: any }
+  ) {
+    return Object.keys(obj).reduce(
+      (acc, key) => ({
+        ...acc,
+        ...{ [keysMap[key] || key]: obj[key] },
+      }),
+      {}
+    )
+  }
+
+  return {
+    styles: {
+      display: 'flex',
+      ...cssPropsStyle,
+      ...styles,
+    },
+    ...omit(boxProps, cssProps),
+  }
 }
 
 export interface FlexProps extends BoxProps<'div'> {
