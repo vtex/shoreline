@@ -1,4 +1,4 @@
-import { css, cx } from 'emotion'
+import { cn } from '@vtex/admin-ui'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
 
@@ -18,17 +18,17 @@ export const useSummary = createHook<SummaryOptions, SummaryHTMLProps>({
 
   useProps(options, htmlProps) {
     const anchor = useAnchor(options, htmlProps)
-    const summary = css`
-      display: inline-block;
-      padding: 0.5em 0.5em;
-      cursor: pointer;
-      font-size: 24px;
-    `
+    const summary = cn({
+      display: "inline-block",
+      padding: "0.5em 0.5em",
+      cursor: "pointer",
+      fontSize: "24px",
+    })
 
     return {
       ...htmlProps,
       ...anchor,
-      className: cx(anchor.className, summary, htmlProps.className),
+      className: `${anchor.className} ${summary} ${htmlProps.className}`,
     }
   },
 })

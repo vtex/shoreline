@@ -1,29 +1,35 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref, PropsWithChildren } from 'react'
-import { SpaceStyleProps, TextPattern } from '@vtex/admin-ui-theme'
 
-import { createElement } from '../../system'
-import { useComponent } from '../../hooks/useComponent'
+import { cn, createElement } from '../../system'
 import { Overridable } from '../../types'
 
 export const Paragraph = forwardRef(function Paragraph(
   props: PropsWithChildren<ParagraphProps>,
   ref: Ref<HTMLParagraphElement>
 ) {
-  const paragraphProps = useComponent({ props: { text: 'body', ...props } })
-
+  const htmlProps = useParagraph(props)
   return createElement({
     ref,
     element: 'p',
     component: ReakitBox,
-    htmlProps: paragraphProps,
+    htmlProps,
   })
 })
 
+export function useParagraph(props: ParagraphProps){
+  const { styleOverrides, ...htmlProps } = props
+
+  const className = cn({
+    text: 'body',
+    ...styleOverrides
+  })
+
+  return { className, ...htmlProps}
+}
+
 export interface ParagraphProps
-  extends Overridable,
-    TextPattern,
-    SpaceStyleProps {
+  extends Overridable {
   /**
    * paragraph children
    */

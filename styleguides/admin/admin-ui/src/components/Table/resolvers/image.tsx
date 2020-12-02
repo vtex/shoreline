@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx, css } from '@vtex/admin-ui-system'
-import { ReactNode, Fragment } from 'react'
+import React, { ReactNode, Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
 
@@ -11,6 +9,7 @@ import {
   ResolverRenderProps,
 } from './core'
 import { Skeleton } from '../../Skeleton'
+import { cn } from '../../../system'
 
 const defaultPreview: ImagePreview = {
   display: true,
@@ -26,7 +25,7 @@ export function imageResolver<T>() {
   return createResolver<T, 'image', ImageResolver<T>>({
     cell: function ImageResolver({ getData, item, column, context }) {
       if (context.loading) {
-        return <Skeleton sx={{ height: 24 }} />
+        return <Skeleton styles={{ height: 24 }} />
       }
 
       const url = getData()
@@ -50,14 +49,14 @@ export function imageResolver<T>() {
         ) : (
           <img
             alt={resolver.alt}
-            sx={{ variant: `components.table.image.${context.density}` }}
+            className={cn({ themeKey: `components.table.image.${context.density}` })}
             src={url}
           />
         )
       ) : (
         <Skeleton
-          sx={{
-            variant: `components.table.image.${context.density}`,
+          styles={{
+            themeKey: `components.table.image.${context.density}`,
             animation: '',
           }}
         />
@@ -96,8 +95,8 @@ function ImageWithPreview(props: PreviewComponentProps) {
           <img
             {...referenceProps}
             alt={alt}
-            sx={{
-              variant: `components.table.image.${density}`,
+            className={cn({
+              themeKey: `components.table.image.${density}`,
               cursor: 'zoom-in',
               transition: 'transform 150ms ease-in-out',
               ':hover': {
@@ -112,38 +111,38 @@ function ImageWithPreview(props: PreviewComponentProps) {
                 outline: 'none',
                 boxShadow: 'focus',
               },
-            }}
+            })}
             src={url}
           />
         )}
       </TooltipReference>
       <Tooltip
         {...tooltip}
-        css={css`
-          transition: opacity 100ms ease-in ${preview.delay}ms;
-          will-change: opacity;
-          opacity: 0;
-          img {
-            will-change: transform;
-            transform-origin: ${dir === 'rtl' ? 'right' : 'left'} center;
-            transition: transform 100ms ease-in ${preview.delay}ms;
-            transform: scale(0.6);
-          }
-          &[data-enter] {
-            opacity: 1;
-            img {
-              transform: scale(1);
+        className={cn({
+          outline: 'none',
+          transition: `opacity 100ms ease-in ${preview.delay}ms`,
+          willChange: 'opacity',
+          opacity: 0,
+          img: {
+            willChange: 'transform',
+            transformOrigin: `${dir === 'rtl' ? 'right' : 'left'} center`,
+            transition: `transform 100ms ease-in ${preview.delay}ms`,
+            transform: 'scale(0.6)',
+          },
+          '&[data-enter]': {
+            opacity: 1,
+            img:  {
+              transform: 'scale(1)'
             }
           }
-        `}
+        })}
         aria-label={`${alt} large`}
-        sx={{ outline: 'none' }}
       >
         <img
           alt={`${alt} large`}
-          sx={{
-            variant: `components.table.image-preview.${preview.size}`,
-          }}
+          className={cn({
+            themeKey: `components.table.image-preview.${preview.size}`,
+          })}
           src={url}
         />
       </Tooltip>

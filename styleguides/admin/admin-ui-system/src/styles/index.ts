@@ -1,12 +1,10 @@
-import {
-  CSSObject,
-  StyleProp,
-  ThemeDerivedStyles,
-  Theme,
-  StyleObject,
-} from './types'
+import { CSSObject } from '@emotion/css'
+
+import { StyleProp, ThemeDerivedStyles, Theme, StyleObject } from './types'
 import { scales, Scales } from './scales'
 import { get } from '../util'
+
+export * from './types'
 
 export const defaultBreakpoints = [40, 52, 64].map((n) => `${n}em`)
 
@@ -17,6 +15,7 @@ const defaultTheme = {
 
 const aliases = {
   bg: 'backgroundColor',
+  fontVariant: 'fontVariationSettings',
 } as const
 
 type Aliases = typeof aliases
@@ -120,7 +119,7 @@ const responsive = (styles: Exclude<StyleProp, ThemeDerivedStyles>) => (
 
 type CssPropsArgument = { theme: Theme } | Theme
 
-export const css = (args: StyleProp = {}) => (
+export const styles = (args: StyleProp = {}) => (
   props: CssPropsArgument = {}
 ): CSSObject => {
   const theme: Theme = {
@@ -136,14 +135,14 @@ export const css = (args: StyleProp = {}) => (
     delete obj.themeKey
   }
 
-  const styles = responsive(obj)(theme)
+  const stylx = responsive(obj)(theme)
 
-  for (const key in styles) {
-    const x = styles[key as keyof typeof styles]
+  for (const key in stylx) {
+    const x = stylx[key as keyof typeof stylx]
     const val = typeof x === 'function' ? x(theme) : x
 
     if (val && typeof val === 'object') {
-      result[key] = css(val as StyleObject)(theme)
+      result[key] = styles(val as StyleObject)(theme)
       continue
     }
 
@@ -151,7 +150,14 @@ export const css = (args: StyleProp = {}) => (
     const scaleName = prop in scales ? scales[prop as keyof Scales] : undefined
     const scale = get(theme, scaleName as string, get(theme, prop, {}))
     const transform: Function = get(transformations, prop, get)
-    const value = transform(scale, val, val)
+    let value = transform(scale, val, val)
+    const isObjectScale = value && typeof value === 'object'
+
+    if (isObjectScale) {
+      value = styles(value)(theme)
+      Object.assign(result, value)
+      delete result[prop]
+    }
 
     if (prop in multiples) {
       const dirs = multiples[prop as keyof typeof multiples]
@@ -159,7 +165,7 @@ export const css = (args: StyleProp = {}) => (
       for (let i = 0; i < dirs.length; i++) {
         result[dirs[i]] = value
       }
-    } else {
+    } else if (!isObjectScale) {
       result[prop] = value
     }
   }

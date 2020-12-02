@@ -1,5 +1,5 @@
 import React, { useMemo, ReactNode, forwardRef, Ref } from 'react'
-import { useClassName, SxStyleProp } from '@vtex/admin-ui-system'
+import { useClassName, StyleProp } from '@vtex/admin-ui-system'
 import { IconClose } from '@vtex/admin-ui-icons'
 
 import { useModalContext } from '../context'
@@ -48,7 +48,7 @@ export const ModalHeader = forwardRef(function ModalHeader(
 
   const renderTitle = useMemo(() => {
     if (typeof title === 'string') {
-      return <Box text="headline">{title}</Box>
+      return <Box styles={{ text: 'headline' }}>{title}</Box>
     }
 
     return title
@@ -81,7 +81,7 @@ export interface ModalHeaderProps extends Overridable {
    * Styles of the buttons container
    * @default {}
    */
-  containerStyleOverrides?: SxStyleProp
+  containerStyleOverrides?: StyleProp
   /**
    * component children
    */

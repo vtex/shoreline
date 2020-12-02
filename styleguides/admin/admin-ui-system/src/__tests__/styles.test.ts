@@ -1,9 +1,9 @@
-import { css } from '../css'
+import { styles } from '../styles'
 import { get } from '../util'
 
 const theme: any = {
   colors: {
-    primary: 'tomato',
+    primary: 'blue',
     secondary: 'cyan',
     background: 'white',
     text: 'black',
@@ -44,6 +44,13 @@ const theme: any = {
       letterSpacing: ['-0.01em', '-0.02em'],
     },
   },
+  border: {
+    default: {
+      borderStyle: 'solid',
+      borderWidth: 'thin',
+      borderColor: 'primary',
+    },
+  },
   borderWidths: {
     thin: 1,
   },
@@ -59,34 +66,36 @@ const theme: any = {
   },
 }
 
-test('returns a function', () => {
-  const result = css()
+describe('styles invalid tests', () => {
+  it('returns a function', () => {
+    const result = styles()
 
-  expect(typeof result).toBe('function')
-})
+    expect(typeof result).toBe('function')
+  })
 
-test('returns an object', () => {
-  const result = css()()
+  it('returns an object', () => {
+    const result = styles()()
 
-  expect(typeof result).toBe('object')
-})
+    expect(typeof result).toBe('object')
+  })
 
-test('returns styles', () => {
-  const result = css({
-    fontSize: 32,
-    color: 'blue',
-    borderRadius: 4,
-  })()
+  it('returns styles', () => {
+    const result = styles({
+      fontSize: 32,
+      color: 'blue',
+      borderRadius: 4,
+    })()
 
-  expect(result).toEqual({
-    fontSize: 32,
-    color: 'blue',
-    borderRadius: 4,
+    expect(result).toEqual({
+      fontSize: 32,
+      color: 'blue',
+      borderRadius: 4,
+    })
   })
 })
 
 test('returns system props styles', () => {
-  const result = css({
+  const result = styles({
     color: 'primary',
     fontSize: [2, 3, 4],
   })({ theme })
@@ -99,12 +108,12 @@ test('returns system props styles', () => {
     '@media screen and (min-width: 52em)': {
       fontSize: 36,
     },
-    color: 'tomato',
+    color: 'blue',
   })
 })
 
 test('returns nested system props styles', () => {
-  const result = css({
+  const result = styles({
     color: 'primary',
     '&:hover': {
       color: 'secondary',
@@ -112,7 +121,7 @@ test('returns nested system props styles', () => {
   })({ theme })
 
   expect(result).toEqual({
-    color: 'tomato',
+    color: 'blue',
     '&:hover': {
       color: 'cyan',
     },
@@ -120,7 +129,7 @@ test('returns nested system props styles', () => {
 })
 
 test('returns nested responsive styles', () => {
-  const result = css({
+  const result = styles({
     color: 'primary',
     h1: {
       paddingY: [3, 4],
@@ -128,7 +137,7 @@ test('returns nested responsive styles', () => {
   })({ theme })
 
   expect(result).toEqual({
-    color: 'tomato',
+    color: 'blue',
     h1: {
       paddingTop: 16,
       paddingBottom: 16,
@@ -141,7 +150,7 @@ test('returns nested responsive styles', () => {
 })
 
 test('handles all core styled system props', () => {
-  const result = css({
+  const result = styles({
     margin: 0,
     marginBottom: 2,
     marginX: 'auto',
@@ -165,7 +174,7 @@ test('handles all core styled system props', () => {
     padding: 16,
     paddingTop: 32,
     paddingBottom: 32,
-    color: 'tomato',
+    color: 'blue',
     backgroundColor: 'cyan',
     opacity: '50%',
     transition: '0.3s ease-in-out',
@@ -176,8 +185,8 @@ test('handles all core styled system props', () => {
   })
 })
 
-test('handles css logical properties', () => {
-  const result = css({
+test('handles styles logical properties', () => {
+  const result = styles({
     borderInlineStartWidth: 'thin',
     borderStartEndRadius: 'small',
     marginInlineStart: 'auto',
@@ -196,42 +205,42 @@ test('handles css logical properties', () => {
   })
 })
 
-test('works with the css prop', () => {
-  const result = css({
+test('works with the styles prop', () => {
+  const result = styles({
     color: 'primary',
     margin: 0,
     fontSize: 2,
   })(theme)
 
   expect(result).toEqual({
-    color: 'tomato',
+    color: 'blue',
     margin: 0,
     fontSize: 16,
   })
 })
 
 test('works with functional arguments', () => {
-  const result = css((t) => ({
+  const result = styles((t) => ({
     color: t.colors?.primary,
   }))(theme)
 
   expect(result).toEqual({
-    color: 'tomato',
+    color: 'blue',
   })
 })
 
 test('supports functional values', () => {
-  const result = css({
+  const result = styles({
     color: (t) => get(t, 'colors.primary'),
   })(theme)
 
   expect(result).toEqual({
-    color: 'tomato',
+    color: 'blue',
   })
 })
 
 test('returns variants from theme', () => {
-  const result = css({
+  const result = styles({
     themeKey: 'buttons.primary',
   })(theme)
 
@@ -239,13 +248,13 @@ test('returns variants from theme', () => {
     padding: 16,
     fontWeight: 600,
     color: 'white',
-    backgroundColor: 'tomato',
+    backgroundColor: 'blue',
     borderRadius: 2,
   })
 })
 
 test('handles variants with responsive values', () => {
-  const result = css({
+  const result = styles({
     themeKey: 'text.caps',
   })(theme)
 
@@ -260,7 +269,7 @@ test('handles variants with responsive values', () => {
 })
 
 test('handles responsive variants', () => {
-  const result = css({
+  const result = styles({
     themeKey: 'text.title',
   })(theme)
 
@@ -275,7 +284,7 @@ test('handles responsive variants', () => {
 })
 
 test('handles negative margins from scale', () => {
-  const result = css({
+  const result = styles({
     marginTop: -3,
     marginX: -4,
   })(theme)
@@ -288,7 +297,7 @@ test('handles negative margins from scale', () => {
 })
 
 test('handles negative top, left, bottom, and right from scale', () => {
-  const result = css({
+  const result = styles({
     top: -1,
     right: -4,
     bottom: -3,
@@ -304,7 +313,7 @@ test('handles negative top, left, bottom, and right from scale', () => {
 })
 
 test('handles negative margins from scale that is an object', () => {
-  const result = css({
+  const result = styles({
     marginTop: '-s',
     marginX: '-m',
   })({ ...theme, space: { s: '16px', m: '32px' } })
@@ -317,7 +326,7 @@ test('handles negative margins from scale that is an object', () => {
 })
 
 test('skip breakpoints', () => {
-  const result = css({
+  const result = styles({
     width: ['100%', null, '50%'],
   })(theme)
 
@@ -331,10 +340,10 @@ test('skip breakpoints', () => {
 })
 
 test('padding shorthand does not collide with nested p selector', () => {
-  const result = css({
+  const result = styles({
     p: {
       fontSize: 32,
-      color: 'tomato',
+      color: 'blue',
       padding: 2,
     },
     padding: 32,
@@ -343,7 +352,7 @@ test('padding shorthand does not collide with nested p selector', () => {
   expect(result).toEqual({
     p: {
       fontSize: 32,
-      color: 'tomato',
+      color: 'blue',
       padding: 8,
     },
     padding: 32,
@@ -351,7 +360,7 @@ test('padding shorthand does not collide with nested p selector', () => {
 })
 
 test('ignores array values longer than breakpoints', () => {
-  const result = css({
+  const result = styles({
     width: [32, 64, 128, 256, 512],
   })({
     breakpoints: ['32em', '40em'],
@@ -369,7 +378,7 @@ test('ignores array values longer than breakpoints', () => {
 })
 
 test('functional values can return responsive arrays', () => {
-  const result = css({
+  const result = styles({
     color: (t) => [get(t, 'colors.primary'), get(t, 'colors.secondary')],
   })(theme)
 
@@ -377,12 +386,12 @@ test('functional values can return responsive arrays', () => {
     '@media screen and (min-width: 40em)': {
       color: 'cyan',
     },
-    color: 'tomato',
+    color: 'blue',
   })
 })
 
 test('returns individual border styles', () => {
-  const result = css({
+  const result = styles({
     borderTopWidth: 'thin',
     borderTopColor: 'primary',
     borderTopStyle: 'thick',
@@ -402,27 +411,46 @@ test('returns individual border styles', () => {
   })(theme)
 
   expect(result).toEqual({
-    borderTopColor: 'tomato',
+    borderTopColor: 'blue',
     borderTopWidth: 1,
     borderTopStyle: 'solid',
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
-    borderBottomColor: 'tomato',
+    borderBottomColor: 'blue',
     borderBottomWidth: 1,
     borderBottomStyle: 'solid',
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
-    borderRightColor: 'tomato',
+    borderRightColor: 'blue',
     borderRightWidth: 1,
     borderRightStyle: 'solid',
-    borderLeftColor: 'tomato',
+    borderLeftColor: 'blue',
     borderLeftWidth: 1,
     borderLeftStyle: 'solid',
   })
 })
 
+test('consumes complex scales', () => {
+  const result = styles({
+    border: 'default',
+    text: 'caps',
+  })(theme)
+
+  expect(result).toEqual({
+    borderColor: 'blue',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    fontSize: 14,
+    letterSpacing: '0.1em',
+    textTransform: 'uppercase',
+    '@media screen and (min-width: 40em)': {
+      fontSize: 16,
+    },
+  })
+})
+
 test('flexBasis uses theme.sizes', () => {
-  const style = css({
+  const style = styles({
     flexBasis: 'sidebar',
   })(theme)
 
@@ -432,21 +460,21 @@ test('flexBasis uses theme.sizes', () => {
 })
 
 test('fill and stroke and caretColor use theme.colors', () => {
-  const style = css({
+  const style = styles({
     fill: 'primary',
     stroke: 'secondary',
     caretColor: 'primary',
   })(theme)
 
   expect(style).toEqual({
-    fill: 'tomato',
+    fill: 'blue',
     stroke: 'cyan',
-    caretColor: 'tomato',
+    caretColor: 'blue',
   })
 })
 
 test('multiples are transformed', () => {
-  const style = css({
+  const style = styles({
     marginX: 2,
     marginY: 2,
     paddingX: 2,
@@ -469,17 +497,17 @@ test('multiples are transformed', () => {
 })
 
 test('returns outline color from theme', () => {
-  const result = css({
+  const result = styles({
     outlineColor: 'primary',
   })(theme)
 
   expect(result).toEqual({
-    outlineColor: 'tomato',
+    outlineColor: 'blue',
   })
 })
 
 test('returns correct media query order', () => {
-  const result = css({
+  const result = styles({
     width: ['100%', null, '50%'],
     color: ['red', 'green', 'blue'],
   })(theme)
@@ -506,7 +534,7 @@ test('returns correct media query order', () => {
 })
 
 test('returns correct media query order 2', () => {
-  const result = css({
+  const result = styles({
     flexDirection: 'column',
     justifyContent: [null, 'flex-start', 'flex-end'],
     color: 'background',
@@ -532,7 +560,7 @@ test('returns correct media query order 2', () => {
 })
 
 test('supports vendor properties', () => {
-  expect(css({ WebkitOverflowScrolling: 'touch' })(theme)).toStrictEqual({
+  expect(styles({ WebkitOverflowScrolling: 'touch' })(theme)).toStrictEqual({
     WebkitOverflowScrolling: 'touch',
   })
 })

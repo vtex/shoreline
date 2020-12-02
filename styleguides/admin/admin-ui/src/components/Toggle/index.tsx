@@ -13,12 +13,11 @@ export const Toggle = forwardRef(function Toggle(
   props: ToggleProps,
   ref: Ref<HTMLInputElement>
 ) {
-  const { htmlProps, state } = useCheckbox(props, 'components.toggle')
+  const htmlProps = useCheckbox(props, 'components.toggle')
 
   return createElement({
     component: ReakitCheckbox,
     htmlProps: { role: 'switch', ...htmlProps },
-    state,
     ref,
   })
 })

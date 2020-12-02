@@ -48,7 +48,7 @@ const actionButton = {
   paddingX: 5,
 }
 
-const hamburgerMenu: SxStyleProp = {
+const hamburgerMenu = {
   display: ['flex', 'flex', 'flex', 'none'],
   outline: 'none',
   border: 'none',

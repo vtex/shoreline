@@ -1,9 +1,7 @@
-import { SxStyleProp } from '@theme-ui/core'
-
-export { SxStyleProp, Theme } from '@theme-ui/core'
+import { StyleProp } from './styles'
 
 export type WithStyles<P> = P & {
-  styles?: SxStyleProp
+  styles?: StyleProp
 }
 
 export type ResponsiveValue<T> = T | T[]

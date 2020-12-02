@@ -1,14 +1,9 @@
 import base from './base'
 import components from './components'
-import patterns from './patterns'
-
-export * from './patterns'
-export * from './styleProps'
 
 export const theme = {
   ...base,
   components,
-  patterns,
 }
 
 export type Theme = typeof theme
@@ -20,7 +15,6 @@ export type Theme = typeof theme
 export type FontSizes = '0' | '1' | '2' | '3' | '4'
 export type BorderWidths = '0' | '1' | '2' | '3'
 export type BorderRadius = '0' | '1' | '2' | '3' | 'full'
-export type FontWeights = keyof typeof theme.fontWeights
 export type LineHeights = keyof typeof theme.lineHeights
 export type ZIndexes = 'under' | 'plain' | 'over' | '1' | '2' | '3' | '4' | '5'
 

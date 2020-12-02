@@ -4,7 +4,7 @@ import {
   ButtonProps as ReakitButtonProps,
 } from 'reakit/Button'
 
-import { createElement, SxStyleProp } from '../../system'
+import { createElement, StyleProp } from '../../system'
 import { Variant, Size } from './types'
 import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
@@ -43,7 +43,7 @@ function useButtonSize({
   const iconEnd = !!icon && iconPosition === 'end'
   const iconOnly = !!icon && !children
 
-  const containerStyles: SxStyleProp = {
+  const containerStyles: StyleProp = {
     flexDirection: iconEnd ? 'row-reverse' : 'row',
   }
 

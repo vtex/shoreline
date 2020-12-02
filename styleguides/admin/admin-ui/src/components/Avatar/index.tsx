@@ -25,7 +25,7 @@ export const Avatar = forwardRef(function Avatar(
   const avatarProps = useComponent({
     props: {
       ...containerProps,
-      children: <Box text="highlight">{firstLetter}</Box>,
+      children: <Box styles={{ text: 'highlight' }}>{firstLetter}</Box>,
     },
     themeKey: `components.avatar.${palette}`,
   })

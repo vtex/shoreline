@@ -1,7 +1,7 @@
 import { forwardRef, Ref, ReactNode } from 'react'
 import { Box as ReakitBox } from 'reakit/Box'
 import {
-  SxStyleProp,
+  StyleProp,
   useResponsiveValue,
   ResponsiveValue,
 } from '@vtex/admin-ui-system'
@@ -38,7 +38,7 @@ export function useSet(props: SetProps) {
   const currentOrientation = useResponsiveValue(orientation)
   const currentAlign = useResponsiveValue(align)
 
-  const styles: Record<string, SxStyleProp> = {
+  const styles: Record<string, StyleProp> = {
     vertical: {
       display: 'flex',
       flexDirection: 'column',

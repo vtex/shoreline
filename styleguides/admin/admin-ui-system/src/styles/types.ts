@@ -24,24 +24,6 @@ export type EmotionCSSProperties = CSS.StandardProperties<number | string> &
  */
 export type CSSPseudoSelectorProps = { [K in CSS.Pseudos]?: StyleProp }
 
-/**
- * CSS as POJO that is compatible with CSS-in-JS libaries.
- * TODO: use emotion 11
- * Copied directly from [emotion](https://github.com/emotion-js/emotion/blob/ca3ad1c1dcabf78a95b55cc2dc94cad1998a3196/packages/serialize/types/index.d.ts#L45) types
- */
-export type CSSObject = CSSPropertiesWithMultiValues &
-  CSSPseudosForCSSObject &
-  CSSOthersObjectForCSSObject
-
-type CSSPropertiesWithMultiValues = {
-  [K in keyof EmotionCSSProperties]: EmotionCSSProperties[K]
-}
-type CSSPseudosForCSSObject = { [K in CSS.Pseudos]?: CSSObject }
-type CSSInterpolation = undefined | number | string | CSSObject
-interface CSSOthersObjectForCSSObject {
-  [propertiesName: string]: CSSInterpolation
-}
-
 interface AliasesCSSProperties {
   /**
    * The **`background-color`** CSS property sets the background color of an element.
@@ -114,6 +96,11 @@ interface AliasesCSSProperties {
    */
   paddingY?: StandardCSSProperties['paddingTop']
   size?: StandardCSSProperties['width']
+  // TODO: use generics
+  text?: 'small' | 'body' | 'highlight' | 'action' | 'subtitle' | 'headline'
+  // TODO: use generics
+  // TODO: change on theme
+  fontSettings?: 'regular'
 }
 
 interface OverwriteCSSProperties {
@@ -265,8 +252,8 @@ export interface ThemeKeyProp {
    *   },
    * }
    *
-   * const result = css({
-   *   variant: 'components.button.primary',
+   * const result = styles({
+   *   themeKey: 'components.button.primary',
    * })(theme)
    */
   themeKey?: string
@@ -326,4 +313,5 @@ export interface Theme {
   colors?: {
     [k: string]: CSS.Property.Color | Scale<CSS.Property.Color> | undefined
   }
+  [k: string]: any
 }

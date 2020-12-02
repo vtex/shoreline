@@ -1,4 +1,4 @@
-import { getThemeConsumers } from '../createSystem/getThemeConsumers'
+import { createThemeConsumers } from '../createSystem'
 import { WithStyles } from '../types'
 import { useTheme } from './useTheme'
 
@@ -12,8 +12,8 @@ type Params<P> = {
  */
 export function useClassName<P>({ props, themeKey }: Params<P>): string {
   const theme = useTheme()
-  const { getClassName } = getThemeConsumers({ theme })
-  const className = getClassName({ props, themeKey })
+  const { cn } = createThemeConsumers(theme)
+  const className = cn({ ...(props?.styles ?? {}), themeKey })
 
   return className
 }

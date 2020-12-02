@@ -61,7 +61,7 @@ export const scales = {
   fontWeight: 'fontWeights',
   lineHeight: 'lineHeights',
   letterSpacing: 'letterSpacings',
-  border: 'borders',
+  border: 'border',
   borderTop: 'borders',
   borderRight: 'borders',
   borderBottom: 'borders',
@@ -127,6 +127,8 @@ export const scales = {
   minInlineSize: 'sizes',
   fill: 'colors',
   stroke: 'colors',
+  fontVariationSettings: 'fontVariant',
+  text: 'text',
 }
 
 export type Scales = typeof scales
