@@ -1,12 +1,12 @@
-import React, { Children, ReactNode } from 'react'
+import React, { Children, ReactNode, Fragment } from 'react'
 import { isElement } from 'react-is'
 
 import { Overridable } from '../../types'
 import { Card } from '../Card'
-import { Collapsible, CollapsibleProps, Content, Header } from '../Collapsible'
 import { Divider } from '../Divider'
+import { Group } from '../Group'
 
-const FIRST_CHILD = 0
+const FIRST_CHILD_INDEX = 0
 
 /**
  * Component that nests Collapsible's components.
@@ -21,12 +21,12 @@ const FIRST_CHILD = 0
  *
  *   return (
  *     <CollapsibleGroup>
- *       <CollapsibleGroup.Item state={state}>
- *         <CollapsibleGroup.Item.Header label="Collapsible Label"/>
- *         <CollapsibleGroup.Item.Content>
+ *       <Collapsible state={state}>
+ *         <Collapsible.Header label="Collapsible Label"/>
+ *         <Collapsible.Content>
  *           {content}
- *         </CollapsibleGroup.Item.Content>
- *       </CollapsibleGroup.Item>
+ *         </Collapsible.Content>
+ *       </Collapsible>
  *     </CollapsibleGroup>
  *   )
  * }
@@ -41,62 +41,17 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
 
   return (
     <Card styleOverrides={styleOverrides} padding={0} {...cardProps}>
-      {Children.map(validChildren, (child, index) => (
-        <>
-          {index > FIRST_CHILD && <Divider margin={0} />}
-          {child}
-        </>
-      ))}
+      <Group>
+        {Children.map(validChildren, (child, index) => (
+          <Fragment>
+            {index > FIRST_CHILD_INDEX && <Divider margin={0} />}
+            {child}
+          </Fragment>
+        ))}
+      </Group>
     </Card>
   )
 }
-
-function CollapsibleGroupItem(props: CollapsibleProps) {
-  const { styleOverrides, ...collapsibleProps } = props
-
-  return (
-    <Collapsible
-      styleOverrides={{ borderStyle: 'none', ...styleOverrides }}
-      {...collapsibleProps}
-    />
-  )
-}
-
-/**
- * ```
- * CollapsibleGroup.Item header is always visible.
- * Disclosure Button -> always on the left side, and is responsible for controlling the content visibility.
- * Actions Panel -> always on the right side.
- * ```
- */
-CollapsibleGroupItem.Header = Header
-
-/**
- * ```
- * CollapsibleGroup.Item content.
- * Can be visible or hidden.
- * ```
- */
-CollapsibleGroupItem.Content = Content
-
-/**
- * Same as the `Collapsible` component.
- *
- * @example
- * ```jsx
- * import { CollapsibleGroup, useCollapsible } from `@vtex/admin-ui`
- * const state = useCollapsible()
- * <CollapsibleGroup>
- *   <CollapsibleGroup.Item state={state}>
- *     <CollapsibleGroup.Item.Header label="Title goes here">
- *       {children}
- *     </CollapsibleGroup.Item.Header>
- *     <CollapsibleGroup.Item.Content>{content}</CollapsibleGroup.Item.Content>
- *   </CollapsibleGroup.Item>
- * </CollapsibleGroup>
- * ```
- */
-CollapsibleGroup.Item = CollapsibleGroupItem
 
 export interface CollapsibleGroupProps extends Overridable {
   children?: ReactNode

@@ -4,7 +4,11 @@ import { render } from '@testing-library/react'
 
 import { CollapsibleGroup } from './index'
 import { ThemeProvider } from '../../system'
-import { useCollapsible, DisclosureStateReturn } from '../Collapsible'
+import {
+  useCollapsible,
+  Collapsible,
+  DisclosureStateReturn,
+} from '../Collapsible'
 
 function CollapsibleState({
   children,
@@ -26,12 +30,10 @@ describe('CollapsibleGroup tests', () => {
         >
           <CollapsibleState>
             {(state) => (
-              <CollapsibleGroup.Item state={state}>
-                <CollapsibleGroup.Item.Header label="Collapsible Header" />
-                <CollapsibleGroup.Item.Content>
-                  Collapsible Content
-                </CollapsibleGroup.Item.Content>
-              </CollapsibleGroup.Item>
+              <Collapsible state={state}>
+                <Collapsible.Header label="Collapsible Header" />
+                <Collapsible.Content>Collapsible Content</Collapsible.Content>
+              </Collapsible>
             )}
           </CollapsibleState>
         </CollapsibleGroup>
@@ -50,12 +52,10 @@ describe('CollapsibleGroup tests', () => {
         <CollapsibleGroup>
           <CollapsibleState>
             {(state) => (
-              <CollapsibleGroup.Item state={state}>
-                <CollapsibleGroup.Item.Header label="Collapsible Header" />
-                <CollapsibleGroup.Item.Content>
-                  Collapsible Content
-                </CollapsibleGroup.Item.Content>
-              </CollapsibleGroup.Item>
+              <Collapsible state={state}>
+                <Collapsible.Header label="Collapsible Header" />
+                <Collapsible.Content>Collapsible Content</Collapsible.Content>
+              </Collapsible>
             )}
           </CollapsibleState>
         </CollapsibleGroup>
@@ -72,12 +72,10 @@ describe('CollapsibleGroup tests', () => {
           {undefined}
           <CollapsibleState>
             {(state) => (
-              <CollapsibleGroup.Item state={state}>
-                <CollapsibleGroup.Item.Header label="Collapsible Header" />
-                <CollapsibleGroup.Item.Content>
-                  Collapsible Content
-                </CollapsibleGroup.Item.Content>
-              </CollapsibleGroup.Item>
+              <Collapsible state={state}>
+                <Collapsible.Header label="Collapsible Header" />
+                <Collapsible.Content>Collapsible Content</Collapsible.Content>
+              </Collapsible>
             )}
           </CollapsibleState>
           {null}

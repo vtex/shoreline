@@ -10,7 +10,7 @@ function CollapsibleState({
 }: {
   children: (state: DisclosureStateReturn) => JSX.Element
 }) {
-  const state = useCollapsible({ baseId: 'mocked-id' })
+  const state = useCollapsible({ baseId: 'mocked-id', visible: true })
 
   return children(state)
 }
