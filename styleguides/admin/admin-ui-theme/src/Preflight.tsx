@@ -22,6 +22,11 @@ export function Preflight() {
           color: ${get(theme, 'colors.text')};
         }
 
+        b,
+        strong {
+          font-variation-settings: 'wght' 170 !important;
+        }
+
         html,
         body,
         * {
