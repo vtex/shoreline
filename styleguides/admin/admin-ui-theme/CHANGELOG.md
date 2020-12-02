@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.6.0...@vtex/admin-ui-theme@0.6.1) (2020-12-02)
+
+
+### Bug Fixes
+
+* **text-area:** remove state property ([b32e171](https://github.com/vtex/onda/commit/b32e171f4cd88ec85be4d0f29e753b79e1679db2))
+
+
+
+
+
 # [0.6.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.5.4...@vtex/admin-ui-theme@0.6.0) (2020-12-02)
 
 
