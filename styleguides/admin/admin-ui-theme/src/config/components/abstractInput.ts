@@ -3,7 +3,7 @@ import { merge } from '@vtex/admin-ui-system'
 import { colors } from '../base'
 
 const inputStyle = {
-  fontVariationSettings: '"wght" 92',
+  fontSettings: 'regular',
   width: 'full',
   height: 48,
   borderStyle: 'solid',
@@ -98,7 +98,7 @@ export default {
     width: '32px',
     paddingLeft: 3,
     lineHeight: 'body',
-    fontVariationSettings: 'regular',
+    fontSettings: 'regular',
     fontSize: 1,
   },
 

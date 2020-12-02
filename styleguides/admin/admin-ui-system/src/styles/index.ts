@@ -15,7 +15,7 @@ const defaultTheme = {
 
 const aliases = {
   bg: 'backgroundColor',
-  fontVariant: 'fontVariationSettings',
+  fontSettings: 'fontVariationSettings',
 } as const
 
 type Aliases = typeof aliases

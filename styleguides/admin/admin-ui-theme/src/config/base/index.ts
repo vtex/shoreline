@@ -25,33 +25,33 @@ export default {
   text: {
     small: {
       lineHeight: 'small',
-      fontVariant: 'regular',
+      fontSettings: 'regular',
       fontSize: 0,
     },
     body: {
       lineHeight: 'body',
-      fontVariant: 'regular',
+      fontSettings: 'regular',
       fontSize: 1,
     },
     highlight: {
       lineHeight: 'highlight',
-      fontVariant: 'regular',
+      fontSettings: 'regular',
       fontSize: 1,
     },
     action: {
       lineHeight: 'action',
-      fontVariant: 'regular',
+      fontSettings: 'regular',
       fontSize: 1,
       textTransform: 'uppercase',
     },
     subtitle: {
       lineHeight: 'subtitle',
-      fontVariant: 'regular',
+      fontSettings: 'regular',
       fontSize: 2,
     },
     headline: {
       lineHeight: 'headline',
-      fontVariant: 'regular',
+      fontSettings: 'regular',
       fontSize: 4,
     },
   },
@@ -87,7 +87,7 @@ export default {
     '4': 4,
     '5': 5,
   },
-  fontVariant: {
+  fontSettings: {
     hairline: "'wght' 30",
     thin: "'wght' 50",
     light: "'wght' 65",
