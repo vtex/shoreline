@@ -23,7 +23,7 @@ export function Horizontal() {
 
   return (
     <>
-      <Heading text="highlight">Selected solution: {radio.state}</Heading>
+      <Heading styleOverrides={{ text: 'highlight' }}>Selected solution: {radio.state}</Heading>
       <RadioGroup
         state={radio}
         id="radio-group"
@@ -59,7 +59,7 @@ export function Vertical() {
 
   return (
     <>
-      <Heading text="highlight">Selected solution: {radio.state}</Heading>
+      <Heading styleOverrides={{ text: 'highlight' }}>Selected solution: {radio.state}</Heading>
       <RadioGroup
         state={radio}
         id="radio-group"

@@ -24,7 +24,7 @@ export const Stateful: Story<ModalProps> = () => (
   >
     <Modal.Header title="Publish content" />
     <Modal.Content>
-      <Box text="body">
+      <Box styles={{ text: 'body' }}>
         Are you sure you want to publish this content? These action cannot be
         undone.
       </Box>
@@ -134,7 +134,7 @@ export const RegularModal: Story<ModalProps> = () => {
           }}
         >
           <Checkbox state={checkbox} />
-          <Text paddingLeft={2}>I accept the terms and conditions above</Text>
+          <Text styleOverrides={{ paddingLeft: 2 }} >I accept the terms and conditions above</Text>
         </Label>
         <Button disabled={!checkbox.state}>Next</Button>
       </Modal.Footer>

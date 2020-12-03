@@ -8,21 +8,33 @@ export default {
   title: 'layouts/Columns',
 } as Meta
 
+const primaryStyles = {
+  padding: 2,
+  bg: 'primary.base',
+  color: 'primary.accent'
+}
+
+const invertedStyles = {
+  padding: 2,
+  bg: 'text.primary',
+  color: 'background'
+}
+
 export const Auto = () => {
   return (
     <Columns spacing={1}>
       <Columns.Item>
-        <Box palette="primary" styles={{ padding: 2 }}>
+        <Box styles={primaryStyles}>
           6 units
         </Box>
       </Columns.Item>
       <Columns.Item>
-        <Box palette="inverted" styles={{ padding: 2 }}>
+        <Box styles={invertedStyles}>
           6 units
         </Box>
       </Columns.Item>
       <Columns.Item>
-        <Box palette="primary" styles={{ padding: 2 }}>
+        <Box styles={primaryStyles}>
           6 units
         </Box>
       </Columns.Item>
@@ -34,17 +46,17 @@ export const AutoGapless = () => {
   return (
     <Columns spacing={0}>
       <Columns.Item>
-        <Box palette="primary" styles={{ padding: 2 }}>
+        <Box styles={primaryStyles}>
           6 units
         </Box>
       </Columns.Item>
       <Columns.Item>
-        <Box palette="inverted" styles={{ padding: 2 }}>
+        <Box styles={invertedStyles}>
           6 units
         </Box>
       </Columns.Item>
       <Columns.Item>
-        <Box palette="primary" styles={{ padding: 2 }}>
+        <Box styles={primaryStyles}>
           6 units
         </Box>
       </Columns.Item>
@@ -56,17 +68,17 @@ export const Units = () => {
   return (
     <Columns spacing={1}>
       <Columns.Item units={3}>
-        <Box palette="primary" styles={{ padding: 2 }}>
+        <Box styles={primaryStyles}>
           3 units
         </Box>
       </Columns.Item>
       <Columns.Item units={6}>
-        <Box palette="inverted" styles={{ padding: 2 }}>
+        <Box styles={invertedStyles}>
           6 units
         </Box>
       </Columns.Item>
       <Columns.Item units={3}>
-        <Box palette="primary" styles={{ padding: 2 }}>
+        <Box styles={primaryStyles}>
           3 units
         </Box>
       </Columns.Item>
@@ -78,12 +90,12 @@ export const ResponsiveUnits = () => {
   return (
     <Columns spacing={1}>
       <Columns.Item units={6} offset={['right', 'right', 'none']}>
-        <Box palette="primary" styles={{ padding: 2 }}>
+        <Box styles={primaryStyles}>
           6 units
         </Box>
       </Columns.Item>
       <Columns.Item units={3}>
-        <Box palette="inverted" styles={{ padding: 2 }}>
+        <Box styles={invertedStyles}>
           3 units
         </Box>
       </Columns.Item>

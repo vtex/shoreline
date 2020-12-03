@@ -25,13 +25,13 @@ export function Example() {
 export function Patterns() {
   return (
     <List>
-      <List.Item text="subtitle">Coffee</List.Item>
+      <List.Item styleOverrides={{ text: 'subtitle' }} >Coffee</List.Item>
       <List>
-        <List.Item text="highlight">Arabica</List.Item>
-        <List.Item text="highlight">Robusta</List.Item>
+        <List.Item styleOverrides={{ text: 'highlight' }}>Arabica</List.Item>
+        <List.Item styleOverrides={{ text: 'highlight' }}>Robusta</List.Item>
       </List>
-      <List.Item text="highlight">Juice</List.Item>
-      <List.Item text="highlight">Tea</List.Item>
+      <List.Item styleOverrides={{ text: 'highlight' }}>Juice</List.Item>
+      <List.Item styleOverrides={{ text: 'highlight' }}>Tea</List.Item>
     </List>
   )
 }
