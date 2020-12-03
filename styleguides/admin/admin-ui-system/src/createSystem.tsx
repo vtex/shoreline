@@ -17,7 +17,9 @@ export function createSystem<T>(theme: T): CreateSystemReturn {
 }
 
 export function createThemeProvider<T>(theme: T) {
-  return function ThemeProvider({ children }: React.PropsWithChildren<{}>) {
+  return function ThemeProvider({
+    children,
+  }: React.PropsWithChildren<unknown>) {
     return <BaseProvider theme={theme}>{children}</BaseProvider>
   }
 }
@@ -25,7 +27,11 @@ export function createThemeProvider<T>(theme: T) {
 export function createThemeConsumers<T>(theme: T) {
   return {
     stylesOf(themeKey: string) {
-      const rawStyles = get((theme as unknown) as object, themeKey, {})
+      const rawStyles = get(
+        (theme as unknown) as Record<string, unknown>,
+        themeKey,
+        {}
+      )
 
       return rawStyles as StyleProp
     },

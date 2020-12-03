@@ -49,7 +49,9 @@ export function imageResolver<T>() {
         ) : (
           <img
             alt={resolver.alt}
-            className={cn({ themeKey: `components.table.image.${context.density}` })}
+            className={cn({
+              themeKey: `components.table.image.${context.density}`,
+            })}
             src={url}
           />
         )
@@ -131,10 +133,10 @@ function ImageWithPreview(props: PreviewComponentProps) {
           },
           '&[data-enter]': {
             opacity: 1,
-            img:  {
-              transform: 'scale(1)'
-            }
-          }
+            img: {
+              transform: 'scale(1)',
+            },
+          },
         })}
         aria-label={`${alt} large`}
       >

@@ -32,7 +32,7 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(false)
 
   return (
-    <Box styles={{ width: 'sm' }} >
+    <Box styles={{ width: 'sm' }}>
       {loading ? (
         <Box>
           <Skeleton styles={{ height: 24, width: '5/12' }} />

@@ -30,7 +30,6 @@ export function Tooltip(props: TooltipProps) {
     ...tooltipProps
   } = props
 
-  // eslint-disable-next-line @typescript-eslint/camelcase
   const tooltip = useTooltipState({ placement, visible, unstable_fixed: fixed })
 
   return (

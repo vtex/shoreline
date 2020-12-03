@@ -9,6 +9,7 @@ export const Paragraph = forwardRef(function Paragraph(
   ref: Ref<HTMLParagraphElement>
 ) {
   const htmlProps = useParagraph(props)
+
   return createElement({
     ref,
     element: 'p',
@@ -17,19 +18,18 @@ export const Paragraph = forwardRef(function Paragraph(
   })
 })
 
-export function useParagraph(props: ParagraphProps){
+export function useParagraph(props: ParagraphProps) {
   const { styleOverrides, ...htmlProps } = props
 
   const className = cn({
     text: 'body',
-    ...styleOverrides
+    ...styleOverrides,
   })
 
-  return { className, ...htmlProps}
+  return { className, ...htmlProps }
 }
 
-export interface ParagraphProps
-  extends Overridable {
+export interface ParagraphProps extends Overridable {
   /**
    * paragraph children
    */

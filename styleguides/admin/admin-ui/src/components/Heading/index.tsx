@@ -19,19 +19,18 @@ export const Heading = forwardRef(function Heading(
   })
 })
 
-export function useHeading(props: HeadingProps){
+export function useHeading(props: HeadingProps) {
   const { styleOverrides, ...htmlProps } = props
 
   const className = cn({
     text: 'headline',
-    ...styleOverrides
+    ...styleOverrides,
   })
 
-  return { className, ...htmlProps}
+  return { className, ...htmlProps }
 }
 
-export interface HeadingProps
-  extends Overridable {
+export interface HeadingProps extends Overridable {
   /**
    * Element to render
    * @default h1

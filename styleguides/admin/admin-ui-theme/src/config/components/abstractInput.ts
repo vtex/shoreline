@@ -52,7 +52,7 @@ const errorState = {
   },
 }
 
-function getInputVariants(name: string, styles: object = {}) {
+function getInputVariants(name: string, styles = {}) {
   return {
     // input variants
     [`${name}`]: merge(inputStyle, styles),

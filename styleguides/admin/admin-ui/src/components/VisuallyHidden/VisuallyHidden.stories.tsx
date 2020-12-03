@@ -18,7 +18,7 @@ export function WithSimpleSearchField() {
       </VisuallyHidden>
       <input id="search" type="search" placeholder="A11y Search Input" />
       <Text
-        styleOverrides={{ alignSelf: 'flex-end', marginTop: 3, }}
+        styleOverrides={{ alignSelf: 'flex-end', marginTop: 3 }}
         variant="small"
       >
         Use this input to search things

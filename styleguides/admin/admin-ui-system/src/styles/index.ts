@@ -50,7 +50,7 @@ const transformations = [
   (acc, curr) => ({
     ...acc,
     /** Transform negative values */
-    [curr]: (scale: object, value: string | number) => {
+    [curr]: (scale: Record<string, unknown>, value: string | number) => {
       if (typeof value !== 'number' || value >= 0) {
         if (typeof value === 'string' && value.startsWith('-')) {
           const valueWithoutMinus = value.substring(1)
@@ -149,7 +149,7 @@ export const styles = (args: StyleProp = {}) => (
     const prop = key in aliases ? aliases[key as keyof Aliases] : key
     const scaleName = prop in scales ? scales[prop as keyof Scales] : undefined
     const scale = get(theme, scaleName as string, get(theme, prop, {}))
-    const transform: Function = get(transformations, prop, get)
+    const transform = get(transformations, prop, get)
     let value = transform(scale, val, val)
     const isObjectScale = value && typeof value === 'object'
 

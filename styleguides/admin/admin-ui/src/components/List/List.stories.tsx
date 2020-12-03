@@ -25,7 +25,7 @@ export function Example() {
 export function Patterns() {
   return (
     <List>
-      <List.Item styleOverrides={{ text: 'subtitle' }} >Coffee</List.Item>
+      <List.Item styleOverrides={{ text: 'subtitle' }}>Coffee</List.Item>
       <List>
         <List.Item styleOverrides={{ text: 'highlight' }}>Arabica</List.Item>
         <List.Item styleOverrides={{ text: 'highlight' }}>Robusta</List.Item>

@@ -40,7 +40,7 @@ describe('createSystem test', () => {
       },
     })
 
-    const wrapper = ({ children }: PropsWithChildren<{}>) => (
+    const wrapper = ({ children }: PropsWithChildren<unknown>) => (
       <ThemeProvider>{children}</ThemeProvider>
     )
 

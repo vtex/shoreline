@@ -3,7 +3,7 @@ import * as CSS from 'csstype'
 type StandardCSSProperties = CSS.Properties<number | string>
 
 /**
- * The `css` function accepts arrays as values for mobile-first responsive styles.
+ * The `styles` function accepts arrays as values for mobile-first responsive styles.
  * Note that this extends to non-theme values also. For example `display=['none', 'block']`
  * will also works.
  *
@@ -26,193 +26,96 @@ export type CSSPseudoSelectorProps = { [K in CSS.Pseudos]?: StyleProp }
 
 interface AliasesCSSProperties {
   /**
-   * The **`background-color`** CSS property sets the background color of an element.
-   *
-   * **Initial value**: `transparent`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |  IE   |
-   * | :----: | :-----: | :----: | :----: | :---: |
-   * | **1**  |  **1**  | **1**  | **12** | **4** |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/background-color
+   * Shorthand for backgroundColor
+   * @default transparent
    */
   bg?: StandardCSSProperties['backgroundColor']
   /**
-   * The **`marginX`** is shorthand for using both **`margin-left`** and **`margin-right`** CSS properties. They set the margin area on the left and right side of an element. A positive value
-   * places it farther from its neighbors, while a negative value places it closer.
-   *
-   * **Initial value**: `0`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |  IE   |
-   * | :----: | :-----: | :----: | :----: | :---: |
-   * | **1**  |  **1**  | **1**  | **12** | **3** |
-   *
-   * @see https://styled-system.com/#margin-props
-   * @see https://developer.mozilla.org/docs/Web/CSS/margin-left
-   * @see https://developer.mozilla.org/docs/Web/CSS/margin-right
+   * Shorthand for marginLeft & marginRight
+   * @default 0
    */
   marginX?: StandardCSSProperties['marginLeft']
   /**
-   * The **`marginY`** is shorthard for using both **`margin-top`** and **`margin-bottom`** CSS properties. They set the margin area on the top and bottom of an element. A positive value places
-   * it farther from its neighbors, while a negative value places it closer.
-   *
-   * **Initial value**: `0`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |  IE   |
-   * | :----: | :-----: | :----: | :----: | :---: |
-   * | **1**  |  **1**  | **1**  | **12** | **3** |
-   *
-   * @see https://styled-system.com/#margin-props
-   * @see https://developer.mozilla.org/docs/Web/CSS/margin-top
-   * @see https://developer.mozilla.org/docs/Web/CSS/margin-bottom
+   * Shorthand for marginTop & marginBottom
+   * @default 0
    */
   marginY?: StandardCSSProperties['marginTop']
   /**
-   * The **`paddingX`** is shorthand property for CSS properties **`padding-left`** and **`padding-right`**. They set the width of the padding area on the left and right side of an element.
-   *
-   * **Initial value**: `0`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |  IE   |
-   * | :----: | :-----: | :----: | :----: | :---: |
-   * | **1**  |  **1**  | **1**  | **12** | **4** |
-   *
-   * @see https://styled-system.com/#padding-props
-   * @see https://developer.mozilla.org/docs/Web/CSS/padding-left
-   * @see https://developer.mozilla.org/docs/Web/CSS/padding-right
+   * Shorthand for paddingLeft & paddingRight
+   * @default 0
    */
   paddingX?: StandardCSSProperties['paddingLeft']
   /**
-   * The **`paddingY`** is shorthand property for CSS properties **`padding-top`** and **`padding-bottom`**. They set the width of the padding area on the top and bottom of an element.
-   *
-   * **Initial value**: `0`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |  IE   |
-   * | :----: | :-----: | :----: | :----: | :---: |
-   * | **1**  |  **1**  | **1**  | **12** | **4** |
-   *
-   * @see https://styled-system.com/#padding-props
-   * @see https://developer.mozilla.org/docs/Web/CSS/padding-top
-   * @see https://developer.mozilla.org/docs/Web/CSS/padding-bottom
+   * Shorthand for paddingTop & paddingBottom
+   * @default 0
    */
   paddingY?: StandardCSSProperties['paddingTop']
+  /**
+   * Shorthand for width & height
+   */
   size?: StandardCSSProperties['width']
-  // TODO: use generics
+  /**
+   * Admin-ui available text patterns
+   */
   text?: 'small' | 'body' | 'highlight' | 'action' | 'subtitle' | 'headline'
-  // TODO: use generics
-  fontSettings?: 'regular'
+  /**
+   * Shorthand for fontVariationSettings
+   */
+  fontSettings?:
+    | 'hairline'
+    | 'thin'
+    | 'light'
+    | 'regular'
+    | 'medium'
+    | 'bold'
+    | 'black'
+    | StandardCSSProperties['fontVariationSettings']
 }
 
 interface OverwriteCSSProperties {
   /**
-   * The **`box-shadow`** CSS property adds shadow effects around an element's frame. You can set multiple effects separated by commas. A box shadow is described by X and Y offsets relative to the
-   * element, blur and spread radii, and color.
-   *
-   * **Initial value**: `none`
-   *
-   * | Chrome  | Firefox | Safari  |  Edge  |  IE   |
-   * | :-----: | :-----: | :-----: | :----: | :---: |
-   * | **10**  |  **4**  | **5.1** | **12** | **9** |
-   * | 1 _-x-_ |         | 3 _-x-_ |        |       |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/box-shadow
+   * CSS **`box-shadow`** property
+   * @default none
    */
   boxShadow?: CSS.Property.BoxShadow | number
   /**
-   * The **`font-weight`** CSS property specifies the weight (or boldness) of the font. The font weights available to you will depend on the `font-family` you are using. Some fonts are only
-   * available in `normal` and `bold`.
-   *
-   * **Initial value**: `normal`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |  IE   |
-   * | :----: | :-----: | :----: | :----: | :---: |
-   * | **2**  |  **1**  | **1**  | **12** | **3** |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/font-weight
+   * CSS **`font-weight`** property
+   * @default normal
+   * @deprecated use fontSettings intead
    */
   fontWeight?: CSS.Property.FontWeight | string
-
   /**
-   * The **`border-top-style`** CSS property sets the line style of an element's top `border`.
-   *
-   * **Initial value**: `none`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |   IE    |
-   * | :----: | :-----: | :----: | :----: | :-----: |
-   * | **1**  |  **1**  | **1**  | **12** | **5.5** |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/border-top-style
+   * CSS **`border-top-style`** property
+   * @default none
    */
   borderTopStyle?: CSS.Property.BorderTopStyle | string
   /**
-   * The **`border-top-width`** CSS property sets the width of the top border of an element.
-   *
-   * **Initial value**: `medium`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |  IE   |
-   * | :----: | :-----: | :----: | :----: | :---: |
-   * | **1**  |  **1**  | **1**  | **12** | **4** |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/border-top-width
+   * CSS **`border-top-width`** property
+   * @default medium
    */
   borderTopWidth?: CSS.Property.BorderTopWidth<never> | string
   /**
-   * The **`border-bottom-style`** CSS property sets the line style of an element's bottom `border`.
-   *
-   * **Initial value**: `none`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |   IE    |
-   * | :----: | :-----: | :----: | :----: | :-----: |
-   * | **1**  |  **1**  | **1**  | **12** | **5.5** |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-style
+   * CSS **`border-bottom-style`** property
+   * @default none
    */
   borderBottomStyle?: CSS.Property.BorderBottomStyle | string
   /**
-   * The **`border-right-style`** CSS property sets the line style of an element's right `border`.
-   *
-   * **Initial value**: `none`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |   IE    |
-   * | :----: | :-----: | :----: | :----: | :-----: |
-   * | **1**  |  **1**  | **1**  | **12** | **5.5** |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/border-right-style
+   * CSS **`border-right-style`** property
+   * @default none
    */
   borderRightStyle?: CSS.Property.BorderRightStyle | string
   /**
-   * The **`border-left-style`** CSS property sets the line style of an element's left `border`.
-   *
-   * **Initial value**: `none`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |   IE    |
-   * | :----: | :-----: | :----: | :----: | :-----: |
-   * | **1**  |  **1**  | **1**  | **12** | **5.5** |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/border-left-style
+   * CSS **`border-left-style`** property
+   * @default none
    */
   borderLeftStyle?: CSS.Property.BorderLeftStyle | string
   /**
-   * The **`border-radius`** CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
-   *
-   * | Chrome  | Firefox | Safari  |  Edge  |  IE   |
-   * | :-----: | :-----: | :-----: | :----: | :---: |
-   * |  **4**  |  **4**  |  **5**  | **12** | **9** |
-   * | 1 _-x-_ |         | 3 _-x-_ |        |       |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/border-radius
+   * CSS **`border-radius`** property
    */
   borderRadius?: CSS.Property.BorderRadius<string | number>
-
   /**
-   * The **`z-index`** CSS property sets the z-order of a positioned element and its descendants or flex items. Overlapping elements with a larger z-index cover those with a smaller one.
-   *
-   * **Initial value**: `auto`
-   *
-   * | Chrome | Firefox | Safari |  Edge  |  IE   |
-   * | :----: | :-----: | :----: | :----: | :---: |
-   * | **1**  |  **1**  | **1**  | **12** | **4** |
-   *
-   * @see https://developer.mozilla.org/docs/Web/CSS/z-index
+   * CSS **`z-index`** property
+   * @default auto
    */
   zIndex?: CSS.Property.ZIndex | string
 }
@@ -295,9 +198,9 @@ export interface Theme {
   fontWeights?: Scale<CSS.Property.FontWeight>
   lineHeights?: Scale<CSS.Property.LineHeight<string | 0 | number>>
   letterSpacings?: Scale<CSS.Property.LetterSpacing<string | 0 | number>>
-  sizes?: Scale<CSS.Property.Height<{}> | CSS.Property.Width<{}>>
-  borders?: Scale<CSS.Property.Border<{}>>
-  borderStyles?: Scale<CSS.Property.Border<{}>>
+  sizes?: Scale<CSS.Property.Height | CSS.Property.Width | string | number>
+  borders?: Scale<CSS.Property.Border>
+  borderStyles?: Scale<CSS.Property.Border>
   borderWidths?: Scale<CSS.Property.BorderWidth<string | 0 | number>>
   radii?: Scale<CSS.Property.BorderRadius<string | 0 | number>>
   shadows?: Scale<CSS.Property.BoxShadow>
@@ -312,5 +215,9 @@ export interface Theme {
   colors?: {
     [k: string]: CSS.Property.Color | Scale<CSS.Property.Color> | undefined
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [k: string]: any
+  components?: {
+    [k: string]: StyleObject
+  }
 }

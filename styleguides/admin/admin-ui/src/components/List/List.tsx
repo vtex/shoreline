@@ -17,7 +17,7 @@ export function List(props: ListProps) {
   })
 }
 
-export function useList(props: ListProps){
+export function useList(props: ListProps) {
   const { style, styleOverrides, ...htmlProps } = props
   const className = cn({
     text: 'body',
@@ -32,7 +32,7 @@ export function useList(props: ListProps){
     ...styleOverrides,
   })
 
-  return { className, ...htmlProps}
+  return { className, ...htmlProps }
 }
 
 List.Item = ListItem

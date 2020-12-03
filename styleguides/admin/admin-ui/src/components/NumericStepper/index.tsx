@@ -107,7 +107,11 @@ export function NumericStepper(props: NumericStepperProps) {
       </Box>
       {hasHelper && (
         <Box
-          styles={{ text: 'small', color: error ? 'danger.base' : 'muted.0', marginTop: 2 }}
+          styles={{
+            text: 'small',
+            color: error ? 'danger.base' : 'muted.0',
+            marginTop: 2,
+          }}
         >
           {error ? errorMessage : helperText}
         </Box>

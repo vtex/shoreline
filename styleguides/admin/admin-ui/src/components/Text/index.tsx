@@ -8,10 +8,7 @@ export const Text = forwardRef(function Heading(
   props: TextProps,
   ref: Ref<HTMLElement>
 ) {
-  const {
-    element = 'span',
-    ...htmlProps
-  } = props
+  const { element = 'span', ...htmlProps } = props
 
   const textProps = useText(htmlProps)
 
@@ -23,14 +20,13 @@ export const Text = forwardRef(function Heading(
   })
 })
 
-function useText(props: TextProps){
+function useText(props: TextProps) {
   const {
     variant = 'body',
     feedback = 'default',
     styleOverrides,
     ...htmlProps
-   } = props
-
+  } = props
 
   const color = {
     default: 'text.primary',
@@ -44,10 +40,10 @@ function useText(props: TextProps){
   const className = cn({
     color,
     text: variant,
-    ...styleOverrides
+    ...styleOverrides,
   })
 
-  return { className, ...htmlProps}
+  return { className, ...htmlProps }
 }
 
 export interface TextProps extends Overridable {
