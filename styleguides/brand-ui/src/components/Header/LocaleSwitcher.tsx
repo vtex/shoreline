@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { Box, Text, Flex, jsx } from 'theme-ui'
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
-import { Fragment } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { IconCaret, IconGlobe } from '../../icons'
 
@@ -33,6 +33,7 @@ export const LocaleSwitcher = ({
   locale,
 }: LocaleSwitcherProps) => {
   const disclosure = useDisclosureState({ visible: false })
+  const wrapperRef = useRef<HTMLDivElement>(null)
 
   const getLocaleLabel = () => {
     const currentLocaleOption = options.find(
@@ -47,14 +48,30 @@ export const LocaleSwitcher = ({
     disclosure.hide()
   }
 
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if(!wrapperRef?.current?.contains(event.target as Node)) {
+        disclosure.hide()
+      }
+    }
+      document.addEventListener('mousedown', handleOutsideClick)
+
+      return () => {
+        document.removeEventListener('mousedown', handleOutsideClick)
+      }
+  }, [wrapperRef])
+
   return (
-    <Fragment>
-      <Disclosure sx={{ variant: 'localeSwitcher.large' }} {...disclosure}>
+    <Box ref={wrapperRef} sx={{ display: 'contents'}}>
+      <Disclosure
+        sx={{ variant: 'localeSwitcher.large' }}
+        {...disclosure}
+      >
         <IconGlobe sx={{ ml: 5 }} size={22} />
         <Text variant="localeSwitcher.large.label">{getLocaleLabel()}</Text>
         <IconCaret
           sx={{ position: 'absolute', right: 4 }}
-          direction="down"
+          direction={disclosure.visible ? 'down' : 'up'}
           size={30}
         />
       </Disclosure>
@@ -112,7 +129,7 @@ export const LocaleSwitcher = ({
           />
         ))}
       </DisclosureContent>
-    </Fragment>
+    </Box>
   )
 }
 
