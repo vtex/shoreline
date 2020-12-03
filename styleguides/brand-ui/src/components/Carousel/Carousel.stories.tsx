@@ -25,11 +25,7 @@ const SimpleCarousel = ({
   indicators,
   crossfade,
 }: Pick<CarouselProps, 'size' | 'indicators' | 'crossfade'>) => (
-  <Carousel
-    size={size}
-    indicators={indicators}
-    crossfade={crossfade}
-  >
+  <Carousel size={size} indicators={indicators} crossfade={crossfade}>
     <Flex
       sx={{
         ...carouselPageStyles,

@@ -32,7 +32,7 @@ const BrandCheckbox = (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
 
 export interface CheckboxProps
   extends Pick<
-  ReakitCheckboxProps,
+    ReakitCheckboxProps,
     | 'checked'
     | 'disabled'
     | 'onChange'

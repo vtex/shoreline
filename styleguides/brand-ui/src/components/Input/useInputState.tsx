@@ -48,14 +48,16 @@ const useInputState = ({
   readOnly,
   error,
   value,
-  charLimit
+  charLimit,
 }: InitialState) => {
   const [focused, setFocused] = useState(false)
   const [charCount, setCharCount] = useState(
     value ? value.toString().length : 0
   )
   const [filled, setFilled] = useState(charCount > 0)
-  const [lengthError, setLengthError] = useState(charLimit ? charCount > charLimit : false)
+  const [lengthError, setLengthError] = useState(
+    charLimit ? charCount > charLimit : false
+  )
   useEffect(() => {
     const length = value ? value.toString().length : 0
     setCharCount(length)
@@ -77,7 +79,16 @@ const useInputState = ({
   )
 
   useEffect(() => {
-    setState(resolveInputState({ disabled, readOnly, error, filled, focused, lengthError }))
+    setState(
+      resolveInputState({
+        disabled,
+        readOnly,
+        error,
+        filled,
+        focused,
+        lengthError,
+      })
+    )
   }, [filled, focused, error, disabled, readOnly, lengthError])
 
   return { state, charCount, setFocused }

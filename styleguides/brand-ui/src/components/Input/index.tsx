@@ -37,7 +37,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
 
   const labelVariant = `input.label.${size}-${prefix ? 'prefix-' : ''}${state}`
   const helpMessageVariant = `input.helpMessage.${
-    (state === 'disabled' || state === 'error') ? state : 'default'
+    state === 'disabled' || state === 'error' ? state : 'default'
   }`
   return (
     <Box
@@ -70,7 +70,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
                 },
                 ':hover': {
                   cursor: readOnly ? 'default' : 'text',
-                }
+                },
               }}
               {...enhancedProps}
             />
