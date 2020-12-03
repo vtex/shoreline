@@ -23,7 +23,7 @@ export const Radio = forwardRef(
   }
 )
 
-export function useRadio(props: RadioProps){
+export function useRadio(props: RadioProps) {
   const { size = 'regular', state, styleOverrides, ...htmlProps } = props
 
   const className = cn({
@@ -31,7 +31,7 @@ export function useRadio(props: RadioProps){
     ...styleOverrides,
   })
 
-  return {className, ...state, ...htmlProps}
+  return { className, ...state, ...htmlProps }
 }
 
 type AbstractRadioProps = Pick<

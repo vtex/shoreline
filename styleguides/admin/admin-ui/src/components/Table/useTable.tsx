@@ -32,17 +32,20 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
 
       return ({ id, ...item } as unknown) as T
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length, columns])
 
   const resolveCell = useCallback(
     (args: ResolverCallee<ResolveCellArgs<T>>) =>
       unstableResolveCell<T>({ ...args, resolvers, context }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [resolvers, context]
   )
 
   const resolveHeader = useCallback(
     (args: ResolverCallee<ResolveHeaderArgs<T>>) =>
       unstableResolveHeader<T>({ ...args, resolvers, context }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [resolvers, context]
   )
 
@@ -92,7 +95,7 @@ export interface UseTableReturn<T> {
   resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
   resolveHeader: (
     args: ResolverCallee<ResolveHeaderArgs<T>>
-  ) => {} | null | undefined
+  ) => Record<string, unknown> | null | undefined
   data: T[]
   columns: Array<Column<T>>
 }

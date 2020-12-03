@@ -13,7 +13,7 @@ export function Divider(props: DividerProps) {
   })
 }
 
-export function useDivider(props: DividerProps){
+export function useDivider(props: DividerProps) {
   const { orientation = 'horizontal', styleOverrides, ...htmlProps } = props
   const className = cn({
     text: 'headline',
@@ -23,7 +23,7 @@ export function useDivider(props: DividerProps){
   return {
     orientation,
     className,
-    ...htmlProps
+    ...htmlProps,
   }
 }
 

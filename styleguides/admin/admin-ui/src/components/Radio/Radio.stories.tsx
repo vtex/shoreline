@@ -47,7 +47,9 @@ export function Group() {
 
   return (
     <>
-      <Heading styleOverrides={{ text: 'highlight' }}>Selected solution: {state.state}</Heading>
+      <Heading styleOverrides={{ text: 'highlight' }}>
+        Selected solution: {state.state}
+      </Heading>
       <RadioGroup state={state} orientation="vertical" aria-label="Solutions">
         {values.map((value, key) => {
           return (

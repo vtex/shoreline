@@ -1,7 +1,7 @@
-import { styles } from '../styles'
+import { styles, Theme } from '../styles'
 import { get } from '../util'
 
-const theme: any = {
+const theme: Theme = {
   colors: {
     primary: 'blue',
     secondary: 'cyan',
@@ -34,7 +34,7 @@ const theme: any = {
     },
   },
   text: {
-    caps: {
+    action: {
       fontSize: [1, 2],
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
@@ -433,7 +433,7 @@ test('returns individual border styles', () => {
 test('consumes complex scales', () => {
   const result = styles({
     border: 'default',
-    text: 'caps',
+    text: 'action',
   })(theme)
 
   expect(result).toEqual({

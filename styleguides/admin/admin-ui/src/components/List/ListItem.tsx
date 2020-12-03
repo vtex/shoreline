@@ -14,15 +14,15 @@ export function ListItem(props: ListItemProps) {
   })
 }
 
-export function useListItem(props: ListItemProps){
+export function useListItem(props: ListItemProps) {
   const { styleOverrides, ...htmlProps } = props
 
   const className = cn({
     text: 'body',
-    ...styleOverrides
+    ...styleOverrides,
   })
 
-  return { className, ...htmlProps}
+  return { className, ...htmlProps }
 }
 
 export interface ListItemProps extends Overridable {

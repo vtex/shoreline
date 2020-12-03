@@ -35,7 +35,8 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@types/luxon": "^1.25.0"
+    "@types/luxon": "^1.25.0",
+    "@types/theme-ui": "^0.3.7"
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
@@ -48,7 +49,8 @@
     "luxon": "^1.25.0",
     "react-swipeable": "^6.0.0",
     "reakit": "1.2.3",
-    "theme-ui": "^0.3.1",
-    "tiny-invariant": "^1.1.0"
+    "theme-ui": "^0.3.4",
+    "tiny-invariant": "^1.1.0",
+    "polished": "^3.6.7"
   }
 }

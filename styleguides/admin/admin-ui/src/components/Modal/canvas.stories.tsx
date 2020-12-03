@@ -134,7 +134,9 @@ export const RegularModal: Story<ModalProps> = () => {
           }}
         >
           <Checkbox state={checkbox} />
-          <Text styleOverrides={{ paddingLeft: 2 }} >I accept the terms and conditions above</Text>
+          <Text styleOverrides={{ paddingLeft: 2 }}>
+            I accept the terms and conditions above
+          </Text>
         </Label>
         <Button disabled={!checkbox.state}>Next</Button>
       </Modal.Footer>

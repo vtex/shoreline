@@ -34,7 +34,7 @@ export function LowerLevel() {
         name: faker.commerce.productName(),
         lastSale: faker.date.past().toDateString(),
         price: faker.commerce.price(),
-      } as Item
+      }
     })
   }, [])
 
@@ -116,7 +116,7 @@ export function Windowing() {
         date: faker.date.past().toDateString(),
         status: faker.commerce.department(),
         name: faker.commerce.productName(),
-      } as Item
+      }
     })
   }, [])
 

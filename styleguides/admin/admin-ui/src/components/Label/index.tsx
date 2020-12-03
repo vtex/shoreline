@@ -29,9 +29,8 @@ export const Label = forwardRef(function Heading(
   })
 })
 
-
-export function useLabel(props: LabelProps){
-  const { styleOverrides, ...htmlProps} = props
+export function useLabel(props: LabelProps) {
+  const { styleOverrides, ...htmlProps } = props
   const className = cn({
     text: 'body',
     ...styleOverrides,
@@ -39,7 +38,7 @@ export function useLabel(props: LabelProps){
 
   return {
     className,
-    ...htmlProps
+    ...htmlProps,
   }
 }
 

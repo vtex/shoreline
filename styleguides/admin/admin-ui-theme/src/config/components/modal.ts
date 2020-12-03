@@ -30,10 +30,10 @@ const header = {
   borderColor: 'muted.2',
   borderStyle: 'solid',
   'button + button': {
-    ml: 4,
+    marginLeft: 4,
   },
-  py: 4,
-  px: 6,
+  paddingY: 4,
+  paddingX: 6,
   borderTopWidth: 0,
   borderLeftWidth: 0,
   borderRightWidth: 0,
@@ -64,21 +64,21 @@ const footer = {
   left: 0,
   right: 0,
   bg: 'background',
-  p: 6,
+  padding: 6,
   flexDirection: ['column-reverse', 'column-reverse', 'row'],
   '>button': {
     width: ['full', 'full', 'inherit'],
   },
   '* + button': {
-    ml: [0, 0, 4],
-    mb: [4, 4, 0],
+    marginLeft: [0, 0, 4],
+    marginBottom: [4, 4, 0],
   },
 }
 
 const content = {
-  pt: 4,
-  px: 6,
-  pb: 6,
+  paddingTop: 4,
+  paddingX: 6,
+  paddingBottom: 6,
 }
 
 // TODO: Make it global

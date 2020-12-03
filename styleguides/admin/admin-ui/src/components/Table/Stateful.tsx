@@ -36,7 +36,8 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     columns,
     items = [],
     loading = false,
-    getRowKey = (item: T) => get((item as unknown) as object, 'id', ''),
+    getRowKey = (item: T) =>
+      get((item as unknown) as Record<string, unknown>, 'id', ''),
     resolvers,
     density = 'regular',
     dir = 'ltr',
@@ -79,7 +80,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
         </Table.Head>
         <Table.Body>
           {data.map((item) => (
-            <Table.Row key={getRowKey(item)}>
+            <Table.Row key={getRowKey(item) as string}>
               {columns.map((column) => {
                 const content = resolveCell({
                   column,

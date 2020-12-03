@@ -6,7 +6,7 @@ import { createElement } from '../createElement'
 
 describe('createElement tests', () => {
   it('should be able to create an element', () => {
-    function View(props: PropsWithChildren<{}>) {
+    function View(props: PropsWithChildren<unknown>) {
       return createElement({
         component: ReakitBox,
         htmlProps: props,

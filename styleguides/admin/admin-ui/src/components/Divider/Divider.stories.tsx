@@ -21,7 +21,9 @@ export const Horizontal: Story<DividerProps> = () => {
         limit. Tolerance is set per account.
       </Paragraph>
       <Divider orientation="horizontal" styleOverrides={{ marginX: 6 }} />
-      <Heading styleOverrides={{ marginY: 2 }}>Automatic account creation</Heading>
+      <Heading styleOverrides={{ marginY: 2 }}>
+        Automatic account creation
+      </Heading>
       <Paragraph>
         Allows users who have not been previously credited to close a purchase.
       </Paragraph>
@@ -38,7 +40,7 @@ export const Vertical: Story<DividerProps> = () => {
         justifyContent: 'center',
       }}
     >
-      <Box styles={{ width: "5/12" }}>
+      <Box styles={{ width: '5/12' }}>
         <Heading styleOverrides={{ marginY: 2 }}>Cards</Heading>
         <Paragraph>
           In Cards, your customer is given autonomy to manage credit cards
@@ -46,7 +48,7 @@ export const Vertical: Story<DividerProps> = () => {
         </Paragraph>
       </Box>
       <Divider orientation="vertical" styleOverrides={{ marginX: 6 }} />
-      <Box styles={{ width: "5/12" }}>
+      <Box styles={{ width: '5/12' }}>
         <Heading styleOverrides={{ marginY: 2 }}>Personal data</Heading>
         <Paragraph>
           In this section, the user can manage their personal data registered on
