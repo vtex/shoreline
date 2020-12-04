@@ -21,7 +21,7 @@ describe('cn test', () => {
   }
 
   it('should be able to consume a themeKey', () => {
-    const { cn } = createThemeConsumers({ theme })
+    const { cn } = createThemeConsumers(theme)
 
     const { getByTestId } = render(
       <div
@@ -41,7 +41,7 @@ describe('cn test', () => {
   })
 
   it('should be able to consume a theme', () => {
-    const { cn } = createThemeConsumers({ theme })
+    const { cn } = createThemeConsumers(theme)
 
     const { getByRole } = render(
       <button
