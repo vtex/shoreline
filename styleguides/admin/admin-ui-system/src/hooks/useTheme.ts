@@ -2,7 +2,7 @@ import { useThemeUI } from '@theme-ui/core'
 import invariant from 'tiny-invariant'
 
 import { isObjectEmpty } from '../util'
-import { Theme } from '../styles'
+import { Theme } from '../types'
 
 export function useTheme(): Theme {
   const { theme } = useThemeUI()

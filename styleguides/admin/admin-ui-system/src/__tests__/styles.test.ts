@@ -1,5 +1,6 @@
-import { styles, Theme } from '../styles'
+import { styles } from '../styles'
 import { get } from '../util'
+import { Theme } from '../types'
 
 const theme: Theme = {
   colors: {

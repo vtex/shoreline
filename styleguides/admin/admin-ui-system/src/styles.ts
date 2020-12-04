@@ -1,77 +1,18 @@
 import { CSSObject } from '@emotion/css'
 
 import { StyleProp, ThemeDerivedStyles, Theme, StyleObject } from './types'
-import { scales, Scales } from './scales'
-import { get } from '../util'
+import {
+  scales,
+  aliases,
+  defaultTheme,
+  defaultBreakpoints,
+  multiples,
+  transformations,
+} from './constants'
+import { get } from './util'
 
-export * from './types'
-
-export const defaultBreakpoints = [40, 52, 64].map((n) => `${n}em`)
-
-const defaultTheme = {
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-}
-
-const aliases = {
-  bg: 'backgroundColor',
-  fontSettings: 'fontVariationSettings',
-} as const
-
+type Scales = typeof scales
 type Aliases = typeof aliases
-
-export const multiples = {
-  marginX: ['marginLeft', 'marginRight'],
-  marginY: ['marginTop', 'marginBottom'],
-  paddingX: ['paddingLeft', 'paddingRight'],
-  paddingY: ['paddingTop', 'paddingBottom'],
-  size: ['width', 'height'],
-}
-
-const transformations = [
-  'margin',
-  'marginTop',
-  'marginRight',
-  'marginBottom',
-  'marginLeft',
-  'marginX',
-  'marginY',
-  'marginBlock',
-  'marginBlockEnd',
-  'marginBlockStart',
-  'marginInline',
-  'marginInlineEnd',
-  'marginInlineStart',
-  'top',
-  'bottom',
-  'left',
-  'right',
-].reduce(
-  (acc, curr) => ({
-    ...acc,
-    /** Transform negative values */
-    [curr]: (scale: Record<string, unknown>, value: string | number) => {
-      if (typeof value !== 'number' || value >= 0) {
-        if (typeof value === 'string' && value.startsWith('-')) {
-          const valueWithoutMinus = value.substring(1)
-          const n = get(scale, valueWithoutMinus, valueWithoutMinus)
-
-          return `-${n}`
-        }
-
-        return get(scale, value, value)
-      }
-
-      const absolute = Math.abs(value)
-      const n = get(scale, absolute, absolute)
-
-      if (typeof n === 'string') return `-${n}`
-
-      return Number(n) * -1
-    },
-  }),
-  {}
-)
 
 const responsive = (styles: Exclude<StyleProp, ThemeDerivedStyles>) => (
   theme?: Theme
