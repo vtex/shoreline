@@ -3,16 +3,10 @@
 exports[`Dropdown tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   position: relative;
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25,8 +19,8 @@ exports[`Dropdown tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
@@ -39,6 +33,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -70,7 +65,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.emotion-3 > *:not(:last-child) {
+.emotion-3 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
@@ -166,20 +161,15 @@ exports[`Dropdown tests should match snapshot 1`] = `
       class="emotion-3"
       id="downshift-3-menu"
       role="listbox"
+      styles="[object Object]"
       tabindex="-1"
     />
   </div>
   .emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   position: relative;
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -192,8 +182,8 @@ exports[`Dropdown tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
@@ -206,6 +196,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -237,7 +228,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.emotion-3 > *:not(:last-child) {
+.emotion-3 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
@@ -333,20 +324,15 @@ exports[`Dropdown tests should match snapshot 1`] = `
       class="emotion-3"
       id="downshift-4-menu"
       role="listbox"
+      styles="[object Object]"
       tabindex="-1"
     />
   </div>
   .emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   position: relative;
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -359,8 +345,8 @@ exports[`Dropdown tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
@@ -373,6 +359,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -404,7 +391,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.emotion-3 > *:not(:last-child) {
+.emotion-3 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
@@ -501,6 +488,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
       class="emotion-3"
       id="downshift-5-menu"
       role="listbox"
+      styles="[object Object]"
       tabindex="-1"
     />
   </div>
@@ -510,16 +498,10 @@ exports[`Dropdown tests should match snapshot 1`] = `
 exports[`Dropdown tests should render a Dropdown with a list of string and other with a list of object 1`] = `
 <DocumentFragment>
   .emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   position: relative;
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -532,8 +514,8 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
@@ -546,6 +528,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -577,7 +560,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   flex-direction: column;
 }
 
-.emotion-3 > *:not(:last-child) {
+.emotion-3 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
@@ -673,20 +656,15 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
       class="emotion-3"
       id="downshift-1-menu"
       role="listbox"
+      styles="[object Object]"
       tabindex="-1"
     />
   </div>
   .emotion-4 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   position: relative;
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -699,8 +677,8 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
@@ -713,6 +691,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -744,7 +723,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   flex-direction: column;
 }
 
-.emotion-3 > *:not(:last-child) {
+.emotion-3 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
@@ -840,6 +819,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
       class="emotion-3"
       id="downshift-2-menu"
       role="listbox"
+      styles="[object Object]"
       tabindex="-1"
     />
   </div>

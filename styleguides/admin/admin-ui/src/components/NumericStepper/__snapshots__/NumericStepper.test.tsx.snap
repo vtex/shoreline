@@ -3,9 +3,6 @@
 exports[`NumericStepper tests should not have any violations 1`] = `
 <DocumentFragment>
   .emotion-9 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   width: 106px;
 }
 
@@ -23,9 +20,6 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   width: 106px;
   padding-top: 12px;
   padding-bottom: 12px;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-3 {
@@ -75,9 +69,6 @@ exports[`NumericStepper tests should not have any violations 1`] = `
 }
 
 .emotion-2 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -90,8 +81,8 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -156,6 +147,7 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   height: 48px;
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   padding-left: 36px;
   padding-right: 36px;
@@ -217,6 +209,7 @@ exports[`NumericStepper tests should not have any violations 1`] = `
       <button
         aria-label="numeric-stepper-decrease-button"
         class="emotion-3"
+        styles="[object Object]"
         type="button"
       >
         <div
@@ -239,6 +232,7 @@ exports[`NumericStepper tests should not have any violations 1`] = `
       <button
         aria-label="numeric-stepper-increase-button}"
         class="emotion-6"
+        styles="[object Object]"
         type="button"
       >
         <div

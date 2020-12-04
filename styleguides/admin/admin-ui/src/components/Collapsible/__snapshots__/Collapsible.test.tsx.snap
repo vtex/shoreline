@@ -59,9 +59,6 @@ exports[`Collapsible tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -74,8 +71,8 @@ exports[`Collapsible tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -88,17 +85,14 @@ exports[`Collapsible tests should match snapshot 1`] = `
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   -webkit-transition: -webkit-transform 150ms ease;
-  -webkit-transition: transform 150ms ease;
   transition: transform 150ms ease;
 }
 
 .emotion-3 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -124,13 +118,12 @@ exports[`Collapsible tests should match snapshot 1`] = `
   align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1.5rem;
   padding-left: 0.5rem;
 }
 
-.emotion-4 div > button:nth-of-type(n+2) {
+.emotion-4 div>button:nth-of-type(n+2) {
   margin-left: 0.25rem;
 }
 
@@ -138,9 +131,6 @@ exports[`Collapsible tests should match snapshot 1`] = `
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 <div
@@ -153,6 +143,7 @@ exports[`Collapsible tests should match snapshot 1`] = `
         aria-controls="mocked-id"
         aria-expanded="true"
         class="emotion-2"
+        styles="[object Object]"
         type="button"
       >
         <div
@@ -251,9 +242,6 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -266,8 +254,8 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -280,17 +268,14 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   -webkit-transition: -webkit-transform 150ms ease;
-  -webkit-transition: transform 150ms ease;
   transition: transform 150ms ease;
 }
 
 .emotion-3 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -316,13 +301,12 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1.5rem;
   padding-left: 0.5rem;
 }
 
-.emotion-4 div > button:nth-of-type(n+2) {
+.emotion-4 div>button:nth-of-type(n+2) {
   margin-left: 0.25rem;
 }
 
@@ -330,9 +314,6 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-9 {
@@ -346,13 +327,12 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1rem;
   padding-left: 0rem;
 }
 
-.emotion-9 div > button:nth-of-type(n+2) {
+.emotion-9 div>button:nth-of-type(n+2) {
   margin-left: 0.25rem;
 }
 
@@ -360,9 +340,6 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 <div
@@ -375,6 +352,7 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
         aria-controls="mocked-id"
         aria-expanded="true"
         class="emotion-2"
+        styles="[object Object]"
         type="button"
       >
         <div
@@ -417,6 +395,7 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
               aria-controls="mocked-id"
               aria-expanded="true"
               class="emotion-2"
+              styles="[object Object]"
               type="button"
             >
               <div
