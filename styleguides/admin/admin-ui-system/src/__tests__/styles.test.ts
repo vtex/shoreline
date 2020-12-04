@@ -255,7 +255,7 @@ test('returns variants from theme', () => {
 
 test('handles variants with responsive values', () => {
   const result = styles({
-    themeKey: 'text.caps',
+    themeKey: 'text.action',
   })(theme)
 
   expect(result).toEqual({
