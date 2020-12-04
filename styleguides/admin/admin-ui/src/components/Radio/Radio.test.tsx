@@ -1,13 +1,9 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
-import serializer, { matchers } from 'jest-emotion'
 
 import { Radio, useRadioState, RadioStateReturn } from './index'
 import { ThemeProvider } from '../../system'
-
-expect.addSnapshotSerializer(serializer)
-expect.extend(matchers)
 
 function RadioState({
   children,

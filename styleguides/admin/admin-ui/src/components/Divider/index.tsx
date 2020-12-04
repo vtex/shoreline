@@ -18,6 +18,7 @@ export function useDivider(props: DividerProps) {
   const className = cn({
     text: 'headline',
     themeKey: `components.divider.${orientation}`,
+    ...styleOverrides,
   })
 
   return {
