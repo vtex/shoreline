@@ -2,7 +2,8 @@ import React from 'react'
 import { ThemeProvider as BaseProvider } from '@theme-ui/core'
 import { css } from '@emotion/css'
 
-import { StyleProp, styles } from './styles'
+import { styles } from './styles'
+import { StyleProp } from './types'
 import { get } from './util'
 
 export function createSystem<T>(theme: T): CreateSystemReturn {

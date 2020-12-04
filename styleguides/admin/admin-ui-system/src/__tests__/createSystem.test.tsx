@@ -6,7 +6,7 @@ import { Box as ReakitBox } from 'reakit/Box'
 import { createSystem, useTheme } from '..'
 import { get } from '../util'
 import { useClassName } from '../hooks'
-import { StyleProp } from '../styles'
+import { StyleProp } from '../types'
 import { createElement } from '../createElement'
 
 describe('createSystem test', () => {
