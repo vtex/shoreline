@@ -16,6 +16,7 @@
   paths:
     - /primitives/introduction/
     - /primitives/box/
+    - /primitives/flex/
     - /primitives/skeleton/
 - section: Layouts
   paths:
