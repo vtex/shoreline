@@ -1,6 +1,6 @@
 import React from 'react'
 import warning from 'tiny-warning'
-// @ts-expect-error
+// @ts-expect-error: it is not typed correctly
 import Props, { PropsTable } from 'pretty-proptypes'
 
 import * as AdminUILib from '../../../admin-ui/src'

@@ -20,21 +20,21 @@ export function IconPage() {
           display: 'Arrow direction="right"',
           props: {
             direction: 'right',
-          } as object,
+          } as Record<string, unknown>,
         },
         {
           label: 'Arrow',
           display: 'Arrow direction="down"',
           props: {
             direction: 'down',
-          } as object,
+          } as Record<string, unknown>,
         },
         {
           label: 'Arrow',
           display: 'Arrow direction="left"',
           props: {
             direction: 'left',
-          } as object,
+          } as Record<string, unknown>,
         },
         {
           label: 'Export',
@@ -262,7 +262,7 @@ export function IconPage() {
           display: 'Notifications on={true}',
           props: {
             on: true,
-          } as object,
+          } as Record<string, unknown>,
         },
         {
           label: 'KnowledgeBase',
@@ -483,8 +483,9 @@ export function IconPage() {
                   <Box
                     key={display ?? label}
                     element="button"
-                    palette="base"
                     styles={{
+                      color: 'text.primary',
+                      bg: 'background',
                       border: 'none',
                       flex: '0 0 auto',
                       width: '2/12',

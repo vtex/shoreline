@@ -199,7 +199,7 @@ type DocsProps = {
   data: {
     markdownRemark: {
       title: string
-      htmlAst: object
+      htmlAst: Record<string, unknown>
       excerpt: string
       frontmatter: {
         path: string
