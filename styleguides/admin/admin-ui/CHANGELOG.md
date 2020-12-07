@@ -6,6 +6,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [0.63.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.63.2...@vtex/admin-ui@0.63.3) (2020-12-08)
 
 **Note:** Version bump only for package @vtex/admin-ui
+# [0.64.0-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.63.2...@vtex/admin-ui@0.64.0-next.0) (2020-12-07)
+
+
+### Features
+
+* **admin-ui:** implement new system on admin-ui ([d6aaf20](https://github.com/vtex/onda/commit/d6aaf206f5cce70cbb3de3bb617e54cb5e8de806))
 
 
 

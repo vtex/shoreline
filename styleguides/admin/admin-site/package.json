@@ -1,6 +1,6 @@
 {
   "name": "admin-site",
-  "version": "0.7.0",
+  "version": "0.7.0-next.0",
   "private": true,
   "description": "AdminUI site",
   "license": "MIT",
@@ -13,16 +13,16 @@
     "develop": "gatsby develop -H 0.0.0.0 -p 8000"
   },
   "dependencies": {
+    "@emotion/babel-plugin": "^11.0.0",
+    "@emotion/css": "^11.0.0",
     "@emotion/react": "^11.1.1",
     "@emotion/server": "^11.0.0",
-    "@emotion/css": "^11.0.0",
-    "@emotion/babel-plugin": "^11.0.0",
     "@types/lodash": "4.14.161",
     "@types/qs": "6.9.5",
     "@types/react-helmet": "6.1.0",
     "@types/yup": "0.29.7",
-    "@vtex/admin-ui": "^0.63.3",
-    "@vtex/admin-ui-icons": "^0.4.0",
+    "@vtex/admin-ui": "^0.64.0-next.0",
+    "@vtex/admin-ui-icons": "^0.4.0-next.0",
     "babel-plugin-extract-react-types": "^0.1.10",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-gatsby": "^0.5.14",
