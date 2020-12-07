@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0-next.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.6.7...admin-site@0.7.0-next.0) (2020-12-07)
+
+
+### Features
+
+* **admin-ui:** implement new system on admin-ui ([d6aaf20](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/d6aaf206f5cce70cbb3de3bb617e54cb5e8de806))
+
+
+
+
+
 ## [0.6.7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.6.6...admin-site@0.6.7) (2020-12-02)
 
 **Note:** Version bump only for package admin-site
