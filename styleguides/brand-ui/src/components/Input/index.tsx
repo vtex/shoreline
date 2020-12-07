@@ -1,7 +1,13 @@
 import React, { useState, useRef, PropsWithChildren, ReactNode } from 'react'
-import { Box, Flex, Label, Input as ThemeUIInput, Text } from 'theme-ui'
+import {
+  Box,
+  Flex,
+  Label,
+  Input as ThemeUIInput,
+  Text,
+  SxStyleProp,
+} from 'theme-ui'
 import { Input as ReakitInput, InputProps as BaseProps } from 'reakit/Input'
-
 import { forwardRef } from '@vtex-components/utils'
 
 import useInputState from './useInputState'
@@ -23,6 +29,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
     sx = {},
     ...inputProps
   } = props
+
   const ref = useRef<HTMLInputElement>(null)
   const redirectFocus = () => ref.current?.focus()
 
@@ -37,8 +44,9 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
 
   const labelVariant = `input.label.${size}-${prefix ? 'prefix-' : ''}${state}`
   const helpMessageVariant = `input.helpMessage.${
-    (state === 'disabled' || state === 'error') ? state : 'default'
+    state === 'disabled' || state === 'error' ? state : 'default'
   }`
+
   return (
     <Box
       sx={{ margin: 2, width: 'fit-content' }}
@@ -57,7 +65,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
         {...inputProps}
       >
         {(enhancedProps) => (
-          <Flex variant={`input.${size}-${state}`} sx={sx}>
+          <Flex variant={`input.${size}-${state}`} sx={sx as any}>
             {prefix && <Flex variant="input.prefix">{prefix}</Flex>}
             <ThemeUIInput
               sx={{
@@ -70,7 +78,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
                 },
                 ':hover': {
                   cursor: readOnly ? 'default' : 'text',
-                }
+                },
               }}
               {...enhancedProps}
             />
@@ -103,7 +111,7 @@ export type InputState =
   | 'readOnly'
 
 export interface InputProps
-  extends Pick<BaseProps, 'sx' | 'disabled' | 'readOnly' | 'value' | 'type'> {
+  extends Pick<BaseProps, 'disabled' | 'readOnly' | 'value' | 'type'> {
   id: string
   helpMessage: string
   label: string
@@ -113,6 +121,7 @@ export interface InputProps
   prefix?: ReactNode
   size?: Size
   suffix?: ReactNode
+  sx?: SxStyleProp
 }
 
 export default forwardRef(Input)

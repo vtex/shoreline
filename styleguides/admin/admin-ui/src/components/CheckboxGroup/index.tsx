@@ -15,7 +15,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
   } = props
 
   const className = useClassName({
-    props: { styles: styleOverrides },
+    ...styleOverrides,
     themeKey: `components.controlGroup.${orientation}-${size}`,
   })
 

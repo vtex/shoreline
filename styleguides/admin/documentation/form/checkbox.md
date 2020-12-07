@@ -194,8 +194,6 @@ Sometimes you need to implement a Checkbox that controls the state of a set of C
 import React from 'react'
 import {
   Checkbox,
-  Set,
-  Box,
   useCheckboxState,
   Label,
   CheckboxGroup,

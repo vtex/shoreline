@@ -59,8 +59,9 @@ export default function CoreLayout(props: Props) {
                   ref={ref}
                   onScroll={handleScroll}
                   element="main"
-                  palette="base"
                   styles={{
+                    color: 'text.primary',
+                    bg: 'background',
                     gridArea: 'main',
                     overflowY: 'auto',
                     scrollBehavior: 'smooth',
@@ -110,12 +111,12 @@ interface Props {
   pageContext: {
     sourceUrl?: string
     readmeUrl?: string
-    tableOfContentsAst?: object
+    tableOfContentsAst?: Record<string, unknown>
   }
   data?: {
     markdownRemark?: {
       title?: string
-      htmlAst?: object
+      htmlAst?: Record<string, unknown>
       frontmatter?: {
         path?: string
         experimental?: boolean

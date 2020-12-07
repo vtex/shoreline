@@ -14,7 +14,7 @@ import { Box, Anchor, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box width={300}>
+      <Box styles={{ width: 300 }}>
         <Anchor href="/typography/anchor/#behavior">Link</Anchor>
       </Box>
     </ThemeProvider>

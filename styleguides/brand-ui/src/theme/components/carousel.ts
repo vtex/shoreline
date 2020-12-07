@@ -37,7 +37,7 @@ const navigationButtonBase: SxStyleProp = {
   },
 }
 
-const navigationButton: SxStyleProp = {
+const navigationButton = {
   regular: {
     ...navigationButtonBase,
     height: 64,
@@ -86,7 +86,7 @@ const indicatorBase: SxStyleProp = {
   },
 }
 
-const indicator: SxStyleProp = {
+const indicator = {
   ...indicatorBase,
   active: {
     ...indicatorBase,
@@ -94,7 +94,7 @@ const indicator: SxStyleProp = {
   },
 }
 
-const nextButton: SxStyleProp = {
+const nextButton = {
   small: {
     ...navigationButton.small,
     marginRight: 4,
@@ -105,7 +105,7 @@ const nextButton: SxStyleProp = {
   },
 }
 
-const previousButton: SxStyleProp = {
+const previousButton = {
   small: {
     ...navigationButton.small,
     marginLeft: 4,

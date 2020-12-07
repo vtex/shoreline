@@ -6,8 +6,6 @@ import {
   usePlaygroundState,
   PlaygroundStateReturn,
 } from 'reakit-playground'
-import * as emotion from 'emotion'
-import * as styled from 'styled-components'
 import * as AdminUI from '@vtex/admin-ui'
 import * as System from '@vtex/admin-ui-system'
 import * as AdminIcons from '@vtex/admin-ui-icons'
@@ -46,8 +44,6 @@ function Playground({
             '@vtex/admin-ui': AdminUI,
             '@vtex/admin-ui-icons': AdminIcons,
             '@vtex/admin-ui-system': System,
-            emotion,
-            'styled-components': styled,
           }}
           {...state}
         />

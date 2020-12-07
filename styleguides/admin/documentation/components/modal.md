@@ -284,7 +284,7 @@ useEffect(() => {
 function Example() {
   return (
     <ThemeProvider>
-      <Box sx={{ 'button + button': { ml: 4 } }}>
+      <Box styles={{ 'button + button': { ml: 4 } }}>
         <Button onClick={fetchData} disabled={data.length > 0}>
           Get blocks data
         </Button>

@@ -5,6 +5,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   .emotion-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   margin: 0rem;
   position: relative;
@@ -96,12 +97,12 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   flex-direction: row;
 }
 
-.emotion-3 > label > input {
+.emotion-3>label>input {
   margin-right: 0.5rem;
   margin-left: 0rem;
 }
 
-.emotion-3 > label {
+.emotion-3>label {
   cursor: pointer;
   color: #323845;
   display: -webkit-box;
@@ -137,18 +138,18 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
     <input
       aria-checked="false"
       class="emotion-0"
-      id="id-1"
+      id="id-2"
       name="id"
-      tabindex="0"
+      tabindex="-1"
       type="radio"
       value="Watermelon"
     />
     <input
       aria-checked="false"
       class="emotion-0"
-      id="id-1"
+      id="id-3"
       name="id"
-      tabindex="0"
+      tabindex="-1"
       type="radio"
       value="Orange"
     />
@@ -156,6 +157,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   .emotion-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   margin: 0rem;
   position: relative;
@@ -247,12 +249,12 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   flex-direction: column;
 }
 
-.emotion-3 > label > input {
+.emotion-3>label>input {
   margin-right: 0.5rem;
   margin-left: 0rem;
 }
 
-.emotion-3 > label {
+.emotion-3>label {
   cursor: pointer;
   color: #323845;
   display: -webkit-box;
@@ -288,18 +290,18 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
     <input
       aria-checked="false"
       class="emotion-0"
-      id="id-1"
+      id="id-2"
       name="id"
-      tabindex="0"
+      tabindex="-1"
       type="radio"
       value="Watermelon"
     />
     <input
       aria-checked="false"
       class="emotion-0"
-      id="id-1"
+      id="id-3"
       name="id"
-      tabindex="0"
+      tabindex="-1"
       type="radio"
       value="Orange"
     />

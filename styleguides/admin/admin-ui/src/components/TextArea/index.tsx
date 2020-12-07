@@ -27,11 +27,7 @@ export const TextArea = forwardRef(function Textarea(
   const message = error ? errorMessage : helperText
 
   const className = useClassName({
-    props: {
-      styles: {
-        ...styleOverrides,
-      },
-    },
+    ...styleOverrides,
     themeKey: 'components.textArea.default',
   })
 

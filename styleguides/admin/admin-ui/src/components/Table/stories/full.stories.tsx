@@ -17,8 +17,7 @@ export const Example = () => {
 
   return (
     <Card
-      width={560}
-      styleOverrides={{ display: 'flex', flexDirection: 'column' }}
+      styleOverrides={{ width: 560, display: 'flex', flexDirection: 'column' }}
     >
       <Button onClick={() => setLoading((l) => !l)}>Load</Button>
       <StatefulTable

@@ -89,7 +89,7 @@ const baseLocaleSwitcher: SxStyleProp = {
   outline: 'none',
 }
 
-const large: SxStyleProp = {
+const large = {
   ...baseLocaleSwitcher,
   display: ['none', 'none', 'none', 'flex'],
   ':hover': {
@@ -104,7 +104,7 @@ const large: SxStyleProp = {
   option: optionLarge,
 }
 
-const mobile: SxStyleProp = {
+const mobile = {
   ...baseLocaleSwitcher,
   display: ['flex', 'flex', 'flex', 'none'],
   position: 'fixed',
@@ -120,7 +120,7 @@ const mobile: SxStyleProp = {
   option: optionMobile,
 }
 
-const localeSwitcher: SxStyleProp = {
+const localeSwitcher = {
   large,
   mobile: {
     ...mobile,

@@ -1,4 +1,4 @@
-import { SxStyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-ui-system'
 import { ReactNode, ReactElement, useRef, Children } from 'react'
 
 import { ModalSize } from './types'
@@ -25,7 +25,7 @@ export function useComponentsExistence(children: ReactNode) {
     }
   })
 
-  const scrollStyle: SxStyleProp =
+  const scrollStyle: StyleProp =
     headerExists.current || footerExists.current ? { overflowY: 'hidden' } : {}
 
   return {

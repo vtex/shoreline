@@ -19,7 +19,7 @@ export const ModalContent = forwardRef(function ModalContent(
   )
 
   const className = useClassName({
-    props: { styles: styleOverrides },
+    ...styleOverrides,
     themeKey: `components.modal.content${scrollSize}`,
   })
 

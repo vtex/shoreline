@@ -13,7 +13,7 @@ export const Basic = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -29,7 +29,7 @@ export const HelperText = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -46,7 +46,7 @@ export const CharLimit = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -63,7 +63,7 @@ export const WithIcon = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -80,7 +80,7 @@ export const FullBlown = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -100,7 +100,7 @@ export const Error = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -118,7 +118,7 @@ export const Types = () => {
   const types = ['text', 'email', 'url', 'tel'] as InputType[]
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       {types.map((type) => (
         <Input
           type={type}

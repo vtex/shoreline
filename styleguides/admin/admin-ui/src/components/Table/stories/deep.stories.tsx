@@ -8,7 +8,7 @@ import {
   DropResult,
 } from 'react-beautiful-dnd'
 import faker from 'faker'
-import { SxStyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-ui-system'
 import { IconDrag } from '@vtex/admin-ui-icons'
 
 import { Table } from '../index'
@@ -34,7 +34,7 @@ export function LowerLevel() {
         name: faker.commerce.productName(),
         lastSale: faker.date.past().toDateString(),
         price: faker.commerce.price(),
-      } as Item
+      }
     })
   }, [])
 
@@ -116,7 +116,7 @@ export function Windowing() {
         date: faker.date.past().toDateString(),
         status: faker.commerce.department(),
         name: faker.commerce.productName(),
-      } as Item
+      }
     })
   }, [])
 
@@ -149,7 +149,7 @@ export function Windowing() {
       <Table.Row
         element="div"
         key={item.id}
-        styleOverrides={style as SxStyleProp}
+        styleOverrides={style as StyleProp}
       >
         {table.columns.map((column) => {
           const content = table.resolveCell({ item, column })

@@ -1,13 +1,13 @@
 import { forwardRef, Ref, ReactNode } from 'react'
 import { Box as ReakitBox } from 'reakit/Box'
 import {
-  SxStyleProp,
+  StyleProp,
   useResponsiveValue,
   ResponsiveValue,
+  useClassName,
 } from '@vtex/admin-ui-system'
 
 import { createElement } from '../../system'
-import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 
 export const Set = forwardRef(function Set(
@@ -38,7 +38,7 @@ export function useSet(props: SetProps) {
   const currentOrientation = useResponsiveValue(orientation)
   const currentAlign = useResponsiveValue(align)
 
-  const styles: Record<string, SxStyleProp> = {
+  const styles: Record<string, StyleProp> = {
     vertical: {
       display: 'flex',
       flexDirection: 'column',
@@ -70,15 +70,14 @@ export function useSet(props: SetProps) {
 
   const variant = `${currentOrientation}${fluid ? '-fluid' : ''}`
 
-  const setProps = useComponent({
-    props: {
-      ...layoutProps,
-      styles: { ...styles[variant], ...childrenSpacing, ...styleOverrides },
-    },
+  const className = useClassName({
     themeKey,
+    ...styles[variant],
+    ...childrenSpacing,
+    ...styleOverrides,
   })
 
-  return { setProps, currentOrientation }
+  return { setProps: { ...layoutProps, className }, currentOrientation }
 }
 
 export interface SetProps extends Overridable {

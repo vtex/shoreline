@@ -4,7 +4,7 @@ const textAreaInputStyle = {
   paddingTop: 24,
   height: 100,
   resize: 'none',
-  fontVariationSettings: '"wght" 92',
+  fontSettings: 'regular',
   width: 'full',
   borderStyle: 'solid',
   borderWidth: 1,

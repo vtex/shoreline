@@ -4,30 +4,36 @@ exports[`Skeleton tests should match snapshot 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
+    -webkit-background-position: -200px 0;
     background-position: -200px 0;
   }
 
   100% {
+    -webkit-background-position: calc(200px + 100%) 0;
     background-position: calc(200px + 100%) 0;
   }
 }
 
 @keyframes animation-0 {
   0% {
+    -webkit-background-position: -200px 0;
     background-position: -200px 0;
   }
 
   100% {
+    -webkit-background-position: calc(200px + 100%) 0;
     background-position: calc(200px + 100%) 0;
   }
 }
 
 @keyframes animation-0 {
   0% {
+    -webkit-background-position: -200px 0;
     background-position: -200px 0;
   }
 
   100% {
+    -webkit-background-position: calc(200px + 100%) 0;
     background-position: calc(200px + 100%) 0;
   }
 }
@@ -37,11 +43,17 @@ exports[`Skeleton tests should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   background-color: #F4F6FB;
+  -webkit-background-size: 200px 100%;
   background-size: 200px 100%;
   background-repeat: no-repeat;
   line-height: 1;
   border-radius: 4px;
-  background-image: linear-gradient( 90deg, #F4F6FB, white, #F4F6FB );
+  background-image: linear-gradient(
+    90deg,
+    #F4F6FB,
+    white,
+    #F4F6FB
+  );
   -webkit-animation: animation-0 1.2s ease-in-out infinite;
   animation: animation-0 1.2s ease-in-out infinite;
 }
@@ -51,30 +63,36 @@ exports[`Skeleton tests should match snapshot 1`] = `
   />
   @keyframes animation-0 {
   0% {
+    -webkit-background-position: -200px 0;
     background-position: -200px 0;
   }
 
   100% {
+    -webkit-background-position: calc(200px + 100%) 0;
     background-position: calc(200px + 100%) 0;
   }
 }
 
 @keyframes animation-0 {
   0% {
+    -webkit-background-position: -200px 0;
     background-position: -200px 0;
   }
 
   100% {
+    -webkit-background-position: calc(200px + 100%) 0;
     background-position: calc(200px + 100%) 0;
   }
 }
 
 @keyframes animation-0 {
   0% {
+    -webkit-background-position: -200px 0;
     background-position: -200px 0;
   }
 
   100% {
+    -webkit-background-position: calc(200px + 100%) 0;
     background-position: calc(200px + 100%) 0;
   }
 }
@@ -84,18 +102,23 @@ exports[`Skeleton tests should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   background-color: #F4F6FB;
+  -webkit-background-size: 200px 100%;
   background-size: 200px 100%;
   background-repeat: no-repeat;
   line-height: 1;
   border-radius: 100%;
-  background-image: linear-gradient( 90deg, #F4F6FB, white, #F4F6FB );
+  background-image: linear-gradient(
+    90deg,
+    #F4F6FB,
+    white,
+    #F4F6FB
+  );
   -webkit-animation: animation-0 1.2s ease-in-out infinite;
   animation: animation-0 1.2s ease-in-out infinite;
 }
 
 <div
     class="emotion-0"
-    shape="circle"
   />
 </DocumentFragment>
 `;

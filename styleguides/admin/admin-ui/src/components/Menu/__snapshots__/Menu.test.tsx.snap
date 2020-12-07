@@ -58,9 +58,6 @@ exports[`Menu tests should match snapshot hidden 1`] = `
 }
 
 .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -73,8 +70,8 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -98,9 +95,6 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   border-style: solid;
   border-color: #C4C5CA;
   box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-8 hr {
@@ -118,7 +112,7 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   outline: none;
 }
 
-.emotion-8 > button {
+.emotion-8 >button {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -130,24 +124,24 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   width: 100%;
 }
 
-.emotion-8 > button:focus {
+.emotion-8 >button:focus {
   background-color: #DAE3F5;
   outline: none;
   box-shadow: none;
 }
 
-.emotion-8 > button:hover {
+.emotion-8 >button:hover {
   color: #323845;
 }
 
-.emotion-8 > button div {
+.emotion-8 >button div {
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-8 > button svg {
+.emotion-8 >button svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
@@ -289,9 +283,6 @@ exports[`Menu tests should match snapshot visible 1`] = `
 }
 
 .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -304,8 +295,8 @@ exports[`Menu tests should match snapshot visible 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -329,9 +320,6 @@ exports[`Menu tests should match snapshot visible 1`] = `
   border-style: solid;
   border-color: #C4C5CA;
   box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-8 hr {
@@ -349,7 +337,7 @@ exports[`Menu tests should match snapshot visible 1`] = `
   outline: none;
 }
 
-.emotion-8 > button {
+.emotion-8 >button {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -361,24 +349,24 @@ exports[`Menu tests should match snapshot visible 1`] = `
   width: 100%;
 }
 
-.emotion-8 > button:focus {
+.emotion-8 >button:focus {
   background-color: #DAE3F5;
   outline: none;
   box-shadow: none;
 }
 
-.emotion-8 > button:hover {
+.emotion-8 >button:hover {
   color: #323845;
 }
 
-.emotion-8 > button div {
+.emotion-8 >button div {
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-8 > button svg {
+.emotion-8 >button svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }

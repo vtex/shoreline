@@ -51,7 +51,7 @@ export type ResolverRenderProps<D, T> = {
 export interface Resolver<T = any, I = any, S = any> {
   cell: (helpers: {
     /** current data extractor */
-    getData: Function
+    getData: CallableFunction
     /** current item */
     item: T
     /** current column */
@@ -60,7 +60,7 @@ export interface Resolver<T = any, I = any, S = any> {
     context: ResolverContext
   }) => ReactNode
   header?: (helpers: {
-    getData: Function
+    getData: CallableFunction
     context: ResolverContext
   }) => ReactNode
 }
@@ -72,7 +72,7 @@ export interface Resolver<T = any, I = any, S = any> {
  * @generic S: Aditional resolver specs
  * @param {Resolver} resolver resolver definition
  */
-export function createResolver<T, I, S = {}>(
+export function createResolver<T, I, S = Record<string, unknown>>(
   resolver: Resolver<T, I, S>
 ): Resolver<T, I, S> {
   return resolver
@@ -159,7 +159,11 @@ function accessCell<T>(column: Column<T>, item: T) {
 
   switch (typeof acessor) {
     case 'string': {
-      const resolved = get((item as unknown) as object, acessor, undefined)
+      const resolved = get(
+        (item as unknown) as Record<string, unknown>,
+        acessor,
+        undefined
+      )
 
       warning(
         resolved,

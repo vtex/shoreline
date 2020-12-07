@@ -15,13 +15,13 @@ const merge = (...params: any) => lodashMerge({}, ...params)
 /**
  * Whether a value is a function
  */
-const isFunction = (param: unknown): param is Function =>
+const isFunction = (param: unknown): param is CallableFunction =>
   typeof param === 'function'
 
 /**
- * Whether an object is empty
+ * Whether an Record<string, unknown> is empty
  */
-const isObjectEmpty = (obj: object) =>
+const isObjectEmpty = (obj: Record<string, unknown>) =>
   Object.keys(obj).length === 0 && obj.constructor === Object
 
 /**
@@ -30,7 +30,11 @@ const isObjectEmpty = (obj: object) =>
  * @param {string[]} commonProps - common props within the design system (those will be also omited)
  */
 function cleanProps<P>(props: P, commonProps: string[] = []): P {
-  const legalProps = pickHTMLProps((props as unknown) as object, commonProps)
+  const legalProps = pickHTMLProps(
+    (props as unknown) as Record<string, unknown>,
+    commonProps
+  )
+
   const safeProps = omit(legalProps, ...commonProps)
 
   return safeProps as P
@@ -41,7 +45,10 @@ function cleanProps<P>(props: P, commonProps: string[] = []): P {
  * @param {P} props - props that may be unsafe
  * @param {string[]} commonProps - common props within the design system (those will not be picked)
  */
-function pickHTMLProps<P extends object>(props: P, commonProps: string[]) {
+function pickHTMLProps<P extends Record<string, unknown>>(
+  props: P,
+  commonProps: string[]
+) {
   const filteredProps: Partial<P> = {}
 
   for (const prop in props) {
@@ -75,3 +82,27 @@ export {
   isPropValid,
   forwardRef,
 }
+
+export const transformScale = (acc: Record<string, any>, curr: string) => ({
+  ...acc,
+  /** Transform negative values */
+  [curr]: (scale: Record<string, unknown>, value: string | number) => {
+    if (typeof value !== 'number' || value >= 0) {
+      if (typeof value === 'string' && value.startsWith('-')) {
+        const valueWithoutMinus = value.substring(1)
+        const n = get(scale, valueWithoutMinus, valueWithoutMinus)
+
+        return `-${n}`
+      }
+
+      return get(scale, value, value)
+    }
+
+    const absolute = Math.abs(value)
+    const n = get(scale, absolute, absolute)
+
+    if (typeof n === 'string') return `-${n}`
+
+    return Number(n) * -1
+  },
+})

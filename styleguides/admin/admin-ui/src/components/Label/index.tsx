@@ -1,9 +1,7 @@
 import { ReactNode, forwardRef, Ref } from 'react'
 import { Box as ReakitBox } from 'reakit'
-import { TextPattern, SpaceStyleProps } from '@vtex/admin-ui-theme'
 
-import { createElement } from '../../system'
-import { useComponent } from '../../hooks/useComponent'
+import { cn, createElement } from '../../system'
 import { Overridable } from '../../types'
 
 /**
@@ -21,9 +19,7 @@ export const Label = forwardRef(function Heading(
   props: LabelProps,
   ref: Ref<HTMLHeadingElement>
 ) {
-  const labelProps = useComponent({
-    props: { text: 'body', ...props },
-  })
+  const labelProps = useLabel(props)
 
   return createElement({
     ref,
@@ -33,7 +29,20 @@ export const Label = forwardRef(function Heading(
   })
 })
 
-export interface LabelProps extends Overridable, TextPattern, SpaceStyleProps {
+export function useLabel(props: LabelProps) {
+  const { styleOverrides, ...htmlProps } = props
+  const className = cn({
+    text: 'body',
+    ...styleOverrides,
+  })
+
+  return {
+    className,
+    ...htmlProps,
+  }
+}
+
+export interface LabelProps extends Overridable {
   /**
    * label children
    */

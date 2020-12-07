@@ -38,8 +38,7 @@ const size = {
     height: 26,
     paddingX: '2',
     lineHeight: 'small',
-    fontVariationSettings: "'wght' 80",
-    fontWeight: 400,
+    fontSettings: "'wght' 80",
     fontSize: 0,
     svg: {
       width: 16,
@@ -56,8 +55,7 @@ const size = {
     height: 40,
     paddingX: '4',
     lineHeight: 'subtitle',
-    fontVariationSettings: "'wght' 92",
-    fontWeight: 500,
+    fontSettings: 'regular',
     fontSize: 2,
     svg: {
       width: 20,

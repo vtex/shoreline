@@ -3,10 +3,10 @@
 exports[`Text tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <span
@@ -15,10 +15,10 @@ exports[`Text tests should match snapshot 1`] = `
     Span
   </span>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <strong
@@ -27,10 +27,10 @@ exports[`Text tests should match snapshot 1`] = `
     Bold
   </strong>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <i
@@ -39,10 +39,10 @@ exports[`Text tests should match snapshot 1`] = `
     Italic
   </i>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <u
@@ -51,10 +51,10 @@ exports[`Text tests should match snapshot 1`] = `
     Underline
   </u>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <abbr
@@ -63,10 +63,10 @@ exports[`Text tests should match snapshot 1`] = `
     I18N
   </abbr>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <cite
@@ -75,10 +75,10 @@ exports[`Text tests should match snapshot 1`] = `
     Citation
   </cite>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <del
@@ -87,10 +87,10 @@ exports[`Text tests should match snapshot 1`] = `
     Deleted
   </del>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <em
@@ -99,10 +99,10 @@ exports[`Text tests should match snapshot 1`] = `
     Emphasis
   </em>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <ins
@@ -111,10 +111,10 @@ exports[`Text tests should match snapshot 1`] = `
     Inserted
   </ins>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <kbd
@@ -123,10 +123,10 @@ exports[`Text tests should match snapshot 1`] = `
     Ctrl + C
   </kbd>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <mark
@@ -135,10 +135,10 @@ exports[`Text tests should match snapshot 1`] = `
     Highlighted
   </mark>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <s
@@ -147,10 +147,10 @@ exports[`Text tests should match snapshot 1`] = `
     Strikethrough
   </s>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <samp
@@ -159,10 +159,10 @@ exports[`Text tests should match snapshot 1`] = `
     Sample
   </samp>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <sub
@@ -171,10 +171,10 @@ exports[`Text tests should match snapshot 1`] = `
     sub
   </sub>
   .emotion-0 {
+  color: #323845;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-  color: #323845;
 }
 
 <sup

@@ -7,21 +7,18 @@ export const Card = forwardRef(function Card(
   props: CardProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const {
-    styleOverrides,
-    palette = 'base',
-    border = 'default',
-    padding = 6,
-    ...boxProps
-  } = props
+  const { styleOverrides, ...boxProps } = props
 
   return (
     <Box
       ref={ref}
-      styles={styleOverrides}
-      palette={palette}
-      border={border}
-      padding={padding}
+      styles={{
+        bg: 'background',
+        color: 'text',
+        border: 'default',
+        padding: 6,
+        ...styleOverrides,
+      }}
       {...boxProps}
     />
   )

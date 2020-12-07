@@ -159,16 +159,18 @@ function Example() {
     <ThemeProvider>
       <Set orientation="vertical">
         <Box
-          palette="base"
           styles={{
+            color: 'text.primary',
+            bg: 'background',
             padding: 4,
           }}
         >
           <Button variant="adaptative-dark" icon={<IconClose />} />
         </Box>
         <Box
-          palette="inverted"
           styles={{
+            color: 'background',
+            bg: 'text.primary',
             padding: 4,
           }}
         >

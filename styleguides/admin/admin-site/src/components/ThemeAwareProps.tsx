@@ -38,10 +38,10 @@ function TitleColumn() {
       }}
     >
       <Columns.Item styleOverrides={{ paddingLeft: 6 }}>
-        <Heading text="headline">Property</Heading>
+        <Heading>Property</Heading>
       </Columns.Item>
       <Columns.Item styleOverrides={{ paddingLeft: 6 }}>
-        <Heading text="headline">Theme Key</Heading>
+        <Heading>Theme Key</Heading>
       </Columns.Item>
     </Columns>
   )

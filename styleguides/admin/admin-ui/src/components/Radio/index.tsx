@@ -6,29 +6,33 @@ import {
 } from 'reakit/Radio'
 import { forwardRef } from '@vtex/admin-ui-system'
 
-import { createElement } from '../../system'
+import { cn, createElement } from '../../system'
 import { Overridable } from '../../types'
-import { useComponent } from '../../hooks/useComponent'
 
 export const Radio = forwardRef(
   (props: RadioProps, ref: Ref<HTMLInputElement>) => {
-    const { size = 'regular', state, ...htmlProps } = props
-
-    const radioProps = useComponent({
-      props: htmlProps,
-      themeKey: `components.radio.${size}`,
-    })
+    const htmlProps = useRadio(props)
 
     // TODO Fix type
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return createElement<any>({
       component: ReakitRadio,
-      htmlProps: radioProps,
-      state,
+      htmlProps,
       ref,
     })
   }
 )
+
+export function useRadio(props: RadioProps) {
+  const { size = 'regular', state, styleOverrides, ...htmlProps } = props
+
+  const className = cn({
+    themeKey: `components.radio.${size}`,
+    ...styleOverrides,
+  })
+
+  return { className, ...state, ...htmlProps }
+}
 
 type AbstractRadioProps = Pick<
   ReakitRadioProps,

@@ -22,6 +22,61 @@ export default {
     '3': '1.125rem',
     '4': '1.25rem',
   },
+  text: {
+    small: {
+      lineHeight: 'small',
+      fontSettings: 'regular',
+      fontSize: 0,
+    },
+    body: {
+      lineHeight: 'body',
+      fontSettings: 'regular',
+      fontSize: 1,
+    },
+    highlight: {
+      lineHeight: 'highlight',
+      fontSettings: 'regular',
+      fontSize: 1,
+    },
+    action: {
+      lineHeight: 'action',
+      fontSettings: 'regular',
+      fontSize: 1,
+      textTransform: 'uppercase',
+    },
+    subtitle: {
+      lineHeight: 'subtitle',
+      fontSettings: 'regular',
+      fontSize: 2,
+    },
+    headline: {
+      lineHeight: 'headline',
+      fontSettings: 'regular',
+      fontSize: 4,
+    },
+  },
+  border: {
+    default: {
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderRadius: 'default',
+      borderColor: 'muted.2',
+    },
+    'divider-bottom': {
+      borderBottomWidth: '1px',
+      borderBottomStyle: 'solid',
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
+      borderColor: 'muted.2',
+    },
+    'divider-top': {
+      borderTopWidth: '1px',
+      borderTopStyle: 'solid',
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0,
+      borderColor: 'muted.2',
+    },
+  },
   zIndices: {
     under: -1,
     plain: 0,
@@ -32,25 +87,7 @@ export default {
     '4': 4,
     '5': 5,
   },
-  fontWeights: {
-    light: {
-      fontVariationSettings: "'wght' 80",
-      fontWeight: 300,
-    },
-    regular: {
-      fontVariationSettings: "'wght' 92",
-      fontWeight: 400,
-    },
-    medium: {
-      fontVariationSettings: "'wght' 100",
-      fontWeight: 500,
-    },
-    bold: {
-      fontVariationSettings: "'wght' 108",
-      fontWeight: 600,
-    },
-  },
-  fontVariationSettings: {
+  fontSettings: {
     hairline: "'wght' 30",
     thin: "'wght' 50",
     light: "'wght' 65",

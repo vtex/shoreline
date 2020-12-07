@@ -1,38 +1,38 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode } from 'react'
-import { TextPattern } from '@vtex/admin-ui-theme'
 
-import { createElement, useClassName } from '../../system'
+import { cn, createElement } from '../../system'
 import { Overridable } from '../../types'
 import { ListItem } from './ListItem'
 
 export function List(props: ListProps) {
-  const { style, styleOverrides, ordered, ...htmlProps } = props
-
-  const className = useClassName({
-    props: {
-      text: 'body',
-      styles: {
-        listStyleType: style,
-        listStylePosition: 'inside',
-        '> ul, ol': {
-          paddingLeft: 2,
-        },
-        '> :not(last-child)': {
-          paddingBottom: 1,
-        },
-        ...styleOverrides,
-      },
-    },
-  })
-
+  const { ordered, ...htmlProps } = props
+  const listProps = useList(htmlProps)
   const element = ordered ? 'ol' : 'ul'
 
   return createElement({
     element,
     component: ReakitBox,
-    htmlProps: { ...htmlProps, className },
+    htmlProps: listProps,
   })
+}
+
+export function useList(props: ListProps) {
+  const { style, styleOverrides, ...htmlProps } = props
+  const className = cn({
+    text: 'body',
+    listStyleType: style,
+    listStylePosition: 'inside',
+    '> ul, ol': {
+      paddingLeft: 2,
+    },
+    '> :not(last-child)': {
+      paddingBottom: 1,
+    },
+    ...styleOverrides,
+  })
+
+  return { className, ...htmlProps }
 }
 
 List.Item = ListItem
@@ -47,7 +47,7 @@ type ListStyleType =
   | 'initial'
   | 'unset'
 
-export interface ListProps extends Overridable, TextPattern {
+export interface ListProps extends Overridable {
   /**
    * list children
    */
