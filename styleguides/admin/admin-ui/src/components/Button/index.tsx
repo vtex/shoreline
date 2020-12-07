@@ -3,10 +3,10 @@ import {
   Button as ReakitButton,
   ButtonProps as ReakitButtonProps,
 } from 'reakit/Button'
+import { useClassName } from '@vtex/admin-ui-system'
 
 import { createElement, StyleProp } from '../../system'
 import { Variant, Size } from './types'
-import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
 
@@ -33,6 +33,51 @@ export const Button = forwardRef(function Button(
   })
 })
 
+export function useButton(props: ButtonProps): ButtonProps {
+  const {
+    variant = 'primary',
+    size = 'regular',
+    iconPosition = 'start',
+    icon,
+    children: prevChildren,
+    styleOverrides,
+    ...compoundProps
+  } = props
+
+  const { resolvedSize, containerStyles } = useButtonSize({
+    size,
+    icon,
+    iconPosition,
+    children: prevChildren,
+  })
+
+  const className = useClassName({
+    themeKey: `components.button.${variant}-${resolvedSize}`,
+    ...styleOverrides,
+  })
+
+  return {
+    className,
+    children: (
+      <Box
+        styles={{
+          display: 'flex',
+          height: 'full',
+          width: 'full',
+          margin: 'auto',
+          alignItems: 'center',
+          justifyContent: 'center',
+          ...containerStyles,
+        }}
+      >
+        {icon}
+        {prevChildren}
+      </Box>
+    ),
+    ...compoundProps,
+  }
+}
+
 function useButtonSize({
   size,
   icon,
@@ -55,49 +100,6 @@ function useButtonSize({
     resolvedSize,
     containerStyles,
   }
-}
-
-export function useButton(props: ButtonProps): ButtonProps {
-  const {
-    variant = 'primary',
-    size = 'regular',
-    iconPosition = 'start',
-    icon,
-    children: prevChildren,
-    ...compoundProps
-  } = props
-
-  const { resolvedSize, containerStyles } = useButtonSize({
-    size,
-    icon,
-    iconPosition,
-    children: prevChildren,
-  })
-
-  const buttonProps = useComponent({
-    props: {
-      ...compoundProps,
-      children: (
-        <Box
-          styles={{
-            display: 'flex',
-            height: 'full',
-            width: 'full',
-            margin: 'auto',
-            alignItems: 'center',
-            justifyContent: 'center',
-            ...containerStyles,
-          }}
-        >
-          {icon}
-          {prevChildren}
-        </Box>
-      ),
-    },
-    themeKey: `components.button.${variant}-${resolvedSize}`,
-  })
-
-  return buttonProps
 }
 
 export interface ButtonProps extends ReakitButtonProps, Overridable {

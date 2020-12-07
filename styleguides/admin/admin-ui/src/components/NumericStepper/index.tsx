@@ -31,7 +31,7 @@ export function NumericStepper(props: NumericStepperProps) {
   const hasHelper = error ?? helperText
 
   const className = useClassName({
-    props: { styles: styleOverrides },
+    ...styleOverrides,
     themeKey: `components.numericStepper.default${error ? '-error' : ''}`,
   })
 

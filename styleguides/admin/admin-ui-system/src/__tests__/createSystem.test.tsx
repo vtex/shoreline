@@ -176,7 +176,7 @@ describe('createSystem test', () => {
     }
 
     function Nav(props: NavbarProps) {
-      const className = useClassName({ props, themeKey: 'components.navbar' })
+      const className = useClassName({ themeKey: 'components.navbar' })
 
       return createElement({
         component: ReakitBox,

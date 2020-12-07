@@ -47,7 +47,8 @@ export function ColumnsItem(props: ColumnsItemProps) {
       }
 
   const className = useClassName({
-    props: { styles: { ...styles, ...styleOverrides } },
+    ...styles,
+    ...styleOverrides,
   })
 
   return <div className={className} {...layoutProps} />

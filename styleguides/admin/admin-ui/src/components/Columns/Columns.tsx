@@ -13,7 +13,8 @@ export function Columns(props: ColumnsProps) {
   }
 
   const className = useClassName({
-    props: { styles: { ...styles, ...styleOverrides } },
+    ...styles,
+    ...styleOverrides,
   })
 
   return (

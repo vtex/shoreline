@@ -14,7 +14,7 @@ export const TableBody = forwardRef(function Tbody(
 
   const { dir, variants } = useStylesContext()
   const className = useClassName({
-    props: { styles: styleOverrides },
+    ...styleOverrides,
     themeKey: variants.body,
   })
 

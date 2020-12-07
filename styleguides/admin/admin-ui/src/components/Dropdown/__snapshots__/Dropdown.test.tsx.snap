@@ -161,7 +161,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
       class="emotion-3"
       id="downshift-3-menu"
       role="listbox"
-      styles="[object Object]"
       tabindex="-1"
     />
   </div>
@@ -324,7 +323,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
       class="emotion-3"
       id="downshift-4-menu"
       role="listbox"
-      styles="[object Object]"
       tabindex="-1"
     />
   </div>
@@ -488,7 +486,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
       class="emotion-3"
       id="downshift-5-menu"
       role="listbox"
-      styles="[object Object]"
       tabindex="-1"
     />
   </div>
@@ -656,7 +653,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
       class="emotion-3"
       id="downshift-1-menu"
       role="listbox"
-      styles="[object Object]"
       tabindex="-1"
     />
   </div>
@@ -819,7 +815,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
       class="emotion-3"
       id="downshift-2-menu"
       role="listbox"
-      styles="[object Object]"
       tabindex="-1"
     />
   </div>

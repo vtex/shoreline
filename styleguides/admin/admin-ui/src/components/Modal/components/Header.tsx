@@ -32,18 +32,14 @@ export const ModalHeader = forwardRef(function ModalHeader(
 
   const { omitCloseButton, size } = useModalContext()
   const className = useClassName({
-    props: { styles: styleOverrides },
+    ...styleOverrides,
     themeKey: `components.modal.header-${size}`,
   })
 
   const containerCn = useClassName({
-    props: {
-      styles: {
-        display: 'flex',
-        alignItems: 'center',
-        ...containerStyleOverrides,
-      },
-    },
+    display: 'flex',
+    alignItems: 'center',
+    ...containerStyleOverrides,
   })
 
   const renderTitle = useMemo(() => {

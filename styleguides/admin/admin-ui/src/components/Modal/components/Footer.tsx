@@ -25,7 +25,7 @@ export const ModalFooter = forwardRef(function ModalFooter(
   const { size } = useModalContext()
 
   const className = useClassName({
-    props: { styles: styleOverrides },
+    ...styleOverrides,
     themeKey: `components.modal.footer-${size}`,
   })
 

@@ -1,9 +1,6 @@
 import React, { forwardRef, Ref } from 'react'
-import { Box as ReakitBox } from 'reakit/Box'
 
-import { createElement } from '../../system'
 import { Box } from '../Box'
-import { useComponent } from '../../hooks/useComponent'
 import { Overridable } from '../../types'
 
 /**
@@ -20,22 +17,18 @@ export const Avatar = forwardRef(function Avatar(
   props: AvatarProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { palette = 'base', label, ...containerProps } = props
-  const firstLetter = label?.charAt(0)
-  const avatarProps = useComponent({
-    props: {
-      ...containerProps,
-      children: <Box styles={{ text: 'highlight' }}>{firstLetter}</Box>,
-    },
-    themeKey: `components.avatar.${palette}`,
-  })
+  const { palette = 'base', label, styleOverrides, ...htmlProps } = props
 
-  return createElement({
-    component: ReakitBox,
-    element: 'div',
-    htmlProps: avatarProps,
-    ref,
-  })
+  return (
+    <Box
+      ref={ref}
+      themeKey={`components.avatar.${palette}`}
+      styles={styleOverrides}
+      {...htmlProps}
+    >
+      <Box styles={{ text: 'highlight' }}>{label?.charAt(0)}</Box>
+    </Box>
+  )
 })
 
 export interface AvatarProps extends Overridable {

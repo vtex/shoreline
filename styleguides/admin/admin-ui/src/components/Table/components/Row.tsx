@@ -15,7 +15,7 @@ export const TableRow = forwardRef(function Tr(
   const { variants, dir } = useStylesContext()
 
   const className = useClassName({
-    props: { styles: styleOverrides },
+    ...styleOverrides,
     themeKey: `${variants.row}-${dir}`,
   })
 

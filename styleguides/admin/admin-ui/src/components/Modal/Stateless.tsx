@@ -55,14 +55,15 @@ export function StatelessModal(props: StatelessModalProps) {
   }, [onClose, state])
 
   const backdropCn = useClassName({
-    props: { styles: backdropStyles },
+    ...backdropStyles,
     themeKey: 'components.modal.backdrop',
   })
 
   const { hasHeader, hasFooter, scrollStyle } = useComponentsExistence(children)
 
   const modalCn = useClassName({
-    props: { styles: { ...scrollStyle, ...styleOverrides } },
+    ...scrollStyle,
+    ...styleOverrides,
     themeKey: `components.modal.surface-${size}`,
   })
 

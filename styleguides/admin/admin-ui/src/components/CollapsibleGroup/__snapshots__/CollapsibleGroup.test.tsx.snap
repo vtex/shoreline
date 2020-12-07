@@ -148,7 +148,6 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
           aria-controls="mocked-id"
           aria-expanded="false"
           class="emotion-2"
-          styles="[object Object]"
           type="button"
         >
           <div
@@ -327,7 +326,6 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
           aria-controls="mocked-id"
           aria-expanded="false"
           class="emotion-2"
-          styles="[object Object]"
           type="button"
         >
           <div
