@@ -9,19 +9,17 @@ type Props = {
   readmeUrl: string
   sourceUrl: string
   title: string
-  tableOfContentsAst: object
+  tableOfContentsAst: Record<string, unknown>
 }
 
 const { Compiler: renderAst } = new RehypeReact({
   createElement,
   components: {
-    p: function Render(props: React.PropsWithChildren<{}>) {
+    p: function Render(props: React.PropsWithChildren<unknown>) {
       return <span {...props} />
     },
     a: function Render(props: React.AnchorHTMLAttributes<unknown>) {
-      const [href] = useState(
-        () => props.href && props.href.replace(/^.*(#.+)$/, '$1')
-      )
+      const [href] = useState(() => props.href?.replace(/^.*(#.+)$/, '$1'))
 
       const id = href?.substr(1)
       const { add, remove } = useCollectionContext()

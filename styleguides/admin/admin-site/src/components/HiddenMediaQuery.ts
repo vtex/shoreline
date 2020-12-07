@@ -21,9 +21,9 @@ export const useHiddenMediaQuery = createHook<
 
   useProps(options, htmlProps) {
     const className = cn({
-     [`@media (${options.query})`]: {
+      [`@media (${options.query})`]: {
         display: 'none !important',
-      }
+      },
     })
 
     return {

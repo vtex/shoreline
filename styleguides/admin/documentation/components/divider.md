@@ -85,7 +85,6 @@ import {
   Card,
   Columns,
   Text,
-  Box,
 } from '@vtex/admin-ui'
 
 function Example() {

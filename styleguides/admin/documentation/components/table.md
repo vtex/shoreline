@@ -120,7 +120,7 @@ By default, the column's width is defined to fit the available space without bre
 ### Plain
 
 ```jsx
-import { ThemeProvider, StatefulTable, Box } from '@vtex/admin-ui'
+import { ThemeProvider, StatefulTable, Text } from '@vtex/admin-ui'
 
 function Example() {
   const fruits = [
@@ -170,14 +170,14 @@ function Example() {
               type: 'plain',
               render: function Render({ data }) {
                 return (
-                  <Box
-                    text="highlight"
-                    styles={{
+                  <Text
+                    variant="highlight"
+                    styleOverrides={{
                       color: Number(data) > 0 ? 'primary.base' : 'danger.base',
                     }}
                   >
                     {data}
-                  </Box>
+                  </Text>
                 )
               },
             },
@@ -417,7 +417,7 @@ import {
   StatefulTable,
   Skeleton,
   Set,
-  Box,
+  Text,
 } from '@vtex/admin-ui'
 
 function Example() {
@@ -444,8 +444,8 @@ function Example() {
 
                 return (
                   <Set orientation="vertical">
-                    <Box text="highlight">{item.productName}</Box>
-                    <Box text="body">{item.category}</Box>
+                    <Text variant="highlight">{item.productName}</Text>
+                    <Text>{item.category}</Text>
                   </Set>
                 )
               },

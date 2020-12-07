@@ -4,7 +4,7 @@ import {
   Box,
   Label,
   AbstractInput,
-  SxStyleProp,
+  StyleProp,
   cn,
 } from '@vtex/admin-ui'
 import { IconSearch } from '@vtex/admin-ui-icons'
@@ -16,7 +16,7 @@ interface SearchbarProps {
     value: string
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   }
-  styleOverrides?: SxStyleProp
+  styleOverrides?: StyleProp
   placeholder?: string
 }
 

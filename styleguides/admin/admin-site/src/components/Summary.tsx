@@ -19,10 +19,10 @@ export const useSummary = createHook<SummaryOptions, SummaryHTMLProps>({
   useProps(options, htmlProps) {
     const anchor = useAnchor(options, htmlProps)
     const summary = cn({
-      display: "inline-block",
-      padding: "0.5em 0.5em",
-      cursor: "pointer",
-      fontSize: "24px",
+      display: 'inline-block',
+      padding: '0.5em 0.5em',
+      cursor: 'pointer',
+      fontSize: '24px',
     })
 
     return {

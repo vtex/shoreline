@@ -16,7 +16,7 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <Box width={300}>
+      <Box styles={{ width: 300 }}>
         <TextArea
           value={value}
           onChange={(e) => {
@@ -57,7 +57,7 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <Box width={300}>
+      <Box styles={{ width: 300 }}>
         <TextArea
           value={value}
           onChange={(e) => {
@@ -120,7 +120,7 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <Box width={300}>
+      <Box styles={{ width: 300 }}>
         <TextArea
           value={value}
           onChange={(e) => {
@@ -156,7 +156,7 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <Box width={300}>
+      <Box styles={{ width: 300 }}>
         <TextArea
           value={value}
           onChange={(e) => {

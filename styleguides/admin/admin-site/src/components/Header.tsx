@@ -31,9 +31,10 @@ export default function Header() {
   return (
     <Box
       element="header"
-      palette="base"
-      border="divider-bottom"
       styles={{
+        border: 'divider-bottom',
+        color: 'text.primary',
+        bg: 'background',
         gridArea: 'header',
         width: 'full',
         display: 'flex',
