@@ -63,12 +63,20 @@ export function useFlex(props: FlexProps): PropsWithoutRef<BoxProps<'div'>> {
 }
 
 export interface FlexProps extends BoxProps<'div'> {
+  /** Shorthand for CSS alignItems property */
   align?: ResponsiveValue<CSS.Property.AlignContent>
+  /** Shorthand for CSS flexBasis property */
   basis?: ResponsiveValue<CSS.Property.FlexBasis>
+  /** Shorthand for CSS flexDirection property */
   direction?: ResponsiveValue<CSS.Property.FlexDirection>
+  /** Shorthand for CSS flexGrow property */
   grow?: ResponsiveValue<CSS.Property.FlexGrow>
+  /** Shorthand for CSS flexShrink property */
   shrink?: ResponsiveValue<CSS.Property.FlexShrink>
+  /** Shorthand for CSS justifyContent property */
   justify?: ResponsiveValue<CSS.Property.JustifyContent>
+  /** Shorthand for CSS flexWrap property */
   wrap?: ResponsiveValue<CSS.Property.FlexWrap>
+  /** Shorthand for CSS order property */
   order?: ResponsiveValue<CSS.Property.Order>
 }
