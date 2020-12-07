@@ -61,10 +61,8 @@ export function Collapsible(props: CollapsibleProps) {
   }
 
   const className = useClassName({
-    props: {
-      styles: styleOverrides,
-    },
     themeKey: variant.container,
+    ...styleOverrides,
   })
 
   return (
@@ -82,9 +80,7 @@ export function Header(props: CollapsibleHeaderProps) {
   const { children, label, styleOverrides, ...headerProps } = props
   const { variant } = useCollapsibleContext()
   const className = useClassName({
-    props: {
-      styles: styleOverrides,
-    },
+    ...styleOverrides,
     themeKey: variant.header,
   })
 

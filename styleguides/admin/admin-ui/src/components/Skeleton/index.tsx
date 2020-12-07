@@ -35,14 +35,14 @@ export function Skeleton(props: SkeletonProps) {
  * @returns skeleton htmlProps
  */
 export function useSkeleton(props: SkeletonProps) {
-  const { shape = 'rect' } = props
+  const { shape = 'rect', styles, ...htmlProps } = props
 
   const className = useClassName({
-    props,
+    ...styles,
     themeKey: `components.skeleton.${shape}`,
   })
 
-  return { ...props, className }
+  return { ...htmlProps, className }
 }
 
 export type SkeletonShape = 'rect' | 'circle'

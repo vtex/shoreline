@@ -308,7 +308,6 @@ exports[`AbstractInput tests should match snapshot 1`] = `
       <button
         aria-label="clear undefined text"
         class="emotion-3"
-        styles="[object Object]"
         type="button"
       >
         <div
@@ -862,7 +861,6 @@ exports[`AbstractInput tests should match snapshot 1`] = `
       <button
         aria-label="clear undefined text"
         class="emotion-4"
-        styles="[object Object]"
         type="button"
       >
         <div
@@ -1688,7 +1686,6 @@ exports[`AbstractInput tests should match snapshot 1`] = `
       <button
         aria-label="clear undefined text"
         class="emotion-4"
-        styles="[object Object]"
         type="button"
       >
         <div

@@ -14,7 +14,7 @@ export const TableHead = forwardRef(function Thead(
 
   const { dir, variants } = useStylesContext()
   const className = useClassName({
-    props: { styles: styleOverrides },
+    ...styleOverrides,
     themeKey: variants.header,
   })
 

@@ -23,13 +23,9 @@ export const TableCell = forwardRef(function Td<T>(
   const role = useCellRoleContext()
 
   const className = useClassName({
-    props: {
-      styles: {
-        minWidth: column.width,
-        maxWidth: column.width,
-        ...styleOverrides,
-      },
-    },
+    minWidth: column.width,
+    maxWidth: column.width,
+    ...styleOverrides,
     themeKey: variants[role],
   })
 

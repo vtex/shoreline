@@ -143,7 +143,6 @@ exports[`Collapsible tests should match snapshot 1`] = `
         aria-controls="mocked-id"
         aria-expanded="true"
         class="emotion-2"
-        styles="[object Object]"
         type="button"
       >
         <div
@@ -352,7 +351,6 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
         aria-controls="mocked-id"
         aria-expanded="true"
         class="emotion-2"
-        styles="[object Object]"
         type="button"
       >
         <div
@@ -395,7 +393,6 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
               aria-controls="mocked-id"
               aria-expanded="true"
               class="emotion-2"
-              styles="[object Object]"
               type="button"
             >
               <div

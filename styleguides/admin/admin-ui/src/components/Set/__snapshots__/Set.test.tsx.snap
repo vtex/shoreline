@@ -23,7 +23,6 @@ exports[`Set tests should match snapshot 1`] = `
 
 <div
     class="emotion-0"
-    styles="[object Object]"
   >
     <button>
       element 1
@@ -53,7 +52,6 @@ exports[`Set tests should match snapshot 1`] = `
 
 <div
     class="emotion-0"
-    styles="[object Object]"
   >
     <button>
       element 1
@@ -82,7 +80,6 @@ exports[`Set tests should match snapshot 1`] = `
 
 <div
     class="emotion-0"
-    styles="[object Object]"
   >
     <button>
       element 1
@@ -107,7 +104,6 @@ exports[`Set tests should match snapshot 1`] = `
 
 <div
     class="emotion-0"
-    styles="[object Object]"
   >
     <button>
       element 1
@@ -132,7 +128,6 @@ exports[`Set tests should match snapshot 1`] = `
 
 <div
     class="emotion-0"
-    styles="[object Object]"
   >
     <button>
       element 1

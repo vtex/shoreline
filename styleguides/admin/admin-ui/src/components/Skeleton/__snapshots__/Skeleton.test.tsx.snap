@@ -119,7 +119,6 @@ exports[`Skeleton tests should match snapshot 1`] = `
 
 <div
     class="emotion-0"
-    shape="circle"
   />
 </DocumentFragment>
 `;

@@ -209,7 +209,6 @@ exports[`NumericStepper tests should not have any violations 1`] = `
       <button
         aria-label="numeric-stepper-decrease-button"
         class="emotion-3"
-        styles="[object Object]"
         type="button"
       >
         <div
@@ -232,7 +231,6 @@ exports[`NumericStepper tests should not have any violations 1`] = `
       <button
         aria-label="numeric-stepper-increase-button}"
         class="emotion-6"
-        styles="[object Object]"
         type="button"
       >
         <div
