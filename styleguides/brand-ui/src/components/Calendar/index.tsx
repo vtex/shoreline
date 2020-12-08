@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Box, Text, Grid } from 'theme-ui'
+import { Box, Text, Grid, jsx } from 'theme-ui'
 import { useState, PropsWithChildren } from 'react'
 import { DateTime } from 'luxon'
 

@@ -32,5 +32,11 @@
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16"
+  },
+  "devDependencies": {
+    "@types/theme-ui": "^0.3.6"
+  },
+  "dependencies": {
+    "theme-ui": "^0.3.1"
   }
 }

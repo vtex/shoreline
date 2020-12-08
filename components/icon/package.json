@@ -34,7 +34,11 @@
     "react-dom": ">=16",
     "theme-ui": "^0.3.1"
   },
+  "devDependencies": {
+    "@types/theme-ui": "^0.3.6"
+  },
   "dependencies": {
+    "theme-ui": "^0.3.1",
     "@vtex-components/utils": "^0.0.3"
   }
 }

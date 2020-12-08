@@ -1,12 +1,5 @@
 import React, { useState, useRef, PropsWithChildren, ReactNode } from 'react'
-import {
-  Box,
-  Flex,
-  Label,
-  Input as ThemeUIInput,
-  Text,
-  SxStyleProp,
-} from 'theme-ui'
+import { Box, Flex, Label, Input as ThemeUIInput, Text } from 'theme-ui'
 import { Input as ReakitInput, InputProps as BaseProps } from 'reakit/Input'
 import { forwardRef } from '@vtex-components/utils'
 
@@ -65,7 +58,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
         {...inputProps}
       >
         {(enhancedProps) => (
-          <Flex variant={`input.${size}-${state}`} sx={sx as any}>
+          <Flex variant={`input.${size}-${state}`} sx={sx}>
             {prefix && <Flex variant="input.prefix">{prefix}</Flex>}
             <ThemeUIInput
               sx={{
@@ -111,7 +104,7 @@ export type InputState =
   | 'readOnly'
 
 export interface InputProps
-  extends Pick<BaseProps, 'disabled' | 'readOnly' | 'value' | 'type'> {
+  extends Pick<BaseProps, 'sx' | 'disabled' | 'readOnly' | 'value' | 'type'> {
   id: string
   helpMessage: string
   label: string
@@ -121,7 +114,6 @@ export interface InputProps
   prefix?: ReactNode
   size?: Size
   suffix?: ReactNode
-  sx?: SxStyleProp
 }
 
 export default forwardRef(Input)

@@ -1,17 +1,15 @@
-import { SxStyleProp } from 'theme-ui'
-
-const slidesContainer: SxStyleProp = {
+const slidesContainer = {
   height: '100%',
   width: '100%',
 }
 
-const navigationContainerBase: SxStyleProp = {
+const navigationContainerBase = {
   position: 'absolute',
   height: '100%',
   alignItems: 'center',
 }
 
-const navigationContainer: SxStyleProp = {
+const navigationContainer = {
   previous: {
     ...navigationContainerBase,
     left: 0,
@@ -22,7 +20,7 @@ const navigationContainer: SxStyleProp = {
   },
 }
 
-const navigationButtonBase: SxStyleProp = {
+const navigationButtonBase = {
   cursor: 'pointer',
   border: 'none',
   borderRadius: '100%',
@@ -50,7 +48,7 @@ const navigationButton = {
   },
 }
 
-const indicatorBar: SxStyleProp = {
+const indicatorBar = {
   left: 0,
   right: 0,
   bottom: 0,
@@ -66,7 +64,7 @@ const indicatorBar: SxStyleProp = {
   marginBottom: 6,
 }
 
-const indicatorBase: SxStyleProp = {
+const indicatorBase = {
   height: 16,
   width: 16,
   minHeight: 16,
@@ -116,14 +114,14 @@ const previousButton = {
   },
 }
 
-const slideBase: SxStyleProp = {
+const slideBase = {
   width: '100%',
   alignItems: 'center',
   justifyContent: 'center',
   transition: '0.5s linear',
 }
 
-const slideAnimations: SxStyleProp = {
+const slideAnimations = {
   '@keyframes slideInLTR': {
     '0%': {
       transform: 'translateX(100%)',
@@ -160,7 +158,7 @@ const slideAnimations: SxStyleProp = {
   },
 }
 
-const slideDefault: SxStyleProp = {
+const slideDefault = {
   ...slideAnimations,
   ltr: {
     current: {
@@ -202,7 +200,7 @@ const slideDefault: SxStyleProp = {
   },
 }
 
-const slideCrossfade: SxStyleProp = {
+const slideCrossfade = {
   default: {
     ...slideBase,
     position: 'absolute',
