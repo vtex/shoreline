@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.6.7...admin-site@0.7.0) (2020-12-08)
+
+
+### Features
+
+* **icon-info:** add IconInfo ([52506dd](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/52506dd8df752d0e0c62d013fb90aa99a30f3fe5))
+
+
+
+
+
 ## [0.6.7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.6.6...admin-site@0.6.7) (2020-12-02)
 
 **Note:** Version bump only for package admin-site
