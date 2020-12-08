@@ -1,6 +1,6 @@
 {
   "name": "admin-site",
-  "version": "0.7.0-next.2",
+  "version": "0.7.0-next.3",
   "private": true,
   "description": "AdminUI site",
   "license": "MIT",
@@ -21,8 +21,8 @@
     "@types/qs": "6.9.5",
     "@types/react-helmet": "6.1.0",
     "@types/yup": "0.29.7",
-    "@vtex/admin-ui": "^0.64.0-next.2",
-    "@vtex/admin-ui-icons": "^0.4.0-next.2",
+    "@vtex/admin-ui": "^0.64.0-next.3",
+    "@vtex/admin-ui-icons": "^0.4.0-next.3",
     "babel-plugin-extract-react-types": "^0.1.10",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-gatsby": "^0.5.14",

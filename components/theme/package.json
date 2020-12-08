@@ -1,6 +1,6 @@
 {
   "name": "@vtex-components/theme",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/index.js",
   "module": "dist/theme.esm.js",
   "typings": "dist/index.d.ts",
@@ -38,8 +38,8 @@
     "@types/theme-ui": "^0.3.6"
   },
   "dependencies": {
-    "theme-ui": "^0.3.1",
     "@theme-ui/css": "0.4.0-rc.3",
-    "deepmerge": "^4.2.2"
+    "deepmerge": "^4.2.2",
+    "theme-ui": "^0.3.1"
   }
 }
