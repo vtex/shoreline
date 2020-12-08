@@ -8,7 +8,7 @@ export interface FeedbackPalette {
   washed: string
 }
 
-export type Theme<T = {}> = T & {
+export type Theme<T = unknown> = T & {
   space: number[]
   colors: { [key: string]: FeedbackPalette | string | string[] }
   components: { [key: string]: { [key: string]: SxStyleProp } }

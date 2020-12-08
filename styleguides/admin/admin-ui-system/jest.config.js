@@ -1,4 +1,4 @@
 module.exports = {
   verbose: true,
-  setupFilesAfterEnv: ['./src/__tests__/setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/__tests__/setup.ts'],
 }

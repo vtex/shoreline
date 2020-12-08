@@ -81,7 +81,7 @@ interface OverwriteCSSProperties {
   /**
    * CSS **`font-weight`** property
    * @default normal
-   * @deprecated use fontSettings intead
+   * @deprecated use fontSettings instead
    */
   fontWeight?: CSS.Property.FontWeight | string
   /**
