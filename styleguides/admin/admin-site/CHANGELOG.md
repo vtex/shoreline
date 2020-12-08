@@ -5,6 +5,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.7.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.6.7...admin-site@0.7.0) (2020-12-08)
 
+# [0.7.0-next.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.7.0-next.1...admin-site@0.7.0-next.2) (2020-12-08)
+
+**Note:** Version bump only for package admin-site
+
 # [0.7.0-next.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.7.0-next.0...admin-site@0.7.0-next.1) (2020-12-08)
 
 **Note:** Version bump only for package admin-site
