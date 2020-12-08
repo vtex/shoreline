@@ -3,16 +3,13 @@
 exports[`Flex tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: stretch;
-  -webkit-justify-content: stretch;
   -ms-flex-pack: stretch;
+  -webkit-justify-content: stretch;
   justify-content: stretch;
 }
 
@@ -20,9 +17,6 @@ exports[`Flex tests should match snapshot 1`] = `
     class="emotion-0"
   />
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -37,9 +31,6 @@ exports[`Flex tests should match snapshot 1`] = `
     class="emotion-0"
   />
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -53,9 +44,6 @@ exports[`Flex tests should match snapshot 1`] = `
     class="emotion-0"
   />
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -69,13 +57,11 @@ exports[`Flex tests should match snapshot 1`] = `
     class="emotion-0"
   />
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -85,9 +71,6 @@ exports[`Flex tests should match snapshot 1`] = `
     class="emotion-0"
   />
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -102,9 +85,6 @@ exports[`Flex tests should match snapshot 1`] = `
     class="emotion-0"
   />
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -118,9 +98,6 @@ exports[`Flex tests should match snapshot 1`] = `
     class="emotion-0"
   />
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -134,9 +111,6 @@ exports[`Flex tests should match snapshot 1`] = `
     class="emotion-0"
   />
   .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -144,9 +118,6 @@ exports[`Flex tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
