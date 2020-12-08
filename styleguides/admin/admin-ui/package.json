@@ -28,8 +28,8 @@
     "build": "tsdx build --tsconfig tsconfig.json",
     "test": "tsdx test",
     "start:storybook": "run-p storybook",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build:storybook": "yarn --cwd ../../../ build && yarn run build-storybook -s public"
+    "storybook": "start-storybook -p 6006",
+    "build:storybook": "yarn --cwd ../../../ build && yarn run build-storybook"
   },
   "peerDependencies": {
     "react": ">=16",
