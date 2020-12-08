@@ -219,6 +219,9 @@ export function IconPage() {
         {
           label: 'Settings',
         },
+        {
+          label: 'Info',
+        },
       ],
     },
     {
