@@ -94,7 +94,7 @@ import { ThemeProvider, Button, Set, Box } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box maxWidth={320}>
+      <Box styles={{ maxWidth: 320 }}>
         <Set orientation="vertical" fluid>
           <Button>Button 1</Button>
           <Button>Button 2</Button>
@@ -140,7 +140,7 @@ import { ThemeProvider, Button, Set, Box } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box maxWidth={['full', 'full', 560]}>
+      <Box styles={{ maxWidth: ['full', 'full', 560] }}>
         <Set orientation={['vertical', 'vertical', 'horizontal']} fluid>
           <Button>Button 1</Button>
           <Button>Button 2</Button>

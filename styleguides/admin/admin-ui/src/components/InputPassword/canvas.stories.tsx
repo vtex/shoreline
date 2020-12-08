@@ -13,7 +13,7 @@ export const Example = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <InputPassword
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -30,7 +30,7 @@ export const Error = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <InputPassword
         value={value}
         onChange={(e) => setValue(e.target.value)}

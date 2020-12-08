@@ -3,9 +3,6 @@
 exports[`Button tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -18,8 +15,8 @@ exports[`Button tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -76,9 +73,6 @@ exports[`Button tests should match snapshot 1`] = `
     </div>
   </button>
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -91,8 +85,8 @@ exports[`Button tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -149,9 +143,6 @@ exports[`Button tests should match snapshot 1`] = `
     </div>
   </button>
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -164,8 +155,8 @@ exports[`Button tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -222,9 +213,6 @@ exports[`Button tests should match snapshot 1`] = `
     </div>
   </button>
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -237,8 +225,8 @@ exports[`Button tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -296,9 +284,6 @@ exports[`Button tests should match snapshot 1`] = `
     </div>
   </button>
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -311,8 +296,8 @@ exports[`Button tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -369,9 +354,6 @@ exports[`Button tests should match snapshot 1`] = `
     </div>
   </button>
   .emotion-0 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -384,8 +366,8 @@ exports[`Button tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;

@@ -1,7 +1,6 @@
 import { Theme, FeedbackPalette } from '@vtex-components/theme'
-import { SxStyleProp } from 'theme-ui'
 
-const open: SxStyleProp = {
+const open = {
   position: 'absolute',
   width: '100vw',
   height: '100vh',
@@ -15,7 +14,7 @@ const open: SxStyleProp = {
   paddingBottom: '5rem',
 }
 
-const menu: SxStyleProp = {
+const menu = {
   display: ['flex', 'flex', 'flex', 'none'],
   flexDirection: 'column',
   overflowY: 'auto',
@@ -48,7 +47,7 @@ const actionButton = {
   paddingX: 5,
 }
 
-const hamburgerMenu: SxStyleProp = {
+const hamburgerMenu = {
   display: ['flex', 'flex', 'flex', 'none'],
   outline: 'none',
   border: 'none',

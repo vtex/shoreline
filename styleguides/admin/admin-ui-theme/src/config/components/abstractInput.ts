@@ -3,7 +3,7 @@ import { merge } from '@vtex/admin-ui-system'
 import { colors } from '../base'
 
 const inputStyle = {
-  fontVariationSettings: '"wght" 92',
+  fontSettings: 'regular',
   width: 'full',
   height: 48,
   borderStyle: 'solid',
@@ -52,7 +52,7 @@ const errorState = {
   },
 }
 
-function getInputVariants(name: string, styles: object = {}) {
+function getInputVariants(name: string, styles = {}) {
   return {
     // input variants
     [`${name}`]: merge(inputStyle, styles),
@@ -98,7 +98,7 @@ export default {
     width: '32px',
     paddingLeft: 3,
     lineHeight: 'body',
-    fontVariationSettings: 'regular',
+    fontSettings: 'regular',
     fontSize: 1,
   },
 

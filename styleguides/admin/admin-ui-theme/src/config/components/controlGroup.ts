@@ -1,5 +1,5 @@
 const styles = {
-  fontVariationSettings: 'regular',
+  fontSettings: 'regular',
   lh: 'highlight',
   marginTop: 3,
   marginBottom: 6,

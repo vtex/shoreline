@@ -1,9 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
-import { SpaceStyleProps, TextPattern } from '@vtex/admin-ui-theme'
 
-import { createElement } from '../../system'
-import { useComponent } from '../../hooks/useComponent'
+import { cn, createElement } from '../../system'
 import { Overridable } from '../../types'
 
 export const Heading = forwardRef(function Heading(
@@ -11,9 +9,7 @@ export const Heading = forwardRef(function Heading(
   ref: Ref<HTMLHeadingElement>
 ) {
   const { element = 'h1', ...htmlProps } = props
-  const headingProps = useComponent({
-    props: { text: 'headline', ...htmlProps },
-  })
+  const headingProps = useHeading(htmlProps)
 
   return createElement({
     ref,
@@ -23,10 +19,18 @@ export const Heading = forwardRef(function Heading(
   })
 })
 
-export interface HeadingProps
-  extends Overridable,
-    TextPattern,
-    SpaceStyleProps {
+export function useHeading(props: HeadingProps) {
+  const { styleOverrides, ...htmlProps } = props
+
+  const className = cn({
+    text: 'headline',
+    ...styleOverrides,
+  })
+
+  return { className, ...htmlProps }
+}
+
+export interface HeadingProps extends Overridable {
   /**
    * Element to render
    * @default h1

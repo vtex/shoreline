@@ -5,6 +5,7 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
   .emotion-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   margin: 0rem;
   position: relative;
@@ -90,6 +91,7 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
   .emotion-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   margin: 0rem;
   position: relative;

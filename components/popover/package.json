@@ -1,6 +1,6 @@
 {
   "name": "@vtex-components/popover",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "module": "dist/popover.esm.js",
   "typings": "dist/index.d.ts",
@@ -35,8 +35,12 @@
     "reakit": "1.2.2",
     "theme-ui": "^0.3.1"
   },
+  "devDependencies": {
+    "@types/theme-ui": "^0.3.6"
+  },
   "dependencies": {
-    "@vtex-components/theme": "^0.1.0",
-    "@vtex-components/utils": "^0.0.2"
+    "@vtex-components/theme": "^0.1.2",
+    "@vtex-components/utils": "^0.0.2",
+    "theme-ui": "^0.3.1"
   }
 }

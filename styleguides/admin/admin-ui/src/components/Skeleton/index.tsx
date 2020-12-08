@@ -1,6 +1,5 @@
 import { ElementType } from 'react'
-import { SxStyleProp, useClassName } from '@vtex/admin-ui-system'
-import { SpaceStyleProps, SizeStyleProps } from '@vtex/admin-ui-theme'
+import { StyleProp, useClassName } from '@vtex/admin-ui-system'
 import { Box as ReakitBox } from 'reakit/Box'
 
 import { createElement } from '../../system'
@@ -36,24 +35,24 @@ export function Skeleton(props: SkeletonProps) {
  * @returns skeleton htmlProps
  */
 export function useSkeleton(props: SkeletonProps) {
-  const { shape = 'rect' } = props
+  const { shape = 'rect', styles, ...htmlProps } = props
 
   const className = useClassName({
-    props,
+    ...styles,
     themeKey: `components.skeleton.${shape}`,
   })
 
-  return { ...props, className }
+  return { ...htmlProps, className }
 }
 
 export type SkeletonShape = 'rect' | 'circle'
 
-export interface SkeletonProps extends SpaceStyleProps, SizeStyleProps {
+export interface SkeletonProps {
   /**
    * Aditional styles
    * @default {}
    */
-  styles?: SxStyleProp
+  styles?: StyleProp
   /**
    * Shape of the skeleton
    * @default 'rect'

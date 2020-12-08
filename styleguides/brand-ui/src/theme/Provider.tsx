@@ -10,7 +10,7 @@ interface Props {
 
 function ThemeProvider({ children }: Props) {
   return (
-    <BaseProvider theme={theme}>
+    <BaseProvider theme={theme as any}>
       <Fonts />
       {children}
     </BaseProvider>

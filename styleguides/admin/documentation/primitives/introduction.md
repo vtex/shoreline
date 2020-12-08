@@ -7,30 +7,25 @@ path: /primitives/introduction/
 Our design system comes with a set of primitive components that represent our most elementary components, through which other components are built. They are basic elements, with no determined style, that are used as a starting point for other components. They include the following basic structures:
 
 - `Box:` versatile primitive component, with no defined style, that can be used to leverage other elementary components. The majority of our components are built on top of the `<Box>`. By default it renders a `<div>` element.  
-Find out more about `Box` [here](/primitives/box) 
+  Find out more about `Box` [here](/primitives/box)
 - `Skeleton:` versatile primitive component, with no defined style, that can be used to leverage UIs that don't contain actual content yet. Instead, it shows the loading elements of a page in a shape similar to the actual content.
-Find out more about `Skeleton` [here](/primitives/skeleton).
-If you want to know more about how to style a primitive component, check out our [Inline Styles](/theming/inline-styles/) page. 
+  Find out more about `Skeleton` [here](/primitives/skeleton).
+  If you want to know more about how to style a primitive component, check out our [Inline Styles](/theming/inline-styles/) page.
 
 If you find a primitive component not implemented yet and you think that could be useful to have it in our design system, feel free to create an [issue in our repository](https://github.com/vtex/onda/issues/new/choose). Suggestions are welcome!
-
 
 ## Do's
 
 Primitive components should be used during the following cases:
-
 
 ### ✅ Build a specific component.
 
 ```jsx static
 function CustomComponent({ heading, children }) {
   return (
-    <Box paddingY={4} border="divider-bottom" styles={{ display: 'flex' }}>
+    <Box styles={{ display: 'flex', paddingY: 4, border: 'divider-bottom' }}>
       <Box
-        styles={{ bg: 'primary.base' }}
-        width="10px"
-        height="60px"
-        marginRight={3}
+        styles={{ bg: 'primary.base', width: 10, height: 60, marginRight: 3 }}
       />
       <Set spacing={3} orientation="vertical" fluid>
         <Heading>{heading}</Heading>
@@ -74,18 +69,16 @@ function Example() {
 // ✅ Correct
 function Example() {
   return (
-    <Box padding={2} margin={2} styles={{ bg: 'muted.2' }}>
-      {...content}
-    </Box>
+    <Box styles={{ bg: 'muted.2', padding: 2, margin: 2 }}>{...content}</Box>
   )
 }
 ```
 
 ## Don'ts
 
-Primitive components should *not* be used during the following cases:
+Primitive components should _not_ be used during the following cases:
 
-*Note that you may want to use one of our `Layout` components before using Box to build layouts. Also check one of our `Typography` components before using it to render a text.*
+_Note that you may want to use one of our `Layout` components before using Box to build layouts. Also check one of our `Typography` components before using it to render a text._
 
 ### 🚫 Build layouts
 
@@ -119,7 +112,7 @@ function Example() {
 // 🚫 Wrong
 function Example() {
   return (
-    <Box element="h1" text="headline">
+    <Box element="h1" styles={{ text: 'headline' }}>
       Headline 1 text
     </Box>
   )
@@ -127,7 +120,7 @@ function Example() {
 
 // ✅ Correct
 function Example() {
-  return <Heading text="headline">Headline 1 text</Heading>
+  return <Heading>Headline 1 text</Heading>
 }
 ```
 
@@ -138,12 +131,12 @@ function Example() {
 function Example() {
   return (
     <Box
-      padding={6}
       styles={{
         borderStyle: 'solid',
         borderWidth: '1px',
         borderRadius: 'default',
         borderColor: 'muted.2',
+        padding: 6,
       }}
     >
       <Box
@@ -168,5 +161,3 @@ function Example() {
   )
 }
 ```
-
-

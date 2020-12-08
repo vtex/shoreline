@@ -18,13 +18,12 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1.5rem;
   padding-left: 0.5rem;
 }
 
-.emotion-4 div > button:nth-of-type(n+2) {
+.emotion-4 div>button:nth-of-type(n+2) {
   margin-left: 0.25rem;
 }
 
@@ -85,9 +84,6 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -100,8 +96,8 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -114,17 +110,14 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
   -webkit-transition: -webkit-transform 150ms ease;
-  -webkit-transition: transform 150ms ease;
   transition: transform 150ms ease;
 }
 
 .emotion-3 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -133,10 +126,8 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 .emotion-6 {
   background-color: #FFFFFF;
-  color: #323845;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  primary: #323845;
+  secondary: #707685;
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
@@ -205,13 +196,12 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1.5rem;
   padding-left: 0.5rem;
 }
 
-.emotion-4 div > button:nth-of-type(n+2) {
+.emotion-4 div>button:nth-of-type(n+2) {
   margin-left: 0.25rem;
 }
 
@@ -272,9 +262,6 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -287,8 +274,8 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -301,17 +288,14 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
   -webkit-transition: -webkit-transform 150ms ease;
-  -webkit-transition: transform 150ms ease;
   transition: transform 150ms ease;
 }
 
 .emotion-3 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -320,10 +304,8 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 
 .emotion-6 {
   background-color: #FFFFFF;
-  color: #323845;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
+  primary: #323845;
+  secondary: #707685;
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;

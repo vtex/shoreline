@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-next.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.7.0...@vtex/admin-ui-theme@0.8.0-next.2) (2020-12-08)
+
+
+### Features
+
+* **admin-ui:** implement new system on admin-ui ([a71381a](https://github.com/vtex/onda/commit/a71381aa6a923a33e8e16c1a9fa8baea3b3eb092))
+
+
+
+
+
+# [0.8.0-next.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.8.0-next.0...@vtex/admin-ui-theme@0.8.0-next.1) (2020-12-08)
+
+**Note:** Version bump only for package @vtex/admin-ui-theme
+
+
+
+
+
+# [0.8.0-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.7.0...@vtex/admin-ui-theme@0.8.0-next.0) (2020-12-07)
+
+
+### Features
+
+* **admin-ui:** implement new system on admin-ui ([d6aaf20](https://github.com/vtex/onda/commit/d6aaf206f5cce70cbb3de3bb617e54cb5e8de806))
+
+
+
+
+
 # [0.7.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.6.1...@vtex/admin-ui-theme@0.7.0) (2020-12-02)
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Set, BoxProps, useTheme, get } from '@vtex/admin-ui'
+import { Box, Set, Text, BoxProps, useTheme, get } from '@vtex/admin-ui'
 
 interface CardProps extends BoxProps<'div'> {
   /** Color Value */
@@ -12,7 +12,14 @@ function ColorCard(props: CardProps) {
   const { color, name, ...restProps } = props
 
   return (
-    <Box border="default" padding={1} width={164} {...restProps}>
+    <Box
+      styles={{
+        border: 'default',
+        padding: 1,
+        width: 164,
+      }}
+      {...restProps}
+    >
       <Box
         styles={{
           backgroundColor: color,
@@ -24,10 +31,10 @@ function ColorCard(props: CardProps) {
         }}
       />
 
-      <Box text="highlight">{name}</Box>
-      <Box text="small" styles={{ color: 'text.secondary' }}>
+      <Text variant="highlight">{name}</Text>
+      <Text variant="small" feedback="secondary">
         {color}
-      </Box>
+      </Text>
     </Box>
   )
 }

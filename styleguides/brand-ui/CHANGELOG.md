@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.25.0...@vtex/brand-ui@0.26.0) (2020-12-08)
+
+
+### Features
+
+* **admin-ui:** implement new system on admin-ui ([a71381a](https://github.com/vtex/onda/commit/a71381aa6a923a33e8e16c1a9fa8baea3b3eb092))
+
+
+
+
+
 # [0.25.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.24.0...@vtex/brand-ui@0.25.0) (2020-11-24)
 
 

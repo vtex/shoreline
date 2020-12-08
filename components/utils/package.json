@@ -1,6 +1,6 @@
 {
   "name": "@vtex-components/utils",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "module": "dist/utils.esm.js",
   "typings": "dist/index.d.ts",
@@ -32,5 +32,11 @@
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16"
+  },
+  "devDependencies": {
+    "@types/theme-ui": "^0.3.6"
+  },
+  "dependencies": {
+    "theme-ui": "^0.3.1"
   }
 }

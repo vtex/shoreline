@@ -1,9 +1,6 @@
 import { ReactNode } from 'react'
-import { SizeStyleProps } from '@vtex/admin-ui-theme'
 
 import { BaseResolvers } from './resolvers/base'
-
-type WithResponsiveWidth = Pick<SizeStyleProps, 'width'>
 
 /**
  * Column type
@@ -12,24 +9,30 @@ type WithResponsiveWidth = Pick<SizeStyleProps, 'width'>
  * @generic R: Resolver filed
  */
 export type Column<T, R = BaseResolvers<T>> =
-  | ({
+  | {
       id: keyof T
       header?: ((column: Column<T>) => ReactNode) | string
       acessor?: ((item: T) => ReactNode) | string
       resolver?: R
-    } & WithResponsiveWidth)
-  | ({
+      // TODO FIX
+      width?: any
+    }
+  | {
       id: Exclude<string, keyof T>
       header?: ((column: Column<T>) => ReactNode) | string
       acessor: ((item: T) => ReactNode) | string
       resolver?: R
-    } & WithResponsiveWidth)
-  | ({
+      // TODO FIX
+      width?: any
+    }
+  | {
       id: Exclude<string, keyof T>
       header?: ((column: Column<T>) => ReactNode) | string
       acessor?: ((item: T) => ReactNode) | string
       resolver: R
-    } & WithResponsiveWidth)
+      // TODO FIX
+      width?: any
+    }
 
 export type TableDensity = 'compact' | 'regular' | 'variable'
 export type TableDir = 'ltr' | 'rtl'

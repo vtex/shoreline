@@ -1,25 +1,34 @@
 import { Separator as ReakitSeparator } from 'reakit'
-import { SpaceStyleProps } from '@vtex/admin-ui-theme'
 
-import { createElement } from '../../system'
-import { useComponent } from '../../hooks/useComponent'
+import { cn, createElement } from '../../system'
 import { Overridable } from '../../types'
 
 export function Divider(props: DividerProps) {
-  const { orientation = 'horizontal', ...htmlProps } = props
-  const dividerProps = useComponent({
-    props: { text: 'headline', ...htmlProps },
-    themeKey: `components.divider.${orientation}`,
-  })
+  const dividerProps = useDivider(props)
 
   return createElement({
     element: 'hr',
     component: ReakitSeparator,
-    htmlProps: { orientation, ...dividerProps },
+    htmlProps: dividerProps,
   })
 }
 
-export interface DividerProps extends Overridable, SpaceStyleProps {
+export function useDivider(props: DividerProps) {
+  const { orientation = 'horizontal', styleOverrides, ...htmlProps } = props
+  const className = cn({
+    text: 'headline',
+    themeKey: `components.divider.${orientation}`,
+    ...styleOverrides,
+  })
+
+  return {
+    orientation,
+    className,
+    ...htmlProps,
+  }
+}
+
+export interface DividerProps extends Overridable {
   /**
    * Divider orientation
    * @default 'horizontal'

@@ -1,4 +1,4 @@
-export { ThemeProvider, ThemeProviderProps, useColorMode } from 'theme-ui'
+export { ThemeProvider, useColorMode } from 'theme-ui'
 export { Theme, FeedbackPalette } from './theme'
 export { useTheme, useComponentSx } from './hooks'
 export { get } from '@theme-ui/css'

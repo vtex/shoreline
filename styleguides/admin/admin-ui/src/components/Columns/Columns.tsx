@@ -1,9 +1,5 @@
 import React, { ReactNode } from 'react'
-import {
-  SxStyleProp,
-  ResponsiveValue,
-  useClassName,
-} from '@vtex/admin-ui-system'
+import { StyleProp, ResponsiveValue, useClassName } from '@vtex/admin-ui-system'
 
 import { Overridable } from '../../types'
 import { ColumnsProvider } from './context'
@@ -11,13 +7,14 @@ import { ColumnsItem } from './Item'
 
 export function Columns(props: ColumnsProps) {
   const { spacing = 1, children, styleOverrides, ...restProps } = props
-  const styles: SxStyleProp = {
+  const styles: StyleProp = {
     display: 'flex',
     flexWrap: 'wrap',
   }
 
   const className = useClassName({
-    props: { styles: { ...styles, ...styleOverrides } },
+    ...styles,
+    ...styleOverrides,
   })
 
   return (

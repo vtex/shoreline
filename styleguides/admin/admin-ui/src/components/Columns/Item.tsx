@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import {
-  SxStyleProp,
+  StyleProp,
   ResponsiveValue,
   useResponsiveValue,
   useClassName,
@@ -29,7 +29,7 @@ export function ColumnsItem(props: ColumnsItemProps) {
     none: {},
   }[responsiveOffset]
 
-  const styles: SxStyleProp = responsiveUnits
+  const styles: StyleProp = responsiveUnits
     ? {
         flex: '0 0 auto',
         width: `${(Number(responsiveUnits) / 12) * 100}%`,
@@ -47,7 +47,8 @@ export function ColumnsItem(props: ColumnsItemProps) {
       }
 
   const className = useClassName({
-    props: { styles: { ...styles, ...styleOverrides } },
+    ...styles,
+    ...styleOverrides,
   })
 
   return <div className={className} {...layoutProps} />

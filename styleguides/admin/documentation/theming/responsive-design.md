@@ -31,7 +31,14 @@ import { ThemeProvider, Box } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box padding={4} width={['full', '1/2']} palette="primary" />
+      <Box
+        styles={{
+          width: ['full', '1/2'],
+          padding: 4,
+          bg: 'primary.base',
+          color: 'primary.accent',
+        }}
+      />
     </ThemeProvider>
   )
 }
@@ -47,7 +54,14 @@ import { ThemeProvider, Box } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box padding={4} width={[null, null, 'full']} palette="inverted" />
+      <Box
+        styles={{
+          width: [null, null, 'full'],
+          padding: 4,
+          color: 'background',
+          bg: 'text.primary',
+        }}
+      />
     </ThemeProvider>
   )
 }
@@ -67,7 +81,7 @@ function Example() {
 
   return (
     <ThemeProvider>
-      <Box padding={4} palette="inverted">
+      <Box styles={{ padding: 4, bg: 'text.primary', color: 'background' }}>
         {text}
       </Box>
     </ThemeProvider>

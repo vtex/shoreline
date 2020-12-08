@@ -45,7 +45,7 @@ Learn more in [Get started](/docs/get-started/).
 Handles the state internally.
 
 ```jsx
-import { Menu, ThemeProvider, Button, Box } from '@vtex/admin-ui'
+import { Menu, ThemeProvider, Button } from '@vtex/admin-ui'
 import {
   IconImport,
   IconLink,

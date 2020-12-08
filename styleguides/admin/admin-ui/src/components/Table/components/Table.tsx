@@ -38,7 +38,7 @@ export function Table(props: TableProps) {
   }, [density, dir])
 
   const className = useClassName({
-    props: { styles: styleOverrides },
+    ...styleOverrides,
     themeKey: styles.variants.table,
   })
 

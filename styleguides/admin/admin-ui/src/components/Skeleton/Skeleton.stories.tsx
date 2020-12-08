@@ -22,7 +22,7 @@ export const Circle: Story<SkeletonProps> = () => {
 
 export const Fluid: Story<SkeletonProps> = () => {
   return (
-    <Box width="full" height={192}>
+    <Box styles={{ width: 'full', height: 192 }}>
       <Skeleton />
     </Box>
   )
@@ -32,16 +32,16 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(false)
 
   return (
-    <Box width="sm">
+    <Box styles={{ width: 'sm' }}>
       {loading ? (
         <Box>
-          <Skeleton height={24} width="5/12" />
-          <Skeleton height={16} />
-          <Skeleton height={16} />
-          <Skeleton height={16} />
-          <Skeleton height={16} />
-          <Skeleton height={16} />
-          <Skeleton height={16} width="1/2" />
+          <Skeleton styles={{ height: 24, width: '5/12' }} />
+          <Skeleton styles={{ height: 16 }} />
+          <Skeleton styles={{ height: 16 }} />
+          <Skeleton styles={{ height: 16 }} />
+          <Skeleton styles={{ height: 16 }} />
+          <Skeleton styles={{ height: 16 }} />
+          <Skeleton styles={{ height: 16, width: '1/2' }} />
         </Box>
       ) : (
         <Box>

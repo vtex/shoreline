@@ -12,7 +12,7 @@ export const Basic = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -38,7 +38,7 @@ export const Error = () => {
   }
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => {
@@ -62,7 +62,7 @@ export const Disabled = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box width={300}>
+    <Box styles={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => setValue(e.target.value)}

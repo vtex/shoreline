@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { renderStylesToString } from 'emotion-server'
+import { renderStylesToString } from '@emotion/server'
 
 import Provider from './src/components/Provider'
 import CoreLayout from './src/components/CoreLayout'

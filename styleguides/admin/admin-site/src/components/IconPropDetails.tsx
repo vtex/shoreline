@@ -1,7 +1,7 @@
 import React from 'react'
 import { Collapsible, useCollapsible } from '@vtex/admin-ui'
 import warning from 'tiny-warning'
-// @ts-expect-error
+// @ts-expect-error: it is not typed correctly
 import Props, { PropsTable } from 'pretty-proptypes'
 
 import * as IconLib from '../../../admin-ui-icons/src'

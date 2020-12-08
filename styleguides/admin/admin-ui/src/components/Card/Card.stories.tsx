@@ -56,14 +56,24 @@ export const WithColumns = () => {
 
 export const WithoutPadding = () => {
   return (
-    <Card styleOverrides={{ padding: 0 }} width={500}>
-      <Heading padding={6}>Our People</Heading>
+    <Card styleOverrides={{ padding: 0, width: 500 }}>
+      <Heading
+        styleOverrides={{
+          padding: 6,
+        }}
+      >
+        Our People
+      </Heading>
       <img
         width="100%"
         src="https://careers.vtex.com/assets/media/perspectives03.jpg"
         alt=""
       />
-      <Paragraph padding={6}>
+      <Paragraph
+        styleOverrides={{
+          padding: 6,
+        }}
+      >
         At VTEX we believe inclusion inspires innovation. We are committed to
         implement a recruiting process that guarantees equal opportunities for
         all, regardless of ethnicity, gender, disability, sexual orientation,

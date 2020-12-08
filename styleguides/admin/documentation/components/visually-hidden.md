@@ -14,7 +14,7 @@ import { VisuallyHidden, Box, Text, ThemeProvider } from '@vtex/admin-ui'
 function Example() {
   return (
     <ThemeProvider>
-      <Box styles={{ display: 'flex', flexDirection: 'column' }} width={200}>
+      <Box styles={{ display: 'flex', flexDirection: 'column', width: 200 }}>
         <VisuallyHidden>
           <label htmlFor="search">Hidden Label</label>
         </VisuallyHidden>

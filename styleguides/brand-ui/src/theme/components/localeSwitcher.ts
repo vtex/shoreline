@@ -1,15 +1,13 @@
-import { SxStyleProp } from 'theme-ui'
-
-const labelLarge: SxStyleProp = {
+const labelLarge = {
   pl: 2,
   pr: '3.5rem',
 }
 
-const labelMobile: SxStyleProp = {
+const labelMobile = {
   px: 3,
 }
 
-const overlay: SxStyleProp = {
+const overlay = {
   backgroundColor: 'rgba(20, 32, 50, 0.8)',
   display: ['block', 'block', 'block', 'none'],
   position: 'fixed',
@@ -20,7 +18,7 @@ const overlay: SxStyleProp = {
   zIndex: 1,
 }
 
-const optionContainerLarge: SxStyleProp = {
+const optionContainerLarge = {
   position: 'absolute',
   display: ['none', 'none', 'none', 'flex'],
   flexDirection: 'column',
@@ -37,7 +35,7 @@ const optionContainerLarge: SxStyleProp = {
   boxShadow: '0px 20px 25px rgba(20, 32, 50, 0.1)',
 }
 
-const optionContainerMobile: SxStyleProp = {
+const optionContainerMobile = {
   position: 'fixed',
   display: ['flex', 'flex', 'flex', 'none'],
   flexDirection: 'column',
@@ -54,13 +52,13 @@ const optionContainerMobile: SxStyleProp = {
   borderColor: 'muted.3',
 }
 
-const baseOption: SxStyleProp = {
+const baseOption = {
   cursor: 'pointer',
   my: 3,
   color: 'base.0',
 }
 
-const optionLarge: SxStyleProp = {
+const optionLarge = {
   ...baseOption,
   ':hover': {
     color: 'primary.base',
@@ -71,13 +69,13 @@ const optionLarge: SxStyleProp = {
   },
 }
 
-const optionMobile: SxStyleProp = {
+const optionMobile = {
   ...optionLarge,
   color: 'secondary.base',
   my: 4,
 }
 
-const baseLocaleSwitcher: SxStyleProp = {
+const baseLocaleSwitcher = {
   width: '100%',
   color: 'muted.0',
   alignItems: 'center',
@@ -89,7 +87,7 @@ const baseLocaleSwitcher: SxStyleProp = {
   outline: 'none',
 }
 
-const large: SxStyleProp = {
+const large = {
   ...baseLocaleSwitcher,
   display: ['none', 'none', 'none', 'flex'],
   ':hover': {
@@ -104,7 +102,7 @@ const large: SxStyleProp = {
   option: optionLarge,
 }
 
-const mobile: SxStyleProp = {
+const mobile = {
   ...baseLocaleSwitcher,
   display: ['flex', 'flex', 'flex', 'none'],
   position: 'fixed',
@@ -120,7 +118,7 @@ const mobile: SxStyleProp = {
   option: optionMobile,
 }
 
-const localeSwitcher: SxStyleProp = {
+const localeSwitcher = {
   large,
   mobile: {
     ...mobile,

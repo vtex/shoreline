@@ -1,7 +1,5 @@
-/** @jsx jsx */
-import { jsx, SxStyleProp } from '@theme-ui/core'
-import { ReactNode, useCallback } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
+import React, { ReactNode, useCallback } from 'react'
+import { useClassName, StyleProp } from '@vtex/admin-ui-system'
 
 import { ModalStateReturn } from './state'
 import { ModalProvider } from './context'
@@ -57,14 +55,15 @@ export function StatelessModal(props: StatelessModalProps) {
   }, [onClose, state])
 
   const backdropCn = useClassName({
-    props: { styles: backdropStyles },
+    ...backdropStyles,
     themeKey: 'components.modal.backdrop',
   })
 
   const { hasHeader, hasFooter, scrollStyle } = useComponentsExistence(children)
 
   const modalCn = useClassName({
-    props: { styles: { ...scrollStyle, ...styleOverrides } },
+    ...scrollStyle,
+    ...styleOverrides,
     themeKey: `components.modal.surface-${size}`,
   })
 
@@ -177,7 +176,7 @@ export interface StatelessModalProps extends AbstractModalProps, Overridable {
    * Backdrop styles
    * @default {}
    */
-  backdropStyles?: SxStyleProp
+  backdropStyles?: StyleProp
   /**
    * Action to dispatch on close modal
    * @default ()=>null
