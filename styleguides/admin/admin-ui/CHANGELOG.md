@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.66.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.66.2...@vtex/admin-ui@0.66.3) (2020-12-09)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
 ## [0.66.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.66.1...@vtex/admin-ui@0.66.2) (2020-12-09)
 
 **Note:** Version bump only for package @vtex/admin-ui
