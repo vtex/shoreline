@@ -1,5 +1,6 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { IconProps } from '@vtex-components/icon'
 
 import { Button, ButtonProps } from './index'
 import { IconMock } from './IconMock'
@@ -10,7 +11,7 @@ export default {
 } as Meta
 
 const Template: Story<ButtonProps> = (args) => (
-  <Button {...args} icon={(props) => <IconMock {...props} />} />
+  <Button {...args} icon={(props: IconProps) => <IconMock {...props} />} />
 )
 
 export const Playground = Template.bind({})
@@ -47,15 +48,18 @@ export const BoxTypes = () => (
 )
 
 export const ButtonWithIcon = () => {
-  return <Button icon={(props) => <IconMock {...props} />} />
+  return <Button icon={(props: IconProps) => <IconMock {...props} />} />
 }
 
 export const ButtonWithIconAndLabel = () => (
   <>
-    <Button icon={(props) => <IconMock {...props} />} sx={{ mr: 4 }}>
+    <Button icon={(props: IconProps) => <IconMock {...props} />} sx={{ mr: 4 }}>
       Icon Start
     </Button>
-    <Button icon={(props) => <IconMock {...props} />} iconPosition="end">
+    <Button
+      icon={(props: IconProps) => <IconMock {...props} />}
+      iconPosition="end"
+    >
       Icon End
     </Button>
   </>

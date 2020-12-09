@@ -12,12 +12,14 @@ const useCarouselState = ({ totalSlides }: { totalSlides: number }) => {
     } else {
       setDirection('rtl')
     }
+
     setSwapSlide(currentSlide)
     setCurrentSlide(newSlide)
   }
 
   const handleNext = () => {
     const nextSlide = (currentSlide + 1) % totalSlides
+
     setDirection('ltr')
     setSwapSlide(currentSlide)
     setCurrentSlide(nextSlide)
@@ -25,6 +27,7 @@ const useCarouselState = ({ totalSlides }: { totalSlides: number }) => {
 
   const handlePrevious = () => {
     const previousSlide = (totalSlides + currentSlide - 1) % totalSlides
+
     setDirection('rtl')
     setSwapSlide(currentSlide)
     setCurrentSlide(previousSlide)

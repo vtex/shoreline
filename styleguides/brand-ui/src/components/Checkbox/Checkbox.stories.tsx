@@ -19,6 +19,7 @@ const Template = (args: CheckboxProps) => {
     />
   )
 }
+
 export const Playground = Template.bind({})
 Playground.args = {
   label: "At least I'm trying.",

@@ -41,7 +41,7 @@ const SimpleCarousel = (
         backgroundColor: 'success.base',
       }}
     >
-      You're my, my, my, my...
+      You&apos;re my, my, my, my...
     </Flex>
     <Flex
       sx={{
@@ -91,7 +91,7 @@ export const MultipleCards = () => (
       <SimpleCard>Well guess what? I like that</SimpleCard>
     </Flex>
     <Flex sx={cardContainerStyles}>
-      <SimpleCard>'Cause I'm gonna mess your life up</SimpleCard>
+      <SimpleCard>&apos;Cause I&apos;m gonna mess your life up</SimpleCard>
       <SimpleCard>Gonna wanna tape my mouth shut</SimpleCard>
       <SimpleCard>Look out, lovers</SimpleCard>
     </Flex>
