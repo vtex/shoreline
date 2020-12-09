@@ -26,8 +26,7 @@ import ThemeAwareProps from '../components/ThemeAwareProps'
 import { IconPage } from '../components/IconsPage'
 import IconPropDetails from '../components/IconPropDetails'
 import Collapsible from '../components/Collapsible'
-// @ts-expect-error
-import Code from '../components/Code'
+import { Code } from '../components/Code'
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -138,8 +137,7 @@ const { Compiler: renderAst } = new RehypeReact({
         return null
       }
 
-      // const [, language] = className.match(/language-(.+)/) ?? []
-      function preToCodeBlock(preProps: any) {
+      function preToCodeBlock(preProps: typeof prevProps) {
         if (preProps?.children) {
           const codeElement = getChildrenCode(preProps)
 

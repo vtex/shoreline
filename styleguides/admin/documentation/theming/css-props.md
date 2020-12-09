@@ -36,7 +36,7 @@ You can use this prop in the following components:
 
 ### Theme values
 
-```jsx static
+```jsx isStatic
 sizes: {
   sm: '20rem',
   md: '48rem',
