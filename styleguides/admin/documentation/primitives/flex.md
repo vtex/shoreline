@@ -17,49 +17,41 @@ If you want to know more about how to style a primitive component, check out our
 `Flex.Spacer`: Creates an adjustable, empty space that can be used to tune the spacing between child elements within Flex.
 
 ```jsx
-import { Flex, Box, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Flex styles={{ height: 100 }}>
-        <Box
-          styles={{
-            bg: 'red',
-            width: 100,
-          }}
-        >
-          Box 1
-        </Box>
-        <Box
-          styles={{
-            bg: 'green',
-            width: 150,
-          }}
-        >
-          Box 2
-        </Box>
-        <Box
-          styles={{
-            bg: 'blue',
-            flex: 1,
-          }}
-        >
-          Box 3
-        </Box>
-      </Flex>
-    </ThemeProvider>
-  )
-}
+<Flex styles={{ height: 100 }}>
+  <Box
+    styles={{
+      bg: 'red',
+      width: 100,
+    }}
+  >
+    Box 1
+  </Box>
+  <Box
+    styles={{
+      bg: 'green',
+      width: 150,
+    }}
+  >
+    Box 2
+  </Box>
+  <Box
+    styles={{
+      bg: 'blue',
+      flex: 1,
+    }}
+  >
+    Box 3
+  </Box>
+</Flex>
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Flex } from '@vtex/admin-ui'
 ```
 
@@ -70,37 +62,25 @@ import { Flex } from '@vtex/admin-ui'
 You can combine `Flex` and `Flex.Spacer` to create an adjustable, empty space that can be used to tune the spacing between child elements within Flex.
 
 ```jsx
-import { Flex, Box, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  const boxStyles = {
-    size: 100,
-  }
-
-  return (
-    <ThemeProvider>
-      <Flex justify="space-around">
-        <Box
-          styles={{
-            bg: 'red',
-            ...boxStyles,
-          }}
-        >
-          Box 1s
-        </Box>
-        <Flex.Spacer />
-        <Box
-          styles={{
-            bg: 'green',
-            ...boxStyles,
-          }}
-        >
-          Box 2
-        </Box>
-      </Flex>
-    </ThemeProvider>
-  )
-}
+<Flex justify="space-around">
+  <Box
+    styles={{
+      bg: 'red',
+      size: 100,
+    }}
+  >
+    Box 1s
+  </Box>
+  <Flex.Spacer />
+  <Box
+    styles={{
+      bg: 'green',
+      size: 100,
+    }}
+  >
+    Box 2
+  </Box>
+</Flex>
 ```
 
 ### Customization
