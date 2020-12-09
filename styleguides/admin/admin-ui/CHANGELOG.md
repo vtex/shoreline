@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.66.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.65.0...@vtex/admin-ui@0.66.0) (2020-12-09)
+
+
+### Features
+
+* **grid:** add Grid component ([bbbed59](https://github.com/vtex/onda/commit/bbbed5939d46d4184f484aea0a37fa453957fe58))
+
+
+
+
+
 # [0.65.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.64.1...@vtex/admin-ui@0.65.0) (2020-12-09)
 
 

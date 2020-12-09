@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.28.0...@vtex/brand-ui@0.29.0) (2020-12-09)
+
+
+### Bug Fixes
+
+* remove circular dependencies ([a7fd9a0](https://github.com/vtex/onda/commit/a7fd9a0e15e1aad15f8a1067bc3c76caca90eda1))
+
+
+### Features
+
+* hide LocaleSwitcher when lose focus and change icon caret direction when closing and opening ([6547f61](https://github.com/vtex/onda/commit/6547f61be6b2c80c63aeb7d9b6012f2dc5bccb05))
+
+
+
+
+
 # [0.28.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.26.0...@vtex/brand-ui@0.28.0) (2020-12-09)
 
 
