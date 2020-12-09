@@ -13,18 +13,12 @@ Our styleguide provides an accessible default palette to get you up and running.
 #### Example
 
 ```jsx
-import { cn } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <div
-      className={cn({
-        size: 96,
-        bg: 'primary.base',
-      })}
-    />
-  )
-}
+<div
+  className={cn({
+    size: 96,
+    bg: 'primary.base',
+  })}
+/>
 ```
 
 ## Complete color set
@@ -45,13 +39,13 @@ The colors that will receive most of the app's content. Base colors can only be 
 
 ### Primary
 
-The action-primary color is the color used on the interactive elements of an app. It should drive the user's attention to the tasks that should be done using the app. 
+The action-primary color is the color used on the interactive elements of an app. It should drive the user's attention to the tasks that should be done using the app.
 
 <semanticcolor color="primary"></semanticcolor>
 
 ### Secondary
 
-The action-secondary color is used on the less important interactions of an app. It should be visually less prominent in comparison with the action-primary color. 
+The action-secondary color is used on the less important interactions of an app. It should be visually less prominent in comparison with the action-primary color.
 
 <semanticcolor color="secondary"></semanticcolor>
 
@@ -77,7 +71,7 @@ Warning color is used to inform users that something is not performing as it sho
 
 ### Success
 
-Success color is used to give the user a positive perception of an information that's being displayed. 
+Success color is used to give the user a positive perception of an information that's being displayed.
 
 <semanticcolor color="success"></semanticcolor>
 
@@ -85,8 +79,6 @@ Success color is used to give the user a positive perception of an information t
 
 <semanticcolor color="success.washed"></semanticcolor>
 
-### Elementary 
+### Elementary
 
 <elementarycolors></elementarycolors>
-
-

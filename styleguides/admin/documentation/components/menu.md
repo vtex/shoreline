@@ -9,28 +9,20 @@ Accessible dropdown Menu component that follows the [WAI-ARIA Menu](https://www.
 ## Behavior
 
 ```jsx
-import { ThemeProvider, Button, Menu } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Menu aria-label="menu label" disclosure={<Button>Actions</Button>}>
-        <Menu.Item>Download</Menu.Item>
-        <Menu.Item>Link to</Menu.Item>
-        <Menu.Item>Favorite</Menu.Item>
-      </Menu>
-    </ThemeProvider>
-  )
-}
+<Menu aria-label="menu label" disclosure={<Button>Actions</Button>}>
+  <Menu.Item>Download</Menu.Item>
+  <Menu.Item>Link to</Menu.Item>
+  <Menu.Item>Favorite</Menu.Item>
+</Menu>
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Menu } from '@vtex/admin-ui'
 ```
 
@@ -45,30 +37,12 @@ Learn more in [Get started](/docs/get-started/).
 Handles the state internally.
 
 ```jsx
-import { Menu, ThemeProvider, Button } from '@vtex/admin-ui'
-import {
-  IconImport,
-  IconLink,
-  IconFavorite,
-  IconDelete,
-} from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Menu
-        hideOnClick
-        aria-label="menu label"
-        disclosure={<Button>Actions</Button>}
-      >
-        <Menu.Item icon={<IconImport />}>Download</Menu.Item>
-        <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
-        <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-        <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
-      </Menu>
-    </ThemeProvider>
-  )
-}
+<Menu hideOnClick aria-label="menu label" disclosure={<Button>Actions</Button>}>
+  <Menu.Item icon={<IconImport />}>Download</Menu.Item>
+  <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
+  <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
+  <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
+</Menu>
 ```
 
 #### 🚫 Dont
@@ -85,15 +59,6 @@ function Example() {
 Accepts states handled by the `useMenuState` hook within the `state` prop.
 
 ```jsx
-import {
-  ThemeProvider,
-  useMenuState,
-  StatelessMenu,
-  MenuDisclosure,
-  Button,
-} from '@vtex/admin-ui'
-import { IconImport, IconLink, IconFavorite } from '@vtex/admin-ui-icons'
-
 function Example() {
   const state = useMenuState({
     orientation: 'vertical',
@@ -102,7 +67,7 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
+    <>
       <MenuDisclosure state={state}>
         <Button>Post options</Button>
       </MenuDisclosure>
@@ -113,7 +78,7 @@ function Example() {
           Favorite
         </StatelessMenu.Item>
       </StatelessMenu>
-    </ThemeProvider>
+    </>
   )
 }
 ```
@@ -141,23 +106,10 @@ Hook used to keep state. It has the same props of [Reakit/useMenuState](https://
 ### MenuItem
 
 ```jsx
-import { Menu, ThemeProvider, Button } from '@vtex/admin-ui'
-import { IconFavorite } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Menu
-        hideOnClick
-        aria-label="menu label"
-        disclosure={<Button>Actions</Button>}
-      >
-        <Menu.Item>Link to</Menu.Item>
-        <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-      </Menu>
-    </ThemeProvider>
-  )
-}
+<Menu hideOnClick aria-label="menu label" disclosure={<Button>Actions</Button>}>
+  <Menu.Item>Link to</Menu.Item>
+  <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
+</Menu>
 ```
 
 #### Props
@@ -170,32 +122,13 @@ function Example() {
 Represents an `hr` used to separate the menu into sections
 
 ```jsx
-import { Menu, ThemeProvider, Button } from '@vtex/admin-ui'
-import {
-  IconImport,
-  IconLink,
-  IconFavorite,
-  IconDelete,
-  IconArrow,
-} from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Menu
-        hideOnClick
-        aria-label="menu label"
-        disclosure={<Button>Actions</Button>}
-      >
-        <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
-        <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-        <Menu.Separator />
-        <Menu.Item icon={<IconImport />}>Download</Menu.Item>
-        <Menu.Item icon={<IconArrow direction="up" />}>Upload</Menu.Item>
-        <Menu.Separator />
-        <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
-      </Menu>
-    </ThemeProvider>
-  )
-}
+<Menu hideOnClick aria-label="menu label" disclosure={<Button>Actions</Button>}>
+  <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
+  <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
+  <Menu.Separator />
+  <Menu.Item icon={<IconImport />}>Download</Menu.Item>
+  <Menu.Item icon={<IconArrow direction="up" />}>Upload</Menu.Item>
+  <Menu.Separator />
+  <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
+</Menu>
 ```

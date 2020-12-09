@@ -2,49 +2,34 @@
 path: /theming/css-props/
 ---
 
-# CSS Props
+# Scales
 
 Properties that you can use in specific components to add `space` or `size` styles.
 
-## Spacing
-
-You can use this prop in the following components: 
-- `Box`
-- `Card`
-- `Divider`
-- `Heading`
-- `Text`
-- `Label`
-- `Paragraph` 
-- `Skeleton` 
-
-### Theme values
-
-```jsx static
-space: {
-  0: '0rem',
-  1: '0.25rem',
-  2: '0.5rem',
-  3: '0.75rem',
-  4: '1rem',
-  5: '1.25rem',
-  6: '1.5rem',
-  7: '1.75rem',
-  8: '2rem',
-  px: '0.0625rem',
-  '2px': '0.125rem',
-}
-```
-
-### properties
+## Space
 
 `padding`, `paddingX`, `paddingY`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingBottom`.
 
-`margin`, `marginX`, `marginY`, `marginLeft`, `marginRight`, `marginTop`, `marginBottom`.
+`margin`, `marginX`, `marginY`, `marginLeft`, `marginRight`, `marginTop`, `marginBottom`
+
+| TOKEN | REM         | PX     | SIZE                                                                       |
+| ----- | ----------- | ------ | -------------------------------------------------------------------------- |
+| 0     | `0rem`      | `0px`  | <div style="width: 0rem; backgroundColor: black; height: 10px"></div>      |
+| px    | `0.0625rem` | `1px`  | <div style="width: 0.0625rem; backgroundColor: black; height: 10px"></div> |
+| 2px   | `0.125rem`  | `2px`  | <div style="width: 0.125rem; backgroundColor: black; height: 10px"></div>  |
+| 1     | `0.25rem`   | `4px`  | <div style="width: 0.25rem; backgroundColor: black; height: 10px"></div>   |
+| 2     | `0.5rem`    | `8px`  | <div style="width: 0.5rem; backgroundColor: black; height: 10px"></div>    |
+| 3     | `0.75rem`   | `12px` | <div style="width: 0.75rem; backgroundColor: black; height: 10px"></div>   |
+| 4     | `1rem`      | `16px` | <div style="width: 1rem; backgroundColor: black; height: 10px"></div>      |
+| 5     | `1.25rem`   | `20px` | <div style="width: 1.25rem; backgroundColor: black; height: 10px"></div>   |
+| 6     | `1.50rem`   | `24px` | <div style="width: 1.50rem; backgroundColor: black; height: 10px"></div>   |
+| 7     | `1.75rem`   | `28px` | <div style="width: 1.75rem; backgroundColor: black; height: 10px"></div>   |
+| 8     | `2rem`      | `32px` | <div style="width: 2rem; backgroundColor: black; height: 10px"></div>      |
 
 ## Size
 
-You can use this prop in the following components: 
+You can use this prop in the following components:
+
 - `Box`
 - `Card`
 - `Skeleton`

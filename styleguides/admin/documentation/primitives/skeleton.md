@@ -20,26 +20,18 @@ _Note that you may want to use one of our `Layout` components before using Box t
 By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
 
 ```jsx
-import { ThemeProvider, Skeleton, Box } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box styles={{ width: 'full', height: 192 }}>
-        <Skeleton />
-      </Box>
-    </ThemeProvider>
-  )
-}
+<Box styles={{ width: 'full', height: 192 }}>
+  <Skeleton />
+</Box>
 ```
 
 ## Installation
 
-```sh static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Skeleton } from '@vtex/admin-ui'
 ```
 
@@ -50,15 +42,7 @@ import { Skeleton } from '@vtex/admin-ui'
 By default, Skeleton's shape is rectangular. To use this variation, the `shape` property has the `rect` value.
 
 ```jsx
-import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Skeleton styles={{ size: 128 }} />
-    </ThemeProvider>
-  )
-}
+<Skeleton styles={{ size: 128 }} />
 ```
 
 ### Circle
@@ -66,15 +50,7 @@ function Example() {
 The shape can also be circular. To use this variation, the `shape` property has the `circle` value.
 
 ```jsx
-import { ThemeProvider, Skeleton } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Skeleton shape="circle" styles={{ size: 100 }} />
-    </ThemeProvider>
-  )
-}
+<Skeleton shape="circle" styles={{ size: 100 }} />
 ```
 
 ## Props

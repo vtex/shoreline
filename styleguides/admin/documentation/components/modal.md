@@ -45,40 +45,32 @@ Same as `BoxProps`.
 Stateful is the default way of using the Modal component within admin-ui.
 
 ```jsx
-import { Modal, ThemeProvider, Text, Button } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Modal
-        aria-label="Publish modal"
-        size="small"
-        disclosure={<Button>Publish</Button>}
-      >
-        <Modal.Header title="Publish content" />
-        <Modal.Content>
-          <Text>
-            Are you sure you want to publish this content? These action cannot
-            be undone.
-          </Text>
-        </Modal.Content>
-        <Modal.Footer>
-          <Button variant="secondary">Cancel</Button>
-          <Button>Confirm</Button>
-        </Modal.Footer>
-      </Modal>
-    </ThemeProvider>
-  )
-}
+<Modal
+  aria-label="Publish modal"
+  size="small"
+  disclosure={<Button>Publish</Button>}
+>
+  <Modal.Header title="Publish content" />
+  <Modal.Content>
+    <Text>
+      Are you sure you want to publish this content? These action cannot be
+      undone.
+    </Text>
+  </Modal.Content>
+  <Modal.Footer>
+    <Button variant="secondary">Cancel</Button>
+    <Button>Confirm</Button>
+  </Modal.Footer>
+</Modal>
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Modal } from '@vtex/admin-ui'
 ```
 
@@ -91,50 +83,30 @@ The modal comes in three different sizes: `small`, `regular`, and `large`.
 #### Small
 
 ```jsx
-import { Modal, ThemeProvider, Text, Button } from '@vtex/admin-ui'
-function Example() {
-  return (
-    <ThemeProvider>
-      <Modal
-        aria-label="News modal"
-        disclosure={<Button>Small</Button>}
-        size="small"
-      >
-        <Modal.Header title="We have good news!" />
-        <Modal.Content>
-          <Text>
-            This is our new experience for inventory update. Feel free to leave
-            feedback.
-          </Text>
-        </Modal.Content>
-        <Modal.Footer>
-          <Button>Okay, got it</Button>
-        </Modal.Footer>
-      </Modal>
-    </ThemeProvider>
-  )
-}
+<Modal aria-label="News modal" disclosure={<Button>Small</Button>} size="small">
+  <Modal.Header title="We have good news!" />
+  <Modal.Content>
+    <Text>
+      This is our new experience for inventory update. Feel free to leave
+      feedback.
+    </Text>
+  </Modal.Content>
+  <Modal.Footer>
+    <Button>Okay, got it</Button>
+  </Modal.Footer>
+</Modal>
 ```
 
 #### Regular (default)
 
 ```jsx
-import {
-  Modal,
-  ThemeProvider,
-  Text,
-  Button,
-  Label,
-  Checkbox,
-  useCheckboxState,
-} from '@vtex/admin-ui'
 function Example() {
   const checkbox = useCheckboxState()
 
   const handleClose = () => checkbox.setState(false)
 
   return (
-    <ThemeProvider>
+    <>
       <Modal
         aria-label="Conditions Modal"
         disclosure={<Button>Regular</Button>}
@@ -172,7 +144,7 @@ function Example() {
           <Button disabled={!checkbox.state}>Next</Button>
         </Modal.Footer>
       </Modal>
-    </ThemeProvider>
+    </>
   )
 }
 ```
@@ -191,7 +163,7 @@ TODO
 Sometimes, you may need to access the modal states or open it on async updates (like data fetching). For this, need to use the stateless approach.
 You will also need the `ModalDisclosure` component and the `useModalState` hook.
 
-```jsx static
+```jsx isStatic
 import { useModalState, ModalDisclosure, Button } from '@vtex/admin-ui'
 
 function Example() {
@@ -206,52 +178,40 @@ function Example() {
 ```
 
 ```jsx
-import {
-  StatelessModal,
-  ModalDisclosure,
-  ThemeProvider,
-  Box,
-  useModalState,
-  Text,
-  Button,
-} from '@vtex/admin-ui'
-
 function Example() {
   const publishModal = useModalState()
 
   return (
-    <ThemeProvider>
-      <Box>
-        <ModalDisclosure {...publishModal}>
-          <Button>Publish</Button>
-        </ModalDisclosure>
-        <StatelessModal
-          aria-label="Publish modal"
-          state={publishModal}
-          size="small"
-        >
-          <StatelessModal.Header title="Publish content" />
-          <StatelessModal.Content>
-            <Text>
-              Are you sure you want to publish this content? These action cannot
-              be undone.
-            </Text>
-          </StatelessModal.Content>
-          <StatelessModal.Footer>
-            <Button variant="secondary">Cancel</Button>
-            <Button>Confirm</Button>
-          </StatelessModal.Footer>
-        </StatelessModal>
-      </Box>
-    </ThemeProvider>
+    <Box>
+      <ModalDisclosure {...publishModal}>
+        <Button>Publish</Button>
+      </ModalDisclosure>
+      <StatelessModal
+        aria-label="Publish modal"
+        state={publishModal}
+        size="small"
+      >
+        <StatelessModal.Header title="Publish content" />
+        <StatelessModal.Content>
+          <Text>
+            Are you sure you want to publish this content? These action cannot
+            be undone.
+          </Text>
+        </StatelessModal.Content>
+        <StatelessModal.Footer>
+          <Button variant="secondary">Cancel</Button>
+          <Button>Confirm</Button>
+        </StatelessModal.Footer>
+      </StatelessModal>
+    </Box>
   )
 }
 ```
 
 In this example, we trigger the modal after fetching some data (it takes 1 second):
 
-```jsx static
-import { Modal, ThemeProvider, Box, Button, Text } from '@vtex/admin-ui'
+```jsx isStatic
+import { Modal, Box, Button, Text } from '@vtex/admin-ui'
 
 const [data, setData] = useState([])
 const ref = useRef({ oneTime: true })
@@ -281,35 +241,34 @@ useEffect(() => {
     ref.current.oneTime = false
   }
 }, [data, blockModal])
+
 function Example() {
   return (
-    <ThemeProvider>
-      <Box styles={{ 'button + button': { ml: 4 } }}>
-        <Button onClick={fetchData} disabled={data.length > 0}>
-          Get blocks data
-        </Button>
-        <ModalDisclosure {...blockModal}>
-          <Button disabled={data.length === 0}>Add new block</Button>
-        </ModalDisclosure>
-        <StatelessModal aria-label="Add block modal" state={blockModal}>
-          <StatelessModal.Header title="Add new block" />
-          <StatelessModal.Content sx={{ paddingTop: 0 }}>
-            <List>
-              {data.map(({ id, icon: Icon, title }) => (
-                <List.Item key={id}>
-                  <Icon />
-                  <List.TextGroup
-                    ml="4"
-                    title={title}
-                    subtitle="Short description about the block"
-                  />
-                </List.Item>
-              ))}
-            </List>
-          </StatelessModal.Content>
-        </StatelessModal>
-      </Box>
-    </ThemeProvider>
+    <Box styles={{ 'button + button': { ml: 4 } }}>
+      <Button onClick={fetchData} disabled={data.length > 0}>
+        Get blocks data
+      </Button>
+      <ModalDisclosure {...blockModal}>
+        <Button disabled={data.length === 0}>Add new block</Button>
+      </ModalDisclosure>
+      <StatelessModal aria-label="Add block modal" state={blockModal}>
+        <StatelessModal.Header title="Add new block" />
+        <StatelessModal.Content sx={{ paddingTop: 0 }}>
+          <List>
+            {data.map(({ id, icon: Icon, title }) => (
+              <List.Item key={id}>
+                <Icon />
+                <List.TextGroup
+                  ml="4"
+                  title={title}
+                  subtitle="Short description about the block"
+                />
+              </List.Item>
+            ))}
+          </List>
+        </StatelessModal.Content>
+      </StatelessModal>
+    </Box>
   )
 }
 ```

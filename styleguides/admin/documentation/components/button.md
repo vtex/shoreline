@@ -14,24 +14,16 @@ Keep in mind the Authority we want to transmit with our voice. Buttons are where
 ## Behavior
 
 ```jsx
-import { ThemeProvider, Button } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Button>Admin UI Button</Button>
-    </ThemeProvider>
-  )
-}
+<Button>Admin UI Button</Button>
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Button } from '@vtex/admin-ui'
 ```
 
@@ -59,18 +51,10 @@ This option should be used for the most important action of the page.
 #### Example
 
 ```jsx
-import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Set orientation="vertical">
-        <Button variant="primary">Primary Action</Button>
-        <Button variant="danger">Dangerous Primary Action</Button>
-      </Set>
-    </ThemeProvider>
-  )
-}
+<Set orientation="vertical">
+  <Button variant="primary">Primary Action</Button>
+  <Button variant="danger">Dangerous Primary Action</Button>
+</Set>
 ```
 
 ### Secondary
@@ -92,18 +76,10 @@ This option should be used for optional actions.
 #### Example
 
 ```jsx
-import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Set orientation="vertical">
-        <Button variant="secondary">Secondary Action</Button>
-        <Button variant="danger-secondary">Dangerous Secondary Action</Button>
-      </Set>
-    </ThemeProvider>
-  )
-}
+<Set orientation="vertical">
+  <Button variant="secondary">Secondary Action</Button>
+  <Button variant="danger-secondary">Dangerous Secondary Action</Button>
+</Set>
 ```
 
 ### Tertiary
@@ -121,18 +97,10 @@ This option should be used for optional/tertiary actions.
 - No punctuation.
 
 ```jsx
-import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Set orientation="vertical">
-        <Button variant="tertiary">Tertiary Action</Button>
-        <Button variant="danger-tertiary">Dangerous Tertiary Action</Button>
-      </Set>
-    </ThemeProvider>
-  )
-}
+<Set orientation="vertical">
+  <Button variant="tertiary">Tertiary Action</Button>
+  <Button variant="danger-tertiary">Dangerous Tertiary Action</Button>
+</Set>
 ```
 
 ### Adaptative
@@ -151,35 +119,26 @@ Adapts to the context that is inserted.
 - No punctuation.
 
 ```jsx
-import { ThemeProvider, Button, Set, Box } from '@vtex/admin-ui'
-import { IconClose } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Set orientation="vertical">
-        <Box
-          styles={{
-            color: 'text.primary',
-            bg: 'background',
-            padding: 4,
-          }}
-        >
-          <Button variant="adaptative-dark" icon={<IconClose />} />
-        </Box>
-        <Box
-          styles={{
-            color: 'background',
-            bg: 'text.primary',
-            padding: 4,
-          }}
-        >
-          <Button variant="adaptative-light" icon={<IconClose />} />
-        </Box>
-      </Set>
-    </ThemeProvider>
-  )
-}
+<Set orientation="vertical">
+  <Box
+    styles={{
+      color: 'text.primary',
+      bg: 'background',
+      padding: 4,
+    }}
+  >
+    <Button variant="adaptative-dark" icon={<IconClose />} />
+  </Box>
+  <Box
+    styles={{
+      color: 'background',
+      bg: 'text.primary',
+      padding: 4,
+    }}
+  >
+    <Button variant="adaptative-light" icon={<IconClose />} />
+  </Box>
+</Set>
 ```
 
 ### Sizes
@@ -187,18 +146,10 @@ function Example() {
 The button comes in two sizes: `regular` (default) and `small`.
 
 ```jsx
-import { ThemeProvider, Button, Set } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Set orientation="vertical">
-        <Button>Regular Button</Button>
-        <Button size="small">Small Button</Button>
-      </Set>
-    </ThemeProvider>
-  )
-}
+<Set orientation="vertical">
+  <Button>Regular Button</Button>
+  <Button size="small">Small Button</Button>
+</Set>
 ```
 
 ### Icon
@@ -213,16 +164,7 @@ This type of button replaces text with an icon. The action needs to be clear eno
 - Be consistent with what action it represents, pay attention to the icon's use on other screens,
 
 ```jsx
-import { Button, ThemeProvider } from '@vtex/admin-ui'
-import { IconFavorite } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Button icon={<IconFavorite title="Favorite" />} />
-    </ThemeProvider>
-  )
-}
+<Button icon={<IconFavorite title="Favorite" />} />
 ```
 
 ### Icon + Text
@@ -241,23 +183,14 @@ This type of button combines an icon and an action. It embodies more complex act
 - No punctuation.
 
 ```jsx
-import { Button, ThemeProvider, Set } from '@vtex/admin-ui'
-import { IconFavorite, IconCaret } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Set orientation="vertical">
-        <Button icon={<IconFavorite />} iconPosition="start" mr="20px">
-          Icon start
-        </Button>
-        <Button icon={<IconCaret direction="down" />} iconPosition="end">
-          Icon end
-        </Button>
-      </Set>
-    </ThemeProvider>
-  )
-}
+<Set orientation="vertical">
+  <Button icon={<IconFavorite />} iconPosition="start" mr="20px">
+    Icon start
+  </Button>
+  <Button icon={<IconCaret direction="down" />} iconPosition="end">
+    Icon end
+  </Button>
+</Set>
 ```
 
 ## Props

@@ -13,19 +13,10 @@ Used to group a set of `Radio` components. Has `role="radiogroup"` defined.
 ## Behavior
 
 ```jsx
-import {
-  Radio,
-  RadioGroup,
-  useRadioState,
-  Label,
-  Heading,
-  ThemeProvider,
-} from '@vtex/admin-ui'
-
 function Example() {
   const radio = useRadioState()
   return (
-    <ThemeProvider>
+    <>
       <Heading>Selected Radio: {radio.state}</Heading>
       <RadioGroup state={radio} id="radio-group" label="Solutions">
         <Label>
@@ -41,18 +32,18 @@ function Example() {
           Order Management System
         </Label>
       </RadioGroup>
-    </ThemeProvider>
+    </>
   )
 }
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { RadioGroup } from '@vtex/admin-ui'
 ```
 
@@ -67,19 +58,10 @@ To guarantee accessibility and keyboard navigation along with the `Radios` insid
 By default, the RadioGroup is rendered in a horizontal orientation. This means that the `orientation` property has a `horizontal` value.
 
 ```jsx
-import {
-  Radio,
-  RadioGroup,
-  useRadioState,
-  Label,
-  Heading,
-  ThemeProvider,
-} from '@vtex/admin-ui'
-
 function Example() {
   const radio = useRadioState()
   return (
-    <ThemeProvider>
+    <>
       <Heading>Selected Radios: {radio.state}</Heading>
       <RadioGroup state={radio} id="radio-group" label="Solutions">
         <Label>
@@ -95,7 +77,7 @@ function Example() {
           Order Management System
         </Label>
       </RadioGroup>
-    </ThemeProvider>
+    </>
   )
 }
 ```
@@ -105,19 +87,10 @@ function Example() {
 The RadioGroup can also be rendered in a vertical orientation. This means that the `orientation` property should have a `vertical` value.
 
 ```jsx
-import {
-  Radio,
-  RadioGroup,
-  useRadioState,
-  Label,
-  Heading,
-  ThemeProvider,
-} from '@vtex/admin-ui'
-
 function Example() {
   const radio = useRadioState()
   return (
-    <ThemeProvider>
+    <>
       <Heading>Selected Radio: {radio.state}</Heading>
       <RadioGroup
         state={radio}
@@ -138,7 +111,7 @@ function Example() {
           Order Management System
         </Label>
       </RadioGroup>
-    </ThemeProvider>
+    </>
   )
 }
 ```
@@ -150,19 +123,11 @@ You can easily add a label to the RadioGroup using the `label` property. Just ke
 You can also add a custom label!
 
 ```jsx
-import {
-  Radio,
-  RadioGroup,
-  useRadioState,
-  Label,
-  ThemeProvider,
-} from '@vtex/admin-ui'
-
 function Example() {
   const state = useRadioState({ state: '' })
 
   return (
-    <ThemeProvider>
+    <>
       <Label htmlFor="radio-group-id">Fruits</Label>
       <RadioGroup id="radio-group-id" state={state}>
         <Label>
@@ -178,7 +143,7 @@ function Example() {
           Orange
         </Label>
       </RadioGroup>
-    </ThemeProvider>
+    </>
   )
 }
 ```

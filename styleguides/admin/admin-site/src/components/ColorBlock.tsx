@@ -31,8 +31,21 @@ function ColorCard(props: CardProps) {
         }}
       />
 
-      <Text variant="highlight">{name}</Text>
-      <Text variant="small" feedback="secondary">
+      <Text
+        variant="highlight"
+        styleOverrides={{
+          display: 'block',
+        }}
+      >
+        {name}
+      </Text>
+      <Text
+        variant="small"
+        feedback="secondary"
+        styleOverrides={{
+          display: 'block',
+        }}
+      >
         {color}
       </Text>
     </Box>

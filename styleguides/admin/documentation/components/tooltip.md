@@ -9,27 +9,18 @@ Tooltips are a small informative text that appear when an item is being, hovered
 ## Behavior
 
 ```jsx
-import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
-import { IconDuplicate } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconDuplicate />} variant="tertiary" />
-      </Tooltip>
-    </ThemeProvider>
-  )
-}
+<Tooltip label="Tooltip Label" placement="right">
+  <Button icon={<IconDuplicate />} variant="tertiary" />
+</Tooltip>
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Tooltip } from '@vtex/admin-ui'
 ```
 
@@ -42,46 +33,28 @@ The `label` property can be of `string` or `ReactNode` type. Check the examples 
 #### String Example
 
 ```jsx
-import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
-import { IconDuplicate } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconDuplicate />} variant="tertiary" />
-      </Tooltip>
-    </ThemeProvider>
-  )
-}
+<Tooltip label="Tooltip Label" placement="right">
+  <Button icon={<IconDuplicate />} variant="tertiary" />
+</Tooltip>
 ```
 
 #### ReactNode Example
 
 ```jsx
-import { ThemeProvider, Text, Tooltip, Tag, Set, Button } from '@vtex/admin-ui'
-import { IconCaret, IconDuplicate } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Tooltip
-        label={
-          <Set orientation="vertical" spacing={2}>
-            <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
-              Previous Order: 102183 (211-213)
-            </Text>
-            <Tag palette="green" label="Ready for Handling" size="small" />
-            <Text variant="small">João da Silva</Text>
-            <Text variant="small">49,00 BRL</Text>
-          </Set>
-        }
-      >
-        <Button icon={<IconDuplicate />} variant="tertiary" />
-      </Tooltip>
-    </ThemeProvider>
-  )
-}
+<Tooltip
+  label={
+    <Set orientation="vertical" spacing={2}>
+      <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+        Previous Order: 102183 (211-213)
+      </Text>
+      <Tag palette="green" label="Ready for Handling" size="small" />
+      <Text variant="small">João da Silva</Text>
+      <Text variant="small">49,00 BRL</Text>
+    </Set>
+  }
+>
+  <Button icon={<IconDuplicate />} variant="tertiary" />
+</Tooltip>
 ```
 
 ### Placement
@@ -91,18 +64,9 @@ You can use the `placement` property, to change the position that the Tooltip po
 `bottom` | `right` | `left` | `auto` | `auto-start` | `auto-end` | `top-start` | `top-end` | `right-start` | `right-end` | `bottom-end` | `bottom-start` | `left-end` | `left-start`
 
 ```jsx
-import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
-import { IconDuplicate } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Tooltip label="Tooltip Label" placement="right">
-        <Button icon={<IconDuplicate />} variant="tertiary" />
-      </Tooltip>
-    </ThemeProvider>
-  )
-}
+<Tooltip label="Tooltip Label" placement="right">
+  <Button icon={<IconDuplicate />} variant="tertiary" />
+</Tooltip>
 ```
 
 ## Customization
@@ -114,18 +78,9 @@ You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides)
 For example, you can reduce the `Tooltip` opacity. One way to do this is by using the `styleOverrides` property, check the example below!
 
 ```jsx
-import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
-import { IconDuplicate } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Tooltip label="Tooltip Label" styleOverrides={{ opacity: 0.8 }}>
-        <Button icon={<IconDuplicate />} variant="tertiary" />
-      </Tooltip>
-    </ThemeProvider>
-  )
-}
+<Tooltip label="Tooltip Label" styleOverrides={{ opacity: 0.8 }}>
+  <Button icon={<IconDuplicate />} variant="tertiary" />
+</Tooltip>
 ```
 
 ## Limitations
@@ -134,8 +89,8 @@ When using the Tooltip with a custom component, you must provide a `ref` for the
 
 ### Custom Component
 
-```jsx static
-import { ThemeProvider, Tooltip, Button } from '@vtex/admin-ui'
+```jsx isStatic
+import { Tooltip, Button } from '@vtex/admin-ui'
 import { Icon } from '@vtex/admin-ui-icons'
 
 function Example() {
@@ -162,11 +117,9 @@ function Example() {
   )
 
   return (
-    <ThemeProvider>
-      <Tooltip label="Tooltip Label" placement="right">
-        <CustomIcon />
-      </Tooltip>
-    </ThemeProvider>
+    <Tooltip label="Tooltip Label" placement="right">
+      <CustomIcon />
+    </Tooltip>
   )
 }
 ```

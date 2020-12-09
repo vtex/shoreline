@@ -12,13 +12,13 @@ AdminUI is a curated collection of the reusable components within VTEX admin app
 
 Then, install `@vtex/admin-ui`:
 
-```sh
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
 you can also use npm:
 
-```sh
+```sh isStatic
 npm install @vtex/admin-ui
 ```
 
@@ -26,9 +26,7 @@ npm install @vtex/admin-ui
 
 To start using admin-ui, you need to wrap your application root with the `ThemeProvider` component.
 
-> ⚠️ Do not nest providers
-
-```jsx static
+```jsx isStatic
 import React from 'react'
 import { ThemeProvider } from '@vtex/admin-ui'
 

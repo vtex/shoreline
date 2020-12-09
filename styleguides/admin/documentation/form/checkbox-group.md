@@ -13,41 +13,31 @@ Used to group a set of `Checkbox` components. Has `role="group"` defined.
 ## Behavior
 
 ```jsx
-import {
-  CheckboxGroup,
-  useCheckboxState,
-  Label,
-  Checkbox,
-  ThemeProvider,
-} from '@vtex/admin-ui'
-
 function Example() {
   const checkbox = useCheckboxState()
 
   return (
-    <ThemeProvider>
-      <CheckboxGroup id="form-group-id" label="Group label!">
-        <Label>
-          <Checkbox state={checkbox} />
-          Label 1
-        </Label>
-        <Label>
-          <Checkbox state={checkbox} />
-          Label 2
-        </Label>
-      </CheckboxGroup>
-    </ThemeProvider>
+    <CheckboxGroup id="form-group-id" label="Group label!">
+      <Label>
+        <Checkbox state={checkbox} />
+        Label 1
+      </Label>
+      <Label>
+        <Checkbox state={checkbox} />
+        Label 2
+      </Label>
+    </CheckboxGroup>
   )
 }
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { CheckboxGroup } from '@vtex/admin-ui'
 ```
 
@@ -58,34 +48,24 @@ import { CheckboxGroup } from '@vtex/admin-ui'
 By default, the CheckboxGroup is rendered in a horizontal orientation. This means that the `orientation` property has a `horizontal` value.
 
 ```jsx
-import {
-  CheckboxGroup,
-  useCheckboxState,
-  Label,
-  Checkbox,
-  ThemeProvider,
-} from '@vtex/admin-ui'
-
 function Example() {
   const checkbox = useCheckboxState()
 
   return (
-    <ThemeProvider>
-      <CheckboxGroup
-        orientation="vertical"
-        id="form-group-id"
-        label="Group label!"
-      >
-        <Label>
-          <Checkbox state={checkbox} />
-          Label 1
-        </Label>
-        <Label>
-          <Checkbox state={checkbox} />
-          Label 2
-        </Label>
-      </CheckboxGroup>
-    </ThemeProvider>
+    <CheckboxGroup
+      orientation="vertical"
+      id="form-group-id"
+      label="Group label!"
+    >
+      <Label>
+        <Checkbox state={checkbox} />
+        Label 1
+      </Label>
+      <Label>
+        <Checkbox state={checkbox} />
+        Label 2
+      </Label>
+    </CheckboxGroup>
   )
 }
 ```
@@ -95,34 +75,24 @@ function Example() {
 The CheckboxGroup can also be rendered in a vertical orientation. This means that the `orientation` property should have a `vertical` value.
 
 ```jsx
-import {
-  CheckboxGroup,
-  useCheckboxState,
-  Label,
-  Checkbox,
-  ThemeProvider,
-} from '@vtex/admin-ui'
-
 function Example() {
   const checkbox = useCheckboxState()
 
   return (
-    <ThemeProvider>
-      <CheckboxGroup
-        orientation="vertical"
-        id="form-group-id"
-        label="Group label!"
-      >
-        <Label>
-          <Checkbox state={checkbox} />
-          Label 1
-        </Label>
-        <Label>
-          <Checkbox state={checkbox} />
-          Label 2
-        </Label>
-      </CheckboxGroup>
-    </ThemeProvider>
+    <CheckboxGroup
+      orientation="vertical"
+      id="form-group-id"
+      label="Group label!"
+    >
+      <Label>
+        <Checkbox state={checkbox} />
+        Label 1
+      </Label>
+      <Label>
+        <Checkbox state={checkbox} />
+        Label 2
+      </Label>
+    </CheckboxGroup>
   )
 }
 ```
@@ -134,19 +104,11 @@ You can easily add a label to the CheckboxGroup using the `label` property. Just
 You can also add a custom label!
 
 ```jsx
-import {
-  CheckboxGroup,
-  useCheckboxState,
-  Label,
-  Checkbox,
-  ThemeProvider,
-} from '@vtex/admin-ui'
-
 function Example() {
   const checkbox = useCheckboxState()
 
   return (
-    <ThemeProvider>
+    <>
       <Label htmlFor="cheboxgroup-id">Group Label</Label>
       <CheckboxGroup orientation="horizontal" id="cheboxgroup-id">
         <Label>
@@ -154,7 +116,7 @@ function Example() {
           Label 1
         </Label>
       </CheckboxGroup>
-    </ThemeProvider>
+    </>
   )
 }
 ```

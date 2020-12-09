@@ -4,7 +4,7 @@ path: /theming/inline-styles/
 
 # Inline Styles
 
-This page presents all the inline style techniques available within our Admin. Each style presented here has its own particularities and use cases. Check out our [Style Object](/theming/style-object/) page  for more details about this superset of CSS and their API calls to style objects.
+This page presents all the inline style techniques available within our Admin. Each style presented here has its own particularities and use cases. Check out our [Style Object](/theming/style-object/) page for more details about this superset of CSS and their API calls to style objects.
 
 ## styles & styleOverrides
 
@@ -23,22 +23,14 @@ Both have the same behavior, and accept a valid [`StyleObject`](/theming/style-o
 - They can break an element's consistency.
 
 ```jsx
-import { Box, Button, ThemeProvider } from '@vtex/admin-ui'
+<Set>
+  <Box styles={{ color: 'primary.base' }}>Text with primary.base color!</Box>
 
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box styles={{ color: 'primary.base' }}>
-        Text with primary.base color!
-      </Box>
-
-      {/** ☢️ Be careful while overriding styles, you can achieve undesired results */}
-      <Button styleOverrides={{ bg: 'darkorchid', color: 'orange' }}>
-        messed-up button
-      </Button>
-    </ThemeProvider>
-  )
-}
+  {/** ☢️ Be careful while overriding styles, you can achieve undesired results */}
+  <Button styleOverrides={{ bg: 'darkorchid', color: 'orange' }}>
+    messed-up button
+  </Button>
+</Set>
 ```
 
 ## cn function
@@ -48,24 +40,16 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 ### Example
 
 ```jsx
-import { cn, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <div className={cn({ color: 'primary.base' })}>
-        Text with primary.base color!
-      </div>
-    </ThemeProvider>
-  )
-}
+<div className={cn({ color: 'primary.base' })}>
+  Text with primary.base color!
+</div>
 ```
 
 ### Do's:
 
 - ✅ Use it with native elements:
 
-```jsx static
+```jsx isStatic
 <nav
   className={cn({
     bg: 'muted.2',
@@ -76,9 +60,8 @@ function Example() {
 
 - ✅ Use it with custom libraries that accepts a className:
 
-```jsx static
-import { Input } from 'reakit/Input'
-;<Input
+```jsx isStatic
+<Input
   className={cn({
     borderColor: 'muted.2',
     ':hover': {
@@ -92,7 +75,7 @@ import { Input } from 'reakit/Input'
 
 - 🚫 Use it within Primitives:
 
-```jsx static
+```jsx isStatic
 // 🚫 Wrong
 <Box
   styles={cn({
@@ -112,7 +95,7 @@ import { Input } from 'reakit/Input'
 
 - 🚫 Use it within ThemedComponents:
 
-```jsx static
+```jsx isStatic
 // 🚫 Wrong
 <Button
   styleOverrides={cn({
@@ -138,7 +121,7 @@ Hook that returns the entire theme object. Must be used under a `<ThemeProvider>
 
 - ✅ Use it if you need theme values on your custom hooks
 
-```jsx static
+```jsx isStatic
 // function that mix two colors
 import { mix } from 'polished'
 
@@ -156,7 +139,7 @@ function usePrimarySuccess(weight = 0.5) {
 
 - 🚫 Use it to pass values to StyleObject
 
-```jsx static
+```jsx isStatic
 const theme = useTheme()
 
 // 🚫 Wrong
