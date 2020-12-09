@@ -1,0 +1,47 @@
+import rangeParser from 'parse-numeric-range'
+
+// https://github.com/gatsbyjs/gatsby/blob/master/www/src/utils/copy-to-clipboard.js
+export function copyToClipboard(str: string) {
+  const { clipboard } = window.navigator
+
+  /*
+   * fallback to older browsers (including Safari)
+   * if clipboard API not supported
+   */
+  if (!clipboard || typeof clipboard.writeText !== `function`) {
+    const textarea = document.createElement(`textarea`)
+
+    textarea.value = str
+    textarea.setAttribute(`readonly`, 'true')
+    textarea.setAttribute(`contenteditable`, 'true')
+    textarea.style.position = `absolute`
+    textarea.style.left = `-9999px`
+    document.body.appendChild(textarea)
+    textarea.select()
+    const range = document.createRange()
+    const sel = window.getSelection()
+
+    sel?.removeAllRanges()
+    sel?.addRange(range)
+    textarea.setSelectionRange(0, textarea.value.length)
+    document.execCommand(`copy`)
+    document.body.removeChild(textarea)
+
+    return Promise.resolve(true)
+  }
+
+  return clipboard.writeText(str)
+}
+
+export function calculateLinesToHighlight(meta?: string) {
+  const RE = /{([\d,-]+)}/
+
+  if (meta && RE.test(meta)) {
+    const strlineNumbers = RE.exec?.(meta)?.[1]
+    const lineNumbers = rangeParser(strlineNumbers ?? '')
+
+    return (index: number) => lineNumbers.includes(index + 1)
+  }
+
+  return () => false
+}

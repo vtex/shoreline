@@ -15,21 +15,12 @@ You may want to check the [Collapsible Documentation](/collapsible/) before usin
 ## Behavior
 
 ```jsx
-import {
-  CollapsibleGroup,
-  Collapsible,
-  useCollapsible,
-  ThemeProvider,
-  Text,
-  Set,
-} from '@vtex/admin-ui'
-
 function Example() {
   const promos = useCollapsible()
   const marketing = useCollapsible()
 
   return (
-    <ThemeProvider>
+    <>
       <CollapsibleGroup styleOverrides={{ width: 400 }}>
         <Collapsible state={promos}>
           <Collapsible.Header label="Promos" />
@@ -60,18 +51,18 @@ function Example() {
           </Collapsible.Content>
         </Collapsible>
       </CollapsibleGroup>
-    </ThemeProvider>
+    </>
   )
 }
 ```
 
 ## Installation
 
-```sh
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
 ```
 
@@ -82,15 +73,6 @@ import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
 It is possible to render a `CollapsibleGroup` inside a `Collapsible`, just pass the `CollapsibleGroup` as a child of `Collapsible.Content`. Note that when nesting, each internal collapsible will have different padding from the one on the root. Check [Nested Collapsible Documentation](/collapsible/#nested) for detailed info.
 
 ```jsx
-import {
-  Text,
-  useCollapsible,
-  Collapsible,
-  CollapsibleGroup,
-  ThemeProvider,
-  Set,
-} from '@vtex/admin-ui'
-
 function Example() {
   const promosAndPartner = useCollapsible()
   const shipping = useCollapsible()
@@ -160,7 +142,7 @@ function Example() {
   )
 
   return (
-    <ThemeProvider>
+    <>
       <CollapsibleGroup styleOverrides={{ width: 400 }}>
         <Collapsible state={promosAndPartner}>
           <Collapsible.Header label="Promos and Partnerships" />
@@ -171,7 +153,7 @@ function Example() {
           <Collapsible.Content>{PackagesGroup}</Collapsible.Content>
         </Collapsible>
       </CollapsibleGroup>
-    </ThemeProvider>
+    </>
   )
 }
 ```

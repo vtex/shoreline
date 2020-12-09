@@ -29,15 +29,6 @@ function ThemeProvider(props: ThemeProviderProps) {
         styles={css`
           @import 'https://io.vtex.com.br/fonts/vtex-trust/style.css';
 
-          code > * > *,
-          pre > * > *,
-          code,
-          pre {
-            font-family: 'SF Mono', 'Operator Mono', 'Dank Mono',
-              'Fira Code Retina', 'Fira Code', 'FiraCode-Retina', Consolas,
-              Monaco, monospace !important;
-          }
-
           body {
             margin: 0;
             background-color: ${get(theme, 'colors.background')};
@@ -45,11 +36,15 @@ function ThemeProvider(props: ThemeProviderProps) {
           }
 
           html,
-          body,
-          * {
+          body {
             font-family: VTEXTrustVF, -apple-system, system-ui,
               BlinkMacSystemFont, sans-serif !important;
             font-variation-settings: 'wght' 92;
+          }
+
+          * {
+            font-family: VTEXTrustVF, -apple-system, system-ui,
+              BlinkMacSystemFont, sans-serif;
           }
 
           *,
@@ -75,14 +70,12 @@ function ThemeProvider(props: ThemeProviderProps) {
           h6,
           p,
           blockquote,
-          pre,
           a,
           abbr,
           acronym,
           address,
           big,
           cite,
-          code,
           del,
           dfn,
           em,

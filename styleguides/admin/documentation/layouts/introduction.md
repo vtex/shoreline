@@ -11,7 +11,6 @@ Our design system comes with a set of layout components to help you build common
 
 If you find a layout behavior not implemented yet and you think that could be useful to have it in our design system, feel free to create an [issue in our repository](https://github.com/vtex/onda/issues/new/choose). Suggestions are welcome!
 
-
 ## Do's:
 
 Layout components should be used during the following cases:
@@ -22,7 +21,7 @@ Layout components should be used during the following cases:
 
 - ✅ You want to avoid handling layout behavior in atomic components.
 
-```jsx static
+```jsx isStatic
 // 🚫 Wrong
 function Example() {
   return (
@@ -50,7 +49,7 @@ function Example() {
 
 ## Don'ts:
 
-Layout components should *not* be used during the following cases:
+Layout components should _not_ be used during the following cases:
 
 - 🚫 You are not building a layout inside your application.
 
@@ -58,7 +57,7 @@ Layout components should *not* be used during the following cases:
 
 - 🚫 Apply styles of color, border, background, etc. The component should only handle the layout behavior.
 
-```jsx static
+```jsx isStatic
 // 🚫 Wrong
 function Example() {
   return (
@@ -76,8 +75,7 @@ function Example() {
 }
 ```
 
-
-```jsx static
+```jsx isStatic
 // 🚫 Wrong
 function Example() {
   return (
@@ -114,5 +112,3 @@ function Example() {
   )
 }
 ```
-
-

@@ -13,35 +13,23 @@ The icon set of the AdminUI.
 
 You must have `@vtex/admin-ui-icons` package instaled. If you don't, try:
 
-```sh
+```sh isStatic
 yarn add @vtex/admin-ui-icons
 ```
 
 ```jsx
-import { ThemeProvider } from '@vtex/admin-ui'
-import {
-  IconCard,
-  IconPaymentMethod,
-  IconArrow,
-  IconNotifications,
-} from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <IconCard />
-      <IconPaymentMethod />
-      {/** With directions */}
-      <IconArrow direction="up" /> {/** default */}
-      <IconArrow direction="right" />
-      <IconArrow direction="down" />
-      <IconArrow direction="left" />
-      {/** With state */}
-      <IconNotifications />
-      <IconNotifications on />
-    </ThemeProvider>
-  )
-}
+<Set>
+  <IconCard />
+  <IconPaymentMethod />
+  {/** With directions */}
+  <IconArrow direction="up" /> {/** default */}
+  <IconArrow direction="right" />
+  <IconArrow direction="down" />
+  <IconArrow direction="left" />
+  {/** With state */}
+  <IconNotifications />
+  <IconNotifications on />
+</Set>
 ```
 
 </collapsible>

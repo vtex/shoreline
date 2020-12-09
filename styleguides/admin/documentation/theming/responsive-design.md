@@ -19,29 +19,21 @@ path: /theming/responsive-design/
 
 A Responsive value accept an array of values. The current value will be the one that matches the breakpoint:
 
-```static
+```sh isStatic
 [mobile, tablet, desktop, widescreen]
 ```
 
 In the example below, the `<Box>` has full width while on `mobile`, and half on tablet and above.
 
 ```jsx
-import { ThemeProvider, Box } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box
-        styles={{
-          width: ['full', '1/2'],
-          padding: 4,
-          bg: 'primary.base',
-          color: 'primary.accent',
-        }}
-      />
-    </ThemeProvider>
-  )
-}
+<Box
+  styles={{
+    width: ['full', '1/2'],
+    padding: 4,
+    bg: 'primary.base',
+    color: 'primary.accent',
+  }}
+/>
 ```
 
 ### Skipping Breakpoints
@@ -49,42 +41,32 @@ function Example() {
 If you want to skip a breakpoint, you can use the value `null`. This is useful if you want to set a value for only the largest breakpoint, for example.
 
 ```jsx
-import { ThemeProvider, Box } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box
-        styles={{
-          width: [null, null, 'full'],
-          padding: 4,
-          color: 'background',
-          bg: 'text.primary',
-        }}
-      />
-    </ThemeProvider>
-  )
-}
+<Box
+  styles={{
+    width: [null, null, 'full'],
+    padding: 4,
+    color: 'background',
+    bg: 'text.primary',
+  }}
+/>
 ```
 
 ## 🎣 React hooks
 
 You can also use the `useResponsiveValue` hook. It can turn any value in a responsive value.
 
-```jsx
-import { ThemeProvider, Box, useResponsiveValue } from '@vtex/admin-ui'
-
+```jsx noInline
 function Example() {
   const mobileText = '📱 mobile'
   const aboveTabletText = '🖥 tablet & above'
   const text = useResponsiveValue([mobileText, aboveTabletText])
 
   return (
-    <ThemeProvider>
-      <Box styles={{ padding: 4, bg: 'text.primary', color: 'background' }}>
-        {text}
-      </Box>
-    </ThemeProvider>
+    <Box styles={{ padding: 4, bg: 'text.primary', color: 'background' }}>
+      {text}
+    </Box>
   )
 }
+
+render(<Example />)
 ```

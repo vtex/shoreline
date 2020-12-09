@@ -9,26 +9,20 @@ Radio buttons are tools that customize configurations. They represent a need for
 ## Behavior
 
 ```jsx
-import { Radio, useRadioState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const state = useRadioState()
 
-  return (
-    <ThemeProvider>
-      <Radio state={state} value="Radio" aria-label="radio button" />
-    </ThemeProvider>
-  )
+  return <Radio state={state} value="Radio" aria-label="radio button" />
 }
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Radio } from '@vtex/admin-ui'
 ```
 
@@ -49,16 +43,10 @@ For convenience, we provide this hook that already handles the state logic and a
 When using a standalone `Radio` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
 
 ```jsx
-import { Radio, useRadioState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const radio = useRadioState()
 
-  return (
-    <ThemeProvider>
-      <Radio aria-label="label" value="Radio" state={radio} />
-    </ThemeProvider>
-  )
+  return <Radio aria-label="label" value="Radio" state={radio} />
 }
 ```
 
@@ -67,11 +55,9 @@ function Example() {
 There are two checked states: `not checked`, and `checked`.
 
 ```jsx
-import { Radio, Set, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   return (
-    <ThemeProvider>
+    <>
       <Set>
         <Radio aria-label="label-1" />
         <Radio aria-label="label-disabled-1" disabled />
@@ -81,7 +67,7 @@ function Example() {
         <Radio aria-label="label-2" checked />
         <Radio aria-label="label-disabled-2" checked disabled />
       </Set>
-    </ThemeProvider>
+    </>
   )
 }
 ```
@@ -91,11 +77,9 @@ function Example() {
 There are two size variants: `small`, `regular`. By default, it will render `regular`.
 
 ```jsx
-import { Radio, Set, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   return (
-    <ThemeProvider>
+    <>
       <Set>
         <Radio aria-label="label-small-1" size="small" />
         <Radio aria-label="label-1" />
@@ -105,7 +89,7 @@ function Example() {
         <Radio aria-label="label-small-2" checked size="small" />
         <Radio aria-label="label-2" checked />
       </Set>
-    </ThemeProvider>
+    </>
   )
 }
 ```
@@ -115,20 +99,11 @@ function Example() {
 As we always use `Radio` in multiple-choice forms, we also always need to render multiple Radios and store the current checked state. It can be easily done using our `useRadioState` hook, you just need to pass the hook return object to the radios `state` property and define a `value` for each `Radio`.
 
 ```jsx
-import {
-  Radio,
-  RadioGroup,
-  useRadioState,
-  Heading,
-  Label,
-  ThemeProvider,
-} from '@vtex/admin-ui'
-
 function Example() {
   const radio = useRadioState()
 
   return (
-    <ThemeProvider>
+    <>
       <Heading>Selected Radio: {radio.state}</Heading>
       <RadioGroup state={radio}>
         <Label>
@@ -144,7 +119,7 @@ function Example() {
           Third Radio
         </Label>
       </RadioGroup>
-    </ThemeProvider>
+    </>
   )
 }
 ```

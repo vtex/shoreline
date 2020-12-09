@@ -20,7 +20,7 @@ Primitive components should be used during the following cases:
 
 ### ✅ Build a specific component.
 
-```jsx static
+```jsx isStatic
 function CustomComponent({ heading, children }) {
   return (
     <Box styles={{ display: 'flex', paddingY: 4, border: 'divider-bottom' }}>
@@ -56,7 +56,7 @@ function Example() {
 
 ### ✅ Build a container component.
 
-```jsx static
+```jsx isStatic
 // 🚫 Wrong
 function Example() {
   return (
@@ -82,7 +82,7 @@ _Note that you may want to use one of our `Layout` components before using Box t
 
 ### 🚫 Build layouts
 
-```jsx static
+```jsx isStatic
 // 🚫 Wrong
 function Example() {
   return (
@@ -108,7 +108,7 @@ function Example() {
 
 ### 🚫 Render texts
 
-```jsx static
+```jsx isStatic
 // 🚫 Wrong
 function Example() {
   return (
@@ -126,7 +126,7 @@ function Example() {
 
 ### 🚫 Reacreate components already defined on our design system.
 
-```jsx static
+```jsx isStatic
 // 🚫 Wrong
 function Example() {
   return (

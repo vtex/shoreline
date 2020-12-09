@@ -15,24 +15,16 @@ _Note that you may want to use one of our `Layout` components before using Box t
 ## Behavior
 
 ```jsx
-import { Box, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box>This is a Box</Box>
-    </ThemeProvider>
-  )
-}
+<Box>This is a Box</Box>
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Box } from '@vtex/admin-ui'
 ```
 
@@ -41,19 +33,11 @@ import { Box } from '@vtex/admin-ui'
 With the `styles` property, you can add any customization to the Box component. Check the [StyleObject](/theming/style-object) page for detailed info.
 
 ```jsx
-import { Box, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box styles={{ display: 'flex', div: { paddingX: 2, marginX: 2 } }}>
-        <Box styles={{ border: 'default' }}>First</Box>
-        <Box styles={{ border: 'default' }}>Second</Box>
-        <Box styles={{ border: 'default' }}>Third</Box>
-      </Box>
-    </ThemeProvider>
-  )
-}
+<Box styles={{ display: 'flex', div: { paddingX: 2, marginX: 2 } }}>
+  <Box styles={{ border: 'default' }}>First</Box>
+  <Box styles={{ border: 'default' }}>Second</Box>
+  <Box styles={{ border: 'default' }}>Third</Box>
+</Box>
 ```
 
 ## Patterns
@@ -65,21 +49,15 @@ The Box accepts all the Patterns properties, you can use it to add admin's appli
 `small`, `body`, `highlight`, `action`, `subtitle`, `headline`.
 
 ```jsx
-import { Box, Label, List, ThemeProvider } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box styles={{ text: 'small' }}>Small Text</Box>
-      <Label text="subtitle">Subtitle Text</Label>
-      <List>
-        <List.Item text="action">First</List.Item>
-        <List.Item text="action">Second</List.Item>
-        <List.Item text="action">Third</List.Item>
-      </List>
-    </ThemeProvider>
-  )
-}
+<>
+  <Box styles={{ text: 'small' }}>Small Text</Box>
+  <Label text="subtitle">Subtitle Text</Label>
+  <List>
+    <List.Item text="action">First</List.Item>
+    <List.Item text="action">Second</List.Item>
+    <List.Item text="action">Third</List.Item>
+  </List>
+</>
 ```
 
 ## Polymorphism
@@ -87,27 +65,14 @@ function Example() {
 Box can be rendered as any HTML tag or component.
 
 ```jsx
-import { ThemeProvider, Box, Anchor } from '@vtex/admin-ui'
-import { IconLink } from '@vtex/admin-ui-icons'
-
-function Example() {
-  return (
-    <ThemeProvider>
-      <Box element="article">
-        <Box element="section">👻 I'm a section</Box>
-        <Box>👻 I'm a div</Box>
-        <Box element="footer">👻 I'm a footer</Box>
-        <Box
-          styles={{ display: 'block' }}
-          element="a"
-          href="/typography/anchor"
-        >
-          <IconLink /> I'm a link to anchor docs
-        </Box>
-      </Box>
-    </ThemeProvider>
-  )
-}
+<Box element="article">
+  <Box element="section">👻 I'm a section</Box>
+  <Box>👻 I'm a div</Box>
+  <Box element="footer">👻 I'm a footer</Box>
+  <Box styles={{ display: 'block' }} element="a" href="/typography/anchor">
+    <IconLink /> I'm a link to anchor docs
+  </Box>
+</Box>
 ```
 
 # Props

@@ -9,28 +9,24 @@ The `<Label>` component renders a `<label>` by default with basic reset styling.
 ## Behavior
 
 ```jsx
-import { Label, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   return (
-    <ThemeProvider>
-      <Label>
-        Input Label!
-        <br />
-        <input value="input value" />
-      </Label>
-    </ThemeProvider>
+    <Label>
+      Input Label!
+      <br />
+      <input value="input value" />
+    </Label>
   )
 }
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Label } from '@vtex/admin-ui'
 ```
 
@@ -41,16 +37,12 @@ You can use the `styleOverrides` property to handle different styles.
 ### Example
 
 ```jsx
-import { Label, Toggle, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   return (
-    <ThemeProvider>
-      <Label styleOverrides={{ display: 'flex', alignItems: 'center' }}>
-        <Toggle state={{ checked: true }} />
-        Toggle Label!
-      </Label>
-    </ThemeProvider>
+    <Label styleOverrides={{ display: 'flex', alignItems: 'center' }}>
+      <Toggle state={{ checked: true }} />
+      Toggle Label!
+    </Label>
   )
 }
 ```

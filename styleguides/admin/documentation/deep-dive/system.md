@@ -6,7 +6,7 @@ path: /deep-dive/system
 
 > 🐋 This is a deep dive content. Is recommended for new developers within admin-ui or advanced (low level) users.
 
-```bash
+```sh isStatic
 yarn add @vtex/admin-ui-system
 ---
 npm install @vtex/admin-ui-system
@@ -26,7 +26,7 @@ Function designed to create .
 
 The `createElement` function calls `React.createElement` using a passed reakit component as base.
 
-```jsx static
+```jsx isStatic
 import { Box } from 'reakit/Box'
 import { createElement } from '@vtex/admin-ui-system'
 
@@ -44,7 +44,7 @@ function NewComponent(props: Props) {
 
 It also suports forward refs.
 
-```jsx static
+```jsx isStatic
 import { forwardRef, Ref } from 'react'
 import { Box } from 'reakit/Box'
 import { createElement } from '@vtex/admin-ui-system'
@@ -68,7 +68,7 @@ const NewComponent = forwardRef(_NewComponent)
 
 It returns the corret htmlProps without strange props.
 
-```js static
+```js isStatic
 const props = {
   children: 'some text',
   id: 'id',
@@ -82,7 +82,7 @@ console.log(cleanProps(props)) // { children: 'some text', id: 'id' }
 
 ## useClassName
 
-```jsx static
+```jsx isStatic
 import { Box } from 'reakit/Box'
 import { createElement, useClassName } from '@vtex/admin-ui-system'
 

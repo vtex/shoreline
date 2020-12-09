@@ -8,7 +8,7 @@ Provides context so we can consume our theme along with our design system. This 
 
 Example
 
-```jsx static
+```jsx isStatic
 import { ThemeProvider } from '@vtex/admin-ui'
 
 function ProjectRoot() {

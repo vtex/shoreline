@@ -38,6 +38,9 @@ function useScrollSpy() {
 
   useEffect(() => {
     setCurrentId(null)
+    if (ref.current) {
+      ref.current.scrollTop = 0
+    }
   }, [location.pathname])
 
   const handleScroll = useCallback(() => {

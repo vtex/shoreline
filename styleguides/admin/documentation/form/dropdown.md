@@ -9,8 +9,6 @@ Dropdowns are compact UI controls that allow users to select an option, require 
 ## Behavior
 
 ```jsx
-import { Dropdown, useDropdownState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const state = useDropdownState({
     items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
@@ -18,24 +16,22 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Dropdown
-        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-        state={state}
-        label="Date"
-      />
-    </ThemeProvider>
+    <Dropdown
+      items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+      state={state}
+      label="Date"
+    />
   )
 }
 ```
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Dropdown, useDropdownState } from '@vtex/admin-ui'
 ```
 
@@ -46,8 +42,6 @@ import { Dropdown, useDropdownState } from '@vtex/admin-ui'
 In the same way as the [buttons](https://admin-ui-docs.vercel.app/button/), the `variant` prop represents the appearance of the Dropdown, indicating whether is a `primary`, `secondary`, or a `tertiary` action. By default, it will render a `primary` dropdown.
 
 ```jsx
-import { Dropdown, useDropdownState, Set, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const species = ['Arabica', 'Robusta']
   const speciesState = useDropdownState({
@@ -68,23 +62,21 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Set spacing={3}>
-        <Dropdown items={species} state={speciesState} label="Species" />
-        <Dropdown
-          variant="secondary"
-          items={brewMethods}
-          state={brewState}
-          label="Methods"
-        />
-        <Dropdown
-          variant="tertiary"
-          items={recipes}
-          state={recipesState}
-          label="Recipes"
-        />
-      </Set>
-    </ThemeProvider>
+    <Set spacing={3}>
+      <Dropdown items={species} state={speciesState} label="Species" />
+      <Dropdown
+        variant="secondary"
+        items={brewMethods}
+        state={brewState}
+        label="Methods"
+      />
+      <Dropdown
+        variant="tertiary"
+        items={recipes}
+        state={recipesState}
+        label="Recipes"
+      />
+    </Set>
   )
 }
 ```
@@ -98,8 +90,6 @@ Dropdown items can be a List of either native types (like `number`, `string`, et
 When using a String to represent the item, the dropdown already knows what it should render in the options, so you just need to specify the `items` property to both `useDropdownState` and `Dropdown`.
 
 ```jsx
-import { Dropdown, useDropdownState, Set, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const species = ['Arabica', 'Robusta']
   const speciesState = useDropdownState({
@@ -108,16 +98,14 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Set spacing={3}>
-        <Dropdown
-          variant="tertiary"
-          items={species}
-          state={speciesState}
-          label="Recipes"
-        />
-      </Set>
-    </ThemeProvider>
+    <Set spacing={3}>
+      <Dropdown
+        variant="tertiary"
+        items={species}
+        state={speciesState}
+        label="Recipes"
+      />
+    </Set>
   )
 }
 ```
@@ -131,8 +119,6 @@ Define the `itemToString` prop in the `useDropdownState`. It will return the str
 Define the `renderItem` prop in the `Dropdown`. It is similar to the `itemToString` and will return the string equivalent of each item in the select menu.
 
 ```jsx
-import { Dropdown, useDropdownState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const items = [
     { id: 1, label: 'Yesterday' },
@@ -148,14 +134,12 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Dropdown
-        items={items}
-        state={state}
-        label="Date"
-        renderItem={(item) => item.label}
-      />
-    </ThemeProvider>
+    <Dropdown
+      items={items}
+      state={state}
+      label="Date"
+      renderItem={(item) => item.label}
+    />
   )
 }
 ```
@@ -165,8 +149,6 @@ function Example() {
 It means that the user will not be able to select any value from the `Dropdown`. To use this variation, the `disabled` property should have a true value.
 
 ```jsx
-import { Dropdown, useDropdownState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const state = useDropdownState({
     items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
@@ -174,14 +156,12 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Dropdown
-        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-        state={state}
-        disabled
-        label="Date"
-      />
-    </ThemeProvider>
+    <Dropdown
+      items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+      state={state}
+      disabled
+      label="Date"
+    />
   )
 }
 ```
@@ -195,8 +175,6 @@ Hook that manages all the stateful logic needed to make the select functional an
 It is the same as the [Downshift useSelect Hook](https://www.downshift-js.com/use-select).
 
 ```jsx
-import { Dropdown, useDropdownState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const state = useDropdownState({
     items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
@@ -204,13 +182,11 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Dropdown
-        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-        state={state}
-        label="Date"
-      />
-    </ThemeProvider>
+    <Dropdown
+      items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+      state={state}
+      label="Date"
+    />
   )
 }
 ```
@@ -222,8 +198,6 @@ You can use the [styleOverrides](https://admin-ui-docs.vercel.app/theming/inline
 ### Example
 
 ```jsx
-import { Dropdown, useDropdownState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const state = useDropdownState({
     items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
@@ -231,14 +205,12 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Dropdown
-        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-        state={state}
-        styleOverrides={{ margin: 4 }}
-        label="Date"
-      />
-    </ThemeProvider>
+    <Dropdown
+      items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+      state={state}
+      styleOverrides={{ margin: 4 }}
+      label="Date"
+    />
   )
 }
 ```
