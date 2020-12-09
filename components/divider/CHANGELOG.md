@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/vtex/onda/compare/@vtex-components/divider@0.1.6...@vtex-components/divider@0.1.7) (2020-12-09)
+
+**Note:** Version bump only for package @vtex-components/divider
+
+
+
+
+
 ## [0.1.6](https://github.com/vtex/onda/compare/@vtex-components/divider@0.1.4...@vtex-components/divider@0.1.6) (2020-12-09)
 
 **Note:** Version bump only for package @vtex-components/divider

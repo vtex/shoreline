@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.29.0...@vtex/brand-ui@0.29.1) (2020-12-09)
+
+**Note:** Version bump only for package @vtex/brand-ui
+
+
+
+
+
 # [0.29.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.28.0...@vtex/brand-ui@0.29.0) (2020-12-09)
 
 
