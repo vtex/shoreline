@@ -62,8 +62,10 @@ const extraCell: SxStyleProp = {
 
 const title: SxStyleProp = {
   '&:first-letter': { textTransform: 'capitalize' },
+  color: 'secondary.base',
   center: {
     '&:first-letter': { textTransform: 'capitalize' },
+    color: 'secondary.base',
     width: '100%',
   },
 }
