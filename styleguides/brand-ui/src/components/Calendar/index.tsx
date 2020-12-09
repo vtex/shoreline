@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { Box, Text, Grid, jsx } from 'theme-ui'
-import { useState, PropsWithChildren } from 'react'
+import { Box, Text, Grid, Flex, jsx } from 'theme-ui'
+import { useState, PropsWithChildren, ReactNode } from 'react'
 import { DateTime } from 'luxon'
 
 import {
@@ -77,6 +77,7 @@ export const Calendar = ({
   onChange,
   events,
   locale = 'pt',
+  headerAccessory,
   children,
 }: PropsWithChildren<CalendarProps>) => {
   const date = DateTime.local(year, month, day).setLocale(locale)
@@ -111,7 +112,12 @@ export const Calendar = ({
 
   return (
     <Box variant={`calendar${disabled ? '.disabled' : ''}`}>
-      <Text variant="calendar.title">{date.toFormat('MMMM yyyy')}</Text>
+      <Flex variant="calendar.header">
+        <Text variant={`calendar.title${!headerAccessory ? '.center' : ''}`}>
+          {date.toFormat('MMMM yyyy')}
+        </Text>
+        {headerAccessory}
+      </Flex>
       <Grid variant="calendar.grid">
         {getWeekDays(locale).map((weekDay, index) => (
           <Box key={index} variant="calendar.weekdayCell">
@@ -162,4 +168,5 @@ export interface CalendarProps {
   events?: Events
   locale?: string
   disabled?: boolean
+  headerAccessory?: ReactNode
 }
