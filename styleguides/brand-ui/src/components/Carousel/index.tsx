@@ -1,8 +1,10 @@
 import React, { ReactNode } from 'react'
 import { SwipeableHandlers } from 'react-swipeable'
 import { VisuallyHidden } from 'reakit/VisuallyHidden'
-import { Flex, Button, IconCaret, SxStyleProp } from '../..'
+import { Flex, SxStyleProp } from 'theme-ui'
 
+import { Button } from '../Button'
+import { IconCaret } from '../../icons'
 import useCarouselState from './useCarouselState'
 
 export interface CarouselProps {
@@ -101,6 +103,7 @@ const SlidesContainer = ({
   <Flex {...swipeHandlers} variant="carousel.slidesContainer">
     {slides.map((slide, index) => {
       let variant = ''
+
       if (index === currentSlide) {
         variant = 'current'
       } else if (crossfade || index !== swapSlide) {
@@ -108,6 +111,7 @@ const SlidesContainer = ({
       } else {
         variant = 'swap'
       }
+
       const disableAnimation = currentSlide === swapSlide
 
       return (
@@ -136,12 +140,13 @@ const IndicatorBar = ({
   handleChangeSlide,
   currentSlide,
 }: IndicatorBarProps) => (
-  <Flex variant={`carousel.indicatorBar`}>
+  <Flex variant="carousel.indicatorBar">
     {slides.map((_slide: ReactNode, slideIndex: number) => (
       <Indicator
+        key={slideIndex}
         slideIndex={slideIndex}
         handleChangeSlide={handleChangeSlide}
-        active={currentSlide == slideIndex}
+        active={currentSlide === slideIndex}
       />
     ))}
   </Flex>
