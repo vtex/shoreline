@@ -1,8 +1,7 @@
 import React, { ElementType, ReactNode, Ref } from 'react'
-import { forwardRef, useClassName } from '@vtex/admin-ui-system'
-import { Box as ReakitBox, BoxHTMLProps } from 'reakit/Box'
+import { forwardRef } from '@vtex/admin-ui-system'
 
-import { createElement } from '../../../system'
+import { Box } from '../../Box'
 import { useStylesContext, CellRoleContext } from '../context'
 import { Overridable } from '../../../types'
 
@@ -10,25 +9,25 @@ export const TableBody = forwardRef(function Tbody(
   props: TableBodyProps,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'div', children, styleOverrides = {}, ...htmlProps } = props
+  const { element = 'div', children, styleOverrides = {}, ...boxProps } = props
 
   const { dir, variants } = useStylesContext()
-  const className = useClassName({
-    ...styleOverrides,
-    themeKey: variants.body,
-  })
 
-  return createElement<Omit<BoxHTMLProps, 'ref'>>({
-    component: ReakitBox,
-    element,
-    children: (
+  return (
+    <Box
+      themeKey={variants.body}
+      element={element}
+      ref={ref}
+      role="rowgroup"
+      dir={dir}
+      styles={styleOverrides}
+      {...boxProps}
+    >
       <CellRoleContext.Provider value="cell">
         {children}
       </CellRoleContext.Provider>
-    ),
-    ref,
-    htmlProps: { role: 'rowgroup', dir, className, ...htmlProps },
-  })
+    </Box>
+  )
 })
 
 export type TableBodyProps = Overridable & {
