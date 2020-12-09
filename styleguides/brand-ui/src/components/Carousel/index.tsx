@@ -11,6 +11,7 @@ export interface CarouselProps {
   size?: 'regular' | 'small'
   sx?: SxStyleProp
   crossfade?: boolean
+  buttonAlign?: 'top' | 'center'
 }
 
 export const Carousel = ({
@@ -18,6 +19,7 @@ export const Carousel = ({
   indicators = true,
   size = 'regular',
   crossfade = false,
+  buttonAlign = 'center',
   sx = {},
 }: CarouselProps) => {
   const {
@@ -40,7 +42,10 @@ export const Carousel = ({
         swapSlide={swapSlide}
         crossfade={crossfade}
       />
-      <Flex variant="carousel.navigationContainer.previous">
+      <Flex
+        variant="carousel.navigationContainer.previous"
+        sx={{ alignItems: buttonAlign === 'top' ? 'baseline' : 'center' }}
+      >
         <Button
           onClick={handlePrevious}
           sx={{
@@ -51,7 +56,10 @@ export const Carousel = ({
           <VisuallyHidden>Previous slide</VisuallyHidden>
         </Button>
       </Flex>
-      <Flex variant="carousel.navigationContainer.next">
+      <Flex
+        variant="carousel.navigationContainer.next"
+        sx={{ alignItems: buttonAlign === 'top' ? 'baseline' : 'center' }}
+      >
         <Button
           onClick={handleNext}
           sx={{

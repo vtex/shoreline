@@ -20,16 +20,13 @@ const carouselPageStyles = {
   fontSize: 32,
 }
 
-const SimpleCarousel = ({
-  size,
-  indicators,
-  crossfade,
-}: Pick<CarouselProps, 'size' | 'indicators' | 'crossfade'>) => (
-  <Carousel
-    size={size}
-    indicators={indicators}
-    crossfade={crossfade}
+const SimpleCarousel = (
+  props: Pick<
+    CarouselProps,
+    'size' | 'indicators' | 'crossfade' | 'buttonAlign'
   >
+) => (
+  <Carousel {...props}>
     <Flex
       sx={{
         ...carouselPageStyles,
@@ -57,15 +54,15 @@ const SimpleCarousel = ({
   </Carousel>
 )
 
-export const BasicCarousel = () => <SimpleCarousel />
+export const Basic = () => <SimpleCarousel />
 
-export const CrossfadeCarousel = () => <SimpleCarousel crossfade />
+export const Crossfade = () => <SimpleCarousel crossfade />
 
-export const SmallCarousel = () => <SimpleCarousel size="small" />
+export const ButtonAlignTop = () => <SimpleCarousel buttonAlign="top" />
 
-export const CarouselWithoutIndicators = () => (
-  <SimpleCarousel indicators={false} />
-)
+export const Small = () => <SimpleCarousel size="small" />
+
+export const WithoutIndicators = () => <SimpleCarousel indicators={false} />
 
 const SimpleCard = ({ children }: { children: ReactNode }) => (
   <Card sx={{ height: 'fit-content' }}>
@@ -86,7 +83,7 @@ const cardContainerStyles = {
   },
 }
 
-export const MultipleCardsCarousel = () => (
+export const MultipleCards = () => (
   <Carousel>
     <Flex sx={cardContainerStyles}>
       <SimpleCard>Bet you wanna rip my heart out</SimpleCard>

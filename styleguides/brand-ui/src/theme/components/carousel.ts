@@ -6,7 +6,8 @@ const slidesContainer = {
 const navigationContainerBase = {
   position: 'absolute',
   height: '100%',
-  alignItems: 'center',
+  paddingTop: 2,
+  paddingBottom: 2,
 }
 
 const navigationContainer = {
