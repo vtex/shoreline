@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.65.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.64.1...@vtex/admin-ui@0.65.0) (2020-12-09)
+
+
+### Bug Fixes
+
+* **flex:** export Flex component ([f063bcb](https://github.com/vtex/onda/commit/f063bcb653220180ca9314e275ecd0e86b1831f1))
+
+
+### Features
+
+* **admin-ui:** add flex component ([fb833eb](https://github.com/vtex/onda/commit/fb833ebf14f9ea3d22f0419d9054411e7e601d13))
+
+
+
+
+
 ## [0.64.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.64.0-next.3...@vtex/admin-ui@0.64.1) (2020-12-09)
 
 **Note:** Version bump only for package @vtex/admin-ui
