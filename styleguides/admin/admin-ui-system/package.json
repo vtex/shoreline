@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui-system",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "main": "dist/index.js",
   "module": "dist/admin-ui-system.esm.js",
   "typings": "dist/index.d.ts",

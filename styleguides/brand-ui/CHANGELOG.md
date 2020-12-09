@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.26.0...@vtex/brand-ui@0.28.0) (2020-12-09)
+
+
+### Features
+
+* add header accessory to Calendar ([e069058](https://github.com/vtex/onda/commit/e06905815b8eafb91cc14b3322c61907817f2786))
+* **carousel:** add buttonAlign prop and use case ([04d3b53](https://github.com/vtex/onda/commit/04d3b53f04e03989902c17287d6369a95b1c70dd))
+
+
+
+
+
 # [0.26.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.25.0...@vtex/brand-ui@0.26.0) (2020-12-08)
 
 
