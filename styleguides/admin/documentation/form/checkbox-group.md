@@ -14,16 +14,16 @@ Used to group a set of `Checkbox` components. Has `role="group"` defined.
 
 ```jsx
 function Example() {
-  const checkbox = useCheckboxState()
+  const checkbox = useCheckboxState({ state: [] })
 
   return (
     <CheckboxGroup id="form-group-id" label="Group label!">
       <Label>
-        <Checkbox state={checkbox} />
+        <Checkbox state={checkbox} value="checkbox-1" />
         Label 1
       </Label>
       <Label>
-        <Checkbox state={checkbox} />
+        <Checkbox state={checkbox} value="checkbox-2" />
         Label 2
       </Label>
     </CheckboxGroup>
@@ -49,7 +49,7 @@ By default, the CheckboxGroup is rendered in a horizontal orientation. This mean
 
 ```jsx
 function Example() {
-  const checkbox = useCheckboxState()
+  const checkbox = useCheckboxState({ state: [] })
 
   return (
     <CheckboxGroup
@@ -58,11 +58,11 @@ function Example() {
       label="Group label!"
     >
       <Label>
-        <Checkbox state={checkbox} />
+        <Checkbox state={checkbox} value="checkbox-1" />
         Label 1
       </Label>
       <Label>
-        <Checkbox state={checkbox} />
+        <Checkbox state={checkbox} value="checkbox-2" />
         Label 2
       </Label>
     </CheckboxGroup>
@@ -76,7 +76,7 @@ The CheckboxGroup can also be rendered in a vertical orientation. This means tha
 
 ```jsx
 function Example() {
-  const checkbox = useCheckboxState()
+  const checkbox = useCheckboxState({ state: [] })
 
   return (
     <CheckboxGroup
@@ -85,11 +85,11 @@ function Example() {
       label="Group label!"
     >
       <Label>
-        <Checkbox state={checkbox} />
+        <Checkbox state={checkbox} value="checkbox-1" />
         Label 1
       </Label>
       <Label>
-        <Checkbox state={checkbox} />
+        <Checkbox state={checkbox} value="checkbox-2" />
         Label 2
       </Label>
     </CheckboxGroup>
@@ -105,15 +105,19 @@ You can also add a custom label!
 
 ```jsx
 function Example() {
-  const checkbox = useCheckboxState()
+  const checkbox = useCheckboxState({ state: [] })
 
   return (
     <>
       <Label htmlFor="cheboxgroup-id">Group Label</Label>
       <CheckboxGroup orientation="horizontal" id="cheboxgroup-id">
         <Label>
-          <Checkbox state={checkbox} />
+          <Checkbox state={checkbox} value="checkbox-1" />
           Label 1
+        </Label>
+        <Label>
+          <Checkbox state={checkbox} value="checkbox-2" />
+          Label 2
         </Label>
       </CheckboxGroup>
     </>
