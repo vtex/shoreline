@@ -8,12 +8,11 @@ export default {
     marginBottom: '32px',
   },
   preview: {
-    // TODO: grow height
+    padding: 5,
     position: 'relative',
-    padding: '0.5rem',
-    background: 'white',
-    color: 'black',
-    overflow: 'hidden',
+    color: 'text.primary',
+    bg: 'background',
+    minHeight: 'auto',
   },
   editorWrapper: {
     fontFamily:
