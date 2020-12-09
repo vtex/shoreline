@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.66.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.66.0...@vtex/admin-ui@0.66.1) (2020-12-09)
+
+
+### Bug Fixes
+
+* **dropdown:** add forwardRef to the Dropdown component ([f9148b4](https://github.com/vtex/onda/commit/f9148b4ec4ce1079973485fe760cb11bea56e0a7))
+
+
+
+
+
 # [0.66.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.65.0...@vtex/admin-ui@0.66.0) (2020-12-09)
 
 
