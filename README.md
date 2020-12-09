@@ -11,10 +11,10 @@
 
 ### Bootstrap packages
 
-Use the following command to bootstrap all the packages.
+Use the following commands to bootstrap all the packages.
 
 ```bash
-yarn
+yarn && yarn build
 ```
 
 ### Storybook
