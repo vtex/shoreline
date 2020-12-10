@@ -1,8 +1,7 @@
 import React, { ElementType, ReactNode, Ref } from 'react'
-import { forwardRef, useClassName } from '@vtex/admin-ui-system'
-import { Box as ReakitBox, BoxHTMLProps } from 'reakit/Box'
+import { forwardRef } from '@vtex/admin-ui-system'
 
-import { createElement } from '../../../system'
+import { Box } from '../../Box'
 import { useStylesContext, CellRoleContext } from '../context'
 import { Overridable } from '../../../types'
 
@@ -10,25 +9,25 @@ export const TableHead = forwardRef(function Thead(
   props: TableHeadProps,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'header', children, styleOverrides, ...htmlProps } = props
+  const { element = 'header', children, styleOverrides, ...boxProps } = props
 
   const { dir, variants } = useStylesContext()
-  const className = useClassName({
-    ...styleOverrides,
-    themeKey: variants.header,
-  })
 
-  return createElement<Omit<BoxHTMLProps, 'ref'>>({
-    component: ReakitBox,
-    element,
-    children: (
+  return (
+    <Box
+      element={element}
+      ref={ref}
+      themeKey={variants.header}
+      styles={styleOverrides}
+      role="rowgroup"
+      dir={dir}
+      {...boxProps}
+    >
       <CellRoleContext.Provider value="columnheader">
         {children}
       </CellRoleContext.Provider>
-    ),
-    ref,
-    htmlProps: { role: 'rowgroup', dir, className, ...htmlProps },
-  })
+    </Box>
+  )
 })
 
 export type TableHeadProps = Overridable & {

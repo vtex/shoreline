@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
 
-import { TableBody } from '../components/Body'
+import { TableHead } from '../components/Head'
 import { ThemeProvider } from '../../../system'
 import { StylesContext, useCellRoleContext } from '../context'
 import { TableDensity, TableDir } from '../typings'
@@ -24,38 +24,38 @@ const getStyles = (density: TableDensity) => {
   }
 }
 
-describe('TableBody tests', () => {
+describe('TableHead tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
         <StylesContext.Provider value={getStyles('compact')}>
-          <TableBody
-            data-testid="table-body"
+          <TableHead
+            data-testid="table-head"
             styleOverrides={{ bg: 'coral' }}
           />
         </StylesContext.Provider>
       </ThemeProvider>
     )
 
-    expect(getByTestId('table-body')).toHaveStyleRule(
+    expect(getByTestId('table-head')).toHaveStyleRule(
       'background-color',
       'coral'
     )
   })
 
-  it('should provide the "cell" value within its Context', () => {
+  it('should provide the "columnheader" value within its Context', () => {
     const { result } = renderHook(() => useCellRoleContext(), {
       wrapper: function Render({ children }: PropsWithChildren<unknown>) {
         return (
           <ThemeProvider>
             <StylesContext.Provider value={getStyles('compact')}>
-              <TableBody styleOverrides={{ bg: 'coral' }}>{children}</TableBody>
+              <TableHead styleOverrides={{ bg: 'coral' }}>{children}</TableHead>
             </StylesContext.Provider>
           </ThemeProvider>
         )
       },
     })
 
-    expect(result.current).toBe('cell')
+    expect(result.current).toBe('columnheader')
   })
 })
