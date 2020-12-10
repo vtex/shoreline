@@ -7,5 +7,7 @@ export * from './styles'
 
 /** libs */
 export { Global, css, keyframes } from '@emotion/react'
-export { jsx } from '@theme-ui/core'
 export * from '@theme-ui/color'
+
+// eslint-disable-next-line spaced-comment
+/// <reference types="@emotion/react/types/css-prop" />

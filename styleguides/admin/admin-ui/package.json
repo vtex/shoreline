@@ -47,9 +47,9 @@
     "react-window": "^1.8.5"
   },
   "dependencies": {
-    "@emotion/babel-plugin": "^11.0.0",
+    "@emotion/babel-plugin": "^11.1.2",
     "@emotion/css": "^11.0.0",
-    "@emotion/react": "^11.1.1",
+    "@emotion/react": "^11.1.2",
     "@vtex/admin-ui-system": "^0.4.2",
     "@vtex/admin-ui-theme": "^0.8.2",
     "csstype": "^3.0.5",

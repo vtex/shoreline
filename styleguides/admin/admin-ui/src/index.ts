@@ -34,3 +34,6 @@ export * from './components/AbstractInput'
 export * from './components/NumericStepper'
 export * from './components/Flex'
 export * from './components/Grid'
+
+// eslint-disable-next-line spaced-comment
+/// <reference types="@emotion/react/types/css-prop" />
