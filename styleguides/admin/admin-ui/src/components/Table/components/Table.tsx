@@ -1,8 +1,6 @@
-import React, { ElementType, ReactNode, useMemo } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
-import { Box as ReakitBox } from 'reakit/Box'
+import React, { ElementType, ReactNode, useMemo, forwardRef, Ref } from 'react'
 
-import { createElement } from '../../../system'
+import { Box } from '../../Box'
 import { TableDensity, TableDir } from '../typings'
 import { StylesContext } from '../context'
 import { Overridable } from '../../../types'
@@ -11,13 +9,17 @@ import { TableBody } from './Body'
 import { TableRow } from './Row'
 import { TableCell } from './Cell'
 
-export function Table(props: TableProps) {
+const _Table = forwardRef(function Table(
+  props: TableProps,
+  ref: Ref<HTMLDivElement>
+) {
   const {
     dir = 'ltr',
     children,
     density = 'regular',
     element = 'div',
     styleOverrides = {},
+    ...boxProps
   } = props
 
   const styles = useMemo(() => {
@@ -37,28 +39,27 @@ export function Table(props: TableProps) {
     }
   }, [density, dir])
 
-  const className = useClassName({
-    ...styleOverrides,
-    themeKey: styles.variants.table,
-  })
-
-  return createElement({
-    component: ReakitBox,
-    element,
-    htmlProps: { className, role: 'table', dir },
-    children: (
+  return (
+    <Box
+      ref={ref}
+      themeKey={styles.variants.table}
+      styles={styleOverrides}
+      role="table"
+      element={element}
+      dir={dir}
+      {...boxProps}
+    >
       <StylesContext.Provider value={styles}>{children}</StylesContext.Provider>
-    ),
-  })
-}
+    </Box>
+  )
+})
 
-Table.Head = TableHead
-
-Table.Body = TableBody
-
-Table.Row = TableRow
-
-Table.Cell = TableCell
+export const Table = Object.assign(_Table, {
+  Head: TableHead,
+  Body: TableBody,
+  Row: TableRow,
+  Cell: TableCell,
+})
 
 export type TableProps = Overridable & {
   /**
