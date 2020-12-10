@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.4.2...@vtex/admin-ui-system@0.5.0) (2020-12-10)
+
+
+### Features
+
+* **admin:** add mono & sans font to theme ([124711a](https://github.com/vtex/onda/commit/124711ac8b68bfdb2a02785dcfe18bd5300d98d4))
+
+
+
+
+
 ## [0.4.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.4.1...@vtex/admin-ui-system@0.4.2) (2020-12-09)
 
 **Note:** Version bump only for package @vtex/admin-ui-system
