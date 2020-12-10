@@ -12,6 +12,7 @@ import localeSwitcher from './components/localeSwitcher'
 import timeline from './components/timeline'
 import calendar from './components/calendar'
 import carousel from './components/carousel'
+import modal from './components/modal'
 
 export const theme = {
   colors: {
@@ -76,6 +77,7 @@ export const theme = {
   timeline,
   calendar,
   carousel,
+  modal,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',

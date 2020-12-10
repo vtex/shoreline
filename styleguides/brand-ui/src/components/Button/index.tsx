@@ -52,10 +52,12 @@ export const Button = forwardRef(
       iconPosition = 'start',
       icon,
       children,
+      showFocusOnInit,
       ...restProps
     } = props
 
-    const { focusStyles, focusProps } = useFocusHollow()
+    const { focusStyles, focusProps } = useFocusHollow({ showFocusOnInit })
+
     const { containerStyles, resolvedSize, iconProps } = useMeasures({
       children,
       icon,
@@ -141,4 +143,9 @@ export interface ButtonProps
    * @default false
    */
   block?: boolean
+  /**
+   * Show focus on button before any action
+   * @default false
+   */
+  showFocusOnInit?: boolean
 }
