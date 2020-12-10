@@ -3,6 +3,7 @@
 exports[`Heading tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
   font-size: 1.25rem;
@@ -14,6 +15,7 @@ exports[`Heading tests should match snapshot 1`] = `
     Heading 1
   </h1>
   .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
   font-size: 1.25rem;
@@ -25,6 +27,7 @@ exports[`Heading tests should match snapshot 1`] = `
     Heading 2
   </h2>
   .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
   font-size: 1.25rem;
@@ -36,6 +39,7 @@ exports[`Heading tests should match snapshot 1`] = `
     Heading 3
   </h3>
   .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
   font-size: 1.25rem;
@@ -47,6 +51,7 @@ exports[`Heading tests should match snapshot 1`] = `
     Heading 4
   </h4>
   .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
   font-size: 1.25rem;
@@ -58,6 +63,7 @@ exports[`Heading tests should match snapshot 1`] = `
     Heading 5
   </h5>
   .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
   font-size: 1.25rem;

@@ -28,6 +28,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -206,6 +207,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;

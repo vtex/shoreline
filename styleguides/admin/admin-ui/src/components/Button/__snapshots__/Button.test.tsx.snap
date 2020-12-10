@@ -24,6 +24,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -94,6 +95,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -164,6 +166,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -234,6 +237,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -305,6 +309,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -375,6 +380,7 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
