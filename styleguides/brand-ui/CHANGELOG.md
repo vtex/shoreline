@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.29.1...@vtex/brand-ui@0.30.0) (2020-12-10)
+
+
+### Features
+
+* **calendar:** add multiple events in one day ([33a2258](https://github.com/vtex/onda/commit/33a225829868690de7e4f733263d46fcdc997b92))
+* create brand modal ([50310da](https://github.com/vtex/onda/commit/50310da27617878db641be610456dbf81935dbc4))
+
+
+
+
+
 ## [0.29.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.29.0...@vtex/brand-ui@0.29.1) (2020-12-09)
 
 **Note:** Version bump only for package @vtex/brand-ui
