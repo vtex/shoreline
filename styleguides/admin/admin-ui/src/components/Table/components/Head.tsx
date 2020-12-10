@@ -9,7 +9,7 @@ export const TableHead = forwardRef(function Thead(
   props: TableHeadProps,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'header', children, styleOverrides, ...boxProps } = props
+  const { element = 'div', children, styleOverrides, ...boxProps } = props
 
   const { dir, variants } = useStylesContext()
 

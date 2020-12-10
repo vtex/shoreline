@@ -16,7 +16,7 @@ export function Table(props: TableProps) {
     dir = 'ltr',
     children,
     density = 'regular',
-    element = 'section',
+    element = 'div',
     styleOverrides = {},
   } = props
 
