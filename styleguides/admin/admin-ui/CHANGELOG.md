@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.67.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.67.0...@vtex/admin-ui@0.67.1) (2020-12-10)
+
+
+### Bug Fixes
+
+* **admin-ui:** card color ([3748615](https://github.com/vtex/onda/commit/37486158ce478a763210528f2f0b7ed407d8f8c9))
+
+
+
+
+
 # [0.67.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.66.3...@vtex/admin-ui@0.67.0) (2020-12-10)
 
 
