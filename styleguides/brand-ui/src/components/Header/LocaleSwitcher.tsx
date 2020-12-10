@@ -50,23 +50,21 @@ export const LocaleSwitcher = ({
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      if(!wrapperRef?.current?.contains(event.target as Node)) {
+      if (!wrapperRef?.current?.contains(event.target as Node)) {
         disclosure.hide()
       }
     }
-      document.addEventListener('mousedown', handleOutsideClick)
 
-      return () => {
-        document.removeEventListener('mousedown', handleOutsideClick)
-      }
+    document.addEventListener('mousedown', handleOutsideClick)
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick)
+    }
   }, [wrapperRef])
 
   return (
-    <Box ref={wrapperRef} sx={{ display: 'contents'}}>
-      <Disclosure
-        sx={{ variant: 'localeSwitcher.large' }}
-        {...disclosure}
-      >
+    <Box ref={wrapperRef} sx={{ display: 'contents' }}>
+      <Disclosure sx={{ variant: 'localeSwitcher.large' }} {...disclosure}>
         <IconGlobe sx={{ ml: 5 }} size={22} />
         <Text variant="localeSwitcher.large.label">{getLocaleLabel()}</Text>
         <IconCaret
