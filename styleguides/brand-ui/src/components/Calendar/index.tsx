@@ -12,7 +12,7 @@ import {
 
 const today = DateTime.local()
 
-const EventCell = ({ event }: EventProps) => {
+const EventTag = ({ event }: EventTagProps) => {
   const defaultColor = 'muted.1'
 
   let firstColor = defaultColor
@@ -50,9 +50,11 @@ const Day = ({
         variant={variant}
         onClick={onClick}
         selectedDate={selectedDate}
+        events={events}
+        {...restProps}
       >
         <Text>{value.day}</Text>
-        <EventCell event={event} />
+        <EventTag event={event} />
       </RenderComponent>
     )
   }
@@ -64,7 +66,7 @@ const Day = ({
       {...restProps}
     >
       <Text>{value.day}</Text>
-      {event && <EventCell event={event} />}
+      {event && <EventTag event={event} />}
     </button>
   )
 }
@@ -139,8 +141,8 @@ export const Calendar = ({
   )
 }
 
-interface EventProps {
-  event: Event
+interface EventTagProps {
+  event: DailyEvents
 }
 
 export interface DayProps {
@@ -152,13 +154,13 @@ export interface DayProps {
   events?: Events
 }
 
-export interface Event {
-  name: string
+export interface DailyEvents {
+  events: Array<{ name: string } & Record<string, number | string>>
   colors?: string[]
   component?: (props: PropsWithChildren<DayProps>) => JSX.Element
 }
 
-export type Events = Record<string, Event>
+export type Events = Record<string, DailyEvents>
 
 export interface CalendarProps {
   onChange?: (date: Date) => void

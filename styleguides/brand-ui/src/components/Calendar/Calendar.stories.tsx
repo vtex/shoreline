@@ -97,12 +97,20 @@ const CustomComponent = ({
 
 const eventsWithCustomComponent: Events = {
   '2020-03-12': {
-    name: 'Collections and Checkout are having some instabilities',
+    events: [
+      {
+        name: 'Collections and Checkout are having some instabilities',
+      },
+    ],
     colors: ['#FF4C4C'],
     component: CustomComponent,
   },
   '2020-03-30': {
-    name: 'Collections and Checkout are having some instabilities',
+    events: [
+      {
+        name: 'Collections and Checkout are having some instabilities',
+      },
+    ],
     component: CustomComponent,
   },
 }
