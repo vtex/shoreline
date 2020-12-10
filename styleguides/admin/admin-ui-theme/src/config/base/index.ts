@@ -15,6 +15,12 @@ export default {
     pop: 'all 150ms cubic-bezier(0.4, 0.14, 0.3, 1)',
     callout: 'all 240ms cubic-bezier(0.4, 0.14, 0.3, 1)',
   },
+  fonts: {
+    sans:
+      'VTEXTrustVF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
+    mono:
+      '"Dank Mono", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Consolas", "Monaco", "Menlo", monospace',
+  },
   fontSizes: {
     '0': '0.75rem',
     '1': '0.875rem',
@@ -23,33 +29,46 @@ export default {
     '4': '1.25rem',
   },
   text: {
+    code: {
+      fontFamily: 'mono',
+      lineHeight: 'code',
+      fontSize: 1,
+      fontFeatureSettings: "'clig' 0, 'calt' 0",
+      fontVariantLigatures: 'normal',
+    },
     small: {
+      fontFamily: 'sans',
       lineHeight: 'small',
       fontSettings: 'regular',
       fontSize: 0,
     },
     body: {
+      fontFamily: 'sans',
       lineHeight: 'body',
       fontSettings: 'regular',
       fontSize: 1,
     },
     highlight: {
+      fontFamily: 'sans',
       lineHeight: 'highlight',
       fontSettings: 'regular',
       fontSize: 1,
     },
     action: {
+      fontFamily: 'sans',
       lineHeight: 'action',
       fontSettings: 'regular',
       fontSize: 1,
       textTransform: 'uppercase',
     },
     subtitle: {
+      fontFamily: 'sans',
       lineHeight: 'subtitle',
       fontSettings: 'regular',
       fontSize: 2,
     },
     headline: {
+      fontFamily: 'sans',
       lineHeight: 'headline',
       fontSettings: 'regular',
       fontSize: 4,
@@ -97,6 +116,7 @@ export default {
     black: "'wght' 200",
   },
   lineHeights: {
+    code: 1,
     small: 1.125,
     body: 1.25,
     highlight: 1.25,

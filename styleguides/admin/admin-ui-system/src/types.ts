@@ -57,7 +57,14 @@ interface AliasesCSSProperties {
   /**
    * Admin-ui available text patterns
    */
-  text?: 'small' | 'body' | 'highlight' | 'action' | 'subtitle' | 'headline'
+  text?:
+    | 'code'
+    | 'small'
+    | 'body'
+    | 'highlight'
+    | 'action'
+    | 'subtitle'
+    | 'headline'
   /**
    * Shorthand for fontVariationSettings
    */
@@ -118,6 +125,11 @@ interface OverwriteCSSProperties {
    * @default auto
    */
   zIndex?: CSS.Property.ZIndex | string
+  /**
+   * CSS **`font-family`** property
+   * @default inherit
+   */
+  fontFamily?: 'inherit' | 'mono' | 'sans' | string
 }
 
 /**

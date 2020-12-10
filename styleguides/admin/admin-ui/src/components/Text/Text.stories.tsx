@@ -37,6 +37,15 @@ export function Elements() {
       <Text element="sub">sub</Text>
       <br />
       <Text element="sup">sup</Text>
+      <br />
+      <Text element="code" variant="code">
+        {`
+          function Code() {
+            const copy = () => return 'copied'
+            return <code>Inline code example</code>
+          }
+        `}
+      </Text>
     </>
   )
 }

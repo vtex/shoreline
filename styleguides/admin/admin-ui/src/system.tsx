@@ -37,14 +37,24 @@ function ThemeProvider(props: ThemeProviderProps) {
 
           html,
           body {
-            font-family: VTEXTrustVF, -apple-system, system-ui,
-              BlinkMacSystemFont, sans-serif !important;
-            font-variation-settings: 'wght' 92;
+            font-family: ${get(theme, 'fonts.sans')} !important;
+            font-variation-settings: ${get(theme, 'fontSettings.regular')};
+          }
+
+          strong,
+          b {
+            font-family: ${get(theme, 'fonts.sans')} !important;
+            font-variation-settings: ${get(theme, 'fontSettings.bold')};
+          }
+
+          pre,
+          code {
+            font-family: ${get(theme, 'fonts.mono')} !important;
           }
 
           * {
-            font-family: VTEXTrustVF, -apple-system, system-ui,
-              BlinkMacSystemFont, sans-serif;
+            font-family: ${get(theme, 'fonts.sans')} !important;
+            font-variation-settings: ${get(theme, 'fontSettings.regular')};
           }
 
           *,
