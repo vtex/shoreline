@@ -84,7 +84,7 @@ You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides)
 For example, you can customize the Divider `margin` and `color`. One way to do this is by combining `Space Style Props` and `styleOverrides`, check the example below!
 
 ```jsx
-<Divider margin={6} styleOverrides={{ borderColor: 'text' }} />
+<Divider margin={6} styleOverrides={{ borderColor: 'text.primary' }} />
 ```
 
 ## Props

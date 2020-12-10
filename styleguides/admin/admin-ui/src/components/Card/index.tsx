@@ -14,7 +14,7 @@ export const Card = forwardRef(function Card(
       ref={ref}
       styles={{
         bg: 'background',
-        color: 'text',
+        color: 'text.primary',
         border: 'default',
         padding: 6,
         ...styleOverrides,
