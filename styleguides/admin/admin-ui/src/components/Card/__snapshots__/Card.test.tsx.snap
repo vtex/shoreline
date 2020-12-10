@@ -4,8 +4,7 @@ exports[`Card tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background-color: #FFFFFF;
-  primary: #323845;
-  secondary: #707685;
+  color: #323845;
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
