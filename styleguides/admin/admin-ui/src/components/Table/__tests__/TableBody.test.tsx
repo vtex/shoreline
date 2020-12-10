@@ -5,24 +5,7 @@ import { renderHook } from '@testing-library/react-hooks'
 import { TableBody } from '../components/Body'
 import { ThemeProvider } from '../../../system'
 import { StylesContext, useCellRoleContext } from '../context'
-import { TableDensity, TableDir } from '../typings'
-
-const getStyles = (density: TableDensity) => {
-  const base = `components.table.${density}`
-
-  return {
-    variants: {
-      base,
-      table: `${base}.table`,
-      header: `${base}.header`,
-      body: `${base}.body`,
-      row: `${base}.row`,
-      cell: `${base}.cell`,
-      columnheader: `${base}.columnheader`,
-    },
-    dir: 'rtl' as TableDir,
-  }
-}
+import { getStyles } from './testUtil'
 
 describe('TableBody tests', () => {
   it('should have overridable styles', () => {
@@ -49,7 +32,7 @@ describe('TableBody tests', () => {
         return (
           <ThemeProvider>
             <StylesContext.Provider value={getStyles('compact')}>
-              <TableBody styleOverrides={{ bg: 'coral' }}>{children}</TableBody>
+              <TableBody>{children}</TableBody>
             </StylesContext.Provider>
           </ThemeProvider>
         )
