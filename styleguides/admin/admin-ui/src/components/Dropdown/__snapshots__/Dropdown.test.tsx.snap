@@ -70,6 +70,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -232,6 +233,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -394,6 +396,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -562,6 +565,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -724,6 +728,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;

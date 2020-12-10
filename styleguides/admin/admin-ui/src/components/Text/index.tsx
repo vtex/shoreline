@@ -52,6 +52,7 @@ export interface TextProps extends Overridable {
    * @default span
    */
   element?:
+    | 'code'
     | 'span'
     | 'strong'
     | 'i'
@@ -66,6 +67,7 @@ export interface TextProps extends Overridable {
     | 's'
     | 'samp'
     | 'sub'
+    | 'pre'
     | 'sup'
   /**
    * heading children
@@ -75,7 +77,14 @@ export interface TextProps extends Overridable {
    * Text variant. Consumes the text pattern
    * @default body
    */
-  variant?: 'headline' | 'subtitle' | 'body' | 'small' | 'action' | 'highlight'
+  variant?:
+    | 'headline'
+    | 'subtitle'
+    | 'body'
+    | 'small'
+    | 'action'
+    | 'highlight'
+    | 'code'
   /**
    * html id
    */

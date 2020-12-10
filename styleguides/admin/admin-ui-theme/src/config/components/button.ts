@@ -226,6 +226,7 @@ const variant = {
 }
 
 const styles = {
+  fontFamily: 'sans',
   fontSettings: 'regular',
   border: 'none',
   borderRadius: 'default',

@@ -3,6 +3,7 @@
 exports[`Collapsible tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -185,6 +186,7 @@ exports[`Collapsible tests should match snapshot 1`] = `
 exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] = `
 <DocumentFragment>
   .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
