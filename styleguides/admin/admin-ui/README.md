@@ -1,37 +1,40 @@
-# VTEX Admin UI
+## admin-ui
 
 > VTEX admin component library
 
+Documentation site: https://admin-ui-docs.vercel.app/guide/get-started/
+
 [![NPM](https://img.shields.io/npm/v/@vtex/admin-ui.svg)](https://www.npmjs.com/package/@vtex/admin-ui)
 
-## Getting Started
+### Install
 
-Install from npm:
-
-```bash
-yarn add @vtex/admin-ui
+```sh
+yarn add @vtex/admin-ui @vtex/admin-ui-icons
 ```
 
-**⚠️ Import the theme provider on the project root:**
+```sh
+npm install @vtex/admin-ui @vtex/admin-ui-icons
+```
 
-```tsx
-import { ThemeProvider } from '@vtex/admin-ui'
+### Typescript
 
-function ProjectRoot() {
-  return <ThemeProvider>{/** Your app here */}</ThemeProvider>
+> If you are using typescript 4.1 & above, ignore the following steps
+
+This package uses `emotion v11`, so if you are under typescript `4.1` you must install `@emotion/react` as a dev dependency and add it to your types.
+
+```sh
+yarn add @emotion/react -D
+```
+
+Add the types within `tsconfig.json`
+
+```js
+// tsconfig.json
+{
+  compilerOptions:{
+    types: ['@emotion/react/types/css-prop'],
+    // ...
+  }
+  // ...
 }
 ```
-
-> 💡 You can check the [Theme Docs](https://admin-ui.vercel.app/?path=/story/design-system-theme--page) for detailed info
-
-## Components
-
-| Name        | Documentation                                  | Graduation |
-| ----------- | ---------------------------------------------- | ---------- |
-| Button      | [Docs](./src/components/Button/README.md)      | beta       |
-| Collapsible | [Docs](./src/components/Collapsible/README.md) | beta       |
-| Card        | [Docs](./src/components/Card/README.md)        | beta       |
-| Text        | [Docs](./src/components/Text/README.md)        | beta       |
-| Icons       | [Docs](./src/icons/README.md)                  | beta       |
-| Toggle      | [Docs](./src/components/Toggle/README.md)      | beta       |
-| Box         | [Docs](./src/components/Box/README.md)         | beta       |

@@ -4,7 +4,7 @@ path: /theming/style-object/
 
 # StyleObject
 
-The admin-ui `StyleObject` lets you style elements while consuming values from the theme. Think it as a superset of css. You will encounter this API in mainly three places: `cn` function, `style`, and `styleOverride` properties. To know more about the difference between those, you can check the [Styling Documentation](/docs/theming/styling/)
+The admin-ui `StyleObject` lets you style elements while consuming values from the theme. Think of it as a superset of CSS. You will encounter this API in mainly three places: `cn` function, `style`, and `styleOverrides` properties. To know more about the difference between those, you can check the [Styling Documentation](/docs/theming/styling/)
 
 <blockquote palette="primary">
 
@@ -184,16 +184,15 @@ For shorthand CSS properties or ones that are not automatically mapped to values
 ```jsx
 <div
   className={cn({
-    boxShadow: (theme) => `0 0 .5em ${theme.colors.danger.washed[0]}`,
+    boxShadow: (theme) => `0 0 .5em ${theme.colors.danger.base}`,
   })}
 >
   Red glow box shadow
 </div>
 ```
 
-## Theme aware properties
+## Scales
 
-The following CSS properties will use values defined in the theme, when available.
+Scales are values that can be consumed from specific properties within the `StyleObject`. They are the recommended values for those props if you desire to reach consistency between apps.
 
-<themeawareprops>
-</themeawareprops>
+Available scales: [sizes](/theming/sizes/), [space](/theming/space/), [typography](/theming/typography/), [colors](/theming/colors/)

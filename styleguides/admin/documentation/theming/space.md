@@ -1,16 +1,25 @@
 ---
-path: /theming/css-props/
+path: /theming/space/
 ---
 
-# Scales
+# Space
 
-Properties that you can use in specific components to add `space` or `size` styles.
+## Props within style object
 
-## Space
+`padding`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingBottom`.
 
-`padding`, `paddingX`, `paddingY`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingBottom`.
+`margin`, `marginLeft`, `marginRight`, `marginTop`, `marginBottom`.
 
-`margin`, `marginX`, `marginY`, `marginLeft`, `marginRight`, `marginTop`, `marginBottom`
+## Multiples
+
+| PROP       | COMBINES                      | DESCRIPTION        |
+| ---------- | ----------------------------- | ------------------ |
+| `paddingX` | `paddingLeft`, `paddingRight` | Horizontal padding |
+| `paddingY` | `paddingTop`, `paddingBottom` | Vertical padding   |
+| `marginX`  | `marginLeft`, `marginRight`   | Horizontal margin  |
+| `marginY`  | `marginTop`, `marginBottom`   | Vertical margin    |
+
+## Scales
 
 | TOKEN | REM         | PX     | SIZE                                                                       |
 | ----- | ----------- | ------ | -------------------------------------------------------------------------- |
@@ -25,51 +34,3 @@ Properties that you can use in specific components to add `space` or `size` styl
 | 6     | `1.50rem`   | `24px` | <div style="width: 1.50rem; backgroundColor: black; height: 10px"></div>   |
 | 7     | `1.75rem`   | `28px` | <div style="width: 1.75rem; backgroundColor: black; height: 10px"></div>   |
 | 8     | `2rem`      | `32px` | <div style="width: 2rem; backgroundColor: black; height: 10px"></div>      |
-
-## Size
-
-You can use this prop in the following components:
-
-- `Box`
-- `Card`
-- `Skeleton`
-
-### Theme values
-
-```jsx isStatic
-sizes: {
-  sm: '20rem',
-  md: '48rem',
-  lg: '56rem',
-  xl: '64rem',
-  '1/2': '50%',
-  '1/4': '25%',
-  '2/4': '50%',
-  '3/4': '75%',
-  '1/8': '12.5%',
-  '2/8': '25%',
-  '3/8': '37.5%',
-  '4/8': '50%',
-  '5/8': '62.5%',
-  '6/8': '75%',
-  '7/8': '87.5%',
-  '1/12': '8.333333%',
-  '2/12': '16.666667%',
-  '3/12': '25%',
-  '4/12': '33.333333%',
-  '5/12': '41.666667%',
-  '6/12': '50%',
-  '7/12': '58.333333%',
-  '8/12': '66.666667%',
-  '9/12': '75%',
-  '10/12': '83.333333%',
-  '11/12': '91.666667%',
-  full: '100%',
-  screenHeight: '100vh',
-  screenWidth: '100vw',
-}
-```
-
-### properties
-
-`width`, `height`, `maxWidth`, `maxHeight`, `minWidth`, `minHeight`

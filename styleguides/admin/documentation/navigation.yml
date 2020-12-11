@@ -10,8 +10,10 @@
     - /theming/style-object/
     - /theming/inline-styles/
     - /theming/colors/
+    - /theming/space/
+    - /theming/sizes/
+    - /theming/typography/
     - /theming/responsive-design/
-    - /theming/css-props/
 - section: Primitives
   paths:
     - /primitives/introduction/
@@ -26,7 +28,7 @@
     - /layouts/set/
 - section: Typography
   paths:
-    - /typography/variable-font/
+    - /typography/introduction/
     - /typography/anchor/
     - /typography/heading/
     - /typography/list/
