@@ -1,9 +1,9 @@
 const timeline = {
   '& > *:last-child': {
-    '& > *:nth-child(2)': {
+    '& > *:nth-of-type(2)': {
       pb: 0,
     },
-    '& > *:first-child > *:last-child': {
+    '& > *:first-of-type > *:last-child': {
       display: 'none',
     },
   },
