@@ -6,7 +6,7 @@ import {
   resolveCell,
 } from '../resolvers/core'
 
-describe('talbe resolver core tests', () => {
+describe('table resolver core tests', () => {
   describe('accessHeader', () => {
     it('should access string headers', () => {
       const result = accessHeader({
