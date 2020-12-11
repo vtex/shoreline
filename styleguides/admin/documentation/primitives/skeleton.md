@@ -13,8 +13,6 @@ Our design system comes with a set of primitive components that represent our mo
 
 If you want to know more about how to style a primitive component, check out our [Inline Styles](/theming/inline-styles/) page.
 
-_Note that you may want to use one of our `Layout` components before using Box to build layouts. Also check one of our `Typography` components before using it to render a text._
-
 ## Behavior
 
 By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
@@ -52,6 +50,10 @@ The shape can also be circular. To use this variation, the `shape` property has 
 ```jsx
 <Skeleton shape="circle" styles={{ size: 100 }} />
 ```
+
+## Customization
+
+With the `styles` property, you can add any customization to the `Skeleton` component. Check the [StyleObject](/theming/style-object) page for detailed info.
 
 ## Props
 
