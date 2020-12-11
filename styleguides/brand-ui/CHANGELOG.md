@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.30.0...@vtex/brand-ui@0.30.1) (2020-12-11)
+
+
+### Bug Fixes
+
+* replace first-child by first-child-of-type in timeline ([62f6bb3](https://github.com/vtex/onda/commit/62f6bb361a2476cfcf5cb883a673786799bfaedf))
+
+
+
+
+
 # [0.30.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.29.1...@vtex/brand-ui@0.30.0) (2020-12-10)
 
 
