@@ -28,41 +28,11 @@ yarn add @vtex/admin-ui
 import { Box } from '@vtex/admin-ui'
 ```
 
-## Styles
+## Variation
 
-With the `styles` property, you can add any customization to the Box component. Check the [StyleObject](/theming/style-object) page for detailed info.
+### Polymorphism
 
-```jsx
-<Box styles={{ display: 'flex', div: { paddingX: 2, marginX: 2 } }}>
-  <Box styles={{ border: 'default' }}>First</Box>
-  <Box styles={{ border: 'default' }}>Second</Box>
-  <Box styles={{ border: 'default' }}>Third</Box>
-</Box>
-```
-
-## Patterns
-
-The Box accepts all the Patterns properties, you can use it to add admin's applications common customization.
-
-### text
-
-`small`, `body`, `highlight`, `action`, `subtitle`, `headline`.
-
-```jsx
-<>
-  <Box styles={{ text: 'small' }}>Small Text</Box>
-  <Label text="subtitle">Subtitle Text</Label>
-  <List>
-    <List.Item text="action">First</List.Item>
-    <List.Item text="action">Second</List.Item>
-    <List.Item text="action">Third</List.Item>
-  </List>
-</>
-```
-
-## Polymorphism
-
-Box can be rendered as any HTML tag or component.
+Box can be rendered as any HTML tag or component. To use this variation, add a valid HTML tah to the `element` property, by default it will render a `div`.
 
 ```jsx
 <Box element="article">
@@ -72,6 +42,18 @@ Box can be rendered as any HTML tag or component.
   <Box styles={{ display: 'block' }} element="a" href="/typography/anchor">
     <IconLink /> I'm a link to anchor docs
   </Box>
+</Box>
+```
+
+## Customization
+
+With the `styles` property, you can add any customization to the `Box` component. Check the [StyleObject](/theming/style-object) page for detailed info.
+
+```jsx
+<Box styles={{ display: 'flex', div: { paddingX: 2, marginX: 2 } }}>
+  <Box styles={{ border: 'default' }}>First</Box>
+  <Box styles={{ border: 'default' }}>Second</Box>
+  <Box styles={{ border: 'default' }}>Third</Box>
 </Box>
 ```
 
