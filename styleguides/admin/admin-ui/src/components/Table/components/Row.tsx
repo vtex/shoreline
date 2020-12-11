@@ -1,8 +1,7 @@
-import { ElementType, ReactNode, Ref } from 'react'
-import { forwardRef, useClassName } from '@vtex/admin-ui-system'
-import { Box as ReakitBox, BoxHTMLProps } from 'reakit/Box'
+import React, { ElementType, ReactNode, Ref } from 'react'
+import { forwardRef } from '@vtex/admin-ui-system'
 
-import { createElement } from '../../../system'
+import { Box } from '../../Box'
 import { useStylesContext } from '../context'
 import { Overridable } from '../../../types'
 
@@ -10,22 +9,21 @@ export const TableRow = forwardRef(function Tr(
   props: TableRowProps,
   ref: Ref<HTMLElement>
 ) {
-  const { children, styleOverrides = {}, element = 'div', ...htmlProps } = props
+  const { styleOverrides = {}, element = 'div', ...boxProps } = props
 
   const { variants, dir } = useStylesContext()
 
-  const className = useClassName({
-    ...styleOverrides,
-    themeKey: `${variants.row}-${dir}`,
-  })
-
-  return createElement<Omit<BoxHTMLProps, 'ref'>>({
-    component: ReakitBox,
-    element,
-    ref,
-    children,
-    htmlProps: { dir, className, role: 'row', ...htmlProps },
-  })
+  return (
+    <Box
+      ref={ref}
+      dir={dir}
+      role="row"
+      themeKey={`${variants.row}-${dir}`}
+      element={element}
+      styles={styleOverrides}
+      {...boxProps}
+    />
+  )
 })
 
 export type TableRowProps = Overridable & {

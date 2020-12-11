@@ -131,7 +131,7 @@ export function resolveCell<T>(args: ResolveCellArgs<T>) {
  * Call the column header
  * @param column current column
  */
-function accessHeader<T>(column: Column<T>) {
+export function accessHeader<T>(column: Column<T>) {
   const { header } = column
 
   switch (typeof header) {
@@ -154,7 +154,7 @@ function accessHeader<T>(column: Column<T>) {
  * @param column current column
  * @param item current item
  */
-function accessCell<T>(column: Column<T>, item: T) {
+export function accessCell<T>(column: Column<T>, item: T) {
   const { acessor } = column
 
   switch (typeof acessor) {

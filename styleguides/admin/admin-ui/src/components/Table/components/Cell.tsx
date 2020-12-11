@@ -1,8 +1,7 @@
-import { ElementType, ReactNode, Ref } from 'react'
-import { forwardRef, useClassName } from '@vtex/admin-ui-system'
-import { Box as ReakitBox, BoxHTMLProps } from 'reakit/Box'
+import React, { ElementType, ReactNode, Ref } from 'react'
+import { forwardRef } from '@vtex/admin-ui-system'
 
-import { createElement } from '../../../system'
+import { Box } from '../../Box'
 import { Column } from '../typings'
 import { useStylesContext, useCellRoleContext } from '../context'
 import { Overridable } from '../../../types'
@@ -11,31 +10,26 @@ export const TableCell = forwardRef(function Td<T>(
   props: TableCellProps<T>,
   ref: Ref<HTMLElement>
 ) {
-  const {
-    element = 'div',
-    styleOverrides = {},
-    column,
-    children,
-    ...htmlProps
-  } = props
+  const { element = 'div', styleOverrides = {}, column, ...boxProps } = props
 
   const { variants, dir } = useStylesContext()
   const role = useCellRoleContext()
 
-  const className = useClassName({
-    minWidth: column.width,
-    maxWidth: column.width,
-    ...styleOverrides,
-    themeKey: variants[role],
-  })
-
-  return createElement<Omit<BoxHTMLProps, 'ref'>>({
-    component: ReakitBox,
-    element,
-    children,
-    htmlProps: { role, className, dir, ...htmlProps },
-    ref,
-  })
+  return (
+    <Box
+      ref={ref}
+      element={element}
+      themeKey={variants[role]}
+      dir={dir}
+      styles={{
+        minWidth: column.width,
+        maxWidth: column.width,
+        ...styleOverrides,
+      }}
+      role={role}
+      {...boxProps}
+    />
+  )
 })
 
 export type TableCellProps<T> = Overridable & {
