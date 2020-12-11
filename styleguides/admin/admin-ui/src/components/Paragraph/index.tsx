@@ -1,32 +1,27 @@
-import { Box as ReakitBox } from 'reakit'
-import { ReactNode, forwardRef, Ref, PropsWithChildren } from 'react'
+import React, { ReactNode, forwardRef, Ref, PropsWithChildren } from 'react'
 
-import { cn, createElement } from '../../system'
+import { StyleProp } from '../../system'
 import { Overridable } from '../../types'
+import { Box } from '../Box'
 
 export const Paragraph = forwardRef(function Paragraph(
   props: PropsWithChildren<ParagraphProps>,
   ref: Ref<HTMLParagraphElement>
 ) {
-  const htmlProps = useParagraph(props)
+  const { styles, ...htmlProps } = useParagraph(props)
 
-  return createElement({
-    ref,
-    element: 'p',
-    component: ReakitBox,
-    htmlProps,
-  })
+  return <Box element="p" ref={ref} styles={styles} {...htmlProps} />
 })
 
 export function useParagraph(props: ParagraphProps) {
   const { styleOverrides, ...htmlProps } = props
 
-  const className = cn({
+  const styles = {
     text: 'body',
     ...styleOverrides,
-  })
+  } as StyleProp
 
-  return { className, ...htmlProps }
+  return { styles, ...htmlProps }
 }
 
 export interface ParagraphProps extends Overridable {
