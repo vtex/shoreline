@@ -121,6 +121,7 @@ describe('table resolver core tests', () => {
         resolvers: {
           plain,
         },
+        items: [],
         context: {
           dir: 'ltr',
           density: 'regular',
@@ -149,6 +150,7 @@ describe('table resolver core tests', () => {
             type: 'plain',
           },
         },
+        items: [],
         resolvers: {
           plain,
         },
@@ -226,6 +228,11 @@ describe('table resolver core tests', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
         context: { dir: 'ltr', density: 'regular', loading: false },
+        column: {
+          id: 'image',
+          acessor: 'image',
+        },
+        items: [],
       })
 
       expect(result).toBe('data')
@@ -235,6 +242,11 @@ describe('table resolver core tests', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
         context: { dir: 'ltr', density: 'regular', loading: true },
+        column: {
+          id: 'image',
+          acessor: 'image',
+        },
+        items: [],
       })
 
       expect(result).toBe('loading...')
@@ -244,6 +256,11 @@ describe('table resolver core tests', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
         context: { dir: 'ltr', density: 'variable', loading: false },
+        column: {
+          id: 'image',
+          acessor: 'image',
+        },
+        items: [],
       })
 
       expect(result).toBe('variable density')
@@ -253,6 +270,11 @@ describe('table resolver core tests', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
         context: { dir: 'rtl', density: 'regular', loading: false },
+        column: {
+          id: 'image',
+          acessor: 'image',
+        },
+        items: [],
       })
 
       expect(result).toBe('rtl layout')
