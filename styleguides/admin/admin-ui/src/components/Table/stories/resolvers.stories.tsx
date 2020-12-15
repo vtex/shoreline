@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useMemo } from 'react'
 import { Meta } from '@storybook/react'
 
 import { Text } from '../../Text'
@@ -68,6 +68,137 @@ export const Plain = () => {
               )
             },
           },
+        },
+        {
+          id: 'price',
+          header: 'Price',
+        },
+      ]}
+      items={fruits}
+    />
+  )
+}
+
+export const Selection = () => {
+  const fruits = useMemo(
+    () => [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 20,
+        price: 120,
+        flag: true,
+      },
+      {
+        id: 2,
+        productName: 'Lemon',
+        inStock: 380,
+        skus: 26,
+        price: 120,
+        flag: false,
+      },
+      {
+        id: 3,
+        productName: 'Tomato',
+        inStock: 380,
+        skus: 26,
+        price: 120,
+        flag: true,
+      },
+    ],
+    []
+  )
+
+  return (
+    <StatefulTable
+      columns={[
+        {
+          id: 'id',
+          resolver: {
+            type: 'selection',
+            mapId: (item) => item.productName,
+          },
+        },
+        {
+          id: 'productName',
+          header: 'Product name',
+        },
+        {
+          id: 'inStock',
+          header: 'In stock',
+        },
+        {
+          id: 'skus',
+          header: 'SKUs',
+        },
+        {
+          id: 'price',
+          header: 'Price',
+        },
+      ]}
+      items={fruits}
+    />
+  )
+}
+
+export const SelectionInit = () => {
+  const fruits = useMemo(
+    () => [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 20,
+        price: 120,
+        flag: true,
+      },
+      {
+        id: 2,
+        productName: 'Lemon',
+        inStock: 380,
+        skus: 26,
+        price: 120,
+        flag: false,
+      },
+      {
+        id: 3,
+        productName: 'Tomato',
+        inStock: 380,
+        skus: 26,
+        price: 120,
+        flag: true,
+      },
+    ],
+    []
+  )
+
+  return (
+    <StatefulTable
+      columns={[
+        {
+          id: 'id',
+          resolver: {
+            type: 'selection',
+            mapId: (item) => item.productName,
+            isSelected: (item) => !!item.flag,
+            onSelect: (currentSelected) => {
+              // eslint-disable-next-line no-console
+              console.log(currentSelected)
+            },
+          },
+        },
+        {
+          id: 'productName',
+          header: 'Product name',
+        },
+        {
+          id: 'inStock',
+          header: 'In stock',
+        },
+        {
+          id: 'skus',
+          header: 'SKUs',
         },
         {
           id: 'price',

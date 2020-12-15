@@ -54,7 +54,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     [density, loading, dir]
   )
 
-  const { data, resolveCell, resolveHeader } = useTable<T>({
+  const { data, resolveCell, resolveHeader, Providers } = useTable<T>({
     length,
     columns,
     resolvers,
@@ -63,29 +63,13 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
   })
 
   return (
-    <Box styles={{ overflow: 'auto', width: 'full', ...styleOverrides }}>
-      <Table dir={context.dir} density={density}>
-        <Table.Head>
-          <Table.Row>
-            {columns.map((column) => {
-              const content = resolveHeader({ column })
-
-              return (
-                <Table.Cell key={column.id as string} column={column}>
-                  {content}
-                </Table.Cell>
-              )
-            })}
-          </Table.Row>
-        </Table.Head>
-        <Table.Body>
-          {data.map((item) => (
-            <Table.Row key={getRowKey(item) as string}>
+    <Providers>
+      <Box styles={{ overflow: 'auto', width: 'full', ...styleOverrides }}>
+        <Table dir={context.dir} density={density}>
+          <Table.Head>
+            <Table.Row>
               {columns.map((column) => {
-                const content = resolveCell({
-                  column,
-                  item,
-                })
+                const content = resolveHeader({ column, items: data })
 
                 return (
                   <Table.Cell key={column.id as string} column={column}>
@@ -94,10 +78,28 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
                 )
               })}
             </Table.Row>
-          ))}
-        </Table.Body>
-      </Table>
-    </Box>
+          </Table.Head>
+          <Table.Body>
+            {data.map((item) => (
+              <Table.Row key={getRowKey(item) as string}>
+                {columns.map((column) => {
+                  const content = resolveCell({
+                    column,
+                    item,
+                  })
+
+                  return (
+                    <Table.Cell key={column.id as string} column={column}>
+                      {content}
+                    </Table.Cell>
+                  )
+                })}
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Box>
+    </Providers>
   )
 }
 
