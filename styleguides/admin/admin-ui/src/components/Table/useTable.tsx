@@ -1,4 +1,11 @@
-import { useMemo, useCallback, ReactNode } from 'react'
+import React, {
+  useMemo,
+  useCallback,
+  ReactNode,
+  PropsWithChildren,
+  Fragment,
+} from 'react'
+import { get } from '@vtex/admin-ui-system'
 
 import {
   resolveCell as unstableResolveCell,
@@ -10,6 +17,7 @@ import {
 } from './resolvers/core'
 import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
+import { SelectionProvider } from './resolvers/selection'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const {
@@ -35,6 +43,11 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length, columns])
 
+  const selectionColumn = useMemo(
+    () => columns.find((col) => col.resolver?.type === 'selection'),
+    [columns]
+  )
+
   const resolveCell = useCallback(
     (args: ResolverCallee<ResolveCellArgs<T>>) =>
       unstableResolveCell<T>({ ...args, resolvers, context }),
@@ -55,12 +68,28 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     skeletonCollection,
   ])
 
+  function Providers(props: PropsWithChildren<unknown>) {
+    return selectionColumn ? (
+      <SelectionProvider
+        items={data}
+        mapId={get(selectionColumn, 'resolver.mapId', () => '')}
+        isSelected={get(selectionColumn, 'resolver.isSelected', () => false)}
+        onSelect={get(selectionColumn, 'resolver.onSelect', () => null)}
+      >
+        {props.children}
+      </SelectionProvider>
+    ) : (
+      <Fragment>{props.children}</Fragment>
+    )
+  }
+
   return {
     skeletonCollection,
     resolveCell,
     resolveHeader,
     data,
     columns,
+    Providers,
   }
 }
 
@@ -98,6 +127,7 @@ export interface UseTableReturn<T> {
   ) => Record<string, unknown> | null | undefined
   data: T[]
   columns: Array<Column<T>>
+  Providers: (props: PropsWithChildren<unknown>) => JSX.Element
 }
 
 type ResolverCallee<T> = Omit<T, 'resolvers' | 'context'>

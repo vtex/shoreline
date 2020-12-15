@@ -62,6 +62,8 @@ export interface Resolver<T = any, I = any, S = any> {
   header?: (helpers: {
     getData: CallableFunction
     context: ResolverContext
+    items: T[]
+    column: Column<T, ResolverShorcut<I, S>>
   }) => ReactNode
 }
 
@@ -82,6 +84,7 @@ export type ResolveHeaderArgs<T> = {
   column: Column<T>
   resolvers: Record<string, Resolver<T>>
   context: ResolverContext
+  items: T[]
 }
 
 /**
@@ -90,14 +93,14 @@ export type ResolveHeaderArgs<T> = {
  * @param resolvers
  */
 export function resolveHeader<T>(args: ResolveHeaderArgs<T>) {
-  const { column, resolvers, context } = args
+  const { column, resolvers, context, items } = args
 
   const id = get(column, 'resolver.type', 'plain')
 
   const { header } = resolvers[id]
 
   return header
-    ? header({ getData: () => accessHeader(column), context })
+    ? header({ getData: () => accessHeader(column), context, items, column })
     : accessHeader(column)
 }
 
