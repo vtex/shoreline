@@ -14,14 +14,14 @@ export default {
 
 export const Horizontal: Story<DividerProps> = () => {
   return (
-    <Card styleOverrides={{ width: '5/12' }}>
-      <Heading styleOverrides={{ marginY: 2 }}>Tolerance</Heading>
+    <Card styleOverrides={{ width: 500 }}>
+      <Heading styleOverrides={{ marginBottom: 2 }}>Tolerance</Heading>
       <Paragraph>
         Allows orders to be placed even if they pass X% of the account`s credit
         limit. Tolerance is set per account.
       </Paragraph>
-      <Divider orientation="horizontal" styleOverrides={{ marginX: 6 }} />
-      <Heading styleOverrides={{ marginY: 2 }}>
+      <Divider orientation="horizontal" styleOverrides={{ marginY: 6 }} />
+      <Heading styleOverrides={{ marginBottom: 2 }}>
         Automatic account creation
       </Heading>
       <Paragraph>
@@ -36,11 +36,11 @@ export const Vertical: Story<DividerProps> = () => {
     <Card
       styleOverrides={{
         display: 'flex',
-        width: '5/12',
+        width: 500,
         justifyContent: 'center',
       }}
     >
-      <Box styles={{ width: '5/12' }}>
+      <Box styles={{ width: '1/2' }}>
         <Heading styleOverrides={{ marginY: 2 }}>Cards</Heading>
         <Paragraph>
           In Cards, your customer is given autonomy to manage credit cards
@@ -48,7 +48,7 @@ export const Vertical: Story<DividerProps> = () => {
         </Paragraph>
       </Box>
       <Divider orientation="vertical" styleOverrides={{ marginX: 6 }} />
-      <Box styles={{ width: '5/12' }}>
+      <Box styles={{ width: '1/2' }}>
         <Heading styleOverrides={{ marginY: 2 }}>Personal data</Heading>
         <Paragraph>
           In this section, the user can manage their personal data registered on
