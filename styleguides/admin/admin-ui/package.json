@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.67.2",
+  "version": "0.68.0",
   "main": "dist/index.js",
   "module": "dist/admin-ui.esm.js",
   "typings": "dist/index.d.ts",
@@ -42,10 +42,10 @@
     "@types/react-window": "^1.8.2",
     "@vtex/admin-ui-icons": "^0.5.3",
     "faker": "^5.1.0",
+    "jest-environment-jsdom-fourteen": "^1.0.1",
     "mutationobserver-shim": "^0.3.7",
     "react-beautiful-dnd": "^13.0.0",
-    "react-window": "^1.8.5",
-    "jest-environment-jsdom-fourteen": "^1.0.1"
+    "react-window": "^1.8.5"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.0.0",

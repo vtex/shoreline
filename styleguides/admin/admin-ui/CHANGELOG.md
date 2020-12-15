@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.68.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.67.2...@vtex/admin-ui@0.68.0) (2020-12-15)
+
+
+### Features
+
+* **admin-ui:** add checkbox resolver to table ([23422f2](https://github.com/vtex/onda/commit/23422f2bbd875fc774621832d688c66631575692))
+
+
+
+
+
 ## [0.67.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.67.1...@vtex/admin-ui@0.67.2) (2020-12-11)
 
 **Note:** Version bump only for package @vtex/admin-ui
