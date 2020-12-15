@@ -28,6 +28,7 @@ export const ModalHeader = forwardRef(function ModalHeader(
     title = null,
     containerStyleOverrides = {},
     styleOverrides = {},
+    ...headerProps
   } = props
 
   const { omitCloseButton, size } = useModalContext()
@@ -51,7 +52,7 @@ export const ModalHeader = forwardRef(function ModalHeader(
   }, [title])
 
   return (
-    <header ref={ref} className={className}>
+    <header {...headerProps} ref={ref} className={className}>
       {renderTitle}
       <div className={containerCn}>
         {children}
