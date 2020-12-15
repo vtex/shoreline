@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal tests should match snapshot hidden 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="id"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    type="button"
+  >
+    disclosure
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Modal tests should match snapshot visible 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="id"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    type="button"
+  >
+    disclosure
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Modal tests should match snapshot with custom header 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="id"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    type="button"
+  >
+    disclosure
+  </button>
+</DocumentFragment>
+`;

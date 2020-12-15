@@ -27,10 +27,17 @@ export function Tooltip(props: TooltipProps) {
     placement = 'top',
     visible,
     fixed,
+    baseId,
     ...tooltipProps
   } = props
 
-  const tooltip = useTooltipState({ placement, visible, unstable_fixed: fixed })
+  const tooltip = useTooltipState({
+    placement,
+    visible,
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    unstable_fixed: fixed,
+    baseId,
+  })
 
   return (
     <>
@@ -72,4 +79,8 @@ export interface TooltipProps extends Overridable {
    * @default false
    */
   fixed?: boolean
+  /**
+   * reakit base-id
+   */
+  baseId?: string
 }

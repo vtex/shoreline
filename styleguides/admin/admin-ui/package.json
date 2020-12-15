@@ -44,7 +44,8 @@
     "faker": "^5.1.0",
     "mutationobserver-shim": "^0.3.7",
     "react-beautiful-dnd": "^13.0.0",
-    "react-window": "^1.8.5"
+    "react-window": "^1.8.5",
+    "jest-environment-jsdom-fourteen": "^1.0.1"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.0.0",

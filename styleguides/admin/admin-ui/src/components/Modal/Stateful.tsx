@@ -26,10 +26,10 @@ import { ModalState, ModalInitialState } from './state'
  * ```
  */
 export function Modal(props: ModalProps) {
-  const { disclosure, visible, animated = true, ...modalProps } = props
+  const { disclosure, visible, animated = true, baseId, ...modalProps } = props
 
   return (
-    <ModalState initialState={{ visible, animated }}>
+    <ModalState initialState={{ visible, animated, baseId }}>
       {(state) => (
         <Fragment>
           <ModalDisclosure state={state}>{disclosure}</ModalDisclosure>
@@ -102,7 +102,7 @@ Modal.Button = ModalButton
 
 export interface ModalProps
   extends Omit<StatelessModalProps, 'state'>,
-    Pick<ModalInitialState, 'visible' | 'animated'> {
+    Pick<ModalInitialState, 'visible' | 'animated' | 'baseId'> {
   /**
    * Visibility toggle. It implements the [WAI-ARIA Disclosure Pattern](https://www.w3.org/TR/wai-aria-practices/#disclosure)
    */

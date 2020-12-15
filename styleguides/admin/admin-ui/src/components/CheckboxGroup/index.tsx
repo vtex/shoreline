@@ -12,6 +12,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
     orientation = 'horizontal',
     size = 'regular',
     children,
+    ...htmlProps
   } = props
 
   const className = useClassName({
@@ -22,7 +23,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
   return (
     <>
       {label && <Label htmlFor={id}>{label}</Label>}
-      <div role="group" id={id} className={className}>
+      <div {...htmlProps} role="group" id={id} className={className}>
         {children}
       </div>
     </>
