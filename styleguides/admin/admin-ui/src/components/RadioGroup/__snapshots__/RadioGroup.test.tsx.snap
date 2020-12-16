@@ -104,7 +104,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: #323845;
+  color: #707685;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -256,7 +256,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: #323845;
+  color: #707685;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
