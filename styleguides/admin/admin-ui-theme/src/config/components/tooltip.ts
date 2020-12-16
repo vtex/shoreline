@@ -7,4 +7,5 @@ export default {
   borderRadius: 3,
   maxWidth: 240,
   minHeight: 32,
+  zIndex: 'over',
 }

@@ -25,10 +25,7 @@ describe('Tooltip tests', () => {
       </ThemeProvider>
     )
 
-    expect(getByTestId('tooltip').firstChild).toHaveStyleRule(
-      'background-color',
-      'coral'
-    )
+    expect(getByTestId('tooltip')).toHaveStyleRule('background-color', 'coral')
   })
 
   it('should match snapshot', () => {
