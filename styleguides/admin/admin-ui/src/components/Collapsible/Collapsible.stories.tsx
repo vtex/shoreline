@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import { Collapsible, useCollapsible } from './index'
 import { Button } from '../Button'
@@ -9,20 +9,22 @@ export default {
   component: Collapsible,
 } as Meta
 
-export const Basic = () => {
+export const Playground: Story = (args) => {
   const state = useCollapsible()
 
   return (
-    <Collapsible state={state} styleOverrides={{ width: 500 }}>
-      <Collapsible.Header label="Build for Community #1" />
-      <Collapsible.Content>
-        It’s all about being ready to grow and reach new levels. Have a solid
-        foundation, modular thinking and flexible essence, and you’re building
-        for scale. We are global but we’re audacious enough to aim for the
-        stars.
-      </Collapsible.Content>
+    <Collapsible {...args} state={state}>
+      <Collapsible.Header label={args.labelHeader} />
+      <Collapsible.Content>{args.content}</Collapsible.Content>
     </Collapsible>
   )
+}
+
+Playground.args = {
+  styleOverrides: { width: 500 },
+  labelHeader: 'Build for Community #1',
+  content:
+    'It’s all about being ready to grow and reach new levels. Have a solid foundation, modular thinking and flexible essence, and you’re building for scale. We are global but we’re audacious enough to aim for the stars.',
 }
 
 export const ActionsPanel = () => {

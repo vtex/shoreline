@@ -13,13 +13,18 @@ export default {
   component: Tooltip,
 } as Meta
 
-export const StringLabel: Story<TooltipProps> = () => (
-  <Tooltip label="Tooltip Label" placement="right">
+export const Playground: Story<TooltipProps> = (args) => (
+  <Tooltip {...args}>
     <Button icon={<IconDuplicate />} variant="tertiary" />
   </Tooltip>
 )
 
-export const ReactNodeLabel: Story<TooltipProps> = () => {
+Playground.args = {
+  label: 'Tooltip Label',
+  placement: 'right',
+}
+
+export const ReactNodeLabel = () => {
   return (
     <Tooltip
       label={

@@ -11,10 +11,15 @@ export default {
   component: Radio,
 } as Meta
 
-export const Playground: Story<RadioProps> = () => {
+export const Playground: Story<RadioProps> = (args) => {
   const state = useRadioState()
 
-  return <Radio state={state} value="playground" aria-label="playground" />
+  return <Radio {...args} state={state} />
+}
+
+Playground.args = {
+  'aria-label': 'Radio',
+  value: 'radio',
 }
 
 export function Disabled() {

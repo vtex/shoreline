@@ -12,7 +12,6 @@ import {
   Menu,
   MenuProps,
   StatelessMenu,
-  StatelessMenuProps,
   useMenuState,
   ActionButton,
   MenuDisclosure,
@@ -25,7 +24,21 @@ export default {
   component: Menu,
 } as Meta
 
-export const Stateful: Story<MenuProps> = () => (
+export const Playground: Story<MenuProps> = (args) => (
+  <Menu {...args} disclosure={<ActionButton display="menu" />}>
+    <Menu.Item icon={<IconImport />}>Download</Menu.Item>
+    <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
+    <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
+    <Menu.Separator />
+    <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
+  </Menu>
+)
+
+Playground.args = {
+  hideOnClick: true,
+  'aria-label': 'menu label',
+}
+export const Stateful = () => (
   <Menu
     hideOnClick
     aria-label="menu label"
@@ -39,7 +52,7 @@ export const Stateful: Story<MenuProps> = () => (
   </Menu>
 )
 
-export const StatefulInitallyVisible: Story<MenuProps> = () => (
+export const StatefulInitallyVisible = () => (
   <Menu
     visible
     hideOnClick
@@ -54,7 +67,7 @@ export const StatefulInitallyVisible: Story<MenuProps> = () => (
   </Menu>
 )
 
-export const Stateless: Story<StatelessMenuProps> = () => {
+export const Stateless = () => {
   const state = useMenuState({
     orientation: 'vertical',
     loop: true,
@@ -79,7 +92,7 @@ export const Stateless: Story<StatelessMenuProps> = () => {
   )
 }
 
-export const StatelessWithConstraint: Story<StatelessMenuProps> = () => {
+export const StatelessWithConstraint = () => {
   const [canDownload, setCanDownload] = useState(false)
 
   const state = useMenuState({

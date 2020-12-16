@@ -1,11 +1,20 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import { Text } from './index'
 
 export default {
   title: 'typography/Text',
+  component: Text,
 } as Meta
+
+export const Playground: Story = (args) => {
+  return <Text {...args} />
+}
+
+Playground.args = {
+  children: 'Text!',
+}
 
 export function Elements() {
   return (

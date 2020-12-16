@@ -10,8 +10,13 @@ export default {
   component: Anchor,
 } as Meta
 
-export const Basic: Story<AnchorProps> = () => {
-  return <Anchor href="/?path=/story/beta-link--basic">Link 1</Anchor>
+export const Playground: Story = (args) => {
+  return <Anchor {...args} />
+}
+
+Playground.args = {
+  href: '/?path=/story/beta-link--basic',
+  children: 'Link 1',
 }
 
 export const withinAParagraph: Story<AnchorProps> = () => {

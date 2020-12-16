@@ -1,12 +1,35 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import { TextArea } from './index'
+import { TextArea, TextAreaProps } from './index'
 import { Box } from '../Box'
 
 export default {
   title: 'forms/TextArea',
+  component: TextArea,
 } as Meta
+
+export const Playground: Story<TextAreaProps> = (args) => {
+  const [value, setValue] = useState('')
+
+  return (
+    <Box styles={{ width: 300 }}>
+      <TextArea
+        {...args}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </Box>
+  )
+}
+
+Playground.args = {
+  id: 'TextArea',
+  label: 'Label',
+  helperText: 'Helper Text!',
+  errorMessage: 'Error Message!',
+  charLimit: 120,
+}
 
 export const Basic = () => {
   const [value, setValue] = useState('')

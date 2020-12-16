@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Label } from '../Label'
-import { Checkbox, useCheckboxState, CheckboxProps } from './index'
+import { Checkbox, useCheckboxState } from './index'
 import { Text } from '../Text'
 
 export default {
@@ -10,19 +10,18 @@ export default {
   component: Checkbox,
 } as Meta
 
-const Template: Story<Omit<CheckboxProps, 'checked'>> = (args) => {
+export const Playground: Story = (args) => {
   const [checked, setChecked] = React.useState(false)
 
   return (
     <Checkbox
-      {...args}
       checked={checked}
       onChange={() => setChecked(!checked)}
+      {...args}
     />
   )
 }
 
-export const Playground = Template.bind({})
 Playground.args = {
   'aria-label': 'label',
 }

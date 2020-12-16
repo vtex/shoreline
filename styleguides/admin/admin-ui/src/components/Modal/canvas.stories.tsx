@@ -16,6 +16,26 @@ export default {
   component: Modal,
 } as Meta
 
+export const Playground: Story<ModalProps> = (args) => (
+  <Modal {...args} disclosure={<Button>Publish</Button>}>
+    <Modal.Header title="Publish content" />
+    <Modal.Content>
+      <Box styles={{ text: 'body' }}>
+        Are you sure you want to publish this content? These action cannot be
+        undone.
+      </Box>
+    </Modal.Content>
+    <Modal.Footer>
+      <Button variant="secondary">Cancel</Button>
+      <Button>Confirm</Button>
+    </Modal.Footer>
+  </Modal>
+)
+
+Playground.args = {
+  'aria-label': 'Publish modal',
+}
+
 export const Stateful: Story<ModalProps> = () => (
   <Modal
     aria-label="Publish modal"

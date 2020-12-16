@@ -1,13 +1,37 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { IconAdd } from '@vtex/admin-ui-icons'
 
-import { Input, InputType } from './index'
+import { Input, InputType, InputProps } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'forms/input',
+  title: 'forms/Input',
+  component: Input,
 } as Meta
+
+export const Playground: Story<InputProps> = (args) => {
+  const [value, setValue] = useState('')
+
+  return (
+    <Box styles={{ width: 300 }}>
+      <Input
+        {...args}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={() => setValue('')}
+      />
+    </Box>
+  )
+}
+
+Playground.args = {
+  id: 'Input',
+  label: 'Label',
+  helperText: 'Helper Text!',
+  errorMessage: 'Error Message!',
+  charLimit: 120,
+}
 
 export const Basic = () => {
   const [value, setValue] = useState('')

@@ -9,16 +9,18 @@ export default {
   component: Label,
 } as Meta
 
-export const Basic: Story<LabelProps> = () => {
+export const Playground: Story<LabelProps> = (args) => {
   return (
-    <Label styleOverrides={{ display: 'flex' }}>
+    <Label {...args}>
       <input type="checkbox" />
       Checkbox Input Label!
     </Label>
   )
 }
 
-export const HtmlFor: Story<LabelProps> = () => {
+Playground.args = { styleOverrides: { display: 'flex' } }
+
+export const HtmlFor = () => {
   return (
     <Box styles={{ display: 'flex', flexDirection: 'column', width: 160 }}>
       <Label htmlFor="text-id">Text Input Label!</Label>
