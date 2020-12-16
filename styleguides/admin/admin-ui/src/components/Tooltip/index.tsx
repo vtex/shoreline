@@ -6,8 +6,8 @@ import {
 } from 'reakit/Tooltip'
 import { PopoverState } from 'reakit/ts'
 
+import { cn } from '../../system'
 import { Overridable } from '../../types'
-import { Box } from '../Box'
 
 /**
  * Popup that displays information related to an element on :focus (by keyboard) or :hover (by mouse).
@@ -44,10 +44,12 @@ export function Tooltip(props: TooltipProps) {
       <TooltipReference {...tooltip} {...children.props} ref={children.ref}>
         {(referenceProps) => cloneElement(children, { ...referenceProps })}
       </TooltipReference>
-      <ReakitTooltip {...tooltip} {...tooltipProps}>
-        <Box themeKey="components.tooltip" styles={styleOverrides}>
-          {label}
-        </Box>
+      <ReakitTooltip
+        {...tooltip}
+        {...tooltipProps}
+        className={cn({ themeKey: 'components.tooltip', ...styleOverrides })}
+      >
+        {label}
       </ReakitTooltip>
     </>
   )
