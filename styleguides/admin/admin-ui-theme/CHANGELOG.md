@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.9.0...@vtex/admin-ui-theme@0.9.1) (2020-12-16)
+
+
+### Bug Fixes
+
+* **tooltip:** now it should overlay all elements ([827c221](https://github.com/vtex/onda/commit/827c2216c611ddb1aef80f34ee8fdf49a208c4e7))
+
+
+
+
+
 # [0.9.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.8.2...@vtex/admin-ui-theme@0.9.0) (2020-12-10)
 
 
