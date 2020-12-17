@@ -9,7 +9,31 @@ export default {
   component: NumericStepper,
 } as Meta
 
-export const Overview: Story<NumericStepperProps> = () => {
+export const Playground: Story<NumericStepperProps> = (args) => {
+  const [value, setValue] = useState(0)
+
+  return (
+    <NumericStepper
+      {...args}
+      maxValue={args.maxValue ?? undefined}
+      minValue={args.minValue ?? undefined}
+      value={value}
+      onChange={(event) => {
+        setValue(event.value)
+      }}
+    />
+  )
+}
+
+Playground.args = {
+  label: 'NumericStepper',
+  minValue: -4,
+  maxValue: 4,
+  helperText: 'Helper Text!',
+  errorMessage: 'Error Message!',
+}
+
+export const Overview = () => {
   const [value, setValue] = useState(0)
 
   return (
@@ -26,7 +50,7 @@ export const Overview: Story<NumericStepperProps> = () => {
   )
 }
 
-export const Disabled: Story<NumericStepperProps> = () => {
+export const Disabled = () => {
   return (
     <Set orientation="horizontal">
       <NumericStepper
@@ -39,7 +63,7 @@ export const Disabled: Story<NumericStepperProps> = () => {
   )
 }
 
-export const Error: Story<NumericStepperProps> = () => {
+export const Error = () => {
   const [value, setValue] = React.useState(0)
 
   return (

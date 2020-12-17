@@ -2,14 +2,47 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Radio, useRadioState } from '../Radio'
-import { RadioGroup, RadioGroupProps } from './index'
+import { RadioGroup } from './index'
 import { Label } from '../Label'
 import { Heading } from '../Heading'
 
 export default {
   title: 'forms/RadioGroup',
-  component: Radio,
+  component: RadioGroup,
 } as Meta
+
+export const Playground: Story = (args) => {
+  const radio = useRadioState({ state: 'oms' })
+  const values = [
+    'Marketplace Ecommerce',
+    'B2C Commerce',
+    'B2B Commerce',
+    'Order Management System',
+    'Disabled',
+  ]
+
+  return (
+    <RadioGroup {...args} state={radio}>
+      {values.map((value, key) => {
+        return (
+          <Label key={key}>
+            <Radio
+              value={value}
+              state={radio}
+              disabled={value === 'Disabled'}
+            />
+            {value}
+          </Label>
+        )
+      })}
+    </RadioGroup>
+  )
+}
+
+Playground.args = {
+  id: 'radio-group',
+  label: 'Solutions',
+}
 
 export function Horizontal() {
   const radio = useRadioState({ state: 'oms' })
@@ -87,7 +120,7 @@ export function Vertical() {
   )
 }
 
-export const WithoutLabelProp: Story<RadioGroupProps> = () => {
+export function WithoutLabelProp() {
   const state = useRadioState()
 
   return (

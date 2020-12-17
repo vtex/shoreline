@@ -12,15 +12,22 @@ export default {
   component: Skeleton,
 } as Meta
 
-export const Rect: Story<SkeletonProps> = () => {
+export const Playground: Story<SkeletonProps> = (args) => {
+  return <Skeleton {...args} />
+}
+
+Playground.args = {
+  styles: { height: 128, width: 128 },
+}
+export const Rect = () => {
   return <Skeleton styles={{ height: 128, width: 128 }} />
 }
 
-export const Circle: Story<SkeletonProps> = () => {
+export const Circle = () => {
   return <Skeleton shape="circle" styles={{ width: 100, height: 100 }} />
 }
 
-export const Fluid: Story<SkeletonProps> = () => {
+export const Fluid = () => {
   return (
     <Box styles={{ width: 'full', height: 192 }}>
       <Skeleton />

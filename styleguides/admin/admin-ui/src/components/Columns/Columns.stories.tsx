@@ -1,11 +1,12 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import { Columns } from './index'
 import { Box } from '../Box'
 
 export default {
   title: 'layouts/Columns',
+  component: Columns,
 } as Meta
 
 const primaryStyles = {
@@ -20,17 +21,30 @@ const invertedStyles = {
   color: 'background',
 }
 
+export const Playground: Story = (args) => {
+  return (
+    <Columns {...args}>
+      <Columns.Item>
+        <Box styles={primaryStyles}>6 Units</Box>
+      </Columns.Item>
+      <Columns.Item>
+        <Box styles={invertedStyles}>6 Units</Box>
+      </Columns.Item>
+    </Columns>
+  )
+}
+
 export const Auto = () => {
   return (
     <Columns spacing={1}>
       <Columns.Item>
-        <Box styles={primaryStyles}>6 units</Box>
+        <Box styles={primaryStyles}>4 units</Box>
       </Columns.Item>
       <Columns.Item>
-        <Box styles={invertedStyles}>6 units</Box>
+        <Box styles={invertedStyles}>4 units</Box>
       </Columns.Item>
       <Columns.Item>
-        <Box styles={primaryStyles}>6 units</Box>
+        <Box styles={primaryStyles}>4 units</Box>
       </Columns.Item>
     </Columns>
   )

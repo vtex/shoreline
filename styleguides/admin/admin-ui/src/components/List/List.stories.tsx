@@ -1,16 +1,17 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import { List } from './index'
 import { ListItem } from './ListItem'
 
 export default {
   title: 'typography/List',
+  component: List,
 } as Meta
 
-export function Example() {
+export const Playground: Story = (args) => {
   return (
-    <List>
+    <List {...args}>
       <List.Item>Coffee</List.Item>
       <List>
         <List.Item>Arabica</List.Item>

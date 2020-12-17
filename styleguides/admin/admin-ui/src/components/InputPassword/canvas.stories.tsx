@@ -1,13 +1,35 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { IconLock } from '@vtex/admin-ui-icons'
 
-import { InputPassword } from './index'
+import { InputPassword, InputPasswordProps } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'forms/input-password',
+  title: 'forms/InputPassword',
+  component: InputPassword,
 } as Meta
+
+export const Playground: Story<InputPasswordProps> = (args) => {
+  const [value, setValue] = useState('')
+
+  return (
+    <Box styles={{ width: 300 }}>
+      <InputPassword
+        {...args}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </Box>
+  )
+}
+
+Playground.args = {
+  id: 'InputPassword',
+  label: 'Label',
+  helperText: 'Helper Text!',
+  errorMessage: 'Error Message!',
+}
 
 export const Example = () => {
   const [value, setValue] = useState('')

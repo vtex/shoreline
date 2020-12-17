@@ -8,7 +8,17 @@ import { Set } from '../Set'
 
 export default {
   title: 'components/Button',
+  component: Button,
 } as Meta
+
+export const Playground: Story = (args) => {
+  return <Button {...args} />
+}
+
+Playground.args = {
+  children: 'Admin UI Button',
+  styleOverrides: {},
+}
 
 export const Size: Story = () => {
   return (

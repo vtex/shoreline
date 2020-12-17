@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import { Flex, FlexProps, useFlex } from './index'
 import { Box } from '../Box'
@@ -10,16 +10,13 @@ export default {
   component: Flex,
 } as Meta
 
-export function Basic() {
-  const boxStyles = {}
-
+export const Playground: Story = (args) => {
   return (
-    <Flex>
+    <Flex {...args}>
       <Box
         styles={{
           bg: 'red',
           size: 100,
-          ...boxStyles,
         }}
       >
         Box 1
@@ -28,7 +25,6 @@ export function Basic() {
         styles={{
           bg: 'green',
           size: 150,
-          ...boxStyles,
         }}
       >
         Box 2
@@ -36,13 +32,16 @@ export function Basic() {
       <Box
         styles={{
           bg: 'blue',
-          ...boxStyles,
         }}
       >
         Box 3
       </Box>
     </Flex>
   )
+}
+
+Playground.args = {
+  styles: { height: 200, width: 600 },
 }
 
 export function WithSpacer() {

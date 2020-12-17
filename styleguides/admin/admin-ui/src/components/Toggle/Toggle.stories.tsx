@@ -9,20 +9,17 @@ export default {
   component: Toggle,
 } as Meta
 
-const Template: Story<ToggleProps> = (args) => {
+export const Playground: Story<ToggleProps> = (args) => {
   const [checked, setChecked] = React.useState(false)
 
   return (
-    <Toggle
-      aria-label="label"
-      checked={checked}
-      onChange={() => setChecked(!checked)}
-      {...args}
-    />
+    <Toggle {...args} checked={checked} onChange={() => setChecked(!checked)} />
   )
 }
 
-export const Playground = Template.bind({})
+Playground.args = {
+  'aria-label': 'Toggle',
+}
 
 export function MultipleSwitches() {
   const props = useToggleState({ state: [] })

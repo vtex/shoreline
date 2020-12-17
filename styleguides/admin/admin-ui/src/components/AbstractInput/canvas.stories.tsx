@@ -6,24 +6,29 @@ import { AbstractInput, AbstractInputPassword } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'forms/abstract-input',
+  title: 'forms/AbstractInput',
+  component: AbstractInput,
 } as Meta
 
-export const Text: Story = () => {
+export const Playground: Story = (args) => {
   const [value, setValue] = useState('')
 
   return (
     <Box styles={{ width: 300 }}>
       <AbstractInput
+        {...args}
         onClear={() => setValue('')}
         onChange={(event) => setValue(event.target.value)}
         value={value}
-        id="username"
-        suffix="kg"
-        icon={<IconAdd />}
       />
     </Box>
   )
+}
+
+Playground.args = {
+  id: 'AbstractInput',
+  suffix: 'Kg',
+  icon: <IconAdd />,
 }
 
 export const Error: Story = () => {

@@ -1,14 +1,32 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import { Set } from '../Set'
-import { Dropdown, useDropdownState } from './index'
+import { Dropdown, DropdownProps, useDropdownState } from './index'
 import { Card } from '../Card'
 
 export default {
   title: 'forms/Dropdown',
   component: Dropdown,
 } as Meta
+
+export const Playground: Story<DropdownProps<string>> = (args) => {
+  const state = useDropdownState({
+    items: args.items,
+    initialSelectedItem: args.items[0],
+  })
+
+  return (
+    <Card>
+      <Dropdown {...args} state={state} />
+    </Card>
+  )
+}
+
+Playground.args = {
+  items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
+  label: 'Date',
+}
 
 export const Basic = () => {
   const state = useDropdownState({

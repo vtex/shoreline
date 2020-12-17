@@ -9,7 +9,15 @@ export default {
   component: Avatar,
 } as Meta
 
-export const Basic: Story<AvatarProps> = () => {
+export const Playground: Story<AvatarProps> = (args) => {
+  return <Avatar {...args} />
+}
+
+Playground.args = {
+  label: 'base',
+}
+
+export const Basic = () => {
   return (
     <Set>
       <Avatar label="base" />

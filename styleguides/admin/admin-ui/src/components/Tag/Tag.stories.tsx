@@ -1,15 +1,24 @@
 /* eslint-disable no-console */
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { IconFavorite } from '@vtex/admin-ui-icons'
 
-import { Tag } from './index'
+import { Tag, TagProps } from './index'
 import { Set } from '../Set'
 
 export default {
   title: 'components/Tag',
   component: Tag,
 } as Meta
+
+export const Playground: Story<TagProps> = (args) => {
+  return <Tag {...args} handleDelete={() => {}} />
+}
+
+Playground.args = {
+  label: 'Rio de Janeiro',
+  icon: <IconFavorite />,
+}
 
 export function Palettes() {
   return (

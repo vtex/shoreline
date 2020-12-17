@@ -1,13 +1,22 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import { Heading } from './index'
 
 export default {
   title: 'typography/Heading',
+  component: Heading,
 } as Meta
 
-export function heading() {
+export const Playground: Story = (args) => {
+  return <Heading {...args} />
+}
+
+Playground.args = {
+  children: 'Heading',
+}
+
+export function HeadingLevels() {
   return (
     <>
       <Heading>Heading 1</Heading>
