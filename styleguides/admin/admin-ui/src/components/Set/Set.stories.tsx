@@ -1,12 +1,32 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import { Set } from './index'
 import { Button } from '../Button'
 
 export default {
   title: 'layouts/Set',
+  component: Set,
 } as Meta
+
+export const Playground: Story = (args) => {
+  return (
+    <Set {...args}>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+      <Button>Fourth</Button>
+      <Button>Fith</Button>
+      <Button>Six</Button>
+      <Button>Seventh</Button>
+      <Button>Eight</Button>
+    </Set>
+  )
+}
+
+Playground.args = {
+  spacing: 1,
+}
 
 export const SetLayout = () => {
   return (

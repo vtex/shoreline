@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import { Grid } from './index'
 import { Box } from '../Box'
@@ -9,22 +9,22 @@ export default {
   component: Grid,
 } as Meta
 
-export const TemplateAreas = () => {
-  const templateAreas = ['green blue blue', 'green red red']
-
+export const Playground: Story = (args) => {
   return (
-    <Grid
-      templateAreas={templateAreas}
-      templateColumns="1fr 4fr"
-      templateRows="1fr 2fr"
-      gap="4"
-      styles={{ height: 400 }}
-    >
+    <Grid {...args}>
       <Grid.Item area="green" styles={{ bg: 'green' }} />
       <Grid.Item area="blue" styles={{ bg: 'blue' }} />
       <Grid.Item area="red" styles={{ bg: 'red' }} />
     </Grid>
   )
+}
+
+Playground.args = {
+  templateColumns: '1fr 4fr',
+  templateAreas: ['green blue blue', 'green red red'],
+  templateRows: '1fr 2fr',
+  gap: 4,
+  styles: { height: 400, width: 600 },
 }
 
 export const TemplateColumns = () => {

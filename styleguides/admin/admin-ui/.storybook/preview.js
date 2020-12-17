@@ -1,5 +1,7 @@
 import { themeDecorator } from './themeDecorator'
 
-export const parameters = {}
+export const parameters = {
+  controls: { expanded: true },
+}
 
 export const decorators = [themeDecorator]
