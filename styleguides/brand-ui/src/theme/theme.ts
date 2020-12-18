@@ -13,6 +13,7 @@ import timeline from './components/timeline'
 import calendar from './components/calendar'
 import carousel from './components/carousel'
 import modal from './components/modal'
+import toast from './components/toast'
 
 export const theme = {
   colors: {
@@ -78,6 +79,7 @@ export const theme = {
   calendar,
   carousel,
   modal,
+  toast,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',

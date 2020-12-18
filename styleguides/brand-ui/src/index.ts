@@ -42,3 +42,5 @@ export {
 } from './components/Calendar'
 export { Carousel, CarouselProps } from './components/Carousel'
 export { Modal, ModalProps } from './components/Modal'
+export { default as useToast } from './components/Toast/useToast'
+export { ToastProps, ToastProvider } from './components/Toast'
