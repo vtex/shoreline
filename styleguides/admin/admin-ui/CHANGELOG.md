@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.68.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.68.1...@vtex/admin-ui@0.68.2) (2020-12-18)
+
+
+### Bug Fixes
+
+* **divider:** change margin to be 0 by default ([b67ce12](https://github.com/vtex/onda/commit/b67ce12d0a731ddc8719f3bcd7e1deb72c9b73e8))
+
+
+
+
+
 ## [0.68.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.68.0...@vtex/admin-ui@0.68.1) (2020-12-16)
 
 
