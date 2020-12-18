@@ -6,8 +6,7 @@ exports[`Heading tests should match snapshot 1`] = `
   border: solid;
   border-width: 1px;
   border-color: #E0E2E7;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin: 0rem;
   border-bottom: 0;
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
@@ -24,8 +23,7 @@ exports[`Heading tests should match snapshot 1`] = `
   border: solid;
   border-width: 1px;
   border-color: #E0E2E7;
-  margin-left: 0rem;
-  margin-right: 0rem;
+  margin: 0rem;
   border-left: 0;
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
