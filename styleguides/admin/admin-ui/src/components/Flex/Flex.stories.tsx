@@ -101,9 +101,9 @@ export function Around() {
 
 export function LowLevel() {
   function FlexCard(props: FlexProps & CardProps) {
-    const flexProps = useFlex(props)
+    const { styles, ...flexProps } = useFlex(props)
 
-    return <Card {...flexProps} />
+    return <Card {...flexProps} styleOverrides={styles} />
   }
 
   return (

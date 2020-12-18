@@ -1,11 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { PropsWithoutRef } from 'react'
+import React, { ElementType } from 'react'
 import * as CSS from 'csstype'
 import { ResponsiveValue, omit, pick } from '@vtex/admin-ui-system'
 
 import { Box, BoxProps } from '../Box'
 
-export function Flex(props: FlexProps) {
+/**
+ * Flex default element
+ */
+const defaultElement = 'div'
+
+export function Flex<E extends ElementType = typeof defaultElement>(
+  props: FlexProps<E>
+) {
   const flexProps = useFlex(props)
 
   return <Box {...flexProps} />
@@ -23,7 +30,7 @@ Flex.Spacer = function Spacer() {
   )
 }
 
-export function useFlex(props: FlexProps): PropsWithoutRef<BoxProps<'div'>> {
+export function useFlex(props: FlexProps) {
   const propertyMap = {
     basis: 'flexBasis',
     direction: 'flexDirection',
@@ -53,16 +60,12 @@ export function useFlex(props: FlexProps): PropsWithoutRef<BoxProps<'div'>> {
   }
 
   return {
-    styles: {
-      display: 'flex',
-      ...cssPropsStyle,
-      ...styles,
-    },
+    styles: { display: 'flex', ...cssPropsStyle, ...styles },
     ...omit(boxProps, cssProps),
   }
 }
 
-export interface FlexProps extends BoxProps<'div'> {
+export interface FlexOwnProps {
   /** Shorthand for CSS alignItems property */
   align?: ResponsiveValue<CSS.Property.AlignContent>
   /** Shorthand for CSS flexBasis property */
@@ -80,3 +83,6 @@ export interface FlexProps extends BoxProps<'div'> {
   /** Shorthand for CSS order property */
   order?: ResponsiveValue<CSS.Property.Order>
 }
+
+export type FlexProps<E extends ElementType = ElementType> = FlexOwnProps &
+  BoxProps<E>
