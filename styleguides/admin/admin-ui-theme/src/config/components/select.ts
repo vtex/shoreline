@@ -35,7 +35,7 @@ const optionsUl = {
   paddingBottom: 1,
   maxHeight: 150,
   width: 'inherit',
-  overflowY: 'scroll',
+  overflowY: 'auto',
   borderRadius: 'default',
 }
 
@@ -94,6 +94,9 @@ const buttonError = {
   ':focus': {
     borderColor: 'danger.base',
     boxShadow: `0 0 0 1px ${colors.danger.base}`,
+  },
+  ':hover': {
+    borderColor: 'danger.base',
   },
 }
 
@@ -157,6 +160,7 @@ const mobileSelect = {
     bg: 'muted.3',
     borderColor: 'muted.0',
     color: 'text.primary',
+    opacity: 1,
   },
   ':disabled > svg': {
     color: 'text.secondary',

@@ -42,6 +42,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   background-color: #F4F6FB;
   border-color: #898F9E;
   color: #323845;
+  opacity: 1;
 }
 
 .emotion-1:disabled>svg {
@@ -336,6 +337,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   background-color: #F4F6FB;
   border-color: #898F9E;
   color: #323845;
+  opacity: 1;
 }
 
 .emotion-1:disabled>svg {
