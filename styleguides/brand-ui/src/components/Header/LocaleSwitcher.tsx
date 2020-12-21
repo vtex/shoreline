@@ -69,7 +69,7 @@ export const LocaleSwitcher = ({
         <Text variant="localeSwitcher.large.label">{getLocaleLabel()}</Text>
         <IconCaret
           sx={{ position: 'absolute', right: 4 }}
-          direction={disclosure.visible ? 'down' : 'up'}
+          direction={disclosure.visible ? 'up' : 'down'}
           size={30}
         />
       </Disclosure>
