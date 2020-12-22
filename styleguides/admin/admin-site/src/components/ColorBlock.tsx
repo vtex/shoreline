@@ -52,48 +52,42 @@ function ColorCard(props: CardProps) {
   )
 }
 
-export function BackgroundColors() {
+export function MidColors() {
   const theme = useTheme()
 
   const getColor = (color: string) => get(theme, `colors.${color}`)
 
   return (
     <Set spacing={2}>
-      <ColorCard color={getColor('background')} name="background" />
-      <ColorCard color={getColor('muted.0')} name="muted.0" />
-      <ColorCard color={getColor('muted.1')} name="muted.1" />
-      <ColorCard color={getColor('muted.2')} name="muted.2" />
-      <ColorCard color={getColor('muted.3')} name="muted.3" />
+      <ColorCard color={getColor('mid.0')} name="mid.0" />
+      <ColorCard color={getColor('mid.1')} name="mid.1" />
+      <ColorCard color={getColor('mid.2')} name="mid.2" />
     </Set>
   )
 }
 
-export function ElementaryColors() {
+export function LightColors() {
   const theme = useTheme()
 
   const getColor = (color: string) => get(theme, `colors.${color}`)
 
   return (
     <Set spacing={2}>
-      <ColorCard color={getColor('blue')} name="blue" />
-      <ColorCard color={getColor('purple')} name="purple" />
-      <ColorCard color={getColor('yellow')} name="yellow" />
-      <ColorCard color={getColor('green')} name="green" />
-      <ColorCard color={getColor('red')} name="red" />
-      <ColorCard color={getColor('black')} name="black" />
+      <ColorCard color={getColor('light.primary')} name="light.primary" />
+      <ColorCard color={getColor('light.secondary')} name="light.secondary" />
     </Set>
   )
 }
 
-export function TextColors() {
+export function DarkColors() {
   const theme = useTheme()
 
   const getColor = (color: string) => get(theme, `colors.${color}`)
 
   return (
     <Set spacing={2}>
-      <ColorCard color={getColor('text.primary')} name="text.primary" />
-      <ColorCard color={getColor('text.secondary')} name="text.secondary" />
+      <ColorCard color={getColor('dark.primary')} name="dark.primary" />
+      <ColorCard color={getColor('dark.secondary')} name="dark.secondary" />
     </Set>
   )
 }
@@ -106,7 +100,6 @@ export function ComplementaryColors() {
   return (
     <Set spacing={2}>
       <ColorCard color={getColor('focus')} name="focus" />
-      <ColorCard color={getColor('brand')} name="brand" />
     </Set>
   )
 }
@@ -120,7 +113,7 @@ export function SemanticColor(props: { color: string }) {
 
   return (
     <Set spacing={2}>
-      <ColorCard color={getColor(`${color}.base`)} name={`${color}.base`} />
+      <ColorCard color={getColor(`${color}.default`)} name={`${color}`} />
       <ColorCard color={getColor(`${color}.hover`)} name={`${color}.hover`} />
       <ColorCard
         color={getColor(`${color}.pressed`)}

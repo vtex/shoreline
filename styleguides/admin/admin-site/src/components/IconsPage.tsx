@@ -487,8 +487,8 @@ export function IconPage() {
                     key={display ?? label}
                     element="button"
                     styles={{
-                      color: 'text.primary',
-                      bg: 'background',
+                      color: 'dark.primary',
+                      bg: 'light.primary',
                       border: 'none',
                       flex: '0 0 auto',
                       width: '2/12',
@@ -516,8 +516,8 @@ export function IconPage() {
                       <Box
                         styles={{
                           borderRadius: 'default',
-                          bg: 'muted.3',
-                          color: 'text.primary',
+                          bg: 'light.secondary',
+                          color: 'dark.primary',
                           paddingY: 6,
                           paddingX: 4,
                           textAlign: 'center',

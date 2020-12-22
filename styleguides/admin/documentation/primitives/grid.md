@@ -28,7 +28,7 @@ If you want to know more about how to style a primitive component, check out our
   gap="6"
   styles={{
     height: 400,
-    div: { bg: 'primary.base', borderRadius: 'default' },
+    div: { bg: 'blue', borderRadius: 'default' },
   }}
 >
   <Grid.Item area="item-1" />
@@ -67,10 +67,10 @@ Here's an example of using grid template areas and applying a gap or space betwe
   gap="4"
   styles={{ height: 400, div: { borderRadius: 'default' } }}
 >
-  <Grid.Item area="yellow" styles={{ bg: 'yellow' }} />
-  <Grid.Item area="blue-1" styles={{ bg: 'blue' }} />
-  <Grid.Item area="blue-2" styles={{ bg: 'blue' }} />
-  <Grid.Item area="red" styles={{ bg: 'red' }} />
+  <Grid.Item area="yellow" styles={{ bg: 'yellow.secondary' }} />
+  <Grid.Item area="blue-1" styles={{ bg: 'blue.secondary' }} />
+  <Grid.Item area="blue-2" styles={{ bg: 'blue.secondary' }} />
+  <Grid.Item area="red" styles={{ bg: 'red.secondary' }} />
 </Grid>
 ```
 
@@ -84,10 +84,10 @@ Here's an example of using grid template columns and applying a gap or space bet
   columnGap="4"
   styles={{ height: 100, div: { borderRadius: 'default' } }}
 >
-  <Box styles={{ bg: 'blue' }} />
-  <Box styles={{ bg: 'green' }} />
-  <Box styles={{ bg: 'yellow' }} />
-  <Box styles={{ bg: 'red' }} />
+  <Box styles={{ bg: 'blue.secondary' }} />
+  <Box styles={{ bg: 'green.secondary' }} />
+  <Box styles={{ bg: 'yellow.secondary' }} />
+  <Box styles={{ bg: 'red.secondary' }} />
 </Grid>
 ```
 
@@ -101,10 +101,10 @@ Here's an example of using grid template rows and applying a gap or space betwee
   rowGap="4"
   styles={{ height: 400, width: 300, div: { borderRadius: 'default' } }}
 >
-  <Box styles={{ bg: 'blue' }} />
-  <Box styles={{ bg: 'green' }} />
-  <Box styles={{ bg: 'yellow' }} />
-  <Box styles={{ bg: 'red' }} />
+  <Box styles={{ bg: 'blue.secondary' }} />
+  <Box styles={{ bg: 'green.secondary' }} />
+  <Box styles={{ bg: 'yellow.secondary' }} />
+  <Box styles={{ bg: 'red.secondary' }} />
 </Grid>
 ```
 

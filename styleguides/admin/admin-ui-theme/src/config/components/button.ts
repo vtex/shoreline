@@ -105,122 +105,122 @@ const size = {
 const variant = {
   primary: {
     textTransform: 'uppercase',
-    color: 'primary.accent',
-    backgroundColor: 'primary.base',
+    color: 'blue.accent',
+    backgroundColor: 'blue',
     ':hover': {
-      backgroundColor: 'primary.hover',
+      backgroundColor: 'blue.hover',
     },
     ':active': {
-      backgroundColor: 'primary.pressed',
+      backgroundColor: 'blue.pressed',
     },
     ':disabled': {
-      color: 'text.primary',
-      backgroundColor: 'muted.1',
+      color: 'dark.primary',
+      backgroundColor: 'mid.1',
     },
   },
   secondary: {
     textTransform: 'uppercase',
-    backgroundColor: 'secondary.base',
-    color: 'secondary.accent',
+    backgroundColor: 'blue.secondary',
+    color: 'blue.secondary.accent',
     ':hover': {
-      backgroundColor: 'secondary.hover',
+      backgroundColor: 'blue.secondary.hover',
     },
     ':active': {
-      backgroundColor: 'secondary.pressed',
+      backgroundColor: 'blue.secondary.pressed',
     },
     ':disabled': {
-      color: 'muted.0',
-      backgroundColor: 'muted.3',
+      color: 'mid.0',
+      backgroundColor: 'light.secondary',
     },
   },
   tertiary: {
     textTransform: 'capitalize',
     backgroundColor: 'transparent',
-    color: 'primary.base',
+    color: 'blue',
     ':hover': {
-      color: 'primary.hover',
-      backgroundColor: 'secondary.hover',
+      color: 'blue.hover',
+      backgroundColor: 'blue.secondary.hover',
     },
     ':active': {
-      color: 'primary.pressed',
-      backgroundColor: 'secondary.pressed',
+      color: 'blue.pressed',
+      backgroundColor: 'blue.secondary.pressed',
     },
     ':disabled': {
-      color: 'muted.0',
+      color: 'mid.0',
     },
   },
   danger: {
     textTransform: 'uppercase',
-    color: 'danger.accent',
-    backgroundColor: 'danger.base',
+    color: 'red.accent',
+    backgroundColor: 'red',
     ':hover': {
-      backgroundColor: 'danger.hover',
+      backgroundColor: 'red.hover',
     },
     ':active': {
-      backgroundColor: 'danger.pressed',
+      backgroundColor: 'red.pressed',
     },
     ':disabled': {
-      color: 'text.primary',
-      backgroundColor: 'muted.1',
+      color: 'dark.primary',
+      backgroundColor: 'mid.1',
     },
   },
   'danger-secondary': {
     textTransform: 'uppercase',
-    backgroundColor: 'danger.washed.base',
-    color: 'danger.base',
+    backgroundColor: 'red.secondary',
+    color: 'red',
     ':hover': {
-      backgroundColor: 'danger.washed.hover',
-      color: 'danger.hover',
+      backgroundColor: 'red.secondary.hover',
+      color: 'red.hover',
     },
     ':active': {
-      backgroundColor: 'danger.washed.pressed',
-      color: 'danger.pressed',
+      backgroundColor: 'red.secondary.pressed',
+      color: 'red.pressed',
     },
     ':disabled': {
-      color: 'muted.0',
-      backgroundColor: 'muted.3',
+      color: 'mid.0',
+      backgroundColor: 'light.secondary',
     },
   },
   'danger-tertiary': {
     textTransform: 'capitalize',
     backgroundColor: 'transparent',
-    color: 'danger.washed.accent',
+    color: 'red.secondary.accent',
     ':hover': {
-      color: 'danger.hover',
-      backgroundColor: 'danger.washed.hover',
+      color: 'red.hover',
+      backgroundColor: 'red.secondary.hover',
     },
     ':active': {
-      color: 'danger.pressed',
-      backgroundColor: 'danger.washed.pressed',
+      color: 'red.pressed',
+      backgroundColor: 'red.secondary.pressed',
     },
     ':disabled': {
-      color: 'muted.0',
+      color: 'mid.0',
     },
   },
   'adaptative-dark': {
     color: 'currentColor',
     backgroundColor: 'transparent',
     ':hover': {
-      backgroundColor: alpha('text.primary', 0.04),
+      backgroundColor: alpha('dark.primary', 0.04),
     },
     ':active': {
-      backgroundColor: alpha('text.primary', 0.08),
+      backgroundColor: alpha('dark.primary', 0.08),
     },
     ':disabled': {
-      color: 'muted.0',
+      color: 'mid.0',
     },
   },
   'adaptative-light': {
     color: 'currentColor',
     backgroundColor: 'transparent',
     ':hover': {
-      backgroundColor: alpha('background', 0.04),
+      backgroundColor: alpha('light.primary', 0.04),
     },
     ':active': {
-      backgroundColor: alpha('background', 0.08),
+      backgroundColor: alpha('light.primary', 0.08),
     },
     ':disabled': {
-      color: 'muted.0',
+      color: 'mid.0',
     },
   },
 }

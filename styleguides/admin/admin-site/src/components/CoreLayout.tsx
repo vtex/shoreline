@@ -45,7 +45,7 @@ export default function CoreLayout(props: Props) {
             <Box
               styles={{
                 gridArea: 'leftnav',
-                bg: 'muted.3',
+                bg: 'light.secondary',
                 zIndex: 'plain',
                 overflow: 'auto',
                 display: ['none', 'none', 'initial'],
@@ -60,8 +60,8 @@ export default function CoreLayout(props: Props) {
                   onScroll={handleScroll}
                   element="main"
                   styles={{
-                    color: 'text.primary',
-                    bg: 'background',
+                    color: 'dark.primary',
+                    bg: 'light.primary',
                     gridArea: 'main',
                     overflowY: 'auto',
                     scrollBehavior: 'smooth',

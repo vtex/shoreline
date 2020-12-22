@@ -9,18 +9,18 @@ const styles = {
   paddingLeft: 36,
   paddingRight: 36,
   textAlign: 'center',
-  color: 'black',
+  color: 'dark.primary',
   borderStyle: 'solid',
   borderWidth: 1,
-  borderColor: 'muted.0',
+  borderColor: 'mid.0',
   borderRadius: 'default',
-  backgroundColor: 'primary.accent',
+  backgroundColor: 'blue.accent',
   ':hover': {
-    borderColor: 'black',
+    borderColor: 'dark.primary',
   },
   ':disabled': {
-    backgroundColor: 'muted.3',
-    color: 'muted.0',
+    backgroundColor: 'light.secondary',
+    color: 'mid.0',
   },
   ':focus:not([data-focus-visible-added])': {
     outline: 'none',
@@ -44,9 +44,9 @@ const containerStyles = {
 export default {
   'default-error': {
     ...styles,
-    borderColor: 'danger.base',
+    borderColor: 'red',
     ':hover': {
-      borderColor: 'danger.base',
+      borderColor: 'red',
     },
     ':focus': {
       outline: 'none',
