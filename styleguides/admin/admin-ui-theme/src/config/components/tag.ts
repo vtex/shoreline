@@ -4,7 +4,7 @@ const styles = {
   display: 'inline-flex',
   alignItems: 'center',
   borderRadius: '100px',
-  color: 'text.primary',
+  color: 'dark.primary',
   border: 'none',
   '> svg:nth-of-type(1)': {
     marginRight: 1,
@@ -13,23 +13,23 @@ const styles = {
 
 const palette = {
   blue: {
-    bg: 'blue',
+    bg: 'blue.secondary',
   },
   green: {
-    bg: 'green',
+    bg: 'green.secondary',
   },
   red: {
-    bg: 'red',
+    bg: 'red.secondary',
   },
   black: {
-    bg: 'black',
-    color: 'white',
+    bg: 'dark.primary',
+    color: 'light.primary',
   },
   yellow: {
-    bg: 'yellow',
+    bg: 'yellow.secondary',
   },
   purple: {
-    bg: 'purple',
+    bg: '#E4E0F0',
   },
 }
 

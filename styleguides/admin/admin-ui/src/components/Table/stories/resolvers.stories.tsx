@@ -60,7 +60,7 @@ export const Plain = () => {
                 <Text
                   variant="highlight"
                   styleOverrides={{
-                    color: Number(data) > 0 ? 'primary.base' : 'danger.base',
+                    color: Number(data) > 0 ? 'blue' : 'red',
                   }}
                 >
                   {data}

@@ -9,12 +9,12 @@ export default function Footer() {
     <footer
       className={cn({
         textAlign: 'center',
-        color: 'text.primary',
+        color: 'dark.primary',
         padding: '3rem 1rem',
         a: {
-          color: 'text.primary',
+          color: 'dark.primary',
           ':hover': {
-            color: 'text.secondary',
+            color: 'dark.secondary',
           },
         },
         p: {

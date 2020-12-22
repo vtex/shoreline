@@ -30,5 +30,5 @@ export function HeadingLevels() {
 }
 
 export function StyleOverrides() {
-  return <Heading styleOverrides={{ color: 'primary.base' }}>Heading 1</Heading>
+  return <Heading styleOverrides={{ color: 'blue' }}>Heading 1</Heading>
 }

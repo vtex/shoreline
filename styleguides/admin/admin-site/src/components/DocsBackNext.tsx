@@ -29,7 +29,7 @@ export default function DocsBackNext({
   return (
     <Box
       styles={{
-        color: 'text.primary',
+        color: 'dark.primary',
         li: {
           listStyle: 'none',
         },
@@ -42,7 +42,7 @@ export default function DocsBackNext({
           color: 'inherit',
           cursor: 'pointer',
           '&:hover': {
-            color: 'primary.hover',
+            color: 'blue.hover',
           },
         },
       }}
