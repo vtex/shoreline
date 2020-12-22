@@ -1,6 +1,7 @@
 import { useSelect, UseSelectReturnValue } from 'downshift'
 import React, { Ref } from 'react'
 import { forwardRef } from '@vtex/admin-ui-system'
+import { BrowserView, MobileView } from 'react-device-detect'
 
 import { Overridable } from '../../types'
 import { Box } from '../Box'
@@ -37,13 +38,13 @@ export const Select = forwardRef(
 
     return (
       <Box {...restProps} styles={{ ...styleOverrides }} ref={ref}>
-        <Box styles={{ display: ['flex', 'none'] }}>
+        <MobileView>
           <MobileSelect {...selectProps} />
-        </Box>
+        </MobileView>
 
-        <Box styles={{ display: ['none', 'flex'] }}>
+        <BrowserView>
           <DesktopSelect {...selectProps} />
-        </Box>
+        </BrowserView>
 
         {message && (
           <Box styles={{ paddingTop: 1 }}>

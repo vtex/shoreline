@@ -9,8 +9,6 @@ Select is a component that allow users to select an option, require a click to s
 ## Behavior
 
 ```jsx
-import { Select, useSelectState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
   const state = useSelectState({
@@ -28,11 +26,11 @@ function Example() {
 
 ## Installation
 
-```static
+```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Select, useSelectState } from '@vtex/admin-ui'
 ```
 
@@ -47,8 +45,6 @@ Select items can be a List of either native types (like `number`, `string`, etc.
 When using a String to represent the item, the select already knows what it should render in the options, so you just need to specify the `items` property to both `useSelectState` and `Select`.
 
 ```jsx
-import { Select, useSelectState, Set, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const species = ['Arabica', 'Robusta']
   const speciesState = useSelectState({
@@ -73,8 +69,6 @@ Define the `itemToString` prop in the `useSelectState`. It will return the strin
 Define the `renderItem` prop in the `Select`. It is similar to the `itemToString` and will return the string equivalent of each item in the select menu.
 
 ```jsx
-import { Select, useSelectState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const items = [
     { id: 1, label: 'Yesterday' },
@@ -107,8 +101,6 @@ function Example() {
 It means that the user will not be able to select any value from the `Select`. To use this variation, the `disabled` property should have a true value.
 
 ```jsx
-import { Select, useSelectState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
   const initialState = useSelectState({
@@ -129,8 +121,6 @@ function Example() {
 You can add a `text` helper to add information about the `Select`. Just use the `helperText` properties.
 
 ```jsx
-import { Select, useSelectState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
   const state = useSelectState({
@@ -151,18 +141,9 @@ function Example() {
 You can add a `error message` in the same place of the `helperText`. Just use the `error` property for that.
 
 ```jsx
-import { useState, useEffect } from 'react'
-import { Select, useSelectState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
   const state = useSelectState({ items: days })
-  const [error, setError] = useState(true)
-
-  useEffect(() => {
-    if (state.selectedItem === 'Yesterday') setError(false)
-    else setError(true)
-  }, [state.selectedItem])
 
   return (
     <ThemeProvider>
@@ -170,7 +151,7 @@ function Example() {
         items={days}
         state={state}
         label="Date"
-        error={error}
+        error
         errorMessage="Message error"
       />
     </ThemeProvider>
@@ -187,8 +168,6 @@ Hook that manages all the stateful logic needed to make the select functional an
 It is the same as the [Downshift useSelect Hook](https://www.downshift-js.com/use-select).
 
 ```jsx
-import { Select, useSelectState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const state = useSelectState({
     items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
@@ -214,8 +193,6 @@ You can use the [styleOverrides](https://admin-ui-docs.vercel.app/theming/inline
 ### Example
 
 ```jsx
-import { Select, useSelectState, ThemeProvider } from '@vtex/admin-ui'
-
 function Example() {
   const state = useSelectState({
     items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
