@@ -10,25 +10,25 @@ const textAreaInputStyle = {
   borderWidth: 1,
   paddingLeft: 3,
   paddingRight: 4,
-  borderColor: 'muted.2',
+  borderColor: 'mid.2',
   borderRadius: 'default',
   bg: 'inherit',
   marginY: 1,
   fontSize: 1,
-  color: 'text.primary',
+  color: 'dark.primary',
   outline: 0,
   transition: 'snap',
   ':hover': {
-    borderColor: 'text.primary',
+    borderColor: 'dark.primary',
   },
   ':focus': {
-    borderColor: 'primary.base',
-    boxShadow: `0 0 0 1px  ${colors.primary.base}`,
+    borderColor: 'blue',
+    boxShadow: `0 0 0 1px  ${colors.blue.default}`,
   },
   ':disabled': {
-    bg: 'muted.3',
-    borderColor: 'muted.0',
-    color: 'muted.0',
+    bg: 'light.secondary',
+    borderColor: 'mid.0',
+    color: 'mid.0',
   },
   // Label styles
   ':focus + label': {
@@ -52,13 +52,13 @@ const styles = {
 
 const error = {
   textarea: {
-    borderColor: 'danger.base',
+    borderColor: 'red',
     ':focus': {
-      borderColor: 'danger.base',
-      boxShadow: `0 0 0 1px  ${colors.danger.base}`,
+      borderColor: 'red',
+      boxShadow: `0 0 0 1px  ${colors.red.default}`,
     },
     ':hover': {
-      borderColor: 'danger.hover',
+      borderColor: 'red.hover',
     },
   },
 }
@@ -76,7 +76,7 @@ export default {
     fontSize: 1,
     left: 12,
     paddingTop: 2,
-    color: 'muted.0',
+    color: 'mid.0',
     marginBottom: 3,
     position: 'absolute',
     transform: 'translate(0, 16px) scale(1)',

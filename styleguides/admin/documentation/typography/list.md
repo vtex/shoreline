@@ -56,7 +56,7 @@ You can use the `styleOverrides` property to handle different styles, and also t
 <List style="square">
   <List.Item
     text="subtitle"
-    styleOverrides={{ bg: 'primary.base', color: 'background' }}
+    styleOverrides={{ bg: 'blue', color: 'light.primary' }}
   >
     Coffe
   </List.Item>

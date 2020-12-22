@@ -30,8 +30,8 @@ In the example below, the `<Box>` has full width while on `mobile`, and half on 
   styles={{
     width: ['full', '1/2'],
     padding: 4,
-    bg: 'primary.base',
-    color: 'primary.accent',
+    bg: 'blue',
+    color: 'blue.accent',
   }}
 />
 ```
@@ -45,8 +45,8 @@ If you want to skip a breakpoint, you can use the value `null`. This is useful i
   styles={{
     width: [null, null, 'full'],
     padding: 4,
-    color: 'background',
-    bg: 'text.primary',
+    color: 'light.primary',
+    bg: 'dark.primary',
   }}
 />
 ```
@@ -62,7 +62,7 @@ function Example() {
   const text = useResponsiveValue([mobileText, aboveTabletText])
 
   return (
-    <Box styles={{ padding: 4, bg: 'text.primary', color: 'background' }}>
+    <Box styles={{ padding: 4, bg: 'dark.primary', color: 'light.primary' }}>
       {text}
     </Box>
   )

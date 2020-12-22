@@ -44,7 +44,7 @@ The `label` property can be of `string` or `ReactNode` type. Check the examples 
 <Tooltip
   label={
     <Set orientation="vertical" spacing={2}>
-      <Text variant="small" styleOverrides={{ color: 'muted.2' }}>
+      <Text variant="small" styleOverrides={{ color: 'mid.2' }}>
         Previous Order: 102183 (211-213)
       </Text>
       <Tag palette="green" label="Ready for Handling" size="small" />

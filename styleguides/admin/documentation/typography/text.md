@@ -125,8 +125,8 @@ You can use the `styleOverrides` property to handle different styles.
 ### Example
 
 ```jsx
-<Text styleOverrides={{ color: 'primary.hover' }} variant="body" element="span">
-  Look, a text with 'primary.hover' color... 🤔
+<Text styleOverrides={{ color: 'blue.hover' }} variant="body" element="span">
+  Look, a text with 'blue.hover' color... 🤔
 </Text>
 ```
 

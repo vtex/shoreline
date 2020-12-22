@@ -1,13 +1,13 @@
 export default {
   font: 'inherit',
-  color: 'primary.base',
+  color: 'blue',
   textDecoration: 'none',
   ':active': {
-    color: 'primary.pressed',
+    color: 'blue.pressed',
     textDecoration: 'underline',
   },
   ':hover': {
-    color: 'primary.hover',
+    color: 'blue.hover',
     textDecoration: 'underline',
   },
 }

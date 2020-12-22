@@ -24,7 +24,7 @@ Both have the same behavior, and accept a valid [`StyleObject`](/theming/style-o
 
 ```jsx
 <Set>
-  <Box styles={{ color: 'primary.base' }}>Text with primary.base color!</Box>
+  <Box styles={{ color: 'blue' }}>Text with blue color!</Box>
 
   {/** ☢️ Be careful while overriding styles, you can achieve undesired results */}
   <Button styleOverrides={{ bg: 'darkorchid', color: 'orange' }}>
@@ -40,9 +40,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 ### Example
 
 ```jsx
-<div className={cn({ color: 'primary.base' })}>
-  Text with primary.base color!
-</div>
+<div className={cn({ color: 'blue' })}>Text with blue color!</div>
 ```
 
 ### Do's:
@@ -52,7 +50,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 ```jsx isStatic
 <nav
   className={cn({
-    bg: 'muted.2',
+    bg: 'mid.2',
     'button + button': { marginLeft: 2 },
   })}
 />
@@ -63,9 +61,9 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 ```jsx isStatic
 <Input
   className={cn({
-    borderColor: 'muted.2',
+    borderColor: 'mid.2',
     ':hover': {
-      borderColor: 'text.primary',
+      borderColor: 'dark.primary',
     },
   })}
 />
@@ -79,7 +77,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 // 🚫 Wrong
 <Box
   styles={cn({
-    bg: 'muted.2',
+    bg: 'mid.2',
     'button + button': { marginLeft: 2 },
   })}
 />
@@ -87,7 +85,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 // ✅ Correct
 <Box
   styles={{
-    bg: 'muted.2',
+    bg: 'mid.2',
     'button + button': { marginLeft: 2 },
   }}
 />
@@ -99,7 +97,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 // 🚫 Wrong
 <Button
   styleOverrides={cn({
-    bg: 'muted.2',
+    bg: 'mid.2',
     'button + button': { marginLeft: 2 },
   })}
 />
@@ -107,7 +105,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 // ✅ Correct
 <Button
   styleOverrides={{
-    bg: 'muted.2',
+    bg: 'mid.2',
     'button + button': { marginLeft: 2 },
   }}
 />
@@ -128,8 +126,8 @@ import { mix } from 'polished'
 // mixes primary and success color by weight
 function usePrimarySuccess(weight = 0.5) {
   const theme = useTheme()
-  const primary = theme.colors.primary.base
-  const success = theme.colors.success.base
+  const primary = theme.colors.blue.default
+  const success = theme.colors.green.default
 
   return mix(weight, primary, success)
 }
@@ -143,11 +141,11 @@ function usePrimarySuccess(weight = 0.5) {
 const theme = useTheme()
 
 // 🚫 Wrong
-<Box styles={{ color: theme.colors.primary.base  }} />
-<div className={cn({ color: theme.colors.primary.base  })} />
+<Box styles={{ color: theme.colors.blue.default  }} />
+<div className={cn({ color: theme.colors.blue.default  })} />
 
 
 // ✅ Correct
-<Box styles={{ color: 'primary.base'  }} />
-<div className={cn({ color: 'primary.base'  })} />
+<Box styles={{ color: 'blue'  }} />
+<div className={cn({ color: 'blue'  })} />
 ```

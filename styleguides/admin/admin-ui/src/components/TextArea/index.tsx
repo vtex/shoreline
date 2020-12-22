@@ -59,7 +59,7 @@ export const TextArea = forwardRef(function Textarea(
             <div>{/** spacer element */}</div>
           )}
           {charLimit && (
-            <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
+            <Text variant="small" styleOverrides={{ color: 'mid.0' }}>
               {`${value.toString().length}/${charLimit}`}
             </Text>
           )}
