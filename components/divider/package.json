@@ -1,6 +1,6 @@
 {
   "name": "@vtex-components/divider",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "dist/index.js",
   "module": "dist/divider.esm.js",
   "typings": "dist/index.d.ts",
@@ -39,7 +39,7 @@
     "@types/theme-ui": "^0.3.6"
   },
   "dependencies": {
-    "@vtex-components/theme": "^0.1.5",
+    "@vtex-components/theme": "^0.1.6",
     "theme-ui": "^0.3.1"
   }
 }
