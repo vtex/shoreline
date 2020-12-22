@@ -50,7 +50,7 @@ const styles = {
     '&:hover': {
       borderColor: 'blue.hover',
       color: 'blue.hover',
-      bg: 'blue.secondary',
+      bg: 'blue.secondary.hover',
     },
     '&:active': {
       borderColor: 'blue.pressed',
