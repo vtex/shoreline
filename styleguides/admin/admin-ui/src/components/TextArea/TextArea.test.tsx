@@ -11,7 +11,7 @@ describe('TextArea tests', () => {
       <ThemeProvider>
         <TextArea
           data-testid="text-area"
-          styleOverrides={{ backgroundColor: 'blue' }}
+          styleOverrides={{ backgroundColor: 'azure' }}
           value=""
           onChange={() => {}}
           label="TextArea label"
@@ -24,7 +24,7 @@ describe('TextArea tests', () => {
 
     expect(getByTestId('text-area')).toHaveStyleRule(
       'background-color',
-      '#DAE3F5'
+      'azure'
     )
   })
 
