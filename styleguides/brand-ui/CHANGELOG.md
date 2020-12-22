@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.30.1...@vtex/brand-ui@0.31.0) (2020-12-22)
+
+
+### Bug Fixes
+
+* invert caret direction in LocaleSwitcher ([d39469b](https://github.com/vtex/onda/commit/d39469b418c74a572b91bbb1653b5b872894894b))
+
+
+### Features
+
+* add brand-ui toast ([c29c447](https://github.com/vtex/onda/commit/c29c447e646f6eaff9983d05a3fc93677fec66c2))
+
+
+
+
+
 ## [0.30.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.30.0...@vtex/brand-ui@0.30.1) (2020-12-11)
 
 
