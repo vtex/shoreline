@@ -59,6 +59,7 @@
     - /form/radio/
     - /form/input/
     - /form/input-password/
+    - /form/select/
     - /form/text-area/
     - /form/toggle/
 - section: Deep dive 🐋

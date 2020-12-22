@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select tests should render a Select with a list of string and other with a list of object 1`] = `
+<DocumentFragment>
+  .emotion-6 {
+  width: 288px;
+  position: relative;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  cursor: pointer;
+  height: 48px;
+  width: inherit;
+  box-shadow: 0 0 0 0 transparent;
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  border-color: #C4C5CA;
+  border-radius: 4px;
+  background-color: inherit;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #707685;
+  outline: 0;
+}
+
+.emotion-4:hover {
+  border-color: #898F9E;
+}
+
+.emotion-4:hover>svg {
+  color: #323845;
+}
+
+.emotion-4:focus {
+  border-color: #2953B2;
+  box-shadow: 0 0 0 1px #2953B2;
+}
+
+.emotion-4:disabled {
+  background-color: #F4F6FB;
+  border-color: #898F9E;
+  color: #707685;
+  cursor: initial;
+}
+
+.emotion-4:disabled>svg {
+  color: #707685;
+}
+
+
+
+.emotion-0 {
+  line-height: 1.43;
+  color: #323845;
+  float: left;
+  margin-top: 1rem;
+}
+
+.emotion-0:not(:empty)+label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.43;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  position: absolute;
+  left: 12px;
+}
+
+.emotion-3 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-5 {
+  position: absolute;
+  z-index: 999;
+  width: inherit;
+  background-color: #FFFFFF;
+  outline: none;
+  top: 0px;
+  border-radius: 4px;
+}
+
+<div
+    class="emotion-2"
+  >
+    <div>
+      <div
+        class="emotion-6"
+        role="listbox"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-1-label downshift-1-toggle-button"
+          class="emotion-4"
+          id="downshift-1-toggle-button"
+        >
+          <div
+            class="emotion-2"
+          >
+            <span
+              class="emotion-0"
+            >
+              7 days ago
+            </span>
+            <label
+              class="emotion-1"
+              for="downshift-1-toggle-button"
+              id="downshift-1-label"
+            >
+              Date
+            </label>
+          </div>
+          <svg
+            class="emotion-3"
+            color="text.secondary"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 14L12 10L8 14"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
+        </button>
+        <div
+          aria-labelledby="downshift-1-label"
+          class="emotion-5"
+          id="downshift-1-menu"
+          role="option"
+          tabindex="-1"
+        />
+      </div>
+    </div>
+  </div>
+  .emotion-6 {
+  width: 288px;
+  position: relative;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  cursor: pointer;
+  height: 48px;
+  width: inherit;
+  box-shadow: 0 0 0 0 transparent;
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  border-color: #C4C5CA;
+  border-radius: 4px;
+  background-color: inherit;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #707685;
+  outline: 0;
+}
+
+.emotion-4:hover {
+  border-color: #898F9E;
+}
+
+.emotion-4:hover>svg {
+  color: #323845;
+}
+
+.emotion-4:focus {
+  border-color: #2953B2;
+  box-shadow: 0 0 0 1px #2953B2;
+}
+
+.emotion-4:disabled {
+  background-color: #F4F6FB;
+  border-color: #898F9E;
+  color: #707685;
+  cursor: initial;
+}
+
+.emotion-4:disabled>svg {
+  color: #707685;
+}
+
+
+
+.emotion-0 {
+  line-height: 1.43;
+  color: #323845;
+  float: left;
+  margin-top: 1rem;
+}
+
+.emotion-0:not(:empty)+label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.43;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+  position: absolute;
+  left: 12px;
+}
+
+.emotion-3 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-5 {
+  position: absolute;
+  z-index: 999;
+  width: inherit;
+  background-color: #FFFFFF;
+  outline: none;
+  top: 0px;
+  border-radius: 4px;
+}
+
+<div
+    class="emotion-2"
+  >
+    <div>
+      <div
+        class="emotion-6"
+        role="listbox"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-2-label downshift-2-toggle-button"
+          class="emotion-4"
+          id="downshift-2-toggle-button"
+        >
+          <div
+            class="emotion-2"
+          >
+            <span
+              class="emotion-0"
+            >
+              7 days ago
+            </span>
+            <label
+              class="emotion-1"
+              for="downshift-2-toggle-button"
+              id="downshift-2-label"
+            >
+              Date
+            </label>
+          </div>
+          <svg
+            class="emotion-3"
+            color="text.secondary"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 14L12 10L8 14"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
+        </button>
+        <div
+          aria-labelledby="downshift-2-label"
+          class="emotion-5"
+          id="downshift-2-menu"
+          role="option"
+          tabindex="-1"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

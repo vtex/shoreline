@@ -16,6 +16,7 @@ import input from './input'
 import textArea from './textArea'
 import dropdown from './dropdown'
 import numericStepper from './numericStepper'
+import select from './select'
 // overlay
 import tooltip from './tooltip'
 import menu from './menu'
@@ -47,4 +48,5 @@ export default {
   dropdown,
   textArea,
   numericStepper,
+  select,
 }
