@@ -1,6 +1,6 @@
 {
   "name": "@vtex-components/theme",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/index.js",
   "module": "dist/theme.esm.js",
   "typings": "dist/index.d.ts",

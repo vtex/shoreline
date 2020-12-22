@@ -1,6 +1,6 @@
 {
   "name": "@vtex-components/popover",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "dist/index.js",
   "module": "dist/popover.esm.js",
   "typings": "dist/index.d.ts",
@@ -39,7 +39,7 @@
     "@types/theme-ui": "^0.3.6"
   },
   "dependencies": {
-    "@vtex-components/theme": "^0.1.5",
+    "@vtex-components/theme": "^0.1.6",
     "@vtex-components/utils": "^0.0.3",
     "theme-ui": "^0.3.1"
   }

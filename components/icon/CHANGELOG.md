@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/vtex/onda/compare/@vtex-components/icon@0.0.9...@vtex-components/icon@0.0.10) (2020-12-22)
+
+**Note:** Version bump only for package @vtex-components/icon
+
+
+
+
+
 ## [0.0.9](https://github.com/vtex/onda/compare/@vtex-components/icon@0.0.8...@vtex-components/icon@0.0.9) (2020-12-09)
 
 **Note:** Version bump only for package @vtex-components/icon
