@@ -180,10 +180,10 @@ function Example() {
     >
       <Collapsible.Header
         label="Customization"
-        styleOverrides={{ bg: 'muted.3' }}
+        styleOverrides={{ bg: 'light.secondary' }}
       />
-      <Collapsible.Content styleOverrides={{ color: 'primary.base' }}>
-        <Paragraph>Text with primary.base color!</Paragraph>
+      <Collapsible.Content styleOverrides={{ color: 'blue' }}>
+        <Paragraph>Text with blue color!</Paragraph>
       </Collapsible.Content>
     </Collapsible>
   )

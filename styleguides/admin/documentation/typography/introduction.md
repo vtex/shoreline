@@ -23,7 +23,7 @@ Any typography component accept the `styleOverrides` property of type [StyleObje
 Example
 
 ```jsx
-<Heading styleOverrides={{ color: 'primary.base' }}>Primary heading</Heading>
+<Heading styleOverrides={{ color: 'blue' }}>Blue primary heading</Heading>
 ```
 
 ## Caveats

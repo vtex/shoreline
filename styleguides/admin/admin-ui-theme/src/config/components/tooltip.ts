@@ -1,6 +1,6 @@
 export default {
-  backgroundColor: 'text.primary',
-  color: 'background',
+  backgroundColor: 'dark.primary',
+  color: 'light.primary',
   fontSize: 1,
   paddingY: 2,
   paddingX: 3,

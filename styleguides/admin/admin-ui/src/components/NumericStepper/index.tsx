@@ -80,7 +80,7 @@ export function NumericStepper(props: NumericStepperProps) {
           variant="adaptative-dark"
           icon={<IconRemove />}
           styleOverrides={{
-            color: 'primary.base',
+            color: 'blue',
             height: 40,
             position: 'absolute',
             left: 1,
@@ -96,7 +96,7 @@ export function NumericStepper(props: NumericStepperProps) {
           icon={<IconAdd />}
           aria-label={`${label}-increase-button}`}
           styleOverrides={{
-            color: 'primary.base',
+            color: 'blue',
             height: 40,
             position: 'absolute',
             right: 1,
@@ -109,7 +109,7 @@ export function NumericStepper(props: NumericStepperProps) {
         <Box
           styles={{
             text: 'small',
-            color: error ? 'danger.base' : 'muted.0',
+            color: error ? 'red' : 'mid.0',
             marginTop: 2,
           }}
         >

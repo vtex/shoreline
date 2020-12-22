@@ -122,8 +122,8 @@ Adapts to the context that is inserted.
 <Set orientation="vertical">
   <Box
     styles={{
-      color: 'text.primary',
-      bg: 'background',
+      color: 'dark.primary',
+      bg: 'light.primary',
       padding: 4,
     }}
   >
@@ -131,8 +131,8 @@ Adapts to the context that is inserted.
   </Box>
   <Box
     styles={{
-      color: 'background',
-      bg: 'text.primary',
+      color: 'light.primary',
+      bg: 'dark.primary',
       padding: 4,
     }}
   >

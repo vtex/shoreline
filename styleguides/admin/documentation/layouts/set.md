@@ -111,7 +111,13 @@ You can set items alignment (`start` [default], `end`) through the `align` prop.
 You can use the `styleOverrides` property to handle different styles.
 
 ```jsx
-<Set styleOverrides={{ bg: 'muted.3', borderRadius: 'default', padding: 4 }}>
+<Set
+  styleOverrides={{
+    bg: 'light.secondary',
+    borderRadius: 'default',
+    padding: 4,
+  }}
+>
   <Button>Button 1</Button>
   <Button>Button 2</Button>
   <Button>Button 3</Button>

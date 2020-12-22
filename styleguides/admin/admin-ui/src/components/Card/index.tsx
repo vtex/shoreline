@@ -13,8 +13,8 @@ export const Card = forwardRef(function Card(
     <Box
       ref={ref}
       styles={{
-        bg: 'background',
-        color: 'text.primary',
+        bg: 'light.primary',
+        color: 'dark.primary',
         border: 'default',
         padding: 6,
         ...styleOverrides,

@@ -33,8 +33,8 @@ export default function Header() {
       element="header"
       styles={{
         border: 'divider-bottom',
-        color: 'text.primary',
-        bg: 'background',
+        color: 'dark.primary',
+        bg: 'light.primary',
         gridArea: 'header',
         width: 'full',
         display: 'flex',
@@ -67,7 +67,7 @@ export default function Header() {
           "&:not([href='/'])": {
             paddingX: 4,
             '&:hover': {
-              color: 'brand',
+              color: '#F71963',
               textDecoration: 'none',
             },
           },
