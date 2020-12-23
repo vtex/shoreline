@@ -5,7 +5,7 @@ const menu = {
   borderRadius: 'default',
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: 'mid.1',
+  borderColor: 'mid.secondary',
   boxShadow: 'menu',
   outline: 'none',
   marginTop: 1,

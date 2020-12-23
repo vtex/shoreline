@@ -15,7 +15,7 @@ function PropRow({ value, themeKey }: Props) {
         paddingY: 2,
         borderBottomStyle: 'solid',
         borderBottomWidth: '1px',
-        borderBottomColor: 'mid.1',
+        borderBottomColor: 'mid.secondary',
       }}
     >
       <Columns.Item styleOverrides={{ paddingLeft: 6 }}>{value}</Columns.Item>
@@ -34,7 +34,7 @@ function TitleColumn() {
         paddingY: 4,
         borderBottomStyle: 'solid',
         borderBottomWidth: '1px',
-        borderBottomColor: 'mid.1',
+        borderBottomColor: 'mid.secondary',
       }}
     >
       <Columns.Item styleOverrides={{ paddingLeft: 6 }}>

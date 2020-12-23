@@ -10,7 +10,7 @@ export default {
   borderRadius: 3,
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: 'mid.1',
+  borderColor: 'mid.secondary',
   boxShadow: 'menu',
   hr: {
     marginY: 2,
@@ -19,7 +19,7 @@ export default {
     borderTop: 'none',
     borderLeft: 'none',
     borderRight: 'none',
-    borderColor: 'mid.1',
+    borderColor: 'mid.secondary',
     width: `calc(100% -${space[3]})`,
     marginX: `-${space[3]}`,
     outline: 'none',

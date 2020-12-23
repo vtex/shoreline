@@ -115,7 +115,7 @@ const variant = {
     },
     ':disabled': {
       color: 'dark.primary',
-      backgroundColor: 'mid.1',
+      backgroundColor: 'mid.secondary',
     },
   },
   secondary: {
@@ -129,7 +129,7 @@ const variant = {
       backgroundColor: 'blue.secondary.pressed',
     },
     ':disabled': {
-      color: 'mid.0',
+      color: 'mid.primary',
       backgroundColor: 'light.secondary',
     },
   },
@@ -146,7 +146,7 @@ const variant = {
       backgroundColor: 'blue.secondary.pressed',
     },
     ':disabled': {
-      color: 'mid.0',
+      color: 'mid.primary',
     },
   },
   danger: {
@@ -161,7 +161,7 @@ const variant = {
     },
     ':disabled': {
       color: 'dark.primary',
-      backgroundColor: 'mid.1',
+      backgroundColor: 'mid.secondary',
     },
   },
   'danger-secondary': {
@@ -177,7 +177,7 @@ const variant = {
       color: 'red.pressed',
     },
     ':disabled': {
-      color: 'mid.0',
+      color: 'mid.primary',
       backgroundColor: 'light.secondary',
     },
   },
@@ -194,7 +194,7 @@ const variant = {
       backgroundColor: 'red.secondary.pressed',
     },
     ':disabled': {
-      color: 'mid.0',
+      color: 'mid.primary',
     },
   },
   'adaptative-dark': {
@@ -207,7 +207,7 @@ const variant = {
       backgroundColor: alpha('dark.primary', 0.08),
     },
     ':disabled': {
-      color: 'mid.0',
+      color: 'mid.primary',
     },
   },
   'adaptative-light': {
@@ -220,7 +220,7 @@ const variant = {
       backgroundColor: alpha('light.primary', 0.08),
     },
     ':disabled': {
-      color: 'mid.0',
+      color: 'mid.primary',
     },
   },
 }

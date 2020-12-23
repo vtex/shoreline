@@ -12,7 +12,7 @@ const styles = {
   color: 'dark.primary',
   borderStyle: 'solid',
   borderWidth: 1,
-  borderColor: 'mid.0',
+  borderColor: 'mid.primary',
   borderRadius: 'default',
   backgroundColor: 'light.primary',
   ':hover': {
@@ -20,7 +20,7 @@ const styles = {
   },
   ':disabled': {
     backgroundColor: 'light.secondary',
-    color: 'mid.0',
+    color: 'mid.primary',
   },
   ':focus:not([data-focus-visible-added])': {
     outline: 'none',

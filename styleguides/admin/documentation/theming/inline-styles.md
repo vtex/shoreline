@@ -50,7 +50,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 ```jsx isStatic
 <nav
   className={cn({
-    bg: 'mid.2',
+    bg: 'mid.tertiary',
     'button + button': { marginLeft: 2 },
   })}
 />
@@ -61,7 +61,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 ```jsx isStatic
 <Input
   className={cn({
-    borderColor: 'mid.2',
+    borderColor: 'mid.tertiary',
     ':hover': {
       borderColor: 'dark.primary',
     },
@@ -77,7 +77,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 // 🚫 Wrong
 <Box
   styles={cn({
-    bg: 'mid.2',
+    bg: 'mid.tertiary',
     'button + button': { marginLeft: 2 },
   })}
 />
@@ -85,7 +85,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 // ✅ Correct
 <Box
   styles={{
-    bg: 'mid.2',
+    bg: 'mid.tertiary',
     'button + button': { marginLeft: 2 },
   }}
 />
@@ -97,7 +97,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 // 🚫 Wrong
 <Button
   styleOverrides={cn({
-    bg: 'mid.2',
+    bg: 'mid.tertiary',
     'button + button': { marginLeft: 2 },
   })}
 />
@@ -105,7 +105,7 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 // ✅ Correct
 <Button
   styleOverrides={{
-    bg: 'mid.2',
+    bg: 'mid.tertiary',
     'button + button': { marginLeft: 2 },
   }}
 />

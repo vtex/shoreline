@@ -1,7 +1,7 @@
 const styles = {
   border: 'solid',
   borderWidth: 1,
-  borderColor: 'mid.2',
+  borderColor: 'mid.tertiary',
   margin: 0,
 }
 

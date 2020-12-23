@@ -88,7 +88,7 @@ export default function DocsNavigation() {
           right: 0,
           left: 0,
           padding: 2,
-          bg: 'mid.2',
+          bg: 'mid.tertiary',
           display: 'flex',
           flexDirection: 'column',
         })}
