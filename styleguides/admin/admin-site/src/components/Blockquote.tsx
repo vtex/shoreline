@@ -39,7 +39,7 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
         ),
         className: cn({
           color: 'dark.primary',
-          backgroundColor: `${palette}.secondary'`,
+          backgroundColor: `${palette}.secondary`,
           borderLeftColor: `${palette}`,
           borderLeftWidth: 8,
           borderLeftStyle: 'solid',
