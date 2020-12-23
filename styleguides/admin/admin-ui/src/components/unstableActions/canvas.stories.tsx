@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 import { Actions } from './index'
 
 export default {
-  title: 'next/Actions',
+  title: 'experimental/Actions',
   component: Actions,
 } as Meta
 

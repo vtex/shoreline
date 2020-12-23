@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
-import Next from '../icons/Next'
+import Experimental from '../icons/Experimental'
 import { Searchbar, useSearch } from './Searchbar'
 
 const query = graphql`
@@ -20,7 +20,7 @@ const query = graphql`
         title
         frontmatter {
           path
-          next
+          experimental
           fullPage
         }
       }
@@ -68,7 +68,9 @@ export default function DocsNavigation() {
     data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)
 
   const getTitle = (path: string) => findMeta(path)?.title ?? ''
-  const isNext = (path: string) => Boolean(findMeta(path)?.frontmatter.next)
+  const isExperimental = (path: string) =>
+    Boolean(findMeta(path)?.frontmatter.experimental)
+
   const { searchState, current } = useSearch()
 
   return (
@@ -136,11 +138,11 @@ export default function DocsNavigation() {
                   })}
                   key={path}
                 >
-                  {isNext(path) ? (
-                    <Tooltip label="Next" placement="right">
+                  {isExperimental(path) ? (
+                    <Tooltip label="Experimental" placement="right">
                       <Link className={cn(linkStyles)} to={path}>
                         {getTitle(path)}
-                        <Next role="presentation" />
+                        <Experimental role="presentation" />
                       </Link>
                     </Tooltip>
                   ) : (
@@ -169,7 +171,7 @@ interface Data {
       title: string
       frontmatter: {
         path: string
-        next?: boolean
+        experimental?: boolean
       }
     }>
   }

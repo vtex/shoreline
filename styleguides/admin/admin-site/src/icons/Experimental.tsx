@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Next(
+function Experimental(
   props: React.SVGAttributes<SVGElement>,
   ref: React.Ref<SVGSVGElement>
 ) {
@@ -53,4 +53,4 @@ function Next(
   )
 }
 
-export default React.forwardRef(Next)
+export default React.forwardRef(Experimental)

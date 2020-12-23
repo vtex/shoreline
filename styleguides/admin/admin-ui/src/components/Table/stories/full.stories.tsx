@@ -8,7 +8,7 @@ import { StatefulTable } from '../index'
 import { Skeleton } from '../../Skeleton'
 
 export default {
-  title: 'next/Table/Full',
+  title: 'experimental/Table/Full',
   component: StatefulTable,
 } as Meta
 
