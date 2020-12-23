@@ -6,18 +6,17 @@ interface CardProps extends BoxProps<'div'> {
   color?: string
   /** Semantic color name */
   name?: string
-  /** Color accent */
-  accent?: string
+  /** Color contrast */
+  contrast?: string
 }
 
 function ColorCard(props: CardProps) {
-  const { color, name, accent, ...restProps } = props
+  const { color, name, contrast, ...restProps } = props
 
   return (
     <Box
       styles={{
-        width: 200,
-        height: 200,
+        width: 265,
         borderRadius: 'default',
         bg: 'light.secondary',
       }}
@@ -31,44 +30,79 @@ function ColorCard(props: CardProps) {
           borderRadius: 'default',
           borderBottomRightRadius: '0',
           borderBottomLeftRadius: '0',
-          height: 80,
+          height: 110,
           width: 'full',
           boxShadow: 'subtle',
           marginBottom: 1,
-          color: `${accent ?? color}`,
+          color: `${contrast ?? color}`,
           fontSize: '4',
         }}
       >
         A
       </Flex>
-      <Set orientation="vertical" spacing={2} styleOverrides={{ padding: 3 }}>
-        <Set spacing={1} orientation="vertical">
-          <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
-            Name
-          </Text>
-          <Text
-            variant="body"
-            styleOverrides={{
-              display: 'block',
-            }}
-          >
-            {name}
-          </Text>
+      <Flex justify="space-between" styles={{ padding: 3 }}>
+        <Set spacing={2} orientation="vertical">
+          <Set spacing={1} orientation="vertical">
+            <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
+              Color
+            </Text>
+            <Text
+              styleOverrides={{
+                display: 'block',
+              }}
+            >
+              {name}
+            </Text>
+          </Set>
         </Set>
-        <Set spacing={1} orientation="vertical">
-          <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
-            Hex
-          </Text>
-          <Text
-            variant="action"
-            styleOverrides={{
-              display: 'block',
-            }}
-          >
-            {color}
-          </Text>
+
+        <Set spacing={1} orientation="vertical" styleOverrides={{ width: 65 }}>
+          <Set spacing={1} orientation="vertical">
+            <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
+              Hex
+            </Text>
+            <Text
+              styleOverrides={{
+                textTransform: 'uppercase',
+                display: 'block',
+              }}
+            >
+              {color}
+            </Text>
+          </Set>
         </Set>
-      </Set>
+      </Flex>
+      {contrast && (
+        <Set
+          spacing={1}
+          orientation="vertical"
+          styleOverrides={{ padding: 3, paddingTop: 0 }}
+        >
+          <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
+            Contrast
+          </Text>
+          <Flex align="center">
+            <Box
+              styles={{
+                marginRight: 2,
+                backgroundColor: `${contrast}`,
+                borderRadius: 'default',
+                height: 20,
+                width: 40,
+                boxShadow: 'subtle',
+                fontSize: '4',
+              }}
+            />
+            <Text
+              styleOverrides={{
+                display: 'block',
+              }}
+            >
+              {contrast}
+            </Text>
+          </Flex>
+        </Set>
+      )}
     </Box>
   )
 }
@@ -83,10 +117,18 @@ export function MidColors() {
       <ColorCard
         color={getColor('mid.0')}
         name="mid.0"
-        accent="light.primary"
+        contrast="light.primary"
       />
-      <ColorCard color={getColor('mid.1')} name="mid.1" accent="dark.primary" />
-      <ColorCard color={getColor('mid.2')} name="mid.2" accent="dark.primary" />
+      <ColorCard
+        color={getColor('mid.1')}
+        name="mid.1"
+        contrast="dark.primary"
+      />
+      <ColorCard
+        color={getColor('mid.2')}
+        name="mid.2"
+        contrast="dark.primary"
+      />
     </Set>
   )
 }
@@ -101,12 +143,12 @@ export function LightColors() {
       <ColorCard
         color={getColor('light.primary')}
         name="light.primary"
-        accent="dark.primary"
+        contrast="dark.primary"
       />
       <ColorCard
         color={getColor('light.secondary')}
         name="light.secondary"
-        accent="dark.primary"
+        contrast="dark.primary"
       />
     </Set>
   )
@@ -122,12 +164,12 @@ export function DarkColors() {
       <ColorCard
         color={getColor('dark.primary')}
         name="dark.primary"
-        accent="light.primary"
+        contrast="light.primary"
       />
       <ColorCard
         color={getColor('dark.secondary')}
         name="dark.secondary"
-        accent="light.primary"
+        contrast="light.primary"
       />
     </Set>
   )
@@ -154,54 +196,42 @@ export function SemanticColor(props: { color: string }) {
 
   const accessibleColor = color === 'blue' || color === 'red'
 
+  const primarycontrast = color === 'yellow' ? 'dark.primary' : 'light.primary'
+
   return (
     <Set spacing={4} orientation="vertical">
       <Set spacing={4}>
         <ColorCard
           color={getColor(`${color}.default`)}
           name={`${color}`}
-          accent={`${color}.accent`}
+          contrast={primarycontrast}
         />
         <ColorCard
           color={getColor(`${color}.hover`)}
           name={`${color}.hover`}
-          accent={`${color}.accent`}
+          contrast={primarycontrast}
         />
         <ColorCard
           color={getColor(`${color}.pressed`)}
           name={`${color}.pressed`}
-          accent={`${color}.accent`}
-        />
-        <ColorCard
-          color={getColor(`${color}.accent`)}
-          name={`${color}.accent`}
-          accent={`${color}.secondary.accent`}
+          contrast={primarycontrast}
         />
       </Set>
       <Set spacing={4}>
         <ColorCard
           color={getColor(`${color}.secondary.default`)}
           name={`${color}.secondary`}
-          accent={`${color}.secondary.accent`}
+          contrast={accessibleColor ? `${color}` : 'dark.primary'}
         />
         <ColorCard
           color={getColor(`${color}.secondary.hover`)}
           name={`${color}.secondary.hover`}
-          accent={
-            accessibleColor ? `${color}.hover` : `${color}.secondary.accent`
-          }
+          contrast={accessibleColor ? `${color}.hover` : 'dark.primary'}
         />
         <ColorCard
           color={getColor(`${color}.secondary.pressed`)}
           name={`${color}.secondary.pressed`}
-          accent={
-            accessibleColor ? `${color}.pressed` : `${color}.secondary.accent`
-          }
-        />
-        <ColorCard
-          color={getColor(`${color}.secondary.accent`)}
-          name={`${color}.secondary.accent`}
-          accent={`${color}.accent`}
+          contrast={accessibleColor ? `${color}.pressed` : 'dark.primary'}
         />
       </Set>
     </Set>

@@ -18,11 +18,11 @@ export default {
   primary: {
     ...styles,
     bg: 'blue',
-    color: 'blue.accent',
+    color: 'light.primary',
   },
   danger: {
     ...styles,
     bg: 'red',
-    color: 'red.accent',
+    color: 'light.primary',
   },
 }
