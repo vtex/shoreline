@@ -36,7 +36,8 @@ const optionsUl = {
   maxHeight: 150,
   width: 'inherit',
   overflowY: 'auto',
-  borderRadius: 'default',
+  borderBottomLeftRadius: 4,
+  borderBottomRightRadius: 4,
 }
 
 const item = {
@@ -63,7 +64,6 @@ const button = {
   borderColor: 'muted.1',
   borderRadius: 'default',
   bg: 'inherit',
-  marginBottom: 1,
   fontSize: 1,
   color: 'text.secondary',
   outline: 0,
@@ -104,7 +104,7 @@ const selectedItem = {
   lineHeight: 1.43,
   color: 'text.primary',
   float: 'left',
-  marginTop: 4,
+  marginTop: '1.125rem',
   ':not(:empty) + label': {
     fontSize: 0,
     lineHeight: 1.5,
@@ -148,8 +148,8 @@ const mobileSelect = {
   border: '1px solid',
   borderColor: 'muted.1',
   borderRadius: 'default',
-  paddingTop: '16px',
-  paddingLeft: '12px',
+  paddingTop: '1.125rem',
+  paddingLeft: 3,
   width: '100%',
   height: '100%',
   ':focus': {

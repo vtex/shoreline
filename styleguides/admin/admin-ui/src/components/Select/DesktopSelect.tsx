@@ -120,7 +120,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
             {label}
           </Label>
         </Box>
-        <IconCaret direction="down" size={20} color="text.secondary" />
+        <IconCaret direction="down" size={24} color="text.secondary" />
       </Box>
 
       <Box

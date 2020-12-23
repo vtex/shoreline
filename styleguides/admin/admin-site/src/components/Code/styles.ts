@@ -4,7 +4,7 @@ export default {
   wrapper: {
     borderRadius: 'default',
     boxShadow: 'menu',
-    overflow: 'hidden',
+    overflow: 'visible',
     marginBottom: '32px',
   },
   preview: {
