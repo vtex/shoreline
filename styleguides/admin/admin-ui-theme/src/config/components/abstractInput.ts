@@ -10,7 +10,7 @@ const inputStyle = {
   borderWidth: 1,
   paddingLeft: 3,
   paddingRight: 4,
-  borderColor: 'mid.2',
+  borderColor: 'mid.tertiary',
   borderRadius: 'default',
   bg: 'inherit',
   marginY: 1,
@@ -27,8 +27,8 @@ const inputStyle = {
   },
   ':disabled': {
     bg: 'light.secondary',
-    borderColor: 'mid.0',
-    color: 'mid.0',
+    borderColor: 'mid.primary',
+    color: 'mid.primary',
   },
   ':focus + label': {
     transform: 'translate(1px, 4px) scale(0.875)',
@@ -89,10 +89,10 @@ export default {
 
   // input suffix
   suffix: {
-    color: 'mid.0',
+    color: 'mid.primary',
     borderLeftStyle: 'solid',
     borderLeftWidth: '1px',
-    borderLeftColor: 'mid.2',
+    borderLeftColor: 'mid.tertiary',
     paddingTop: '14px',
     marginTop: 'px',
     width: '32px',
@@ -104,7 +104,7 @@ export default {
 
   // left icon style
   icon: {
-    color: 'mid.0',
+    color: 'mid.primary',
     top: 1,
     left: 0,
     marginX: 3,

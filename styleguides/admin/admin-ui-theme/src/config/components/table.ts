@@ -24,7 +24,7 @@ const styles = {
     flex: 1,
     borderBottomWidth: 1,
     borderBottomStyle: 'solid',
-    borderBottomColor: 'mid.2',
+    borderBottomColor: 'mid.tertiary',
     display: 'table-cell',
     verticalAlign: 'middle',
     paddingX: 2,
@@ -42,7 +42,7 @@ const styles = {
     flex: 1,
     borderBottomWidth: 1,
     borderBottomStyle: 'solid',
-    borderBottomColor: 'mid.2',
+    borderBottomColor: 'mid.tertiary',
   },
 }
 
