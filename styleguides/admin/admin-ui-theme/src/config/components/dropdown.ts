@@ -1,11 +1,11 @@
 const menu = {
   visibility: 'hidden',
   cursor: 'pointer',
-  bg: 'background',
+  bg: 'light.primary',
   borderRadius: 'default',
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: 'muted.1',
+  borderColor: 'mid.secondary',
   boxShadow: 'menu',
   outline: 'none',
   marginTop: 1,
@@ -21,7 +21,7 @@ const item = {
   height: 24,
   paddingX: 4,
   cursor: 'pointer',
-  bg: 'background',
+  bg: 'light.primary',
 }
 
 export default {
@@ -33,6 +33,6 @@ export default {
   item,
   'item-active': {
     ...item,
-    bg: 'secondary.base',
+    bg: 'blue.secondary',
   },
 }

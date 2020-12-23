@@ -10,8 +10,8 @@ export default {
   preview: {
     padding: 5,
     position: 'relative',
-    color: 'text.primary',
-    bg: 'background',
+    color: 'dark.primary',
+    bg: 'light.primary',
     minHeight: 'auto',
   },
   editorWrapper: {
@@ -38,8 +38,8 @@ export default {
     fontVariant:
       'no-common-ligatures no-discretionary-ligatures no-historical-ligatures no-contextual',
     padding: '1rem',
-    bg: 'danger.washed.base',
-    color: 'danger.washed.accent',
+    bg: 'red.secondary',
+    color: 'red',
     text: 'body',
   },
   copyButton: {
@@ -47,11 +47,11 @@ export default {
     top: '0',
     right: '0',
     zIndex: 1,
-    color: 'white',
+    color: 'light.primary',
   },
   preHeader: {
-    bg: 'text.primary',
-    color: 'white',
+    bg: 'dark.primary',
+    color: 'light.primary',
     fontSize: '12px',
     lineHeight: '18px',
     marginTop: '0.5rem',

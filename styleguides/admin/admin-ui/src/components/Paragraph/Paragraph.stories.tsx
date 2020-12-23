@@ -19,7 +19,7 @@ Playground.args = {
 
 export function StyleOverrides() {
   return (
-    <Paragraph styleOverrides={{ bg: 'muted.3', color: 'primary.base' }}>
+    <Paragraph styleOverrides={{ bg: 'light.secondary', color: 'blue' }}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a
       aliquam ex, quis pretium enim. Sed cursus quam ac lorem efficitur, ac
       sodales lorem convallis. Ut scelerisque mauris velit, sit amet iaculis

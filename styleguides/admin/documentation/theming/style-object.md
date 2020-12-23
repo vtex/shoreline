@@ -6,7 +6,7 @@ path: /theming/style-object/
 
 The admin-ui `StyleObject` lets you style elements while consuming values from the theme. Think of it as a superset of CSS. You will encounter this API in mainly three places: `cn` function, `style`, and `styleOverrides` properties. To know more about the difference between those, you can check the [Styling Documentation](/docs/theming/styling/)
 
-<blockquote palette="primary">
+<blockquote palette="blue">
 
 The `cn` function will be used on the examples below, due to its simplicity. The same behavior applies to `style` and `styleOverrides`.
 
@@ -19,8 +19,8 @@ Within a `StyleObject` you are able to reuse the predefined styles of [`@vtex/ad
 ```jsx
 <div
   className={cn({
-    color: 'primary.base',
-    backgroundColor: 'secondary.base',
+    color: 'blue',
+    backgroundColor: 'blue.secondary',
     padding: 3,
     fontSize: 3,
   })}
@@ -77,8 +77,8 @@ You can use all [CSS Pseudo-classes](https://developer.mozilla.org/en-US/docs/We
 ```jsx
 <div
   className={cn({
-    bg: 'primary.base',
-    color: 'primary.accent',
+    bg: 'blue',
+    color: 'light.primary',
     padding: 1,
     size: 64,
     transition: 'snap',
@@ -184,7 +184,7 @@ For shorthand CSS properties or ones that are not automatically mapped to values
 ```jsx
 <div
   className={cn({
-    boxShadow: (theme) => `0 0 .5em ${theme.colors.danger.base}`,
+    boxShadow: (theme) => `0 0 .5em ${theme.colors.red.default}`,
   })}
 >
   Red glow box shadow

@@ -1,13 +1,13 @@
 export default {
   container: {
-    bg: 'background',
-    borderColor: 'muted.2',
+    bg: 'light.primary',
+    borderColor: 'mid.tertiary',
     borderStyle: 'solid',
     borderWidth: 1,
     borderRadius: 'default',
   },
   'container-grouped': {
-    bg: 'background',
+    bg: 'light.primary',
     borderRadius: 'default',
   },
   header: {

@@ -41,16 +41,16 @@ const linkStyles = {
   cursor: 'pointer',
   marginY: '2px',
   ':hover:not(:focus)': {
-    color: 'brand',
+    color: '#F71963',
   },
   '&[aria-current="page"]': {
     borderLeftWidth: 2,
-    borderLeftColor: 'brand',
+    borderLeftColor: '#F71963',
     borderLeftStyle: 'solid',
-    color: 'brand',
+    color: '#F71963',
   },
   ':focus': {
-    color: 'brand',
+    color: '#F71963',
     outline: 'none',
   },
   svg: {
@@ -88,7 +88,7 @@ export default function DocsNavigation() {
           right: 0,
           left: 0,
           padding: 2,
-          bg: 'muted.2',
+          bg: 'mid.tertiary',
           display: 'flex',
           flexDirection: 'column',
         })}
@@ -112,7 +112,7 @@ export default function DocsNavigation() {
             styleOverrides={{
               paddingY: 0,
               paddingX: 0,
-              color: 'text.secondary',
+              color: 'dark.secondary',
             }}
             variant="highlight"
             id={getId(node.section)}

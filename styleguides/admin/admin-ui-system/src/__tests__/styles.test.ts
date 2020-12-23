@@ -565,3 +565,71 @@ test('supports vendor properties', () => {
     WebkitOverflowScrolling: 'touch',
   })
 })
+
+test('supports default values', () => {
+  const defaultTheme: Theme = {
+    colors: {
+      blue: {
+        default: 'blue-default',
+        hover: 'blue-hover',
+        secondary: {
+          default: 'blue-secondary-default',
+          hover: 'blue-secondary-hover',
+        },
+      },
+      red: {
+        default: 'red-default',
+        hover: 'red-hover',
+        secondary: {
+          default: 'red-secondary-default',
+          hover: 'red-secondary-hover',
+        },
+      },
+    },
+  }
+
+  const result = styles({
+    bg: 'blue',
+    ':hover': {
+      color: 'red.secondary',
+      borderColor: 'red.secondary.hover',
+    },
+  })(defaultTheme)
+
+  expect(result).toStrictEqual({
+    backgroundColor: 'blue-default',
+    ':hover': {
+      color: 'red-secondary-default',
+      borderColor: 'red-secondary-hover',
+    },
+  })
+})
+
+test('supports default objects', () => {
+  const defaultTheme: Theme = {
+    textFont: {
+      primary: {
+        default: {
+          lineHeight: 'default-lh',
+          fontSettings: 'regular',
+          fontSize: 'default-size',
+        },
+        highlight: {
+          lineHeight: 'highlight-lh',
+          fontSettings: 'regular',
+          fontSize: 2,
+        },
+      },
+    },
+  }
+
+  const result = styles({
+    textFont: 'primary',
+  })(defaultTheme)
+
+  expect(result).toStrictEqual({
+    lineHeight: 'default-lh',
+    fontVariationSettings: 'regular',
+    fontSize: 'default-size',
+  })
+})

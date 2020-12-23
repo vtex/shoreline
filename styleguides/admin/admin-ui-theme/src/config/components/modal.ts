@@ -4,9 +4,9 @@ import { colors } from '../base'
 
 const surface = {
   outline: 'none',
-  bg: 'background',
+  bg: 'light.primary',
   borderRadius: 3,
-  borderColor: 'muted.2',
+  borderColor: 'mid.tertiary',
   borderStyle: 'solid',
   borderWidth: 1,
   position: 'relative',
@@ -27,7 +27,7 @@ const header = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  borderColor: 'muted.2',
+  borderColor: 'mid.tertiary',
   borderStyle: 'solid',
   'button + button': {
     marginLeft: 4,
@@ -46,7 +46,7 @@ const header = {
   top: 0,
   left: 0,
   right: 0,
-  bg: 'background',
+  bg: 'light.primary',
   zIndex: 999,
 }
 
@@ -54,7 +54,7 @@ const footer = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  borderColor: 'muted.2',
+  borderColor: 'mid.tertiary',
   borderStyle: 'solid',
   borderBottomWidth: 0,
   borderLeftWidth: 0,
@@ -63,7 +63,7 @@ const footer = {
   bottom: 0,
   left: 0,
   right: 0,
-  bg: 'background',
+  bg: 'light.primary',
   padding: 6,
   flexDirection: ['column-reverse', 'column-reverse', 'row'],
   '>button': {
@@ -84,15 +84,15 @@ const content = {
 // TODO: Make it global
 const scrollbar = {
   scrollbarWidth: 'thin',
-  scrollbarColor: 'background',
+  scrollbarColor: 'light.primary',
   '::-webkit-scrollbar': {
     width: '8px',
   },
   '::-webkit-scrollbar-thumb': {
-    backgroundColor: 'muted.2',
+    backgroundColor: 'mid.tertiary',
     borderRadius: '6px',
     border: '2px solid',
-    color: 'background',
+    color: 'light.primary',
   },
 }
 
@@ -108,7 +108,7 @@ export default {
     flexDirection: 'column',
     justifyContent: ['flex-end', 'flex-end', 'center'],
     alignItems: 'center',
-    backgroundColor: rgba(colors.text.primary, 0.5),
+    backgroundColor: rgba(colors.dark.primary, 0.5),
     position: 'fixed',
     top: 0,
     left: 0,

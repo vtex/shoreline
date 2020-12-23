@@ -95,9 +95,22 @@ export const styles = (args: StyleProp = {}) => (
     const isObjectScale = value && typeof value === 'object'
 
     if (isObjectScale) {
-      value = styles(value)(theme)
-      Object.assign(result, value)
-      delete result[prop]
+      const defaultValue = value.default
+
+      if (defaultValue) {
+        if (typeof defaultValue === 'object') {
+          value = styles(defaultValue)(theme)
+          Object.assign(result, value)
+          delete result[prop]
+        } else {
+          value = { [prop]: defaultValue }
+          Object.assign(result, value)
+        }
+      } else {
+        value = styles(value)(theme)
+        Object.assign(result, value)
+        delete result[prop]
+      }
     }
 
     if (prop in multiples) {

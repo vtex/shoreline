@@ -3,14 +3,14 @@ import { space } from '../base'
 export default {
   display: 'flex',
   flexDirection: 'column',
-  bg: 'background',
+  bg: 'light.primary',
   marginTop: 1,
   padding: 3,
   minWidth: 18,
   borderRadius: 3,
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: 'muted.1',
+  borderColor: 'mid.secondary',
   boxShadow: 'menu',
   hr: {
     marginY: 2,
@@ -19,7 +19,7 @@ export default {
     borderTop: 'none',
     borderLeft: 'none',
     borderRight: 'none',
-    borderColor: 'muted.1',
+    borderColor: 'mid.secondary',
     width: `calc(100% -${space[3]})`,
     marginX: `-${space[3]}`,
     outline: 'none',
@@ -27,17 +27,17 @@ export default {
   '> button': {
     marginY: '2px',
     paddingX: 1,
-    color: 'text.primary',
+    color: 'dark.primary',
     fontSize: 1,
     border: 'none',
     textTransform: 'initial',
     ':focus': {
-      bg: 'secondary.base',
+      bg: 'blue.secondary',
       outline: 'none',
       boxShadow: 'none',
     },
     ':hover': {
-      color: 'text.primary',
+      color: 'dark.primary',
     },
     width: 'full',
     div: {

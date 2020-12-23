@@ -120,7 +120,11 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
             {label}
           </Label>
         </Box>
-        <IconCaret direction="down" size={20} color="text.secondary" />
+        <IconCaret
+          direction="down"
+          size={20}
+          styleOverrides={{ color: 'dark.secondary' }}
+        />
       </Box>
 
       <Box
@@ -149,7 +153,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
                     paddingLeft: state.selectedItem ? 9 : 12,
                     backgroundColor:
                       state.highlightedIndex === index
-                        ? 'muted.3'
+                        ? 'light.secondary'
                         : 'transparent',
                   }}
                 >
@@ -158,7 +162,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
                       {renderItem(item) === renderItem(state.selectedItem) ? (
                         <IconCheck
                           size={16}
-                          styleOverrides={{ color: 'text.primary' }}
+                          styleOverrides={{ color: 'dark.primary' }}
                         />
                       ) : (
                         <Box styles={{ width: 16 }} />

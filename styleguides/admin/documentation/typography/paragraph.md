@@ -43,7 +43,7 @@ You can use the `styleOverrides` property to handle different styles, and also t
 <Paragraph
   text="body"
   padding={6}
-  styleOverrides={{ bg: 'muted.3', color: 'primary.base' }}
+  styleOverrides={{ bg: 'light.secondary', color: 'blue' }}
 >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a aliquam
   ex, quis pretium enim. Sed cursus quam ac lorem efficitur, ac sodales lorem

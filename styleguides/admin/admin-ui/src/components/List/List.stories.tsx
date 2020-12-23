@@ -39,8 +39,8 @@ export function Patterns() {
 
 export function StyleOverrides() {
   return (
-    <List style="circle" styleOverrides={{ bg: 'secondary.base' }}>
-      <List.Item styleOverrides={{ bg: 'primary.base', color: 'background' }}>
+    <List style="circle" styleOverrides={{ bg: 'blue.secondary' }}>
+      <List.Item styleOverrides={{ bg: 'blue', color: 'light.primary' }}>
         Coffee Primary
       </List.Item>
       <List.Item>Juice</List.Item>

@@ -13,13 +13,13 @@ To create a basic columned layout, add a `<Columns>` component and then add your
 ```jsx
 <Columns spacing={1}>
   <Columns.Item>
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
   </Columns.Item>
   <Columns.Item>
-    <Box styles={{ bg: 'secondary.hover', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
   </Columns.Item>
   <Columns.Item>
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
   </Columns.Item>
 </Columns>
 ```
@@ -37,13 +37,13 @@ yarn add @vtex/admin-ui
 ```jsx
 <Columns spacing={1}>
   <Columns.Item>
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
   </Columns.Item>
   <Columns.Item>
-    <Box styles={{ bg: 'secondary.hover', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
   </Columns.Item>
   <Columns.Item>
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
   </Columns.Item>
 </Columns>
 ```
@@ -53,13 +53,13 @@ yarn add @vtex/admin-ui
 ```jsx
 <Columns spacing={0}>
   <Columns.Item>
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
   </Columns.Item>
   <Columns.Item>
-    <Box styles={{ bg: 'secondary.hover', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
   </Columns.Item>
   <Columns.Item>
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
   </Columns.Item>
 </Columns>
 ```
@@ -69,13 +69,13 @@ yarn add @vtex/admin-ui
 ```jsx
 <Columns spacing={1}>
   <Columns.Item units={3}>
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>3 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>3 units</Box>
   </Columns.Item>
   <Columns.Item units={6}>
-    <Box styles={{ bg: 'secondary.hover', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
   </Columns.Item>
   <Columns.Item units={3}>
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>3 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>3 units</Box>
   </Columns.Item>
 </Columns>
 ```
@@ -87,10 +87,10 @@ yarn add @vtex/admin-ui
 ```jsx
 <Columns spacing={1}>
   <Columns.Item units={6} offset={['right', 'right', 'none']}>
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
   </Columns.Item>
   <Columns.Item units={3}>
-    <Box styles={{ bg: 'secondary.hover', padding: 2 }}>3 units</Box>
+    <Box styles={{ bg: 'blue.secondary.hover', padding: 2 }}>3 units</Box>
   </Columns.Item>
 </Columns>
 ```
@@ -100,12 +100,12 @@ yarn add @vtex/admin-ui
 You can use the styleOverrides property to handle different styles in both `Columns`, and `Columns.Item`.
 
 ```jsx
-<Columns spacing={1} styleOverrides={{ bg: 'muted.2' }}>
+<Columns spacing={1} styleOverrides={{ bg: 'mid.tertiary' }}>
   <Columns.Item units={6} offset="right">
-    <Box styles={{ bg: 'secondary.base', padding: 2 }}>6 units</Box>
+    <Box styles={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
   </Columns.Item>
   <Columns.Item units={3}>
-    <Box styles={{ bg: 'secondary.hover', padding: 2 }}>3 units</Box>
+    <Box styles={{ bg: 'blue.secondary.hover', padding: 2 }}>3 units</Box>
   </Columns.Item>
 </Columns>
 ```

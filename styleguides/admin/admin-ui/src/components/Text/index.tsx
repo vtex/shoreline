@@ -29,12 +29,12 @@ function useText(props: TextProps) {
   } = props
 
   const color = {
-    default: 'text.primary',
-    secondary: 'text.secondary',
-    primary: 'primary.base',
-    success: 'success.base',
-    danger: 'danger.base',
-    warning: 'warning.base',
+    default: 'dark.primary',
+    secondary: 'dark.secondary',
+    primary: 'blue',
+    success: 'green',
+    danger: 'red',
+    warning: 'yellow',
   }[feedback]
 
   const className = cn({

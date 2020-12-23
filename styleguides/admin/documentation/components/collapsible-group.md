@@ -6,7 +6,7 @@ path: /collapsible-group/
 
 A Component that groups Collapsible components. It's a container that separates its children with an `<hr>` element.
 
-<blockquote palette="primary">
+<blockquote palette="blue">
 
 You may want to check the [Collapsible Documentation](/collapsible/) before using the CollapsibleGroup component.
 
@@ -37,13 +37,13 @@ function Example() {
             <Set orientation="vertical">
               <Text
                 variant="small"
-                styleOverrides={{ color: 'text.secondary' }}
+                styleOverrides={{ color: 'dark.secondary' }}
               >
                 Partner - app_ios
               </Text>
               <Text
                 variant="small"
-                styleOverrides={{ color: 'text.secondary' }}
+                styleOverrides={{ color: 'dark.secondary' }}
               >
                 Campaign - Campaign Name
               </Text>
@@ -98,10 +98,10 @@ function Example() {
         <Collapsible.Header label="Marketing" />
         <Collapsible.Content>
           <Set orientation="vertical">
-            <Text variant="small" styleOverrides={{ color: 'text.secondary' }}>
+            <Text variant="small" styleOverrides={{ color: 'dark.secondary' }}>
               Partner - app_ios
             </Text>
-            <Text variant="small" styleOverrides={{ color: 'text.secondary' }}>
+            <Text variant="small" styleOverrides={{ color: 'dark.secondary' }}>
               Campaign - Campaing Name
             </Text>
           </Set>
@@ -118,19 +118,16 @@ function Example() {
             <Collapsible.Header label={value} />
             <Collapsible.Content>
               <Set orientation="vertical" spacing={2}>
-                <Text
-                  variant="small"
-                  styleOverrides={{ color: 'primary.base' }}
-                >
+                <Text variant="small" styleOverrides={{ color: 'blue' }}>
                   N 00025755809
                 </Text>
-                <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
+                <Text variant="small" styleOverrides={{ color: 'mid.primary' }}>
                   Total cost of items - 39,00 BRL
                 </Text>
-                <Text variant="small" styleOverrides={{ color: 'muted.0' }}>
+                <Text variant="small" styleOverrides={{ color: 'mid.primary' }}>
                   Type - Total Express
                 </Text>
-                <Text styleOverrides={{ color: 'primary.base' }}>
+                <Text styleOverrides={{ color: 'blue' }}>
                   Tracking - XSDFE231675
                 </Text>
               </Set>

@@ -92,6 +92,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+  color: #707685;
 }
 
 .emotion-5 {
@@ -137,7 +138,6 @@ exports[`Select tests should render a Select with a list of string and other wit
           </div>
           <svg
             class="emotion-3"
-            color="text.secondary"
             fill="none"
             viewBox="0 0 24 24"
           >
@@ -250,6 +250,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+  color: #707685;
 }
 
 .emotion-5 {
@@ -295,7 +296,6 @@ exports[`Select tests should render a Select with a list of string and other wit
           </div>
           <svg
             class="emotion-3"
-            color="text.secondary"
             fill="none"
             viewBox="0 0 24 24"
           >

@@ -29,8 +29,8 @@ export const ConsumeTheme: Story = () => {
     <Box
       styles={{
         fontSize: 64,
-        bg: 'primary.base',
-        color: 'primary.accent',
+        bg: 'blue',
+        color: 'light.primary',
         borderRadius: 4,
       }}
     >

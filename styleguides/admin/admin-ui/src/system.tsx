@@ -31,7 +31,7 @@ function ThemeProvider(props: ThemeProviderProps) {
 
           body {
             margin: 0;
-            background-color: ${get(theme, 'colors.background')};
+            background-color: ${get(theme, 'colors.light.primary')};
             color: ${get(theme, 'colors.text')};
           }
 
