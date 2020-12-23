@@ -1,7 +1,7 @@
 - section: Guide
   paths:
     - /guide/get-started/
-    - /guide/next/
+    - /guide/experimental/
     - /guide/contributing/
     - /guide/icons/
 - section: Theming

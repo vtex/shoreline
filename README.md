@@ -42,10 +42,10 @@ yarn publish:packages
 or
 
 ```bash
-yarn publish:next
+yarn publish:experimental
 ```
 
-To publish a next version
+To publish a experimental version
 
 ### Commit Messages
 
