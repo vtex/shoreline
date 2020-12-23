@@ -8,7 +8,7 @@ import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
 import Blockquote from '../components/Blockquote'
-import Next from '../icons/Next'
+import Experimental from '../icons/Experimental'
 import Heading from '../components/Heading'
 import Seo from '../components/SEO'
 import DocsBackNext from '../components/DocsBackNext'
@@ -121,7 +121,7 @@ const { Compiler: renderAst } = new RehypeReact({
       return (
         <span {...props}>
           {children}
-          {title === 'Next' && <Next />}
+          {title === 'Experimental' && <Experimental />}
         </span>
       )
     },
@@ -479,7 +479,7 @@ type DocsProps = {
       excerpt: string
       frontmatter: {
         path: string
-        next: boolean
+        experimental: boolean
       }
     }
   }

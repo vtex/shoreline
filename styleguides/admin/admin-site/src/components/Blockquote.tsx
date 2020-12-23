@@ -3,19 +3,19 @@ import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
 import { cn } from '@vtex/admin-ui'
 
-import Next from '../icons/Next'
+import Experimental from '../icons/Experimental'
 
 export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
   {
     name: 'Blockquote',
     compose: useBox,
-    keys: ['next', 'palette'],
+    keys: ['experimental', 'palette'],
 
     useProps(options, htmlProps) {
-      const isNext = options.next === 'true'
+      const isExperimental = options.experimental === 'true'
       const palette = options.palette ?? 'warning'
 
-      const nextStyles = isNext
+      const experimentalStyles = isExperimental
         ? {
             display: 'flex',
             svg: {
@@ -29,9 +29,9 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
 
       return {
         ...htmlProps,
-        children: isNext ? (
+        children: isExperimental ? (
           <Fragment>
-            <Next />
+            <Experimental />
             <div>{htmlProps.children}</div>
           </Fragment>
         ) : (
@@ -53,7 +53,7 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
           p: {
             margin: 0,
           },
-          ...nextStyles,
+          ...experimentalStyles,
         }),
       }
     },
@@ -66,7 +66,7 @@ const Blockquote = createComponent({
 })
 
 export type BlockquoteOptions = BoxOptions & {
-  next?: 'true' | 'false'
+  experimental?: 'true' | 'false'
   palette?: 'primary' | 'success' | 'danger' | 'warning'
 }
 

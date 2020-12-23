@@ -1,6 +1,6 @@
 ---
 path: /table/
-next: true
+experimental: true
 ---
 
 # Table
