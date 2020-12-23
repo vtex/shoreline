@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.16-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.15...admin-site@0.8.16-experimental.0) (2020-12-23)
+
+
+### Bug Fixes
+
+* **colors:** remove accent colors ([9803727](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/9803727dd621276b163250e19933f1dbe1a14c31))
+
+
+### Features
+
+* **colors:** change color structure to be aligned with figma ([e53963c](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/e53963cb9847cd2e0a95b47bfbc4572c891cac17))
+
+
+
+
+
 ## [0.8.15](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.14...admin-site@0.8.15) (2020-12-23)
 
 **Note:** Version bump only for package admin-site
