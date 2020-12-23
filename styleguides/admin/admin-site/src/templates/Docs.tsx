@@ -191,7 +191,7 @@ const { Compiler: renderAst } = new RehypeReact({
         <th
           className={cn({
             paddingX: 3,
-            borderBottomColor: 'mid.1',
+            borderBottomColor: 'mid.secondary',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',
@@ -205,7 +205,7 @@ const { Compiler: renderAst } = new RehypeReact({
         <td
           className={cn({
             paddingX: 3,
-            borderBottomColor: 'mid.1',
+            borderBottomColor: 'mid.secondary',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',

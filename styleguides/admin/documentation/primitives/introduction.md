@@ -58,7 +58,7 @@ function Example() {
 // 🚫 Wrong
 function Example() {
   return (
-    <div className={cn({ padding: 2, margin: 2, bg: 'mid.2' })}>
+    <div className={cn({ padding: 2, margin: 2, bg: 'mid.tertiary' })}>
       {...content}
     </div>
   )
@@ -66,7 +66,11 @@ function Example() {
 
 // ✅ Correct
 function Example() {
-  return <Box styles={{ bg: 'mid.2', padding: 2, margin: 2 }}>{...content}</Box>
+  return (
+    <Box styles={{ bg: 'mid.tertiary', padding: 2, margin: 2 }}>
+      {...content}
+    </Box>
+  )
 }
 ```
 
@@ -131,7 +135,7 @@ function Example() {
         borderStyle: 'solid',
         borderWidth: '1px',
         borderRadius: 'default',
-        borderColor: 'mid.2',
+        borderColor: 'mid.tertiary',
         padding: 6,
       }}
     >

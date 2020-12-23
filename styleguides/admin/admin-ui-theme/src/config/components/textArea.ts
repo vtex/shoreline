@@ -10,7 +10,7 @@ const textAreaInputStyle = {
   borderWidth: 1,
   paddingLeft: 3,
   paddingRight: 4,
-  borderColor: 'mid.2',
+  borderColor: 'mid.tertiary',
   borderRadius: 'default',
   bg: 'inherit',
   marginY: 1,
@@ -27,8 +27,8 @@ const textAreaInputStyle = {
   },
   ':disabled': {
     bg: 'light.secondary',
-    borderColor: 'mid.0',
-    color: 'mid.0',
+    borderColor: 'mid.primary',
+    color: 'mid.primary',
   },
   // Label styles
   ':focus + label': {
@@ -76,7 +76,7 @@ export default {
     fontSize: 1,
     left: 12,
     paddingTop: 2,
-    color: 'mid.0',
+    color: 'mid.primary',
     marginBottom: 3,
     position: 'absolute',
     transform: 'translate(0, 16px) scale(1)',

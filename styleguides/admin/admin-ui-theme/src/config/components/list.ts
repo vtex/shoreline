@@ -4,7 +4,7 @@ const itemStyles = {
   alignItems: 'center',
   borderBottomWidth: 1,
   borderBottomStyle: 'solid',
-  borderBottomColor: 'mid.2',
+  borderBottomColor: 'mid.tertiary',
   justifyContent: 'flex-start',
 }
 

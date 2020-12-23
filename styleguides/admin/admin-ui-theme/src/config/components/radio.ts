@@ -7,7 +7,7 @@ const style = {
   cursor: 'pointer',
   borderStyle: 'solid',
   borderWidth: '1px',
-  borderColor: 'mid.1',
+  borderColor: 'mid.secondary',
   backgroundColor: 'transparent',
   borderRadius: 'circle',
   ':after': {
@@ -34,10 +34,10 @@ const style = {
   },
   ':disabled': {
     cursor: 'not-allowed',
-    backgroundColor: 'mid.2',
-    borderColor: 'mid.0',
+    backgroundColor: 'mid.tertiary',
+    borderColor: 'mid.primary',
     ':after': {
-      backgroundColor: 'mid.0',
+      backgroundColor: 'mid.primary',
     },
   },
   ':hover': {

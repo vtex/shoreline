@@ -18,7 +18,7 @@ const optionsContainer = {
   flexDirection: 'column',
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: 'mid.0',
+  borderColor: 'mid.primary',
   borderRadius: 'default',
 }
 
@@ -28,7 +28,7 @@ const optionsLabel = {
   paddingTop: 2,
   paddingBottom: 1,
   paddingLeft: 3,
-  color: 'mid.0',
+  color: 'mid.primary',
 }
 
 const optionsUl = {
@@ -60,7 +60,7 @@ const button = {
   borderWidth: 1,
   paddingLeft: 3,
   paddingRight: 4,
-  borderColor: 'mid.1',
+  borderColor: 'mid.secondary',
   borderRadius: 'default',
   bg: 'inherit',
   marginBottom: 1,
@@ -68,7 +68,7 @@ const button = {
   color: 'dark.secondary',
   outline: 0,
   ':hover': {
-    borderColor: 'mid.0',
+    borderColor: 'mid.primary',
   },
   ':hover > svg': {
     color: 'dark.primary',
@@ -79,7 +79,7 @@ const button = {
   },
   ':disabled': {
     bg: 'light.secondary',
-    borderColor: 'mid.0',
+    borderColor: 'mid.primary',
     color: 'dark.secondary',
     cursor: 'initial',
   },
@@ -146,7 +146,7 @@ const mobileSelect = {
   appearance: 'none',
   backgroundColor: 'transparent',
   border: '1px solid',
-  borderColor: 'mid.1',
+  borderColor: 'mid.secondary',
   borderRadius: 'default',
   paddingTop: '16px',
   paddingLeft: '12px',
@@ -158,7 +158,7 @@ const mobileSelect = {
   },
   ':disabled': {
     bg: 'light.secondary',
-    borderColor: 'mid.0',
+    borderColor: 'mid.primary',
     color: 'dark.primary',
     opacity: 1,
   },
