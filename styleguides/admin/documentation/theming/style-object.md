@@ -78,7 +78,7 @@ You can use all [CSS Pseudo-classes](https://developer.mozilla.org/en-US/docs/We
 <div
   className={cn({
     bg: 'blue',
-    color: 'blue.accent',
+    color: 'light.primary',
     padding: 1,
     size: 64,
     transition: 'snap',
