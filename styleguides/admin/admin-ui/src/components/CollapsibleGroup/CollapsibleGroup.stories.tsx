@@ -91,10 +91,10 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
                 <Text variant="small" styleOverrides={{ color: 'blue' }}>
                   N 00025755809
                 </Text>
-                <Text variant="small" styleOverrides={{ color: 'mid.0' }}>
+                <Text variant="small" styleOverrides={{ color: 'mid.primary' }}>
                   Total cost of items - 39,00 BRL
                 </Text>
-                <Text variant="small" styleOverrides={{ color: 'mid.0' }}>
+                <Text variant="small" styleOverrides={{ color: 'mid.primary' }}>
                   Type - Total Express
                 </Text>
                 <Text styleOverrides={{ color: 'blue' }}>

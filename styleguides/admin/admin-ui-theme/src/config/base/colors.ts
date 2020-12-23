@@ -22,7 +22,11 @@ export default {
     primary: semanticColors.white,
     secondary: '#F4F6FB',
   },
-  mid: ['#898F9E', '#C4C5CA', '#E0E2E7'],
+  mid: {
+    primary: '#898F9E',
+    secondary: '#C4C5CA',
+    tertiary: '#E0E2E7',
+  },
   focus: '#8DB6FA',
   blue: {
     default: semanticColors.blue,

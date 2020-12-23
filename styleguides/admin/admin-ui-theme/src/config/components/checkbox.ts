@@ -2,7 +2,7 @@ const styles = {
   appearance: 'none',
   borderStyle: 'solid',
   borderWidth: 1,
-  borderColor: 'mid.0',
+  borderColor: 'mid.primary',
   borderRadius: 3,
   cursor: 'pointer',
   display: 'flex',
@@ -43,9 +43,9 @@ const styles = {
       borderColor: 'currentColor',
     },
     '&:disabled': {
-      backgroundColor: 'mid.1',
-      borderColor: 'mid.0',
-      color: 'mid.0',
+      backgroundColor: 'mid.secondary',
+      borderColor: 'mid.primary',
+      color: 'mid.primary',
     },
     '&:hover': {
       borderColor: 'blue.hover',
@@ -58,9 +58,9 @@ const styles = {
     },
   },
   '&:disabled': {
-    backgroundColor: 'mid.1',
-    borderColor: 'mid.0',
-    color: 'mid.0',
+    backgroundColor: 'mid.secondary',
+    borderColor: 'mid.primary',
+    color: 'mid.primary',
   },
   '&:hover': {
     borderColor: 'dark.primary',

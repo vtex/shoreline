@@ -100,7 +100,7 @@ yarn add @vtex/admin-ui
 You can use the styleOverrides property to handle different styles in both `Columns`, and `Columns.Item`.
 
 ```jsx
-<Columns spacing={1} styleOverrides={{ bg: 'mid.2' }}>
+<Columns spacing={1} styleOverrides={{ bg: 'mid.tertiary' }}>
   <Columns.Item units={6} offset="right">
     <Box styles={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
   </Columns.Item>

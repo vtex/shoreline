@@ -41,35 +41,31 @@ function ColorCard(props: CardProps) {
         A
       </Flex>
       <Flex justify="space-between" styles={{ padding: 3 }}>
-        <Set spacing={2} orientation="vertical">
-          <Set spacing={1} orientation="vertical">
-            <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
-              Color
-            </Text>
-            <Text
-              styleOverrides={{
-                display: 'block',
-              }}
-            >
-              {name}
-            </Text>
-          </Set>
+        <Set spacing={1} orientation="vertical">
+          <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
+            Color
+          </Text>
+          <Text
+            styleOverrides={{
+              display: 'block',
+            }}
+          >
+            {name}
+          </Text>
         </Set>
 
-        <Set spacing={1} orientation="vertical" styleOverrides={{ width: 65 }}>
-          <Set spacing={1} orientation="vertical">
-            <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
-              Hex
-            </Text>
-            <Text
-              styleOverrides={{
-                textTransform: 'uppercase',
-                display: 'block',
-              }}
-            >
-              {color}
-            </Text>
-          </Set>
+        <Set spacing={1} orientation="vertical">
+          <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
+            Hex
+          </Text>
+          <Text
+            styleOverrides={{
+              textTransform: 'uppercase',
+              display: 'block',
+            }}
+          >
+            {color}
+          </Text>
         </Set>
       </Flex>
       {contrast && (
@@ -115,18 +111,18 @@ export function MidColors() {
   return (
     <Set spacing={2}>
       <ColorCard
-        color={getColor('mid.0')}
-        name="mid.0"
+        color={getColor('mid.primary')}
+        name="mid.primary"
         contrast="light.primary"
       />
       <ColorCard
-        color={getColor('mid.1')}
-        name="mid.1"
+        color={getColor('mid.secondary')}
+        name="mid.secondary"
         contrast="dark.primary"
       />
       <ColorCard
-        color={getColor('mid.2')}
-        name="mid.2"
+        color={getColor('mid.tertiary')}
+        name="mid.tertiary"
         contrast="dark.primary"
       />
     </Set>

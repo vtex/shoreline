@@ -5,9 +5,9 @@ const styles = {
   position: 'relative',
   cursor: 'pointer',
   borderRadius: '6.25rem',
-  backgroundColor: 'mid.0',
+  backgroundColor: 'mid.primary',
   borderStyle: 'solid',
-  borderColor: 'mid.0',
+  borderColor: 'mid.primary',
   borderWidth: 1,
   '&:after': {
     content: '""',
@@ -25,10 +25,10 @@ const styles = {
       borderColor: 'green.hover',
     },
     '&:disabled': {
-      backgroundColor: 'mid.0',
-      borderColor: 'mid.0',
+      backgroundColor: 'mid.primary',
+      borderColor: 'mid.primary',
       '&:after': {
-        backgroundColor: 'mid.1',
+        backgroundColor: 'mid.secondary',
       },
     },
   },
@@ -37,10 +37,10 @@ const styles = {
     borderColor: 'dark.secondary',
   },
   '&:disabled': {
-    backgroundColor: 'mid.0',
-    borderColor: 'mid.0',
+    backgroundColor: 'mid.primary',
+    borderColor: 'mid.primary',
     '&:after': {
-      backgroundColor: 'mid.1',
+      backgroundColor: 'mid.secondary',
     },
   },
   ':not(:checked):active': {

@@ -12,7 +12,7 @@ export default create({
   // UI
   appBg: colors.light.primary,
   appContentBg: colors.light.secondary,
-  appBorderColor: colors.mid[2],
+  appBorderColor: colors.mid.tertiary,
   appBorderRadius: borderRadius[2],
 
   // Typography
@@ -32,7 +32,7 @@ export default create({
 
   // Form colors
   inputBg: colors.light.primary,
-  inputBorder: colors.mid[2],
+  inputBorder: colors.mid.tertiary,
   inputTextColor: colors.dark.primary,
   inputBorderRadius: borderRadius.default,
 

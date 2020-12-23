@@ -109,7 +109,7 @@ export function NumericStepper(props: NumericStepperProps) {
         <Box
           styles={{
             text: 'small',
-            color: error ? 'red' : 'mid.0',
+            color: error ? 'red' : 'mid.primary',
             marginTop: 2,
           }}
         >

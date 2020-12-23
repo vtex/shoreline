@@ -10,7 +10,7 @@ export default function Kbd(props: KbdProps) {
         paddingX: 2,
         paddingY: 1,
         borderRadius: 'default',
-        borderColor: 'mid.1',
+        borderColor: 'mid.secondary',
         bg: 'light.secondary',
         borderBottomWidth: 3,
         borderTopWidth: '1',
