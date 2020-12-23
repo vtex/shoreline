@@ -14,7 +14,7 @@ const styles = {
     display: 'block',
     position: 'absolute',
     borderRadius: '1.25rem',
-    backgroundColor: 'green.accent',
+    backgroundColor: 'light.primary',
     transition: 'transform .25s ease',
   },
   '&:checked': {

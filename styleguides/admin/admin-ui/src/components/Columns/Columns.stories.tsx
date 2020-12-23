@@ -12,7 +12,7 @@ export default {
 const primaryStyles = {
   padding: 2,
   bg: 'blue',
-  color: 'blue.accent',
+  color: 'light.primary',
 }
 
 const invertedStyles = {

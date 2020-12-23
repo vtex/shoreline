@@ -31,7 +31,7 @@ In the example below, the `<Box>` has full width while on `mobile`, and half on 
     width: ['full', '1/2'],
     padding: 4,
     bg: 'blue',
-    color: 'blue.accent',
+    color: 'light.primary',
   }}
 />
 ```
