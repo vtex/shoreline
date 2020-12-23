@@ -62,6 +62,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **primitives:** now Grid and Flex can render any html element ([1dd4530](https://github.com/vtex/onda/commit/1dd4530290d9b269fc10a72e94eaa90f9e0085ae))
 * **select:** fix help text padding, icon size and viewport of documentation ([34d486a](https://github.com/vtex/onda/commit/34d486a66c14ad26a4a46812a08e963df39c1010))
+## [0.69.3-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.2...@vtex/admin-ui@0.69.3-experimental.0) (2020-12-23)
+
+
+### Bug Fixes
+
+* **colors:** remove accent colors ([9803727](https://github.com/vtex/onda/commit/9803727dd621276b163250e19933f1dbe1a14c31))
+
+
+### Features
+
+* **colors:** change color structure to be aligned with figma ([e53963c](https://github.com/vtex/onda/commit/e53963cb9847cd2e0a95b47bfbc4572c891cac17))
 
 
 
