@@ -17,6 +17,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * **select:** fix help text padding, icon size and viewport of documentation ([34d486a](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/34d486a66c14ad26a4a46812a08e963df39c1010))
+## [0.8.16-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.15...admin-site@0.8.16-experimental.0) (2020-12-23)
+
+
+### Bug Fixes
+
+* **colors:** remove accent colors ([9803727](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/9803727dd621276b163250e19933f1dbe1a14c31))
+
+
+### Features
+
+* **colors:** change color structure to be aligned with figma ([e53963c](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/e53963cb9847cd2e0a95b47bfbc4572c891cac17))
 
 
 
