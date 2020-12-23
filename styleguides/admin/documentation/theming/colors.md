@@ -29,27 +29,21 @@ The colors that will receive most of the app's content. Neutral colors can be ap
 
 <lightcolors></lightcolors>
 
-### Dark
-
-<darkcolors></darkcolors>
-
 ### Mid
 
 <midcolors></midcolors>
+
+### Dark
+
+<darkcolors></darkcolors>
 
 ## Semantic
 
 ### Blue
 
-The blue primary color is the color used on the interactive elements of an app. It should drive the user's attention to the tasks that should be done using the app.
+The blue color is the color used on the interactive elements of an app. It should drive the user's attention to the tasks that should be done using the app.
 
 <semanticcolor color="blue"></semanticcolor>
-
-#### Secondary
-
-The blue secondary color is used on the less important interactions of an app. It should be visually less prominent in comparison with the blue primary color.
-
-<semanticcolor color="blue.secondary"></semanticcolor>
 
 ### Red
 
@@ -57,29 +51,17 @@ Red color is used to give users error feedbacks and inform that they need extrem
 
 <semanticcolor color="red"></semanticcolor>
 
-#### Secondary
-
-<semanticcolor color="red.secondary"></semanticcolor>
-
 ### Yellow
 
 Yellow color is used to inform users that something is not performing as it should or that they need caution before taking some action.
 
 <semanticcolor color="yellow"></semanticcolor>
 
-#### Secondary
-
-<semanticcolor color="yellow.secondary"></semanticcolor>
-
 ### Green
 
 Green color is used to give the user a positive perception of an information that's being displayed.
 
 <semanticcolor color="green"></semanticcolor>
-
-#### Secondary
-
-<semanticcolor color="green.secondary"></semanticcolor>
 
 ### Complementary
 
