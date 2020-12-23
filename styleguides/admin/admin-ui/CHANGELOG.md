@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.69.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.1...@vtex/admin-ui@0.69.2) (2020-12-23)
+
+
+### Bug Fixes
+
+* **primitives:** now Grid and Flex can render any html element ([981c301](https://github.com/vtex/onda/commit/981c301a95f0bf586f4e8baac437db7347b25df8))
+
+
+
+
+
 ## [0.69.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.68.2...@vtex/admin-ui@0.69.1) (2020-12-22)
 
 
