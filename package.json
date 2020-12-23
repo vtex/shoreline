@@ -23,7 +23,7 @@
     "prepublish:packages": "yarn && yarn build",
     "prepublish:experimental": "yarn && yarn build",
     "publish:packages": "lerna publish --yes",
-    "publish:experimental": "lerna publish --dist-tag experimental",
+    "publish:experimental": "lerna publish --pre-dist-tag experimental",
     "clean": "lerna clean && lerna run clean",
     "format": "prettier --write \"styleguides/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "eslint styleguides/ --ext .js,.ts,.jsx,.tsx",
