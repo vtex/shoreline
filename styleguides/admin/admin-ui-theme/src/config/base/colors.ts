@@ -28,48 +28,40 @@ export default {
     default: semanticColors.blue,
     hover: darken(0.08, semanticColors.blue),
     pressed: darken(0.16, semanticColors.blue),
-    accent: semanticColors.white,
     secondary: {
       default: semanticColors.blueSecondary,
       hover: darken(0.04, semanticColors.blueSecondary),
       pressed: darken(0.08, semanticColors.blueSecondary),
-      accent: semanticColors.blue,
     },
   },
   red: {
     default: semanticColors.red,
     hover: darken(0.08, semanticColors.red),
     pressed: darken(0.16, semanticColors.red),
-    accent: semanticColors.white,
     secondary: {
       default: semanticColors.redSecondary,
       hover: darken(0.04, semanticColors.redSecondary),
       pressed: darken(0.08, semanticColors.redSecondary),
-      accent: semanticColors.red,
     },
   },
   yellow: {
     default: semanticColors.yellow,
     hover: darken(0.08, semanticColors.yellow),
     pressed: darken(0.16, semanticColors.yellow),
-    accent: semanticColors.black,
     secondary: {
       default: semanticColors.yellowSecondary,
       hover: darken(0.04, semanticColors.yellowSecondary),
       pressed: darken(0.08, semanticColors.yellowSecondary),
-      accent: semanticColors.black,
     },
   },
   green: {
     default: semanticColors.green,
     hover: darken(0.08, semanticColors.green),
     pressed: darken(0.16, semanticColors.green),
-    accent: semanticColors.white,
     secondary: {
       default: semanticColors.greenSecondary,
       hover: darken(0.04, semanticColors.greenSecondary),
       pressed: darken(0.08, semanticColors.greenSecondary),
-      accent: semanticColors.black,
     },
   },
 }

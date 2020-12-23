@@ -30,7 +30,7 @@ export const ConsumeTheme: Story = () => {
       styles={{
         fontSize: 64,
         bg: 'blue',
-        color: 'blue.accent',
+        color: 'light.primary',
         borderRadius: 4,
       }}
     >

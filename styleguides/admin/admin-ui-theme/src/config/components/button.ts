@@ -105,7 +105,7 @@ const size = {
 const variant = {
   primary: {
     textTransform: 'uppercase',
-    color: 'blue.accent',
+    color: 'light.primary',
     backgroundColor: 'blue',
     ':hover': {
       backgroundColor: 'blue.hover',
@@ -121,7 +121,7 @@ const variant = {
   secondary: {
     textTransform: 'uppercase',
     backgroundColor: 'blue.secondary',
-    color: 'blue.secondary.accent',
+    color: 'blue',
     ':hover': {
       backgroundColor: 'blue.secondary.hover',
     },
@@ -151,7 +151,7 @@ const variant = {
   },
   danger: {
     textTransform: 'uppercase',
-    color: 'red.accent',
+    color: 'light.primary',
     backgroundColor: 'red',
     ':hover': {
       backgroundColor: 'red.hover',
@@ -184,7 +184,7 @@ const variant = {
   'danger-tertiary': {
     textTransform: 'capitalize',
     backgroundColor: 'transparent',
-    color: 'red.secondary.accent',
+    color: 'red',
     ':hover': {
       color: 'red.hover',
       backgroundColor: 'red.secondary.hover',

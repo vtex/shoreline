@@ -14,7 +14,7 @@ const styles = {
   borderWidth: 1,
   borderColor: 'mid.0',
   borderRadius: 'default',
-  backgroundColor: 'blue.accent',
+  backgroundColor: 'light.primary',
   ':hover': {
     borderColor: 'dark.primary',
   },

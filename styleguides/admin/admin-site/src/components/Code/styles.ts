@@ -39,7 +39,7 @@ export default {
       'no-common-ligatures no-discretionary-ligatures no-historical-ligatures no-contextual',
     padding: '1rem',
     bg: 'red.secondary',
-    color: 'red.secondary.accent',
+    color: 'red',
     text: 'body',
   },
   copyButton: {
