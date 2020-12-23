@@ -9,15 +9,17 @@ const semanticColors = {
   yellowSecondary: '#F6E0BA',
   green: '#368369',
   greenSecondary: '#CEE8DE',
+  black: '#323845',
+  white: '#FFFFFF',
 }
 
 export default {
   dark: {
-    primary: '#323845',
+    primary: semanticColors.black,
     secondary: '#707685',
   },
   light: {
-    primary: '#FFFFFF',
+    primary: semanticColors.white,
     secondary: '#F4F6FB',
   },
   mid: ['#898F9E', '#C4C5CA', '#E0E2E7'],
@@ -26,7 +28,7 @@ export default {
     default: semanticColors.blue,
     hover: darken(0.08, semanticColors.blue),
     pressed: darken(0.16, semanticColors.blue),
-    accent: '#FFFFFF',
+    accent: semanticColors.white,
     secondary: {
       default: semanticColors.blueSecondary,
       hover: darken(0.04, semanticColors.blueSecondary),
@@ -38,7 +40,7 @@ export default {
     default: semanticColors.red,
     hover: darken(0.08, semanticColors.red),
     pressed: darken(0.16, semanticColors.red),
-    accent: '#FFFFFF',
+    accent: semanticColors.white,
     secondary: {
       default: semanticColors.redSecondary,
       hover: darken(0.04, semanticColors.redSecondary),
@@ -50,24 +52,24 @@ export default {
     default: semanticColors.yellow,
     hover: darken(0.08, semanticColors.yellow),
     pressed: darken(0.16, semanticColors.yellow),
-    accent: '#FFFFFF',
+    accent: semanticColors.black,
     secondary: {
       default: semanticColors.yellowSecondary,
       hover: darken(0.04, semanticColors.yellowSecondary),
       pressed: darken(0.08, semanticColors.yellowSecondary),
-      accent: semanticColors.yellow,
+      accent: semanticColors.black,
     },
   },
   green: {
     default: semanticColors.green,
     hover: darken(0.08, semanticColors.green),
     pressed: darken(0.16, semanticColors.green),
-    accent: '#FFFFFF',
+    accent: semanticColors.white,
     secondary: {
       default: semanticColors.greenSecondary,
       hover: darken(0.04, semanticColors.greenSecondary),
       pressed: darken(0.08, semanticColors.greenSecondary),
-      accent: semanticColors.green,
+      accent: semanticColors.black,
     },
   },
 }
