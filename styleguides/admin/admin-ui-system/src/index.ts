@@ -2,10 +2,10 @@ export * from './createSystem'
 export * from './hooks'
 export * from './types'
 export * from './util'
-export * from './createElement'
+export * from './jsx'
 export * from './styles'
 
 /** libs */
 export { Global, css, keyframes } from '@emotion/react'
-export { jsx } from '@theme-ui/core'
+export { cx } from '@emotion/css'
 export * from '@theme-ui/color'

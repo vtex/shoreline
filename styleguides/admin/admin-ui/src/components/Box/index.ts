@@ -7,7 +7,7 @@ import {
 } from 'react'
 import { Box as ReakitBox } from 'reakit'
 
-import { cn, createElement, StyleProp } from '../../system'
+import { cn, cx, jsx, StyleProp } from '../../system'
 
 /**
  * box default element
@@ -27,19 +27,19 @@ export const Box: <E extends ElementType = typeof defaultElement>(
   const { element = defaultElement, ...propsWithoutElement } = props
   const boxProps = useBox(propsWithoutElement)
 
-  return createElement({
+  return jsx({
     component: ReakitBox,
-    htmlProps: boxProps,
+    props: boxProps,
     element,
     ref,
   })
 })
 
 export function useBox(props: BoxOwnProps) {
-  const { themeKey, styles, ...htmlProps } = props
-  const className = cn({ ...styles, themeKey })
+  const { themeKey, styles, className, ...htmlProps } = props
+  const styledCn = cn({ ...styles, themeKey })
 
-  return { ...htmlProps, className }
+  return { ...htmlProps, className: cx(styledCn, className) }
 }
 
 export interface BoxOwnProps<E extends ElementType = ElementType> {
@@ -59,7 +59,11 @@ export interface BoxOwnProps<E extends ElementType = ElementType> {
    * @private this is for internal usage only
    */
   themeKey?: string
+  /**
+   * component className
+   */
+  className?: string
 }
 
 export type BoxProps<E extends ElementType> = BoxOwnProps<E> &
-  Omit<ComponentProps<E>, keyof BoxOwnProps>
+  Omit<ComponentProps<E>, keyof BoxOwnProps | 'style'>

@@ -8,7 +8,7 @@ import { createSystem, useTheme } from '..'
 import { get } from '../util'
 import { useClassName } from '../hooks'
 import { StyleProp } from '../types'
-import { createElement } from '../createElement'
+import { jsx } from '../jsx'
 
 describe('createSystem test', () => {
   it('should create a functional cn', () => {
@@ -92,9 +92,9 @@ describe('createSystem test', () => {
     }
 
     function Nav(props: ViewProps) {
-      return createElement({
+      return jsx({
         component: ReakitBox,
-        htmlProps: props,
+        props,
         element: 'nav',
       })
     }
@@ -141,9 +141,9 @@ describe('createSystem test', () => {
     function Nav(props: NavbarProps) {
       const className = cn({ themeKey: 'components.navbar' })
 
-      return createElement({
+      return jsx({
         component: ReakitBox,
-        htmlProps: { className, ...props },
+        props: { className, ...props },
         element: 'nav',
       })
     }
@@ -179,9 +179,9 @@ describe('createSystem test', () => {
     function Nav(props: NavbarProps) {
       const className = useClassName({ themeKey: 'components.navbar' })
 
-      return createElement({
+      return jsx({
         component: ReakitBox,
-        htmlProps: { className, ...props },
+        props: { className, ...props },
         element: 'nav',
       })
     }

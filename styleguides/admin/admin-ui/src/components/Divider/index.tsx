@@ -1,15 +1,15 @@
 import { Separator as ReakitSeparator } from 'reakit'
 
-import { cn, createElement } from '../../system'
+import { cn, jsx } from '../../system'
 import { Overridable } from '../../types'
 
 export function Divider(props: DividerProps) {
   const dividerProps = useDivider(props)
 
-  return createElement({
+  return jsx({
     element: 'hr',
     component: ReakitSeparator,
-    htmlProps: dividerProps,
+    props: dividerProps,
   })
 }
 

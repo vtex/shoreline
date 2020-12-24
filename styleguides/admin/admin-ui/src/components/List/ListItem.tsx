@@ -1,16 +1,16 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode } from 'react'
 
-import { cn, createElement } from '../../system'
+import { cn, jsx } from '../../system'
 import { Overridable } from '../../types'
 
 export function ListItem(props: ListItemProps) {
   const liProps = useListItem(props)
 
-  return createElement({
+  return jsx({
     element: 'li',
     component: ReakitBox,
-    htmlProps: liProps,
+    props: liProps,
   })
 }
 

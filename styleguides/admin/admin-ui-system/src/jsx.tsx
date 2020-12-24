@@ -2,9 +2,12 @@
 import React, {
   Ref,
   ReactNode,
-  ComponentType,
   PropsWithChildren,
   ElementType,
+  Attributes,
+  FunctionComponent,
+  ComponentClass,
+  ReactElement,
 } from 'react'
 
 import { isFunction } from './util'
@@ -18,7 +21,7 @@ import { isFunction } from './util'
  * import { createElement } from '@vtex/admin-ui-sytem'
  *
  * cosnt Element = forwardRef((props, ref) => (
- *  return createElement({
+ *  return jsx({
  *    component: SomeReakitComponent,
  *    element: 'div'
  *    ref
@@ -26,34 +29,34 @@ import { isFunction } from './util'
  * ))
  * ```
  */
-export function createElement<T>(params: CreateElementParams<T>) {
-  const { children, component, htmlProps, element, ref } = params
+export function jsx<P extends {}>(params: JSXParams<P>): ReactElement<P> {
+  const { children, component, props, element, ref } = params
 
   /** ⤵️ Render props composition */
   if (isFunction(children)) {
-    return children(htmlProps)
+    return children(props)
   }
 
   return React.createElement(
     component,
     // ✨ Reakit as composition
     // 🚫 components, just plain elements
-    { as: element, ...(htmlProps as any), ref },
-    children ?? htmlProps?.children
+    { as: element, ...(props as any), ref },
+    children ?? props?.children
   )
 }
 
-export interface CreateElementParams<T> {
+export interface JSXParams<P> {
   /**
    * base component
    * * ✅ do: pass a reakit component
    */
-  component: string | ComponentType<T>
+  component: FunctionComponent<P> | ComponentClass<P> | string
   /**
    * optional children
    * * ℹ️ normally it comes within htmlProps
    */
-  children?: ReactNode | ((props?: T) => JSX.Element)
+  children?: ReactNode | ((props?: P) => JSX.Element)
   /**
    * tag to render
    * * ✅ do: pass a string of a valid html element
@@ -63,7 +66,7 @@ export interface CreateElementParams<T> {
   /**
    * * HTMLProps
    */
-  htmlProps?: PropsWithChildren<T>
+  props?: PropsWithChildren<(Attributes & P) | null>
   /**
    * ref to dom node
    */

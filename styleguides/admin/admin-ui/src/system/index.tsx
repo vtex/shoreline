@@ -3,12 +3,13 @@ import {
   createSystem,
   useTheme,
   useClassName,
-  createElement,
+  jsx,
   useResponsiveValue,
   get,
   merge,
   StyleProp,
   StyleObject,
+  cx,
 } from '@vtex/admin-ui-system'
 import { css, Global } from '@emotion/react'
 import { theme } from '@vtex/admin-ui-theme'
@@ -207,5 +208,6 @@ export {
   StyleProp,
   StyleObject,
   stylesOf,
-  createElement,
+  jsx,
+  cx,
 }

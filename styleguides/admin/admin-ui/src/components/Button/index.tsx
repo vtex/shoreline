@@ -5,7 +5,7 @@ import {
 } from 'reakit/Button'
 import { useClassName } from '@vtex/admin-ui-system'
 
-import { createElement, StyleProp } from '../../system'
+import { jsx, StyleProp } from '../../system'
 import { Variant, Size } from './types'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
@@ -25,10 +25,10 @@ export const Button = forwardRef(function Button(
 ) {
   const buttonProps = useButton(props)
 
-  return createElement({
+  return jsx({
     component: ReakitButton,
     element: 'button',
-    htmlProps: buttonProps,
+    props: buttonProps,
     ref,
   })
 })

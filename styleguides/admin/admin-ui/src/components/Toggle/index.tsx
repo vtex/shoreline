@@ -1,7 +1,7 @@
 import { Ref, forwardRef } from 'react'
 import { Checkbox as ReakitCheckbox } from 'reakit'
 
-import { createElement } from '../../system'
+import { jsx } from '../../system'
 import {
   useCheckbox,
   CheckboxProps,
@@ -13,11 +13,11 @@ export const Toggle = forwardRef(function Toggle(
   props: ToggleProps,
   ref: Ref<HTMLInputElement>
 ) {
-  const htmlProps = useCheckbox(props, 'components.toggle')
+  const toggleProps = useCheckbox(props, 'components.toggle')
 
-  return createElement({
+  return jsx({
     component: ReakitCheckbox,
-    htmlProps: { role: 'switch', ...htmlProps },
+    props: { role: 'switch', ...toggleProps },
     ref,
   })
 })
