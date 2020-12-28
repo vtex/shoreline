@@ -126,7 +126,6 @@ const mobileContainer = {
 const mobileLabel = {
   position: 'absolute',
   top: '25%',
-  text: 'regular',
   lineHeight: 1.5,
   paddingLeft: 3,
   color: 'text.secondary',
