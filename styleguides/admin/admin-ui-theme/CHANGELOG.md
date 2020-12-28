@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.1...@vtex/admin-ui-theme@0.10.2) (2020-12-28)
+
+
+### Bug Fixes
+
+* **select:** fix help text padding, icon size and viewport of documentation ([34d486a](https://github.com/vtex/onda/commit/34d486a66c14ad26a4a46812a08e963df39c1010))
+* **select:** fix size of label on mobile select ([2c8d583](https://github.com/vtex/onda/commit/2c8d5838add562b2a19ed5b7e449ed19151334a6))
+
+
+
+
+
 ## [0.10.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.9.2...@vtex/admin-ui-theme@0.10.1) (2020-12-22)
 
 

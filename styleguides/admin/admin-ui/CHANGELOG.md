@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.69.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.2...@vtex/admin-ui@0.69.3) (2020-12-28)
+
+
+### Bug Fixes
+
+* **primitives:** now Grid and Flex can render any html element ([1dd4530](https://github.com/vtex/onda/commit/1dd4530290d9b269fc10a72e94eaa90f9e0085ae))
+* **select:** fix help text padding, icon size and viewport of documentation ([34d486a](https://github.com/vtex/onda/commit/34d486a66c14ad26a4a46812a08e963df39c1010))
+
+
+
+
+
 ## [0.69.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.1...@vtex/admin-ui@0.69.2) (2020-12-23)
 
 

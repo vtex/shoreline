@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.16](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.15...admin-site@0.8.16) (2020-12-28)
+
+
+### Bug Fixes
+
+* **select:** fix help text padding, icon size and viewport of documentation ([34d486a](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/34d486a66c14ad26a4a46812a08e963df39c1010))
+
+
+
+
+
 ## [0.8.15](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.14...admin-site@0.8.15) (2020-12-23)
 
 **Note:** Version bump only for package admin-site
