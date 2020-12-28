@@ -69,3 +69,14 @@ export const Polymorphism: Story = () => {
     </Box>
   )
 }
+
+export const WithClassName: Story = () => {
+  return (
+    <Box
+      styles={{ bg: 'primary.base', color: 'background' }}
+      className="my-className"
+    >
+      Box
+    </Box>
+  )
+}

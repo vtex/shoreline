@@ -7,16 +7,16 @@ import {
 } from 'reakit/Checkbox'
 import { forwardRef } from '@vtex/admin-ui-system'
 
-import { createElement, cn } from '../../system'
+import { jsx, cn } from '../../system'
 import { Overridable } from '../../types'
 
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
-    const htmlProps = useCheckbox(props)
+    const checkboxProps = useCheckbox(props)
 
-    return createElement({
+    return jsx({
       component: ReakitCheckbox,
-      htmlProps,
+      props: checkboxProps,
       ref,
     })
   }

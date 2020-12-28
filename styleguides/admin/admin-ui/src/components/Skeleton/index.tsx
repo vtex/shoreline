@@ -2,7 +2,7 @@ import { ElementType } from 'react'
 import { StyleProp, useClassName } from '@vtex/admin-ui-system'
 import { Box as ReakitBox } from 'reakit/Box'
 
-import { createElement } from '../../system'
+import { jsx } from '../../system'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -21,11 +21,11 @@ import { createElement } from '../../system'
  */
 export function Skeleton(props: SkeletonProps) {
   const { element = 'div', ...restProps } = props
-  const htmlProps = useSkeleton(restProps)
+  const skeletonProps = useSkeleton(restProps)
 
-  return createElement({
+  return jsx({
     component: ReakitBox,
-    htmlProps,
+    props: skeletonProps,
     element,
   })
 }

@@ -7,7 +7,7 @@ import {
   useClassName,
 } from '@vtex/admin-ui-system'
 
-import { createElement } from '../../system'
+import { jsx } from '../../system'
 import { Overridable } from '../../types'
 
 export const Set = forwardRef(function Set(
@@ -16,10 +16,10 @@ export const Set = forwardRef(function Set(
 ) {
   const { setProps } = useSet(props)
 
-  return createElement({
+  return jsx({
     component: ReakitBox,
     element: 'div',
-    htmlProps: setProps,
+    props: setProps,
     ref,
   })
 })

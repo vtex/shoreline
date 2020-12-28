@@ -2,14 +2,14 @@ import React, { PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
 import { Box as ReakitBox, BoxHTMLProps } from 'reakit'
 
-import { createElement } from '../createElement'
+import { jsx } from '../jsx'
 
 describe('createElement tests', () => {
   it('should be able to create an element', () => {
     function View(props: PropsWithChildren<unknown>) {
-      return createElement({
+      return jsx({
         component: ReakitBox,
-        htmlProps: props,
+        props,
       })
     }
 
@@ -21,9 +21,9 @@ describe('createElement tests', () => {
 
   it('should be able to use renderProps within a created element', () => {
     function View(props: BoxHTMLProps) {
-      return createElement<BoxHTMLProps>({
+      return jsx<BoxHTMLProps>({
         component: ReakitBox,
-        htmlProps: props,
+        props,
       })
     }
 
@@ -45,9 +45,9 @@ describe('createElement tests', () => {
     }
 
     function View(props: ViewProps) {
-      return createElement({
+      return jsx({
         component: ReakitBox,
-        htmlProps: props,
+        props,
         element: props.element,
       })
     }

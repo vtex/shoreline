@@ -2,7 +2,7 @@ import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
 import { useClassName } from '@vtex/admin-ui-system'
 
-import { createElement } from '../../system'
+import { jsx } from '../../system'
 import { Overridable } from '../../types'
 
 /**
@@ -14,11 +14,11 @@ export const Anchor = forwardRef(function Anchor(
 ) {
   const anchorProps = useAnchor(props)
 
-  return createElement({
+  return jsx({
     ref,
     element: 'a',
     component: ReakitBox,
-    htmlProps: anchorProps as Record<string, unknown>,
+    props: anchorProps as Record<string, unknown>,
   })
 })
 

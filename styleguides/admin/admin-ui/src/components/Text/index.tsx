@@ -1,7 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
 
-import { cn, createElement } from '../../system'
+import { cn, jsx } from '../../system'
 import { Overridable } from '../../types'
 
 export const Text = forwardRef(function Heading(
@@ -12,11 +12,11 @@ export const Text = forwardRef(function Heading(
 
   const textProps = useText(htmlProps)
 
-  return createElement({
+  return jsx({
     ref,
     element,
     component: ReakitBox,
-    htmlProps: textProps,
+    props: textProps,
   })
 })
 
