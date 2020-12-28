@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.70.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.3...@vtex/admin-ui@0.70.0) (2020-12-28)
+
+
+### Features
+
+* **admin-ui-sytem:** rename createElement as jsx. Allow clasNames on styled components with cx func ([6eccbbb](https://github.com/vtex/onda/commit/6eccbbb97782587ef629d13cc944d9254f246125))
+
+
+
+
+
 ## [0.69.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.2...@vtex/admin-ui@0.69.3) (2020-12-28)
 
 
