@@ -5,14 +5,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.70.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.70.1) (2020-12-29)
 
+### Bug Fixes
+
+- **select:** add property to set the select as block-level element ([8a6017e](https://github.com/vtex/onda/commit/8a6017e1ce8597e04e4a6ec3670917a85e79b383))
+
+# [0.71.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.71.0-experimental.0) (2020-12-28)
 
 ### Bug Fixes
 
-* **select:** add property to set the select as block-level element ([8a6017e](https://github.com/vtex/onda/commit/8a6017e1ce8597e04e4a6ec3670917a85e79b383))
+- **colors:** remove accent colors ([4e877e4](https://github.com/vtex/onda/commit/4e877e47037231f7bb532f0fc9314c5ac4cbfb4b))
 
+### Features
 
-
-
+- **colors:** change color structure to be aligned with figma ([b6419be](https://github.com/vtex/onda/commit/b6419be42bfa7a72be170713a395d58326a52962))
 
 # [0.70.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.3...@vtex/admin-ui@0.70.0) (2020-12-28)
 
