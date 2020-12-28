@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.3...@vtex/admin-ui-theme@0.11.0-experimental.0) (2020-12-28)
+
+
+### Bug Fixes
+
+* **colors:** remove accent colors ([4e877e4](https://github.com/vtex/onda/commit/4e877e47037231f7bb532f0fc9314c5ac4cbfb4b))
+
+
+### Features
+
+* **colors:** change color structure to be aligned with figma ([b6419be](https://github.com/vtex/onda/commit/b6419be42bfa7a72be170713a395d58326a52962))
+
+
+
+
+
 ## [0.10.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.2...@vtex/admin-ui-theme@0.10.3) (2020-12-28)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
