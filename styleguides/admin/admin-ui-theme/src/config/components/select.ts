@@ -28,7 +28,7 @@ const optionsLabel = {
   paddingTop: 2,
   paddingBottom: 1,
   paddingLeft: 3,
-  color: 'muted.0',
+  color: 'text.secondary',
 }
 
 const optionsUl = {
