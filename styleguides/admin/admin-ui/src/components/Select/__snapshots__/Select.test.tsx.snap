@@ -30,7 +30,6 @@ exports[`Select tests should render a Select with a list of string and other wit
   border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
-  margin-bottom: 0.25rem;
   font-size: 0.875rem;
   color: #707685;
   outline: 0;
@@ -66,7 +65,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   line-height: 1.43;
   color: #323845;
   float: left;
-  margin-top: 1rem;
+  margin-top: 1.125rem;
 }
 
 .emotion-0:not(:empty)+label {
@@ -84,10 +83,10 @@ exports[`Select tests should render a Select with a list of string and other wit
 }
 
 .emotion-3 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -188,7 +187,6 @@ exports[`Select tests should render a Select with a list of string and other wit
   border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
-  margin-bottom: 0.25rem;
   font-size: 0.875rem;
   color: #707685;
   outline: 0;
@@ -224,7 +222,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   line-height: 1.43;
   color: #323845;
   float: left;
-  margin-top: 1rem;
+  margin-top: 1.125rem;
 }
 
 .emotion-0:not(:empty)+label {
@@ -242,10 +240,10 @@ exports[`Select tests should render a Select with a list of string and other wit
 }
 
 .emotion-3 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);

@@ -53,6 +53,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
       </select>
       <IconCaret
         direction="down"
+        size={24}
         styleOverrides={stylesOf('components.select.mobileIcon')}
       />
     </Box>
