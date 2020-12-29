@@ -3,7 +3,7 @@ import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
 import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
 
 import { Button } from '../Button'
-import { Overridable } from '../../types'
+import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
 import { stylesOf, cn } from '../../system'
 
@@ -93,10 +93,12 @@ export const AbstractInput = forwardRef(function AbstractInput(
 
 export type AbstractInputOwnProps = Omit<
   ReakitInputProps,
-  'style' | 'className' | 'sx' | 'ref' | 'as' | 'onChange'
+  'sx' | 'ref' | 'as' | 'onChange'
 >
 
-export interface AbstractInputProps extends AbstractInputOwnProps, Overridable {
+export interface AbstractInputProps
+  extends OmitNotAllowedProps<AbstractInputOwnProps>,
+    Overridable {
   /** Input Icon */
   icon?: ReactNode
   /** Input Suffix */

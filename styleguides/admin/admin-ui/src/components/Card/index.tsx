@@ -1,6 +1,6 @@
 import React, { Ref, forwardRef } from 'react'
 
-import { Overridable } from '../../types'
+import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box, BoxProps } from '../Box'
 
 export const Card = forwardRef(function Card(
@@ -24,4 +24,6 @@ export const Card = forwardRef(function Card(
   )
 })
 
-export type CardProps = Overridable & Omit<BoxProps<'div'>, 'styles'>
+type CardOwnProps = Omit<BoxProps<'div'>, 'styles'>
+
+export type CardProps = Overridable & OmitNotAllowedProps<CardOwnProps>

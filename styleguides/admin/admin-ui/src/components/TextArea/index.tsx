@@ -3,7 +3,7 @@ import { useClassName } from '@vtex/admin-ui-system'
 
 import { Text } from '../Text'
 import { Label } from '../Label'
-import { Overridable } from '../../types'
+import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
 import { stylesOf } from '../../system'
 
@@ -69,12 +69,14 @@ export const TextArea = forwardRef(function Textarea(
   )
 })
 
+export type TextAreaOwnProps = Omit<
+  React.ComponentPropsWithoutRef<'textarea'>,
+  'value' | 'onChange' | 'maxLength' | 'onClear'
+>
+
 export interface TextAreaProps
   extends Overridable,
-    Omit<
-      React.ComponentPropsWithoutRef<'textarea'>,
-      'value' | 'onChange' | 'maxLength' | 'onClear'
-    > {
+    OmitNotAllowedProps<TextAreaOwnProps> {
   /** TextArea label */
   label: string
   /** Unique id of the component */
