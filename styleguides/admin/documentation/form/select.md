@@ -161,7 +161,7 @@ function Example() {
 
 ### Block
 
-You can define the select as a block-level element. Does it means that the Select will have full-width by default. To use this variation the `block` property should have a true value.
+You can define the select as a block-level element. It means that the Select will have full-width by default. To use this variation the `block` property should have a true value.
 
 ```jsx
 function Example() {
