@@ -13,6 +13,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
     items,
     error,
     disabled,
+    block,
     renderItem = (item) => (item as unknown) as string,
   } = props
 
@@ -27,7 +28,10 @@ export function MobileSelect<T>(props: SelectProps<T>) {
   }
 
   return (
-    <Box themeKey="components.select.mobileContainer">
+    <Box
+      themeKey="components.select.mobileContainer"
+      styles={block ? { display: 'block', minWidth: 288, width: 'full' } : {}}
+    >
       <Label
         styleOverrides={stylesOf(
           `components.select.mobileLabel${

@@ -18,6 +18,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
     items,
     error,
     disabled,
+    block,
     renderItem = (item) => item,
   } = props
 
@@ -102,6 +103,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
       ref={containerRef}
       themeKey="components.select.container"
       role="listbox"
+      styles={block ? { display: 'block', minWidth: 288, width: 'full' } : {}}
     >
       <Box
         element="button"
