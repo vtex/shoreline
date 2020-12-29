@@ -93,10 +93,12 @@ export const AbstractInput = forwardRef(function AbstractInput(
 
 export type AbstractInputOwnProps = Omit<
   ReakitInputProps,
-  'style' | 'className' | 'sx' | 'ref' | 'as' | 'onChange'
+  'sx' | 'ref' | 'as' | 'onChange'
 >
 
-export interface AbstractInputProps extends AbstractInputOwnProps, Overridable {
+export interface AbstractInputProps
+  extends OmitNotAllowedProps<AbstractInputOwnProps>,
+    Overridable {
   /** Input Icon */
   icon?: ReactNode
   /** Input Suffix */

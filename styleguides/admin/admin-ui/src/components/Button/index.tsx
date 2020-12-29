@@ -7,7 +7,7 @@ import { useClassName } from '@vtex/admin-ui-system'
 
 import { jsx, StyleProp } from '../../system'
 import { Variant, Size } from './types'
-import { Overridable } from '../../types'
+import { Overridable, OmitNotAllowedProps } from '../../types'
 import { Box } from '../Box'
 
 /**
@@ -33,7 +33,7 @@ export const Button = forwardRef(function Button(
   })
 })
 
-export function useButton(props: ButtonProps): ButtonProps {
+export function useButton(props: ButtonProps) {
   const {
     variant = 'primary',
     size = 'regular',
@@ -102,7 +102,9 @@ function useButtonSize({
   }
 }
 
-export interface ButtonProps extends ReakitButtonProps, Overridable {
+export interface ButtonProps
+  extends OmitNotAllowedProps<ReakitButtonProps>,
+    Overridable {
   /** Size of the button
    * @default regular
    * */
