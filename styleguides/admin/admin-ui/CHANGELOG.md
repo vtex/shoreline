@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.70.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.70.1) (2020-12-29)
+
+
+### Bug Fixes
+
+* **select:** add property to set the select as block-level element ([8a6017e](https://github.com/vtex/onda/commit/8a6017e1ce8597e04e4a6ec3670917a85e79b383))
+
+
+
+
+
 # [0.70.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.3...@vtex/admin-ui@0.70.0) (2020-12-28)
 
 
