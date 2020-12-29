@@ -159,6 +159,29 @@ function Example() {
 }
 ```
 
+### Block
+
+You can define the select as a block-level element. It means that the Select will have full-width by default. To use this variation the `block` property should have a true value.
+
+```jsx
+function Example() {
+  const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
+  const state = useSelectState({ items: days })
+
+  return (
+    <Card styleOverrides={{ width: 500 }}>
+      <Select
+        items={days}
+        state={state}
+        label="Date"
+        errorMessage="Message error"
+        block
+      />
+    </Card>
+  )
+}
+```
+
 ## State
 
 ### useSelectState

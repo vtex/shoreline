@@ -3,6 +3,7 @@ import { Meta } from '@storybook/react'
 
 import { Select, useSelectState } from './index'
 import { Set } from '../Set'
+import { Card } from '../Card'
 
 export default {
   title: 'forms/Select',
@@ -93,5 +94,21 @@ export const Disabled = () => {
         helperText="Help text"
       />
     </Set>
+  )
+}
+
+export const Block = () => {
+  const state = useSelectState({ items: days })
+
+  return (
+    <Card styleOverrides={{ width: 500 }}>
+      <Select
+        items={days}
+        state={state}
+        label="Date"
+        errorMessage="Message error"
+        block
+      />
+    </Card>
   )
 }

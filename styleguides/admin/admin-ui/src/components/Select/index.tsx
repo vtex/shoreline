@@ -21,6 +21,7 @@ export const Select = forwardRef(
       disabled,
       error,
       errorMessage,
+      block,
       ...restProps
     } = props
 
@@ -32,12 +33,15 @@ export const Select = forwardRef(
       renderItem,
       disabled,
       error,
+      block,
     }
 
     const message = error ? errorMessage : helperText
 
+    const styles = block ? { ...styleOverrides, width: 'full' } : styleOverrides
+
     return (
-      <Box {...restProps} styles={{ ...styleOverrides }} ref={ref}>
+      <Box {...restProps} styles={styles} ref={ref}>
         <MobileView>
           <MobileSelect {...selectProps} />
         </MobileView>
@@ -98,4 +102,8 @@ export interface SelectProps<T> extends Overridable {
    * Flag to indicate if select is disabled
    */
   disabled?: boolean
+  /**
+   * Whether is a block-level element or not
+   * */
+  block?: boolean
 }
