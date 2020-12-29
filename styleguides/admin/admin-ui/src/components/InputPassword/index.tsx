@@ -6,7 +6,7 @@ import {
 } from '../AbstractInput'
 import { Text } from '../Text'
 import { Label } from '../Label'
-import { Overridable } from '../../types'
+import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
 import { stylesOf } from '../../system'
 
@@ -68,11 +68,13 @@ export const InputPassword = forwardRef(function InputPassword(
   )
 })
 
+export type InputOwnProps = Omit<
+  AbstractInputPasswordProps,
+  'maxLength' | 'placeholder' | 'id' | 'type'
+>
+
 export interface InputPasswordProps
-  extends Omit<
-      AbstractInputPasswordProps,
-      'maxLength' | 'placeholder' | 'id' | 'type'
-    >,
+  extends OmitNotAllowedProps<InputOwnProps>,
     Overridable {
   /** label text */
   label: string
