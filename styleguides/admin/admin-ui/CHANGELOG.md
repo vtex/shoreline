@@ -35,6 +35,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.70.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.70.1) (2020-12-29)
 
+# [0.71.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.71.0-experimental.0...@vtex/admin-ui@0.71.0-experimental.1) (2020-12-29)
+
+### Bug Fixes
+
+- **typescript:** omit not allowed properties: style, color, and className ([9be50e2](https://github.com/vtex/onda/commit/9be50e274d14e0e6f4d887be355482d067809e33))
+
+# [0.71.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.71.0-experimental.0) (2020-12-28)
+
 ### Bug Fixes
 
 - **select:** add property to set the select as block-level element ([8a6017e](https://github.com/vtex/onda/commit/8a6017e1ce8597e04e4a6ec3670917a85e79b383))
