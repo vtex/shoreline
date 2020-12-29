@@ -68,13 +68,13 @@ export const InputPassword = forwardRef(function InputPassword(
   )
 })
 
-export type InputOwnProps = Omit<
+export type InputPasswordOwnProps = Omit<
   AbstractInputPasswordProps,
   'maxLength' | 'placeholder' | 'id' | 'type'
 >
 
 export interface InputPasswordProps
-  extends OmitNotAllowedProps<InputOwnProps>,
+  extends OmitNotAllowedProps<InputPasswordOwnProps>,
     Overridable {
   /** label text */
   label: string
