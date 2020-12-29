@@ -3,7 +3,7 @@ import { ReactNode, forwardRef, Ref } from 'react'
 import { useClassName } from '@vtex/admin-ui-system'
 
 import { jsx } from '../../system'
-import { Overridable } from '../../types'
+import { OmitNotAllowedProps, Overridable } from '../../types'
 
 /**
  * Component to add links within an admin page
@@ -34,12 +34,11 @@ function useAnchor(props: AnchorProps) {
 
 export interface AnchorProps
   extends Overridable,
-    Omit<
+    OmitNotAllowedProps<
       React.DetailedHTMLProps<
         React.AnchorHTMLAttributes<HTMLAnchorElement>,
         HTMLAnchorElement
-      >,
-      'className' | 'style'
+      >
     > {
   /**
    * anchor children

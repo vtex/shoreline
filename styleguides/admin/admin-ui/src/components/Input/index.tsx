@@ -3,7 +3,7 @@ import React, { forwardRef, Ref } from 'react'
 import { AbstractInput, AbstractInputProps } from '../AbstractInput'
 import { Text } from '../Text'
 import { Label } from '../Label'
-import { Overridable } from '../../types'
+import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
 import { stylesOf } from '../../system'
 
@@ -67,8 +67,13 @@ export const Input = forwardRef(function Input(
 
 export type InputType = 'text' | 'email' | 'url' | 'tel'
 
+export type InputOwnProps = Omit<
+  AbstractInputProps,
+  'maxLength' | 'placeholder' | 'id' | 'type'
+>
+
 export interface InputProps
-  extends Omit<AbstractInputProps, 'maxLength' | 'placeholder' | 'id' | 'type'>,
+  extends OmitNotAllowedProps<InputOwnProps>,
     Overridable {
   /** label text */
   label: string
