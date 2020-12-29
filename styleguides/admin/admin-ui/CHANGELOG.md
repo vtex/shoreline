@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.71.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.71.0-experimental.0...@vtex/admin-ui@0.71.0-experimental.1) (2020-12-29)
+
+
+### Bug Fixes
+
+* **typescript:** omit not allowed properties: style, color, and className ([9be50e2](https://github.com/vtex/onda/commit/9be50e274d14e0e6f4d887be355482d067809e33))
+
+
+
+
+
 # [0.71.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.71.0-experimental.0) (2020-12-28)
 
 
