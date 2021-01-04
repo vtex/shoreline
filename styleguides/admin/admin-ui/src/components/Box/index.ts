@@ -7,7 +7,7 @@ import {
 } from 'react'
 import { Box as ReakitBox } from 'reakit'
 
-import { cn, cx, jsx, StyleProp } from '../../system'
+import { cn, cx, jsxs, StyleProp } from '../../system'
 
 /**
  * box default element
@@ -27,7 +27,7 @@ export const Box: <E extends ElementType = typeof defaultElement>(
   const { element = defaultElement, ...propsWithoutElement } = props
   const boxProps = useBox(propsWithoutElement)
 
-  return jsx({
+  return jsxs({
     component: ReakitBox,
     props: boxProps,
     element,

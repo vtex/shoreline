@@ -1,7 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode } from 'react'
 
-import { cn, jsx } from '../../system'
+import { cn, jsxs } from '../../system'
 import { Overridable } from '../../types'
 import { ListItem } from './ListItem'
 
@@ -10,7 +10,7 @@ export function List(props: ListProps) {
   const listProps = useList(htmlProps)
   const element = ordered ? 'ol' : 'ul'
 
-  return jsx({
+  return jsxs({
     element,
     component: ReakitBox,
     props: listProps,

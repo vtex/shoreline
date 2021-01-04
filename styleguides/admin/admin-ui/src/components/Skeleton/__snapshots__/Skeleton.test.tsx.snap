@@ -14,30 +14,6 @@ exports[`Skeleton tests should match snapshot 1`] = `
   }
 }
 
-@keyframes animation-0 {
-  0% {
-    -webkit-background-position: -200px 0;
-    background-position: -200px 0;
-  }
-
-  100% {
-    -webkit-background-position: calc(200px + 100%) 0;
-    background-position: calc(200px + 100%) 0;
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-background-position: -200px 0;
-    background-position: -200px 0;
-  }
-
-  100% {
-    -webkit-background-position: calc(200px + 100%) 0;
-    background-position: calc(200px + 100%) 0;
-  }
-}
-
 .emotion-0 {
   display: inline-block;
   width: 100%;
@@ -62,30 +38,6 @@ exports[`Skeleton tests should match snapshot 1`] = `
     class="emotion-0"
   />
   @keyframes animation-0 {
-  0% {
-    -webkit-background-position: -200px 0;
-    background-position: -200px 0;
-  }
-
-  100% {
-    -webkit-background-position: calc(200px + 100%) 0;
-    background-position: calc(200px + 100%) 0;
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-background-position: -200px 0;
-    background-position: -200px 0;
-  }
-
-  100% {
-    -webkit-background-position: calc(200px + 100%) 0;
-    background-position: calc(200px + 100%) 0;
-  }
-}
-
-@keyframes animation-0 {
   0% {
     -webkit-background-position: -200px 0;
     background-position: -200px 0;

@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from 'react'
 import { Box as ReakitBox } from 'reakit/Box'
 
-import { jsx } from '../../system'
+import { jsxs } from '../../system'
 import { SetProps, useSet } from '../Set'
 import { Button, ButtonProps } from '../Button'
 import { ActionsProvider, useActionsContext } from './context'
@@ -12,7 +12,7 @@ export function Actions(props: ActionsProps) {
   const { size, children, ...draftSetProps } = props
   const { setProps, currentOrientation } = useSet(draftSetProps)
 
-  return jsx({
+  return jsxs({
     component: ReakitBox,
     props: setProps,
     element: 'div',

@@ -3,7 +3,7 @@ import {
   createSystem,
   useTheme,
   useClassName,
-  jsx,
+  jsxs,
   useResponsiveValue,
   get,
   merge,
@@ -208,6 +208,6 @@ export {
   StyleProp,
   StyleObject,
   stylesOf,
-  jsx,
+  jsxs,
   cx,
 }

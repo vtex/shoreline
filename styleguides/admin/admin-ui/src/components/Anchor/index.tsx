@@ -2,7 +2,7 @@ import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
 import { useClassName } from '@vtex/admin-ui-system'
 
-import { jsx } from '../../system'
+import { jsxs } from '../../system'
 import { Overridable } from '../../types'
 
 /**
@@ -14,7 +14,7 @@ export const Anchor = forwardRef(function Anchor(
 ) {
   const anchorProps = useAnchor(props)
 
-  return jsx({
+  return jsxs({
     ref,
     element: 'a',
     component: ReakitBox,

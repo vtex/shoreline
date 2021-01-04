@@ -1,7 +1,7 @@
 import { Ref, forwardRef } from 'react'
 import { Checkbox as ReakitCheckbox } from 'reakit'
 
-import { jsx } from '../../system'
+import { jsxs } from '../../system'
 import {
   useCheckbox,
   CheckboxProps,
@@ -15,7 +15,7 @@ export const Toggle = forwardRef(function Toggle(
 ) {
   const toggleProps = useCheckbox(props, 'components.toggle')
 
-  return jsx({
+  return jsxs({
     component: ReakitCheckbox,
     props: { role: 'switch', ...toggleProps },
     ref,
