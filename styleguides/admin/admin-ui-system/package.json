@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui-system",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "main": "dist/index.js",
   "module": "dist/admin-ui-system.esm.js",
   "typings": "dist/index.d.ts",
@@ -44,14 +44,14 @@
     "@emotion/is-prop-valid": "^1.0.0",
     "@emotion/react": "^11.1.1",
     "csstype": "^3.0.5",
+    "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",
-    "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3",
     "polished": "^4.0.5",
-    "deepmerge": "^4.2.2"
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
   }
 }

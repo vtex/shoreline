@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.0...@vtex/admin-ui-system@0.6.1) (2021-01-04)
+
+
+### Bug Fixes
+
+* **admin-system:** resolve the need of sx by removing theme-ui ([70be137](https://github.com/vtex/onda/commit/70be1374d0b858faae62edb83977b245ac9d8e7e))
+
+
+
+
+
 # [0.6.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.5.1...@vtex/admin-ui-system@0.6.0) (2020-12-28)
 
 
