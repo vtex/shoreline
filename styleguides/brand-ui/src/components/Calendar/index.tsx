@@ -1,5 +1,7 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { Box, Text, Grid, Flex, jsx } from 'theme-ui'
+import { Button } from 'reakit'
 import { useState, PropsWithChildren, ReactNode } from 'react'
 import { DateTime } from 'luxon'
 
@@ -60,14 +62,14 @@ const Day = ({
   }
 
   return (
-    <button
+    <Button
       sx={{ variant: `${variant}` }}
       onClick={() => onClick(value)}
       {...restProps}
     >
       <Text>{value.day}</Text>
       {event && <EventTag event={event} />}
-    </button>
+    </Button>
   )
 }
 

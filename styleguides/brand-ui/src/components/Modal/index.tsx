@@ -1,3 +1,4 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Text, Flex, Box } from 'theme-ui'
 import {

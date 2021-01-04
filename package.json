@@ -1,11 +1,14 @@
 {
   "name": "onda",
   "private": true,
-  "workspaces": [
-    "components/*",
-    "styleguides/brand-ui",
-    "styleguides/admin/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "components/*",
+      "styleguides/brand-ui",
+      "styleguides/admin/*"
+    ],
+    "nohoist": ["**/theme-ui", "**/theme-ui/**"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vtex/onda.git"

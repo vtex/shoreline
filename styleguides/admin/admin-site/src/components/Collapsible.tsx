@@ -13,7 +13,7 @@ export default function DocsCollapsbile(props: Props) {
   const collapsible = useCollapsible({ visible })
 
   return (
-    <Collapsible state={collapsible} {...restProps} sx={{ marginBottom: 2 }}>
+    <Collapsible state={collapsible} {...restProps} styleOverrides={{ marginBottom: 2 }}>
       <Collapsible.Header label={heading} />
       <Collapsible.Content>{children}</Collapsible.Content>
     </Collapsible>

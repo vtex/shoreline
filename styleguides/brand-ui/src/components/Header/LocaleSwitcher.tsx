@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-handler-names */
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { Box, Text, Flex, jsx } from 'theme-ui'
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'

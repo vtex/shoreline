@@ -432,7 +432,7 @@ export const Root = () => {
             type: 'root',
             render: function Description({ item, context }) {
               if (context.loading) {
-                return <Skeleton sx={{ height: 24 }} />
+                return <Skeleton styles={{ height: 24 }} />
               }
 
               return (
