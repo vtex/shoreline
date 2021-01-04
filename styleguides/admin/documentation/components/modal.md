@@ -253,7 +253,7 @@ function Example() {
       </ModalDisclosure>
       <StatelessModal aria-label="Add block modal" state={blockModal}>
         <StatelessModal.Header title="Add new block" />
-        <StatelessModal.Content sx={{ paddingTop: 0 }}>
+        <StatelessModal.Content styleOverrides={{ paddingTop: 0 }}>
           <List>
             {data.map(({ id, icon: Icon, title }) => (
               <List.Item key={id}>

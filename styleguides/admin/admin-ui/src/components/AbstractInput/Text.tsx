@@ -93,7 +93,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
 
 export type AbstractInputOwnProps = Omit<
   ReakitInputProps,
-  'style' | 'className' | 'sx' | 'ref' | 'as' | 'onChange'
+  'style' | 'className' | 'ref' | 'as' | 'onChange'
 >
 
 export interface AbstractInputProps extends AbstractInputOwnProps, Overridable {

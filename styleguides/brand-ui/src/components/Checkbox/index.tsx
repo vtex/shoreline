@@ -1,12 +1,12 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, SxStyleProp } from 'theme-ui'
+import { jsx, SxStyleProp, Box, Label, Text  } from 'theme-ui'
 import { Ref } from 'react'
 import {
   Checkbox as ReakitCheckbox,
   CheckboxProps as ReakitCheckboxProps,
   useCheckboxState,
 } from 'reakit/Checkbox'
-import { Box, Label, Text } from 'theme-ui'
 import { forwardRef } from '@vtex-components/utils'
 
 const BrandCheckbox = (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {

@@ -17,9 +17,9 @@ const Template = (args: ModalProps) => {
 
   return (
     <Modal
-      state={state}
       title={title}
       {...props}
+      state={state}
       disclosure={<Button>Open Modal</Button>}
     >
       <Modal.Body>{children}</Modal.Body>
@@ -41,9 +41,9 @@ const TemplateDialog = (args: ModalProps) => {
 
   return (
     <Modal
-      state={state}
       title={title}
       {...props}
+      state={state}
       disclosure={<Button>Open Modal</Button>}
       variant="dialog"
     >

@@ -1,3 +1,4 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { Box, Link, SxProps, jsx } from 'theme-ui'
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'

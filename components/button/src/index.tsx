@@ -1,3 +1,4 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, SxStyleProp } from 'theme-ui'
 import { Ref } from 'react'

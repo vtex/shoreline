@@ -1,7 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { PropsWithChildren } from 'react'
 import { Story, Meta } from '@storybook/react'
 import { Box, Flex, jsx, Text } from 'theme-ui'
+import { Box as ReakitBox, Button } from 'reakit'
 
 import { Calendar, CalendarProps, DayProps, Events } from '.'
 import events from './mockEvents'
@@ -39,7 +41,8 @@ Playground.args = {
 }
 
 const IconArrow = () => (
-  <svg
+  <ReakitBox
+    as="svg"
     width={16}
     height={16}
     viewBox="0 0 16 16"
@@ -51,7 +54,7 @@ const IconArrow = () => (
       d="M0.499779 7.5C0.499779 7.75781 0.583112 7.92969 0.749779 8.10156L5.49978 13L6.66644 11.7969L3.33311 8.35938L16 8.35938V6.64063L3.33311 6.64063L6.66644 3.20313L5.49978 2L0.749779 6.89844C0.583112 7.07031 0.499779 7.24219 0.499779 7.5Z"
       fill="currentColor"
     />
-  </svg>
+  </ReakitBox>
 )
 
 export const WithHeaderAccessory = () => (
@@ -82,9 +85,9 @@ const CustomComponent = ({
   return (
     <Popover
       disclosure={
-        <button sx={{ variant }} {...restProps}>
+        <Button sx={{ variant }} {...restProps}>
           {children}
-        </button>
+        </Button>
       }
       showClose
       fixed
