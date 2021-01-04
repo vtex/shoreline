@@ -1,11 +1,11 @@
-import { useThemeUI } from '@theme-ui/core'
 import invariant from 'tiny-invariant'
 
+import { useThemeContext } from '../core'
 import { isObjectEmpty } from '../util'
 import { Theme } from '../types'
 
 export function useTheme(): Theme {
-  const { theme } = useThemeUI()
+  const { theme } = useThemeContext()
 
   invariant(
     !isObjectEmpty((theme as unknown) as Record<string, unknown>) && theme,

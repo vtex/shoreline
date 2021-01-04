@@ -4496,14 +4496,6 @@
     "@theme-ui/css" "^0.3.1"
     deepmerge "^4.2.2"
 
-"@theme-ui/color@^0.4.0-rc.5":
-  version "0.4.0-rc.5"
-  resolved "https://registry.yarnpkg.com/@theme-ui/color/-/color-0.4.0-rc.5.tgz#d638f089d2030e17438810b2b760fc9704850cc4"
-  integrity sha512-cmKnIXKC/br+qDbzmjaHg0YDgDuGdN7slKwUc2j3aSLmvx7aKdiSFBkVUMGeFhgBy32y9SIH6jmT6g3UqhogmQ==
-  dependencies:
-    "@theme-ui/css" "^0.4.0-rc.5"
-    polished "^3.4.1"
-
 "@theme-ui/components@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@theme-ui/components/-/components-0.3.1.tgz#fe023e156c1e1c076d5f2258466426e94adc2765"
@@ -4525,15 +4517,6 @@
     "@theme-ui/css" "^0.3.1"
     deepmerge "^4.2.2"
 
-"@theme-ui/core@^0.4.0-rc.5":
-  version "0.4.0-rc.5"
-  resolved "https://registry.yarnpkg.com/@theme-ui/core/-/core-0.4.0-rc.5.tgz#b1e94e0f064bee8ba4b4a42d4c4c9b348729a14f"
-  integrity sha512-3nquBPFIQibJVWpyQsfqFXBs45nMQLEXDs01t0W26Bt7MSiJGGQiIrdo4p8etmSJZZtWi3jwwvf5kr7HvuQR0g==
-  dependencies:
-    "@emotion/core" "^10.0.0"
-    "@theme-ui/css" "^0.4.0-rc.5"
-    deepmerge "^4.2.2"
-
 "@theme-ui/css@0.4.0-rc.3":
   version "0.4.0-rc.3"
   resolved "https://registry.yarnpkg.com/@theme-ui/css/-/css-0.4.0-rc.3.tgz#02b66c43bfaedebbfb317433726ebb8f734d1fd0"
@@ -4545,18 +4528,6 @@
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@theme-ui/css/-/css-0.3.1.tgz#b85c7e8fae948dc0de65aa30b853368993e25cb3"
   integrity sha512-QB2/fZBpo4inaLHL3OrB8NOBgNfwnj8GtHzXWHb9iQSRjmtNX8zPXBe32jLT7qQP0+y8JxPT4YChZIkm5ZyIdg==
-
-"@theme-ui/css@^0.4.0-rc.5":
-  version "0.4.0-rc.5"
-  resolved "https://registry.yarnpkg.com/@theme-ui/css/-/css-0.4.0-rc.5.tgz#0fa254f90eecf6d8df28b1e3b4677d7fc3338d82"
-  integrity sha512-KJly9bIbfcMFwHiDB6WZ5bTMgjJSQssBFkyqETA1GpfK/M7AwpupPeyLzc65K8tYatMFXlUQmYo9JNPtLYawwg==
-  dependencies:
-    csstype "^2.5.7"
-
-"@theme-ui/match-media@^0.4.0-rc.5":
-  version "0.4.0-rc.6"
-  resolved "https://registry.yarnpkg.com/@theme-ui/match-media/-/match-media-0.4.0-rc.6.tgz#d83ea37c18a8bc44bf8fdbf62ef7f1737be51722"
-  integrity sha512-KfN1RlbCYp83vW63TCSvTinHNCvWCmTIlFYB2QF3mqb9681xOVAw+kKzweHLsdjYOs+T6J/G/lC7JfGiTiFUzw==
 
 "@theme-ui/mdx@^0.3.0":
   version "0.3.0"
@@ -18489,7 +18460,7 @@ pnp-webpack-plugin@1.6.4, pnp-webpack-plugin@^1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
-polished@^3.4.1, polished@^3.4.4, polished@^3.6.7:
+polished@^3.4.4, polished@^3.6.7:
   version "3.6.7"
   resolved "https://registry.yarnpkg.com/polished/-/polished-3.6.7.tgz#44cbd0047f3187d83db0c479ef0c7d5583af5fb6"
   integrity sha512-b4OViUOihwV0icb9PHmWbR+vPqaSzSAEbgLskvb7ANPATVXGiYv/TQFHQo65S53WU9i5EQ1I03YDOJW7K0bmYg==
@@ -20114,7 +20085,7 @@ reakit@1.2.3:
     reakit-utils "^0.14.3"
     reakit-warning "^0.5.3"
 
-reakit@^1.2.3, reakit@^1.2.5:
+reakit@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/reakit/-/reakit-1.2.5.tgz#700cfe25543a2cce6d4c843d7b3d82ff9be3554a"
   integrity sha512-i5i11ygjsf2H6p3P6+QSZo08PZe/HdH/3YoXtaozL95tC/47r9J2GPaVF0XZR1dcC7zWXVoiZdnFEowRIVx+Rw==
