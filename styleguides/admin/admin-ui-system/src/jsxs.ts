@@ -29,7 +29,7 @@ import { isFunction } from './util'
  * ))
  * ```
  */
-export function jsx<P extends {}>(params: JSXParams<P>): ReactElement<P> {
+export function jsxs<P extends {}>(params: JSXSParams<P>): ReactElement<P> {
   const { children, component, props, element, ref } = params
 
   /** ⤵️ Render props composition */
@@ -46,7 +46,7 @@ export function jsx<P extends {}>(params: JSXParams<P>): ReactElement<P> {
   )
 }
 
-export interface JSXParams<P> {
+export interface JSXSParams<P> {
   /**
    * base component
    * * ✅ do: pass a reakit component

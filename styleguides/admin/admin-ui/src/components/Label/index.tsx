@@ -1,7 +1,7 @@
 import { ReactNode, forwardRef, Ref } from 'react'
 import { Box as ReakitBox } from 'reakit'
 
-import { cn, jsx } from '../../system'
+import { cn, jsxs } from '../../system'
 import { Overridable } from '../../types'
 
 /**
@@ -21,7 +21,7 @@ export const Label = forwardRef(function Heading(
 ) {
   const labelProps = useLabel(props)
 
-  return jsx({
+  return jsxs({
     ref,
     element: 'label',
     component: ReakitBox,

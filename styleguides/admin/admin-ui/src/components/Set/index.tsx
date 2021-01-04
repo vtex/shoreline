@@ -7,7 +7,7 @@ import {
   useClassName,
 } from '@vtex/admin-ui-system'
 
-import { jsx } from '../../system'
+import { jsxs } from '../../system'
 import { Overridable } from '../../types'
 
 export const Set = forwardRef(function Set(
@@ -16,7 +16,7 @@ export const Set = forwardRef(function Set(
 ) {
   const { setProps } = useSet(props)
 
-  return jsx({
+  return jsxs({
     component: ReakitBox,
     element: 'div',
     props: setProps,

@@ -49,8 +49,7 @@
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.0.0",
-    "@emotion/css": "^11.0.0",
-    "@emotion/react": "^11.1.1",
+    "@emotion/react": "^11.1.4",
     "@vtex/admin-ui-system": "^0.6.1",
     "@vtex/admin-ui-theme": "^0.10.4",
     "csstype": "^3.0.5",
