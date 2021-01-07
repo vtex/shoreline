@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.2...@vtex/admin-ui-system@0.6.3-experimental.0) (2021-01-07)
+
+
+### Features
+
+* **system-styles:** add logic to recognize default values from styles properties ([90cbe02](https://github.com/vtex/onda/commit/90cbe02a2a2fa172e81d26e04c232c0ee08aa55d))
+
+
+
+
+
 
 ## [0.6.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.1...@vtex/admin-ui-system@0.6.2) (2021-01-04)
 # [0.7.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.0...@vtex/admin-ui-system@0.7.0-experimental.1) (2020-12-29)

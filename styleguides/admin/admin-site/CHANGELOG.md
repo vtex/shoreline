@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.22-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.21...admin-site@0.8.22-experimental.0) (2021-01-07)
+
+
+### Bug Fixes
+
+* **colors:** remove accent colors ([a83e2e7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/a83e2e7188cba71734bfb1b0a45e68208d8f1895))
+
+
+### Features
+
+* **colors:** change color structure to be aligned with figma ([96c3a70](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/96c3a7015e92d9ea98a200820706d33b50991d6f))
+
+
+
+
+
 ## [0.8.21](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.20...admin-site@0.8.21) (2021-01-04)
 
 ### Bug Fixes

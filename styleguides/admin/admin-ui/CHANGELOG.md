@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.70.5-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.4...@vtex/admin-ui@0.70.5-experimental.0) (2021-01-07)
+
+
+### Bug Fixes
+
+* **colors:** remove accent colors ([a83e2e7](https://github.com/vtex/onda/commit/a83e2e7188cba71734bfb1b0a45e68208d8f1895))
+* **typescript:** omit not allowed properties: style, color, and className ([2c2592b](https://github.com/vtex/onda/commit/2c2592b7b056733d65a04c6cd1d0f5e3422fda8e))
+
+
+### Features
+
+* **colors:** change color structure to be aligned with figma ([96c3a70](https://github.com/vtex/onda/commit/96c3a7015e92d9ea98a200820706d33b50991d6f))
+
+
+
+
+
 ## [0.70.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.3...@vtex/admin-ui@0.70.4) (2021-01-04)
 ## [0.70.2-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.1...@vtex/admin-ui@0.70.2-experimental.0) (2020-12-29)
 
