@@ -1,6 +1,6 @@
 {
   "name": "admin-site",
-  "version": "0.8.22-experimental.0",
+  "version": "0.9.0-experimental.3",
   "private": true,
   "description": "AdminUI site",
   "license": "MIT",
