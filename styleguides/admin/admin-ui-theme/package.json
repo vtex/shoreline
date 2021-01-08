@@ -33,7 +33,7 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@vtex/admin-ui-system": "^0.6.3-experimental.0"
+    "@vtex/admin-ui-system": "^0.7.0-experimental.2"
   },
   "dependencies": {
     "polished": "^4.0.3"
