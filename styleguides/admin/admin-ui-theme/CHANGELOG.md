@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.6-experimental.0...@vtex/admin-ui-theme@0.11.0-experimental.3) (2021-01-08)
+
+
+### Bug Fixes
+
+* **dependencies:** admin packages dependencies versions ([0de5a5c](https://github.com/vtex/onda/commit/0de5a5ca259d7d5c7f6d4042e27f7788e94a5db2))
+
+
+
+
+
 ## [0.10.6-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.5...@vtex/admin-ui-theme@0.10.6-experimental.0) (2021-01-07)
 
 
