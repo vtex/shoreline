@@ -3,7 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.71.0-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.5-experimental.0...@vtex/admin-ui@0.71.0-experimental.4) (2021-01-08)
+
+
+### Bug Fixes
+
+* **dependencies:** admin packages dependencies versions ([0de5a5c](https://github.com/vtex/onda/commit/0de5a5ca259d7d5c7f6d4042e27f7788e94a5db2))
+
+
+
+
+
+## [0.70.5-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.4...@vtex/admin-ui@0.70.5-experimental.0) (2021-01-07)
+
+
+### Bug Fixes
+
+* **colors:** remove accent colors ([a83e2e7](https://github.com/vtex/onda/commit/a83e2e7188cba71734bfb1b0a45e68208d8f1895))
+* **typescript:** omit not allowed properties: style, color, and className ([2c2592b](https://github.com/vtex/onda/commit/2c2592b7b056733d65a04c6cd1d0f5e3422fda8e))
+
+
+### Features
+
+* **colors:** change color structure to be aligned with figma ([96c3a70](https://github.com/vtex/onda/commit/96c3a7015e92d9ea98a200820706d33b50991d6f))
+
+
+
+
+
 ## [0.70.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.3...@vtex/admin-ui@0.70.4) (2021-01-04)
+## [0.70.2-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.1...@vtex/admin-ui@0.70.2-experimental.0) (2020-12-29)
 
 
 ### Bug Fixes
@@ -28,6 +57,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [0.70.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.1...@vtex/admin-ui@0.70.2) (2021-01-04)
 
 **Note:** Version bump only for package @vtex/admin-ui
+* **colors:** remove accent colors ([b127bfb](https://github.com/vtex/onda/commit/b127bfb0c069f68b7592683b0b3cbbe13e215523))
+* **typescript:** omit not allowed properties: style, color, and className ([67a7103](https://github.com/vtex/onda/commit/67a710333f2ccde921ec5a8cbc249dcbf8643e4e))
+
+
+### Features
+
+* **colors:** change color structure to be aligned with figma ([c264d06](https://github.com/vtex/onda/commit/c264d06ad6de72bed87a1aa67a38e16563cb677c))
 
 
 
@@ -35,216 +71,150 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.70.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.70.1) (2020-12-29)
 
+# [0.71.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.71.0-experimental.0...@vtex/admin-ui@0.71.0-experimental.1) (2020-12-29)
 
 ### Bug Fixes
 
-* **select:** add property to set the select as block-level element ([8a6017e](https://github.com/vtex/onda/commit/8a6017e1ce8597e04e4a6ec3670917a85e79b383))
+- **typescript:** omit not allowed properties: style, color, and className ([9be50e2](https://github.com/vtex/onda/commit/9be50e274d14e0e6f4d887be355482d067809e33))
 
+# [0.71.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.71.0-experimental.0) (2020-12-28)
 
+### Bug Fixes
 
+- **select:** add property to set the select as block-level element ([8a6017e](https://github.com/vtex/onda/commit/8a6017e1ce8597e04e4a6ec3670917a85e79b383))
 
+# [0.71.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.71.0-experimental.0) (2020-12-28)
+
+### Bug Fixes
+
+- **colors:** remove accent colors ([4e877e4](https://github.com/vtex/onda/commit/4e877e47037231f7bb532f0fc9314c5ac4cbfb4b))
+
+### Features
+
+- **colors:** change color structure to be aligned with figma ([b6419be](https://github.com/vtex/onda/commit/b6419be42bfa7a72be170713a395d58326a52962))
 
 # [0.70.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.3...@vtex/admin-ui@0.70.0) (2020-12-28)
 
-
 ### Features
 
-* **admin-ui-sytem:** rename createElement as jsx. Allow clasNames on styled components with cx func ([6eccbbb](https://github.com/vtex/onda/commit/6eccbbb97782587ef629d13cc944d9254f246125))
-
-
-
-
+- **admin-ui-sytem:** rename createElement as jsx. Allow clasNames on styled components with cx func ([6eccbbb](https://github.com/vtex/onda/commit/6eccbbb97782587ef629d13cc944d9254f246125))
 
 ## [0.69.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.2...@vtex/admin-ui@0.69.3) (2020-12-28)
 
+### Bug Fixes
+
+- **primitives:** now Grid and Flex can render any html element ([1dd4530](https://github.com/vtex/onda/commit/1dd4530290d9b269fc10a72e94eaa90f9e0085ae))
+- **select:** fix help text padding, icon size and viewport of documentation ([34d486a](https://github.com/vtex/onda/commit/34d486a66c14ad26a4a46812a08e963df39c1010))
+
+## [0.69.3-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.2...@vtex/admin-ui@0.69.3-experimental.0) (2020-12-23)
 
 ### Bug Fixes
 
-* **primitives:** now Grid and Flex can render any html element ([1dd4530](https://github.com/vtex/onda/commit/1dd4530290d9b269fc10a72e94eaa90f9e0085ae))
-* **select:** fix help text padding, icon size and viewport of documentation ([34d486a](https://github.com/vtex/onda/commit/34d486a66c14ad26a4a46812a08e963df39c1010))
+- **colors:** remove accent colors ([9803727](https://github.com/vtex/onda/commit/9803727dd621276b163250e19933f1dbe1a14c31))
 
+### Features
 
-
-
+- **colors:** change color structure to be aligned with figma ([e53963c](https://github.com/vtex/onda/commit/e53963cb9847cd2e0a95b47bfbc4572c891cac17))
 
 ## [0.69.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.69.1...@vtex/admin-ui@0.69.2) (2020-12-23)
 
-
 ### Bug Fixes
 
-* **primitives:** now Grid and Flex can render any html element ([981c301](https://github.com/vtex/onda/commit/981c301a95f0bf586f4e8baac437db7347b25df8))
-
-
-
-
+- **primitives:** now Grid and Flex can render any html element ([981c301](https://github.com/vtex/onda/commit/981c301a95f0bf586f4e8baac437db7347b25df8))
 
 ## [0.69.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.68.2...@vtex/admin-ui@0.69.1) (2020-12-22)
 
-
 ### Bug Fixes
 
-* **select:** fix styles ([bba6876](https://github.com/vtex/onda/commit/bba6876fe6e262c757ec4d975b045a59926114c1))
-
+- **select:** fix styles ([bba6876](https://github.com/vtex/onda/commit/bba6876fe6e262c757ec4d975b045a59926114c1))
 
 ### Features
 
-* **select:** create a new component ([f4e3e17](https://github.com/vtex/onda/commit/f4e3e17f952454430505bfeeb3efb3c5c7147389))
-
-
-
-
+- **select:** create a new component ([f4e3e17](https://github.com/vtex/onda/commit/f4e3e17f952454430505bfeeb3efb3c5c7147389))
 
 # [0.69.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.68.2...@vtex/admin-ui@0.69.0) (2020-12-22)
 
-
 ### Bug Fixes
 
-* **select:** fix styles ([bba6876](https://github.com/vtex/onda/commit/bba6876fe6e262c757ec4d975b045a59926114c1))
-
+- **select:** fix styles ([bba6876](https://github.com/vtex/onda/commit/bba6876fe6e262c757ec4d975b045a59926114c1))
 
 ### Features
 
-* **select:** create a new component ([f4e3e17](https://github.com/vtex/onda/commit/f4e3e17f952454430505bfeeb3efb3c5c7147389))
-
-
-
-
+- **select:** create a new component ([f4e3e17](https://github.com/vtex/onda/commit/f4e3e17f952454430505bfeeb3efb3c5c7147389))
 
 ## [0.68.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.68.1...@vtex/admin-ui@0.68.2) (2020-12-18)
 
-
 ### Bug Fixes
 
-* **divider:** change margin to be 0 by default ([b67ce12](https://github.com/vtex/onda/commit/b67ce12d0a731ddc8719f3bcd7e1deb72c9b73e8))
-
-
-
-
+- **divider:** change margin to be 0 by default ([b67ce12](https://github.com/vtex/onda/commit/b67ce12d0a731ddc8719f3bcd7e1deb72c9b73e8))
 
 ## [0.68.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.68.0...@vtex/admin-ui@0.68.1) (2020-12-16)
 
-
 ### Bug Fixes
 
-* **tooltip:** now it should overlay all elements ([827c221](https://github.com/vtex/onda/commit/827c2216c611ddb1aef80f34ee8fdf49a208c4e7))
-
-
-
-
+- **tooltip:** now it should overlay all elements ([827c221](https://github.com/vtex/onda/commit/827c2216c611ddb1aef80f34ee8fdf49a208c4e7))
 
 # [0.68.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.67.2...@vtex/admin-ui@0.68.0) (2020-12-15)
 
-
 ### Features
 
-* **admin-ui:** add checkbox resolver to table ([23422f2](https://github.com/vtex/onda/commit/23422f2bbd875fc774621832d688c66631575692))
-
-
-
-
+- **admin-ui:** add checkbox resolver to table ([23422f2](https://github.com/vtex/onda/commit/23422f2bbd875fc774621832d688c66631575692))
 
 ## [0.67.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.67.1...@vtex/admin-ui@0.67.2) (2020-12-11)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.67.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.67.0...@vtex/admin-ui@0.67.1) (2020-12-10)
-
 
 ### Bug Fixes
 
-* **admin-ui:** card color ([3748615](https://github.com/vtex/onda/commit/37486158ce478a763210528f2f0b7ed407d8f8c9))
-
-
-
-
+- **admin-ui:** card color ([3748615](https://github.com/vtex/onda/commit/37486158ce478a763210528f2f0b7ed407d8f8c9))
 
 # [0.67.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.66.3...@vtex/admin-ui@0.67.0) (2020-12-10)
 
-
 ### Features
 
-* **admin:** add mono & sans font to theme ([124711a](https://github.com/vtex/onda/commit/124711ac8b68bfdb2a02785dcfe18bd5300d98d4))
-
-
-
-
+- **admin:** add mono & sans font to theme ([124711a](https://github.com/vtex/onda/commit/124711ac8b68bfdb2a02785dcfe18bd5300d98d4))
 
 ## [0.66.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.66.2...@vtex/admin-ui@0.66.3) (2020-12-09)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.66.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.66.1...@vtex/admin-ui@0.66.2) (2020-12-09)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.66.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.66.0...@vtex/admin-ui@0.66.1) (2020-12-09)
-
 
 ### Bug Fixes
 
-* **dropdown:** add forwardRef to the Dropdown component ([f9148b4](https://github.com/vtex/onda/commit/f9148b4ec4ce1079973485fe760cb11bea56e0a7))
-
-
-
-
+- **dropdown:** add forwardRef to the Dropdown component ([f9148b4](https://github.com/vtex/onda/commit/f9148b4ec4ce1079973485fe760cb11bea56e0a7))
 
 # [0.66.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.65.0...@vtex/admin-ui@0.66.0) (2020-12-09)
 
-
 ### Features
 
-* **grid:** add Grid component ([bbbed59](https://github.com/vtex/onda/commit/bbbed5939d46d4184f484aea0a37fa453957fe58))
-
-
-
-
+- **grid:** add Grid component ([bbbed59](https://github.com/vtex/onda/commit/bbbed5939d46d4184f484aea0a37fa453957fe58))
 
 # [0.65.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.64.1...@vtex/admin-ui@0.65.0) (2020-12-09)
 
-
 ### Bug Fixes
 
-* **flex:** export Flex component ([f063bcb](https://github.com/vtex/onda/commit/f063bcb653220180ca9314e275ecd0e86b1831f1))
-
+- **flex:** export Flex component ([f063bcb](https://github.com/vtex/onda/commit/f063bcb653220180ca9314e275ecd0e86b1831f1))
 
 ### Features
 
-* **admin-ui:** add flex component ([fb833eb](https://github.com/vtex/onda/commit/fb833ebf14f9ea3d22f0419d9054411e7e601d13))
-
-
-
-
+- **admin-ui:** add flex component ([fb833eb](https://github.com/vtex/onda/commit/fb833ebf14f9ea3d22f0419d9054411e7e601d13))
 
 ## [0.64.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.64.0-next.3...@vtex/admin-ui@0.64.1) (2020-12-09)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 # [0.64.0-next.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.63.3...@vtex/admin-ui@0.64.0-next.3) (2020-12-08)
-
 
 ### Features
 
-* **admin-ui:** implement new system on admin-ui ([a71381a](https://github.com/vtex/onda/commit/a71381aa6a923a33e8e16c1a9fa8baea3b3eb092))
-
-
-
-
+- **admin-ui:** implement new system on admin-ui ([a71381a](https://github.com/vtex/onda/commit/a71381aa6a923a33e8e16c1a9fa8baea3b3eb092))
 
 ## [0.63.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.63.2...@vtex/admin-ui@0.63.3) (2020-12-08)
 

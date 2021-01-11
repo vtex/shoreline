@@ -1,82 +1,71 @@
 import { darken } from 'polished'
 
-const elementaryColors = {
-  white: '#FFFFFF',
-  blue: '#DAE3F5',
-  purple: '#F4EFFF',
-  yellow: '#FDE6C0',
-  green: '#D6EFE5',
-  red: '#FEE3E3',
-  black: '#323845',
-}
-
 const semanticColors = {
-  primary: '#2953B2',
-  secondary: '#DAE3F5',
-  danger: '#CB4242',
-  dangerWashed: '#FEDADA',
-  warning: '#FFBA52',
-  warningWashed: '#F6E0BA',
-  success: '#368369',
-  successWashed: '#CEE8DE',
+  blue: '#2953B2',
+  blueSecondary: '#DAE3F5',
+  red: '#CB4242',
+  redSecondary: '#FEDADA',
+  yellow: '#FFBA52',
+  yellowSecondary: '#F6E0BA',
+  green: '#368369',
+  greenSecondary: '#CEE8DE',
+  black: '#323845',
+  white: '#FFFFFF',
 }
 
 export default {
-  ...elementaryColors,
-  text: {
-    primary: '#323845',
+  dark: {
+    primary: semanticColors.black,
     secondary: '#707685',
   },
-  background: '#FFFFFF',
-  brand: '#F71963',
-  muted: ['#898F9E', '#C4C5CA', '#E0E2E7', '#F4F6FB'],
+  light: {
+    primary: semanticColors.white,
+    secondary: '#F4F6FB',
+  },
+  mid: {
+    primary: '#898F9E',
+    secondary: '#C4C5CA',
+    tertiary: '#E0E2E7',
+  },
   focus: '#8DB6FA',
-  primary: {
-    base: semanticColors.primary,
-    hover: darken(0.08, semanticColors.primary),
-    pressed: darken(0.16, semanticColors.primary),
-    accent: '#FFFFFF',
-  },
-  secondary: {
-    base: semanticColors.secondary,
-    hover: darken(0.04, semanticColors.secondary),
-    pressed: darken(0.08, semanticColors.secondary),
-    accent: semanticColors.primary,
-  },
-  danger: {
-    base: semanticColors.danger,
-    hover: darken(0.08, semanticColors.danger),
-    pressed: darken(0.16, semanticColors.danger),
-    accent: '#FFFFFF',
-    washed: {
-      base: semanticColors.dangerWashed,
-      hover: darken(0.04, semanticColors.dangerWashed),
-      pressed: darken(0.08, semanticColors.dangerWashed),
-      accent: semanticColors.danger,
+  blue: {
+    default: semanticColors.blue,
+    hover: darken(0.08, semanticColors.blue),
+    pressed: darken(0.16, semanticColors.blue),
+    secondary: {
+      default: semanticColors.blueSecondary,
+      hover: darken(0.04, semanticColors.blueSecondary),
+      pressed: darken(0.08, semanticColors.blueSecondary),
     },
   },
-  warning: {
-    base: semanticColors.warning,
-    hover: darken(0.08, semanticColors.warning),
-    pressed: darken(0.16, semanticColors.warning),
-    accent: '#FFFFFF',
-    washed: {
-      base: semanticColors.warningWashed,
-      hover: darken(0.04, semanticColors.warningWashed),
-      pressed: darken(0.08, semanticColors.warningWashed),
-      accent: semanticColors.warning,
+  red: {
+    default: semanticColors.red,
+    hover: darken(0.08, semanticColors.red),
+    pressed: darken(0.16, semanticColors.red),
+    secondary: {
+      default: semanticColors.redSecondary,
+      hover: darken(0.04, semanticColors.redSecondary),
+      pressed: darken(0.08, semanticColors.redSecondary),
     },
   },
-  success: {
-    base: semanticColors.success,
-    hover: darken(0.08, semanticColors.success),
-    pressed: darken(0.16, semanticColors.success),
-    accent: '#FFFFFF',
-    washed: {
-      base: semanticColors.successWashed,
-      hover: darken(0.04, semanticColors.successWashed),
-      pressed: darken(0.08, semanticColors.successWashed),
-      accent: semanticColors.success,
+  yellow: {
+    default: semanticColors.yellow,
+    hover: darken(0.08, semanticColors.yellow),
+    pressed: darken(0.16, semanticColors.yellow),
+    secondary: {
+      default: semanticColors.yellowSecondary,
+      hover: darken(0.04, semanticColors.yellowSecondary),
+      pressed: darken(0.08, semanticColors.yellowSecondary),
+    },
+  },
+  green: {
+    default: semanticColors.green,
+    hover: darken(0.08, semanticColors.green),
+    pressed: darken(0.16, semanticColors.green),
+    secondary: {
+      default: semanticColors.greenSecondary,
+      hover: darken(0.04, semanticColors.greenSecondary),
+      pressed: darken(0.08, semanticColors.greenSecondary),
     },
   },
 }

@@ -6,13 +6,13 @@ const { colors, borderRadius } = theme
 export default create({
   base: 'light',
 
-  colorPrimary: colors.primary.base,
-  colorSecondary: colors.text.primary,
+  colorPrimary: colors.blue.default,
+  colorSecondary: colors.dark.primary,
 
   // UI
-  appBg: colors.background,
-  appContentBg: colors.muted[3],
-  appBorderColor: colors.muted[2],
+  appBg: colors.light.primary,
+  appContentBg: colors.light.secondary,
+  appBorderColor: colors.mid.tertiary,
   appBorderRadius: borderRadius[2],
 
   // Typography
@@ -22,18 +22,18 @@ export default create({
     '"Dank Mono", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Consolas", "Monaco", monospace',
 
   // Text colors
-  textColor: colors.text.primary,
-  textInverseColor: colors.background,
+  textColor: colors.dark.primary,
+  textInverseColor: colors.light.primary,
 
   // Toolbar default and active colors
-  barTextColor: colors.background,
-  barSelectedColor: colors.background,
-  barBg: colors.text.primary,
+  barTextColor: colors.light.primary,
+  barSelectedColor: colors.light.primary,
+  barBg: colors.dark.primary,
 
   // Form colors
-  inputBg: colors.background,
-  inputBorder: colors.muted[2],
-  inputTextColor: colors.text.primary,
+  inputBg: colors.light.primary,
+  inputBorder: colors.mid.tertiary,
+  inputTextColor: colors.dark.primary,
   inputBorderRadius: borderRadius.default,
 
   brandTitle: 'Admin UI',

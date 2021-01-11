@@ -24,9 +24,7 @@ Primitive components should be used during the following cases:
 function CustomComponent({ heading, children }) {
   return (
     <Box styles={{ display: 'flex', paddingY: 4, border: 'divider-bottom' }}>
-      <Box
-        styles={{ bg: 'primary.base', width: 10, height: 60, marginRight: 3 }}
-      />
+      <Box styles={{ bg: 'blue', width: 10, height: 60, marginRight: 3 }} />
       <Set spacing={3} orientation="vertical" fluid>
         <Heading>{heading}</Heading>
         <Paragraph>{children}</Paragraph>
@@ -60,7 +58,7 @@ function Example() {
 // 🚫 Wrong
 function Example() {
   return (
-    <div className={cn({ padding: 2, margin: 2, bg: 'muted.2' })}>
+    <div className={cn({ padding: 2, margin: 2, bg: 'mid.tertiary' })}>
       {...content}
     </div>
   )
@@ -69,7 +67,9 @@ function Example() {
 // ✅ Correct
 function Example() {
   return (
-    <Box styles={{ bg: 'muted.2', padding: 2, margin: 2 }}>{...content}</Box>
+    <Box styles={{ bg: 'mid.tertiary', padding: 2, margin: 2 }}>
+      {...content}
+    </Box>
   )
 }
 ```
@@ -135,7 +135,7 @@ function Example() {
         borderStyle: 'solid',
         borderWidth: '1px',
         borderRadius: 'default',
-        borderColor: 'muted.2',
+        borderColor: 'mid.tertiary',
         padding: 6,
       }}
     >
@@ -144,8 +144,8 @@ function Example() {
         styles={{
           border: 'none',
           borderRadius: 'default',
-          bg: 'text',
-          color: 'background',
+          bg: 'dark.primary',
+          color: 'light.primary',
         }}
       />
     </Box>

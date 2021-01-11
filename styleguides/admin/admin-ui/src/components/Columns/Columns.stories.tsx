@@ -11,14 +11,14 @@ export default {
 
 const primaryStyles = {
   padding: 2,
-  bg: 'primary.base',
-  color: 'primary.accent',
+  bg: 'blue',
+  color: 'light.primary',
 }
 
 const invertedStyles = {
   padding: 2,
-  bg: 'text.primary',
-  color: 'background',
+  bg: 'dark.primary',
+  color: 'light.primary',
 }
 
 export const Playground: Story = (args) => {

@@ -9,7 +9,7 @@ const optionsPortal = {
   position: 'absolute',
   zIndex: 999,
   width: 'inherit',
-  backgroundColor: 'background',
+  backgroundColor: 'light.primary',
   outline: 'none',
 }
 
@@ -18,7 +18,7 @@ const optionsContainer = {
   flexDirection: 'column',
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: 'muted.0',
+  borderColor: 'mid.primary',
   borderRadius: 'default',
 }
 
@@ -28,7 +28,7 @@ const optionsLabel = {
   paddingTop: 2,
   paddingBottom: 1,
   paddingLeft: 3,
-  color: 'text.secondary',
+  color: 'mid.primary',
 }
 
 const optionsUl = {
@@ -41,7 +41,7 @@ const optionsUl = {
 }
 
 const item = {
-  color: 'text.primary',
+  color: 'dark.primary',
   verticalAlign: 'middle',
   listStyleType: 'none',
   display: 'flex',
@@ -61,48 +61,48 @@ const button = {
   borderWidth: 1,
   paddingLeft: 3,
   paddingRight: 4,
-  borderColor: 'muted.1',
+  borderColor: 'mid.secondary',
   borderRadius: 'default',
   bg: 'inherit',
   fontSize: 1,
-  color: 'text.secondary',
+  color: 'dark.secondary',
   outline: 0,
   ':hover': {
-    borderColor: 'muted.0',
+    borderColor: 'mid.primary',
   },
   ':hover > svg': {
-    color: 'text.primary',
+    color: 'dark.primary',
   },
   ':focus': {
-    borderColor: colors.primary.base,
-    boxShadow: `0 0 0 1px ${colors.primary.base}`,
+    borderColor: colors.blue.default,
+    boxShadow: `0 0 0 1px ${colors.blue.default}`,
   },
   ':disabled': {
-    bg: 'muted.3',
-    borderColor: 'muted.0',
-    color: 'text.secondary',
+    bg: 'light.secondary',
+    borderColor: 'mid.primary',
+    color: 'dark.secondary',
     cursor: 'initial',
   },
   ':disabled > svg': {
-    color: 'text.secondary',
+    color: 'dark.secondary',
   },
 }
 
 const buttonError = {
   ...button,
-  borderColor: 'danger.base',
+  borderColor: 'red',
   ':focus': {
-    borderColor: 'danger.base',
-    boxShadow: `0 0 0 1px ${colors.danger.base}`,
+    borderColor: 'red',
+    boxShadow: `0 0 0 1px ${colors.red.default}`,
   },
   ':hover': {
-    borderColor: 'danger.base',
+    borderColor: 'red',
   },
 }
 
 const selectedItem = {
   lineHeight: 1.43,
-  color: 'text.primary',
+  color: 'dark.primary',
   float: 'left',
   marginTop: '1.125rem',
   ':not(:empty) + label': {
@@ -128,7 +128,7 @@ const mobileLabel = {
   top: '25%',
   lineHeight: 1.5,
   paddingLeft: 3,
-  color: 'text.secondary',
+  color: 'dark.secondary',
   zIndex: 2,
 }
 
@@ -139,39 +139,39 @@ const mobileLabelSelectedItem = {
 }
 
 const mobileSelect = {
-  color: 'text.primary',
+  color: 'dark.primary',
   outline: 'none',
   fontSize: 1,
   appearance: 'none',
   backgroundColor: 'transparent',
   border: '1px solid',
-  borderColor: 'muted.1',
+  borderColor: 'mid.secondary',
   borderRadius: 'default',
   paddingTop: '1.125rem',
   paddingLeft: 3,
   width: '100%',
   height: '100%',
   ':focus': {
-    borderColor: 'primary.base',
-    boxShadow: `0 0 0 1px ${colors.primary.base}`,
+    borderColor: 'blue',
+    boxShadow: `0 0 0 1px ${colors.blue.default}`,
   },
   ':disabled': {
-    bg: 'muted.3',
-    borderColor: 'muted.0',
-    color: 'text.primary',
+    bg: 'light.secondary',
+    borderColor: 'mid.primary',
+    color: 'dark.primary',
     opacity: 1,
   },
   ':disabled > svg': {
-    color: 'text.secondary',
+    color: 'dark.secondary',
   },
 }
 
 const mobileSelectError = {
   ...mobileSelect,
-  borderColor: 'danger.base',
+  borderColor: 'red',
   ':focus': {
-    borderColor: 'danger.base',
-    boxShadow: `0 0 0 1px ${colors.danger.base}`,
+    borderColor: 'red',
+    boxShadow: `0 0 0 1px ${colors.red.default}`,
   },
 }
 
@@ -179,7 +179,7 @@ const mobileIcon = {
   position: 'absolute',
   right: 12,
   top: '25%',
-  color: 'text.secondary',
+  color: 'dark.secondary',
 }
 
 export default {

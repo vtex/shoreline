@@ -47,7 +47,7 @@ You can use the `styleOverrides` property to handle different styles, and also t
 <Heading
   text="body"
   marginBottom={2}
-  styleOverrides={{ fontSize: 4, bg: 'muted.3', color: 'primary.base' }}
+  styleOverrides={{ fontSize: 4, bg: 'light.secondary', color: 'blue' }}
 >
   Heading 1
 </Heading>

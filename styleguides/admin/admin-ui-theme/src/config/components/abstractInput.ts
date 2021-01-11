@@ -10,25 +10,25 @@ const inputStyle = {
   borderWidth: 1,
   paddingLeft: 3,
   paddingRight: 4,
-  borderColor: 'muted.2',
+  borderColor: 'mid.tertiary',
   borderRadius: 'default',
   bg: 'inherit',
   marginY: 1,
   fontSize: 1,
-  color: 'text.primary',
+  color: 'dark.primary',
   outline: 0,
   transition: 'snap',
   ':hover': {
-    borderColor: 'text.primary',
+    borderColor: 'dark.primary',
   },
   ':focus': {
-    borderColor: 'primary.base',
-    boxShadow: `0 0 0 1px  ${colors.primary.base}`,
+    borderColor: 'blue',
+    boxShadow: `0 0 0 1px  ${colors.blue.default}`,
   },
   ':disabled': {
-    bg: 'muted.3',
-    borderColor: 'muted.0',
-    color: 'muted.0',
+    bg: 'light.secondary',
+    borderColor: 'mid.primary',
+    color: 'mid.primary',
   },
   ':focus + label': {
     transform: 'translate(1px, 4px) scale(0.875)',
@@ -42,13 +42,13 @@ const inputStyle = {
 }
 
 const errorState = {
-  borderColor: 'danger.base',
+  borderColor: 'red',
   ':focus': {
-    borderColor: 'danger.base',
-    boxShadow: `0 0 0 1px  ${colors.danger.base}`,
+    borderColor: 'red',
+    boxShadow: `0 0 0 1px  ${colors.red.default}`,
   },
   ':hover': {
-    borderColor: 'danger.hover',
+    borderColor: 'red.hover',
   },
 }
 
@@ -89,10 +89,10 @@ export default {
 
   // input suffix
   suffix: {
-    color: 'muted.0',
+    color: 'mid.primary',
     borderLeftStyle: 'solid',
     borderLeftWidth: '1px',
-    borderLeftColor: 'muted.2',
+    borderLeftColor: 'mid.tertiary',
     paddingTop: '14px',
     marginTop: 'px',
     width: '32px',
@@ -104,7 +104,7 @@ export default {
 
   // left icon style
   icon: {
-    color: 'muted.0',
+    color: 'mid.primary',
     top: 1,
     left: 0,
     marginX: 3,
@@ -124,7 +124,7 @@ export default {
     paddingRight: 3,
     position: 'absolute',
     display: 'flex',
-    color: 'text.secondary',
+    color: 'dark.secondary',
   },
   ...getInputVariants('input'),
   ...getInputVariants('input-error', errorState),

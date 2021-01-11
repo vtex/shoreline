@@ -13,7 +13,7 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
 
     useProps(options, htmlProps) {
       const isExperimental = options.experimental === 'true'
-      const palette = options.palette ?? 'warning'
+      const palette = options.palette ?? 'yellow'
 
       const experimentalStyles = isExperimental
         ? {
@@ -38,11 +38,9 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
           htmlProps.children
         ),
         className: cn({
-          color: 'text.primary',
-          backgroundColor: `${
-            palette === 'primary' ? 'secondary.base' : `${palette}.washed.base`
-          }`,
-          borderLeftColor: `${palette}.base`,
+          color: 'dark.primary',
+          backgroundColor: `${palette}.secondary`,
+          borderLeftColor: `${palette}`,
           borderLeftWidth: 8,
           borderLeftStyle: 'solid',
           paddingY: 5,
@@ -67,7 +65,7 @@ const Blockquote = createComponent({
 
 export type BlockquoteOptions = BoxOptions & {
   experimental?: 'true' | 'false'
-  palette?: 'primary' | 'success' | 'danger' | 'warning'
+  palette?: 'blue' | 'green' | 'red' | 'yellow'
 }
 
 export type BlockquoteHTMLProps = BoxHTMLProps &

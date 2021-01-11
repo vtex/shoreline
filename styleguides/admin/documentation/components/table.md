@@ -23,7 +23,7 @@ This is the simplest way to use the Table. It handles common table use cases for
 
 ### Table
 
-<blockquote palette="danger">
+<blockquote palette="red">
 
 Still TDB. Suited for advanced usages such as Windowing and Drag n Drop. If that's your case, check the storybook stories for more details in how to acomplish it.
 
@@ -162,7 +162,7 @@ function Example() {
                 <Text
                   variant="highlight"
                   styleOverrides={{
-                    color: Number(data) > 0 ? 'primary.base' : 'danger.base',
+                    color: Number(data) > 0 ? 'blue' : 'red',
                   }}
                 >
                   {data}

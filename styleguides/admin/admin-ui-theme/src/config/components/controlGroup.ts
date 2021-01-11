@@ -11,7 +11,7 @@ const styles = {
   },
   '& > label': {
     cursor: 'pointer',
-    color: 'text.secondary',
+    color: 'dark.secondary',
     display: 'flex',
     alignItems: 'center',
   },
