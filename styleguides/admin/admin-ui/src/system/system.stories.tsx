@@ -12,7 +12,7 @@ export const cxAndCn: Story = () => {
     <div
       className={cx(
         'my-className',
-        cn({ bg: 'primary.base', color: 'primary.accent' })
+        cn({ bg: 'blue', color: 'light.primary' })
       )}
     >
       Cn
