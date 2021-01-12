@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.7.0...@vtex/admin-ui-system@0.8.0) (2021-01-12)
+
+
+### Features
+
+* **admin-ui-system:** add color types ([42a73e3](https://github.com/vtex/onda/commit/42a73e34d9b097b3e29681c7abe03ef0b6dda02b))
+
+
+
+
+
 # [0.7.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.7.0-experimental.3...@vtex/admin-ui-system@0.7.0) (2021-01-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-system
