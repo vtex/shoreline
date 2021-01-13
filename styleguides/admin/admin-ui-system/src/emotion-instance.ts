@@ -12,4 +12,5 @@ export const {
   cache,
 } = createEmotion({
   key: 'vtex-admin-ui',
+  container: document.head,
 })
