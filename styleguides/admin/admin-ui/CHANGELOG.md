@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.72.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.0...@vtex/admin-ui@0.72.1-experimental.0) (2021-01-14)
+
+
+### Features
+
+* **emotion:** add emotion CacheProvider ([1352986](https://github.com/vtex/onda/commit/1352986399e595cc13520d7710d7d3546223a12d))
+
+
+
+
+
 # [0.72.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.71.0...@vtex/admin-ui@0.72.0) (2021-01-12)
 
 
