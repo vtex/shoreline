@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.1...@vtex/admin-ui-system@0.8.1-experimental.2) (2021-01-15)
+
+
+### Bug Fixes
+
+* **emotion:** remove emotion-instance ([e5da155](https://github.com/vtex/onda/commit/e5da155c095563d929fd3cf0a2c06dd28d71a2a7))
+
+
+
+
+
 ## [0.8.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.0...@vtex/admin-ui-system@0.8.1-experimental.1) (2021-01-15)
 
 
