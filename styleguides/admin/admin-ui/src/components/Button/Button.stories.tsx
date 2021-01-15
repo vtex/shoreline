@@ -45,7 +45,7 @@ export const Variant: Story = () => {
 export const Adaptative: Story = () => {
   return (
     <Set orientation="vertical">
-      <Box styles={{ padding: 4 }}>
+      <Box styles={{ padding: 4, bg: 'dark.primary', color: 'light.primary' }}>
         <Button variant="adaptative-light">Adaptative light</Button>
       </Box>
       <Box styles={{ padding: 4 }}>
