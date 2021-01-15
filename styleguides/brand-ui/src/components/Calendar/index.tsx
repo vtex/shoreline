@@ -28,6 +28,7 @@ const EventTag = ({ event }: EventTagProps) => {
   return (
     <Box variant="calendar.eventContainer">
       <Box variant="calendar.event.leftEv" sx={{ bg: firstColor }} />
+      <Box sx={{ width: 2 }} />
       <Box variant="calendar.event.rightEv" sx={{ bg: secondColor }} />
     </Box>
   )
