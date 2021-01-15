@@ -10,9 +10,8 @@ import {
   StyleProp,
   StyleObject,
   cx,
-  css,
 } from '@vtex/admin-ui-system'
-import { CacheProvider, Global } from '@emotion/react'
+import { CacheProvider, Global, css } from '@emotion/react'
 import { theme } from '@vtex/admin-ui-theme'
 import 'focus-visible/dist/focus-visible'
 import createCache from '@emotion/cache'
@@ -32,35 +31,29 @@ function ThemeProvider(props: ThemeProviderProps) {
         <Global
           styles={css`
             @import 'https://io.vtex.com.br/fonts/vtex-trust/style.css';
-
             body {
               margin: 0;
               background-color: ${get(theme, 'colors.light.primary')};
               color: ${get(theme, 'colors.dark.primary')};
             }
-
             html,
             body {
               font-family: ${get(theme, 'fonts.sans')} !important;
               font-variation-settings: ${get(theme, 'fontSettings.regular')};
             }
-
             strong,
             b {
               font-family: ${get(theme, 'fonts.sans')} !important;
               font-variation-settings: ${get(theme, 'fontSettings.bold')};
             }
-
             pre,
             code {
               font-family: ${get(theme, 'fonts.mono')} !important;
             }
-
             * {
               font-family: ${get(theme, 'fonts.sans')} !important;
               font-variation-settings: ${get(theme, 'fontSettings.regular')};
             }
-
             *,
             ::before,
             ::after {
@@ -68,7 +61,6 @@ function ThemeProvider(props: ThemeProviderProps) {
               border-width: 0;
               border-style: solid;
             }
-
             html,
             body,
             div,
@@ -155,7 +147,6 @@ function ThemeProvider(props: ThemeProviderProps) {
               font: inherit;
               vertical-align: baseline;
             }
-
             /* HTML5 display-role reset for older browsers */
             article,
             aside,
@@ -170,16 +161,13 @@ function ThemeProvider(props: ThemeProviderProps) {
             section {
               display: block;
             }
-
             body {
               line-height: 1;
             }
-
             blockquote,
             q {
               quotes: none;
             }
-
             blockquote:before,
             blockquote:after,
             q:before,
@@ -187,7 +175,6 @@ function ThemeProvider(props: ThemeProviderProps) {
               content: '';
               content: none;
             }
-
             table {
               border-collapse: collapse;
               border-spacing: 0;
