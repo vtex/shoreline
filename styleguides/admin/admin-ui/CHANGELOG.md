@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.72.1-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.4...@vtex/admin-ui@0.72.1-experimental.5) (2021-01-15)
+
+
+### Bug Fixes
+
+* **emotion:** fix Global styles ([611cd5a](https://github.com/vtex/onda/commit/611cd5a0eebc718564c85741bc4a3b9d305125ec))
+
+
+
+
+
 ## [0.72.1-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.3...@vtex/admin-ui@0.72.1-experimental.4) (2021-01-15)
 
 
