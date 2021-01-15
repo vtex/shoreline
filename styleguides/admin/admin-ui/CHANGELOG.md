@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.72.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.1...@vtex/admin-ui@0.72.1-experimental.2) (2021-01-15)
+
+
+### Bug Fixes
+
+* **emotion:** use css function from emotion-instance instead of emotion package ([6768b57](https://github.com/vtex/onda/commit/6768b5732882f295ae5cc83e5bf81fde33354484))
+
+
+
+
+
 ## [0.72.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.0...@vtex/admin-ui@0.72.1-experimental.1) (2021-01-15)
 
 
