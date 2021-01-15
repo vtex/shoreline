@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { css } from './emotion-instance'
+import { css } from '@emotion/css'
 import { ThemeProvider as BaseProvider } from './core'
 import { styles } from './styles'
 import { StyleProp } from './types'

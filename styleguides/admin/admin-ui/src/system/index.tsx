@@ -10,9 +10,9 @@ import {
   StyleProp,
   StyleObject,
   cx,
-  injectGlobal,
+  css,
 } from '@vtex/admin-ui-system'
-import { CacheProvider } from '@emotion/react'
+import { CacheProvider, Global } from '@emotion/react'
 import { theme } from '@vtex/admin-ui-theme'
 import 'focus-visible/dist/focus-visible'
 import createCache from '@emotion/cache'
@@ -27,9 +27,10 @@ function ThemeProvider(props: ThemeProviderProps) {
   const { children, appId } = props
 
   return (
-    <BaseProvider>
-      <CacheProvider value={createCache({ key: `vtex-admin-ui-${appId}` })}>
-        {injectGlobal`
+    <CacheProvider value={createCache({ key: `vtex-admin-ui-${appId}` })}>
+      <BaseProvider>
+        <Global
+          styles={css`
             @import 'https://io.vtex.com.br/fonts/vtex-trust/style.css';
 
             body {
@@ -192,9 +193,10 @@ function ThemeProvider(props: ThemeProviderProps) {
               border-spacing: 0;
             }
           `}
+        />
         {children}
-      </CacheProvider>
-    </BaseProvider>
+      </BaseProvider>
+    </CacheProvider>
   )
 }
 
