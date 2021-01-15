@@ -10,26 +10,20 @@ import {
   StyleProp,
   StyleObject,
   cx,
+  cache,
 } from '@vtex/admin-ui-system'
 import { CacheProvider, css, Global } from '@emotion/react'
 import { theme } from '@vtex/admin-ui-theme'
 import 'focus-visible/dist/focus-visible'
-import createCache from '@emotion/cache'
 
 interface ThemeProviderProps {
   children?: ReactNode
-  appId: string
 }
 
 const { ThemeProvider: BaseProvider, cn, stylesOf } = createSystem(theme)
 
 function ThemeProvider(props: ThemeProviderProps) {
-  const { appId, children } = props
-
-  const cache = createCache({
-    key: `vtex-admin-ui-${appId}`,
-    container: document.head,
-  })
+  const { children } = props
 
   return (
     <CacheProvider value={cache}>
