@@ -50,6 +50,7 @@
   "dependencies": {
     "@emotion/babel-plugin": "^11.0.0",
     "@emotion/react": "^11.1.4",
+    "@emotion/cache": "^11.1.3",
     "@vtex/admin-ui-system": "^0.8.1-experimental.1",
     "@vtex/admin-ui-theme": "^0.12.1-experimental.1",
     "csstype": "^3.0.5",
