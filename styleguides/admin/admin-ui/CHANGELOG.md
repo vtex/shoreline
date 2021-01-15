@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.72.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.0...@vtex/admin-ui@0.72.1-experimental.1) (2021-01-15)
+
+
+### Bug Fixes
+
+* **emotion:** add unique key to emotion cache ([0008bc6](https://github.com/vtex/onda/commit/0008bc679d26941b4f981f3f4dc7dbd26af6d986))
+
+
+
+
+
 ## [0.72.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.0...@vtex/admin-ui@0.72.1-experimental.0) (2021-01-14)
 
 
