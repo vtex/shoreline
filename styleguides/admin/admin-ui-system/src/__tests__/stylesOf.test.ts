@@ -1,4 +1,4 @@
-import { createThemeConsumers } from '../createSystem'
+import { createEmotionInstance, createThemeConsumers } from '../createSystem'
 
 describe('stylesOf test', () => {
   const theme = {
@@ -18,21 +18,24 @@ describe('stylesOf test', () => {
   }
 
   it('should be able to consume a themeKey', () => {
-    const { stylesOf } = createThemeConsumers(theme)
+    const emotionInstance = createEmotionInstance('admin-ui-system')
+    const { stylesOf } = createThemeConsumers(theme, emotionInstance)
     const styles = stylesOf('components.alert')
 
     expect(styles).toEqual(theme.components.alert)
   })
 
   it('should be able to consume a scale', () => {
-    const { stylesOf } = createThemeConsumers(theme)
+    const emotionInstance = createEmotionInstance('admin-ui-system')
+    const { stylesOf } = createThemeConsumers(theme, emotionInstance)
     const styles = stylesOf('sizes')
 
     expect(styles).toEqual(theme.sizes)
   })
 
   it('should be able to consume a scale value', () => {
-    const { stylesOf } = createThemeConsumers(theme)
+    const emotionInstance = createEmotionInstance('admin-ui-system')
+    const { stylesOf } = createThemeConsumers(theme, emotionInstance)
     const styles = stylesOf('sizes.half')
 
     expect(styles).toEqual(theme.sizes.half)

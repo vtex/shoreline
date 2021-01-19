@@ -1,7 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
 
-import { cn, jsxs } from '../../system'
+import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
 
 export const Heading = forwardRef(function Heading(
@@ -21,6 +21,7 @@ export const Heading = forwardRef(function Heading(
 
 export function useHeading(props: HeadingProps) {
   const { styleOverrides, ...htmlProps } = props
+  const { cn } = useSystem()
 
   const className = cn({
     text: 'headline',

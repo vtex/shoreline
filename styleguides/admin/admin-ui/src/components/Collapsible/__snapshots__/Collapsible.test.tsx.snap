@@ -80,19 +80,6 @@ exports[`Collapsible tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-  -webkit-transition: -webkit-transform 150ms ease;
-  transition: transform 150ms ease;
-}
-
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -132,6 +119,19 @@ exports[`Collapsible tests should match snapshot 1`] = `
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: -webkit-transform 150ms ease;
+  transition: transform 150ms ease;
 }
 
 <div
@@ -263,19 +263,6 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   flex-direction: row;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-  -webkit-transition: -webkit-transform 150ms ease;
-  transition: transform 150ms ease;
-}
-
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -341,6 +328,19 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: -webkit-transform 150ms ease;
+  transition: transform 150ms ease;
 }
 
 <div

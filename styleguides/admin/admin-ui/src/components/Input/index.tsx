@@ -5,7 +5,7 @@ import { Text } from '../Text'
 import { Label } from '../Label'
 import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
-import { stylesOf } from '../../system'
+import { useSystem } from '../../system'
 
 export const Input = forwardRef(function Input(
   props: InputProps,
@@ -22,6 +22,7 @@ export const Input = forwardRef(function Input(
     errorMessage,
     ...inputProps
   } = props
+  const { stylesOf } = useSystem()
 
   const message = error ? errorMessage : helperText
 

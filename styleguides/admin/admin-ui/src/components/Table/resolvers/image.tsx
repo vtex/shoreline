@@ -9,7 +9,7 @@ import {
   ResolverRenderProps,
 } from './core'
 import { Skeleton } from '../../Skeleton'
-import { cn } from '../../../system'
+import { useSystem } from '../../../system'
 
 const defaultPreview: ImagePreview = {
   display: true,
@@ -27,7 +27,7 @@ export function imageResolver<T>() {
       if (context.loading) {
         return <Skeleton styles={{ height: 24 }} />
       }
-
+      const { cn } = useSystem()
       const url = getData()
       const { resolver } = column
 
@@ -83,6 +83,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
     context: { dir, density },
     alt,
   } = props
+  const { cn } = useSystem()
 
   const tooltip = useTooltipState({
     placement: dir === 'rtl' ? 'left' : 'right',

@@ -1,5 +1,4 @@
 import React, { Fragment, ReactNode } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
 import {
   RadioGroup as ReakitRadioGroup,
   RadioGroupProps as ReakitRadioGroupProps,
@@ -7,6 +6,7 @@ import {
 
 import { Overridable } from '../../types'
 import { Label } from '../Label'
+import { useSystem } from '../../system'
 
 export function RadioGroup(props: RadioGroupProps) {
   const {
@@ -20,7 +20,8 @@ export function RadioGroup(props: RadioGroupProps) {
     ...htmlProps
   } = props
 
-  const className = useClassName({
+  const { cn } = useSystem()
+  const className = cn({
     ...styleOverrides,
     themeKey: `components.controlGroup.${orientation}-${size}`,
   })
