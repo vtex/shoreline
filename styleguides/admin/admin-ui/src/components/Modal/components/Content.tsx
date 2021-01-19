@@ -1,9 +1,9 @@
 import React, { ReactNode, useMemo, forwardRef, Ref } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
 
 import { useModalContext } from '../context'
 import { getScrollAreaSize } from '../util'
 import { Overridable } from '../../../types'
+import { useSystem } from '../../../system'
 
 export const ModalContent = forwardRef(function ModalContent(
   props: ModalContentProps,
@@ -11,6 +11,7 @@ export const ModalContent = forwardRef(function ModalContent(
 ) {
   const { styleOverrides, ...contentProps } = props
 
+  const { cn } = useSystem()
   const { hasHeader, hasFooter, size } = useModalContext()
 
   const scrollSize = useMemo(
@@ -18,7 +19,7 @@ export const ModalContent = forwardRef(function ModalContent(
     [hasHeader, hasFooter, size]
   )
 
-  const className = useClassName({
+  const className = cn({
     ...styleOverrides,
     themeKey: `components.modal.content${scrollSize}`,
   })

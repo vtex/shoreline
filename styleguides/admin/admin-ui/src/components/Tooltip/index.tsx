@@ -6,7 +6,7 @@ import {
 } from 'reakit/Tooltip'
 import { PopoverState } from 'reakit/ts'
 
-import { cn } from '../../system'
+import { useSystem } from '../../system'
 import { Overridable } from '../../types'
 
 /**
@@ -30,6 +30,7 @@ export function Tooltip(props: TooltipProps) {
     baseId,
     ...tooltipProps
   } = props
+  const { cn } = useSystem()
 
   const tooltip = useTooltipState({
     placement,

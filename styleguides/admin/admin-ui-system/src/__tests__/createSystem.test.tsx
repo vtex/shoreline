@@ -6,15 +6,17 @@ import '@testing-library/jest-dom/extend-expect'
 
 import { createSystem, useTheme } from '..'
 import { get } from '../util'
-import { useClassName } from '../hooks'
 import { StyleProp } from '../types'
 import { jsxs } from '../jsxs'
 
 describe('createSystem test', () => {
   it('should create a functional cn', () => {
-    const { cn } = createSystem({
-      space: ['0px', '2px', '4px'],
-    })
+    const { cn } = createSystem(
+      {
+        space: ['0px', '2px', '4px'],
+      },
+      'admin-ui-system'
+    )
 
     const { getByRole } = render(
       <button
@@ -32,14 +34,17 @@ describe('createSystem test', () => {
   })
 
   it('should create a functional ThemeProvider', () => {
-    const { ThemeProvider } = createSystem({
-      space: ['0px', '2px', '4px'],
-      colors: {
-        primary: {
-          base: '#000',
+    const { ThemeProvider } = createSystem(
+      {
+        space: ['0px', '2px', '4px'],
+        colors: {
+          primary: {
+            base: '#000',
+          },
         },
       },
-    })
+      'admin-ui-system'
+    )
 
     const wrapper = ({ children }: PropsWithChildren<unknown>) => (
       <ThemeProvider>{children}</ThemeProvider>
@@ -52,18 +57,21 @@ describe('createSystem test', () => {
   })
 
   it('should be able to consume component keys', () => {
-    const { cn } = createSystem({
-      colors: {
-        base: '#fff',
-        primary: '#000',
-      },
-      components: {
-        header: {
-          backgroundColor: 'base',
-          color: 'primary',
+    const { cn } = createSystem(
+      {
+        colors: {
+          base: '#fff',
+          primary: '#000',
+        },
+        components: {
+          header: {
+            backgroundColor: 'base',
+            color: 'primary',
+          },
         },
       },
-    })
+      'admin-ui-system'
+    )
 
     const { getByTestId } = render(
       <header
@@ -79,12 +87,15 @@ describe('createSystem test', () => {
   })
 
   it('should be able to consume the theme within a created element className', () => {
-    const { cn } = createSystem({
-      colors: {
-        base: '#fff',
-        primary: '#000',
+    const { cn } = createSystem(
+      {
+        colors: {
+          base: '#fff',
+          primary: '#000',
+        },
       },
-    })
+      'admin-ui-system'
+    )
 
     interface ViewProps {
       children?: React.ReactNode
@@ -119,18 +130,21 @@ describe('createSystem test', () => {
   })
 
   it('should be able to consume the component key from the theme', () => {
-    const { cn } = createSystem({
-      colors: {
-        base: '#fff',
-        primary: '#000',
-      },
-      components: {
-        navbar: {
-          backgroundColor: 'primary',
-          color: 'base',
+    const { cn } = createSystem(
+      {
+        colors: {
+          base: '#fff',
+          primary: '#000',
+        },
+        components: {
+          navbar: {
+            backgroundColor: 'primary',
+            color: 'base',
+          },
         },
       },
-    })
+      'admin-ui-system'
+    )
 
     interface NavbarProps {
       children?: React.ReactNode
@@ -157,18 +171,21 @@ describe('createSystem test', () => {
   })
 
   it('should be able to consume the component key from the theme context', () => {
-    const { ThemeProvider } = createSystem({
-      colors: {
-        base: '#fff',
-        primary: '#000',
-      },
-      components: {
-        navbar: {
-          backgroundColor: 'primary',
-          color: 'base',
+    const { ThemeProvider, cn } = createSystem(
+      {
+        colors: {
+          base: '#fff',
+          primary: '#000',
+        },
+        components: {
+          navbar: {
+            backgroundColor: 'primary',
+            color: 'base',
+          },
         },
       },
-    })
+      'admin-ui-system'
+    )
 
     interface NavbarProps {
       children?: React.ReactNode
@@ -177,7 +194,7 @@ describe('createSystem test', () => {
     }
 
     function Nav(props: NavbarProps) {
-      const className = useClassName({ themeKey: 'components.navbar' })
+      const className = cn({ themeKey: 'components.navbar' })
 
       return jsxs({
         component: ReakitBox,

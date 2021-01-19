@@ -1,8 +1,8 @@
 import { ElementType } from 'react'
-import { StyleProp, useClassName } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-ui-system'
 import { Box as ReakitBox } from 'reakit/Box'
 
-import { jsxs } from '../../system'
+import { jsxs, useSystem } from '../../system'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -36,9 +36,20 @@ export function Skeleton(props: SkeletonProps) {
  */
 export function useSkeleton(props: SkeletonProps) {
   const { shape = 'rect', styles, ...htmlProps } = props
+  const { cn, keyframes } = useSystem()
 
-  const className = useClassName({
+  const load = keyframes`
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  `
+
+  const className = cn({
     ...styles,
+    animation: `${load} 1.2s ease-in-out infinite`,
     themeKey: `components.skeleton.${shape}`,
   })
 

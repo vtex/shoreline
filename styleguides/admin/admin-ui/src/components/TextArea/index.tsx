@@ -1,11 +1,10 @@
 import React, { forwardRef, Ref } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
 
 import { Text } from '../Text'
 import { Label } from '../Label'
 import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
-import { stylesOf } from '../../system'
+import { useSystem } from '../../system'
 
 export const TextArea = forwardRef(function Textarea(
   props: TextAreaProps,
@@ -23,10 +22,11 @@ export const TextArea = forwardRef(function Textarea(
     errorMessage,
     ...textareaProps
   } = props
+  const { cn, stylesOf } = useSystem()
 
   const message = error ? errorMessage : helperText
 
-  const className = useClassName({
+  const className = cn({
     ...styleOverrides,
     themeKey: 'components.textArea.default',
   })

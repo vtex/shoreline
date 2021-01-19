@@ -1,31 +1,40 @@
 import React from 'react'
 
-import { css } from '@emotion/css'
+import createEmotion, { Emotion } from '@emotion/css/create-instance'
+
 import { ThemeProvider as BaseProvider } from './core'
 import { styles } from './styles'
 import { StyleProp } from './types'
 import { get } from './util'
 
-export function createSystem<T>(theme: T): CreateSystemReturn {
+export function createSystem<T>(theme: T, appKey: string): CreateSystemReturn {
+  const emotionInstance = createEmotionInstance(appKey)
   const ThemeProvider = createThemeProvider(theme)
-  const { cn, stylesOf } = createThemeConsumers(theme)
+  const { cn, stylesOf } = createThemeConsumers(theme, emotionInstance)
 
   return {
+    emotionInstance,
     ThemeProvider,
     cn,
     stylesOf,
   }
 }
 
+export function createEmotionInstance(appKey: string) {
+  return createEmotion({
+    key: `vtex-admin-ui-${appKey}`,
+  })
+}
+
 export function createThemeProvider<T>(theme: T) {
-  return function ThemeProvider({
+  return function AdminProvider({
     children,
   }: React.PropsWithChildren<unknown>) {
     return <BaseProvider theme={theme}>{children}</BaseProvider>
   }
 }
 
-export function createThemeConsumers<T>(theme: T) {
+export function createThemeConsumers<T>(theme: T, emotionInstance: Emotion) {
   return {
     stylesOf(themeKey: string) {
       const rawStyles = get(
@@ -38,7 +47,7 @@ export function createThemeConsumers<T>(theme: T) {
     },
     cn(styleProp: StyleProp) {
       const rawStyles = styles(styleProp)(theme)
-      const className = css(rawStyles)
+      const className = emotionInstance.css(rawStyles)
 
       return className
     },
@@ -47,4 +56,6 @@ export function createThemeConsumers<T>(theme: T) {
 
 export type CreateSystemReturn = {
   ThemeProvider: ReturnType<typeof createThemeProvider>
-} & ReturnType<typeof createThemeConsumers>
+} & ReturnType<typeof createThemeConsumers> & {
+    emotionInstance: ReturnType<typeof createEmotionInstance>
+  }

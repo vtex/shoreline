@@ -93,13 +93,6 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   flex-direction: row;
 }
 
-.emotion-1 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
 .emotion-3 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
@@ -145,6 +138,13 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   height: 20px;
   min-height: 20px;
   margin: 0.25rem;
+}
+
+.emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 <div
@@ -224,33 +224,12 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   flex-direction: row;
 }
 
-.emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
 .emotion-6 {
   position: relative;
 }
 
 .emotion-6 label {
   left: 44px;
-}
-
-.emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #898F9E;
-  top: 0.25rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
 }
 
 .emotion-1 {
@@ -351,6 +330,27 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   height: 20px;
   min-height: 20px;
   margin: 0.25rem;
+}
+
+.emotion-2 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  color: #898F9E;
+  top: 0.25rem;
+  left: 0rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
+  position: absolute;
 }
 
 <div
@@ -988,20 +988,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   left: 44px;
 }
 
-.emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #898F9E;
-  top: 0.25rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
-}
-
 .emotion-1 {
   font-variation-settings: 'wght' 92;
   width: 100%;
@@ -1053,6 +1039,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   -moz-transform: translate(1px, 4px) scale(0.875);
   -ms-transform: translate(1px, 4px) scale(0.875);
   transform: translate(1px, 4px) scale(0.875);
+}
+
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  color: #898F9E;
+  top: 0.25rem;
+  left: 0rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
+  position: absolute;
 }
 
 <div
@@ -1166,33 +1166,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
 .emotion-6 {
   position: relative;
 }
 
 .emotion-6 label {
   left: 44px;
-}
-
-.emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #898F9E;
-  top: 0.25rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
 }
 
 .emotion-1 {
@@ -1246,6 +1225,27 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   -moz-transform: translate(1px, 4px) scale(0.875);
   -ms-transform: translate(1px, 4px) scale(0.875);
   transform: translate(1px, 4px) scale(0.875);
+}
+
+.emotion-2 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  color: #898F9E;
+  top: 0.25rem;
+  left: 0rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
+  position: absolute;
 }
 
 <div
@@ -1643,20 +1643,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   left: 44px;
 }
 
-.emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #898F9E;
-  top: 0.25rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
-}
-
 .emotion-2 {
   color: #898F9E;
   border-left-style: solid;
@@ -1724,6 +1710,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  color: #898F9E;
+  top: 0.25rem;
+  left: 0rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
+  position: absolute;
+}
+
 <div
     class="emotion-4"
   >
@@ -1778,20 +1778,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4 label {
   left: 44px;
-}
-
-.emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #898F9E;
-  top: 0.25rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
 }
 
 .emotion-2 {
@@ -1859,6 +1845,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   -moz-transform: translate(1px, 4px) scale(0.875);
   -ms-transform: translate(1px, 4px) scale(0.875);
   transform: translate(1px, 4px) scale(0.875);
+}
+
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  color: #898F9E;
+  top: 0.25rem;
+  left: 0rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
+  position: absolute;
 }
 
 <div
@@ -1978,33 +1978,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
 .emotion-7 {
   position: relative;
 }
 
 .emotion-7 label {
   left: 44px;
-}
-
-.emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #898F9E;
-  top: 0.25rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
 }
 
 .emotion-5 {
@@ -2072,6 +2051,27 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   -moz-transform: translate(1px, 4px) scale(0.875);
   -ms-transform: translate(1px, 4px) scale(0.875);
   transform: translate(1px, 4px) scale(0.875);
+}
+
+.emotion-2 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  color: #898F9E;
+  top: 0.25rem;
+  left: 0rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
+  position: absolute;
 }
 
 <div

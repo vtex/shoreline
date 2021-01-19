@@ -4,7 +4,7 @@ import { IconCaret, IconCheck } from '@vtex/admin-ui-icons'
 import { Box } from '../Box'
 import { SelectProps } from './index'
 import { Label } from '../Label'
-import { stylesOf } from '../../system'
+import { useSystem } from '../../system'
 
 /**
  * The -20 its equals to line height of the label.
@@ -21,6 +21,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
     block,
     renderItem = (item) => item,
   } = props
+  const { stylesOf } = useSystem()
 
   const [topDistanceOptions, setTopDistanceOptions] = useState(
     DEFAULT_PORTAL_OFFSET
