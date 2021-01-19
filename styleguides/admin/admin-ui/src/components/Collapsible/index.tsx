@@ -8,7 +8,6 @@ import {
 } from 'reakit/Disclosure'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
-import { useClassName } from '@vtex/admin-ui-system'
 
 import { Box } from '../Box'
 import {
@@ -20,6 +19,7 @@ import {
 import { Button } from '../Button'
 import { Overridable } from '../../types'
 import { useGroup } from '../Group'
+import { useSystem } from '../../system'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
@@ -47,6 +47,7 @@ export function Collapsible(props: CollapsibleProps) {
     state,
     ...collapsibleProps
   } = props
+  const { cn } = useSystem()
 
   const reakitProps = {
     focusable,
@@ -60,7 +61,7 @@ export function Collapsible(props: CollapsibleProps) {
     content: `components.collapsible.section${!isRoot ? '-nested' : ''}`,
   }
 
-  const className = useClassName({
+  const className = cn({
     themeKey: variant.container,
     ...styleOverrides,
   })
@@ -79,7 +80,9 @@ export function Collapsible(props: CollapsibleProps) {
 export function Header(props: CollapsibleHeaderProps) {
   const { children, label, styleOverrides, ...headerProps } = props
   const { variant } = useCollapsibleContext()
-  const className = useClassName({
+  const { cn } = useSystem()
+
+  const className = cn({
     ...styleOverrides,
     themeKey: variant.header,
   })

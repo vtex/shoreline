@@ -823,20 +823,6 @@ exports[`Input tests should match snapshot 1`] = `
   left: 44px;
 }
 
-.emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #898F9E;
-  top: 0.25rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
-}
-
 .emotion-4 {
   right: 0rem;
   top: 0.25rem;
@@ -862,6 +848,20 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+}
+
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  color: #898F9E;
+  top: 0.25rem;
+  left: 0rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
+  position: absolute;
 }
 
 <div
@@ -1045,20 +1045,6 @@ exports[`Input tests should match snapshot 1`] = `
   left: 44px;
 }
 
-.emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #898F9E;
-  top: 0.25rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
-}
-
 .emotion-4 {
   right: 0rem;
   top: 0.25rem;
@@ -1084,6 +1070,20 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+}
+
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  color: #898F9E;
+  top: 0.25rem;
+  left: 0rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
+  position: absolute;
 }
 
 <div

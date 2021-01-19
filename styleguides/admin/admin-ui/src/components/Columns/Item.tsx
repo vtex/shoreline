@@ -3,17 +3,18 @@ import {
   StyleProp,
   ResponsiveValue,
   useResponsiveValue,
-  useClassName,
 } from '@vtex/admin-ui-system'
 
 import { Overridable } from '../../types'
 import { useColumnsContext } from './context'
+import { useSystem } from '../../system'
 
 export function ColumnsItem(props: ColumnsItemProps) {
   const { units, offset = 'none', styleOverrides, ...layoutProps } = props
   const { spacing } = useColumnsContext()
   const responsiveUnits = useResponsiveValue(units)
   const responsiveOffset = useResponsiveValue(offset)
+  const { cn } = useSystem()
 
   const margin = {
     left: {
@@ -46,7 +47,7 @@ export function ColumnsItem(props: ColumnsItemProps) {
         maxWidth: '100%',
       }
 
-  const className = useClassName({
+  const className = cn({
     ...styles,
     ...styleOverrides,
   })

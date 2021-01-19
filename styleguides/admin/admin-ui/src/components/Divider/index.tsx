@@ -1,6 +1,6 @@
 import { Separator as ReakitSeparator } from 'reakit'
 
-import { cn, jsxs } from '../../system'
+import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
 
 export function Divider(props: DividerProps) {
@@ -15,6 +15,8 @@ export function Divider(props: DividerProps) {
 
 export function useDivider(props: DividerProps) {
   const { orientation = 'horizontal', styleOverrides, ...htmlProps } = props
+  const { cn } = useSystem()
+
   const className = cn({
     text: 'headline',
     themeKey: `components.divider.${orientation}`,

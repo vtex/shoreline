@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import { createThemeConsumers } from '../createSystem'
+import { createEmotionInstance, createThemeConsumers } from '../createSystem'
 
 describe('cn test', () => {
   const theme = {
@@ -21,7 +21,8 @@ describe('cn test', () => {
   }
 
   it('should be able to consume a themeKey', () => {
-    const { cn } = createThemeConsumers(theme)
+    const emotionInstance = createEmotionInstance('admin-ui-system')
+    const { cn } = createThemeConsumers(theme, emotionInstance)
 
     const { getByTestId } = render(
       <div
@@ -41,7 +42,8 @@ describe('cn test', () => {
   })
 
   it('should be able to consume a theme', () => {
-    const { cn } = createThemeConsumers(theme)
+    const emotionInstance = createEmotionInstance('admin-ui-system')
+    const { cn } = createThemeConsumers(theme, emotionInstance)
 
     const { getByRole } = render(
       <button

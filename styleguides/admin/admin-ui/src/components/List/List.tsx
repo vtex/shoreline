@@ -1,7 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode } from 'react'
 
-import { cn, jsxs } from '../../system'
+import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
 import { ListItem } from './ListItem'
 
@@ -19,6 +19,8 @@ export function List(props: ListProps) {
 
 export function useList(props: ListProps) {
   const { style, styleOverrides, ...htmlProps } = props
+  const { cn } = useSystem()
+
   const className = cn({
     text: 'body',
     listStyleType: style,

@@ -90,13 +90,6 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   flex-direction: row;
 }
 
-.emotion-1 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-}
-
 .emotion-6 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
@@ -193,6 +186,13 @@ exports[`NumericStepper tests should not have any violations 1`] = `
   font-size: 0.75rem;
   color: #898F9E;
   margin-top: 0.5rem;
+}
+
+.emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 <div

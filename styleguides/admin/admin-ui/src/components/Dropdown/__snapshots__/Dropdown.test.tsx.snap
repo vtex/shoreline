@@ -27,17 +27,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
   flex-direction: row-reverse;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
 .emotion-3 {
   visibility: hidden;
   cursor: pointer;
@@ -117,6 +106,17 @@ exports[`Dropdown tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 <div
     class="emotion-4"
   >
@@ -188,17 +188,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
 }
 
 .emotion-3 {
@@ -280,6 +269,17 @@ exports[`Dropdown tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 <div
     class="emotion-4"
   >
@@ -351,17 +351,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
 }
 
 .emotion-3 {
@@ -444,6 +433,17 @@ exports[`Dropdown tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 <div
     class="emotion-4"
   >
@@ -522,17 +522,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   flex-direction: row-reverse;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
 .emotion-3 {
   visibility: hidden;
   cursor: pointer;
@@ -610,6 +599,17 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   height: 24px;
   min-height: 24px;
   margin: 0.25rem;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 <div
@@ -685,17 +685,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   flex-direction: row-reverse;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
 .emotion-3 {
   visibility: hidden;
   cursor: pointer;
@@ -773,6 +762,17 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   height: 24px;
   min-height: 24px;
   margin: 0.25rem;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 <div

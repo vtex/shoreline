@@ -5,7 +5,7 @@ import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
 import { Button } from '../Button'
 import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
-import { stylesOf, cn } from '../../system'
+import { useSystem } from '../../system'
 
 const inlineVariant = (sequence: Array<[boolean, string]>) =>
   sequence.reduce((acc, item) => {
@@ -29,6 +29,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
     buttonElements,
     ...inputProps
   } = props
+  const { cn, stylesOf } = useSystem()
 
   const showClear = !!onClear && value.toString().length > 0
   const showButtons = !!suffix || !!buttonElements || onClear

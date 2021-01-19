@@ -11,7 +11,7 @@ import {
 } from './components'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
-import { cn } from '../../system'
+import { useSystem } from '../../system'
 
 /**
  * Stateless accessible menu component
@@ -40,6 +40,8 @@ export function StatelessMenu(props: StatelessMenuProps) {
     'data-boxtestid': boxTestId,
     ...baseProps
   } = props
+
+  const { cn } = useSystem()
 
   return (
     <ReakitMenu
