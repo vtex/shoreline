@@ -1,0 +1,44 @@
+{
+  "name": "@vtex/admin-core",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/admin-core.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "styleguides/admin/admin-core",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "test": "tsdx test"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.1.4",
+    "@vtex/admin-ui-system": "0.8.1-experimental.3",
+    "@vtex/admin-ui-theme": "0.12.1-experimental.3",
+    "deepmerge": "^4.2.2",
+    "focus-visible": "^5.1.0",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
+  }
+}
