@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
-import { cn } from '@vtex/admin-ui'
+import { useSystem } from '@vtex/admin-ui'
 
 import Experimental from '../icons/Experimental'
 
@@ -14,6 +14,7 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
     useProps(options, htmlProps) {
       const isExperimental = options.experimental === 'true'
       const palette = options.palette ?? 'yellow'
+      const { cn } = useSystem()
 
       const experimentalStyles = isExperimental
         ? {

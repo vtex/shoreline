@@ -11,6 +11,7 @@ The `<Input>` component is used in a form in order to retrieve input from the us
 ```jsx
 function Example() {
   const [value, setValue] = React.useState('')
+  const { cn } = useSystem()
 
   return (
     <div className={cn({ width: 300 })}>
@@ -44,6 +45,7 @@ You can add one Icon on the left side of the `Input`. Just use the `icon` proper
 ```jsx
 function Example() {
   const [value, setValue] = React.useState('')
+  const { cn } = useSystem()
 
   return (
     <div className={cn({ width: 300 })}>
@@ -65,6 +67,7 @@ You can add a Suffix the rigth side of the `Input`. Just use the `suffix` proper
 ```jsx
 function Example() {
   const [value, setValue] = React.useState('')
+  const { cn } = useSystem()
 
   return (
     <div className={cn({ width: 300 })}>
@@ -86,6 +89,7 @@ You can enable a clear button. Just define the `onClear` function inside the `st
 ```jsx
 function Example() {
   const [value, setValue] = React.useState('Clear me!')
+  const { cn } = useSystem()
 
   return (
     <div className={cn({ width: 300 })}>
@@ -107,6 +111,7 @@ You can add a `text` or a `char limit count` helper. Just use the `helperText` o
 ```jsx
 function Example() {
   const [value, setValue] = React.useState('')
+  const { cn } = useSystem()
 
   return (
     <div className={cn({ width: 300 })}>
@@ -129,6 +134,7 @@ You can add a `error message` in the same place of the `helperText`. Just use th
 ```jsx
 function Example() {
   const [value, setValue] = React.useState('')
+  const { cn } = useSystem()
 
   return (
     <div className={cn({ width: 300 })}>
@@ -153,6 +159,7 @@ Example of the `Input` with all its features.
 ```jsx
 function Example() {
   const [value, setValue] = React.useState('')
+  const { cn } = useSystem()
 
   return (
     <div className={cn({ width: 300 })}>

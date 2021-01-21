@@ -1,5 +1,5 @@
 import React from 'react'
-import { cn } from '@vtex/admin-ui'
+import { useSystem } from '@vtex/admin-ui'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent, useCreateElement } from 'reakit-system'
 import { Link } from 'gatsby'
@@ -8,6 +8,8 @@ export const useAnchor = createHook<AnchorOptions, AnchorHTMLProps>({
   name: 'Anchor',
   compose: useBox,
   useProps(_, htmlProps) {
+    const { cn } = useSystem()
+
     return {
       ...htmlProps,
       className: cn({

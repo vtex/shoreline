@@ -13,12 +13,18 @@ Our styleguide provides an accessible default palette to get you up and running.
 #### Example
 
 ```jsx
-<div
-  className={cn({
-    size: 96,
-    bg: 'blue',
-  })}
-/>
+function Example() {
+  const { cn } = useSystem()
+
+  return (
+    <div
+      className={cn({
+        size: 96,
+        bg: 'blue',
+      })}
+    />
+  )
+}
 ```
 
 ## Neutral
