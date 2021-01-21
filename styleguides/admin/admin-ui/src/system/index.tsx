@@ -1,6 +1,12 @@
 import React, { ReactNode } from 'react'
+
+import 'focus-visible/dist/focus-visible'
+
 import {
-  createSystem as createSystemInternal,
+  CoreProvider,
+  useSystem,
+  createSystem,
+  theme,
   useTheme,
   jsxs,
   useResponsiveValue,
@@ -8,12 +14,8 @@ import {
   merge,
   StyleProp,
   StyleObject,
-} from '@vtex/admin-ui-system'
-
-import { theme } from '@vtex/admin-ui-theme'
-import 'focus-visible/dist/focus-visible'
-
-import { CoreProvider, useSystem, createSystem } from '@vtex/admin-core'
+  ResponsiveValue,
+} from '@vtex/admin-core'
 
 function ThemeProvider(props: ThemeProviderProps) {
   const { children, system } = props
@@ -23,13 +25,14 @@ function ThemeProvider(props: ThemeProviderProps) {
 
 interface ThemeProviderProps {
   children?: ReactNode
-  system?: ReturnType<typeof createSystemInternal>
+  system?: ReturnType<typeof createSystem>
 }
 
 export {
   ThemeProvider,
   useTheme,
   useResponsiveValue,
+  ResponsiveValue,
   get,
   merge,
   theme,

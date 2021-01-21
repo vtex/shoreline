@@ -1,5 +1,5 @@
 import React, { Ref } from 'react'
-import { forwardRef } from '@vtex/admin-ui-system'
+import { forwardRef } from '@vtex/admin-core'
 import { IconAction, IconCaret } from '@vtex/admin-ui-icons'
 
 import { Button, ButtonProps } from '../../Button'

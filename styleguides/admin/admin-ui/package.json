@@ -50,8 +50,6 @@
   "dependencies": {
     "@emotion/babel-plugin": "^11.0.0",
     "@emotion/react": "^11.1.4",
-    "@vtex/admin-ui-system": "^0.8.1-experimental.3",
-    "@vtex/admin-ui-theme": "^0.12.1-experimental.3",
     "@vtex/admin-core": "*",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",

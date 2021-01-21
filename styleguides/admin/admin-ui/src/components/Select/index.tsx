@@ -1,6 +1,6 @@
 import { useSelect, UseSelectReturnValue } from 'downshift'
 import React, { Ref } from 'react'
-import { forwardRef } from '@vtex/admin-ui-system'
+import { forwardRef } from '@vtex/admin-core'
 import { BrowserView, MobileView } from 'react-device-detect'
 
 import { Overridable } from '../../types'

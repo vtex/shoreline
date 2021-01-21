@@ -1,5 +1,5 @@
 import { ElementType } from 'react'
-import { StyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-core'
 import { Box as ReakitBox } from 'reakit/Box'
 
 import { jsxs, useSystem } from '../../system'
