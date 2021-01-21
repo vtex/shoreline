@@ -18,6 +18,8 @@ npm install @vtex/admin-ui-system
 
 This package uses `emotion v11`, so if you are under typescript `4.1` you must install `@emotion/react` as a dev dependency and add it to your types.
 
+> ⚠️ Do not install as normal dependency, otherwise it can break admin styles
+
 ```sh
 yarn add @emotion/react -D
 ```
