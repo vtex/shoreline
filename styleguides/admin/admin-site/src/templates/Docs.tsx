@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
 import { Global, css } from '@emotion/react'
 
-import { ThemeProvider, Paragraph, cn, Text } from '../../../admin-ui/src'
+import { ThemeProvider, Paragraph, Text, useSystem } from '@vtex/admin-ui'
 import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
@@ -172,6 +172,8 @@ const { Compiler: renderAst } = new RehypeReact({
       return <pre {...props} />
     },
     table: function Render(props) {
+      const { cn } = useSystem()
+
       return (
         <table
           className={cn({
@@ -184,9 +186,13 @@ const { Compiler: renderAst } = new RehypeReact({
       )
     },
     tr: function Render(props) {
+      const { cn } = useSystem()
+
       return <tr className={cn({ textAlign: 'left', height: 48 })} {...props} />
     },
     th: function Render(props) {
+      const { cn } = useSystem()
+
       return (
         <th
           className={cn({
@@ -201,6 +207,8 @@ const { Compiler: renderAst } = new RehypeReact({
       )
     },
     td: function Render(props) {
+      const { cn } = useSystem()
+
       return (
         <td
           className={cn({

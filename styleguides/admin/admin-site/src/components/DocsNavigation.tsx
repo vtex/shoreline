@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, cn, Text, Tooltip } from '@vtex/admin-ui'
+import { Box, useSystem, Text, Tooltip } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
@@ -61,6 +61,7 @@ const linkStyles = {
 
 export default function DocsNavigation() {
   const data: Data = useStaticQuery(query)
+  const { cn } = useSystem()
   const { id: baseId } = useId({ baseId: 'docs-navigation' })
 
   const getId = (section: string) => `${baseId}-${kebabCase(section)}`

@@ -10,7 +10,11 @@ The [StyleObject](/theming/style-object/) accepts the `text` prop. It is a short
 This is preferred over the scales.
 
 ```jsx
-<h1 className={cn({ text: 'headline' })}>Headline text</h1>
+function Example() {
+  const { cn } = useSystem()
+
+  return <h1 className={cn({ text: 'headline' })}>Headline text</h1>
+}
 ```
 
 | TOKEN       | DESCRIPTION                                                 |

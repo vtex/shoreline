@@ -4,8 +4,7 @@ import React, { useState } from 'react'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/dracula'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import { Box, cn, Button } from '@vtex/admin-ui'
-import { cx } from '@emotion/css'
+import { Box, Button, useSystem } from '@vtex/admin-ui'
 
 import { copyToClipboard, calculateLinesToHighlight } from './util'
 import scope from './LiveCodeScope'
@@ -32,6 +31,7 @@ export function Code(props: CodeProps) {
     noInline = false,
   } = props
 
+  const { cn, cx } = useSystem()
   const [copied, setCopied] = useState(false)
   const language = className?.replace(/language-/, '')
 

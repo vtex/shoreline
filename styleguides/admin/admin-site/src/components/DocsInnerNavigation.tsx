@@ -1,5 +1,5 @@
 import React, { useState, createElement, useEffect } from 'react'
-import { cn, VisuallyHidden } from '@vtex/admin-ui'
+import { useSystem, VisuallyHidden } from '@vtex/admin-ui'
 import RehypeReact from 'rehype-react'
 import { unstable_useId as useId } from 'reakit'
 
@@ -24,6 +24,7 @@ const { Compiler: renderAst } = new RehypeReact({
       const id = href?.substr(1)
       const { add, remove } = useCollectionContext()
       const { currentId } = useScrollSpyContext()
+      const { cn } = useSystem()
 
       useEffect(() => {
         if (!id) return undefined
@@ -75,6 +76,7 @@ export default function DocsInnerNavigation(props: Props) {
   const { title, tableOfContentsAst } = props
 
   const { id } = useId()
+  const { cn } = useSystem()
 
   return (
     <aside

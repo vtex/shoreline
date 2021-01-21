@@ -1,8 +1,10 @@
 import React from 'react'
-import { cn } from '@vtex/admin-ui'
+import { useSystem } from '@vtex/admin-ui'
 import { Icon } from '@vtex/admin-ui-icons'
 
 export default function LogoSkeleton() {
+  const { cn } = useSystem()
+
   return (
     <Icon title="VTEX skeleton" size={48} viewBox="0 0 1044.3 1108">
       <path

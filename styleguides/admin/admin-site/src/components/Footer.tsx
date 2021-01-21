@@ -1,10 +1,12 @@
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
-import { Text, cn, VisuallyHidden } from '@vtex/admin-ui'
+import { Text, VisuallyHidden, useSystem } from '@vtex/admin-ui'
 
 import Anchor from './Anchor'
 
 export default function Footer() {
+  const { cn } = useSystem()
+
   return (
     <footer
       className={cn({
