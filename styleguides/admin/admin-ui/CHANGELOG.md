@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.73.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.0...@vtex/admin-ui@0.73.0) (2021-01-21)
+
+
+### Bug Fixes
+
+* **emotion:** add emotion cache unique key ([b92fd2e](https://github.com/vtex/onda/commit/b92fd2e919d618f4e6ada44ea1c574a26d1f6abe))
+* **emotion:** add unique key to emotion cache ([ed21df8](https://github.com/vtex/onda/commit/ed21df8fa64958457f42d2df60a55fe78fb0e654))
+* **emotion:** fix Global styles ([360c23b](https://github.com/vtex/onda/commit/360c23b7dec9f9bd9c476a17d5dd81ce968c8c39))
+* **emotion:** remove emotion-instance ([ded87a3](https://github.com/vtex/onda/commit/ded87a3ee813103737ab29c6fc028554857f863c))
+* **emotion:** use css function from emotion-instance instead of emotion package ([5af42f7](https://github.com/vtex/onda/commit/5af42f7cfdfb45361a7774240ea82e39fd0a60ae))
+
+
+### Features
+
+* **admin-core:** add admin-core package ([6f5b56b](https://github.com/vtex/onda/commit/6f5b56bd92b2fcd9af93160ece3c44e7260a887d))
+* **admin-system:** create a unique emotion instance along with the createSystem function ([074e0fc](https://github.com/vtex/onda/commit/074e0fca868c127d55e2e1d9694668f3af7b87e9))
+* **emotion:** add emotion CacheProvider ([f970270](https://github.com/vtex/onda/commit/f970270d14865baad8971e11533e2d340363e2d0))
+
+
+
+
+
 ## [0.72.1-experimental.7](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.6...@vtex/admin-ui@0.72.1-experimental.7) (2021-01-21)
 
 

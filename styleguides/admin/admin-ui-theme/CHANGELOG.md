@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.0...@vtex/admin-ui-theme@0.13.0) (2021-01-21)
+
+
+### Features
+
+* **admin-system:** create a unique emotion instance along with the createSystem function ([074e0fc](https://github.com/vtex/onda/commit/074e0fca868c127d55e2e1d9694668f3af7b87e9))
+
+
+
+
+
 ## [0.12.1-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.1-experimental.3...@vtex/admin-ui-theme@0.12.1-experimental.4) (2021-01-21)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
