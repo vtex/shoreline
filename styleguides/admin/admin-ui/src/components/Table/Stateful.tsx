@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { get } from '@vtex/admin-ui-system'
+import { get } from '@vtex/admin-core'
 
 import { ResolverContext } from './resolvers/core'
 import { TableDensity, TableDir } from './typings'

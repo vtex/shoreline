@@ -3,7 +3,7 @@
 
 import React, { ReactNode, Fragment } from 'react'
 import warning from 'tiny-warning'
-import { get } from '@vtex/admin-ui-system'
+import { get } from '@vtex/admin-core'
 
 import { Column, TableDensity, TableDir } from '../typings'
 

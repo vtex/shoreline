@@ -1,5 +1,5 @@
 import React, { ReactNode, useCallback } from 'react'
-import { StyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-core'
 
 import { ModalStateReturn } from './state'
 import { ModalProvider } from './context'

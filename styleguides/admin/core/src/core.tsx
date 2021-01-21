@@ -14,7 +14,7 @@ const SystemContext = createContext<ReturnType<typeof createSystem> | null>(
 
 const defaultSystem = createSystem('admin-ui')
 
-function CoreProvider(props: CoreProviderProps) {
+export function CoreProvider(props: CoreProviderProps) {
   const { children, system = defaultSystem } = props
 
   return (
@@ -27,11 +27,11 @@ function CoreProvider(props: CoreProviderProps) {
   )
 }
 
-function createSystem(appKey: string) {
+export function createSystem(appKey: string) {
   return createSystemInternal(theme, `vtex-${appKey}`)
 }
 
-function useSystem() {
+export function useSystem() {
   const context = useContext(SystemContext)
 
   invariant(
@@ -207,9 +207,7 @@ function GlobalStyles() {
   )
 }
 
-interface CoreProviderProps {
+export interface CoreProviderProps {
   children?: ReactNode
   system?: ReturnType<typeof createSystem>
 }
-
-export { CoreProvider, useSystem, createSystem, CoreProviderProps }
