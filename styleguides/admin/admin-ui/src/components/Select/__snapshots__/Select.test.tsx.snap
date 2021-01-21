@@ -82,16 +82,6 @@ exports[`Select tests should render a Select with a list of string and other wit
   left: 12px;
 }
 
-.emotion-5 {
-  position: absolute;
-  z-index: 999;
-  width: inherit;
-  background-color: #FFFFFF;
-  outline: none;
-  top: 0px;
-  border-radius: 4px;
-}
-
 .emotion-3 {
   min-width: 24px;
   min-height: 24px;
@@ -102,6 +92,16 @@ exports[`Select tests should render a Select with a list of string and other wit
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   color: #707685;
+}
+
+.emotion-5 {
+  position: absolute;
+  z-index: 999;
+  width: inherit;
+  background-color: #FFFFFF;
+  outline: none;
+  top: 0px;
+  border-radius: 4px;
 }
 
 <div
@@ -239,16 +239,6 @@ exports[`Select tests should render a Select with a list of string and other wit
   left: 12px;
 }
 
-.emotion-5 {
-  position: absolute;
-  z-index: 999;
-  width: inherit;
-  background-color: #FFFFFF;
-  outline: none;
-  top: 0px;
-  border-radius: 4px;
-}
-
 .emotion-3 {
   min-width: 24px;
   min-height: 24px;
@@ -259,6 +249,16 @@ exports[`Select tests should render a Select with a list of string and other wit
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   color: #707685;
+}
+
+.emotion-5 {
+  position: absolute;
+  z-index: 999;
+  width: inherit;
+  background-color: #FFFFFF;
+  outline: none;
+  top: 0px;
+  border-radius: 4px;
 }
 
 <div
