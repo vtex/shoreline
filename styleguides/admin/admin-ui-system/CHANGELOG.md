@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.3...@vtex/admin-ui-system@0.8.1-experimental.4) (2021-01-21)
+
+
+### Features
+
+* **admin-core:** add admin-core package ([325dbae](https://github.com/vtex/onda/commit/325dbae14c2d43a3517a74899dc5d44bbb92ddf9))
+
+
+
+
+
+## [0.8.1-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.2...@vtex/admin-ui-system@0.8.1-experimental.3) (2021-01-19)
+
+
+### Features
+
+* **admin-system:** create a unique emotion instance along with the createSystem function ([f9dfb6c](https://github.com/vtex/onda/commit/f9dfb6cd04df69d10f271c42d01d605b16732fbf))
+
+
+
+
+
+## [0.8.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.1...@vtex/admin-ui-system@0.8.1-experimental.2) (2021-01-15)
+
+
+### Bug Fixes
+
+* **emotion:** remove emotion-instance ([e5da155](https://github.com/vtex/onda/commit/e5da155c095563d929fd3cf0a2c06dd28d71a2a7))
+
+
+
+
+
+## [0.8.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.0...@vtex/admin-ui-system@0.8.1-experimental.1) (2021-01-15)
+
+
+### Bug Fixes
+
+* **emotion:** use css function from emotion-instance instead of emotion package ([6768b57](https://github.com/vtex/onda/commit/6768b5732882f295ae5cc83e5bf81fde33354484))
+
+
+
+
+
+## [0.8.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.0...@vtex/admin-ui-system@0.8.1-experimental.0) (2021-01-14)
+
+
+### Features
+
+* **emotion:** add emotion CacheProvider ([1352986](https://github.com/vtex/onda/commit/1352986399e595cc13520d7710d7d3546223a12d))
+
+
+
+
+
 # [0.8.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.7.0...@vtex/admin-ui-system@0.8.0) (2021-01-12)
 
 

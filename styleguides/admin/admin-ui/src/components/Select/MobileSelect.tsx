@@ -3,7 +3,7 @@ import { IconCaret } from '@vtex/admin-ui-icons'
 
 import { Box } from '../Box'
 import { Label } from '../Label'
-import { cn, stylesOf } from '../../system'
+import { useSystem } from '../../system'
 import { SelectProps } from './index'
 
 export function MobileSelect<T>(props: SelectProps<T>) {
@@ -16,6 +16,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
     block,
     renderItem = (item) => (item as unknown) as string,
   } = props
+  const { cn, stylesOf } = useSystem()
 
   const handleOption = (event: ChangeEvent<HTMLSelectElement>) => {
     event.preventDefault()

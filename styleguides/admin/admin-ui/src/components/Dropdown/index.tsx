@@ -1,7 +1,7 @@
 import React, { ReactNode, Ref } from 'react'
 import { useSelect, UseSelectReturnValue } from 'downshift'
 import { IconCaret } from '@vtex/admin-ui-icons'
-import { forwardRef } from '@vtex/admin-ui-system'
+import { forwardRef } from '@vtex/admin-core'
 
 import { Button, ButtonProps } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'

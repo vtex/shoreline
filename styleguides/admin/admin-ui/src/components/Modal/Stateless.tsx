@@ -1,5 +1,5 @@
 import React, { ReactNode, useCallback } from 'react'
-import { useClassName, StyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-core'
 
 import { ModalStateReturn } from './state'
 import { ModalProvider } from './context'
@@ -15,6 +15,7 @@ import {
 import { ModalSize } from './types'
 import { useComponentsExistence } from './util'
 import { Overridable } from '../../types'
+import { useSystem } from '../../system'
 
 /**
  * Stateless Modal
@@ -48,20 +49,21 @@ export function StatelessModal(props: StatelessModalProps) {
     onClose = () => null,
     ...baseProps
   } = props
+  const { cn } = useSystem()
 
   const handleClose = useCallback(() => {
     state.hide()
     onClose()
   }, [onClose, state])
 
-  const backdropCn = useClassName({
+  const backdropCn = cn({
     ...backdropStyles,
     themeKey: 'components.modal.backdrop',
   })
 
   const { hasHeader, hasFooter, scrollStyle } = useComponentsExistence(children)
 
-  const modalCn = useClassName({
+  const modalCn = cn({
     ...scrollStyle,
     ...styleOverrides,
     themeKey: `components.modal.surface-${size}`,

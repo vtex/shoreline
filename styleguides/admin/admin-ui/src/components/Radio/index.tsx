@@ -4,9 +4,9 @@ import {
   RadioProps as ReakitRadioProps,
   RadioStateReturn,
 } from 'reakit/Radio'
-import { forwardRef } from '@vtex/admin-ui-system'
+import { forwardRef } from '@vtex/admin-core'
 
-import { cn, jsxs } from '../../system'
+import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
 
 export const Radio = forwardRef(
@@ -23,6 +23,7 @@ export const Radio = forwardRef(
 
 export function useRadio(props: RadioProps) {
   const { size = 'regular', state, styleOverrides, ...htmlProps } = props
+  const { cn } = useSystem()
 
   const className = cn({
     themeKey: `components.radio.${size}`,

@@ -5,9 +5,9 @@ import {
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit/Checkbox'
-import { forwardRef } from '@vtex/admin-ui-system'
+import { forwardRef } from '@vtex/admin-core'
 
-import { jsxs, cn } from '../../system'
+import { jsxs, useSystem } from '../../system'
 import { Overridable } from '../../types'
 
 export const Checkbox = forwardRef(
@@ -27,6 +27,7 @@ export function useCheckbox(
   themeKey = 'components.checkbox'
 ) {
   const { size = 'regular', styleOverrides, state, ...htmlProps } = props
+  const { cn } = useSystem()
 
   const className = cn({
     themeKey: `${themeKey}.${size}`,

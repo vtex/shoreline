@@ -1,4 +1,4 @@
-import { cn } from '@vtex/admin-ui'
+import { useSystem } from '@vtex/admin-ui'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
 
@@ -20,6 +20,7 @@ export const useHiddenMediaQuery = createHook<
   keys: ['query'],
 
   useProps(options, htmlProps) {
+    const { cn } = useSystem()
     const className = cn({
       [`@media (${options.query})`]: {
         display: 'none !important',

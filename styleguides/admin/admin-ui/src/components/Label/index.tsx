@@ -1,7 +1,7 @@
 import { ReactNode, forwardRef, Ref } from 'react'
 import { Box as ReakitBox } from 'reakit'
 
-import { cn, jsxs } from '../../system'
+import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
 
 /**
@@ -31,6 +31,8 @@ export const Label = forwardRef(function Heading(
 
 export function useLabel(props: LabelProps) {
   const { styleOverrides, ...htmlProps } = props
+  const { cn } = useSystem()
+
   const className = cn({
     text: 'body',
     ...styleOverrides,

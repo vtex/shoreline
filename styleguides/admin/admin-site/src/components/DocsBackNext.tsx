@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, VisuallyHidden, Divider, cn } from '@vtex/admin-ui'
+import { Box, VisuallyHidden, Divider, useSystem } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 
 const query = graphql`
@@ -20,6 +20,7 @@ export default function DocsBackNext({
   prevPath,
 }: DocsBackNextProps) {
   const data: Data = useStaticQuery(query)
+  const { cn } = useSystem()
 
   const findMeta = (path: string) =>
     data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)

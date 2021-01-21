@@ -4,7 +4,7 @@ import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
 import invariant from 'tiny-invariant'
 
 import { Box } from '../Box'
-import { useClassName } from '../../system'
+import { useSystem } from '../../system'
 import { Overridable } from '../../types'
 import { Button } from '../Button'
 
@@ -24,13 +24,14 @@ export function NumericStepper(props: NumericStepperProps) {
     ...inputProps
   } = props
 
+  const { cn } = useSystem()
   const initialState = { value }
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const hasHelper = error ?? helperText
 
-  const className = useClassName({
+  const className = cn({
     ...styleOverrides,
     themeKey: `components.numericStepper.default${error ? '-error' : ''}`,
   })

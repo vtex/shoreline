@@ -1,4 +1,4 @@
-import { StyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-core'
 import { ReactNode, ReactElement, useRef, Children } from 'react'
 
 import { ModalSize } from './types'

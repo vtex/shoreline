@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2-experimental.7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.6...admin-site@0.9.2-experimental.7) (2021-01-21)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
+## [0.9.2-experimental.6](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.5...admin-site@0.9.2-experimental.6) (2021-01-19)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
+## [0.9.2-experimental.5](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.4...admin-site@0.9.2-experimental.5) (2021-01-15)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
+## [0.9.2-experimental.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.3...admin-site@0.9.2-experimental.4) (2021-01-15)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
+## [0.9.2-experimental.3](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.2...admin-site@0.9.2-experimental.3) (2021-01-15)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
+## [0.9.2-experimental.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.1...admin-site@0.9.2-experimental.2) (2021-01-15)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
+## [0.9.2-experimental.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.0...admin-site@0.9.2-experimental.1) (2021-01-15)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
+## [0.9.2-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.1...admin-site@0.9.2-experimental.0) (2021-01-14)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
 ## [0.9.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.0...admin-site@0.9.1) (2021-01-12)
 
 **Note:** Version bump only for package admin-site

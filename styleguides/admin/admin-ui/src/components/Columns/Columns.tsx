@@ -1,18 +1,19 @@
 import React, { ReactNode } from 'react'
-import { StyleProp, ResponsiveValue, useClassName } from '@vtex/admin-ui-system'
+import { StyleProp, ResponsiveValue } from '@vtex/admin-core'
 
 import { Overridable } from '../../types'
 import { ColumnsProvider } from './context'
 import { ColumnsItem } from './Item'
-
+import { useSystem } from '../../system'
 export function Columns(props: ColumnsProps) {
   const { spacing = 1, children, styleOverrides, ...restProps } = props
   const styles: StyleProp = {
     display: 'flex',
     flexWrap: 'wrap',
   }
+  const { cn } = useSystem()
 
-  const className = useClassName({
+  const className = cn({
     ...styles,
     ...styleOverrides,
   })

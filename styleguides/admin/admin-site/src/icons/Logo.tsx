@@ -1,11 +1,13 @@
 import React from 'react'
-import { cn } from '@vtex/admin-ui'
+import { useSystem } from '@vtex/admin-ui'
 
 export type LogoProps = React.SVGAttributes<SVGElement> & {
   colored?: boolean
 }
 
 export default function Logo({ colored, ...props }: LogoProps) {
+  const { cn } = useSystem()
+
   return (
     <svg height={64} viewBox="0 0 400 205" {...props}>
       <title>VTEX logo</title>

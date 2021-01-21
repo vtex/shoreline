@@ -3,9 +3,8 @@ import {
   Button as ReakitButton,
   ButtonProps as ReakitButtonProps,
 } from 'reakit/Button'
-import { useClassName } from '@vtex/admin-ui-system'
 
-import { jsxs, StyleProp } from '../../system'
+import { jsxs, StyleProp, useSystem } from '../../system'
 import { Variant, Size } from './types'
 import { Overridable, OmitNotAllowedProps } from '../../types'
 import { Box } from '../Box'
@@ -50,8 +49,8 @@ export function useButton(props: ButtonProps) {
     iconPosition,
     children: prevChildren,
   })
-
-  const className = useClassName({
+  const { cn } = useSystem()
+  const className = cn({
     themeKey: `components.button.${variant}-${resolvedSize}`,
     ...styleOverrides,
   })

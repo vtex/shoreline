@@ -1,4 +1,4 @@
-import { cn } from '@vtex/admin-ui'
+import { useSystem } from '@vtex/admin-ui'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
 
@@ -18,6 +18,8 @@ export const useSummary = createHook<SummaryOptions, SummaryHTMLProps>({
 
   useProps(options, htmlProps) {
     const anchor = useAnchor(options, htmlProps)
+    const { cn } = useSystem()
+
     const summary = cn({
       display: 'inline-block',
       padding: '0.5em 0.5em',

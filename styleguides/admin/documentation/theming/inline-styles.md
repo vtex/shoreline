@@ -40,7 +40,11 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 ### Example
 
 ```jsx
-<div className={cn({ color: 'blue' })}>Text with blue color!</div>
+function Example() {
+  const { cn } = useSystem()
+
+  return <div className={cn({ color: 'blue' })}>Text with blue color!</div>
+}
 ```
 
 ### Do's:
@@ -48,25 +52,37 @@ Function that transforms a valid [`StyleObject`](/theming/style-object/) into a 
 - ✅ Use it with native elements:
 
 ```jsx isStatic
-<nav
-  className={cn({
-    bg: 'mid.tertiary',
-    'button + button': { marginLeft: 2 },
-  })}
-/>
+function Example() {
+  const { cn } = useSystem()
+
+  return (
+    <nav
+      className={cn({
+        bg: 'mid.tertiary',
+        'button + button': { marginLeft: 2 },
+      })}
+    />
+  )
+}
 ```
 
 - ✅ Use it with custom libraries that accepts a className:
 
 ```jsx isStatic
-<Input
-  className={cn({
-    borderColor: 'mid.tertiary',
-    ':hover': {
-      borderColor: 'dark.primary',
-    },
-  })}
-/>
+function Example() {
+  const { cn } = useSystem()
+
+  return (
+    <Input
+      className={cn({
+        borderColor: 'mid.tertiary',
+        ':hover': {
+          borderColor: 'dark.primary',
+        },
+      })}
+    />
+  )
+}
 ```
 
 ### Dont's:

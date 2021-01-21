@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import { Box, cn } from '@vtex/admin-ui'
+import { Box, useSystem } from '@vtex/admin-ui'
 import { Link } from 'gatsby'
 import {
   VisuallyHidden,
@@ -25,9 +25,9 @@ export default function Header() {
   const isLarge = useViewportWidthGreaterThan(768)
   const dialog = useDialogState({ animated: true })
   const location = useLocation()
+  const { cn } = useSystem()
 
   useEffect(dialog.hide, [location.pathname])
-
   return (
     <Box
       element="header"

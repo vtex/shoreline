@@ -4,10 +4,9 @@ import {
   StyleProp,
   useResponsiveValue,
   ResponsiveValue,
-  useClassName,
-} from '@vtex/admin-ui-system'
+} from '@vtex/admin-core'
 
-import { jsxs } from '../../system'
+import { jsxs, useSystem } from '../../system'
 import { Overridable } from '../../types'
 
 export const Set = forwardRef(function Set(
@@ -35,6 +34,7 @@ export function useSet(props: SetProps) {
     ...layoutProps
   } = props
 
+  const { cn } = useSystem()
   const currentOrientation = useResponsiveValue(orientation)
   const currentAlign = useResponsiveValue(align)
 
@@ -70,7 +70,7 @@ export function useSet(props: SetProps) {
 
   const variant = `${currentOrientation}${fluid ? '-fluid' : ''}`
 
-  const className = useClassName({
+  const className = cn({
     themeKey,
     ...styles[variant],
     ...childrenSpacing,

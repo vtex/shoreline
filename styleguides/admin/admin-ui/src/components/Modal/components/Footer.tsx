@@ -1,8 +1,9 @@
 import React, { ReactNode, Ref } from 'react'
-import { forwardRef, useClassName } from '@vtex/admin-ui-system'
+import { forwardRef } from '@vtex/admin-core'
 
 import { useModalContext } from '../context'
 import { Overridable } from '../../../types'
+import { useSystem } from '../../../system'
 
 /**
  * Footer of the modal
@@ -23,8 +24,9 @@ export const ModalFooter = forwardRef(function ModalFooter(
 ) {
   const { styleOverrides, ...footerProps } = props
   const { size } = useModalContext()
+  const { cn } = useSystem()
 
-  const className = useClassName({
+  const className = cn({
     ...styleOverrides,
     themeKey: `components.modal.footer-${size}`,
   })

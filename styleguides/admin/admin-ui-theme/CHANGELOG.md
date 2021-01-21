@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.1-experimental.3...@vtex/admin-ui-theme@0.12.1-experimental.4) (2021-01-21)
+
+**Note:** Version bump only for package @vtex/admin-ui-theme
+
+
+
+
+
+## [0.12.1-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.1-experimental.2...@vtex/admin-ui-theme@0.12.1-experimental.3) (2021-01-19)
+
+
+### Features
+
+* **admin-system:** create a unique emotion instance along with the createSystem function ([f9dfb6c](https://github.com/vtex/onda/commit/f9dfb6cd04df69d10f271c42d01d605b16732fbf))
+
+
+
+
+
+## [0.12.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.1-experimental.1...@vtex/admin-ui-theme@0.12.1-experimental.2) (2021-01-15)
+
+**Note:** Version bump only for package @vtex/admin-ui-theme
+
+
+
+
+
+## [0.12.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.1-experimental.0...@vtex/admin-ui-theme@0.12.1-experimental.1) (2021-01-15)
+
+**Note:** Version bump only for package @vtex/admin-ui-theme
+
+
+
+
+
+## [0.12.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.0...@vtex/admin-ui-theme@0.12.1-experimental.0) (2021-01-14)
+
+**Note:** Version bump only for package @vtex/admin-ui-theme
+
+
+
+
+
 # [0.12.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.11.0...@vtex/admin-ui-theme@0.12.0) (2021-01-12)
 
 

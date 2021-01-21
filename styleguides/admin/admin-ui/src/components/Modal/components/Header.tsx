@@ -1,11 +1,12 @@
 import React, { useMemo, ReactNode, forwardRef, Ref } from 'react'
-import { useClassName, StyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-core'
 import { IconClose } from '@vtex/admin-ui-icons'
 
 import { useModalContext } from '../context'
 import { ModalButton } from './Button'
 import { Box } from '../../Box'
 import { Overridable } from '../../../types'
+import { useSystem } from '../../../system'
 /**
  * Header of the modal
  * Renders a header element
@@ -31,13 +32,14 @@ export const ModalHeader = forwardRef(function ModalHeader(
     ...headerProps
   } = props
 
+  const { cn } = useSystem()
   const { omitCloseButton, size } = useModalContext()
-  const className = useClassName({
+  const className = cn({
     ...styleOverrides,
     themeKey: `components.modal.header-${size}`,
   })
 
-  const containerCn = useClassName({
+  const containerCn = cn({
     display: 'flex',
     alignItems: 'center',
     ...containerStyleOverrides,

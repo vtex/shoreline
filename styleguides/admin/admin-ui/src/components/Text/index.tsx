@@ -1,7 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
 
-import { cn, jsxs } from '../../system'
+import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
 
 export const Text = forwardRef(function Heading(
@@ -27,6 +27,7 @@ function useText(props: TextProps) {
     styleOverrides,
     ...htmlProps
   } = props
+  const { cn } = useSystem()
 
   const color = {
     default: 'dark.primary',

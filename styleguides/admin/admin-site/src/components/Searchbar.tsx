@@ -5,7 +5,7 @@ import {
   Label,
   AbstractInput,
   StyleProp,
-  cn,
+  useSystem,
 } from '@vtex/admin-ui'
 import { IconSearch } from '@vtex/admin-ui-icons'
 import { debounce } from 'lodash'
@@ -22,6 +22,7 @@ interface SearchbarProps {
 
 export function Searchbar(props: SearchbarProps) {
   const { state, id, styleOverrides = {}, placeholder } = props
+  const { cn } = useSystem()
 
   return (
     <form className={cn(styleOverrides)}>

@@ -8,7 +8,7 @@ import { Text } from '../Text'
 import { Label } from '../Label'
 import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
-import { stylesOf } from '../../system'
+import { useSystem } from '../../system'
 
 export const InputPassword = forwardRef(function InputPassword(
   props: InputPasswordProps,
@@ -25,6 +25,7 @@ export const InputPassword = forwardRef(function InputPassword(
     errorMessage,
     ...inputProps
   } = props
+  const { stylesOf } = useSystem()
 
   const message = error ? errorMessage : helperText
 

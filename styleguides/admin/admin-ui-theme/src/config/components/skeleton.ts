@@ -1,15 +1,6 @@
-import { keyframes } from '@vtex/admin-ui-system'
 
 import { colors } from '../base'
 
-const load = keyframes`
-  0% {
-    background-position: -200px 0;
-  }
-  100% {
-    background-position: calc(200px + 100%) 0;
-  }
-`
 
 const styles = {
   display: 'inline-block',
@@ -26,7 +17,6 @@ const styles = {
     white,
     ${colors.light.secondary}
   )`,
-  animation: `${load} 1.2s ease-in-out infinite`,
 }
 
 export default {

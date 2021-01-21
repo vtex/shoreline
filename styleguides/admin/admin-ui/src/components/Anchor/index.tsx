@@ -1,8 +1,7 @@
 import { Box as ReakitBox } from 'reakit'
 import { ReactNode, forwardRef, Ref } from 'react'
-import { useClassName } from '@vtex/admin-ui-system'
 
-import { jsxs } from '../../system'
+import { useSystem, jsxs } from '../../system'
 import { OmitNotAllowedProps, Overridable } from '../../types'
 
 /**
@@ -24,7 +23,9 @@ export const Anchor = forwardRef(function Anchor(
 
 function useAnchor(props: AnchorProps) {
   const { styleOverrides, ...htmlProps } = props
-  const className = useClassName({
+  const { cn } = useSystem()
+
+  const className = cn({
     themeKey: 'components.anchor',
     ...styleOverrides,
   })

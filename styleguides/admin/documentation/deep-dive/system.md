@@ -80,23 +80,4 @@ const props = {
 console.log(cleanProps(props)) // { children: 'some text', id: 'id' }
 ```
 
-## useClassName
-
-```jsx isStatic
-import { Box } from 'reakit/Box'
-import { createElement, useClassName } from '@vtex/admin-ui-system'
-
-type Props = {
-  /** */
-}
-
-function NewComponent(props: Props) {
-  const cn = useClassName({ props })
-  return createElement({
-    component: Box,
-    htmlProps: props,
-  })
-}
-```
-
 ## className
