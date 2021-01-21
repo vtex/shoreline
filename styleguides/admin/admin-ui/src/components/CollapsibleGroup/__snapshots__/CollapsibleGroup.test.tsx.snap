@@ -105,6 +105,19 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: -webkit-transform 150ms ease;
+  transition: transform 150ms ease;
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -120,19 +133,6 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   border-radius: 4px;
   border-color: #E0E2E7;
   padding: 0rem;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  -webkit-transition: -webkit-transform 150ms ease;
-  transition: transform 150ms ease;
 }
 
 <div
@@ -283,6 +283,19 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   flex-direction: row;
 }
 
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: -webkit-transform 150ms ease;
+  transition: transform 150ms ease;
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -298,19 +311,6 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   border-radius: 4px;
   border-color: #E0E2E7;
   padding: 0rem;
-}
-
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  -webkit-transition: -webkit-transform 150ms ease;
-  transition: transform 150ms ease;
 }
 
 <div

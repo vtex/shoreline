@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ElementType } from 'react'
 import * as CSS from 'csstype'
-import { omit, pick, ResponsiveValue } from '@vtex/admin-ui-system'
+import { omit, pick, ResponsiveValue } from '@vtex/admin-core'
 
 import { Box, BoxProps } from '../Box'
 import { GridItem } from './Item'

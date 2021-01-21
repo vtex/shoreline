@@ -1,5 +1,5 @@
 import React, { useMemo, ReactNode, forwardRef, Ref } from 'react'
-import { StyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-core'
 import { IconClose } from '@vtex/admin-ui-icons'
 
 import { useModalContext } from '../context'

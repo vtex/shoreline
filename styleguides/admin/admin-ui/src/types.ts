@@ -1,4 +1,4 @@
-import { StyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-core'
 
 export interface Overridable {
   /** Override theme styles */

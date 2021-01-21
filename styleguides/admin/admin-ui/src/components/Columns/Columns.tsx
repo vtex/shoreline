@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { StyleProp, ResponsiveValue } from '@vtex/admin-ui-system'
+import { StyleProp, ResponsiveValue } from '@vtex/admin-core'
 
 import { Overridable } from '../../types'
 import { ColumnsProvider } from './context'

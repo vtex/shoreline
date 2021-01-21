@@ -4,7 +4,7 @@ import {
   StyleProp,
   useResponsiveValue,
   ResponsiveValue,
-} from '@vtex/admin-ui-system'
+} from '@vtex/admin-core'
 
 import { jsxs, useSystem } from '../../system'
 import { Overridable } from '../../types'

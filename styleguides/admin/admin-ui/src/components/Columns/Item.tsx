@@ -3,7 +3,7 @@ import {
   StyleProp,
   ResponsiveValue,
   useResponsiveValue,
-} from '@vtex/admin-ui-system'
+} from '@vtex/admin-core'
 
 import { Overridable } from '../../types'
 import { useColumnsContext } from './context'

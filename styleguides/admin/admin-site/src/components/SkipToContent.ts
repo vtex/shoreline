@@ -1,4 +1,4 @@
-import { cn } from '@vtex/admin-ui'
+import { useSystem } from '@vtex/admin-ui'
 import { createHook, createComponent } from 'reakit-system'
 
 import { useAnchor, AnchorOptions, AnchorProps } from './Anchor'
@@ -6,6 +6,7 @@ import { useAnchor, AnchorOptions, AnchorProps } from './Anchor'
 export type SkipToContentOptions = AnchorOptions
 export type SkipToContentHTMLProps = AnchorProps
 export type SkipToContentProps = SkipToContentOptions & SkipToContentHTMLProps
+
 
 export const useSkipToContent = createHook<
   SkipToContentOptions,
@@ -15,6 +16,8 @@ export const useSkipToContent = createHook<
   compose: useAnchor,
 
   useProps(_, htmlProps) {
+    const { cn } = useSystem()
+
     return {
       tabIndex: 0,
       children: '',

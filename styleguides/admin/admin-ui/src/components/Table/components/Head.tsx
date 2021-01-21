@@ -1,5 +1,5 @@
 import React, { ElementType, ReactNode, Ref } from 'react'
-import { forwardRef } from '@vtex/admin-ui-system'
+import { forwardRef } from '@vtex/admin-core'
 
 import { Box } from '../../Box'
 import { useStylesContext, CellRoleContext } from '../context'

@@ -8,7 +8,7 @@ import {
   DropResult,
 } from 'react-beautiful-dnd'
 import faker from 'faker'
-import { StyleProp } from '@vtex/admin-ui-system'
+import { StyleProp } from '@vtex/admin-core'
 import { IconDrag } from '@vtex/admin-ui-icons'
 
 import { Table } from '../index'

@@ -57,6 +57,8 @@ function Example() {
 ```jsx isStatic
 // 🚫 Wrong
 function Example() {
+  const { cn } = useSystem()
+
   return (
     <div className={cn({ padding: 2, margin: 2, bg: 'mid.tertiary' })}>
       {...content}
