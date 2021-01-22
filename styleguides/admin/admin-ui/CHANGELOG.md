@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.73.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.73.0...@vtex/admin-ui@0.73.1) (2021-01-22)
+
+
+### Bug Fixes
+
+* specifies the type of the select button to type = button to solve the problem of the select submit the form in which it is inserted when clicking on it. ([ac78444](https://github.com/vtex/onda/commit/ac784447dfb7898ac75cfc52254d2d8c53db78a3))
+
+
+
+
+
 # [0.73.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.0...@vtex/admin-ui@0.73.0) (2021-01-21)
 
 
