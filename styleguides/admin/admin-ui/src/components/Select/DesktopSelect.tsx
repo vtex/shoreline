@@ -108,6 +108,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
     >
       <Box
         element="button"
+        type="button"
         {...state.getToggleButtonProps()}
         disabled={disabled}
         themeKey={`components.select.button${error ? 'Error' : ''}`}
