@@ -10,6 +10,7 @@ export const getStyles = (density: TableDensity) => {
       header: `${base}.header`,
       body: `${base}.body`,
       row: `${base}.row`,
+      rowClickable: `${base}.row-clickable`,
       cell: `${base}.cell`,
       columnheader: `${base}.columnheader`,
     },
