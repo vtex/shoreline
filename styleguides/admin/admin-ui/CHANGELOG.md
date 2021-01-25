@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.74.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.73.1...@vtex/admin-ui@0.74.0) (2021-01-25)
+
+
+### Features
+
+* **table:** add onRowClick function ([ad2ff2f](https://github.com/vtex/onda/commit/ad2ff2f20bbeb06c42bebeb09b2ff3b6e0ca8cb7))
+
+
+
+
+
 ## [0.73.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.73.0...@vtex/admin-ui@0.73.1) (2021-01-22)
 
 
