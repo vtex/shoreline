@@ -139,11 +139,11 @@ const variant = {
     color: 'blue',
     ':hover': {
       color: 'blue.hover',
-      backgroundColor: 'blue.secondary.hover',
+      backgroundColor: alpha('blue.secondary.hover', 0.24),
     },
     ':active': {
       color: 'blue.pressed',
-      backgroundColor: 'blue.secondary.pressed',
+      backgroundColor: alpha('blue.secondary.pressed', 0.32),
     },
     ':disabled': {
       color: 'mid.primary',
@@ -187,11 +187,11 @@ const variant = {
     color: 'red',
     ':hover': {
       color: 'red.hover',
-      backgroundColor: 'red.secondary.hover',
+      backgroundColor: alpha('red.secondary.hover', 0.24),
     },
     ':active': {
       color: 'red.pressed',
-      backgroundColor: 'red.secondary.pressed',
+      backgroundColor: alpha('red.secondary.pressed', 0.32),
     },
     ':disabled': {
       color: 'mid.primary',

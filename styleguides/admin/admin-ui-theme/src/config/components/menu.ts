@@ -1,4 +1,22 @@
+import { alpha } from '@vtex/admin-ui-system'
+
 import { space } from '../base'
+
+const itemStyles = {
+  marginY: '2px',
+  paddingX: 1,
+  fontSize: 1,
+  border: 'none',
+  textTransform: 'initial',
+  width: 'full',
+  div: {
+    justifyContent: 'flex-start',
+  },
+  svg: {
+    marginLeft: 0,
+    marginRight: 2,
+  },
+}
 
 export default {
   display: 'flex',
@@ -24,28 +42,28 @@ export default {
     marginX: `-${space[3]}`,
     outline: 'none',
   },
-  '> button': {
-    marginY: '2px',
-    paddingX: 1,
+  item: {
+    ...itemStyles,
     color: 'dark.primary',
-    fontSize: 1,
-    border: 'none',
-    textTransform: 'initial',
     ':focus': {
-      bg: 'blue.secondary',
+      bg: alpha('blue.secondary.default', 0.32),
       outline: 'none',
       boxShadow: 'none',
     },
     ':hover': {
       color: 'dark.primary',
     },
-    width: 'full',
-    div: {
-      justifyContent: 'flex-start',
+  },
+  'item-dangerous': {
+    ...itemStyles,
+    color: 'red',
+    ':focus': {
+      bg: alpha('red.secondary.default', 0.32),
+      outline: 'none',
+      boxShadow: 'none',
     },
-    svg: {
-      marginLeft: 0,
-      marginRight: 2,
+    ':hover': {
+      color: 'red',
     },
   },
 }

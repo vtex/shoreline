@@ -1,6 +1,7 @@
-import React, { forwardRef, Ref } from 'react'
+import { forwardRef, Ref } from 'react'
 
 import { Button, ButtonProps } from '../../Button'
+import { jsxs, useSystem, merge } from '../../../system'
 
 /**
  * Accessible menu item component
@@ -19,7 +20,35 @@ export const MenuItem = forwardRef(function MenuItem(
   props: MenuItemProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  return <Button ref={ref} size="small" variant="tertiary" {...props} />
+  const menuItemProps = useMenuItem(props)
+
+  return jsxs({
+    component: Button,
+    props: menuItemProps,
+    ref,
+  })
 })
 
-export type MenuItemProps = Omit<ButtonProps, 'variant' | 'iconPosition'>
+function useMenuItem(props: MenuItemProps): ButtonProps {
+  const { dangerous = false, styleOverrides: overrides = {}, ...buttonProps} = props
+  const { stylesOf } = useSystem()
+
+  const variant = dangerous ? 'danger-tertiary' : 'tertiary'
+  const styles = stylesOf(dangerous ? 'components.menu.item-dangerous' : 'components.menu.item')
+  const styleOverrides = merge(styles, overrides)
+
+  return {
+    size: 'small',
+    styleOverrides,
+    variant,
+    ...buttonProps
+  }
+}
+
+export interface MenuItemProps extends Omit<ButtonProps, 'variant' | 'iconPosition'> {
+  /**
+   * If performs a dangerous action
+   * @default false
+   */
+  dangerous?: boolean
+}
