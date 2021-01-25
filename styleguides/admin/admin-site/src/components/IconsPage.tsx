@@ -70,6 +70,9 @@ export function IconPage() {
           label: 'Caret',
         },
         {
+          label: 'Undo',
+        },
+        {
           label: 'Caret',
           display: 'Caret direction="right"',
           props: {
