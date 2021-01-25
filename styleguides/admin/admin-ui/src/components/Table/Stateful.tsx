@@ -43,6 +43,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     dir = 'ltr',
     styleOverrides,
     length = 5,
+    onRowClick,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -81,7 +82,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
           </Table.Head>
           <Table.Body>
             {data.map((item) => (
-              <Table.Row key={getRowKey(item) as string}>
+              <Table.Row key={getRowKey(item) as string} onClick={onRowClick ? () => onRowClick(item) : undefined}>
                 {columns.map((column) => {
                   const content = resolveCell({
                     column,
@@ -121,6 +122,10 @@ export interface StatefulTableProps<T>
    * @default regular
    */
   density?: TableDensity
+  /**
+   * Action to dispatch on a row click
+   */
+  onRowClick?: (item: T) =>  void
   /**
    * HTML Dir
    * @default 'ltr'

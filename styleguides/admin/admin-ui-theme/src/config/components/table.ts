@@ -1,5 +1,12 @@
 import { merge } from '@vtex/admin-ui-system'
 
+const clickableStyles = {
+  cursor: 'pointer',
+  ':hover': {
+    bg: 'light.secondary'
+  }
+}
+
 const styles = {
   table: {
     display: 'table',
@@ -14,13 +21,26 @@ const styles = {
   'row-ltr': {
     display: 'table-row',
     textAlign: 'left',
+    bg: 'light.primary',
   },
   'row-rtl': {
     display: 'table-row',
     textAlign: 'right',
+    bg: 'light.primary',
+  },
+  'row-clickable-ltr': {
+    display: 'table-row',
+    textAlign: 'left',
+    bg: 'light.primary',
+    ...clickableStyles,
+  },
+  'row-clickable-rtl': {
+    display: 'table-row',
+    textAlign: 'right',
+    bg: 'light.primary',
+    ...clickableStyles,
   },
   cell: {
-    bg: 'light.primary',
     flex: 1,
     borderBottomWidth: 1,
     borderBottomStyle: 'solid',

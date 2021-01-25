@@ -9,16 +9,18 @@ export const TableRow = forwardRef(function Tr(
   props: TableRowProps,
   ref: Ref<HTMLElement>
 ) {
-  const { styleOverrides = {}, element = 'div', ...boxProps } = props
+  const { styleOverrides = {}, element = 'div', onClick, ...boxProps } = props
 
   const { variants, dir } = useStylesContext()
+  const themeKey = onClick ? `${variants.rowClickable}-${dir}` : `${variants.row}-${dir}`
 
   return (
     <Box
       ref={ref}
       dir={dir}
       role="row"
-      themeKey={`${variants.row}-${dir}`}
+      onClick={onClick}
+      themeKey={themeKey}
       element={element}
       styles={styleOverrides}
       {...boxProps}
@@ -44,4 +46,8 @@ export type TableRowProps = Overridable & {
    * row ref
    */
   ref?: Ref<HTMLElement>
+  /**
+   * action to dispatch on click
+   */
+  onClick?: () => void
 }
