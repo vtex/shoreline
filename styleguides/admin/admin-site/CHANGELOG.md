@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.4...admin-site@0.10.0) (2021-01-25)
+
+
+### Features
+
+* **icons:** add icon undo ([b511aa7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/b511aa7a8d0d1a36dfb7d7317d83434c7a55655d))
+
+
+
+
+
 ## [0.9.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.3...admin-site@0.9.4) (2021-01-25)
 
 **Note:** Version bump only for package admin-site
