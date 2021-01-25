@@ -42,6 +42,7 @@ type StylesContextType = {
     header: string
     body: string
     row: string
+    rowClickable: string
     cell: string
     columnheader: string
   }
