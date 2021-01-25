@@ -1,18 +1,19 @@
-/* eslint-disable react/jsx-handler-names */
 import React, { ReactNode } from 'react'
-
 import {
-  IconWarning,
-  IconSuccess,
-  IconError,
+  IconWarningColorful,
+  IconSuccessColorful,
+  IconErrorColorful,
   IconClose,
   IconHelp,
-} from '../../icons'
+} from '@vtex/admin-ui-icons'
+import { inlineVariant } from '@vtex/admin-core'
+
 import { Overridable } from '../../types'
 import { Box } from '../Box'
 import { Button, ButtonProps } from '../Button'
-import { Heading } from '../Heading'
 import { Set } from '../Set'
+import { Paragraph } from '../Paragraph'
+import { Flex } from '../Flex'
 
 /**
  * Component to display relevant information within an admin page
@@ -25,50 +26,54 @@ export function Alert(props: AlertProps) {
     onDismiss,
     styleOverrides = {},
     visible = false,
+    sticky = false,
+    fluid = false,
     ...boxProps
   } = props
 
   const Icon = {
-    warning: IconWarning,
-    success: IconSuccess,
-    error: IconError,
+    warning: IconWarningColorful,
+    success: IconSuccessColorful,
+    error: IconErrorColorful,
     info: IconHelp,
   }[type]
 
   const iconContainerStyles = {
     warning: {
-      color: 'warning.base',
+      color: 'yellow',
     },
     success: {
-      color: 'success.base',
+      color: 'green',
     },
     error: {
-      color: 'danger.base',
+      color: 'red',
     },
     info: {
-      color: 'primary.base',
+      color: 'blue',
     },
   }[type]
 
+  const themeKey = `components.alert.${type}${inlineVariant([
+    [visible, '-visible'],
+    [fluid, '-fluid'],
+    [sticky, '-sticky'],
+  ])}`
+
   return (
-    <Box
-      styles={styleOverrides}
-      themeKey={`components.alert.${type}${visible ? '-visible' : ''}`}
-      {...boxProps}
-    >
-      <Set spacing={2}>
-        <Box
-          styles={{
-            ...iconContainerStyles,
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
+    <Box styles={styleOverrides} themeKey={themeKey} {...boxProps}>
+      <Set
+        spacing={2}
+        styleOverrides={{
+          alignItems: fluid ? 'flex-start' : 'center',
+          marginRight: 3,
+        }}
+      >
+        <Flex align="center" styles={iconContainerStyles}>
           <Icon />
-        </Box>
-        <Heading text="body">{children}</Heading>
+        </Flex>
+        <Paragraph>{children}</Paragraph>
       </Set>
-      <Set spacing={2} styleOverrides={{ color: 'text.primary' }}>
+      <Set spacing={3}>
         {actions?.tertiary && (
           <Button
             size="small"
@@ -97,6 +102,7 @@ export function Alert(props: AlertProps) {
             size="small"
             variant="adaptative-dark"
             icon={<IconClose />}
+            styleOverrides={{ color: 'dark.primary' }}
             onClick={onDismiss}
           />
         )}
@@ -132,7 +138,7 @@ export interface AlertProps extends Overridable {
    */
   onDismiss?: () => void
   /**
-   * wheather is visible
+   * whether is visible
    * @default false
    */
   visible?: boolean
@@ -145,4 +151,14 @@ export interface AlertProps extends Overridable {
    * alert children
    */
   children?: ReactNode
+  /**
+   * whether the border is sticky
+   * @default false
+   */
+  sticky?: boolean
+  /**
+   * whether the height is fluid
+   * @default false
+   */
+  fluid?: boolean
 }

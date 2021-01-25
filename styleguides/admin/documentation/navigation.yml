@@ -36,10 +36,10 @@
     - /typography/text/
 - section: Components
   paths:
+    - /alert/
     - /avatar/
     - /button/
     - /card/
-    - /alert/
     - /collapsible-group/
     - /collapsible/
     - /divider/

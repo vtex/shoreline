@@ -12,12 +12,13 @@ exports[`Alert tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
+  margin-right: 0.75rem;
 }
 
-.emotion-3 > *:not(:first-child) {
+.emotion-3 >*:not(:first-child) {
   margin-left: 0.5rem;
 }
 
@@ -29,6 +30,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
@@ -44,14 +46,13 @@ exports[`Alert tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
-  color: #323845;
 }
 
-.emotion-4 > *:not(:first-child) {
-  margin-left: 0.5rem;
+.emotion-4 >*:not(:first-child) {
+  margin-left: 0.75rem;
 }
 
 .emotion-5 {
@@ -65,7 +66,6 @@ exports[`Alert tests should match snapshot 1`] = `
   align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   height: 56px;
   padding-top: 0.75rem;
@@ -75,26 +75,20 @@ exports[`Alert tests should match snapshot 1`] = `
   border-radius: 4px;
   opacity: 1;
   z-index: 999;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   visibility: visible;
-  -webkit-transition: all 150ms cubic-bezier(0.4,0.14,0.3,1);
-  transition: all 150ms cubic-bezier(0.4,0.14,0.3,1);
+  -webkit-transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
+  transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
   border-style: solid;
   border-width: 1px;
   background-color: #eaf5f1;
   border-color: #CEE8DE;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  color: #368369;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -103,6 +97,7 @@ exports[`Alert tests should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  color: #368369;
 }
 
 <div
@@ -134,11 +129,11 @@ exports[`Alert tests should match snapshot 1`] = `
           />
         </svg>
       </div>
-      <h1
+      <p
         class="emotion-2"
       >
         Order successfully placed
-      </h1>
+      </p>
     </div>
     <div
       class="emotion-4"
@@ -154,12 +149,13 @@ exports[`Alert tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
+  margin-right: 0.75rem;
 }
 
-.emotion-3 > *:not(:first-child) {
+.emotion-3 >*:not(:first-child) {
   margin-left: 0.5rem;
 }
 
@@ -171,6 +167,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
@@ -186,14 +183,13 @@ exports[`Alert tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
-  color: #323845;
 }
 
-.emotion-4 > *:not(:first-child) {
-  margin-left: 0.5rem;
+.emotion-4 >*:not(:first-child) {
+  margin-left: 0.75rem;
 }
 
 .emotion-5 {
@@ -207,7 +203,6 @@ exports[`Alert tests should match snapshot 1`] = `
   align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   height: 56px;
   padding-top: 0.75rem;
@@ -217,26 +212,20 @@ exports[`Alert tests should match snapshot 1`] = `
   border-radius: 4px;
   opacity: 1;
   z-index: 999;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   visibility: visible;
-  -webkit-transition: all 150ms cubic-bezier(0.4,0.14,0.3,1);
-  transition: all 150ms cubic-bezier(0.4,0.14,0.3,1);
+  -webkit-transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
+  transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
   border-style: solid;
   border-width: 1px;
   background-color: #fbf3e4;
   border-color: #F6E0BA;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  color: #FFBA52;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -245,6 +234,7 @@ exports[`Alert tests should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  color: #FFBA52;
 }
 
 <div
@@ -283,11 +273,11 @@ exports[`Alert tests should match snapshot 1`] = `
           />
         </svg>
       </div>
-      <h1
+      <p
         class="emotion-2"
       >
         This account is inactive. Check your billing for more information.
-      </h1>
+      </p>
     </div>
     <div
       class="emotion-4"
@@ -303,12 +293,13 @@ exports[`Alert tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
+  margin-right: 0.75rem;
 }
 
-.emotion-3 > *:not(:first-child) {
+.emotion-3 >*:not(:first-child) {
   margin-left: 0.5rem;
 }
 
@@ -320,6 +311,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
@@ -335,14 +327,13 @@ exports[`Alert tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
-  color: #323845;
 }
 
-.emotion-4 > *:not(:first-child) {
-  margin-left: 0.5rem;
+.emotion-4 >*:not(:first-child) {
+  margin-left: 0.75rem;
 }
 
 .emotion-5 {
@@ -356,7 +347,6 @@ exports[`Alert tests should match snapshot 1`] = `
   align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   height: 56px;
   padding-top: 0.75rem;
@@ -366,26 +356,20 @@ exports[`Alert tests should match snapshot 1`] = `
   border-radius: 4px;
   opacity: 1;
   z-index: 999;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   visibility: visible;
-  -webkit-transition: all 150ms cubic-bezier(0.4,0.14,0.3,1);
-  transition: all 150ms cubic-bezier(0.4,0.14,0.3,1);
+  -webkit-transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
+  transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
   border-style: solid;
   border-width: 1px;
   background-color: #fee1e1;
   border-color: #FEDADA;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
 }
 
 .emotion-1 {
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-  color: #CB4242;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -394,6 +378,7 @@ exports[`Alert tests should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  color: #CB4242;
 }
 
 <div
@@ -432,11 +417,11 @@ exports[`Alert tests should match snapshot 1`] = `
           />
         </svg>
       </div>
-      <h1
+      <p
         class="emotion-2"
       >
         Somenthing went wrong. Please, try again.
-      </h1>
+      </p>
     </div>
     <div
       class="emotion-4"

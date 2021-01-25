@@ -7,15 +7,23 @@ import { Box } from '../Box'
 import { Button } from '../Button'
 
 export default {
-  title: 'beta/alert',
+  title: 'components/Alert',
   component: Alert,
 } as Meta
 
-export const Basic: Story<AlertProps> = () => {
-  return <Alert visible />
+export const Playground: Story<AlertProps> = (args) => {
+  return <Alert {...args} />
 }
 
-export const Types: Story<AlertProps> = () => {
+Playground.args = {
+  children: 'Order successfully placed',
+  visible: true,
+  styleOverrides: {},
+  actions: { primary: { label: 'Print' }, tertiary: { label: 'Cancel' } },
+  onDismiss: () => {},
+}
+
+export function Types() {
   return (
     <Set orientation="vertical" fluid>
       <Alert type="info" visible>
@@ -34,7 +42,7 @@ export const Types: Story<AlertProps> = () => {
   )
 }
 
-export const WithActions: Story<AlertProps> = () => {
+export function Actions() {
   return (
     <Set orientation="vertical" fluid>
       <Alert
@@ -67,7 +75,7 @@ export const WithActions: Story<AlertProps> = () => {
   )
 }
 
-export const ToggleVisibility: Story<AlertProps> = () => {
+export function Visible() {
   const [visible, setVisible] = useState(false)
 
   const handleDismiss = () => setVisible(false)
@@ -80,6 +88,9 @@ export const ToggleVisibility: Story<AlertProps> = () => {
         visible={visible}
         onDismiss={handleDismiss}
         actions={{
+          primary: {
+            label: 'Print',
+          },
           tertiary: {
             label: 'Cancel',
             onClick: handleDismiss,
@@ -89,5 +100,36 @@ export const ToggleVisibility: Story<AlertProps> = () => {
         This account is inactive. Check your billing for more information.
       </Alert>
     </Box>
+  )
+}
+
+export function Fluid() {
+  return (
+    <Box styles={{ width: 343 }}>
+      <Alert visible fluid type="success" onDismiss={() => {}}>
+        This account is inactive. Check your billing for more information.
+      </Alert>
+    </Box>
+  )
+}
+
+export function Sticky() {
+  return (
+    <Alert
+      onDismiss={() => {}}
+      type="success"
+      actions={{
+        primary: {
+          label: 'try again',
+        },
+        tertiary: {
+          label: 'cancel',
+        },
+      }}
+      visible
+      sticky
+    >
+      Order successfully placed
+    </Alert>
   )
 }

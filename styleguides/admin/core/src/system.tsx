@@ -13,6 +13,7 @@ export {
   pickHTMLProps,
   isPropValid,
   forwardRef,
+  inlineVariant,
   StyleProp,
   StyleObject,
   ResponsiveValue,

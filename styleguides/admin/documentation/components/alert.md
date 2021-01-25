@@ -6,129 +6,163 @@ path: /alert/
 
 Configuration device, where users can input text and choose between anticipated options. Forms include many elements that will be described individually.
 
-Titles
-Titles immediately indicate context and possible actions in a given section.
-
-Tone and Voice
-We are ecommerce specialists. We are specific, and avoid ambiguity. Our titles must match the industry's jargons, and the users' mental model. Choose titles that seem intuitive, given what we master about ecommerce. Users should instantly recognize the section's purpose, through the title.
-Titles are vital aspects of information architecture. Before naming a section, understand its purpose and how it contributes to the bigger picture. Be mindful of how we transmit seriousness and reliability when naming screens.
-
-Do’s
-
-1. Always name sections with titles. They clarify the context, facilitate documentation, and allow users to point out where their troubles are, in support tickets.
-2. Always use title case.
-3. Titles may be used in the following contexts:
-4. Referring to branded names
-5. Grouping ambiguous tasks
-6. Indicating single tasks
-
-Grammar
-
-1. We encourage the use of possessive adjectives or pronouns in sentences, as long as they don't exceed the limited space for text, in the UI. They reinforce the idea that users should feel connected with their VTEX environment, and feel they belong. It shows the respect we have towards their store.
-2. Prefer key words, rather than sentences.
-3. Use title case.
-4. No punctuation.
-5. Maximum of 4 words.
-
-Anatomy
-Follow the anatomy described below. Be sure to include:
-
-1. Title
-2. Description
-3. Labels for each element
-4. Text inputs
-
-Description
-Descriptions provide further details about a given entity, to help users advance, while reducing liability.
-
-Tone and Voice
-We trust to be trusted. We're serious, and we never alarm users, we soothe their anxieties. We add descriptions to deliver transparency, so users are aware of liabilities, and sensitive information. We want to add precision with descriptions, and not trigger doubts. We're reliable, we mean what we say. After reading our descriptions, users should feel confident about what actions they want to take.
-
-Do’s
-
-1. Make descriptions as scannable as possible. Users usually skim through, or skip descriptions entirely.
-2. Descriptions should be clear, never ambiguous.
-3. They should be present anywhere there's a sensitive action taking place. Make sure the user understands the implications of changing a setting, for example.
-4. When adding definitions, always use our Glossary as the source of truth.
-
-Grammar
-
-1. We encourage the use of possessive adjectives or pronouns in sentences, as long as they don't exceed the limited space for text, in the UI. They reinforce the idea that users should feel connected with their VTEX environment, and feel they belong. It shows the respect we have towards their store.
-2. Prefer direct sentences, without passive voice.
-3. Use sentence case.
-4. Add punctuation at the end of sentences. Use exclamation marks carefully.
-5. Maximum of 2 sentences. Break down longer sentences if it adds clarity.
-
-Labels
-Further clarifies sections and entities.
-
-Tone and Voice
-Labels should help users, and not become the text that they skip while skimming through a page. Be specific. We are ecommerce experts, and we master our customer's diverse contexts. Make sure to always use ecommerce jargons.
-
-Do’s
-
-1. Make it as brief and clear as possible.
-2. Meet the user's mental model, use ecommerce vocabulary.
-3. If you think a label should have more clarification about its meaning, you can use a tooltip.
-
-Grammar
-
-1. We encourage the use of possessive adjectives or pronouns in sentences, as long as they don't exceed the limited space for text, in the UI. They reinforce the idea that users should feel connected with their VTEX environment, and feel they belong. It shows the respect we have towards their store.
-2. Prefer key words, rather than sentences.
-3. Use sentence case.
-4. No punctuation.
-5. Maximum of 3 words.
-
 ## Behavior
 
 ```jsx
-import { ThemeProvider, Alert } from '@vtex/admin-ui'
-
 function Example() {
   return (
-    <ThemeProvider>
-      <Alert visible>Some alert with info</Alert>
-    </ThemeProvider>
+    <Alert
+      visible
+      type="success"
+      onDismiss={() => window.alert('Alert dismissed!')}
+    >
+      Order successfully placed
+    </Alert>
   )
 }
 ```
 
 ## Installation
 
-```static
+```bash isStatic
 yarn add @vtex/admin-ui
 ```
 
-```jsx static
+```jsx isStatic
 import { Alert } from '@vtex/admin-ui'
 ```
 
 Learn more in [Get started](/docs/get-started/).
 
-## Types
+## Variations
 
-### Info (default)
+### Visible
 
-TODO
-
-#### ✅ Do's:
-
-- TODO
-
-#### 🚫 Dont's:
-
-- TODO
-
-#### Example
+The Alert can be visible or not. By default, it will render an Alert with the `visible` property set to `false`.
 
 ```jsx
-import { ThemeProvider, Alert } from '@vtex/admin-ui'
+function Example() {
+  const [visible, setVisible] = React.useState(false)
 
+  const handleDismiss = () => setVisible(false)
+  const handleToggle = () => setVisible((v) => !v)
+
+  return (
+    <Box>
+      <Button onClick={handleToggle}>Toggle</Button>
+      <Alert visible={visible} onDismiss={handleDismiss}>
+        This account is inactive. Check your billing for more information.
+      </Alert>
+    </Box>
+  )
+}
+```
+
+### Types
+
+There are four types of alert: `info`, `warning`, `success`, and `error`. By default, it will render an Alert with `type` property set to `warning`.
+
+```jsx
 function Example() {
   return (
-    <ThemeProvider>
-      <Alert visible>Some alert with info</Alert>
-    </ThemeProvider>
+    <Set spacing={2} orientation="vertical" fluid>
+      <Alert visible type="info">
+        Info Alert
+      </Alert>
+      <Alert visible type="warning">
+        Warning Alert
+      </Alert>
+      <Alert visible type="success">
+        Success Alert
+      </Alert>
+      <Alert visible type="error">
+        Error Alert
+      </Alert>
+    </Set>
+  )
+}
+```
+
+### Actions
+
+The alert can have action buttons that handle the interactions with the component. There are three main actions: `primary`, `secondary`, and `tertiary`.
+
+```jsx
+function Example() {
+  const handlePrimaryAction = () => window.alert('primary action!')
+  const handleSecondaryAction = () => window.alert('secondary action!')
+  const handleTertiaryAction = () => window.alert('tertiary action!')
+
+  return (
+    <Set spacing={2} orientation="vertical" fluid>
+      <Alert
+        visible
+        actions={{
+          primary: { label: 'Primary Action', onClick: handlePrimaryAction },
+          secondary: {
+            label: 'Secondary Action',
+            onClick: handleSecondaryAction,
+          },
+          tertiary: {
+            label: 'Tertiary Action',
+            onClick: handleTertiaryAction,
+          },
+        }}
+      >
+        Alert with Actions
+      </Alert>
+    </Set>
+  )
+}
+```
+
+### onDismiss
+
+Represents the event of click from the alert dismiss button. To use this feature, define the `onDismiss` property.
+
+```jsx
+function Example() {
+  const [visible, setVisible] = React.useState(true)
+  return (
+    <Alert
+      visible={visible}
+      onDismiss={() => {
+        window.alert('dismissed!')
+        setVisible(false)
+      }}
+    >
+      This account is inactive. Check your billing for more information.
+    </Alert>
+  )
+}
+```
+
+### Fluid
+
+The Alert can have a fluid height. By default, it will render with a static one, but you can change it setting the `fluid` property to `true`.
+
+```jsx
+function Example() {
+  return (
+    <Box styles={{ width: 343, height: 72 }}>
+      <Alert visible fluid type="success" onDismiss={() => {}}>
+        This account is inactive. Check your billing for more information.
+      </Alert>
+    </Box>
+  )
+}
+```
+
+### Sticky
+
+The Alert can have a sticky border or not. By default, it will render an Alert with the `sticky` property set to `false`.
+
+```jsx
+function Example() {
+  return (
+    <Alert visible sticky type="success" onDismiss={() => {}}>
+      Order successfully placed
+    </Alert>
   )
 }
 ```

@@ -26,47 +26,57 @@ const visible = {
 
 const error = {
   ...styles,
-  bg: lightness('danger.washed.base', 0.94),
-  borderColor: 'danger.washed.base',
+  bg: lightness('red.secondary.default', 0.94),
+  borderColor: 'red.secondary',
 }
 
 const success = {
   ...styles,
-  bg: lightness('success.washed.base', 0.94),
-  borderColor: 'success.washed.base',
+  bg: lightness('green.secondary.default', 0.94),
+  borderColor: 'green.secondary',
 }
 
 const warning = {
   ...styles,
-  bg: lightness('warning.washed.base', 0.94),
-  borderColor: 'warning.washed.base',
+  bg: lightness('yellow.secondary.default', 0.94),
+  borderColor: 'yellow.secondary',
 }
 
 const info = {
   ...styles,
-  bg: lightness('secondary.base', 0.94),
-  borderColor: 'secondary.base',
+  bg: lightness('blue.secondary.default', 0.94),
+  borderColor: 'blue.secondary',
+}
+
+const fluid = {
+  height: 'full',
+  alignItems: 'flex-start',
+
+}
+
+const sticky = { 
+  borderRadius: 'flat',
+  paddingRight: 4,
+}
+
+
+function getAlertVariants(name: string, styles = {}) {
+  return {
+    // input variants
+    [`${name}`]: styles,
+    [`${name}-visible`]: { ...styles, ...visible},
+    [`${name}-fluid`]: { ...styles, ...fluid},
+    [`${name}-sticky`]: { ...styles, ...sticky},
+    [`${name}-visible-fluid`]: { ...styles, ...visible, ...fluid},
+    [`${name}-visible-sticky`]:{ ...styles, ...visible, ...sticky},
+    [`${name}-fluid-sticky`]:{ ...styles, ...visible, ...sticky},
+    [`${name}-visible-fluid-sticky`]:{ ...styles, ...visible, ...sticky, ...fluid},
+  }
 }
 
 export default {
-  error,
-  'error-visible': {
-    ...error,
-    ...visible,
-  },
-  success,
-  'success-visible': {
-    ...success,
-    ...visible,
-  },
-  warning,
-  'warning-visible': {
-    ...warning,
-    ...visible,
-  },
-  info,
-  'info-visible': {
-    ...info,
-    ...visible,
-  },
+  ...getAlertVariants('error', error),
+  ...getAlertVariants('warning', warning),
+  ...getAlertVariants('info', info),
+  ...getAlertVariants('success', success),
 }
