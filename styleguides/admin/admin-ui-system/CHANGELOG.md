@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.10.0...@vtex/admin-ui-system@0.10.1) (2021-01-26)
+
+
+### Bug Fixes
+
+* **create-system:** remove redudant appKey prefix ([8d41399](https://github.com/vtex/onda/commit/8d41399c6bb7fec5b887f9ea649421d03d52eda7))
+
+
+
+
+
 # [0.10.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.9.0...@vtex/admin-ui-system@0.10.0) (2021-01-26)
 
 
