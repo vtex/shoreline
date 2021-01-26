@@ -1,18 +1,12 @@
 import React, { forwardRef, ReactNode, Ref } from 'react'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
 import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
+import { inlineVariant } from '@vtex/admin-core'
 
 import { Button } from '../Button'
 import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
 import { useSystem } from '../../system'
-
-const inlineVariant = (sequence: Array<[boolean, string]>) =>
-  sequence.reduce((acc, item) => {
-    const [invariant, modifier] = item
-
-    return invariant ? `${acc}${modifier}` : acc
-  }, '')
 
 export const AbstractInput = forwardRef(function AbstractInput(
   props: AbstractInputProps,

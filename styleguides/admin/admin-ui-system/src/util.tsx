@@ -106,3 +106,14 @@ export const transformScale = (acc: Record<string, any>, curr: string) => ({
     return Number(n) * -1
   },
 })
+
+/**
+ * Function that helps in the creation of a themeKey with conditional variants
+ * @param sequence Array<[conditional variant, themeKey accessor]>
+ */
+export const inlineVariant = (sequence: Array<[boolean, string]>) =>
+  sequence.reduce((acc, item) => {
+    const [invariant, modifier] = item
+
+    return invariant ? `${acc}${modifier}` : acc
+  }, '')
