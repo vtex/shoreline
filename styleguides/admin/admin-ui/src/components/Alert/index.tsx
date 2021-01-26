@@ -24,49 +24,19 @@ import { Flex } from '../Flex'
  */
 export function Alert(props: AlertProps) {
   const {
-    type = 'info',
     children,
     actions,
     onDismiss,
-    styleOverrides = {},
-    visible = false,
-    sticky = false,
-    fluid = [true, true, false],
-    ...boxProps
-  } = props
-
-  const responsiveFluid = useResponsiveValue(fluid)
-
-  const Icon = {
-    warning: IconWarningColorful,
-    success: IconSuccessColorful,
-    error: IconErrorColorful,
-    info: IconHelp,
-  }[type]
-
-  const iconContainerStyles = {
-    warning: {
-      color: 'yellow',
-    },
-    success: {
-      color: 'green',
-    },
-    error: {
-      color: 'red',
-    },
-    info: {
-      color: 'blue',
-    },
-  }[type]
-
-  const themeKey = `components.alert.${type}${inlineVariant([
-    [visible, '-visible'],
-    [responsiveFluid, '-fluid'],
-    [sticky, '-sticky'],
-  ])}`
+    styleOverrides,
+    Icon,
+    iconContainerStyles,
+    responsiveFluid,
+    themeKey,
+    ...htmlProps
+  } = useAlert(props)
 
   return (
-    <Box styles={styleOverrides} themeKey={themeKey} {...boxProps}>
+    <Box styles={styleOverrides} themeKey={themeKey} {...htmlProps}>
       <Set
         spacing={2}
         styleOverrides={{
@@ -122,6 +92,61 @@ export function Alert(props: AlertProps) {
   )
 }
 
+export function useAlert(props: AlertProps) {
+  const {
+    type = 'info',
+    fluid = [true, true, false],
+    visible = false,
+    sticky = false,
+    children,
+    actions,
+    onDismiss,
+    styleOverrides = {},
+    ...htmlProps
+  } = props
+
+  const responsiveFluid = useResponsiveValue(fluid)
+
+  const themeKey = `components.alert.${type}${inlineVariant([
+    [visible, '-visible'],
+    [responsiveFluid, '-fluid'],
+    [sticky, '-sticky'],
+  ])}`
+
+  const Icon = {
+    warning: IconWarningColorful,
+    success: IconSuccessColorful,
+    error: IconErrorColorful,
+    info: IconHelp,
+  }[type]
+
+  const iconContainerStyles = {
+    warning: {
+      color: 'yellow',
+    },
+    success: {
+      color: 'green',
+    },
+    error: {
+      color: 'red',
+    },
+    info: {
+      color: 'blue',
+    },
+  }[type]
+
+  return {
+    Icon,
+    iconContainerStyles,
+    responsiveFluid,
+    themeKey,
+    children,
+    actions,
+    onDismiss,
+    styleOverrides,
+    ...htmlProps,
+  }
+}
 export interface AlertActionProps extends Pick<ButtonProps, 'onClick'> {
   label: ReactNode
 }
@@ -163,7 +188,7 @@ export interface AlertProps extends Overridable {
    */
   children?: ReactNode
   /**
-   * whether the border is sticky
+   * whether is sticky
    * @default false
    */
   sticky?: boolean
