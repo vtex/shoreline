@@ -56,12 +56,12 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 .emotion-2:hover {
   color: #214491;
-  background-color: #cad7f1;
+  background-color: rgba(202,215,241,0.24);
 }
 
 .emotion-2:active {
   color: #1a3470;
-  background-color: #bacbec;
+  background-color: rgba(186,203,236,0.32);
 }
 
 .emotion-2:disabled {
@@ -234,12 +234,12 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 
 .emotion-2:hover {
   color: #214491;
-  background-color: #cad7f1;
+  background-color: rgba(202,215,241,0.24);
 }
 
 .emotion-2:active {
   color: #1a3470;
-  background-color: #bacbec;
+  background-color: rgba(186,203,236,0.32);
 }
 
 .emotion-2:disabled {

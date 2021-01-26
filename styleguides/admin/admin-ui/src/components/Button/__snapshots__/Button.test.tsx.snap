@@ -265,12 +265,12 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-1:hover {
   color: #214491;
-  background-color: #cad7f1;
+  background-color: rgba(202,215,241,0.24);
 }
 
 .emotion-1:active {
   color: #1a3470;
-  background-color: #bacbec;
+  background-color: rgba(186,203,236,0.32);
 }
 
 .emotion-1:disabled {

@@ -41,7 +41,7 @@ Handles the state internally.
   <Menu.Item icon={<IconImport />}>Download</Menu.Item>
   <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
   <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-  <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
+  <Menu.Item dangerous icon={<IconDelete />}>Delete</Menu.Item>
 </Menu>
 ```
 
