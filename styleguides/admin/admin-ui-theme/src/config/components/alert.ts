@@ -51,7 +51,6 @@ const info = {
 const fluid = {
   height: 'full',
   alignItems: 'flex-start',
-
 }
 
 const sticky = { 
