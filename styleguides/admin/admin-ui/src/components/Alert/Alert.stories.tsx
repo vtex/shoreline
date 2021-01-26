@@ -105,7 +105,7 @@ export function Visible() {
 
 export function Fluid() {
   return (
-    <Box styles={{ width: 343 }}>
+    <Box styles={{ width: 300 }}>
       <Alert visible fluid type="success" onDismiss={() => {}}>
         This account is inactive. Check your billing for more information.
       </Alert>

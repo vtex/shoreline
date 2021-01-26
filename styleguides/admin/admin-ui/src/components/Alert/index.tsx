@@ -6,7 +6,11 @@ import {
   IconClose,
   IconHelp,
 } from '@vtex/admin-ui-icons'
-import { inlineVariant } from '@vtex/admin-core'
+import {
+  inlineVariant,
+  useResponsiveValue,
+  ResponsiveValue,
+} from '@vtex/admin-core'
 
 import { Overridable } from '../../types'
 import { Box } from '../Box'
@@ -27,9 +31,11 @@ export function Alert(props: AlertProps) {
     styleOverrides = {},
     visible = false,
     sticky = false,
-    fluid = false,
+    fluid = [true, true, false],
     ...boxProps
   } = props
+
+  const responsiveFluid = useResponsiveValue(fluid)
 
   const Icon = {
     warning: IconWarningColorful,
@@ -55,7 +61,7 @@ export function Alert(props: AlertProps) {
 
   const themeKey = `components.alert.${type}${inlineVariant([
     [visible, '-visible'],
-    [fluid, '-fluid'],
+    [responsiveFluid, '-fluid'],
     [sticky, '-sticky'],
   ])}`
 
@@ -64,7 +70,7 @@ export function Alert(props: AlertProps) {
       <Set
         spacing={2}
         styleOverrides={{
-          alignItems: fluid ? 'flex-start' : 'center',
+          alignItems: responsiveFluid ? 'flex-start' : 'center',
           marginRight: 3,
         }}
       >
@@ -73,7 +79,12 @@ export function Alert(props: AlertProps) {
         </Flex>
         <Paragraph>{children}</Paragraph>
       </Set>
-      <Set spacing={3}>
+      <Set
+        spacing={3}
+        styleOverrides={{
+          alignItems: responsiveFluid ? 'flex-start' : 'center',
+        }}
+      >
         {actions?.tertiary && (
           <Button
             size="small"
@@ -158,7 +169,7 @@ export interface AlertProps extends Overridable {
   sticky?: boolean
   /**
    * whether the height is fluid
-   * @default false
+   * @default [true, true, false]
    */
-  fluid?: boolean
+  fluid?: ResponsiveValue<boolean>
 }

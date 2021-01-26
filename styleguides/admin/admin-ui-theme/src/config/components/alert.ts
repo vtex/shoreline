@@ -62,7 +62,6 @@ const sticky = {
 
 function getAlertVariants(name: string, styles = {}) {
   return {
-    // input variants
     [`${name}`]: styles,
     [`${name}-visible`]: { ...styles, ...visible},
     [`${name}-fluid`]: { ...styles, ...fluid},

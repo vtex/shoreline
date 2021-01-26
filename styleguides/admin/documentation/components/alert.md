@@ -42,7 +42,7 @@ The Alert can be visible or not. By default, it will render an Alert with the `v
 
 ```jsx
 function Example() {
-  const [visible, setVisible] = React.useState(false)
+  const [visible, setV`isible] = React.useState(false)
 
   const handleDismiss = () => setVisible(false)
   const handleToggle = () => setVisible((v) => !v)
@@ -60,7 +60,7 @@ function Example() {
 
 ### Types
 
-There are four types of alert: `info`, `warning`, `success`, and `error`. By default, it will render an Alert with `type` property set to `warning`.
+There are four types of alerts: `info`, `warning`, `success`, and `error`. By default, it will render an Alert with `type` property set to `warning`.
 
 ```jsx
 function Example() {
@@ -85,7 +85,7 @@ function Example() {
 
 ### Actions
 
-The alert can have action buttons that handle the interactions with the component. There are three main actions: `primary`, `secondary`, and `tertiary`.
+The Alert can have action buttons that handle the interactions with the component. There are three main actions: `primary`, `secondary`, and `tertiary`.
 
 ```jsx
 function Example() {
@@ -139,12 +139,12 @@ function Example() {
 
 ### Fluid
 
-The Alert can have a fluid height. By default, it will render with a static one, but you can change it setting the `fluid` property to `true`.
+Represents whether the height is fluid or not. This is a [Responsive Value Property](/theming/responsive-design/#responsive-values) and by default it has the following value: `[true, true, false]`. You can change it setting the `fluid` property to be either `true`, `false` or a `ResponsiveValue`.
 
 ```jsx
 function Example() {
   return (
-    <Box styles={{ width: 343, height: 72 }}>
+    <Box styles={{ width: 300 }}>
       <Alert visible fluid type="success" onDismiss={() => {}}>
         This account is inactive. Check your billing for more information.
       </Alert>
