@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.15.0...@vtex/admin-ui-theme@0.16.0) (2021-01-26)
+
+
+### Bug Fixes
+
+* **alert:** change fluid property to be responsive ([153fb6f](https://github.com/vtex/onda/commit/153fb6fb620cf84b73b5f53f81b11c9286b74184))
+
+
+### Features
+
+* **alert:** add component ([babff93](https://github.com/vtex/onda/commit/babff9313ee49d000831f3aee09d1cf03a43b9ca))
+* **alert:** update alert according to the design specifications ([3b44b3d](https://github.com/vtex/onda/commit/3b44b3d619cb339c1919586dffd23a99aaca2dd3))
+
+
+
+
+
 # [0.15.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.14.0...@vtex/admin-ui-theme@0.15.0) (2021-01-26)
 
 
