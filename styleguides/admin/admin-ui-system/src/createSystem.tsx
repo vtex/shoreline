@@ -22,7 +22,7 @@ export function createSystem<T>(theme: T, appKey: string): CreateSystemReturn {
 
 export function createEmotionInstance(appKey: string) {
   return createEmotion({
-    key: `vtex-admin-ui-${appKey}`,
+    key: appKey,
   })
 }
 
