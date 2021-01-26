@@ -4,7 +4,13 @@ import React, { useState } from 'react'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/dracula'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import { Box, Button, useSystem } from '@vtex/admin-ui'
+import {
+  Box,
+  Button,
+  useSystem,
+  createSystem,
+  ThemeProvider,
+} from '@vtex/admin-ui'
 
 import { copyToClipboard, calculateLinesToHighlight } from './util'
 import scope from './LiveCodeScope'
@@ -19,6 +25,8 @@ export interface CodeProps {
   lineNumbers?: string
   noInline?: boolean
 }
+
+const system = createSystem('code-preview')
 
 export function Code(props: CodeProps) {
   const {
@@ -48,37 +56,39 @@ export function Code(props: CodeProps) {
 
   if (!isStatic) {
     return (
-      <LiveProvider
-        code={codeString}
-        noInline={noInline}
-        theme={theme}
-        scope={scope}
-      >
-        <Box styles={styles.wrapper}>
-          <LivePreview className={cn(styles.preview)} />
+      <ThemeProvider system={system}>
+        <LiveProvider
+          code={codeString}
+          noInline={noInline}
+          theme={theme}
+          scope={scope}
+        >
+          <Box styles={styles.wrapper}>
+            <LivePreview className={cn(styles.preview)} />
 
-          <Box styles={styles.editorWrapper}>
-            <Button
-              size="small"
-              variant="adaptative-light"
-              onClick={handleClick}
-              disabled={copied}
-              styleOverrides={styles.copyButton}
-            >
-              {copied ? 'Copied!' : 'Copy'}
-            </Button>
+            <Box styles={styles.editorWrapper}>
+              <Button
+                size="small"
+                variant="adaptative-light"
+                onClick={handleClick}
+                disabled={copied}
+                styleOverrides={styles.copyButton}
+              >
+                {copied ? 'Copied!' : 'Copy'}
+              </Button>
 
-            <LiveEditor />
+              <LiveEditor />
+            </Box>
+
+            <LiveError className={cn(styles.liveEditor)} />
           </Box>
-
-          <LiveError className={cn(styles.liveEditor)} />
-        </Box>
-      </LiveProvider>
+        </LiveProvider>
+      </ThemeProvider>
     )
   }
 
   return (
-    <>
+    <ThemeProvider system={system}>
       {title && <Box styles={styles.preHeader}>{title}</Box>}
       <div className="gatsby-highlight">
         <Highlight
@@ -140,6 +150,6 @@ export function Code(props: CodeProps) {
           )}
         </Highlight>
       </div>
-    </>
+    </ThemeProvider>
   )
 }

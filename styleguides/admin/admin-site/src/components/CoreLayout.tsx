@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { Box, ThemeProvider } from '@vtex/admin-ui'
+import { Box, ThemeProvider, createSystem } from '@vtex/admin-ui'
 
 import DocsNavigation from './DocsNavigation'
 import DocsInnerNavigation from './DocsInnerNavigation'
@@ -9,6 +9,8 @@ import {
   CollectionProvider,
   ScrollHandler,
 } from './ScrollSpy'
+
+const system = createSystem('core-layout')
 
 /**
  * Full site adaptable layout
@@ -25,7 +27,7 @@ export default function CoreLayout(props: Props) {
   const fullPage = data?.markdownRemark?.frontmatter?.fullPage
 
   return (
-    <ThemeProvider>
+    <ThemeProvider system={system}>
       <CollectionProvider>
         <ScrollSpyProvider>
           <Box

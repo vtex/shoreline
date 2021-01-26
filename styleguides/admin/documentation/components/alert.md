@@ -42,7 +42,7 @@ The Alert can be visible or not. By default, it will render an Alert with the `v
 
 ```jsx
 function Example() {
-  const [visible, setV`isible] = React.useState(false)
+  const [visible, setVisible] = React.useState(false)
 
   const handleDismiss = () => setVisible(false)
   const handleToggle = () => setVisible((v) => !v)
