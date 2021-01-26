@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.75.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.74.1...@vtex/admin-ui@0.75.0) (2021-01-26)
+
+
+### Features
+
+* **menu:** add dangerous prop ([515fd19](https://github.com/vtex/onda/commit/515fd1999122731f780095769e2b2ffba8385d99))
+
+
+
+
+
 ## [0.74.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.74.0...@vtex/admin-ui@0.74.1) (2021-01-25)
 
 **Note:** Version bump only for package @vtex/admin-ui
