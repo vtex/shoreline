@@ -13,5 +13,6 @@ export default {
   vertical: {
     ...styles,
     borderLeft: 0,
+    height: 'auto'
   },
 }
