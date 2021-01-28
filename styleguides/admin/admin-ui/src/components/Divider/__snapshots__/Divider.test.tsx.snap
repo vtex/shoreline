@@ -25,6 +25,7 @@ exports[`Heading tests should match snapshot 1`] = `
   border-color: #E0E2E7;
   margin: 0rem;
   border-left: 0;
+  height: auto;
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'wght' 92;
