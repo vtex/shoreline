@@ -5,6 +5,7 @@ import { Alert, AlertProps } from './index'
 import { Set } from '../Set'
 import { Box } from '../Box'
 import { Button } from '../Button'
+import { IconWarningCircle } from '@vtex/admin-ui-icons'
 
 export default {
   title: 'components/Alert',
@@ -106,7 +107,13 @@ export function Visible() {
 export function Fluid() {
   return (
     <Box styles={{ width: 300 }}>
-      <Alert visible fluid type="success" onDismiss={() => {}}>
+      <Alert
+        icon={<IconWarningCircle />}
+        visible
+        fluid
+        type="info"
+        onDismiss={() => {}}
+      >
         This account is inactive. Check your billing for more information.
       </Alert>
     </Box>

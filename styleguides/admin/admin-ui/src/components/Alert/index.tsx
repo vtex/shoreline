@@ -30,7 +30,7 @@ export const Alert = forwardRef(
       actions,
       onDismiss,
       styleOverrides,
-      Icon,
+      DefaultIcon,
       iconContainerStyles,
       responsiveFluid,
       themeKey,
@@ -47,7 +47,7 @@ export const Alert = forwardRef(
           }}
         >
           <Flex align="center" styles={iconContainerStyles}>
-            <Icon />
+            {props.icon ?? <DefaultIcon />}
           </Flex>
           <Paragraph>{children}</Paragraph>
         </Set>
@@ -116,7 +116,7 @@ export function useAlert(props: AlertProps) {
     [sticky, '-sticky'],
   ])}`
 
-  const Icon = {
+  const DefaultIcon = {
     warning: IconWarningColorful,
     success: IconSuccessColorful,
     error: IconErrorColorful,
@@ -139,7 +139,7 @@ export function useAlert(props: AlertProps) {
   }[type]
 
   return {
-    Icon,
+    DefaultIcon,
     iconContainerStyles,
     responsiveFluid,
     themeKey,
@@ -172,6 +172,10 @@ export interface AlertProps extends Overridable {
      */
     tertiary?: AlertActionProps
   }
+  /**
+   * Alert Icon
+   */
+  icon?: ReactNode
   /**
    * action to take on click dismiss buttton
    */
