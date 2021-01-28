@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.77.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.77.0...@vtex/admin-ui@0.77.1) (2021-01-28)
+
+
+### Bug Fixes
+
+* **alert:** fix forwardRef ([b7aeda5](https://github.com/vtex/onda/commit/b7aeda56af5eba659f3a63b8e5f67f1a6aec6f9e))
+
+
+
+
+
 # [0.77.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.76.1...@vtex/admin-ui@0.77.0) (2021-01-28)
 
 
