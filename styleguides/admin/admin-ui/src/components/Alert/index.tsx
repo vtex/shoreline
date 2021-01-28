@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, Ref } from 'react'
 import {
   IconWarningColorful,
   IconSuccessColorful,
@@ -10,6 +10,7 @@ import {
   inlineVariant,
   useResponsiveValue,
   ResponsiveValue,
+  forwardRef,
 } from '@vtex/admin-core'
 
 import { Overridable } from '../../types'
@@ -22,75 +23,77 @@ import { Flex } from '../Flex'
 /**
  * Component to display relevant information within an admin page
  */
-export function Alert(props: AlertProps) {
-  const {
-    children,
-    actions,
-    onDismiss,
-    styleOverrides,
-    Icon,
-    iconContainerStyles,
-    responsiveFluid,
-    themeKey,
-    ...htmlProps
-  } = useAlert(props)
+export const Alert = forwardRef(
+  (props: AlertProps, ref: Ref<HTMLDivElement>) => {
+    const {
+      children,
+      actions,
+      onDismiss,
+      styleOverrides,
+      DefaultIcon,
+      iconContainerStyles,
+      responsiveFluid,
+      themeKey,
+      ...htmlProps
+    } = useAlert(props)
 
-  return (
-    <Box styles={styleOverrides} themeKey={themeKey} {...htmlProps}>
-      <Set
-        spacing={2}
-        styleOverrides={{
-          alignItems: responsiveFluid ? 'flex-start' : 'center',
-          marginRight: 3,
-        }}
-      >
-        <Flex align="center" styles={iconContainerStyles}>
-          <Icon />
-        </Flex>
-        <Paragraph>{children}</Paragraph>
-      </Set>
-      <Set
-        spacing={3}
-        styleOverrides={{
-          alignItems: responsiveFluid ? 'flex-start' : 'center',
-        }}
-      >
-        {actions?.tertiary && (
-          <Button
-            size="small"
-            variant="tertiary"
-            onClick={actions.tertiary.onClick}
-          >
-            {actions.tertiary?.label}
-          </Button>
-        )}
-        {actions?.secondary && (
-          <Button
-            size="small"
-            variant="secondary"
-            onClick={actions.secondary.onClick}
-          >
-            {actions.secondary?.label}
-          </Button>
-        )}
-        {actions?.primary && (
-          <Button size="small" onClick={actions.primary.onClick}>
-            {actions.primary?.label}
-          </Button>
-        )}
-        {onDismiss && (
-          <Button
-            size="small"
-            variant="adaptative-dark"
-            icon={<IconClose />}
-            styleOverrides={{ color: 'dark.primary' }}
-            onClick={onDismiss}
-          />
-        )}
-      </Set>
-    </Box>
-  )
-}
+    return (
+      <Box ref={ref} styles={styleOverrides} themeKey={themeKey} {...htmlProps}>
+        <Set
+          spacing={2}
+          styleOverrides={{
+            alignItems: responsiveFluid ? 'flex-start' : 'center',
+            marginRight: 3,
+          }}
+        >
+          <Flex align="center" styles={iconContainerStyles}>
+            {props.icon ?? <DefaultIcon />}
+          </Flex>
+          <Paragraph>{children}</Paragraph>
+        </Set>
+        <Set
+          spacing={3}
+          styleOverrides={{
+            alignItems: responsiveFluid ? 'flex-start' : 'center',
+          }}
+        >
+          {actions?.tertiary && (
+            <Button
+              size="small"
+              variant="tertiary"
+              onClick={actions.tertiary.onClick}
+            >
+              {actions.tertiary?.label}
+            </Button>
+          )}
+          {actions?.secondary && (
+            <Button
+              size="small"
+              variant="secondary"
+              onClick={actions.secondary.onClick}
+            >
+              {actions.secondary?.label}
+            </Button>
+          )}
+          {actions?.primary && (
+            <Button size="small" onClick={actions.primary.onClick}>
+              {actions.primary?.label}
+            </Button>
+          )}
+          {onDismiss && (
+            <Button
+              size="small"
+              variant="adaptative-dark"
+              icon={<IconClose />}
+              styleOverrides={{ color: 'dark.primary' }}
+              onClick={onDismiss}
+            />
+          )}
+        </Set>
+      </Box>
+    )
+  }
+)
 
 export function useAlert(props: AlertProps) {
   const {
@@ -113,7 +116,7 @@ export function useAlert(props: AlertProps) {
     [sticky, '-sticky'],
   ])}`
 
-  const Icon = {
+  const DefaultIcon = {
     warning: IconWarningColorful,
     success: IconSuccessColorful,
     error: IconErrorColorful,
@@ -136,7 +139,7 @@ export function useAlert(props: AlertProps) {
   }[type]
 
   return {
-    Icon,
+    DefaultIcon,
     iconContainerStyles,
     responsiveFluid,
     themeKey,
@@ -169,6 +172,10 @@ export interface AlertProps extends Overridable {
      */
     tertiary?: AlertActionProps
   }
+  /**
+   * Alert Icon
+   */
+  icon?: ReactNode
   /**
    * action to take on click dismiss buttton
    */
