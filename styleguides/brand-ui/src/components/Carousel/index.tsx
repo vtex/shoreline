@@ -46,7 +46,10 @@ export const Carousel = ({
       />
       <Flex
         variant="carousel.navigationContainer.previous"
-        sx={{ alignItems: buttonAlign === 'top' ? 'baseline' : 'center' }}
+        sx={{
+          alignItems: buttonAlign === 'top' ? 'baseline' : 'center',
+          height: buttonAlign === 'top' ? 'fit-content' : '100%',
+        }}
       >
         <Button
           onClick={handlePrevious}
@@ -60,7 +63,10 @@ export const Carousel = ({
       </Flex>
       <Flex
         variant="carousel.navigationContainer.next"
-        sx={{ alignItems: buttonAlign === 'top' ? 'baseline' : 'center' }}
+        sx={{
+          alignItems: buttonAlign === 'top' ? 'baseline' : 'center',
+          height: buttonAlign === 'top' ? 'fit-content' : '100%',
+        }}
       >
         <Button
           onClick={handleNext}
