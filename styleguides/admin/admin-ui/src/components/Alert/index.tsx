@@ -109,11 +109,11 @@ export function useAlert(props: AlertProps) {
 
   const responsiveFluid = useResponsiveValue(fluid)
 
-  const themeKey = `components.alert.${type}${inlineVariant([
+  const themeKey = inlineVariant(`components.alert.${type}`, [
     [visible, '-visible'],
     [responsiveFluid, '-fluid'],
     [sticky, '-sticky'],
-  ])}`
+  ])
 
   const DefaultIcon = {
     warning: IconWarningColorful,

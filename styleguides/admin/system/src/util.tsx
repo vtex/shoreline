@@ -77,9 +77,15 @@ export {
  * Function that helps in the creation of a themeKey with conditional variants
  * @param sequence Array<[conditional variant, themeKey accessor]>
  */
-export const inlineVariant = (sequence: Array<[boolean, string]>) =>
-  sequence.reduce((acc, item) => {
+export const inlineVariant = (
+  prefix: string,
+  sequence: Array<[boolean, string]>
+) => {
+  const conditionalSuffix = sequence.reduce((acc, item) => {
     const [invariant, modifier] = item
 
     return invariant ? `${acc}${modifier}` : acc
   }, '')
+
+  return `${prefix}${conditionalSuffix}`
+}
