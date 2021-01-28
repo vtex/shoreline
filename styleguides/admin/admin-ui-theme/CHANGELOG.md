@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.16.1...@vtex/admin-ui-theme@0.16.2) (2021-01-28)
+
+
+### Bug Fixes
+
+* **divider:** set height to auto on vertical theme ([535d889](https://github.com/vtex/onda/commit/535d889a06d139bbbd33e50bdf9ab4635aca68cc))
+
+
+
+
+
 ## [0.16.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.16.0...@vtex/admin-ui-theme@0.16.1) (2021-01-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
