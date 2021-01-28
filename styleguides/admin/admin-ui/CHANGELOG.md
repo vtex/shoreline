@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.77.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.76.1...@vtex/admin-ui@0.77.0) (2021-01-28)
+
+
+### Bug Fixes
+
+* **alert:** add forwardRef ([370b94a](https://github.com/vtex/onda/commit/370b94aca393c30c894db014e5de4513f816e8ad))
+
+
+### Features
+
+* **alert:** add custom icon option ([4c643eb](https://github.com/vtex/onda/commit/4c643ebde145c5188aaca05ce3fd325b9221ae90))
+
+
+
+
+
 ## [0.76.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.76.0...@vtex/admin-ui@0.76.1) (2021-01-26)
 
 **Note:** Version bump only for package @vtex/admin-ui
