@@ -62,7 +62,7 @@ The orientation property can also have a `vertical` value.
       </Paragraph>
     </Columns.Item>
 
-    <Divider orientation="vertical" marginX={6} />
+    <Divider orientation="vertical" styleOverrides={{ marginX: 6 }} />
 
     <Columns.Item>
       <Heading>Personal data</Heading>
@@ -81,10 +81,10 @@ You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides)
 
 ### Example
 
-For example, you can customize the Divider `margin` and `color`. One way to do this is by combining `Space Style Props` and `styleOverrides`, check the example below!
+For example, you can customize the Divider `margin` and `color`. One way to do this is by using `styleOverrides`, check the example below!
 
 ```jsx
-<Divider margin={6} styleOverrides={{ borderColor: 'dark.primary' }} />
+<Divider styleOverrides={{ margin: 6, borderColor: 'dark.primary' }} />
 ```
 
 ## Props
