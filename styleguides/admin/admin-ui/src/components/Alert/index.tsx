@@ -1,4 +1,4 @@
-import React, { ReactNode, Ref } from 'react'
+import React, { ReactNode, forwardRef, Ref } from 'react'
 import {
   IconWarningColorful,
   IconSuccessColorful,
@@ -10,7 +10,6 @@ import {
   inlineVariant,
   useResponsiveValue,
   ResponsiveValue,
-  forwardRef,
 } from '@vtex/admin-core'
 
 import { Overridable } from '../../types'
