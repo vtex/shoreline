@@ -1,5 +1,12 @@
 import React, { useState, useRef, PropsWithChildren, ReactNode } from 'react'
-import { Box, Flex, Label, Input as ThemeUIInput, Text, SxStyleProp } from 'theme-ui'
+import {
+  Box,
+  Flex,
+  Label,
+  Input as ThemeUIInput,
+  Text,
+  SxStyleProp,
+} from 'theme-ui'
 import { Input as ReakitInput, InputProps as BaseProps } from 'reakit/Input'
 import { forwardRef } from '@vtex-components/utils'
 
@@ -7,6 +14,7 @@ import useInputState from './useInputState'
 
 export const Input = (props: PropsWithChildren<InputProps>) => {
   const {
+    darkMode = false,
     size = 'regular',
     label,
     id,
@@ -27,7 +35,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
   const redirectFocus = () => ref.current?.focus()
 
   const [value, setValue] = useState(initialValue)
-  const { state, charCount, setFocused } = useInputState({
+  const { state, charCount, setFocused, translate } = useInputState({
     disabled,
     readOnly,
     error,
@@ -35,18 +43,17 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
     charLimit,
   })
 
-  const labelVariant = `input.label.${size}-${prefix ? 'prefix-' : ''}${state}`
-  const helpMessageVariant = `input.helpMessage.${
-    state === 'disabled' || state === 'error' ? state : 'default'
+  const labelVariant = `input.label.${size}-${prefix ? 'prefix-' : ''}${
+    translate ? 'translate' : 'default'
   }`
+  const helpMessageVariant = `input.helpMessage${
+    darkMode ? '.dark' : ''
+  }.${state}`
 
   return (
-    <Box
-      sx={{ margin: 2, width: 'fit-content' }}
-      onFocus={() => redirectFocus()}
-    >
+    <Box variant="input.container" sx={sx} onFocus={() => redirectFocus()}>
       <ReakitInput
-        value={state === 'disabled' ? '' : value}
+        value={value}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         disabled={disabled}
@@ -58,23 +65,9 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
         {...inputProps}
       >
         {(enhancedProps) => (
-          <Flex variant={`input.${size}-${state}`} sx={sx}>
+          <Flex variant={`input.${size}-${state}${darkMode ? '-dark' : ''}`}>
             {prefix && <Flex variant="input.prefix">{prefix}</Flex>}
-            <ThemeUIInput
-              sx={{
-                border: 'none',
-                width: 'fit-content',
-                p: 0,
-                lineHeight: 'action',
-                ':focus': {
-                  outline: 'none',
-                },
-                ':hover': {
-                  cursor: readOnly ? 'default' : 'text',
-                },
-              }}
-              {...enhancedProps}
-            />
+            <ThemeUIInput {...enhancedProps} />
             <Label htmlFor={id} variant={labelVariant}>
               {label}
             </Label>
@@ -94,17 +87,11 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
   )
 }
 
-export type Size = 'small' | 'regular' | 'large'
-export type InputState =
-  | 'error'
-  | 'idle'
-  | 'filled'
-  | 'focused'
-  | 'disabled'
-  | 'readOnly'
+export type Size = 'regular' | 'large'
+export type InputState = 'error' | 'default' | 'disabled' | 'readOnly'
 
 export interface InputProps
-  extends Pick<BaseProps,  'disabled' | 'readOnly' | 'value' | 'type'> {
+  extends Pick<BaseProps, 'disabled' | 'readOnly' | 'value' | 'type'> {
   id: string
   label: string
   helpMessage?: string
@@ -115,6 +102,7 @@ export interface InputProps
   size?: Size
   suffix?: ReactNode
   sx?: SxStyleProp
+  darkMode?: boolean
 }
 
 export default forwardRef(Input)

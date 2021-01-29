@@ -19,7 +19,7 @@ export const theme = {
   colors: {
     text: '#4A4A4A',
     background: '#F8F7FC',
-    muted: ['#717786', '#A1A8B3', '#CCCED8', '#E7E9EE', '#F8F7FC', '#FFFFFF'],
+    muted: ['#4A596B', '#A1A8B3', '#CCCED8', '#E7E9EE', '#F8F7FC', '#FFFFFF'],
     focus: '#FFC4DD',
     primary: {
       base: '#E31C58',

@@ -1,120 +1,183 @@
 const styles = {
-  paddingX: 4,
+  paddingX: 5,
   alignItems: 'center',
   position: 'relative',
   width: 'fit-content',
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: 'muted.2',
   borderRadius: 3,
-  ':hover': {
-    borderColor: 'secondary.hover',
+}
+
+const inputBase = {
+  border: 'none',
+  borderRadius: 0,
+  width: 'fit-content',
+  p: 0,
+  ':focus': {
+    outline: 'none',
   },
 }
 
 const size = {
   regular: {
-    height: 48,
-  },
-  small: {
-    height: 36,
+    height: 56,
+    input: {
+      ...inputBase,
+      lineHeight: '24px',
+      marginTop: 4,
+      fontSize: '18px',
+    },
   },
   large: {
-    height: 56,
+    height: 72,
+    input: {
+      ...inputBase,
+      lineHeight: '32px',
+      marginTop: '18px',
+      fontSize: '22px',
+    },
   },
 }
 
+const focusBase = {
+  borderColor: 'secondary.hover',
+  boxShadow: (t: any) => `0 0 0 ${t.borderWidths[1]}px ${t.colors.focus}`,
+  outline: 'none',
+}
+
 const state = {
-  idle: {},
-  focused: {
-    borderColor: 'secondary.hover',
-    boxShadow: (t: any) => `0 0 0 ${t.borderWidths[2]}px ${t.colors.focus}`,
-    outline: 'none',
+  default: {
+    borderColor: 'muted.1',
+    color: 'secondary.base',
+    ':hover': {
+      borderColor: 'secondary.hover',
+      cursor: 'text',
+    },
+    ':focus-within': focusBase,
   },
   disabled: {
+    backgroundColor: 'muted.3',
+    borderColor: 'muted.1',
     color: 'muted.1',
     ':hover': {
-      borderColor: 'muted.2',
       cursor: 'not-allowed',
+    },
+    label: {
+      color: 'muted.1',
+    },
+    svg: {
+      color: 'muted.1',
     },
   },
   error: {
     borderColor: 'danger.base',
+    color: 'secondary.base',
     ':hover': {
       borderColor: 'danger.hover',
-      label: {
-        color: 'danger.hover',
-      },
+      cursor: 'text',
     },
-  },
-  filled: {
-    borderColor: 'secondary.hover',
-    color: 'muted.0',
+    ':focus-within': {
+      ...focusBase,
+      borderColor: 'danger.hover',
+    },
   },
   readOnly: {
     backgroundColor: 'muted.3',
     borderColor: 'muted.1',
+    color: 'secondary.base',
     ':hover': {
-      borderColor: 'muted.1',
+      cursor: 'default',
     },
   },
 }
 
-const labelStyles = {
+const stateDark = {
+  default: {
+    borderColor: 'muted.2',
+    color: 'muted.4',
+    ':focus-within': {
+      ...focusBase,
+      borderColor: 'muted.2',
+    },
+    ':hover': {
+      borderColor: 'muted.1',
+      cursor: 'text',
+    },
+    label: {
+      color: 'muted.2',
+    },
+    svg: {
+      color: 'muted.2',
+    },
+  },
+  disabled: {
+    ...state.disabled,
+    borderColor: 'muted.2',
+  },
+  error: {
+    ...state.error,
+    color: 'muted.4',
+    label: {
+      color: 'muted.2',
+    },
+    svg: {
+      color: 'muted.2',
+    },
+  },
+  readOnly: {
+    ...state.readOnly,
+    borderColor: 'muted.2',
+  },
+}
+
+const labelBase = {
   color: 'muted.0',
   width: 'fit-content',
   position: 'absolute',
   pointerEvents: 'none',
-  fontSize: 2,
-  lineHeight: 'action',
   transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
 }
 
-const labelTranslate = {
-  paddingX: 2,
+const labelRegular = {
+  ...labelBase,
+  fontSize: '18px',
+  lineHeight: '30px',
+}
+
+const labelLarge = {
+  ...labelBase,
+  fontSize: '22px',
+  lineHeight: '32px',
+}
+
+const labelTranslateRegular = {
   fontSize: 0,
-  paddingY: 0,
-  lineHeight: 'small',
-  backgroundColor: 'white',
+  lineHeight: '1rem',
+  transform: 'translateY(-12px)',
+}
+
+const labelTranslateLarge = {
+  fontSize: 2,
+  lineHeight: '1.125rem',
+  transform: 'translateY(-16px)',
 }
 
 const labelSize = {
-  small: {
-    defaultPosition: {
-      left: 'auto',
-    },
-    translate: {
-      ...labelTranslate,
-      transform: 'translateY(-18px)',
-    },
-  },
-  'small-prefix': {
-    defaultPosition: {
-      left: 48,
-    },
-    translate: {
-      left: 48,
-      ...labelTranslate,
-      transform: 'translate(-32px, -18px)',
-    },
-  },
   regular: {
     defaultPosition: {
       left: 'auto',
     },
     translate: {
-      ...labelTranslate,
-      transform: 'translateY(-24px)',
+      ...labelTranslateRegular,
     },
   },
   'regular-prefix': {
     defaultPosition: {
-      left: 48,
+      left: 56,
     },
     translate: {
-      left: 48,
-      ...labelTranslate,
-      transform: 'translate(-32px, -24px)',
+      left: 56,
+      ...labelTranslateRegular,
     },
   },
   large: {
@@ -122,81 +185,49 @@ const labelSize = {
       left: 'auto',
     },
     translate: {
-      ...labelTranslate,
-      transform: 'translateY(-28px)',
+      ...labelTranslateLarge,
     },
   },
   'large-prefix': {
     defaultPosition: {
-      left: 48,
+      left: 56,
     },
     translate: {
-      left: 48,
-      ...labelTranslate,
-      transform: 'translate(-32px, -28px)',
+      left: 56,
+      ...labelTranslateLarge,
     },
-  },
-}
-
-const labelState = {
-  idle: {},
-  disabled: {
-    color: 'muted.1',
-  },
-  error: {
-    ...labelTranslate,
-    color: 'danger.base',
-  },
-  filled: {
-    ...labelTranslate,
-  },
-  focused: {
-    ...labelTranslate,
-  },
-  readOnly: {
-    ...labelTranslate,
   },
 }
 
 const label = {
-  ...Object.entries(labelState).reduce(function mergeState(acc, currState) {
-    const [stateName, stateStyles] = currState
+  ...Object.entries(labelSize).reduce(function mergeSize(acc, currSize) {
+    const [sizeName, { defaultPosition, translate }] = currSize
 
     return {
       ...acc,
-      ...Object.entries(labelSize).reduce(function mergeSize(bcc, currSize) {
-        const [sizeName, { defaultPosition, translate }] = currSize
-        let currLabelStyles
-
-        if (stateName === 'idle' || stateName === 'disabled') {
-          currLabelStyles = {
-            ...labelStyles,
-            ...stateStyles,
-            ...defaultPosition,
-          }
-        } else {
-          currLabelStyles = { ...labelStyles, ...stateStyles, ...translate }
-        }
-
-        return {
-          ...bcc,
-          [`${sizeName}-${stateName}`]: currLabelStyles,
-        }
-      }, []),
+      [`${sizeName}-default`]: {
+        ...(sizeName.startsWith('regular') ? labelRegular : labelLarge),
+        ...defaultPosition,
+      },
+      [`${sizeName}-translate`]: {
+        ...(sizeName.startsWith('regular') ? labelRegular : labelLarge),
+        ...translate,
+      },
     }
-  }, {}),
+  }, []),
 }
 
 const helpMessageStyles = {
-  color: 'muted.0',
-  mt: 2,
+  mt: 3,
   fontSize: 0,
+  lineHeight: '1rem',
   justifyContent: 'space-between',
 }
 
 const helpMessage = {
   default: {
     ...helpMessageStyles,
+    color: 'muted.0',
   },
   error: {
     ...helpMessageStyles,
@@ -206,6 +237,39 @@ const helpMessage = {
     ...helpMessageStyles,
     color: 'muted.1',
   },
+  readOnly: {
+    ...helpMessageStyles,
+    color: 'muted.1',
+  },
+}
+
+const helpMessageDark = {
+  default: {
+    ...helpMessageStyles,
+    color: 'muted.2',
+  },
+  error: {
+    ...helpMessageStyles,
+    color: 'danger.base',
+  },
+  disabled: {
+    ...helpMessageStyles,
+    color: 'muted.2',
+  },
+  readOnly: {
+    ...helpMessageStyles,
+    color: 'muted.2',
+  },
+}
+
+const iconBase = {
+  alignItems: 'center',
+  color: 'muted.0',
+}
+
+const container = {
+  width: 'fit-content',
+  mb: 3,
 }
 
 export default {
@@ -220,12 +284,18 @@ export default {
             ...(state as any)[st],
             ...(size as any)[sz],
           },
+          [`${sz}-${st}-dark`]: {
+            ...styles,
+            ...(stateDark as any)[st],
+            ...(size as any)[sz],
+          },
         }
       }, []),
     }
   }, {}),
-  prefix: { alignItems: 'center', mr: 3 },
-  suffix: { alignItems: 'center', ml: 3 },
+  prefix: { ...iconBase, mr: 3 },
+  suffix: { ...iconBase, ml: 3 },
   label,
-  helpMessage,
+  helpMessage: { ...helpMessage, dark: { ...helpMessageDark } },
+  container,
 }
