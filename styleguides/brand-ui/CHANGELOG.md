@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.31.4](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.31.3...@vtex/brand-ui@0.31.4) (2021-01-29)
+
+
+### Bug Fixes
+
+* brand carousel navigation height ([0c91622](https://github.com/vtex/onda/commit/0c91622311923d8181139f4fa5ebc8e6ca0835a9))
+
+
+
+
+
 ## [0.31.3](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.31.2...@vtex/brand-ui@0.31.3) (2021-01-26)
 
 **Note:** Version bump only for package @vtex/brand-ui
