@@ -42,3 +42,5 @@ export {
   useSystem,
   createSystem,
 }
+
+export { isMobile } from 'react-device-detect'
