@@ -4,85 +4,60 @@ import {
   TabPanel as ReakitTabPanel,
   Tab as ReakitTab,
   useTabState,
-  Button as ReakitButton,
   TabProps as ReakitTabProps,
+  TabStateReturn,
 } from 'reakit'
 import { inlineVariant } from '@vtex/admin-core'
 
 import { useSystem } from '../../system'
 import { TabsProvider, useTabsContext } from './context'
 import { Overridable } from '../../types'
-import { Box } from '../Box'
 
-export function TabList(props: TabListProps) {
+export function Tabs(props: TabsProps) {
+  const { state, children, ...restProps } = props
+  return (
+    <TabsProvider state={state} {...restProps}>
+      {children}
+    </TabsProvider>
+  )
+}
+
+export function TabsList(props: TabListProps) {
   const { children, styleOverrides, fluid = false, ...restProps } = props
   const { state } = useTabsContext()
   const { cn } = useSystem()
 
-  // const themeKey = inlineVariant('components.tabs.list-container', [
-  //   [fluid, '-fluid'],
-  // ])
-
-  const flexStyles = fluid
-    ? {
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        '> button': { width: 'full' },
-      }
-    : {}
+  const themeKey = inlineVariant('components.tabs.list', [[fluid, '-fluid']])
 
   return (
     <ReakitTabList
       {...restProps}
       {...state}
       className={cn({
+        themeKey,
         ...styleOverrides,
-        themeKey: 'components.tabs.list',
-        position: 'relative',
-        paddingX: 0,
-        height: 48,
       })}
     >
-      <Box
-        styles={{
-          paddingX: 4,
-          width: 'full',
-          position: 'absolute',
-          top: 1,
-          ...flexStyles,
-        }}
-      >
-        {children}
-      </Box>
+      {children}
     </ReakitTabList>
   )
 }
 
 export function Tab(props: TabProps) {
-  const {
-    label,
-    tabId,
-    disabled,
-    onClick,
-    styleOverrides,
-    ...restProps
-  } = props
+  const { label, id, styleOverrides, ...restProps } = props
   const { state } = useTabsContext()
   const { cn } = useSystem()
 
-  const active = state.selectedId === tabId
+  const active = state.selectedId === id
   const themeKey = inlineVariant('components.tabs.tab', [[active, '-active']])
 
   return (
     <ReakitTab
-      as={ReakitButton}
       className={cn({
         themeKey,
         ...styleOverrides,
       })}
-      id={tabId}
-      disabled={disabled}
-      onClick={onClick}
+      id={id}
       aria-label={label}
       {...state}
       {...restProps}
@@ -92,8 +67,8 @@ export function Tab(props: TabProps) {
   )
 }
 
-export function TabContent(props: TabContentProps) {
-  const { children, styleOverrides, tabId, ...restProps } = props
+export function TabsContent(props: TabContentProps) {
+  const { children, styleOverrides, id, ...restProps } = props
   const { state } = useTabsContext()
   const { cn } = useSystem()
   const themeKey = 'components.tabs.tab-content'
@@ -102,7 +77,7 @@ export function TabContent(props: TabContentProps) {
     <ReakitTabPanel
       {...restProps}
       {...state}
-      tabId={tabId}
+      tabId={id}
       className={cn({ themeKey, ...styleOverrides })}
     >
       {children}
@@ -110,23 +85,29 @@ export function TabContent(props: TabContentProps) {
   )
 }
 
-export interface TabProps
-  extends Pick<ReakitTabProps, 'disabled' | 'onClick' | 'children'>,
-    Overridable {
-  label: string
-  tabId: string
+Tabs.List = TabsList
+Tabs.Tab = Tab
+Tabs.Content = TabsContent
+
+export interface TabsProps {
+  state: TabStateReturn
+  children?: ReactNode
 }
 
 export interface TabListProps extends Overridable {
   children?: ReactNode
   fluid?: boolean
 }
+export interface TabProps
+  extends Pick<ReakitTabProps, 'onClick' | 'children'>,
+    Overridable {
+  label: string
+  id: string
+}
 
 export interface TabContentProps extends Overridable {
   children?: ReactNode
-  tabId: string
+  id: string
 }
 
-export { useTabState }
-
-export { TabsProvider as Tabs }
+export { useTabState, TabStateReturn }

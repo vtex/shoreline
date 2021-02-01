@@ -1,13 +1,9 @@
-import React, { createContext, useContext, ReactNode } from 'react'
-import { TabStateReturn } from 'reakit'
+import React, { createContext, useContext } from 'react'
+import { TabsProps } from './index'
+
 import invariant from 'tiny-invariant'
 
-export interface TabsProviderProps {
-  state: TabStateReturn
-  children?: ReactNode
-}
-
-const TabsContext = createContext<TabsProviderProps | null>(null)
+const TabsContext = createContext<TabsProps | null>(null)
 
 export function useTabsContext() {
   const context = useContext(TabsContext)
@@ -17,9 +13,7 @@ export function useTabsContext() {
   return context
 }
 
-export function TabsProvider(
-  props: React.PropsWithChildren<TabsProviderProps>
-) {
+export function TabsProvider(props: React.PropsWithChildren<TabsProps>) {
   const { children, ...tabsProps } = props
 
   return (

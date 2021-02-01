@@ -1,10 +1,9 @@
 // import { alpha } from '@vtex/admin-ui-system'
 
 const listContainerStyles = {
+  display: 'inline-block',
   paddingX: 4,
-  borderBottomColor: 'mid.tertiary',
-  borderBottomWidth: 1,
-  borderBottomStyle: 'solid',
+  width: 'full',
 }
 
 const tabStyles = {
@@ -35,10 +34,6 @@ const tabStyles = {
   textTransform: 'uppercase',
   backgroundColor: 'transparent',
   color: 'dark.secondary',
-  ':disabled': {
-    color: 'mid.primary',
-    bg: 'light.secondary',
-  },
 }
 
 const tabContentStyles = {
@@ -54,9 +49,11 @@ const tabContentStyles = {
 
 export default {
   list: listContainerStyles,
-  'list-tab': {
+  'list-fluid': {
     ...listContainerStyles,
     display: 'flex',
+    justifyContent: 'space-evenly',
+    '> button': { width: 'full' },
   },
   tab: {
     ...tabStyles,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { Tab, TabContent, TabList, Tabs, useTabState } from './index'
+import { Tabs, useTabState } from './index'
 import { Card } from '../Card'
 import { Box } from '../Box'
 import { Heading } from '../Heading'
@@ -18,24 +18,24 @@ export function FixedWidth() {
   return (
     <Card styleOverrides={{ width: 600 }}>
       <Tabs state={state}>
-        <TabList aria-label="my-tabs">
-          <Tab label="Tab 1" tabId="1" />
-          <Tab label="Tab 2" tabId="2" />
-          <Tab label="Tab 3" tabId="3" />
-          <Tab label="Tab 4" tabId="4" />
-        </TabList>
-        <TabContent tabId="1">
+        <Tabs.List aria-label="my-tabs">
+          <Tabs.Tab label="Tab 1" id="1" />
+          <Tabs.Tab label="Tab 2" id="2" />
+          <Tabs.Tab label="Tab 3" id="3" />
+          <Tabs.Tab label="Tab 4" id="4" />
+        </Tabs.List>
+        <Tabs.Content id="1">
           <Card styleOverrides={{ marginTop: 2 }}>Tab 1 Content</Card>
-        </TabContent>
-        <TabContent tabId="2">
+        </Tabs.Content>
+        <Tabs.Content id="2">
           <Card styleOverrides={{ marginTop: 2 }}>Tab 2 Content</Card>
-        </TabContent>
-        <TabContent tabId="3">
+        </Tabs.Content>
+        <Tabs.Content id="3">
           <Card styleOverrides={{ marginTop: 2 }}>Tab 3 Content</Card>
-        </TabContent>
-        <TabContent tabId="4">
+        </Tabs.Content>
+        <Tabs.Content id="4">
           <Card styleOverrides={{ marginTop: 2 }}>Tab 4 Content</Card>
-        </TabContent>
+        </Tabs.Content>
       </Tabs>
     </Card>
   )
@@ -47,24 +47,24 @@ export function FluidWidth() {
   return (
     <Card styleOverrides={{ width: 600 }}>
       <Tabs state={state}>
-        <TabList fluid aria-label="my-tabs">
-          <Tab label="Tab 1" tabId="1" />
-          <Tab label="Tab 2" tabId="2" />
-          <Tab label="Tab 3" tabId="3" />
-          <Tab label="Tab 4" tabId="4" />
-        </TabList>
-        <TabContent tabId="1">
+        <Tabs.List fluid aria-label="my-tabs">
+          <Tabs.Tab label="Tab 1" id="1" />
+          <Tabs.Tab label="Tab 2" id="2" />
+          <Tabs.Tab label="Tab 3" id="3" />
+          <Tabs.Tab label="Tab 4" id="4" />
+        </Tabs.List>
+        <Tabs.Content id="1">
           <Card styleOverrides={{ marginTop: 2 }}>Tab 1 Content</Card>
-        </TabContent>
-        <TabContent tabId="2">
+        </Tabs.Content>
+        <Tabs.Content id="2">
           <Card styleOverrides={{ marginTop: 2 }}>Tab 2 Content</Card>
-        </TabContent>
-        <TabContent tabId="3">
+        </Tabs.Content>
+        <Tabs.Content id="3">
           <Card styleOverrides={{ marginTop: 2 }}>Tab 3 Content</Card>
-        </TabContent>
-        <TabContent tabId="4">
+        </Tabs.Content>
+        <Tabs.Content id="4">
           <Card styleOverrides={{ marginTop: 2 }}>Tab 4 Content</Card>
-        </TabContent>
+        </Tabs.Content>
       </Tabs>
     </Card>
   )
@@ -72,30 +72,29 @@ export function FluidWidth() {
 
 function Header() {
   return (
-    <Set
-      orientation="vertical"
-      fluid
-      spacing={5}
-      styleOverrides={{ marginTop: 5 }}
-    >
-      <Heading styleOverrides={{ marginLeft: 4 }}>Provider Manager</Heading>
-      <TabList aria-label="my-tabs">
-        <Tab label="Pending" tabId="pending" />
-        <Tab label="Published" tabId="published" />
-      </TabList>
-    </Set>
+    <Box styles={{ marginTop: 5, border: 'divider-bottom' }}>
+      <Set orientation="vertical" fluid spacing={5}>
+        <Box styles={{ marginLeft: 4 }}>
+          <Heading>Provider Manager</Heading>
+        </Box>
+        <Tabs.List aria-label="my-tabs">
+          <Tabs.Tab label="Pending" id="pending" />
+          <Tabs.Tab label="Published" id="published" />
+        </Tabs.List>
+      </Set>
+    </Box>
   )
 }
 
 function TabsContent() {
   return (
     <Box styles={{ padding: 4 }}>
-      <TabContent tabId="published">
+      <Tabs.Content id="published">
         <Card styleOverrides={{ marginTop: 2 }}>Published Content</Card>
-      </TabContent>
-      <TabContent tabId="pending">
+      </Tabs.Content>
+      <Tabs.Content id="pending">
         <Card styleOverrides={{ marginTop: 2 }}>Pending Content</Card>
-      </TabContent>
+      </Tabs.Content>
     </Box>
   )
 }

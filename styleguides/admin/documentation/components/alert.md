@@ -32,8 +32,6 @@ yarn add @vtex/admin-ui
 import { Alert } from '@vtex/admin-ui'
 ```
 
-Learn more in [Get started](/docs/get-started/).
-
 ## Variations
 
 ### Visible
