@@ -1,64 +1,14 @@
 import { CSSObject } from '@emotion/css'
+import get from 'lodash.get'
+import { merge } from './merge'
 
-import { StyleProp, ThemeDerivedStyles, Theme, StyleObject } from './types'
-import {
-  scales,
-  aliases,
-  defaultTheme,
-  defaultBreakpoints,
-  multiples,
-  transformations,
-} from './constants'
-import { get } from './util'
-
-type Scales = typeof scales
-type Aliases = typeof aliases
-
-const responsive = (styles: Exclude<StyleProp, ThemeDerivedStyles>) => (
-  theme?: Theme
-) => {
-  const next: Exclude<StyleProp, ThemeDerivedStyles> = {}
-  const breakpoints =
-    (theme && (theme.breakpoints as string[])) || defaultBreakpoints
-
-  const mediaQueries = [
-    null,
-    ...breakpoints.map((n) => `@media screen and (min-width: ${n})`),
-  ]
-
-  for (const k in styles) {
-    const key = k as keyof typeof styles
-    let value = styles[key]
-
-    if (typeof value === 'function') {
-      value = value(theme ?? {})
-    }
-
-    if (value == null) continue
-
-    if (!Array.isArray(value)) {
-      next[key] = value
-      continue
-    }
-
-    for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
-      const media = mediaQueries[i]
-
-      if (!media) {
-        next[key] = value[i]
-        continue
-      }
-
-      next[media] = next[media] ?? {}
-      if (value[i] == null) continue
-      ;(next[media] as Record<string, unknown>)[key] = value[i]
-    }
-  }
-
-  return next
-}
-
-type CssPropsArgument = { theme: Theme } | Theme
+import { transformations } from './transform'
+import { scales, Scales } from './scales'
+import { aliases, Aliases } from './aliases'
+import { multiples, Multiples } from './multiples'
+import { defaultTheme } from './defaultObjects'
+import { responsive } from './responsive'
+import { CssPropsArgument, StyleObject, StyleProp, Theme } from './types'
 
 export const styles = (args: StyleProp = {}) => (
   props: CssPropsArgument = {}
@@ -72,7 +22,22 @@ export const styles = (args: StyleProp = {}) => (
   let obj = typeof args === 'function' ? args(theme) : args
 
   if (obj.themeKey) {
-    obj = { ...get(theme, obj.themeKey), ...obj }
+    if (typeof obj.themeKey === 'object') {
+      const [componentName] = Object.keys(obj.themeKey)
+      const values = obj.themeKey[componentName]
+      const component = get(theme, `components.${componentName}`, {})
+      obj = {
+        ...Object.keys(values).reduce((acc, entry) => {
+          const defaultStyles = get(component, `${entry}.styles`, {})
+          const entryStyles = get(component, `${entry}.${values[entry]}`, {})
+
+          return merge(acc, defaultStyles, entryStyles)
+        }, component?.styles ?? {}),
+        ...obj,
+      }
+    } else {
+      obj = { ...get(theme, obj.themeKey), ...obj }
+    }
     delete obj.themeKey
   }
 
@@ -89,7 +54,7 @@ export const styles = (args: StyleProp = {}) => (
 
     const prop = key in aliases ? aliases[key as keyof Aliases] : key
     const scaleName = prop in scales ? scales[prop as keyof Scales] : undefined
-    const scale = get(theme, scaleName as string, get(theme, prop, {}))
+    const scale = scaleName ? theme?.[scaleName] : get(theme, prop, {})
     const transform = get(transformations, prop, get)
     let value = transform(scale, val, val)
     const isObjectScale = value && typeof value === 'object'
@@ -114,7 +79,7 @@ export const styles = (args: StyleProp = {}) => (
     }
 
     if (prop in multiples) {
-      const dirs = multiples[prop as keyof typeof multiples]
+      const dirs = multiples[prop as keyof Multiples]
 
       for (let i = 0; i < dirs.length; i++) {
         result[dirs[i]] = value

@@ -48,7 +48,9 @@ export const Stateful = () => (
     <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
     <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
     <Menu.Separator />
-    <Menu.Item dangerous icon={<IconDelete />}>Delete</Menu.Item>
+    <Menu.Item dangerous icon={<IconDelete />}>
+      Delete
+    </Menu.Item>
   </Menu>
 )
 

@@ -53,22 +53,26 @@ const fluid = {
   alignItems: 'flex-start',
 }
 
-const sticky = { 
+const sticky = {
   borderRadius: 'flat',
   paddingRight: 4,
 }
 
-
 function getAlertVariants(name: string, styles = {}) {
   return {
     [`${name}`]: styles,
-    [`${name}-visible`]: { ...styles, ...visible},
-    [`${name}-fluid`]: { ...styles, ...fluid},
-    [`${name}-sticky`]: { ...styles, ...sticky},
-    [`${name}-visible-fluid`]: { ...styles, ...visible, ...fluid},
-    [`${name}-visible-sticky`]:{ ...styles, ...visible, ...sticky},
-    [`${name}-fluid-sticky`]:{ ...styles, ...visible, ...sticky},
-    [`${name}-visible-fluid-sticky`]:{ ...styles, ...visible, ...sticky, ...fluid},
+    [`${name}-visible`]: { ...styles, ...visible },
+    [`${name}-fluid`]: { ...styles, ...fluid },
+    [`${name}-sticky`]: { ...styles, ...sticky },
+    [`${name}-visible-fluid`]: { ...styles, ...visible, ...fluid },
+    [`${name}-visible-sticky`]: { ...styles, ...visible, ...sticky },
+    [`${name}-fluid-sticky`]: { ...styles, ...visible, ...sticky },
+    [`${name}-visible-fluid-sticky`]: {
+      ...styles,
+      ...visible,
+      ...sticky,
+      ...fluid,
+    },
   }
 }
 

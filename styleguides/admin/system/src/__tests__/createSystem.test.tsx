@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect'
 
 import { createSystem, useTheme } from '..'
 import { get } from '../util'
-import { StyleProp } from '../types'
+import { StyleProp } from '@vtex/admin-styles'
 import { jsxs } from '../jsxs'
 
 describe('createSystem test', () => {

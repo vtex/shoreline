@@ -12,7 +12,9 @@ export const TableRow = forwardRef(function Tr(
   const { styleOverrides = {}, element = 'div', onClick, ...boxProps } = props
 
   const { variants, dir } = useStylesContext()
-  const themeKey = onClick ? `${variants.rowClickable}-${dir}` : `${variants.row}-${dir}`
+  const themeKey = onClick
+    ? `${variants.rowClickable}-${dir}`
+    : `${variants.row}-${dir}`
 
   return (
     <Box

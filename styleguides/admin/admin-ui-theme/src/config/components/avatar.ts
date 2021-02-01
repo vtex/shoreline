@@ -1,28 +1,26 @@
-const styles = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: 24,
-  height: 24,
-  padding: 2,
-  borderRadius: 'circle',
-  textTransform: 'uppercase',
-}
-
 export default {
-  base: {
-    ...styles,
-    bg: 'dark.primary',
-    color: 'light.primary',
+  styles: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 24,
+    height: 24,
+    padding: 2,
+    borderRadius: 'circle',
+    textTransform: 'uppercase',
   },
-  primary: {
-    ...styles,
-    bg: 'blue',
-    color: 'light.primary',
-  },
-  danger: {
-    ...styles,
-    bg: 'red',
-    color: 'light.primary',
+  palette: {
+    base: {
+      bg: 'dark.primary',
+      color: 'light.primary',
+    },
+    primary: {
+      bg: 'blue',
+      color: 'light.primary',
+    },
+    danger: {
+      bg: 'red',
+      color: 'light.primary',
+    },
   },
 }

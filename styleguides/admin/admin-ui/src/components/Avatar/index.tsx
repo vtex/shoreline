@@ -22,7 +22,11 @@ export const Avatar = forwardRef(function Avatar(
   return (
     <Box
       ref={ref}
-      themeKey={`components.avatar.${palette}`}
+      themeKey={{
+        avatar: {
+          palette,
+        },
+      }}
       styles={styleOverrides}
       {...htmlProps}
     >

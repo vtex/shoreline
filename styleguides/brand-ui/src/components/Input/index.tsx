@@ -1,5 +1,12 @@
 import React, { useState, useRef, PropsWithChildren, ReactNode } from 'react'
-import { Box, Flex, Label, Input as ThemeUIInput, Text, SxStyleProp } from 'theme-ui'
+import {
+  Box,
+  Flex,
+  Label,
+  Input as ThemeUIInput,
+  Text,
+  SxStyleProp,
+} from 'theme-ui'
 import { Input as ReakitInput, InputProps as BaseProps } from 'reakit/Input'
 import { forwardRef } from '@vtex-components/utils'
 
@@ -104,7 +111,7 @@ export type InputState =
   | 'readOnly'
 
 export interface InputProps
-  extends Pick<BaseProps,  'disabled' | 'readOnly' | 'value' | 'type'> {
+  extends Pick<BaseProps, 'disabled' | 'readOnly' | 'value' | 'type'> {
   id: string
   label: string
   helpMessage?: string

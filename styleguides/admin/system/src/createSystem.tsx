@@ -3,8 +3,7 @@ import React from 'react'
 import createEmotion, { Emotion } from '@emotion/css/create-instance'
 
 import { ThemeProvider as BaseProvider } from './core'
-import { styles } from './styles'
-import { StyleProp } from './types'
+import { styles, StyleProp } from '@vtex/admin-styles'
 import { get } from './util'
 
 export function createSystem<T>(theme: T, appKey: string): CreateSystemReturn {

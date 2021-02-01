@@ -3,7 +3,7 @@ import React, { createContext, ReactNode, useContext } from 'react'
 import deepmerge from 'deepmerge'
 import packageInfo from '@emotion/react/package.json'
 
-import { Theme } from './types'
+import { Theme } from '@vtex/admin-styles'
 
 const EMOTION_VERSION = packageInfo.version
 

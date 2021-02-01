@@ -1,6 +1,4 @@
-
 import { colors } from '../base'
-
 
 const styles = {
   display: 'inline-block',
