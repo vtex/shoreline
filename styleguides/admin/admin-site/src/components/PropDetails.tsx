@@ -13,7 +13,11 @@ export default function PropDetails(props: Props) {
   const collapsible = useCollapsible({ visible: false })
 
   return (
-    <Collapsible state={collapsible} {...restProps} styleOverrides={{ marginBottom: 2 }}>
+    <Collapsible
+      state={collapsible}
+      {...restProps}
+      styleOverrides={{ marginBottom: 2 }}
+    >
       <Collapsible.Header label={heading} />
       <Collapsible.Content>
         <Proptypes component={component} />

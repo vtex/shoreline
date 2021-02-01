@@ -22,15 +22,14 @@ export const Checkbox = forwardRef(
   }
 )
 
-export function useCheckbox(
-  props: CheckboxProps,
-  themeKey = 'components.checkbox'
-) {
+export function useCheckbox(props: CheckboxProps, themeKey = 'checkbox') {
   const { size = 'regular', styleOverrides, state, ...htmlProps } = props
   const { cn } = useSystem()
 
   const className = cn({
-    themeKey: `${themeKey}.${size}`,
+    themeKey: {
+      [themeKey]: { size },
+    },
     ...styleOverrides,
   })
 

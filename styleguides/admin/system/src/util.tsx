@@ -1,16 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ForwardRefRenderFunction } from 'react'
-import get from 'lodash.get'
 import pick from 'lodash.pick'
 import omit from 'lodash.omit'
-import lodashMerge from 'lodash.merge'
 import isPropValid from '@emotion/is-prop-valid'
-
-/**
- * merges n objects into one
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const merge = (...params: any) => lodashMerge({}, ...params)
 
 /**
  * Whether a value is a function
@@ -71,41 +63,15 @@ function forwardRef<T extends ForwardRefRenderFunction<any, any>>(
 }
 
 export {
-  get,
   pick,
   omit,
   isFunction,
   isObjectEmpty,
-  merge,
   cleanProps,
   pickHTMLProps,
   isPropValid,
   forwardRef,
 }
-
-export const transformScale = (acc: Record<string, any>, curr: string) => ({
-  ...acc,
-  /** Transform negative values */
-  [curr]: (scale: Record<string, unknown>, value: string | number) => {
-    if (typeof value !== 'number' || value >= 0) {
-      if (typeof value === 'string' && value.startsWith('-')) {
-        const valueWithoutMinus = value.substring(1)
-        const n = get(scale, valueWithoutMinus, valueWithoutMinus)
-
-        return `-${n}`
-      }
-
-      return get(scale, value, value)
-    }
-
-    const absolute = Math.abs(value)
-    const n = get(scale, absolute, absolute)
-
-    if (typeof n === 'string') return `-${n}`
-
-    return Number(n) * -1
-  },
-})
 
 /**
  * Function that helps in the creation of a themeKey with conditional variants

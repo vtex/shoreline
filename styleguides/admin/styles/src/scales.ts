@@ -1,81 +1,3 @@
-import { transformScale } from './util'
-
-/**
- * Style props that are actually picked
- * * They're declared on admin-ui-theme package
- * ? Should we receive it as a parameter ?
- */
-export const availableStyleProps = [
-  'padding',
-  'paddingLeft',
-  'paddingRight',
-  'paddingTop',
-  'paddingBottom',
-  'margin',
-  'marginLeft',
-  'marginRight',
-  'marginTop',
-  'marginBottom',
-  'paddingX',
-  'paddingY',
-  'marginX',
-  'marginY',
-  'height',
-  'width',
-  'minHeight',
-  'minWidth',
-  'maxHeight',
-  'maxWidth',
-  'tabable',
-  'focusable',
-  'spacing',
-  'size',
-  'variant',
-  'orientation',
-  'wrap',
-  'colorMode',
-]
-
-export const aliases = {
-  bg: 'backgroundColor',
-  fontSettings: 'fontVariationSettings',
-}
-
-export const defaultBreakpoints = [40, 52, 64].map((n) => `${n}em`)
-
-export const defaultTheme = {
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-}
-
-export const multiples = {
-  marginX: ['marginLeft', 'marginRight'],
-  marginY: ['marginTop', 'marginBottom'],
-  paddingX: ['paddingLeft', 'paddingRight'],
-  paddingY: ['paddingTop', 'paddingBottom'],
-  size: ['width', 'height'],
-}
-
-export const transformations = [
-  'margin',
-  'marginTop',
-  'marginRight',
-  'marginBottom',
-  'marginLeft',
-  'marginX',
-  'marginY',
-  'marginBlock',
-  'marginBlockEnd',
-  'marginBlockStart',
-  'marginInline',
-  'marginInlineEnd',
-  'marginInlineStart',
-  'top',
-  'bottom',
-  'left',
-  'right',
-].reduce(transformScale, {})
-
 export const scales = {
   color: 'colors',
   backgroundColor: 'colors',
@@ -146,11 +68,11 @@ export const scales = {
   borderLeft: 'borders',
   borderWidth: 'borderWidths',
   borderStyle: 'borderStyles',
-  borderRadius: 'radii',
-  borderTopRightRadius: 'radii',
-  borderTopLeftRadius: 'radii',
-  borderBottomRightRadius: 'radii',
-  borderBottomLeftRadius: 'radii',
+  borderRadius: 'borderRadius',
+  borderTopRightRadius: 'borderRadius',
+  borderTopLeftRadius: 'borderRadius',
+  borderBottomRightRadius: 'borderRadius',
+  borderBottomLeftRadius: 'borderRadius',
   borderTopWidth: 'borderWidths',
   borderTopColor: 'colors',
   borderTopStyle: 'borderStyles',
@@ -172,8 +94,8 @@ export const scales = {
   borderBlockStartWidth: 'borderWidths',
   borderBlockStyle: 'borderStyles',
   borderBlockWidth: 'borderWidths',
-  borderEndEndRadius: 'radii',
-  borderEndStartRadius: 'radii',
+  borderEndEndRadius: 'borderRadius',
+  borderEndStartRadius: 'borderRadius',
   borderInline: 'borders',
   borderInlineEnd: 'borders',
   borderInlineEndStyle: 'borderStyles',
@@ -183,8 +105,8 @@ export const scales = {
   borderInlineStartWidth: 'borderWidths',
   borderInlineStyle: 'borderStyles',
   borderInlineWidth: 'borderWidths',
-  borderStartEndRadius: 'radii',
-  borderStartStartRadius: 'radii',
+  borderStartEndRadius: 'borderRadius',
+  borderStartStartRadius: 'borderRadius',
   outlineColor: 'colors',
   boxShadow: 'shadows',
   textShadow: 'shadows',
@@ -208,3 +130,5 @@ export const scales = {
   fontVariationSettings: 'fontSettings',
   text: 'text',
 }
+
+export type Scales = typeof scales

@@ -2,11 +2,10 @@ import React, { PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
 import { Box as ReakitBox } from 'reakit/Box'
+import { StyleProp, get } from '@vtex/admin-styles'
 import '@testing-library/jest-dom/extend-expect'
 
 import { createSystem, useTheme } from '..'
-import { get } from '../util'
-import { StyleProp } from '../types'
 import { jsxs } from '../jsxs'
 
 describe('createSystem test', () => {

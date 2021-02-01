@@ -1,7 +1,6 @@
 import * as CSS from 'csstype'
 
 type StandardCSSProperties = CSS.Properties<number | string>
-
 /**
  * The `styles` function accepts arrays as values for mobile-first responsive styles.
  * Note that this extends to non-theme values also. For example `display=['none', 'block']`
@@ -124,22 +123,22 @@ interface OverwriteCSSProperties {
    * CSS **`backgroundColor`** property
    * @default transparent
    */
-  backgroundColor?: Colors | CSS.Property.BackgroundColor,
+  backgroundColor?: Colors | CSS.Property.BackgroundColor
   /**
    * CSS **`borderColor`** property
    * @default currentColor
    */
-  borderColor?: Colors | CSS.Property.BorderColor,
+  borderColor?: Colors | CSS.Property.BorderColor
   /**
    * CSS **`caretColor`** property
    * @default currentColor
    */
-  caretColor?: Colors | CSS.Property.CaretColor,
+  caretColor?: Colors | CSS.Property.CaretColor
   /**
    * CSS **`columnRuleColor`** property
    * @default currentColor
    */
-  columnRuleColor?: Colors | CSS.Property.ColumnRuleColor,
+  columnRuleColor?: Colors | CSS.Property.ColumnRuleColor
   /**
    * CSS **`borderTopColor`** property
    * @default currentColor
@@ -265,7 +264,7 @@ export interface ThemeKeyProp {
    *   themeKey: 'components.button.primary',
    * })(theme)
    */
-  themeKey?: string
+  themeKey?: string | Record<string, Record<string, string>>
 }
 
 export interface ThemeDerivedStyles {
@@ -332,5 +331,7 @@ export interface Theme {
 export type WithStyles<P> = P & {
   styles?: StyleProp
 }
+
+export type CssPropsArgument = { theme: Theme } | Theme
 
 export type ResponsiveValue<T> = T | T[]

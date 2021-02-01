@@ -8,7 +8,7 @@ export default {
   component: StatefulTable,
 } as Meta
 
-export function Simple () {
+export function Simple() {
   const fruits = [
     {
       id: 1,
@@ -58,7 +58,7 @@ export function Simple () {
   )
 }
 
-export function OnRowClick () {
+export function OnRowClick() {
   const fruits = [
     {
       id: 1,
@@ -85,7 +85,7 @@ export function OnRowClick () {
 
   return (
     <StatefulTable
-      onRowClick={item => alert(item.productName)}
+      onRowClick={(item) => alert(item.productName)}
       columns={[
         {
           id: 'productName',

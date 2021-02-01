@@ -3,8 +3,8 @@ import { merge } from '@vtex/admin-ui-system'
 const clickableStyles = {
   cursor: 'pointer',
   ':hover': {
-    bg: 'light.secondary'
-  }
+    bg: 'light.secondary',
+  },
 }
 
 const styles = {

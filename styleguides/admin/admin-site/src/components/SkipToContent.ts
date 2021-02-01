@@ -7,7 +7,6 @@ export type SkipToContentOptions = AnchorOptions
 export type SkipToContentHTMLProps = AnchorProps
 export type SkipToContentProps = SkipToContentOptions & SkipToContentHTMLProps
 
-
 export const useSkipToContent = createHook<
   SkipToContentOptions,
   SkipToContentHTMLProps

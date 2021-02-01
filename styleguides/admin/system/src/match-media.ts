@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 
-import { Theme } from './types'
+import { Theme, defaultBreakpoints } from '@vtex/admin-styles'
 import { useTheme } from './hooks'
-import { defaultBreakpoints } from './constants'
 
 type DefaultOptions = {
   defaultIndex?: number

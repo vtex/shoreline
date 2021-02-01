@@ -9,7 +9,7 @@ export default {
   colors,
   space,
   breakpoints: ['640px', '768px', '1024px', '1280px'],
-  transition: {
+  transitions: {
     snap: 'all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9)',
     fade: 'all 110ms cubic-bezier(0.2, 0.2, 0.38, 0.9)',
     pop: 'all 150ms cubic-bezier(0.4, 0.14, 0.3, 1)',

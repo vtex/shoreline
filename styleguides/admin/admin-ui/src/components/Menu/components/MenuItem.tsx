@@ -30,22 +30,29 @@ export const MenuItem = forwardRef(function MenuItem(
 })
 
 function useMenuItem(props: MenuItemProps): ButtonProps {
-  const { dangerous = false, styleOverrides: overrides = {}, ...buttonProps} = props
+  const {
+    dangerous = false,
+    styleOverrides: overrides = {},
+    ...buttonProps
+  } = props
   const { stylesOf } = useSystem()
 
   const variant = dangerous ? 'danger-tertiary' : 'tertiary'
-  const styles = stylesOf(dangerous ? 'components.menu.item-dangerous' : 'components.menu.item')
+  const styles = stylesOf(
+    dangerous ? 'components.menu.item-dangerous' : 'components.menu.item'
+  )
   const styleOverrides = merge(styles, overrides)
 
   return {
     size: 'small',
     styleOverrides,
     variant,
-    ...buttonProps
+    ...buttonProps,
   }
 }
 
-export interface MenuItemProps extends Omit<ButtonProps, 'variant' | 'iconPosition'> {
+export interface MenuItemProps
+  extends Omit<ButtonProps, 'variant' | 'iconPosition'> {
   /**
    * If performs a dangerous action
    * @default false

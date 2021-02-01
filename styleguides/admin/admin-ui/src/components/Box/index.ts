@@ -37,7 +37,7 @@ export const Box: <E extends ElementType = typeof defaultElement>(
 
 export function useBox(props: BoxOwnProps) {
   const { themeKey, styles, className, ...htmlProps } = props
-  const { cn , cx} = useSystem()
+  const { cn, cx } = useSystem()
 
   const styledCn = cn({ ...styles, themeKey })
 
@@ -60,7 +60,7 @@ export interface BoxOwnProps<E extends ElementType = ElementType> {
    * theme key to me consumed from admin-ui-theme
    * @private this is for internal usage only
    */
-  themeKey?: string
+  themeKey?: string | Record<string, Record<string, string>>
   /**
    * component className
    */

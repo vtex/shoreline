@@ -2,7 +2,7 @@ import invariant from 'tiny-invariant'
 
 import { useThemeContext } from '../core'
 import { isObjectEmpty } from '../util'
-import { Theme } from '../types'
+import { Theme } from '@vtex/admin-styles'
 
 export function useTheme(): Theme {
   const { theme } = useThemeContext()
