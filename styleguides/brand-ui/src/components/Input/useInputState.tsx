@@ -67,7 +67,7 @@ const useInputState = ({
     })
   )
 
-  const translate = (!readOnly && focused) || filled
+  const transform = (!readOnly && focused) || filled
   useEffect(() => {
     setState(
       resolveInputState({
@@ -79,7 +79,7 @@ const useInputState = ({
     )
   }, [error, disabled, readOnly, lengthError])
 
-  return { state, charCount, setFocused, translate }
+  return { state, charCount, setFocused, transform }
 }
 
 export default useInputState

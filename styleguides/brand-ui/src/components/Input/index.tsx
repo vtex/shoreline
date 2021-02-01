@@ -35,7 +35,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
   const redirectFocus = () => ref.current?.focus()
 
   const [value, setValue] = useState(initialValue)
-  const { state, charCount, setFocused, translate } = useInputState({
+  const { state, charCount, setFocused, transform } = useInputState({
     disabled,
     readOnly,
     error,
@@ -44,7 +44,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
   })
 
   const labelVariant = `input.label.${size}-${prefix ? 'prefix-' : ''}${
-    translate ? 'translate' : 'default'
+    transform ? 'translate' : 'default'
   }`
   const helpMessageVariant = `input.helpMessage${
     darkMode ? '.dark' : ''

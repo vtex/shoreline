@@ -218,7 +218,7 @@ const label = {
 }
 
 const helpMessageStyles = {
-  mt: 3,
+  mt: 2,
   fontSize: 0,
   lineHeight: '1rem',
   justifyContent: 'space-between',
