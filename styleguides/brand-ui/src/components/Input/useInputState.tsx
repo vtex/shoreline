@@ -7,31 +7,22 @@ interface InputStateModifiers {
   readOnly?: boolean
   error?: boolean
   lengthError?: boolean
-  focused?: boolean
-  filled?: boolean
-  value?: string | number
 }
 
 const resolveInputState = ({
   disabled,
   readOnly,
   error,
-  filled,
-  focused,
   lengthError,
 }: InputStateModifiers): InputState => {
-  if (error || lengthError) {
-    return 'error'
-  } else if (disabled) {
+  if (disabled) {
     return 'disabled'
   } else if (readOnly) {
     return 'readOnly'
-  } else if (focused) {
-    return 'focused'
-  } else if (filled) {
-    return 'filled'
+  } else if (error || lengthError) {
+    return 'error'
   } else {
-    return 'idle'
+    return 'default'
   }
 }
 
@@ -73,25 +64,22 @@ const useInputState = ({
       disabled,
       readOnly,
       error,
-      filled,
-      focused,
     })
   )
 
+  const transform = (!readOnly && focused) || filled
   useEffect(() => {
     setState(
       resolveInputState({
         disabled,
         readOnly,
         error,
-        filled,
-        focused,
         lengthError,
       })
     )
-  }, [filled, focused, error, disabled, readOnly, lengthError])
+  }, [error, disabled, readOnly, lengthError])
 
-  return { state, charCount, setFocused }
+  return { state, charCount, setFocused, transform }
 }
 
 export default useInputState

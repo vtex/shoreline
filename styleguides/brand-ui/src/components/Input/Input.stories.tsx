@@ -1,8 +1,9 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Box } from 'theme-ui'
+import { Flex, Box } from 'theme-ui'
 
 import { IconMock } from '../Button/IconMock' // TODO Move to a utils?
+import { Checkbox, useCheckboxState } from '../Checkbox'
 import Input, { InputProps } from './index'
 
 export default {
@@ -12,16 +13,21 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['small', 'regular', 'large'],
+        options: ['regular', 'large'],
       },
     },
   },
 } as Meta
 
 const Template: Story<InputProps> = (args: InputProps) => {
+  const { prefix, suffix, ...restArgs } = args
   return (
     <Box sx={{ backgroundColor: 'white', p: 5 }}>
-      <Input {...args} />
+      <Input
+        {...restArgs}
+        prefix={prefix && <IconMock />}
+        suffix={suffix && <IconMock />}
+      />
     </Box>
   )
 }
@@ -35,51 +41,100 @@ Playground.args = {
   error: false,
   readOnly: false,
   disabled: false,
+  prefix: false,
+  suffix: false,
+  darkMode: false,
 }
 
-export const States = () => (
-  <Box sx={{ backgroundColor: 'white', p: 5 }}>
-    <Input id="idle" label="Idle" helpMessage="This is an idle input." />
-    <Input
-      id="filled"
-      label="Filled"
-      helpMessage="This is a filled input."
-      value="This time I'm not leaving"
-    />
-    <Input
-      id="disabled"
-      label="Disabled"
-      disabled
-      value="Take me to the lakes"
-      helpMessage="This is a disabled input."
-    />
-    <Input
-      id="readonly"
-      label="Readonly"
-      readOnly
-      value="Can't change your mood"
-      helpMessage="This is a readonly input."
-    />
-    <Input
-      id="error"
-      label="Error"
-      error
-      value="Be my mistake..."
-      helpMessage="This is an error input."
-    />
-  </Box>
-)
+export const States = () => {
+  const checkbox = useCheckboxState({ state: false })
+  const props = {
+    prefix: <IconMock />,
+    suffix: <IconMock />,
+    darkMode: checkbox.state as boolean,
+  }
+
+  return (
+    <Box>
+      <Checkbox {...checkbox} label="Dark mode" />
+      <Flex
+        sx={{
+          backgroundColor: checkbox.state ? 'secondary.base' : 'background',
+          flexDirection: ['column', 'column', 'column', 'row'],
+          marginTop: 3,
+        }}
+      >
+        <Flex sx={{ p: 5, flexDirection: 'column' }}>
+          <Input
+            {...props}
+            id="default-empty"
+            label="Idle"
+            helpMessage="Default and empty input."
+          />
+          <Input
+            {...props}
+            id="disabled-empty"
+            label="Disabled"
+            disabled
+            helpMessage="Disabled and empty input."
+          />
+          <Input
+            {...props}
+            id="readonly-empty"
+            label="Readonly"
+            readOnly
+            helpMessage="Readonly and empty input."
+          />
+          <Input
+            {...props}
+            id="error-empty"
+            label="Error"
+            error
+            helpMessage="Error and empty input."
+          />
+        </Flex>
+        <Flex sx={{ p: 5, flexDirection: 'column' }}>
+          <Input
+            {...props}
+            id="default-filled"
+            label="Filled"
+            helpMessage="Idle and filled input."
+            value="They'll hang us in the Louvre..."
+          />
+          <Input
+            {...props}
+            id="disabled-filled"
+            label="Disabled"
+            disabled
+            value="Take me to the lakes"
+            helpMessage="Disabled and filled input."
+          />
+          <Input
+            {...props}
+            id="readonly-filled"
+            label="Readonly"
+            readOnly
+            value="Can't change your mood"
+            helpMessage="Readonly and filled input."
+          />
+          <Input
+            {...props}
+            id="error-filled"
+            label="Error"
+            error
+            value="Be my mistake..."
+            helpMessage="Error and filled input."
+          />
+        </Flex>
+      </Flex>
+    </Box>
+  )
+}
 
 export const Sizes = () => (
   <Box sx={{ backgroundColor: 'white', p: 5 }}>
     <Input
-      id="small"
-      size="small"
-      label="Small"
-      helpMessage="This is a small input."
-    />
-    <Input
-      id="medium"
+      id="regular"
       size="regular"
       label="Regular"
       helpMessage="This is a regular input."
@@ -111,6 +166,13 @@ export const Contents = () => (
       label="Text + Prefix"
       helpMessage="This input has a prefix."
       prefix={<IconMock />}
+    />
+    <Input
+      id="text-prefix-suffix"
+      label="Text + Prefix + Suffix"
+      helpMessage="This input has a prefix and a suffix."
+      prefix={<IconMock />}
+      suffix={<IconMock />}
     />
   </Box>
 )
