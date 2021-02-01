@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.10.1...@vtex/admin-ui-system@0.11.0) (2021-02-01)
+
+
+### Features
+
+* **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
+
+
+
+
+
 ## [0.10.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.10.0...@vtex/admin-ui-system@0.10.1) (2021-01-26)
 
 
