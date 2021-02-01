@@ -1,5 +1,3 @@
-// import { alpha } from '@vtex/admin-ui-system'
-
 const listContainerStyles = {
   display: 'inline-block',
   paddingX: 4,

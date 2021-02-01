@@ -4,7 +4,7 @@ path: /tabs/
 
 # Tabs
 
-Tabs are navigation solutions for alternating between content that is in the same level of hierarchy.
+Tabs are navigation solutions for alternating between content that is at the same level of the hierarchy.
 
 ## Behavior
 
@@ -93,7 +93,7 @@ It has the same props of [Reakit/useTabState](https://reakit.io/docs/tab/#usetab
 
 #### Example
 
-You can manually choose a tab to be initially selected or either change the tab selected when an action is triggered. You can check these examples below.
+You can choose a `Tab` to be selected initially by default or change the selected `Tab` when an action is triggered. You can check it in the example below.
 
 ```jsx
 function Example() {
@@ -137,6 +137,6 @@ function Example() {
 ## Props
 
 <propdetails heading="Tabs" component="Tabs"></propdetails>
-<propdetails heading="Tabs.List" component="TabsList"></propdetails>
+<propdetails heading="Tabs.List" component="TabList"></propdetails>
 <propdetails heading="Tabs.Tab" component="Tab"></propdetails>
-<propdetails heading="Tabs.Content" component="TabsContent"></propdetails>
+<propdetails heading="Tabs.Content" component="TabContent"></propdetails>

@@ -16,28 +16,18 @@ export function FixedWidth() {
   const state = useTabState()
 
   return (
-    <Card styleOverrides={{ width: 600 }}>
-      <Tabs state={state}>
-        <Tabs.List aria-label="my-tabs">
-          <Tabs.Tab label="Tab 1" id="1" />
-          <Tabs.Tab label="Tab 2" id="2" />
-          <Tabs.Tab label="Tab 3" id="3" />
-          <Tabs.Tab label="Tab 4" id="4" />
-        </Tabs.List>
-        <Tabs.Content id="1">
-          <Card styleOverrides={{ marginTop: 2 }}>Tab 1 Content</Card>
-        </Tabs.Content>
-        <Tabs.Content id="2">
-          <Card styleOverrides={{ marginTop: 2 }}>Tab 2 Content</Card>
-        </Tabs.Content>
-        <Tabs.Content id="3">
-          <Card styleOverrides={{ marginTop: 2 }}>Tab 3 Content</Card>
-        </Tabs.Content>
-        <Tabs.Content id="4">
-          <Card styleOverrides={{ marginTop: 2 }}>Tab 4 Content</Card>
-        </Tabs.Content>
-      </Tabs>
-    </Card>
+    <Tabs state={state}>
+      <Tabs.List aria-label="my-tabs">
+        <Tabs.Tab label="Tab 1" id="1" />
+        <Tabs.Tab label="Tab 2" id="2" />
+        <Tabs.Tab label="Tab 3" id="3" />
+        <Tabs.Tab label="Tab 4" id="4" />
+      </Tabs.List>
+      <Tabs.Content id="1">Tab 1 Content</Tabs.Content>
+      <Tabs.Content id="2">Tab 2 Content</Tabs.Content>
+      <Tabs.Content id="3">Tab 3 Content</Tabs.Content>
+      <Tabs.Content id="4">Tab 4 Content</Tabs.Content>
+    </Tabs>
   )
 }
 
@@ -45,28 +35,18 @@ export function FluidWidth() {
   const state = useTabState()
 
   return (
-    <Card styleOverrides={{ width: 600 }}>
-      <Tabs state={state}>
-        <Tabs.List fluid aria-label="my-tabs">
-          <Tabs.Tab label="Tab 1" id="1" />
-          <Tabs.Tab label="Tab 2" id="2" />
-          <Tabs.Tab label="Tab 3" id="3" />
-          <Tabs.Tab label="Tab 4" id="4" />
-        </Tabs.List>
-        <Tabs.Content id="1">
-          <Card styleOverrides={{ marginTop: 2 }}>Tab 1 Content</Card>
-        </Tabs.Content>
-        <Tabs.Content id="2">
-          <Card styleOverrides={{ marginTop: 2 }}>Tab 2 Content</Card>
-        </Tabs.Content>
-        <Tabs.Content id="3">
-          <Card styleOverrides={{ marginTop: 2 }}>Tab 3 Content</Card>
-        </Tabs.Content>
-        <Tabs.Content id="4">
-          <Card styleOverrides={{ marginTop: 2 }}>Tab 4 Content</Card>
-        </Tabs.Content>
-      </Tabs>
-    </Card>
+    <Tabs state={state}>
+      <Tabs.List fluid aria-label="my-tabs">
+        <Tabs.Tab label="Tab 1" id="1" />
+        <Tabs.Tab label="Tab 2" id="2" />
+        <Tabs.Tab label="Tab 3" id="3" />
+        <Tabs.Tab label="Tab 4" id="4" />
+      </Tabs.List>
+      <Tabs.Content id="1">Tab 1 Content</Tabs.Content>
+      <Tabs.Content id="2">Tab 2 Content</Tabs.Content>
+      <Tabs.Content id="3">Tab 3 Content</Tabs.Content>
+      <Tabs.Content id="4">Tab 4 Content</Tabs.Content>
+    </Tabs>
   )
 }
 

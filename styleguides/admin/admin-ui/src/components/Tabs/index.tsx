@@ -3,7 +3,6 @@ import {
   TabList as ReakitTabList,
   TabPanel as ReakitTabPanel,
   Tab as ReakitTab,
-  useTabState,
   TabProps as ReakitTabProps,
   TabStateReturn,
 } from 'reakit'
@@ -22,7 +21,7 @@ export function Tabs(props: TabsProps) {
   )
 }
 
-export function TabsList(props: TabListProps) {
+export function TabList(props: TabListProps) {
   const { children, styleOverrides, fluid = false, ...restProps } = props
   const { state } = useTabsContext()
   const { cn } = useSystem()
@@ -67,27 +66,29 @@ export function Tab(props: TabProps) {
   )
 }
 
-export function TabsContent(props: TabContentProps) {
+export function TabContent(props: TabContentProps) {
   const { children, styleOverrides, id, ...restProps } = props
   const { state } = useTabsContext()
   const { cn } = useSystem()
-  const themeKey = 'components.tabs.tab-content'
 
   return (
     <ReakitTabPanel
       {...restProps}
       {...state}
       tabId={id}
-      className={cn({ themeKey, ...styleOverrides })}
+      className={cn({
+        themeKey: 'components.tabs.tab-content',
+        ...styleOverrides,
+      })}
     >
       {children}
     </ReakitTabPanel>
   )
 }
 
-Tabs.List = TabsList
+Tabs.List = TabList
 Tabs.Tab = Tab
-Tabs.Content = TabsContent
+Tabs.Content = TabContent
 
 export interface TabsProps {
   state: TabStateReturn
@@ -110,4 +111,4 @@ export interface TabContentProps extends Overridable {
   id: string
 }
 
-export { useTabState, TabStateReturn }
+export { useTabState, TabStateReturn } from 'reakit'
