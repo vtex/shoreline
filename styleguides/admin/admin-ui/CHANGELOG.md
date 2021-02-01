@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.80.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.79.0...@vtex/admin-ui@0.80.0) (2021-02-01)
+
+
+### Features
+
+* **mobile-detect:** export isMobile from react-device-detect dep ([bd97f9a](https://github.com/vtex/onda/commit/bd97f9a7fc1355bae596fb12a07345f2d8625fd7))
+
+
+
+
+
 # [0.79.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.78.0...@vtex/admin-ui@0.79.0) (2021-02-01)
 
 
