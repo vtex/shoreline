@@ -1,4 +1,4 @@
-import get from 'lodash.get'
+import { get } from './util'
 
 export const transformScale = (acc: Record<string, any>, curr: string) => ({
   ...acc,

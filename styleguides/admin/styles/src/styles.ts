@@ -1,6 +1,5 @@
 import { CSSObject } from '@emotion/css'
-import get from 'lodash.get'
-import { merge } from './merge'
+import { merge, get } from './util'
 
 import { transformations } from './transform'
 import { scales, Scales } from './scales'

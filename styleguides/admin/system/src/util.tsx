@@ -1,16 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ForwardRefRenderFunction } from 'react'
-import get from 'lodash.get'
 import pick from 'lodash.pick'
 import omit from 'lodash.omit'
-import lodashMerge from 'lodash.merge'
 import isPropValid from '@emotion/is-prop-valid'
-
-/**
- * merges n objects into one
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const merge = (...params: any) => lodashMerge({}, ...params)
 
 /**
  * Whether a value is a function
@@ -71,12 +63,10 @@ function forwardRef<T extends ForwardRefRenderFunction<any, any>>(
 }
 
 export {
-  get,
   pick,
   omit,
   isFunction,
   isObjectEmpty,
-  merge,
   cleanProps,
   pickHTMLProps,
   isPropValid,

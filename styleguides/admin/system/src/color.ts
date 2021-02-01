@@ -1,7 +1,5 @@
 import * as polished from 'polished'
-
-import { get } from './util'
-import { Colors, Theme } from '@vtex/admin-styles'
+import { Colors, Theme, get } from '@vtex/admin-styles'
 
 /**
  * Get color from theme.colors

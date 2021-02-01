@@ -33,8 +33,6 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@types/lodash.get": "^4.4.6",
-    "@types/lodash.merge": "^4.6.6",
     "@types/lodash.omit": "^4.5.6",
     "@types/lodash.pick": "^4.4.6",
     "reakit": "^1.2.5"
@@ -47,8 +45,6 @@
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",
-    "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.2",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",
     "polished": "^4.0.5",
