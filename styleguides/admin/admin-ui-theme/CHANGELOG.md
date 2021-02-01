@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.17.0...@vtex/admin-ui-theme@0.18.0) (2021-02-01)
+
+
+### Features
+
+* **tabs:** add tabs draft component ([f8e7403](https://github.com/vtex/onda/commit/f8e7403a14f903374ef136d1c5271fdf138ebd3a))
+* **tabs:** add Tabs stable version ([3ffb238](https://github.com/vtex/onda/commit/3ffb238b1a41a1f0a39646a26d74e1fec819a11c))
+
+
+
+
+
 # [0.17.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.16.2...@vtex/admin-ui-theme@0.17.0) (2021-02-01)
 
 
