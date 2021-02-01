@@ -1,7 +1,257 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NumericStepper tests should not have any violations 1`] = `
+exports[`NumericStepper tests should match snapshot 1`] = `
 <DocumentFragment>
+  .emotion-8 {
+  width: 106px;
+}
+
+.emotion-7 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 48px;
+  width: 106px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.emotion-3 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  color: #2953B2;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 40px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  left: 0.25rem;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-3:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-3:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-3:disabled {
+  color: #898F9E;
+}
+
+.emotion-3 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-6 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  color: #2953B2;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 40px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  right: 0.25rem;
+}
+
+.emotion-6:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-6:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-6:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-6:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-6:disabled {
+  color: #898F9E;
+}
+
+.emotion-6 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-0 {
+  width: 106px;
+  height: 48px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  padding-left: 36px;
+  padding-right: 36px;
+  text-align: center;
+  color: #323845;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #898F9E;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.emotion-0::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0rem;
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  color: #898F9E;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+<div
+    class="emotion-8"
+  >
+    <div
+      class="emotion-7"
+    >
+      <input
+        aria-label="stepper number"
+        class="emotion-0"
+        max="10000000000"
+        min="-10000000000"
+        type="number"
+        value="1"
+      />
+      <button
+        aria-label="stepper number-decrease-button"
+        class="emotion-3"
+        type="button"
+      >
+        <div
+          class="emotion-2"
+        >
+          <svg
+            class="emotion-1"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M18.4112 12C18.4112 12.4142 18.0755 12.75 17.6612 12.75H6.34754C5.93333 12.75 5.59754 12.4142 5.59754 12C5.59754 11.5858 5.93333 11.25 6.34754 11.25H17.6612C18.0755 11.25 18.4112 11.5858 18.4112 12Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </button>
+      <button
+        aria-label="stepper number-increase-button}"
+        class="emotion-6"
+        type="button"
+      >
+        <div
+          class="emotion-2"
+        >
+          <svg
+            class="emotion-1"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
   .emotion-9 {
   width: 106px;
 }
@@ -202,15 +452,15 @@ exports[`NumericStepper tests should not have any violations 1`] = `
       class="emotion-7"
     >
       <input
-        aria-label="numeric-stepper"
+        aria-label="numeric-stepper-1"
         class="emotion-0"
-        max="3"
-        min="-3"
+        max="10000000000"
+        min="-10000000000"
         type="number"
         value="1"
       />
       <button
-        aria-label="numeric-stepper-decrease-button"
+        aria-label="numeric-stepper-1-decrease-button"
         class="emotion-3"
         type="button"
       >
@@ -232,7 +482,7 @@ exports[`NumericStepper tests should not have any violations 1`] = `
         </div>
       </button>
       <button
-        aria-label="numeric-stepper-increase-button}"
+        aria-label="numeric-stepper-1-increase-button}"
         class="emotion-6"
         type="button"
       >
@@ -264,6 +514,782 @@ exports[`NumericStepper tests should not have any violations 1`] = `
       class="emotion-8"
     >
       Helper Text
+    </div>
+  </div>
+  .emotion-8 {
+  width: 106px;
+}
+
+.emotion-7 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 48px;
+  width: 106px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.emotion-3 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  color: #2953B2;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 40px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  left: 0.25rem;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-3:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-3:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-3:disabled {
+  color: #898F9E;
+}
+
+.emotion-3 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-6 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  color: #2953B2;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 40px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  right: 0.25rem;
+}
+
+.emotion-6:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-6:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-6:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-6:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-6:disabled {
+  color: #898F9E;
+}
+
+.emotion-6 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-0 {
+  width: 106px;
+  height: 48px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  padding-left: 36px;
+  padding-right: 36px;
+  text-align: center;
+  color: #323845;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #898F9E;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.emotion-0::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0rem;
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  color: #898F9E;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+<div
+    class="emotion-8"
+  >
+    <div
+      class="emotion-7"
+    >
+      <input
+        aria-disabled="true"
+        aria-label="numeric-stepper-2"
+        class="emotion-0"
+        disabled=""
+        max="10000000000"
+        min="-10000000000"
+        style="pointer-events: none;"
+        type="number"
+        value="9"
+      />
+      <button
+        aria-disabled="true"
+        aria-label="numeric-stepper-2-decrease-button"
+        class="emotion-3"
+        disabled=""
+        style="pointer-events: none;"
+        type="button"
+      >
+        <div
+          class="emotion-2"
+        >
+          <svg
+            class="emotion-1"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M18.4112 12C18.4112 12.4142 18.0755 12.75 17.6612 12.75H6.34754C5.93333 12.75 5.59754 12.4142 5.59754 12C5.59754 11.5858 5.93333 11.25 6.34754 11.25H17.6612C18.0755 11.25 18.4112 11.5858 18.4112 12Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </button>
+      <button
+        aria-disabled="true"
+        aria-label="numeric-stepper-2-increase-button}"
+        class="emotion-6"
+        disabled=""
+        style="pointer-events: none;"
+        type="button"
+      >
+        <div
+          class="emotion-2"
+        >
+          <svg
+            class="emotion-1"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+  .emotion-9 {
+  width: 106px;
+}
+
+.emotion-7 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 48px;
+  width: 106px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.emotion-3 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  color: #2953B2;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 40px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  left: 0.25rem;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-3:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-3:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-3:disabled {
+  color: #898F9E;
+}
+
+.emotion-3 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-6 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  color: #2953B2;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 40px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  right: 0.25rem;
+}
+
+.emotion-6:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-6:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-6:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-6:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-6:disabled {
+  color: #898F9E;
+}
+
+.emotion-6 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-0 {
+  width: 106px;
+  height: 48px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  padding-left: 36px;
+  padding-right: 36px;
+  text-align: center;
+  color: #323845;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #CB4242;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.emotion-0::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0rem;
+}
+
+.emotion-0:hover {
+  border-color: #CB4242;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  color: #898F9E;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-8 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.125;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.75rem;
+  color: #CB4242;
+  margin-top: 0.5rem;
+}
+
+<div
+    class="emotion-9"
+  >
+    <div
+      class="emotion-7"
+    >
+      <input
+        aria-label="numeric-stepper-3"
+        class="emotion-0"
+        max="10000000000"
+        min="-10000000000"
+        type="number"
+        value="0"
+      />
+      <button
+        aria-label="numeric-stepper-3-decrease-button"
+        class="emotion-3"
+        type="button"
+      >
+        <div
+          class="emotion-2"
+        >
+          <svg
+            class="emotion-1"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M18.4112 12C18.4112 12.4142 18.0755 12.75 17.6612 12.75H6.34754C5.93333 12.75 5.59754 12.4142 5.59754 12C5.59754 11.5858 5.93333 11.25 6.34754 11.25H17.6612C18.0755 11.25 18.4112 11.5858 18.4112 12Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </button>
+      <button
+        aria-label="numeric-stepper-3-increase-button}"
+        class="emotion-6"
+        type="button"
+      >
+        <div
+          class="emotion-2"
+        >
+          <svg
+            class="emotion-1"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+    <div
+      class="emotion-8"
+    >
+      Minimum of 6
+    </div>
+  </div>
+  .emotion-8 {
+  width: 106px;
+}
+
+.emotion-7 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 48px;
+  width: 106px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.emotion-3 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  color: #2953B2;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 40px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  left: 0.25rem;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-3:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-3:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-3:disabled {
+  color: #898F9E;
+}
+
+.emotion-3 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-6 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  color: #2953B2;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 40px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  right: 0.25rem;
+}
+
+.emotion-6:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-6:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-6:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-6:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-6:disabled {
+  color: #898F9E;
+}
+
+.emotion-6 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-0 {
+  width: 106px;
+  height: 48px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  padding-left: 36px;
+  padding-right: 36px;
+  text-align: center;
+  color: #323845;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #898F9E;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.emotion-0::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0rem;
+}
+
+.emotion-0:hover {
+  border-color: #323845;
+}
+
+.emotion-0:disabled {
+  background-color: #F4F6FB;
+  color: #898F9E;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+<div
+    class="emotion-8"
+  >
+    <div
+      class="emotion-7"
+    >
+      <input
+        aria-label="numeric-stepper-4"
+        class="emotion-0"
+        max="50"
+        min="0"
+        type="number"
+        value="0"
+      />
+      <button
+        aria-disabled="true"
+        aria-label="numeric-stepper-4-decrease-button"
+        class="emotion-3"
+        disabled=""
+        style="pointer-events: none;"
+        type="button"
+      >
+        <div
+          class="emotion-2"
+        >
+          <svg
+            class="emotion-1"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M18.4112 12C18.4112 12.4142 18.0755 12.75 17.6612 12.75H6.34754C5.93333 12.75 5.59754 12.4142 5.59754 12C5.59754 11.5858 5.93333 11.25 6.34754 11.25H17.6612C18.0755 11.25 18.4112 11.5858 18.4112 12Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </button>
+      <button
+        aria-label="numeric-stepper-4-increase-button}"
+        class="emotion-6"
+        type="button"
+      >
+        <div
+          class="emotion-2"
+        >
+          <svg
+            class="emotion-1"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </button>
     </div>
   </div>
 </DocumentFragment>
