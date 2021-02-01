@@ -6,7 +6,6 @@ import {
   TabProps as ReakitTabProps,
   TabStateReturn,
 } from 'reakit'
-import { inlineVariant } from '@vtex/admin-core'
 
 import { useSystem } from '../../system'
 import { TabsProvider, useTabsContext } from './context'
@@ -26,14 +25,16 @@ export function TabList(props: TabListProps) {
   const { state } = useTabsContext()
   const { cn } = useSystem()
 
-  const themeKey = inlineVariant('components.tabs.list', [[fluid, '-fluid']])
-
   return (
     <ReakitTabList
       {...restProps}
       {...state}
       className={cn({
-        themeKey,
+        themeKey: {
+          tabList: {
+            variant: fluid ? 'fluid' : 'block',
+          },
+        },
         ...styleOverrides,
       })}
     >
@@ -47,13 +48,14 @@ export function Tab(props: TabProps) {
   const { state } = useTabsContext()
   const { cn } = useSystem()
 
-  const active = state.selectedId === id
-  const themeKey = inlineVariant('components.tabs.tab', [[active, '-active']])
-
   return (
     <ReakitTab
       className={cn({
-        themeKey,
+        themeKey: {
+          tab: {
+            variant: state.selectedId === id ? 'active' : 'default',
+          },
+        },
         ...styleOverrides,
       })}
       id={id}
@@ -77,7 +79,7 @@ export function TabContent(props: TabContentProps) {
       {...state}
       tabId={id}
       className={cn({
-        themeKey: 'components.tabs.tab-content',
+        themeKey: 'components.tabContent',
         ...styleOverrides,
       })}
     >

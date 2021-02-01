@@ -23,10 +23,18 @@ export function FixedWidth() {
         <Tabs.Tab label="Tab 3" id="3" />
         <Tabs.Tab label="Tab 4" id="4" />
       </Tabs.List>
-      <Tabs.Content id="1">Tab 1 Content</Tabs.Content>
-      <Tabs.Content id="2">Tab 2 Content</Tabs.Content>
-      <Tabs.Content id="3">Tab 3 Content</Tabs.Content>
-      <Tabs.Content id="4">Tab 4 Content</Tabs.Content>
+      <Tabs.Content id="1" styleOverrides={{ margin: 4 }}>
+        Tab 1 Content
+      </Tabs.Content>
+      <Tabs.Content id="2" styleOverrides={{ margin: 4 }}>
+        Tab 2 Content
+      </Tabs.Content>
+      <Tabs.Content id="3" styleOverrides={{ margin: 4 }}>
+        Tab 3 Content
+      </Tabs.Content>
+      <Tabs.Content id="4" styleOverrides={{ margin: 4 }}>
+        Tab 4 Content
+      </Tabs.Content>
     </Tabs>
   )
 }
@@ -42,10 +50,18 @@ export function FluidWidth() {
         <Tabs.Tab label="Tab 3" id="3" />
         <Tabs.Tab label="Tab 4" id="4" />
       </Tabs.List>
-      <Tabs.Content id="1">Tab 1 Content</Tabs.Content>
-      <Tabs.Content id="2">Tab 2 Content</Tabs.Content>
-      <Tabs.Content id="3">Tab 3 Content</Tabs.Content>
-      <Tabs.Content id="4">Tab 4 Content</Tabs.Content>
+      <Tabs.Content id="1" styleOverrides={{ margin: 4 }}>
+        Tab 1 Content
+      </Tabs.Content>
+      <Tabs.Content id="2" styleOverrides={{ margin: 4 }}>
+        Tab 2 Content
+      </Tabs.Content>
+      <Tabs.Content id="3" styleOverrides={{ margin: 4 }}>
+        Tab 3 Content
+      </Tabs.Content>
+      <Tabs.Content id="4" styleOverrides={{ margin: 4 }}>
+        Tab 4 Content
+      </Tabs.Content>
     </Tabs>
   )
 }
