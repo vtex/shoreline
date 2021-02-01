@@ -3,10 +3,10 @@
 exports[`Tabs tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-2 {
-  display: inline-block;
   padding-left: 1rem;
   padding-right: 1rem;
   width: 100%;
+  display: inline-block;
 }
 
 .emotion-1 {
@@ -191,13 +191,13 @@ exports[`Tabs tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  width: 100%;
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
   -webkit-justify-content: space-evenly;
