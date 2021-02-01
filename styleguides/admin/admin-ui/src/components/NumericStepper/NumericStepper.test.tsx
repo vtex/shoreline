@@ -25,8 +25,8 @@ describe('NumericStepper tests', () => {
     )
   })
 
-  it('should match snapshot', async () => {
-    const { container } = render(
+  it('should match snapshot', () => {
+    const { asFragment } = render(
       <ThemeProvider>
         <NumericStepper value={1} onChange={() => {}} label="stepper number" />
         <NumericStepper
@@ -60,14 +60,11 @@ describe('NumericStepper tests', () => {
         />
       </ThemeProvider>
     )
-
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should not have any violations', () => {
-    const { asFragment } = render(
+  it('should not have any violations', async () => {
+    const { container } = render(
       <ThemeProvider>
         <NumericStepper
           value={1}
@@ -79,7 +76,8 @@ describe('NumericStepper tests', () => {
         />
       </ThemeProvider>
     )
+    const results = await axe(container)
 
-    expect(asFragment()).toMatchSnapshot()
+    expect(results).toHaveNoViolations()
   })
 })

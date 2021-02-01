@@ -4,6 +4,7 @@ import divider from './divider'
 import tag from './tag'
 import anchor from './anchor'
 import alert from './alert'
+import { tab, tabList, tabContent } from './tabs'
 // data
 import table from './table'
 import list from './list'
@@ -51,4 +52,7 @@ export default {
   numericStepper,
   select,
   alert,
+  tab,
+  tabList,
+  tabContent
 }

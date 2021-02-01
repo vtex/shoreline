@@ -29,20 +29,20 @@ export const AbstractInput = forwardRef(function AbstractInput(
   const showButtons = !!suffix || !!buttonElements || onClear
 
   const inputClassName = cn({
-    themeKey: `components.abstractInput.input${inlineVariant([
+    themeKey: inlineVariant('components.abstractInput.input', [
       [error, '-error'],
       [!!icon, '-icon'],
       [!!suffix, '-suffix'],
       [!!onClear, '-clear'],
-    ])}`,
+    ]),
     ...styleOverrides,
   })
 
   return (
     <Box
-      themeKey={`components.abstractInput.container${inlineVariant([
+      themeKey={inlineVariant('components.abstractInput.container', [
         [!!icon, '-icon'],
-      ])}`}
+      ])}
     >
       {icon && (
         <IconContainer
