@@ -1,7 +1,6 @@
-import { ThemeContext as EmotionContext } from '@emotion/react'
 import { createContext, ReactNode, useContext } from 'react'
 import deepmerge from 'deepmerge'
-import { jsxs } from '@vtex/admin-jsxs'
+import { jsxs, EmotionContext } from '@vtex/admin-jsxs'
 import packageInfo from '@emotion/react/package.json'
 
 import { Theme } from '@vtex/admin-styles'

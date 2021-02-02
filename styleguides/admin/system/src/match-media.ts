@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-
 import { Theme, defaultBreakpoints } from '@vtex/admin-styles'
+
 import { useTheme } from './hooks'
 
 type DefaultOptions = {

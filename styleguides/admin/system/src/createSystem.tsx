@@ -1,9 +1,8 @@
 import React from 'react'
-
 import createEmotion, { Emotion } from '@emotion/css/create-instance'
+import { styles, StyleProp, get } from '@vtex/admin-styles'
 
 import { ThemeProvider as BaseProvider } from './core'
-import { styles, StyleProp, get } from '@vtex/admin-styles'
 
 export function createSystem<T>(theme: T, appKey: string): CreateSystemReturn {
   const emotionInstance = createEmotionInstance(appKey)

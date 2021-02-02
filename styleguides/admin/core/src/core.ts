@@ -4,8 +4,10 @@ import {
   createSystem as createSystemInternal,
   get,
   jsxs,
+  CacheProvider,
+  css,
+  Global
 } from '@vtex/admin-ui-system'
-import { CacheProvider, css, Global } from '@emotion/react'
 import invariant from 'tiny-invariant'
 
 const SystemContext = createContext<ReturnType<typeof createSystem> | null>(

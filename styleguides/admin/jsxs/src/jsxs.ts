@@ -25,7 +25,6 @@ export function jsxs<P extends {}>(
 
   return jsx(
     type,
-    // maybe a parse here
     props,
     ...children
   )
