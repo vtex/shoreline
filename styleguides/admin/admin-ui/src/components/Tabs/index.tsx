@@ -6,8 +6,8 @@ import {
   TabProps as ReakitTabProps,
   TabStateReturn,
 } from 'reakit'
+import { useSystem } from '@vtex/admin-core'
 
-import { useSystem } from '../../system'
 import { TabsProvider, useTabsContext } from './context'
 import { Overridable } from '../../types'
 
