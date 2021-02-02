@@ -1,7 +1,6 @@
 import { Checkbox as ReakitCheckbox } from 'reakit'
-import { createComponent } from '@vtex/admin-core'
+import { createComponent, useSystem } from '@vtex/admin-core'
 import {
-  useCheckbox,
   CheckboxProps,
   useCheckboxState,
   CheckboxStateReturn,
@@ -10,9 +9,17 @@ import {
 export const Toggle = createComponent(ReakitCheckbox, useToggle)
 
 export function useToggle(props: ToggleProps) {
-  const checkboxProps = useCheckbox(props)
+  const { size = 'regular', styleOverrides, state, ...htmlProps } = props
+  const { cn } = useSystem()
 
-  return { ...checkboxProps, role: 'switch' }
+  const className = cn({
+    themeKey: {
+      toggle: { size },
+    },
+    ...styleOverrides,
+  })
+
+  return { className, role: 'switch', ...state, ...htmlProps }
 }
 
 export type ToggleProps = CheckboxProps

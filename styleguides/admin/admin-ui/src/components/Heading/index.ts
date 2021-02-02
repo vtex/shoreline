@@ -7,7 +7,7 @@ import { Primitive } from '../Primitive'
 export const Heading = createComponent(Primitive, useHeading)
 
 export function useHeading(props: HeadingProps) {
-  const { styleOverrides, element, ...htmlProps } = props
+  const { styleOverrides, element = 'h1', ...htmlProps } = props
 
   return {
     element,

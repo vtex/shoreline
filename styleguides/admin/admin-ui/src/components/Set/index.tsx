@@ -58,8 +58,8 @@ export function useSet(props: SetProps) {
   const variant = `${currentOrientation}${fluid ? '-fluid' : ''}`
 
   return {
+    themeKey,
     styles: {
-      themeKey,
       ...styles[variant],
       ...childrenSpacing,
       ...styleOverrides,

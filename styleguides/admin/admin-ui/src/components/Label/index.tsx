@@ -21,6 +21,7 @@ export function useLabel(props: LabelProps): PrimitiveProps<'label'> {
   const { styleOverrides, ...htmlProps } = props
 
   return {
+    element: 'label',
     styles: {
       text: 'body',
       ...styleOverrides,

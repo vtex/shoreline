@@ -23,7 +23,7 @@ export function CoreProvider(props: CoreProviderProps) {
     jsxs(
       SystemContext.Provider,
       { value: system },
-      ...[GlobalStyles, jsxs(system.ThemeProvider, {}, children)]
+      ...[jsxs(GlobalStyles, {}), jsxs(system.ThemeProvider, {}, children)]
     )
   )
 }

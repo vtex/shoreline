@@ -26,7 +26,7 @@ export const Skeleton = createComponent(Primitive, useSkeleton)
  * @returns skeleton htmlProps
  */
 export function useSkeleton(props: SkeletonProps) {
-  const { shape = 'rect', styles, element = 'div', ...htmlProps } = props
+  const { shape = 'rect', styles = {}, element = 'div', ...htmlProps } = props
   const { keyframes } = useSystem()
 
   const load = keyframes`
@@ -39,10 +39,13 @@ export function useSkeleton(props: SkeletonProps) {
   `
 
   return {
+    element,
+    themeKey: {
+      skeleton: { shape }
+    },
     styles: {
       ...styles,
       animation: `${load} 1.2s ease-in-out infinite`,
-      themeKey: `components.skeleton.${shape}`,
     },
     ...htmlProps,
   }
