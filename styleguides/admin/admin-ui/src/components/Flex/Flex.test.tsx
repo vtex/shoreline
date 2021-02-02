@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import { Flex } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 describe('Flex tests', () => {
   it('should apply styles', () => {

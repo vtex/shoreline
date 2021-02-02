@@ -3,7 +3,7 @@ import { forwardRef } from '@vtex/admin-core'
 
 import { useModalContext } from '../context'
 import { Overridable } from '../../../types'
-import { useSystem } from '../../../system'
+import { useSystem } from '@vtex/admin-core'
 
 /**
  * Footer of the modal

@@ -1,7 +1,6 @@
-import { forwardRef, Ref } from 'react'
+import { useSystem, merge, createComponent } from '@vtex/admin-core'
 
 import { Button, ButtonProps } from '../../Button'
-import { jsxs, useSystem, merge } from '../../../system'
 
 /**
  * Accessible menu item component
@@ -16,18 +15,7 @@ import { jsxs, useSystem, merge } from '../../../system'
  * </StatelessMenu>
  * ```
  */
-export const MenuItem = forwardRef(function MenuItem(
-  props: MenuItemProps,
-  ref: Ref<HTMLButtonElement>
-) {
-  const menuItemProps = useMenuItem(props)
-
-  return jsxs({
-    component: Button,
-    props: menuItemProps,
-    ref,
-  })
-})
+export const MenuItem = createComponent(Button, useMenuItem)
 
 function useMenuItem(props: MenuItemProps): ButtonProps {
   const {

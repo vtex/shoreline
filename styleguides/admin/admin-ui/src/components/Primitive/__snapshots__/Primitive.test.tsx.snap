@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card tests should match snapshot 1`] = `
+exports[`Primitive tests should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="emotion-0"
   >
-    box content
+    primitive content
   </div>
 </DocumentFragment>
 `;
 
-exports[`Card tests should match snapshot using element 1`] = `
+exports[`Primitive tests should match snapshot using element 1`] = `
 <DocumentFragment>
   <a
     class="emotion-0"
-    data-testid="box"
+    data-testid="primitive"
     href="https://github.com/"
   >
     link content

@@ -3,10 +3,10 @@ import { render } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
 import { Box as ReakitBox } from 'reakit/Box'
 import { StyleProp, get } from '@vtex/admin-styles'
+import { jsxs } from '@vtex/admin-jsxs'
 import '@testing-library/jest-dom/extend-expect'
 
 import { createSystem, useTheme } from '..'
-import { jsxs } from '../jsxs'
 
 describe('createSystem test', () => {
   it('should create a functional cn', () => {
@@ -102,11 +102,7 @@ describe('createSystem test', () => {
     }
 
     function Nav(props: ViewProps) {
-      return jsxs({
-        component: ReakitBox,
-        props,
-        element: 'nav',
-      })
+      return jsxs(ReakitBox, { as: 'nav' as any, ...props })
     }
 
     const nav = render(
@@ -154,11 +150,7 @@ describe('createSystem test', () => {
     function Nav(props: NavbarProps) {
       const className = cn({ themeKey: 'components.navbar' })
 
-      return jsxs({
-        component: ReakitBox,
-        props: { className, ...props },
-        element: 'nav',
-      })
+      return jsxs(ReakitBox, { as: 'nav' as any, className, ...props })
     }
 
     const nav = render(<Nav>nav</Nav>)
@@ -195,11 +187,7 @@ describe('createSystem test', () => {
     function Nav(props: NavbarProps) {
       const className = cn({ themeKey: 'components.navbar' })
 
-      return jsxs({
-        component: ReakitBox,
-        props: { className, ...props },
-        element: 'nav',
-      })
+      return jsxs(ReakitBox, { as: 'nav' as any, className, ...props })
     }
 
     const nav = render(

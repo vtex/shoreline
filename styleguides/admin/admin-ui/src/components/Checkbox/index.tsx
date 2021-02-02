@@ -1,34 +1,22 @@
-import { Ref } from 'react'
 import {
   Checkbox as ReakitCheckbox,
   CheckboxProps as ReakitProps,
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit/Checkbox'
-import { forwardRef } from '@vtex/admin-core'
 
-import { jsxs, useSystem } from '../../system'
+import { useSystem, createComponent } from '@vtex/admin-core'
 import { Overridable } from '../../types'
 
-export const Checkbox = forwardRef(
-  (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
-    const checkboxProps = useCheckbox(props)
+export const Checkbox = createComponent(ReakitCheckbox, useCheckbox)
 
-    return jsxs({
-      component: ReakitCheckbox,
-      props: checkboxProps,
-      ref,
-    })
-  }
-)
-
-export function useCheckbox(props: CheckboxProps, themeKey = 'checkbox') {
+export function useCheckbox(props: CheckboxProps) {
   const { size = 'regular', styleOverrides, state, ...htmlProps } = props
   const { cn } = useSystem()
 
   const className = cn({
     themeKey: {
-      [themeKey]: { size },
+      checkbox: { size },
     },
     ...styleOverrides,
   })

@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import { Skeleton } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 describe('Skeleton tests', () => {
   it('should have overridable styles', () => {

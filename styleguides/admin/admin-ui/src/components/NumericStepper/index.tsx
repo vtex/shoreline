@@ -1,10 +1,10 @@
 import React, { useReducer } from 'react'
 import { Input as ReakitInput } from 'reakit'
 import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
+import { useSystem } from '@vtex/admin-core'
 import invariant from 'tiny-invariant'
 
 import { Box } from '../Box'
-import { useSystem } from '../../system'
 import { Overridable } from '../../types'
 import { Button } from '../Button'
 

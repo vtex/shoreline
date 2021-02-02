@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react'
+import { jsxs, createComponent } from '@vtex/admin-core'
 
-import { Box } from '../Box'
 import { Overridable } from '../../types'
+import { Primitive, PrimitiveProps } from '../Primitive'
 
 /**
  * Component to create a user avatar from a passed label
@@ -13,27 +13,26 @@ import { Overridable } from '../../types'
  * <Avatar label="label" palette="danger" />
  * ```
  */
-export const Avatar = forwardRef(function Avatar(
-  props: AvatarProps,
-  ref: Ref<HTMLDivElement>
-) {
-  const { palette = 'base', label, styleOverrides, ...htmlProps } = props
+export const Avatar = createComponent(Primitive, useAvatar)
 
-  return (
-    <Box
-      ref={ref}
-      themeKey={{
-        avatar: {
-          palette,
-        },
-      }}
-      styles={styleOverrides}
-      {...htmlProps}
-    >
-      <Box styles={{ text: 'highlight' }}>{label?.charAt(0)}</Box>
-    </Box>
-  )
-})
+export function useAvatar(props: AvatarProps): PrimitiveProps<'div'> {
+  const { palette = 'base', label, styleOverrides, ...primitiveProps } = props
+
+  return {
+    styles: styleOverrides,
+    themeKey: {
+      avatar: {
+        palette,
+      },
+    },
+    children: jsxs(
+      Primitive,
+      { styles: { text: 'highlight' } },
+      label?.charAt(0)
+    ),
+    ...primitiveProps,
+  }
+}
 
 export interface AvatarProps extends Overridable {
   /**

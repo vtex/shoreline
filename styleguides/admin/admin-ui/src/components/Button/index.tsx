@@ -1,13 +1,13 @@
-import React, { forwardRef, Ref, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import {
   Button as ReakitButton,
   ButtonProps as ReakitButtonProps,
 } from 'reakit/Button'
 
-import { jsxs, StyleProp, useSystem } from '../../system'
+import { StyleProp, useSystem, jsxs, createComponent } from '@vtex/admin-core'
 import { Variant, Size } from './types'
 import { Overridable, OmitNotAllowedProps } from '../../types'
-import { Box } from '../Box'
+import { Primitive } from '../Primitive'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -18,21 +18,9 @@ import { Box } from '../Box'
  * <Button>Default Button</Button>
  * ```
  */
-export const Button = forwardRef(function Button(
-  props: ButtonProps,
-  ref: Ref<HTMLButtonElement>
-) {
-  const buttonProps = useButton(props)
+export const Button = createComponent(ReakitButton, useButton)
 
-  return jsxs({
-    component: ReakitButton,
-    element: 'button',
-    props: buttonProps,
-    ref,
-  })
-})
-
-export function useButton(props: ButtonProps) {
+export function useButton(props: ButtonProps): ReakitButtonProps {
   const {
     variant = 'primary',
     size = 'regular',
@@ -57,9 +45,10 @@ export function useButton(props: ButtonProps) {
 
   return {
     className,
-    children: (
-      <Box
-        styles={{
+    children: jsxs(
+      Primitive,
+      {
+        styles: {
           display: 'flex',
           height: 'full',
           width: 'full',
@@ -67,11 +56,9 @@ export function useButton(props: ButtonProps) {
           alignItems: 'center',
           justifyContent: 'center',
           ...containerStyles,
-        }}
-      >
-        {icon}
-        {prevChildren}
-      </Box>
+        },
+      },
+      ...[icon, prevChildren]
     ),
     ...compoundProps,
   }

@@ -6,7 +6,7 @@ import {
 
 import { Overridable } from '../../types'
 import { Label } from '../Label'
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 
 export function RadioGroup(props: RadioGroupProps) {
   const {

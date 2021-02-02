@@ -3,7 +3,7 @@ import React, { ReactNode, useMemo, forwardRef, Ref } from 'react'
 import { useModalContext } from '../context'
 import { getScrollAreaSize } from '../util'
 import { Overridable } from '../../../types'
-import { useSystem } from '../../../system'
+import { useSystem } from '@vtex/admin-core'
 
 export const ModalContent = forwardRef(function ModalContent(
   props: ModalContentProps,

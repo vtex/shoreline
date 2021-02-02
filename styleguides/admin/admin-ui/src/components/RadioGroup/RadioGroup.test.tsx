@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 
 import { RadioGroup } from './index'
 import { Radio, useRadioState, RadioStateReturn } from '../Radio'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 function RadioState({
   children,

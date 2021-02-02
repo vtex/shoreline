@@ -38,9 +38,8 @@
     "reakit": "^1.2.5"
   },
   "dependencies": {
+    "@vtex/admin-jsxs": "*",
     "@emotion/css": "^11.0.0",
-    "@emotion/is-prop-valid": "^1.0.0",
-    "@emotion/react": "^11.1.4",
     "@vtex/admin-styles": "^0.1.0",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",

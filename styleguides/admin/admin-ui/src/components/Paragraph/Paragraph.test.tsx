@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import { Paragraph } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 describe('Paragraph tests', () => {
   it('should have overridable styles', () => {

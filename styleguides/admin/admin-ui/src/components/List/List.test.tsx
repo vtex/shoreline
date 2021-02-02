@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import { List } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 describe('List tests', () => {
   it('should have overridable styles', () => {

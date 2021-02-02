@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import { Tabs, useTabState, TabStateReturn } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 import { axe } from 'jest-axe'
 
 function TabsState({

@@ -1,29 +1,15 @@
-import { Box as ReakitBox } from 'reakit'
 import { ReactNode } from 'react'
+import { createComponent } from '@vtex/admin-core'
 
-import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
+import { Primitive, PrimitiveProps } from '../Primitive'
 
-export function ListItem(props: ListItemProps) {
-  const liProps = useListItem(props)
+export const ListItem = createComponent(Primitive, useListItem)
 
-  return jsxs({
-    element: 'li',
-    component: ReakitBox,
-    props: liProps,
-  })
-}
-
-export function useListItem(props: ListItemProps) {
+export function useListItem(props: ListItemProps): PrimitiveProps<'li'> {
   const { styleOverrides, ...htmlProps } = props
-  const { cn } = useSystem()
 
-  const className = cn({
-    text: 'body',
-    ...styleOverrides,
-  })
-
-  return { className, ...htmlProps }
+  return { element: 'li', styles: { text: 'body', ...styleOverrides }, ...htmlProps }
 }
 
 export interface ListItemProps extends Overridable {

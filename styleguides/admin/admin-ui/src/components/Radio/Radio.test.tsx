@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
 
 import { Radio, useRadioState, RadioStateReturn } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 function RadioState({
   children,

@@ -1,6 +1,6 @@
-import { ThemeContext as EmotionContext } from '@emotion/react'
-import React, { createContext, ReactNode, useContext } from 'react'
+import { createContext, ReactNode, useContext } from 'react'
 import deepmerge from 'deepmerge'
+import { jsxs, EmotionContext } from '@vtex/admin-jsxs'
 import packageInfo from '@emotion/react/package.json'
 
 import { Theme } from '@vtex/admin-styles'
@@ -39,7 +39,7 @@ const deepmergeOptions: deepmerge.Options = {
 /**
  * Deeply merge themes
  */
-export const merge = (a: Theme, b: Theme): Theme =>
+export const mergeThemes = (a: Theme, b: Theme): Theme =>
   deepmerge(a, b, deepmergeOptions)
 
 function mergeAll<A, B>(a: A, B: B): A & B
@@ -49,7 +49,7 @@ function mergeAll<T = Theme>(...args: Array<Partial<T>>) {
   return deepmerge.all<T>(args, deepmergeOptions)
 }
 
-merge.all = mergeAll
+mergeThemes.all = mergeAll
 
 interface BaseProviderProps {
   context: ContextValue
@@ -59,10 +59,10 @@ interface BaseProviderProps {
 function BaseProvider(props: BaseProviderProps) {
   const { context, children } = props
 
-  return (
-    <EmotionContext.Provider value={context.theme}>
-      <Context.Provider value={context}>{children}</Context.Provider>
-    </EmotionContext.Provider>
+  return jsxs(
+    EmotionContext.Provider,
+    { value: context.theme },
+    jsxs(Context.Provider, { value: context }, children)
   )
 }
 
@@ -87,7 +87,7 @@ export function ThemeProvider({ theme, children }: ThemeProviderProps) {
   const context =
     typeof theme === 'function'
       ? { ...outer, theme: theme(outer.theme) }
-      : merge.all({}, outer, { theme })
+      : mergeThemes.all({}, outer, { theme })
 
-  return <BaseProvider context={context}>{children}</BaseProvider>
+  return jsxs(BaseProvider, { context }, children)
 }

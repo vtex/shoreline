@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import { Toggle, useToggleState, ToggleStateReturn } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 function ToggleState({
   children,

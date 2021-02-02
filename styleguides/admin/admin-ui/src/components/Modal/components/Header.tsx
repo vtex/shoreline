@@ -6,7 +6,7 @@ import { useModalContext } from '../context'
 import { ModalButton } from './Button'
 import { Box } from '../../Box'
 import { Overridable } from '../../../types'
-import { useSystem } from '../../../system'
+import { useSystem } from '@vtex/admin-core'
 /**
  * Header of the modal
  * Renders a header element

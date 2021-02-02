@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import { Anchor } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 describe('Anchor tests', () => {
   it('should match snapshot', () => {

@@ -4,7 +4,7 @@ import { StyleProp, ResponsiveValue } from '@vtex/admin-core'
 import { Overridable } from '../../types'
 import { ColumnsProvider } from './context'
 import { ColumnsItem } from './Item'
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 export function Columns(props: ColumnsProps) {
   const { spacing = 1, children, styleOverrides, ...restProps } = props
   const styles: StyleProp = {

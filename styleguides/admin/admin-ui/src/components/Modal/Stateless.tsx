@@ -15,7 +15,7 @@ import {
 import { ModalSize } from './types'
 import { useComponentsExistence } from './util'
 import { Overridable } from '../../types'
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 
 /**
  * Stateless Modal

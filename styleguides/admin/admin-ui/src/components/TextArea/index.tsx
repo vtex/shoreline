@@ -4,7 +4,7 @@ import { Text } from '../Text'
 import { Label } from '../Label'
 import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 
 export const TextArea = forwardRef(function Textarea(
   props: TextAreaProps,

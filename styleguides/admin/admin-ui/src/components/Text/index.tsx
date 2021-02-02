@@ -1,33 +1,19 @@
-import { Box as ReakitBox } from 'reakit'
-import { ReactNode, forwardRef, Ref } from 'react'
+import { ReactNode } from 'react'
+import { createComponent } from '@vtex/admin-core'
 
-import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
+import { Primitive } from '../Primitive'
 
-export const Text = forwardRef(function Heading(
-  props: TextProps,
-  ref: Ref<HTMLElement>
-) {
-  const { element = 'span', ...htmlProps } = props
-
-  const textProps = useText(htmlProps)
-
-  return jsxs({
-    ref,
-    element,
-    component: ReakitBox,
-    props: textProps,
-  })
-})
+export const Text = createComponent(Primitive, useText)
 
 function useText(props: TextProps) {
   const {
     variant = 'body',
     feedback = 'default',
     styleOverrides,
+    element = 'span',
     ...htmlProps
   } = props
-  const { cn } = useSystem()
 
   const color = {
     default: 'dark.primary',
@@ -38,13 +24,15 @@ function useText(props: TextProps) {
     warning: 'yellow',
   }[feedback]
 
-  const className = cn({
-    color,
-    text: variant,
-    ...styleOverrides,
-  })
-
-  return { className, ...htmlProps }
+  return {
+    element,
+    styles: {
+      color,
+      text: variant,
+      ...styleOverrides,
+    },
+    ...htmlProps,
+  }
 }
 
 export interface TextProps extends Overridable {

@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 import serializer, { matchers } from 'jest-emotion'
 
 import { Avatar } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 expect.addSnapshotSerializer(serializer)
 expect.extend(matchers)

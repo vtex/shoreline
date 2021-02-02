@@ -7,7 +7,7 @@ import {
 
 import { Overridable } from '../../types'
 import { useColumnsContext } from './context'
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 
 export function ColumnsItem(props: ColumnsItemProps) {
   const { units, offset = 'none', styleOverrides, ...layoutProps } = props
