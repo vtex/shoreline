@@ -4,7 +4,7 @@ import { IconCaret, IconCheck } from '@vtex/admin-ui-icons'
 import { Box } from '../Box'
 import { SelectProps } from './index'
 import { Label } from '../Label'
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 
 /**
  * The -20 its equals to line height of the label.

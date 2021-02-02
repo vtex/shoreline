@@ -1,8 +1,8 @@
-import { ReactNode, forwardRef, Ref } from 'react'
-import { Box as ReakitBox } from 'reakit'
+import { ReactNode } from 'react'
+import { createComponent } from '@vtex/admin-core'
 
-import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
+import { Primitive, PrimitiveProps } from '../Primitive'
 
 /**
  * Form label component.
@@ -15,31 +15,16 @@ import { Overridable } from '../../types'
  *   return <Label>Your label here!</Label>
  * }
  */
-export const Label = forwardRef(function Heading(
-  props: LabelProps,
-  ref: Ref<HTMLHeadingElement>
-) {
-  const labelProps = useLabel(props)
+export const Label = createComponent(Primitive, useLabel)
 
-  return jsxs({
-    ref,
-    element: 'label',
-    component: ReakitBox,
-    props: labelProps,
-  })
-})
-
-export function useLabel(props: LabelProps) {
+export function useLabel(props: LabelProps): PrimitiveProps<'label'> {
   const { styleOverrides, ...htmlProps } = props
-  const { cn } = useSystem()
-
-  const className = cn({
-    text: 'body',
-    ...styleOverrides,
-  })
 
   return {
-    className,
+    styles: {
+      text: 'body',
+      ...styleOverrides,
+    },
     ...htmlProps,
   }
 }

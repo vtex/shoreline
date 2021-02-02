@@ -6,7 +6,7 @@ import {
 } from 'reakit/Tooltip'
 import { PopoverState } from 'reakit/ts'
 
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 import { Overridable } from '../../types'
 
 /**

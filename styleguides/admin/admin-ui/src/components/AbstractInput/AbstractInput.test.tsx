@@ -4,7 +4,7 @@ import { axe } from 'jest-axe'
 import { IconAdd } from '@vtex/admin-ui-icons'
 
 import { AbstractInput, AbstractInputPassword } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 describe('AbstractInput tests', () => {
   describe('Text', () => {

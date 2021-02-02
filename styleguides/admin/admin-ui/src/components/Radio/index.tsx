@@ -1,25 +1,13 @@
-import { Ref } from 'react'
 import {
   Radio as ReakitRadio,
   RadioProps as ReakitRadioProps,
   RadioStateReturn,
 } from 'reakit/Radio'
-import { forwardRef } from '@vtex/admin-core'
+import { useSystem, createComponent } from '@vtex/admin-core'
 
-import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
 
-export const Radio = forwardRef(
-  (props: RadioProps, ref: Ref<HTMLInputElement>) => {
-    const radioProps = useRadio(props)
-
-    return jsxs({
-      component: ReakitRadio,
-      props: radioProps,
-      ref,
-    })
-  }
-)
+export const Radio = createComponent(ReakitRadio, useRadio)
 
 export function useRadio(props: RadioProps) {
   const { size = 'regular', state, styleOverrides, ...htmlProps } = props

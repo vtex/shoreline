@@ -19,7 +19,7 @@ import {
 import { Button } from '../Button'
 import { Overridable } from '../../types'
 import { useGroup } from '../Group'
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.

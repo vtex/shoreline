@@ -1,6 +1,7 @@
 import React, { cloneElement, Children, MouseEvent, ReactNode } from 'react'
 import { isElement } from 'react-is'
 import { IconContainer } from '@vtex/admin-ui-icons'
+import { useSystem } from '@vtex/admin-core'
 
 import {
   ReakitMenu,
@@ -11,7 +12,6 @@ import {
 } from './components'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
-import { useSystem } from '../../system'
 
 /**
  * Stateless accessible menu component

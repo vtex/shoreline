@@ -3,7 +3,7 @@ import { IconCaret } from '@vtex/admin-ui-icons'
 
 import { Box } from '../Box'
 import { Label } from '../Label'
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 import { SelectProps } from './index'
 
 export function MobileSelect<T>(props: SelectProps<T>) {

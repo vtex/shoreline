@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 
 import { Box, BoxProps } from '../Box'
 import { Group, useGroup } from '.'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 describe('Group tests', () => {
   function GroupAwareBox(props: BoxProps<'div'>) {

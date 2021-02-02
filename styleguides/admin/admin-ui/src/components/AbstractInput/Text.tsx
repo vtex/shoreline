@@ -2,11 +2,11 @@ import React, { forwardRef, ReactNode, Ref } from 'react'
 import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
 import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
 import { inlineVariant } from '@vtex/admin-core'
+import { useSystem } from '@vtex/admin-core'
 
 import { Button } from '../Button'
 import { OmitNotAllowedProps, Overridable } from '../../types'
 import { Box } from '../Box'
-import { useSystem } from '../../system'
 
 export const AbstractInput = forwardRef(function AbstractInput(
   props: AbstractInputProps,

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { useSystem } from '../../system'
+import { useSystem } from '@vtex/admin-core'
 
 import { Label } from '../Label'
 import { Overridable } from '../../types'

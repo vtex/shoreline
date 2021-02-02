@@ -1,43 +1,34 @@
-import { Box as ReakitBox } from 'reakit'
 import { ReactNode } from 'react'
+import { createComponent } from '@vtex/admin-core'
 
-import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
 import { ListItem } from './ListItem'
+import { Primitive } from '../Primitive'
 
-export function List(props: ListProps) {
-  const { ordered, ...htmlProps } = props
-  const listProps = useList(htmlProps)
-  const element = ordered ? 'ol' : 'ul'
+const _List = createComponent(Primitive, useList)
 
-  return jsxs({
-    element,
-    component: ReakitBox,
-    props: listProps,
-  })
-}
+export const List = Object.assign(_List, { Item: ListItem })
 
 export function useList(props: ListProps) {
-  const { style, styleOverrides, ...htmlProps } = props
-  const { cn } = useSystem()
+  const { style, styleOverrides, ordered = false, ...htmlProps } = props
 
-  const className = cn({
-    text: 'body',
-    listStyleType: style,
-    listStylePosition: 'inside',
-    '> ul, ol': {
-      paddingLeft: 2,
+  return {
+    element: ordered ? 'ol' : 'ul',
+    styles: {
+      text: 'body',
+      listStyleType: style,
+      listStylePosition: 'inside',
+      '> ul, ol': {
+        paddingLeft: 2,
+      },
+      '> :not(last-child)': {
+        paddingBottom: 1,
+      },
+      ...styleOverrides,
     },
-    '> :not(last-child)': {
-      paddingBottom: 1,
-    },
-    ...styleOverrides,
-  })
-
-  return { className, ...htmlProps }
+    ...htmlProps,
+  }
 }
-
-List.Item = ListItem
 
 type ListStyleType =
   | 'disc'

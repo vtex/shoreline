@@ -1,27 +1,15 @@
-import { forwardRef, Ref, ReactNode } from 'react'
-import { Box as ReakitBox } from 'reakit/Box'
+import { ReactNode } from 'react'
 import {
   StyleProp,
   useResponsiveValue,
   ResponsiveValue,
+  createComponent,
 } from '@vtex/admin-core'
 
-import { jsxs, useSystem } from '../../system'
 import { Overridable } from '../../types'
+import { Primitive } from '../Primitive'
 
-export const Set = forwardRef(function Set(
-  props: SetProps,
-  ref: Ref<HTMLElement>
-) {
-  const { setProps } = useSet(props)
-
-  return jsxs({
-    component: ReakitBox,
-    element: 'div',
-    props: setProps,
-    ref,
-  })
-})
+export const Set = createComponent(Primitive, useSet)
 
 export function useSet(props: SetProps) {
   const {
@@ -34,7 +22,6 @@ export function useSet(props: SetProps) {
     ...layoutProps
   } = props
 
-  const { cn } = useSystem()
   const currentOrientation = useResponsiveValue(orientation)
   const currentAlign = useResponsiveValue(align)
 
@@ -70,14 +57,15 @@ export function useSet(props: SetProps) {
 
   const variant = `${currentOrientation}${fluid ? '-fluid' : ''}`
 
-  const className = cn({
-    themeKey,
-    ...styles[variant],
-    ...childrenSpacing,
-    ...styleOverrides,
-  })
-
-  return { setProps: { ...layoutProps, className }, currentOrientation }
+  return {
+    styles: {
+      themeKey,
+      ...styles[variant],
+      ...childrenSpacing,
+      ...styleOverrides,
+    },
+    ...layoutProps,
+  }
 }
 
 export interface SetProps extends Overridable {

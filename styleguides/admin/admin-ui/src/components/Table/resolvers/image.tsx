@@ -9,7 +9,7 @@ import {
   ResolverRenderProps,
 } from './core'
 import { Skeleton } from '../../Skeleton'
-import { useSystem } from '../../../system'
+import { useSystem } from '@vtex/admin-core'
 
 const defaultPreview: ImagePreview = {
   display: true,

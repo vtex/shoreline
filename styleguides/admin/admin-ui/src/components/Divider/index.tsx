@@ -1,17 +1,9 @@
 import { Separator as ReakitSeparator } from 'reakit'
+import { useSystem, createComponent } from '@vtex/admin-core'
 
-import { useSystem, jsxs } from '../../system'
 import { Overridable } from '../../types'
 
-export function Divider(props: DividerProps) {
-  const dividerProps = useDivider(props)
-
-  return jsxs({
-    element: 'hr',
-    component: ReakitSeparator,
-    props: dividerProps,
-  })
-}
+export const Divider = createComponent(ReakitSeparator, useDivider)
 
 export function useDivider(props: DividerProps) {
   const { orientation = 'horizontal', styleOverrides, ...htmlProps } = props

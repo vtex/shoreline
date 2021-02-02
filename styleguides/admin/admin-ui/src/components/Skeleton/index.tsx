@@ -1,8 +1,8 @@
 import { ElementType } from 'react'
 import { StyleProp } from '@vtex/admin-core'
-import { Box as ReakitBox } from 'reakit/Box'
+import { useSystem, createComponent } from '@vtex/admin-core'
 
-import { jsxs, useSystem } from '../../system'
+import { Primitive } from '../Primitive'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -19,24 +19,15 @@ import { jsxs, useSystem } from '../../system'
  * }
  *
  */
-export function Skeleton(props: SkeletonProps) {
-  const { element = 'div', ...restProps } = props
-  const skeletonProps = useSkeleton(restProps)
-
-  return jsxs({
-    component: ReakitBox,
-    props: skeletonProps,
-    element,
-  })
-}
+export const Skeleton = createComponent(Primitive, useSkeleton)
 
 /**
  * Skeleton lower level api
  * @returns skeleton htmlProps
  */
 export function useSkeleton(props: SkeletonProps) {
-  const { shape = 'rect', styles, ...htmlProps } = props
-  const { cn, keyframes } = useSystem()
+  const { shape = 'rect', styles, element = 'div', ...htmlProps } = props
+  const { keyframes } = useSystem()
 
   const load = keyframes`
     0% {
@@ -47,13 +38,14 @@ export function useSkeleton(props: SkeletonProps) {
     }
   `
 
-  const className = cn({
-    ...styles,
-    animation: `${load} 1.2s ease-in-out infinite`,
-    themeKey: `components.skeleton.${shape}`,
-  })
-
-  return { ...htmlProps, className }
+  return {
+    styles: {
+      ...styles,
+      animation: `${load} 1.2s ease-in-out infinite`,
+      themeKey: `components.skeleton.${shape}`,
+    },
+    ...htmlProps,
+  }
 }
 
 export type SkeletonShape = 'rect' | 'circle'

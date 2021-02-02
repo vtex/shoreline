@@ -6,7 +6,7 @@ import { TableRow } from '../components/Row'
 import { TableCell } from '../components/Cell'
 import { TableHead } from '../components/Head'
 import { TableBody } from '../components/Body'
-import { ThemeProvider } from '../../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 import { StylesContext } from '../context'
 import { getStyles } from './testUtil'
 

@@ -4,7 +4,7 @@ import { axe } from 'jest-axe'
 import 'mutationobserver-shim'
 
 import { Tooltip } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 global.MutationObserver = window.MutationObserver
 

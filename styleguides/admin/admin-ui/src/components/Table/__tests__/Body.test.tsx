@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
 
 import { TableBody } from '../components/Body'
-import { ThemeProvider } from '../../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 import { StylesContext, useCellRoleContext } from '../context'
 import { getStyles } from './testUtil'
 

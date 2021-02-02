@@ -4,7 +4,7 @@ import { UseSelectProps } from 'downshift'
 import { axe } from 'jest-axe'
 
 import { Dropdown, useDropdownState, UseDropdownReturnValue } from './index'
-import { ThemeProvider } from '../../system'
+import { ThemeProvider } from '@vtex/admin-core'
 
 interface DropdownStateProps<T> extends UseSelectProps<T> {
   children: (state: UseDropdownReturnValue<T>) => JSX.Element

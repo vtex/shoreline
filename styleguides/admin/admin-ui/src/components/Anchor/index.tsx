@@ -1,36 +1,23 @@
-import { Box as ReakitBox } from 'reakit'
-import { ReactNode, forwardRef, Ref } from 'react'
+import { ReactNode } from 'react'
+import { createComponent } from '@vtex/admin-core'
 
-import { useSystem, jsxs } from '../../system'
 import { OmitNotAllowedProps, Overridable } from '../../types'
+import { Primitive, PrimitiveProps } from '../Primitive'
 
 /**
  * Component to add links within an admin page
  */
-export const Anchor = forwardRef(function Anchor(
-  props: AnchorProps,
-  ref: Ref<HTMLAnchorElement>
-) {
-  const anchorProps = useAnchor(props)
+export const Anchor = createComponent(Primitive, useAnchor)
 
-  return jsxs({
-    ref,
+function useAnchor(props: AnchorProps): PrimitiveProps<'a'> {
+  const { styleOverrides, ...primitiveProps } = props
+
+  return {
+    styles: styleOverrides,
     element: 'a',
-    component: ReakitBox,
-    props: anchorProps as Record<string, unknown>,
-  })
-})
-
-function useAnchor(props: AnchorProps) {
-  const { styleOverrides, ...htmlProps } = props
-  const { cn } = useSystem()
-
-  const className = cn({
     themeKey: 'components.anchor',
-    ...styleOverrides,
-  })
-
-  return { className, ...htmlProps }
+    ...primitiveProps,
+  }
 }
 
 export interface AnchorProps

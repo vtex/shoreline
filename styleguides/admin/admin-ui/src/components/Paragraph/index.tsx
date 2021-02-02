@@ -1,6 +1,6 @@
 import React, { ReactNode, forwardRef, Ref, PropsWithChildren } from 'react'
 
-import { StyleProp } from '../../system'
+import { StyleProp } from '@vtex/admin-core'
 import { Overridable } from '../../types'
 import { Box } from '../Box'
 

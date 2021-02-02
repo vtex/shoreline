@@ -1,6 +1,6 @@
 export * from './createSystem'
 export * from './hooks'
 export * from './util'
-export * from './jsxs'
 export * from './color'
 export * from '@vtex/admin-styles'
+export * from '@vtex/admin-jsxs'
