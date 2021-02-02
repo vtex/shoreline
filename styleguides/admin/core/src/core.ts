@@ -5,7 +5,7 @@ import {
   get,
   jsxs,
 } from '@vtex/admin-ui-system'
-import { CacheProvider, css, Global, jsx } from '@emotion/react'
+import { CacheProvider, css, Global } from '@emotion/react'
 import invariant from 'tiny-invariant'
 
 const SystemContext = createContext<ReturnType<typeof createSystem> | null>(
@@ -17,7 +17,7 @@ const defaultSystem = createSystem('admin-ui')
 export function CoreProvider(props: CoreProviderProps) {
   const { children, system = defaultSystem } = props
 
-  return jsx(
+  return jsxs(
     CacheProvider,
     { value: system.emotionInstance.cache },
     jsxs(
