@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-jsxs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/admin-jsxs.esm.js",
   "typings": "dist/index.d.ts",
