@@ -27,16 +27,14 @@ describe('createElement tests', () => {
       return jsxs(Button, props)
     }
 
-    const { getByTestId, getByRole } = render(
+    const { getByTestId } = render(
       <View data-testid="view">
         view-text
-        <button>button</button>
       </View>
     )
 
     expect(getByTestId('view')).toBeInTheDocument()
     expect(getByTestId('view')).toHaveTextContent('view-text')
-    expect(getByRole('button')).toBeInTheDocument()
   })
 
   // it('should be able to create an element', () => {
