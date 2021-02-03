@@ -7,7 +7,7 @@ import { Checkbox, useCheckboxState } from '../Checkbox'
 import Input, { InputProps } from './index'
 
 export default {
-  title: 'alpha/Input',
+  title: 'beta/Input',
   component: Input,
   argTypes: {
     size: {
