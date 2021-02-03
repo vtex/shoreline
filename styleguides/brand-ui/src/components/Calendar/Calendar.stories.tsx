@@ -34,8 +34,8 @@ const Template: Story<CalendarProps> = (props) => (
 export const Playground = Template.bind({})
 Playground.args = {
   day: 15,
-  month: 3,
-  year: 2020,
+  month: 2,
+  year: 2021,
   disabled: false,
   locale: 'en',
 }
