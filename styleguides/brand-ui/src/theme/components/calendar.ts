@@ -35,8 +35,7 @@ const hoverDayCell: SxStyleProp = {
 
 const baseDayCell: SxStyleProp = {
   ...baseCell,
-  transition:
-    'border .3s ease-in-out, color .3s ease-in-out, backgroundColor .3s ease-in-out',
+  transition: 'all .3s ease-in-out',
   ':hover': {
     ...hoverDayCell,
   },
