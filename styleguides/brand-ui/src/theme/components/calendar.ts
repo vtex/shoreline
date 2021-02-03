@@ -24,17 +24,20 @@ const weekdayCell: SxStyleProp = {
 
 const activeDayCell: SxStyleProp = {
   cursor: 'pointer',
-  borderColor: 'bubblegum.base',
-  borderStyle: 'solid',
-  borderWidth: '2px',
+  backgroundColor: 'focus',
   color: 'secondary.base',
+}
+
+const hoverDayCell: SxStyleProp = {
+  cursor: 'pointer',
+  backgroundColor: 'muted.3',
 }
 
 const baseDayCell: SxStyleProp = {
   ...baseCell,
   transition: 'all .3s ease-in-out',
   ':hover': {
-    ...activeDayCell,
+    ...hoverDayCell,
   },
   ':focus': {
     ...activeDayCell,
@@ -53,6 +56,15 @@ const baseDayCell: SxStyleProp = {
 
 const monthCell: SxStyleProp = {
   ...baseDayCell,
+  current: {
+    ...baseDayCell,
+    cursor: 'pointer',
+    borderColor: 'bubblegum.base',
+    borderStyle: 'solid',
+    borderWidth: '2px',
+    color: 'primary.base',
+    fontWeight: 500,
+  },
 }
 
 const extraCell: SxStyleProp = {

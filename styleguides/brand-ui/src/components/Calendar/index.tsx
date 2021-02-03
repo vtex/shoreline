@@ -132,9 +132,15 @@ export const Calendar = ({
         {getInitialCells(date).map((initialCell) =>
           renderDayCell({ value: initialCell, variant: 'calendar.extraCell' })
         )}
-        {getMonthCells(date).map((monthCell) =>
-          renderDayCell({ value: monthCell, variant: 'calendar.monthCell' })
-        )}
+        {getMonthCells(date).map((monthCell) => {
+          const isCurrentDay =
+            monthCell.toJSDate().setHours(0, 0, 0, 0) ===
+            new Date().setHours(0, 0, 0, 0)
+          return renderDayCell({
+            value: monthCell,
+            variant: `calendar.monthCell${isCurrentDay ? '.current' : ''}`,
+          })
+        })}
         {getFinalCells(date).map((finalCell) =>
           renderDayCell({ value: finalCell, variant: 'calendar.extraCell' })
         )}
