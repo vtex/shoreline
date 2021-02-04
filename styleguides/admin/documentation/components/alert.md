@@ -67,10 +67,10 @@ function Example() {
       <Alert visible type="info">
         Info Alert
       </Alert>
-      <Alert visible type="warning">
+      <Alert visible type="success">
         Warning Alert
       </Alert>
-      <Alert visible type="success">
+      <Alert visible type="warning">
         Success Alert
       </Alert>
       <Alert visible type="error">
@@ -161,6 +161,31 @@ function Example() {
     <Alert visible sticky type="success" onDismiss={() => {}}>
       Order successfully placed
     </Alert>
+  )
+}
+```
+
+### Custom Icon
+
+You can add a custom Icon on the left side of the `Alert`. Just use the `icon` property.
+
+```jsx
+function Example() {
+  return (
+    <Set spacing={2} orientation="vertical" fluid>
+      <Alert visible type="info" icon={<IconHelpCenter />}>
+        Info Alert
+      </Alert>
+      <Alert visible type="success" icon={<IconWhatsNew />}>
+        Success Alert
+      </Alert>
+      <Alert visible type="warning" icon={<IconWarningTriangle />}>
+        Warning Alert
+      </Alert>
+      <Alert visible type="error" icon={<IconRefresh />}>
+        Error Alert
+      </Alert>
+    </Set>
   )
 }
 ```
