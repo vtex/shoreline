@@ -14,6 +14,7 @@ import calendar from './components/calendar'
 import carousel from './components/carousel'
 import modal from './components/modal'
 import toast from './components/toast'
+import select from './components/select'
 
 export const theme = {
   colors: {
@@ -80,6 +81,7 @@ export const theme = {
   carousel,
   modal,
   toast,
+  select,
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',
