@@ -8,7 +8,7 @@ import { VisuallyHidden } from '../VisuallyHidden'
 import { Label } from '../Label'
 import { Overridable } from '../../types'
 import { FormEvent } from 'react'
-import { Spinner } from './Spinner'
+import { Spinner } from '../Spinner'
 
 export const Search = createComponent(Primitive, useSearch)
 
