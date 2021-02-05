@@ -28,33 +28,33 @@ const SimpleCarousel = (
     'size' | 'indicators' | 'crossfade' | 'buttonAlign'
   >
 ) => (
-    <Carousel {...props}>
-      <Flex
-        sx={{
-          ...carouselPageStyles,
-          backgroundColor: 'muted.0',
-        }}
-      >
-        Take me out! And take me home!
+  <Carousel {...props}>
+    <Flex
+      sx={{
+        ...carouselPageStyles,
+        backgroundColor: 'muted.0',
+      }}
+    >
+      Take me out! And take me home!
     </Flex>
-      <Flex
-        sx={{
-          ...carouselPageStyles,
-          backgroundColor: 'success.base',
-        }}
-      >
-        You&apos;re my, my, my, my...
+    <Flex
+      sx={{
+        ...carouselPageStyles,
+        backgroundColor: 'success.base',
+      }}
+    >
+      You&apos;re my, my, my, my...
     </Flex>
-      <Flex
-        sx={{
-          ...carouselPageStyles,
-          backgroundColor: 'primary.base',
-        }}
-      >
-        Lover
+    <Flex
+      sx={{
+        ...carouselPageStyles,
+        backgroundColor: 'primary.base',
+      }}
+    >
+      Lover
     </Flex>
-    </Carousel>
-  )
+  </Carousel>
+)
 
 export const Basic = () => <SimpleCarousel />
 
@@ -70,20 +70,27 @@ export const SelectSlideCount = () => {
   const [value, setValue] = useState(2)
 
   const onChangeSelect = (e: ChangeEvent<HTMLSelectElement>) =>
-    setValue(e.target.value as unknown as number)
+    setValue((e.target.value as unknown) as number)
 
-  const slides = Array.from({ length: value }).map(_ => <Flex
-    sx={{
-      ...carouselPageStyles,
-      backgroundColor: 'muted.0',
-    }}
-  >
-    Take me out! And take me home!
-  </Flex>)
+  const slides = Array.from({ length: value }).map((_) => (
+    <Flex
+      sx={{
+        ...carouselPageStyles,
+        backgroundColor: 'muted.0',
+      }}
+    >
+      Take me out! And take me home!
+    </Flex>
+  ))
 
   return (
     <Flex sx={{ flexDirection: 'column' }}>
-      <Select label="Number of slides" id="slides" onChange={onChangeSelect} value={value}>
+      <Select
+        label="Number of slides"
+        id="slides"
+        onChange={onChangeSelect}
+        value={value}
+      >
         <Select.Option value={2}>Two</Select.Option>
         <Select.Option value={3}>Three</Select.Option>
         <Select.Option value={4}>Four</Select.Option>
