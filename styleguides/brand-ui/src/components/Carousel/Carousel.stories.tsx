@@ -1,9 +1,11 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { Meta } from '@storybook/react'
 import { Flex } from 'theme-ui'
 
 import { Card } from '../..'
 import { Carousel, CarouselProps } from './index'
+import { Select } from '../Select'
+import { ChangeEvent } from 'react'
 
 export default {
   title: 'beta/Carousel',
@@ -26,33 +28,33 @@ const SimpleCarousel = (
     'size' | 'indicators' | 'crossfade' | 'buttonAlign'
   >
 ) => (
-  <Carousel {...props}>
-    <Flex
-      sx={{
-        ...carouselPageStyles,
-        backgroundColor: 'muted.0',
-      }}
-    >
-      Take me out! And take me home!
+    <Carousel {...props}>
+      <Flex
+        sx={{
+          ...carouselPageStyles,
+          backgroundColor: 'muted.0',
+        }}
+      >
+        Take me out! And take me home!
     </Flex>
-    <Flex
-      sx={{
-        ...carouselPageStyles,
-        backgroundColor: 'success.base',
-      }}
-    >
-      You&apos;re my, my, my, my...
+      <Flex
+        sx={{
+          ...carouselPageStyles,
+          backgroundColor: 'success.base',
+        }}
+      >
+        You&apos;re my, my, my, my...
     </Flex>
-    <Flex
-      sx={{
-        ...carouselPageStyles,
-        backgroundColor: 'primary.base',
-      }}
-    >
-      Lover
+      <Flex
+        sx={{
+          ...carouselPageStyles,
+          backgroundColor: 'primary.base',
+        }}
+      >
+        Lover
     </Flex>
-  </Carousel>
-)
+    </Carousel>
+  )
 
 export const Basic = () => <SimpleCarousel />
 
@@ -63,6 +65,33 @@ export const ButtonAlignTop = () => <SimpleCarousel buttonAlign="top" />
 export const Small = () => <SimpleCarousel size="small" />
 
 export const WithoutIndicators = () => <SimpleCarousel indicators={false} />
+
+export const SelectSlideCount = () => {
+  const [value, setValue] = useState(2)
+
+  const onChangeSelect = (e: ChangeEvent<HTMLSelectElement>) =>
+    setValue(e.target.value as unknown as number)
+
+  const slides = Array.from({ length: value }).map(_ => <Flex
+    sx={{
+      ...carouselPageStyles,
+      backgroundColor: 'muted.0',
+    }}
+  >
+    Take me out! And take me home!
+  </Flex>)
+
+  return (
+    <Flex sx={{ flexDirection: 'column' }}>
+      <Select label="Number of slides" id="slides" onChange={onChangeSelect} value={value}>
+        <Select.Option value={2}>Two</Select.Option>
+        <Select.Option value={3}>Three</Select.Option>
+        <Select.Option value={4}>Four</Select.Option>
+      </Select>
+      <Carousel>{slides}</Carousel>
+    </Flex>
+  )
+}
 
 const SimpleCard = ({ children }: { children: ReactNode }) => (
   <Card sx={{ height: 'fit-content' }}>

@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 
 const useCarouselState = ({ totalSlides }: { totalSlides: number }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [swapSlide, setSwapSlide] = useState(0)
   const [direction, setDirection] = useState<'ltr' | 'rtl'>('ltr')
+
+  useEffect(() => {
+    setCurrentSlide(0)
+  }, [totalSlides])
 
   const handleChangeSlide = (newSlide: number) => {
     if (newSlide > currentSlide) {
