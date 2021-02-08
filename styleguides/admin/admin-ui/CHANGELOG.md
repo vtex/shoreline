@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.82.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.81.0...@vtex/admin-ui@0.82.0) (2021-02-08)
+
+
+### Features
+
+* **search:** create component ([c2d7a10](https://github.com/vtex/onda/commit/c2d7a10033f4a18455d621dc6c4670dc9fd59c90))
+* **spinner:** create component ([129d385](https://github.com/vtex/onda/commit/129d385076dd47be574e3edfd4cc43a741f1ede9))
+
+
+
+
+
 # [0.81.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.80.0...@vtex/admin-ui@0.81.0) (2021-02-02)
 
 
