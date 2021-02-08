@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.33.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.32.0...@vtex/brand-ui@0.33.0) (2021-02-08)
+
+
+### Bug Fixes
+
+* **carousel:** switch to first slide when total slide count changes ([055185f](https://github.com/vtex/onda/commit/055185fa76639c6508a4a11e7700a0980c98e175))
+
+
+### Features
+
+* **calendar:** update styles for current date and states ([5789448](https://github.com/vtex/onda/commit/57894483a5081c16d6c1cbab19808e9fcfdc4aa3))
+* **select:** add brand-ui select component ([4e5281b](https://github.com/vtex/onda/commit/4e5281be3a0a446480a08a463735d0c98a9cbea6))
+
+
+
+
+
 # [0.32.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.31.4...@vtex/brand-ui@0.32.0) (2021-02-01)
 
 
