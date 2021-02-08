@@ -49,6 +49,7 @@
     - /tabs/
     - /tag/
     - /tooltip/
+    - /spinner/
     - /visually-hidden/
 - section: Forms
   paths:
@@ -64,6 +65,7 @@
     - /form/select/
     - /form/text-area/
     - /form/toggle/
+    - /form/search/
 - section: Deep dive 🐋
   paths:
     - /deep-dive/system
