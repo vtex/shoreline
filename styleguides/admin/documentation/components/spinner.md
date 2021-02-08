@@ -4,7 +4,7 @@ path: /spinner/
 
 # Spinner
 
-TODO
+A Spinner is a way of showing the user something is being loaded, either because of a user action or not. It should be used for short, indeterminate loading times.
 
 ## Behavior
 

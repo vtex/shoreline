@@ -4,13 +4,23 @@ path: /form/search/
 
 # Search
 
-TODO
+Search enables users to specify a word, phrase or term to find relevant pieces of content.
 
 ## Behavior
 
 ```jsx
 function Example() {
-  return <Search id="search-1" placeholder="Search" />
+  const [value, setValue] = React.useState('')
+
+  return (
+    <Search
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      onSubmit={() => alert('Submited')}
+      id="search-1"
+      placeholder="Search"
+    />
+  )
 }
 ```
 
@@ -30,7 +40,15 @@ import { Search } from '@vtex/admin-ui'
 
 ```jsx
 function Example() {
-  return <Search id="search-1" placeholder="Search" loading />
+  return <Search id="search-2" placeholder="Search" loading />
+}
+```
+
+### Disabled
+
+```jsx
+function Example() {
+  return <Search id="search-3" placeholder="Search" disabled />
 }
 ```
 
