@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner tests should match snapshot 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+@keyframes animation-1 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-0 {
+  fill: none;
+  stroke: #2953B2;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-0 1s ease-in-out infinite;
+  animation: animation-0 1s ease-in-out infinite;
+}
+
+.emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-1 1.5s linear infinite;
+  animation: animation-1 1.5s linear infinite;
+}
+
+<svg
+    class="emotion-1"
+    fill="none"
+    focusable="false"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      class="emotion-0"
+      cx="25"
+      cy="25"
+      r="20"
+    />
+  </svg>
+</DocumentFragment>
+`;
