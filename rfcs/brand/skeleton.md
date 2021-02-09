@@ -26,6 +26,12 @@ import { Skeleton } from '@vtex/brand-ui'
 | el | ElementType | element type | 🚫       | `div` |
 | sx | SxStyleProp | aditional styles | 🚫       | - |
 
+The `SkeletonShape` type is specified below:
+
+```jsx
+type SkeletonShape = 'rect' | 'circle'
+```
+
 # Drawbacks
 
 - At the moment, none noted. 
