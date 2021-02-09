@@ -55,7 +55,7 @@ export const TextExample = () => {
           </Text>
         </Box>
       )}
-    <Button onClick={() => setLoading(!loading)} size='small'>Loading</Button>
+    <Button onClick={() => setLoading(!loading)} sx={{ marginTop: 2 }} size='small'>Loading</Button>
   </Box>)
 }
 

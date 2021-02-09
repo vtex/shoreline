@@ -7,7 +7,7 @@ const styles: SxStyleProp = {
   backgroundColor: 'muted.3',
   backgroundRepeat: 'no-repeat',
   backgroundSize: '200px 100%',
-  marginBottom: 1
+  marginBottom: 2
 }
 
 const skeleton = {
