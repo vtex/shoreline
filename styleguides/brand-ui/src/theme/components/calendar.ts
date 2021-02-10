@@ -26,6 +26,8 @@ const activeDayCell: SxStyleProp = {
   cursor: 'pointer',
   backgroundColor: 'focus',
   color: 'secondary.base',
+  outline: 'none',
+  pointerEvents: 'none',
 }
 
 const hoverDayCell: SxStyleProp = {
@@ -41,7 +43,6 @@ const baseDayCell: SxStyleProp = {
   },
   ':focus': {
     ...activeDayCell,
-    outline: 'none',
   },
   ':disabled': {
     cursor: 'not-allowed',
@@ -50,7 +51,6 @@ const baseDayCell: SxStyleProp = {
   active: {
     ...baseCell,
     ...activeDayCell,
-    outline: 'none',
   },
 }
 
