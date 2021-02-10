@@ -10,6 +10,7 @@ const menu = {
   outline: 'none',
   marginTop: 1,
   paddingY: 4,
+  minWidth: 'inherit',
   width: 'max-content',
   position: 'absolute',
   zIndex: 999,
