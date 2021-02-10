@@ -25,7 +25,7 @@ const carouselPageStyles = {
 const SimpleCarousel = (
   props: Pick<
     CarouselProps,
-    'size' | 'indicators' | 'crossfade' | 'buttonAlign'
+    'size' | 'indicators' | 'crossfade' | 'buttonAlign' | 'loop'
   >
 ) => (
   <Carousel {...props}>
@@ -59,6 +59,8 @@ const SimpleCarousel = (
 export const Basic = () => <SimpleCarousel />
 
 export const Crossfade = () => <SimpleCarousel crossfade />
+
+export const NoLoop = () => <SimpleCarousel loop={false} />
 
 export const ButtonAlignTop = () => <SimpleCarousel buttonAlign="top" />
 
