@@ -37,7 +37,7 @@ export const Carousel = ({
   } = useCarouselState({ totalSlides: slides.length })
 
   const stopAtEnd = loop ? false : (currentSlide + 1 >= slides.length)
-  const stopAtbeginning = loop ? false : (currentSlide - 1 < 0)
+  const stopAtBeginning = loop ? false : (currentSlide - 1 < 0)
 
   return (
     <Flex variant="carousel" sx={sx}>
@@ -56,7 +56,7 @@ export const Carousel = ({
           height: buttonAlign === 'top' ? 'fit-content' : '100%',
         }}
       >
-        {!stopAtbeginning && <Button
+        {!stopAtBeginning && <Button
           onClick={handlePrevious}
           sx={{
             variant: `carousel.previousButton.${size}`,
