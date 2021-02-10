@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.34.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.33.0...@vtex/brand-ui@0.34.0) (2021-02-10)
+
+
+### Features
+
+* **skeleton:** add brand-ui skeleton component ([f19deee](https://github.com/vtex/onda/commit/f19deeeb236b03eadbb475b0aa73b59e37bcca87))
+
+
+
+
+
 # [0.33.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.32.0...@vtex/brand-ui@0.33.0) (2021-02-08)
 
 
