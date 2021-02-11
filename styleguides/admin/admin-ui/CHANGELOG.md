@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.82.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.1...@vtex/admin-ui@0.82.2) (2021-02-11)
+
+
+### Bug Fixes
+
+* **admin-ui:** css-prop typescript ([71f1817](https://github.com/vtex/onda/commit/71f181757006fde0a9281187178b0aa837ea12d4))
+
+
+
+
+
 ## [0.82.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.0...@vtex/admin-ui@0.82.1) (2021-02-11)
 
 
