@@ -2,7 +2,7 @@ import React, { ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex/admin-core'
 
 import { useModalContext } from '../context'
-import { Overridable } from '../../../types'
+import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 
 /**
@@ -34,6 +34,6 @@ export const ModalFooter = forwardRef(function ModalFooter(
   return <footer ref={ref} className={className} {...footerProps} />
 })
 
-export interface ModalFooterProps extends Overridable {
+export interface ModalFooterProps extends SystemComponent {
   children?: ReactNode
 }

@@ -6,7 +6,7 @@ import {
 } from '../AbstractInput'
 import { Text } from '../Text'
 import { Label } from '../Label'
-import { OmitNotAllowedProps, Overridable } from '../../types'
+import { SystemComponentProps } from '../../types'
 import { Box } from '../Box'
 import { useSystem } from '@vtex/admin-core'
 
@@ -75,8 +75,7 @@ export type InputPasswordOwnProps = Omit<
 >
 
 export interface InputPasswordProps
-  extends OmitNotAllowedProps<InputPasswordOwnProps>,
-    Overridable {
+  extends SystemComponentProps<InputPasswordOwnProps> {
   /** label text */
   label: string
   /** unique id of the component */

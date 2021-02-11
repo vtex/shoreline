@@ -17,7 +17,7 @@ import {
   useTree,
 } from './context'
 import { Button } from '../Button'
-import { Overridable } from '../../types'
+import { SystemComponent, SystemComponentProps } from '../../types'
 import { useGroup } from '../Group'
 import { useSystem } from '@vtex/admin-core'
 
@@ -194,13 +194,14 @@ Collapsible.Header = Header
 Collapsible.Content = Content
 
 export interface CollapsibleProps
-  extends Pick<DisclosureProps, 'focusable' | 'disabled' | 'children'>,
-    Overridable {
+  extends SystemComponentProps<
+    Pick<DisclosureProps, 'focusable' | 'disabled' | 'children'>
+  > {
   /** useCollapsible hook return */
   state: DisclosureStateReturn
 }
 
-export interface CollapsibleHeaderProps extends Overridable {
+export interface CollapsibleHeaderProps extends SystemComponent {
   /**
    * Disclosure Button label
    */
@@ -211,7 +212,7 @@ export interface CollapsibleHeaderProps extends Overridable {
   children?: ReactNode
 }
 
-export interface CollapsibleContentProps extends Overridable {
+export interface CollapsibleContentProps extends SystemComponent {
   children?: ReactNode
 }
 

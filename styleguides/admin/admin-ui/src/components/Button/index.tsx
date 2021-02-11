@@ -6,7 +6,7 @@ import {
 
 import { StyleProp, useSystem, jsxs, createComponent } from '@vtex/admin-core'
 import { Variant, Size } from './types'
-import { Overridable, OmitNotAllowedProps } from '../../types'
+import { SystemComponentProps } from '../../types'
 import { Primitive } from '../Primitive'
 
 /**
@@ -88,9 +88,7 @@ function useButtonSize({
   }
 }
 
-export interface ButtonProps
-  extends OmitNotAllowedProps<ReakitButtonProps>,
-    Overridable {
+export interface ButtonProps extends SystemComponentProps<ReakitButtonProps> {
   /** Size of the button
    * @default regular
    * */

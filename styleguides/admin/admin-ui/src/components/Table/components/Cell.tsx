@@ -4,7 +4,7 @@ import { forwardRef } from '@vtex/admin-core'
 import { Box } from '../../Box'
 import { Column } from '../typings'
 import { useStylesContext, useCellRoleContext } from '../context'
-import { Overridable } from '../../../types'
+import { SystemComponent } from '../../../types'
 
 export const TableCell = forwardRef(function Td<T>(
   props: TableCellProps<T>,
@@ -32,7 +32,7 @@ export const TableCell = forwardRef(function Td<T>(
   )
 })
 
-export type TableCellProps<T> = Overridable & {
+export type TableCellProps<T> = SystemComponent & {
   /**
    * Current column
    */

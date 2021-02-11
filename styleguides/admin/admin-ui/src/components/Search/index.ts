@@ -6,7 +6,7 @@ import { AbstractInput, AbstractInputProps } from '../AbstractInput'
 import { Button } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { Label } from '../Label'
-import { Overridable } from '../../types'
+import { SystemComponentProps } from '../../types'
 import { FormEvent } from 'react'
 import { Spinner } from '../Spinner'
 
@@ -44,7 +44,7 @@ export type SearchOwnProps = Omit<
   'icon' | 'id' | 'placeholder'
 >
 
-export interface SearchProps extends Overridable, SearchOwnProps {
+export interface SearchProps extends SystemComponentProps<SearchOwnProps> {
   /** wheather is loading @default false */
   loading?: boolean
   /** id of the search, must be unique within a page */

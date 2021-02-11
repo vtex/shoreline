@@ -5,7 +5,7 @@ import { ResolverContext } from './resolvers/core'
 import { TableDensity, TableDir } from './typings'
 import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Box } from '../Box'
 
 /**
@@ -109,7 +109,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
 
 export interface StatefulTableProps<T>
   extends Omit<UseTableParams<T>, 'context'>,
-    Overridable {
+    SystemComponent {
   /**
    * Key extractor
    * @default (item)=>item.id

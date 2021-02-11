@@ -10,7 +10,7 @@ import {
   ReakitMenuItem,
   MenuItem,
 } from './components'
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Box } from '../Box'
 
 /**
@@ -116,7 +116,7 @@ StatelessMenu.Item = MenuItem
  */
 StatelessMenu.Separator = ReakitMenuSeparator
 
-export interface StatelessMenuProps extends Overridable {
+export interface StatelessMenuProps extends SystemComponent {
   /**
    * Menu items
    */

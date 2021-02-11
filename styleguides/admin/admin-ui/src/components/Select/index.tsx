@@ -3,7 +3,7 @@ import React, { Ref } from 'react'
 import { forwardRef } from '@vtex/admin-core'
 import { BrowserView, MobileView } from 'react-device-detect'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Box } from '../Box'
 import { Text } from '../Text'
 import { DesktopSelect } from './DesktopSelect'
@@ -69,7 +69,7 @@ export const Select = forwardRef(
 export { useSelect as useSelectState }
 export { UseSelectReturnValue }
 
-export interface SelectProps<T> extends Overridable {
+export interface SelectProps<T> extends SystemComponent {
   /**
    * Select label
    */

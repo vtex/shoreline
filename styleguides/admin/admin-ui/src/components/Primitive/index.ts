@@ -1,6 +1,7 @@
 import { ReactElement, ElementType, ComponentProps } from 'react'
 import { Box as ReakitBox } from 'reakit'
-import { StyleProp, useSystem, createComponent } from '@vtex/admin-core'
+import { useSystem, createComponent } from '@vtex/admin-core'
+import { SystemPrimitive } from '../../types'
 
 /**
  * primitive default element
@@ -38,18 +39,13 @@ export function usePrimitiveStyle(props: Omit<PrimitiveOwnProps, 'element'>) {
   return { ...htmlProps, className: cx(styledCn, className) }
 }
 
-export interface PrimitiveOwnProps<E extends ElementType = ElementType> {
+export interface PrimitiveOwnProps<E extends ElementType = ElementType>
+  extends SystemPrimitive {
   /**
    * element that should be rendered
    * @default div
    */
   element?: E
-  /**
-   * styles
-   * @default {}
-   * @see https://admin-ui-docs.vercel.app/theming/style-object/
-   */
-  styles?: StyleProp
   /**
    * theme key to me consumed from admin-ui-theme
    * @private this is for internal usage only

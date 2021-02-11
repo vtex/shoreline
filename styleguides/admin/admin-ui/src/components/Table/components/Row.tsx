@@ -3,7 +3,7 @@ import { forwardRef } from '@vtex/admin-core'
 
 import { Box } from '../../Box'
 import { useStylesContext } from '../context'
-import { Overridable } from '../../../types'
+import { SystemComponent } from '../../../types'
 
 export const TableRow = forwardRef(function Tr(
   props: TableRowProps,
@@ -30,7 +30,7 @@ export const TableRow = forwardRef(function Tr(
   )
 })
 
-export type TableRowProps = Overridable & {
+export type TableRowProps = SystemComponent & {
   /**
    * element to be rendered
    * @default div

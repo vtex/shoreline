@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { StyleProp, ResponsiveValue } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { ColumnsProvider } from './context'
 import { ColumnsItem } from './Item'
 import { useSystem } from '@vtex/admin-core'
@@ -27,7 +27,7 @@ export function Columns(props: ColumnsProps) {
 
 Columns.Item = ColumnsItem
 
-export interface ColumnsProps extends Overridable {
+export interface ColumnsProps extends SystemComponent {
   children?: ReactNode
   spacing?: ResponsiveValue<number>
 }

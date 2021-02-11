@@ -1,8 +1,8 @@
 import { ElementType } from 'react'
-import { StyleProp } from '@vtex/admin-core'
 import { useSystem, createComponent } from '@vtex/admin-core'
 
 import { Primitive } from '../Primitive'
+import { SystemPrimitive } from '../../types'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -41,7 +41,7 @@ export function useSkeleton(props: SkeletonProps) {
   return {
     element,
     themeKey: {
-      skeleton: { shape }
+      skeleton: { shape },
     },
     styles: {
       ...styles,
@@ -53,12 +53,7 @@ export function useSkeleton(props: SkeletonProps) {
 
 export type SkeletonShape = 'rect' | 'circle'
 
-export interface SkeletonProps {
-  /**
-   * Aditional styles
-   * @default {}
-   */
-  styles?: StyleProp
+export interface SkeletonProps extends SystemPrimitive {
   /**
    * Shape of the skeleton
    * @default 'rect'

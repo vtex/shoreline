@@ -5,9 +5,9 @@ import { forwardRef } from '@vtex/admin-core'
 
 import { Button, ButtonProps } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
-import { Overridable } from '../../types'
 import { Set } from '../Set'
 import { Box } from '../Box'
+import { SystemComponent } from '../../types'
 
 export const Dropdown = forwardRef(
   <T extends unknown>(props: DropdownProps<T>, ref: Ref<HTMLDivElement>) => {
@@ -71,7 +71,7 @@ export { useSelect as useDropdownState }
 export { UseSelectReturnValue as UseDropdownReturnValue }
 
 export interface DropdownProps<T>
-  extends Overridable,
+  extends SystemComponent,
     Pick<ButtonProps, 'variant' | 'size' | 'disabled'> {
   /**
    * aria-label. will be visually hidden

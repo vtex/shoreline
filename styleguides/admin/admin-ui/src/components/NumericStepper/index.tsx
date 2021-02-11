@@ -5,7 +5,7 @@ import { useSystem } from '@vtex/admin-core'
 import invariant from 'tiny-invariant'
 
 import { Box } from '../Box'
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Button } from '../Button'
 
 export function NumericStepper(props: NumericStepperProps) {
@@ -198,7 +198,7 @@ type Action =
       onChange: (value: StateValue) => void
     }
 
-export interface NumericStepperProps extends Overridable {
+export interface NumericStepperProps extends SystemComponent {
   /** NumericStepper value */
   value: number
   /**

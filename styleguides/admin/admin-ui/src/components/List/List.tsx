@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { ListItem } from './ListItem'
 import { Primitive } from '../Primitive'
 
@@ -40,7 +40,7 @@ type ListStyleType =
   | 'initial'
   | 'unset'
 
-export interface ListProps extends Overridable {
+export interface ListProps extends SystemComponent {
   /**
    * list children
    */

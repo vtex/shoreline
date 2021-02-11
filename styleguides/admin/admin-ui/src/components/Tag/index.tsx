@@ -3,7 +3,7 @@ import { forwardRef } from '@vtex/admin-core'
 import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
 
 import { Box } from '../Box'
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Button } from '../Button'
 
 export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
@@ -46,7 +46,7 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
   )
 })
 
-export interface TagProps extends Overridable {
+export interface TagProps extends SystemComponent {
   /**
    *  Tag Palette
    *  @default blue

@@ -1,7 +1,7 @@
 import React, { ReactNode, forwardRef, Ref, PropsWithChildren } from 'react'
 
 import { StyleProp } from '@vtex/admin-core'
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Box } from '../Box'
 
 export const Paragraph = forwardRef(function Paragraph(
@@ -24,7 +24,7 @@ export function useParagraph(props: ParagraphProps) {
   return { styles, ...htmlProps }
 }
 
-export interface ParagraphProps extends Overridable {
+export interface ParagraphProps extends SystemComponent {
   /**
    * paragraph children
    */

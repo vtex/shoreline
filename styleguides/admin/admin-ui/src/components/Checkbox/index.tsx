@@ -6,7 +6,7 @@ import {
 } from 'reakit/Checkbox'
 
 import { useSystem, createComponent } from '@vtex/admin-core'
-import { Overridable } from '../../types'
+import { SystemComponentProps } from '../../types'
 
 export const Checkbox = createComponent(ReakitCheckbox, useCheckbox)
 
@@ -40,7 +40,8 @@ type AbstractCheckboxProps = Pick<
 
 type State = Pick<ReakitProps, 'state' | 'setState'>
 
-export interface CheckboxProps extends AbstractCheckboxProps, Overridable {
+export interface CheckboxProps
+  extends SystemComponentProps<AbstractCheckboxProps> {
   /**
    *  Checkbox Size
    * @default regular
