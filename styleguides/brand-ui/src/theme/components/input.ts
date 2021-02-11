@@ -132,7 +132,6 @@ const stateDark = {
 
 const labelBase = {
   color: 'muted.0',
-  // width: 'fit-content',
   width: '100%',
   paddingRight: '3rem',
   position: 'absolute',
