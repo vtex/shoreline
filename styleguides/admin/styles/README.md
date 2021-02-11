@@ -14,7 +14,7 @@ This package is responsible to:
 ### Installation
 
 ```sh
-yarn add @vtex/admin-styles
+yarn add @vtex/admin-styles @emotion/css @emotion/react
 ```
 
 ### Usage

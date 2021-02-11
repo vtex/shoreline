@@ -9,7 +9,7 @@ Package that standarize the component creation API of VTEX admin components.
 ### Installation
 
 ```sh
-yarn add @vtex/admin-jsxs
+yarn add @vtex/admin-jsxs @emotion/react
 ```
 
 ### Usage

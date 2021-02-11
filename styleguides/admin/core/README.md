@@ -5,9 +5,5 @@
 ### Install
 
 ```sh
-yarn add @vtex/admin-core
-```
-
-```sh
-npm install @vtex/admin-core
+yarn add @vtex/admin-core @emotion/css @emotion/react
 ```
