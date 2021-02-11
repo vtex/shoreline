@@ -5,11 +5,7 @@
 ### Install
 
 ```sh
-yarn add @vtex/admin-ui-system
-```
-
-```sh
-npm install @vtex/admin-ui-system
+yarn add @vtex/admin-ui-system @emotion/css @emotion/react
 ```
 
 ### Typescript
