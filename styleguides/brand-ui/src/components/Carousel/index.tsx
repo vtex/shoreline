@@ -14,6 +14,7 @@ export interface CarouselProps {
   sx?: SxStyleProp
   crossfade?: boolean
   buttonAlign?: 'top' | 'center'
+  loop?: boolean
 }
 
 export const Carousel = ({
@@ -23,6 +24,7 @@ export const Carousel = ({
   crossfade = false,
   buttonAlign = 'center',
   sx = {},
+  loop = true,
 }: CarouselProps) => {
   const {
     currentSlide,
@@ -33,6 +35,9 @@ export const Carousel = ({
     handlePrevious,
     swipeHandlers,
   } = useCarouselState({ totalSlides: slides.length })
+
+  const stopAtEnd = loop ? false : (currentSlide + 1 >= slides.length)
+  const stopAtBeginning = loop ? false : (currentSlide - 1 < 0)
 
   return (
     <Flex variant="carousel" sx={sx}>
@@ -51,7 +56,7 @@ export const Carousel = ({
           height: buttonAlign === 'top' ? 'fit-content' : '100%',
         }}
       >
-        <Button
+        {!stopAtBeginning && <Button
           onClick={handlePrevious}
           sx={{
             variant: `carousel.previousButton.${size}`,
@@ -59,7 +64,7 @@ export const Carousel = ({
         >
           <IconCaret size={size === 'regular' ? 48 : 24} direction="left" />
           <VisuallyHidden>Previous slide</VisuallyHidden>
-        </Button>
+        </Button>}
       </Flex>
       <Flex
         variant="carousel.navigationContainer.next"
@@ -68,7 +73,7 @@ export const Carousel = ({
           height: buttonAlign === 'top' ? 'fit-content' : '100%',
         }}
       >
-        <Button
+        {!stopAtEnd && <Button
           onClick={handleNext}
           sx={{
             variant: `carousel.nextButton.${size}`,
@@ -76,7 +81,7 @@ export const Carousel = ({
         >
           <IconCaret size={size === 'regular' ? 48 : 24} direction="right" />
           <VisuallyHidden>Next slide</VisuallyHidden>
-        </Button>
+        </Button>}
       </Flex>
       {indicators && (
         <IndicatorBar
