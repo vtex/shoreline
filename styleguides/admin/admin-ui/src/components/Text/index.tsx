@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Primitive } from '../Primitive'
 
 export const Text = createComponent(Primitive, useText)
@@ -35,7 +35,7 @@ function useText(props: TextProps) {
   }
 }
 
-export interface TextProps extends Overridable {
+export interface TextProps extends SystemComponent {
   /**
    * Element to render
    * @default span

@@ -3,7 +3,7 @@ import { forwardRef } from '@vtex/admin-core'
 
 import { Box } from '../../Box'
 import { useStylesContext, CellRoleContext } from '../context'
-import { Overridable } from '../../../types'
+import { SystemComponent } from '../../../types'
 
 export const TableHead = forwardRef(function Thead(
   props: TableHeadProps,
@@ -30,7 +30,7 @@ export const TableHead = forwardRef(function Thead(
   )
 })
 
-export type TableHeadProps = Overridable & {
+export type TableHeadProps = SystemComponent & {
   /**
    * element to be rendered
    * @default header

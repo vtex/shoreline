@@ -9,7 +9,7 @@ import {
 import { useSystem } from '@vtex/admin-core'
 
 import { TabsProvider, useTabsContext } from './context'
-import { Overridable } from '../../types'
+import { SystemComponent, SystemComponentProps } from '../../types'
 
 export function Tabs(props: TabsProps) {
   const { state, children, ...restProps } = props
@@ -97,18 +97,17 @@ export interface TabsProps {
   children?: ReactNode
 }
 
-export interface TabListProps extends Overridable {
+export interface TabListProps extends SystemComponent {
   children?: ReactNode
   fluid?: boolean
 }
 export interface TabProps
-  extends Pick<ReakitTabProps, 'onClick' | 'children'>,
-    Overridable {
+  extends SystemComponentProps<Pick<ReakitTabProps, 'onClick' | 'children'>> {
   label: string
   id: string
 }
 
-export interface TabContentProps extends Overridable {
+export interface TabContentProps extends SystemComponent {
   children?: ReactNode
   id: string
 }

@@ -5,7 +5,7 @@ import { inlineVariant } from '@vtex/admin-core'
 import { useSystem } from '@vtex/admin-core'
 
 import { Button } from '../Button'
-import { OmitNotAllowedProps, Overridable } from '../../types'
+import { SystemComponentProps } from '../../types'
 import { Box } from '../Box'
 
 export const AbstractInput = forwardRef(function AbstractInput(
@@ -92,8 +92,7 @@ export type AbstractInputOwnProps = Omit<
 >
 
 export interface AbstractInputProps
-  extends OmitNotAllowedProps<AbstractInputOwnProps>,
-    Overridable {
+  extends SystemComponentProps<AbstractInputOwnProps> {
   /** Input Icon */
   icon?: ReactNode
   /** Input Suffix */

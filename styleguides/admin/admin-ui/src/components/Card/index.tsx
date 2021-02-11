@@ -1,6 +1,6 @@
 import React, { Ref, forwardRef } from 'react'
 
-import { OmitNotAllowedProps, Overridable } from '../../types'
+import { SystemComponentProps } from '../../types'
 import { Box, BoxProps } from '../Box'
 
 export const Card = forwardRef(function Card(
@@ -26,4 +26,4 @@ export const Card = forwardRef(function Card(
 
 type CardOwnProps = Omit<BoxProps<'div'>, 'styles'>
 
-export type CardProps = Overridable & OmitNotAllowedProps<CardOwnProps>
+export type CardProps = SystemComponentProps<CardOwnProps>

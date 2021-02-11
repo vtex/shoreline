@@ -1,5 +1,6 @@
 import { useSystem, createComponent, jsxs, Colors } from '@vtex/admin-core'
 import { Icon, IconProps } from '@vtex/admin-ui-icons'
+import { SystemComponent } from '../../types'
 import { Primitive } from '../Primitive'
 
 export const Spinner = createComponent(Icon, useSpinner)
@@ -52,6 +53,6 @@ export function useSpinner(props: SpinnerProps): IconProps {
   }
 }
 
-export interface SpinnerProps extends Pick<IconProps, 'size' | 'styleOverrides'> {
+export interface SpinnerProps extends Pick<IconProps, 'size'>, SystemComponent {
   color?: Colors
 }

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Primitive, PrimitiveProps } from '../Primitive'
 
 /**
@@ -30,7 +30,7 @@ export function useLabel(props: LabelProps): PrimitiveProps<'label'> {
   }
 }
 
-export interface LabelProps extends Overridable {
+export interface LabelProps extends SystemComponent {
   /**
    * label children
    */

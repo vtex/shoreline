@@ -1,7 +1,7 @@
 import React, { Children, ReactNode, Fragment } from 'react'
 import { isElement } from 'react-is'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Card } from '../Card'
 import { Divider } from '../Divider'
 import { Group } from '../Group'
@@ -53,6 +53,6 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
   )
 }
 
-export interface CollapsibleGroupProps extends Overridable {
+export interface CollapsibleGroupProps extends SystemComponent {
   children?: ReactNode
 }

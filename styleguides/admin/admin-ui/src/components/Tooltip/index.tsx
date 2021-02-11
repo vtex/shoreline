@@ -7,7 +7,7 @@ import {
 import { PopoverState } from 'reakit/ts'
 
 import { useSystem } from '@vtex/admin-core'
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 
 /**
  * Popup that displays information related to an element on :focus (by keyboard) or :hover (by mouse).
@@ -58,7 +58,7 @@ export function Tooltip(props: TooltipProps) {
 
 export type TooltipPlacement = Pick<PopoverState, 'placement'>['placement']
 
-export interface TooltipProps extends Overridable {
+export interface TooltipProps extends SystemComponent {
   /**
    * The element that triggers the tooltip
    */

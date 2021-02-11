@@ -2,7 +2,7 @@ import React, { forwardRef, Ref } from 'react'
 
 import { Text } from '../Text'
 import { Label } from '../Label'
-import { OmitNotAllowedProps, Overridable } from '../../types'
+import { SystemComponentProps } from '../../types'
 import { Box } from '../Box'
 import { useSystem } from '@vtex/admin-core'
 
@@ -74,9 +74,7 @@ export type TextAreaOwnProps = Omit<
   'value' | 'onChange' | 'maxLength' | 'onClear'
 >
 
-export interface TextAreaProps
-  extends Overridable,
-    OmitNotAllowedProps<TextAreaOwnProps> {
+export interface TextAreaProps extends SystemComponentProps<TextAreaOwnProps> {
   /** TextArea label */
   label: string
   /** Unique id of the component */

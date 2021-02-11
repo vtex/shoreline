@@ -1,6 +1,6 @@
 import { jsxs, createComponent } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Primitive, PrimitiveProps } from '../Primitive'
 
 /**
@@ -34,7 +34,7 @@ export function useAvatar(props: AvatarProps): PrimitiveProps<'div'> {
   }
 }
 
-export interface AvatarProps extends Overridable {
+export interface AvatarProps extends SystemComponent {
   /**
    * String that will have its first letter capitalized
    */

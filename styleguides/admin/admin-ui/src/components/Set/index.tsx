@@ -6,7 +6,7 @@ import {
   createComponent,
 } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Primitive } from '../Primitive'
 
 export const Set = createComponent(Primitive, useSet)
@@ -68,7 +68,7 @@ export function useSet(props: SetProps) {
   }
 }
 
-export interface SetProps extends Overridable {
+export interface SetProps extends SystemComponent {
   /** component children */
   children?: ReactNode
   /**

@@ -5,7 +5,7 @@ import {
   useResponsiveValue,
 } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { useColumnsContext } from './context'
 import { useSystem } from '@vtex/admin-core'
 
@@ -55,7 +55,7 @@ export function ColumnsItem(props: ColumnsItemProps) {
   return <div className={className} {...layoutProps} />
 }
 
-export interface ColumnsItemProps extends Overridable {
+export interface ColumnsItemProps extends SystemComponent {
   children?: ReactNode
   units?: ResponsiveValue<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>
   offset?: ResponsiveValue<'left' | 'right' | 'both' | 'none'>

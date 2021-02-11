@@ -4,7 +4,7 @@ import {
   RadioGroupProps as ReakitRadioGroupProps,
 } from 'reakit/Radio'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Label } from '../Label'
 import { useSystem } from '@vtex/admin-core'
 
@@ -42,7 +42,7 @@ export function RadioGroup(props: RadioGroupProps) {
   )
 }
 
-export interface RadioGroupProps extends Overridable {
+export interface RadioGroupProps extends SystemComponent {
   label?: string
   size?: 'regular' | 'small'
   orientation?: 'horizontal' | 'vertical'

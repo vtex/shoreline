@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Primitive } from '../Primitive'
 
 export const Heading = createComponent(Primitive, useHeading)
@@ -19,7 +19,7 @@ export function useHeading(props: HeadingProps) {
   }
 }
 
-export interface HeadingProps extends Overridable {
+export interface HeadingProps extends SystemComponent {
   /**
    * Element to render
    * @default h1

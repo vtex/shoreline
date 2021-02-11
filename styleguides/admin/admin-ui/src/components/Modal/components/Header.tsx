@@ -5,7 +5,7 @@ import { IconClose } from '@vtex/admin-ui-icons'
 import { useModalContext } from '../context'
 import { ModalButton } from './Button'
 import { Box } from '../../Box'
-import { Overridable } from '../../../types'
+import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 /**
  * Header of the modal
@@ -70,7 +70,7 @@ export const ModalHeader = forwardRef(function ModalHeader(
   )
 })
 
-export interface ModalHeaderProps extends Overridable {
+export interface ModalHeaderProps extends SystemComponent {
   /**
    * Title of the modal
    * @default null

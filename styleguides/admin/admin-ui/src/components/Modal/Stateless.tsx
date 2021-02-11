@@ -14,7 +14,7 @@ import {
 } from './components'
 import { ModalSize } from './types'
 import { useComponentsExistence } from './util'
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { useSystem } from '@vtex/admin-core'
 
 /**
@@ -151,7 +151,9 @@ StatelessModal.Footer = ModalFooter
  */
 StatelessModal.Button = ModalButton
 
-export interface StatelessModalProps extends AbstractModalProps, Overridable {
+export interface StatelessModalProps
+  extends AbstractModalProps,
+    SystemComponent {
   /**
    * Component children
    */

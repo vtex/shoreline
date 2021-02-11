@@ -12,7 +12,7 @@ import {
   ResponsiveValue,
 } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 import { Box } from '../Box'
 import { Button, ButtonProps } from '../Button'
 import { Set } from '../Set'
@@ -153,7 +153,7 @@ export interface AlertActionProps extends Pick<ButtonProps, 'onClick'> {
   label: ReactNode
 }
 
-export interface AlertProps extends Overridable {
+export interface AlertProps extends SystemComponent {
   /**
    * possible actions
    */

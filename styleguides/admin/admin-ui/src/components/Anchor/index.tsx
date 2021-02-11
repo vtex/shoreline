@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
-import { OmitNotAllowedProps, Overridable } from '../../types'
+import { SystemComponentProps } from '../../types'
 import { Primitive, PrimitiveProps } from '../Primitive'
 
 /**
@@ -20,14 +20,12 @@ function useAnchor(props: AnchorProps): PrimitiveProps<'a'> {
   }
 }
 
-export interface AnchorProps
-  extends Overridable,
-    OmitNotAllowedProps<
-      React.DetailedHTMLProps<
-        React.AnchorHTMLAttributes<HTMLAnchorElement>,
-        HTMLAnchorElement
-      >
-    > {
+type AnchorOwnProps = React.DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>
+
+export interface AnchorProps extends SystemComponentProps<AnchorOwnProps> {
   /**
    * anchor children
    */

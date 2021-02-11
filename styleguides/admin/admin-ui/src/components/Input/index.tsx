@@ -3,7 +3,7 @@ import React, { forwardRef, Ref } from 'react'
 import { AbstractInput, AbstractInputProps } from '../AbstractInput'
 import { Text } from '../Text'
 import { Label } from '../Label'
-import { OmitNotAllowedProps, Overridable } from '../../types'
+import { SystemComponentProps } from '../../types'
 import { Box } from '../Box'
 import { useSystem } from '@vtex/admin-core'
 
@@ -73,9 +73,7 @@ export type InputOwnProps = Omit<
   'maxLength' | 'placeholder' | 'id' | 'type'
 >
 
-export interface InputProps
-  extends OmitNotAllowedProps<InputOwnProps>,
-    Overridable {
+export interface InputProps extends SystemComponentProps<InputOwnProps> {
   /** label text */
   label: string
   /** unique id of the component */

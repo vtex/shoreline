@@ -1,7 +1,7 @@
 import { Separator as ReakitSeparator } from 'reakit'
 import { useSystem, createComponent } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 
 export const Divider = createComponent(ReakitSeparator, useDivider)
 
@@ -22,7 +22,7 @@ export function useDivider(props: DividerProps) {
   }
 }
 
-export interface DividerProps extends Overridable {
+export interface DividerProps extends SystemComponent {
   /**
    * Divider orientation
    * @default 'horizontal'

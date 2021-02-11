@@ -5,7 +5,7 @@ import {
 } from 'reakit/Radio'
 import { useSystem, createComponent } from '@vtex/admin-core'
 
-import { Overridable } from '../../types'
+import { SystemComponentProps } from '../../types'
 
 export const Radio = createComponent(ReakitRadio, useRadio)
 
@@ -33,7 +33,7 @@ type AbstractRadioProps = Pick<
   | 'aria-labelledby'
 >
 
-export interface RadioProps extends AbstractRadioProps, Overridable {
+export interface RadioProps extends SystemComponentProps<AbstractRadioProps> {
   /**
    * Radio size
    * @default 'regular'

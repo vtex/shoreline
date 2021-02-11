@@ -3,7 +3,7 @@ import React, { ElementType, ReactNode, useMemo, forwardRef, Ref } from 'react'
 import { Box } from '../../Box'
 import { TableDensity, TableDir } from '../typings'
 import { StylesContext } from '../context'
-import { Overridable } from '../../../types'
+import { SystemComponent } from '../../../types'
 import { TableHead } from './Head'
 import { TableBody } from './Body'
 import { TableRow } from './Row'
@@ -62,7 +62,7 @@ export const Table = Object.assign(_Table, {
   Cell: TableCell,
 })
 
-export type TableProps = Overridable & {
+export type TableProps = SystemComponent & {
   /**
    * layout direction
    * @default ltr

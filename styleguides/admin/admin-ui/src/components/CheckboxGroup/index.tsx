@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { useSystem } from '@vtex/admin-core'
 
 import { Label } from '../Label'
-import { Overridable } from '../../types'
+import { SystemComponent } from '../../types'
 
 export function CheckboxGroup(props: CheckboxGroupProps) {
   const {
@@ -31,7 +31,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
   )
 }
 
-export interface CheckboxGroupProps extends Overridable {
+export interface CheckboxGroupProps extends SystemComponent {
   children?: ReactNode
   id?: string
   label?: string
