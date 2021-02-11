@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.34.0...@vtex/brand-ui@0.35.0) (2021-02-11)
+
+
+### Features
+
+* add no loop option to carousel ([f3e4e2b](https://github.com/vtex/onda/commit/f3e4e2bc87cd83a7e6cf163173d1471a48625f8a))
+
+
+
+
+
 # [0.34.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.33.0...@vtex/brand-ui@0.34.0) (2021-02-10)
 
 

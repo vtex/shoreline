@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-core",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "dist/index.js",
   "module": "dist/admin-core.esm.js",
   "typings": "dist/index.d.ts",
@@ -29,14 +29,14 @@
     "test": "tsdx test --passWithNoTests"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "react-dom": ">=16",
     "@emotion/css": ">=11",
-    "@emotion/react": ">=11"
+    "@emotion/react": ">=11",
+    "react": ">=16",
+    "react-dom": ">=16"
   },
   "dependencies": {
-    "@vtex/admin-ui-system": "^0.13.0",
-    "@vtex/admin-ui-theme": "^0.18.1",
+    "@vtex/admin-ui-system": "^0.13.1",
+    "@vtex/admin-ui-theme": "^0.18.2",
     "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",
     "tiny-invariant": "^1.1.0",

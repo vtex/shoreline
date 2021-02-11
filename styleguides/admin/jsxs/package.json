@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-jsxs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "module": "dist/admin-jsxs.esm.js",
   "typings": "dist/index.d.ts",
@@ -29,13 +29,13 @@
     "test": "tsdx test"
   },
   "peerDependencies": {
+    "@emotion/react": ">=11",
     "react": ">=16",
-    "react-dom": ">=16",
-    "@emotion/react": ">=11"
+    "react-dom": ">=16"
   },
   "devDependencies": {
-    "reakit": "^1.3.5",
-    "@emotion/react": "^11.1.5"
+    "@emotion/react": "^11.1.5",
+    "reakit": "^1.3.5"
   },
   "dependencies": {
     "tiny-invariant": "^1.1.0",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.82.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.0...@vtex/admin-ui@0.82.1) (2021-02-11)
+
+
+### Bug Fixes
+
+* **admin:** emotion deps on all /admin packages ([3562180](https://github.com/vtex/onda/commit/35621800491ffc5132235e83edcf6c086d0b3ce4))
+
+
+
+
+
 # [0.82.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.81.0...@vtex/admin-ui@0.82.0) (2021-02-08)
 
 
