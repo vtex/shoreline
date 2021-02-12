@@ -86,7 +86,7 @@ const components = {
       /** styles that will be on every variant */
       borderRadius: round,
     },
-    /** `palette` here, is the name of the variant */
+    /** `palette` is the name of the variant */
     palette: {
       primary: {
         /** sytles of the primary palette */
