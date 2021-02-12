@@ -95,6 +95,15 @@ export const theme = {
     medium: 500,
     bold: 600,
   },
+  fontVariationSettings: {
+    hairline: "'wght' 30",
+    thin: "'wght' 50",
+    light: "'wght' 65",
+    regular: "'wght' 92",
+    medium: "'wght' 120",
+    bold: "'wght' 170",
+    black: "'wght' 200",
+  },
   lineHeights: {
     small: 1.125,
     body: 1.25,
