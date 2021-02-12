@@ -1,17 +1,19 @@
 import { ReactNode } from 'react'
 import {
-  StyleProp,
   useResponsiveValue,
   ResponsiveValue,
   createComponent,
 } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
-import { Primitive } from '../Primitive'
+import { Flex, FlexProps } from '../Flex'
 
-export const Set = createComponent(Primitive, useSet)
+/**
+ * Component used to display a set of components that are spaced evenly.
+ */
+export const Set = createComponent(Flex, useSet)
 
-export function useSet(props: SetProps) {
+export function useSet(props: SetProps): FlexProps<'div'> {
   const {
     orientation = 'horizontal',
     fluid = false,
@@ -24,23 +26,7 @@ export function useSet(props: SetProps) {
 
   const currentOrientation = useResponsiveValue(orientation)
   const currentAlign = useResponsiveValue(align)
-
-  const styles: Record<string, StyleProp> = {
-    vertical: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: `flex-${currentAlign}`,
-    },
-    'vertical-fluid': {
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    horizontal: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: `flex-${currentAlign}`,
-    },
-  }
+  const isVertical = currentOrientation === 'vertical'
 
   const childrenSpacing = {
     horizontal: {
@@ -55,12 +41,12 @@ export function useSet(props: SetProps) {
     },
   }[currentOrientation]
 
-  const variant = `${currentOrientation}${fluid ? '-fluid' : ''}`
-
   return {
     themeKey,
+    direction: isVertical ? 'column' : 'row',
+    align: fluid ? 'unset' : isVertical ? currentAlign : 'center',
+    justify: fluid ? 'unset' : isVertical ? 'unset' : currentAlign,
     styles: {
-      ...styles[variant],
       ...childrenSpacing,
       ...styleOverrides,
     },
