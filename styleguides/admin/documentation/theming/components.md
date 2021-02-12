@@ -93,7 +93,7 @@ const components = {
         bg: 'blue',
       },
       danger: {
-        /** styles of the danger one... */
+        /** styles of the danger one */
         bg: 'red',
       },
       /** and so on... */
