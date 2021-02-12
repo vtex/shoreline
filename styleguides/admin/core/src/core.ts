@@ -1,8 +1,11 @@
 import { createContext, ReactNode, useContext } from 'react'
 import { CacheProvider } from '@vtex/admin-ui-system'
+import invariant from 'tiny-invariant'
+/** focus-visible polyfill  */
+import 'focus-visible/dist/focus-visible'
+
 import { createSystem, jsxs, defaultSystem } from './system'
 import { GlobalStyles } from './global'
-import invariant from 'tiny-invariant'
 
 const SystemContext = createContext<ReturnType<typeof createSystem> | null>(
   null
