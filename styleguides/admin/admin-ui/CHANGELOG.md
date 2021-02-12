@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.82.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.3...@vtex/admin-ui@0.82.4) (2021-02-12)
+
+
+### Bug Fixes
+
+* **admin-ui-set:** wrong type inference on useSet hook ([af4fb4b](https://github.com/vtex/onda/commit/af4fb4bbe26da397b1b343dc5c41e0544153c5e5))
+
+
+
+
+
 ## [0.82.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.2...@vtex/admin-ui@0.82.3) (2021-02-12)
 
 **Note:** Version bump only for package @vtex/admin-ui

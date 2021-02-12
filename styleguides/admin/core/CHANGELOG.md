@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/vtex/onda/compare/@vtex/admin-core@0.6.0...@vtex/admin-core@0.6.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* **admin-core:** add focus-visible polyfill ([71766bf](https://github.com/vtex/onda/commit/71766bfd3bd7328f81499325172ed45a8f822b7b))
+
+
+
+
+
 # [0.6.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.5.1...@vtex/admin-core@0.6.0) (2021-02-12)
 
 
