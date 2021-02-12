@@ -3,13 +3,7 @@ import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
 import { Global, css } from '@emotion/react'
 
-import {
-  ThemeProvider,
-  Paragraph,
-  Text,
-  useSystem,
-  createSystem,
-} from '@vtex/admin-ui'
+import { Paragraph, Text, useSystem } from '@vtex/admin-ui'
 import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
@@ -231,7 +225,6 @@ const { Compiler: renderAst } = new RehypeReact({
   },
 })
 
-const system = createSystem('docs')
 export default function Docs({ data, pageContext }: DocsProps) {
   const {
     markdownRemark: { title, htmlAst, excerpt },
@@ -240,7 +233,7 @@ export default function Docs({ data, pageContext }: DocsProps) {
   const { nextPagePath, prevPagePath } = pageContext
 
   return (
-    <ThemeProvider system={system}>
+    <>
       <Global
         styles={css`
           *,
@@ -475,7 +468,7 @@ export default function Docs({ data, pageContext }: DocsProps) {
       <Heading>{title}</Heading>
       {renderAst(htmlAst)}
       <DocsBackNext nextPath={nextPagePath} prevPath={prevPagePath} />
-    </ThemeProvider>
+    </>
   )
 }
 

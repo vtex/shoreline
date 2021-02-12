@@ -1,9 +1,9 @@
 ---
-path: /guide/icons/
+path: /packages/admin-ui-icons/
 fullPage: true
 ---
 
-# Icons
+# admin-ui-icons
 
 The icon set of the AdminUI.
 
