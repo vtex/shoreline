@@ -89,7 +89,7 @@ const components = {
     /** `palette` is the name of the variant */
     palette: {
       primary: {
-        /** sytles of the primary palette */
+        /** styles of the primary palette */
         bg: 'blue',
       },
       danger: {
