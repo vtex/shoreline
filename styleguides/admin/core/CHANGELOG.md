@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.5.1...@vtex/admin-core@0.6.0) (2021-02-12)
+
+
+### Features
+
+* **admin-core:** allow theme overrides & custom components ([607c59c](https://github.com/vtex/onda/commit/607c59c0685ebca2f774758da560999fa024d773))
+
+
+
+
+
 ## [0.5.1](https://github.com/vtex/onda/compare/@vtex/admin-core@0.5.0...@vtex/admin-core@0.5.1) (2021-02-11)
 
 
