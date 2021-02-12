@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import 'whatwg-fetch'
 import React from 'react'
 

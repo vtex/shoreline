@@ -41,28 +41,3 @@ function RootComponent() {
   return <ThemeProvider>{/** your app code here */}</ThemeProvider>
 }
 ```
-
-### TypeScript
-
-Note that if you are using a typescript version below `4.1` you will need to do the following steps (VTEX-IO apps are currently included here):
-
-1. Install `@emotion/react` as a dev dependency:
-
-```sh isStatic
-yarn add @emotion/react -D
-```
-
-2. Add the types within `tsconfig.json` (on VTEX-IO apps, choose the `tsconfig` within the `/react` folder):
-
-```json isStatic
-// tsconfig.json
-{
-  "compilerOptions": {
-    "types": ["@emotion/react/types/css-prop"]
-    // ...
-  }
-  // ...
-}
-```
-
-> This is due the `emotion 11` update. [Check more about it here](https://emotion.sh/docs/emotion-11)

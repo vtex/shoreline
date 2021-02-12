@@ -3,10 +3,10 @@
     - /guide/get-started/
     - /guide/experimental/
     - /guide/contributing/
-    - /guide/icons/
 - section: Theming
   paths:
     - /theming/theme-provider/
+    - /theming/components/
     - /theming/style-object/
     - /theming/inline-styles/
     - /theming/colors/
@@ -66,9 +66,11 @@
     - /form/text-area/
     - /form/toggle/
     - /form/search/
-- section: Deep dive 🐋
+- section: Packages
   paths:
-    - /deep-dive/system
+    - /packages/admin-styles/
+    - /packages/admin-ui-icons/
+    - /packages/gatsby-plugin-admin-ui/
 - section: Documentation Templates
   paths:
     - /documentation-template/

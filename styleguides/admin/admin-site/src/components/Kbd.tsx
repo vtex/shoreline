@@ -1,25 +1,22 @@
-import React from 'react'
-import { Text, TextProps } from '@vtex/admin-ui'
+import React, { ReactNode } from 'react'
+import { useSystem } from '@vtex/admin-ui'
 
-export default function Kbd(props: KbdProps) {
+export default function Kbd(props: Props) {
+  const { children } = props
+  const { cn } = useSystem()
+
   return (
-    <Text
-      element="kbd"
-      variant="small"
-      styleOverrides={{
-        paddingX: 2,
-        paddingY: 1,
-        borderRadius: 'default',
-        borderColor: 'mid.secondary',
-        bg: 'light.secondary',
-        borderBottomWidth: 3,
-        borderTopWidth: '1',
-        borderLeftWidth: 1,
-        borderRightWidth: 1,
-      }}
-      {...props}
-    />
+    <kbd
+      className={cn({
+        themeKey: 'components.kbd',
+        text: 'small',
+      })}
+    >
+      {children}
+    </kbd>
   )
 }
 
-export type KbdProps = TextProps
+interface Props {
+  children?: ReactNode
+}

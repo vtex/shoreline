@@ -66,7 +66,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-typescript',
-    'gatsby-plugin-emotion',
+    {
+      resolve: '@vtex/gatsby-plugin-admin-ui',
+      options: {
+        appName: 'admin-ui-docs',
+      },
+    },
     'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-source-filesystem',
