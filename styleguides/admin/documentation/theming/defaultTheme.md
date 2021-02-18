@@ -77,13 +77,13 @@ export default {
     black: "'wght' 200",
   },
   lineHeights: {
-    code: '1rem',
-    small: '1.125rem',
-    body: '1.25rem',
-    highlight: '1.25rem',
-    action: '1.5rem',
-    subtitle: '1.5rem',
-    headline: '1.5rem',
+    code: 1,
+    small: 1.125,
+    body: 1.25,
+    highlight: 1.25,
+    action: 1.5,
+    subtitle: 1.5,
+    headline: 1.5,
   },
 }
 ```
@@ -101,8 +101,6 @@ function Example() {
 }
 ```
 
-<blockquote palette="blue">
-
 | Value       | Description                                                 |
 | ----------- | ----------------------------------------------------------- |
 | `code`      | `pre` & `code` tags. Use wheather you need monospaced fonts |
@@ -112,8 +110,6 @@ function Example() {
 | `action`    | used on primary actions                                     |
 | `subtitle`  | for subtitles                                               |
 | `headline`  | for titles & page headers                                   |
-
-</blockquote>
 
 ```ts isStatic
 export default {
@@ -168,9 +164,7 @@ export default {
 
 ## Breakpoints
 
-Our styleguide comes with a predefined set of commonly used breakpoints.
-
-> Detailed info about Responsive Design
+Our styleguide comes with a predefined set of commonly used breakpoints. [Detailed info about Responsive Design]()
 
 ```ts isStatic
 export default {
@@ -182,8 +176,6 @@ export default {
 
 The `space` key allows you to customize the global spacing and sizing scale for your project. By default these spacing values can be referenced by the `padding`, `margin`, and `top`, `left`, `right`, `bottom` styles.
 
-<blockquote palette="blue">
-
 **Multiple Properties:** Combines two or more CSS properties into one.
 
 | Property   | Combines                      | Description        |
@@ -192,8 +184,6 @@ The `space` key allows you to customize the global spacing and sizing scale for 
 | `paddingY` | `paddingTop`, `paddingBottom` | Vertical padding   |
 | `marginX`  | `marginLeft`, `marginRight`   | Horizontal margin  |
 | `marginY`  | `marginTop`, `marginBottom`   | Vertical margin    |
-
-</blockquote>
 
 ```ts isStatic
 export default {
@@ -215,7 +205,11 @@ export default {
 
 The values are proportional, so 1 spacing unit is equal to 0.25rem, which translates to 4px by default in common browsers.
 
-> **Mental model**: If you need a spacing of 24px, divide it by 4. That'll give you 6. Then use it in your component.
+<blockquote palette="blue">
+
+**Mental model**: If you need a spacing of 24px, divide it by 4. That'll give you 6. Then use it in your component.
+
+</blockquote>
 
 | Token | rem         | Pixels | size                                                                       |
 | ----- | ----------- | ------ | -------------------------------------------------------------------------- |
@@ -235,15 +229,11 @@ The values are proportional, so 1 spacing unit is equal to 0.25rem, which transl
 
 The sizes key allows you to customize the global sizing of components you build for your project. By default these sizes value can be referenced by the `width`, `height`, and `maxWidth`, `minWidth`, `maxHeight`, `minHeight` styles.
 
-<blockquote palette="blue">
-
 **Multiple Properties:** Combines two or more CSS properties into one.
 
 | Property | Combines          | Description                                               |
 | -------- | ----------------- | --------------------------------------------------------- |
 | `size`   | `width`, `height` | Element size, useful to create a square or perfect circle |
-
-</blockquote>
 
 ```ts isStatic
 export default {
@@ -312,15 +302,11 @@ function Example() {
 }
 ```
 
-<blockquote palette="blue">
-
 | Value            | Description                                                     |
 | ---------------- | --------------------------------------------------------------- |
 | `default`        | the most common border-style used along with all the `admin`    |
 | `divider-bottom` | add a border dividing the current element with the one below it |
 | `divider-top`    | add a border dividing the current element with the one above it |
-
-</blockquote>
 
 ```ts isStatic
 export default {
