@@ -5,14 +5,11 @@
     - /guide/contributing/
 - section: Theming
   paths:
+    - /theming/default-theme/
     - /theming/theme-provider/
     - /theming/components/
     - /theming/style-object/
     - /theming/inline-styles/
-    - /theming/colors/
-    - /theming/space/
-    - /theming/sizes/
-    - /theming/typography/
     - /theming/responsive-design/
 - section: Primitives
   paths:

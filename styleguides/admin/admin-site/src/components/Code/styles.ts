@@ -5,7 +5,7 @@ export default {
     borderRadius: 'default',
     boxShadow: 'menu',
     overflow: 'visible',
-    marginBottom: '32px',
+    marginY: 5,
   },
   preview: {
     padding: 5,

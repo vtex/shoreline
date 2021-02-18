@@ -1,7 +1,7 @@
 import React from 'react'
-import { Box, Set, Text, Flex, BoxProps, useTheme, get } from '@vtex/admin-ui'
+import { Set, Text, Flex, useTheme, get, SetProps } from '@vtex/admin-ui'
 
-interface CardProps extends BoxProps<'div'> {
+interface CardProps extends SetProps {
   /** Color Value */
   color?: string
   /** Semantic color name */
@@ -14,12 +14,12 @@ function ColorCard(props: CardProps) {
   const { color, name, contrast, ...restProps } = props
 
   return (
-    <Box
-      styles={{
+    <Set
+      styleOverrides={{
         width: 265,
         borderRadius: 'default',
-        bg: 'light.secondary',
       }}
+      spacing={2}
       {...restProps}
     >
       <Flex
@@ -28,78 +28,35 @@ function ColorCard(props: CardProps) {
         styles={{
           backgroundColor: color,
           borderRadius: 'default',
-          borderBottomRightRadius: '0',
-          borderBottomLeftRadius: '0',
-          height: 110,
-          width: 'full',
+          height: 48,
+          width: 48,
           boxShadow: 'subtle',
-          marginBottom: 1,
           color: `${contrast ?? color}`,
           fontSize: '4',
         }}
       >
-        A
+        T
       </Flex>
-      <Flex justify="space-between" styles={{ padding: 3 }}>
-        <Set spacing={1} orientation="vertical">
-          <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
-            Color
-          </Text>
-          <Text
-            styleOverrides={{
-              display: 'block',
-            }}
-          >
-            {name}
-          </Text>
-        </Set>
 
-        <Set spacing={1} orientation="vertical">
-          <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
-            Hex
-          </Text>
-          <Text
-            styleOverrides={{
-              textTransform: 'uppercase',
-              display: 'block',
-            }}
-          >
-            {color}
-          </Text>
-        </Set>
-      </Flex>
-      {contrast && (
-        <Set
-          spacing={1}
-          orientation="vertical"
-          styleOverrides={{ padding: 3, paddingTop: 0 }}
+      <Set spacing={1} orientation="vertical">
+        <Text
+          styleOverrides={{
+            display: 'block',
+            fontSettings: 'bold',
+          }}
         >
-          <Text variant="highlight" styleOverrides={{ fontSettings: 'bold' }}>
-            Contrast
-          </Text>
-          <Flex align="center">
-            <Box
-              styles={{
-                marginRight: 2,
-                backgroundColor: `${contrast}`,
-                borderRadius: 'default',
-                height: 20,
-                width: 40,
-                boxShadow: 'subtle',
-                fontSize: '4',
-              }}
-            />
-            <Text
-              styleOverrides={{
-                display: 'block',
-              }}
-            >
-              {contrast}
-            </Text>
-          </Flex>
-        </Set>
-      )}
-    </Box>
+          {name}
+        </Text>
+        <Text
+          styleOverrides={{
+            textTransform: 'uppercase',
+            display: 'block',
+          }}
+        >
+          {color}
+        </Text>
+      </Set>
+    </Set>
   )
 }
 
