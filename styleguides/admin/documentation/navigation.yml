@@ -69,6 +69,7 @@
 - section: Hooks
   paths:
     - /hooks/use-theme/
+    - /hooks/use-responsive-value/
 - section: Packages
   paths:
     - /packages/admin-styles/

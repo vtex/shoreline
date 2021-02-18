@@ -50,23 +50,3 @@ If you want to skip a breakpoint, you can use the value `null`. This is useful i
   }}
 />
 ```
-
-## 🎣 React hooks
-
-You can also use the `useResponsiveValue` hook. It can turn any value in a responsive value.
-
-```jsx noInline
-function Example() {
-  const mobileText = '📱 mobile'
-  const aboveTabletText = '🖥 tablet & above'
-  const text = useResponsiveValue([mobileText, aboveTabletText])
-
-  return (
-    <Box styles={{ padding: 4, bg: 'dark.primary', color: 'light.primary' }}>
-      {text}
-    </Box>
-  )
-}
-
-render(<Example />)
-```
