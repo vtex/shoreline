@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
-import { useSystem } from '@vtex/admin-ui'
+import { Flex, useSystem } from '@vtex/admin-ui'
 
 import Experimental from '../icons/Experimental'
 
@@ -31,10 +31,10 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
       return {
         ...htmlProps,
         children: isExperimental ? (
-          <Fragment>
+          <Flex align="center">
             <Experimental />
             <div>{htmlProps.children}</div>
-          </Fragment>
+          </Flex>
         ) : (
           htmlProps.children
         ),
@@ -44,8 +44,8 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
           borderLeftColor: `${palette}`,
           borderLeftWidth: 8,
           borderLeftStyle: 'solid',
-          paddingY: 5,
-          paddingX: 6,
+          paddingY: 2,
+          paddingX: 3,
           marginY: 5,
           lineHeight: '1.5',
           borderRadius: 'default',
