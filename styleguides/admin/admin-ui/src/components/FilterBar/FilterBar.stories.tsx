@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { FilterBar, StatementsProps } from './index'
+import { FilterBar } from './index'
 import { Box } from '../Box'
-
+import { StatementsProps } from './typings'
 export default {
   title: 'components/FilterBar',
   component: FilterBar,
@@ -57,7 +57,7 @@ export const WithStatements: Story = () => {
             },
           },
           {
-            label: 'Store',
+            label: 'Specific Store Label',
             conditions,
             resolver: {
               type: 'simple',
@@ -69,20 +69,9 @@ export const WithStatements: Story = () => {
               accessor: 'label',
             },
           },
-          {
-            label: 'Root',
-            conditions,
-            resolver: {
-              type: 'root',
-              render: (props) => {
-                console.log(props)
-                return <div>test</div>
-              },
-            },
-          },
         ]}
         handleStatementChange={(statements) => {
-          console.log(statements)
+          console.log('statements', statements)
           setState(statements)
         }}
       />
@@ -90,7 +79,7 @@ export const WithStatements: Story = () => {
   )
 }
 
-type FilterTypes = Items | ItemsTest
+type FilterTypes = Items | ItemsTest | Range | string
 
 interface Items {
   label: string
@@ -99,4 +88,9 @@ interface Items {
 interface ItemsTest {
   label: string
   id: string
+}
+
+interface Range {
+  before?: number
+  after?: number
 }

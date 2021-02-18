@@ -1,39 +1,42 @@
-import React, { useCallback, useReducer } from 'react'
+import React, { useReducer } from 'react'
 
 import { Box } from '../Box'
 import { Button } from '../Button'
 import { IconAdd } from '@vtex/admin-ui-icons'
 import { Statement } from './components/Statement'
 import { Set } from '../Set'
-import { baseResolvers, BaseResolvers } from './resolvers/base'
 import { Flex } from '../Flex'
 import { Paragraph } from '../Paragraph'
-import { HandleStateProvider } from './context'
-import { Resolver } from './resolvers/core'
 import { useFilterBar } from './useFilterBar'
+import {
+  ConditionProps,
+  ConjunctionProps,
+  FilterBarProps,
+  FilterProps,
+} from './typings'
+import { FilterBarProvider } from './context'
 
 export function FilterBar<T>(props: FilterBarProps<T>) {
   const {
-    filters = [],
-    statements: initialStatements = [],
-    handleStatementChange,
-    conjunction: initialConjunction = 'And',
+    reducer,
+    conjunction: initialConjunction,
+    statements: initialStatements,
+    filters,
+    resolvers,
     label,
-    resolvers = baseResolvers<T>(),
-  } = props
+    handleStatementChange,
+    ...restProps
+  } = useFilterBar(props)
 
-  const [
-    { conjunction = initialConjunction, statements },
-    dispatch,
-  ] = useReducer(
-    useCallback(
-      (state: StatementsProps<T>, action: Action<T>) => reducer(state, action),
-      []
-    ),
-    { conjunction: initialConjunction, statements: initialStatements }
+  const initialState = {
+    conjunction: initialConjunction,
+    statements: initialStatements,
+  }
+
+  const [{ conjunction, statements }, dispatch] = useReducer(
+    reducer,
+    initialState
   )
-
-  const { resolveValue } = useFilterBar<T>({ resolvers })
 
   const handleNewStatement = () =>
     dispatch({
@@ -62,7 +65,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleStatementChange,
     })
 
-  const handleValueChange = (value: T, index: number) =>
+  const handleValueChange = (value: T | undefined, index: number) =>
     dispatch({
       type: 'value',
       value,
@@ -94,17 +97,17 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
     })
 
   return (
-    <HandleStateProvider
-      {...{
-        handleValueChange,
-        handleConditionChange,
-        handleConjunctionChange,
-        handleDeleteStatement,
-        handleFilterChange,
-        handleDuplicateStatement,
-      }}
+    <FilterBarProvider
+      filters={filters}
+      resolvers={resolvers}
+      handleValueChange={handleValueChange}
+      handleConditionChange={handleConditionChange}
+      handleConjunctionChange={handleConjunctionChange}
+      handleDeleteStatement={handleDeleteStatement}
+      handleFilterChange={handleFilterChange}
+      handleDuplicateStatement={handleDuplicateStatement}
     >
-      <Box styles={{ border: 'default' }}>
+      <Box styles={{ border: 'default' }} {...restProps}>
         {statements.length === 0 ? (
           <Box styles={{ padding: 4, paddingLeft: 6, bg: 'light.secondary' }}>
             <Paragraph>{label}</Paragraph>
@@ -117,10 +120,8 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
                   <Statement
                     key={index}
                     index={index}
-                    conjunction={conjunction}
+                    conjunction={conjunction ?? initialConjunction}
                     statement={statement}
-                    filters={filters}
-                    resolveValue={resolveValue}
                   />
                 )
               })}
@@ -135,7 +136,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
             size="small"
             variant="tertiary"
             icon={<IconAdd />}
-            onClick={() => handleNewStatement()}
+            onClick={handleNewStatement}
           >
             Add Filter
           </Button>
@@ -143,200 +144,12 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
             size="small"
             variant="adaptative-dark"
             styleOverrides={{ color: 'dark.secondary' }}
-            onClick={() => handleFiltersReset()}
+            onClick={handleFiltersReset}
           >
             Reset Filters
           </Button>
         </Flex>
       </Box>
-    </HandleStateProvider>
+    </FilterBarProvider>
   )
-}
-
-function reducer<T>(
-  state: StatementsProps<T>,
-  action: Action<T>
-): StatementsProps<T> {
-  switch (action.type) {
-    case 'conjunction': {
-      const { conjunction, handleStatementChange } = action
-      const { statements } = state
-
-      const nextState = { conjunction, statements }
-
-      handleStatementChange(nextState)
-
-      return nextState
-    }
-    case 'filter': {
-      const { filter, handleStatementChange, index } = action
-      const { conjunction, statements: currentStatements } = state
-
-      let statements = currentStatements
-      statements[index] = { ...currentStatements[index], filter }
-
-      const nextState = { conjunction, statements }
-
-      handleStatementChange(nextState)
-
-      return nextState
-    }
-    case 'condition': {
-      const { condition, handleStatementChange, index } = action
-      const { conjunction, statements } = state
-
-      let nextState = statements
-      nextState[index] = { ...statements[index], condition }
-
-      handleStatementChange({ conjunction, statements: nextState })
-
-      return { conjunction, statements: nextState }
-    }
-    case 'value': {
-      const { value, handleStatementChange, index } = action
-      const { conjunction, statements: currentStatements } = state
-
-      let statements = currentStatements
-      statements[index] = { ...currentStatements[index], value }
-
-      const nextState = { conjunction, statements }
-
-      handleStatementChange(nextState)
-
-      return nextState
-    }
-    case 'newStatement': {
-      const { handleStatementChange, filter } = action
-      const { conjunction, statements } = state
-
-      const emptyStatement = {
-        filter: filter,
-        condition: filter.conditions[0],
-      } as StatementProps<T>
-
-      const nextState = {
-        conjunction,
-        statements: [...statements, emptyStatement],
-      }
-
-      handleStatementChange(nextState)
-
-      return nextState
-    }
-    case 'filtersReset': {
-      const { handleStatementChange } = action
-
-      const nextState = {
-        conjunction: 'And',
-        statements: [],
-      } as StatementsProps<T>
-
-      handleStatementChange(nextState)
-
-      return nextState
-    }
-    case 'duplicateStatement': {
-      const { index, handleStatementChange } = action
-      const { conjunction, statements } = state
-
-      const duplicatedStatement = statements[index]
-
-      const nextState = {
-        conjunction,
-        statements: [...statements, duplicatedStatement],
-      }
-
-      handleStatementChange(nextState)
-
-      return nextState
-    }
-    case 'deleteStatement': {
-      const { index, handleStatementChange } = action
-      const { conjunction, statements } = state
-
-      statements.splice(index, 1)
-      const nextState = { conjunction, statements }
-
-      handleStatementChange(nextState)
-
-      return nextState
-    }
-  }
-}
-
-export type Action<T> =
-  | {
-      type: 'conjunction'
-      conjunction: ConjunctionProps
-      handleStatementChange: (statement: StatementsProps<T>) => void
-    }
-  | {
-      type: 'filter'
-      filter: FilterProps<T>
-      index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
-    }
-  | {
-      type: 'condition'
-      condition: ConditionProps
-      index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
-    }
-  | {
-      type: 'value'
-      value: T
-      index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
-    }
-  | {
-      type: 'newStatement'
-      filter: FilterProps<T>
-      handleStatementChange: (statement: StatementsProps<T>) => void
-    }
-  | {
-      type: 'filtersReset'
-      handleStatementChange: (statement: StatementsProps<T>) => void
-    }
-  | {
-      type: 'duplicateStatement'
-      index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
-    }
-  | {
-      type: 'deleteStatement'
-      index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
-    }
-
-export interface FilterBarProps<T> {
-  handleStatementChange: (statements: StatementsProps<T>) => void
-  conjunction?: ConjunctionProps
-  statements?: StatementProps<T>[]
-  filters: FilterProps<T>[]
-  label: string
-  resolvers?: Record<string, Resolver<T>>
-}
-
-export type ConjunctionProps = 'And' | 'Or'
-
-export interface FilterProps<T, R = BaseResolvers<T>> {
-  label: string
-  conditions: ConditionProps[]
-  resolver: R
-}
-
-export interface ConditionProps {
-  label: string
-  id: string
-}
-
-export interface StatementsProps<T> {
-  statements: StatementProps<T>[]
-  conjunction?: ConjunctionProps
-}
-
-export interface StatementProps<T, R = BaseResolvers<T>> {
-  condition: ConditionProps
-  value: T
-  filter: FilterProps<T, R>
 }

@@ -1,37 +1,37 @@
-import React, { useContext, createContext } from 'react'
+import React, { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
-import { ConditionProps, ConjunctionProps, FilterProps } from './index'
+import { Resolver } from './resolvers/core'
+import { ConditionProps, ConjunctionProps, FilterProps } from './typings'
 
-export interface HandleStateProps<T> {
+export interface FilterBarContextProps<T extends {}> {
+  filters: FilterProps<T>[]
+  resolvers: Record<string, Resolver<T>>
   handleFilterChange: (filter: FilterProps<T>, index: number) => void
   handleConditionChange: (filter: ConditionProps, index: number) => void
-  handleValueChange: (value: T, index: number) => void
+  handleValueChange: (value: T | undefined, index: number) => void
   handleConjunctionChange: (conjunction: ConjunctionProps) => void
   handleDeleteStatement: (index: number) => void
   handleDuplicateStatement: (index: number) => void
 }
 
-const HandleStateContext = createContext<HandleStateProps<any> | null>(null)
+const FilterBarContext = createContext<FilterBarContextProps<{}> | null>(null)
 
-export function useHandleStateContext() {
-  const context = useContext(HandleStateContext)
-
-  invariant(
-    context,
-    'Do not use handle changes functions without Handle Changes context'
-  )
-
-  return context
-}
-
-export function HandleStateProvider<T>(
-  props: React.PropsWithChildren<HandleStateProps<T>>
+export function FilterBarProvider<T>(
+  props: React.PropsWithChildren<FilterBarContextProps<T>>
 ) {
   const { children, ...restProps } = props
 
   return (
-    <HandleStateContext.Provider value={restProps}>
+    <FilterBarContext.Provider value={restProps as any}>
       {children}
-    </HandleStateContext.Provider>
+    </FilterBarContext.Provider>
   )
+}
+
+export function useFilterBarContext<T>() {
+  const context = useContext<FilterBarContextProps<T>>(FilterBarContext as any)
+
+  invariant(context, 'context null')
+
+  return context
 }

@@ -3,45 +3,33 @@ import { IconAction, IconDelete, IconDuplicate } from '@vtex/admin-ui-icons'
 import { get } from '@vtex/admin-core'
 
 import { Set } from '../../Set'
-import { FilterProps, StatementProps, ConjunctionProps } from '../index'
+import { StatementProps, ConjunctionProps } from '../typings'
 import { Flex } from '../../Flex'
 import { Button } from '../../Button'
-import { ResolveFilterArgs } from '../resolvers/core'
+import { ResolvedValue } from '../resolvers/core'
 import { Box } from '../../Box'
 import { Menu } from '../../Menu'
 import { Dropdown, DropdownProps, useDropdownState } from '../../Dropdown'
-import { useHandleStateContext } from '../context'
+import { useFilterBarContext } from '../context'
 
 export interface NewStatementProps<T> {
-  filters: FilterProps<T>[]
   statement: StatementProps<T>
   conjunction: ConjunctionProps
   index: number
-  resolveValue: (
-    args: Pick<
-      ResolveFilterArgs<T>,
-      'statement' | 'index' | 'handleValueChange'
-    >
-  ) => React.ReactNode
 }
 
 export function Statement<T>(props: NewStatementProps<T>) {
-  const { filters, statement, index, conjunction, resolveValue } = props
-
+  const { statement, index, conjunction } = props
   const {
+    filters,
+    resolvers,
     handleConjunctionChange,
     handleConditionChange,
     handleFilterChange,
     handleValueChange,
     handleDeleteStatement,
     handleDuplicateStatement,
-  } = useHandleStateContext()
-
-  const value = resolveValue({
-    statement,
-    index,
-    handleValueChange,
-  })
+  } = useFilterBarContext<T>()
 
   const filtersState = useDropdownState({
     items: filters,
@@ -55,10 +43,10 @@ export function Statement<T>(props: NewStatementProps<T>) {
     },
   })
 
-  const conditions = filtersState.selectedItem?.conditions ?? []
+  const conditions = statement.filter.conditions
 
   const conditionsState = useDropdownState({
-    items: filtersState.selectedItem?.conditions ?? [],
+    items: conditions,
     selectedItem: statement.condition,
     onSelectedItemChange: ({ selectedItem: condition }) => {
       if (condition) {
@@ -67,40 +55,46 @@ export function Statement<T>(props: NewStatementProps<T>) {
     },
   })
 
-  const conjunctionMessage = index === 0 ? 'Where' : conjunction
+  const message = index === 0 ? 'Where' : conjunction
 
   return (
-    <Flex justify="space-between" styles={{ width: '100%' }} key={index}>
+    <Flex justify="space-between" styles={{ width: 'full' }} key={index}>
       <Set
         spacing={2}
-        styleOverrides={{ '> div:nth-child(n+2)': { minWidth: 150 } }}
+        styleOverrides={{
+          '> div:nth-child(n+2)': { minWidth: 150 },
+          '> div:first-child': { minWidth: 100 },
+        }}
       >
         {index === 1 ? (
-          <SelectConjunction
+          <ConjunctionDropdown
             conjunction={conjunction}
             handleConjunctionChange={handleConjunctionChange}
           />
         ) : (
-          <Box styles={{ paddingLeft: 3, width: 100 }}>
-            {conjunctionMessage}
-          </Box>
+          <Box styles={{ paddingLeft: 3, width: 100 }}>{message}</Box>
         )}
 
-        <StatementDropdown
+        <CustomDropdown
           state={filtersState}
           renderItem={(item) => get(item, 'label', undefined)}
           label="Filter"
           items={filters}
           variant="adaptative-dark"
         />
-        <StatementDropdown
+        <CustomDropdown
           renderItem={(item) => get(item, 'label', undefined)}
           state={conditionsState}
           label="Condition"
           items={conditions}
           variant="adaptative-dark"
         />
-        {value}
+        <ResolvedValue
+          resolvers={resolvers}
+          statement={statement}
+          index={index}
+          handleValueChange={handleValueChange}
+        />
       </Set>
 
       <Menu
@@ -121,10 +115,7 @@ export function Statement<T>(props: NewStatementProps<T>) {
           Duplicate
         </Menu.Item>
         <Menu.Item
-          onClick={() => {
-            handleDeleteStatement(index)
-            console.log(statement)
-          }}
+          onClick={() => handleDeleteStatement(index)}
           icon={<IconDelete />}
         >
           Delete
@@ -134,12 +125,12 @@ export function Statement<T>(props: NewStatementProps<T>) {
   )
 }
 
-interface SelectConjunctionProps {
+interface ConjunctionDropdownProps {
   conjunction: ConjunctionProps
   handleConjunctionChange: (conjunction: ConjunctionProps) => void
 }
 
-function SelectConjunction(props: SelectConjunctionProps) {
+function ConjunctionDropdown(props: ConjunctionDropdownProps) {
   const { conjunction, handleConjunctionChange } = props
   const conjunctions = ['And', 'Or'] as ConjunctionProps[]
 
@@ -154,25 +145,44 @@ function SelectConjunction(props: SelectConjunctionProps) {
   })
 
   return (
-    <StatementDropdown
+    <Dropdown
       state={conjunctionState}
       items={conjunctions}
       label="Conjunction"
       variant="adaptative-dark"
-      styleOverrides={{ width: 100 }}
+      styleOverrides={{
+        width: 100,
+        bg: 'light.primary',
+        border: 'default',
+        color: 'dark.secondary',
+        div: {
+          justifyContent: 'space-between',
+        },
+      }}
     />
   )
 }
 
-function StatementDropdown<T>(props: DropdownProps<T>) {
+function CustomDropdown<T extends { label?: string }>(props: DropdownProps<T>) {
   const { styleOverrides, ...restProps } = props
 
   return (
     <Dropdown
       variant="adaptative-dark"
       {...restProps}
+      renderItem={(item) => (
+        <Box
+          styles={{
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {item?.label}
+        </Box>
+      )}
       styleOverrides={{
-        width: '100%',
+        width: 150,
         bg: 'light.primary',
         border: 'default',
         color: 'dark.secondary',

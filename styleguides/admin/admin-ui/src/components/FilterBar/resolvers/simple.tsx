@@ -45,7 +45,7 @@ export function simpleResolver<T extends { label?: string }>() {
           items={items}
           variant="adaptative-dark"
           styleOverrides={{
-            width: '100%',
+            width: 150,
             bg: 'light.primary',
             border: 'default',
             color: 'dark.secondary',
@@ -56,7 +56,7 @@ export function simpleResolver<T extends { label?: string }>() {
         />
       )
 
-      return render({ data, statement, index, handleValueChange })
+      return render({ data, statement, handleValueChange, index })
     },
   })
 }

@@ -9,12 +9,17 @@ export function rootResolver<T>() {
       const { filter } = statement
 
       const { resolver } = filter
-      console.log('resolver root')
+
       invariant(resolver, 'resolver is required while using the root resolver')
 
       const render = resolver.render
 
-      return render({ data: null, statement, index, handleValueChange })
+      return render({
+        data: null,
+        statement,
+        index,
+        handleValueChange,
+      })
     },
   })
 }
