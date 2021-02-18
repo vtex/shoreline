@@ -66,11 +66,11 @@
     - /form/text-area/
     - /form/toggle/
     - /form/search/
+- section: Hooks
+  paths:
+    - /hooks/use-theme/
 - section: Packages
   paths:
     - /packages/admin-styles/
     - /packages/admin-ui-icons/
     - /packages/gatsby-plugin-admin-ui/
-- section: Documentation Templates
-  paths:
-    - /documentation-template/
