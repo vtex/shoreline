@@ -35,34 +35,36 @@ export const Popover = ({
   const handleClickClose = () => popover.hide()
 
   return (
-    <BasePopover
-      {...props}
-      {...popover}
-      sx={{ ...sx, pr: showClose ? 4 : 0 }}
-      unstable_autoFocusOnShow={false}
-      arrow={
-        variant === 'regular' ? (
-          <PopoverArrow
-            as={Box}
-            size={25}
-            variant={`popover.arrow.${popover.placement}`}
-            placement={popover.placement}
-          />
-        ) : undefined
-      }
-    >
-      {children}
-      {showClose && (
-        <Box variant="popover.close">
-          <Button
-            size="small"
-            variant="tertiary"
-            icon={() => <IconClose size={30} />}
-            onClick={handleClickClose}
-          />
-        </Box>
-      )}
-    </BasePopover>
+    <Box sx={{ zIndex: 9999 }}>
+      <BasePopover
+        {...props}
+        {...popover}
+        sx={{ ...sx, pr: showClose ? 4 : 0 }}
+        unstable_autoFocusOnShow={false}
+        arrow={
+          variant === 'regular' ? (
+            <PopoverArrow
+              as={Box}
+              size={25}
+              variant={`popover.arrow.${popover.placement}`}
+              placement={popover.placement}
+            />
+          ) : undefined
+        }
+      >
+        {children}
+        {showClose && (
+          <Box variant="popover.close">
+            <Button
+              size="small"
+              variant="tertiary"
+              icon={() => <IconClose size={30} />}
+              onClick={handleClickClose}
+            />
+          </Box>
+        )}
+      </BasePopover>
+    </Box>
   )
 }
 
