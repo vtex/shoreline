@@ -184,7 +184,7 @@ This type of button combines an icon and an action. It embodies more complex act
 
 ```jsx
 <Set orientation="vertical">
-  <Button icon={<IconFavorite />} iconPosition="start" mr="20px">
+  <Button icon={<IconFavorite />} iconPosition="start">
     Icon start
   </Button>
   <Button icon={<IconCaret direction="down" />} iconPosition="end">

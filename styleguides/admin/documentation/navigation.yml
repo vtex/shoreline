@@ -3,12 +3,14 @@
     - /guide/get-started/
     - /guide/experimental/
     - /guide/contributing/
+- section: Core concepts
+  paths:
+    - /core-concepts/styles/
 - section: Theming
   paths:
     - /theming/default-theme/
     - /theming/theme-provider/
     - /theming/components/
-    - /theming/style-object/
     - /theming/inline-styles/
     - /theming/responsive-design/
 - section: Primitives

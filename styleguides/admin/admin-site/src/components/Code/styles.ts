@@ -2,10 +2,9 @@ import { StyleObject } from '@vtex/admin-ui'
 
 export default {
   wrapper: {
-    borderRadius: 'default',
-    boxShadow: 'menu',
     overflow: 'visible',
     marginY: 5,
+    border: 'default',
   },
   preview: {
     padding: 5,
@@ -13,18 +12,17 @@ export default {
     color: 'dark.primary',
     bg: 'light.primary',
     minHeight: 'auto',
+    borderRadius: 'default',
   },
   editorWrapper: {
-    fontFamily:
-      "Hack, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-    fontVariant:
-      'no-common-ligatures no-discretionary-ligatures no-historical-ligatures no-contextual',
+    borderBottomLeftRadius: 'default',
+    borderBottomRightRadius: 'default',
+    font: 'mono',
     overflow: 'auto',
     position: 'relative',
     'textarea, pre': {
       fontSize: '14px !important',
       lineHeight: '22px !important',
-      padding: '1rem !important',
     },
     '* > textarea:focus': { outline: 'none' },
     '.token': { fontStyle: 'normal !important' },
@@ -33,10 +31,7 @@ export default {
     display: 'block',
     whiteSpace: 'pre-wrap',
     textAlign: 'left',
-    fontFamily:
-      "Hack, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-    fontVariant:
-      'no-common-ligatures no-discretionary-ligatures no-historical-ligatures no-contextual',
+    font: 'mono',
     padding: '1rem',
     bg: 'red.secondary',
     color: 'red',
@@ -44,10 +39,9 @@ export default {
   },
   copyButton: {
     position: 'absolute',
-    top: '0',
-    right: '0',
+    top: 1,
+    right: 1,
     zIndex: 1,
-    color: 'light.primary',
   },
   preHeader: {
     bg: 'dark.primary',

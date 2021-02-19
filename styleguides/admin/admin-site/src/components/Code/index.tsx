@@ -69,7 +69,7 @@ export function Code(props: CodeProps) {
             <Box styles={styles.editorWrapper}>
               <Button
                 size="small"
-                variant="adaptative-light"
+                variant="secondary"
                 onClick={handleClick}
                 disabled={copied}
                 styleOverrides={styles.copyButton}
@@ -117,7 +117,7 @@ export function Code(props: CodeProps) {
             >
               <Button
                 size="small"
-                variant="adaptative-light"
+                variant="secondary"
                 onClick={handleClick}
                 disabled={copied}
                 styleOverrides={styles.copyButton}
