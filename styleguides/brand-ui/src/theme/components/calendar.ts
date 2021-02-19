@@ -63,7 +63,7 @@ const monthCell: SxStyleProp = {
     borderStyle: 'solid',
     borderWidth: '2px',
     color: 'primary.base',
-    fontWeight: 500,
+    fontVariationSettings: 'medium',
   },
 }
 

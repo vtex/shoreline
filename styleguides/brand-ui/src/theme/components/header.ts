@@ -62,7 +62,7 @@ const rightLinks = {
     marginX: 4,
     paddingX: 1,
     fontSize: 1,
-    fontWeight: 'medium',
+    fontVariationSettings: 'medium',
     '&:hover': {
       color: 'primary.base',
     },

@@ -44,7 +44,7 @@ export const TextExample = () => {
       </Box>
     ) : (
         <Box>
-          <Text sx={{ fontWeight: 'bold', margin: 2, width: 'min-content' }}> Developing </Text>
+          <Text sx={{ fontVariationSettings: 'bold', margin: 2, width: 'min-content' }}> Developing </Text>
           <Text sx={{ fontSize: 1, margin: 2 }}>
             The VTEX team welcomes and thanks you for developing with us. We are
             committed in provide the best developer experience through
