@@ -1,24 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ElementType } from 'react'
+import React, { ElementType, ReactElement } from 'react'
 import * as CSS from 'csstype'
-import { ResponsiveValue, omit, pick } from '@vtex/admin-core'
+import { ResponsiveValue, omit, pick, createComponent } from '@vtex/admin-core'
 
 import { Box, BoxProps } from '../Box'
+import { Primitive } from '../Primitive'
 
 /**
  * Flex default element
  */
 const defaultElement = 'div'
 
-export function Flex<E extends ElementType = typeof defaultElement>(
+const _Flex: <E extends ElementType = typeof defaultElement>(
   props: FlexProps<E>
-) {
-  const flexProps = useFlex(props)
+) => ReactElement | null = createComponent(Primitive, useFlex)
 
-  return <Box {...flexProps} />
-}
+export const Flex = Object.assign(_Flex, { Spacer: FlexSpacer })
 
-Flex.Spacer = function Spacer() {
+export function FlexSpacer() {
   return (
     <Box
       styles={{

@@ -1,22 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ElementType } from 'react'
+import { ElementType, ReactElement } from 'react'
 import * as CSS from 'csstype'
-import { omit, pick, ResponsiveValue } from '@vtex/admin-core'
+import { createComponent, omit, pick, ResponsiveValue } from '@vtex/admin-core'
 
-import { Box, BoxProps } from '../Box'
+import { Primitive, PrimitiveProps } from '../Primitive'
 
 /**
  * Grid default element
  */
 const defaultElement = 'div'
 
-export function GridItem<E extends ElementType = typeof defaultElement>(
+export const GridItem: <E extends ElementType = typeof defaultElement>(
   props: GridItemProps<E>
-) {
-  const gridItemProps = useGridItem(props)
-
-  return <Box {...gridItemProps} />
-}
+) => ReactElement | null = createComponent(Primitive, useGridItem)
 
 export function useGridItem(props: GridItemProps) {
   const propertyMap = {
@@ -53,4 +49,4 @@ export interface GridItemOwnProps {
 
 export type GridItemProps<
   E extends ElementType = ElementType
-> = GridItemOwnProps & BoxProps<E>
+> = GridItemOwnProps & PrimitiveProps<E>
