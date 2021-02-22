@@ -26,13 +26,15 @@ We also have other packages that are responsible for provide the entire structur
 
 ## Learning Curve
 
-[WIP]
+**Styleguide:** The same as learning functional CSS using [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/).
+
+**Admin UI:** We use [emotion](https://emotion.sh/docs/introduction) to implement a CSS-like, and prop-based model of styling components, making it easy to learn.
 
 ## Styling
 
 In most applications, it is a common challenge to want to override styles for a specific context to match design requirements.
 
-**Styleguide:** Given that the Styleguide uses [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/) as a CSS utility framework, you may need to rewrite the tachyons config to override specific `classNames`. To avoid conflict with the classNames defined in the component, they do not receive `className` as property, so it's common to create a container or properties to override styles.
+**Styleguide:** Given that Styleguide uses [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/) as a CSS utility framework, you may need to rewrite the tachyons config to override specific `classNames`. To avoid conflict with the classes defined in the component, they do not receive `className` as property, so it's common to create a container or properties to override styles.
 
 ```jsx isStatic
 <Card noPadding>
