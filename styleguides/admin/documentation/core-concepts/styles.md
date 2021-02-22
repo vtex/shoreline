@@ -67,7 +67,7 @@ Sometimes it’s useful to nest selectors to target elements inside the current 
 
 ## className
 
-Scoped clasNames can also be created and reused multiple times.
+Scoped classNames can also be created and reused multiple times.
 
 ```jsx
 <Box
