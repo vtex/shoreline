@@ -23,7 +23,7 @@ const styles: SxStyleProp = {
 const option: SxStyleProp = {
   fontSize: 1,
   px: 4,
-  fontWeight: '300',
+  fontVariationSettings: 'light',
   color: 'black',
   fontFamily: 'sans-serif',
 }

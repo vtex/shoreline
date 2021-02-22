@@ -14,7 +14,6 @@ const timeline = {
     pb: 6,
     title: {
       fontSize: [2, 3],
-      fontWeight: 'regular',
     },
     subtitle: {
       mt: 2,

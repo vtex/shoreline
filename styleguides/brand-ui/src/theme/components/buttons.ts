@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const styles = {
   textTransform: 'uppercase',
-  fontWeight: 'medium',
+  fontVariationSettings: 'medium',
   borderWidth: 1,
   borderRadius: 3,
   fontSize: 1,

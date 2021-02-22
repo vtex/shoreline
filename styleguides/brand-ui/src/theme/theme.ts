@@ -84,6 +84,11 @@ export const theme = {
   toast,
   select,
   skeleton,
+  styles: {
+    root: {
+      fontVariationSettings: 'regular',
+    },
+  },
   fonts: {
     body: 'sans-serif',
     heading: 'sans-serif',

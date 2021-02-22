@@ -35,7 +35,7 @@ const action: SxStyleProp = {
   border: 'none',
   mr: [0, 2],
   ml: [0, 6],
-  fontWeight: 600,
+  fontVariationSettings: 'bold',
   textTransform: 'uppercase',
   cursor: 'pointer',
 }
