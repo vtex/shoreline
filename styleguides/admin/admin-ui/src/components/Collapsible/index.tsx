@@ -116,6 +116,7 @@ function Disclosure({ children }: { children: ReactNode }) {
             variant="tertiary"
             styleOverrides={{
               color: 'dark.primary',
+              textTransform: "none",
               '&:hover': { backgroundColor: 'transparent' },
               '&:active': { backgroundColor: 'transparent' },
             }}
