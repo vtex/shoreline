@@ -2,6 +2,7 @@
   paths:
     - /guide/get-started/
     - /guide/experimental/
+    - /guide/comparison/
     - /guide/contributing/
 - section: Core concepts
   paths:
