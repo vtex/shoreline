@@ -108,7 +108,7 @@ const eventsWithCustomComponent: Events = {
     colors: ['#FF4C4C'],
     component: CustomComponent,
   },
-  '2020-03-30': {
+  '2021-02-20': {
     events: [
       {
         name: 'Collections and Checkout are having some instabilities',
@@ -119,5 +119,5 @@ const eventsWithCustomComponent: Events = {
 }
 
 export const WithCustomComponent = () => (
-  <Calendar month={3} events={eventsWithCustomComponent} locale="en" />
+  <Calendar month={2} events={eventsWithCustomComponent} locale="en" />
 )

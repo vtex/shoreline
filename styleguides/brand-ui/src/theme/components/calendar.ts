@@ -15,6 +15,7 @@ const baseCell: SxStyleProp = {
   height: ['35px', '44px'],
   position: 'relative',
   fontSize: [2, 3],
+  pointerEvents: 'auto',
 }
 
 const weekdayCell: SxStyleProp = {
@@ -27,7 +28,6 @@ const activeDayCell: SxStyleProp = {
   backgroundColor: 'focus',
   color: 'secondary.base',
   outline: 'none',
-  pointerEvents: 'none',
 }
 
 const hoverDayCell: SxStyleProp = {
@@ -43,12 +43,13 @@ const baseDayCell: SxStyleProp = {
   },
   ':focus': {
     ...activeDayCell,
+    pointerEvents: 'none',
   },
   ':disabled': {
     cursor: 'not-allowed',
     border: 'none',
   },
-  active: {
+  ':active': {
     ...baseCell,
     ...activeDayCell,
   },
