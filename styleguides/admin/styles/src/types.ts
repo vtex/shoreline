@@ -296,6 +296,10 @@ export type StyleProp = StyleObject | ThemeDerivedStyles
 export type Scale<T> = T[] | { [K: string]: T | Scale<T>; [I: number]: T }
 
 export interface Theme {
+  global?: {
+    imports?: string[]
+    styles?: StyleObject
+  }
   breakpoints?: string[]
   mediaQueries?: { [size: string]: string }
   space?: Scale<CSS.Property.Margin<number | string>>

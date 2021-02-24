@@ -6,6 +6,5 @@ export {
   BorderWidths,
   LineHeights,
   ZIndexes,
-  Theme,
   Space,
 } from '@vtex/admin-ui-theme'

@@ -1,8 +1,9 @@
-import { theme, Theme } from '@vtex/admin-ui-theme'
+import { theme } from '@vtex/admin-ui-theme'
 import {
   createSystem as baseCreateSystem,
   merge,
   StyleObject,
+  Theme
 } from '@vtex/admin-ui-system'
 
 interface ThemeOptions {
@@ -40,6 +41,7 @@ export function createSystem(
 export const defaultSystem = createSystem('admin-ui')
 
 export {
+  styles,
   Global,
   css,
   jsxs,
@@ -74,5 +76,6 @@ export {
   mix,
   complement,
   invert,
+  Theme,
   Colors,
 } from '@vtex/admin-ui-system'
