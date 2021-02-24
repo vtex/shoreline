@@ -57,6 +57,8 @@ export function useGrid(props: GridProps) {
 
 Grid.Item = GridItem
 
+export { GridItem }
+
 export interface GridOwnProps {
   /** Shorthand for CSS gridGap property */
   gap?: ResponsiveValue<CSS.Property.GridGap>

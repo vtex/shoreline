@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ElementType, ReactElement } from 'react'
+import { ElementType, ReactElement } from 'react'
 import * as CSS from 'csstype'
 import { ResponsiveValue, omit, pick, createComponent } from '@vtex/admin-core'
 
-import { Box, BoxProps } from '../Box'
-import { Primitive } from '../Primitive'
+import { Primitive, PrimitiveOwnProps, PrimitiveProps } from '../Primitive'
 
 /**
  * Flex default element
@@ -15,19 +14,24 @@ const _Flex: <E extends ElementType = typeof defaultElement>(
   props: FlexProps<E>
 ) => ReactElement | null = createComponent(Primitive, useFlex)
 
-export const Flex = Object.assign(_Flex, { Spacer: FlexSpacer })
+export const FlexSpacer = createComponent(Primitive, useFlexSpacer)
 
-export function FlexSpacer() {
-  return (
-    <Box
-      styles={{
-        flex: 1,
-        justifySelf: 'stretch',
-        alignSelf: 'stretch',
-      }}
-    />
-  )
+export function useFlexSpacer(props: Omit<PrimitiveOwnProps, 'element'>) {
+  const { styles, themeKey, className, ...htmlProps } = props
+
+  return {
+    styles: {
+      flex: 1,
+      justifySelf: 'stretch',
+      alignSelf: 'stretch',
+      ...styles,
+    },
+    themeKey,
+    className,
+    ...htmlProps,
+  }
 }
+export const Flex = Object.assign(_Flex, { Spacer: FlexSpacer })
 
 export function useFlex(props: FlexProps) {
   const propertyMap = {
@@ -84,4 +88,4 @@ export interface FlexOwnProps {
 }
 
 export type FlexProps<E extends ElementType = ElementType> = FlexOwnProps &
-  BoxProps<E>
+  PrimitiveProps<E>
