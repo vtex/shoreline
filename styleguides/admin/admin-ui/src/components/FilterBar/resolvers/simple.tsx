@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { get } from '@vtex/admin-core'
+import { get, useSystem } from '@vtex/admin-core'
 import { Dropdown, useDropdownState } from '../../Dropdown'
 
 import { createResolver, defaultRender, ResolverRenderProps } from './core'
@@ -11,6 +11,8 @@ export function simpleResolver<T extends { label?: string }>() {
       const { value, filter } = statement
       const { resolver } = filter
       const { items, accessor } = resolver
+
+      const { stylesOf } = useSystem()
 
       const render = resolver?.render ?? defaultRender
 
@@ -44,15 +46,7 @@ export function simpleResolver<T extends { label?: string }>() {
           label="Value"
           items={items}
           variant="adaptative-dark"
-          styleOverrides={{
-            width: 150,
-            bg: 'light.primary',
-            border: 'default',
-            color: 'dark.secondary',
-            div: {
-              justifyContent: 'space-between',
-            },
-          }}
+          styleOverrides={stylesOf('components.filterBar.dropdown')}
         />
       )
 

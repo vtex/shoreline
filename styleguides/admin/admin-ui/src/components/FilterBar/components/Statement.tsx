@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconAction, IconDelete, IconDuplicate } from '@vtex/admin-ui-icons'
-import { get } from '@vtex/admin-core'
+import { get, useSystem } from '@vtex/admin-core'
 
 import { Set } from '../../Set'
 import { StatementProps, ConjunctionProps } from '../typings'
@@ -12,17 +12,12 @@ import { Menu } from '../../Menu'
 import { Dropdown, DropdownProps, useDropdownState } from '../../Dropdown'
 import { useFilterBarContext } from '../context'
 
-export interface NewStatementProps<T> {
-  statement: StatementProps<T>
-  conjunction: ConjunctionProps
-  index: number
-}
-
 export function Statement<T>(props: NewStatementProps<T>) {
   const { statement, index, conjunction } = props
   const {
     filters,
     resolvers,
+    dir,
     handleConjunctionChange,
     handleConditionChange,
     handleFilterChange,
@@ -55,10 +50,15 @@ export function Statement<T>(props: NewStatementProps<T>) {
     },
   })
 
-  const message = index === 0 ? 'Where' : conjunction
+  const conjunctionLabel = index === 0 ? 'Where' : conjunction
 
   return (
-    <Flex justify="space-between" styles={{ width: 'full' }} key={index}>
+    <Flex
+      dir={dir}
+      justify="space-between"
+      styles={{ width: 'full' }}
+      key={index}
+    >
       <Set
         spacing={2}
         styleOverrides={{
@@ -72,9 +72,10 @@ export function Statement<T>(props: NewStatementProps<T>) {
             handleConjunctionChange={handleConjunctionChange}
           />
         ) : (
-          <Box styles={{ paddingLeft: 3, width: 100 }}>{message}</Box>
+          <Box dir={dir} styles={{ paddingLeft: 3 }}>
+            {conjunctionLabel}
+          </Box>
         )}
-
         <CustomDropdown
           state={filtersState}
           renderItem={(item) => get(item, 'label', undefined)}
@@ -96,12 +97,12 @@ export function Statement<T>(props: NewStatementProps<T>) {
           handleValueChange={handleValueChange}
         />
       </Set>
-
       <Menu
-        aria-label={`${index}-filter-menu`}
+        aria-label={`${index}-statement-menu`}
         hideOnClick
         disclosure={
           <Button
+            dir={dir}
             variant="adaptative-dark"
             styleOverrides={{ color: 'dark.secondary' }}
             icon={<IconAction />}
@@ -109,12 +110,14 @@ export function Statement<T>(props: NewStatementProps<T>) {
         }
       >
         <Menu.Item
+          dir={dir}
           onClick={() => handleDuplicateStatement(index)}
           icon={<IconDuplicate />}
         >
           Duplicate
         </Menu.Item>
         <Menu.Item
+          dir={dir}
           onClick={() => handleDeleteStatement(index)}
           icon={<IconDelete />}
         >
@@ -125,13 +128,16 @@ export function Statement<T>(props: NewStatementProps<T>) {
   )
 }
 
-interface ConjunctionDropdownProps {
+export interface NewStatementProps<T> {
+  statement: StatementProps<T>
   conjunction: ConjunctionProps
-  handleConjunctionChange: (conjunction: ConjunctionProps) => void
+  index: number
 }
 
 function ConjunctionDropdown(props: ConjunctionDropdownProps) {
   const { conjunction, handleConjunctionChange } = props
+  const { stylesOf } = useSystem()
+
   const conjunctions = ['And', 'Or'] as ConjunctionProps[]
 
   const conjunctionState = useDropdownState({
@@ -151,46 +157,31 @@ function ConjunctionDropdown(props: ConjunctionDropdownProps) {
       label="Conjunction"
       variant="adaptative-dark"
       styleOverrides={{
-        width: 100,
-        bg: 'light.primary',
-        border: 'default',
-        color: 'dark.secondary',
-        div: {
-          justifyContent: 'space-between',
-        },
+        ...stylesOf('components.filterBar.dropdown'),
+        minWidth: 100,
       }}
     />
   )
 }
 
+interface ConjunctionDropdownProps {
+  conjunction: ConjunctionProps
+  handleConjunctionChange: (conjunction: ConjunctionProps) => void
+}
+
 function CustomDropdown<T extends { label?: string }>(props: DropdownProps<T>) {
-  const { styleOverrides, ...restProps } = props
+  const { stylesOf } = useSystem()
 
   return (
     <Dropdown
+      {...props}
       variant="adaptative-dark"
-      {...restProps}
       renderItem={(item) => (
-        <Box
-          styles={{
-            textOverflow: 'ellipsis',
-            overflow: 'hidden',
-            whiteSpace: 'nowrap',
-          }}
-        >
+        <Box themeKey="components.filterBar.dropdown-item-label">
           {item?.label}
         </Box>
       )}
-      styleOverrides={{
-        width: 150,
-        bg: 'light.primary',
-        border: 'default',
-        color: 'dark.secondary',
-        div: {
-          justifyContent: 'space-between',
-        },
-        ...styleOverrides,
-      }}
+      styleOverrides={stylesOf('components.filterBar.dropdown')}
     />
   )
 }

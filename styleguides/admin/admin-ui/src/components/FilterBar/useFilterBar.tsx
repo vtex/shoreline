@@ -6,7 +6,7 @@ import {
   FilterBarProps,
   FilterProps,
   StatementProps,
-  StatementsProps,
+  ConditionsProps,
 } from './typings'
 
 export function useFilterBar<T>(props: FilterBarProps<T>) {
@@ -16,11 +16,12 @@ export function useFilterBar<T>(props: FilterBarProps<T>) {
     filters,
     resolvers: defaultResolvers = baseResolvers<T>(),
     handleStatementChange: defaultHandleStatementChange,
+    dir = 'ltr',
     ...restProps
   } = props
 
   const reducer = useCallback(
-    (state: StatementsProps<T>, action: Action<T>) =>
+    (state: ConditionsProps<T>, action: Action<T>) =>
       defaultReducer(state, action),
     [defaultReducer]
   )
@@ -38,14 +39,15 @@ export function useFilterBar<T>(props: FilterBarProps<T>) {
     filters,
     resolvers,
     handleStatementChange,
+    dir,
     ...restProps,
   }
 }
 
 function defaultReducer<T>(
-  state: StatementsProps<T>,
+  state: ConditionsProps<T>,
   action: Action<T>
-): StatementsProps<T> {
+): ConditionsProps<T> {
   switch (action.type) {
     case 'conjunction': {
       const { conjunction, handleStatementChange } = action
@@ -118,7 +120,7 @@ function defaultReducer<T>(
       const nextState = {
         conjunction: 'And',
         statements: [],
-      } as StatementsProps<T>
+      } as ConditionsProps<T>
 
       handleStatementChange(nextState)
 
@@ -157,42 +159,42 @@ export type Action<T> =
   | {
       type: 'conjunction'
       conjunction: ConjunctionProps
-      handleStatementChange: (statement: StatementsProps<T>) => void
+      handleStatementChange: (statement: ConditionsProps<T>) => void
     }
   | {
       type: 'filter'
       filter: FilterProps<T>
       index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
+      handleStatementChange: (statement: ConditionsProps<T>) => void
     }
   | {
       type: 'condition'
       condition: ConditionProps
       index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
+      handleStatementChange: (statement: ConditionsProps<T>) => void
     }
   | {
       type: 'value'
       value?: T
       index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
+      handleStatementChange: (statement: ConditionsProps<T>) => void
     }
   | {
       type: 'newStatement'
       filter: FilterProps<T>
-      handleStatementChange: (statement: StatementsProps<T>) => void
+      handleStatementChange: (statement: ConditionsProps<T>) => void
     }
   | {
       type: 'filtersReset'
-      handleStatementChange: (statement: StatementsProps<T>) => void
+      handleStatementChange: (statement: ConditionsProps<T>) => void
     }
   | {
       type: 'duplicateStatement'
       index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
+      handleStatementChange: (statement: ConditionsProps<T>) => void
     }
   | {
       type: 'deleteStatement'
       index: number
-      handleStatementChange: (statement: StatementsProps<T>) => void
+      handleStatementChange: (statement: ConditionsProps<T>) => void
     }

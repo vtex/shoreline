@@ -6,6 +6,7 @@ import { ConditionProps, ConjunctionProps, FilterProps } from './typings'
 export interface FilterBarContextProps<T extends {}> {
   filters: FilterProps<T>[]
   resolvers: Record<string, Resolver<T>>
+  dir: 'rtl' | 'ltr'
   handleFilterChange: (filter: FilterProps<T>, index: number) => void
   handleConditionChange: (filter: ConditionProps, index: number) => void
   handleValueChange: (value: T | undefined, index: number) => void

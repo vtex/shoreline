@@ -25,6 +25,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
     resolvers,
     label,
     handleStatementChange,
+    dir,
     ...restProps
   } = useFilterBar(props)
 
@@ -106,14 +107,18 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleDeleteStatement={handleDeleteStatement}
       handleFilterChange={handleFilterChange}
       handleDuplicateStatement={handleDuplicateStatement}
+      dir={dir}
     >
-      <Box styles={{ border: 'default' }} {...restProps}>
+      <Box styles={{ border: 'default' }} dir={dir} {...restProps}>
         {statements.length === 0 ? (
-          <Box styles={{ padding: 4, paddingLeft: 6, bg: 'light.secondary' }}>
+          <Box
+            dir={dir}
+            themeKey="components.filterBar.statements-container-empty"
+          >
             <Paragraph>{label}</Paragraph>
           </Box>
         ) : (
-          <Box styles={{ padding: 2, paddingLeft: 4, bg: 'light.secondary' }}>
+          <Box dir={dir} themeKey="components.filterBar.statements-container">
             <Set orientation="vertical" spacing={2}>
               {statements.map((statement, index) => {
                 return (
@@ -128,11 +133,9 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
             </Set>
           </Box>
         )}
-        <Flex
-          justify="space-between"
-          styles={{ paddingY: 2, paddingX: 3, border: 'divider-top' }}
-        >
+        <Flex dir={dir} themeKey="components.filterBar.footer">
           <Button
+            dir={dir}
             size="small"
             variant="tertiary"
             icon={<IconAdd />}
@@ -141,6 +144,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
             Add Filter
           </Button>
           <Button
+            dir={dir}
             size="small"
             variant="adaptative-dark"
             styleOverrides={{ color: 'dark.secondary' }}
