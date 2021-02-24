@@ -14,25 +14,6 @@ const _Flex: <E extends ElementType = typeof defaultElement>(
   props: FlexProps<E>
 ) => ReactElement | null = createComponent(Primitive, useFlex)
 
-export const FlexSpacer = createComponent(Primitive, useFlexSpacer)
-
-export function useFlexSpacer(props: Omit<PrimitiveOwnProps, 'element'>) {
-  const { styles, themeKey, className, ...htmlProps } = props
-
-  return {
-    styles: {
-      flex: 1,
-      justifySelf: 'stretch',
-      alignSelf: 'stretch',
-      ...styles,
-    },
-    themeKey,
-    className,
-    ...htmlProps,
-  }
-}
-export const Flex = Object.assign(_Flex, { Spacer: FlexSpacer })
-
 export function useFlex(props: FlexProps) {
   const propertyMap = {
     basis: 'flexBasis',
@@ -45,9 +26,9 @@ export function useFlex(props: FlexProps) {
     order: 'order',
   }
 
-  const { styles, ...boxProps } = props
+  const { styles, ...primitiveProps } = props
   const cssProps = Object.keys(propertyMap)
-  const cssPropsStyle = renameKeys(propertyMap, pick(boxProps, cssProps))
+  const cssPropsStyle = renameKeys(propertyMap, pick(primitiveProps, cssProps))
 
   function renameKeys(
     keysMap: { [x: string]: any },
@@ -64,9 +45,27 @@ export function useFlex(props: FlexProps) {
 
   return {
     styles: { display: 'flex', ...cssPropsStyle, ...styles },
-    ...omit(boxProps, cssProps),
+    ...omit(primitiveProps, cssProps),
   }
 }
+
+export const FlexSpacer = createComponent(Primitive, useFlexSpacer)
+
+export function useFlexSpacer(props: Omit<PrimitiveOwnProps, 'element'>) {
+  const { styles, ...primitiveProps } = props
+
+  return {
+    styles: {
+      flex: 1,
+      justifySelf: 'stretch',
+      alignSelf: 'stretch',
+      ...styles,
+    },
+    ...primitiveProps,
+  }
+}
+
+export const Flex = Object.assign(_Flex, { Spacer: FlexSpacer })
 
 export interface FlexOwnProps {
   /** Shorthand for CSS alignItems property */
