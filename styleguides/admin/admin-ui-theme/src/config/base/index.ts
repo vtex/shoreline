@@ -1,10 +1,12 @@
 import colors from './colors'
 import space from './space'
 import sizes from './sizes'
+import global from './global'
 
-export { colors, space, sizes }
+export { colors, space, sizes, global }
 
 export default {
+  global,
   sizes,
   colors,
   space,

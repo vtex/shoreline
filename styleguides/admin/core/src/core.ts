@@ -5,7 +5,7 @@ import invariant from 'tiny-invariant'
 import 'focus-visible/dist/focus-visible'
 
 import { createSystem, jsxs, defaultSystem } from './system'
-import { GlobalStyles } from './global'
+import { Styles, Imports } from './global'
 
 const SystemContext = createContext<ReturnType<typeof createSystem> | null>(
   null
@@ -20,7 +20,11 @@ export function ThemeProvider(props: ThemeProviderProps) {
     jsxs(
       SystemContext.Provider,
       { value: system },
-      ...[jsxs(GlobalStyles, {}), jsxs(system.ThemeProvider, {}, children)]
+      ...[
+        jsxs(Imports, {}),
+        jsxs(Styles, {}),
+        jsxs(system.ThemeProvider, {}, children),
+      ]
     )
   )
 }

@@ -31,6 +31,7 @@
   "peerDependencies": {
     "@emotion/css": ">=11",
     "@emotion/react": ">=11",
+    "@vtex/admin-ui-system": "^0.13.1",
     "react": ">=16",
     "react-dom": ">=16"
   },

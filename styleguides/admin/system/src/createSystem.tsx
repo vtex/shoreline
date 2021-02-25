@@ -1,10 +1,13 @@
 import React from 'react'
 import createEmotion, { Emotion } from '@emotion/css/create-instance'
-import { styles, StyleProp, get } from '@vtex/admin-styles'
+import { styles, StyleProp, get, Theme } from '@vtex/admin-styles'
 
 import { ThemeProvider as BaseProvider } from './core'
 
-export function createSystem<T>(theme: T, appKey: string): CreateSystemReturn {
+export function createSystem<T extends Theme>(
+  theme: T,
+  appKey: string
+): CreateSystemReturn {
   const emotionInstance = createEmotionInstance(appKey)
   const ThemeProvider = createThemeProvider(theme)
   const { cn, stylesOf } = createThemeConsumers(theme, emotionInstance)
@@ -23,7 +26,7 @@ export function createEmotionInstance(appKey: string) {
   })
 }
 
-export function createThemeProvider<T>(theme: T) {
+export function createThemeProvider<T extends Theme>(theme: T) {
   return function AdminProvider({
     children,
   }: React.PropsWithChildren<unknown>) {
@@ -31,7 +34,10 @@ export function createThemeProvider<T>(theme: T) {
   }
 }
 
-export function createThemeConsumers<T>(theme: T, emotionInstance: Emotion) {
+export function createThemeConsumers<T extends Theme>(
+  theme: T,
+  emotionInstance: Emotion
+) {
   return {
     stylesOf(themeKey: string) {
       const rawStyles = get(
