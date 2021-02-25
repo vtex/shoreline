@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.6.1...@vtex/admin-core@0.7.0) (2021-02-25)
+
+
+### Features
+
+* **theme:** move global styles from core to theme ([416c04b](https://github.com/vtex/onda/commit/416c04bd46e98cb65e428ac017577ac2ec6702ae))
+
+
+
+
+
 ## [0.6.1](https://github.com/vtex/onda/compare/@vtex/admin-core@0.6.0...@vtex/admin-core@0.6.1) (2021-02-12)
 
 

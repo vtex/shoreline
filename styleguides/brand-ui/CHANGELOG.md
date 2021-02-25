@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.35.0...@vtex/brand-ui@0.36.0) (2021-02-25)
+
+
+### Bug Fixes
+
+* **calendar:** deselect date on second click and render event component ([dae5a01](https://github.com/vtex/onda/commit/dae5a01c1c022a6cba7e950b86fdf327a78e92aa))
+* correct font weights in brand components ([9d0cbcc](https://github.com/vtex/onda/commit/9d0cbccd886dcd858074f5cc6a883a6ff5279311))
+* fix popover ([c06ef52](https://github.com/vtex/onda/commit/c06ef5251a3228b6911a5b137cbe6c346352f59c))
+
+
+### Features
+
+* **theme:** add font variation settings ([bb1e9ca](https://github.com/vtex/onda/commit/bb1e9cac9359d917e61933623b3e15a0dfeed7cf))
+
+
+
+
+
 # [0.35.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.34.0...@vtex/brand-ui@0.35.0) (2021-02-11)
 
 
