@@ -34,7 +34,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: capitalize;
+  text-transform: none;
   background-color: transparent;
   color: #323845;
   font-size: 0.875rem;
@@ -212,7 +212,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: capitalize;
+  text-transform: none;
   background-color: transparent;
   color: #323845;
   font-size: 0.875rem;
