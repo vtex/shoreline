@@ -1,6 +1,6 @@
 import React, { cloneElement, Fragment } from 'react'
 import { SidebarDisclosure, SidebarDisclosureProps } from './Disclosure'
-import { useMenuState } from './AriaSidebar'
+import { ReakitMenuItem, useMenuState } from './AriaSidebar'
 import { SystemComponent } from '../../../types'
 import { SidebarSectionProps } from './Section'
 import { Sidebar } from '..'
@@ -16,7 +16,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   const { collapsed, sections, ...baseProps } = props
 
   const state = useMenuState({
-    orientation: 'vertical',
+    orientation: 'horizontal',
     loop: true,
   })
 
@@ -29,13 +29,18 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
         }}
       />
       {sections?.map(
-        ({ title, children }) =>
-          children.length > 0 &&
-          cloneElement(
-            <Sidebar.Section title={title} {...baseProps}>
-              {children}
-            </Sidebar.Section>,
-            { secret: { state } }
+        ({ title, children }, index) =>
+          children.length > 0 && (
+            <ReakitMenuItem {...state} key={index}>
+              {(itemProps) =>
+                cloneElement(
+                  <Sidebar.Section title={title} {...baseProps}>
+                    {children}
+                  </Sidebar.Section>,
+                  { ...itemProps, secret: { state } }
+                )
+              }
+            </ReakitMenuItem>
           )
       )}
     </Fragment>

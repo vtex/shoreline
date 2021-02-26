@@ -1,4 +1,10 @@
-import React, { FunctionComponentElement, ReactNode, useEffect } from 'react'
+import React, {
+  forwardRef,
+  FunctionComponentElement,
+  ReactNode,
+  Ref,
+  useEffect,
+} from 'react'
 import { ReakitMenu } from './AriaSidebar'
 import { SidebarSubItemProps } from './SubItem'
 import { useSystem } from '@vtex/admin-core'
@@ -15,7 +21,10 @@ export interface SidebarSectionProps
   children: FunctionComponentElement<SidebarSubItemProps>[]
 }
 
-export function SidebarSection(props: Omit<SidebarSectionProps, 'secret'>) {
+export const SidebarSection = forwardRef(function SidebarSection(
+  props: Omit<SidebarSectionProps, 'secret'>,
+  ref: Ref<HTMLDivElement>
+) {
   const { title, children, ...baseProps } = props
   const { cn } = useSystem()
   const { direction, setCollapsed } = useSidebarContext()
@@ -31,6 +40,7 @@ export function SidebarSection(props: Omit<SidebarSectionProps, 'secret'>) {
 
   return (
     <ReakitMenu
+      ref={ref}
       className={cn({
         [direction]: `56px !important`,
         transform: 'unset !important',
@@ -65,4 +75,4 @@ export function SidebarSection(props: Omit<SidebarSectionProps, 'secret'>) {
       </Set>
     </ReakitMenu>
   )
-}
+})
