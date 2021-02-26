@@ -80,7 +80,7 @@ const bottomCornerItems: ItemProps = [
 
 const TopSidebarItems = ({ currentItem, setCurrentItem }: CornerItemProps) => {
   return (
-    <Sidebar.TopCorner>
+    <Sidebar.Header>
       {topCornerItems.map((props, index) => (
         <Sidebar.Item
           {...props}
@@ -88,7 +88,7 @@ const TopSidebarItems = ({ currentItem, setCurrentItem }: CornerItemProps) => {
           onClick={() => setCurrentItem({ index, scope: 'top' })}
         />
       ))}
-    </Sidebar.TopCorner>
+    </Sidebar.Header>
   )
 }
 
@@ -97,7 +97,7 @@ const BottomSidebarItems = ({
   setCurrentItem,
 }: CornerItemProps) => {
   return (
-    <Sidebar.BottomCorner>
+    <Sidebar.Footer>
       {bottomCornerItems.map((props, index) => (
         <Sidebar.Item
           {...props}
@@ -107,7 +107,7 @@ const BottomSidebarItems = ({
           onClick={() => setCurrentItem({ index, scope: 'bottom' })}
         />
       ))}
-    </Sidebar.BottomCorner>
+    </Sidebar.Footer>
   )
 }
 
