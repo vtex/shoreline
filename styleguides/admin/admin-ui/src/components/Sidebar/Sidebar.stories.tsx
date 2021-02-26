@@ -8,6 +8,7 @@ import {
   IconAppStore,
   IconDashboard,
   IconMarketplace,
+  IconOrders,
   IconProducts,
   IconPromotions,
   IconProps,
@@ -36,41 +37,78 @@ const iconProps: IconProps = {}
 
 type ItemProps = Omit<SidebarItemProps, 'secret'>[]
 
+const orders = [
+  'All Orders',
+  'Subscriptions',
+  'Transactions',
+  'Bank Conciliation',
+]
+
+const promotions = [
+  'All Promotions',
+  'Coupons',
+  'Campaign Audience',
+  'Gift Cards',
+  'Taxes',
+]
+
+const catalog = [
+  'All Products',
+  'Categories',
+  'Brands',
+  'Collections',
+  'List Types',
+  'Inventory',
+  'Custom Fields',
+  'Import and Export',
+  'Reviews',
+  'Reports',
+]
+
 const topCornerItems: ItemProps = [
   {
     icon: <IconDashboard {...iconProps} />,
     onClick: () => console.log('Click me'),
   },
   {
+    icon: <IconOrders {...iconProps} />,
+    onClick: () => console.log('Click me'),
+    subItems: {
+      children: orders.map((label) => (
+        <SidebarSubItem onClick={() => console.log('Click me')}>
+          {label}
+        </SidebarSubItem>
+      )),
+    },
+  },
+  {
     icon: <IconProducts {...iconProps} />,
     onClick: () => console.log('Click me'),
+    subItems: {
+      children: catalog.map((label) => (
+        <SidebarSubItem onClick={() => console.log('Click me')}>
+          {label}
+        </SidebarSubItem>
+      )),
+    },
   },
   {
     icon: <IconPromotions {...iconProps} />,
     onClick: () => console.log('Click me'),
     subItems: {
-      children: [
+      children: promotions.map((label) => (
         <SidebarSubItem onClick={() => console.log('Click me')}>
-          All promotions
-        </SidebarSubItem>,
-        <SidebarSubItem onClick={() => console.log('Click me')}>
-          Coupons
-        </SidebarSubItem>,
-        <SidebarSubItem onClick={() => console.log('Click me')}>
-          Campaign Audience
-        </SidebarSubItem>,
-        <SidebarSubItem onClick={() => console.log('Click me')}>
-          Gift Cards
-        </SidebarSubItem>,
-        <SidebarSubItem onClick={() => console.log('Click me')}>
-          Taxes
-        </SidebarSubItem>,
-      ],
+          {label}
+        </SidebarSubItem>
+      )),
     },
   },
   {
     icon: <IconStorefront {...iconProps} />,
     onClick: () => console.log('Click me'),
+    subItems: {
+      children: [],
+    },
   },
   {
     icon: <IconShipping {...iconProps} />,
