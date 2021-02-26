@@ -39,26 +39,7 @@ export function SidebarDisclosure(props: SidebarDisclosureProps) {
 
   return (
     <ReakitMenuButton {...state} {...children.props}>
-      {(enhancedProps) =>
-        cloneElement(
-          <Button
-            variant="tertiary"
-            icon={icon}
-            styleOverrides={{
-              backgroundColor: selected ? '#EAF0FD' : 'unset',
-              'div > svg': {
-                color: selected ? 'unset' : 'black',
-                opacity: selected ? 1 : 0.6,
-              },
-            }}
-            {...props}
-            onClick={(event) => {
-              onClick(event)
-            }}
-          />,
-          enhancedProps
-        )
-      }
+      {(enhancedProps) => cloneElement(children, enhancedProps)}
     </ReakitMenuButton>
   )
 }
