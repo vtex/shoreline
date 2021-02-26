@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Sidebar, SidebarProps } from './index'
 import { Box } from '../Box'
-import { SidebarItemProps } from './components/SidebarItem'
+import { SidebarItemProps } from './components/Item'
 import {
   IconAppStore,
   IconDashboard,
@@ -65,20 +65,35 @@ const bottomCornerItems: SidebarItemProps[] = [
   },
 ]
 
-export const Playground: Story<PlaygroundArgs> = (args) => {
-  const [currentItemIndex, setCurrentItemIndex] = useState(0)
+const TopSidebarItems = () => {
+  return (
+    <Sidebar.TopCorner>
+      {topCornerItems.map((props) => (
+        <Sidebar.Item {...props} />
+      ))}
+    </Sidebar.TopCorner>
+  )
+}
 
+const BottomSidebarItems = () => {
+  return (
+    <Sidebar.BottomCorner>
+      {bottomCornerItems.map((props) => (
+        <Sidebar.Item {...props} />
+      ))}
+    </Sidebar.BottomCorner>
+  )
+}
+
+export const Playground: Story<PlaygroundArgs> = (args) => {
   args = {
     ...args,
-    topCorner: {
-      items: topCornerItems,
-      currentItemIndex,
-    },
-    bottomCorner: {
-      items: bottomCornerItems,
-      currentItemIndex,
-    },
-    onClick: (itemIndex) => setCurrentItemIndex(itemIndex),
+    children: (
+      <>
+        <TopSidebarItems />
+        <BottomSidebarItems />
+      </>
+    ),
   }
 
   return (

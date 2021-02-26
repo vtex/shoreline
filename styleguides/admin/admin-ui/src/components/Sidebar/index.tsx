@@ -1,19 +1,14 @@
-import React, { forwardRef, Ref } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { Box } from '../Box'
-import { SidebarItem, SidebarItemProps } from './components/Item'
+import { SidebarCorner, SidebarCornerProps } from './components/Corner'
+import { SidebarItem } from './components/Item'
+import { SidebarCurrentItem, SidebarProvider } from './context'
 
 type AnchorDirection = 'left' | 'right'
 
-interface Corner {
-  items: SidebarItemProps[]
-  currentItemIndex: number
-}
-
 export interface SidebarProps {
-  topCorner: Corner
-  bottomCorner?: Corner
+  children: ReactNode
   anchor?: AnchorDirection
-  onClick: (itemIndex: number) => void
 }
 
 // @ts-ignore
@@ -33,9 +28,11 @@ function useSidebar(props: SidebarProps) {
 }
 
 export function Sidebar(props: SidebarProps) {
-  const { topCorner, bottomCorner, onClick } = useSidebar(props)
-
-  const sidebar = [topCorner, bottomCorner]
+  const [currentItem, setCurrentItem] = useState<SidebarCurrentItem>({
+    scope: 'top',
+    index: 0,
+  })
+  const { children } = useSidebar(props)
 
   return (
     <Box
@@ -49,29 +46,22 @@ export function Sidebar(props: SidebarProps) {
       }}
       role="navigation"
     >
-      {sidebar.map((corner) => {
-        if (!corner) {
-          return <Box />
-        }
-
-        return (
-          <Box>
-            {corner.items.map((item, index) => (
-              <SidebarItem
-                key={index}
-                {...item}
-                selected={topCorner.currentItemIndex === index}
-                onClick={(event) => {
-                  item.onClick(event)
-                  onClick(index)
-                }}
-              />
-            ))}
-          </Box>
-        )
-      })}
+      <SidebarProvider
+        value={{
+          currentItem,
+          setCurrentItem,
+        }}
+      >
+        {children}
+      </SidebarProvider>
     </Box>
   )
 }
 
 Sidebar.Item = SidebarItem
+Sidebar.TopCorner = (props: Omit<SidebarCornerProps, 'scope'>) => (
+  <SidebarCorner {...props} scope={'top'} />
+)
+Sidebar.BottomCorner = (props: Omit<SidebarCornerProps, 'scope'>) => (
+  <SidebarCorner {...props} scope={'bottom'} />
+)
