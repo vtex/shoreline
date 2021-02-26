@@ -17,7 +17,6 @@ import {
   IconStorefront,
 } from '@vtex/admin-ui-icons'
 import { CornerScope } from './utils'
-import { SidebarSubItem } from './components/SubItem'
 
 export default {
   title: 'shell/Sidebar',
@@ -75,9 +74,9 @@ const topCornerItems: ItemProps = [
     onClick: () => console.log('Click me'),
     subItems: {
       children: orders.map((label) => (
-        <SidebarSubItem onClick={() => console.log('Click me')}>
+        <Sidebar.SubItem onClick={() => console.log('Click me')}>
           {label}
-        </SidebarSubItem>
+        </Sidebar.SubItem>
       )),
     },
   },
@@ -86,9 +85,9 @@ const topCornerItems: ItemProps = [
     onClick: () => console.log('Click me'),
     subItems: {
       children: catalog.map((label) => (
-        <SidebarSubItem onClick={() => console.log('Click me')}>
+        <Sidebar.SubItem onClick={() => console.log('Click me')}>
           {label}
-        </SidebarSubItem>
+        </Sidebar.SubItem>
       )),
     },
   },
@@ -97,9 +96,9 @@ const topCornerItems: ItemProps = [
     onClick: () => console.log('Click me'),
     subItems: {
       children: promotions.map((label) => (
-        <SidebarSubItem onClick={() => console.log('Click me')}>
+        <Sidebar.SubItem onClick={() => console.log('Click me')}>
           {label}
-        </SidebarSubItem>
+        </Sidebar.SubItem>
       )),
     },
   },
