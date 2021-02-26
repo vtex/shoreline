@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Sidebar, SidebarProps } from './index'
@@ -15,6 +15,7 @@ import {
   IconShipping,
   IconStorefront,
 } from '@vtex/admin-ui-icons'
+import { CornerScope } from './utils'
 
 export default {
   title: 'shell/Sidebar',
@@ -23,6 +24,16 @@ export default {
 
 interface PlaygroundArgs extends SidebarProps {
   id: string
+}
+
+interface ItemCursor {
+  index: number
+  scope: CornerScope
+}
+
+interface CornerItemProps {
+  currentItem: ItemCursor
+  setCurrentItem: (item: ItemCursor) => void
 }
 
 const iconProps: IconProps = {}
@@ -67,33 +78,57 @@ const bottomCornerItems: ItemProps = [
   },
 ]
 
-const TopSidebarItems = () => {
+const TopSidebarItems = ({ currentItem, setCurrentItem }: CornerItemProps) => {
   return (
     <Sidebar.TopCorner>
-      {topCornerItems.map((props) => (
-        <Sidebar.Item {...props} />
+      {topCornerItems.map((props, index) => (
+        <Sidebar.Item
+          {...props}
+          selected={currentItem.scope === 'top' && currentItem.index === index}
+          onClick={() => setCurrentItem({ index, scope: 'top' })}
+        />
       ))}
     </Sidebar.TopCorner>
   )
 }
 
-const BottomSidebarItems = () => {
+const BottomSidebarItems = ({
+  currentItem,
+  setCurrentItem,
+}: CornerItemProps) => {
   return (
     <Sidebar.BottomCorner>
-      {bottomCornerItems.map((props) => (
-        <Sidebar.Item {...props} />
+      {bottomCornerItems.map((props, index) => (
+        <Sidebar.Item
+          {...props}
+          selected={
+            currentItem.scope === 'bottom' && currentItem.index === index
+          }
+          onClick={() => setCurrentItem({ index, scope: 'bottom' })}
+        />
       ))}
     </Sidebar.BottomCorner>
   )
 }
 
 export const Playground: Story<PlaygroundArgs> = (args) => {
+  const [currentItem, setCurrentItem] = useState<ItemCursor>({
+    index: 0,
+    scope: 'top',
+  })
+
   args = {
     ...args,
     children: (
       <>
-        <TopSidebarItems />
-        <BottomSidebarItems />
+        <TopSidebarItems
+          currentItem={currentItem}
+          setCurrentItem={setCurrentItem}
+        />
+        <BottomSidebarItems
+          currentItem={currentItem}
+          setCurrentItem={setCurrentItem}
+        />
       </>
     ),
   }
