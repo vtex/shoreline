@@ -3,8 +3,8 @@ import { Box } from '../Box'
 import { SidebarCorner, SidebarCornerProps } from './components/Corner'
 import { SidebarItem } from './components/Item'
 import { SidebarSubItem } from './components/SubItem'
-
-type AnchorDirection = 'left' | 'right'
+import { SidebarProvider } from './context'
+import { AnchorDirection } from './utils'
 
 export interface SidebarProps {
   children: FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]
@@ -21,7 +21,7 @@ function useSidebar(props: SidebarProps) {
 }
 
 export function Sidebar(props: SidebarProps) {
-  const { children } = useSidebar(props)
+  const { children, anchor } = useSidebar(props)
 
   return (
     <Box
@@ -35,7 +35,13 @@ export function Sidebar(props: SidebarProps) {
       }}
       role="navigation"
     >
-      {children}
+      <SidebarProvider
+        value={{
+          direction: anchor,
+        }}
+      >
+        {children}
+      </SidebarProvider>
     </Box>
   )
 }

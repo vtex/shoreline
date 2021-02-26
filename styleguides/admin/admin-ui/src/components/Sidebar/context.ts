@@ -1,7 +1,10 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
+import { AnchorDirection } from './utils'
 
-const SidebarContext = createContext<{} | null>(null)
+const SidebarContext = createContext<{
+  direction: AnchorDirection
+} | null>(null)
 
 export function useSidebarContext() {
   const context = useContext(SidebarContext)
