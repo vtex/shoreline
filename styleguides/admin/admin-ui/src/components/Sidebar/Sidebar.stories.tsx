@@ -27,7 +27,9 @@ interface PlaygroundArgs extends SidebarProps {
 
 const iconProps: IconProps = {}
 
-const topCornerItems: SidebarItemProps[] = [
+type ItemProps = Omit<SidebarItemProps, 'secret'>[]
+
+const topCornerItems: ItemProps = [
   {
     icon: <IconDashboard {...iconProps} />,
     onClick: () => console.log('Click me'),
@@ -54,7 +56,7 @@ const topCornerItems: SidebarItemProps[] = [
   },
 ]
 
-const bottomCornerItems: SidebarItemProps[] = [
+const bottomCornerItems: ItemProps = [
   {
     icon: <IconAppStore {...iconProps} />,
     onClick: () => console.log('Click me'),
