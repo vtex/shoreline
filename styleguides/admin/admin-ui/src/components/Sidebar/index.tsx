@@ -1,21 +1,13 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode } from 'react'
 import { Box } from '../Box'
 import { SidebarCorner, SidebarCornerProps } from './components/Corner'
 import { SidebarItem } from './components/Item'
-import { SidebarCurrentItem, SidebarProvider } from './context'
 
 type AnchorDirection = 'left' | 'right'
 
 export interface SidebarProps {
   children: ReactNode
   anchor?: AnchorDirection
-}
-
-// @ts-ignore
-// This will be useful very soon... Wait for it
-const oppositeDirection = {
-  left: 'right',
-  right: 'left',
 }
 
 function useSidebar(props: SidebarProps) {
@@ -28,10 +20,6 @@ function useSidebar(props: SidebarProps) {
 }
 
 export function Sidebar(props: SidebarProps) {
-  const [currentItem, setCurrentItem] = useState<SidebarCurrentItem>({
-    scope: 'top',
-    index: 0,
-  })
   const { children } = useSidebar(props)
 
   return (
@@ -46,14 +34,7 @@ export function Sidebar(props: SidebarProps) {
       }}
       role="navigation"
     >
-      <SidebarProvider
-        value={{
-          currentItem,
-          setCurrentItem,
-        }}
-      >
-        {children}
-      </SidebarProvider>
+      {children}
     </Box>
   )
 }
