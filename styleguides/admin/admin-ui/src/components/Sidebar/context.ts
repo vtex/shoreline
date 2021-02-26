@@ -1,9 +1,15 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
+import { CornerScope } from './utils'
+
+export interface SidebarCurrentItem {
+  scope: CornerScope
+  index: number
+}
 
 const SidebarContext = createContext<{
-  currentItemIndex: number
-  setCurrentItemIndex: (scope: 'top' | 'bottom', itemIndex: number) => void
+  currentItem: SidebarCurrentItem
+  setCurrentItem: (state: SidebarCurrentItem) => void
 } | null>(null)
 
 export function useSidebarContext() {
@@ -16,4 +22,4 @@ export function useSidebarContext() {
 
 const { Provider } = SidebarContext
 
-export { Provider as ModalProvider }
+export { Provider as SidebarProvider }
