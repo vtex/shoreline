@@ -1,4 +1,4 @@
-import React, { cloneElement, FunctionComponentElement } from 'react'
+import React, { FunctionComponentElement } from 'react'
 import { Box } from '../../Box'
 import { CornerScope } from '../utils'
 import { SidebarItemProps } from './Item'
@@ -9,18 +9,7 @@ export interface SidebarCornerProps {
 }
 
 export function SidebarCorner(props: SidebarCornerProps) {
-  const { children, scope } = props
+  const { children } = props
 
-  return (
-    <Box>
-      {children.map((child, index) =>
-        cloneElement(child, {
-          secret: {
-            index,
-            scope,
-          },
-        })
-      )}
-    </Box>
-  )
+  return <Box>{children}</Box>
 }
