@@ -1,6 +1,39 @@
-const slidesContainer = {
+const slidesContainerBase = {
   height: '100%',
   width: '100%',
+}
+
+const slidesContainer = {
+  ...slidesContainerBase,
+  transition: '0.5s linear',
+  crossfade: {
+    '@keyframes crossfade': {
+      '0%': {
+        opacity: 1,
+      },
+      '50%': {
+        opacity: 0.75,
+      },
+      '100%': {
+        opacity: 1,
+      },
+    },
+    animated: {
+      ...slidesContainerBase,
+      transition: 'none',
+      animation: 'crossfade .5s forwards',
+    },
+    default: {
+      ...slidesContainerBase,
+      transition: 'none',
+    },
+  },
+}
+
+const slide = {
+  flexShrink: 0,
+  alignItems: 'center',
+  justifyContent: 'center',
 }
 
 const navigationContainerBase = {
@@ -114,118 +147,14 @@ const previousButton = {
   },
 }
 
-const slideBase = {
-  width: '100%',
-  alignItems: 'center',
-  justifyContent: 'center',
-  transition: '0.5s linear',
-}
-
-const slideAnimations = {
-  '@keyframes slideInLTR': {
-    '0%': {
-      transform: 'translateX(100%)',
-    },
-    '100%': {
-      transform: 'translateX(0)',
-    },
-  },
-  '@keyframes slideOutLTR': {
-    '0%': {
-      transform: 'translateX(0)',
-      visibility: 'visible',
-    },
-    '100%': {
-      transform: 'translateX(-100%)',
-    },
-  },
-  '@keyframes slideInRTL': {
-    '0%': {
-      transform: 'translateX(-100%)',
-    },
-    '100%': {
-      transform: 'translateX(0)',
-    },
-  },
-  '@keyframes slideOutRTL': {
-    '0%': {
-      transform: 'translateX(0)',
-      visibility: 'visible',
-    },
-    '100%': {
-      transform: 'translateX(100%)',
-    },
-  },
-}
-
-const slideDefault = {
-  ...slideAnimations,
-  ltr: {
-    current: {
-      ...slideBase,
-      animation: 'slideInLTR 1s forwards',
-      position: 'static',
-      visibility: 'visible',
-    },
-    swap: {
-      ...slideBase,
-      animation: 'slideOutLTR 1s forwards',
-      position: 'absolute',
-      visibility: 'hidden',
-    },
-    default: {
-      ...slideBase,
-      position: 'absolute',
-      visibility: 'hidden',
-    },
-  },
-  rtl: {
-    current: {
-      ...slideBase,
-      animation: 'slideInRTL 1s forwards',
-      position: 'static',
-      visibility: 'visible',
-    },
-    swap: {
-      ...slideBase,
-      animation: 'slideOutRTL 1s forwards',
-      position: 'absolute',
-      visibility: 'hidden',
-    },
-    default: {
-      ...slideBase,
-      position: 'absolute',
-      visibility: 'hidden',
-    },
-  },
-}
-
-const slideCrossfade = {
-  default: {
-    ...slideBase,
-    position: 'absolute',
-    opacity: 0,
-    visibility: 'hidden',
-  },
-  current: {
-    ...slideBase,
-    position: 'static',
-    opacity: 1,
-    visibility: 'visible',
-  },
-}
-
 export default {
   position: 'relative',
   overflow: 'hidden',
   slidesContainer,
+  slide,
   navigationContainer,
   nextButton,
   previousButton,
   indicatorBar,
   indicator,
-  slide: {
-    crossfade: slideCrossfade,
-    ...slideDefault,
-  },
 }
