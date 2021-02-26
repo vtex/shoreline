@@ -1,16 +1,7 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
-import { CornerScope } from './utils'
 
-export interface SidebarCurrentItem {
-  scope: CornerScope
-  index: number
-}
-
-const SidebarContext = createContext<{
-  currentItem: SidebarCurrentItem
-  setCurrentItem: (state: SidebarCurrentItem) => void
-} | null>(null)
+const SidebarContext = createContext<{} | null>(null)
 
 export function useSidebarContext() {
   const context = useContext(SidebarContext)

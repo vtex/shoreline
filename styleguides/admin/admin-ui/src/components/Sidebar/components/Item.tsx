@@ -1,24 +1,15 @@
 import React, { ReactNode } from 'react'
 import { ButtonProps, Button } from '../../Button'
-import { SidebarCurrentItem, useSidebarContext } from '../context'
 
 export interface SidebarItemProps extends ButtonProps {
-  collapsed?: boolean
   icon: ReactNode
   onClick: (event: React.MouseEvent<any, MouseEvent>) => void
-  secret: SidebarCurrentItem
+  collapsed?: boolean
+  selected?: boolean
 }
 
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
-  const { icon, onClick } = props
-  // @ts-ignore
-  // Although we ommit the secret prop for clients,
-  // it is safe to access it, once the parent component
-  // obligatorily passes it down.
-  const { index, scope } = props['secret'] as SidebarCurrentItem
-  const { currentItem, setCurrentItem } = useSidebarContext()
-
-  const selected = currentItem.scope === scope && currentItem.index === index
+  const { icon, onClick, selected } = props
 
   return (
     <Button
@@ -34,7 +25,6 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
       {...props}
       onClick={(event) => {
         onClick(event)
-        setCurrentItem({ index, scope })
       }}
     />
   )
