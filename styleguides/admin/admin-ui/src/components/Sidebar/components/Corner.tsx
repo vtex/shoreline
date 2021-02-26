@@ -9,18 +9,18 @@ export interface SidebarCornerProps {
 }
 
 export function SidebarCorner(props: SidebarCornerProps) {
-  const { children } = props
-
-  const clonedChildren = children.forEach((child) => {
-    return cloneElement(child, { ...props })
-  })
-
-  console.log({ clonedChildren })
+  const { children, scope } = props
 
   return (
     <Box>
-      {/* @ts-ignore */}
-      {children.map((child, index) => cloneElement(child, { ...props, index }))}
+      {children.map((child, index) =>
+        cloneElement(child, {
+          secret: {
+            index,
+            scope,
+          },
+        })
+      )}
     </Box>
   )
 }

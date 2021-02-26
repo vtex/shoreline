@@ -1,15 +1,16 @@
 import React, { ReactNode } from 'react'
 import { ButtonProps, Button } from '../../Button'
-import { useSidebarContext } from '../context'
+import { SidebarCurrentItem, useSidebarContext } from '../context'
 import { CornerScope } from '../utils'
 
 export interface SidebarItemProps extends ButtonProps {
   collapsed?: boolean
   icon: ReactNode
   onClick: (event: React.MouseEvent<any, MouseEvent>) => void
+  secret: SidebarCurrentItem
 }
 
-export function SidebarItem(props: SidebarItemProps) {
+export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   const { icon, onClick } = props
   // @ts-ignore
   const index = props['index'] as number
