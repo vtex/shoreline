@@ -40,9 +40,9 @@ export function Sidebar(props: SidebarProps) {
 }
 
 Sidebar.Item = SidebarItem
-Sidebar.TopCorner = (props: Omit<SidebarCornerProps, 'scope'>) => (
+Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope'>) => (
   <SidebarCorner {...props} scope={'top'} />
 )
-Sidebar.BottomCorner = (props: Omit<SidebarCornerProps, 'scope'>) => (
+Sidebar.Footer = (props: Omit<SidebarCornerProps, 'scope'>) => (
   <SidebarCorner {...props} scope={'bottom'} />
 )
