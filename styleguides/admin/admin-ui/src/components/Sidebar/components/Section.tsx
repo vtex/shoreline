@@ -1,4 +1,4 @@
-import React, { FunctionComponentElement, ReactNode } from 'react'
+import React, { FunctionComponentElement, ReactNode, useEffect } from 'react'
 import { ReakitMenu } from './AriaSidebar'
 import { SidebarSubItemProps } from './SubItem'
 import { useSystem } from '@vtex/admin-core'
@@ -18,15 +18,19 @@ export interface SidebarSectionProps
 export function SidebarSection(props: Omit<SidebarSectionProps, 'secret'>) {
   const { title, children, ...baseProps } = props
   const { cn } = useSystem()
-  const { direction } = useSidebarContext()
+  const { direction, setCollapsed } = useSidebarContext()
 
   // @ts-ignore
   const { state } = props.secret
 
+  useEffect(() => {
+    setCollapsed(!state.visible)
+  }, [state])
+
   return (
     <ReakitMenu
       className={cn({
-        [direction]: `72px !important`,
+        [direction]: `56px !important`,
         transform: 'unset !important',
         outline: 'none',
         backgroundColor: '#F8F9FA',
