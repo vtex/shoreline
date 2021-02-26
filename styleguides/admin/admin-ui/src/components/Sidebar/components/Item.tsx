@@ -5,6 +5,7 @@ import { SidebarSubItemProps } from './SubItem'
 import { ReakitMenu, useMenuState } from './AriaSidebar'
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
+import { useSidebarContext } from '../context'
 
 export interface SidebarItemProps
   extends SidebarDisclosureProps,
@@ -24,6 +25,8 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
     loop: true,
   })
 
+  const { direction } = useSidebarContext()
+
   return (
     <Fragment>
       <SidebarDisclosure
@@ -35,10 +38,9 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
       {subItems?.children && (
         <ReakitMenu
           className={cn({
-            border: 0,
-            padding: 0,
+            [direction]: `72px !important`,
+            transform: 'unset !important',
             outline: 'none',
-            zIndex: 999,
           })}
           {...state}
           {...baseProps}
