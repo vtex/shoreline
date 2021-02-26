@@ -4,6 +4,8 @@ import { AnchorDirection } from './utils'
 
 const SidebarContext = createContext<{
   direction: AnchorDirection
+  collapsed: boolean
+  setCollapsed: (collapsed: boolean) => void
 } | null>(null)
 
 export function useSidebarContext() {

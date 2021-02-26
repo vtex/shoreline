@@ -1,4 +1,4 @@
-import React, { FunctionComponentElement } from 'react'
+import React, { FunctionComponentElement, useState } from 'react'
 import { Box } from '../Box'
 import { SidebarCorner, SidebarCornerProps } from './components/Corner'
 import { SidebarItem } from './components/Item'
@@ -22,6 +22,7 @@ function useSidebar(props: SidebarProps) {
 }
 
 export function Sidebar(props: SidebarProps) {
+  const [collapsed, setCollapsed] = useState(false)
   const { children, anchor } = useSidebar(props)
 
   return (
@@ -29,8 +30,11 @@ export function Sidebar(props: SidebarProps) {
       styles={{
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'center',
+        paddingY: '0.625rem',
         justifyContent: 'space-between',
-        height: '100%',
+        backgroundColor: collapsed ? 'white' : '#F8F9FA',
+        height: 'calc(100% - 1.25rem)',
         width: '56px',
         borderRight: '1px solid #E0E2E7',
       }}
@@ -39,6 +43,8 @@ export function Sidebar(props: SidebarProps) {
       <SidebarProvider
         value={{
           direction: anchor,
+          collapsed,
+          setCollapsed,
         }}
       >
         {children}

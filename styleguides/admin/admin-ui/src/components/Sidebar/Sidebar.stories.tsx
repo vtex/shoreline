@@ -146,7 +146,8 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
     <Box
       styles={{
         width: 800,
-        height: 'calc(100vh - 2rem)',
+        margin: '-1rem',
+        height: 'calc(100vh + 2rem)',
       }}
     >
       <Sidebar {...args}>
