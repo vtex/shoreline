@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponentElement } from 'react'
 import { Box } from '../../Box'
 import { SidebarDisclosure, SidebarDisclosureProps } from './Disclosure'
 import { SidebarSubItemProps } from './SubItem'
-import { ReakitMenu } from './AriaSidebar'
+import { ReakitMenu, useMenuState } from './AriaSidebar'
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 
@@ -18,8 +18,11 @@ export interface SidebarItemProps
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   const { collapsed, subItems, disabled, ...baseProps } = props
   const { cn } = useSystem()
-  // @ts-ignore
-  const { state } = props['secret']
+
+  const state = useMenuState({
+    orientation: 'vertical',
+    loop: true,
+  })
 
   return (
     <Fragment>
