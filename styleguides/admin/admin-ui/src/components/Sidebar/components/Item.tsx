@@ -1,11 +1,11 @@
 import React, { Fragment, FunctionComponentElement } from 'react'
-import { Box } from '../../Box'
 import { SidebarDisclosure, SidebarDisclosureProps } from './Disclosure'
 import { SidebarSubItemProps } from './SubItem'
 import { ReakitMenu, useMenuState } from './AriaSidebar'
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
+import { Set } from '../../Set'
 
 export interface SidebarItemProps
   extends SidebarDisclosureProps,
@@ -35,27 +35,31 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
           state,
         }}
       />
-      {subItems?.children && (
+      {subItems?.children && subItems.children.length > 0 && (
         <ReakitMenu
           className={cn({
             [direction]: `72px !important`,
             transform: 'unset !important',
             outline: 'none',
+            backgroundColor: '#F8F9FA',
+            height: '100%',
           })}
           {...state}
           {...baseProps}
           disabled={disabled}
         >
-          <Box
-            styles={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: 200,
+          <Set
+            spacing={0.5}
+            orientation="vertical"
+            styleOverrides={{
+              width: 'calc(200px - 0.875rem)',
+              padding: '0.875rem',
               height: 'inherit',
+              borderRight: '1px solid #E0E2E7',
             }}
           >
             {subItems.children}
-          </Box>
+          </Set>
         </ReakitMenu>
       )}
     </Fragment>
