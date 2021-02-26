@@ -16,6 +16,7 @@ import {
   IconStorefront,
 } from '@vtex/admin-ui-icons'
 import { CornerScope } from './utils'
+import { SidebarSubItem } from './components/SubItem'
 
 export default {
   title: 'shell/Sidebar',
@@ -52,6 +53,25 @@ const topCornerItems: ItemProps = [
   {
     icon: <IconPromotions {...iconProps} />,
     onClick: () => console.log('Click me'),
+    subItems: {
+      children: [
+        <SidebarSubItem onClick={() => console.log('Click me')}>
+          All promotions
+        </SidebarSubItem>,
+        <SidebarSubItem onClick={() => console.log('Click me')}>
+          Coupons
+        </SidebarSubItem>,
+        <SidebarSubItem onClick={() => console.log('Click me')}>
+          Campaign Audience
+        </SidebarSubItem>,
+        <SidebarSubItem onClick={() => console.log('Click me')}>
+          Gift Cards
+        </SidebarSubItem>,
+        <SidebarSubItem onClick={() => console.log('Click me')}>
+          Taxes
+        </SidebarSubItem>,
+      ],
+    },
   },
   {
     icon: <IconStorefront {...iconProps} />,

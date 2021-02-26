@@ -1,31 +1,58 @@
-import React, { ReactNode } from 'react'
-import { ButtonProps, Button } from '../../Button'
+import React, { Fragment, FunctionComponentElement } from 'react'
+import { Box } from '../../Box'
+import { SidebarDisclosure, SidebarDisclosureProps } from './Disclosure'
+import { SidebarSubItemProps } from './SubItem'
+import { ReakitMenu } from './AriaSidebar'
+import { SystemComponent } from '../../../types'
+import { useSystem } from '@vtex/admin-core'
 
-export interface SidebarItemProps extends ButtonProps {
-  icon: ReactNode
-  onClick: (event: React.MouseEvent<any, MouseEvent>) => void
+export interface SidebarItemProps
+  extends SidebarDisclosureProps,
+    SystemComponent {
   collapsed?: boolean
-  selected?: boolean
+  subItems?: {
+    children: FunctionComponentElement<SidebarSubItemProps>[]
+  }
 }
 
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
-  const { icon, onClick, selected } = props
+  const { collapsed, subItems, disabled, ...baseProps } = props
+  const { cn } = useSystem()
+  // @ts-ignore
+  const { state } = props['secret']
 
   return (
-    <Button
-      variant="tertiary"
-      icon={icon}
-      styleOverrides={{
-        backgroundColor: selected ? '#EAF0FD' : 'unset',
-        'div > svg': {
-          color: selected ? 'unset' : 'black',
-          opacity: selected ? 1 : 0.6,
-        },
-      }}
-      {...props}
-      onClick={(event) => {
-        onClick(event)
-      }}
-    />
+    <Fragment>
+      <SidebarDisclosure
+        {...props}
+        secret={{
+          state,
+        }}
+      />
+      {subItems?.children && (
+        <ReakitMenu
+          className={cn({
+            border: 0,
+            padding: 0,
+            outline: 'none',
+            zIndex: 999,
+          })}
+          {...state}
+          {...baseProps}
+          disabled={disabled}
+        >
+          <Box
+            styles={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: 200,
+              height: 'inherit',
+            }}
+          >
+            {subItems.children}
+          </Box>
+        </ReakitMenu>
+      )}
+    </Fragment>
   )
 }

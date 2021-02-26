@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import { Box } from '../Box'
 import { SidebarCorner, SidebarCornerProps } from './components/Corner'
 import { SidebarItem } from './components/Item'
+import { SidebarSubItem } from './components/SubItem'
 
 type AnchorDirection = 'left' | 'right'
 
@@ -40,6 +41,7 @@ export function Sidebar(props: SidebarProps) {
 }
 
 Sidebar.Item = SidebarItem
+Sidebar.SubItem = SidebarSubItem
 Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope'>) => (
   <SidebarCorner {...props} scope={'top'} />
 )
