@@ -1,25 +1,16 @@
 import React, { cloneElement, FunctionComponentElement } from 'react'
 import { Box } from '../../Box'
-import { CornerScope } from '../utils'
+import { CornerScope, SidebarSecretProps } from '../utils'
 import { SidebarItemProps } from './Item'
-import { useMenuState } from './AriaSidebar'
 
-export interface SidebarCornerProps {
+export interface SidebarCornerProps extends SidebarSecretProps {
   children: FunctionComponentElement<SidebarItemProps>[]
   scope: CornerScope
 }
 
-export function SidebarCorner(props: SidebarCornerProps) {
-  const { children } = props
+export function SidebarCorner(props: Omit<SidebarCornerProps, 'secret'>) {
+  // @ts-ignore
+  const { children, secret } = props
 
-  const state = useMenuState({
-    orientation: 'vertical',
-    loop: true,
-  })
-
-  return (
-    <Box>
-      {children.map((child) => cloneElement(child, { secret: { state } }))}
-    </Box>
-  )
+  return <Box>{children.map((child) => cloneElement(child, { secret }))}</Box>
 }
