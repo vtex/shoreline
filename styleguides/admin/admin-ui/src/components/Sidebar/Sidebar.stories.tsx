@@ -32,11 +32,6 @@ interface ItemCursor {
   scope: CornerScope
 }
 
-interface CornerItemProps {
-  currentItem: ItemCursor
-  setCurrentItem: (item: ItemCursor) => void
-}
-
 const iconProps: IconProps = {}
 
 type ItemProps = Omit<SidebarItemProps, 'secret'>[]
@@ -98,60 +93,11 @@ const bottomCornerItems: ItemProps = [
   },
 ]
 
-const TopSidebarItems = ({ currentItem, setCurrentItem }: CornerItemProps) => {
-  return (
-    <Sidebar.Header>
-      {topCornerItems.map((props, index) => (
-        <Sidebar.Item
-          {...props}
-          selected={currentItem.scope === 'top' && currentItem.index === index}
-          onClick={() => setCurrentItem({ index, scope: 'top' })}
-        />
-      ))}
-    </Sidebar.Header>
-  )
-}
-
-const BottomSidebarItems = ({
-  currentItem,
-  setCurrentItem,
-}: CornerItemProps) => {
-  return (
-    <Sidebar.Footer>
-      {bottomCornerItems.map((props, index) => (
-        <Sidebar.Item
-          {...props}
-          selected={
-            currentItem.scope === 'bottom' && currentItem.index === index
-          }
-          onClick={() => setCurrentItem({ index, scope: 'bottom' })}
-        />
-      ))}
-    </Sidebar.Footer>
-  )
-}
-
 export const Playground: Story<PlaygroundArgs> = (args) => {
   const [currentItem, setCurrentItem] = useState<ItemCursor>({
     index: 0,
     scope: 'top',
   })
-
-  args = {
-    ...args,
-    children: (
-      <>
-        <TopSidebarItems
-          currentItem={currentItem}
-          setCurrentItem={setCurrentItem}
-        />
-        <BottomSidebarItems
-          currentItem={currentItem}
-          setCurrentItem={setCurrentItem}
-        />
-      </>
-    ),
-  }
 
   return (
     <Box
@@ -160,7 +106,30 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
         height: 'calc(100vh - 2rem)',
       }}
     >
-      <Sidebar {...args} />
+      <Sidebar {...args}>
+        <Sidebar.Header>
+          {topCornerItems.map((props, index) => (
+            <Sidebar.Item
+              {...props}
+              selected={
+                currentItem.scope === 'top' && currentItem.index === index
+              }
+              onClick={() => setCurrentItem({ index, scope: 'top' })}
+            />
+          ))}
+        </Sidebar.Header>
+        <Sidebar.Footer>
+          {bottomCornerItems.map((props, index) => (
+            <Sidebar.Item
+              {...props}
+              selected={
+                currentItem.scope === 'bottom' && currentItem.index === index
+              }
+              onClick={() => setCurrentItem({ index, scope: 'bottom' })}
+            />
+          ))}
+        </Sidebar.Footer>
+      </Sidebar>
     </Box>
   )
 }

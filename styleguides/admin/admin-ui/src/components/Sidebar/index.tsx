@@ -1,13 +1,14 @@
-import React, { ReactNode } from 'react'
+import React, { cloneElement, FunctionComponentElement } from 'react'
 import { Box } from '../Box'
 import { SidebarCorner, SidebarCornerProps } from './components/Corner'
 import { SidebarItem } from './components/Item'
 import { SidebarSubItem } from './components/SubItem'
+import { useMenuState } from './components/AriaSidebar'
 
 type AnchorDirection = 'left' | 'right'
 
 export interface SidebarProps {
-  children: ReactNode
+  children: FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]
   anchor?: AnchorDirection
 }
 
@@ -23,6 +24,11 @@ function useSidebar(props: SidebarProps) {
 export function Sidebar(props: SidebarProps) {
   const { children } = useSidebar(props)
 
+  const state = useMenuState({
+    orientation: 'vertical',
+    loop: true,
+  })
+
   return (
     <Box
       styles={{
@@ -35,16 +41,17 @@ export function Sidebar(props: SidebarProps) {
       }}
       role="navigation"
     >
-      {children}
+      {/* @ts-ignore */}
+      {children.map((child) => cloneElement(child, { secret: { state } }))}
     </Box>
   )
 }
 
 Sidebar.Item = SidebarItem
 Sidebar.SubItem = SidebarSubItem
-Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope'>) => (
+Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope' | 'secret'>) => (
   <SidebarCorner {...props} scope={'top'} />
 )
-Sidebar.Footer = (props: Omit<SidebarCornerProps, 'scope'>) => (
+Sidebar.Footer = (props: Omit<SidebarCornerProps, 'scope' | 'secret'>) => (
   <SidebarCorner {...props} scope={'bottom'} />
 )
