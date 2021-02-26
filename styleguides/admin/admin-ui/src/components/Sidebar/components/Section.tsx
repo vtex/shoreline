@@ -20,8 +20,10 @@ export function SidebarSection(props: Omit<SidebarSectionProps, 'secret'>) {
   const { cn } = useSystem()
   const { direction, setCollapsed } = useSidebarContext()
 
-  // @ts-ignore
-  const { state } = props.secret
+  const {
+    secret: { state },
+    // @ts-ignore
+  } = props as SidebarSecretProps
 
   useEffect(() => {
     setCollapsed(!state.visible)
