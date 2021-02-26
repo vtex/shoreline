@@ -1,5 +1,5 @@
 import React, { FunctionComponentElement } from 'react'
-import { Box } from '../../Box'
+import { Set } from '../../Set'
 import { CornerScope, SidebarSecretProps } from '../utils'
 import { SidebarItemProps } from './Item'
 
@@ -11,5 +11,9 @@ export interface SidebarCornerProps extends SidebarSecretProps {
 export function SidebarCorner(props: Omit<SidebarCornerProps, 'secret'>) {
   const { children } = props
 
-  return <Box>{children}</Box>
+  return (
+    <Set spacing={1} orientation="vertical">
+      {children}
+    </Set>
+  )
 }

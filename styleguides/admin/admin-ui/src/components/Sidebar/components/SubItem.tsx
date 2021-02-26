@@ -13,12 +13,11 @@ export function SidebarSubItem(props: Omit<SidebarSubItemProps, 'secret'>) {
   return (
     <Button
       variant="tertiary"
+      size="small"
       styleOverrides={{
+        width: '100%',
         backgroundColor: selected ? '#EAF0FD' : 'unset',
-        'div > svg': {
-          color: selected ? 'unset' : 'black',
-          opacity: selected ? 1 : 0.6,
-        },
+        '> div': { justifyContent: 'start' },
       }}
       {...props}
       onClick={(event) => {
