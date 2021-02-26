@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import { ButtonProps, Button } from '../../Button'
 import { SidebarCurrentItem, useSidebarContext } from '../context'
-import { CornerScope } from '../utils'
 
 export interface SidebarItemProps extends ButtonProps {
   collapsed?: boolean
@@ -13,9 +12,10 @@ export interface SidebarItemProps extends ButtonProps {
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   const { icon, onClick } = props
   // @ts-ignore
-  const index = props['index'] as number
-  // @ts-ignore
-  const scope = props['scope'] as CornerScope
+  // Although we ommit the secret prop for clients,
+  // it is safe to access it, once the parent component
+  // obligatorily passes it down.
+  const { index, scope } = props['secret'] as SidebarCurrentItem
   const { currentItem, setCurrentItem } = useSidebarContext()
 
   const selected = currentItem.scope === scope && currentItem.index === index
