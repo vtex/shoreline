@@ -17,7 +17,11 @@ export function SidebarSubItem(props: Omit<SidebarSubItemProps, 'secret'>) {
       styleOverrides={{
         width: '100%',
         backgroundColor: selected ? '#EAF0FD' : 'unset',
-        '> div': { justifyContent: 'start' },
+        '> div': {
+          justifyContent: 'start',
+          fontSize: '14px',
+          color: selected ? 'blue' : '#707685',
+        },
       }}
       {...props}
       onClick={(event) => {
