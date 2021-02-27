@@ -72,42 +72,48 @@ const topCornerItems: ItemProps = [
   {
     icon: <IconOrders {...iconProps} />,
     onClick: () => console.log('Click me'),
-    subItems: {
-      children: orders.map((label) => (
-        <Sidebar.SubItem onClick={() => console.log('Click me')}>
-          {label}
-        </Sidebar.SubItem>
-      )),
-    },
+    sections: [
+      {
+        title: 'Orders',
+        children: orders.map((label) => (
+          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+            {label}
+          </Sidebar.SubItem>
+        )),
+      },
+    ],
   },
   {
     icon: <IconProducts {...iconProps} />,
     onClick: () => console.log('Click me'),
-    subItems: {
-      children: catalog.map((label) => (
-        <Sidebar.SubItem onClick={() => console.log('Click me')}>
-          {label}
-        </Sidebar.SubItem>
-      )),
-    },
+    sections: [
+      {
+        title: 'Product',
+        children: catalog.map((label) => (
+          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+            {label}
+          </Sidebar.SubItem>
+        )),
+      },
+    ],
   },
   {
     icon: <IconPromotions {...iconProps} />,
     onClick: () => console.log('Click me'),
-    subItems: {
-      children: promotions.map((label) => (
-        <Sidebar.SubItem onClick={() => console.log('Click me')}>
-          {label}
-        </Sidebar.SubItem>
-      )),
-    },
+    sections: [
+      {
+        title: 'Discounts',
+        children: promotions.map((label) => (
+          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+            {label}
+          </Sidebar.SubItem>
+        )),
+      },
+    ],
   },
   {
     icon: <IconStorefront {...iconProps} />,
     onClick: () => console.log('Click me'),
-    subItems: {
-      children: [],
-    },
   },
   {
     icon: <IconShipping {...iconProps} />,

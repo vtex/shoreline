@@ -1,14 +1,14 @@
 import React, { cloneElement, ReactNode } from 'react'
-import { MenuStateReturn, ReakitMenuButton } from './AriaSidebar'
+import { ReakitMenuButton } from './AriaSidebar'
 import { ButtonProps, Button } from '../../Button'
+import { SidebarSecretProps } from '../utils'
 
-export interface SidebarDisclosureProps extends ButtonProps {
+export interface SidebarDisclosureProps
+  extends ButtonProps,
+    SidebarSecretProps {
   icon: ReactNode
   onClick: (event: React.MouseEvent<any, MouseEvent>) => void
   selected?: boolean
-  secret: {
-    state: MenuStateReturn
-  }
 }
 
 export function SidebarDisclosure(props: SidebarDisclosureProps) {
