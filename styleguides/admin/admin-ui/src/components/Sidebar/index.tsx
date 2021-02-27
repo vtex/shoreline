@@ -2,6 +2,7 @@ import React, { FunctionComponentElement } from 'react'
 import { Box } from '../Box'
 import { SidebarCorner, SidebarCornerProps } from './components/Corner'
 import { SidebarItem } from './components/Item'
+import { SidebarSection } from './components/Section'
 import { SidebarSubItem } from './components/SubItem'
 import { SidebarProvider } from './context'
 import { AnchorDirection } from './utils'
@@ -47,6 +48,7 @@ export function Sidebar(props: SidebarProps) {
 }
 
 Sidebar.Item = SidebarItem
+Sidebar.Section = SidebarSection
 Sidebar.SubItem = SidebarSubItem
 Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope' | 'secret'>) => (
   <SidebarCorner {...props} scope={'top'} />
