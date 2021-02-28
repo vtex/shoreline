@@ -14,7 +14,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 44px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -261,7 +261,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 44px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -431,7 +431,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -497,7 +497,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 44px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -578,7 +578,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 44px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -772,7 +772,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -873,7 +873,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -1010,7 +1010,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 44px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -1203,7 +1203,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 44px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -1343,7 +1343,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 64px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -1444,7 +1444,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 64px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -1560,7 +1560,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 75px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -1679,7 +1679,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 64px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -1816,7 +1816,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -2029,7 +2029,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;

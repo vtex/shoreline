@@ -102,7 +102,7 @@ exports[`Search tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -315,7 +315,7 @@ exports[`Search tests should match snapshot on loading 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
