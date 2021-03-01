@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactNode } from 'react'
+import React, { cloneElement, forwardRef, ReactNode, Ref } from 'react'
 import { ReakitMenuButton } from './AriaSidebar'
 import { ButtonProps, Button } from '../../Button'
 import { SidebarSecretProps } from '../utils'
@@ -11,7 +11,10 @@ export interface SidebarDisclosureProps
   selected?: boolean
 }
 
-export function SidebarDisclosure(props: SidebarDisclosureProps) {
+export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
+  props: SidebarDisclosureProps,
+  ref: Ref<HTMLButtonElement>
+) {
   const {
     icon,
     onClick,
@@ -38,8 +41,8 @@ export function SidebarDisclosure(props: SidebarDisclosureProps) {
   )
 
   return (
-    <ReakitMenuButton {...state} {...children.props}>
+    <ReakitMenuButton ref={ref} {...state} {...children.props}>
       {(enhancedProps) => cloneElement(children, enhancedProps)}
     </ReakitMenuButton>
   )
-}
+})

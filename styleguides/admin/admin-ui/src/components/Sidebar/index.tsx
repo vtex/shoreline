@@ -1,5 +1,7 @@
-import React, { FunctionComponentElement, useState } from 'react'
+import React, { cloneElement, FunctionComponentElement, useState } from 'react'
+import { SystemComponent } from '../../types'
 import { Box } from '../Box'
+import { ReakitMenuBar, useMenuBarState } from './components/AriaSidebar'
 import { SidebarCorner, SidebarCornerProps } from './components/Corner'
 import { SidebarItem } from './components/Item'
 import { SidebarSection } from './components/Section'
@@ -7,7 +9,7 @@ import { SidebarSubItem } from './components/SubItem'
 import { SidebarProvider } from './context'
 import { AnchorDirection } from './utils'
 
-export interface SidebarProps {
+export interface SidebarProps extends SystemComponent {
   children: FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]
   anchor?: AnchorDirection
 }
@@ -23,7 +25,11 @@ function useSidebar(props: SidebarProps) {
 
 export function Sidebar(props: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false)
-  const { children, anchor } = useSidebar(props)
+  const { children, anchor, ...baseProps } = useSidebar(props)
+  const state = useMenuBarState({
+    orientation: 'vertical',
+    loop: true,
+  })
 
   return (
     <Box
@@ -47,7 +53,14 @@ export function Sidebar(props: SidebarProps) {
           setCollapsed,
         }}
       >
-        {children}
+        <ReakitMenuBar aria-label={'Sidebar'} {...state} {...baseProps}>
+          {children.map((child) =>
+            cloneElement(child, {
+              // @ts-ignore
+              secret: { state },
+            })
+          )}
+        </ReakitMenuBar>
       </SidebarProvider>
     </Box>
   )
