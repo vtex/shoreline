@@ -12,36 +12,6 @@ export interface SidebarItemProps
   sections?: Omit<SidebarSectionProps, 'secret'>[]
 }
 
-/**
- * SidebarItem corresponds to an item of the sidebar's
- * first level. It must used along with the Sidebar.Header
- * or Sidebar.Footer, both inside the Sidebar. That is because
- * they share the same context, and to enforce the proper
- * usage of this component.
- *
- * @example
- * ```jsx
- * import { Sidebar } from `@vtex/admin-ui`
- *
- * <Sidebar>
- *    <Sidebar.Header>
- *      <Sidebar.Item
- *         selected={false}
- *         onClick={() => console.log("Hello")}
- *         sections={[
- *            title: "Example",
- *            children: [
- *              <Sidebar.SubItem
- *                onClick={() => console.log("Hi")}>
- *                Example
- *              </Sidebar.SubItem>
- *            ]
- *         ]}
- *      />
- *    </Sidebar.Header>
- * </Sidebar>
- * ```
- */
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   const { collapsed, sections, ...baseProps } = props
 
