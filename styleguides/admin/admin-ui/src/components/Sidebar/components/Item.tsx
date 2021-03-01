@@ -13,7 +13,7 @@ export interface SidebarItemProps
 }
 
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
-  const { collapsed, sections, ...baseProps } = props
+  const { collapsed, sections, onClick, ...baseProps } = props
 
   const {
     // @ts-ignore
@@ -32,8 +32,11 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
           <SidebarDisclosure
             {...props}
             {...itemProps}
+            // These prevent the sidebar to open/collapse as
+            // a user hovers the mouse over the sidebar disclosure
             onMouseEnter={(event) => event.preventDefault()}
             onMouseLeave={(event) => event.preventDefault()}
+            onClick={onClick}
             secret={{
               state,
             }}
