@@ -1,40 +1,31 @@
 import { useEffect, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 
-const useCarouselState = ({ totalSlides }: { totalSlides: number }) => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [swapSlide, setSwapSlide] = useState(0)
-  const [direction, setDirection] = useState<'ltr' | 'rtl'>('ltr')
-
+const useCarouselState = ({ totalSteps }: { totalSteps: number }) => {
+  const [currentStep, setCurrentStep] = useState(0)
+  const [transition, setTransition] = useState(false)
   useEffect(() => {
-    setCurrentSlide(0)
-  }, [totalSlides])
+    setCurrentStep(0)
+  }, [totalSteps])
 
-  const handleChangeSlide = (newSlide: number) => {
-    if (newSlide > currentSlide) {
-      setDirection('ltr')
-    } else {
-      setDirection('rtl')
-    }
-
-    setSwapSlide(currentSlide)
-    setCurrentSlide(newSlide)
+  const handleChangeStep = (newStep: number) => {
+    setTransition(true)
+    setTimeout(() => {
+      setCurrentStep(newStep)
+      setTimeout(() => {
+        setTransition(false)
+      }, 250)
+    }, 250)
   }
 
   const handleNext = () => {
-    const nextSlide = (currentSlide + 1) % totalSlides
-
-    setDirection('ltr')
-    setSwapSlide(currentSlide)
-    setCurrentSlide(nextSlide)
+    const nextStep = (currentStep + 1) % totalSteps
+    handleChangeStep(nextStep)
   }
 
   const handlePrevious = () => {
-    const previousSlide = (totalSlides + currentSlide - 1) % totalSlides
-
-    setDirection('rtl')
-    setSwapSlide(currentSlide)
-    setCurrentSlide(previousSlide)
+    const previousStep = (totalSteps + currentStep - 1) % totalSteps
+    handleChangeStep(previousStep)
   }
 
   const swipeHandlers = useSwipeable({
@@ -43,10 +34,9 @@ const useCarouselState = ({ totalSlides }: { totalSlides: number }) => {
   })
 
   return {
-    currentSlide,
-    swapSlide,
-    direction,
-    handleChangeSlide,
+    currentStep,
+    transition,
+    handleChangeStep,
     handleNext,
     handlePrevious,
     swipeHandlers,

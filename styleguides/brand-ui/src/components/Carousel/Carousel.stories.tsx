@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 import { Flex } from 'theme-ui'
 
@@ -68,70 +68,49 @@ export const Small = () => <SimpleCarousel size="small" />
 
 export const WithoutIndicators = () => <SimpleCarousel indicators={false} />
 
-export const SelectSlideCount = () => {
-  const [value, setValue] = useState(2)
+export const MultipleCards = () => {
+  const [scroll, setScroll] = useState(1)
+  const [page, setPage] = useState(3)
 
-  const onChangeSelect = (e: ChangeEvent<HTMLSelectElement>) =>
-    setValue((e.target.value as unknown) as number)
-
-  const slides = Array.from({ length: value }).map((_) => (
-    <Flex
-      sx={{
-        ...carouselPageStyles,
-        backgroundColor: 'muted.0',
-      }}
-    >
-      Take me out! And take me home!
-    </Flex>
-  ))
+  const onChangeScroll = (e: ChangeEvent<HTMLSelectElement>) =>
+    setScroll((e.target.value as unknown) as number)
+  const onChangePage = (e: ChangeEvent<HTMLSelectElement>) =>
+    setPage((e.target.value as unknown) as number)
 
   return (
     <Flex sx={{ flexDirection: 'column' }}>
       <Select
-        label="Number of slides"
-        id="slides"
-        onChange={onChangeSelect}
-        value={value}
+        label="Slides per page"
+        id="page"
+        onChange={onChangePage}
+        value={page}
       >
-        <Select.Option value={2}>Two</Select.Option>
-        <Select.Option value={3}>Three</Select.Option>
-        <Select.Option value={4}>Four</Select.Option>
+        {[2, 3, 4, 5].map((value) => (
+          <Select.Option value={value}>{value}</Select.Option>
+        ))}
       </Select>
-      <Carousel>{slides}</Carousel>
+      <Select
+        label="Slides per scroll"
+        id="scroll"
+        onChange={onChangeScroll}
+        value={scroll}
+      >
+        {[1, 2, 3, 4, 5].map((value) => (
+          <Select.Option value={value}>{value}</Select.Option>
+        ))}
+      </Select>
+      <Carousel
+        indicators={false}
+        slidesPerPage={page}
+        slidesPerScroll={scroll}
+      >
+        {[...Array(10).keys()].map((value) => (
+          <Card sx={{ marginY: 2 }}>
+            <Card.Header>Card</Card.Header>
+            <Card.Body sx={{ textAlign: 'center' }}>{value + 1}</Card.Body>
+          </Card>
+        ))}
+      </Carousel>
     </Flex>
   )
 }
-
-const SimpleCard = ({ children }: { children: ReactNode }) => (
-  <Card sx={{ height: 'fit-content' }}>
-    <Card.Header>Loveless</Card.Header>
-    <Card.Body>{children}</Card.Body>
-  </Card>
-)
-
-const cardContainerStyles = {
-  ...carouselPageStyles,
-  backgroundColor: 'bubblegum.base',
-  color: 'text',
-  div: {
-    marginRight: 5,
-    ':last-child': {
-      marginRight: 0,
-    },
-  },
-}
-
-export const MultipleCards = () => (
-  <Carousel>
-    <Flex sx={cardContainerStyles}>
-      <SimpleCard>Bet you wanna rip my heart out</SimpleCard>
-      <SimpleCard>Bet you wanna skip my calls now</SimpleCard>
-      <SimpleCard>Well guess what? I like that</SimpleCard>
-    </Flex>
-    <Flex sx={cardContainerStyles}>
-      <SimpleCard>&apos;Cause I&apos;m gonna mess your life up</SimpleCard>
-      <SimpleCard>Gonna wanna tape my mouth shut</SimpleCard>
-      <SimpleCard>Look out, lovers</SimpleCard>
-    </Flex>
-  </Carousel>
-)
