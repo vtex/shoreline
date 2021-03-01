@@ -132,7 +132,8 @@ const stateDark = {
 
 const labelBase = {
   color: 'muted.0',
-  width: 'fit-content',
+  width: '100%',
+  paddingRight: '3rem',
   position: 'absolute',
   pointerEvents: 'none',
   transition: 'transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
