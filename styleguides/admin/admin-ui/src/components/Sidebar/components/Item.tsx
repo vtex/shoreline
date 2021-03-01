@@ -32,6 +32,8 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
           <SidebarDisclosure
             {...props}
             {...itemProps}
+            onMouseEnter={(event) => event.preventDefault()}
+            onMouseLeave={(event) => event.preventDefault()}
             secret={{
               state,
             }}

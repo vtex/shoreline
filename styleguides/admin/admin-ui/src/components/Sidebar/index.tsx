@@ -28,6 +28,7 @@ export function Sidebar(props: SidebarProps) {
   const { children, anchor, ...baseProps } = useSidebar(props)
   const { cn } = useSystem()
   const state = useMenuBarState({
+    baseId: 'sidebar-menu-base-id--',
     orientation: 'vertical',
     loop: true,
   })

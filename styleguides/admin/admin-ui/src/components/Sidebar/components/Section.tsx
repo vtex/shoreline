@@ -3,9 +3,8 @@ import React, {
   forwardRef,
   FunctionComponentElement,
   Ref,
-  useEffect,
 } from 'react'
-import { ReakitMenu, ReakitMenuItem } from './AriaSidebar'
+import { ReakitMenu, ReakitMenuItem, useMenuState } from './AriaSidebar'
 import { SidebarSubItemProps } from './SubItem'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
@@ -27,16 +26,14 @@ export const SidebarSection = forwardRef(function SidebarSection(
 ) {
   const { title, children, ...baseProps } = props
   const { cn } = useSystem()
-  const { direction, setCollapsed } = useSidebarContext()
+  const { direction } = useSidebarContext()
 
   const {
     secret: { state },
     // @ts-ignore
   } = props as SidebarSecretProps
 
-  useEffect(() => {
-    setCollapsed(!state.visible)
-  }, [state])
+  const menu = useMenuState()
 
   return (
     <ReakitMenu
@@ -51,6 +48,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
         borderRight: '1px solid #E0E2E7',
       })}
       aria-label={title}
+      {...menu}
       {...state}
       {...baseProps}
     >
