@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { forwardRef, ReactNode, Ref } from 'react'
 import { ButtonProps, Button } from '../../Button'
 
 export interface SidebarSubItemProps extends ButtonProps {
@@ -7,11 +7,15 @@ export interface SidebarSubItemProps extends ButtonProps {
   selected?: boolean
 }
 
-export function SidebarSubItem(props: Omit<SidebarSubItemProps, 'secret'>) {
+export const SidebarSubItem = forwardRef(function SidebarSubItem(
+  props: Omit<SidebarSubItemProps, 'secret'>,
+  ref: Ref<HTMLButtonElement>
+) {
   const { onClick, selected } = props
 
   return (
     <Button
+      ref={ref}
       variant="tertiary"
       size="small"
       styleOverrides={{
@@ -29,4 +33,4 @@ export function SidebarSubItem(props: Omit<SidebarSubItemProps, 'secret'>) {
       }}
     />
   )
-}
+})
