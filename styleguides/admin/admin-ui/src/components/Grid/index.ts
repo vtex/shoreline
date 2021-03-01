@@ -1,23 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ElementType } from 'react'
+import { ElementType, ReactElement } from 'react'
 import * as CSS from 'csstype'
-import { omit, pick, ResponsiveValue } from '@vtex/admin-core'
+import { createComponent, omit, pick, ResponsiveValue } from '@vtex/admin-core'
 
-import { Box, BoxProps } from '../Box'
 import { GridItem } from './Item'
+import { Primitive, PrimitiveProps } from '../Primitive'
 
 /**
  * Grid default element
  */
 const defaultElement = 'div'
 
-export function Grid<E extends ElementType = typeof defaultElement>(
+const _Grid: <E extends ElementType = typeof defaultElement>(
   props: GridProps<E>
-) {
-  const gridProps = useGrid(props)
+) => ReactElement | null = createComponent(Primitive, useGrid)
 
-  return <Box {...gridProps} />
-}
+export const Grid = Object.assign(_Grid, { Item: GridItem })
 
 export function useGrid(props: GridProps) {
   const propertyMap = {
@@ -59,6 +57,8 @@ export function useGrid(props: GridProps) {
 
 Grid.Item = GridItem
 
+export { GridItem }
+
 export interface GridOwnProps {
   /** Shorthand for CSS gridGap property */
   gap?: ResponsiveValue<CSS.Property.GridGap>
@@ -75,4 +75,4 @@ export interface GridOwnProps {
 }
 
 export type GridProps<E extends ElementType = ElementType> = GridOwnProps &
-  BoxProps<E>
+  PrimitiveProps<E>
