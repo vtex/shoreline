@@ -4,7 +4,7 @@ import { render } from '../test-utils'
 import { Flex } from './index'
 
 describe('Flex tests', () => {
-  it('should apply styles', () => {
+  it('should apply csx', () => {
     const { getByTestId } = render(
       <Flex data-testid="flex" csx={{ bg: 'coral' }}>
         Flex

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ElementType } from 'react'
+import { ElementType, ReactElement } from 'react'
 import * as CSS from 'csstype'
-import { omit, pick, ResponsiveValue } from '@vtex/admin-core'
+import { createComponent, omit, pick, ResponsiveValue } from '@vtex/admin-core'
 
-import { Primitive, PrimitiveProps } from '../Primitive'
 import { GridItem } from './Item'
+import { Primitive, PrimitiveProps } from '../Primitive'
 import { renameKeys } from '../util'
 
 /**
@@ -12,13 +12,11 @@ import { renameKeys } from '../util'
  */
 const defaultElement = 'div'
 
-export function Grid<E extends ElementType = typeof defaultElement>(
+const _Grid: <E extends ElementType = typeof defaultElement>(
   props: GridProps<E>
-) {
-  const gridProps = useGrid(props)
+) => ReactElement | null = createComponent(Primitive, useGrid)
 
-  return <Primitive {...gridProps} />
-}
+export const Grid = Object.assign(_Grid, { Item: GridItem })
 
 export function useGrid(props: GridProps) {
   const propertyMap = {
@@ -30,22 +28,24 @@ export function useGrid(props: GridProps) {
     templateColumns: 'gridTemplateColumns',
   }
 
-  const { csx, templateAreas, ...PrimitiveProps } = props
+  const { csx, templateAreas, ...boxProps } = props
 
   const resolvedAreas = templateAreas?.map((value) => `"${value}"`).join(' ')
   const cssProps = Object.keys(propertyMap)
   const cssPropsStyle = renameKeys(propertyMap, {
     templateAreas: resolvedAreas,
-    ...pick(PrimitiveProps, cssProps),
+    ...pick(boxProps, cssProps),
   })
 
   return {
     csx: { display: 'grid', ...cssPropsStyle, ...csx },
-    ...omit(PrimitiveProps, cssProps),
+    ...omit(boxProps, cssProps),
   }
 }
 
 Grid.Item = GridItem
+
+export { GridItem }
 
 export interface GridOwnProps {
   /** Shorthand for CSS gridGap property */

@@ -4,10 +4,10 @@
 
 ### Summary
 
-Primitive components to build ui
+Primitive components linked
 
 ### Install
 
 ```sh
-yarn add @vtex/admin-primitives @vtex/admin-core @emotion/css @emotion/react
+yarn add @vtex/admin-primitives @vtex/admin-core reakit @emotion/css @emotion/react
 ```

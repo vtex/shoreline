@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ElementType } from 'react'
+import { ElementType, ReactElement } from 'react'
 import * as CSS from 'csstype'
-import { ResponsiveValue, omit, pick } from '@vtex/admin-core'
+import { ResponsiveValue, omit, pick, createComponent } from '@vtex/admin-core'
 
-import { Primitive, PrimitiveProps } from '../Primitive'
+import { Primitive, PrimitiveOwnProps, PrimitiveProps } from '../Primitive'
 import { renameKeys } from '../util'
 
 /**
@@ -11,25 +11,9 @@ import { renameKeys } from '../util'
  */
 const defaultElement = 'div'
 
-export function Flex<E extends ElementType = typeof defaultElement>(
+const _Flex: <E extends ElementType = typeof defaultElement>(
   props: FlexProps<E>
-) {
-  const flexProps = useFlex(props)
-
-  return <Primitive {...flexProps} />
-}
-
-Flex.Spacer = function Spacer() {
-  return (
-    <Primitive
-      csx={{
-        flex: 1,
-        justifySelf: 'stretch',
-        alignSelf: 'stretch',
-      }}
-    />
-  )
-}
+) => ReactElement | null = createComponent(Primitive, useFlex)
 
 export function useFlex(props: FlexProps) {
   const propertyMap = {
@@ -43,15 +27,33 @@ export function useFlex(props: FlexProps) {
     order: 'order',
   }
 
-  const { styles, ...boxProps } = props
+  const { csx, ...primitiveProps } = props
   const cssProps = Object.keys(propertyMap)
-  const cssPropsStyle = renameKeys(propertyMap, pick(boxProps, cssProps))
+  const cssPropsStyle = renameKeys(propertyMap, pick(primitiveProps, cssProps))
 
   return {
-    csx: { display: 'flex', ...cssPropsStyle, ...styles },
-    ...omit(boxProps, cssProps),
+    csx: { display: 'flex', ...cssPropsStyle, ...csx },
+    ...omit(primitiveProps, cssProps),
   }
 }
+
+export const FlexSpacer = createComponent(Primitive, useFlexSpacer)
+
+export function useFlexSpacer(props: Omit<PrimitiveOwnProps, 'element'>) {
+  const { csx, ...primitiveProps } = props
+
+  return {
+    csx: {
+      flex: 1,
+      justifySelf: 'stretch',
+      alignSelf: 'stretch',
+      ...csx,
+    },
+    ...primitiveProps,
+  }
+}
+
+export const Flex = Object.assign(_Flex, { Spacer: FlexSpacer })
 
 export interface FlexOwnProps {
   /** Shorthand for CSS alignItems property */
