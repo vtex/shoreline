@@ -1,11 +1,12 @@
 import React, {
+  cloneElement,
   forwardRef,
   FunctionComponentElement,
   ReactNode,
   Ref,
   useEffect,
 } from 'react'
-import { ReakitMenu } from './AriaSidebar'
+import { ReakitMenu, ReakitMenuItem } from './AriaSidebar'
 import { SidebarSubItemProps } from './SubItem'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
@@ -71,7 +72,15 @@ export const SidebarSection = forwardRef(function SidebarSection(
         >
           {title}
         </Text>
-        {children}
+        {children.map((child, index) => (
+          <ReakitMenuItem state={state} key={index}>
+            {(itemProps) =>
+              cloneElement(child, {
+                ...itemProps,
+              })
+            }
+          </ReakitMenuItem>
+        ))}
       </Set>
     </ReakitMenu>
   )

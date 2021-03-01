@@ -16,7 +16,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   const { collapsed, sections, ...baseProps } = props
 
   const state = useMenuState({
-    orientation: 'horizontal',
+    orientation: 'vertical',
     loop: true,
   })
 
