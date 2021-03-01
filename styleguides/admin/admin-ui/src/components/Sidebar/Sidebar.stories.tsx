@@ -51,6 +51,15 @@ const promotions = [
   'Taxes',
 ]
 
+const storeFront = [
+  'Layout',
+  'Site Editor',
+  'Pages',
+  'Styles',
+  'Redirects',
+  'Banners',
+]
+
 const catalog = [
   'All Products',
   'Categories',
@@ -62,6 +71,24 @@ const catalog = [
   'Import and Export',
   'Reviews',
   'Reports',
+]
+const catalog2 = ['Price List', 'Price Rules']
+
+const intelligentSearch = [
+  'Explained Search',
+  'Merchandising Rules',
+  'Synonyms',
+  'Indexing Status',
+  'Relevance Rules',
+  'Analytics',
+  'Redirects',
+]
+
+const shipping = [
+  'Shipping Rates',
+  'Shipping Simulator',
+  'Pickup Points',
+  'Shipping Strategy',
 ]
 
 const topCornerItems: ItemProps = [
@@ -95,6 +122,14 @@ const topCornerItems: ItemProps = [
           </Sidebar.SubItem>
         )),
       },
+      {
+        title: 'Prices',
+        children: catalog2.map((label) => (
+          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+            {label}
+          </Sidebar.SubItem>
+        )),
+      },
     ],
   },
   {
@@ -114,10 +149,38 @@ const topCornerItems: ItemProps = [
   {
     icon: <IconStorefront {...iconProps} />,
     onClick: () => console.log('Click me'),
+    sections: [
+      {
+        title: 'Content Management',
+        children: storeFront.map((label) => (
+          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+            {label}
+          </Sidebar.SubItem>
+        )),
+      },
+      {
+        title: 'Intelligent Search',
+        children: intelligentSearch.map((label) => (
+          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+            {label}
+          </Sidebar.SubItem>
+        )),
+      },
+    ],
   },
   {
     icon: <IconShipping {...iconProps} />,
     onClick: () => console.log('Click me'),
+    sections: [
+      {
+        title: 'Shipping',
+        children: shipping.map((label) => (
+          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+            {label}
+          </Sidebar.SubItem>
+        )),
+      },
+    ],
   },
   {
     icon: <IconMarketplace {...iconProps} />,

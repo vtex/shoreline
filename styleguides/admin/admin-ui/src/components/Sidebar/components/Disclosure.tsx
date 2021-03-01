@@ -7,7 +7,7 @@ export interface SidebarDisclosureProps
   extends ButtonProps,
     SidebarSecretProps {
   icon: ReactNode
-  onClick: (event: React.MouseEvent<any, MouseEvent>) => void
+  onClick: (event?: React.MouseEvent<any, MouseEvent>) => void
   selected?: boolean
 }
 
@@ -17,7 +17,6 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
 ) {
   const {
     icon,
-    onClick,
     selected,
     secret: { state },
   } = props
@@ -34,9 +33,6 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         },
       }}
       {...props}
-      onClick={(event) => {
-        onClick(event)
-      }}
     />
   )
 
