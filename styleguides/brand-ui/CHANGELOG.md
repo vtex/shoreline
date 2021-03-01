@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.37.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.36.0...@vtex/brand-ui@0.37.0) (2021-03-01)
+
+
+### Features
+
+* **carousel:** display and scroll multiple slides per step ([2ccf993](https://github.com/vtex/onda/commit/2ccf993555577a7c4bc8f7edd2fc32f891aec080))
+
+
+
+
+
 # [0.36.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.35.0...@vtex/brand-ui@0.36.0) (2021-02-25)
 
 

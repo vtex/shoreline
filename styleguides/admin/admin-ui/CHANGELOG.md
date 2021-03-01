@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.82.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.5...@vtex/admin-ui@0.82.6) (2021-03-01)
+
+
+### Bug Fixes
+
+* **primitives:** change the way Grid and Flex are implemented to use createComponent function ([05631d8](https://github.com/vtex/onda/commit/05631d890bc6d3984a21418717519c19e83cc127))
+
+
+
+
+
 ## [0.82.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.4...@vtex/admin-ui@0.82.5) (2021-02-25)
 
 **Note:** Version bump only for package @vtex/admin-ui
