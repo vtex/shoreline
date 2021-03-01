@@ -2,7 +2,6 @@ import React, {
   cloneElement,
   forwardRef,
   FunctionComponentElement,
-  ReactNode,
   Ref,
   useEffect,
 } from 'react'
@@ -18,7 +17,7 @@ import { SidebarSecretProps } from '../utils'
 export interface SidebarSectionProps
   extends SystemComponent,
     SidebarSecretProps {
-  title: ReactNode
+  title: string
   children: FunctionComponentElement<SidebarSubItemProps>[]
 }
 
@@ -51,6 +50,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
         padding: '1.875rem 0.875rem',
         borderRight: '1px solid #E0E2E7',
       })}
+      aria-label={title}
       {...state}
       {...baseProps}
     >
