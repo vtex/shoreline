@@ -7,11 +7,10 @@ import {
   ReakitMenuItem,
   ReakitMenu,
   useMenuState,
-} from '.'
+} from './index'
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
-import { SCALES } from '../utils'
 
 export interface SidebarItemProps
   extends SidebarDisclosureProps,
@@ -62,15 +61,8 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
             sections?.some((section) => section.children.length > 0) && (
               <ReakitMenu
                 className={cn({
-                  [direction]: `56px !important`,
-                  transform: 'unset !important',
-                  outline: 'none',
-                  backgroundColor: '#F8F9FA',
-                  height: '100%',
-                  padding: '1.875rem 0.875rem',
-                  borderRight: '1px solid #E0E2E7',
-                  overflowY: 'auto',
-                  maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
+                  [direction]: `3.5rem !important`,
+                  themeKey: 'components.sidebar.item',
                 })}
                 aria-label={'Tooltip title should come here'}
                 {...sectionState}

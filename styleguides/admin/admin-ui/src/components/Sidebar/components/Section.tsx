@@ -4,7 +4,7 @@ import React, {
   FunctionComponentElement,
   Ref,
 } from 'react'
-import { ReakitMenuItem, SidebarSubItemProps } from '.'
+import { ReakitMenuItem, SidebarSubItemProps } from './index'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'

@@ -11,20 +11,11 @@ import {
   SidebarBackdrop,
 } from './components'
 import { SidebarProvider } from './context'
-import { AnchorDirection, SCALES } from './utils'
+import { AnchorDirection } from './utils'
 
 export interface SidebarProps extends SystemComponent {
   children: FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]
   anchor?: AnchorDirection
-}
-
-function useSidebar(props: SidebarProps) {
-  const { anchor = 'left' } = props
-
-  return {
-    anchor,
-    ...props,
-  }
 }
 
 /**
@@ -64,7 +55,7 @@ function useSidebar(props: SidebarProps) {
  */
 export function Sidebar(props: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false)
-  const { children, anchor, ...baseProps } = useSidebar(props)
+  const { children, anchor = 'left', styleOverrides = {}, ...baseProps } = props
   const { cn } = useSystem()
   const state = useMenuBarState({
     baseId: 'sidebar-menu-base-id--',
@@ -86,18 +77,8 @@ export function Sidebar(props: SidebarProps) {
         {...baseProps}
         role="navigation"
         className={cn({
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          paddingY: '0.625rem',
-          justifyContent: 'space-between',
+          themeKey: 'components.sidebar',
           backgroundColor: collapsed ? 'white' : '#F8F9FA',
-          height: 'calc(100% - 1.25rem)',
-          maxWidth: SCALES.FIXED_AREA_WIDTH,
-          minWidth: SCALES.FIXED_AREA_WIDTH,
-          borderRight: '1px solid #E0E2E7',
-          outline: 'none',
-          overflowY: 'auto',
         })}
       >
         {children.map((child) =>
