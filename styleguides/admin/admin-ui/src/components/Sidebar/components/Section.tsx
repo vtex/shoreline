@@ -1,9 +1,4 @@
-import React, {
-  cloneElement,
-  forwardRef,
-  FunctionComponentElement,
-  Ref,
-} from 'react'
+import React, { cloneElement, FunctionComponentElement } from 'react'
 import { ReakitMenuItem } from './AriaSidebar'
 import { SidebarSubItemProps } from './SubItem'
 import { Set } from '../../Set'
@@ -18,10 +13,7 @@ export interface SidebarSectionProps
   children: FunctionComponentElement<SidebarSubItemProps>[]
 }
 
-export const SidebarSection = forwardRef(function SidebarSection(
-  props: Omit<SidebarSectionProps, 'secret'>,
-  _: Ref<HTMLDivElement>
-) {
+export function SidebarSection(props: Omit<SidebarSectionProps, 'secret'>) {
   const { title, children } = props
 
   const {
@@ -59,4 +51,4 @@ export const SidebarSection = forwardRef(function SidebarSection(
       ))}
     </Set>
   )
-})
+}
