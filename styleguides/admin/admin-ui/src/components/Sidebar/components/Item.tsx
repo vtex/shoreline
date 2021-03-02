@@ -47,37 +47,41 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
               state,
             }}
           />
-          <ReakitMenu
-            className={cn({
-              [direction]: `56px !important`,
-              transform: 'unset !important',
-              outline: 'none',
-              backgroundColor: '#F8F9FA',
-              height: '100%',
-              padding: '1.875rem 0.875rem',
-              borderRight: '1px solid #E0E2E7',
-            })}
-            aria-label={'Tooltip title should come here'}
-            {...sectionState}
-            {...state}
-            {...baseProps}
-          >
-            {sections?.map(
-              ({ title, children }, index) =>
-                children.length > 0 && (
-                  <ReakitMenuItem {...state} key={index}>
-                    {(itemProps) =>
-                      cloneElement(
-                        <Sidebar.Section title={title} {...baseProps}>
-                          {children}
-                        </Sidebar.Section>,
-                        { ...itemProps, secret: { state } }
-                      )
-                    }
-                  </ReakitMenuItem>
-                )
+          {sections &&
+            sections.length > 0 &&
+            sections?.some((section) => section.children.length > 0) && (
+              <ReakitMenu
+                className={cn({
+                  [direction]: `56px !important`,
+                  transform: 'unset !important',
+                  outline: 'none',
+                  backgroundColor: '#F8F9FA',
+                  height: '100%',
+                  padding: '1.875rem 0.875rem',
+                  borderRight: '1px solid #E0E2E7',
+                })}
+                aria-label={'Tooltip title should come here'}
+                {...sectionState}
+                {...state}
+                {...baseProps}
+              >
+                {sections?.map(
+                  ({ title, children }, index) =>
+                    children.length > 0 && (
+                      <ReakitMenuItem {...state} key={index}>
+                        {(itemProps) =>
+                          cloneElement(
+                            <Sidebar.Section title={title} {...baseProps}>
+                              {children}
+                            </Sidebar.Section>,
+                            { ...itemProps, secret: { state } }
+                          )
+                        }
+                      </ReakitMenuItem>
+                    )
+                )}
+              </ReakitMenu>
             )}
-          </ReakitMenu>
         </>
       )}
     </ReakitMenuItem>
