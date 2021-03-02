@@ -4,10 +4,8 @@ import React, {
   FunctionComponentElement,
   Ref,
 } from 'react'
-import { ReakitMenu, ReakitMenuItem, useMenuState } from './AriaSidebar'
+import { ReakitMenuItem } from './AriaSidebar'
 import { SidebarSubItemProps } from './SubItem'
-import { useSystem } from '@vtex/admin-core'
-import { useSidebarContext } from '../context'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
@@ -22,64 +20,43 @@ export interface SidebarSectionProps
 
 export const SidebarSection = forwardRef(function SidebarSection(
   props: Omit<SidebarSectionProps, 'secret'>,
-  ref: Ref<HTMLDivElement>
+  _: Ref<HTMLDivElement>
 ) {
-  const { title, children, ...baseProps } = props
-  const { cn } = useSystem()
-  const { direction } = useSidebarContext()
+  const { title, children } = props
 
   const {
     secret: { state },
     // @ts-ignore
   } = props as SidebarSecretProps
 
-  const menu = useMenuState()
-
   return (
-    <ReakitMenu
-      ref={ref}
-      className={cn({
-        [direction]: `56px !important`,
-        transform: 'unset !important',
-        outline: 'none',
-        backgroundColor: '#F8F9FA',
-        height: '100%',
-        padding: '1.875rem 0.875rem',
-        borderRight: '1px solid #E0E2E7',
-      })}
-      aria-label={title}
-      {...menu}
-      {...state}
-      {...baseProps}
+    <Set
+      spacing={0.5}
+      orientation="vertical"
+      styleOverrides={{
+        width: 'calc(200px - 1.75rem)',
+        height: 'inherit',
+      }}
     >
-      <Set
-        spacing={0.5}
-        orientation="vertical"
+      <Text
+        variant="action"
         styleOverrides={{
-          width: 'calc(200px - 1.75rem)',
-          height: 'inherit',
+          color: 'gray',
+          fontSize: '11px',
+          paddingBottom: '12px',
         }}
       >
-        <Text
-          variant="action"
-          styleOverrides={{
-            color: 'gray',
-            fontSize: '11px',
-            paddingBottom: '12px',
-          }}
-        >
-          {title}
-        </Text>
-        {children.map((child, index) => (
-          <ReakitMenuItem state={state} key={index}>
-            {(itemProps) =>
-              cloneElement(child, {
-                ...itemProps,
-              })
-            }
-          </ReakitMenuItem>
-        ))}
-      </Set>
-    </ReakitMenu>
+        {title}
+      </Text>
+      {children.map((child, index) => (
+        <ReakitMenuItem state={state} key={index}>
+          {(itemProps) =>
+            cloneElement(child, {
+              ...itemProps,
+            })
+          }
+        </ReakitMenuItem>
+      ))}
+    </Set>
   )
 })
