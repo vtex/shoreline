@@ -1,4 +1,4 @@
-import { MenuStateReturn } from './components/AriaSidebar'
+import { MenuStateReturn } from './components/Aria'
 
 export type CornerScope = 'top' | 'bottom'
 

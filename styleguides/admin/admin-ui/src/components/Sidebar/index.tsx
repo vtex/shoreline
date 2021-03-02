@@ -1,11 +1,15 @@
 import React, { cloneElement, FunctionComponentElement, useState } from 'react'
 import { useSystem } from '@vtex/admin-core'
 import { SystemComponent } from '../../types'
-import { ReakitMenuBar, useMenuBarState } from './components/AriaSidebar'
-import { SidebarCorner, SidebarCornerProps } from './components/Corner'
-import { SidebarItem } from './components/Item'
-import { SidebarSubItem } from './components/SubItem'
-import { SidebarBackdrop } from './components/Backdrop'
+import {
+  ReakitMenuBar,
+  useMenuBarState,
+  SidebarCorner,
+  SidebarCornerProps,
+  SidebarItem,
+  SidebarSubItem,
+  SidebarBackdrop,
+} from './components'
 import { SidebarProvider } from './context'
 import { AnchorDirection, SCALES } from './utils'
 

@@ -1,8 +1,14 @@
 import React, { cloneElement, useEffect } from 'react'
-import { SidebarDisclosure, SidebarDisclosureProps } from './Disclosure'
-import { ReakitMenuItem, ReakitMenu, useMenuState } from './AriaSidebar'
+import {
+  SidebarSectionProps,
+  SidebarSection,
+  SidebarDisclosureProps,
+  SidebarDisclosure,
+  ReakitMenuItem,
+  ReakitMenu,
+  useMenuState,
+} from '.'
 import { SystemComponent } from '../../../types'
-import { SidebarSectionProps, SidebarSection } from './Section'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
 import { SCALES } from '../utils'
