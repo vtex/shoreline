@@ -17,6 +17,7 @@ import {
   IconStorefront,
 } from '@vtex/admin-ui-icons'
 import { CornerScope } from './utils'
+import { Paragraph } from '../Paragraph'
 
 export default {
   title: 'shell/Sidebar',
@@ -217,6 +218,8 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
   return (
     <Box
       styles={{
+        display: 'flex',
+        flexDirection: 'row',
         width: 800,
         margin: '-1rem',
         height: 'calc(100vh + 2rem)',
@@ -246,6 +249,20 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
           ))}
         </Sidebar.Footer>
       </Sidebar>
+      <Box
+        styles={{
+          width: '100%',
+          height: 'auto',
+          padding: 22,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          border: '4px dashed black',
+          margin: 1,
+        }}
+      >
+        <Paragraph>APPS</Paragraph>
+      </Box>
     </Box>
   )
 }
