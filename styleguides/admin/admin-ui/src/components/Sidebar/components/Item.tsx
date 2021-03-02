@@ -5,6 +5,7 @@ import { SystemComponent } from '../../../types'
 import { SidebarSectionProps, SidebarSection } from './Section'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
+import { SCALES } from '../utils'
 
 export interface SidebarItemProps
   extends SidebarDisclosureProps,
@@ -63,6 +64,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
                   padding: '1.875rem 0.875rem',
                   borderRight: '1px solid #E0E2E7',
                   overflowY: 'auto',
+                  maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
                 })}
                 aria-label={'Tooltip title should come here'}
                 {...sectionState}
