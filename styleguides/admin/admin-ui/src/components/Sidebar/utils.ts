@@ -7,8 +7,3 @@ export interface SidebarSecretProps {
 }
 
 export type AnchorDirection = 'left' | 'right'
-
-export const SCALES = {
-  COLLAPSIBLE_AREA_WIDTH: '12.5rem',
-  FIXED_AREA_WIDTH: '3.5rem',
-}

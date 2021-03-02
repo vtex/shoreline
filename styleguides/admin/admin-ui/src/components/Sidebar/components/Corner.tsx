@@ -1,7 +1,7 @@
 import React, { FunctionComponentElement, cloneElement } from 'react'
 import { Set } from '../../Set'
 import { CornerScope, SidebarSecretProps } from '../utils'
-import { SidebarItemProps } from '.'
+import { SidebarItemProps } from './index'
 
 export interface SidebarCornerProps extends SidebarSecretProps {
   children: FunctionComponentElement<SidebarItemProps>[]

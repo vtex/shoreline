@@ -1,5 +1,5 @@
 import React, { cloneElement, forwardRef, ReactNode, Ref } from 'react'
-import { ReakitMenuButton } from '.'
+import { ReakitMenuButton } from './index'
 import { ButtonProps, Button } from '../../Button'
 import { SidebarSecretProps } from '../utils'
 import { Tooltip } from '../../Tooltip'
