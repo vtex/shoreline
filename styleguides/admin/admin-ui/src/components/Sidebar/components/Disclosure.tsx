@@ -2,11 +2,14 @@ import React, { cloneElement, forwardRef, ReactNode, Ref } from 'react'
 import { ReakitMenuButton } from './AriaSidebar'
 import { ButtonProps, Button } from '../../Button'
 import { SidebarSecretProps } from '../utils'
+import { Tooltip } from '../../Tooltip'
+import { useSidebarContext } from '../context'
 
 export interface SidebarDisclosureProps
   extends ButtonProps,
     SidebarSecretProps {
   icon: ReactNode
+  label: string
   onClick: (event?: React.MouseEvent<any, MouseEvent>) => void
   selected?: boolean
 }
@@ -18,10 +21,13 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   const {
     icon,
     selected,
+    label,
     secret: { state },
   } = props
 
-  const children = (
+  const { direction } = useSidebarContext()
+
+  const child = (
     <Button
       variant="tertiary"
       icon={icon}
@@ -44,8 +50,12 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   )
 
   return (
-    <ReakitMenuButton ref={ref} {...state} {...children.props}>
-      {(enhancedProps) => cloneElement(children, enhancedProps)}
+    <ReakitMenuButton ref={ref} {...state} {...child.props}>
+      {(enhancedProps) => (
+        <Tooltip label={label} placement={direction} styleOverrides={{}}>
+          {cloneElement(child, enhancedProps)}
+        </Tooltip>
+      )}
     </ReakitMenuButton>
   )
 })

@@ -10,6 +10,7 @@ export interface SidebarItemProps
   extends SidebarDisclosureProps,
     SystemComponent {
   sections?: Omit<SidebarSectionProps, 'secret'>[]
+  label: string
 }
 
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
