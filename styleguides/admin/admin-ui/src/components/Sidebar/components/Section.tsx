@@ -1,4 +1,9 @@
-import React, { cloneElement, FunctionComponentElement } from 'react'
+import React, {
+  cloneElement,
+  forwardRef,
+  FunctionComponentElement,
+  Ref,
+} from 'react'
 import { ReakitMenuItem } from './AriaSidebar'
 import { SidebarSubItemProps } from './SubItem'
 import { Set } from '../../Set'
@@ -13,7 +18,10 @@ export interface SidebarSectionProps
   children: FunctionComponentElement<SidebarSubItemProps>[]
 }
 
-export function SidebarSection(props: Omit<SidebarSectionProps, 'secret'>) {
+export const SidebarSection = forwardRef(function SidebarSection(
+  props: Omit<SidebarSectionProps, 'secret'>,
+  ref: Ref<HTMLButtonElement>
+) {
   const { title, children } = props
 
   const {
@@ -41,7 +49,7 @@ export function SidebarSection(props: Omit<SidebarSectionProps, 'secret'>) {
         {title}
       </Text>
       {children.map((child, index) => (
-        <ReakitMenuItem state={state} key={index}>
+        <ReakitMenuItem state={state} key={index} ref={ref}>
           {(itemProps) =>
             cloneElement(child, {
               ...itemProps,
@@ -51,4 +59,4 @@ export function SidebarSection(props: Omit<SidebarSectionProps, 'secret'>) {
       ))}
     </Set>
   )
-}
+})
