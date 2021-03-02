@@ -35,7 +35,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
       orientation="vertical"
       styleOverrides={{
         width: 'calc(200px - 1.75rem)',
-        height: 'inherit',
+        paddingBottom: 8,
       }}
     >
       <Text
