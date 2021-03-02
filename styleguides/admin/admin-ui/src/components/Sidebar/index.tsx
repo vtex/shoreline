@@ -4,11 +4,16 @@ import { SystemComponent } from '../../types'
 import { ReakitMenuBar, useMenuBarState } from './components/AriaSidebar'
 import { SidebarCorner, SidebarCornerProps } from './components/Corner'
 import { SidebarItem } from './components/Item'
-import { SidebarSection } from './components/Section'
 import { SidebarSubItem } from './components/SubItem'
 import { SidebarProvider } from './context'
 import { AnchorDirection } from './utils'
 
+/**
+ * Sidebar props.
+ *
+ * @param children `FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]`
+ * @param anchor `AnchorDirection | undefined`
+ */
 export interface SidebarProps extends SystemComponent {
   children: FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]
   anchor?: AnchorDirection
@@ -23,6 +28,41 @@ function useSidebar(props: SidebarProps) {
   }
 }
 
+/**
+ * Sidebar component.
+ *
+ * The sidebar structure is as follows:
+ * ```bash
+ * └── Sidebar
+ *  └── Sidebar.Header or Sidebar.Footer
+ *       └── Sidebar.Item
+ *           └── Sidebar.Section
+ *               └── Sidebar.SubItem
+ *```
+ *
+ * @example
+ * ```jsx
+ * import { Sidebar } from `@vtex/admin-ui`
+ *
+ * <Sidebar>
+ *    <Sidebar.Header>
+ *      <Sidebar.Item
+ *         selected={false}
+ *         onClick={() => console.log("Hello")}
+ *         sections={[
+ *            title: "Example",
+ *            children: [
+ *              <Sidebar.SubItem
+ *                onClick={() => console.log("Hi")}>
+ *                Example
+ *              </Sidebar.SubItem>
+ *            ]
+ *         ]}
+ *      />
+ *    </Sidebar.Header>
+ * </Sidebar>
+ * ```
+ */
 export function Sidebar(props: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false)
   const { children, anchor, ...baseProps } = useSidebar(props)
@@ -72,10 +112,17 @@ export function Sidebar(props: SidebarProps) {
 
 /**
  * Sidebar.Item corresponds to an item of the sidebar's
- * first level. It must used along with the Sidebar.Header
- * or Sidebar.Footer, both inside the Sidebar. That is because
- * they share the same context, and to enforce the proper
- * usage of this component.
+ * first level. It can hold multiple sections exhibited
+ * when the sidebar is opened.
+ *
+ * The sidebar structure is as follows:
+ * ```bash
+ * └── Sidebar
+ *  └── Sidebar.Header or Sidebar.Footer
+ *       └── Sidebar.Item
+ *           └── Sidebar.Section
+ *               └── Sidebar.SubItem
+ *```
  *
  * @example
  * ```jsx
@@ -102,11 +149,136 @@ export function Sidebar(props: SidebarProps) {
  */
 Sidebar.Item = SidebarItem
 
-Sidebar.Section = SidebarSection
+/**
+ * Sidebar.SubItem corresponds to an item of the sidebar's
+ * second level, the top most sidebar level.
+ * This is usually what users will use to navigate.
+ *
+ * The sidebar structure is as follows:
+ * ```bash
+ * └── Sidebar
+ *  └── Sidebar.Header or Sidebar.Footer
+ *       └── Sidebar.Item
+ *           └── Sidebar.Section
+ *               └── Sidebar.SubItem
+ *```
+ *
+ * @example
+ * ```jsx
+ * import { Sidebar } from `@vtex/admin-ui`
+ *
+ * <Sidebar>
+ *    <Sidebar.Header>
+ *      <Sidebar.Item
+ *         selected={false}
+ *         onClick={() => console.log("Hello")}
+ *         sections={[
+ *            title: "Example",
+ *            children: [
+ *              <Sidebar.SubItem
+ *                onClick={() => console.log("Hi")}>
+ *                Example
+ *              </Sidebar.SubItem>
+ *            ]
+ *         ]}
+ *      />
+ *    </Sidebar.Header>
+ * </Sidebar>
+ * ```
+ */
 Sidebar.SubItem = SidebarSubItem
+
+/**
+ * Sidebar.Header will stick whatever is inside
+ * it to the top of the sidebar.
+ *
+ * The sidebar structure is as follows:
+ * ```bash
+ * └── Sidebar
+ *  └── Sidebar.Header or Sidebar.Footer
+ *       └── Sidebar.Item
+ *           └── Sidebar.Section
+ *               └── Sidebar.SubItem
+ *```
+ *
+ * @example
+ * ```jsx
+ * import { Sidebar } from `@vtex/admin-ui`
+ *
+ * <Sidebar>
+ *    <Sidebar.Header>
+ *      <Sidebar.Item
+ *         selected={false}
+ *         onClick={() => console.log("Hello")}
+ *         sections={[
+ *            title: "Example",
+ *            children: [
+ *              <Sidebar.SubItem
+ *                onClick={() => console.log("Hi")}>
+ *                Example
+ *              </Sidebar.SubItem>
+ *            ]
+ *         ]}
+ *      />
+ *    </Sidebar.Header>
+ * </Sidebar>
+ * ```
+ */
 Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope' | 'secret'>) => (
   <SidebarCorner {...props} scope={'top'} />
 )
+
+/**
+ * Sidebar.Footer will stick whatever is inside
+ * it to the bottom of the sidebar.
+ *
+ * The sidebar structure is as follows:
+ * ```bash
+ * └── Sidebar
+ *  └── Sidebar.Header or Sidebar.Footer
+ *       └── Sidebar.Item
+ *           └── Sidebar.Section
+ *               └── Sidebar.SubItem
+ *```
+ *
+ * @example
+ * ```jsx
+ * import { Sidebar } from `@vtex/admin-ui`
+ *
+ * <Sidebar>
+ *    <Sidebar.Header>
+ *      <Sidebar.Item
+ *         selected={false}
+ *         onClick={() => console.log("Hello, I'm at the top!")}
+ *         sections={[
+ *            title: "Example at the top",
+ *            children: [
+ *              <Sidebar.SubItem
+ *                onClick={() => console.log("Hi, from the top!")}>
+ *                I'm at the top
+ *              </Sidebar.SubItem>
+ *            ]
+ *         ]}
+ *      />
+ *    </Sidebar.Header>
+ *    <Sidebar.Footer>
+ *      <Sidebar.Item
+ *         selected={false}
+ *         onClick={() => console.log("Hello, I'm at the bottom!")}
+ *         sections={[
+ *            title: "Example at the bottom",
+ *            children: [
+ *              <Sidebar.SubItem
+ *                onClick={() => console.log("Hi, from the bottom!")}>
+ *                I'm at the bottom
+ *              </Sidebar.SubItem>
+ *            ]
+ *         ]}
+ *      />
+ *    </Sidebar.Footer>
+ * </Sidebar>
+ * ```
+ */
 Sidebar.Footer = (props: Omit<SidebarCornerProps, 'scope' | 'secret'>) => (
   <SidebarCorner {...props} scope={'bottom'} />
 )

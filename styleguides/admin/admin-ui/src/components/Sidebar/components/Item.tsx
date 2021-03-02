@@ -2,8 +2,7 @@ import React, { cloneElement, useEffect } from 'react'
 import { SidebarDisclosure, SidebarDisclosureProps } from './Disclosure'
 import { ReakitMenuItem, ReakitMenu, useMenuState } from './AriaSidebar'
 import { SystemComponent } from '../../../types'
-import { SidebarSectionProps } from './Section'
-import { Sidebar } from '..'
+import { SidebarSectionProps, SidebarSection } from './Section'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
 
@@ -74,9 +73,9 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
                       <ReakitMenuItem {...state} key={index}>
                         {(itemProps) =>
                           cloneElement(
-                            <Sidebar.Section title={title} {...baseProps}>
+                            <SidebarSection title={title} {...baseProps}>
                               {children}
-                            </Sidebar.Section>,
+                            </SidebarSection>,
                             { ...itemProps, secret: { state } }
                           )
                         }
