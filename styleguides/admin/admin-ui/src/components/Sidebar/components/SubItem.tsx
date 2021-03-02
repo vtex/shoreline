@@ -24,7 +24,13 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
         '> div': {
           justifyContent: 'start',
           fontSize: '14px',
-          color: selected ? 'blue' : '#707685',
+          color: selected ? '#2A53B2' : '#707685',
+        },
+        '&:hover, &:focus': {
+          backgroundColor: selected ? '#EAF0FD' : 'unset',
+          '> div': {
+            color: '#2A53B2',
+          },
         },
       }}
       {...props}

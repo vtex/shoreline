@@ -31,6 +31,13 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
           color: selected ? 'unset' : 'black',
           opacity: selected ? 1 : 0.6,
         },
+        '&:hover, &:focus': {
+          backgroundColor: selected ? '#EAF0FD' : 'unset',
+          'div > svg': {
+            color: '#2A53B2',
+            opacity: 1,
+          },
+        },
       }}
       {...props}
     />
