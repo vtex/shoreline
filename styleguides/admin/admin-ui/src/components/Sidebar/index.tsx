@@ -97,6 +97,7 @@ export function Sidebar(props: SidebarProps) {
           width: '56px',
           borderRight: '1px solid #E0E2E7',
           outline: 'none',
+          overflowY: 'auto',
         })}
       >
         {children.map((child) =>

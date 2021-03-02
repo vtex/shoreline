@@ -61,6 +61,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
                   height: '100%',
                   padding: '1.875rem 0.875rem',
                   borderRight: '1px solid #E0E2E7',
+                  overflowY: 'auto',
                 })}
                 aria-label={'Tooltip title should come here'}
                 {...sectionState}
