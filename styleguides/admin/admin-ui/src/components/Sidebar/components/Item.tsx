@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react'
+import React, { cloneElement, useEffect } from 'react'
 import { SidebarDisclosure, SidebarDisclosureProps } from './Disclosure'
 import { ReakitMenuItem, ReakitMenu, useMenuState } from './AriaSidebar'
 import { SystemComponent } from '../../../types'
@@ -10,14 +10,13 @@ import { useSidebarContext } from '../context'
 export interface SidebarItemProps
   extends SidebarDisclosureProps,
     SystemComponent {
-  collapsed?: boolean
   sections?: Omit<SidebarSectionProps, 'secret'>[]
 }
 
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
-  const { collapsed, sections, onClick, ...baseProps } = props
+  const { sections, onClick, ...baseProps } = props
   const { cn } = useSystem()
-  const { direction } = useSidebarContext()
+  const { direction, setCollapsed } = useSidebarContext()
 
   const {
     // @ts-ignore
@@ -30,6 +29,10 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   })
 
   const sectionState = useMenuState()
+
+  useEffect(() => {
+    setCollapsed(!state.visible)
+  }, [state.visible])
 
   return (
     <ReakitMenuItem {...parentState}>
