@@ -95,10 +95,12 @@ const topCornerItems: ItemProps = [
   {
     icon: <IconDashboard {...iconProps} />,
     onClick: () => console.log('Click me'),
+    label: 'Dashboard',
   },
   {
     icon: <IconOrders {...iconProps} />,
     onClick: () => console.log('Click me'),
+    label: 'Orders',
     sections: [
       {
         title: 'Orders',
@@ -113,6 +115,7 @@ const topCornerItems: ItemProps = [
   {
     icon: <IconProducts {...iconProps} />,
     onClick: () => console.log('Click me'),
+    label: 'Products',
     sections: [
       {
         title: 'Product',
@@ -135,6 +138,7 @@ const topCornerItems: ItemProps = [
   {
     icon: <IconPromotions {...iconProps} />,
     onClick: () => console.log('Click me'),
+    label: 'Promotions',
     sections: [
       {
         title: 'Discounts',
@@ -149,6 +153,7 @@ const topCornerItems: ItemProps = [
   {
     icon: <IconStorefront {...iconProps} />,
     onClick: () => console.log('Click me'),
+    label: 'Storefront',
     sections: [
       {
         title: 'Content Management',
@@ -171,6 +176,7 @@ const topCornerItems: ItemProps = [
   {
     icon: <IconShipping {...iconProps} />,
     onClick: () => console.log('Click me'),
+    label: 'Shipping',
     sections: [
       {
         title: 'Shipping',
@@ -185,6 +191,7 @@ const topCornerItems: ItemProps = [
   {
     icon: <IconMarketplace {...iconProps} />,
     onClick: () => console.log('Click me'),
+    label: 'Marketplace',
   },
 ]
 
@@ -192,10 +199,12 @@ const bottomCornerItems: ItemProps = [
   {
     icon: <IconAppStore {...iconProps} />,
     onClick: () => console.log('Click me'),
+    label: 'App Store',
   },
   {
     icon: <IconSettings {...iconProps} />,
     onClick: () => console.log('Click me'),
+    label: 'Settings',
   },
 ]
 
