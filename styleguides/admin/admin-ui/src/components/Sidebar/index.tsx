@@ -5,15 +5,10 @@ import { ReakitMenuBar, useMenuBarState } from './components/AriaSidebar'
 import { SidebarCorner, SidebarCornerProps } from './components/Corner'
 import { SidebarItem } from './components/Item'
 import { SidebarSubItem } from './components/SubItem'
+import { SidebarBackdrop } from './components/Backdrop'
 import { SidebarProvider } from './context'
-import { AnchorDirection } from './utils'
+import { AnchorDirection, SCALES } from './utils'
 
-/**
- * Sidebar props.
- *
- * @param children `FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]`
- * @param anchor `AnchorDirection | undefined`
- */
 export interface SidebarProps extends SystemComponent {
   children: FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]
   anchor?: AnchorDirection
@@ -94,7 +89,8 @@ export function Sidebar(props: SidebarProps) {
           justifyContent: 'space-between',
           backgroundColor: collapsed ? 'white' : '#F8F9FA',
           height: 'calc(100% - 1.25rem)',
-          width: '56px',
+          maxWidth: SCALES.FIXED_AREA_WIDTH,
+          minWidth: SCALES.FIXED_AREA_WIDTH,
           borderRight: '1px solid #E0E2E7',
           outline: 'none',
           overflowY: 'auto',
@@ -107,6 +103,7 @@ export function Sidebar(props: SidebarProps) {
           })
         )}
       </ReakitMenuBar>
+      {!collapsed && <SidebarBackdrop />}
     </SidebarProvider>
   )
 }
