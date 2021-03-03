@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.38.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.37.0...@vtex/brand-ui@0.38.0) (2021-03-03)
+
+
+### Features
+
+* fix brand ui input and select label ([b4b02e5](https://github.com/vtex/onda/commit/b4b02e5f028a301bfe00ff7f59b2197fa839611c))
+
+
+
+
+
 # [0.37.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.36.0...@vtex/brand-ui@0.37.0) (2021-03-01)
 
 
