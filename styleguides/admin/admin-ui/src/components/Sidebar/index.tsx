@@ -73,21 +73,25 @@ export function Sidebar(props: SidebarProps) {
       }}
     >
       <Box
-        aria-label={'Sidebar'}
-        {...state}
-        {...baseProps}
-        role="navigation"
         className={cn({
-          themeKey: 'components.sidebar',
+          themeKey: 'components.sidebar.container',
           backgroundColor: !currentItem ? 'white' : '#F8F9FA',
         })}
       >
-        {children.map((child) =>
-          cloneElement(child, {
-            // @ts-ignore
-            secret: { state },
-          })
-        )}
+        <Box
+          themeKey={'components.sidebar'}
+          aria-label={'Sidebar'}
+          {...state}
+          {...baseProps}
+          role="navigation"
+        >
+          {children.map((child) =>
+            cloneElement(child, {
+              // @ts-ignore
+              secret: { state },
+            })
+          )}
+        </Box>
       </Box>
       {currentItem && <SidebarBackdrop />}
     </SidebarProvider>
