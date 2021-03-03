@@ -5,6 +5,7 @@
     - /guide/contributing/
 - section: Core concepts
   paths:
+    - /core-concepts/icons/
     - /core-concepts/styles/
 - section: Theming
   paths:

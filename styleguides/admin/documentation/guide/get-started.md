@@ -13,11 +13,11 @@ AdminUI is a curated collection of the reusable components within VTEX admin app
 `admin-ui` is available as a npm package. It has `@vtex/admin-ui-icons` as a peer dependency.
 
 ```sh isStatic
-yarn add @vtex/admin-ui @vtex/admin-ui-icons
+yarn add @vtex/admin-ui
 
 # or
 
-npm install @vtex/admin-ui @vtex/admin-ui-icons
+npm install @vtex/admin-ui
 ```
 
 > For `VTEX IO` apps you should do this on the /react folder

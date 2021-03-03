@@ -1,9 +1,9 @@
 ---
-path: /packages/admin-ui-icons/
+path: /core-concepts/icons/
 fullPage: true
 ---
 
-# admin-ui-icons
+# Icons
 
 The icon set of the AdminUI.
 
@@ -11,18 +11,8 @@ The icon set of the AdminUI.
 
 <collapsible heading="Usage details" visible={true}>
 
-You must have `@vtex/admin-ui-icons` package instaled. If you don't, try:
-
-```sh isStatic
-yarn add @vtex/admin-ui-icons @vtex/admin-core
-
-# or
-
-npm install @vtex/admin-ui-icons @vtex/admin-core
-```
-
 ```jsx isStatic
-import { IconName } from '@vtex/admin-ui-icons'
+import { IconName } from '@vtex/admin-ui'
 ```
 
 ```jsx
