@@ -13,6 +13,8 @@ import { SidebarProvider } from './context'
 import { AnchorDirection, CurrentItem } from './utils'
 import { Box } from '../Box'
 import { SidebarBackdrop } from './components/Backdrop'
+import { SidebarCollapseButton } from './components/CollapseButton'
+import { IconCaret } from '@vtex/admin-ui-icons'
 
 export interface SidebarProps extends SystemComponent {
   children: FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]
@@ -56,6 +58,10 @@ export interface SidebarProps extends SystemComponent {
  */
 export function Sidebar(props: SidebarProps) {
   const [currentItem, setCurrentItem] = useState<CurrentItem | null>(null)
+  const [currentItemIsCollapsible, setCurrentItemIsCollapsible] = useState<
+    boolean | null
+  >(null)
+  const [collapse, setCollapse] = useState<boolean | null>(null)
   const { children, anchor = 'left', styleOverrides = {}, ...baseProps } = props
   const { cn } = useSystem()
 
@@ -71,13 +77,24 @@ export function Sidebar(props: SidebarProps) {
       value={{
         direction: anchor,
         currentItem,
+        currentItemIsCollapsible,
+        collapse,
         setCurrentItem,
+        setCurrentItemIsCollapsible,
+        setCollapse,
       }}
     >
       <Box
         className={cn({
           themeKey: 'components.sidebar.container',
-          backgroundColor: !currentItem ? 'white' : '#F8F9FA',
+          backgroundColor:
+            !currentItem || (collapse && currentItem) ? 'white' : '#F8F9FA',
+          boxShadow:
+            collapse && currentItem
+              ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
+              : 'unset',
+          position: 'relative',
+          maxWidth: '16rem',
         })}
       >
         <Box
@@ -86,12 +103,25 @@ export function Sidebar(props: SidebarProps) {
           role="navigation"
           {...state}
           {...baseProps}
+          className={cn({
+            position: 'absolute',
+            maxWidth: '16rem',
+            overflow: 'initial',
+          })}
         >
           <CompositeGroup {...state} aria-label={'Sidebar'} role="navigation">
             {(itemProps) =>
               children.map((child) =>
                 cloneElement(child, {
                   // @ts-ignore
+                  // This line is ignored because there is no typing for
+                  // this prop available, as it's supposed to be 'hidden'
+                  // from the client. Another approach to pass this state
+                  // down would be to use the Context API, but since every
+                  // change in any of the context attributes would make the
+                  // context consuming elements re-render, we end up avoiding
+                  // unecessery re-renders everytime the user navigates
+                  // through the keyboard.
                   secret: { parentState: state },
                   ...itemProps,
                 })
@@ -99,6 +129,12 @@ export function Sidebar(props: SidebarProps) {
             }
           </CompositeGroup>
         </Box>
+        {currentItemIsCollapsible && (
+          <SidebarCollapseButton
+            icon={<IconCaret direction={collapse ? 'right' : 'left'} />}
+            isCollapsed={!!collapse}
+          />
+        )}
       </Box>
       {currentItem && <SidebarBackdrop />}
     </SidebarProvider>

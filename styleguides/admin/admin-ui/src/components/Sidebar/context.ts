@@ -5,7 +5,11 @@ import { AnchorDirection, CurrentItem } from './utils'
 const SidebarContext = createContext<{
   direction: AnchorDirection
   currentItem: CurrentItem | null
+  currentItemIsCollapsible: boolean | null
+  collapse: boolean | null
   setCurrentItem: (currentItem: CurrentItem | null) => void
+  setCurrentItemIsCollapsible: (isCollapsible: boolean) => void
+  setCollapse: (state: boolean | null) => void
 } | null>(null)
 
 export function useSidebarContext() {
