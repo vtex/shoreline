@@ -11,6 +11,8 @@ import {
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
+import { ArrowKeys } from '../utils'
+import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 
 export interface SidebarItemProps
   extends SidebarDisclosureProps,
@@ -26,7 +28,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
 
   const {
     // @ts-ignore
-    secret: { state: parentState, index, scope },
+    secret: { parentState, index, scope },
   } = props
 
   const state = useCompositeState({
@@ -47,20 +49,51 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
     }
   }, [isOpen])
 
+  const handleOnClick = (event?: React.MouseEvent<any, MouseEvent>) => {
+    // This means the item the user has interacted with
+    // doesn't have children, so we set this to null to
+    // warn the surrounding components that the sidebar
+    // should not open.
+    if (!hasSection) {
+      setCurrentItem(null)
+    }
+
+    onClick(event)
+  }
+
+  const handleOnKeyDown = (
+    event: React.KeyboardEvent<any>,
+    itemProps: HTMLAttributesWithRef
+  ) => {
+    if (typeof itemProps.onKeyDown === 'function') {
+      itemProps.onKeyDown(event)
+
+      // Opens sidebar and focus on the first sidebar sub item
+      if (event.key === ArrowKeys.Right) {
+        handleOnClick(undefined)
+        // We need a delay here in order to allow the object to mount,
+        // otherwise there would be nothing to focus on
+        setTimeout(() => {
+          state.first()
+        }, 10)
+      }
+    }
+  }
+
   return (
-    <Composite {...parentState} role="toolbar" aria-label={label}>
+    <CompositeItem
+      {...parentState}
+      role="toolbar"
+      aria-label={label}
+      id={label}
+    >
       {(itemProps) => (
         <>
           <SidebarDisclosure
             {...props}
             {...itemProps}
-            onClick={(event) => {
-              if (!hasSection) {
-                setCurrentItem(null)
-              }
-
-              onClick(event)
-            }}
+            onClick={handleOnClick}
+            onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
           {isOpen && (
             <Composite
@@ -82,7 +115,10 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
                           <SidebarSection title={title} {...baseProps}>
                             {children}
                           </SidebarSection>,
-                          { ...itemProps, secret: { state } }
+                          {
+                            ...itemProps,
+                            secret: { state, parentState, parentId: label },
+                          }
                         )
                       }
                     </CompositeItem>
@@ -92,6 +128,6 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
           )}
         </>
       )}
-    </Composite>
+    </CompositeItem>
   )
 }

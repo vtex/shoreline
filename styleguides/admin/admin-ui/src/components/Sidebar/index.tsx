@@ -7,6 +7,7 @@ import {
   SidebarItem,
   SidebarSubItem,
   useCompositeState,
+  CompositeGroup,
 } from './components'
 import { SidebarProvider } from './context'
 import { AnchorDirection, CurrentItem } from './utils'
@@ -61,6 +62,7 @@ export function Sidebar(props: SidebarProps) {
   const state = useCompositeState({
     baseId: 'sidebar-menu-base-id--',
     orientation: 'vertical',
+    wrap: 'vertical',
     loop: true,
   })
 
@@ -81,16 +83,21 @@ export function Sidebar(props: SidebarProps) {
         <Box
           themeKey={'components.sidebar'}
           aria-label={'Sidebar'}
+          role="navigation"
           {...state}
           {...baseProps}
-          role="navigation"
         >
-          {children.map((child) =>
-            cloneElement(child, {
-              // @ts-ignore
-              secret: { state },
-            })
-          )}
+          <CompositeGroup {...state} aria-label={'Sidebar'} role="navigation">
+            {(itemProps) =>
+              children.map((child) =>
+                cloneElement(child, {
+                  // @ts-ignore
+                  secret: { parentState: state },
+                  ...itemProps,
+                })
+              )
+            }
+          </CompositeGroup>
         </Box>
       </Box>
       {currentItem && <SidebarBackdrop />}
