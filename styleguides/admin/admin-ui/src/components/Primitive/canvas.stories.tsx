@@ -70,6 +70,33 @@ export const Polymorphism: Story = () => {
   )
 }
 
+export const Extension: Story = () => {
+  function Link(props: {
+    to: string
+    target: string
+    children: any
+    className?: string
+  }) {
+    return (
+      <a href={props.to} target={props.target} className={props.className}>
+        {props.children}
+      </a>
+    )
+  }
+  return (
+    <Primitive
+      styles={{
+        bg: 'blue',
+      }}
+      element={Link}
+      to="https://github.com/vtex/onda"
+      target="blank"
+    >
+      Link to github
+    </Primitive>
+  )
+}
+
 export const WithClassName: Story = () => {
   return (
     <Primitive

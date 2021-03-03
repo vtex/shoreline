@@ -2,13 +2,13 @@ import { StyleProp } from '@vtex/admin-core'
 
 export interface SystemPrimitive {
   /**
-   * styles
+   * define component styles
    * @default {}
    * @see https://admin-ui-docs.vercel.app/theming/style-object/
    */
   csx?: StyleProp
   /**
-   * Fix to avoid ts errors
+   * Emotion css prop
    */
   css?: any
 }

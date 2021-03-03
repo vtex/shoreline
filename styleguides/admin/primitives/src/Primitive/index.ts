@@ -6,7 +6,7 @@ import { SystemPrimitive } from '../types'
 /**
  * primitive default element
  */
-const defaultElement = 'div'
+export const defaultElement = 'div'
 
 /**
  * primitive is the most abstract component of admin-ui
@@ -58,4 +58,4 @@ export interface PrimitiveOwnProps<E extends ElementType = ElementType>
 }
 
 export type PrimitiveProps<E extends ElementType> = PrimitiveOwnProps<E> &
-  Omit<ComponentProps<E>, keyof PrimitiveOwnProps | 'style'>
+  Omit<ComponentProps<E>, keyof PrimitiveOwnProps>
