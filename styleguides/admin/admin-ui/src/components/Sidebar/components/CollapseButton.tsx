@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Box } from '../../Box'
 import { Button, ButtonProps } from '../../Button'
 import { useSidebarContext } from '../context'
 
@@ -9,6 +10,7 @@ interface SidebarCollapseButtonProps extends ButtonProps {
 export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
   const { isCollapsed, onClick } = props
   const { setCollapse, collapse } = useSidebarContext()
+  const [show, setShow] = useState(false)
 
   const handleOnClick = (event: React.MouseEvent<any, MouseEvent>) => {
     setCollapse(!collapse)
@@ -19,19 +21,45 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
   }
 
   return (
-    <Button
-      styleOverrides={{
-        border: '1px solid',
-        height: 20,
-        width: 20,
-        borderRadius: '100%',
+    <Box
+      styles={{
         position: 'absolute',
-        left: isCollapsed ? '3.825rem' : '15.3rem',
+        display: 'flex',
+        justifyContent: 'center',
+        left: isCollapsed ? '3.125rem' : '14.675rem',
+        paddingTop: '18px',
         zIndex: 1,
-        top: 24,
+        top: 0,
+        height: 80,
+        width: 40,
       }}
-      {...props}
-      onClick={handleOnClick}
-    />
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+    >
+      <Button
+        styleOverrides={{
+          border: '1px solid',
+          borderRadius: '100%',
+          height: 20,
+          width: 20,
+          opacity: show ? 1 : 0,
+          transition: '.3s',
+          backgroundColor: 'white',
+          borderColor: '#E1E2E7',
+          '> div > svg': {
+            color: 'grey',
+          },
+          '&:hover': {
+            backgroundColor: 'blue.hover',
+            borderColor: 'blue.hover',
+            '> div > svg': {
+              color: 'white',
+            },
+          },
+        }}
+        {...props}
+        onClick={handleOnClick}
+      />
+    </Box>
   )
 }
