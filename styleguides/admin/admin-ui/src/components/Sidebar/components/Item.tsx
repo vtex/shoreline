@@ -24,7 +24,14 @@ export interface SidebarItemProps
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   const { sections, selected, onClick, label, ...baseProps } = props
   const { cn } = useSystem()
-  const { direction, setCurrentItem } = useSidebarContext()
+  const {
+    direction,
+    currentItemIsCollapsible,
+    collapse,
+    setCurrentItem,
+    setCurrentItemIsCollapsible,
+    setCollapse,
+  } = useSidebarContext()
 
   const {
     // @ts-ignore
@@ -41,13 +48,18 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
     sections.length > 0 &&
     sections?.some((section) => section.children.length > 0)
 
-  const isOpen = selected && hasSection
+  useEffect(() => {
+    if (selected) {
+      setCurrentItemIsCollapsible(!!hasSection)
+    }
+  }, [selected, hasSection])
 
   useEffect(() => {
-    if (isOpen) {
+    if (currentItemIsCollapsible) {
       setCurrentItem({ index, scope })
+      setCollapse(false)
     }
-  }, [isOpen])
+  }, [currentItemIsCollapsible])
 
   const handleOnClick = (event?: React.MouseEvent<any, MouseEvent>) => {
     // This means the item the user has interacted with
@@ -56,6 +68,8 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
     // should not open.
     if (!hasSection) {
       setCurrentItem(null)
+    } else {
+      setCollapse(false)
     }
 
     onClick(event)
@@ -80,6 +94,8 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
     }
   }
 
+  const distance = selected ? (collapse ? '-8.125rem' : '3.5rem') : '-13.5rem'
+
   return (
     <CompositeItem
       {...parentState}
@@ -95,12 +111,14 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
-          {isOpen && (
+          {hasSection && (
             <Composite
               className={cn({
-                [direction]: `3.5rem !important`,
-                position: 'absolute',
+                [direction]: `${distance} !important`,
                 themeKey: 'components.sidebar.item',
+                position: 'absolute',
+                zIndex: selected && !collapse ? 0 : -1,
+                backgroundColor: collapse ? 'white' : '#F8F9FA',
               })}
               aria-label={label}
               {...state}

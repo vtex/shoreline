@@ -220,7 +220,6 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
       <Box
         styles={{
           height: 30,
-          width: 800,
           padding: 22,
           display: 'flex',
           justifyContent: 'center',
@@ -235,8 +234,8 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
         styles={{
           display: 'flex',
           flexDirection: 'row',
-          width: 800,
           height: 'calc(100vh - 92px)',
+          overflow: 'hidden',
         }}
       >
         <Sidebar {...args}>
@@ -284,4 +283,5 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
 
 Playground.args = {
   id: 'Sidebar',
+  anchor: 'left',
 }
