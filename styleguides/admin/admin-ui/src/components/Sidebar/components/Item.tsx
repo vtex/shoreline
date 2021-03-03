@@ -4,9 +4,9 @@ import {
   SidebarSection,
   SidebarDisclosureProps,
   SidebarDisclosure,
-  ReakitMenuItem,
-  ReakitMenu,
-  useMenuState,
+  useCompositeState,
+  Composite,
+  CompositeItem,
 } from './index'
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
@@ -20,74 +20,81 @@ export interface SidebarItemProps
 }
 
 export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
-  const { sections, onClick, ...baseProps } = props
+  const { sections, selected, onClick, label, ...baseProps } = props
   const { cn } = useSystem()
-  const { direction, setCollapsed } = useSidebarContext()
+  const { direction, setCurrentItem } = useSidebarContext()
 
   const {
     // @ts-ignore
-    secret: { state: parentState },
+    secret: { state: parentState, index, scope },
   } = props
 
-  const state = useMenuState({
+  const state = useCompositeState({
     orientation: 'vertical',
     loop: true,
   })
 
-  const sectionState = useMenuState()
+  const sectionState = useCompositeState()
+
+  const hasSection =
+    sections &&
+    sections.length > 0 &&
+    sections?.some((section) => section.children.length > 0)
+
+  const isOpen = selected && hasSection
 
   useEffect(() => {
-    setCollapsed(!state.visible)
-  }, [state.visible])
+    if (isOpen) {
+      setCurrentItem({ index, scope })
+    }
+  }, [isOpen])
 
   return (
-    <ReakitMenuItem {...parentState}>
+    <Composite {...parentState} role="toolbar" aria-label="My toolbar">
       {(itemProps) => (
         <>
           <SidebarDisclosure
             {...props}
             {...itemProps}
-            // These prevent the sidebar to open/collapse as
-            // a user hovers the mouse over the sidebar disclosure
-            onMouseEnter={(event) => event.preventDefault()}
-            onMouseLeave={(event) => event.preventDefault()}
-            onClick={onClick}
-            secret={{
-              state,
+            onClick={(event) => {
+              if (!hasSection) {
+                setCurrentItem(null)
+              }
+
+              onClick(event)
             }}
           />
-          {sections &&
-            sections.length > 0 &&
-            sections?.some((section) => section.children.length > 0) && (
-              <ReakitMenu
-                className={cn({
-                  [direction]: `3.5rem !important`,
-                  themeKey: 'components.sidebar.item',
-                })}
-                aria-label={'Tooltip title should come here'}
-                {...sectionState}
-                {...state}
-                {...baseProps}
-              >
-                {sections?.map(
-                  ({ title, children }, index) =>
-                    children.length > 0 && (
-                      <ReakitMenuItem {...state} key={index}>
-                        {(itemProps) =>
-                          cloneElement(
-                            <SidebarSection title={title} {...baseProps}>
-                              {children}
-                            </SidebarSection>,
-                            { ...itemProps, secret: { state } }
-                          )
-                        }
-                      </ReakitMenuItem>
-                    )
-                )}
-              </ReakitMenu>
-            )}
+          {isOpen && (
+            <Composite
+              className={cn({
+                [direction]: `3.5rem !important`,
+                position: 'absolute',
+                themeKey: 'components.sidebar.item',
+              })}
+              aria-label={label}
+              {...sectionState}
+              {...state}
+              {...baseProps}
+            >
+              {sections?.map(
+                ({ title, children }, index) =>
+                  children.length > 0 && (
+                    <CompositeItem {...state} key={index}>
+                      {(itemProps) =>
+                        cloneElement(
+                          <SidebarSection title={title} {...baseProps}>
+                            {children}
+                          </SidebarSection>,
+                          { ...itemProps, secret: { state } }
+                        )
+                      }
+                    </CompositeItem>
+                  )
+              )}
+            </Composite>
+          )}
         </>
       )}
-    </ReakitMenuItem>
+    </Composite>
   )
 }
