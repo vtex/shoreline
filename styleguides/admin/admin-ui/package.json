@@ -40,7 +40,6 @@
     "@types/react-beautiful-dnd": "^13.0.0",
     "@types/react-is": "^16.7.1",
     "@types/react-window": "^1.8.2",
-    "@vtex/admin-ui-icons": "^0.8.13",
     "faker": "^5.1.0",
     "jest-environment-jsdom-fourteen": "^1.0.1",
     "mutationobserver-shim": "^0.3.7",
