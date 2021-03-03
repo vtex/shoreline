@@ -216,43 +216,11 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
   })
 
   return (
-    <Box
-      styles={{
-        display: 'flex',
-        flexDirection: 'row',
-        width: 800,
-        margin: '-1rem',
-        height: 'calc(100vh + 2rem)',
-      }}
-    >
-      <Sidebar {...args}>
-        <Sidebar.Header>
-          {topCornerItems.map((props, index) => (
-            <Sidebar.Item
-              {...props}
-              selected={
-                currentItem.scope === 'top' && currentItem.index === index
-              }
-              onClick={() => setCurrentItem({ index, scope: 'top' })}
-            />
-          ))}
-        </Sidebar.Header>
-        <Sidebar.Footer>
-          {bottomCornerItems.map((props, index) => (
-            <Sidebar.Item
-              {...props}
-              selected={
-                currentItem.scope === 'bottom' && currentItem.index === index
-              }
-              onClick={() => setCurrentItem({ index, scope: 'bottom' })}
-            />
-          ))}
-        </Sidebar.Footer>
-      </Sidebar>
+    <>
       <Box
         styles={{
-          width: '100%',
-          height: 'auto',
+          height: 30,
+          width: 800,
           padding: 22,
           display: 'flex',
           justifyContent: 'center',
@@ -261,9 +229,56 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
           margin: 1,
         }}
       >
-        <Paragraph>APPS</Paragraph>
+        TOP BAR
       </Box>
-    </Box>
+      <Box
+        styles={{
+          display: 'flex',
+          flexDirection: 'row',
+          width: 800,
+          height: 'calc(100vh - 92px)',
+        }}
+      >
+        <Sidebar {...args}>
+          <Sidebar.Header>
+            {topCornerItems.map((props, index) => (
+              <Sidebar.Item
+                {...props}
+                selected={
+                  currentItem.scope === 'top' && currentItem.index === index
+                }
+                onClick={() => setCurrentItem({ index, scope: 'top' })}
+              />
+            ))}
+          </Sidebar.Header>
+          <Sidebar.Footer>
+            {bottomCornerItems.map((props, index) => (
+              <Sidebar.Item
+                {...props}
+                selected={
+                  currentItem.scope === 'bottom' && currentItem.index === index
+                }
+                onClick={() => setCurrentItem({ index, scope: 'bottom' })}
+              />
+            ))}
+          </Sidebar.Footer>
+        </Sidebar>
+        <Box
+          styles={{
+            width: '100%',
+            height: 'auto',
+            padding: 22,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            border: '4px dashed black',
+            margin: 1,
+          }}
+        >
+          <Paragraph>APPS</Paragraph>
+        </Box>
+      </Box>
+    </>
   )
 }
 
