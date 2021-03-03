@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.83.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.7...@vtex/admin-ui@0.83.0) (2021-03-03)
+
+
+### Features
+
+* **icons:** export icons from @vtex/admin-ui package ([686d873](https://github.com/vtex/onda/commit/686d873a01b7f22abc71653959780a86d13e7d9a))
+
+
+
+
+
 ## [0.82.7](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.6...@vtex/admin-ui@0.82.7) (2021-03-03)
 
 **Note:** Version bump only for package @vtex/admin-ui
