@@ -1,21 +1,8 @@
 import {
-  useMenuState,
-  Menu as ReakitMenu,
-  MenuItem as ReakitMenuItem,
-  MenuButton as ReakitMenuButton,
-  MenuState,
-  MenuStateReturn,
-  useMenuBarState,
-  MenuBar as ReakitMenuBar,
-} from 'reakit/Menu'
+  Composite,
+  useCompositeState,
+  CompositeItem,
+  CompositeStateReturn,
+} from 'reakit/Composite'
 
-export {
-  ReakitMenuButton,
-  ReakitMenu,
-  ReakitMenuBar,
-  ReakitMenuItem,
-  MenuStateReturn,
-  MenuState,
-  useMenuState,
-  useMenuBarState,
-}
+export { Composite, useCompositeState, CompositeItem, CompositeStateReturn }

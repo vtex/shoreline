@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
-import { AnchorDirection } from './utils'
+import { AnchorDirection, CurrentItem } from './utils'
 
 const SidebarContext = createContext<{
   direction: AnchorDirection
-  collapsed: boolean
-  setCollapsed: (collapsed: boolean) => void
+  currentItem: CurrentItem | null
+  setCurrentItem: (currentItem: CurrentItem | null) => void
 } | null>(null)
 
 export function useSidebarContext() {

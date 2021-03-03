@@ -4,7 +4,7 @@ import React, {
   FunctionComponentElement,
   Ref,
 } from 'react'
-import { ReakitMenuItem, SidebarSubItemProps } from './index'
+import { SidebarSubItemProps, CompositeItem } from './index'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
@@ -48,13 +48,13 @@ export const SidebarSection = forwardRef(function SidebarSection(
         {title}
       </Text>
       {children.map((child, index) => (
-        <ReakitMenuItem state={state} key={index} ref={ref}>
+        <CompositeItem {...state} key={index} ref={ref}>
           {(itemProps) =>
             cloneElement(child, {
               ...itemProps,
             })
           }
-        </ReakitMenuItem>
+        </CompositeItem>
       ))}
     </Set>
   )
