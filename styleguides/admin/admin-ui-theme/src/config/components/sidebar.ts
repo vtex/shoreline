@@ -11,7 +11,7 @@ export default {
   alignItems: 'center',
   justifyContent: 'space-between',
   paddingY: '0.625rem',
-  height: 'calc(100% - 1.25rem)',
+  height: '100%',
   width: '100%',
   container: {
     position: 'relative',

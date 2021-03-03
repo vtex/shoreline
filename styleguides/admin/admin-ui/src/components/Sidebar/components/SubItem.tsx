@@ -1,6 +1,7 @@
 import React, { forwardRef, ReactNode, Ref } from 'react'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { ButtonProps, Button } from '../../Button'
+import { useSidebarContext } from '../context'
 import { ArrowKeys, SidebarSecretProps } from '../utils'
 
 export interface SidebarSubItemProps extends ButtonProps, SidebarSecretProps {
@@ -14,10 +15,19 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
   ref: Ref<HTMLButtonElement>
 ) {
   const { onClick, selected, ...itemProps } = props
+  const { collapse } = useSidebarContext()
 
   const {
     secret: { parentState, parentId },
     // @ts-ignore
+    // This line is ignored because there is no typing for
+    // this prop available, as it's supposed to be 'hidden'
+    // from the client. Another approach to pass this state
+    // down would be to use the Context API, but since every
+    // change in any of the context attributes would make the
+    // context consuming elements re-render, we end up avoiding
+    // unecessery re-renders everytime the user navigates
+    // through the keyboard.
   } = props as SidebarSecretProps
 
   const handleOnClick = (event?: React.MouseEvent<any, MouseEvent>) => {
@@ -60,6 +70,7 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
         },
       }}
       {...props}
+      disabled={!!collapse}
       onClick={handleOnClick}
       onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
     />
