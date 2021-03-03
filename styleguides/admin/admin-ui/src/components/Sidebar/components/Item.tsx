@@ -34,8 +34,6 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
     loop: true,
   })
 
-  const sectionState = useCompositeState()
-
   const hasSection =
     sections &&
     sections.length > 0 &&
@@ -50,7 +48,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   }, [isOpen])
 
   return (
-    <Composite {...parentState} role="toolbar" aria-label="My toolbar">
+    <Composite {...parentState} role="toolbar" aria-label={label}>
       {(itemProps) => (
         <>
           <SidebarDisclosure
@@ -72,7 +70,6 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
                 themeKey: 'components.sidebar.item',
               })}
               aria-label={label}
-              {...sectionState}
               {...state}
               {...baseProps}
             >
