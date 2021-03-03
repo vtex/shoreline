@@ -2,16 +2,16 @@ import React, { cloneElement, FunctionComponentElement, useState } from 'react'
 import { useSystem } from '@vtex/admin-core'
 import { SystemComponent } from '../../types'
 import {
-  ReakitMenuBar,
-  useMenuBarState,
   SidebarCorner,
   SidebarCornerProps,
   SidebarItem,
   SidebarSubItem,
-  SidebarBackdrop,
+  useCompositeState,
 } from './components'
 import { SidebarProvider } from './context'
-import { AnchorDirection } from './utils'
+import { AnchorDirection, CurrentItem } from './utils'
+import { Box } from '../Box'
+import { SidebarBackdrop } from './components/Backdrop'
 
 export interface SidebarProps extends SystemComponent {
   children: FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]
@@ -54,10 +54,11 @@ export interface SidebarProps extends SystemComponent {
  * ```
  */
 export function Sidebar(props: SidebarProps) {
-  const [collapsed, setCollapsed] = useState(false)
+  const [currentItem, setCurrentItem] = useState<CurrentItem | null>(null)
   const { children, anchor = 'left', styleOverrides = {}, ...baseProps } = props
   const { cn } = useSystem()
-  const state = useMenuBarState({
+
+  const state = useCompositeState({
     baseId: 'sidebar-menu-base-id--',
     orientation: 'vertical',
     loop: true,
@@ -67,18 +68,18 @@ export function Sidebar(props: SidebarProps) {
     <SidebarProvider
       value={{
         direction: anchor,
-        collapsed,
-        setCollapsed,
+        currentItem,
+        setCurrentItem,
       }}
     >
-      <ReakitMenuBar
+      <Box
         aria-label={'Sidebar'}
         {...state}
         {...baseProps}
         role="navigation"
         className={cn({
           themeKey: 'components.sidebar',
-          backgroundColor: collapsed ? 'white' : '#F8F9FA',
+          backgroundColor: !currentItem ? 'white' : '#F8F9FA',
         })}
       >
         {children.map((child) =>
@@ -87,8 +88,8 @@ export function Sidebar(props: SidebarProps) {
             secret: { state },
           })
         )}
-      </ReakitMenuBar>
-      {!collapsed && <SidebarBackdrop />}
+      </Box>
+      {currentItem && <SidebarBackdrop />}
     </SidebarProvider>
   )
 }
