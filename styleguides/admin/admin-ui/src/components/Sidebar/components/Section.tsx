@@ -24,7 +24,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
   const { title, children } = props
 
   const {
-    secret: { state },
+    secret: { state, parentState, parentId },
     // @ts-ignore
   } = props as SidebarSecretProps
 
@@ -50,7 +50,9 @@ export const SidebarSection = forwardRef(function SidebarSection(
       {children.map((child, index) => (
         <CompositeItem {...state} key={index} ref={ref}>
           {(itemProps) =>
+            // @ts-ignore
             cloneElement(child, {
+              secret: { state, parentState, parentId },
               ...itemProps,
             })
           }
