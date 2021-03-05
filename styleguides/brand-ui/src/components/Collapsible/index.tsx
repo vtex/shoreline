@@ -73,7 +73,7 @@ function Header({
           <IconCaret
             duration={0.3}
             direction={visible ? 'up' : 'down'}
-            sx={{ variant: arrowVariant }}
+            sx={{ variant: arrowVariant, mr: arrowPosition === 'left' ? 2 : 0 }}
           />
         </Flex>
       )}
