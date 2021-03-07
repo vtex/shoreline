@@ -8,7 +8,7 @@ export interface SidebarCornerProps extends SidebarSecretProps {
   scope: CornerScope
 }
 
-export function SidebarCorner(props: Omit<SidebarCornerProps, 'secret'>) {
+export function SidebarCorner(props: Omit<SidebarCornerProps, 'state'>) {
   const { children, scope } = props
 
   return (
