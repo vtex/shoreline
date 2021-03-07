@@ -12,7 +12,6 @@ export type CornerScope = 'top' | 'bottom'
 export interface SidebarSecretProps {
   secret: {
     state: CompositeStateReturn
-    parentState?: CompositeStateReturn
     parentId?: string
   }
 }
