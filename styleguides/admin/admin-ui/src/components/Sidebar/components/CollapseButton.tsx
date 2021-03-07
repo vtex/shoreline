@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react'
-import { StyleObject } from '@vtex/admin-styles'
 import { Button, ButtonProps } from '../../Button'
 import { useSidebarContext } from '../context'
 import { motion } from 'framer-motion'
@@ -14,7 +13,7 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
   const { onClick, isCollapsed, ...buttonProps } = props
   const { setCollapse, collapse } = useSidebarContext()
   const [show, setShow] = useState(false)
-  const { cn } = useSystem()
+  const { cn, stylesOf } = useSystem()
 
   const handleOnClick = (event: React.MouseEvent<any, MouseEvent>) => {
     setCollapse(!collapse)
@@ -23,38 +22,6 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
       onClick(event)
     }
   }
-
-  const styleOverrides: StyleObject = {
-    border: '1px solid',
-    borderRadius: '100%',
-    height: 20,
-    width: 20,
-    opacity: show ? 1 : 0,
-    transition: '.3s',
-    backgroundColor: 'white',
-    borderColor: '#E1E2E7',
-    '> div > svg': {
-      color: 'grey',
-    },
-    '&:hover': {
-      backgroundColor: 'blue.hover',
-      borderColor: 'blue.hover',
-      '> div > svg': {
-        color: 'white',
-      },
-    },
-  }
-
-  const className = cn({
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    zIndex: 1,
-    height: 80,
-    width: 40,
-    marginLeft: 'auto',
-    top: '14px',
-  })
 
   const variants = useMemo(
     () =>
@@ -66,7 +33,9 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
 
   return (
     <motion.div
-      className={className}
+      className={cn({
+        themeKey: 'components.sidebar.collapse-button-container',
+      })}
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
       initial={isCollapsed ? 'collapsed' : 'expanded'}
@@ -74,7 +43,10 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
       variants={variants}
     >
       <Button
-        styleOverrides={styleOverrides}
+        styleOverrides={{
+          ...stylesOf('components.sidebar.collapse-button'),
+          opacity: show ? 1 : 0,
+        }}
         onClick={handleOnClick}
         {...props}
         {...buttonProps}
