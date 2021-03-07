@@ -123,7 +123,6 @@ export function SidebarItem(props: SidebarItemProps) {
 
   const className = cn({
     themeKey: 'components.sidebar.item',
-    position: 'absolute',
     backgroundColor: collapse ? 'white' : '#F8F9FA',
   })
 

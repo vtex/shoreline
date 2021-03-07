@@ -19,8 +19,6 @@ import { SidebarProvider } from './context'
 import { AnchorDirection, Item } from './utils'
 import { Box } from '../Box'
 import { SidebarBackdrop } from './components/Backdrop'
-// import { SidebarCollapseButton } from './components/CollapseButton'
-// import { IconCaret } from '@vtex/admin-ui-icons'
 
 export interface SidebarProps extends SystemComponent {
   children: FunctionComponentElement<SidebarCornerProps>[]
@@ -102,22 +100,13 @@ export function Sidebar(props: SidebarProps) {
             collapse && currentItem
               ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
               : 'unset',
-          position: 'relative',
-          maxWidth: '16rem',
         })}
       >
         <Box
           element="nav"
-          themeKey={'components.sidebar'}
-          aria-label={'Sidebar'}
-          role="navigation"
+          themeKey={'components.sidebar.root'}
           {...rootState}
           {...baseProps}
-          className={cn({
-            position: 'absolute',
-            maxWidth: '16rem',
-            overflow: 'initial',
-          })}
         >
           <CompositeGroup
             {...rootState}
@@ -133,12 +122,6 @@ export function Sidebar(props: SidebarProps) {
             }
           </CompositeGroup>
         </Box>
-        {/* {currentItem?.isCollapsible && (
-          <SidebarCollapseButton
-            icon={<IconCaret direction={collapse ? 'right' : 'left'} />}
-            isCollapsed={!!collapse}
-          />
-        )} */}
       </Box>
       <SidebarBackdrop />
     </SidebarProvider>
@@ -259,7 +242,7 @@ Sidebar.SubItem = SidebarSubItem
  * </Sidebar>
  * ```
  */
-Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope' | 'state'>) => (
+Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope'>) => (
   <SidebarCorner {...props} scope={'top'} />
 )
 
@@ -314,6 +297,6 @@ Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope' | 'state'>) => (
  * </Sidebar>
  * ```
  */
-Sidebar.Footer = (props: Omit<SidebarCornerProps, 'scope' | 'state'>) => (
+Sidebar.Footer = (props: Omit<SidebarCornerProps, 'scope'>) => (
   <SidebarCorner {...props} scope={'bottom'} />
 )

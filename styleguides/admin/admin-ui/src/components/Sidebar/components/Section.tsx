@@ -28,17 +28,14 @@ export const SidebarSection = forwardRef(function SidebarSection(
     <Set
       spacing={0.5}
       orientation="vertical"
-      styleOverrides={{
-        width: 'calc(200px - 1.75rem)',
-        paddingBottom: 8,
-      }}
+      themeKey={'components.sidebar.section'}
     >
       <Text
         variant="action"
         styleOverrides={{
-          color: 'gray',
-          fontSize: '11px',
-          paddingBottom: '12px',
+          color: 'dark.secondary',
+          fontSize: '0.6875rem',
+          paddingBottom: '0.75rem',
         }}
       >
         {title}
