@@ -1,4 +1,4 @@
-import React, { cloneElement, useEffect } from 'react'
+import React, { cloneElement, useEffect, useMemo } from 'react'
 import {
   SidebarSectionProps,
   SidebarSection,
@@ -11,9 +11,9 @@ import {
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
-import { ArrowKeys } from '../utils'
+import { ArrowKeys, Item, SidebarItemVariants } from '../utils'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
-
+import { motion } from 'framer-motion'
 export interface SidebarItemProps
   extends SidebarDisclosureProps,
     SystemComponent {
@@ -26,10 +26,11 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   const { cn } = useSystem()
   const {
     direction,
-    currentItemIsCollapsible,
     collapse,
+    currentItem,
     setCurrentItem,
-    setCurrentItemIsCollapsible,
+    setSelectedItemsMemory,
+    selectedItemsMemory,
     setCollapse,
   } = useSidebarContext()
 
@@ -50,16 +51,12 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
 
   useEffect(() => {
     if (selected) {
-      setCurrentItemIsCollapsible(!!hasSection)
-    }
-  }, [selected, hasSection])
-
-  useEffect(() => {
-    if (currentItemIsCollapsible) {
-      setCurrentItem({ index, scope })
+      const currItem: Item = { index, scope, isCollapsible: !!hasSection }
+      setCurrentItem(currItem)
+      setSelectedItemsMemory([currItem, ...selectedItemsMemory.slice(0, 2)])
       setCollapse(false)
     }
-  }, [currentItemIsCollapsible])
+  }, [selected, hasSection])
 
   const handleOnClick = (event?: React.MouseEvent<any, MouseEvent>) => {
     // This means the item the user has interacted with
@@ -68,6 +65,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
     // should not open.
     if (!hasSection) {
       setCurrentItem(null)
+      setSelectedItemsMemory([])
     } else {
       setCollapse(false)
     }
@@ -94,15 +92,16 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
     }
   }
 
-  const distance = selected ? (collapse ? '-8.125rem' : '3.5rem') : '-13.5rem'
+  const variants = useMemo(() => {
+    return SidebarItemVariants({
+      direction,
+      currentItemIsCollapsible: !!currentItem?.isCollapsible,
+      selected,
+    })
+  }, [direction, currentItem, selected])
 
   return (
-    <CompositeItem
-      {...parentState}
-      role="toolbar"
-      aria-label={label}
-      id={label}
-    >
+    <CompositeItem {...parentState} role="nav" aria-label={label} id={label}>
       {(itemProps) => (
         <>
           <SidebarDisclosure
@@ -111,19 +110,25 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
-          {hasSection && (
-            <Composite
-              className={cn({
-                [direction]: `${distance} !important`,
-                themeKey: 'components.sidebar.item',
-                position: 'absolute',
-                zIndex: selected && !collapse ? 0 : -1,
-                backgroundColor: collapse ? 'white' : '#F8F9FA',
-              })}
-              aria-label={label}
-              {...state}
-              {...baseProps}
-            >
+          <motion.ul
+            className={cn({
+              themeKey: 'components.sidebar.item',
+              position: 'absolute',
+              backgroundColor: collapse ? 'white' : '#F8F9FA',
+            })}
+            initial={
+              (selected && !currentItem?.isCollapsible) || !selected || collapse
+                ? 'collapsed'
+                : 'expanded'
+            }
+            animate={
+              (selected && !currentItem?.isCollapsible) || !selected || collapse
+                ? 'collapsed'
+                : 'expanded'
+            }
+            variants={variants}
+          >
+            <Composite aria-label={label} {...state} {...baseProps}>
               {sections?.map(
                 ({ title, children }, index) =>
                   children.length > 0 && (
@@ -143,7 +148,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
                   )
               )}
             </Composite>
-          )}
+          </motion.ul>
         </>
       )}
     </CompositeItem>
