@@ -17,7 +17,7 @@ import { SidebarCollapseButton } from './components/CollapseButton'
 import { IconCaret } from '@vtex/admin-ui-icons'
 
 export interface SidebarProps extends SystemComponent {
-  children: FunctionComponentElement<Omit<SidebarCornerProps, 'secret'>>[]
+  children: FunctionComponentElement<Omit<SidebarCornerProps, 'state'>>[]
   anchor?: AnchorDirection
 }
 
@@ -254,7 +254,7 @@ Sidebar.SubItem = SidebarSubItem
  * </Sidebar>
  * ```
  */
-Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope' | 'secret'>) => (
+Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope' | 'state'>) => (
   <SidebarCorner {...props} scope={'top'} />
 )
 
@@ -309,6 +309,6 @@ Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope' | 'secret'>) => (
  * </Sidebar>
  * ```
  */
-Sidebar.Footer = (props: Omit<SidebarCornerProps, 'scope' | 'secret'>) => (
+Sidebar.Footer = (props: Omit<SidebarCornerProps, 'scope' | 'state'>) => (
   <SidebarCorner {...props} scope={'bottom'} />
 )

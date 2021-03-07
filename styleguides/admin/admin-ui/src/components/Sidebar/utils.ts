@@ -10,10 +10,8 @@ interface VariantsArgs {
 export type CornerScope = 'top' | 'bottom'
 
 export interface SidebarSecretProps {
-  secret: {
-    state: CompositeStateReturn
-    parentId?: string
-  }
+  state: CompositeStateReturn
+  parentId?: string
 }
 
 export type AnchorDirection = 'left' | 'right'
