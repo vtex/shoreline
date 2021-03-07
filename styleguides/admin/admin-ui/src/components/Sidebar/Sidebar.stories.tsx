@@ -59,6 +59,7 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
                   currentItem.scope === 'top' && currentItem.index === index
                 }
                 onClick={() => setCurrentItem({ index, scope: 'top' })}
+                key={index}
               />
             ))}
           </Sidebar.Header>
@@ -70,6 +71,7 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
                   currentItem.scope === 'bottom' && currentItem.index === index
                 }
                 onClick={() => setCurrentItem({ index, scope: 'bottom' })}
+                key={index}
               />
             ))}
           </Sidebar.Footer>

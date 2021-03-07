@@ -15,8 +15,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   props: SidebarDisclosureProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { icon, selected, label } = props
-
+  const { icon, selected, label, ...buttonProps } = props
   const { direction } = useSidebarContext()
 
   const styleOverrides: StyleObject = {
@@ -41,7 +40,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         variant="tertiary"
         icon={icon}
         styleOverrides={styleOverrides}
-        {...props}
+        {...buttonProps}
       />
     </Tooltip>
   )
