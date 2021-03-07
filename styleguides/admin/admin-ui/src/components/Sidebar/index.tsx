@@ -10,7 +10,7 @@ import {
   CompositeGroup,
 } from './components'
 import { SidebarProvider } from './context'
-import { AnchorDirection, CurrentItem } from './utils'
+import { AnchorDirection, Item } from './utils'
 import { Box } from '../Box'
 import { SidebarBackdrop } from './components/Backdrop'
 import { SidebarCollapseButton } from './components/CollapseButton'
@@ -57,10 +57,8 @@ export interface SidebarProps extends SystemComponent {
  * ```
  */
 export function Sidebar(props: SidebarProps) {
-  const [currentItem, setCurrentItem] = useState<CurrentItem | null>(null)
-  const [currentItemIsCollapsible, setCurrentItemIsCollapsible] = useState<
-    boolean | null
-  >(null)
+  const [currentItem, setCurrentItem] = useState<Item | null>(null)
+  const [selectedItemsMemory, setSelectedItemsMemory] = useState<Item[]>([])
   const [collapse, setCollapse] = useState<boolean | null>(null)
   const { children, anchor = 'left', styleOverrides = {}, ...baseProps } = props
   const { cn } = useSystem()
@@ -77,18 +75,22 @@ export function Sidebar(props: SidebarProps) {
       value={{
         direction: anchor,
         currentItem,
-        currentItemIsCollapsible,
         collapse,
+        selectedItemsMemory,
         setCurrentItem,
-        setCurrentItemIsCollapsible,
         setCollapse,
+        setSelectedItemsMemory,
       }}
     >
       <Box
         className={cn({
           themeKey: 'components.sidebar.container',
           backgroundColor:
-            !currentItem || (collapse && currentItem) ? 'white' : '#F8F9FA',
+            !currentItem ||
+            !currentItem.isCollapsible ||
+            (collapse && currentItem.isCollapsible)
+              ? 'white'
+              : '#F8F9FA',
           boxShadow:
             collapse && currentItem
               ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
@@ -98,6 +100,7 @@ export function Sidebar(props: SidebarProps) {
         })}
       >
         <Box
+          element="nav"
           themeKey={'components.sidebar'}
           aria-label={'Sidebar'}
           role="navigation"
@@ -129,14 +132,14 @@ export function Sidebar(props: SidebarProps) {
             }
           </CompositeGroup>
         </Box>
-        {currentItemIsCollapsible && (
+        {currentItem?.isCollapsible && (
           <SidebarCollapseButton
             icon={<IconCaret direction={collapse ? 'right' : 'left'} />}
             isCollapsed={!!collapse}
           />
         )}
       </Box>
-      {currentItem && <SidebarBackdrop />}
+      <SidebarBackdrop />
     </SidebarProvider>
   )
 }
