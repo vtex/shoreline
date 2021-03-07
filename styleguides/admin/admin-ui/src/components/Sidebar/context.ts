@@ -1,8 +1,10 @@
 import { createContext, useContext } from 'react'
+import { CompositeStateReturn } from './components'
 import invariant from 'tiny-invariant'
 import { AnchorDirection, Item } from './utils'
 
 const SidebarContext = createContext<{
+  rootState: CompositeStateReturn
   direction: AnchorDirection
   currentItem: Item | null
   collapse: boolean | null

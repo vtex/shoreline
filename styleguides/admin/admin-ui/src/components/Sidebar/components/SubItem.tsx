@@ -15,10 +15,10 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
   ref: Ref<HTMLButtonElement>
 ) {
   const { onClick, selected, ...itemProps } = props
-  const { collapse } = useSidebarContext()
+  const { collapse, rootState } = useSidebarContext()
 
   const {
-    secret: { parentState, parentId },
+    secret: { parentId },
     // @ts-ignore
     // This line is ignored because there is no typing for
     // this prop available, as it's supposed to be 'hidden'
@@ -44,7 +44,7 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
       if (event.key === ArrowKeys.Left) {
         // Move focus to parent component, which is
         // at the sidebar's first level
-        parentState!.move(parentId!)
+        rootState.move(parentId!)
       }
     }
   }

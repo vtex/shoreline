@@ -63,7 +63,7 @@ export function Sidebar(props: SidebarProps) {
   const { children, anchor = 'left', styleOverrides = {}, ...baseProps } = props
   const { cn } = useSystem()
 
-  const state = useCompositeState({
+  const rootState = useCompositeState({
     baseId: 'sidebar-menu-base-id--',
     orientation: 'vertical',
     wrap: 'vertical',
@@ -80,6 +80,7 @@ export function Sidebar(props: SidebarProps) {
         setCurrentItem,
         setCollapse,
         setSelectedItemsMemory,
+        rootState,
       }}
     >
       <Box
@@ -104,7 +105,7 @@ export function Sidebar(props: SidebarProps) {
           themeKey={'components.sidebar'}
           aria-label={'Sidebar'}
           role="navigation"
-          {...state}
+          {...rootState}
           {...baseProps}
           className={cn({
             position: 'absolute',
@@ -112,20 +113,15 @@ export function Sidebar(props: SidebarProps) {
             overflow: 'initial',
           })}
         >
-          <CompositeGroup {...state} aria-label={'Sidebar'} role="navigation">
+          <CompositeGroup
+            {...rootState}
+            aria-label={'Sidebar'}
+            role="navigation"
+          >
             {(itemProps) =>
               children.map((child) =>
+                // @ts-ignore
                 cloneElement(child, {
-                  // @ts-ignore
-                  // This line is ignored because there is no typing for
-                  // this prop available, as it's supposed to be 'hidden'
-                  // from the client. Another approach to pass this state
-                  // down would be to use the Context API, but since every
-                  // change in any of the context attributes would make the
-                  // context consuming elements re-render, we end up avoiding
-                  // unecessery re-renders everytime the user navigates
-                  // through the keyboard.
-                  secret: { parentState: state },
                   ...itemProps,
                 })
               )
