@@ -12,6 +12,8 @@ export type CornerScope = 'top' | 'bottom'
 export interface SidebarSecretProps {
   state: CompositeStateReturn
   parentId?: string
+  index?: number
+  scope?: CornerScope
 }
 
 export type AnchorDirection = 'left' | 'right'
@@ -75,6 +77,25 @@ export const BackdropVariants = ({
   collapsed: () => ({
     minWidth: width,
     width,
+    transition: {
+      damping: 50,
+    },
+  }),
+})
+
+export const CollapseButtonVariants = ({
+  left,
+}: {
+  left: number
+}): Variants => ({
+  expanded: () => ({
+    left,
+    transition: {
+      damping: 50,
+    },
+  }),
+  collapsed: () => ({
+    left,
     transition: {
       damping: 50,
     },

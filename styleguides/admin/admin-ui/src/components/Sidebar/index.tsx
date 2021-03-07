@@ -1,4 +1,9 @@
-import React, { cloneElement, FunctionComponentElement, useState } from 'react'
+import React, {
+  cloneElement,
+  FunctionComponentElement,
+  ReactElement,
+  useState,
+} from 'react'
 import { useSystem } from '@vtex/admin-core'
 import { SystemComponent } from '../../types'
 import {
@@ -8,16 +13,17 @@ import {
   SidebarSubItem,
   useCompositeState,
   CompositeGroup,
+  _SidebarItemProps,
 } from './components'
 import { SidebarProvider } from './context'
 import { AnchorDirection, Item } from './utils'
 import { Box } from '../Box'
 import { SidebarBackdrop } from './components/Backdrop'
-import { SidebarCollapseButton } from './components/CollapseButton'
-import { IconCaret } from '@vtex/admin-ui-icons'
+// import { SidebarCollapseButton } from './components/CollapseButton'
+// import { IconCaret } from '@vtex/admin-ui-icons'
 
 export interface SidebarProps extends SystemComponent {
-  children: FunctionComponentElement<Omit<SidebarCornerProps, 'state'>>[]
+  children: FunctionComponentElement<SidebarCornerProps>[]
   anchor?: AnchorDirection
 }
 
@@ -120,20 +126,19 @@ export function Sidebar(props: SidebarProps) {
           >
             {(itemProps) =>
               children.map((child) =>
-                // @ts-ignore
-                cloneElement(child, {
+                cloneElement(child as ReactElement, {
                   ...itemProps,
                 })
               )
             }
           </CompositeGroup>
         </Box>
-        {currentItem?.isCollapsible && (
+        {/* {currentItem?.isCollapsible && (
           <SidebarCollapseButton
             icon={<IconCaret direction={collapse ? 'right' : 'left'} />}
             isCollapsed={!!collapse}
           />
-        )}
+        )} */}
       </Box>
       <SidebarBackdrop />
     </SidebarProvider>
