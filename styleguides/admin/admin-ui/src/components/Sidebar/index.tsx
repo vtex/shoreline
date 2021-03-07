@@ -94,8 +94,8 @@ export function Sidebar(props: SidebarProps) {
             !currentItem ||
             !currentItem.isCollapsible ||
             (collapse && currentItem.isCollapsible)
-              ? 'white'
-              : '#F8F9FA',
+              ? 'light.primary'
+              : 'light.secondary',
           boxShadow:
             collapse && currentItem
               ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
@@ -108,11 +108,7 @@ export function Sidebar(props: SidebarProps) {
           {...rootState}
           {...baseProps}
         >
-          <CompositeGroup
-            {...rootState}
-            aria-label={'Sidebar'}
-            role="navigation"
-          >
+          <CompositeGroup {...rootState} aria-label={'Sidebar'} role="menu">
             {(itemProps) =>
               children.map((child) =>
                 cloneElement(child as ReactElement, {
