@@ -2,6 +2,8 @@ import React, { useMemo } from 'react'
 import { BackdropVariants, SCALES } from '../utils'
 import { useSidebarContext } from '../context'
 import { motion } from 'framer-motion'
+import { SidebarCollapseButton } from './CollapseButton'
+import { IconCaret } from '@vtex/admin-ui-icons'
 
 /**
  * We need this component to achieve a nice
@@ -10,18 +12,21 @@ import { motion } from 'framer-motion'
 export function SidebarBackdrop() {
   const { collapse, currentItem } = useSidebarContext()
 
-  const { width, variants } = useMemo(() => {
+  const { width, variants, isCollapsed } = useMemo(() => {
     const width = currentItem?.isCollapsible
       ? collapse
         ? SCALES.COLLAPSED_BACKDROP_WIDTH
         : SCALES.COLLAPSIBLE_AREA_WIDTH
       : '0rem'
 
+    const isCollapsed = !currentItem?.isCollapsible || collapse
+
     return {
       variants: BackdropVariants({
         width,
       }),
       width,
+      isCollapsed,
     }
   }, [currentItem, collapse])
 
@@ -30,15 +35,17 @@ export function SidebarBackdrop() {
       style={{
         minWidth: width,
         maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
-        zIndex: -1,
       }}
-      initial={
-        !currentItem?.isCollapsible || collapse ? 'collapsed' : 'expanded'
-      }
-      animate={
-        !currentItem?.isCollapsible || collapse ? 'collapsed' : 'expanded'
-      }
+      initial={isCollapsed ? 'collapsed' : 'expanded'}
+      animate={isCollapsed ? 'collapsed' : 'expanded'}
       variants={variants}
-    />
+    >
+      {currentItem?.isCollapsible && (
+        <SidebarCollapseButton
+          icon={<IconCaret direction={collapse ? 'right' : 'left'} />}
+          isCollapsed={!!collapse}
+        />
+      )}
+    </motion.div>
   )
 }

@@ -2,6 +2,7 @@ import React, {
   cloneElement,
   forwardRef,
   FunctionComponentElement,
+  ReactElement,
   Ref,
 } from 'react'
 import { SidebarSubItemProps, CompositeItem } from './index'
@@ -10,7 +11,7 @@ import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
 import { SidebarSecretProps } from '../utils'
 
-export interface SidebarSectionProps
+export interface _SidebarSectionProps
   extends SystemComponent,
     SidebarSecretProps {
   title: string
@@ -18,7 +19,7 @@ export interface SidebarSectionProps
 }
 
 export const SidebarSection = forwardRef(function SidebarSection(
-  props: SidebarSectionProps,
+  props: _SidebarSectionProps,
   ref: Ref<HTMLButtonElement>
 ) {
   const { title, children, state, parentId } = props
@@ -45,8 +46,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
       {children.map((child, index) => (
         <CompositeItem {...state} key={index} ref={ref}>
           {(itemProps) =>
-            // @ts-ignore
-            cloneElement(child, {
+            cloneElement(child as ReactElement, {
               state,
               parentId,
               ...itemProps,
