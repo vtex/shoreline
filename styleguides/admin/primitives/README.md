@@ -33,7 +33,7 @@ function ApplicationRoot() {
 
 ### csx prop
 
-This prop is present in all components and is responsible to receive a style-object. More info [Styles](../styles/README.md)
+This prop is present in all components and is responsible for receiving a style-object. More info [Styles](../styles/README.md)
 
 ```jsx
 <Primitive csx={{ bg: 'blue', color: 'light.primary' }}>Blue box</Primitive>s
@@ -75,7 +75,7 @@ function Example() {
 | ------------- | ------------ | -------- | -------------------------------------- |
 | element       | `E`          | 🚫       | Element that will be rendered          |
 | className     | `string`     | 🚫       | element className                      |
-| extends `<E>` | props of `E` | 🤔       | This component inherits all props of E |
+| extends `<E>` | props of `E` | 🚫       | This component inherits all props of E |
 
 #### FlexProps<E>
 

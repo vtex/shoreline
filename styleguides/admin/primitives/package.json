@@ -16,7 +16,7 @@
     "node": ">=10"
   },
   "repository": {
-    "directory": "styleguides/admin/admin-primitives",
+    "directory": "styleguides/admin/primitives",
     "type": "git",
     "url": "git+https://github.com/vtex/onda.git"
   },
