@@ -123,11 +123,11 @@ export function SidebarItem(props: SidebarItemProps) {
 
   const className = cn({
     themeKey: 'components.sidebar.item',
-    backgroundColor: collapse ? 'white' : '#F8F9FA',
+    backgroundColor: collapse ? 'light.primary' : 'light.secondary',
   })
 
   return (
-    <CompositeItem {...rootState} role="nav" aria-label={label} id={label}>
+    <CompositeItem {...rootState} role="menuitem" aria-label={label} id={label}>
       {(itemProps) => (
         <>
           <SidebarDisclosure
@@ -142,7 +142,15 @@ export function SidebarItem(props: SidebarItemProps) {
             animate={isCollapsed ? 'collapsed' : 'expanded'}
             variants={variants}
           >
-            <Composite aria-label={label} {...state} {...baseProps}>
+            <Composite
+              aria-label={label}
+              as="li"
+              style={{
+                listStyle: 'none',
+              }}
+              {...state}
+              {...baseProps}
+            >
               {sections?.map(
                 ({ title, children }, index) =>
                   children.length > 0 && (
