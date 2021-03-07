@@ -32,11 +32,12 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
     setSelectedItemsMemory,
     selectedItemsMemory,
     setCollapse,
+    rootState,
   } = useSidebarContext()
 
   const {
     // @ts-ignore
-    secret: { parentState, index, scope },
+    secret: { index, scope },
   } = props
 
   const state = useCompositeState({
@@ -101,7 +102,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
   }, [direction, currentItem, selected])
 
   return (
-    <CompositeItem {...parentState} role="nav" aria-label={label} id={label}>
+    <CompositeItem {...rootState} role="nav" aria-label={label} id={label}>
       {(itemProps) => (
         <>
           <SidebarDisclosure
@@ -140,7 +141,7 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
                           </SidebarSection>,
                           {
                             ...itemProps,
-                            secret: { state, parentState, parentId: label },
+                            secret: { state, parentId: label },
                           }
                         )
                       }
