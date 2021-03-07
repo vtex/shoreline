@@ -1,6 +1,6 @@
 import React, { cloneElement, useEffect, useMemo } from 'react'
 import {
-  SidebarSectionProps,
+  _SidebarSectionProps,
   SidebarSection,
   SidebarDisclosureProps,
   SidebarDisclosure,
@@ -11,19 +11,38 @@ import {
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
-import { ArrowKeys, Item, SidebarItemVariants } from '../utils'
+import {
+  ArrowKeys,
+  Item,
+  SidebarItemVariants,
+  SidebarSecretProps,
+} from '../utils'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { motion } from 'framer-motion'
 
-export interface SidebarItemProps
+export interface SidebarSectionProps
+  extends Omit<_SidebarSectionProps, 'state'> {}
+
+export interface _SidebarItemProps
   extends SidebarDisclosureProps,
-    SystemComponent {
-  sections?: Omit<SidebarSectionProps, 'state'>[]
+    SystemComponent,
+    SidebarSecretProps {
+  sections?: SidebarSectionProps[]
   label: string
 }
 
-export function SidebarItem(props: Omit<SidebarItemProps, 'state'>) {
-  const { sections, selected, onClick, label, ...baseProps } = props
+export interface SidebarItemProps extends Omit<_SidebarItemProps, 'state'> {}
+
+export function SidebarItem(props: SidebarItemProps) {
+  const {
+    sections,
+    selected,
+    onClick,
+    label,
+    index = 0,
+    scope = 'top',
+    ...baseProps
+  } = props
   const { cn } = useSystem()
   const {
     direction,
@@ -35,11 +54,6 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'state'>) {
     setCollapse,
     rootState,
   } = useSidebarContext()
-
-  const {
-    // @ts-ignore
-    secret: { index, scope },
-  } = props
 
   const state = useCompositeState({
     orientation: 'vertical',
@@ -102,6 +116,17 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'state'>) {
     })
   }, [direction, currentItem, selected])
 
+  const isCollapsed = useMemo(
+    () => (selected && !currentItem?.isCollapsible) || !selected || collapse,
+    [selected, currentItem, collapse]
+  )
+
+  const className = cn({
+    themeKey: 'components.sidebar.item',
+    position: 'absolute',
+    backgroundColor: collapse ? 'white' : '#F8F9FA',
+  })
+
   return (
     <CompositeItem {...rootState} role="nav" aria-label={label} id={label}>
       {(itemProps) => (
@@ -113,21 +138,9 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'state'>) {
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
           <motion.ul
-            className={cn({
-              themeKey: 'components.sidebar.item',
-              position: 'absolute',
-              backgroundColor: collapse ? 'white' : '#F8F9FA',
-            })}
-            initial={
-              (selected && !currentItem?.isCollapsible) || !selected || collapse
-                ? 'collapsed'
-                : 'expanded'
-            }
-            animate={
-              (selected && !currentItem?.isCollapsible) || !selected || collapse
-                ? 'collapsed'
-                : 'expanded'
-            }
+            className={className}
+            initial={isCollapsed ? 'collapsed' : 'expanded'}
+            animate={isCollapsed ? 'collapsed' : 'expanded'}
             variants={variants}
           >
             <Composite aria-label={label} {...state} {...baseProps}>
