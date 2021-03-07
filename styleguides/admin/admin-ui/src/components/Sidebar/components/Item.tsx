@@ -14,14 +14,15 @@ import { useSidebarContext } from '../context'
 import { ArrowKeys, Item, SidebarItemVariants } from '../utils'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { motion } from 'framer-motion'
+
 export interface SidebarItemProps
   extends SidebarDisclosureProps,
     SystemComponent {
-  sections?: Omit<SidebarSectionProps, 'secret'>[]
+  sections?: Omit<SidebarSectionProps, 'state'>[]
   label: string
 }
 
-export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
+export function SidebarItem(props: Omit<SidebarItemProps, 'state'>) {
   const { sections, selected, onClick, label, ...baseProps } = props
   const { cn } = useSystem()
   const {
@@ -136,12 +137,16 @@ export function SidebarItem(props: Omit<SidebarItemProps, 'secret'>) {
                     <CompositeItem {...state} key={index}>
                       {(itemProps) =>
                         cloneElement(
-                          <SidebarSection title={title} {...baseProps}>
+                          <SidebarSection
+                            title={title}
+                            state={state}
+                            parentId={label}
+                            {...baseProps}
+                          >
                             {children}
                           </SidebarSection>,
                           {
                             ...itemProps,
-                            secret: { state, parentId: label },
                           }
                         )
                       }

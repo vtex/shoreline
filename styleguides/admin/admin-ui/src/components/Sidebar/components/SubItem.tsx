@@ -11,23 +11,15 @@ export interface SidebarSubItemProps extends ButtonProps, SidebarSecretProps {
 }
 
 export const SidebarSubItem = forwardRef(function SidebarSubItem(
-  props: Omit<SidebarSubItemProps, 'secret'>,
+  props: Omit<SidebarSubItemProps, 'parentId' | 'state'>,
   ref: Ref<HTMLButtonElement>
 ) {
   const { onClick, selected, ...itemProps } = props
   const { collapse, rootState } = useSidebarContext()
 
   const {
-    secret: { parentId },
+    parentId,
     // @ts-ignore
-    // This line is ignored because there is no typing for
-    // this prop available, as it's supposed to be 'hidden'
-    // from the client. Another approach to pass this state
-    // down would be to use the Context API, but since every
-    // change in any of the context attributes would make the
-    // context consuming elements re-render, we end up avoiding
-    // unecessery re-renders everytime the user navigates
-    // through the keyboard.
   } = props as SidebarSecretProps
 
   const handleOnClick = (event?: React.MouseEvent<any, MouseEvent>) => {
