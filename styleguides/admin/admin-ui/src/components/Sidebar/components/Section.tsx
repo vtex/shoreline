@@ -24,7 +24,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
   const { title, children } = props
 
   const {
-    secret: { state, parentState, parentId },
+    secret: { state, parentId },
     // @ts-ignore
   } = props as SidebarSecretProps
 
@@ -60,7 +60,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
             // unecessery re-renders everytime the user navigates
             // through the keyboard.
             cloneElement(child, {
-              secret: { state, parentState, parentId },
+              secret: { state, parentId },
               ...itemProps,
             })
           }
