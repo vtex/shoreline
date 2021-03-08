@@ -61,7 +61,6 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:indeterminate:after {
   content: "";
-  position: absolute;
   width: 8px;
   height: 0;
   border-width: 1px;
@@ -181,7 +180,6 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:indeterminate:after {
   content: "";
-  position: absolute;
   width: 8px;
   height: 0;
   border-width: 1px;

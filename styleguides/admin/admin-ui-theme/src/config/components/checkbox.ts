@@ -33,7 +33,6 @@ export default {
       color: 'blue',
       '&:after': {
         content: '""',
-        position: 'absolute',
         width: 8,
         height: 0,
         borderWidth: 1,
