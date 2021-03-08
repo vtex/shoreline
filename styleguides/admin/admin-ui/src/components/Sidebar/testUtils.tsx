@@ -33,14 +33,7 @@ const promotions = [
   'Taxes',
 ]
 
-const storeFront = [
-  'Layout',
-  'Site Editor',
-  'Pages',
-  'Styles',
-  'Redirects',
-  'Banners',
-]
+const storeFront = ['Layout', 'Site Editor', 'Pages', 'Styles', 'Banners']
 
 const catalog = [
   'All Products',
@@ -85,7 +78,7 @@ export const topCornerItems: ItemProps = [
     label: 'Orders',
     sections: [
       {
-        title: 'Orders',
+        title: 'Orders (section)', // (section) is included for testing purposes
         children: orders.map((label) => (
           <Sidebar.SubItem onClick={() => console.log('Click me')}>
             {label}
@@ -161,7 +154,7 @@ export const topCornerItems: ItemProps = [
     label: 'Shipping',
     sections: [
       {
-        title: 'Shipping',
+        title: 'Shipping (section)', // (section) is included for testing purposes
         children: shipping.map((label) => (
           <Sidebar.SubItem onClick={() => console.log('Click me')}>
             {label}
