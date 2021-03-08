@@ -69,7 +69,7 @@ export default {
     height: 20,
     width: 20,
     transition: 0.3,
-    backgroundColor: 'white',
+    backgroundColor: 'light.primary',
     '> div > svg': {
       color: 'grey',
     },
@@ -77,7 +77,7 @@ export default {
       backgroundColor: 'blue.hover',
       borderColor: 'blue.hover',
       '> div > svg': {
-        color: 'white',
+        color: 'light.primary',
       },
     },
   },
