@@ -94,6 +94,7 @@ export const CollapseButtonVariants = ({
 }): Variants => ({
   expanded: () => ({
     left,
+    opacity: 1,
     transition: {
       damping: 50,
     },
@@ -102,6 +103,9 @@ export const CollapseButtonVariants = ({
     left,
     transition: {
       damping: 50,
+    },
+    transitionEnd: {
+      opacity: 0,
     },
   }),
 })
