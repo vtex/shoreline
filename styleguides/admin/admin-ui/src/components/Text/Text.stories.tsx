@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react'
 import { Text } from './index'
 
 export default {
-  title: 'typography/Text',
+  title: 'admin-ui/Text',
   component: Text,
 } as Meta
 

@@ -7,7 +7,7 @@ import { Tag, TagProps } from './index'
 import { Set } from '../Set'
 
 export default {
-  title: 'components/Tag',
+  title: 'admin-ui/Tag',
   component: Tag,
 } as Meta
 

@@ -8,7 +8,7 @@ import { Button } from '../Button'
 import { IconWarningCircle } from '@vtex/admin-ui-icons'
 
 export default {
-  title: 'components/Alert',
+  title: 'admin-ui/Alert',
   component: Alert,
 } as Meta
 

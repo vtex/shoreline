@@ -7,7 +7,7 @@ import { Button } from './index'
 import { Set } from '../Set'
 
 export default {
-  title: 'components/Button',
+  title: 'admin-ui/Button',
   component: Button,
 } as Meta
 

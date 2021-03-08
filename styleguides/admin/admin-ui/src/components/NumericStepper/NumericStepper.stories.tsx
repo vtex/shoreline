@@ -5,7 +5,7 @@ import { NumericStepper, NumericStepperProps } from './index'
 import { Set } from '../Set'
 
 export default {
-  title: 'forms/NumericStepper',
+  title: 'admin-ui/NumericStepper',
   component: NumericStepper,
 } as Meta
 

@@ -5,7 +5,7 @@ import { Collapsible, useCollapsible } from './index'
 import { Button } from '../Button'
 
 export default {
-  title: 'components/Collapsible',
+  title: 'admin-ui/Collapsible',
   component: Collapsible,
 } as Meta
 

@@ -30,12 +30,15 @@
     "clean": "lerna clean && lerna run clean",
     "format": "prettier --write \"styleguides/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "eslint styleguides/ --ext .js,.ts,.jsx,.tsx",
-    "storybook:admin": "yarn --cwd styleguides/admin/admin-ui start:storybook",
+    "storybook:admin": "yarn workspace @vtex/admin-storybook start",
     "site:admin": "yarn --cwd styleguides/admin/admin-site develop",
-    "build-storybook:admin": "yarn --cwd styleguides/admin/admin-ui build:storybook",
+    "build-storybook:admin": "yarn workspace @vtex/admin-storybook build",
     "build-site:admin": "yarn --cwd styleguides/admin/admin-site build-site",
     "storybook:brand": "yarn --cwd styleguides/brand-ui storybook",
-    "build-storybook:brand": "yarn --cwd styleguides/brand-ui build-storybook"
+    "build-storybook:brand": "yarn --cwd styleguides/brand-ui build-storybook",
+    "build:admin-ui": "yarn workspace @vtex/admin-ui build",
+    "build:admin-theme": "yarn workspace @vtex/admin-ui-theme build",
+    "build:admin-icons": "yarn workspace @vtex/admin-ui-icons build"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

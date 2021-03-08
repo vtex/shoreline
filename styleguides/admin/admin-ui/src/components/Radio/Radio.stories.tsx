@@ -7,7 +7,7 @@ import { Label } from '../Label'
 import { Heading } from '../Heading'
 
 export default {
-  title: 'forms/Radio',
+  title: 'admin-ui/Radio',
   component: Radio,
 } as Meta
 

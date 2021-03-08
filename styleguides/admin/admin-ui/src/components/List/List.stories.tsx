@@ -5,7 +5,7 @@ import { List } from './index'
 import { ListItem } from './ListItem'
 
 export default {
-  title: 'typography/List',
+  title: 'admin-ui/List',
   component: List,
 } as Meta
 

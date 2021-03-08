@@ -5,7 +5,7 @@ import { Columns } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'layouts/Columns',
+  title: 'admin-ui/Columns',
   component: Columns,
 } as Meta
 

@@ -8,7 +8,7 @@ import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 
 export default {
-  title: 'components/Divider',
+  title: 'admin-ui/Divider',
   component: Divider,
 } as Meta
 

@@ -5,7 +5,7 @@ import { TextArea, TextAreaProps } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'forms/TextArea',
+  title: 'admin-ui/TextArea',
   component: TextArea,
 } as Meta
 

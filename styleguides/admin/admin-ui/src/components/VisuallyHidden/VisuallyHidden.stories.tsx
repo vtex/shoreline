@@ -6,7 +6,7 @@ import { Text } from '../Text'
 import { VisuallyHidden } from './index'
 
 export default {
-  title: 'components/VisuallyHidden',
+  title: 'admin-ui/VisuallyHidden',
   component: VisuallyHidden,
 } as Meta
 

@@ -12,7 +12,7 @@ import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 
 export default {
-  title: 'components/Modal',
+  title: 'admin-ui/Modal',
   component: Modal,
 } as Meta
 

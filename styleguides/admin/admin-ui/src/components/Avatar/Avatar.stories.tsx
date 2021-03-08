@@ -5,7 +5,7 @@ import { Avatar, AvatarProps } from './index'
 import { Set } from '../Set'
 
 export default {
-  title: 'components/Avatar',
+  title: 'admin-ui/Avatar',
   component: Avatar,
 } as Meta
 

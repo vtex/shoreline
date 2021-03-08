@@ -7,7 +7,7 @@ import { Text } from '../Text'
 import { Set } from '../Set'
 
 export default {
-  title: 'components/CollapsibleGroup',
+  title: 'admin-ui/CollapsibleGroup',
   component: CollapsibleGroup,
 } as Meta
 
