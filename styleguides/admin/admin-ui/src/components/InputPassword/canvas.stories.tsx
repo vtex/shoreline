@@ -6,7 +6,7 @@ import { InputPassword, InputPasswordProps } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'forms/InputPassword',
+  title: 'admin-ui/InputPassword',
   component: InputPassword,
 } as Meta
 

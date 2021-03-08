@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { Search, SearchProps } from './index'
 
 export default {
-  title: 'forms/Search',
+  title: 'admin-ui/Search',
   component: Search,
 } as Meta
 

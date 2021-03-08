@@ -6,7 +6,7 @@ import { StatefulTable } from '../index'
 import { Skeleton } from '../../Skeleton'
 
 export default {
-  title: 'experimental/Table/Resolvers',
+  title: 'admin-ui/Table/Resolvers',
   component: StatefulTable,
 } as Meta
 

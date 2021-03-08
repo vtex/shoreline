@@ -7,7 +7,7 @@ import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 
 export default {
-  title: 'components/Card',
+  title: 'admin-ui/Card',
   component: Card,
 } as Meta
 

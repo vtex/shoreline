@@ -8,7 +8,7 @@ import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 
 export default {
-  title: 'primitives/Skeleton',
+  title: 'admin-ui/Skeleton',
   component: Skeleton,
 } as Meta
 

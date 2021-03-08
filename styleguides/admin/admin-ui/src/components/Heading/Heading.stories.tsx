@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react'
 import { Heading } from './index'
 
 export default {
-  title: 'typography/Heading',
+  title: 'admin-ui/Heading',
   component: Heading,
 } as Meta
 

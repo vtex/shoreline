@@ -6,7 +6,7 @@ import { Dropdown, DropdownProps, useDropdownState } from './index'
 import { Card } from '../Card'
 
 export default {
-  title: 'forms/Dropdown',
+  title: 'admin-ui/Dropdown',
   component: Dropdown,
 } as Meta
 

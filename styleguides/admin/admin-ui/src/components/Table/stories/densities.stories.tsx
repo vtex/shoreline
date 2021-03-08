@@ -5,7 +5,7 @@ import { StatefulTable, StatefulTableProps } from '../index'
 import { baseResolvers } from '../resolvers/base'
 
 export default {
-  title: 'experimental/Table/Densities',
+  title: 'admin-ui/Table/Densities',
   component: StatefulTable,
 } as Meta
 

@@ -8,7 +8,7 @@ import { Heading } from '../Heading'
 import { Set } from '../Set'
 
 export default {
-  title: 'components/Tabs',
+  title: 'admin-ui/Tabs',
   component: Tabs,
 } as Meta
 

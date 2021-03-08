@@ -6,7 +6,7 @@ import { Set } from '../Set'
 import { Card } from '../Card'
 
 export default {
-  title: 'forms/Select',
+  title: 'admin-ui/Select',
   component: Select,
 } as Meta
 

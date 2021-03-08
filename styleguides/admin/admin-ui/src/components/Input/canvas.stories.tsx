@@ -6,7 +6,7 @@ import { Input, InputType, InputProps } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'forms/Input',
+  title: 'admin-ui/Input',
   component: Input,
 } as Meta
 

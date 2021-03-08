@@ -20,7 +20,7 @@ import { Button } from '../Button'
 import { Set } from '../Set'
 
 export default {
-  title: 'components/Menu',
+  title: 'admin-ui/Menu',
   component: Menu,
 } as Meta
 

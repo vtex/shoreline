@@ -5,7 +5,7 @@ import { Text } from '../Text'
 import { Toggle, useToggleState, ToggleProps } from './index'
 
 export default {
-  title: 'forms/Toggle',
+  title: 'admin-ui/Toggle',
   component: Toggle,
 } as Meta
 

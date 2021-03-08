@@ -6,7 +6,7 @@ import { Checkbox, useCheckboxState } from './index'
 import { Text } from '../Text'
 
 export default {
-  title: 'forms/Checkbox',
+  title: 'admin-ui/Checkbox',
   component: Checkbox,
 } as Meta
 

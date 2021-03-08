@@ -6,7 +6,7 @@ import { Paragraph } from '../Paragraph'
 import { List } from '../List'
 
 export default {
-  title: 'typography/Anchor',
+  title: 'admin-ui/Anchor',
   component: Anchor,
 } as Meta
 

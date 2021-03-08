@@ -9,7 +9,7 @@ import { Text } from '../Text'
 import { Set } from '../Set'
 
 export default {
-  title: 'components/Tooltip',
+  title: 'admin-ui/Tooltip',
   component: Tooltip,
 } as Meta
 
