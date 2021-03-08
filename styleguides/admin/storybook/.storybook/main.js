@@ -1,5 +1,8 @@
 module.exports = {
-  stories: ['../../admin-ui/src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../../admin-ui/src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../../primitives/src/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   addons: [
     '@storybook/addon-links',
     {

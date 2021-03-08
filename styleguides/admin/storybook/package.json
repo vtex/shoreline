@@ -25,7 +25,7 @@
   "scripts": {
     "start": "run-p storybook",
     "storybook": "start-storybook -p 6006",
-    "build": "yarn --cwd ../../../ build && yarn run build-storybook"
+    "build:storybook": "yarn --cwd ../../../ build && yarn run build-storybook"
   },
   "peerDependencies": {
     "react": ">=16",

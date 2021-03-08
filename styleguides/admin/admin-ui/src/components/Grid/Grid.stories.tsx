@@ -5,7 +5,7 @@ import { Grid } from './index'
 import { Box } from '../Box'
 
 export default {
-  title: 'primitives/Grid',
+  title: 'admin-ui/Grid',
   component: Grid,
 } as Meta
 

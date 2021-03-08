@@ -32,7 +32,7 @@
     "lint": "eslint styleguides/ --ext .js,.ts,.jsx,.tsx",
     "storybook:admin": "yarn workspace @vtex/admin-storybook start",
     "site:admin": "yarn --cwd styleguides/admin/admin-site develop",
-    "build-storybook:admin": "yarn workspace @vtex/admin-storybook build",
+    "build-storybook:admin": "yarn workspace @vtex/admin-storybook build:storybook",
     "build-site:admin": "yarn --cwd styleguides/admin/admin-site build-site",
     "storybook:brand": "yarn --cwd styleguides/brand-ui storybook",
     "build-storybook:brand": "yarn --cwd styleguides/brand-ui build-storybook",

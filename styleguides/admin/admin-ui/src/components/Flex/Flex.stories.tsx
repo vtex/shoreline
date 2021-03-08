@@ -6,7 +6,7 @@ import { Box } from '../Box'
 import { Card, CardProps } from '../Card'
 
 export default {
-  title: 'primitives/Flex',
+  title: 'admin-ui/Flex',
   component: Flex,
 } as Meta
 
