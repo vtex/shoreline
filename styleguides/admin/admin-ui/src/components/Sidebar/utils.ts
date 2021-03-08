@@ -44,6 +44,7 @@ export const SidebarItemVariants = ({
   return {
     expanded: () => ({
       [direction]: SCALES.FIXED_AREA_WIDTH,
+      display: 'block',
       transition: {
         damping: 50,
       },
@@ -58,6 +59,9 @@ export const SidebarItemVariants = ({
         damping: 50,
       },
       zIndex: -1,
+      transitionEnd: {
+        display: 'none',
+      },
     }),
   }
 }
