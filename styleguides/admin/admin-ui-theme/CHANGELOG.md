@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.0...@vtex/admin-ui-theme@0.19.1) (2021-03-08)
+
+
+### Bug Fixes
+
+* fixes the problem of the absolute position of the checkbox trace in an indeterminate state that makes the trace stay in a fixed position even when the checkbox changes position ([e3cd2a4](https://github.com/vtex/onda/commit/e3cd2a4f55a17c878b16c8f43afa8f0ca751eb40))
+
+
+
+
+
 # [0.19.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.18.2...@vtex/admin-ui-theme@0.19.0) (2021-02-25)
 
 
