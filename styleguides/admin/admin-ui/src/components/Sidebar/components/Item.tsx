@@ -141,9 +141,10 @@ export function SidebarItem(props: SidebarItemProps) {
             initial={isCollapsed ? 'collapsed' : 'expanded'}
             animate={isCollapsed ? 'collapsed' : 'expanded'}
             variants={variants}
+            data-testid={`${label}-ul`}
           >
             <Composite
-              aria-label={label}
+              aria-label={`${label} menu`}
               as="li"
               style={{
                 listStyle: 'none',
