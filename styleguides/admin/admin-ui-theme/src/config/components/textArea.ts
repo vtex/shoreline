@@ -10,7 +10,7 @@ const textAreaInputStyle = {
   borderWidth: 1,
   paddingLeft: 3,
   paddingRight: 4,
-  borderColor: 'mid.tertiary',
+  borderColor: 'mid.primary',
   borderRadius: 'default',
   bg: 'inherit',
   marginY: 1,

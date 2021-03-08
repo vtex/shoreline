@@ -48,7 +48,7 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -183,7 +183,7 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -327,7 +327,7 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -473,7 +473,7 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -623,7 +623,7 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -769,7 +769,7 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -854,7 +854,7 @@ exports[`Input tests should match snapshot 1`] = `
   color: #898F9E;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #E0E2E7;
+  border-left-color: #C4C5CA;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -991,7 +991,7 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  border-color: #E0E2E7;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -1076,7 +1076,7 @@ exports[`Input tests should match snapshot 1`] = `
   color: #898F9E;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #E0E2E7;
+  border-left-color: #C4C5CA;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
