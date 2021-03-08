@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.38.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.38.0...@vtex/brand-ui@0.38.1) (2021-03-08)
+
+
+### Bug Fixes
+
+* **brand-collapsible:** caret spacing ([adfb95a](https://github.com/vtex/onda/commit/adfb95a746eb7b465ded79a1adad4dd62d72704a))
+
+
+
+
+
 # [0.38.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.37.0...@vtex/brand-ui@0.38.0) (2021-03-03)
 
 
