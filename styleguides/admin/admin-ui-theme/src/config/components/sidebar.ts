@@ -37,12 +37,11 @@ export default {
     top: 0,
     maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
     height: '100%',
-    padding: '1.875rem 0.875rem',
+    padding: '1.875rem 0.5rem',
     outline: 'none',
     overflow: 'overlay',
-    backgroundColor: 'light.secondary',
+    backgroundColor: 'transparent',
     transform: 'unset !important',
-    ...borders,
   },
   section: {
     width: 'calc(200px - 1.75rem)',
@@ -58,8 +57,8 @@ export default {
     justifyContent: 'center',
     zIndex: 1,
     height: 80,
-    width: 40,
-    marginLeft: 'auto',
+    marginLeft: -24,
+    left: 16,
     top: '0.875rem',
   },
   'collapse-button': {
@@ -71,13 +70,13 @@ export default {
     transition: 0.3,
     backgroundColor: 'light.primary',
     '> div > svg': {
-      color: 'grey',
+      color: 'mid.primary',
     },
     '&:hover': {
-      backgroundColor: 'blue.hover',
-      borderColor: 'blue.hover',
+      backgroundColor: 'sidebar.hover',
+      borderColor: 'sidebar.hover',
       '> div > svg': {
-        color: 'light.primary',
+        color: 'blue',
       },
     },
   },
