@@ -30,22 +30,18 @@ We also have other packages that are responsible for provide the entire structur
 
 **Admin UI:** We use [emotion](https://emotion.sh/docs/introduction) to implement a CSS-like, and prop-based model of styling components, making it easy to learn.
 
-## Styling
+## Overriding Styles
 
 In most applications, it is a common challenge to want to override styles for a specific context to match design requirements.
 
-**Styleguide:** Given that Styleguide uses [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/) as a CSS utility framework, you may need to rewrite the tachyons config to override specific `classNames`. To avoid conflict with the classes defined in the component, they do not receive `className` as property, so it's common to create a container or properties to override styles.
+**Styleguide:** Given that Styleguide uses [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/) as a CSS utility framework, you may need to rewrite the tachyons config to override specific `classNames`. In Styleguide, there is no easy way to do this.
+
+**Admin UI:** Given that Admin UI styles are prop-based, overrides are as easy as passing a property.
 
 ```jsx isStatic
-<Card noPadding>
-  <div className="pa2">{content}</div>
-</Card>
-```
-
-**Admin UI:** Given that Admin UI styles are prop-based, overrides is as easy as passing a prop.
-
-```jsx
 <Card styleOverrides={{ padding: 2 }}>Card content</Card>
+
+<Button variant="tertiary" styleOverrides={{ border: 'default' }}>Button</Button>
 ```
 
 ## Responsive Design
@@ -58,39 +54,21 @@ In most applications, it is a common challenge to want to override styles for a 
 
 **Admin UI:** Authoring responsive styles in a very easy and intuitive way.
 
-Every [StyleObject](/theming/style-object/) property can receive a responsive value, for example:
+Every [StyleObject](/core-concepts/styles/) property can receive a responsive value, for example:
 
-```jsx
-<Box
-  styles={{
-    height: 50,
-    width: [50, 100, 300],
-    backgroundColor: 'blue.secondary',
-  }}
-/>
-```
-
-We also provide the [useResponsiveValue](/hooks/use-responsive-value/) hook, that makes possible to reuse the same API for use cases outside from `StyleObject`.
-
-```jsx
-function Example() {
-  const mobileText = '📱 mobile'
-  const aboveTabletText = '🖥 tablet & above'
-  const text = useResponsiveValue([mobileText, aboveTabletText])
-
-  return <Box>{text}</Box>
-}
+```jsx isStatic
+<Box styles={{ width: ['10%', '30%', '40%'] }} />
 ```
 
 ## Accessibility
 
 **Styleguide:** Many components do not yet support accessibility requirements, some of which are very difficult to provide.
 
-**Admin UI:** We build our components on top of [Reakit Library](http://reakit.io/) always focusing on accessibility first.
+**Admin UI:** We build our components always thinking about accessibility first. Two main libraries help us with that: [Reakit Library](http://reakit.io/) and [Downsfhit](https://www.downshift-js.com/).
 
 ## Typography
 
-Typography is used to communicate information the most efficient way possible through legibility and visual hierarchy. It's a crucial tool to guide users on their tasks. It should be used on clear and delightful way.
+Typography is used to communicate information in the most efficient way possible through legibility and visual hierarchy. It's a crucial tool to guide users on their tasks. It should be used clearly and delightfully.
 
 For that, it's important to define different typography styles for an app by setting a combination of different typography attributes: **Typeface**, **weight\***, **size**, **capitalization** and **letter spacing**.
 
@@ -100,17 +78,27 @@ For that, it's important to define different typography styles for an app by set
 <p className="t-body lh-copy">This is a paragraph!</p>
 ```
 
-**Admin UI:** Provides the [VTEX Trust font](/typography/introduction/#variable-fonts) and comes with a set of components that turns the application of the typography attributes easier.
+**Admin UI:** Provides the [VTEX Trust font](/typography/introduction/#variable-fonts) and comes with a set of components and CSS properties that turns the application of the typography attributes easier.
 
-```jsx
+```jsx isStatic
 <Paragraph>This is a paragraph!</Paragraph>
+
+<Heading>This is a Heading!</Heading>
+
+<Text variant="subtitle">Text with subtitle style!</Heading>
+
+<h1 className={cn({ text: 'headline' })}>This is a Heading!</h1>
 ```
 
 ## Iconography
 
-**Styleguide:** All of the icons are provided by the styleguide package.
+**Styleguide:** Exports a set of icons, most of them are not well documented.
 
-**Admin UI:** All of our icons are provided by the [admin-ui-icons](/packages/admin-ui-icons/) package. A library dedicated to iconography.
+**Admin UI:** Exports a set of [Icons](/core-concepts/icons) divided into categories according to their usage. It also has some features that our library provides. For example:
+
+- **Icons with direction:** Some icons have a state that allows the developer to control their direction (left, right, down, up).
+
+- **Custom Icon:** We export an `Icon` component that allows the developer to create a custom icon using our structure.
 
 ## Charts
 
@@ -144,9 +132,9 @@ function Example() {
 }
 ```
 
-**Admin UI:** We export the entire state control using react hooks.
+**Admin UI:** Mainly we export the entire state control using react hooks.
 
-```jsx
+```jsx isStatic
 function Example() {
   const items = ['Item 1', 'Item 2', 'Item 3']
   const state = useDropdownState({ items, initialSelectedItem: 'Item 1' })
@@ -154,19 +142,115 @@ function Example() {
 }
 ```
 
+### Stateful & Stateless
+
+There are some components that sometimes have a more complex state logic and sometimes a more direct one. For those, we export two types of components: `Stateful` and `Stateless`. The main difference between them is that the stateful has its state self-contained while the stateless doesn't. For example:
+
+**Stateful**
+
+```jsx isStatic
+<Menu hideOnClick aria-label="menu label" disclosure={<Button>Actions</Button>}>
+  <Menu.Item icon={<IconImport />}>Download</Menu.Item>
+  <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
+  <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
+  <Menu.Item dangerous icon={<IconDelete />}>
+    Delete
+  </Menu.Item>
+</Menu>
+```
+
+**Stateless**
+
+```jsx isStatic
+function Example() {
+  const state = useMenuState({
+    orientation: 'vertical',
+    loop: true,
+    placement: 'bottom-start',
+  })
+
+  return (
+    <>
+      <MenuDisclosure state={state}>
+        <Button>Post options</Button>
+      </MenuDisclosure>
+      <StatelessMenu aria-label="actions" state={state}>
+        <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
+        <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
+        <StatelessMenu.Item icon={<IconFavorite />}>
+          Favorite
+        </StatelessMenu.Item>
+      </StatelessMenu>
+    </>
+  )
+}
+```
+
 ## Reuse Design Behavior
 
 **Styleguide:** The component's styles are made combining tachyons classNames, so to reuse the design behavior we need to combine the same tokens.
 
-**Admin UI:** Components styles are applied using a theme key, so to reuse the design behavior we just need to use the `themeKey` property in the [StyleObject](/theming/style-object/)
+**Admin UI:** Components styles can be applied using a valid path on our theme object, we call this path of theme key. So, there are several ways to reuse design behavior in our system. For example:
 
-```jsx
-function Example() {
-  const { cn } = useSystem()
-  return (
-    <button className={cn({ themeKey: 'components.button.danger-regular' })}>
-      Danger Button
-    </button>
-  )
-}
+- Using the `themeKey` property inside the [Styles object](/core-concepts/styles/).
+- Using [stylesOf](/hooks/use-system/#stylesof) function.
+- Accessing our theme object. You can do that either using the [useTheme hook](/hooks/use-theme/) or calling our [theme function](/core-concepts/styles/#functions) inside a style object.
+
+## Utilities
+
+**Styleguide:** Style patterns are not mapped.
+
+**Admin UI:** We map styles that are repeated in the admin applications and create patterns from that. There are two ways of using those utilities:
+
+### Components
+
+**Flex:** You don't have to repeat the `display: 'flex'` every time and it comes with shorthands properties to apply Flexbox CSS behavior.
+
+**Grid & Grid.Item:** You don't have to repeat the `display: 'grid'` every time and it comes with shorthands properties to apply Grid CSS behavior.
+
+**Set:** Handles all the CSS logic to apply spacing between its children, `flex-direction`, and all of that as easy as using two properties.
+
+### Custom CSS Properties
+
+**Border:**
+
+```jsx isStatic
+// without token
+<div
+  className={cn({
+    borderBottom: 'solid',
+    borderBottomWidth: '1px',
+    borderBottomColor: 'mid.secondary',
+  })}
+/>
+
+// with token
+<div className={cn({ border: 'divider-bottom' })} />
+```
+
+**Size:**
+
+```jsx isStatic
+// without token
+<div className={cn({ width: 100, height: 100 })} />
+
+// with token
+<div className={cn({ size: 100 })} />
+```
+
+**Text:**
+
+```jsx isStatic
+// without token
+<div
+  className={cn({
+    fontFamily: 'sans',
+    lineHeight: 'headline',
+    fontSettings: 'regular',
+    fontSize: 4,
+  })}
+/>
+
+// with token
+<div className={cn({ text: 'headline' })} />
 ```
