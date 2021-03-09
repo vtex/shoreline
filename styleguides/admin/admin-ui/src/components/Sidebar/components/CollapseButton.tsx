@@ -46,6 +46,7 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
         styleOverrides={{
           ...stylesOf('components.sidebar.collapse-button'),
           opacity: show ? 1 : 0,
+          transitionDuration: '.3s',
         }}
         onClick={handleOnClick}
         {...props}
