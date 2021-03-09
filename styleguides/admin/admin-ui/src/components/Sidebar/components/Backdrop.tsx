@@ -4,6 +4,7 @@ import { useSidebarContext } from '../context'
 import { motion } from 'framer-motion'
 import { SidebarCollapseButton } from './CollapseButton'
 import { IconCaret } from '@vtex/admin-ui-icons'
+import { useSystem } from '@vtex/admin-core'
 
 /**
  * We need this component to achieve a nice
@@ -11,6 +12,7 @@ import { IconCaret } from '@vtex/admin-ui-icons'
  */
 export function SidebarBackdrop() {
   const { collapse, currentItem } = useSidebarContext()
+  const { cn } = useSystem()
 
   const { width, variants, isCollapsed } = useMemo(() => {
     const width = currentItem?.isCollapsible
@@ -31,15 +33,24 @@ export function SidebarBackdrop() {
   }, [currentItem, collapse])
 
   return (
-    <motion.div
-      style={{
-        minWidth: width,
-        maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
-      }}
-      initial={isCollapsed ? 'collapsed' : 'expanded'}
-      animate={isCollapsed ? 'collapsed' : 'expanded'}
-      variants={variants}
-    >
+    <>
+      <motion.div
+        className={cn({
+          minWidth: width,
+          maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
+          backgroundColor:
+            !currentItem ||
+            !currentItem.isCollapsible ||
+            (collapse && currentItem.isCollapsible)
+              ? 'light.primary'
+              : 'sidebar.light',
+          borderRight: isCollapsed ? 'unset' : '1px solid',
+          borderColor: 'mid.tertiary',
+        })}
+        initial={isCollapsed ? 'collapsed' : 'expanded'}
+        animate={isCollapsed ? 'collapsed' : 'expanded'}
+        variants={variants}
+      />
       {currentItem?.isCollapsible && (
         <SidebarCollapseButton
           icon={
@@ -57,6 +68,6 @@ export function SidebarBackdrop() {
           isCollapsed={!!collapse}
         />
       )}
-    </motion.div>
+    </>
   )
 }
