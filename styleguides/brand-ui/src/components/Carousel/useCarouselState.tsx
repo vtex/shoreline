@@ -1,12 +1,32 @@
 import { useEffect, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 
-const useCarouselState = ({ totalSteps }: { totalSteps: number }) => {
-  const [currentStep, setCurrentStep] = useState(0)
+interface CarouselStateProps {
+  totalSlides: number
+  slidesPerPage: number
+  slidesPerScroll: number
+  initialSlide: number
+}
+
+const useCarouselState = ({
+  totalSlides,
+  slidesPerPage,
+  slidesPerScroll,
+  initialSlide,
+}: CarouselStateProps) => {
+  const totalSteps =
+    1 + Math.ceil((totalSlides - slidesPerPage) / slidesPerScroll)
+
+  const initialStep = Math.max(
+    0,
+    Math.ceil((initialSlide - slidesPerPage + 1) / slidesPerScroll)
+  )
+
+  const [currentStep, setCurrentStep] = useState(initialStep)
   const [transition, setTransition] = useState(false)
   useEffect(() => {
-    setCurrentStep(0)
-  }, [totalSteps])
+    setCurrentStep(initialStep)
+  }, [totalSteps, initialSlide])
 
   const handleChangeStep = (newStep: number) => {
     setTransition(true)
@@ -34,6 +54,7 @@ const useCarouselState = ({ totalSteps }: { totalSteps: number }) => {
   })
 
   return {
+    totalSteps,
     currentStep,
     transition,
     handleChangeStep,

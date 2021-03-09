@@ -1,4 +1,5 @@
 const slidesContainerBase = {
+  zIndex: 0,
   height: '100%',
   width: '100%',
 }
@@ -37,27 +38,59 @@ const slide = {
 }
 
 const navigationContainerBase = {
-  position: 'absolute',
+  zIndex: 1,
+  minWidth: 'fit-content',
   paddingTop: 2,
   paddingBottom: 2,
 }
 
+const buttonDirection = {
+  previous: { left: 0 },
+  next: { right: 0 },
+}
+
+const overlaySlides = {
+  default: { position: 'relative' },
+  overlay: { position: 'absolute' },
+}
+
+const buttonAlign = {
+  top: { alignSelf: 'baseline' },
+  center: { alignSelf: 'center' },
+}
+
 const navigationContainer = {
-  previous: {
-    ...navigationContainerBase,
-    left: 0,
-  },
-  next: {
-    ...navigationContainerBase,
-    right: 0,
-  },
+  ...Object.keys(buttonDirection).reduce(
+    (acc, d) => ({
+      ...acc,
+      ...Object.keys(overlaySlides).reduce(
+        (bcc, o) => ({
+          ...bcc,
+          ...Object.keys(buttonAlign).reduce(
+            (ccc, b) => ({
+              ...ccc,
+              [`${d}-${o}-${b}`]: {
+                ...navigationContainerBase,
+                ...(buttonDirection as any)[d],
+                ...(overlaySlides as any)[o],
+                ...(buttonAlign as any)[b],
+              },
+            }),
+            []
+          ),
+        }),
+        {}
+      ),
+    }),
+    {}
+  ),
 }
 
 const navigationButtonBase = {
   cursor: 'pointer',
   border: 'none',
   borderRadius: '100%',
-  backgroundColor: 'muted.4',
+  backgroundColor: 'muted.5',
   color: 'secondary.base',
   boxShadow: '0px 3px 9px rgba(61, 62, 64, 0.25)',
   ':hover': {
@@ -81,13 +114,12 @@ const navigationButton = {
   },
 }
 
-const indicatorBar = {
+const indicatorBarBase = {
   left: 0,
   right: 0,
   bottom: 0,
   justifyContent: 'center',
   marginX: 5,
-  position: 'absolute',
   button: {
     marginRight: 5,
   },
@@ -95,6 +127,11 @@ const indicatorBar = {
     marginRight: 0,
   },
   marginBottom: 6,
+}
+
+const indicatorBar = {
+  default: { ...indicatorBarBase, position: 'relative' },
+  overlay: { ...indicatorBarBase, position: 'absolute' },
 }
 
 const indicatorBase = {
@@ -125,7 +162,7 @@ const indicator = {
   },
 }
 
-const nextButton = {
+const next = {
   small: {
     ...navigationButton.small,
     marginRight: 4,
@@ -136,7 +173,7 @@ const nextButton = {
   },
 }
 
-const previousButton = {
+const previous = {
   small: {
     ...navigationButton.small,
     marginLeft: 4,
@@ -150,11 +187,13 @@ const previousButton = {
 export default {
   position: 'relative',
   overflow: 'hidden',
+  flexDirection: 'column',
+  width: 'fit-content',
   slidesContainer,
   slide,
   navigationContainer,
-  nextButton,
-  previousButton,
+  next,
+  previous,
   indicatorBar,
   indicator,
 }
