@@ -42,7 +42,18 @@ export function SidebarBackdrop() {
     >
       {currentItem?.isCollapsible && (
         <SidebarCollapseButton
-          icon={<IconCaret direction={collapse ? 'right' : 'left'} />}
+          icon={
+            <IconCaret
+              direction={collapse ? 'right' : 'left'}
+              styleOverrides={{
+                display: 'flex',
+                justifyContent: 'center',
+                '> path': {
+                  strokeWidth: 2,
+                },
+              }}
+            />
+          }
           isCollapsed={!!collapse}
         />
       )}
