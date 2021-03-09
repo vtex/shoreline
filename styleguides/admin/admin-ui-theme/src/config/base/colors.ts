@@ -1,4 +1,4 @@
-import { darken } from 'polished'
+import { darken, lighten } from 'polished'
 
 const semanticColors = {
   blue: '#2953B2',
@@ -67,5 +67,10 @@ export default {
       hover: darken(0.04, semanticColors.greenSecondary),
       pressed: darken(0.08, semanticColors.greenSecondary),
     },
+  },
+  sidebar: {
+    light: '#F8F9FA',
+    dark: lighten(0.16, semanticColors.black),
+    hover: '#EAF0FD',
   },
 }
