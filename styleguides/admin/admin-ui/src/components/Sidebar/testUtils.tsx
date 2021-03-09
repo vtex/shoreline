@@ -79,8 +79,12 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Orders (section)', // (section) is included for testing purposes
-        children: orders.map((label) => (
-          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+        children: orders.map((label, index) => (
+          <Sidebar.SubItem
+            onClick={() => console.log('Click me')}
+            key={index}
+            selected={index === 0}
+          >
             {label}
           </Sidebar.SubItem>
         )),
@@ -94,16 +98,20 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Product',
-        children: catalog.map((label) => (
-          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+        children: catalog.map((label, index) => (
+          <Sidebar.SubItem
+            onClick={() => console.log('Click me')}
+            key={index}
+            selected={index === 0}
+          >
             {label}
           </Sidebar.SubItem>
         )),
       },
       {
         title: 'Prices',
-        children: catalog2.map((label) => (
-          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+        children: catalog2.map((label, index) => (
+          <Sidebar.SubItem onClick={() => console.log('Click me')} key={index}>
             {label}
           </Sidebar.SubItem>
         )),
@@ -117,8 +125,12 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Discounts',
-        children: promotions.map((label) => (
-          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+        children: promotions.map((label, index) => (
+          <Sidebar.SubItem
+            onClick={() => console.log('Click me')}
+            key={index}
+            selected={index === 0}
+          >
             {label}
           </Sidebar.SubItem>
         )),
@@ -132,16 +144,20 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Content Management',
-        children: storeFront.map((label) => (
-          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+        children: storeFront.map((label, index) => (
+          <Sidebar.SubItem
+            onClick={() => console.log('Click me')}
+            key={index}
+            selected={index === 0}
+          >
             {label}
           </Sidebar.SubItem>
         )),
       },
       {
         title: 'Intelligent Search',
-        children: intelligentSearch.map((label) => (
-          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+        children: intelligentSearch.map((label, index) => (
+          <Sidebar.SubItem onClick={() => console.log('Click me')} key={index}>
             {label}
           </Sidebar.SubItem>
         )),
@@ -155,8 +171,12 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Shipping (section)', // (section) is included for testing purposes
-        children: shipping.map((label) => (
-          <Sidebar.SubItem onClick={() => console.log('Click me')}>
+        children: shipping.map((label, index) => (
+          <Sidebar.SubItem
+            onClick={() => console.log('Click me')}
+            key={index}
+            selected={index === 0}
+          >
             {label}
           </Sidebar.SubItem>
         )),
