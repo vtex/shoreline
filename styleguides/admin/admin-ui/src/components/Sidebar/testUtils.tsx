@@ -1,8 +1,8 @@
 import React from 'react'
 import { SidebarItemProps } from './components/Item'
 import {
-  IconAppStore,
   IconDashboard,
+  IconAppStore,
   IconMarketplace,
   IconOrders,
   IconProducts,

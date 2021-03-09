@@ -49,9 +49,9 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
       color: selected ? 'blue' : 'dark.secondary',
     },
     '&:hover, &:focus': {
-      backgroundColor: selected ? 'blue.secondary' : 'unset',
+      backgroundColor: selected ? 'blue.secondary' : 'sidebar.hover',
       '> div': {
-        color: 'blue',
+        color: selected ? 'blue' : 'dark.secondary',
       },
     },
   }

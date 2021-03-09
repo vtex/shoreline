@@ -21,11 +21,10 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   const styleOverrides: StyleObject = {
     backgroundColor: selected ? 'blue.secondary' : 'unset',
     'div > svg': {
-      color: selected ? 'unset' : 'black',
-      opacity: selected ? 1 : 0.6,
+      color: selected ? 'unset' : 'sidebar.dark',
     },
     '&:hover, &:focus': {
-      backgroundColor: selected ? 'blue.secondary' : 'unset',
+      backgroundColor: selected ? 'blue.secondary' : '#EAF0FD',
       'div > svg': {
         color: 'blue',
         opacity: 1,
