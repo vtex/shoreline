@@ -17,6 +17,8 @@ export interface CarouselProps {
   loop?: boolean
   slidesPerPage?: number
   slidesPerScroll?: number
+  overlaySlides?: boolean
+  initialSlide?: number
 }
 
 export const Carousel = ({
@@ -28,74 +30,62 @@ export const Carousel = ({
   sx = {},
   loop = true,
   slidesPerPage = 1,
-  slidesPerScroll = 1,
+  slidesPerScroll = slidesPerPage,
+  overlaySlides = true,
+  initialSlide = 0,
 }: CarouselProps) => {
-  const totalSteps =
-    1 + Math.ceil((slides.length - slidesPerPage) / slidesPerScroll)
-
   const {
+    totalSteps,
     currentStep,
     handleChangeStep,
     handleNext,
     handlePrevious,
     swipeHandlers,
     transition,
-  } = useCarouselState({ totalSteps })
+  } = useCarouselState({
+    totalSlides: slides.length,
+    slidesPerPage,
+    slidesPerScroll,
+    initialSlide,
+  })
 
   const stopAtEnd = loop ? false : currentStep + 1 >= totalSteps
   const stopAtBeginning = loop ? false : currentStep - 1 < 0
 
   return (
     <Flex variant="carousel" sx={sx}>
-      <SlidesContainer
-        transition={transition}
-        swipeHandlers={swipeHandlers}
-        slides={slides}
-        currentStep={currentStep}
-        crossfade={crossfade}
-        slidesPerScroll={slidesPerScroll}
-        slidesPerPage={slidesPerPage}
-      />
-      <Flex
-        variant="carousel.navigationContainer.previous"
-        sx={{
-          alignItems: buttonAlign === 'top' ? 'baseline' : 'center',
-          height: buttonAlign === 'top' ? 'fit-content' : '100%',
-        }}
-      >
+      <Flex>
         {!stopAtBeginning && (
-          <Button
-            onClick={handlePrevious}
-            sx={{
-              variant: `carousel.previousButton.${size}`,
-            }}
-          >
-            <IconCaret size={size === 'regular' ? 48 : 24} direction="left" />
-            <VisuallyHidden>Previous step</VisuallyHidden>
-          </Button>
+          <NavigationContainer
+            direction="previous"
+            overlaySlides={overlaySlides}
+            buttonAlign={buttonAlign}
+            handleClick={handlePrevious}
+            size={size}
+          />
         )}
-      </Flex>
-      <Flex
-        variant="carousel.navigationContainer.next"
-        sx={{
-          alignItems: buttonAlign === 'top' ? 'baseline' : 'center',
-          height: buttonAlign === 'top' ? 'fit-content' : '100%',
-        }}
-      >
+        <SlidesContainer
+          transition={transition}
+          swipeHandlers={swipeHandlers}
+          slides={slides}
+          currentStep={currentStep}
+          crossfade={crossfade}
+          slidesPerScroll={slidesPerScroll}
+          slidesPerPage={slidesPerPage}
+        />
         {!stopAtEnd && (
-          <Button
-            onClick={handleNext}
-            sx={{
-              variant: `carousel.nextButton.${size}`,
-            }}
-          >
-            <IconCaret size={size === 'regular' ? 48 : 24} direction="right" />
-            <VisuallyHidden>Next step</VisuallyHidden>
-          </Button>
+          <NavigationContainer
+            direction="next"
+            overlaySlides={overlaySlides}
+            buttonAlign={buttonAlign}
+            handleClick={handleNext}
+            size={size}
+          />
         )}
       </Flex>
       {indicators && (
         <ProgressIndicatorBar
+          overlaySlides={overlaySlides}
           totalSteps={totalSteps}
           handleChangeStep={handleChangeStep}
           currentStep={currentStep}
@@ -104,6 +94,41 @@ export const Carousel = ({
     </Flex>
   )
 }
+
+interface NavigationContainerProps {
+  size: 'regular' | 'small'
+  buttonAlign: 'top' | 'center'
+  overlaySlides: boolean
+  direction: 'previous' | 'next'
+  handleClick: () => void
+}
+
+const NavigationContainer = ({
+  direction,
+  overlaySlides,
+  buttonAlign,
+  handleClick,
+  size,
+}: NavigationContainerProps) => (
+  <Flex
+    variant={`carousel.navigationContainer.${direction}-${
+      overlaySlides ? 'overlay' : 'default'
+    }-${buttonAlign}`}
+  >
+    <Button
+      onClick={handleClick}
+      sx={{
+        variant: `carousel.${direction}.${size}`,
+      }}
+    >
+      <IconCaret
+        size={size === 'regular' ? 48 : 24}
+        direction={direction === 'previous' ? 'left' : 'right'}
+      />
+      <VisuallyHidden>{direction} step</VisuallyHidden>
+    </Button>
+  </Flex>
+)
 
 interface SlidesContainerProps {
   slides: ReactNode[]
@@ -135,24 +160,24 @@ const SlidesContainer = ({
     : ''
 
   return (
-    <Flex
-      {...swipeHandlers}
-      variant={`carousel.slidesContainer${variant}`}
-      sx={{
-        transform: `translateX(-${translateX}%)`,
-      }}
-    >
-      {slides.map((slide, index) => {
-        return (
-          <Flex
-            key={index}
-            variant="carousel.slide"
-            sx={{ width: `${slideWidth}%` }}
-          >
-            {slide}
-          </Flex>
-        )
-      })}
+    <Flex sx={{ overflow: 'hidden' }}>
+      <Flex
+        {...swipeHandlers}
+        variant={`carousel.slidesContainer${variant}`}
+        sx={{ transform: `translateX(-${translateX}%)` }}
+      >
+        {slides.map((slide, index) => {
+          return (
+            <Flex
+              key={index}
+              variant="carousel.slide"
+              sx={{ width: `${slideWidth}%` }}
+            >
+              {slide}
+            </Flex>
+          )
+        })}
+      </Flex>
     </Flex>
   )
 }
@@ -161,14 +186,18 @@ interface ProgressIndicatorBarProps {
   totalSteps: number
   handleChangeStep: (slide: number) => void
   currentStep: number
+  overlaySlides: boolean
 }
 
 const ProgressIndicatorBar = ({
   totalSteps,
   handleChangeStep,
   currentStep,
+  overlaySlides,
 }: ProgressIndicatorBarProps) => (
-  <Flex variant="carousel.indicatorBar">
+  <Flex
+    variant={`carousel.indicatorBar.${overlaySlides ? 'overlay' : 'default'}`}
+  >
     {[...Array(totalSteps).keys()].map((step: number) => (
       <ProgressIndicator
         key={step}
