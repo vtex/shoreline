@@ -4,7 +4,9 @@ import React, {
   ReactElement,
   PropsWithChildren,
   useState,
+  useEffect,
 } from 'react'
+import { DisclosureStateReturn } from 'reakit/ts'
 import { Box, SxStyleProp } from 'theme-ui'
 
 import { useCollapsible, Collapsible, CollapsibleProps } from '../Collapsible'
@@ -14,7 +16,7 @@ interface AccordionInitialState {
    * Key of the current visible section content
    * @default -1
    */
-  visible?: number
+  visible?: boolean | number
   /**
    * List with the keys of disabled sections
    * @default []
@@ -31,20 +33,31 @@ interface AccordionProps
   toggle: (key: number) => void
 }
 
-const useAccordion = (initialState?: AccordionInitialState): AccordionProps => {
-  const [currentVisible, setVisible] = useState(initialState?.visible ?? -1)
-  const collapsible = useCollapsible()
+interface useAccordionReturn {
+  props: AccordionProps,
+  states: DisclosureStateReturn[]
+}
 
+const useAccordion = ({collapsibles, initialState, animated}:{collapsibles: number, initialState?: AccordionInitialState, animated?: boolean}): useAccordionReturn => {
+  const [currentVisible, setVisible] = useState((initialState?.visible ?? -1) as number)
+  const useCollapsibles = Array.from({length: collapsibles}, _ => useCollapsible({animated}))
+
+  useEffect(() => {
+    if (currentVisible > -1) useCollapsibles[currentVisible].show()
+  }, [currentVisible])
+  
   const toggle = (id: number) => {
-    setVisible((current) => (current === id ? -1 : id))
+    setVisible((current) => {
+      if (current > -1) useCollapsibles[current].hide()
+      if(current !== id) useCollapsibles[id].show()
+      return(current === id ? -1 : id)
+    })
   }
-
-  return {
-    ...collapsible,
-    visible: currentVisible,
-    toggle,
-    disabled: initialState?.disabled ?? [],
-  }
+  
+  return {props: {...useCollapsibles[0],
+        visible: currentVisible,
+        toggle,
+        disabled: initialState?.disabled ?? []}, states: useCollapsibles}
 }
 
 function Panel({ children }: PropsWithChildren<{}>) {

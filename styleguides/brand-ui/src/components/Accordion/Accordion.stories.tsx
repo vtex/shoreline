@@ -9,13 +9,13 @@ export default {
 } as Meta
 
 export const SimpleUsage = () => {
-  const accordion = useAccordion()
+  const {props, states} = useAccordion({collapsibles: 2, animated: true})
 
   return (
-    <Accordion {...accordion} sx={{ width: 300 }}>
+    <Accordion {...props} sx={{ width: 300 }}>
       <Accordion.Section>
         <Accordion.Section.Header label="Build for Community #1" />
-        <Accordion.Section.Content>
+        <Accordion.Section.Content state={states[0]}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -24,7 +24,7 @@ export const SimpleUsage = () => {
       </Accordion.Section>
       <Accordion.Section>
         <Accordion.Section.Header label="Build for Community #2" />
-        <Accordion.Section.Content>
+        <Accordion.Section.Content state={states[1]}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -36,13 +36,13 @@ export const SimpleUsage = () => {
 }
 
 export const SectionInitialyVisible = () => {
-  const accordion = useAccordion({ visible: 1 })
+  const {props, states} = useAccordion({ collapsibles: 3, initialState: {visible: 1},  animated: true })
 
   return (
-    <Accordion {...accordion} sx={{ width: 300 }}>
+    <Accordion {...props} sx={{ width: 300 }}>
       <Accordion.Section>
         <Accordion.Section.Header label="Build for Community #1" />
-        <Accordion.Section.Content>
+        <Accordion.Section.Content state={states[0]}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -51,7 +51,7 @@ export const SectionInitialyVisible = () => {
       </Accordion.Section>
       <Accordion.Section>
         <Accordion.Section.Header label="Build for Community #2" />
-        <Accordion.Section.Content>
+        <Accordion.Section.Content state={states[1]}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -60,7 +60,7 @@ export const SectionInitialyVisible = () => {
       </Accordion.Section>
       <Accordion.Section>
         <Accordion.Section.Header label="Build for Community #3" />
-        <Accordion.Section.Content>
+        <Accordion.Section.Content state={states[2]}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -72,13 +72,13 @@ export const SectionInitialyVisible = () => {
 }
 
 export const SectionsDisabled = () => {
-  const accordion = useAccordion({ disabled: [1, 2] })
+  const {props, states} = useAccordion({ collapsibles: 3, initialState: {disabled: [1, 2]}, animated: true })
 
   return (
-    <Accordion {...accordion} sx={{ width: 300 }}>
+    <Accordion {...props} sx={{ width: 300 }}>
       <Accordion.Section>
         <Accordion.Section.Header label="Build for Community #1" />
-        <Accordion.Section.Content>
+        <Accordion.Section.Content state={states[0]}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -87,7 +87,7 @@ export const SectionsDisabled = () => {
       </Accordion.Section>
       <Accordion.Section>
         <Accordion.Section.Header label="Build for Community #2" />
-        <Accordion.Section.Content>
+        <Accordion.Section.Content state={states[1]}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -96,7 +96,7 @@ export const SectionsDisabled = () => {
       </Accordion.Section>
       <Accordion.Section>
         <Accordion.Section.Header label="Build for Community #3" />
-        <Accordion.Section.Content>
+        <Accordion.Section.Content state={states[2]}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the

@@ -10,12 +10,12 @@ export default {
 } as Meta
 
 export const SimpleUsage = () => {
-  const props = useCollapsible()
+  const props = useCollapsible({animated: true})
 
   return (
     <Collapsible {...props} sx={{ width: ['100%', 500] }}>
       <Collapsible.Header label="Build for Community #2" />
-      <Collapsible.Content>
+      <Collapsible.Content state={props}>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
@@ -26,20 +26,20 @@ export const SimpleUsage = () => {
 }
 
 export const NestedCollapsible = () => {
-  const firstProps = useCollapsible()
-  const secondProps = useCollapsible()
-  const thirdProps = useCollapsible()
+  const firstProps = useCollapsible({ animated: true})
+  const secondProps = useCollapsible({ animated: true})
+  const thirdProps = useCollapsible({ animated: true})
 
   return (
     <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
       <Collapsible.Header label="Build for Community #2" />
-      <Collapsible.Content>
+      <Collapsible.Content state={firstProps}>
         <Collapsible {...secondProps}>
           <Collapsible.Header label="Build for Community #2" />
-          <Collapsible.Content>
+          <Collapsible.Content state={secondProps}>
             <Collapsible {...thirdProps}>
               <Collapsible.Header label="Build for Community #2" />
-              <Collapsible.Content>
+              <Collapsible.Content state={thirdProps}>
                 It’s all about being ready to grow and reach new levels. Have a
                 solid foundation, modular thinking and flexible essence, and
                 you’re building for scale. We are global but we’re audacious
@@ -54,7 +54,7 @@ export const NestedCollapsible = () => {
 }
 
 export const InitiallyVisible = () => {
-  const firstProps = useCollapsible({ visible: true })
+  const firstProps = useCollapsible({ visible: true, animated: true })
 
   return (
     <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
@@ -70,12 +70,12 @@ export const InitiallyVisible = () => {
 }
 
 export const Disabled = () => {
-  const firstProps = useCollapsible()
+  const props = useCollapsible({ animated: true})
 
   return (
-    <Collapsible {...firstProps} disabled sx={{ width: ['100%', 500] }}>
+    <Collapsible {...props} disabled sx={{ width: ['100%', 500] }}>
       <Collapsible.Header label="Build for Community #2" />
-      <Collapsible.Content>
+      <Collapsible.Content state={props}>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
@@ -86,15 +86,15 @@ export const Disabled = () => {
 }
 
 export const WithPrefixIcon = () => {
-  const firstProps = useCollapsible()
+  const props = useCollapsible({ animated: true})
 
   return (
-    <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
+    <Collapsible {...props} sx={{ width: ['100%', 500] }}>
       <Collapsible.Header
         prefix={(props) => <IconMock {...props} />}
         label="Build for Community #2"
       />
-      <Collapsible.Content>
+      <Collapsible.Content state={props}>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
@@ -105,15 +105,15 @@ export const WithPrefixIcon = () => {
 }
 
 export const WithSuffixIcon = () => {
-  const firstProps = useCollapsible()
+  const props = useCollapsible({ animated: true})
 
   return (
-    <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
+    <Collapsible {...props} sx={{ width: ['100%', 500] }}>
       <Collapsible.Header
         suffix={(props) => <IconMock {...props} />}
         label="Build for Community #2"
       />
-      <Collapsible.Content>
+      <Collapsible.Content state={props}>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
@@ -124,14 +124,14 @@ export const WithSuffixIcon = () => {
 }
 
 export const Sizes = () => {
-  const firstProps = useCollapsible()
-  const secondProps = useCollapsible()
+  const firstProps = useCollapsible({ animated: true})
+  const secondProps = useCollapsible({ animated: true})
 
   return (
     <Fragment>
       <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
         <Collapsible.Header size="regular" label="Header size: regular" />
-        <Collapsible.Content>
+        <Collapsible.Content state={firstProps}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -140,7 +140,7 @@ export const Sizes = () => {
       </Collapsible>
       <Collapsible {...secondProps} sx={{ width: ['100%', 500] }}>
         <Collapsible.Header size="small" label="Header size: small" />
-        <Collapsible.Content>
+        <Collapsible.Content state={secondProps}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -152,14 +152,14 @@ export const Sizes = () => {
 }
 
 export const ArrowPositions = () => {
-  const firstProps = useCollapsible()
-  const secondProps = useCollapsible()
+  const firstProps = useCollapsible({ animated: true})
+  const secondProps = useCollapsible({ animated: true})
 
   return (
     <Fragment>
       <Collapsible {...firstProps} sx={{ width: ['100%', 500] }}>
         <Collapsible.Header label="Arrow position: right" />
-        <Collapsible.Content>
+        <Collapsible.Content state={firstProps}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the
@@ -168,7 +168,7 @@ export const ArrowPositions = () => {
       </Collapsible>
       <Collapsible {...secondProps} sx={{ width: ['100%', 500] }}>
         <Collapsible.Header label="Arrow position: left" arrowPosition="left" />
-        <Collapsible.Content>
+        <Collapsible.Content state={secondProps}>
           It’s all about being ready to grow and reach new levels. Have a solid
           foundation, modular thinking and flexible essence, and you’re building
           for scale. We are global but we’re audacious enough to aim for the

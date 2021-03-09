@@ -11,6 +11,8 @@ import { Disclosure as ReakitDisclosure } from 'reakit'
 import { CollapsibleProvider, useCollapsibleContext } from './context'
 import { IconCaret } from '../../icons'
 import { useFocusHollow } from '../../hooks'
+import { css } from '@emotion/core'
+import { DisclosureStateReturn } from 'reakit/ts'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
@@ -81,9 +83,21 @@ function Header({
   )
 }
 
-function Content({ children, sx = {} }: ContentProps) {
-  const props = useCollapsibleContext()
+const contentAnimation = css`
+    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+    opacity: 0;
+    transform: translate3d(0, -10%, 0);
+ &[data-enter] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  &data-leave] {
+    // Uncomment below to have a different leave animation
+    // transform: translate3d(0, 100%, 0);
+  }
+`;
 
+function Content({ children, sx = {}, state }: ContentProps) {
   const behavior =
     !!children && (children as ReactElement).type === Collapsible
       ? 'stacked'
@@ -92,7 +106,7 @@ function Content({ children, sx = {} }: ContentProps) {
   const variant = `collapsible.content.${behavior}`
 
   return (
-    <DisclosureContent {...props}>
+    <DisclosureContent {...state} css={state.animated && contentAnimation}>
       {(enhancedProps) => (
         <Box {...enhancedProps} variant={variant} sx={sx}>
           {children}
@@ -121,7 +135,7 @@ type CollapsibleProps = PropsWithChildren<DisclosureProps & SxProps>
 
 type IconProps = SxProps & { size: number }
 
-type ContentProps = PropsWithChildren<SxProps>
+type ContentProps = PropsWithChildren<SxProps> & { state: DisclosureStateReturn }
 
 interface HeaderProps extends SxProps {
   /**
