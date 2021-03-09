@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion'
+import { Transition, Variants } from 'framer-motion'
 import { CompositeStateReturn } from './components/Aria'
 
 interface VariantsArgs {
@@ -36,29 +36,62 @@ export const SCALES = {
   COLLAPSED_BACKDROP_WIDTH: '0.625rem',
 }
 
+export enum SidebarItemVariantsKey {
+  FullyExpanded = 'fullyExpanded',
+  FullyCollapsed = 'fullyCollapsed',
+  PartiallyExpanded = 'partiallyExpanded',
+  PartiallyCollapsed = 'partiallyCollapsed',
+}
+
+const transition: Transition = {
+  type: 'spring',
+  damping: 50,
+  stiffness: 700,
+}
+
 export const SidebarItemVariants = ({
   direction,
   currentItemIsCollapsible,
   selected,
 }: VariantsArgs): Variants => {
   return {
-    expanded: () => ({
+    [SidebarItemVariantsKey.FullyExpanded]: () => ({
       [direction]: SCALES.FIXED_AREA_WIDTH,
       display: 'block',
+      transition,
+      transitionEnd: {
+        zIndex: 0,
+      },
+    }),
+    [SidebarItemVariantsKey.FullyCollapsed]: () => ({
+      [direction]:
+        selected && currentItemIsCollapsible ? '-8.125rem' : '-13.5rem',
+      transition,
+      zIndex: -1,
+      transitionEnd: {
+        display: 'none',
+      },
+    }),
+    [SidebarItemVariantsKey.PartiallyExpanded]: () => ({
+      [direction]: SCALES.FIXED_AREA_WIDTH,
+      display: 'block',
+      opacity: 1,
       transition: {
-        damping: 50,
+        ...transition,
+        stiffness: 600,
       },
       transitionEnd: {
         zIndex: 0,
       },
     }),
-    collapsed: () => ({
-      [direction]:
-        selected && currentItemIsCollapsible ? '-8.125rem' : '-13.5rem',
+    [SidebarItemVariantsKey.PartiallyCollapsed]: () => ({
+      [direction]: selected && currentItemIsCollapsible ? '-8.125rem' : '3rem',
       transition: {
-        damping: 50,
+        ...transition,
+        stiffness: 600,
       },
       zIndex: -1,
+      opacity: 0,
       transitionEnd: {
         display: 'none',
       },
@@ -74,34 +107,12 @@ export const BackdropVariants = ({
   expanded: () => ({
     minWidth: width,
     width,
-    transition: {
-      damping: 50,
-    },
+    transition,
+    zIndex: -2,
   }),
   collapsed: () => ({
     minWidth: width,
     width,
-    transition: {
-      damping: 50,
-    },
-  }),
-})
-
-export const CollapseButtonVariants = ({
-  left,
-}: {
-  left: number
-}): Variants => ({
-  expanded: () => ({
-    left,
-    transition: {
-      damping: 50,
-    },
-  }),
-  collapsed: () => ({
-    left,
-    transition: {
-      damping: 50,
-    },
+    transition,
   }),
 })

@@ -16,6 +16,7 @@ import {
   Item,
   SidebarItemVariants,
   SidebarSecretProps,
+  SidebarItemVariantsKey,
 } from '../utils'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { motion } from 'framer-motion'
@@ -69,7 +70,7 @@ export function SidebarItem(props: SidebarItemProps) {
     if (selected) {
       const currItem: Item = { index, scope, isCollapsible: !!hasSection }
       setCurrentItem(currItem)
-      setSelectedItemsMemory([currItem, ...selectedItemsMemory.slice(0, 2)])
+      setSelectedItemsMemory([currItem, ...selectedItemsMemory.slice(0, 1)])
       setCollapse(false)
     }
   }, [selected, hasSection])
@@ -81,7 +82,6 @@ export function SidebarItem(props: SidebarItemProps) {
     // should not open.
     if (!hasSection) {
       setCurrentItem(null)
-      setSelectedItemsMemory([])
     } else {
       setCollapse(false)
     }
@@ -121,9 +121,27 @@ export function SidebarItem(props: SidebarItemProps) {
     [selected, currentItem, collapse]
   )
 
+  const shouldFullyCollapseOnTransition = useMemo(() => {
+    if (!selectedItemsMemory) {
+      return true
+    }
+
+    if (selectedItemsMemory.some((item) => !item.isCollapsible)) {
+      return true
+    }
+
+    if (
+      selectedItemsMemory.length === 2 &&
+      selectedItemsMemory.every((item) => item.isCollapsible)
+    ) {
+      return false
+    }
+
+    return true
+  }, [selectedItemsMemory, currentItem])
+
   const className = cn({
     themeKey: 'components.sidebar.item',
-    backgroundColor: collapse ? 'light.primary' : 'light.secondary',
   })
 
   return (
@@ -138,8 +156,24 @@ export function SidebarItem(props: SidebarItemProps) {
           />
           <motion.ul
             className={className}
-            initial={isCollapsed ? 'collapsed' : 'expanded'}
-            animate={isCollapsed ? 'collapsed' : 'expanded'}
+            initial={
+              shouldFullyCollapseOnTransition
+                ? isCollapsed
+                  ? SidebarItemVariantsKey.FullyCollapsed
+                  : SidebarItemVariantsKey.FullyExpanded
+                : isCollapsed
+                ? SidebarItemVariantsKey.PartiallyCollapsed
+                : SidebarItemVariantsKey.PartiallyExpanded
+            }
+            animate={
+              shouldFullyCollapseOnTransition
+                ? isCollapsed
+                  ? SidebarItemVariantsKey.FullyCollapsed
+                  : SidebarItemVariantsKey.FullyExpanded
+                : isCollapsed
+                ? SidebarItemVariantsKey.PartiallyCollapsed
+                : SidebarItemVariantsKey.PartiallyExpanded
+            }
             variants={variants}
             data-testid={`${label}-ul`}
           >

@@ -1,9 +1,8 @@
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, ButtonProps } from '../../Button'
 import { useSidebarContext } from '../context'
-import { motion } from 'framer-motion'
 import { useSystem } from '@vtex/admin-core'
-import { CollapseButtonVariants } from '../utils'
+import { Box } from '../../Box'
 
 interface SidebarCollapseButtonProps extends ButtonProps {
   isCollapsed: boolean
@@ -23,24 +22,13 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
     }
   }
 
-  const variants = useMemo(
-    () =>
-      CollapseButtonVariants({
-        left: isCollapsed ? -5 : 20,
-      }),
-    [isCollapsed]
-  )
-
   return (
-    <motion.div
+    <Box
       className={cn({
         themeKey: 'components.sidebar.collapse-button-container',
       })}
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
-      initial={isCollapsed ? 'collapsed' : 'expanded'}
-      animate={isCollapsed ? 'collapsed' : 'expanded'}
-      variants={variants}
     >
       <Button
         styleOverrides={{
@@ -52,6 +40,6 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
         {...props}
         {...buttonProps}
       />
-    </motion.div>
+    </Box>
   )
 }
