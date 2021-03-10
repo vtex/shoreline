@@ -3,7 +3,7 @@ import { createComponent } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
 import { ListItem } from './ListItem'
-import { Primitive } from '../Primitive'
+import { Primitive } from '@vtex/admin-primitives'
 
 const _List = createComponent(Primitive, useList)
 
@@ -14,7 +14,7 @@ export function useList(props: ListProps) {
 
   return {
     element: ordered ? 'ol' : 'ul',
-    styles: {
+    csx: {
       text: 'body',
       listStyleType: style,
       listStylePosition: 'inside',

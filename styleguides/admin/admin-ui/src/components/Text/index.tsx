@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
-import { Primitive } from '../Primitive'
+import { Primitive } from '@vtex/admin-primitives'
 
 export const Text = createComponent(Primitive, useText)
 
@@ -26,7 +26,7 @@ function useText(props: TextProps) {
 
   return {
     element,
-    styles: {
+    csx: {
       color,
       text: variant,
       ...styleOverrides,

@@ -1,7 +1,7 @@
 import { useSystem, createComponent, jsxs, Colors } from '@vtex/admin-core'
 import { Icon, IconProps } from '@vtex/admin-ui-icons'
 import { SystemComponent } from '../../types'
-import { Primitive } from '../Primitive'
+import { Primitive } from '@vtex/admin-primitives'
 
 export const Spinner = createComponent(Icon, useSpinner)
 
@@ -41,7 +41,7 @@ export function useSpinner(props: SpinnerProps): IconProps {
       cx: 25,
       cy: 25,
       r: 20,
-      styles: {
+      csx: {
         fill: 'none',
         stroke: color,
         strokeWidth: 5,

@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
 import { SystemComponentProps } from '../../types'
-import { Primitive, PrimitiveProps } from '../Primitive'
+import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 
 /**
  * Component to add links within an admin page
@@ -13,7 +13,7 @@ function useAnchor(props: AnchorProps): PrimitiveProps<'a'> {
   const { styleOverrides, ...primitiveProps } = props
 
   return {
-    styles: styleOverrides,
+    csx: styleOverrides,
     element: 'a',
     themeKey: 'components.anchor',
     ...primitiveProps,

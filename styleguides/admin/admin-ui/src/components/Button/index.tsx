@@ -7,7 +7,7 @@ import {
 import { StyleProp, useSystem, jsxs, createComponent } from '@vtex/admin-core'
 import { Variant, Size } from './types'
 import { SystemComponentProps } from '../../types'
-import { Primitive } from '../Primitive'
+import { Primitive } from '@vtex/admin-primitives'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -48,7 +48,7 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
     children: jsxs(
       Primitive,
       {
-        styles: {
+        csx: {
           display: 'flex',
           height: 'full',
           width: 'full',

@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
-import { Primitive, PrimitiveProps } from '../Primitive'
+import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 
 /**
  * Form label component.
@@ -22,7 +22,7 @@ export function useLabel(props: LabelProps): PrimitiveProps<'label'> {
 
   return {
     element: 'label',
-    styles: {
+    csx: {
       text: 'body',
       ...styleOverrides,
     },

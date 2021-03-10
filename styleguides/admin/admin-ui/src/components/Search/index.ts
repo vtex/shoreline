@@ -1,7 +1,7 @@
 import { createComponent, jsxs } from '@vtex/admin-core'
 import { IconSearch } from '@vtex/admin-ui-icons'
 
-import { Primitive, PrimitiveProps } from '../Primitive'
+import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 import { AbstractInput, AbstractInputProps } from '../AbstractInput'
 import { Button } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
