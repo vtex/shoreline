@@ -3,7 +3,7 @@ import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { StyleObject } from '@vtex/admin-styles'
 import { ButtonProps, Button } from '../../Button'
 import { useSidebarContext } from '../context'
-import { ArrowKeys, SidebarSecretProps } from '../utils'
+import { ArrowKeys, SidebarSecretProps } from '../types'
 
 export const SidebarSubItem = forwardRef(function SidebarSubItem(
   props: SidebarSubItemProps,
