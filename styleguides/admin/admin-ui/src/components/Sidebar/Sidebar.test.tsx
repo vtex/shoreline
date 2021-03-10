@@ -5,6 +5,32 @@ import { axe } from 'jest-axe'
 import { Sidebar } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
 import { bottomCornerItems, topCornerItems } from './testUtils'
+import { Item } from './utils'
+
+const Component = ({ index: itemIndex, scope: itemScope }: Item) => {
+  return (
+    <Sidebar>
+      <Sidebar.Header>
+        {topCornerItems.map(({ scope = 'top', ...props }, index) => (
+          <Sidebar.Item
+            {...props}
+            selected={index === itemIndex && scope === itemScope}
+            key={index}
+          />
+        ))}
+      </Sidebar.Header>
+      <Sidebar.Footer>
+        {bottomCornerItems.map(({ scope = 'bottom', ...props }, index) => (
+          <Sidebar.Item
+            {...props}
+            selected={index === itemIndex && scope === itemScope}
+            key={index}
+          />
+        ))}
+      </Sidebar.Footer>
+    </Sidebar>
+  )
+}
 
 describe('Sidebar tests', () => {
   beforeEach(() => {
@@ -30,18 +56,7 @@ describe('Sidebar tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ThemeProvider>
-        <Sidebar>
-          <Sidebar.Header>
-            {topCornerItems.map((props, index) => (
-              <Sidebar.Item {...props} selected={index === 0} key={index} />
-            ))}
-          </Sidebar.Header>
-          <Sidebar.Footer>
-            {bottomCornerItems.map((props, index) => (
-              <Sidebar.Item {...props} selected={false} key={index} />
-            ))}
-          </Sidebar.Footer>
-        </Sidebar>
+        <Component index={0} scope={'top'} isCollapsible />
       </ThemeProvider>
     )
 
@@ -53,18 +68,7 @@ describe('Sidebar tests', () => {
   it('sidebar first level items should be visible', () => {
     const { getByLabelText } = render(
       <ThemeProvider>
-        <Sidebar>
-          <Sidebar.Header>
-            {topCornerItems.map((props, index) => (
-              <Sidebar.Item {...props} selected={index === 0} key={index} />
-            ))}
-          </Sidebar.Header>
-          <Sidebar.Footer>
-            {bottomCornerItems.map((props, index) => (
-              <Sidebar.Item {...props} selected={false} key={index} />
-            ))}
-          </Sidebar.Footer>
-        </Sidebar>
+        <Component index={0} scope={'top'} isCollapsible />
       </ThemeProvider>
     )
 
@@ -76,18 +80,7 @@ describe('Sidebar tests', () => {
   it('no item drawer should be visible', () => {
     const { getByLabelText } = render(
       <ThemeProvider>
-        <Sidebar>
-          <Sidebar.Header>
-            {topCornerItems.map((props, index) => (
-              <Sidebar.Item {...props} selected={false} key={index} />
-            ))}
-          </Sidebar.Header>
-          <Sidebar.Footer>
-            {bottomCornerItems.map((props, index) => (
-              <Sidebar.Item {...props} selected={false} key={index} />
-            ))}
-          </Sidebar.Footer>
-        </Sidebar>
+        <Component index={-1} scope={'top'} isCollapsible />
       </ThemeProvider>
     )
 
@@ -101,22 +94,7 @@ describe('Sidebar tests', () => {
     const selectedItemIndex = 1
     const { getByText, getByTestId } = render(
       <ThemeProvider>
-        <Sidebar>
-          <Sidebar.Header>
-            {topCornerItems.map((props, index) => (
-              <Sidebar.Item
-                {...props}
-                selected={index === selectedItemIndex}
-                key={index}
-              />
-            ))}
-          </Sidebar.Header>
-          <Sidebar.Footer>
-            {bottomCornerItems.map((props, index) => (
-              <Sidebar.Item {...props} selected={false} key={index} />
-            ))}
-          </Sidebar.Footer>
-        </Sidebar>
+        <Component index={selectedItemIndex} scope={'top'} isCollapsible />
       </ThemeProvider>
     )
 
@@ -141,22 +119,7 @@ describe('Sidebar tests', () => {
     const selectedItemIndex = 0
     const { getByTestId } = render(
       <ThemeProvider>
-        <Sidebar>
-          <Sidebar.Header>
-            {topCornerItems.map((props, index) => (
-              <Sidebar.Item
-                {...props}
-                selected={index === selectedItemIndex}
-                key={index}
-              />
-            ))}
-          </Sidebar.Header>
-          <Sidebar.Footer>
-            {bottomCornerItems.map((props, index) => (
-              <Sidebar.Item {...props} selected={false} key={index} />
-            ))}
-          </Sidebar.Footer>
-        </Sidebar>
+        <Component index={0} scope={'top'} isCollapsible />
       </ThemeProvider>
     )
 
