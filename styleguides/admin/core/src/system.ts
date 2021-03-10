@@ -49,6 +49,7 @@ export {
   isFunction,
   useTheme,
   useResponsiveValue,
+  useMediaQuery,
   get,
   pick,
   omit,
