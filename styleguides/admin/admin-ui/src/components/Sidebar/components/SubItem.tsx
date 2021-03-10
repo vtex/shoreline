@@ -5,15 +5,6 @@ import { ButtonProps, Button } from '../../Button'
 import { useSidebarContext } from '../context'
 import { ArrowKeys, SidebarSecretProps } from '../utils'
 
-export interface _SidebarSubItemProps extends ButtonProps, SidebarSecretProps {
-  children: ReactNode
-  onClick: (event?: React.MouseEvent<any, MouseEvent>) => void
-  selected?: boolean
-}
-
-export interface SidebarSubItemProps
-  extends Omit<_SidebarSubItemProps, 'state'> {}
-
 export const SidebarSubItem = forwardRef(function SidebarSubItem(
   props: SidebarSubItemProps,
   ref: Ref<HTMLButtonElement>
@@ -69,3 +60,12 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
     />
   )
 })
+
+export interface _SidebarSubItemProps extends ButtonProps, SidebarSecretProps {
+  children: ReactNode
+  onClick: (event?: React.MouseEvent<any, MouseEvent>) => void
+  selected?: boolean
+}
+
+export interface SidebarSubItemProps
+  extends Omit<_SidebarSubItemProps, 'state'> {}

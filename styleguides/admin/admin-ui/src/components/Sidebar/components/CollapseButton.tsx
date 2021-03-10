@@ -4,12 +4,11 @@ import { useSidebarContext } from '../context'
 import { useSystem } from '@vtex/admin-core'
 import { Box } from '../../Box'
 
-interface SidebarCollapseButtonProps extends ButtonProps {
-  isCollapsed: boolean
-}
-
+/**
+ * Component that renders the sidebar collapser button.
+ */
 export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
-  const { onClick, isCollapsed, ...buttonProps } = props
+  const { onClick, ...buttonProps } = props
   const { setCollapse, collapse } = useSidebarContext()
   const [show, setShow] = useState(false)
   const { cn, stylesOf } = useSystem()
@@ -43,3 +42,5 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
     </Box>
   )
 }
+
+interface SidebarCollapseButtonProps extends ButtonProps {}
