@@ -11,12 +11,7 @@ export function SidebarCorner(props: _SidebarCornerProps) {
   const { children, scope } = props
 
   return (
-    <Set
-      spacing={1}
-      orientation="vertical"
-      // @ts-ignore
-      role="menubar"
-    >
+    <Set spacing={1} orientation="vertical" role="menubar">
       {children.map((child, index) => cloneElement(child, { scope, index }))}
     </Set>
   )
