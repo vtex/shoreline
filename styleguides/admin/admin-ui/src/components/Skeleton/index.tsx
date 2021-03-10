@@ -1,7 +1,7 @@
 import { ElementType } from 'react'
 import { useSystem, createComponent } from '@vtex/admin-core'
 
-import { Primitive } from '../Primitive'
+import { Primitive } from '@vtex/admin-primitives'
 import { SystemPrimitive } from '../../types'
 
 /**
@@ -43,7 +43,7 @@ export function useSkeleton(props: SkeletonProps) {
     themeKey: {
       skeleton: { shape },
     },
-    styles: {
+    csx: {
       ...styles,
       animation: `${load} 1.2s ease-in-out infinite`,
     },

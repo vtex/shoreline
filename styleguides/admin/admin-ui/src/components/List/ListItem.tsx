@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
-import { Primitive, PrimitiveProps } from '../Primitive'
+import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 
 export const ListItem = createComponent(Primitive, useListItem)
 
@@ -11,7 +11,7 @@ export function useListItem(props: ListItemProps): PrimitiveProps<'li'> {
 
   return {
     element: 'li',
-    styles: { text: 'body', ...styleOverrides },
+    csx: { text: 'body', ...styleOverrides },
     ...htmlProps,
   }
 }
