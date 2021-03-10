@@ -23,7 +23,7 @@ const carouselPageStyles = {
 }
 
 const SimpleCarousel = (props: Omit<CarouselProps, 'children'>) => (
-  <Carousel {...props}>
+  <Carousel {...props} sx={{...props.sx, width: '100%'}}>
     <Flex
       sx={{
         ...carouselPageStyles,
@@ -84,7 +84,7 @@ export const WithoutIndicators = () => <SimpleCarousel indicators={false} />
 
 export const MultipleCards = () => {
   const [scroll, setScroll] = useState(1)
-  const [page, setPage] = useState(3)
+  const [page, setPage] = useState(2)
 
   const onChangeScroll = (e: ChangeEvent<HTMLSelectElement>) =>
     setScroll((e.target.value as unknown) as number)
@@ -114,15 +114,15 @@ export const MultipleCards = () => {
         ))}
       </Select>
       <Carousel
-        sx={{ width: '100%' }}
+        sx={{ width: '100%', alignItems: ['initial', 'center'] }}
         overlaySlides={false}
         indicators={false}
         slidesPerPage={page}
         slidesPerScroll={scroll}
+        size="small"
       >
         {[...Array(10).keys()].map((value) => (
           <Card sx={{ marginY: 2 }}>
-            <Card.Header>Card</Card.Header>
             <Card.Body sx={{ textAlign: 'center' }}>{value + 1}</Card.Body>
           </Card>
         ))}
