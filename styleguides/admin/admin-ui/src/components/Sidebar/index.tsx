@@ -16,7 +16,7 @@ import {
   _SidebarItemProps,
 } from './components'
 import { SidebarProvider } from './context'
-import { AnchorDirection, Item } from './utils'
+import { AnchorDirection, Item } from './types'
 import { Box } from '../Box'
 import { SidebarBackdrop } from './components/Backdrop'
 

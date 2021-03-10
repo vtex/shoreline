@@ -5,7 +5,7 @@ import { axe } from 'jest-axe'
 import { Sidebar } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
 import { bottomCornerItems, topCornerItems } from './testUtils'
-import { Item } from './utils'
+import { Item } from './types'
 
 const Component = ({ index: itemIndex, scope: itemScope }: Item) => {
   return (
