@@ -17,7 +17,7 @@ import { Box } from '../Box'
 import { Button, ButtonProps } from '../Button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
-import { Flex } from '../Flex'
+import { Flex } from '@vtex/admin-primitives'
 
 /**
  * Component to display relevant information within an admin page
@@ -45,7 +45,7 @@ export const Alert = forwardRef(
             marginRight: 3,
           }}
         >
-          <Flex align="center" styles={iconContainerStyles}>
+          <Flex align="center" csx={iconContainerStyles}>
             {props.icon ?? <DefaultIcon />}
           </Flex>
           <Paragraph>{children}</Paragraph>
