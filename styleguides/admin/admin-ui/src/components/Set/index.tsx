@@ -6,7 +6,7 @@ import {
 } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
-import { Flex, FlexProps } from '../Flex'
+import { Flex, FlexProps } from '@vtex/admin-primitives'
 
 /**
  * Component used to display a set of components that are spaced evenly.
@@ -46,7 +46,7 @@ export function useSet(props: SetProps): FlexProps<'div'> {
     direction: isVertical ? 'column' : 'row',
     align: fluid ? 'unset' : isVertical ? currentAlign : 'center',
     justify: fluid ? 'unset' : isVertical ? 'unset' : currentAlign,
-    styles: {
+    csx: {
       ...childrenSpacing,
       ...styleOverrides,
     },
