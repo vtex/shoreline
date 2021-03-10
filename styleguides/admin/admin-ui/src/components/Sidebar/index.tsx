@@ -128,16 +128,7 @@ export function Sidebar(props: SidebarProps) {
 /**
  * Sidebar.Item corresponds to an item of the sidebar's
  * first level. It can hold multiple sections exhibited
- * when the sidebar is opened.
- *
- * The sidebar structure is as follows:
- * ```bash
- * └── Sidebar
- *  └── Sidebar.Header or Sidebar.Footer
- *       └── Sidebar.Item
- *           └── Sidebar.Section
- *               └── Sidebar.SubItem
- *```
+ * when the sidebar is expanded.
  *
  * @example
  * ```jsx
@@ -167,16 +158,8 @@ Sidebar.Item = SidebarItem
 /**
  * Sidebar.SubItem corresponds to an item of the sidebar's
  * second level, the top most sidebar level.
- * This is usually what users will use to navigate.
- *
- * The sidebar structure is as follows:
- * ```bash
- * └── Sidebar
- *  └── Sidebar.Header or Sidebar.Footer
- *       └── Sidebar.Item
- *           └── Sidebar.Section
- *               └── Sidebar.SubItem
- *```
+ * This is usually what users will use to navigate
+ * between pages.
  *
  * @example
  * ```jsx
@@ -205,16 +188,7 @@ Sidebar.SubItem = SidebarSubItem
 
 /**
  * Sidebar.Header will stick whatever is inside
- * it to the top of the sidebar.
- *
- * The sidebar structure is as follows:
- * ```bash
- * └── Sidebar
- *  └── Sidebar.Header or Sidebar.Footer
- *       └── Sidebar.Item
- *           └── Sidebar.Section
- *               └── Sidebar.SubItem
- *```
+ * of it to the top of the sidebar.
  *
  * @example
  * ```jsx
@@ -239,22 +213,13 @@ Sidebar.SubItem = SidebarSubItem
  * </Sidebar>
  * ```
  */
-Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope'>) => (
+Sidebar.Header = (props: SidebarCornerProps) => (
   <SidebarCorner {...props} scope={'top'} />
 )
 
 /**
  * Sidebar.Footer will stick whatever is inside
- * it to the bottom of the sidebar.
- *
- * The sidebar structure is as follows:
- * ```bash
- * └── Sidebar
- *  └── Sidebar.Header or Sidebar.Footer
- *       └── Sidebar.Item
- *           └── Sidebar.Section
- *               └── Sidebar.SubItem
- *```
+ * of it to the bottom of the sidebar.
  *
  * @example
  * ```jsx
@@ -294,6 +259,6 @@ Sidebar.Header = (props: Omit<SidebarCornerProps, 'scope'>) => (
  * </Sidebar>
  * ```
  */
-Sidebar.Footer = (props: Omit<SidebarCornerProps, 'scope'>) => (
+Sidebar.Footer = (props: SidebarCornerProps) => (
   <SidebarCorner {...props} scope={'bottom'} />
 )
