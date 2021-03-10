@@ -43,4 +43,4 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
   )
 }
 
-interface SidebarCollapseButtonProps extends ButtonProps {}
+type SidebarCollapseButtonProps = ButtonProps

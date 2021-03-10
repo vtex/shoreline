@@ -52,9 +52,20 @@ export const SidebarSection = forwardRef(function SidebarSection(
 
 export type SidebarSectionProps = Omit<_SidebarSectionProps, 'state'>
 
+/**
+ * Private interface
+ */
 export interface _SidebarSectionProps
   extends SystemComponent,
     SidebarSecretProps {
+  /**
+   * `title` of a section. This is what separates each item's section.
+   */
   title: string
+  /**
+   * `chilren` are multiple `<Sidebar.SubItem {...props} />` components.
+   * Those are the items over which clients will interact in order to
+   * navigate between different pages.
+   */
   children: FunctionComponentElement<SidebarSubItemProps>[]
 }
