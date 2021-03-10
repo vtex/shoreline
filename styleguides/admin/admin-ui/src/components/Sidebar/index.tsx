@@ -10,7 +10,6 @@ import {
   SidebarCorner,
   SidebarCornerProps,
   SidebarItem,
-  SidebarSubItem,
   useCompositeState,
   CompositeGroup,
   _SidebarItemProps,
@@ -154,37 +153,6 @@ export function Sidebar(props: SidebarProps) {
  * ```
  */
 Sidebar.Item = SidebarItem
-
-/**
- * Sidebar.SubItem corresponds to an item of the sidebar's
- * second level, the top most sidebar level.
- * This is usually what users will use to navigate
- * between pages.
- *
- * @example
- * ```jsx
- * import { Sidebar } from `@vtex/admin-ui`
- *
- * <Sidebar>
- *    <Sidebar.Header>
- *      <Sidebar.Item
- *         selected={false}
- *         onClick={() => console.log("Hello")}
- *         sections={[
- *            title: "Example",
- *            children: [
- *              <Sidebar.SubItem
- *                onClick={() => console.log("Hi")}>
- *                Example
- *              </Sidebar.SubItem>
- *            ]
- *         ]}
- *      />
- *    </Sidebar.Header>
- * </Sidebar>
- * ```
- */
-Sidebar.SubItem = SidebarSubItem
 
 /**
  * Sidebar.Header will stick whatever is inside

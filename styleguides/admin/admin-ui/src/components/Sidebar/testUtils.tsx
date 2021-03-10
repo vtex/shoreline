@@ -12,11 +12,10 @@ import {
   IconShipping,
   IconStorefront,
 } from '@vtex/admin-ui-icons'
-import { Sidebar } from '.'
 
 const iconProps: IconProps = {}
 
-type ItemProps = Omit<SidebarItemProps, 'secret'>[]
+type ItemProps = SidebarItemProps[]
 
 const orders = [
   'All Orders',
@@ -79,15 +78,11 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Orders (section)', // (section) is included for testing purposes
-        children: orders.map((label, index) => (
-          <Sidebar.SubItem
-            onClick={() => console.log('Click me')}
-            key={index}
-            selected={index === 0}
-          >
-            {label}
-          </Sidebar.SubItem>
-        )),
+        children: orders.map((label, index) => ({
+          onClick: () => console.log('Click me'),
+          selected: index === 0,
+          label,
+        })),
       },
     ],
   },
@@ -98,23 +93,19 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Product',
-        children: catalog.map((label, index) => (
-          <Sidebar.SubItem
-            onClick={() => console.log('Click me')}
-            key={index}
-            selected={index === 0}
-          >
-            {label}
-          </Sidebar.SubItem>
-        )),
+        children: catalog.map((label, index) => ({
+          onClick: () => console.log('Click me'),
+          selected: index === 0,
+          label,
+        })),
       },
       {
         title: 'Prices',
-        children: catalog2.map((label, index) => (
-          <Sidebar.SubItem onClick={() => console.log('Click me')} key={index}>
-            {label}
-          </Sidebar.SubItem>
-        )),
+        children: catalog2.map((label) => ({
+          onClick: () => console.log('Click me'),
+          selected: false,
+          label,
+        })),
       },
     ],
   },
@@ -125,15 +116,11 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Discounts',
-        children: promotions.map((label, index) => (
-          <Sidebar.SubItem
-            onClick={() => console.log('Click me')}
-            key={index}
-            selected={index === 0}
-          >
-            {label}
-          </Sidebar.SubItem>
-        )),
+        children: promotions.map((label, index) => ({
+          onClick: () => console.log('Click me'),
+          selected: index === 0,
+          label,
+        })),
       },
     ],
   },
@@ -144,23 +131,19 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Content Management',
-        children: storeFront.map((label, index) => (
-          <Sidebar.SubItem
-            onClick={() => console.log('Click me')}
-            key={index}
-            selected={index === 0}
-          >
-            {label}
-          </Sidebar.SubItem>
-        )),
+        children: storeFront.map((label, index) => ({
+          onClick: () => console.log('Click me'),
+          selected: index === 0,
+          label,
+        })),
       },
       {
         title: 'Intelligent Search',
-        children: intelligentSearch.map((label, index) => (
-          <Sidebar.SubItem onClick={() => console.log('Click me')} key={index}>
-            {label}
-          </Sidebar.SubItem>
-        )),
+        children: intelligentSearch.map((label) => ({
+          onClick: () => console.log('Click me'),
+          selected: false,
+          label,
+        })),
       },
     ],
   },
@@ -171,15 +154,11 @@ export const topCornerItems: ItemProps = [
     sections: [
       {
         title: 'Shipping (section)', // (section) is included for testing purposes
-        children: shipping.map((label, index) => (
-          <Sidebar.SubItem
-            onClick={() => console.log('Click me')}
-            key={index}
-            selected={index === 0}
-          >
-            {label}
-          </Sidebar.SubItem>
-        )),
+        children: shipping.map((label, index) => ({
+          onClick: () => console.log('Click me'),
+          selected: index === 0,
+          label,
+        })),
       },
     ],
   },

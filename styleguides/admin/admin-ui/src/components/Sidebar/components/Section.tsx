@@ -1,15 +1,10 @@
-import React, {
-  cloneElement,
-  forwardRef,
-  FunctionComponentElement,
-  ReactElement,
-  Ref,
-} from 'react'
+import React, { forwardRef, Ref } from 'react'
 import { SidebarSubItemProps, CompositeItem } from './index'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
 import { SidebarSecretProps } from '../types'
+import { SidebarSubItem } from './SubItem'
 
 export const SidebarSection = forwardRef(function SidebarSection(
   props: _SidebarSectionProps,
@@ -35,15 +30,16 @@ export const SidebarSection = forwardRef(function SidebarSection(
       >
         {title}
       </Text>
-      {children.map((child, index) => (
+      {children.map((props, index) => (
         <CompositeItem {...state} key={index} ref={ref}>
-          {(itemProps) =>
-            cloneElement(child as ReactElement, {
-              state,
-              parentId,
-              ...itemProps,
-            })
-          }
+          {(itemProps) => (
+            <SidebarSubItem
+              state={state}
+              parentId={parentId}
+              {...itemProps}
+              {...props}
+            />
+          )}
         </CompositeItem>
       ))}
     </Set>
@@ -67,5 +63,5 @@ export interface _SidebarSectionProps
    * Those are the items over which clients will interact in order to
    * navigate between different pages.
    */
-  children: FunctionComponentElement<SidebarSubItemProps>[]
+  children: SidebarSubItemProps[]
 }
