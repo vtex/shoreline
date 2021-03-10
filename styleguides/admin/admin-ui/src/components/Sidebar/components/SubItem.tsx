@@ -25,7 +25,8 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
 
       if (event.key === ArrowKeys.Left) {
         // Move focus to parent component, which is
-        // at the sidebar's first level
+        // at the sidebar's first level and under the
+        // root state scope.
         rootState.move(parentId!)
       }
     }
@@ -61,11 +62,13 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
   )
 })
 
+export type SidebarSubItemProps = Omit<_SidebarSubItemProps, 'state'>
+
+/**
+ * Private interface
+ */
 export interface _SidebarSubItemProps extends ButtonProps, SidebarSecretProps {
   children: ReactNode
   onClick: (event?: React.MouseEvent<any, MouseEvent>) => void
   selected?: boolean
 }
-
-export interface SidebarSubItemProps
-  extends Omit<_SidebarSubItemProps, 'state'> {}

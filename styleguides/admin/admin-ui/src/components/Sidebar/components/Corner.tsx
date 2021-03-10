@@ -7,7 +7,7 @@ import { SidebarItemProps } from './index'
  * Component used to organize the sidebar items on the top,
  * or bottom of its parent.
  */
-export function SidebarCorner(props: SidebarCornerProps) {
+export function SidebarCorner(props: _SidebarCornerProps) {
   const { children, scope } = props
 
   return (
@@ -22,7 +22,12 @@ export function SidebarCorner(props: SidebarCornerProps) {
   )
 }
 
-export interface SidebarCornerProps extends SidebarSecretProps {
+export type SidebarCornerProps = Omit<_SidebarCornerProps, 'scope'>
+
+/**
+ * Private interface
+ */
+export interface _SidebarCornerProps extends Omit<SidebarSecretProps, 'state'> {
   /**
    * `children` must be an array of <Sidebar.Item {...props} /> components.
    */

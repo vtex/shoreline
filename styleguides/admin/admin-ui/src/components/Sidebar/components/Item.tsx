@@ -34,6 +34,7 @@ export function SidebarItem(props: SidebarItemProps) {
     label,
     shouldFullyCollapseOnTransition,
     sections,
+    variant,
     ...baseProps
   } = useSidebarItemState(props)
 
@@ -53,24 +54,8 @@ export function SidebarItem(props: SidebarItemProps) {
           />
           <motion.ul
             className={className}
-            initial={
-              shouldFullyCollapseOnTransition
-                ? isCollapsed
-                  ? SidebarItemVariantsKey.FullyCollapsed
-                  : SidebarItemVariantsKey.FullyExpanded
-                : isCollapsed
-                ? SidebarItemVariantsKey.PartiallyCollapsed
-                : SidebarItemVariantsKey.PartiallyExpanded
-            }
-            animate={
-              shouldFullyCollapseOnTransition
-                ? isCollapsed
-                  ? SidebarItemVariantsKey.FullyCollapsed
-                  : SidebarItemVariantsKey.FullyExpanded
-                : isCollapsed
-                ? SidebarItemVariantsKey.PartiallyCollapsed
-                : SidebarItemVariantsKey.PartiallyExpanded
-            }
+            initial={variant}
+            animate={variant}
             variants={variants}
             data-testid={`${label}-ul`}
           >
@@ -213,6 +198,18 @@ function useSidebarItemState(props: SidebarItemProps) {
     return true
   }, [selectedItemsMemory, currentItem])
 
+  const variant = useMemo(
+    () =>
+      shouldFullyCollapseOnTransition
+        ? isCollapsed
+          ? SidebarItemVariantsKey.FullyCollapsed
+          : SidebarItemVariantsKey.FullyExpanded
+        : isCollapsed
+        ? SidebarItemVariantsKey.PartiallyCollapsed
+        : SidebarItemVariantsKey.PartiallyExpanded,
+    [shouldFullyCollapseOnTransition, isCollapsed]
+  )
+
   return {
     shouldFullyCollapseOnTransition,
     isCollapsed,
@@ -222,6 +219,7 @@ function useSidebarItemState(props: SidebarItemProps) {
     hasSection,
     state,
     sections,
+    variant,
     ...ctx,
     ...baseProps,
   }
@@ -233,7 +231,7 @@ export interface _SidebarItemProps
     SidebarSecretProps {
   /**
    * `sections` are the body of an item's menu.
-   * Their titles are displayed and above its children,
+   * Their titles are displayed above its children,
    * and they are used to separed one section from another.
    */
   sections?: SidebarSectionProps[]
