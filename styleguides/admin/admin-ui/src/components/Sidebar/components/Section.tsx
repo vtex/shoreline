@@ -11,13 +11,6 @@ import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
 import { SidebarSecretProps } from '../utils'
 
-export interface _SidebarSectionProps
-  extends SystemComponent,
-    SidebarSecretProps {
-  title: string
-  children: FunctionComponentElement<SidebarSubItemProps>[]
-}
-
 export const SidebarSection = forwardRef(function SidebarSection(
   props: _SidebarSectionProps,
   ref: Ref<HTMLButtonElement>
@@ -56,3 +49,12 @@ export const SidebarSection = forwardRef(function SidebarSection(
     </Set>
   )
 })
+
+export type SidebarSectionProps = Omit<_SidebarSectionProps, 'state'>
+
+export interface _SidebarSectionProps
+  extends SystemComponent,
+    SidebarSecretProps {
+  title: string
+  children: FunctionComponentElement<SidebarSubItemProps>[]
+}

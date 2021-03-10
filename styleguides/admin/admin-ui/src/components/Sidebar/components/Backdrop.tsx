@@ -7,30 +7,17 @@ import { IconCaret } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
 
 /**
- * We need this component to achieve a nice
- * accessible navigation
+ * Components that acts as a spacer.
  */
 export function SidebarBackdrop() {
-  const { collapse, currentItem } = useSidebarContext()
+  const {
+    collapse,
+    currentItem,
+    width,
+    isCollapsed,
+    variants,
+  } = useBackdropState()
   const { cn } = useSystem()
-
-  const { width, variants, isCollapsed } = useMemo(() => {
-    const width = currentItem?.isCollapsible
-      ? collapse
-        ? SCALES.COLLAPSED_BACKDROP_WIDTH
-        : SCALES.COLLAPSIBLE_AREA_WIDTH
-      : '0rem'
-
-    const isCollapsed = !currentItem?.isCollapsible || collapse
-
-    return {
-      variants: BackdropVariants({
-        width,
-      }),
-      width,
-      isCollapsed,
-    }
-  }, [currentItem, collapse])
 
   return (
     <>
@@ -65,9 +52,32 @@ export function SidebarBackdrop() {
               }}
             />
           }
-          isCollapsed={!!collapse}
         />
       )}
     </>
   )
+}
+
+function useBackdropState() {
+  const { collapse, currentItem } = useSidebarContext()
+
+  const { width, variants, isCollapsed } = useMemo(() => {
+    const width = currentItem?.isCollapsible
+      ? collapse
+        ? SCALES.COLLAPSED_BACKDROP_WIDTH
+        : SCALES.COLLAPSIBLE_AREA_WIDTH
+      : '0rem'
+
+    const isCollapsed = !currentItem?.isCollapsible || collapse
+
+    return {
+      variants: BackdropVariants({
+        width,
+      }),
+      width,
+      isCollapsed,
+    }
+  }, [currentItem, collapse])
+
+  return { width, variants, isCollapsed, collapse, currentItem }
 }
