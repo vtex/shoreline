@@ -196,7 +196,7 @@ function useSidebarItemState(props: SidebarItemProps) {
         opacity: 1,
         transition: {
           ...transition,
-          stiffness: 600,
+          stiffness: 500,
         },
         transitionEnd: {
           zIndex: 0,
@@ -204,10 +204,10 @@ function useSidebarItemState(props: SidebarItemProps) {
       }),
       [SidebarItemVariantsKey.PartiallyCollapsed]: () => ({
         [direction]:
-          selected && !!currentItem?.isCollapsible ? '-8.125rem' : '3rem',
+          selected && !!currentItem?.isCollapsible ? '-8.125rem' : '2.5rem',
         transition: {
           ...transition,
-          stiffness: 600,
+          stiffness: 1000,
         },
         zIndex: -1,
         opacity: 0,

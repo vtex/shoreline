@@ -4,11 +4,6 @@ const SCALES = {
   FIXED_AREA_WIDTH: '3.5rem',
 }
 
-const borders = {
-  borderRight: '1px solid',
-  borderColor: 'mid.tertiary',
-}
-
 export default {
   container: {
     position: 'relative',
@@ -18,7 +13,8 @@ export default {
     maxWidth: SCALES.MAX_SIDEBAR_WIDTH,
     minWidth: SCALES.FIXED_AREA_WIDTH,
     outline: 'none',
-    ...borders,
+    borderRight: '1px solid',
+    borderColor: 'mid.tertiary',
   },
   root: {
     position: 'absolute',
@@ -37,14 +33,14 @@ export default {
     top: 0,
     maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
     height: '100%',
-    padding: '1.875rem 0.5rem',
+    padding: '1.5rem 0.5rem',
     outline: 'none',
     overflow: 'auto',
     backgroundColor: 'transparent',
     transform: 'unset !important',
   },
   section: {
-    width: 'calc(200px - 1.75rem)',
+    width: 'calc(200px - 1rem)',
     paddingBottom: 8,
   },
   backdrop: {
@@ -73,8 +69,8 @@ export default {
       color: 'mid.primary',
     },
     '&:hover': {
-      backgroundColor: 'sidebar.hover',
-      borderColor: 'sidebar.hover',
+      backgroundColor: 'blue.secondary',
+      borderColor: 'light.secondary',
       '> div > svg': {
         color: 'blue',
       },

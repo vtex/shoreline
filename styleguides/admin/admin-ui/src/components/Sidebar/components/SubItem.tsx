@@ -34,16 +34,19 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
 
   const styleOverrides: StyleObject = {
     width: '100%',
-    backgroundColor: selected ? 'blue.secondary' : 'unset',
+    height: 28,
+    marginY: 1,
+    backgroundColor: selected ? 'sidebar.hover' : 'unset',
     '> div': {
       justifyContent: 'start',
       fontSize: '14px',
+      fontSettings: selected ? 'medium' : 'regular',
       color: selected ? 'blue' : 'dark.secondary',
     },
     '&:hover, &:focus': {
-      backgroundColor: selected ? 'blue.secondary' : 'sidebar.hover',
+      backgroundColor: 'sidebar.hover',
       '> div': {
-        color: selected ? 'blue.primary' : 'dark.secondary',
+        color: selected ? 'blue' : 'dark.secondary',
       },
     },
   }
