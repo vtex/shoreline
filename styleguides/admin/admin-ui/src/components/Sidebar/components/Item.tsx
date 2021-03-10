@@ -122,17 +122,13 @@ export function SidebarItem(props: SidebarItemProps) {
   )
 
   const shouldFullyCollapseOnTransition = useMemo(() => {
-    if (!selectedItemsMemory) {
-      return true
-    }
-
-    if (selectedItemsMemory.some((item) => !item.isCollapsible)) {
+    if (!selectedItemsMemory || selectedItemsMemory.length === 0) {
       return true
     }
 
     if (
-      selectedItemsMemory.length === 2 &&
-      selectedItemsMemory.every((item) => item.isCollapsible)
+      selectedItemsMemory.every((item) => item.isCollapsible) ||
+      selectedItemsMemory[0].isCollapsible
     ) {
       return false
     }
