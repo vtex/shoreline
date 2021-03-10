@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import { Tabs, useTabState } from './index'
 import { Card } from '../Card'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Heading } from '../Heading'
 import { Set } from '../Set'
 
@@ -68,9 +68,9 @@ export function FluidWidth() {
 
 function Header() {
   return (
-    <Box styles={{ marginTop: 5, border: 'divider-bottom' }}>
+    <Box csx={{ marginTop: 5, border: 'divider-bottom' }}>
       <Set orientation="vertical" fluid spacing={5}>
-        <Box styles={{ marginLeft: 4 }}>
+        <Box csx={{ marginLeft: 4 }}>
           <Heading>Provider Manager</Heading>
         </Box>
         <Tabs.List aria-label="my-tabs">
@@ -84,7 +84,7 @@ function Header() {
 
 function TabsContent() {
   return (
-    <Box styles={{ padding: 4 }}>
+    <Box csx={{ padding: 4 }}>
       <Tabs.Content id="published">
         <Card styleOverrides={{ marginTop: 2 }}>Published Content</Card>
       </Tabs.Content>

@@ -4,7 +4,7 @@ import { IconClose } from '@vtex/admin-ui-icons'
 
 import { useModalContext } from '../context'
 import { ModalButton } from './Button'
-import { Box } from '../../Box'
+import { Box } from '@vtex/admin-primitives'
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 /**
@@ -47,7 +47,7 @@ export const ModalHeader = forwardRef(function ModalHeader(
 
   const renderTitle = useMemo(() => {
     if (typeof title === 'string') {
-      return <Box styles={{ text: 'headline' }}>{title}</Box>
+      return <Box csx={{ text: 'headline' }}>{title}</Box>
     }
 
     return title

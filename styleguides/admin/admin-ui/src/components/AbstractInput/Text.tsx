@@ -6,7 +6,7 @@ import { useSystem } from '@vtex/admin-core'
 
 import { Button } from '../Button'
 import { SystemComponentProps } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 
 export const AbstractInput = forwardRef(function AbstractInput(
   props: AbstractInputProps,
@@ -40,9 +40,11 @@ export const AbstractInput = forwardRef(function AbstractInput(
 
   return (
     <Box
-      themeKey={inlineVariant('components.abstractInput.container', [
-        [!!icon, '-icon'],
-      ])}
+      csx={{
+        themeKey: inlineVariant('components.abstractInput.container', [
+          [!!icon, '-icon'],
+        ]),
+      }}
     >
       {icon && (
         <IconContainer
@@ -60,7 +62,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
       />
       {labelElement}
       {showButtons && (
-        <Box themeKey="components.abstractInput.buttons">
+        <Box csx={{ themeKey: 'components.abstractInput.buttons' }}>
           {showClear && (
             <Button
               icon={<IconCancel />}
@@ -76,7 +78,12 @@ export const AbstractInput = forwardRef(function AbstractInput(
           )}
           {buttonElements}
           {suffix && (
-            <Box element="span" themeKey="components.abstractInput.suffix">
+            <Box
+              element="span"
+              csx={{
+                themeKey: 'components.abstractInput.suffix',
+              }}
+            >
               {suffix}
             </Box>
           )}

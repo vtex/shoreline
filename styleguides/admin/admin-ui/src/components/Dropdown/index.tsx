@@ -6,7 +6,7 @@ import { forwardRef } from '@vtex/admin-core'
 import { Button, ButtonProps } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { Set } from '../Set'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { SystemComponent } from '../../types'
 
 export const Dropdown = forwardRef(
@@ -24,7 +24,7 @@ export const Dropdown = forwardRef(
     return (
       <Box
         ref={ref}
-        styles={{
+        csx={{
           position: 'relative',
         }}
       >
@@ -46,15 +46,21 @@ export const Dropdown = forwardRef(
           spacing={2}
           orientation="vertical"
           {...state.getMenuProps()}
-          themeKey={`components.dropdown.menu${state.isOpen ? '-visible' : ''}`}
+          styleOverrides={{
+            themeKey: `components.dropdown.menu${
+              state.isOpen ? '-visible' : ''
+            }`,
+          }}
         >
           {state.isOpen &&
             items.map((item, index) => (
               <Box
-                text="body"
-                themeKey={`components.dropdown.item${
-                  state.highlightedIndex === index ? '-active' : ''
-                }`}
+                csx={{
+                  themeKey: `components.dropdown.item${
+                    state.highlightedIndex === index ? '-active' : ''
+                  }`,
+                  text: 'body',
+                }}
                 key={index}
                 {...state.getItemProps({ item, index })}
               >

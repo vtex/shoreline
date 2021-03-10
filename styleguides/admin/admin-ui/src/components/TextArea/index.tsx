@@ -3,7 +3,7 @@ import React, { forwardRef, Ref } from 'react'
 import { Text } from '../Text'
 import { Label } from '../Label'
 import { SystemComponentProps } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { useSystem } from '@vtex/admin-core'
 
 export const TextArea = forwardRef(function Textarea(
@@ -32,7 +32,11 @@ export const TextArea = forwardRef(function Textarea(
   })
 
   return (
-    <Box themeKey={`components.textArea.container${error ? '-error' : ''}`}>
+    <Box
+      csx={{
+        themeKey: `components.textArea.container${error ? '-error' : ''}`,
+      }}
+    >
       <textarea
         className={className}
         id={id}
@@ -50,7 +54,7 @@ export const TextArea = forwardRef(function Textarea(
         {label}
       </Label>
       {(message || !!charLimit) && (
-        <Box themeKey="components.textArea.text-container">
+        <Box csx={{ themeKey: 'components.textArea.text-container' }}>
           {message ? (
             <Text variant="small" feedback={error ? 'danger' : 'secondary'}>
               {message}

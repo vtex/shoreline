@@ -1,9 +1,8 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { Flex, FlexProps, useFlex } from './index'
-import { Box } from '../Box'
-import { Card, CardProps } from '../Card'
+import { Flex } from './index'
+import { Box } from '@vtex/admin-primitives'
 
 export default {
   title: 'admin-ui/Flex',
@@ -14,7 +13,7 @@ export const Playground: Story = (args) => {
   return (
     <Flex {...args}>
       <Box
-        styles={{
+        csx={{
           bg: 'red',
           size: 100,
         }}
@@ -22,7 +21,7 @@ export const Playground: Story = (args) => {
         Box 1
       </Box>
       <Box
-        styles={{
+        csx={{
           bg: 'green',
           size: 150,
         }}
@@ -30,7 +29,7 @@ export const Playground: Story = (args) => {
         Box 2
       </Box>
       <Box
-        styles={{
+        csx={{
           bg: 'blue',
         }}
       >
@@ -41,7 +40,7 @@ export const Playground: Story = (args) => {
 }
 
 Playground.args = {
-  styles: { height: 200, width: 600 },
+  csx: { height: 200, width: 600 },
 }
 
 export function WithSpacer() {
@@ -52,7 +51,7 @@ export function WithSpacer() {
   return (
     <Flex>
       <Box
-        styles={{
+        csx={{
           bg: 'red',
           ...boxStyles,
         }}
@@ -61,7 +60,7 @@ export function WithSpacer() {
       </Box>
       <Flex.Spacer />
       <Box
-        styles={{
+        csx={{
           bg: 'green',
           ...boxStyles,
         }}
@@ -80,7 +79,7 @@ export function Around() {
   return (
     <Flex justify="space-around">
       <Box
-        styles={{
+        csx={{
           bg: 'red',
           ...boxStyles,
         }}
@@ -88,7 +87,7 @@ export function Around() {
         Box 1
       </Box>
       <Box
-        styles={{
+        csx={{
           bg: 'green',
           ...boxStyles,
         }}
@@ -96,34 +95,5 @@ export function Around() {
         Box 2
       </Box>
     </Flex>
-  )
-}
-
-export function LowLevel() {
-  function FlexCard(props: FlexProps & CardProps) {
-    const { styles, ...flexProps } = useFlex(props)
-
-    return <Card {...flexProps} styleOverrides={styles} />
-  }
-
-  return (
-    <FlexCard justify="space-around">
-      <Box
-        styles={{
-          bg: 'red',
-          size: 100,
-        }}
-      >
-        Box 1
-      </Box>
-      <Box
-        styles={{
-          bg: 'green',
-          size: 100,
-        }}
-      >
-        Box 2
-      </Box>
-    </FlexCard>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Skeleton, SkeletonProps } from './index'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
@@ -29,7 +29,7 @@ export const Circle = () => {
 
 export const Fluid = () => {
   return (
-    <Box styles={{ width: 'full', height: 192 }}>
+    <Box csx={{ width: 'full', height: 192 }}>
       <Skeleton />
     </Box>
   )
@@ -39,7 +39,7 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(false)
 
   return (
-    <Box styles={{ width: 'sm' }}>
+    <Box csx={{ width: 'sm' }}>
       {loading ? (
         <Box>
           <Skeleton styles={{ height: 24, width: '5/12' }} />

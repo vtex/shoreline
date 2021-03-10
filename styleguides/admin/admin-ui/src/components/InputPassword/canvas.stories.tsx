@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 import { IconLock } from '@vtex/admin-ui-icons'
 
 import { InputPassword, InputPasswordProps } from './index'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 
 export default {
   title: 'admin-ui/InputPassword',
@@ -14,7 +14,7 @@ export const Playground: Story<InputPasswordProps> = (args) => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <InputPassword
         {...args}
         value={value}
@@ -35,7 +35,7 @@ export const Example = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <InputPassword
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -52,7 +52,7 @@ export const Error = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <InputPassword
         value={value}
         onChange={(e) => setValue(e.target.value)}
