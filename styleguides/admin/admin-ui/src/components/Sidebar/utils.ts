@@ -58,6 +58,7 @@ export const SidebarItemVariants = ({
     [SidebarItemVariantsKey.FullyExpanded]: () => ({
       [direction]: SCALES.FIXED_AREA_WIDTH,
       display: 'block',
+      opacity: 1,
       transition,
       transitionEnd: {
         zIndex: 0,
