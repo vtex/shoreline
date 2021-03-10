@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Box, Text, Grid, Flex, jsx } from 'theme-ui'
+import { Box, Text, Grid, Flex, jsx, SxStyleProp } from 'theme-ui'
 import { Button } from 'reakit'
 import { useState, PropsWithChildren, ReactNode } from 'react'
 import { DateTime } from 'luxon'
@@ -84,6 +84,7 @@ export const Calendar = ({
   locale = 'pt',
   headerAccessory,
   children,
+  sx = {},
 }: PropsWithChildren<CalendarProps>) => {
   const date = DateTime.local(year, month, day).setLocale(locale)
   const [selectedDate, setSelectedDate] = useState<Date>()
@@ -116,7 +117,7 @@ export const Calendar = ({
   )
 
   return (
-    <Box variant={`calendar${disabled ? '.disabled' : ''}`}>
+    <Box variant={`calendar${disabled ? '.disabled' : ''}`} sx={sx}>
       <Flex variant="calendar.header">
         <Text variant={`calendar.title${!headerAccessory ? '.center' : ''}`}>
           {date.toFormat('MMMM yyyy')}
@@ -180,4 +181,5 @@ export interface CalendarProps {
   locale?: string
   disabled?: boolean
   headerAccessory?: ReactNode
+  sx?: SxStyleProp
 }

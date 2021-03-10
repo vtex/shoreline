@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
-import { Flex } from 'theme-ui'
+import { Flex, Image } from 'theme-ui'
 
 import { Card } from '../..'
 import { Carousel, CarouselProps } from './index'
@@ -22,13 +22,8 @@ const carouselPageStyles = {
   fontSize: 32,
 }
 
-const SimpleCarousel = (
-  props: Pick<
-    CarouselProps,
-    'size' | 'indicators' | 'crossfade' | 'buttonAlign' | 'loop'
-  >
-) => (
-  <Carousel {...props}>
+const SimpleCarousel = ({ sx, ...props }: Omit<CarouselProps, 'children'>) => (
+  <Carousel {...props} sx={{ ...(sx ? sx : {}), width: '100%' }}>
     <Flex
       sx={{
         ...carouselPageStyles,
@@ -58,6 +53,25 @@ const SimpleCarousel = (
 
 export const Basic = () => <SimpleCarousel />
 
+export const NoOverlay = () => (
+  <Carousel
+    sx={{
+      backgroundColor: 'secondary.base',
+      width: 'fit-content',
+    }}
+    overlaySlides={false}
+  >
+    {[...Array(10).keys()].map((value) => (
+      <Card sx={{ textAlign: 'center', marginY: 5 }}>
+        <Card.Header>I love you, random dogs #{value}</Card.Header>
+        <Card.Body>
+          <Image src={`https://placedog.net/35${value}/400?random`} />
+        </Card.Body>
+      </Card>
+    ))}
+  </Carousel>
+)
+
 export const Crossfade = () => <SimpleCarousel crossfade />
 
 export const NoLoop = () => <SimpleCarousel loop={false} />
@@ -70,7 +84,7 @@ export const WithoutIndicators = () => <SimpleCarousel indicators={false} />
 
 export const MultipleCards = () => {
   const [scroll, setScroll] = useState(1)
-  const [page, setPage] = useState(3)
+  const [page, setPage] = useState(2)
 
   const onChangeScroll = (e: ChangeEvent<HTMLSelectElement>) =>
     setScroll((e.target.value as unknown) as number)
@@ -100,13 +114,15 @@ export const MultipleCards = () => {
         ))}
       </Select>
       <Carousel
+        sx={{ width: '100%', alignItems: ['initial', 'center'] }}
+        overlaySlides={false}
         indicators={false}
         slidesPerPage={page}
         slidesPerScroll={scroll}
+        size="small"
       >
         {[...Array(10).keys()].map((value) => (
           <Card sx={{ marginY: 2 }}>
-            <Card.Header>Card</Card.Header>
             <Card.Body sx={{ textAlign: 'center' }}>{value + 1}</Card.Body>
           </Card>
         ))}
