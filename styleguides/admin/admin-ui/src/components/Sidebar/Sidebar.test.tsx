@@ -110,7 +110,7 @@ describe('Sidebar tests', () => {
       expect(sectionElement).toBeVisible()
 
       section.children.forEach((subItem) => {
-        expect(getByText(subItem.props.children as string)).toBeVisible()
+        expect(getByText(subItem.label)).toBeVisible()
       })
     })
   })
