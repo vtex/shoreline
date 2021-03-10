@@ -80,7 +80,7 @@ const baseLocaleSwitcher = {
   color: 'muted.0',
   alignItems: 'center',
   cursor: 'pointer',
-  fontVariationSettings: 'bold',
+  fontVariationSettings: 'medium',
   fontSize: 1,
   bg: 'primary.contrast',
   border: 'none',
