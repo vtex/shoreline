@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.7.2...@vtex/admin-core@0.8.0) (2021-03-10)
+
+
+### Features
+
+* **system:** add useMediaQuery hook ([78934f5](https://github.com/vtex/onda/commit/78934f58ad736946a03de7d27b6e4b0d32273231))
+
+
+
+
+
 ## [0.7.2](https://github.com/vtex/onda/compare/@vtex/admin-core@0.7.1...@vtex/admin-core@0.7.2) (2021-03-08)
 
 **Note:** Version bump only for package @vtex/admin-core
