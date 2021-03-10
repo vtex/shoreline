@@ -101,6 +101,7 @@ export function Sidebar(props: SidebarProps) {
               ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
               : 'unset',
         })}
+        styles={styleOverrides}
       >
         <Box
           element="nav"
