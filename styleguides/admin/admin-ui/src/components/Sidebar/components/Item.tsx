@@ -10,13 +10,13 @@ import {
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
+import { SCALES, transition } from '../consts'
 import {
   ArrowKeys,
   Item,
-  SidebarItemVariants,
   SidebarSecretProps,
   SidebarItemVariantsKey,
-} from '../utils'
+} from '../types'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { motion } from 'framer-motion'
 import { SidebarSectionProps } from './Section'
@@ -171,11 +171,51 @@ function useSidebarItemState(props: SidebarItemProps) {
   }
 
   const variants = useMemo(() => {
-    return SidebarItemVariants({
-      direction,
-      currentItemIsCollapsible: !!currentItem?.isCollapsible,
-      selected,
-    })
+    return {
+      [SidebarItemVariantsKey.FullyExpanded]: () => ({
+        [direction]: SCALES.FIXED_AREA_WIDTH,
+        display: 'block',
+        opacity: 1,
+        transition,
+        transitionEnd: {
+          zIndex: 0,
+        },
+      }),
+      [SidebarItemVariantsKey.FullyCollapsed]: () => ({
+        [direction]:
+          selected && !!currentItem?.isCollapsible ? '-8.125rem' : '-13.5rem',
+        transition,
+        zIndex: -1,
+        transitionEnd: {
+          display: 'none',
+        },
+      }),
+      [SidebarItemVariantsKey.PartiallyExpanded]: () => ({
+        [direction]: SCALES.FIXED_AREA_WIDTH,
+        display: 'block',
+        opacity: 1,
+        transition: {
+          ...transition,
+          stiffness: 600,
+        },
+        transitionEnd: {
+          zIndex: 0,
+        },
+      }),
+      [SidebarItemVariantsKey.PartiallyCollapsed]: () => ({
+        [direction]:
+          selected && !!currentItem?.isCollapsible ? '-8.125rem' : '3rem',
+        transition: {
+          ...transition,
+          stiffness: 600,
+        },
+        zIndex: -1,
+        opacity: 0,
+        transitionEnd: {
+          display: 'none',
+        },
+      }),
+    }
   }, [direction, currentItem, selected])
 
   const isCollapsed = useMemo(
@@ -242,4 +282,4 @@ export interface _SidebarItemProps
   label: string
 }
 
-export interface SidebarItemProps extends Omit<_SidebarItemProps, 'state'> {}
+export type SidebarItemProps = Omit<_SidebarItemProps, 'state'>

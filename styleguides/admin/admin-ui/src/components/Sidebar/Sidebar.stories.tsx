@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 
 import { Sidebar, SidebarProps } from './index'
 import { Box } from '../Box'
-import { CornerScope } from './utils'
+import { CornerScope } from './types'
 import { Paragraph } from '../Paragraph'
 import { bottomCornerItems, topCornerItems } from './testUtils'
 

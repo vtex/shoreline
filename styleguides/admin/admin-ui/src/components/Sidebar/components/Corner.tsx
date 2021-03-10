@@ -1,7 +1,7 @@
 import React, { cloneElement, FunctionComponentElement } from 'react'
 import { Set } from '../../Set'
-import { CornerScope, SidebarSecretProps } from '../utils'
 import { SidebarItemProps } from './index'
+import { SidebarSecretProps, CornerScope } from '../types'
 
 /**
  * Component used to organize the sidebar items on the top,

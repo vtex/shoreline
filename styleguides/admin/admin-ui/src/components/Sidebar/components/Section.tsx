@@ -9,7 +9,7 @@ import { SidebarSubItemProps, CompositeItem } from './index'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
-import { SidebarSecretProps } from '../utils'
+import { SidebarSecretProps } from '../types'
 
 export const SidebarSection = forwardRef(function SidebarSection(
   props: _SidebarSectionProps,

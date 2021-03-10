@@ -11,7 +11,7 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
   const { onClick, ...buttonProps } = props
   const { setCollapse, collapse } = useSidebarContext()
   const [show, setShow] = useState(false)
-  const { cn, stylesOf } = useSystem()
+  const { stylesOf } = useSystem()
 
   const handleOnClick = (event: React.MouseEvent<any, MouseEvent>) => {
     setCollapse(!collapse)
@@ -23,9 +23,7 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
 
   return (
     <Box
-      className={cn({
-        themeKey: 'components.sidebar.collapse-button-container',
-      })}
+      themeKey={'components.sidebar.collapse-button-container'}
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { BackdropVariants, SCALES } from '../utils'
+import { SCALES, transition } from '../consts'
 import { useSidebarContext } from '../context'
 import { motion } from 'framer-motion'
 import { SidebarCollapseButton } from './CollapseButton'
@@ -71,9 +71,19 @@ function useBackdropState() {
     const isCollapsed = !currentItem?.isCollapsible || collapse
 
     return {
-      variants: BackdropVariants({
-        width,
-      }),
+      variants: {
+        expanded: () => ({
+          minWidth: width,
+          width,
+          transition,
+          zIndex: -2,
+        }),
+        collapsed: () => ({
+          minWidth: width,
+          width,
+          transition,
+        }),
+      },
       width,
       isCollapsed,
     }
