@@ -54,7 +54,9 @@ export function useSet(props: SetProps): FlexProps<'div'> {
   }
 }
 
-export interface SetProps extends SystemComponent, FlexProps<'div'> {
+export interface SetProps
+  extends SystemComponent,
+    Omit<FlexProps<'div'>, 'styles'> {
   /** component children */
   children?: ReactNode
   /**
