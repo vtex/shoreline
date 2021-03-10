@@ -21,7 +21,7 @@ import { SidebarBackdrop } from './components/Backdrop'
 
 export interface SidebarProps extends SystemComponent {
   children: FunctionComponentElement<SidebarCornerProps>[]
-  anchor?: AnchorDirection
+  direction?: AnchorDirection
 }
 
 /**
@@ -62,7 +62,12 @@ export function Sidebar(props: SidebarProps) {
   const [currentItem, setCurrentItem] = useState<Item | null>(null)
   const [selectedItemsMemory, setSelectedItemsMemory] = useState<Item[]>([])
   const [collapse, setCollapse] = useState<boolean | null>(null)
-  const { children, anchor = 'left', styleOverrides = {}, ...baseProps } = props
+  const {
+    children,
+    direction = 'left',
+    styleOverrides = {},
+    ...baseProps
+  } = props
   const { cn } = useSystem()
 
   const rootState = useCompositeState({
@@ -75,7 +80,7 @@ export function Sidebar(props: SidebarProps) {
   return (
     <SidebarProvider
       value={{
-        direction: anchor,
+        direction,
         currentItem,
         collapse,
         selectedItemsMemory,
