@@ -68,6 +68,7 @@
     - /form/search/
 - section: Hooks
   paths:
+    - /hooks/use-media-query/
     - /hooks/use-theme/
     - /hooks/use-responsive-value/
     - /hooks/use-system/
