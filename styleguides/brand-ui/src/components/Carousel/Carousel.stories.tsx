@@ -22,8 +22,8 @@ const carouselPageStyles = {
   fontSize: 32,
 }
 
-const SimpleCarousel = (props: Omit<CarouselProps, 'children'>) => (
-  <Carousel {...props} sx={{...props.sx, width: '100%'}}>
+const SimpleCarousel = ({ sx, ...props }: Omit<CarouselProps, 'children'>) => (
+  <Carousel {...props} sx={{ ...(sx ? sx : {}), width: '100%' }}>
     <Flex
       sx={{
         ...carouselPageStyles,
