@@ -20,39 +20,49 @@ Current Design System, the home for all our reusable patterns, components, and a
 
 **Admin UI**
 
-A library of carefully created React components with a focus on accessibility and developer experience.
+A library of React components with a focus on accessibility and developer experience.
 
-We also have other packages that are responsible for provide the entire structure used by our library. Some of them are: [Theme](/theming/default-theme/), [Iconography](/packages/admin-ui-icons/), and [Core](/packages/admin-core).
+We also have other packages that are responsible for providing the entire structure used by our library. Some of them are: [Theme](/theming/default-theme/), [Iconography](/packages/admin-ui-icons/), and [Core](/packages/admin-core).
 
-## Learning Curve
+## About CSS styles
 
-**Styleguide:** The same as learning functional CSS using [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/).
+**Styleguide**
 
-**Admin UI:** We use [emotion](https://emotion.sh/docs/introduction) to implement a CSS-like, and prop-based model of styling components, making it easy to learn.
+Functional CSS using [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/).
+
+**Admin UI**
+
+We use [emotion](https://emotion.sh/docs/introduction) to implement a CSS-like, and prop-based model of styling components.
 
 ## Overriding Styles
 
-In most applications, it is a common challenge to want to override styles for a specific context to match design requirements.
+In most applications, it is a common challenge to override styles for a specific context to match design requirements.
 
-**Styleguide:** Given that Styleguide uses [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/) as a CSS utility framework, you may need to rewrite the tachyons config to override specific `classNames`. In Styleguide, there is no easy way to do this.
+**Styleguide**
 
-**Admin UI:** Given that Admin UI styles are prop-based, overrides are as easy as passing a property.
+Given that Styleguide uses [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/) as a CSS utility framework, you may need to rewrite the tachyons config to override specific `classNames`. In Styleguide, there is no easy way to do this.
+
+**Admin UI**
+
+Given that Admin UI styles are prop-based, overrides are as easy as passing a property.
 
 ```jsx isStatic
 <Card styleOverrides={{ padding: 2 }}>Card content</Card>
 
-<Button variant="tertiary" styleOverrides={{ border: 'default' }}>Button</Button>
+<Button styleOverrides={{ border: 'default' }}>Label</Button>
 ```
 
 ## Responsive Design
 
-**Styleguide**: Authoring responsive styles in Styleguide requires a combination of pseudo-classes.
+**Styleguide**
+
+Authoring responsive styles in Styleguide requires a combination of pseudo-classes.
 
 ```jsx isStatic
 <div className="w-10 w-30-m w-40-l">{content}</div>
 ```
 
-**Admin UI:** Authoring responsive styles in a very easy and intuitive way.
+**Admin UI**
 
 Every [StyleObject](/core-concepts/styles/) property can receive a responsive value, for example:
 
@@ -62,23 +72,29 @@ Every [StyleObject](/core-concepts/styles/) property can receive a responsive va
 
 ## Accessibility
 
-**Styleguide:** Many components do not yet support accessibility requirements, some of which are very difficult to provide.
+**Styleguide**
 
-**Admin UI:** We build our components always thinking about accessibility first. Two main libraries help us with that: [Reakit Library](http://reakit.io/) and [Downsfhit](https://www.downshift-js.com/).
+Many components do not support accessibility requirements, some of which are very difficult to provide.
+
+**Admin UI**
+
+We always build our components thinking about accessibility first and use two libraries for that: [Reakit Library](http://reakit.io/) and [Downsfhit](https://www.downshift-js.com/).
 
 ## Typography
 
-Typography is used to communicate information in the most efficient way possible through legibility and visual hierarchy. It's a crucial tool to guide users on their tasks. It should be used clearly and delightfully.
+It's important to define different typography styles for an app by setting a combination of different typography attributes: **Typeface**, **weight**, **size**, **capitalization** and **letter spacing**.
 
-For that, it's important to define different typography styles for an app by setting a combination of different typography attributes: **Typeface**, **weight\***, **size**, **capitalization** and **letter spacing**.
+**Styleguide**
 
-**Styleguide:** Comes with a set of `classNames` to apply the typography attributes.
+Comes with a set of `classNames` to apply the typography attributes.
 
 ```jsx isStatic
 <p className="t-body lh-copy">This is a paragraph!</p>
 ```
 
-**Admin UI:** Provides the [VTEX Trust font](/typography/introduction/#variable-fonts) and comes with a set of components and CSS properties that turns the application of the typography attributes easier.
+**Admin UI**
+
+Provides the [VTEX Trust font](/typography/introduction/#variable-fonts) and comes with a set of components and CSS properties that turns the application of the typography attributes easier.
 
 ```jsx isStatic
 <Paragraph>This is a paragraph!</Paragraph>
@@ -92,9 +108,13 @@ For that, it's important to define different typography styles for an app by set
 
 ## Iconography
 
-**Styleguide:** Exports a set of icons, most of them are not well documented.
+**Styleguide**
 
-**Admin UI:** Exports a set of [Icons](/core-concepts/icons) divided into categories according to their usage. It also has some features that our library provides. For example:
+Exports a set of icons, most of them are not well documented.
+
+**Admin UI**
+
+Exports a set of [Icons](/core-concepts/icons) divided into categories according to their usage. It also has some features that our library provides. For example:
 
 - **Icons with direction:** Some icons have a state that allows the developer to control their direction (left, right, down, up).
 
@@ -102,13 +122,19 @@ For that, it's important to define different typography styles for an app by set
 
 ## Charts
 
-**Styleguide:** Comes with a set of chart components ready to be used.
+**Styleguide**
 
-**Admin UI:** Having a charts library is something in our roadmap, but we don't have it yet.
+Comes with a set of chart components ready to be used.
+
+**Admin UI**
+
+Not yet available. Will be implemented in the future.
 
 ## State
 
-**Styleguide:** Most of the components have their states self-contained.
+**Styleguide**
+
+Most of the components have their states self-contained.
 
 ```jsx isStatic
 function Example() {
@@ -122,8 +148,7 @@ function Example() {
 
   return (
     <Dropdown
-      label="Small"
-      size="small"
+      label="dropdown"
       options={options}
       value={state}
       onChange={(_, v) => setState(v)}
@@ -132,19 +157,21 @@ function Example() {
 }
 ```
 
-**Admin UI:** Mainly we export the entire state control using react hooks.
+**Admin UI**
+
+We export the entire state control using react hooks.
 
 ```jsx isStatic
 function Example() {
   const items = ['Item 1', 'Item 2', 'Item 3']
   const state = useDropdownState({ items, initialSelectedItem: 'Item 1' })
-  return <Dropdown items={items} state={state} label="Items" />
+  return <Dropdown items={items} state={state} label="dropdown" />
 }
 ```
 
 ### Stateful & Stateless
 
-There are some components that sometimes have a more complex state logic and sometimes a more direct one. For those, we export two types of components: `Stateful` and `Stateless`. The main difference between them is that the stateful has its state self-contained while the stateless doesn't. For example:
+Some components have a more complex state logic and sometimes a more direct one. For those, we export two types of components: `Stateful` and `Stateless`. The main difference between them is that the stateful has its state self-contained while the stateless doesn't. For example:
 
 **Stateful**
 
@@ -188,9 +215,13 @@ function Example() {
 
 ## Reuse Design Behavior
 
-**Styleguide:** The component's styles are made combining tachyons classNames, so to reuse the design behavior we need to combine the same tokens.
+**Styleguide**
 
-**Admin UI:** Components styles can be applied using a valid path on our theme object, we call this path of theme key. So, there are several ways to reuse design behavior in our system. For example:
+The component's styles are made combining Tachyons classNames, so to reuse the design behavior we need to combine the same tokens.
+
+**Admin UI**
+
+Components styles can be applied using a valid path on our theme object, we call this path of theme key. There are several ways to reuse design behavior in our system. For example:
 
 - Using the `themeKey` property inside the [Styles object](/core-concepts/styles/).
 - Using [stylesOf](/hooks/use-system/#stylesof) function.
@@ -198,9 +229,13 @@ function Example() {
 
 ## Utilities
 
-**Styleguide:** Style patterns are not mapped.
+**Styleguide**
 
-**Admin UI:** We map styles that are repeated in the admin applications and create patterns from that. There are two ways of using those utilities:
+Style patterns are not mapped.
+
+**Admin UI**
+
+We map styles that are repeated in the admin applications and create patterns from that. There are two ways of using those utilities:
 
 ### Components
 
