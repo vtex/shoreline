@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.38.1...@vtex/brand-ui@0.39.0) (2021-03-10)
+
+
+### Features
+
+* **calendar:** add sx prop ([7db5b17](https://github.com/vtex/onda/commit/7db5b1740a3c0a3a1329b7a26c001555ad5e80fe))
+* **carousel:** add overlaySlides and initialSlide props ([c252d3d](https://github.com/vtex/onda/commit/c252d3d02ab4efba610df2ed1d481ba44813229b))
+
+
+
+
+
 ## [0.38.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.38.0...@vtex/brand-ui@0.38.1) (2021-03-08)
 
 
