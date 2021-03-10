@@ -39,7 +39,7 @@ export default {
     height: '100%',
     padding: '1.875rem 0.5rem',
     outline: 'none',
-    overflow: 'overlay',
+    overflow: 'auto',
     backgroundColor: 'transparent',
     transform: 'unset !important',
   },
