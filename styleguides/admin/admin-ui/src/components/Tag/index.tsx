@@ -2,7 +2,7 @@ import React, { ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex/admin-core'
 import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
 
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { SystemComponent } from '../../types'
 import { Button } from '../Button'
 
@@ -19,8 +19,7 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
 
   return (
     <Box
-      themeKey={`components.tag.${palette}-${size}`}
-      styles={styleOverrides}
+      csx={{ themeKey: `components.tag.${palette}-${size}`, ...styleOverrides }}
       ref={ref}
       {...boxProps}
     >

@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 import { IconAdd } from '@vtex/admin-ui-icons'
 
 import { Input, InputType, InputProps } from './index'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 
 export default {
   title: 'admin-ui/Input',
@@ -14,7 +14,7 @@ export const Playground: Story<InputProps> = (args) => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         {...args}
         value={value}
@@ -37,7 +37,7 @@ export const Basic = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -53,7 +53,7 @@ export const HelperText = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -70,7 +70,7 @@ export const CharLimit = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -87,7 +87,7 @@ export const WithIcon = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -104,7 +104,7 @@ export const FullBlown = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -124,7 +124,7 @@ export const Error = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -142,7 +142,7 @@ export const Types = () => {
   const types = ['text', 'email', 'url', 'tel'] as InputType[]
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       {types.map((type) => (
         <Input
           type={type}

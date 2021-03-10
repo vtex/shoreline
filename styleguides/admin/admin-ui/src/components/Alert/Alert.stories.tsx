@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 
 import { Alert, AlertProps } from './index'
 import { Set } from '../Set'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { IconWarningCircle } from '@vtex/admin-ui-icons'
 
@@ -106,7 +106,7 @@ export function Visible() {
 
 export function Fluid() {
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Alert
         icon={<IconWarningCircle />}
         visible

@@ -9,7 +9,7 @@ import {
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 
-import { Box } from '../Box'
+import { Box, Flex } from '@vtex/admin-primitives'
 import {
   CollapsibleProvider,
   useCollapsibleContext,
@@ -90,7 +90,7 @@ export function Header(props: CollapsibleHeaderProps) {
   return (
     <motion.header layout className={className} {...headerProps}>
       <Disclosure>{label}</Disclosure>
-      <Box styles={{ display: 'flex' }}>{children}</Box>
+      <Flex>{children}</Flex>
     </motion.header>
   )
 }
@@ -116,7 +116,7 @@ function Disclosure({ children }: { children: ReactNode }) {
             variant="tertiary"
             styleOverrides={{
               color: 'dark.primary',
-              textTransform: "none",
+              textTransform: 'none',
               '&:hover': { backgroundColor: 'transparent' },
               '&:active': { backgroundColor: 'transparent' },
             }}
@@ -163,8 +163,7 @@ export function Content(props: CollapsibleContentProps) {
                 {...(enhancedProps as PropsWithoutRef<'section'>)}
               >
                 <Box
-                  styles={styleOverrides}
-                  themeKey={variant.content}
+                  csx={{ themeKey: variant.content, ...styleOverrides }}
                   {...contentProps}
                 >
                   {children}

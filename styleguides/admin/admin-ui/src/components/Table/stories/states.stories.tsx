@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 
 import { StatefulTable, StatefulTableProps } from '../index'
 import { baseResolvers } from '../resolvers/base'
-import { Box } from '../../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
 
 export default {

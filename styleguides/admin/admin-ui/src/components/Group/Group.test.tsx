@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import { Box, BoxProps } from '../Box'
+import { Box, BoxProps } from '@vtex/admin-primitives'
 import { Group, useGroup } from '.'
 import { ThemeProvider } from '@vtex/admin-core'
 
@@ -10,7 +10,7 @@ describe('Group tests', () => {
     const { grouped } = useGroup()
 
     return (
-      <Box styles={{ height: grouped ? 100 : 200 }} {...props}>
+      <Box csx={{ height: grouped ? 100 : 200 }} {...props}>
         group aware box
       </Box>
     )

@@ -11,7 +11,7 @@ import {
   MenuItem,
 } from './components'
 import { SystemComponent } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 
 /**
  * Stateless accessible menu component
@@ -56,8 +56,7 @@ export function StatelessMenu(props: StatelessMenuProps) {
       disabled={disabled}
     >
       <Box
-        themeKey="components.menu"
-        styles={styleOverrides}
+        csx={{ themeKey: 'components.menu', ...styleOverrides }}
         data-testid={boxTestId}
       >
         <IconContainer space="small">

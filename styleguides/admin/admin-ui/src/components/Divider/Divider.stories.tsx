@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 
 import { Divider, DividerProps } from './index'
 import { Card } from '../Card'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 
@@ -40,7 +40,7 @@ export const Vertical: Story<DividerProps> = () => {
         justifyContent: 'center',
       }}
     >
-      <Box styles={{ width: '1/2' }}>
+      <Box csx={{ width: '1/2' }}>
         <Heading styleOverrides={{ marginY: 2 }}>Cards</Heading>
         <Paragraph>
           In Cards, your customer is given autonomy to manage credit cards
@@ -48,7 +48,7 @@ export const Vertical: Story<DividerProps> = () => {
         </Paragraph>
       </Box>
       <Divider orientation="vertical" styleOverrides={{ marginX: 6 }} />
-      <Box styles={{ width: '1/2' }}>
+      <Box csx={{ width: '1/2' }}>
         <Heading styleOverrides={{ marginY: 2 }}>Personal data</Heading>
         <Paragraph>
           In this section, the user can manage their personal data registered on

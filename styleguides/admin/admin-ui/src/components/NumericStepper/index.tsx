@@ -4,7 +4,7 @@ import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
 import invariant from 'tiny-invariant'
 
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { SystemComponent } from '../../types'
 import { Button } from '../Button'
 
@@ -62,8 +62,8 @@ export function NumericStepper(props: NumericStepperProps) {
     })
 
   return (
-    <Box styles={{ width: 106 }}>
-      <Box themeKey="components.numericStepper.container">
+    <Box csx={{ width: 106 }}>
+      <Box csx={{ themeKey: 'components.numericStepper.container' }}>
         <ReakitInput
           value={state.value}
           type="number"
@@ -108,7 +108,7 @@ export function NumericStepper(props: NumericStepperProps) {
       </Box>
       {hasHelper && (
         <Box
-          styles={{
+          csx={{
             text: 'small',
             color: error ? 'red' : 'mid.primary',
             marginTop: 2,

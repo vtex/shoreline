@@ -20,7 +20,6 @@ export function useSet(props: SetProps): FlexProps<'div'> {
     spacing = 1,
     align = 'start',
     styleOverrides,
-    themeKey,
     ...layoutProps
   } = props
 
@@ -42,7 +41,6 @@ export function useSet(props: SetProps): FlexProps<'div'> {
   }[currentOrientation]
 
   return {
-    themeKey,
     direction: isVertical ? 'column' : 'row',
     align: fluid ? 'unset' : isVertical ? currentAlign : 'center',
     justify: fluid ? 'unset' : isVertical ? 'unset' : currentAlign,

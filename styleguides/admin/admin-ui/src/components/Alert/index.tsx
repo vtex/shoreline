@@ -13,7 +13,7 @@ import {
 } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Button, ButtonProps } from '../Button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
@@ -37,7 +37,7 @@ export const Alert = forwardRef(
     } = useAlert(props)
 
     return (
-      <Box ref={ref} styles={styleOverrides} themeKey={themeKey} {...htmlProps}>
+      <Box ref={ref} csx={{ themeKey, ...styleOverrides }} {...htmlProps}>
         <Set
           spacing={2}
           styleOverrides={{
