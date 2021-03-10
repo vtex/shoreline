@@ -46,13 +46,12 @@ export interface SidebarProps extends SystemComponent {
  *         selected={false}
  *         onClick={() => console.log("Hello")}
  *         sections={[
- *            title: "Example",
- *            children: [
- *              <Sidebar.SubItem
- *                onClick={() => console.log("Hi")}>
- *                Example
- *              </Sidebar.SubItem>
- *            ]
+ *            title: "Example section",
+ *            children: [{
+ *              onClick: () => console.log("Hi"),
+ *              selected: false,
+ *              label: "Example sub item"
+ *            }]
  *         ]}
  *      />
  *    </Sidebar.Header>
@@ -139,13 +138,12 @@ export function Sidebar(props: SidebarProps) {
  *         selected={false}
  *         onClick={() => console.log("Hello")}
  *         sections={[
- *            title: "Example",
- *            children: [
- *              <Sidebar.SubItem
- *                onClick={() => console.log("Hi")}>
- *                Example
- *              </Sidebar.SubItem>
- *            ]
+ *            title: "Example section",
+ *            children: [{
+ *              onClick: () => console.log("Hi"),
+ *              selected: false,
+ *              label: "Example sub item"
+ *            }]
  *         ]}
  *      />
  *    </Sidebar.Header>
@@ -168,13 +166,12 @@ Sidebar.Item = SidebarItem
  *         selected={false}
  *         onClick={() => console.log("Hello")}
  *         sections={[
- *            title: "Example",
- *            children: [
- *              <Sidebar.SubItem
- *                onClick={() => console.log("Hi")}>
- *                Example
- *              </Sidebar.SubItem>
- *            ]
+ *            title: "Example section",
+ *            children: [{
+ *              onClick: () => console.log("Hi"),
+ *              selected: false,
+ *              label: "Example sub item"
+ *            }]
  *         ]}
  *      />
  *    </Sidebar.Header>
@@ -199,13 +196,12 @@ Sidebar.Header = (props: SidebarCornerProps) => (
  *         selected={false}
  *         onClick={() => console.log("Hello, I'm at the top!")}
  *         sections={[
- *            title: "Example at the top",
- *            children: [
- *              <Sidebar.SubItem
- *                onClick={() => console.log("Hi, from the top!")}>
- *                I'm at the top
- *              </Sidebar.SubItem>
- *            ]
+ *            title: "Example section from the top",
+ *            children: [{
+ *              onClick: () => console.log("Hi from the top"),
+ *              selected: false,
+ *              label: "Example sub item"
+ *            }]
  *         ]}
  *      />
  *    </Sidebar.Header>
@@ -214,13 +210,12 @@ Sidebar.Header = (props: SidebarCornerProps) => (
  *         selected={false}
  *         onClick={() => console.log("Hello, I'm at the bottom!")}
  *         sections={[
- *            title: "Example at the bottom",
- *            children: [
- *              <Sidebar.SubItem
- *                onClick={() => console.log("Hi, from the bottom!")}>
- *                I'm at the bottom
- *              </Sidebar.SubItem>
- *            ]
+ *            title: "Example section at the bottom",
+ *            children: [{
+ *              onClick: () => console.log("Hi from the bottom"),
+ *              selected: false,
+ *              label: "Example sub item"
+ *            }]
  *         ]}
  *      />
  *    </Sidebar.Footer>
