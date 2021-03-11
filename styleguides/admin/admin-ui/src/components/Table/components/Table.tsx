@@ -18,7 +18,7 @@ const _Table = forwardRef(function Table(
     children,
     density = 'regular',
     element = 'div',
-    styleOverrides = {},
+    csx = {},
     ...boxProps
   } = props
 
@@ -43,7 +43,7 @@ const _Table = forwardRef(function Table(
   return (
     <Box
       ref={ref}
-      csx={{ themeKey: styles.variants.table, ...styleOverrides }}
+      csx={{ themeKey: styles.variants.table, ...csx }}
       role="table"
       element={element}
       dir={dir}

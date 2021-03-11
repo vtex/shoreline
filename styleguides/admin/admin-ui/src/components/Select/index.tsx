@@ -12,7 +12,7 @@ import { MobileSelect } from './MobileSelect'
 export const Select = forwardRef(
   <T extends unknown>(props: SelectProps<T>, ref: Ref<HTMLDivElement>) => {
     const {
-      styleOverrides,
+      csx,
       label,
       state,
       items,
@@ -26,7 +26,7 @@ export const Select = forwardRef(
     } = props
 
     const selectProps = {
-      styleOverrides,
+      csx,
       label,
       state,
       items,
@@ -38,7 +38,7 @@ export const Select = forwardRef(
 
     const message = error ? errorMessage : helperText
 
-    const styles = block ? { ...styleOverrides, width: 'full' } : styleOverrides
+    const styles = block ? { ...csx, width: 'full' } : csx
 
     return (
       <Box {...restProps} csx={styles} ref={ref}>
@@ -55,7 +55,7 @@ export const Select = forwardRef(
             <Text
               variant="small"
               feedback={error ? 'danger' : 'secondary'}
-              styleOverrides={{ lineHeight: 1.5 }}
+              csx={{ lineHeight: 1.5 }}
             >
               {message}
             </Text>

@@ -44,8 +44,8 @@ export function StatelessModal(props: StatelessModalProps) {
     state,
     size = 'regular',
     omitCloseButton = false,
-    backdropStyles = {},
-    styleOverrides = {},
+    backdropCsx = {},
+    csx = {},
     onClose = () => null,
     ...baseProps
   } = props
@@ -57,7 +57,7 @@ export function StatelessModal(props: StatelessModalProps) {
   }, [onClose, state])
 
   const backdropCn = cn({
-    ...backdropStyles,
+    ...backdropCsx,
     themeKey: 'components.modal.backdrop',
   })
 
@@ -65,7 +65,7 @@ export function StatelessModal(props: StatelessModalProps) {
 
   const modalCn = cn({
     ...scrollStyle,
-    ...styleOverrides,
+    ...csx,
     themeKey: `components.modal.surface-${size}`,
   })
 
@@ -180,7 +180,7 @@ export interface StatelessModalProps
    * Backdrop styles
    * @default {}
    */
-  backdropStyles?: StyleProp
+  backdropCsx?: StyleProp
   /**
    * Action to dispatch on close modal
    * @default ()=>null

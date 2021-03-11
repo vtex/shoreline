@@ -27,7 +27,7 @@ describe('RadioGroup tests', () => {
               aria-label="fruits-group"
               id="radio-group-id"
               state={state}
-              styleOverrides={{ bg: 'azure' }}
+              csx={{ bg: 'azure' }}
             >
               <Radio state={state} value="Apple" />
               <Radio state={state} value="Watermelon" />

@@ -21,7 +21,7 @@ export function Tabs(props: TabsProps) {
 }
 
 export function TabList(props: TabListProps) {
-  const { children, styleOverrides, fluid = false, ...restProps } = props
+  const { children, csx, fluid = false, ...restProps } = props
   const { state } = useTabsContext()
   const { cn } = useSystem()
 
@@ -35,7 +35,7 @@ export function TabList(props: TabListProps) {
             variant: fluid ? 'fluid' : 'block',
           },
         },
-        ...styleOverrides,
+        ...csx,
       })}
     >
       {children}
@@ -44,7 +44,7 @@ export function TabList(props: TabListProps) {
 }
 
 export function Tab(props: TabProps) {
-  const { label, id, styleOverrides, ...restProps } = props
+  const { label, id, csx, ...restProps } = props
   const { state } = useTabsContext()
   const { cn } = useSystem()
 
@@ -56,7 +56,7 @@ export function Tab(props: TabProps) {
             variant: state.selectedId === id ? 'active' : 'default',
           },
         },
-        ...styleOverrides,
+        ...csx,
       })}
       id={id}
       aria-label={label}
@@ -69,7 +69,7 @@ export function Tab(props: TabProps) {
 }
 
 export function TabContent(props: TabContentProps) {
-  const { children, styleOverrides, id, ...restProps } = props
+  const { children, csx, id, ...restProps } = props
   const { state } = useTabsContext()
   const { cn } = useSystem()
 
@@ -80,7 +80,7 @@ export function TabContent(props: TabContentProps) {
       tabId={id}
       className={cn({
         themeKey: 'components.tabContent',
-        ...styleOverrides,
+        ...csx,
       })}
     >
       {children}

@@ -9,7 +9,7 @@ describe('Text tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Text data-testid="text" styleOverrides={{ color: 'azure' }}>
+        <Text data-testid="text" csx={{ color: 'azure' }}>
           Text test
         </Text>
       </ThemeProvider>

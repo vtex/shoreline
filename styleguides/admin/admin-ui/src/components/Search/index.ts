@@ -31,7 +31,7 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
         placeholder,
         icon: loading
           ? jsxs(Spinner, {})
-          : jsxs(IconSearch, { styleOverrides: { color: 'blue' } }),
+          : jsxs(IconSearch, { csx: { color: 'blue' } }),
         ...inputProps,
       }),
       jsxs(VisuallyHidden, {}, jsxs(Button, { type: 'submit' }, 'Search')),

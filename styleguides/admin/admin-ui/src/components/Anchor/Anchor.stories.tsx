@@ -40,13 +40,13 @@ export const withinAParagraph: Story<AnchorProps> = () => {
 export const withinAList: Story<AnchorProps> = () => {
   return (
     <List style="none">
-      <List.Item styleOverrides={{ mb: '2' }}>
+      <List.Item csx={{ mb: '2' }}>
         <Anchor href="/?path=/story/beta-link--variants">Link 1</Anchor>
       </List.Item>
-      <List.Item styleOverrides={{ mb: '2' }}>
+      <List.Item csx={{ mb: '2' }}>
         <Anchor href="/?path=/story/beta-link--variants">Link 2</Anchor>
       </List.Item>
-      <List.Item styleOverrides={{ mb: '2' }}>
+      <List.Item csx={{ mb: '2' }}>
         <Anchor href="/?path=/story/beta-link--variants">Link 3</Anchor>
       </List.Item>
     </List>

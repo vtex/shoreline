@@ -82,17 +82,14 @@ export const IndeterminateExample = () => {
 
   return (
     <>
-      <Label styleOverrides={{ display: 'flex', alignItems: 'center' }}>
+      <Label csx={{ display: 'flex', alignItems: 'center' }}>
         <Checkbox state={{ state: group, setState: setGroup }} />
         Fruits ( Group Control )
       </Label>
       <br />
       {values.map((fruit, key) => {
         return (
-          <Label
-            key={key}
-            styleOverrides={{ display: 'flex', alignItems: 'center' }}
-          >
+          <Label key={key} csx={{ display: 'flex', alignItems: 'center' }}>
             <Checkbox
               state={{ state: items, setState: setItems }}
               value={fruit}

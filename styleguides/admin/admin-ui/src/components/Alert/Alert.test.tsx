@@ -29,7 +29,7 @@ describe('Alert tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Alert data-testid="alert" visible styleOverrides={{ bg: 'coral' }} />
+        <Alert data-testid="alert" visible csx={{ bg: 'coral' }} />
       </ThemeProvider>
     )
 

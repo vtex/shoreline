@@ -23,10 +23,7 @@ describe('CollapsibleGroup tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <CollapsibleGroup
-          data-testid="collapsible-group"
-          styleOverrides={{ bg: 'azure' }}
-        >
+        <CollapsibleGroup data-testid="collapsible-group" csx={{ bg: 'azure' }}>
           <CollapsibleState>
             {(state) => (
               <Collapsible state={state}>

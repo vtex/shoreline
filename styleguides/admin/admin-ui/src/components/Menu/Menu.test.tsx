@@ -17,7 +17,7 @@ describe('Menu tests', () => {
           data-testid="menu"
           data-boxtestid="menubox"
           aria-label="menu label"
-          styleOverrides={{
+          csx={{
             bg: 'coral',
           }}
           disclosure={<button>Open</button>}

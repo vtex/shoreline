@@ -25,7 +25,7 @@ describe('Checkbox tests', () => {
               data-testid="checkbox"
               value="checkbox"
               aria-label="checkbox"
-              styleOverrides={{ bg: 'azure' }}
+              csx={{ bg: 'azure' }}
             />
           )}
         </CheckboxState>

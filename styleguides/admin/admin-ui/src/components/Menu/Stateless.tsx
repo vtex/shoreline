@@ -35,7 +35,7 @@ export function StatelessMenu(props: StatelessMenuProps) {
     children,
     disabled = false,
     hideOnClick = false,
-    styleOverrides,
+    csx,
     state,
     'data-boxtestid': boxTestId,
     ...baseProps
@@ -56,7 +56,7 @@ export function StatelessMenu(props: StatelessMenuProps) {
       disabled={disabled}
     >
       <Box
-        csx={{ themeKey: 'components.menu', ...styleOverrides }}
+        csx={{ themeKey: 'components.menu', ...csx }}
         data-testid={boxTestId}
       >
         <IconContainer space="small">

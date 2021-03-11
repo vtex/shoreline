@@ -9,7 +9,7 @@ export const TableBody = forwardRef(function Tbody(
   props: TableBodyProps,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'div', children, styleOverrides = {}, ...boxProps } = props
+  const { element = 'div', children, csx = {}, ...boxProps } = props
 
   const { dir, variants } = useStylesContext()
 
@@ -19,7 +19,7 @@ export const TableBody = forwardRef(function Tbody(
       ref={ref}
       role="rowgroup"
       dir={dir}
-      csx={{ themeKey: variants.body, ...styleOverrides }}
+      csx={{ themeKey: variants.body, ...csx }}
       {...boxProps}
     >
       <CellRoleContext.Provider value="cell">

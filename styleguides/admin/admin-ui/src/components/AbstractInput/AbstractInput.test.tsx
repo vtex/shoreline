@@ -13,7 +13,7 @@ describe('AbstractInput tests', () => {
         <ThemeProvider>
           <AbstractInput
             data-testid="input"
-            styleOverrides={{ color: 'coral' }}
+            csx={{ color: 'coral' }}
             value="Test1"
             readOnly
           />
@@ -132,7 +132,7 @@ describe('AbstractInput tests', () => {
         <ThemeProvider>
           <AbstractInputPassword
             data-testid="input-password"
-            styleOverrides={{ color: 'coral' }}
+            csx={{ color: 'coral' }}
             value="Test1"
             readOnly
           />

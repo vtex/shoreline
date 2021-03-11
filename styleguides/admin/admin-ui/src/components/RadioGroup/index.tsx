@@ -13,7 +13,7 @@ export function RadioGroup(props: RadioGroupProps) {
     label,
     orientation = 'horizontal',
     size = 'regular',
-    styleOverrides,
+    csx,
     id,
     state,
     children,
@@ -22,7 +22,7 @@ export function RadioGroup(props: RadioGroupProps) {
 
   const { cn } = useSystem()
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: `components.controlGroup.${orientation}-${size}`,
   })
 

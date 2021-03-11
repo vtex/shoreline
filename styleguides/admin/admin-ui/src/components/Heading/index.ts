@@ -7,13 +7,13 @@ import { Primitive } from '@vtex/admin-primitives'
 export const Heading = createComponent(Primitive, useHeading)
 
 export function useHeading(props: HeadingProps) {
-  const { styleOverrides, element = 'h1', ...htmlProps } = props
+  const { csx, element = 'h1', ...htmlProps } = props
 
   return {
     element,
     csx: {
       text: 'headline',
-      ...styleOverrides,
+      ...csx,
     },
     ...htmlProps,
   }

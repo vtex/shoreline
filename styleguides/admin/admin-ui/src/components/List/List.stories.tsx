@@ -26,21 +26,21 @@ export const Playground: Story = (args) => {
 export function Patterns() {
   return (
     <List>
-      <List.Item styleOverrides={{ text: 'subtitle' }}>Coffee</List.Item>
+      <List.Item csx={{ text: 'subtitle' }}>Coffee</List.Item>
       <List>
-        <List.Item styleOverrides={{ text: 'highlight' }}>Arabica</List.Item>
-        <List.Item styleOverrides={{ text: 'highlight' }}>Robusta</List.Item>
+        <List.Item csx={{ text: 'highlight' }}>Arabica</List.Item>
+        <List.Item csx={{ text: 'highlight' }}>Robusta</List.Item>
       </List>
-      <List.Item styleOverrides={{ text: 'highlight' }}>Juice</List.Item>
-      <List.Item styleOverrides={{ text: 'highlight' }}>Tea</List.Item>
+      <List.Item csx={{ text: 'highlight' }}>Juice</List.Item>
+      <List.Item csx={{ text: 'highlight' }}>Tea</List.Item>
     </List>
   )
 }
 
-export function StyleOverrides() {
+export function Csx() {
   return (
-    <List style="circle" styleOverrides={{ bg: 'blue.secondary' }}>
-      <List.Item styleOverrides={{ bg: 'blue', color: 'light.primary' }}>
+    <List style="circle" csx={{ bg: 'blue.secondary' }}>
+      <List.Item csx={{ bg: 'blue', color: 'light.primary' }}>
         Coffee Primary
       </List.Item>
       <List.Item>Juice</List.Item>

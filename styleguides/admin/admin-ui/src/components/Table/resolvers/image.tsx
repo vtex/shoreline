@@ -25,7 +25,7 @@ export function imageResolver<T>() {
   return createResolver<T, 'image', ImageResolver<T>>({
     cell: function ImageResolver({ getData, item, column, context }) {
       if (context.loading) {
-        return <Skeleton styles={{ height: 24 }} />
+        return <Skeleton csx={{ height: 24 }} />
       }
       const { cn } = useSystem()
       const url = getData()
@@ -57,7 +57,7 @@ export function imageResolver<T>() {
         )
       ) : (
         <Skeleton
-          styles={{
+          csx={{
             themeKey: `components.table.image.${context.density}`,
             animation: '',
           }}

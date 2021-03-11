@@ -8,7 +8,7 @@ export function dateResolver<T>() {
   return createResolver<T, 'date', DateResolver<T>>({
     cell: function DateResolver({ getData, item, column, context }) {
       if (context.loading) {
-        return <Skeleton styles={{ height: 24 }} />
+        return <Skeleton csx={{ height: 24 }} />
       }
 
       const { resolver } = column

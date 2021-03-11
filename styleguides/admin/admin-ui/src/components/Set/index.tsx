@@ -19,7 +19,7 @@ export function useSet(props: SetProps): FlexProps<'div'> {
     fluid = false,
     spacing = 1,
     align = 'start',
-    styleOverrides,
+    csx,
     ...layoutProps
   } = props
 
@@ -46,7 +46,7 @@ export function useSet(props: SetProps): FlexProps<'div'> {
     justify: fluid ? 'unset' : isVertical ? 'unset' : currentAlign,
     csx: {
       ...childrenSpacing,
-      ...styleOverrides,
+      ...csx,
     },
     ...layoutProps,
   }

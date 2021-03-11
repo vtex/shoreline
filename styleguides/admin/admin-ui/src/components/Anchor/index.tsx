@@ -10,13 +10,13 @@ import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 export const Anchor = createComponent(Primitive, useAnchor)
 
 function useAnchor(props: AnchorProps): PrimitiveProps<'a'> {
-  const { styleOverrides, ...primitiveProps } = props
+  const { csx, ...primitiveProps } = props
 
   return {
     element: 'a',
     csx: {
       themeKey: 'components.anchor',
-      ...styleOverrides,
+      ...csx,
     },
     ...primitiveProps,
   }

@@ -18,7 +18,7 @@ export const Playground: Story<LabelProps> = (args) => {
   )
 }
 
-Playground.args = { styleOverrides: { display: 'flex' } }
+Playground.args = { csx: { display: 'flex' } }
 
 export const HtmlFor = () => {
   return (

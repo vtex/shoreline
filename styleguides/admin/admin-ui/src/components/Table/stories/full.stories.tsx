@@ -16,9 +16,7 @@ export const Example = () => {
   const [loading, setLoading] = useState(false)
 
   return (
-    <Card
-      styleOverrides={{ width: 560, display: 'flex', flexDirection: 'column' }}
-    >
+    <Card csx={{ width: 560, display: 'flex', flexDirection: 'column' }}>
       <Button onClick={() => setLoading((l) => !l)}>Load</Button>
       <StatefulTable
         columns={[
@@ -36,7 +34,7 @@ export const Example = () => {
               type: 'root',
               render: function Description({ item, context }) {
                 if (context.loading) {
-                  return <Skeleton styles={{ height: 24 }} />
+                  return <Skeleton csx={{ height: 24 }} />
                 }
 
                 return (

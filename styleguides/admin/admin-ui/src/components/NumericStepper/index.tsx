@@ -20,7 +20,7 @@ export function NumericStepper(props: NumericStepperProps) {
     helperText,
     error,
     label,
-    styleOverrides,
+    csx,
     ...inputProps
   } = props
 
@@ -32,7 +32,7 @@ export function NumericStepper(props: NumericStepperProps) {
   const hasHelper = error ?? helperText
 
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: `components.numericStepper.default${error ? '-error' : ''}`,
   })
 
@@ -80,7 +80,7 @@ export function NumericStepper(props: NumericStepperProps) {
           size="small"
           variant="adaptative-dark"
           icon={<IconRemove />}
-          styleOverrides={{
+          csx={{
             color: 'blue',
             height: 40,
             position: 'absolute',
@@ -96,7 +96,7 @@ export function NumericStepper(props: NumericStepperProps) {
           variant="adaptative-dark"
           icon={<IconAdd />}
           aria-label={`${label}-increase-button}`}
-          styleOverrides={{
+          csx={{
             color: 'blue',
             height: 40,
             position: 'absolute',

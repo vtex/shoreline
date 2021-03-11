@@ -37,7 +37,7 @@ export const Basic = () => {
   })
 
   return (
-    <Set styleOverrides={{ marginTop: '8rem' }}>
+    <Set csx={{ marginTop: '8rem' }}>
       <Select items={days} state={state} label="Date" helperText="Help text" />
       <Select
         items={brewMethods}
@@ -101,7 +101,7 @@ export const Block = () => {
   const state = useSelectState({ items: days })
 
   return (
-    <Card styleOverrides={{ width: 500 }}>
+    <Card csx={{ width: 500 }}>
       <Select
         items={days}
         state={state}

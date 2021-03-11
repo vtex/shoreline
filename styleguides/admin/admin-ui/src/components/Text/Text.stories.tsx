@@ -59,6 +59,6 @@ export function Elements() {
   )
 }
 
-export function StyleOverrides() {
-  return <Text styleOverrides={{ color: 'blue' }}>Primary text</Text>
+export function Csx() {
+  return <Text csx={{ color: 'blue' }}>Primary text</Text>
 }

@@ -30,8 +30,8 @@ describe('Columns tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Columns data-testid="columns" styleOverrides={{ bg: 'coral' }}>
-          <ColumnsItem data-testid="item" styleOverrides={{ bg: 'azure' }}>
+        <Columns data-testid="columns" csx={{ bg: 'coral' }}>
+          <ColumnsItem data-testid="item" csx={{ bg: 'azure' }}>
             <button>element 1</button>
           </ColumnsItem>
           <Columns.Item>

@@ -62,7 +62,7 @@ export function LowerLevel() {
   })
 
   return (
-    <Table styleOverrides={{ width: 560 }}>
+    <Table csx={{ width: 560 }}>
       <Table.Head>
         <Table.Row>
           {table.columns.map((column) => {
@@ -146,11 +146,7 @@ export function Windowing() {
     const item = data[index]
 
     return (
-      <Table.Row
-        element="div"
-        key={item.id}
-        styleOverrides={style as StyleProp}
-      >
+      <Table.Row element="div" key={item.id} csx={style as StyleProp}>
         {table.columns.map((column) => {
           const content = table.resolveCell({ item, column })
 
@@ -165,7 +161,7 @@ export function Windowing() {
   }
 
   return (
-    <Table styleOverrides={{ width: 560 }}>
+    <Table csx={{ width: 560 }}>
       <Table.Head>
         <Table.Row>
           {table.columns.map((column) => {
@@ -277,7 +273,7 @@ export function Dnd() {
   }
 
   return (
-    <Table density="compact" styleOverrides={{ width: 800 }}>
+    <Table density="compact" csx={{ width: 800 }}>
       <Table.Head>
         <Table.Row>
           {table.columns.map((column) => {
@@ -304,7 +300,7 @@ export function Dnd() {
                       ref={draggableProvided.innerRef}
                       {...draggableProvided.draggableProps}
                       {...draggableProvided.dragHandleProps}
-                      styleOverrides={{
+                      csx={{
                         ...draggableProvided.draggableProps.style,
                         boxShadow: draggableSnapshot.isDragging
                           ? 'menu'

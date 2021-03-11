@@ -8,7 +8,7 @@ describe('Paragraph tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Paragraph data-testid="paragraph" styleOverrides={{ bg: 'azure' }}>
+        <Paragraph data-testid="paragraph" csx={{ bg: 'azure' }}>
           test paragraph
         </Paragraph>
       </ThemeProvider>

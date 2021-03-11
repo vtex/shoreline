@@ -74,7 +74,7 @@ export const Overridecsx: Story = () => {
         id="username"
         suffix="kg"
         icon={<IconAdd />}
-        styleOverrides={{ borderColor: 'dark.primary' }}
+        csx={{ borderColor: 'dark.primary' }}
       />
     </Box>
   )

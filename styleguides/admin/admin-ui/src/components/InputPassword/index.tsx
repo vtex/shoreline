@@ -15,7 +15,7 @@ export const InputPassword = forwardRef(function InputPassword(
   ref: Ref<HTMLInputElement>
 ) {
   const {
-    styleOverrides = {},
+    csx = {},
     value = '',
     error = false,
     id,
@@ -37,13 +37,10 @@ export const InputPassword = forwardRef(function InputPassword(
         ref={ref}
         placeholder=" "
         maxLength={charLimit}
-        styleOverrides={{ paddingTop: 4, ...styleOverrides }}
+        csx={{ paddingTop: 4, ...csx }}
         error={error}
         labelElement={
-          <Label
-            styleOverrides={stylesOf('components.input.floating-label')}
-            htmlFor={id}
-          >
+          <Label csx={stylesOf('components.input.floating-label')} htmlFor={id}>
             {label}
           </Label>
         }

@@ -25,11 +25,11 @@ describe('Tabs tests', () => {
               <Tabs.List
                 aria-label="overridable-tabs"
                 data-testid="tabs-list"
-                styleOverrides={{ bg: 'azure' }}
+                csx={{ bg: 'azure' }}
               >
                 <Tabs.Tab
                   data-testid="tabs-tab"
-                  styleOverrides={{ bg: 'azure' }}
+                  csx={{ bg: 'azure' }}
                   label="Tab 1"
                   id="1"
                 />
@@ -37,7 +37,7 @@ describe('Tabs tests', () => {
               <Tabs.Content
                 data-testid="tabs-content"
                 id="1"
-                styleOverrides={{ bg: 'azure' }}
+                csx={{ bg: 'azure' }}
               >
                 Tab 1 Content
               </Tabs.Content>

@@ -23,11 +23,7 @@ describe('Avatar tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Avatar
-          data-testid="avatar"
-          label="Test"
-          styleOverrides={{ bg: 'azure' }}
-        />
+        <Avatar data-testid="avatar" label="Test" csx={{ bg: 'azure' }} />
       </ThemeProvider>
     )
 

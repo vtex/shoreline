@@ -7,7 +7,7 @@ export const Card = forwardRef(function Card(
   props: CardProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { styleOverrides, ...boxProps } = props
+  const { csx, ...boxProps } = props
 
   return (
     <Box
@@ -17,7 +17,7 @@ export const Card = forwardRef(function Card(
         color: 'dark.primary',
         border: 'default',
         padding: 6,
-        ...styleOverrides,
+        ...csx,
       }}
       {...boxProps}
     />
