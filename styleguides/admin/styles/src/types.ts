@@ -111,7 +111,9 @@ interface AliasesCSSProperties {
     | 'bold'
     | 'black'
     | StandardCSSProperties['fontVariationSettings']
+}
 
+interface ResponsiveAliases {
   '@mobile'?: StyleProp
   '@tablet'?: StyleProp
   '@desktop'?: StyleProp
@@ -286,8 +288,9 @@ export interface CSSOthersObject {
 export type StyleObject = CSSProps &
   CSSPseudoSelectorProps &
   CSSOthersObject &
-  ThemeKeyProp
-  
+  ThemeKeyProp &
+  ResponsiveAliases
+
 /**
  * The `StyleProp` extends [style props](https://emotion.sh/docs/object-styles)
  * such that properties that are part of the `Theme` will be transformed to

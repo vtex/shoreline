@@ -1,10 +1,21 @@
-export const aliases = {
-  bg: 'backgroundColor',
-  fontSettings: 'fontVariationSettings',
-  '@mobile': '@media (max-width: 768px)',
-  '@tablet': '@media (min-width: 768px)',
-  '@desktop': '@media (min-width: 1024px)',
-  '@wideScreen': '@media (min-width: 1280px)',
-}
+import { defaultBreakpoints, Theme } from './index'
 
-export type Aliases = typeof aliases
+export const alias = (key: string, theme: Theme) => {
+  const [, tablet, desktop, wideScreen] =
+    (theme && (theme.breakpoints as string[])) || defaultBreakpoints
+
+  const aliases = {
+    bg: 'backgroundColor',
+    fontSettings: 'fontVariationSettings',
+    '@mobile': `@media (max-width: ${tablet})`,
+    '@tablet': `@media (min-width: ${tablet})`,
+    '@desktop': `@media (min-width: ${desktop})`,
+    '@wideScreen': `@media (min-width: ${wideScreen})`,
+  }
+
+  if (key in aliases) {
+    return aliases[key as keyof typeof aliases]
+  }
+
+  return key
+}

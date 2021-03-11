@@ -68,7 +68,6 @@ export const WithMediaQueryAliases: Story = () => {
         '@desktop': { bg: 'yellow' },
         '@wideScreen': { bg: 'red' },
       }}
-      className="my-className"
     >
       Box
     </Box>
