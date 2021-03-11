@@ -13,7 +13,7 @@ export default {
 
 export const Example = () => {
   return (
-    <Card styleOverrides={{ width: '1/2' }}>
+    <Card csx={{ width: '1/2' }}>
       <Heading>Build for community</Heading>
       <Paragraph>
         It’s all about being ready to grow and reach new levels. Have a solid
@@ -29,7 +29,7 @@ export const WithColumns = () => {
   return (
     <Columns>
       <Columns.Item units={[12, 12, 8]}>
-        <Card styleOverrides={{ height: 'full' }}>
+        <Card csx={{ height: 'full' }}>
           <Heading>Build for community</Heading>
           <Paragraph>
             It’s all about being ready to grow and reach new levels. Have a
@@ -56,9 +56,9 @@ export const WithColumns = () => {
 
 export const WithoutPadding = () => {
   return (
-    <Card styleOverrides={{ padding: 0, width: 500 }}>
+    <Card csx={{ padding: 0, width: 500 }}>
       <Heading
-        styleOverrides={{
+        csx={{
           padding: 6,
         }}
       >
@@ -70,7 +70,7 @@ export const WithoutPadding = () => {
         alt=""
       />
       <Paragraph
-        styleOverrides={{
+        csx={{
           padding: 6,
         }}
       >

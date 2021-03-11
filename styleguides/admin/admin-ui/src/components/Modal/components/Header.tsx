@@ -27,22 +27,22 @@ export const ModalHeader = forwardRef(function ModalHeader(
   const {
     children,
     title = null,
-    containerStyleOverrides = {},
-    styleOverrides = {},
+    containerCsx = {},
+    csx = {},
     ...headerProps
   } = props
 
   const { cn } = useSystem()
   const { omitCloseButton, size } = useModalContext()
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: `components.modal.header-${size}`,
   })
 
   const containerCn = cn({
     display: 'flex',
     alignItems: 'center',
-    ...containerStyleOverrides,
+    ...containerCsx,
   })
 
   const renderTitle = useMemo(() => {
@@ -80,7 +80,7 @@ export interface ModalHeaderProps extends SystemComponent {
    * Styles of the buttons container
    * @default {}
    */
-  containerStyleOverrides?: StyleProp
+  containerCsx?: StyleProp
   /**
    * component children
    */

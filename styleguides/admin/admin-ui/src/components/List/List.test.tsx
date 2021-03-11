@@ -9,8 +9,8 @@ describe('List tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <List data-testid="list" styleOverrides={{ bg: 'azure' }}>
-          <List.Item data-testid="listitem" styleOverrides={{ bg: 'coral' }}>
+        <List data-testid="list" csx={{ bg: 'azure' }}>
+          <List.Item data-testid="listitem" csx={{ bg: 'coral' }}>
             Item
           </List.Item>
         </List>

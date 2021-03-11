@@ -9,7 +9,7 @@ describe('Spinner tests', () => {
     const { getByTestId } = render(
       <Spinner
         data-testid="spinner"
-        styleOverrides={{
+        csx={{
           bg: 'azure',
         }}
       />

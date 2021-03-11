@@ -46,7 +46,7 @@ export const Dropdown = forwardRef(
           spacing={2}
           orientation="vertical"
           {...state.getMenuProps()}
-          styleOverrides={{
+          csx={{
             themeKey: `components.dropdown.menu${
               state.isOpen ? '-visible' : ''
             }`,

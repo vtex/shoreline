@@ -18,22 +18,18 @@ import { Button, ButtonProps } from '../../Button'
 export const MenuItem = createComponent(Button, useMenuItem)
 
 function useMenuItem(props: MenuItemProps): ButtonProps {
-  const {
-    dangerous = false,
-    styleOverrides: overrides = {},
-    ...buttonProps
-  } = props
+  const { dangerous = false, csx: overrides = {}, ...buttonProps } = props
   const { stylesOf } = useSystem()
 
   const variant = dangerous ? 'danger-tertiary' : 'tertiary'
   const styles = stylesOf(
     dangerous ? 'components.menu.item-dangerous' : 'components.menu.item'
   )
-  const styleOverrides = merge(styles, overrides)
+  const csx = merge(styles, overrides)
 
   return {
     size: 'small',
-    styleOverrides,
+    csx,
     variant,
     ...buttonProps,
   }

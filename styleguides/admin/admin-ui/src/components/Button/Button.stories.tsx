@@ -17,7 +17,7 @@ export const Playground: Story = (args) => {
 
 Playground.args = {
   children: 'Admin UI Button',
-  styleOverrides: {},
+  csx: {},
 }
 
 export const Size: Story = () => {

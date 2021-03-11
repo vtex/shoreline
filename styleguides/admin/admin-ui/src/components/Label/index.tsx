@@ -18,13 +18,13 @@ import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 export const Label = createComponent(Primitive, useLabel)
 
 export function useLabel(props: LabelProps): PrimitiveProps<'label'> {
-  const { styleOverrides, ...htmlProps } = props
+  const { csx, ...htmlProps } = props
 
   return {
     element: 'label',
     csx: {
       text: 'body',
-      ...styleOverrides,
+      ...csx,
     },
     ...htmlProps,
   }

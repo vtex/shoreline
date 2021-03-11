@@ -42,7 +42,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
       }
     >
       <Label
-        styleOverrides={stylesOf(
+        csx={stylesOf(
           `components.select.mobileLabel${
             state.selectedItem ? 'SelectedItem' : ''
           }`
@@ -67,7 +67,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
       <IconCaret
         direction="down"
         size={24}
-        styleOverrides={stylesOf('components.select.mobileIcon')}
+        csx={stylesOf('components.select.mobileIcon')}
       />
     </Box>
   )

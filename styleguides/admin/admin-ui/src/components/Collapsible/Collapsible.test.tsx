@@ -23,17 +23,14 @@ describe('Collapsible tests', () => {
             <Collapsible
               state={state}
               data-testid="collapsible"
-              styleOverrides={{ bg: 'azure' }}
+              csx={{ bg: 'azure' }}
             >
               <Collapsible.Header
                 label="Collapsible Label"
                 data-testid="header"
-                styleOverrides={{ bg: 'azure' }}
+                csx={{ bg: 'azure' }}
               />
-              <Collapsible.Content
-                data-testid="content"
-                styleOverrides={{ bg: 'azure' }}
-              >
+              <Collapsible.Content data-testid="content" csx={{ bg: 'azure' }}>
                 Collapsible Content
               </Collapsible.Content>
             </Collapsible>

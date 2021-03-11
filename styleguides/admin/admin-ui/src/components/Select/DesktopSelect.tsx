@@ -131,7 +131,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
             {renderItem(state.selectedItem)}
           </Box>
           <Label
-            styleOverrides={stylesOf('components.select.label')}
+            csx={stylesOf('components.select.label')}
             {...state.getLabelProps()}
           >
             {label}
@@ -140,7 +140,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
         <IconCaret
           direction="down"
           size={24}
-          styleOverrides={{ color: 'dark.secondary' }}
+          csx={{ color: 'dark.secondary' }}
         />
       </Box>
 
@@ -159,7 +159,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
               themeKey: 'components.select.optionsContainer',
             }}
           >
-            <Label styleOverrides={stylesOf('components.select.optionsLabel')}>
+            <Label csx={stylesOf('components.select.optionsLabel')}>
               {label}
             </Label>
             <Box element="ul" csx={{ themeKey: 'components.select.optionsUl' }}>
@@ -181,10 +181,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
                   {state.selectedItem && (
                     <>
                       {renderItem(item) === renderItem(state.selectedItem) ? (
-                        <IconCheck
-                          size={16}
-                          styleOverrides={{ color: 'dark.primary' }}
-                        />
+                        <IconCheck size={16} csx={{ color: 'dark.primary' }} />
                       ) : (
                         <Box csx={{ width: 16 }} />
                       )}

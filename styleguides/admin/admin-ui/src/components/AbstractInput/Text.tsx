@@ -14,7 +14,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
 ) {
   const {
     value = '',
-    styleOverrides = {},
+    csx = {},
     error = false,
     icon,
     suffix,
@@ -35,7 +35,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
       [!!suffix, '-suffix'],
       [!!onClear, '-clear'],
     ]),
-    ...styleOverrides,
+    ...csx,
   })
 
   return (
@@ -49,7 +49,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
       {icon && (
         <IconContainer
           space="regular"
-          styles={stylesOf('components.abstractInput.icon')}
+          csx={stylesOf('components.abstractInput.icon')}
         >
           {icon}
         </IconContainer>
@@ -70,7 +70,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
               onClick={onClear}
               size="small"
               variant="adaptative-dark"
-              styleOverrides={{
+              csx={{
                 marginTop: 2,
                 marginRight: 1,
               }}

@@ -6,13 +6,13 @@ import { SystemComponent } from '../../types'
 export const Divider = createComponent(ReakitSeparator, useDivider)
 
 export function useDivider(props: DividerProps) {
-  const { orientation = 'horizontal', styleOverrides, ...htmlProps } = props
+  const { orientation = 'horizontal', csx, ...htmlProps } = props
   const { cn } = useSystem()
 
   const className = cn({
     text: 'headline',
     themeKey: `components.divider.${orientation}`,
-    ...styleOverrides,
+    ...csx,
   })
 
   return {

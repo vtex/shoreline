@@ -43,7 +43,7 @@ describe('Dropdown tests', () => {
           {(state) => (
             <Dropdown
               data-testid="dropdown"
-              styleOverrides={{ bg: 'azure' }}
+              csx={{ bg: 'azure' }}
               label="Date"
               items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
               state={state}

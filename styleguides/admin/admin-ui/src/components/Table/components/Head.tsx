@@ -9,7 +9,7 @@ export const TableHead = forwardRef(function Thead(
   props: TableHeadProps,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'div', children, styleOverrides, ...boxProps } = props
+  const { element = 'div', children, csx, ...boxProps } = props
 
   const { dir, variants } = useStylesContext()
 
@@ -17,7 +17,7 @@ export const TableHead = forwardRef(function Thead(
     <Box
       element={element}
       ref={ref}
-      csx={{ themeKey: variants.header, ...styleOverrides }}
+      csx={{ themeKey: variants.header, ...csx }}
       role="rowgroup"
       dir={dir}
       {...boxProps}

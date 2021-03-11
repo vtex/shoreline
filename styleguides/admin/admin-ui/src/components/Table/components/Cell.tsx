@@ -10,7 +10,7 @@ export const TableCell = forwardRef(function Td<T>(
   props: TableCellProps<T>,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'div', styleOverrides = {}, column, ...boxProps } = props
+  const { element = 'div', csx = {}, column, ...boxProps } = props
 
   const { variants, dir } = useStylesContext()
   const role = useCellRoleContext()
@@ -24,7 +24,7 @@ export const TableCell = forwardRef(function Td<T>(
         themeKey: variants[role],
         minWidth: column.width,
         maxWidth: column.width,
-        ...styleOverrides,
+        ...csx,
       }}
       role={role}
       {...boxProps}

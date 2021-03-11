@@ -13,13 +13,13 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
     label,
     icon,
     handleDelete,
-    styleOverrides,
+    csx,
     ...boxProps
   } = props
 
   return (
     <Box
-      csx={{ themeKey: `components.tag.${palette}-${size}`, ...styleOverrides }}
+      csx={{ themeKey: `components.tag.${palette}-${size}`, ...csx }}
       ref={ref}
       {...boxProps}
     >
@@ -35,7 +35,7 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
               palette === 'black' ? 'adaptative-light' : 'adaptative-dark'
             }
             size="small"
-            styleOverrides={{
+            csx={{
               marginLeft: 1,
             }}
           />

@@ -10,7 +10,7 @@ function useText(props: TextProps) {
   const {
     variant = 'body',
     feedback = 'default',
-    styleOverrides,
+    csx,
     element = 'span',
     ...htmlProps
   } = props
@@ -29,7 +29,7 @@ function useText(props: TextProps) {
     csx: {
       color,
       text: variant,
-      ...styleOverrides,
+      ...csx,
     },
     ...htmlProps,
   }

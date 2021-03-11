@@ -9,7 +9,7 @@ export const TableRow = forwardRef(function Tr(
   props: TableRowProps,
   ref: Ref<HTMLElement>
 ) {
-  const { styleOverrides = {}, element = 'div', onClick, ...boxProps } = props
+  const { csx = {}, element = 'div', onClick, ...boxProps } = props
 
   const { variants, dir } = useStylesContext()
   const themeKey = onClick
@@ -23,7 +23,7 @@ export const TableRow = forwardRef(function Tr(
       role="row"
       onClick={onClick}
       element={element}
-      csx={{ themeKey, ...styleOverrides }}
+      csx={{ themeKey, ...csx }}
       {...boxProps}
     />
   )

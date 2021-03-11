@@ -13,7 +13,7 @@ export const TextArea = forwardRef(function Textarea(
   const {
     id,
     label,
-    styleOverrides,
+    csx,
     helperText,
     charLimit,
     value = '',
@@ -27,7 +27,7 @@ export const TextArea = forwardRef(function Textarea(
   const message = error ? errorMessage : helperText
 
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: 'components.textArea.default',
   })
 
@@ -47,10 +47,7 @@ export const TextArea = forwardRef(function Textarea(
         onChange={onChange}
         {...textareaProps}
       />
-      <Label
-        htmlFor={id}
-        styleOverrides={stylesOf('components.textArea.floating-label')}
-      >
+      <Label htmlFor={id} csx={stylesOf('components.textArea.floating-label')}>
         {label}
       </Label>
       {(message || !!charLimit) && (
@@ -63,7 +60,7 @@ export const TextArea = forwardRef(function Textarea(
             <div>{/** spacer element */}</div>
           )}
           {charLimit && (
-            <Text variant="small" styleOverrides={{ color: 'mid.primary' }}>
+            <Text variant="small" csx={{ color: 'mid.primary' }}>
               {`${value.toString().length}/${charLimit}`}
             </Text>
           )}

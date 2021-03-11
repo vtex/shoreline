@@ -12,7 +12,7 @@ describe('Input tests', () => {
       <ThemeProvider>
         <Input
           data-testid="text-field"
-          styleOverrides={{ backgroundColor: 'coral' }}
+          csx={{ backgroundColor: 'coral' }}
           value=""
           onChange={() => {}}
           label="TextField label"

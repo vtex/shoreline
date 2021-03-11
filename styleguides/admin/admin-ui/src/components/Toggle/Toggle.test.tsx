@@ -26,7 +26,7 @@ describe('Toggle tests', () => {
               data-testid="toggle"
               value="toggle"
               aria-label="toggle"
-              styleOverrides={{ bg: 'azure' }}
+              csx={{ bg: 'azure' }}
             />
           )}
         </ToggleState>

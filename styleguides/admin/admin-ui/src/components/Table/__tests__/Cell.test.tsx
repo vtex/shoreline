@@ -16,7 +16,7 @@ describe('TableCell tests', () => {
           <TableHead>
             <TableCell
               data-testid="table-cell"
-              styleOverrides={{ bg: 'coral' }}
+              csx={{ bg: 'coral' }}
               column={{
                 id: 'test',
               }}

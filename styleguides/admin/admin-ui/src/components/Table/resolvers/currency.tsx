@@ -8,7 +8,7 @@ export function currencyResolver<T>() {
   return createResolver<T, 'currency', CurrencyResolver<T>>({
     cell: function CurrencyResolver({ getData, item, column, context }) {
       if (context.loading) {
-        return <Skeleton styles={{ height: 24 }} />
+        return <Skeleton csx={{ height: 24 }} />
       }
 
       const { resolver } = column

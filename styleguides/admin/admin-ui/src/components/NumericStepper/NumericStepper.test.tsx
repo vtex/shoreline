@@ -14,7 +14,7 @@ describe('NumericStepper tests', () => {
           onChange={() => {}}
           label="numeric-stepper"
           data-testid="numeric-stepper"
-          styleOverrides={{ bg: 'azure' }}
+          csx={{ bg: 'azure' }}
         />
       </ThemeProvider>
     )

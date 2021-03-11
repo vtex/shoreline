@@ -16,7 +16,7 @@ describe('Tooltip tests', () => {
           label="label"
           data-testid="tooltip"
           visible
-          styleOverrides={{
+          csx={{
             bg: 'coral',
           }}
         >

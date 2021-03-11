@@ -9,7 +9,7 @@ describe('Heading tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Divider data-testid="divider" styleOverrides={{ bg: 'azure' }} />
+        <Divider data-testid="divider" csx={{ bg: 'azure' }} />
       </ThemeProvider>
     )
 

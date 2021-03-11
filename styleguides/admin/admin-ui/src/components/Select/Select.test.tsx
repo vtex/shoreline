@@ -26,7 +26,7 @@ describe('Select tests', () => {
           {(state) => (
             <Select
               data-testid="select"
-              styleOverrides={{ backgroundColor: 'azure' }}
+              csx={{ backgroundColor: 'azure' }}
               label="Date"
               items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
               state={state}

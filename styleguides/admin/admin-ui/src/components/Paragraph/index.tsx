@@ -14,11 +14,11 @@ export const Paragraph = forwardRef(function Paragraph(
 })
 
 export function useParagraph(props: ParagraphProps) {
-  const { styleOverrides, ...htmlProps } = props
+  const { csx, ...htmlProps } = props
 
   const styles = {
     text: 'body',
-    ...styleOverrides,
+    ...csx,
   } as StyleProp
 
   return { styles, ...htmlProps }

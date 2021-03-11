@@ -16,7 +16,7 @@ import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 export const Avatar = createComponent(Primitive, useAvatar)
 
 export function useAvatar(props: AvatarProps): PrimitiveProps<'div'> {
-  const { palette = 'base', label, styleOverrides, ...primitiveProps } = props
+  const { palette = 'base', label, csx, ...primitiveProps } = props
 
   return {
     csx: {
@@ -25,7 +25,7 @@ export function useAvatar(props: AvatarProps): PrimitiveProps<'div'> {
           palette,
         },
       },
-      ...styleOverrides,
+      ...csx,
     },
     children: jsxs(Primitive, { csx: { text: 'highlight' } }, label?.charAt(0)),
     ...primitiveProps,

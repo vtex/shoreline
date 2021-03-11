@@ -19,7 +19,7 @@ export const Playground: Story<AlertProps> = (args) => {
 Playground.args = {
   children: 'Order successfully placed',
   visible: true,
-  styleOverrides: {},
+  csx: {},
   actions: { primary: { label: 'Print' }, tertiary: { label: 'Cancel' } },
   onDismiss: () => {},
 }

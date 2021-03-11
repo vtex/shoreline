@@ -9,7 +9,7 @@ describe('Table tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Table data-testid="table" styleOverrides={{ bg: 'coral' }}>
+        <Table data-testid="table" csx={{ bg: 'coral' }}>
           <Table.Head>
             <Table.Row>
               <Table.Cell

@@ -17,20 +17,20 @@ describe('Modal tests', () => {
           data-testid="modal"
           aria-label="modal"
           disclosure={<button>disclosure</button>}
-          styleOverrides={{
+          csx={{
             bg: 'coral',
           }}
         >
           <Modal.Header
             data-testid="header"
             title="Header"
-            styleOverrides={{
+            csx={{
               bg: 'azure',
             }}
           />
           <Modal.Content
             data-testid="content"
-            styleOverrides={{
+            csx={{
               bg: 'aquamarine',
             }}
           >
@@ -38,7 +38,7 @@ describe('Modal tests', () => {
           </Modal.Content>
           <Modal.Footer
             data-testid="footer"
-            styleOverrides={{
+            csx={{
               bg: 'firebrick',
             }}
           >

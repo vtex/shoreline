@@ -7,11 +7,11 @@ import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 export const ListItem = createComponent(Primitive, useListItem)
 
 export function useListItem(props: ListItemProps): PrimitiveProps<'li'> {
-  const { styleOverrides, ...htmlProps } = props
+  const { csx, ...htmlProps } = props
 
   return {
     element: 'li',
-    csx: { text: 'body', ...styleOverrides },
+    csx: { text: 'body', ...csx },
     ...htmlProps,
   }
 }

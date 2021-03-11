@@ -11,7 +11,7 @@ describe('TextArea tests', () => {
       <ThemeProvider>
         <TextArea
           data-testid="text-area"
-          styleOverrides={{ backgroundColor: 'azure' }}
+          csx={{ backgroundColor: 'azure' }}
           value=""
           onChange={() => {}}
           label="TextArea label"

@@ -16,7 +16,7 @@ describe('TableRow tests', () => {
       <ThemeProvider>
         <StylesContext.Provider value={getStyles('compact')}>
           <TableHead>
-            <TableRow data-testid="table-row" styleOverrides={{ bg: 'coral' }}>
+            <TableRow data-testid="table-row" csx={{ bg: 'coral' }}>
               <TableCell
                 column={{
                   id: 'test',

@@ -147,14 +147,14 @@ export const RegularModal: Story<ModalProps> = () => {
       </Modal.Content>
       <Modal.Footer>
         <Label
-          styleOverrides={{
+          csx={{
             display: 'flex',
             position: 'relative',
             alignItems: 'center',
           }}
         >
           <Checkbox state={checkbox} />
-          <Text styleOverrides={{ paddingLeft: 2 }}>
+          <Text csx={{ paddingLeft: 2 }}>
             I accept the terms and conditions above
           </Text>
         </Label>

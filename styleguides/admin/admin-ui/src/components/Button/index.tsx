@@ -27,7 +27,7 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
     iconPosition = 'start',
     icon,
     children: prevChildren,
-    styleOverrides,
+    csx,
     ...compoundProps
   } = props
 
@@ -40,7 +40,7 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
   const { cn } = useSystem()
   const className = cn({
     themeKey: `components.button.${variant}-${resolvedSize}`,
-    ...styleOverrides,
+    ...csx,
   })
 
   return {

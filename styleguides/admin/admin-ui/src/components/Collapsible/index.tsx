@@ -40,7 +40,7 @@ export function Collapsible(props: CollapsibleProps) {
   const { grouped } = useGroup()
 
   const {
-    styleOverrides,
+    csx,
     children,
     disabled,
     focusable,
@@ -63,7 +63,7 @@ export function Collapsible(props: CollapsibleProps) {
 
   const className = cn({
     themeKey: variant.container,
-    ...styleOverrides,
+    ...csx,
   })
 
   return (
@@ -78,12 +78,12 @@ export function Collapsible(props: CollapsibleProps) {
 }
 
 export function Header(props: CollapsibleHeaderProps) {
-  const { children, label, styleOverrides, ...headerProps } = props
+  const { children, label, csx, ...headerProps } = props
   const { variant } = useCollapsibleContext()
   const { cn } = useSystem()
 
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: variant.header,
   })
 
@@ -107,14 +107,14 @@ function Disclosure({ children }: { children: ReactNode }) {
             iconPosition="start"
             icon={
               <IconCaret
-                styleOverrides={{
+                csx={{
                   transition: 'transform 150ms ease',
                   transform: `rotate(${visible ? 180 : 90}deg)`,
                 }}
               />
             }
             variant="tertiary"
-            styleOverrides={{
+            csx={{
               color: 'dark.primary',
               textTransform: 'none',
               '&:hover': { backgroundColor: 'transparent' },
@@ -130,7 +130,7 @@ function Disclosure({ children }: { children: ReactNode }) {
 }
 
 export function Content(props: CollapsibleContentProps) {
-  const { children, styleOverrides, ...contentProps } = props
+  const { children, csx, ...contentProps } = props
   const { variant, ...disclosureProps } = useCollapsibleContext()
 
   return (
@@ -163,7 +163,7 @@ export function Content(props: CollapsibleContentProps) {
                 {...(enhancedProps as PropsWithoutRef<'section'>)}
               >
                 <Box
-                  csx={{ themeKey: variant.content, ...styleOverrides }}
+                  csx={{ themeKey: variant.content, ...csx }}
                   {...contentProps}
                 >
                   {children}

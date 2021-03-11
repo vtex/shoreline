@@ -26,7 +26,7 @@ describe('Radio tests', () => {
               data-testid="radio"
               value="radio"
               aria-label="radio"
-              styleOverrides={{ bg: 'azure' }}
+              csx={{ bg: 'azure' }}
             />
           )}
         </RadioState>

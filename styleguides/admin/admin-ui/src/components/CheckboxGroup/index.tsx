@@ -6,7 +6,7 @@ import { SystemComponent } from '../../types'
 
 export function CheckboxGroup(props: CheckboxGroupProps) {
   const {
-    styleOverrides,
+    csx,
     label,
     id,
     orientation = 'horizontal',
@@ -17,7 +17,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
   const { cn } = useSystem()
 
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: `components.controlGroup.${orientation}-${size}`,
   })
 

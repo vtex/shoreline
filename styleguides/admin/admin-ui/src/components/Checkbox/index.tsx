@@ -11,14 +11,14 @@ import { SystemComponentProps } from '../../types'
 export const Checkbox = createComponent(ReakitCheckbox, useCheckbox)
 
 export function useCheckbox(props: CheckboxProps) {
-  const { size = 'regular', styleOverrides, state, ...htmlProps } = props
+  const { size = 'regular', csx, state, ...htmlProps } = props
   const { cn } = useSystem()
 
   const className = cn({
     themeKey: {
       checkbox: { size },
     },
-    ...styleOverrides,
+    ...csx,
   })
 
   return { className, ...state, ...htmlProps }
