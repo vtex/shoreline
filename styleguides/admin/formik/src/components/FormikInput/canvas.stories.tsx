@@ -52,7 +52,6 @@ export const Playground: Story<FormikInputProps> = (args) => {
       >
         {({ resetForm, values, dirty }) => (
           <Form id='form-admin-formik-input'>
-              {console.log(values, schemaValidation) }
               <Flex direction='row' align='center' justify='start'>
                 <Flex direction='column' justify='center' styles={{marginX: 8}}>
                   <Box styles={{ width: 300 , marginBottom: 3}}>
