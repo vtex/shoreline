@@ -45,13 +45,13 @@ export const styles = (args: StyleProp = {}) => (
   for (const key in stylx) {
     const x = stylx[key as keyof typeof stylx]
     const val = typeof x === 'function' ? x(theme) : x
-
+    const prop = key in aliases ? aliases[key as keyof Aliases] : key
+    
     if (val && typeof val === 'object') {
-      result[key] = styles(val as StyleObject)(theme)
+      result[prop] = styles(val as StyleObject)(theme)
       continue
     }
 
-    const prop = key in aliases ? aliases[key as keyof Aliases] : key
     const scaleName = prop in scales ? scales[prop as keyof Scales] : undefined
     const scale = scaleName ? theme?.[scaleName] : get(theme, prop, {})
     const transform = get(transformations, prop, get)

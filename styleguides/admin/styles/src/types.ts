@@ -111,6 +111,11 @@ interface AliasesCSSProperties {
     | 'bold'
     | 'black'
     | StandardCSSProperties['fontVariationSettings']
+
+  '@mobile'?: StyleProp
+  '@tablet'?: StyleProp
+  '@desktop'?: StyleProp
+  '@wideScreen'?: StyleProp
 }
 
 interface OverwriteCSSProperties {
@@ -282,7 +287,7 @@ export type StyleObject = CSSProps &
   CSSPseudoSelectorProps &
   CSSOthersObject &
   ThemeKeyProp
-
+  
 /**
  * The `StyleProp` extends [style props](https://emotion.sh/docs/object-styles)
  * such that properties that are part of the `Theme` will be transformed to

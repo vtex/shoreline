@@ -57,3 +57,20 @@ export const UsingClassNames: Story = () => {
     </Box>
   )
 }
+
+export const WithMediaQueryAliases: Story = () => {
+  return (
+    <Box
+      styles={{
+        color: 'light.primary',
+        '@mobile': { bg: 'blue' },
+        '@tablet': { bg: 'green' },
+        '@desktop': { bg: 'yellow' },
+        '@wideScreen': { bg: 'red' },
+      }}
+      className="my-className"
+    >
+      Box
+    </Box>
+  )
+}
