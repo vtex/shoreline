@@ -40,12 +40,12 @@ export function useSkeleton(props: SkeletonProps) {
 
   return {
     element,
-    themeKey: {
-      skeleton: { shape },
-    },
     csx: {
-      ...styles,
+      themeKey: {
+        skeleton: { shape },
+      },
       animation: `${load} 1.2s ease-in-out infinite`,
+      ...styles,
     },
     ...htmlProps,
   }
