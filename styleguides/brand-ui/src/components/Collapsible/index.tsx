@@ -91,10 +91,6 @@ const contentAnimation = css`
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
-  &data-leave] {
-    // Uncomment below to have a different leave animation
-    // transform: translate3d(0, 100%, 0);
-  }
 `;
 
 function Content({ children, sx = {}, state }: ContentProps) {

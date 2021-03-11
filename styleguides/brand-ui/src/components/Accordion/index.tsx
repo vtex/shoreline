@@ -6,7 +6,7 @@ import React, {
   useState,
   useEffect,
 } from 'react'
-import { DisclosureStateReturn } from 'reakit/ts'
+import { DisclosureStateReturn } from 'reakit'
 import { Box, SxStyleProp } from 'theme-ui'
 
 import { useCollapsible, Collapsible, CollapsibleProps } from '../Collapsible'
@@ -38,14 +38,20 @@ interface useAccordionReturn {
   states: DisclosureStateReturn[]
 }
 
-const useAccordion = ({collapsibles, initialState, animated}:{collapsibles: number, initialState?: AccordionInitialState, animated?: boolean}): useAccordionReturn => {
+interface useAccordionProps {
+  collapsibles: number,
+  initialState?: AccordionInitialState,
+  animated?: boolean
+}
+
+const useAccordion = ({collapsibles, initialState, animated}: useAccordionProps): useAccordionReturn => {
   const [currentVisible, setVisible] = useState((initialState?.visible ?? -1) as number)
   const useCollapsibles = Array.from({length: collapsibles}, _ => useCollapsible({animated}))
 
   useEffect(() => {
     if (currentVisible > -1) useCollapsibles[currentVisible].show()
   }, [currentVisible])
-  
+
   const toggle = (id: number) => {
     setVisible((current) => {
       if (current > -1) useCollapsibles[current].hide()
@@ -53,7 +59,7 @@ const useAccordion = ({collapsibles, initialState, animated}:{collapsibles: numb
       return(current === id ? -1 : id)
     })
   }
-  
+
   return {props: {...useCollapsibles[0],
         visible: currentVisible,
         toggle,
