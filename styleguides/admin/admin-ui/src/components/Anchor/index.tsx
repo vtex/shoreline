@@ -13,9 +13,11 @@ function useAnchor(props: AnchorProps): PrimitiveProps<'a'> {
   const { styleOverrides, ...primitiveProps } = props
 
   return {
-    csx: styleOverrides,
     element: 'a',
-    themeKey: 'components.anchor',
+    csx: {
+      themeKey: 'components.anchor',
+      ...styleOverrides,
+    },
     ...primitiveProps,
   }
 }

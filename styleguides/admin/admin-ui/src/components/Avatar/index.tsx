@@ -19,11 +19,13 @@ export function useAvatar(props: AvatarProps): PrimitiveProps<'div'> {
   const { palette = 'base', label, styleOverrides, ...primitiveProps } = props
 
   return {
-    csx: styleOverrides,
-    themeKey: {
-      avatar: {
-        palette,
+    csx: {
+      themeKey: {
+        avatar: {
+          palette,
+        },
       },
+      ...styleOverrides,
     },
     children: jsxs(Primitive, { csx: { text: 'highlight' } }, label?.charAt(0)),
     ...primitiveProps,
