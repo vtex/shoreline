@@ -62,11 +62,10 @@ export const WithMediaQueryAliases: Story = () => {
   return (
     <Box
       styles={{
+        bg: 'yellow',
         color: 'light.primary',
         '@mobile': { bg: 'blue' },
         '@tablet': { bg: 'green' },
-        '@desktop': { bg: 'yellow' },
-        '@wideScreen': { bg: 'red' },
       }}
     >
       Box

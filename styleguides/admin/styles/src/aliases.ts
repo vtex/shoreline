@@ -8,8 +8,8 @@ export const alias = (key: string, theme: Theme) => {
     bg: 'backgroundColor',
     fontSettings: 'fontVariationSettings',
     '@mobile': `@media (max-width: ${tablet})`,
-    '@tablet': `@media (min-width: ${tablet})`,
-    '@desktop': `@media (min-width: ${desktop})`,
+    '@tablet': `@media (max-width: ${desktop})`,
+    '@desktop': `@media (max-width: ${wideScreen})`,
     '@wideScreen': `@media (min-width: ${wideScreen})`,
   }
 
