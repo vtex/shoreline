@@ -6,7 +6,6 @@ import Anchor from '../components/Anchor'
 import List from '../components/List'
 import Kbd from '../components/Kbd'
 import Blockquote from '../components/Blockquote'
-import Experimental from '../icons/Experimental'
 import Heading from '../components/Heading'
 
 import Summary from '../components/Summary'
@@ -99,12 +98,7 @@ const { Compiler: renderAst } = new RehypeReact({
       children,
       ...props
     }: React.HTMLAttributes<unknown>) {
-      return (
-        <span {...props}>
-          {children}
-          {title === 'Experimental' && <Experimental />}
-        </span>
-      )
+      return <span {...props}>{children}</span>
     },
     pre: function RenderCode(prevProps) {
       function getChildrenCode(props: { children?: React.ReactNode }) {

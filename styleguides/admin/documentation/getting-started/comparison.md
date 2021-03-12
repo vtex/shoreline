@@ -1,5 +1,5 @@
 ---
-path: /guide/comparison/
+path: /getting-started/comparison/
 ---
 
 # Styleguide Comparison

@@ -1,6 +1,5 @@
 ---
 path: /table/
-experimental: true
 ---
 
 # Table

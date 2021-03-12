@@ -19,7 +19,6 @@ const query = graphql`
         title
         frontmatter {
           path
-          experimental
           fullPage
         }
       }

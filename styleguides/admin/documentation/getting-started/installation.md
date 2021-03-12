@@ -1,33 +1,25 @@
 ---
-path: /guide/get-started/
+path: /getting-started/installation/
 redirect_from:
   - /
 ---
 
-# Get started
+# Installation
 
 AdminUI is a curated collection of the reusable components within VTEX admin apps.
-
-## Installation
-
 `admin-ui` is available as a npm package. It has `@vtex/admin-ui-icons` as a peer dependency.
 
 ```sh isStatic
 yarn add @vtex/admin-ui
-
-# or
-
-npm install @vtex/admin-ui
 ```
 
-> For `VTEX IO` apps you should do this on the /react folder
+**For `VTEX IO` apps you should do this on the /react folder**
 
 ## Setup
 
 ### ThemeProvider
 
 For Admin UI to work correctly, you need to setup the `ThemeProvider` at the root of your application.
-
 Go to the root of your application and do this:
 
 ```jsx isStatic
