@@ -7,13 +7,12 @@
 - section: Core concepts
   paths:
     - /core-concepts/icons/
-    - /core-concepts/styles/
+    - /core-concepts/csx-prop/
 - section: Theming
   paths:
     - /theming/default-theme/
     - /theming/theme-provider/
     - /theming/components/
-    - /theming/inline-styles/
     - /theming/responsive-design/
 - section: Primitives
   paths:

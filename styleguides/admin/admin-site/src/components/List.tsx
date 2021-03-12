@@ -4,7 +4,7 @@ import { Box, BoxProps } from '@vtex/admin-ui'
 export default function List(props: ListProps) {
   return (
     <Box
-      styles={{
+      csx={{
         lineHeight: 1.5,
         li: {
           marginBottom: 2,

@@ -103,7 +103,7 @@ Feedback that the text should pass.
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     '> *': {
       display: 'block',
     },
@@ -120,12 +120,12 @@ Feedback that the text should pass.
 
 ## Customization
 
-You can use the `styleOverrides` property to handle different styles.
+You can use the `csx` property to handle different styles.
 
 ### Example
 
 ```jsx
-<Text styleOverrides={{ color: 'blue.hover' }} variant="body" element="span">
+<Text csx={{ color: 'blue.hover' }} variant="body" element="span">
   Look, a text with 'blue.hover' color... 🤔
 </Text>
 ```

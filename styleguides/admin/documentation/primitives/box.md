@@ -39,7 +39,7 @@ Box can be rendered as any HTML tag or component. To use this variation, add a v
   <Box element="section">👻 I'm a section</Box>
   <Box>👻 I'm a div</Box>
   <Box element="footer">👻 I'm a footer</Box>
-  <Box styles={{ display: 'block' }} element="a" href="/typography/anchor">
+  <Box csx={{ display: 'block' }} element="a" href="/typography/anchor">
     <IconLink /> I'm a link to anchor docs
   </Box>
 </Box>
@@ -47,13 +47,13 @@ Box can be rendered as any HTML tag or component. To use this variation, add a v
 
 ## Customization
 
-With the `styles` property, you can add any customization to the `Box` component. Check the [StyleObject](/theming/style-object) page for detailed info.
+With the `csx` property, you can add any customization to the `Box` component. Check the [StyleObject](/theming/style-object) page for detailed info.
 
 ```jsx
-<Box styles={{ display: 'flex', div: { paddingX: 2, marginX: 2 } }}>
-  <Box styles={{ border: 'default' }}>First</Box>
-  <Box styles={{ border: 'default' }}>Second</Box>
-  <Box styles={{ border: 'default' }}>Third</Box>
+<Box csx={{ display: 'flex', div: { paddingX: 2, marginX: 2 } }}>
+  <Box csx={{ border: 'default' }}>First</Box>
+  <Box csx={{ border: 'default' }}>Second</Box>
+  <Box csx={{ border: 'default' }}>Third</Box>
 </Box>
 ```
 

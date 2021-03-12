@@ -23,8 +23,8 @@ Primitive components should be used during the following cases:
 ```jsx isStatic
 function CustomComponent({ heading, children }) {
   return (
-    <Box styles={{ display: 'flex', paddingY: 4, border: 'divider-bottom' }}>
-      <Box styles={{ bg: 'blue', width: 10, height: 60, marginRight: 3 }} />
+    <Box csx={{ display: 'flex', paddingY: 4, border: 'divider-bottom' }}>
+      <Box csx={{ bg: 'blue', width: 10, height: 60, marginRight: 3 }} />
       <Set spacing={3} orientation="vertical" fluid>
         <Heading>{heading}</Heading>
         <Paragraph>{children}</Paragraph>
@@ -69,9 +69,7 @@ function Example() {
 // ✅ Correct
 function Example() {
   return (
-    <Box styles={{ bg: 'mid.tertiary', padding: 2, margin: 2 }}>
-      {...content}
-    </Box>
+    <Box csx={{ bg: 'mid.tertiary', padding: 2, margin: 2 }}>{...content}</Box>
   )
 }
 ```
@@ -88,9 +86,9 @@ _Note that you may want to use one of our `Layout` components before using Box t
 // 🚫 Wrong
 function Example() {
   return (
-    <Box styles={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Box styles={{ width: '25%' }}>25%</Box>
-      <Box styles={{ width: '50%' }}>75%</Box>
+    <Box csx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Box csx={{ width: '25%' }}>25%</Box>
+      <Box csx={{ width: '50%' }}>75%</Box>
     </Box>
   )
 }
@@ -114,7 +112,7 @@ function Example() {
 // 🚫 Wrong
 function Example() {
   return (
-    <Box element="h1" styles={{ text: 'headline' }}>
+    <Box element="h1" csx={{ text: 'headline' }}>
       Headline 1 text
     </Box>
   )
@@ -133,7 +131,7 @@ function Example() {
 function Example() {
   return (
     <Box
-      styles={{
+      csx={{
         borderStyle: 'solid',
         borderWidth: '1px',
         borderRadius: 'default',
@@ -143,7 +141,7 @@ function Example() {
     >
       <Box
         element="button"
-        styles={{
+        csx={{
           border: 'none',
           borderRadius: 'default',
           bg: 'dark.primary',

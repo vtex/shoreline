@@ -25,10 +25,10 @@ Layout components should be used during the following cases:
 // 🚫 Wrong
 function Example() {
   return (
-    <Box styles={{ display: 'flex', flexDirection: 'column' }}>
-      <Button styleOverrides={{ marginBottom: 3 }} />
-      <Button styleOverrides={{ marginBottom: 3 }} />
-      <Button styleOverrides={{ marginBottom: 3 }} />
+    <Box csx={{ display: 'flex', flexDirection: 'column' }}>
+      <Button csx={{ marginBottom: 3 }} />
+      <Button csx={{ marginBottom: 3 }} />
+      <Button csx={{ marginBottom: 3 }} />
       <Button />
     </Box>
   )
@@ -82,7 +82,7 @@ function Example() {
     <Set
       spacing={2}
       orientation="vertical"
-      styleOverrides={{
+      csx={{
         borderStyle: 'solid',
         borderWidth: '1px',
         borderRadius: 'default',

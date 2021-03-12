@@ -39,7 +39,7 @@ import { Heading, HeadingProps } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `styleOverrides` property to handle different styles, and also the `TextPattern` and `SpaceStyleProps`.
+You can use the `csx` property to handle different styles, and also the `TextPattern` and `SpaceStyleProps`.
 
 ### Example
 
@@ -47,7 +47,7 @@ You can use the `styleOverrides` property to handle different styles, and also t
 <Heading
   text="body"
   marginBottom={2}
-  styleOverrides={{ fontSize: 4, bg: 'light.secondary', color: 'blue' }}
+  csx={{ fontSize: 4, bg: 'light.secondary', color: 'blue' }}
 >
   Heading 1
 </Heading>

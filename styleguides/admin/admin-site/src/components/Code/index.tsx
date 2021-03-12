@@ -63,16 +63,16 @@ export function Code(props: CodeProps) {
           theme={theme}
           scope={scope}
         >
-          <Box styles={styles.wrapper}>
+          <Box csx={styles.wrapper}>
             <LivePreview className={cn(styles.preview)} />
 
-            <Box styles={styles.editorWrapper}>
+            <Box csx={styles.editorWrapper}>
               <Button
                 size="small"
                 variant="secondary"
                 onClick={handleClick}
                 disabled={copied}
-                styleOverrides={styles.copyButton}
+                csx={styles.copyButton}
               >
                 {copied ? 'Copied!' : 'Copy'}
               </Button>
@@ -89,7 +89,7 @@ export function Code(props: CodeProps) {
 
   return (
     <ThemeProvider system={system}>
-      {title && <Box styles={styles.preHeader}>{title}</Box>}
+      {title && <Box csx={styles.preHeader}>{title}</Box>}
       <div className="gatsby-highlight">
         <Highlight
           {...defaultProps}
@@ -120,7 +120,7 @@ export function Code(props: CodeProps) {
                 variant="secondary"
                 onClick={handleClick}
                 disabled={copied}
-                styleOverrides={styles.copyButton}
+                csx={styles.copyButton}
               >
                 {copied ? 'Copied!' : 'Copy'}
               </Button>
@@ -135,7 +135,7 @@ export function Code(props: CodeProps) {
                   return (
                     <div {...lineProps}>
                       {lineNumbers && (
-                        <Box element="span" styles={styles.lineNo}>
+                        <Box element="span" csx={styles.lineNo}>
                           {index + 1}
                         </Box>
                       )}

@@ -26,7 +26,7 @@ import { Anchor } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `styleOverrides` property to customize any style.
+You can use the `csx` property to customize any style.
 
 # Props
 

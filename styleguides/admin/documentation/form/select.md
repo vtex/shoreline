@@ -169,7 +169,7 @@ function Example() {
   const state = useSelectState({ items: days })
 
   return (
-    <Card styleOverrides={{ width: 500 }}>
+    <Card csx={{ width: 500 }}>
       <Select
         items={days}
         state={state}
@@ -211,7 +211,7 @@ function Example() {
 
 ## Customization
 
-You can use the [styleOverrides](https://admin-ui-docs.vercel.app/theming/inline-styles/#styles--styleoverrides) property to customize any style.
+You can use the [csx](https://admin-ui-docs.vercel.app/theming/inline-styles/#styles--csx) property to customize any style.
 
 ### Example
 
@@ -227,7 +227,7 @@ function Example() {
       <Select
         items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
         state={state}
-        styleOverrides={{ margin: 4 }}
+        csx={{ margin: 4 }}
         label="Date"
       />
     </ThemeProvider>

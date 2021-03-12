@@ -48,16 +48,13 @@ import { List, ListProps } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `styleOverrides` property to handle different styles, and also the `TextPattern`.
+You can use the `csx` property to handle different styles, and also the `TextPattern`.
 
 ### Example
 
 ```jsx
 <List style="square">
-  <List.Item
-    text="subtitle"
-    styleOverrides={{ bg: 'blue', color: 'light.primary' }}
-  >
+  <List.Item text="subtitle" csx={{ bg: 'blue', color: 'light.primary' }}>
     Coffe
   </List.Item>
   <List>

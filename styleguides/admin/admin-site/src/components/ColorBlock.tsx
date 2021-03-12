@@ -15,7 +15,7 @@ function ColorCard(props: CardProps) {
 
   return (
     <Set
-      styleOverrides={{
+      csx={{
         width: 265,
         borderRadius: 'default',
       }}
@@ -25,7 +25,7 @@ function ColorCard(props: CardProps) {
       <Flex
         align="center"
         justify="center"
-        styles={{
+        csx={{
           backgroundColor: color,
           borderRadius: 'default',
           height: 48,
@@ -40,7 +40,7 @@ function ColorCard(props: CardProps) {
 
       <Set spacing={1} orientation="vertical">
         <Text
-          styleOverrides={{
+          csx={{
             display: 'block',
             fontSettings: 'bold',
           }}
@@ -48,7 +48,7 @@ function ColorCard(props: CardProps) {
           {name}
         </Text>
         <Text
-          styleOverrides={{
+          csx={{
             textTransform: 'uppercase',
             display: 'block',
           }}

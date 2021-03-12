@@ -18,7 +18,7 @@ If you want to know more about how to style a primitive component, check out our
 By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
 
 ```jsx
-<Box styles={{ width: 'full', height: 192 }}>
+<Box csx={{ width: 'full', height: 192 }}>
   <Skeleton />
 </Box>
 ```
@@ -40,7 +40,7 @@ import { Skeleton } from '@vtex/admin-ui'
 By default, Skeleton's shape is rectangular. To use this variation, the `shape` property has the `rect` value.
 
 ```jsx
-<Skeleton styles={{ size: 128 }} />
+<Skeleton csx={{ size: 128 }} />
 ```
 
 ### Circle
@@ -48,12 +48,12 @@ By default, Skeleton's shape is rectangular. To use this variation, the `shape` 
 The shape can also be circular. To use this variation, the `shape` property has the `circle` value.
 
 ```jsx
-<Skeleton shape="circle" styles={{ size: 100 }} />
+<Skeleton shape="circle" csx={{ size: 100 }} />
 ```
 
 ## Customization
 
-With the `styles` property, you can add any customization to the `Skeleton` component. Check the [StyleObject](/theming/style-object) page for detailed info.
+With the `csx` property, you can add any customization to the `Skeleton` component. Check the [StyleObject](/theming/style-object) page for detailed info.
 
 ## Props
 

@@ -21,7 +21,7 @@ Check: [Consuming theme keys](/style-object/#consuming-theme-keys)
 // define an object containing your components
 const components = {
   avatar: {
-    // styles of your component
+    // csx of your component
     bg: 'blue',
     borderRadius: 'round',
   },
@@ -40,7 +40,7 @@ const system = createSystem('app-name', {
 
 // USAGE:
 
-// 1. within a style-object. Works on styles & styleOverides as well
+// 1. within a style-object. Works on csx & styleOverides as well
 const { cn } = useSystem()
 <div className={cn({ themeKey: 'components.avatar'})} />
 
@@ -56,7 +56,7 @@ Variants are options that the components can have. Imagine that the `component` 
 
 ```js isStatic
 [componentName]: {
-  styles: {
+  csx: {
     // StyleObject
     // It will be present on all variants
   }
@@ -82,18 +82,18 @@ Variants are options that the components can have. Imagine that the `component` 
 // theme with variants
 const components = {
   avatar: {
-    styles: {
-      /** styles that will be on every variant */
+    csx: {
+      /** csx that will be on every variant */
       borderRadius: round,
     },
     /** `palette` is the name of the variant */
     palette: {
       primary: {
-        /** styles of the primary palette */
+        /** csx of the primary palette */
         bg: 'blue',
       },
       danger: {
-        /** styles of the danger one */
+        /** csx of the danger one */
         bg: 'red',
       },
       /** and so on... */
@@ -109,7 +109,7 @@ const components = {
   },
 }
 
-// 1. within a style-object. Works on styles & styleOverides as well
+// 1. within a style-object. Works on csx & styleOverides as well
 const { cn } = useSystem()
 <div className={cn({ themeKey: { avatar: { palette: 'primary', size: 'small' }})} />
 

@@ -24,16 +24,16 @@ function Example() {
         <Tabs.Tab label="Tab 4" id="4" />
       </Tabs.List>
       <Tabs.Content id="1">
-        <Card styleOverrides={{ marginTop: 2 }}>Tab 1 Content</Card>
+        <Card csx={{ marginTop: 2 }}>Tab 1 Content</Card>
       </Tabs.Content>
       <Tabs.Content id="2">
-        <Card styleOverrides={{ marginTop: 2 }}>Tab 2 Content</Card>
+        <Card csx={{ marginTop: 2 }}>Tab 2 Content</Card>
       </Tabs.Content>
       <Tabs.Content id="3">
-        <Card styleOverrides={{ marginTop: 2 }}>Tab 3 Content</Card>
+        <Card csx={{ marginTop: 2 }}>Tab 3 Content</Card>
       </Tabs.Content>
       <Tabs.Content id="4">
-        <Card styleOverrides={{ marginTop: 2 }}>Tab 4 Content</Card>
+        <Card csx={{ marginTop: 2 }}>Tab 4 Content</Card>
       </Tabs.Content>
     </Tabs>
   )
@@ -69,16 +69,16 @@ function Example() {
         <Tabs.Tab label="Tab 4" id="4" />
       </Tabs.List>
       <Tabs.Content id="1">
-        <Card styleOverrides={{ marginTop: 2 }}>Tab 1 Content</Card>
+        <Card csx={{ marginTop: 2 }}>Tab 1 Content</Card>
       </Tabs.Content>
       <Tabs.Content id="2">
-        <Card styleOverrides={{ marginTop: 2 }}>Tab 2 Content</Card>
+        <Card csx={{ marginTop: 2 }}>Tab 2 Content</Card>
       </Tabs.Content>
       <Tabs.Content id="3">
-        <Card styleOverrides={{ marginTop: 2 }}>Tab 3 Content</Card>
+        <Card csx={{ marginTop: 2 }}>Tab 3 Content</Card>
       </Tabs.Content>
       <Tabs.Content id="4">
-        <Card styleOverrides={{ marginTop: 2 }}>Tab 4 Content</Card>
+        <Card csx={{ marginTop: 2 }}>Tab 4 Content</Card>
       </Tabs.Content>
     </Tabs>
   )
@@ -100,7 +100,7 @@ function Example() {
   const { setSelectedId, ...state } = useTabState({ selectedId: '3' })
 
   return (
-    <Card styleOverrides={{ width: 600 }}>
+    <Card csx={{ width: 600 }}>
       <Tabs state={{ setSelectedId, ...state }}>
         <Tabs.List fluid aria-label="my-tabs">
           <Tabs.Tab label="Tab 1" id="1" />
@@ -109,22 +109,22 @@ function Example() {
           <Tabs.Tab label="Tab 4" id="4" />
         </Tabs.List>
         <Tabs.Content id="1">
-          <Card styleOverrides={{ marginTop: 2 }}>
+          <Card csx={{ marginTop: 2 }}>
             <Button onClick={() => setSelectedId('2')}>Go to Tab 2!</Button>
           </Card>
         </Tabs.Content>
         <Tabs.Content id="2">
-          <Card styleOverrides={{ marginTop: 2 }}>
+          <Card csx={{ marginTop: 2 }}>
             <Button onClick={() => setSelectedId('3')}>Go to Tab 3!</Button>
           </Card>
         </Tabs.Content>
         <Tabs.Content id="3">
-          <Card styleOverrides={{ marginTop: 2 }}>
+          <Card csx={{ marginTop: 2 }}>
             <Button onClick={() => setSelectedId('4')}>Go to Tab 4!</Button>
           </Card>
         </Tabs.Content>
         <Tabs.Content id="4">
-          <Card styleOverrides={{ marginTop: 2 }}>
+          <Card csx={{ marginTop: 2 }}>
             <Button onClick={() => setSelectedId('1')}>Go to Tab 1!</Button>
           </Card>
         </Tabs.Content>

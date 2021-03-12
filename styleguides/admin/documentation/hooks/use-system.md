@@ -67,7 +67,7 @@ function Example() {
 ```jsx isStatic
 // 🚫 Wrong
 <Box
-  styles={cn({
+  csx={cn({
     bg: 'mid.tertiary',
     'button + button': { marginLeft: 2 },
   })}
@@ -75,7 +75,7 @@ function Example() {
 
 // ✅ Correct
 <Box
-  styles={{
+  csx={{
     bg: 'mid.tertiary',
     'button + button': { marginLeft: 2 },
   }}
@@ -87,7 +87,7 @@ function Example() {
 ```jsx isStatic
 // 🚫 Wrong
 <Button
-  styleOverrides={cn({
+  csx={cn({
     bg: 'mid.tertiary',
     'button + button': { marginLeft: 2 },
   })}
@@ -95,7 +95,7 @@ function Example() {
 
 // ✅ Correct
 <Button
-  styleOverrides={{
+  csx={{
     bg: 'mid.tertiary',
     'button + button': { marginLeft: 2 },
   }}

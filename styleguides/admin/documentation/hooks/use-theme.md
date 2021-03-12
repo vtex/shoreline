@@ -42,11 +42,11 @@ function usePrimarySuccess(weight = 0.5) {
 const theme = useTheme()
 
 // 🚫 Wrong
-<Box styles={{ color: theme.colors.blue.default  }} />
+<Box csx={{ color: theme.colors.blue.default  }} />
 <div className={cn({ color: theme.colors.blue.default  })} />
 
 
 // ✅ Correct
-<Box styles={{ color: 'blue'  }} />
+<Box csx={{ color: 'blue'  }} />
 <div className={cn({ color: 'blue'  })} />
 ```

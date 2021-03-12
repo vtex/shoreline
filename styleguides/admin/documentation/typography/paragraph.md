@@ -35,7 +35,7 @@ import { Paragraph, ParagraphProps } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `styleOverrides` property to handle different styles, and also the `TextPattern` and `SpaceStyleProps`.
+You can use the `csx` property to handle different styles, and also the `TextPattern` and `SpaceStyleProps`.
 
 ### Example
 
@@ -43,7 +43,7 @@ You can use the `styleOverrides` property to handle different styles, and also t
 <Paragraph
   text="body"
   padding={6}
-  styleOverrides={{ bg: 'light.secondary', color: 'blue' }}
+  csx={{ bg: 'light.secondary', color: 'blue' }}
 >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a aliquam
   ex, quis pretium enim. Sed cursus quam ac lorem efficitur, ac sodales lorem

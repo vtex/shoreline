@@ -1,8 +1,8 @@
 import 'whatwg-fetch'
 import React from 'react'
 
-import CoreLayout from './src/components/CoreLayout'
+import { PageLayout } from './src/components/PageLayout'
 
 export const wrapPageElement = ({ element, props }) => {
-  return <CoreLayout {...props}>{element}</CoreLayout>
+  return <PageLayout {...props}>{element}</PageLayout>
 }

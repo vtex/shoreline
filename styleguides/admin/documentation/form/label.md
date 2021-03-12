@@ -32,14 +32,14 @@ import { Label } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `styleOverrides` property to handle different styles.
+You can use the `csx` property to handle different styles.
 
 ### Example
 
 ```jsx
 function Example() {
   return (
-    <Label styleOverrides={{ display: 'flex', alignItems: 'center' }}>
+    <Label csx={{ display: 'flex', alignItems: 'center' }}>
       <Toggle state={{ checked: true }} />
       Toggle Label!
     </Label>

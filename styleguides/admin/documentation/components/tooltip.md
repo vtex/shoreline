@@ -44,7 +44,7 @@ The `label` property can be of `string` or `ReactNode` type. Check the examples 
 <Tooltip
   label={
     <Set orientation="vertical" spacing={2}>
-      <Text variant="small" styleOverrides={{ color: 'mid.tertiary' }}>
+      <Text variant="small" csx={{ color: 'mid.tertiary' }}>
         Previous Order: 102183 (211-213)
       </Text>
       <Tag palette="green" label="Ready for Handling" size="small" />
@@ -71,14 +71,14 @@ You can use the `placement` property, to change the position that the Tooltip po
 
 ## Customization
 
-You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides) property to handle different styles.
+You can use the [csx](/theming/inline-styles/#styles--csx) property to handle different styles.
 
 ### Example
 
-For example, you can reduce the `Tooltip` opacity. One way to do this is by using the `styleOverrides` property, check the example below!
+For example, you can reduce the `Tooltip` opacity. One way to do this is by using the `csx` property, check the example below!
 
 ```jsx
-<Tooltip label="Tooltip Label" styleOverrides={{ opacity: 0.8 }}>
+<Tooltip label="Tooltip Label" csx={{ opacity: 0.8 }}>
   <Button icon={<IconDuplicate />} variant="tertiary" />
 </Tooltip>
 ```
