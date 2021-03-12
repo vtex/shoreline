@@ -121,7 +121,7 @@ Adapts to the context that is inserted.
 ```jsx
 <Set orientation="vertical">
   <Box
-    styles={{
+    csx={{
       color: 'dark.primary',
       bg: 'light.primary',
       padding: 4,
@@ -130,7 +130,7 @@ Adapts to the context that is inserted.
     <Button variant="adaptative-dark" icon={<IconClose />} />
   </Box>
   <Box
-    styles={{
+    csx={{
       color: 'light.primary',
       bg: 'dark.primary',
       padding: 4,

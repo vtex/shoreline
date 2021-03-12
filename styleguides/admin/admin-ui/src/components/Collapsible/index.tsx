@@ -9,7 +9,7 @@ import {
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 
-import { Box } from '../Box'
+import { Box, Flex } from '@vtex/admin-primitives'
 import {
   CollapsibleProvider,
   useCollapsibleContext,
@@ -40,7 +40,7 @@ export function Collapsible(props: CollapsibleProps) {
   const { grouped } = useGroup()
 
   const {
-    styleOverrides,
+    csx,
     children,
     disabled,
     focusable,
@@ -63,7 +63,7 @@ export function Collapsible(props: CollapsibleProps) {
 
   const className = cn({
     themeKey: variant.container,
-    ...styleOverrides,
+    ...csx,
   })
 
   return (
@@ -78,19 +78,19 @@ export function Collapsible(props: CollapsibleProps) {
 }
 
 export function Header(props: CollapsibleHeaderProps) {
-  const { children, label, styleOverrides, ...headerProps } = props
+  const { children, label, csx, ...headerProps } = props
   const { variant } = useCollapsibleContext()
   const { cn } = useSystem()
 
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: variant.header,
   })
 
   return (
     <motion.header layout className={className} {...headerProps}>
       <Disclosure>{label}</Disclosure>
-      <Box styles={{ display: 'flex' }}>{children}</Box>
+      <Flex>{children}</Flex>
     </motion.header>
   )
 }
@@ -107,16 +107,16 @@ function Disclosure({ children }: { children: ReactNode }) {
             iconPosition="start"
             icon={
               <IconCaret
-                styleOverrides={{
+                csx={{
                   transition: 'transform 150ms ease',
                   transform: `rotate(${visible ? 180 : 90}deg)`,
                 }}
               />
             }
             variant="tertiary"
-            styleOverrides={{
+            csx={{
               color: 'dark.primary',
-              textTransform: "none",
+              textTransform: 'none',
               '&:hover': { backgroundColor: 'transparent' },
               '&:active': { backgroundColor: 'transparent' },
             }}
@@ -130,7 +130,7 @@ function Disclosure({ children }: { children: ReactNode }) {
 }
 
 export function Content(props: CollapsibleContentProps) {
-  const { children, styleOverrides, ...contentProps } = props
+  const { children, csx, ...contentProps } = props
   const { variant, ...disclosureProps } = useCollapsibleContext()
 
   return (
@@ -163,8 +163,7 @@ export function Content(props: CollapsibleContentProps) {
                 {...(enhancedProps as PropsWithoutRef<'section'>)}
               >
                 <Box
-                  styles={styleOverrides}
-                  themeKey={variant.content}
+                  csx={{ themeKey: variant.content, ...csx }}
                   {...contentProps}
                 >
                   {children}

@@ -33,14 +33,14 @@ import { Card } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides) property to handle different styles, and also all the [CSS Props](/theming/css-props/).
+You can use the [csx](/theming/inline-styles/#styles--csx) property to handle different styles, and also all the [CSS Props](/theming/css-props/).
 
 ### Without Padding
 
-For example, you can remove the padding defined on the theme. One way to do this is by combining `CSS Props` and `styleOverrides`, check the example below!
+For example, you can remove the padding defined on the theme. One way to do this is by combining `CSS Props` and `csx`, check the example below!
 
 ```jsx
-<Card padding={0} width={500} styleOverrides={{ 'h1, p': { margin: 4 } }}>
+<Card padding={0} width={500} csx={{ 'h1, p': { margin: 4 } }}>
   <Heading>Our People</Heading>
   <img
     width="100%"

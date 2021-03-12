@@ -1,7 +1,7 @@
 import React, { ElementType, ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex/admin-core'
 
-import { Box } from '../../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Column } from '../typings'
 import { useStylesContext, useCellRoleContext } from '../context'
 import { SystemComponent } from '../../../types'
@@ -10,7 +10,7 @@ export const TableCell = forwardRef(function Td<T>(
   props: TableCellProps<T>,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'div', styleOverrides = {}, column, ...boxProps } = props
+  const { element = 'div', csx = {}, column, ...boxProps } = props
 
   const { variants, dir } = useStylesContext()
   const role = useCellRoleContext()
@@ -19,12 +19,12 @@ export const TableCell = forwardRef(function Td<T>(
     <Box
       ref={ref}
       element={element}
-      themeKey={variants[role]}
       dir={dir}
-      styles={{
+      csx={{
+        themeKey: variants[role],
         minWidth: column.width,
         maxWidth: column.width,
-        ...styleOverrides,
+        ...csx,
       }}
       role={role}
       {...boxProps}

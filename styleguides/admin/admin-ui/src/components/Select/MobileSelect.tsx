@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
 
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Label } from '../Label'
 import { useSystem } from '@vtex/admin-core'
 import { SelectProps } from './index'
@@ -30,11 +30,19 @@ export function MobileSelect<T>(props: SelectProps<T>) {
 
   return (
     <Box
-      themeKey="components.select.mobileContainer"
-      styles={block ? { display: 'block', minWidth: 288, width: 'full' } : {}}
+      csx={
+        block
+          ? {
+              display: 'block',
+              minWidth: 288,
+              width: 'full',
+              themeKey: 'components.select.mobileContainer',
+            }
+          : { themeKey: 'components.select.mobileContainer' }
+      }
     >
       <Label
-        styleOverrides={stylesOf(
+        csx={stylesOf(
           `components.select.mobileLabel${
             state.selectedItem ? 'SelectedItem' : ''
           }`
@@ -46,9 +54,9 @@ export function MobileSelect<T>(props: SelectProps<T>) {
         value={renderItem(state.selectedItem) ?? ''}
         disabled={disabled}
         onChange={handleOption}
-        className={cn(
-          stylesOf(`components.select.mobileSelect${error ? 'Error' : ''}`)
-        )}
+        className={cn({
+          themeKey: `components.select.mobileSelect${error ? 'Error' : ''}`,
+        })}
       >
         {!state.selectedItem && <option disabled value="" />}
 
@@ -59,7 +67,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
       <IconCaret
         direction="down"
         size={24}
-        styleOverrides={stylesOf('components.select.mobileIcon')}
+        csx={stylesOf('components.select.mobileIcon')}
       />
     </Box>
   )

@@ -1,7 +1,7 @@
 import { createComponent, jsxs } from '@vtex/admin-core'
 import { IconSearch } from '@vtex/admin-ui-icons'
 
-import { Primitive, PrimitiveProps } from '../Primitive'
+import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 import { AbstractInput, AbstractInputProps } from '../AbstractInput'
 import { Button } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
@@ -31,7 +31,7 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
         placeholder,
         icon: loading
           ? jsxs(Spinner, {})
-          : jsxs(IconSearch, { styleOverrides: { color: 'blue' } }),
+          : jsxs(IconSearch, { csx: { color: 'blue' } }),
         ...inputProps,
       }),
       jsxs(VisuallyHidden, {}, jsxs(Button, { type: 'submit' }, 'Search')),

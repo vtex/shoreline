@@ -193,7 +193,7 @@ function Example() {
 
 ## Customization
 
-You can use the [styleOverrides](https://admin-ui-docs.vercel.app/theming/inline-styles/#styles--styleoverrides) property to customize any style.
+You can use the [csx](https://admin-ui-docs.vercel.app/theming/inline-styles/#styles--csx) property to customize any style.
 
 ### Example
 
@@ -208,7 +208,7 @@ function Example() {
     <Dropdown
       items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
       state={state}
-      styleOverrides={{ margin: 4 }}
+      csx={{ margin: 4 }}
       label="Date"
     />
   )

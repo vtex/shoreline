@@ -1,7 +1,7 @@
 import React, { ElementType, ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex/admin-core'
 
-import { Box } from '../../Box'
+import { Box } from '@vtex/admin-primitives'
 import { useStylesContext, CellRoleContext } from '../context'
 import { SystemComponent } from '../../../types'
 
@@ -9,7 +9,7 @@ export const TableHead = forwardRef(function Thead(
   props: TableHeadProps,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'div', children, styleOverrides, ...boxProps } = props
+  const { element = 'div', children, csx, ...boxProps } = props
 
   const { dir, variants } = useStylesContext()
 
@@ -17,8 +17,7 @@ export const TableHead = forwardRef(function Thead(
     <Box
       element={element}
       ref={ref}
-      themeKey={variants.header}
-      styles={styleOverrides}
+      csx={{ themeKey: variants.header, ...csx }}
       role="rowgroup"
       dir={dir}
       {...boxProps}

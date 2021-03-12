@@ -4,17 +4,17 @@ import { Story, Meta } from '@storybook/react'
 import { Box } from './index'
 
 export default {
-  title: 'admin-ui/Box',
+  title: 'Primitives/Box',
 } as Meta
 
 export const Basic: Story = () => {
   return <Box>Cool Box</Box>
 }
 
-export const Styles: Story = () => {
+export const CsxProp: Story = () => {
   return (
     <Box
-      styles={{
+      csx={{
         fontSize: 64,
         zIndex: 'over',
       }}
@@ -24,10 +24,10 @@ export const Styles: Story = () => {
   )
 }
 
-export const ConsumeTheme: Story = () => {
+export const ConsumingAdminUiTheme: Story = () => {
   return (
     <Box
-      styles={{
+      csx={{
         fontSize: 64,
         bg: 'blue',
         color: 'light.primary',
@@ -39,29 +39,6 @@ export const ConsumeTheme: Story = () => {
   )
 }
 
-export const Divider: Story = () => {
-  return (
-    <>
-      <Box
-        styles={{
-          text: 'headline',
-          border: 'divider-bottom',
-          width: 100,
-        }}
-      >
-        Headline
-      </Box>
-      <Box
-        styles={{
-          text: 'subtitle',
-        }}
-      >
-        Subtitle
-      </Box>
-    </>
-  )
-}
-
 export const Polymorphism: Story = () => {
   return (
     <Box element="a" href="https://reakit.io/docs/role/" target="blank">
@@ -70,10 +47,10 @@ export const Polymorphism: Story = () => {
   )
 }
 
-export const WithClassName: Story = () => {
+export const UsingClassNames: Story = () => {
   return (
     <Box
-      styles={{ bg: 'primary.base', color: 'background' }}
+      csx={{ bg: 'primary.base', color: 'background' }}
       className="my-className"
     >
       Box

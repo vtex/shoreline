@@ -244,7 +244,7 @@ useEffect(() => {
 
 function Example() {
   return (
-    <Box styles={{ 'button + button': { ml: 4 } }}>
+    <Box csx={{ 'button + button': { ml: 4 } }}>
       <Button onClick={fetchData} disabled={data.length > 0}>
         Get blocks data
       </Button>
@@ -253,7 +253,7 @@ function Example() {
       </ModalDisclosure>
       <StatelessModal aria-label="Add block modal" state={blockModal}>
         <StatelessModal.Header title="Add new block" />
-        <StatelessModal.Content styleOverrides={{ paddingTop: 0 }}>
+        <StatelessModal.Content csx={{ paddingTop: 0 }}>
           <List>
             {data.map(({ id, icon: Icon, title }) => (
               <List.Item key={id}>

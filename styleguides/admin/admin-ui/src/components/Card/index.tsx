@@ -1,29 +1,29 @@
 import React, { Ref, forwardRef } from 'react'
 
 import { SystemComponentProps } from '../../types'
-import { Box, BoxProps } from '../Box'
+import { Box, BoxProps } from '@vtex/admin-primitives'
 
 export const Card = forwardRef(function Card(
   props: CardProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { styleOverrides, ...boxProps } = props
+  const { csx, ...boxProps } = props
 
   return (
     <Box
       ref={ref}
-      styles={{
+      csx={{
         bg: 'light.primary',
         color: 'dark.primary',
         border: 'default',
         padding: 6,
-        ...styleOverrides,
+        ...csx,
       }}
       {...boxProps}
     />
   )
 })
 
-type CardOwnProps = Omit<BoxProps<'div'>, 'styles'>
+type CardOwnProps = BoxProps<'div'>
 
 export type CardProps = SystemComponentProps<CardOwnProps>

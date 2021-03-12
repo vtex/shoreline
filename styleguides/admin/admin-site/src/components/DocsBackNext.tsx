@@ -29,7 +29,7 @@ export default function DocsBackNext({
 
   return (
     <Box
-      styles={{
+      csx={{
         color: 'dark.primary',
         li: {
           listStyle: 'none',

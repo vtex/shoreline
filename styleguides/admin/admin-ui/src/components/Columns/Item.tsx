@@ -10,7 +10,7 @@ import { useColumnsContext } from './context'
 import { useSystem } from '@vtex/admin-core'
 
 export function ColumnsItem(props: ColumnsItemProps) {
-  const { units, offset = 'none', styleOverrides, ...layoutProps } = props
+  const { units, offset = 'none', csx, ...layoutProps } = props
   const { spacing } = useColumnsContext()
   const responsiveUnits = useResponsiveValue(units)
   const responsiveOffset = useResponsiveValue(offset)
@@ -49,7 +49,7 @@ export function ColumnsItem(props: ColumnsItemProps) {
 
   const className = cn({
     ...styles,
-    ...styleOverrides,
+    ...csx,
   })
 
   return <div className={className} {...layoutProps} />

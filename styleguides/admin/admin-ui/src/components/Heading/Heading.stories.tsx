@@ -29,6 +29,6 @@ export function HeadingLevels() {
   )
 }
 
-export function StyleOverrides() {
-  return <Heading styleOverrides={{ color: 'blue' }}>Heading 1</Heading>
+export function Csx() {
+  return <Heading csx={{ color: 'blue' }}>Heading 1</Heading>
 }

@@ -29,7 +29,7 @@ describe('Set tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Set data-testid="set" styleOverrides={{ bg: 'coral' }}>
+        <Set data-testid="set" csx={{ bg: 'coral' }}>
           <button>element 1</button>
           <button>element 2</button>
         </Set>

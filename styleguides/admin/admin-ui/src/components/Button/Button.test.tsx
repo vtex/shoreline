@@ -9,7 +9,7 @@ describe('Button tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Button data-testid="button" styleOverrides={{ bg: 'coral' }}>
+        <Button data-testid="button" csx={{ bg: 'coral' }}>
           Black Button
         </Button>
       </ThemeProvider>

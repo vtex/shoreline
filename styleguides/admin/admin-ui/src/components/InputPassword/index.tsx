@@ -7,7 +7,7 @@ import {
 import { Text } from '../Text'
 import { Label } from '../Label'
 import { SystemComponentProps } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { useSystem } from '@vtex/admin-core'
 
 export const InputPassword = forwardRef(function InputPassword(
@@ -15,7 +15,7 @@ export const InputPassword = forwardRef(function InputPassword(
   ref: Ref<HTMLInputElement>
 ) {
   const {
-    styleOverrides = {},
+    csx = {},
     value = '',
     error = false,
     id,
@@ -30,27 +30,24 @@ export const InputPassword = forwardRef(function InputPassword(
   const message = error ? errorMessage : helperText
 
   return (
-    <Box themeKey="components.input.container">
+    <Box csx={{ themeKey: 'components.input.container' }}>
       <AbstractInputPassword
         value={value}
         id={id}
         ref={ref}
         placeholder=" "
         maxLength={charLimit}
-        styleOverrides={{ paddingTop: 4, ...styleOverrides }}
+        csx={{ paddingTop: 4, ...csx }}
         error={error}
         labelElement={
-          <Label
-            styleOverrides={stylesOf('components.input.floating-label')}
-            htmlFor={id}
-          >
+          <Label csx={stylesOf('components.input.floating-label')} htmlFor={id}>
             {label}
           </Label>
         }
         {...inputProps}
       />
       {(message || !!charLimit) && (
-        <Box themeKey="components.input.text-container">
+        <Box csx={{ themeKey: 'components.input.text-container' }}>
           {message ? (
             <Text variant="small" feedback={error ? 'danger' : 'secondary'}>
               {message}

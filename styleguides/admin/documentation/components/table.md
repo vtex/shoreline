@@ -1,6 +1,5 @@
 ---
 path: /table/
-experimental: true
 ---
 
 # Table
@@ -161,7 +160,7 @@ function Example() {
               return (
                 <Text
                   variant="highlight"
-                  styleOverrides={{
+                  csx={{
                     color: Number(data) > 0 ? 'blue' : 'red',
                   }}
                 >
@@ -406,7 +405,7 @@ function Example() {
             type: 'root',
             render: function Description({ item, context }) {
               if (context.loading) {
-                return <Skeleton styles={{ height: 24 }} />
+                return <Skeleton csx={{ height: 24 }} />
               }
 
               return (

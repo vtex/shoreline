@@ -21,7 +21,7 @@ import { SystemComponent } from '../../types'
  */
 export function Tooltip(props: TooltipProps) {
   const {
-    styleOverrides = {},
+    csx = {},
     children,
     label,
     placement = 'top',
@@ -48,7 +48,7 @@ export function Tooltip(props: TooltipProps) {
       <ReakitTooltip
         {...tooltip}
         {...tooltipProps}
-        className={cn({ themeKey: 'components.tooltip', ...styleOverrides })}
+        className={cn({ themeKey: 'components.tooltip', ...csx })}
       >
         {label}
       </ReakitTooltip>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { Box } from '../Box'
+import { Flex } from '@vtex/admin-primitives'
 import { Text } from '../Text'
 import { VisuallyHidden } from './index'
 
@@ -12,17 +12,14 @@ export default {
 
 export function WithSimpleSearchField() {
   return (
-    <Box styles={{ display: 'flex', flexDirection: 'column', width: 200 }}>
+    <Flex direction="column" csx={{ width: 200 }}>
       <VisuallyHidden>
         <label htmlFor="search">Hidden Label</label>
       </VisuallyHidden>
       <input id="search" type="search" placeholder="A11y Search Input" />
-      <Text
-        styleOverrides={{ alignSelf: 'flex-end', marginTop: 3 }}
-        variant="small"
-      >
+      <Text csx={{ alignSelf: 'flex-end', marginTop: 3 }} variant="small">
         Use this input to search things
       </Text>
-    </Box>
+    </Flex>
   )
 }

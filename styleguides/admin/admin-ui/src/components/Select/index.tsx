@@ -4,7 +4,7 @@ import { forwardRef } from '@vtex/admin-core'
 import { BrowserView, MobileView } from 'react-device-detect'
 
 import { SystemComponent } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Text } from '../Text'
 import { DesktopSelect } from './DesktopSelect'
 import { MobileSelect } from './MobileSelect'
@@ -12,7 +12,7 @@ import { MobileSelect } from './MobileSelect'
 export const Select = forwardRef(
   <T extends unknown>(props: SelectProps<T>, ref: Ref<HTMLDivElement>) => {
     const {
-      styleOverrides,
+      csx,
       label,
       state,
       items,
@@ -26,7 +26,7 @@ export const Select = forwardRef(
     } = props
 
     const selectProps = {
-      styleOverrides,
+      csx,
       label,
       state,
       items,
@@ -38,10 +38,10 @@ export const Select = forwardRef(
 
     const message = error ? errorMessage : helperText
 
-    const styles = block ? { ...styleOverrides, width: 'full' } : styleOverrides
+    const styles = block ? { ...csx, width: 'full' } : csx
 
     return (
-      <Box {...restProps} styles={styles} ref={ref}>
+      <Box {...restProps} csx={styles} ref={ref}>
         <MobileView>
           <MobileSelect {...selectProps} />
         </MobileView>
@@ -51,11 +51,11 @@ export const Select = forwardRef(
         </BrowserView>
 
         {message && (
-          <Box styles={{ paddingTop: 1 }}>
+          <Box csx={{ paddingTop: 1 }}>
             <Text
               variant="small"
               feedback={error ? 'danger' : 'secondary'}
-              styleOverrides={{ lineHeight: 1.5 }}
+              csx={{ lineHeight: 1.5 }}
             >
               {message}
             </Text>

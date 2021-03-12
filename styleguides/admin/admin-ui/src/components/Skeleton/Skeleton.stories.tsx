@@ -2,7 +2,7 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Skeleton, SkeletonProps } from './index'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
@@ -17,19 +17,19 @@ export const Playground: Story<SkeletonProps> = (args) => {
 }
 
 Playground.args = {
-  styles: { height: 128, width: 128 },
+  csx: { height: 128, width: 128 },
 }
 export const Rect = () => {
-  return <Skeleton styles={{ height: 128, width: 128 }} />
+  return <Skeleton csx={{ height: 128, width: 128 }} />
 }
 
 export const Circle = () => {
-  return <Skeleton shape="circle" styles={{ width: 100, height: 100 }} />
+  return <Skeleton shape="circle" csx={{ width: 100, height: 100 }} />
 }
 
 export const Fluid = () => {
   return (
-    <Box styles={{ width: 'full', height: 192 }}>
+    <Box csx={{ width: 'full', height: 192 }}>
       <Skeleton />
     </Box>
   )
@@ -39,16 +39,16 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(false)
 
   return (
-    <Box styles={{ width: 'sm' }}>
+    <Box csx={{ width: 'sm' }}>
       {loading ? (
         <Box>
-          <Skeleton styles={{ height: 24, width: '5/12' }} />
-          <Skeleton styles={{ height: 16 }} />
-          <Skeleton styles={{ height: 16 }} />
-          <Skeleton styles={{ height: 16 }} />
-          <Skeleton styles={{ height: 16 }} />
-          <Skeleton styles={{ height: 16 }} />
-          <Skeleton styles={{ height: 16, width: '1/2' }} />
+          <Skeleton csx={{ height: 24, width: '5/12' }} />
+          <Skeleton csx={{ height: 16 }} />
+          <Skeleton csx={{ height: 16 }} />
+          <Skeleton csx={{ height: 16 }} />
+          <Skeleton csx={{ height: 16 }} />
+          <Skeleton csx={{ height: 16 }} />
+          <Skeleton csx={{ height: 16, width: '1/2' }} />
         </Box>
       ) : (
         <Box>

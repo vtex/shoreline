@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Label, LabelProps } from './index'
-import { Box } from '../Box'
+import { Flex } from '@vtex/admin-primitives'
 
 export default {
   title: 'admin-ui/Label',
@@ -18,13 +18,13 @@ export const Playground: Story<LabelProps> = (args) => {
   )
 }
 
-Playground.args = { styleOverrides: { display: 'flex' } }
+Playground.args = { csx: { display: 'flex' } }
 
 export const HtmlFor = () => {
   return (
-    <Box styles={{ display: 'flex', flexDirection: 'column', width: 160 }}>
+    <Flex direction="column" csx={{ width: 160 }}>
       <Label htmlFor="text-id">Text Input Label!</Label>
       <input type="text" id="text-id" />
-    </Box>
+    </Flex>
   )
 }

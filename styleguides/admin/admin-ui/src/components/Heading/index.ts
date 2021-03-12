@@ -2,18 +2,18 @@ import { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
-import { Primitive } from '../Primitive'
+import { Primitive } from '@vtex/admin-primitives'
 
 export const Heading = createComponent(Primitive, useHeading)
 
 export function useHeading(props: HeadingProps) {
-  const { styleOverrides, element = 'h1', ...htmlProps } = props
+  const { csx, element = 'h1', ...htmlProps } = props
 
   return {
     element,
-    styles: {
+    csx: {
       text: 'headline',
-      ...styleOverrides,
+      ...csx,
     },
     ...htmlProps,
   }

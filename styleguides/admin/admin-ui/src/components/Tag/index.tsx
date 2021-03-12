@@ -2,7 +2,7 @@ import React, { ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex/admin-core'
 import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
 
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { SystemComponent } from '../../types'
 import { Button } from '../Button'
 
@@ -13,14 +13,13 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
     label,
     icon,
     handleDelete,
-    styleOverrides,
+    csx,
     ...boxProps
   } = props
 
   return (
     <Box
-      themeKey={`components.tag.${palette}-${size}`}
-      styles={styleOverrides}
+      csx={{ themeKey: `components.tag.${palette}-${size}`, ...csx }}
       ref={ref}
       {...boxProps}
     >
@@ -36,7 +35,7 @@ export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
               palette === 'black' ? 'adaptative-light' : 'adaptative-dark'
             }
             size="small"
-            styleOverrides={{
+            csx={{
               marginLeft: 1,
             }}
           />

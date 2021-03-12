@@ -9,7 +9,7 @@ describe('Card tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Card data-testid="card" styleOverrides={{ bg: 'coral' }}>
+        <Card data-testid="card" csx={{ bg: 'coral' }}>
           Card text
         </Card>
       </ThemeProvider>

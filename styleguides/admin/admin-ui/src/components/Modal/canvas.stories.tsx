@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Checkbox, useCheckboxState } from '../Checkbox'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Label } from '../Label'
 import { Button } from '../Button'
 import { Modal, ModalDisclosure, StatelessModal, useModalState } from './index'
@@ -20,7 +20,7 @@ export const Playground: Story<ModalProps> = (args) => (
   <Modal {...args} disclosure={<Button>Publish</Button>}>
     <Modal.Header title="Publish content" />
     <Modal.Content>
-      <Box styles={{ text: 'body' }}>
+      <Box csx={{ text: 'body' }}>
         Are you sure you want to publish this content? These action cannot be
         undone.
       </Box>
@@ -44,7 +44,7 @@ export const Stateful: Story<ModalProps> = () => (
   >
     <Modal.Header title="Publish content" />
     <Modal.Content>
-      <Box styles={{ text: 'body' }}>
+      <Box csx={{ text: 'body' }}>
         Are you sure you want to publish this content? These action cannot be
         undone.
       </Box>
@@ -147,14 +147,14 @@ export const RegularModal: Story<ModalProps> = () => {
       </Modal.Content>
       <Modal.Footer>
         <Label
-          styleOverrides={{
+          csx={{
             display: 'flex',
             position: 'relative',
             alignItems: 'center',
           }}
         >
           <Checkbox state={checkbox} />
-          <Text styleOverrides={{ paddingLeft: 2 }}>
+          <Text csx={{ paddingLeft: 2 }}>
             I accept the terms and conditions above
           </Text>
         </Label>

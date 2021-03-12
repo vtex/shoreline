@@ -24,7 +24,7 @@ export function usePrimitive(props: PrimitiveOwnProps) {
   const { element = defaultElement, ...rest } = props
   const elementProps = usePrimitiveStyle(rest)
 
-  return { ...elementProps, as: element as any }
+  return { ...elementProps, as: element as string }
 }
 
 /**
@@ -32,11 +32,10 @@ export function usePrimitive(props: PrimitiveOwnProps) {
  * @param props
  */
 export function usePrimitiveStyle(props: Omit<PrimitiveOwnProps, 'element'>) {
-  const { themeKey, csx, className, ...htmlProps } = props
+  const { csx = {}, className, ...htmlProps } = props
   const { cn, cx } = useSystem()
-  const styledCn = cn({ ...csx, themeKey })
 
-  return { ...htmlProps, className: cx(styledCn, className) }
+  return { ...htmlProps, className: cx(cn(csx), className) }
 }
 
 export interface PrimitiveOwnProps<E extends ElementType = ElementType>
@@ -46,11 +45,6 @@ export interface PrimitiveOwnProps<E extends ElementType = ElementType>
    * @default div
    */
   element?: E
-  /**
-   * theme key to me consumed from admin-ui-theme
-   * @private this is for internal usage only
-   */
-  themeKey?: string | Record<string, Record<string, string>>
   /**
    * component className
    */

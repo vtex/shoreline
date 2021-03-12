@@ -1,19 +1,18 @@
 - section: Guide
   paths:
-    - /guide/get-started/
-    - /guide/experimental/
-    - /guide/comparison/
-    - /guide/contributing/
+    - /getting-started/installation/
+    - /getting-started/can-i-use/
+    - /getting-started/comparison/
+    - /getting-started/contributing/
 - section: Core concepts
   paths:
     - /core-concepts/icons/
-    - /core-concepts/styles/
+    - /core-concepts/csx-prop/
 - section: Theming
   paths:
     - /theming/default-theme/
     - /theming/theme-provider/
     - /theming/components/
-    - /theming/inline-styles/
     - /theming/responsive-design/
 - section: Primitives
   paths:

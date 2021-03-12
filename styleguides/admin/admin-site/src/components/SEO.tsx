@@ -54,11 +54,6 @@ export default function SEO({
           property: 'og:type',
           content: 'website',
         },
-        // TODO: add thumbnail
-        // {
-        //   property: 'og:image',
-        //   content: image,
-        // },
         {
           name: 'keywords',
           content: defaultKeywords.concat(keywords).join(', '),

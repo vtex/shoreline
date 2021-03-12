@@ -11,7 +11,7 @@ describe('Search tests', () => {
         id="search"
         placeholder="placeholder"
         data-testid="spinner"
-        styleOverrides={{
+        csx={{
           bg: 'azure',
         }}
       />

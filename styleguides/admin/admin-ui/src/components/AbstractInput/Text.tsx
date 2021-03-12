@@ -6,7 +6,7 @@ import { useSystem } from '@vtex/admin-core'
 
 import { Button } from '../Button'
 import { SystemComponentProps } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 
 export const AbstractInput = forwardRef(function AbstractInput(
   props: AbstractInputProps,
@@ -14,7 +14,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
 ) {
   const {
     value = '',
-    styleOverrides = {},
+    csx = {},
     error = false,
     icon,
     suffix,
@@ -35,19 +35,21 @@ export const AbstractInput = forwardRef(function AbstractInput(
       [!!suffix, '-suffix'],
       [!!onClear, '-clear'],
     ]),
-    ...styleOverrides,
+    ...csx,
   })
 
   return (
     <Box
-      themeKey={inlineVariant('components.abstractInput.container', [
-        [!!icon, '-icon'],
-      ])}
+      csx={{
+        themeKey: inlineVariant('components.abstractInput.container', [
+          [!!icon, '-icon'],
+        ]),
+      }}
     >
       {icon && (
         <IconContainer
           space="regular"
-          styles={stylesOf('components.abstractInput.icon')}
+          csx={stylesOf('components.abstractInput.icon')}
         >
           {icon}
         </IconContainer>
@@ -60,7 +62,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
       />
       {labelElement}
       {showButtons && (
-        <Box themeKey="components.abstractInput.buttons">
+        <Box csx={{ themeKey: 'components.abstractInput.buttons' }}>
           {showClear && (
             <Button
               icon={<IconCancel />}
@@ -68,7 +70,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
               onClick={onClear}
               size="small"
               variant="adaptative-dark"
-              styleOverrides={{
+              csx={{
                 marginTop: 2,
                 marginRight: 1,
               }}
@@ -76,7 +78,12 @@ export const AbstractInput = forwardRef(function AbstractInput(
           )}
           {buttonElements}
           {suffix && (
-            <Box element="span" themeKey="components.abstractInput.suffix">
+            <Box
+              element="span"
+              csx={{
+                themeKey: 'components.abstractInput.suffix',
+              }}
+            >
               {suffix}
             </Box>
           )}

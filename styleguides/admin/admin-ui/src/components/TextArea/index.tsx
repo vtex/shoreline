@@ -3,7 +3,7 @@ import React, { forwardRef, Ref } from 'react'
 import { Text } from '../Text'
 import { Label } from '../Label'
 import { SystemComponentProps } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { useSystem } from '@vtex/admin-core'
 
 export const TextArea = forwardRef(function Textarea(
@@ -13,7 +13,7 @@ export const TextArea = forwardRef(function Textarea(
   const {
     id,
     label,
-    styleOverrides,
+    csx,
     helperText,
     charLimit,
     value = '',
@@ -27,12 +27,16 @@ export const TextArea = forwardRef(function Textarea(
   const message = error ? errorMessage : helperText
 
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: 'components.textArea.default',
   })
 
   return (
-    <Box themeKey={`components.textArea.container${error ? '-error' : ''}`}>
+    <Box
+      csx={{
+        themeKey: `components.textArea.container${error ? '-error' : ''}`,
+      }}
+    >
       <textarea
         className={className}
         id={id}
@@ -43,14 +47,11 @@ export const TextArea = forwardRef(function Textarea(
         onChange={onChange}
         {...textareaProps}
       />
-      <Label
-        htmlFor={id}
-        styleOverrides={stylesOf('components.textArea.floating-label')}
-      >
+      <Label htmlFor={id} csx={stylesOf('components.textArea.floating-label')}>
         {label}
       </Label>
       {(message || !!charLimit) && (
-        <Box themeKey="components.textArea.text-container">
+        <Box csx={{ themeKey: 'components.textArea.text-container' }}>
           {message ? (
             <Text variant="small" feedback={error ? 'danger' : 'secondary'}>
               {message}
@@ -59,7 +60,7 @@ export const TextArea = forwardRef(function Textarea(
             <div>{/** spacer element */}</div>
           )}
           {charLimit && (
-            <Text variant="small" styleOverrides={{ color: 'mid.primary' }}>
+            <Text variant="small" csx={{ color: 'mid.primary' }}>
               {`${value.toString().length}/${charLimit}`}
             </Text>
           )}

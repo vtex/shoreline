@@ -6,7 +6,7 @@ import { ColumnsProvider } from './context'
 import { ColumnsItem } from './Item'
 import { useSystem } from '@vtex/admin-core'
 export function Columns(props: ColumnsProps) {
-  const { spacing = 1, children, styleOverrides, ...restProps } = props
+  const { spacing = 1, children, csx, ...restProps } = props
   const styles: StyleProp = {
     display: 'flex',
     flexWrap: 'wrap',
@@ -15,7 +15,7 @@ export function Columns(props: ColumnsProps) {
 
   const className = cn({
     ...styles,
-    ...styleOverrides,
+    ...csx,
   })
 
   return (

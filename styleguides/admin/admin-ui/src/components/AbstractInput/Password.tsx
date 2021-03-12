@@ -8,16 +8,16 @@ export const AbstractInputPassword = forwardRef(function AbstractInputPassword(
   props: AbstractInputPasswordProps,
   ref: Ref<HTMLInputElement>
 ) {
-  const { styleOverrides = {}, ...inputProps } = props
+  const { csx = {}, ...inputProps } = props
   const [textVisible, setTextVisible] = useState(false)
 
   return (
     <AbstractInput
       ref={ref}
       type={textVisible ? 'text' : 'password'}
-      styleOverrides={{
+      csx={{
         paddingRight: 44,
-        ...styleOverrides,
+        ...csx,
       }}
       {...inputProps}
       buttonElements={
@@ -27,7 +27,7 @@ export const AbstractInputPassword = forwardRef(function AbstractInputPassword(
           onClick={() => setTextVisible((visible) => !visible)}
           size="small"
           variant="adaptative-dark"
-          styleOverrides={{
+          csx={{
             marginTop: 2,
           }}
         />

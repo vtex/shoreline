@@ -9,14 +9,14 @@ import {
 export const Toggle = createComponent(ReakitCheckbox, useToggle)
 
 export function useToggle(props: ToggleProps) {
-  const { size = 'regular', styleOverrides, state, ...htmlProps } = props
+  const { size = 'regular', csx, state, ...htmlProps } = props
   const { cn } = useSystem()
 
   const className = cn({
     themeKey: {
       toggle: { size },
     },
-    ...styleOverrides,
+    ...csx,
   })
 
   return { className, role: 'switch', ...state, ...htmlProps }

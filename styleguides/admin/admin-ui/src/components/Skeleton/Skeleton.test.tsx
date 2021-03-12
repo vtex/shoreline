@@ -9,7 +9,7 @@ describe('Skeleton tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Skeleton data-testid="skeleton" styles={{ bg: 'coral' }} />
+        <Skeleton data-testid="skeleton" csx={{ bg: 'coral' }} />
       </ThemeProvider>
     )
 

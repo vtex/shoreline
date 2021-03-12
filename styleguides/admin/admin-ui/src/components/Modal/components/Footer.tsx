@@ -22,12 +22,12 @@ export const ModalFooter = forwardRef(function ModalFooter(
   props: ModalFooterProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { styleOverrides, ...footerProps } = props
+  const { csx, ...footerProps } = props
   const { size } = useModalContext()
   const { cn } = useSystem()
 
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: `components.modal.footer-${size}`,
   })
 

@@ -6,7 +6,7 @@ import { TableDensity, TableDir } from './typings'
 import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 
 /**
  * Table used to show static & simple information
@@ -41,7 +41,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     resolvers,
     density = 'regular',
     dir = 'ltr',
-    styleOverrides,
+    csx,
     length = 5,
     onRowClick,
   } = props
@@ -65,7 +65,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
 
   return (
     <Providers>
-      <Box styles={{ overflow: 'auto', width: 'full', ...styleOverrides }}>
+      <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
         <Table dir={context.dir} density={density}>
           <Table.Head>
             <Table.Row>

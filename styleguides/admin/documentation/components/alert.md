@@ -142,7 +142,7 @@ Represents whether the height is fluid or not. This is a [Responsive Value Prope
 ```jsx
 function Example() {
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Alert visible fluid type="success" onDismiss={() => {}}>
         This account is inactive. Check your billing for more information.
       </Alert>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 import { IconAppStore } from '@vtex/admin-ui-icons'
 
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Button } from './index'
 import { Set } from '../Set'
 
@@ -17,7 +17,7 @@ export const Playground: Story = (args) => {
 
 Playground.args = {
   children: 'Admin UI Button',
-  styleOverrides: {},
+  csx: {},
 }
 
 export const Size: Story = () => {
@@ -45,10 +45,10 @@ export const Variant: Story = () => {
 export const Adaptative: Story = () => {
   return (
     <Set orientation="vertical">
-      <Box styles={{ padding: 4, bg: 'dark.primary', color: 'light.primary' }}>
+      <Box csx={{ padding: 4, bg: 'dark.primary', color: 'light.primary' }}>
         <Button variant="adaptative-light">Adaptative light</Button>
       </Box>
-      <Box styles={{ padding: 4 }}>
+      <Box csx={{ padding: 4 }}>
         <Button variant="adaptative-dark">Adaptative Dark</Button>
       </Box>
     </Set>

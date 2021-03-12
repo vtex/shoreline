@@ -4,7 +4,7 @@ import { IconClose } from '@vtex/admin-ui-icons'
 
 import { useModalContext } from '../context'
 import { ModalButton } from './Button'
-import { Box } from '../../Box'
+import { Box } from '@vtex/admin-primitives'
 import { SystemComponent } from '../../../types'
 import { useSystem } from '@vtex/admin-core'
 /**
@@ -27,27 +27,27 @@ export const ModalHeader = forwardRef(function ModalHeader(
   const {
     children,
     title = null,
-    containerStyleOverrides = {},
-    styleOverrides = {},
+    containerCsx = {},
+    csx = {},
     ...headerProps
   } = props
 
   const { cn } = useSystem()
   const { omitCloseButton, size } = useModalContext()
   const className = cn({
-    ...styleOverrides,
+    ...csx,
     themeKey: `components.modal.header-${size}`,
   })
 
   const containerCn = cn({
     display: 'flex',
     alignItems: 'center',
-    ...containerStyleOverrides,
+    ...containerCsx,
   })
 
   const renderTitle = useMemo(() => {
     if (typeof title === 'string') {
-      return <Box styles={{ text: 'headline' }}>{title}</Box>
+      return <Box csx={{ text: 'headline' }}>{title}</Box>
     }
 
     return title
@@ -80,7 +80,7 @@ export interface ModalHeaderProps extends SystemComponent {
    * Styles of the buttons container
    * @default {}
    */
-  containerStyleOverrides?: StyleProp
+  containerCsx?: StyleProp
   /**
    * component children
    */

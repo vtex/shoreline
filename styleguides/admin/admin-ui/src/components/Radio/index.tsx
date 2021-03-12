@@ -10,12 +10,12 @@ import { SystemComponentProps } from '../../types'
 export const Radio = createComponent(ReakitRadio, useRadio)
 
 export function useRadio(props: RadioProps) {
-  const { size = 'regular', state, styleOverrides, ...htmlProps } = props
+  const { size = 'regular', state, csx, ...htmlProps } = props
   const { cn } = useSystem()
 
   const className = cn({
     themeKey: `components.radio.${size}`,
-    ...styleOverrides,
+    ...csx,
   })
 
   return { className, ...state, ...htmlProps }

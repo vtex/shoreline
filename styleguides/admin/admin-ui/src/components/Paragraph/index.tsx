@@ -2,7 +2,7 @@ import React, { ReactNode, forwardRef, Ref, PropsWithChildren } from 'react'
 
 import { StyleProp } from '@vtex/admin-core'
 import { SystemComponent } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 
 export const Paragraph = forwardRef(function Paragraph(
   props: PropsWithChildren<ParagraphProps>,
@@ -10,15 +10,15 @@ export const Paragraph = forwardRef(function Paragraph(
 ) {
   const { styles, ...htmlProps } = useParagraph(props)
 
-  return <Box element="p" ref={ref} styles={styles} {...htmlProps} />
+  return <Box element="p" ref={ref} csx={styles} {...htmlProps} />
 })
 
 export function useParagraph(props: ParagraphProps) {
-  const { styleOverrides, ...htmlProps } = props
+  const { csx, ...htmlProps } = props
 
   const styles = {
     text: 'body',
-    ...styleOverrides,
+    ...csx,
   } as StyleProp
 
   return { styles, ...htmlProps }

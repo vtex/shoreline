@@ -1,7 +1,7 @@
 import React, { RefObject, useLayoutEffect, useRef, useState } from 'react'
 import { IconCaret, IconCheck } from '@vtex/admin-ui-icons'
 
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { SelectProps } from './index'
 import { Label } from '../Label'
 import { useSystem } from '@vtex/admin-core'
@@ -102,23 +102,36 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
   return (
     <Box
       ref={containerRef}
-      themeKey="components.select.container"
       role="listbox"
-      styles={block ? { display: 'block', minWidth: 288, width: 'full' } : {}}
+      csx={
+        block
+          ? {
+              themeKey: 'components.select.container',
+              display: 'block',
+              minWidth: 288,
+              width: 'full',
+            }
+          : { themeKey: 'components.select.container' }
+      }
     >
       <Box
         element="button"
         type="button"
         {...state.getToggleButtonProps()}
         disabled={disabled}
-        themeKey={`components.select.button${error ? 'Error' : ''}`}
+        csx={{
+          themeKey: `components.select.button${error ? 'Error' : ''}`,
+        }}
       >
         <Box>
-          <Box element="span" themeKey="components.select.selectedItem">
+          <Box
+            element="span"
+            csx={{ themeKey: 'components.select.selectedItem' }}
+          >
             {renderItem(state.selectedItem)}
           </Box>
           <Label
-            styleOverrides={stylesOf('components.select.label')}
+            csx={stylesOf('components.select.label')}
             {...state.getLabelProps()}
           >
             {label}
@@ -127,32 +140,36 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
         <IconCaret
           direction="down"
           size={24}
-          styleOverrides={{ color: 'dark.secondary' }}
+          csx={{ color: 'dark.secondary' }}
         />
       </Box>
 
       <Box
         {...state.getMenuProps()}
         role="option"
-        themeKey="components.select.optionsPortal"
-        styles={{
+        csx={{
           top: `${topDistanceOptions}px`,
           borderRadius: 'default',
+          themeKey: 'components.select.optionsPortal',
         }}
       >
         {state.isOpen && (
-          <Box themeKey="components.select.optionsContainer">
-            <Label styleOverrides={stylesOf('components.select.optionsLabel')}>
+          <Box
+            csx={{
+              themeKey: 'components.select.optionsContainer',
+            }}
+          >
+            <Label csx={stylesOf('components.select.optionsLabel')}>
               {label}
             </Label>
-            <Box element="ul" themeKey="components.select.optionsUl">
+            <Box element="ul" csx={{ themeKey: 'components.select.optionsUl' }}>
               {items.map((item, index) => (
                 <Box
                   key={`${item}${index}`}
                   element="li"
-                  themeKey="components.select.item"
                   {...state.getItemProps({ item, index })}
-                  styles={{
+                  csx={{
+                    themeKey: 'components.select.item',
                     paddingY: 1,
                     paddingLeft: state.selectedItem ? 9 : 12,
                     backgroundColor:
@@ -164,17 +181,14 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
                   {state.selectedItem && (
                     <>
                       {renderItem(item) === renderItem(state.selectedItem) ? (
-                        <IconCheck
-                          size={16}
-                          styleOverrides={{ color: 'dark.primary' }}
-                        />
+                        <IconCheck size={16} csx={{ color: 'dark.primary' }} />
                       ) : (
-                        <Box styles={{ width: 16 }} />
+                        <Box csx={{ width: 16 }} />
                       )}
                     </>
                   )}
                   <Box
-                    styles={{
+                    csx={{
                       paddingLeft: state.selectedItem ? 1 : 0,
                       text: 'body',
                       lineHeight: 1.43,

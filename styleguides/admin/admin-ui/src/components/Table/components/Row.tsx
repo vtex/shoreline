@@ -1,7 +1,7 @@
 import React, { ElementType, ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex/admin-core'
 
-import { Box } from '../../Box'
+import { Box } from '@vtex/admin-primitives'
 import { useStylesContext } from '../context'
 import { SystemComponent } from '../../../types'
 
@@ -9,7 +9,7 @@ export const TableRow = forwardRef(function Tr(
   props: TableRowProps,
   ref: Ref<HTMLElement>
 ) {
-  const { styleOverrides = {}, element = 'div', onClick, ...boxProps } = props
+  const { csx = {}, element = 'div', onClick, ...boxProps } = props
 
   const { variants, dir } = useStylesContext()
   const themeKey = onClick
@@ -22,9 +22,8 @@ export const TableRow = forwardRef(function Tr(
       dir={dir}
       role="row"
       onClick={onClick}
-      themeKey={themeKey}
       element={element}
-      styles={styleOverrides}
+      csx={{ themeKey, ...csx }}
       {...boxProps}
     />
   )

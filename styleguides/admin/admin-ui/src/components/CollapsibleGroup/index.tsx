@@ -33,14 +33,14 @@ const FIRST_CHILD_INDEX = 0
  * ```
  */
 export function CollapsibleGroup(props: CollapsibleGroupProps) {
-  const { children, styleOverrides, ...cardProps } = props
+  const { children, csx, ...cardProps } = props
 
   const validChildren = Children.toArray(children).filter((child) =>
     isElement(child)
   )
 
   return (
-    <Card styleOverrides={{ padding: 0, ...styleOverrides }} {...cardProps}>
+    <Card csx={{ padding: 0, ...csx }} {...cardProps}>
       <Group>
         {Children.map(validChildren, (child, index) => (
           <Fragment>

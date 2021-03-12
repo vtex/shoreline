@@ -13,11 +13,11 @@ import {
 } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Button, ButtonProps } from '../Button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
-import { Flex } from '../Flex'
+import { Flex } from '@vtex/admin-primitives'
 
 /**
  * Component to display relevant information within an admin page
@@ -28,7 +28,7 @@ export const Alert = forwardRef(
       children,
       actions,
       onDismiss,
-      styleOverrides,
+      csx,
       DefaultIcon,
       iconContainerStyles,
       responsiveFluid,
@@ -37,22 +37,22 @@ export const Alert = forwardRef(
     } = useAlert(props)
 
     return (
-      <Box ref={ref} styles={styleOverrides} themeKey={themeKey} {...htmlProps}>
+      <Box ref={ref} csx={{ themeKey, ...csx }} {...htmlProps}>
         <Set
           spacing={2}
-          styleOverrides={{
+          csx={{
             alignItems: responsiveFluid ? 'flex-start' : 'center',
             marginRight: 3,
           }}
         >
-          <Flex align="center" styles={iconContainerStyles}>
+          <Flex align="center" csx={iconContainerStyles}>
             {props.icon ?? <DefaultIcon />}
           </Flex>
           <Paragraph>{children}</Paragraph>
         </Set>
         <Set
           spacing={3}
-          styleOverrides={{
+          csx={{
             alignItems: responsiveFluid ? 'flex-start' : 'center',
           }}
         >
@@ -84,7 +84,7 @@ export const Alert = forwardRef(
               size="small"
               variant="adaptative-dark"
               icon={<IconClose />}
-              styleOverrides={{ color: 'dark.primary' }}
+              csx={{ color: 'dark.primary' }}
               onClick={onDismiss}
             />
           )}
@@ -103,7 +103,7 @@ export function useAlert(props: AlertProps) {
     children,
     actions,
     onDismiss,
-    styleOverrides = {},
+    csx = {},
     ...htmlProps
   } = props
 
@@ -145,7 +145,7 @@ export function useAlert(props: AlertProps) {
     children,
     actions,
     onDismiss,
-    styleOverrides,
+    csx,
     ...htmlProps,
   }
 }

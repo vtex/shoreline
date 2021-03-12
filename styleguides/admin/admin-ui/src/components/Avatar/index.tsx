@@ -1,7 +1,7 @@
 import { jsxs, createComponent } from '@vtex/admin-core'
 
 import { SystemComponent } from '../../types'
-import { Primitive, PrimitiveProps } from '../Primitive'
+import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 
 /**
  * Component to create a user avatar from a passed label
@@ -16,20 +16,18 @@ import { Primitive, PrimitiveProps } from '../Primitive'
 export const Avatar = createComponent(Primitive, useAvatar)
 
 export function useAvatar(props: AvatarProps): PrimitiveProps<'div'> {
-  const { palette = 'base', label, styleOverrides, ...primitiveProps } = props
+  const { palette = 'base', label, csx, ...primitiveProps } = props
 
   return {
-    styles: styleOverrides,
-    themeKey: {
-      avatar: {
-        palette,
+    csx: {
+      themeKey: {
+        avatar: {
+          palette,
+        },
       },
+      ...csx,
     },
-    children: jsxs(
-      Primitive,
-      { styles: { text: 'highlight' } },
-      label?.charAt(0)
-    ),
+    children: jsxs(Primitive, { csx: { text: 'highlight' } }, label?.charAt(0)),
     ...primitiveProps,
   }
 }

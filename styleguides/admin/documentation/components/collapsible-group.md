@@ -21,7 +21,7 @@ function Example() {
 
   return (
     <>
-      <CollapsibleGroup styleOverrides={{ width: 400 }}>
+      <CollapsibleGroup csx={{ width: 400 }}>
         <Collapsible state={promos}>
           <Collapsible.Header label="Promos" />
           <Collapsible.Content>
@@ -35,16 +35,10 @@ function Example() {
           <Collapsible.Header label="Marketing" />
           <Collapsible.Content>
             <Set orientation="vertical">
-              <Text
-                variant="small"
-                styleOverrides={{ color: 'dark.secondary' }}
-              >
+              <Text variant="small" csx={{ color: 'dark.secondary' }}>
                 Partner - app_ios
               </Text>
-              <Text
-                variant="small"
-                styleOverrides={{ color: 'dark.secondary' }}
-              >
+              <Text variant="small" csx={{ color: 'dark.secondary' }}>
                 Campaign - Campaign Name
               </Text>
             </Set>
@@ -98,10 +92,10 @@ function Example() {
         <Collapsible.Header label="Marketing" />
         <Collapsible.Content>
           <Set orientation="vertical">
-            <Text variant="small" styleOverrides={{ color: 'dark.secondary' }}>
+            <Text variant="small" csx={{ color: 'dark.secondary' }}>
               Partner - app_ios
             </Text>
-            <Text variant="small" styleOverrides={{ color: 'dark.secondary' }}>
+            <Text variant="small" csx={{ color: 'dark.secondary' }}>
               Campaign - Campaing Name
             </Text>
           </Set>
@@ -118,18 +112,16 @@ function Example() {
             <Collapsible.Header label={value} />
             <Collapsible.Content>
               <Set orientation="vertical" spacing={2}>
-                <Text variant="small" styleOverrides={{ color: 'blue' }}>
+                <Text variant="small" csx={{ color: 'blue' }}>
                   N 00025755809
                 </Text>
-                <Text variant="small" styleOverrides={{ color: 'mid.primary' }}>
+                <Text variant="small" csx={{ color: 'mid.primary' }}>
                   Total cost of items - 39,00 BRL
                 </Text>
-                <Text variant="small" styleOverrides={{ color: 'mid.primary' }}>
+                <Text variant="small" csx={{ color: 'mid.primary' }}>
                   Type - Total Express
                 </Text>
-                <Text styleOverrides={{ color: 'blue' }}>
-                  Tracking - XSDFE231675
-                </Text>
+                <Text csx={{ color: 'blue' }}>Tracking - XSDFE231675</Text>
               </Set>
             </Collapsible.Content>
           </Collapsible>
@@ -140,7 +132,7 @@ function Example() {
 
   return (
     <>
-      <CollapsibleGroup styleOverrides={{ width: 400 }}>
+      <CollapsibleGroup csx={{ width: 400 }}>
         <Collapsible state={promosAndPartner}>
           <Collapsible.Header label="Promos and Partnerships" />
           <Collapsible.Content>{PromosGroup}</Collapsible.Content>
@@ -157,7 +149,7 @@ function Example() {
 
 ## Customization
 
-You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides) property to handle different styles. The `CollapsibleGroup` and its composites accepts this property.
+You can use the [csx](/theming/inline-styles/#styles--csx) property to handle different styles. The `CollapsibleGroup` and its composites accepts this property.
 
 ## Props
 

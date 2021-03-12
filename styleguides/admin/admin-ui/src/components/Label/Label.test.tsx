@@ -9,7 +9,7 @@ describe('Label tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Label data-testid="label" styleOverrides={{ color: 'azure' }}>
+        <Label data-testid="label" csx={{ color: 'azure' }}>
           <input type="checkbox" />
           Checkbox Input Label!
         </Label>

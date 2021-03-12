@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import { Tabs, useTabState } from './index'
 import { Card } from '../Card'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { Heading } from '../Heading'
 import { Set } from '../Set'
 
@@ -23,16 +23,16 @@ export function FixedWidth() {
         <Tabs.Tab label="Tab 3" id="3" />
         <Tabs.Tab label="Tab 4" id="4" />
       </Tabs.List>
-      <Tabs.Content id="1" styleOverrides={{ margin: 4 }}>
+      <Tabs.Content id="1" csx={{ margin: 4 }}>
         Tab 1 Content
       </Tabs.Content>
-      <Tabs.Content id="2" styleOverrides={{ margin: 4 }}>
+      <Tabs.Content id="2" csx={{ margin: 4 }}>
         Tab 2 Content
       </Tabs.Content>
-      <Tabs.Content id="3" styleOverrides={{ margin: 4 }}>
+      <Tabs.Content id="3" csx={{ margin: 4 }}>
         Tab 3 Content
       </Tabs.Content>
-      <Tabs.Content id="4" styleOverrides={{ margin: 4 }}>
+      <Tabs.Content id="4" csx={{ margin: 4 }}>
         Tab 4 Content
       </Tabs.Content>
     </Tabs>
@@ -50,16 +50,16 @@ export function FluidWidth() {
         <Tabs.Tab label="Tab 3" id="3" />
         <Tabs.Tab label="Tab 4" id="4" />
       </Tabs.List>
-      <Tabs.Content id="1" styleOverrides={{ margin: 4 }}>
+      <Tabs.Content id="1" csx={{ margin: 4 }}>
         Tab 1 Content
       </Tabs.Content>
-      <Tabs.Content id="2" styleOverrides={{ margin: 4 }}>
+      <Tabs.Content id="2" csx={{ margin: 4 }}>
         Tab 2 Content
       </Tabs.Content>
-      <Tabs.Content id="3" styleOverrides={{ margin: 4 }}>
+      <Tabs.Content id="3" csx={{ margin: 4 }}>
         Tab 3 Content
       </Tabs.Content>
-      <Tabs.Content id="4" styleOverrides={{ margin: 4 }}>
+      <Tabs.Content id="4" csx={{ margin: 4 }}>
         Tab 4 Content
       </Tabs.Content>
     </Tabs>
@@ -68,9 +68,9 @@ export function FluidWidth() {
 
 function Header() {
   return (
-    <Box styles={{ marginTop: 5, border: 'divider-bottom' }}>
+    <Box csx={{ marginTop: 5, border: 'divider-bottom' }}>
       <Set orientation="vertical" fluid spacing={5}>
-        <Box styles={{ marginLeft: 4 }}>
+        <Box csx={{ marginLeft: 4 }}>
           <Heading>Provider Manager</Heading>
         </Box>
         <Tabs.List aria-label="my-tabs">
@@ -84,12 +84,12 @@ function Header() {
 
 function TabsContent() {
   return (
-    <Box styles={{ padding: 4 }}>
+    <Box csx={{ padding: 4 }}>
       <Tabs.Content id="published">
-        <Card styleOverrides={{ marginTop: 2 }}>Published Content</Card>
+        <Card csx={{ marginTop: 2 }}>Published Content</Card>
       </Tabs.Content>
       <Tabs.Content id="pending">
-        <Card styleOverrides={{ marginTop: 2 }}>Pending Content</Card>
+        <Card csx={{ marginTop: 2 }}>Pending Content</Card>
       </Tabs.Content>
     </Box>
   )

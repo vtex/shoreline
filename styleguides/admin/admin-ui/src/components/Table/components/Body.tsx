@@ -1,7 +1,7 @@
 import React, { ElementType, ReactNode, Ref } from 'react'
 import { forwardRef } from '@vtex/admin-core'
 
-import { Box } from '../../Box'
+import { Box } from '@vtex/admin-primitives'
 import { useStylesContext, CellRoleContext } from '../context'
 import { SystemComponent } from '../../../types'
 
@@ -9,18 +9,17 @@ export const TableBody = forwardRef(function Tbody(
   props: TableBodyProps,
   ref: Ref<HTMLElement>
 ) {
-  const { element = 'div', children, styleOverrides = {}, ...boxProps } = props
+  const { element = 'div', children, csx = {}, ...boxProps } = props
 
   const { dir, variants } = useStylesContext()
 
   return (
     <Box
-      themeKey={variants.body}
       element={element}
       ref={ref}
       role="rowgroup"
       dir={dir}
-      styles={styleOverrides}
+      csx={{ themeKey: variants.body, ...csx }}
       {...boxProps}
     >
       <CellRoleContext.Provider value="cell">

@@ -1,6 +1,6 @@
 import React, { ElementType, ReactNode, useMemo, forwardRef, Ref } from 'react'
 
-import { Box } from '../../Box'
+import { Box } from '@vtex/admin-primitives'
 import { TableDensity, TableDir } from '../typings'
 import { StylesContext } from '../context'
 import { SystemComponent } from '../../../types'
@@ -18,7 +18,7 @@ const _Table = forwardRef(function Table(
     children,
     density = 'regular',
     element = 'div',
-    styleOverrides = {},
+    csx = {},
     ...boxProps
   } = props
 
@@ -43,8 +43,7 @@ const _Table = forwardRef(function Table(
   return (
     <Box
       ref={ref}
-      themeKey={styles.variants.table}
-      styles={styleOverrides}
+      csx={{ themeKey: styles.variants.table, ...csx }}
       role="table"
       element={element}
       dir={dir}

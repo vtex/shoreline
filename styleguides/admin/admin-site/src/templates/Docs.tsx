@@ -1,32 +1,11 @@
-import React, { createElement } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
-import RehypeReact from 'rehype-react'
 import { Global, css } from '@emotion/react'
 
-import { Paragraph, Text, useSystem } from '@vtex/admin-ui'
-import Anchor from '../components/Anchor'
-import List from '../components/List'
-import Kbd from '../components/Kbd'
-import Blockquote from '../components/Blockquote'
-import Experimental from '../icons/Experimental'
 import Heading from '../components/Heading'
 import Seo from '../components/SEO'
 import DocsBackNext from '../components/DocsBackNext'
-import Summary from '../components/Summary'
-import { Proptypes } from '../components/Proptypes'
-import {
-  MidColors,
-  DarkColors,
-  LightColors,
-  ComplementaryColors,
-  SemanticColor,
-} from '../components/ColorBlock'
-import PropDetails from '../components/PropDetails'
-import ThemeAwareProps from '../components/ThemeAwareProps'
-import { IconPage } from '../components/IconsPage'
-import IconPropDetails from '../components/IconPropDetails'
-import Collapsible from '../components/Collapsible'
-import { Code } from '../components/Code'
+import { renderAst } from './renderAst'
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -42,189 +21,6 @@ export const pageQuery = graphql`
   }
 `
 
-const { Compiler: renderAst } = new RehypeReact({
-  createElement,
-  components: {
-    a: Anchor,
-    proptypes: Proptypes,
-    highlight: function Render(props) {
-      const { message, ...restProps } = props
-
-      return (
-        <Text
-          {...restProps}
-          padding={1}
-          styles={{ bg: 'light.secondary', color: 'dark.primary' }}
-        >
-          {message}
-        </Text>
-      )
-    },
-    iconpropdetails: IconPropDetails,
-    iconpage: IconPage,
-    lightcolors: LightColors,
-    darkcolors: DarkColors,
-    midcolors: MidColors,
-    complementarycolors: ComplementaryColors,
-    semanticcolor: SemanticColor,
-    themeawareprops: ThemeAwareProps,
-    p: function Render(props) {
-      return (
-        <Paragraph
-          text="body"
-          styleOverrides={{
-            color: 'dark.primary',
-            fontSize: 2,
-            marginY: 4,
-            textAlign: 'justify',
-            code: {
-              fontFamily:
-                'VTEXTrustVF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif !important',
-              bg: 'light.secondary',
-              color: 'dark.primary',
-            },
-          }}
-          {...props}
-        />
-      )
-    },
-    ul: List,
-    ol: function Render(props) {
-      return <List el="ol" {...props} />
-    },
-    kbd: Kbd,
-    blockquote: Blockquote,
-    summary: Summary,
-    propdetails: PropDetails,
-    collapsible: Collapsible,
-    h1: Heading,
-    h2: function Render(props) {
-      return <Heading element="h2" {...props} />
-    },
-    h3: function Render(props) {
-      return <Heading element="h3" {...props} />
-    },
-    h4: function Render(props) {
-      return <Heading element="h4" {...props} />
-    },
-    h5: function Render(props) {
-      return <Heading element="h5" {...props} />
-    },
-    h6: function Render(props) {
-      return <Heading element="h6" {...props} />
-    },
-    span: function Render({
-      title,
-      children,
-      ...props
-    }: React.HTMLAttributes<unknown>) {
-      return (
-        <span {...props}>
-          {children}
-          {title === 'Experimental' && <Experimental />}
-        </span>
-      )
-    },
-    pre: function RenderCode(prevProps) {
-      function getChildrenCode(props: { children?: React.ReactNode }) {
-        const children = React.Children.toArray(props.children)
-        const [code] = children
-
-        if (code && typeof code === 'object' && 'type' in code) {
-          return code.type === 'code' ? code : null
-        }
-
-        return null
-      }
-
-      function preToCodeBlock(preProps: typeof prevProps) {
-        if (preProps?.children) {
-          const codeElement = getChildrenCode(preProps)
-
-          const {
-            static: isStatic,
-            maxHeight,
-            className = '',
-            ...props
-          } = codeElement?.props
-
-          const [code] = codeElement?.props?.children
-
-          const match = className.match(/language-([\0-\uFFFF]*)/)
-
-          return {
-            codeString: code.trim(),
-            className,
-            language: match != null ? match[1] : '',
-            ...props,
-          }
-        }
-
-        return undefined
-      }
-
-      const props = preToCodeBlock(prevProps)
-
-      if (props) {
-        return <Code {...props} />
-      }
-
-      return <pre {...props} />
-    },
-    table: function Render(props) {
-      const { cn } = useSystem()
-
-      return (
-        <table
-          className={cn({
-            borderRadius: 3,
-            borderCollapse: 'collapse',
-            verticalAlign: 'middle',
-          })}
-          {...props}
-        />
-      )
-    },
-    tr: function Render(props) {
-      const { cn } = useSystem()
-
-      return <tr className={cn({ textAlign: 'left', height: 48 })} {...props} />
-    },
-    th: function Render(props) {
-      const { cn } = useSystem()
-
-      return (
-        <th
-          className={cn({
-            paddingX: 3,
-            borderBottomColor: 'mid.secondary',
-            borderBottomWidth: 1,
-            borderBottomStyle: 'solid',
-            verticalAlign: 'middle',
-          })}
-          {...props}
-        />
-      )
-    },
-    td: function Render(props) {
-      const { cn } = useSystem()
-
-      return (
-        <td
-          className={cn({
-            paddingX: 3,
-            borderBottomColor: 'mid.secondary',
-            borderBottomWidth: 1,
-            borderBottomStyle: 'solid',
-            verticalAlign: 'middle',
-          })}
-          {...props}
-        />
-      )
-    },
-  },
-})
-
 export default function Docs({ data, pageContext }: DocsProps) {
   const {
     markdownRemark: { title, htmlAst, excerpt },
@@ -236,47 +32,30 @@ export default function Docs({ data, pageContext }: DocsProps) {
     <>
       <Global
         styles={css`
-          *,
-          *::after,
-          *::before {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+          pre {
+            font-family: monospace !important;
           }
-          body {
-            font-size: 16px;
-            text-rendering: optimizelegibility;
-            -webkit-font-smoothing: antialiased;
-            overflow: hidden;
+
+          code {
+            font-family: monospace !important;
           }
-          h1 {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 24px;
+
+          pre > code {
+            font-family: monospace !important;
           }
-          h2 {
-            font-size: 24px;
+
+          .token {
+            font-family: monospace !important;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+            font-size: 14px;
           }
-          h3 {
-            font-size: 18px;
+
+          textArea {
+            font-family monospace !important;
           }
-          h4 {
-            font-size: 16px;
-          }
-          h2,
-          h3,
-          h4,
-          h5,
-          h6 {
-            margin: 24px 0 16px 0;
-            font-weight: bold;
-          }
-          p {
-            font-size: 16px;
-            line-height: 28px;
-            margin-bottom: 16px;
-            font-weight: 400;
-          }
+
           code.inline-code {
             display: inline-block;
             vertical-align: middle;
@@ -286,15 +65,14 @@ export default function Docs({ data, pageContext }: DocsProps) {
             color: rgba(248, 248, 242);
             font-size: 14px;
             border-radius: 3px;
-            font-feature-settings: 'clig' 0, 'calt' 0;
-            font-variant: no-common-ligatures no-discretionary-ligatures
-              no-historical-ligatures no-contextual;
           }
+
           h1 code.inline-code,
           h2 code.inline-code {
             font-size: calc(100% - 5px);
             padding: 4px;
           }
+
           blockquote {
             margin-bottom: 16px;
             width: 100%;
@@ -304,41 +82,14 @@ export default function Docs({ data, pageContext }: DocsProps) {
               margin: 0;
             }
           }
+
           hr {
             border: 0;
             height: 0;
             border-top: 1px solid rgba(0, 0, 0, 0.1);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
           }
-          table {
-            border-collapse: separate;
-            border-spacing: 0 4px;
-            margin-top: -4px;
-            margin-bottom: 16px;
-            width: 100%;
-            th,
-            td {
-              margin: 0;
-              border-style: solid none;
-              padding: 12px;
-              :first-of-type {
-                border-left-style: solid;
-                border-top-left-radius: 5px;
-                border-bottom-left-radius: 5px;
-              }
-              :last-child {
-                border-right-style: solid;
-                border-bottom-right-radius: 5px;
-                border-top-right-radius: 5px;
-              }
-            }
-            tr {
-              th {
-                text-align: left;
-                font-weight: bold;
-              }
-            }
-          }
+
           iframe {
             margin-bottom: 16px;
           }

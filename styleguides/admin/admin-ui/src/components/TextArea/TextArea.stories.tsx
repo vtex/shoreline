@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { TextArea, TextAreaProps } from './index'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 
 export default {
   title: 'admin-ui/TextArea',
@@ -13,7 +13,7 @@ export const Playground: Story<TextAreaProps> = (args) => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <TextArea
         {...args}
         value={value}
@@ -35,7 +35,7 @@ export const Basic = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -61,7 +61,7 @@ export const Error = () => {
   }
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => {
@@ -85,7 +85,7 @@ export const Disabled = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => setValue(e.target.value)}

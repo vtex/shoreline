@@ -12,10 +12,7 @@ describe('TableHead tests', () => {
     const { getByTestId } = render(
       <ThemeProvider>
         <StylesContext.Provider value={getStyles('compact')}>
-          <TableHead
-            data-testid="table-head"
-            styleOverrides={{ bg: 'coral' }}
-          />
+          <TableHead data-testid="table-head" csx={{ bg: 'coral' }} />
         </StylesContext.Provider>
       </ThemeProvider>
     )

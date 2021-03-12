@@ -10,7 +10,7 @@ describe('CheckboxGroup tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <CheckboxGroup data-testid="group" styleOverrides={{ bg: 'azure' }}>
+        <CheckboxGroup data-testid="group" csx={{ bg: 'azure' }}>
           <input type="checkbox" readOnly />
         </CheckboxGroup>
       </ThemeProvider>

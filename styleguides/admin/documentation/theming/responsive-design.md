@@ -27,7 +27,7 @@ In the example below, the `<Box>` has full width while on `mobile`, and half on 
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     width: ['full', '1/2'],
     padding: 4,
     bg: 'blue',
@@ -42,7 +42,7 @@ If you want to skip a breakpoint, you can use the value `null`. This is useful i
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     width: [null, null, 'full'],
     padding: 4,
     color: 'light.primary',

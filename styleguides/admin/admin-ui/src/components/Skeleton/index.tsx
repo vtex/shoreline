@@ -1,8 +1,8 @@
 import { ElementType } from 'react'
 import { useSystem, createComponent } from '@vtex/admin-core'
 
-import { Primitive } from '../Primitive'
-import { SystemPrimitive } from '../../types'
+import { Primitive } from '@vtex/admin-primitives'
+import { SystemComponent } from '../../types'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -15,7 +15,7 @@ import { SystemPrimitive } from '../../types'
  *
  * function Component() {
  *  const { loading, data } = useFetch()
- *  return loading ? <Skeleton styles={{ ... }} /> : <h1>{data}</h1>
+ *  return loading ? <Skeleton csx={{ ... }} /> : <h1>{data}</h1>
  * }
  *
  */
@@ -26,7 +26,7 @@ export const Skeleton = createComponent(Primitive, useSkeleton)
  * @returns skeleton htmlProps
  */
 export function useSkeleton(props: SkeletonProps) {
-  const { shape = 'rect', styles = {}, element = 'div', ...htmlProps } = props
+  const { shape = 'rect', csx = {}, element = 'div', ...htmlProps } = props
   const { keyframes } = useSystem()
 
   const load = keyframes`
@@ -40,12 +40,12 @@ export function useSkeleton(props: SkeletonProps) {
 
   return {
     element,
-    themeKey: {
-      skeleton: { shape },
-    },
-    styles: {
-      ...styles,
+    csx: {
+      themeKey: {
+        skeleton: { shape },
+      },
       animation: `${load} 1.2s ease-in-out infinite`,
+      ...csx,
     },
     ...htmlProps,
   }
@@ -53,7 +53,7 @@ export function useSkeleton(props: SkeletonProps) {
 
 export type SkeletonShape = 'rect' | 'circle'
 
-export interface SkeletonProps extends SystemPrimitive {
+export interface SkeletonProps extends SystemComponent {
   /**
    * Shape of the skeleton
    * @default 'rect'

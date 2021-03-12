@@ -52,7 +52,7 @@ export function Group() {
 
   return (
     <>
-      <Heading styleOverrides={{ text: 'highlight' }}>
+      <Heading csx={{ text: 'highlight' }}>
         Selected solution: {state.state}
       </Heading>
       <RadioGroup state={state} orientation="vertical" aria-label="Solutions">
