@@ -84,12 +84,20 @@ function Header({
 }
 
 const contentAnimation = css`
-    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+    transition: padding-top 200ms ease-in-out,
+      padding-bottom 200ms ease-in-out,
+      opacity 700ms ease-in-out,
+      transform 700ms ease-in-out;
+    padding-top: 0;
+    padding-bottom: 0;
     opacity: 0;
-    transform: translate3d(0, -10%, 0);
- &[data-enter] {
+    transform: translate3d(0, 0%, 0);
+  &[data-enter] {
+    padding-top: 20px;
+    padding-bottom: 20px;
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  };
   }
 `;
 
