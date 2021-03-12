@@ -1,10 +1,16 @@
 ---
-path: /alert/
+path: /feedback/alert/
 ---
 
 # Alert
 
-Configuration device, where users can input text and choose between anticipated options. Forms include many elements that will be described individually.
+Alerts are notifications of mild to high priority. They may inform the user about events they should know, or explain a problem and point out a solution. They may be triggered by a user action or not.
+
+## Import
+
+```jsx isStatic
+import { Alert } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -20,16 +26,6 @@ function Example() {
     </Alert>
   )
 }
-```
-
-## Installation
-
-```bash isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Alert } from '@vtex/admin-ui'
 ```
 
 ## Variations
@@ -192,4 +188,29 @@ function Example() {
 
 ## Props
 
-<propdetails heading="Alert" component="Alert"></propdetails>
+| Name      | Type                  | Description                   | Required  | Default             |
+| --------- | --------------------- | ----------------------------- | --------- | ------------------- | --------------- | --- | ------- |
+| csx       | `StyleObject`         | Custom styles                 | 🚫        | {}                  |
+| actions   | `Actions`             | Possible actions              | 🚫        | -                   |
+| icon      | `ReactNode`           | Icon to display               | 🚫        | -                   |
+| onDismiss | `() => void`          | Action to dispatch on dismiss | 🚫        | -                   |
+| visible   | `boolean`             | Whether is visible            | 🚫        | false               |
+| type      | `'error'              | 'success'                     | 'warning' | 'info'`             | Icon to display | 🚫  | warning |
+| children  | `ReactNode`           | Component children            | 🚫        | -                   |
+| sticky    | `boolean`             | Whether is whether is sticky  | 🚫        | false               |
+| fluid     | `Responsive<boolean>` | Whether the height is fluid   | 🚫        | [true, true, false] |
+
+### Actions
+
+| Name      | Type     | Description      | Required | Default |
+| --------- | -------- | ---------------- | -------- | ------- |
+| primary   | `Action` | Primary action   | 🚫       | -       |
+| secondary | `Action` | Secondary action | 🚫       | -       |
+| tertiary  | `Action` | Tertiary action  | 🚫       | -       |
+
+### Action
+
+| Name    | Type                 | Description                | Required | Default |
+| ------- | -------------------- | -------------------------- | -------- | ------- |
+| label   | `string`             | Action text                | ✅       | -       |
+| onClick | `(e: Event) => void` | Action to perform on click | 🚫       | -       |

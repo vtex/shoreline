@@ -1,18 +1,12 @@
 ---
-path: /table/
+path: /data-display/table/
 ---
 
 # Table
 
-## Installation
+## Import
 
-`<Set>` uses the upcoming `@vtex/admin-ui-system` package. This means you need to install the `latest` version:
-
-```sh isStatic
-yarn add @vtex/admin-ui@latest
----
-npm install @vtex/admin-ui@latest
-```
+WIP
 
 ## Variation
 
@@ -445,8 +439,6 @@ function Example() {
 }
 ```
 
-## Customization
-
 ## Limitations
 
 This component is unstable beacause is also missing some (quite crucial) features, such as:
@@ -456,24 +448,4 @@ This component is unstable beacause is also missing some (quite crucial) feature
 
 ## Props
 
-### Stateful
-
-<propdetails heading="StatefulTable" component="StatefulTable">
-</propdetails>
-
-### Table
-
-<propdetails heading="Table" component="Table">
-</propdetails>
-
-<propdetails heading="Table.Head" component="TableHead">
-</propdetails>
-
-<propdetails heading="Table.Body" component="TableBody">
-</propdetails>
-
-<propdetails heading="Table.Row" component="TableRow">
-</propdetails>
-
-<propdetails heading="Table.Cell" component="TableCell">
-</propdetails>
+WIP

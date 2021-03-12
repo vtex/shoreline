@@ -1,10 +1,16 @@
 ---
-path: /tag/
+path: /data-display/tag/
 ---
 
 # Tag
 
-Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable. It renders a `div` element.
+Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
+
+## Import
+
+```jsx isStatic
+import { Tag, TagProps } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -14,16 +20,6 @@ Tags represent a status, or a common denominator. They make sections and entitie
   label="Here goes the label!"
   handleDelete={() => window.alert('Tag deleted')}
 />
-```
-
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Tag, TagProps } from '@vtex/admin-ui'
 ```
 
 ## Variation
@@ -70,23 +66,13 @@ You can add one Icon on the left side of the `Tag`. Just use the `icon` property
 <Tag icon={<IconFavorite />} label="Rio de Janeiro" />
 ```
 
-## Customization
-
-You can use the [csx](/theming/inline-styles/#styles--csx) property to handle different styles.
-
-### Example
-
-For example, you can add a margin to the `Tag`. One way to do this is by using the `csx` property, check the example below!
-
-```jsx
-<Tag
-  icon={<IconFavorite />}
-  csx={{ margin: 4 }}
-  handleDelete={() => window.alert('Tag deleted')}
-  label="Rio de Janeiro"
-/>
-```
-
 ## Props
 
-<proptypes heading="Tag" component="Tag" />
+| Name         | Type          | Description                       | Required | Default |
+| ------------ | ------------- | --------------------------------- | -------- | ------- | --------- | --------- | --------- | --- | ------ |
+| label        | `string`      | Tag size                          | ✅       | -       |
+| csx          | `StyleObject` | Custom styles                     | 🚫       | {}      |
+| palette      | `'black'      | 'green'                           | 'red'    | 'blue'  | 'yellow'  | 'purple'` | Tag theme | 🚫  | 'blue' |
+| size         | `'regular'    | 'small'`                          | Tag size | 🚫      | 'regular' |
+| handleDelete | `() => void`  | When defined the tag is deletable | 🚫       | -       |
+| icon         | `ReactNode`   | Tag icon                          | 🚫       | -       |
