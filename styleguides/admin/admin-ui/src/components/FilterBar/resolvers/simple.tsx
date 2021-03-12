@@ -46,7 +46,7 @@ export function simpleResolver<T extends { label?: string }>() {
           label="Value"
           items={items}
           variant="adaptative-dark"
-          styleOverrides={stylesOf('components.filterBar.dropdown')}
+          csx={stylesOf('components.filterBar.dropdown')}
         />
       )
 

@@ -4,10 +4,9 @@ import { get, useSystem } from '@vtex/admin-core'
 
 import { Set } from '../../Set'
 import { StatementProps, ConjunctionProps } from '../typings'
-import { Flex } from '../../Flex'
+import { Flex, Box } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
 import { ResolvedValue } from '../resolvers/core'
-import { Box } from '../../Box'
 import { Menu } from '../../Menu'
 import { Dropdown, DropdownProps, useDropdownState } from '../../Dropdown'
 import { useFilterBarContext } from '../context'
@@ -53,15 +52,10 @@ export function Statement<T>(props: NewStatementProps<T>) {
   const conjunctionLabel = index === 0 ? 'Where' : conjunction
 
   return (
-    <Flex
-      dir={dir}
-      justify="space-between"
-      styles={{ width: 'full' }}
-      key={index}
-    >
+    <Flex dir={dir} justify="space-between" csx={{ width: 'full' }} key={index}>
       <Set
         spacing={2}
-        styleOverrides={{
+        csx={{
           '> div:nth-child(n+2)': { minWidth: 150 },
           '> div:first-child': { minWidth: 100 },
         }}
@@ -72,7 +66,7 @@ export function Statement<T>(props: NewStatementProps<T>) {
             handleConjunctionChange={handleConjunctionChange}
           />
         ) : (
-          <Box dir={dir} styles={{ paddingLeft: 3 }}>
+          <Box dir={dir} csx={{ paddingLeft: 3 }}>
             {conjunctionLabel}
           </Box>
         )}
@@ -104,7 +98,7 @@ export function Statement<T>(props: NewStatementProps<T>) {
           <Button
             dir={dir}
             variant="adaptative-dark"
-            styleOverrides={{ color: 'dark.secondary' }}
+            csx={{ color: 'dark.secondary' }}
             icon={<IconAction />}
           />
         }
@@ -156,7 +150,7 @@ function ConjunctionDropdown(props: ConjunctionDropdownProps) {
       items={conjunctions}
       label="Conjunction"
       variant="adaptative-dark"
-      styleOverrides={{
+      csx={{
         ...stylesOf('components.filterBar.dropdown'),
         minWidth: 100,
       }}
@@ -177,11 +171,11 @@ function CustomDropdown<T extends { label?: string }>(props: DropdownProps<T>) {
       {...props}
       variant="adaptative-dark"
       renderItem={(item) => (
-        <Box themeKey="components.filterBar.dropdown-item-label">
+        <Box csx={{ themeKey: 'components.filterBar.dropdown-item-label' }}>
           {item?.label}
         </Box>
       )}
-      styleOverrides={stylesOf('components.filterBar.dropdown')}
+      csx={stylesOf('components.filterBar.dropdown')}
     />
   )
 }

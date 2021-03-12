@@ -1,11 +1,10 @@
 import React, { useReducer } from 'react'
 
-import { Box } from '../Box'
+import { Box, Flex } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { IconAdd } from '@vtex/admin-ui-icons'
 import { Statement } from './components/Statement'
 import { Set } from '../Set'
-import { Flex } from '../Flex'
 import { Paragraph } from '../Paragraph'
 import { useFilterBar } from './useFilterBar'
 import {
@@ -109,16 +108,21 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleDuplicateStatement={handleDuplicateStatement}
       dir={dir}
     >
-      <Box styles={{ border: 'default' }} dir={dir} {...restProps}>
+      <Box csx={{ border: 'default' }} dir={dir} {...restProps}>
         {statements.length === 0 ? (
           <Box
             dir={dir}
-            themeKey="components.filterBar.statements-container-empty"
+            csx={{
+              themeKey: 'components.filterBar.statements-container-empty',
+            }}
           >
             <Paragraph>{label}</Paragraph>
           </Box>
         ) : (
-          <Box dir={dir} themeKey="components.filterBar.statements-container">
+          <Box
+            dir={dir}
+            csx={{ themeKey: 'components.filterBar.statements-container' }}
+          >
             <Set orientation="vertical" spacing={2}>
               {statements.map((statement, index) => {
                 return (
@@ -133,7 +137,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
             </Set>
           </Box>
         )}
-        <Flex dir={dir} themeKey="components.filterBar.footer">
+        <Flex dir={dir} csx={{ themeKey: 'components.filterBar.footer' }}>
           <Button
             dir={dir}
             size="small"
@@ -147,7 +151,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
             dir={dir}
             size="small"
             variant="adaptative-dark"
-            styleOverrides={{ color: 'dark.secondary' }}
+            csx={{ color: 'dark.secondary' }}
             onClick={handleFiltersReset}
           >
             Reset Filters
