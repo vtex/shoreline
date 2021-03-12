@@ -72,16 +72,16 @@ You can add one Icon on the left side of the `Tag`. Just use the `icon` property
 
 ## Customization
 
-You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides) property to handle different styles.
+You can use the [csx](/theming/inline-styles/#styles--csx) property to handle different styles.
 
 ### Example
 
-For example, you can add a margin to the `Tag`. One way to do this is by using the `styleOverrides` property, check the example below!
+For example, you can add a margin to the `Tag`. One way to do this is by using the `csx` property, check the example below!
 
 ```jsx
 <Tag
   icon={<IconFavorite />}
-  styleOverrides={{ margin: 4 }}
+  csx={{ margin: 4 }}
   handleDelete={() => window.alert('Tag deleted')}
   label="Rio de Janeiro"
 />

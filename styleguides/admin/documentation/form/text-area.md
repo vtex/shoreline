@@ -13,7 +13,7 @@ function Example() {
   const [value, setValue] = React.useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => {
@@ -50,7 +50,7 @@ function Example() {
   const [value, setValue] = React.useState('')
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => {
@@ -104,7 +104,7 @@ function Example() {
   const invalidInput = 'Invalid Value'
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => {
@@ -136,7 +136,7 @@ function Example() {
   const invalidInput = 'Invalid Value'
 
   return (
-    <Box styles={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <TextArea
         value={value}
         onChange={(e) => {
@@ -158,7 +158,7 @@ function Example() {
 
 ## Customization
 
-You can use the `styleOverrides` property to customize any style.
+You can use the `csx` property to customize any style.
 
 # Props
 

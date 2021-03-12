@@ -15,7 +15,7 @@ function Example() {
   const state = useCollapsible()
 
   return (
-    <Collapsible state={state} styleOverrides={{ width: 500 }}>
+    <Collapsible state={state} csx={{ width: 500 }}>
       <Collapsible.Header label="Build for Community #1" />
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
@@ -150,7 +150,7 @@ function Example() {
   const collapsibleState = useCollapsible()
 
   return (
-    <Collapsible state={collapsibleState} styleOverrides={{ width: 500 }}>
+    <Collapsible state={collapsibleState} csx={{ width: 500 }}>
       <Collapsible.Header label="State Logic" />
       <Collapsible.Content>
         It’s all about being ready to grow and reach new levels. Have a solid
@@ -165,7 +165,7 @@ function Example() {
 
 ## Customization
 
-You can use the [styleOverrides](/theming/inline-styles/#styles--styleoverrides) property to handle different styles. The `Collapsible` and its composites accepts this property.
+You can use the [csx](/theming/inline-styles/#styles--csx) property to handle different styles. The `Collapsible` and its composites accepts this property.
 
 ### Example
 
@@ -174,15 +174,12 @@ function Example() {
   const collapsibleState = useCollapsible()
 
   return (
-    <Collapsible
-      state={collapsibleState}
-      styleOverrides={{ width: 500, margin: 3 }}
-    >
+    <Collapsible state={collapsibleState} csx={{ width: 500, margin: 3 }}>
       <Collapsible.Header
         label="Customization"
-        styleOverrides={{ bg: 'light.secondary' }}
+        csx={{ bg: 'light.secondary' }}
       />
-      <Collapsible.Content styleOverrides={{ color: 'blue' }}>
+      <Collapsible.Content csx={{ color: 'blue' }}>
         <Paragraph>Text with blue color!</Paragraph>
       </Collapsible.Content>
     </Collapsible>

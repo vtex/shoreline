@@ -26,7 +26,7 @@ If you want to know more about how to style a primitive component, check out our
   templateColumns="repeat(3, 1fr)"
   templateRows="repeat(3, 1fr)"
   gap="6"
-  styles={{
+  csx={{
     height: 400,
     div: { bg: 'blue', borderRadius: 'default' },
   }}
@@ -65,12 +65,12 @@ Here's an example of using grid template areas and applying a gap or space betwe
   templateColumns="1fr 2fr 2fr"
   templateRows="1fr 2fr"
   gap="4"
-  styles={{ height: 400, div: { borderRadius: 'default' } }}
+  csx={{ height: 400, div: { borderRadius: 'default' } }}
 >
-  <Grid.Item area="yellow" styles={{ bg: 'yellow.secondary' }} />
-  <Grid.Item area="blue-1" styles={{ bg: 'blue.secondary' }} />
-  <Grid.Item area="blue-2" styles={{ bg: 'blue.secondary' }} />
-  <Grid.Item area="red" styles={{ bg: 'red.secondary' }} />
+  <Grid.Item area="yellow" csx={{ bg: 'yellow.secondary' }} />
+  <Grid.Item area="blue-1" csx={{ bg: 'blue.secondary' }} />
+  <Grid.Item area="blue-2" csx={{ bg: 'blue.secondary' }} />
+  <Grid.Item area="red" csx={{ bg: 'red.secondary' }} />
 </Grid>
 ```
 
@@ -82,12 +82,12 @@ Here's an example of using grid template columns and applying a gap or space bet
 <Grid
   templateColumns="repeat(4, 1fr)"
   columnGap="4"
-  styles={{ height: 100, div: { borderRadius: 'default' } }}
+  csx={{ height: 100, div: { borderRadius: 'default' } }}
 >
-  <Box styles={{ bg: 'blue.secondary' }} />
-  <Box styles={{ bg: 'green.secondary' }} />
-  <Box styles={{ bg: 'yellow.secondary' }} />
-  <Box styles={{ bg: 'red.secondary' }} />
+  <Box csx={{ bg: 'blue.secondary' }} />
+  <Box csx={{ bg: 'green.secondary' }} />
+  <Box csx={{ bg: 'yellow.secondary' }} />
+  <Box csx={{ bg: 'red.secondary' }} />
 </Grid>
 ```
 
@@ -99,18 +99,18 @@ Here's an example of using grid template rows and applying a gap or space betwee
 <Grid
   templateRows="repeat(4, 1fr)"
   rowGap="4"
-  styles={{ height: 400, width: 300, div: { borderRadius: 'default' } }}
+  csx={{ height: 400, width: 300, div: { borderRadius: 'default' } }}
 >
-  <Box styles={{ bg: 'blue.secondary' }} />
-  <Box styles={{ bg: 'green.secondary' }} />
-  <Box styles={{ bg: 'yellow.secondary' }} />
-  <Box styles={{ bg: 'red.secondary' }} />
+  <Box csx={{ bg: 'blue.secondary' }} />
+  <Box csx={{ bg: 'green.secondary' }} />
+  <Box csx={{ bg: 'yellow.secondary' }} />
+  <Box csx={{ bg: 'red.secondary' }} />
 </Grid>
 ```
 
 ## Customization
 
-With the `styles` property, you can add any customization to the `Grid` and `Grid.Item` components. Check the [StyleObject](/theming/style-object) page for detailed info.
+With the `csx` property, you can add any customization to the `Grid` and `Grid.Item` components. Check the [StyleObject](/theming/style-object) page for detailed info.
 
 ## Props
 

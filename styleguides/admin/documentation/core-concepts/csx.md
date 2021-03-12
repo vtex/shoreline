@@ -1,14 +1,14 @@
 ---
-path: /core-concepts/styles/
+path: /core-concepts/csx-prop/
 ---
 
-# Styles
+# csx prop
 
 The admin-ui `StyleObject` lets you style elements while consuming values from the theme. We use [emotion](https://emotion.sh/docs/introduction) under the hood - you can think of it as a superset of [emotion's css object](https://emotion.sh/docs/object-styles). So, this means that any valid emotion object is also accepted.
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     color: 'darkorchid',
     backgroundColor: 'orange',
     padding: '10px',
@@ -24,7 +24,7 @@ Scales are values that can be consumed from specific properties within the `Styl
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     color: 'blue',
     backgroundColor: 'blue.secondary',
     padding: 3,
@@ -41,7 +41,7 @@ Sometimes it’s useful to nest selectors to target elements inside the current 
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     button: {
       padding: 1,
       margin: 1,
@@ -71,7 +71,7 @@ Scoped classNames can also be created and reused multiple times.
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     display: 'flex',
     '.button': {
       padding: 1,
@@ -105,7 +105,7 @@ You can use all [CSS Pseudo-classes](https://developer.mozilla.org/en-US/docs/We
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     bg: 'blue',
     color: 'light.primary',
     padding: 1,
@@ -126,7 +126,7 @@ You can use all [CSS Pseudo-elements](https://developer.mozilla.org/en-US/docs/W
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     boxSizing: 'border-box',
     position: 'relative',
     display: 'block',
@@ -164,7 +164,7 @@ You can also use the [standard CSS media query syntax](https://developer.mozilla
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     bg: 'blue',
     size: 50,
     '@media screen and (min-width: 40em)': {
@@ -189,7 +189,7 @@ This is useful when you want to change a single property across multiple breakpo
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     bg: 'dark.primary',
     height: 30,
     width: ['full', 'full', '1/2'],
@@ -201,7 +201,7 @@ This is useful when you want to change a single property across multiple breakpo
 
 ```jsx isStatic
 <Box
-  styles={{
+  csx={{
     width: [null, null, '25%'],
   }}
 />
@@ -213,7 +213,7 @@ For shorthand CSS properties or ones that are not automatically mapped to values
 
 ```jsx
 <Box
-  styles={{
+  csx={{
     boxShadow: (theme) => `0 0 .5em ${theme.colors.red.default}`,
   }}
 >

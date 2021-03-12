@@ -54,7 +54,7 @@ Palette with `danger` value.
 
 ## Customization
 
-You can also use the `styleOverrides` property to customize any style.
+You can also use the `csx` property to customize any style.
 
 # Props
 

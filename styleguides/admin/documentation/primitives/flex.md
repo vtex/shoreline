@@ -17,9 +17,9 @@ If you want to know more about how to style a primitive component, check out our
 `Flex.Spacer`: Creates an adjustable, empty space that can be used to tune the spacing between child elements within Flex.
 
 ```jsx
-<Flex styles={{ height: 100 }}>
+<Flex csx={{ height: 100 }}>
   <Box
-    styles={{
+    csx={{
       bg: 'red',
       width: 100,
     }}
@@ -27,7 +27,7 @@ If you want to know more about how to style a primitive component, check out our
     Box 1
   </Box>
   <Box
-    styles={{
+    csx={{
       bg: 'green',
       width: 150,
     }}
@@ -35,7 +35,7 @@ If you want to know more about how to style a primitive component, check out our
     Box 2
   </Box>
   <Box
-    styles={{
+    csx={{
       bg: 'blue',
       flex: 1,
     }}
@@ -64,7 +64,7 @@ You can combine `Flex` and `Flex.Spacer` to create an adjustable, empty space th
 ```jsx
 <Flex justify="space-around">
   <Box
-    styles={{
+    csx={{
       bg: 'red',
       size: 100,
     }}
@@ -73,7 +73,7 @@ You can combine `Flex` and `Flex.Spacer` to create an adjustable, empty space th
   </Box>
   <Flex.Spacer />
   <Box
-    styles={{
+    csx={{
       bg: 'green',
       size: 100,
     }}
@@ -85,7 +85,7 @@ You can combine `Flex` and `Flex.Spacer` to create an adjustable, empty space th
 
 ### Customization
 
-With the `styles` property, you can add any customization to the `Grid` and `Grid.Item` components. Check the [StyleObject](/theming/style-object) page for detailed info.
+With the `csx` property, you can add any customization to the `Grid` and `Grid.Item` components. Check the [StyleObject](/theming/style-object) page for detailed info.
 
 You can also use the following properties to add flex-box styles:
 

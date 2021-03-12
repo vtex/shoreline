@@ -13,11 +13,12 @@ export default {
     bg: 'light.primary',
     minHeight: 'auto',
     borderRadius: 'default',
+    fontFamily: 'mono',
   },
   editorWrapper: {
     borderBottomLeftRadius: 'default',
     borderBottomRightRadius: 'default',
-    font: 'mono',
+    fontFamily: 'mono',
     overflow: 'auto',
     position: 'relative',
     'textarea, pre': {
@@ -31,7 +32,7 @@ export default {
     display: 'block',
     whiteSpace: 'pre-wrap',
     textAlign: 'left',
-    font: 'mono',
+    fontFamily: 'mono',
     padding: '1rem',
     bg: 'red.secondary',
     color: 'red',
@@ -59,6 +60,7 @@ export default {
     opacity: 0.3,
   },
   pre: {
+    fontFamily: 'mono',
     WebkitOverflowScrolling: 'touch',
     overflowWrap: 'break-word',
     boxShadow: '1px 1px 20px rgba(20, 20, 20, 0.27)',

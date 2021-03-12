@@ -47,9 +47,9 @@ Given that Styleguide uses [VTEX Tachyons](https://vtex.github.io/vtex-tachyons/
 Given that Admin UI styles are prop-based, overrides are as easy as passing a property.
 
 ```jsx isStatic
-<Card styleOverrides={{ padding: 2 }}>Card content</Card>
+<Card csx={{ padding: 2 }}>Card content</Card>
 
-<Button styleOverrides={{ border: 'default' }}>Label</Button>
+<Button csx={{ border: 'default' }}>Label</Button>
 ```
 
 ## Responsive Design
@@ -67,7 +67,7 @@ Authoring responsive styles in Styleguide requires a combination of pseudo-class
 Every [StyleObject](/core-concepts/styles/) property can receive a responsive value, for example:
 
 ```jsx isStatic
-<Box styles={{ width: ['10%', '30%', '40%'] }} />
+<Box csx={{ width: ['10%', '30%', '40%'] }} />
 ```
 
 ## Accessibility
@@ -221,7 +221,7 @@ The component's styles are made combining Tachyons classNames, so to reuse the d
 
 **Admin UI**
 
-Components styles can be applied using a valid path on our theme object, we call this path of theme key. There are several ways to reuse design behavior in our system. For example:
+Components csx can be applied using a valid path on our theme object, we call this path of theme key. There are several ways to reuse design behavior in our system. For example:
 
 - Using the `themeKey` property inside the [Styles object](/core-concepts/styles/).
 - Using [stylesOf](/hooks/use-system/#stylesof) function.

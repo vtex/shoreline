@@ -65,7 +65,7 @@ Orientation can be either `vertical` or `horizontal` (default). It can be contro
 While on `vertical` orientation, you can alternatively the `fluid` property. This will make the inner children, match the container width.
 
 ```jsx
-<Box styles={{ maxWidth: 320 }}>
+<Box csx={{ maxWidth: 320 }}>
   <Set orientation="vertical" fluid>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
@@ -95,7 +95,7 @@ You can set items alignment (`start` [default], `end`) through the `align` prop.
 `orientation`, `spacing` and `align` are [`ResponsiveValues`](/docs/guide/responsive-design/#responsive-values). It means that you can pass an array to them.
 
 ```jsx
-<Box styles={{ maxWidth: ['full', 'full', 560] }}>
+<Box csx={{ maxWidth: ['full', 'full', 560] }}>
   <Set orientation={['vertical', 'vertical', 'horizontal']} fluid>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
@@ -108,11 +108,11 @@ You can set items alignment (`start` [default], `end`) through the `align` prop.
 
 ## Customization
 
-You can use the `styleOverrides` property to handle different styles.
+You can use the `csx` property to handle different styles.
 
 ```jsx
 <Set
-  styleOverrides={{
+  csx={{
     bg: 'light.secondary',
     borderRadius: 'default',
     padding: 4,

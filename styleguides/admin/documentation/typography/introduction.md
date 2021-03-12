@@ -18,12 +18,12 @@ Check the [Typography Theming Documentation](/theming/typography/)
 
 ## Customization
 
-Any typography component accept the `styleOverrides` property of type [StyleObject](/theming/style-object/). Make sure that you are not breaking the design system consistency while doing that (check [Inline Styles Docs](/theming/inline-styles/) for more details).
+Any typography component accept the `csx` property of type [StyleObject](/theming/style-object/). Make sure that you are not breaking the design system consistency while doing that (check [Inline Styles Docs](/theming/inline-styles/) for more details).
 
 Example
 
 ```jsx
-<Heading styleOverrides={{ color: 'blue' }}>Blue primary heading</Heading>
+<Heading csx={{ color: 'blue' }}>Blue primary heading</Heading>
 ```
 
 ## Caveats

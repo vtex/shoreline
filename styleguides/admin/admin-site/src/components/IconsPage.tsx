@@ -457,13 +457,13 @@ export function IconPage() {
         <Box
           key={section.title}
           element="section"
-          styles={{
+          csx={{
             marginY: 5,
           }}
         >
           <Heading>{section.title}</Heading>
           <Box
-            styles={{
+            csx={{
               display: 'flex',
               flex: '1 0  100%',
               flexWrap: 'wrap',
@@ -489,7 +489,7 @@ export function IconPage() {
                   <Box
                     key={display ?? label}
                     element="button"
-                    styles={{
+                    csx={{
                       color: 'dark.primary',
                       bg: 'light.primary',
                       border: 'none',
@@ -512,12 +512,12 @@ export function IconPage() {
                     }}
                   >
                     <Box
-                      styles={{
+                      csx={{
                         display: 'block',
                       }}
                     >
                       <Box
-                        styles={{
+                        csx={{
                           borderRadius: 'default',
                           bg: 'light.secondary',
                           color: 'dark.primary',
@@ -530,7 +530,7 @@ export function IconPage() {
                         <CurrentIcon {...props} size={24} />
                       </Box>
                       <Box
-                        styles={{
+                        csx={{
                           textAlign: 'center',
                         }}
                       >
