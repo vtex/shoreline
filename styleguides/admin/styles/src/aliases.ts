@@ -1,17 +1,30 @@
+import warning from 'tiny-warning'
 import { defaultBreakpoints, Theme } from './index'
 
 export const alias = (key: string, theme: Theme) => {
-  const [, tablet, desktop, wideScreen] =
+  const breakpoints =
     (theme && (theme.breakpoints as string[])) || defaultBreakpoints
+
+  const [, tablet, desktop, wideScreen] = breakpoints
+
+  const responsiveAliases = {
+    '@mobile': `@media (max-width: ${tablet})`,
+    '@tablet': `@media (min-width: ${tablet}) and (max-width: ${desktop})`,
+    '@desktop': `@media (min-width: ${desktop}) and (max-width: ${wideScreen})`,
+  }
 
   const aliases = {
     bg: 'backgroundColor',
     fontSettings: 'fontVariationSettings',
-    '@mobile': `@media (max-width: ${tablet})`,
-    '@tablet': `@media (max-width: ${desktop})`,
-    '@desktop': `@media (max-width: ${wideScreen})`,
-    '@wideScreen': `@media (min-width: ${wideScreen})`,
+    ...responsiveAliases,
   }
+
+  warning(
+    breakpoints.length >= 4 || !(key in responsiveAliases),
+    `Make sure you have at least 4 breakpoints on your theme before using responsive aliases. Otherwise, your media query may return an unexpected value. Alias: ${key}; Value: ${
+      responsiveAliases[key as keyof typeof responsiveAliases]
+    }`
+  )
 
   if (key in aliases) {
     return aliases[key as keyof typeof aliases]

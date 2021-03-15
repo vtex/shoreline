@@ -692,6 +692,7 @@ describe('theme parse', () => {
 
   it('handles responsive aliases', () => {
     const result = styles({
+      bg: 'black',
       '@mobile': {
         bg: 'primary',
       },
@@ -701,23 +702,18 @@ describe('theme parse', () => {
       '@desktop': {
         bg: 'background',
       },
-      '@wideScreen': {
-        bg: 'black',
-      },
     })(theme)
 
     expect(result).toEqual({
+      backgroundColor: 'black',
       '@media (max-width: 768px)': {
         backgroundColor: 'blue',
       },
-      '@media (max-width: 1024px)': {
+      '@media (min-width: 768px) and (max-width: 1024px)': {
         backgroundColor: 'cyan',
       },
-      '@media (max-width: 1280px)': {
+      '@media (min-width: 1024px) and (max-width: 1200px)': {
         backgroundColor: 'white',
-      },
-      '@media (min-width: 1280px)': {
-        backgroundColor: 'black',
       },
     })
   })
