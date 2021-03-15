@@ -55,15 +55,14 @@ export const Carousel = ({
   return (
     <Flex variant="carousel" sx={sx}>
       <Flex>
-        {!stopAtBeginning && (
-          <NavigationContainer
-            direction="previous"
-            overlaySlides={overlaySlides}
-            buttonAlign={buttonAlign}
-            handleClick={handlePrevious}
-            size={size}
-          />
-        )}
+        <NavigationContainer
+          direction="previous"
+          overlaySlides={overlaySlides}
+          buttonAlign={buttonAlign}
+          handleClick={handlePrevious}
+          size={size}
+          visible={!stopAtBeginning}
+        />
         <SlidesContainer
           transition={transition}
           swipeHandlers={swipeHandlers}
@@ -73,15 +72,14 @@ export const Carousel = ({
           slidesPerScroll={slidesPerScroll}
           slidesPerPage={slidesPerPage}
         />
-        {!stopAtEnd && (
-          <NavigationContainer
-            direction="next"
-            overlaySlides={overlaySlides}
-            buttonAlign={buttonAlign}
-            handleClick={handleNext}
-            size={size}
-          />
-        )}
+        <NavigationContainer
+          direction="next"
+          overlaySlides={overlaySlides}
+          buttonAlign={buttonAlign}
+          handleClick={handleNext}
+          size={size}
+          visible={!stopAtEnd}
+        />
       </Flex>
       {indicators && (
         <ProgressIndicatorBar
@@ -101,6 +99,7 @@ interface NavigationContainerProps {
   overlaySlides: boolean
   direction: 'previous' | 'next'
   handleClick: () => void
+  visible: boolean
 }
 
 const NavigationContainer = ({
@@ -109,11 +108,13 @@ const NavigationContainer = ({
   buttonAlign,
   handleClick,
   size,
+  visible,
 }: NavigationContainerProps) => (
   <Flex
     variant={`carousel.navigationContainer.${direction}-${
       overlaySlides ? 'overlay' : 'default'
     }-${buttonAlign}`}
+    sx={{ visibility: visible ? 'visible' : 'hidden' }}
   >
     <Button
       onClick={handleClick}

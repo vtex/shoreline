@@ -57,11 +57,11 @@ export const NoOverlay = () => (
   <Carousel
     sx={{
       backgroundColor: 'secondary.base',
-      width: 'fit-content',
+      width: '100%',
     }}
     overlaySlides={false}
   >
-    {[...Array(10).keys()].map((value) => (
+    {[...Array(5).keys()].map((value) => (
       <Card sx={{ textAlign: 'center', marginY: 5 }}>
         <Card.Header>I love you, random dogs #{value}</Card.Header>
         <Card.Body>
