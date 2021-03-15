@@ -110,26 +110,25 @@ const NavigationContainer = ({
   size,
   visible,
 }: NavigationContainerProps) => (
-  <Flex
-    variant={`carousel.navigationContainer.${direction}-${
-      overlaySlides ? 'overlay' : 'default'
-    }-${buttonAlign}`}
-    sx={{ visibility: visible ? 'visible' : 'hidden' }}
-  >
-    <Button
-      onClick={handleClick}
-      sx={{
-        variant: `carousel.${direction}.${size}`,
-      }}
+    <Flex
+      variant={`carousel.navigationContainer.${direction}-${overlaySlides ? 'overlay' : 'default'
+        }-${buttonAlign}`}
+      sx={{ visibility: visible ? 'visible' : 'hidden' }}
     >
-      <IconCaret
-        size={size === 'regular' ? 48 : 24}
-        direction={direction === 'previous' ? 'left' : 'right'}
-      />
-      <VisuallyHidden>{direction} step</VisuallyHidden>
-    </Button>
-  </Flex>
-)
+      <Button
+        onClick={handleClick}
+        sx={{
+          variant: `carousel.${direction}.${size}`,
+        }}
+      >
+        <IconCaret
+          size={size === 'regular' ? 48 : 24}
+          direction={direction === 'previous' ? 'left' : 'right'}
+        />
+        <VisuallyHidden>{direction} step</VisuallyHidden>
+      </Button>
+    </Flex>
+  )
 
 interface SlidesContainerProps {
   slides: ReactNode[]
@@ -161,7 +160,7 @@ const SlidesContainer = ({
     : ''
 
   return (
-    <Flex sx={{ overflow: 'hidden' }}>
+    <Flex sx={{ width: '100%', overflow: 'hidden' }}>
       <Flex
         {...swipeHandlers}
         variant={`carousel.slidesContainer${variant}`}
