@@ -12,7 +12,7 @@ import { Form, Formik } from 'formik'
 import { FormikTextArea } from './index'
 import { Button } from '@vtex/admin-ui';
 
-describe('Input tests', () => {
+describe('TextArea tests', () => {
   it('change value in formik by input component', async () => {
     const handleSubmit = jest.fn()
 

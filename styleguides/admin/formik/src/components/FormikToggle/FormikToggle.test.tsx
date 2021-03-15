@@ -10,7 +10,7 @@ import { FormikToggle } from './index'
 import { Button } from '@vtex/admin-ui';
 import { axe } from 'jest-axe'
 
-describe('Input tests', () => {
+describe('Toggle tests', () => {
   beforeAll(() => {
     Object.defineProperty(window, "matchMedia", {
       writable: true,

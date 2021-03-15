@@ -9,7 +9,7 @@ import { Form, Formik } from 'formik'
 import { FormikSelect } from './index'
 import { Button } from '@vtex/admin-ui';
 
-describe('Input tests', () => {
+describe('Select tests', () => {
   it('change value in formik by input component', async () => {
     const handleSubmit = jest.fn()
     const options = ['option 1', 'option 2', 'option 3', 'error']
@@ -38,7 +38,6 @@ describe('Input tests', () => {
     userEvent.click(screen.getByRole('button',{ name: /TextField label/i}))
     userEvent.click(screen.getByText(options[2]))
 
-    // userEvent.selectOptions(screen.getByRole('button',{ name: /TextField label/i}), options[2])
     userEvent.click(screen.getByRole('button', {name: "Submit"}))
 
     await waitFor(() =>
