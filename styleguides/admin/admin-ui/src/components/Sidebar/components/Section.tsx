@@ -1,10 +1,10 @@
 import React, { forwardRef, Ref } from 'react'
-import { SidebarSubItemProps, CompositeItem } from './index'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
 import { SidebarSecretProps } from '../types'
-import { SidebarSubItem } from './SubItem'
+import { SidebarSubItem, SidebarSubItemProps } from './SubItem'
+import { CompositeItem } from './Aria'
 
 export const SidebarSection = forwardRef(function SidebarSection(
   props: _SidebarSectionProps,
