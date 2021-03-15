@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react'
 import { get } from '@vtex/admin-core'
-import { StatementProps } from '../typings'
+import { FilterStatement } from '../typings'
 import invariant from 'tiny-invariant'
+import { BaseResolvers } from './base'
 
 /**
  * Used to recursive define resolver
@@ -10,7 +11,7 @@ import invariant from 'tiny-invariant'
 export type ResolverShortcut<I, S = unknown> = S & { type: I }
 
 export type ResolveFilterArgs<T> = {
-  statement: StatementProps<T>
+  statement: FilterStatement<T>
   resolvers: Record<string, Resolver>
   index: number
   handleValueChange: (value: T, index: number) => void
@@ -25,7 +26,7 @@ export function createResolver<T, I, S = Record<string, unknown>>(
 export interface Resolver<T = any, I = any, S = any> {
   value: (helpers: {
     /** current statement */
-    statement: StatementProps<T, ResolverShortcut<I, S>>
+    statement: FilterStatement<T, ResolverShortcut<I, S>>
     handleValueChange: (value: T, index: number) => void
     index: number
   }) => ReactNode
@@ -40,11 +41,15 @@ export interface Resolver<T = any, I = any, S = any> {
  */
 export function ResolvedValue<T>(args: ResolveFilterArgs<T>) {
   const { resolvers, statement, index, handleValueChange } = args
-  const id = get(statement.filter, 'resolver.type')
+  const id = statement.filter.resolver.type
 
   invariant(id, 'resolver.type is required while using a filter')
 
-  const resolver = get(resolvers, id)
+  const resolver = get(resolvers, id) as Resolver<
+    T,
+    typeof id,
+    BaseResolvers<T>
+  >
 
   invariant(
     resolver,
@@ -65,7 +70,7 @@ export function ResolvedValue<T>(args: ResolveFilterArgs<T>) {
  */
 export type ResolverRenderProps<T, D> = {
   data: D
-  statement: StatementProps<T>
+  statement: FilterStatement<T>
   index: number
   handleValueChange: (value: T, index: number) => void
 }

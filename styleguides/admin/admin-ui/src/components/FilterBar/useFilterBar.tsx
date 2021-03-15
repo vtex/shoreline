@@ -1,12 +1,12 @@
 import { useCallback, useMemo } from 'react'
 import { baseResolvers } from './resolvers/base'
 import {
-  ConditionProps,
-  ConjunctionProps,
+  FilterConditionProps,
+  FilterConjunction,
   FilterBarProps,
   FilterProps,
-  StatementProps,
-  ConditionsProps,
+  FilterStatement,
+  FilterStatements,
 } from './typings'
 
 export function useFilterBar<T>(props: FilterBarProps<T>) {
@@ -16,12 +16,11 @@ export function useFilterBar<T>(props: FilterBarProps<T>) {
     filters,
     resolvers: defaultResolvers = baseResolvers<T>(),
     handleStatementChange: defaultHandleStatementChange,
-    dir = 'ltr',
     ...restProps
   } = props
 
   const reducer = useCallback(
-    (state: ConditionsProps<T>, action: Action<T>) =>
+    (state: FilterStatements<T>, action: Action<T>) =>
       defaultReducer(state, action),
     [defaultReducer]
   )
@@ -39,15 +38,14 @@ export function useFilterBar<T>(props: FilterBarProps<T>) {
     filters,
     resolvers,
     handleStatementChange,
-    dir,
     ...restProps,
   }
 }
 
 function defaultReducer<T>(
-  state: ConditionsProps<T>,
+  state: FilterStatements<T>,
   action: Action<T>
-): ConditionsProps<T> {
+): FilterStatements<T> {
   switch (action.type) {
     case 'conjunction': {
       const { conjunction, handleStatementChange } = action
@@ -103,7 +101,7 @@ function defaultReducer<T>(
       const emptyStatement = {
         filter: filter,
         condition: filter.conditions[0],
-      } as StatementProps<T>
+      } as FilterStatement<T>
 
       const nextState = {
         conjunction,
@@ -120,7 +118,7 @@ function defaultReducer<T>(
       const nextState = {
         conjunction: 'And',
         statements: [],
-      } as ConditionsProps<T>
+      } as FilterStatements<T>
 
       handleStatementChange(nextState)
 
@@ -158,43 +156,43 @@ function defaultReducer<T>(
 export type Action<T> =
   | {
       type: 'conjunction'
-      conjunction: ConjunctionProps
-      handleStatementChange: (statement: ConditionsProps<T>) => void
+      conjunction: FilterConjunction
+      handleStatementChange: (statement: FilterStatements<T>) => void
     }
   | {
       type: 'filter'
       filter: FilterProps<T>
       index: number
-      handleStatementChange: (statement: ConditionsProps<T>) => void
+      handleStatementChange: (statement: FilterStatements<T>) => void
     }
   | {
       type: 'condition'
-      condition: ConditionProps
+      condition: FilterConditionProps
       index: number
-      handleStatementChange: (statement: ConditionsProps<T>) => void
+      handleStatementChange: (statement: FilterStatements<T>) => void
     }
   | {
       type: 'value'
       value?: T
       index: number
-      handleStatementChange: (statement: ConditionsProps<T>) => void
+      handleStatementChange: (statement: FilterStatements<T>) => void
     }
   | {
       type: 'newStatement'
       filter: FilterProps<T>
-      handleStatementChange: (statement: ConditionsProps<T>) => void
+      handleStatementChange: (statement: FilterStatements<T>) => void
     }
   | {
       type: 'filtersReset'
-      handleStatementChange: (statement: ConditionsProps<T>) => void
+      handleStatementChange: (statement: FilterStatements<T>) => void
     }
   | {
       type: 'duplicateStatement'
       index: number
-      handleStatementChange: (statement: ConditionsProps<T>) => void
+      handleStatementChange: (statement: FilterStatements<T>) => void
     }
   | {
       type: 'deleteStatement'
       index: number
-      handleStatementChange: (statement: ConditionsProps<T>) => void
+      handleStatementChange: (statement: FilterStatements<T>) => void
     }

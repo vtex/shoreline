@@ -8,8 +8,8 @@ import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
 import { useFilterBar } from './useFilterBar'
 import {
-  ConditionProps,
-  ConjunctionProps,
+  FilterConditionProps,
+  FilterConjunction,
   FilterBarProps,
   FilterProps,
 } from './typings'
@@ -24,8 +24,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
     resolvers,
     label,
     handleStatementChange,
-    dir,
-    ...restProps
+    ...htmlProps
   } = useFilterBar(props)
 
   const initialState = {
@@ -81,7 +80,10 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleStatementChange,
     })
 
-  const handleConditionChange = (condition: ConditionProps, index: number) =>
+  const handleConditionChange = (
+    condition: FilterConditionProps,
+    index: number
+  ) =>
     dispatch({
       type: 'condition',
       condition: condition,
@@ -89,7 +91,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleStatementChange,
     })
 
-  const handleConjunctionChange = (conjunction: ConjunctionProps) =>
+  const handleConjunctionChange = (conjunction: FilterConjunction) =>
     dispatch({
       type: 'conjunction',
       conjunction,
@@ -106,12 +108,10 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleDeleteStatement={handleDeleteStatement}
       handleFilterChange={handleFilterChange}
       handleDuplicateStatement={handleDuplicateStatement}
-      dir={dir}
     >
-      <Box csx={{ border: 'default' }} dir={dir} {...restProps}>
+      <Box csx={{ border: 'default' }} {...htmlProps}>
         {statements.length === 0 ? (
           <Box
-            dir={dir}
             csx={{
               themeKey: 'components.filterBar.statements-container-empty',
             }}
@@ -119,10 +119,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
             <Paragraph>{label}</Paragraph>
           </Box>
         ) : (
-          <Box
-            dir={dir}
-            csx={{ themeKey: 'components.filterBar.statements-container' }}
-          >
+          <Box csx={{ themeKey: 'components.filterBar.statements-container' }}>
             <Set orientation="vertical" spacing={2}>
               {statements.map((statement, index) => {
                 return (
@@ -137,9 +134,8 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
             </Set>
           </Box>
         )}
-        <Flex dir={dir} csx={{ themeKey: 'components.filterBar.footer' }}>
+        <Flex csx={{ themeKey: 'components.filterBar.footer' }}>
           <Button
-            dir={dir}
             size="small"
             variant="tertiary"
             icon={<IconAdd />}
@@ -148,7 +144,6 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
             Add Filter
           </Button>
           <Button
-            dir={dir}
             size="small"
             variant="adaptative-dark"
             csx={{ color: 'dark.secondary' }}

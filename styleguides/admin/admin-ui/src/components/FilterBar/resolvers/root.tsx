@@ -10,7 +10,10 @@ export function rootResolver<T>() {
 
       const { resolver } = filter
 
-      invariant(resolver, 'resolver is required while using the root resolver')
+      invariant(
+        resolver,
+        'Resolver is required while using the root resolver on FilterBar'
+      )
 
       const render = resolver.render
 

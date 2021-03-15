@@ -1,16 +1,15 @@
 import React, { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 import { Resolver } from './resolvers/core'
-import { ConditionProps, ConjunctionProps, FilterProps } from './typings'
+import { FilterConditionProps, FilterConjunction, FilterProps } from './typings'
 
 export interface FilterBarContextProps<T extends {}> {
   filters: FilterProps<T>[]
   resolvers: Record<string, Resolver<T>>
-  dir: 'rtl' | 'ltr'
   handleFilterChange: (filter: FilterProps<T>, index: number) => void
-  handleConditionChange: (filter: ConditionProps, index: number) => void
+  handleConditionChange: (filter: FilterConditionProps, index: number) => void
   handleValueChange: (value: T | undefined, index: number) => void
-  handleConjunctionChange: (conjunction: ConjunctionProps) => void
+  handleConjunctionChange: (conjunction: FilterConjunction) => void
   handleDeleteStatement: (index: number) => void
   handleDuplicateStatement: (index: number) => void
 }

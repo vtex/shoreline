@@ -3,7 +3,7 @@ import { IconAction, IconDelete, IconDuplicate } from '@vtex/admin-ui-icons'
 import { get, useSystem } from '@vtex/admin-core'
 
 import { Set } from '../../Set'
-import { StatementProps, ConjunctionProps } from '../typings'
+import { FilterStatement, FilterConjunction } from '../typings'
 import { Flex, Box } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
 import { ResolvedValue } from '../resolvers/core'
@@ -16,7 +16,6 @@ export function Statement<T>(props: NewStatementProps<T>) {
   const {
     filters,
     resolvers,
-    dir,
     handleConjunctionChange,
     handleConditionChange,
     handleFilterChange,
@@ -29,11 +28,11 @@ export function Statement<T>(props: NewStatementProps<T>) {
     items: filters,
     selectedItem: statement.filter,
     onSelectedItemChange: ({ selectedItem: filter }) => {
-      if (filter) {
-        handleFilterChange(filter, index)
-        handleConditionChange(filter.conditions[0], index)
-        handleValueChange(undefined, index)
-      }
+      if (!filter) return
+
+      handleFilterChange(filter, index)
+      handleConditionChange(filter.conditions[0], index)
+      handleValueChange(undefined, index)
     },
   })
 
@@ -43,21 +42,19 @@ export function Statement<T>(props: NewStatementProps<T>) {
     items: conditions,
     selectedItem: statement.condition,
     onSelectedItemChange: ({ selectedItem: condition }) => {
-      if (condition) {
-        handleConditionChange(condition, index)
-      }
+      if (!condition) return
+
+      handleConditionChange(condition, index)
     },
   })
 
-  const conjunctionLabel = index === 0 ? 'Where' : conjunction
-
   return (
-    <Flex dir={dir} justify="space-between" csx={{ width: 'full' }} key={index}>
+    <Flex justify="space-between" csx={{ width: '100%' }} key={index}>
       <Set
         spacing={2}
         csx={{
-          '> div:nth-child(n+2)': { minWidth: 150 },
-          '> div:first-child': { minWidth: 100 },
+          '> div:nth-child(n+2)': { minWidth: 150, maxWidth: 150 },
+          '> div:first-child': { minWidth: 100, maxWidth: 100 },
         }}
       >
         {index === 1 ? (
@@ -66,23 +63,19 @@ export function Statement<T>(props: NewStatementProps<T>) {
             handleConjunctionChange={handleConjunctionChange}
           />
         ) : (
-          <Box dir={dir} csx={{ paddingLeft: 3 }}>
-            {conjunctionLabel}
+          <Box csx={{ paddingLeft: 3 }}>
+            {index === 0 ? 'Where' : conjunction}
           </Box>
         )}
-        <CustomDropdown
+        <StatementDropdown
           state={filtersState}
-          renderItem={(item) => get(item, 'label', undefined)}
           label="Filter"
           items={filters}
-          variant="adaptative-dark"
         />
-        <CustomDropdown
-          renderItem={(item) => get(item, 'label', undefined)}
+        <StatementDropdown
           state={conditionsState}
           label="Condition"
           items={conditions}
-          variant="adaptative-dark"
         />
         <ResolvedValue
           resolvers={resolvers}
@@ -96,7 +89,6 @@ export function Statement<T>(props: NewStatementProps<T>) {
         hideOnClick
         disclosure={
           <Button
-            dir={dir}
             variant="adaptative-dark"
             csx={{ color: 'dark.secondary' }}
             icon={<IconAction />}
@@ -104,14 +96,12 @@ export function Statement<T>(props: NewStatementProps<T>) {
         }
       >
         <Menu.Item
-          dir={dir}
           onClick={() => handleDuplicateStatement(index)}
           icon={<IconDuplicate />}
         >
           Duplicate
         </Menu.Item>
         <Menu.Item
-          dir={dir}
           onClick={() => handleDeleteStatement(index)}
           icon={<IconDelete />}
         >
@@ -123,8 +113,8 @@ export function Statement<T>(props: NewStatementProps<T>) {
 }
 
 export interface NewStatementProps<T> {
-  statement: StatementProps<T>
-  conjunction: ConjunctionProps
+  statement: FilterStatement<T>
+  conjunction: FilterConjunction
   index: number
 }
 
@@ -132,7 +122,7 @@ function ConjunctionDropdown(props: ConjunctionDropdownProps) {
   const { conjunction, handleConjunctionChange } = props
   const { stylesOf } = useSystem()
 
-  const conjunctions = ['And', 'Or'] as ConjunctionProps[]
+  const conjunctions = ['And', 'Or'] as FilterConjunction[]
 
   const conjunctionState = useDropdownState({
     items: conjunctions,
@@ -159,11 +149,11 @@ function ConjunctionDropdown(props: ConjunctionDropdownProps) {
 }
 
 interface ConjunctionDropdownProps {
-  conjunction: ConjunctionProps
-  handleConjunctionChange: (conjunction: ConjunctionProps) => void
+  conjunction: FilterConjunction
+  handleConjunctionChange: (conjunction: FilterConjunction) => void
 }
 
-function CustomDropdown<T extends { label?: string }>(props: DropdownProps<T>) {
+function StatementDropdown<T>(props: DropdownProps<T>) {
   const { stylesOf } = useSystem()
 
   return (
@@ -171,11 +161,11 @@ function CustomDropdown<T extends { label?: string }>(props: DropdownProps<T>) {
       {...props}
       variant="adaptative-dark"
       renderItem={(item) => (
-        <Box csx={{ themeKey: 'components.filterBar.dropdown-item-label' }}>
-          {item?.label}
+        <Box csx={{ themeKey: 'components.filterBar.dropdown-label' }}>
+          {get(item, 'label')}
         </Box>
       )}
-      csx={stylesOf('components.filterBar.dropdown')}
+      csx={{ ...stylesOf('components.filterBar.dropdown'), maxWidth: 150 }}
     />
   )
 }

@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { FilterBar } from './index'
 
-import { ConditionsProps } from './typings'
 export default {
   title: 'components/FilterBar',
   component: FilterBar,
@@ -15,14 +14,9 @@ export const WithStatements: Story = () => {
     { label: 'contains', id: '2' },
   ]
 
-  const [state, setState] = useState<ConditionsProps<FilterTypes>>({
-    statements: [],
-  })
-
   return (
     <FilterBar
       label="Use a filter to find products, create collections or generate a report"
-      statements={state.statements}
       filters={[
         {
           label: 'Status',
@@ -70,25 +64,8 @@ export const WithStatements: Story = () => {
         },
       ]}
       handleStatementChange={(statements) => {
-        console.log('statements', statements)
-        setState(statements)
+        console.log(statements)
       }}
     />
   )
-}
-
-type FilterTypes = Items | ItemsTest | Range | string
-
-interface Items {
-  label: string
-}
-
-interface ItemsTest {
-  label: string
-  id: string
-}
-
-interface Range {
-  before?: number
-  after?: number
 }
