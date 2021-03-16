@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.8.0...@vtex/admin-core@0.9.0) (2021-03-16)
+
+
+### Bug Fixes
+
+* **font:** fix font preload type ([9bff95a](https://github.com/vtex/onda/commit/9bff95a8b8bbb2a991a736af566dd0b25de11004))
+
+
+### Features
+
+* **font:** add VTEX Trust font preload ([07f432d](https://github.com/vtex/onda/commit/07f432d8c6f74e8af4de6d5ca5f188466480f567))
+
+
+
+
+
 # [0.8.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.7.2...@vtex/admin-core@0.8.0) (2021-03-10)
 
 

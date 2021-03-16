@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.84.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.0...@vtex/admin-ui@0.84.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* **modal:** styleOverrides prop as required ([b26eaea](https://github.com/vtex/onda/commit/b26eaea5b326f60080dc1b99b198e96057b0e705))
+
+
+
+
+
 # [0.84.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.3...@vtex/admin-ui@0.84.0) (2021-03-12)
 
 
