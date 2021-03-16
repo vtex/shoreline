@@ -44,10 +44,10 @@ export const Stateful: Story<ModalProps> = () => (
   >
     <Modal.Header title="Publish content" />
     <Modal.Content>
-      <Box csx={{ text: 'body' }}>
+      <Paragraph>
         Are you sure you want to publish this content? These action cannot be
         undone.
-      </Box>
+      </Paragraph>
     </Modal.Content>
     <Modal.Footer>
       <Button variant="secondary">Cancel</Button>
