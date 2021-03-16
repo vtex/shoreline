@@ -34,7 +34,7 @@ export function FontsPreload() {
         href:
           'https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff',
         as: 'font',
-        type: 'font/woff2',
+        type: 'font/woff',
       }),
     ]
   )
