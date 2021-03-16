@@ -50,13 +50,13 @@ const buttonDirection = {
 }
 
 const overlaySlides = {
-  default: { position: 'relative' },
-  overlay: { position: 'absolute' },
+  default: { position: 'relative', height: 'auto' },
+  overlay: { position: 'absolute', height: '100%' },
 }
 
 const buttonAlign = {
-  top: { alignSelf: 'baseline' },
-  center: { alignSelf: 'center' },
+  top: { alignItems: 'baseline' },
+  center: { alignItems: 'center' },
 }
 
 const navigationContainer = {
