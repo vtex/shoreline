@@ -28,13 +28,7 @@ export function FontsPreload() {
           'https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2',
         as: 'font',
         type: 'font/woff2',
-      }),
-      jsxs('link', {
-        rel: 'preload',
-        href:
-          'https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff',
-        as: 'font',
-        type: 'font/woff',
+        crossorigin: 'anonymous',
       }),
     ]
   )
