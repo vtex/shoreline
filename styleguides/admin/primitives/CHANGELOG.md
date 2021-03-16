@@ -7,6 +7,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
+## [0.2.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.1.3...@vtex/admin-primitives@0.2.1-experimental.1) (2021-03-16)
+
+
+### Features
+
+* **admin-primitives:** box primitive ([cd68229](https://github.com/vtex/onda/commit/cd68229b842afb1cdbe7d3f8d8d5c87a52253d13))
+
+
+### BREAKING CHANGES
+
+* **admin-primitives:** removed themeKey prop from all primitives
 
 
 
@@ -14,6 +25,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [0.2.1](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.0...@vtex/admin-primitives@0.2.1) (2021-03-16)
 
 **Note:** Version bump only for package @vtex/admin-primitives
+
 ## [0.2.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.1.3...@vtex/admin-primitives@0.2.1-experimental.0) (2021-03-16)
 
 
