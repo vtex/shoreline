@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.0...@vtex/admin-ui-theme@0.20.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* **font:** vTEX Trust font not loading correctly ([9c5a80b](https://github.com/vtex/onda/commit/9c5a80b0fc6f36e3038f651c9ef87b008842cf8b))
+
+
+
+
+
 # [0.20.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.3...@vtex/admin-ui-theme@0.20.0) (2021-03-16)
 
 

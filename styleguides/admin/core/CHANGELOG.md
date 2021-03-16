@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.0...@vtex/admin-core@0.9.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* **font:** vTEX Trust font not loading correctly ([9c5a80b](https://github.com/vtex/onda/commit/9c5a80b0fc6f36e3038f651c9ef87b008842cf8b))
+
+
+
+
+
 # [0.9.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.8.0...@vtex/admin-core@0.9.0) (2021-03-16)
 
 

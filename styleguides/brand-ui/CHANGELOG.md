@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.39.2...@vtex/brand-ui@0.40.0) (2021-03-16)
+
+
+### Features
+
+* fix popover zindex ([dc56f02](https://github.com/vtex/onda/commit/dc56f0231efdb00b09c5f61eabec0aabe979f471))
+
+
+
+
+
 ## [0.39.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.39.1...@vtex/brand-ui@0.39.2) (2021-03-16)
 
 
