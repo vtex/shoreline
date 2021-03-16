@@ -59,6 +59,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * **modal:** styleOverrides prop as required ([b26eaea](https://github.com/vtex/onda/commit/b26eaea5b326f60080dc1b99b198e96057b0e705))
+## [0.84.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.3...@vtex/admin-ui@0.84.1-experimental.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* **set:** omit styles prop from FlexProps ([34da6b4](https://github.com/vtex/onda/commit/34da6b4927655242c346471344a52417172fa10e))
+* **sidebar:** clean transition side effect ([14ca915](https://github.com/vtex/onda/commit/14ca915888fb11986028a5ae96e770a1062b0569))
+* **sidebar:** collapsed style ([af1a16a](https://github.com/vtex/onda/commit/af1a16a3c7d6e99089bef39419d7bbcc86b69adb))
+* **sidebar:** move menu state level to sidebar item ([96594ee](https://github.com/vtex/onda/commit/96594ee102a2811287e1a9f550f75143da27c142))
+* sidebar secret props contract ([c125363](https://github.com/vtex/onda/commit/c125363cdda6d7e36e581b4a79ac8658d9cc41f7))
+
+
+### Features
+
+* **admin-primitives:** box primitive ([cd68229](https://github.com/vtex/onda/commit/cd68229b842afb1cdbe7d3f8d8d5c87a52253d13))
+* **sidebar:** arrow keys navigation ([843e864](https://github.com/vtex/onda/commit/843e8641e2b272b77171955b9ec865ccbe0bc270))
+
+
+### BREAKING CHANGES
+
+* **admin-primitives:** removed themeKey prop from all primitives
+
+
+
+
+
 ## [0.84.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.3...@vtex/admin-ui@0.84.1-experimental.0) (2021-03-16)
 
 
