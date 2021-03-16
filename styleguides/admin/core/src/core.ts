@@ -5,7 +5,7 @@ import invariant from 'tiny-invariant'
 import 'focus-visible/dist/focus-visible'
 
 import { createSystem, jsxs, defaultSystem } from './system'
-import { Styles, Imports } from './global'
+import { Styles, Imports, FontsPreload } from './global'
 
 const SystemContext = createContext<ReturnType<typeof createSystem> | null>(
   null
@@ -14,19 +14,18 @@ const SystemContext = createContext<ReturnType<typeof createSystem> | null>(
 export function ThemeProvider(props: ThemeProviderProps) {
   const { children, system = defaultSystem } = props
 
-  return jsxs(
-    CacheProvider,
-    { value: system.emotionInstance.cache },
+  return jsxs(CacheProvider, { value: system.emotionInstance.cache }, [
     jsxs(
       SystemContext.Provider,
       { value: system },
       ...[
+        jsxs(FontsPreload, {}),
         jsxs(Imports, {}),
         jsxs(Styles, {}),
         jsxs(system.ThemeProvider, {}, children),
       ]
-    )
-  )
+    ),
+  ])
 }
 
 export function useSystem() {
