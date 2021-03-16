@@ -16,11 +16,13 @@ export const SidebarSection = forwardRef(function SidebarSection(
     <Set
       spacing={0.5}
       orientation="vertical"
-      themeKey={'components.sidebar.section'}
+      csx={{
+        themeKey: 'components.sidebar.section',
+      }}
     >
       <Text
         variant="action"
-        styleOverrides={{
+        csx={{
           color: 'dark.primary',
           fontSize: '0.6875rem',
           paddingBottom: '0.8125rem',

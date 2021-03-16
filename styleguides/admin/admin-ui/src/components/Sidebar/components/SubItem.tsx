@@ -32,7 +32,7 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
     }
   }
 
-  const styleOverrides: StyleObject = {
+  const csx: StyleObject = {
     width: '100%',
     height: 28,
     marginY: 1,
@@ -56,7 +56,7 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
       ref={ref}
       variant="tertiary"
       size="small"
-      styleOverrides={styleOverrides}
+      csx={csx}
       {...props}
       disabled={!!collapse}
       onClick={handleOnClick}
