@@ -1,7 +1,7 @@
 import React from 'react'
 import { SidebarItemProps } from './components/Item'
 import {
-  IconDashboard,
+  IconHome,
   IconAppStore,
   IconMarketplace,
   IconOrders,
@@ -67,9 +67,9 @@ const shipping = [
 
 export const topCornerItems: ItemProps = [
   {
-    icon: <IconDashboard {...iconProps} />,
+    icon: <IconHome {...iconProps} />,
     onClick: () => console.log('Click me'),
-    label: 'Dashboard',
+    label: 'Home',
   },
   {
     icon: <IconOrders {...iconProps} />,
