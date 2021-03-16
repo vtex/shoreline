@@ -3,7 +3,7 @@ export default {
     '@font-face': {
       fontFamily: 'VTEXTrustVF',
       fontStyle: 'normal',
-      src: "local('VTEXTrustVF'), url(https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2) format('woff2'), url(https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff) format('woff')",
+      src: "local('VTEXTrustVF')",
       fontDisplay: 'swap',
     },
     body: {
