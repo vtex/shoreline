@@ -45,8 +45,8 @@ export default {
     paddingBottom: 8,
   },
   backdrop: {
-    minWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
-    maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
+    minWidth: '12.775rem',
+    maxWidth: '12.775rem',
   },
   'collapse-button-container': {
     position: 'relative',

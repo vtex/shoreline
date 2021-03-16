@@ -8,7 +8,7 @@ import {
   CompositeItem,
 } from './index'
 import { SystemComponent } from '../../../types'
-import { useSystem } from '@vtex/admin-core'
+import { get, useSystem, useTheme } from '@vtex/admin-core'
 import { useSidebarContext } from '../context'
 import { SCALES, transition } from '../consts'
 import {
@@ -34,13 +34,10 @@ export function SidebarItem(props: SidebarItemProps) {
     label,
     shouldFullyCollapseOnTransition,
     sections,
+    selected,
     variant,
     ...baseProps
   } = useSidebarItemState(props)
-
-  const className = cn({
-    themeKey: 'components.sidebar.item',
-  })
 
   return (
     <CompositeItem {...rootState} role="menuitem" aria-label={label} id={label}>
@@ -53,7 +50,9 @@ export function SidebarItem(props: SidebarItemProps) {
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
           <motion.ul
-            className={className}
+            className={cn({
+              themeKey: 'components.sidebar.item',
+            })}
             initial={variant}
             animate={variant}
             variants={variants}
@@ -170,12 +169,16 @@ function useSidebarItemState(props: SidebarItemProps) {
     }
   }
 
+  const theme = useTheme()
+
   const variants = useMemo(() => {
     return {
       [SidebarItemVariantsKey.FullyExpanded]: () => ({
         [direction]: SCALES.FIXED_AREA_WIDTH,
         display: 'block',
         opacity: 1,
+        borderRight: '1px solid',
+        borderColor: 'mid.tertiary',
         transition,
         transitionEnd: {
           zIndex: 0,
@@ -184,6 +187,7 @@ function useSidebarItemState(props: SidebarItemProps) {
       [SidebarItemVariantsKey.FullyCollapsed]: () => ({
         [direction]:
           selected && !!currentItem?.isCollapsible ? '-8.125rem' : '-13.5rem',
+        border: 'unset',
         transition,
         zIndex: -1,
         transitionEnd: {
@@ -193,6 +197,7 @@ function useSidebarItemState(props: SidebarItemProps) {
       [SidebarItemVariantsKey.PartiallyExpanded]: () => ({
         [direction]: SCALES.FIXED_AREA_WIDTH,
         display: 'block',
+        borderRight: 'unset',
         opacity: 1,
         transition: {
           ...transition,
@@ -200,6 +205,7 @@ function useSidebarItemState(props: SidebarItemProps) {
         },
         transitionEnd: {
           zIndex: 0,
+          borderRight: `1px solid ${get(theme, 'colors.mid.tertiary')}`,
         },
       }),
       [SidebarItemVariantsKey.PartiallyCollapsed]: () => ({
@@ -211,6 +217,7 @@ function useSidebarItemState(props: SidebarItemProps) {
         },
         zIndex: -1,
         opacity: 0,
+        border: 'unset',
         transitionEnd: {
           display: 'none',
         },
@@ -260,6 +267,8 @@ function useSidebarItemState(props: SidebarItemProps) {
     state,
     sections,
     variant,
+    currentItem,
+    selected,
     ...ctx,
     ...baseProps,
   }
