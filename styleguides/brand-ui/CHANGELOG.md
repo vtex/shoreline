@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.39.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.39.1...@vtex/brand-ui@0.39.2) (2021-03-16)
+
+
+### Bug Fixes
+
+* **carousel:** set internal structure ([bea16fa](https://github.com/vtex/onda/commit/bea16fab722066a16109e85cae2da7034d8fa2dc))
+
+
+
+
+
 ## [0.39.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.39.0...@vtex/brand-ui@0.39.1) (2021-03-16)
 
 
