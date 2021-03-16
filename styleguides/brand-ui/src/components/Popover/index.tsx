@@ -35,7 +35,7 @@ export const Popover = ({
   const handleClickClose = () => popover.hide()
 
   return (
-    <Box sx={{ zIndex: 9999 }}>
+    <Box sx={{ zIndex: popover.visible ? 9999 : 0 }}>
       <BasePopover
         {...props}
         {...popover}
