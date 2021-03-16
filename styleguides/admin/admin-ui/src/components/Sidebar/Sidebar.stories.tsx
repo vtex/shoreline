@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { Sidebar, SidebarProps } from './index'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { CornerScope } from './types'
 import { Paragraph } from '../Paragraph'
 import { bottomCornerItems, topCornerItems } from './testUtils'
@@ -30,7 +30,7 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
   return (
     <>
       <Box
-        styles={{
+        csx={{
           height: 30,
           padding: 22,
           display: 'flex',
@@ -43,7 +43,7 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
         TOP BAR
       </Box>
       <Box
-        styles={{
+        csx={{
           display: 'flex',
           flexDirection: 'row',
           height: 'calc(100vh - 92px)',
@@ -77,7 +77,7 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
           </Sidebar.Footer>
         </Sidebar>
         <Box
-          styles={{
+          csx={{
             width: '100%',
             height: 'auto',
             padding: 22,
@@ -97,5 +97,5 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
 
 Playground.args = {
   id: 'Sidebar',
-  anchor: 'left',
+  direction: 'left',
 }

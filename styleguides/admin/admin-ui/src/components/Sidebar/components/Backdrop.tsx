@@ -43,7 +43,7 @@ export function SidebarBackdrop() {
           icon={
             <IconCaret
               direction={collapse ? 'right' : 'left'}
-              styleOverrides={{
+              csx={{
                 display: 'flex',
                 justifyContent: 'center',
                 '> path': {

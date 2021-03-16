@@ -11,7 +11,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   const { icon, selected, label, ...buttonProps } = props
   const { direction } = useSidebarContext()
 
-  const styleOverrides: StyleObject = {
+  const csx: StyleObject = {
     backgroundColor: selected ? 'sidebar.hover' : 'unset',
     'div > svg': {
       color: selected ? 'unset' : 'sidebar.dark',
@@ -31,7 +31,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         ref={ref}
         variant="tertiary"
         icon={icon}
-        styleOverrides={styleOverrides}
+        csx={csx}
         {...buttonProps}
       />
     </Tooltip>
