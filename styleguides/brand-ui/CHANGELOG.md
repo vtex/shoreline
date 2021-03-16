@@ -15,6 +15,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ## [0.39.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.39.1...@vtex/brand-ui@0.39.2) (2021-03-16)
+## [0.39.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.38.1...@vtex/brand-ui@0.39.1-experimental.0) (2021-03-16)
 
 
 ### Bug Fixes
@@ -31,6 +32,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * **brand-ui header:** font weights ([7a4dc9d](https://github.com/vtex/onda/commit/7a4dc9df48a93d25769cd9f03fd2d5a51709d700))
+* **brand-ui header:** font weights ([ab1230a](https://github.com/vtex/onda/commit/ab1230a897a05e5556b5fe01d5558c4a24f7d77c))
+
+
+### Features
+
+* **calendar:** add sx prop ([9616b2a](https://github.com/vtex/onda/commit/9616b2a48c6509d8996f44382990eb124956ab10))
+* **carousel:** add overlaySlides and initialSlide props ([cbf5953](https://github.com/vtex/onda/commit/cbf595361243cd052ff0e824630cad961cb3ab56))
 
 
 
