@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.39.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.39.0...@vtex/brand-ui@0.39.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* **brand-ui header:** font weights ([7a4dc9d](https://github.com/vtex/onda/commit/7a4dc9df48a93d25769cd9f03fd2d5a51709d700))
+
+
+
+
+
 # [0.39.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.38.1...@vtex/brand-ui@0.39.0) (2021-03-10)
 
 
