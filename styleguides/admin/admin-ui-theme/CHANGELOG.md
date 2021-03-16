@@ -45,6 +45,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **font:** add VTEX Trust font preload ([07f432d](https://github.com/vtex/onda/commit/07f432d8c6f74e8af4de6d5ca5f188466480f567))
+## [0.19.4-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.3...@vtex/admin-ui-theme@0.19.4-experimental.0) (2021-03-16)
+
+**Note:** Version bump only for package @vtex/admin-ui-theme
 
 
 
