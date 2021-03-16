@@ -16,7 +16,7 @@ import {
 } from './components'
 import { SidebarProvider } from './context'
 import { AnchorDirection, Item } from './types'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { SidebarBackdrop } from './components/Backdrop'
 
 export interface SidebarProps extends SystemComponent {
@@ -62,12 +62,7 @@ export function Sidebar(props: SidebarProps) {
   const [currentItem, setCurrentItem] = useState<Item | null>(null)
   const [selectedItemsMemory, setSelectedItemsMemory] = useState<Item[]>([])
   const [collapse, setCollapse] = useState<boolean | null>(null)
-  const {
-    children,
-    direction = 'left',
-    styleOverrides = {},
-    ...baseProps
-  } = props
+  const { children, direction = 'left', csx = {}, ...baseProps } = props
   const { cn } = useSystem()
 
   const rootState = useCompositeState({
@@ -104,11 +99,13 @@ export function Sidebar(props: SidebarProps) {
               ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
               : 'unset',
         })}
-        styles={styleOverrides}
+        csx={csx}
       >
         <Box
           element="nav"
-          themeKey={'components.sidebar.root'}
+          csx={{
+            themeKey: 'components.sidebar.root',
+          }}
           {...rootState}
           {...baseProps}
         >
