@@ -17,7 +17,7 @@ export default create({
 
   // Typography
   fontBase:
-    '"VTEX Trust Variable", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
+    '"VTEXTrustVF", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
   fontCode:
     '"Dank Mono", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Consolas", "Monaco", monospace',
 

@@ -1,6 +1,11 @@
 export default {
-  imports: ['https://io.vtex.com.br/fonts/vtex-trust/style.css'],
   styles: {
+    '@font-face': {
+      fontFamily: 'VTEXTrustVF',
+      fontStyle: 'normal',
+      src: "local('VTEXTrustVF')",
+      fontDisplay: 'swap',
+    },
     body: {
       margin: 0,
       bg: 'light.primary',
