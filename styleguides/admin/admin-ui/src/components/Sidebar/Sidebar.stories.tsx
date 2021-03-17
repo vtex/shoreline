@@ -114,4 +114,5 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
 Playground.args = {
   id: 'Sidebar',
   direction: 'left',
+  loading: false,
 }

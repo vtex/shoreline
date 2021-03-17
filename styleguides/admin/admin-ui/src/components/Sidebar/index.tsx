@@ -23,17 +23,25 @@ import { SidebarProvider } from './context'
 import { AnchorDirection, Item } from './types'
 import { Box } from '@vtex/admin-primitives'
 import { SidebarBackdrop } from './components/Backdrop'
+import { SidebarSkeleton } from './components/Skeleton'
 
 export interface SidebarProps extends SystemComponent {
   children: FunctionComponentElement<SidebarCornerProps>[]
   direction?: AnchorDirection
+  loading?: boolean
 }
 
 function _Sidebar(props: SidebarProps) {
   const [currentItem, setCurrentItem] = useState<Item | null>(null)
   const [selectedItemsMemory, setSelectedItemsMemory] = useState<Item[]>([])
   const [collapse, setCollapse] = useState<boolean | null>(null)
-  const { children, direction = 'left', csx = {}, ...baseProps } = props
+  const {
+    children,
+    loading = false,
+    direction = 'left',
+    csx = {},
+    ...baseProps
+  } = props
   const { cn } = useSystem()
 
   const rootState = useCompositeState({
@@ -80,15 +88,23 @@ function _Sidebar(props: SidebarProps) {
           {...rootState}
           {...baseProps}
         >
-          <CompositeGroup {...rootState} aria-label={'Sidebar'} role="menu">
-            {(itemProps) =>
-              children.map((child) =>
-                cloneElement(child as ReactElement, {
-                  ...itemProps,
-                })
-              )
-            }
-          </CompositeGroup>
+          {!loading && (
+            <CompositeGroup {...rootState} aria-label={'Sidebar'} role="menu">
+              {(itemProps) =>
+                children.map((child) =>
+                  cloneElement(child as ReactElement, {
+                    ...itemProps,
+                  })
+                )
+              }
+            </CompositeGroup>
+          )}
+          {loading && (
+            <>
+              <SidebarSkeleton />
+              <SidebarSkeleton amount={2} />
+            </>
+          )}
         </Box>
       </Box>
       <SidebarBackdrop />
