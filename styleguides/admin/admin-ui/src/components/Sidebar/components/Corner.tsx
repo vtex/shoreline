@@ -22,12 +22,12 @@ export function SidebarCorner(props: _SidebarCornerProps) {
   )
 }
 
-export type SidebarCornerProps = Omit<_SidebarCornerProps, 'scope'>
+export type SidebarCornerProps = Omit<_SidebarCornerProps, 'scope' | 'state'>
 
 /**
  * Private interface
  */
-export interface _SidebarCornerProps extends Omit<SidebarSecretProps, 'state'> {
+export interface _SidebarCornerProps extends SidebarSecretProps {
   /**
    * `scope` defines where the children will be arranged, on the top, or bottom.
    * This prop is invisible to the clients.
