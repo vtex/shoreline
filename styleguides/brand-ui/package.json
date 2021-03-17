@@ -1,6 +1,6 @@
 {
   "name": "@vtex/brand-ui",
-  "version": "0.40.0",
+  "version": "0.40.1-experimental.0",
   "main": "dist/index.js",
   "module": "dist/brand-ui.esm.js",
   "typings": "dist/index.d.ts",
