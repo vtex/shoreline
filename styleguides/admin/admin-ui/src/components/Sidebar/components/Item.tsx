@@ -41,6 +41,7 @@ export function SidebarItem(props: _SidebarItemProps) {
           <SidebarDisclosure
             {...baseProps}
             {...itemProps}
+            selected={selected}
             label={label}
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
