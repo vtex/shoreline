@@ -133,7 +133,7 @@ Playground.args = {
 }
 
 export const Basic = () => {
-  const options = ['option 1', 'option 2', 'option 3', 'error']
+  const options = ['option 1', 'option 2', 'option 3']
   type FormValuesInterface = { value: string;}
   const initialValues: FormValuesInterface = { value: '' }
 
@@ -178,7 +178,7 @@ export const Basic = () => {
 }
 
 export const Error = () => {
-  const options = ['option 1', 'option 2', 'option 3', 'error']
+  const options = ['error 1', 'error 2', 'error 3', 'error']
   type FormValuesInterface = { value: string;}
   const messages = defineMessages({
     errorRequired: {
@@ -238,7 +238,7 @@ export const Error = () => {
 }
 
 export const ChangeValueOutside = () => {
-  const options = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7', 'error']
+  const options = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7']
   type FormValuesInterface = { value: string;}
   const initialValues: FormValuesInterface = { value: '' }
 
@@ -289,7 +289,7 @@ export const ChangeValueOutside = () => {
 }
 
 export const ChangeInitialValue = () => {
-  const options = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7', 'error']
+  const options = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7']
   type FormValuesInterface = { value: string;}
   const initialValues: FormValuesInterface = { value: '' }
 

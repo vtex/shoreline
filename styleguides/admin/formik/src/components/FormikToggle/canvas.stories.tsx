@@ -5,7 +5,7 @@ import { FormikToggle, FormikToggleProps } from './index'
 import { Form, Formik } from 'formik'
 import { Box, Button, Flex, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
-import { defineMessages, IntlProvider } from 'react-intl'
+import { IntlProvider } from 'react-intl'
 
 export default {
   title: 'admin-formik/FormikToggle',

@@ -5,7 +5,7 @@ import { FormikCheckboxGroupProps, FormikCheckboxGroup } from './index'
 import { Form, Formik } from 'formik'
 import { Box, Button, Flex, Label, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
-import { defineMessages, IntlProvider } from 'react-intl'
+import { IntlProvider } from 'react-intl'
 
 export default {
   title: 'admin-formik/FormikCheckboxGroup',
@@ -216,16 +216,7 @@ export const Basic = () => {
 export const Error = () => {
   const options = ['error 1', 'error 2', 'error 3', 'error 4']
   type FormValuesInterface = { value: string;}
-  const messages = defineMessages({
-    errorRequired: {
-      id: 'admin/admin-formik.error.required',
-      defaultMessage: "This field is required.",
-    },
-    errorMessage: {
-      id: 'admin/admin-formik.error.message',
-      defaultMessage: "Error message",
-    },
-  })
+
   const messagesEN = {
     'admin/admin-formik.error.required': "This field is required.",
     'admin/admin-formik.error.message': "Error message"
