@@ -36,6 +36,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ## [0.11.18](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.17...admin-site@0.11.18) (2021-03-16)
+## [0.11.17-experimental.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.15...admin-site@0.11.17-experimental.2) (2021-03-17)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
 ## [0.11.17-experimental.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.15...admin-site@0.11.17-experimental.1) (2021-03-16)
 
 **Note:** Version bump only for package admin-site

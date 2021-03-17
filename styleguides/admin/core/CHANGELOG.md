@@ -52,6 +52,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **font:** add VTEX Trust font preload ([07f432d](https://github.com/vtex/onda/commit/07f432d8c6f74e8af4de6d5ca5f188466480f567))
+## [0.8.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-core@0.8.0...@vtex/admin-core@0.8.1-experimental.2) (2021-03-17)
+
+**Note:** Version bump only for package @vtex/admin-core
+
+
+
+
+
 ## [0.8.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-core@0.8.0...@vtex/admin-core@0.8.1-experimental.1) (2021-03-16)
 
 **Note:** Version bump only for package @vtex/admin-core
