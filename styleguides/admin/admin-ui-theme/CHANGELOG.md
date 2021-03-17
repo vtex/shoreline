@@ -5,6 +5,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.21.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.2...@vtex/admin-ui-theme@0.21.0) (2021-03-22)
 
+## [0.20.2-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2-experimental.4) (2021-03-17)
+
+**Note:** Version bump only for package @vtex/admin-ui-theme
+
 ## [0.20.2-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2-experimental.3) (2021-03-17)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
