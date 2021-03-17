@@ -1,5 +1,5 @@
 import React, { Children, cloneElement, useEffect, useMemo } from 'react'
-import { get, useSystem, useTheme } from '@vtex/admin-core'
+import { useSystem } from '@vtex/admin-core'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { motion } from 'framer-motion'
 import { isElement } from 'react-is'
@@ -159,15 +159,12 @@ function useSidebarItemState(props: SidebarItemProps) {
     }
   }
 
-  const theme = useTheme()
-
   const variants = useMemo(() => {
     return {
       [SidebarItemVariantsKey.FullyExpanded]: () => ({
         [direction]: SCALES.FIXED_AREA_WIDTH,
         display: 'block',
         opacity: 1,
-        borderRight: `1px solid ${get(theme, 'colors.mid.tertiary')}`,
         transition,
         transitionEnd: {
           zIndex: 0,
@@ -176,7 +173,6 @@ function useSidebarItemState(props: SidebarItemProps) {
       [SidebarItemVariantsKey.FullyCollapsed]: () => ({
         [direction]:
           selected && !!currentItem?.isCollapsible ? '-8.125rem' : '-13.5rem',
-        border: 'none',
         transition,
         zIndex: -1,
         transitionEnd: {
@@ -186,7 +182,6 @@ function useSidebarItemState(props: SidebarItemProps) {
       [SidebarItemVariantsKey.PartiallyExpanded]: () => ({
         [direction]: SCALES.FIXED_AREA_WIDTH,
         display: 'block',
-        border: 'none',
         opacity: 1,
         transition: {
           ...transition,
@@ -194,7 +189,6 @@ function useSidebarItemState(props: SidebarItemProps) {
         },
         transitionEnd: {
           zIndex: 0,
-          borderRight: `1px solid ${get(theme, 'colors.mid.tertiary')}`,
         },
       }),
       [SidebarItemVariantsKey.PartiallyCollapsed]: () => ({

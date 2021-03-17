@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { SCALES, transition } from '../consts'
 import { useSidebarContext } from '../context'
 import { SidebarCollapseButton } from './CollapseButton'
@@ -19,20 +19,22 @@ export function SidebarBackdrop() {
   } = useBackdropState()
   const { cn } = useSystem()
 
+  console.log({ currentItem })
+
   return (
     <>
       <motion.div
         className={cn({
           minWidth: width,
           maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
-          backgroundColor:
-            !currentItem ||
-            !currentItem.isCollapsible ||
-            (collapse && currentItem.isCollapsible)
-              ? 'light.primary'
-              : 'sidebar.light',
-          borderRight: isCollapsed ? 'unset' : '1px solid',
-          borderColor: 'mid.tertiary',
+          backgroundColor: isCollapsed ? 'light.primary' : 'sidebar.light',
+          borderRight: '1px solid',
+          borderColor:
+            currentItem && currentItem.isCollapsible
+              ? 'mid.tertiary'
+              : 'transparent',
+          marginRight:
+            currentItem && currentItem.isCollapsible ? '0.25rem' : '0rem',
         })}
         initial={isCollapsed ? 'collapsed' : 'expanded'}
         animate={isCollapsed ? 'collapsed' : 'expanded'}
@@ -83,7 +85,7 @@ function useBackdropState() {
           width,
           transition,
         }),
-      },
+      } as Variants,
       width,
       isCollapsed,
     }
