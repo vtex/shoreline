@@ -5,7 +5,7 @@ import { Sidebar, SidebarProps } from './index'
 import { Box } from '@vtex/admin-primitives'
 import { CornerScope } from './types'
 import { Paragraph } from '../Paragraph'
-import { bottomCornerItems, topCornerItems } from './testUtils'
+import { bottomCornerItems, SECTIONS, topCornerItems } from './testUtils'
 
 export default {
   title: 'shell/Sidebar',
@@ -60,7 +60,23 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
                 }
                 onClick={() => setCurrentItem({ index, scope: 'top' })}
                 key={index}
-              />
+              >
+                {SECTIONS[props.label].sections.map((section, idx) => (
+                  <Sidebar.Section
+                    title={section.title}
+                    index={topCornerItems.length + idx}
+                  >
+                    {section.subItems.map((label) => (
+                      <Sidebar.SubItem
+                        key={label}
+                        onClick={() => console.log(`hey`)}
+                      >
+                        {label}
+                      </Sidebar.SubItem>
+                    ))}
+                  </Sidebar.Section>
+                ))}
+              </Sidebar.Item>
             ))}
           </Sidebar.Header>
           <Sidebar.Footer>

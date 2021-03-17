@@ -1,6 +1,5 @@
 import React, { cloneElement, useEffect, useMemo } from 'react'
 import {
-  SidebarSection,
   SidebarDisclosureProps,
   SidebarDisclosure,
   useCompositeState,
@@ -19,9 +18,8 @@ import {
 } from '../types'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { motion } from 'framer-motion'
-import { SidebarSectionProps } from './Section'
 
-export function SidebarItem(props: SidebarItemProps) {
+export function SidebarItem(props: _SidebarItemProps) {
   const { cn } = useSystem()
   const {
     hasSection,
@@ -33,7 +31,7 @@ export function SidebarItem(props: SidebarItemProps) {
     handleOnKeyDown,
     label,
     shouldFullyCollapseOnTransition,
-    sections,
+    children,
     selected,
     variant,
     ...baseProps
@@ -44,8 +42,9 @@ export function SidebarItem(props: SidebarItemProps) {
       {(itemProps) => (
         <>
           <SidebarDisclosure
-            {...props}
+            {...baseProps}
             {...itemProps}
+            label={label}
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
@@ -67,28 +66,39 @@ export function SidebarItem(props: SidebarItemProps) {
               {...state}
               {...baseProps}
             >
-              {sections?.map(
-                ({ title, children }, index) =>
-                  children.length > 0 && (
-                    <CompositeItem {...state} key={index}>
-                      {(itemProps) =>
-                        cloneElement(
-                          <SidebarSection
-                            title={title}
-                            parentId={label}
-                            state={state}
-                            {...baseProps}
-                          >
-                            {children}
-                          </SidebarSection>,
-                          {
+              {children ? (
+                Array.isArray(children) ? (
+                  children.map((child, index) => {
+                    return (
+                      <CompositeItem {...state} key={index}>
+                        {(itemProps) =>
+                          cloneElement(child, {
+                            parentId: label,
+                            key: index,
+                            state,
+                            ...baseProps,
                             ...itemProps,
-                          }
-                        )
-                      }
-                    </CompositeItem>
-                  )
-              )}
+                            children: child.props.children,
+                          })
+                        }
+                      </CompositeItem>
+                    )
+                  })
+                ) : (
+                  <CompositeItem {...state}>
+                    {(itemProps) =>
+                      cloneElement(children, {
+                        parentId: label,
+                        key: 0,
+                        state,
+                        ...baseProps,
+                        ...itemProps,
+                        children: children.props.children,
+                      })
+                    }
+                  </CompositeItem>
+                )
+              ) : null}
             </Composite>
           </motion.ul>
         </>
@@ -99,7 +109,7 @@ export function SidebarItem(props: SidebarItemProps) {
 
 function useSidebarItemState(props: SidebarItemProps) {
   const {
-    sections,
+    children,
     selected,
     onClick,
     index = 0,
@@ -118,9 +128,15 @@ function useSidebarItemState(props: SidebarItemProps) {
   } = useSidebarContext()
 
   const hasSection =
-    sections &&
-    sections.length > 0 &&
-    sections?.some((section) => section.children.length > 0)
+    children &&
+    Array.isArray(children) &&
+    children.length > 0 &&
+    children?.some(
+      (child) =>
+        child.props.children &&
+        Array.isArray(child.props.children) &&
+        child.props.children.length > 0
+    )
 
   useEffect(() => {
     if (selected) {
@@ -265,7 +281,7 @@ function useSidebarItemState(props: SidebarItemProps) {
     handleOnClick,
     hasSection,
     state,
-    sections,
+    children,
     variant,
     currentItem,
     selected,
@@ -275,15 +291,9 @@ function useSidebarItemState(props: SidebarItemProps) {
 }
 
 export interface _SidebarItemProps
-  extends SidebarDisclosureProps,
+  extends Omit<SidebarDisclosureProps, 'children' | 'ref'>,
     SystemComponent,
     SidebarSecretProps {
-  /**
-   * `sections` are the body of an item's menu.
-   * Their titles are displayed above its children,
-   * and they are used to separed one section from another.
-   */
-  sections?: SidebarSectionProps[]
   /**
    * `label` is set as the components` composite ID and
    * its value is displayed on its disclosure's tooltip.
