@@ -43,10 +43,12 @@ export function useTableSort(initialState?: Partial<State>) {
   const sort = useCallback(
     (id: string | number | symbol) => {
       const { by, order } = sorted
-      if (!by || by !== id || (by && order !== SortOrder.ASC)) {
+      if (!by || by !== id) {
         dispatch({ type: ActionType.SortASC, payload: { id } })
-      } else {
+      } else if (order === SortOrder.ASC) {
         dispatch({ type: ActionType.SortDSC, payload: { id } })
+      } else {
+        dispatch({ type: ActionType.Clear })
       }
     },
     [sorted, dispatch]
