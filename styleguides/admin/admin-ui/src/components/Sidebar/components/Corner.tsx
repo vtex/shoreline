@@ -1,7 +1,7 @@
 import React, { Children, cloneElement } from 'react'
 import { isElement } from 'react-is'
-import { Set } from '../../Set'
 import { SidebarSecretProps, CornerScope } from '../types'
+import { Set } from '../../Set'
 
 /**
  * Component used to organize the sidebar items on the top,
