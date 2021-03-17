@@ -4,373 +4,229 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [0.42.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.41.0...@vtex/brand-ui@0.42.0) (2021-03-19)
+
+## [0.40.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.40.1-experimental.2) (2021-03-17)
+
+### Features
+
+- add animation to collapsible and accordion ([30d5ded](https://github.com/vtex/onda/commit/30d5ded11a609048f2e44b3aabdd038070b6cbd0))
+
 ## [0.40.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.40.1-experimental.1) (2021-03-17)
 
-
 ### Features
 
-* **jsx:** export jsx from theme-ui ([9ad3d92](https://github.com/vtex/onda/commit/9ad3d92c4a9d082a0f721eb479484ac7190699fd))
-* add animation to collapsible and accordion ([30d5ded](https://github.com/vtex/onda/commit/30d5ded11a609048f2e44b3aabdd038070b6cbd0))
-
-
-
-
+- **jsx:** export jsx from theme-ui ([9ad3d92](https://github.com/vtex/onda/commit/9ad3d92c4a9d082a0f721eb479484ac7190699fd))
+- add animation to collapsible and accordion ([30d5ded](https://github.com/vtex/onda/commit/30d5ded11a609048f2e44b3aabdd038070b6cbd0))
 
 # [0.41.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.41.0) (2021-03-19)
-## [0.40.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.40.1-experimental.0) (2021-03-17)
 
+## [0.40.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.40.1-experimental.0) (2021-03-17)
 
 ### Features
 
-* add animation to collapsible and accordion ([30d5ded](https://github.com/vtex/onda/commit/30d5ded11a609048f2e44b3aabdd038070b6cbd0))
-
-
-
-
+- add animation to collapsible and accordion ([30d5ded](https://github.com/vtex/onda/commit/30d5ded11a609048f2e44b3aabdd038070b6cbd0))
 
 # [0.40.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.39.2...@vtex/brand-ui@0.40.0) (2021-03-16)
 
-
 ### Features
 
-* fix popover zindex ([dc56f02](https://github.com/vtex/onda/commit/dc56f0231efdb00b09c5f61eabec0aabe979f471))
-
-
-
-
+- fix popover zindex ([dc56f02](https://github.com/vtex/onda/commit/dc56f0231efdb00b09c5f61eabec0aabe979f471))
 
 ## [0.39.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.39.1...@vtex/brand-ui@0.39.2) (2021-03-16)
-## [0.39.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.38.1...@vtex/brand-ui@0.39.1-experimental.0) (2021-03-16)
 
+## [0.39.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.38.1...@vtex/brand-ui@0.39.1-experimental.0) (2021-03-16)
 
 ### Bug Fixes
 
-* **carousel:** set internal structure ([bea16fa](https://github.com/vtex/onda/commit/bea16fab722066a16109e85cae2da7034d8fa2dc))
-
-
-
-
+- **carousel:** set internal structure ([bea16fa](https://github.com/vtex/onda/commit/bea16fab722066a16109e85cae2da7034d8fa2dc))
 
 ## [0.39.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.39.0...@vtex/brand-ui@0.39.1) (2021-03-16)
 
-
 ### Bug Fixes
 
-* **brand-ui header:** font weights ([7a4dc9d](https://github.com/vtex/onda/commit/7a4dc9df48a93d25769cd9f03fd2d5a51709d700))
-* **brand-ui header:** font weights ([ab1230a](https://github.com/vtex/onda/commit/ab1230a897a05e5556b5fe01d5558c4a24f7d77c))
-
+- **brand-ui header:** font weights ([7a4dc9d](https://github.com/vtex/onda/commit/7a4dc9df48a93d25769cd9f03fd2d5a51709d700))
+- **brand-ui header:** font weights ([ab1230a](https://github.com/vtex/onda/commit/ab1230a897a05e5556b5fe01d5558c4a24f7d77c))
 
 ### Features
 
-* **calendar:** add sx prop ([9616b2a](https://github.com/vtex/onda/commit/9616b2a48c6509d8996f44382990eb124956ab10))
-* **carousel:** add overlaySlides and initialSlide props ([cbf5953](https://github.com/vtex/onda/commit/cbf595361243cd052ff0e824630cad961cb3ab56))
-
-
-
-
+- **calendar:** add sx prop ([9616b2a](https://github.com/vtex/onda/commit/9616b2a48c6509d8996f44382990eb124956ab10))
+- **carousel:** add overlaySlides and initialSlide props ([cbf5953](https://github.com/vtex/onda/commit/cbf595361243cd052ff0e824630cad961cb3ab56))
 
 # [0.39.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.38.1...@vtex/brand-ui@0.39.0) (2021-03-10)
 
-
 ### Features
 
-* **calendar:** add sx prop ([7db5b17](https://github.com/vtex/onda/commit/7db5b1740a3c0a3a1329b7a26c001555ad5e80fe))
-* **carousel:** add overlaySlides and initialSlide props ([c252d3d](https://github.com/vtex/onda/commit/c252d3d02ab4efba610df2ed1d481ba44813229b))
-
-
-
-
+- **calendar:** add sx prop ([7db5b17](https://github.com/vtex/onda/commit/7db5b1740a3c0a3a1329b7a26c001555ad5e80fe))
+- **carousel:** add overlaySlides and initialSlide props ([c252d3d](https://github.com/vtex/onda/commit/c252d3d02ab4efba610df2ed1d481ba44813229b))
 
 ## [0.38.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.38.0...@vtex/brand-ui@0.38.1) (2021-03-08)
 
-
 ### Bug Fixes
 
-* **brand-collapsible:** caret spacing ([adfb95a](https://github.com/vtex/onda/commit/adfb95a746eb7b465ded79a1adad4dd62d72704a))
-
-
-
-
+- **brand-collapsible:** caret spacing ([adfb95a](https://github.com/vtex/onda/commit/adfb95a746eb7b465ded79a1adad4dd62d72704a))
 
 # [0.38.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.37.0...@vtex/brand-ui@0.38.0) (2021-03-03)
 
-
 ### Features
 
-* fix brand ui input and select label ([b4b02e5](https://github.com/vtex/onda/commit/b4b02e5f028a301bfe00ff7f59b2197fa839611c))
-
-
-
-
+- fix brand ui input and select label ([b4b02e5](https://github.com/vtex/onda/commit/b4b02e5f028a301bfe00ff7f59b2197fa839611c))
 
 # [0.37.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.36.0...@vtex/brand-ui@0.37.0) (2021-03-01)
 
-
 ### Features
 
-* **carousel:** display and scroll multiple slides per step ([2ccf993](https://github.com/vtex/onda/commit/2ccf993555577a7c4bc8f7edd2fc32f891aec080))
-
-
-
-
+- **carousel:** display and scroll multiple slides per step ([2ccf993](https://github.com/vtex/onda/commit/2ccf993555577a7c4bc8f7edd2fc32f891aec080))
 
 # [0.36.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.35.0...@vtex/brand-ui@0.36.0) (2021-02-25)
 
-
 ### Bug Fixes
 
-* **calendar:** deselect date on second click and render event component ([dae5a01](https://github.com/vtex/onda/commit/dae5a01c1c022a6cba7e950b86fdf327a78e92aa))
-* correct font weights in brand components ([9d0cbcc](https://github.com/vtex/onda/commit/9d0cbccd886dcd858074f5cc6a883a6ff5279311))
-* fix popover ([c06ef52](https://github.com/vtex/onda/commit/c06ef5251a3228b6911a5b137cbe6c346352f59c))
-
+- **calendar:** deselect date on second click and render event component ([dae5a01](https://github.com/vtex/onda/commit/dae5a01c1c022a6cba7e950b86fdf327a78e92aa))
+- correct font weights in brand components ([9d0cbcc](https://github.com/vtex/onda/commit/9d0cbccd886dcd858074f5cc6a883a6ff5279311))
+- fix popover ([c06ef52](https://github.com/vtex/onda/commit/c06ef5251a3228b6911a5b137cbe6c346352f59c))
 
 ### Features
 
-* **theme:** add font variation settings ([bb1e9ca](https://github.com/vtex/onda/commit/bb1e9cac9359d917e61933623b3e15a0dfeed7cf))
-
-
-
-
+- **theme:** add font variation settings ([bb1e9ca](https://github.com/vtex/onda/commit/bb1e9cac9359d917e61933623b3e15a0dfeed7cf))
 
 # [0.35.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.34.0...@vtex/brand-ui@0.35.0) (2021-02-11)
 
-
 ### Features
 
-* add no loop option to carousel ([f3e4e2b](https://github.com/vtex/onda/commit/f3e4e2bc87cd83a7e6cf163173d1471a48625f8a))
-
-
-
-
+- add no loop option to carousel ([f3e4e2b](https://github.com/vtex/onda/commit/f3e4e2bc87cd83a7e6cf163173d1471a48625f8a))
 
 # [0.34.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.33.0...@vtex/brand-ui@0.34.0) (2021-02-10)
 
-
 ### Features
 
-* **skeleton:** add brand-ui skeleton component ([f19deee](https://github.com/vtex/onda/commit/f19deeeb236b03eadbb475b0aa73b59e37bcca87))
-
-
-
-
+- **skeleton:** add brand-ui skeleton component ([f19deee](https://github.com/vtex/onda/commit/f19deeeb236b03eadbb475b0aa73b59e37bcca87))
 
 # [0.33.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.32.0...@vtex/brand-ui@0.33.0) (2021-02-08)
 
-
 ### Bug Fixes
 
-* **carousel:** switch to first slide when total slide count changes ([055185f](https://github.com/vtex/onda/commit/055185fa76639c6508a4a11e7700a0980c98e175))
-
+- **carousel:** switch to first slide when total slide count changes ([055185f](https://github.com/vtex/onda/commit/055185fa76639c6508a4a11e7700a0980c98e175))
 
 ### Features
 
-* **calendar:** update styles for current date and states ([5789448](https://github.com/vtex/onda/commit/57894483a5081c16d6c1cbab19808e9fcfdc4aa3))
-* **select:** add brand-ui select component ([4e5281b](https://github.com/vtex/onda/commit/4e5281be3a0a446480a08a463735d0c98a9cbea6))
-
-
-
-
+- **calendar:** update styles for current date and states ([5789448](https://github.com/vtex/onda/commit/57894483a5081c16d6c1cbab19808e9fcfdc4aa3))
+- **select:** add brand-ui select component ([4e5281b](https://github.com/vtex/onda/commit/4e5281be3a0a446480a08a463735d0c98a9cbea6))
 
 # [0.32.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.31.4...@vtex/brand-ui@0.32.0) (2021-02-01)
 
-
 ### Features
 
-* **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
-* implement beta version of input ([d623551](https://github.com/vtex/onda/commit/d623551344df89197c4c4cd99e96c2cb22044c2a))
-
-
-
-
+- **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
+- implement beta version of input ([d623551](https://github.com/vtex/onda/commit/d623551344df89197c4c4cd99e96c2cb22044c2a))
 
 ## [0.31.4](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.31.3...@vtex/brand-ui@0.31.4) (2021-01-29)
 
-
 ### Bug Fixes
 
-* brand carousel navigation height ([0c91622](https://github.com/vtex/onda/commit/0c91622311923d8181139f4fa5ebc8e6ca0835a9))
-
-
-
-
+- brand carousel navigation height ([0c91622](https://github.com/vtex/onda/commit/0c91622311923d8181139f4fa5ebc8e6ca0835a9))
 
 ## [0.31.3](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.31.2...@vtex/brand-ui@0.31.3) (2021-01-26)
 
 **Note:** Version bump only for package @vtex/brand-ui
 
-
-
-
-
 ## [0.31.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.31.1...@vtex/brand-ui@0.31.2) (2021-01-04)
-
 
 ### Bug Fixes
 
-* **onda:** remove theme-ui hoisting ([154f3a1](https://github.com/vtex/onda/commit/154f3a1fff21b4b66af3a31001b95881c2f68c1e))
-
-
-
-
+- **onda:** remove theme-ui hoisting ([154f3a1](https://github.com/vtex/onda/commit/154f3a1fff21b4b66af3a31001b95881c2f68c1e))
 
 ## [0.31.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.31.0...@vtex/brand-ui@0.31.1) (2020-12-22)
 
 **Note:** Version bump only for package @vtex/brand-ui
 
-
-
-
-
 # [0.31.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.30.1...@vtex/brand-ui@0.31.0) (2020-12-22)
-
 
 ### Bug Fixes
 
-* invert caret direction in LocaleSwitcher ([d39469b](https://github.com/vtex/onda/commit/d39469b418c74a572b91bbb1653b5b872894894b))
-
+- invert caret direction in LocaleSwitcher ([d39469b](https://github.com/vtex/onda/commit/d39469b418c74a572b91bbb1653b5b872894894b))
 
 ### Features
 
-* add brand-ui toast ([c29c447](https://github.com/vtex/onda/commit/c29c447e646f6eaff9983d05a3fc93677fec66c2))
-
-
-
-
+- add brand-ui toast ([c29c447](https://github.com/vtex/onda/commit/c29c447e646f6eaff9983d05a3fc93677fec66c2))
 
 ## [0.30.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.30.0...@vtex/brand-ui@0.30.1) (2020-12-11)
 
-
 ### Bug Fixes
 
-* replace first-child by first-child-of-type in timeline ([62f6bb3](https://github.com/vtex/onda/commit/62f6bb361a2476cfcf5cb883a673786799bfaedf))
-
-
-
-
+- replace first-child by first-child-of-type in timeline ([62f6bb3](https://github.com/vtex/onda/commit/62f6bb361a2476cfcf5cb883a673786799bfaedf))
 
 # [0.30.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.29.1...@vtex/brand-ui@0.30.0) (2020-12-10)
 
-
 ### Features
 
-* **calendar:** add multiple events in one day ([33a2258](https://github.com/vtex/onda/commit/33a225829868690de7e4f733263d46fcdc997b92))
-* create brand modal ([50310da](https://github.com/vtex/onda/commit/50310da27617878db641be610456dbf81935dbc4))
-
-
-
-
+- **calendar:** add multiple events in one day ([33a2258](https://github.com/vtex/onda/commit/33a225829868690de7e4f733263d46fcdc997b92))
+- create brand modal ([50310da](https://github.com/vtex/onda/commit/50310da27617878db641be610456dbf81935dbc4))
 
 ## [0.29.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.29.0...@vtex/brand-ui@0.29.1) (2020-12-09)
 
 **Note:** Version bump only for package @vtex/brand-ui
 
-
-
-
-
 # [0.29.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.28.0...@vtex/brand-ui@0.29.0) (2020-12-09)
-
 
 ### Bug Fixes
 
-* remove circular dependencies ([a7fd9a0](https://github.com/vtex/onda/commit/a7fd9a0e15e1aad15f8a1067bc3c76caca90eda1))
-
+- remove circular dependencies ([a7fd9a0](https://github.com/vtex/onda/commit/a7fd9a0e15e1aad15f8a1067bc3c76caca90eda1))
 
 ### Features
 
-* hide LocaleSwitcher when lose focus and change icon caret direction when closing and opening ([6547f61](https://github.com/vtex/onda/commit/6547f61be6b2c80c63aeb7d9b6012f2dc5bccb05))
-
-
-
-
+- hide LocaleSwitcher when lose focus and change icon caret direction when closing and opening ([6547f61](https://github.com/vtex/onda/commit/6547f61be6b2c80c63aeb7d9b6012f2dc5bccb05))
 
 # [0.28.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.26.0...@vtex/brand-ui@0.28.0) (2020-12-09)
 
-
 ### Features
 
-* add header accessory to Calendar ([e069058](https://github.com/vtex/onda/commit/e06905815b8eafb91cc14b3322c61907817f2786))
-* **carousel:** add buttonAlign prop and use case ([04d3b53](https://github.com/vtex/onda/commit/04d3b53f04e03989902c17287d6369a95b1c70dd))
-
-
-
-
+- add header accessory to Calendar ([e069058](https://github.com/vtex/onda/commit/e06905815b8eafb91cc14b3322c61907817f2786))
+- **carousel:** add buttonAlign prop and use case ([04d3b53](https://github.com/vtex/onda/commit/04d3b53f04e03989902c17287d6369a95b1c70dd))
 
 # [0.26.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.25.0...@vtex/brand-ui@0.26.0) (2020-12-08)
 
-
 ### Features
 
-* **admin-ui:** implement new system on admin-ui ([a71381a](https://github.com/vtex/onda/commit/a71381aa6a923a33e8e16c1a9fa8baea3b3eb092))
-
-
-
-
+- **admin-ui:** implement new system on admin-ui ([a71381a](https://github.com/vtex/onda/commit/a71381aa6a923a33e8e16c1a9fa8baea3b3eb092))
 
 # [0.25.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.24.0...@vtex/brand-ui@0.25.0) (2020-11-24)
 
-
 ### Features
 
-* add arrow position and aligment ([c766083](https://github.com/vtex/onda/commit/c766083c2fbf8ca5218ba3695c25d1d92e06f22a))
-
-
-
-
+- add arrow position and aligment ([c766083](https://github.com/vtex/onda/commit/c766083c2fbf8ca5218ba3695c25d1d92e06f22a))
 
 # [0.24.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.23.0...@vtex/brand-ui@0.24.0) (2020-11-12)
 
-
 ### Features
 
-* **event:** brand-ui calendar event component ([3e49601](https://github.com/vtex/onda/commit/3e49601b6e270550941a837b41d85e94f8326d77))
-* add brand carousel ([2d34bf5](https://github.com/vtex/onda/commit/2d34bf5e889c3082eaffe1d5e75519467e725e58))
-* add brand-ui calendar ([4cefcb9](https://github.com/vtex/onda/commit/4cefcb9237db6d74674bc1d91d03b83071f63d27))
-
-
-
-
+- **event:** brand-ui calendar event component ([3e49601](https://github.com/vtex/onda/commit/3e49601b6e270550941a837b41d85e94f8326d77))
+- add brand carousel ([2d34bf5](https://github.com/vtex/onda/commit/2d34bf5e889c3082eaffe1d5e75519467e725e58))
+- add brand-ui calendar ([4cefcb9](https://github.com/vtex/onda/commit/4cefcb9237db6d74674bc1d91d03b83071f63d27))
 
 # [0.23.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.22.2...@vtex/brand-ui@0.23.0) (2020-11-06)
 
-
 ### Features
 
-* add brand-ui timeline component ([b16a4a6](https://github.com/vtex/onda/commit/b16a4a683af7a8df828a9a60ac505bdd661dcf2f))
-
-
-
-
+- add brand-ui timeline component ([b16a4a6](https://github.com/vtex/onda/commit/b16a4a683af7a8df828a9a60ac505bdd661dcf2f))
 
 ## [0.22.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.22.1...@vtex/brand-ui@0.22.2) (2020-11-05)
 
-
 ### Bug Fixes
 
-* add link to brand ([0d85513](https://github.com/vtex/onda/commit/0d8551368bb733ddd509128e1dc20044b5193534))
-* adjust brand ([f7055df](https://github.com/vtex/onda/commit/f7055dfa5418927aa9409bd7cedbb6b7f6902e5d))
-* adjust brand and spaces ([51ce6dc](https://github.com/vtex/onda/commit/51ce6dce6de2ddbb97666e1a6351f2974b84b997))
-* adjust dimensions ([acd9578](https://github.com/vtex/onda/commit/acd9578b50f913aea1fd128be72bda32d1706989))
-* remove icon ([b1ff20b](https://github.com/vtex/onda/commit/b1ff20b93460cdd36fc0861eb7ea852e2e2dd78f))
-* replace icons ([9742762](https://github.com/vtex/onda/commit/9742762fc05db57487c51aa815e43ae21a0ecf90))
-
-
-
-
+- add link to brand ([0d85513](https://github.com/vtex/onda/commit/0d8551368bb733ddd509128e1dc20044b5193534))
+- adjust brand ([f7055df](https://github.com/vtex/onda/commit/f7055dfa5418927aa9409bd7cedbb6b7f6902e5d))
+- adjust brand and spaces ([51ce6dc](https://github.com/vtex/onda/commit/51ce6dce6de2ddbb97666e1a6351f2974b84b997))
+- adjust dimensions ([acd9578](https://github.com/vtex/onda/commit/acd9578b50f913aea1fd128be72bda32d1706989))
+- remove icon ([b1ff20b](https://github.com/vtex/onda/commit/b1ff20b93460cdd36fc0861eb7ea852e2e2dd78f))
+- replace icons ([9742762](https://github.com/vtex/onda/commit/9742762fc05db57487c51aa815e43ae21a0ecf90))
 
 ## [0.22.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.22.0...@vtex/brand-ui@0.22.1) (2020-10-29)
 
-
 ### Bug Fixes
 
-* popover fixed bug ([ec4ff4b](https://github.com/vtex/onda/commit/ec4ff4b6f9207c6803e294c4a438fa7269541dc2))
-
-
-
-
+- popover fixed bug ([ec4ff4b](https://github.com/vtex/onda/commit/ec4ff4b6f9207c6803e294c4a438fa7269541dc2))
 
 # [0.22.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.21.0...@vtex/brand-ui@0.22.0) (2020-10-22)
-
 
 ### Features
 

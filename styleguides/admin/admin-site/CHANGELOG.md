@@ -4,433 +4,232 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [0.11.22](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.21...admin-site@0.11.22) (2021-03-22)
-## [0.11.19-experimental.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.18...admin-site@0.11.19-experimental.1) (2021-03-17)
+
+## [0.11.19-experimental.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.18...admin-site@0.11.19-experimental.2) (2021-03-17)
 
 **Note:** Version bump only for package admin-site
 
+## [0.11.19-experimental.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.18...admin-site@0.11.19-experimental.1) (2021-03-17)
 
-
-
+**Note:** Version bump only for package admin-site
 
 ## [0.11.21](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.20...admin-site@0.11.21) (2021-03-22)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.20](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.19...admin-site@0.11.20) (2021-03-19)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.19](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.18...admin-site@0.11.19) (2021-03-19)
+
 ## [0.11.19-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.18...admin-site@0.11.19-experimental.0) (2021-03-17)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.18](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.17...admin-site@0.11.18) (2021-03-16)
+
 ## [0.11.17-experimental.6](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.17-experimental.4...admin-site@0.11.17-experimental.6) (2021-03-17)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.17-experimental.5](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.17-experimental.4...admin-site@0.11.17-experimental.5) (2021-03-17)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.17-experimental.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.17-experimental.3...admin-site@0.11.17-experimental.4) (2021-03-17)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.17-experimental.3](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.17-experimental.2...admin-site@0.11.17-experimental.3) (2021-03-17)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.17-experimental.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.15...admin-site@0.11.17-experimental.2) (2021-03-17)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.17-experimental.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.15...admin-site@0.11.17-experimental.1) (2021-03-16)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.17](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.16...admin-site@0.11.17) (2021-03-16)
+
 ## [0.11.17-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.15...admin-site@0.11.17-experimental.0) (2021-03-16)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.16](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.15...admin-site@0.11.16) (2021-03-12)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.15](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.14...admin-site@0.11.15) (2021-03-10)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.14](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.13...admin-site@0.11.14) (2021-03-08)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.13](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.12...admin-site@0.11.13) (2021-03-08)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.12](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.11...admin-site@0.11.12) (2021-03-03)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.11](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.10...admin-site@0.11.11) (2021-03-03)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.10](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.9...admin-site@0.11.10) (2021-03-01)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.9](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.8...admin-site@0.11.9) (2021-02-25)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.8](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.7...admin-site@0.11.8) (2021-02-12)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.6...admin-site@0.11.7) (2021-02-12)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.6](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.5...admin-site@0.11.6) (2021-02-11)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.5](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.4...admin-site@0.11.5) (2021-02-11)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.3...admin-site@0.11.4) (2021-02-08)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.3](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.2...admin-site@0.11.3) (2021-02-02)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.11.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.1...admin-site@0.11.2) (2021-02-01)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.11.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.11.0...admin-site@0.11.1) (2021-02-01)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 # [0.11.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.10.7...admin-site@0.11.0) (2021-02-01)
-
 
 ### Features
 
-* **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
-
-
-
-
+- **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
 
 ## [0.10.7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.10.6...admin-site@0.10.7) (2021-01-29)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.10.6](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.10.5...admin-site@0.10.6) (2021-01-28)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.10.5](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.10.4...admin-site@0.10.5) (2021-01-28)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.10.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.10.3...admin-site@0.10.4) (2021-01-28)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.10.3](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.10.2...admin-site@0.10.3) (2021-01-26)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.10.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.10.1...admin-site@0.10.2) (2021-01-26)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.10.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.10.0...admin-site@0.10.1) (2021-01-26)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 # [0.10.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.4...admin-site@0.10.0) (2021-01-25)
-
 
 ### Features
 
-* **icons:** add icon undo ([b511aa7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/b511aa7a8d0d1a36dfb7d7317d83434c7a55655d))
-
-
-
-
+- **icons:** add icon undo ([b511aa7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/b511aa7a8d0d1a36dfb7d7317d83434c7a55655d))
 
 ## [0.9.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.3...admin-site@0.9.4) (2021-01-25)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.9.3](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2...admin-site@0.9.3) (2021-01-22)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.9.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.1...admin-site@0.9.2) (2021-01-21)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.9.2-experimental.7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.6...admin-site@0.9.2-experimental.7) (2021-01-21)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.9.2-experimental.6](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.5...admin-site@0.9.2-experimental.6) (2021-01-19)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.9.2-experimental.5](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.4...admin-site@0.9.2-experimental.5) (2021-01-15)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.9.2-experimental.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.3...admin-site@0.9.2-experimental.4) (2021-01-15)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.9.2-experimental.3](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.2...admin-site@0.9.2-experimental.3) (2021-01-15)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.9.2-experimental.2](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.1...admin-site@0.9.2-experimental.2) (2021-01-15)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.9.2-experimental.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.2-experimental.0...admin-site@0.9.2-experimental.1) (2021-01-15)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 ## [0.9.2-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.1...admin-site@0.9.2-experimental.0) (2021-01-14)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 ## [0.9.1](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.0...admin-site@0.9.1) (2021-01-12)
 
 **Note:** Version bump only for package admin-site
-
-
-
-
 
 # [0.9.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.9.0-experimental.4...admin-site@0.9.0) (2021-01-11)
 
 **Note:** Version bump only for package admin-site
 
-
-
-
-
 # [0.9.0-experimental.4](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.22-experimental.0...admin-site@0.9.0-experimental.4) (2021-01-08)
-
 
 ### Bug Fixes
 
-* **dependencies:** admin packages dependencies versions ([0de5a5c](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/0de5a5ca259d7d5c7f6d4042e27f7788e94a5db2))
-
-
-
-
+- **dependencies:** admin packages dependencies versions ([0de5a5c](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/0de5a5ca259d7d5c7f6d4042e27f7788e94a5db2))
 
 ## [0.8.22-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.21...admin-site@0.8.22-experimental.0) (2021-01-07)
 
-
 ### Bug Fixes
 
-* **colors:** remove accent colors ([a83e2e7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/a83e2e7188cba71734bfb1b0a45e68208d8f1895))
-
+- **colors:** remove accent colors ([a83e2e7](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/a83e2e7188cba71734bfb1b0a45e68208d8f1895))
 
 ### Features
 
-* **colors:** change color structure to be aligned with figma ([96c3a70](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/96c3a7015e92d9ea98a200820706d33b50991d6f))
-
-
-
-
+- **colors:** change color structure to be aligned with figma ([96c3a70](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/96c3a7015e92d9ea98a200820706d33b50991d6f))
 
 ## [0.8.21](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.20...admin-site@0.8.21) (2021-01-04)
 
@@ -445,22 +244,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [0.8.19](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.18...admin-site@0.8.19) (2021-01-04)
 
 **Note:** Version bump only for package admin-site
-## [0.8.19-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.18...admin-site@0.8.19-experimental.0) (2020-12-29)
 
+## [0.8.19-experimental.0](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.18...admin-site@0.8.19-experimental.0) (2020-12-29)
 
 ### Bug Fixes
 
-* **colors:** remove accent colors ([b127bfb](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/b127bfb0c069f68b7592683b0b3cbbe13e215523))
-
+- **colors:** remove accent colors ([b127bfb](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/b127bfb0c069f68b7592683b0b3cbbe13e215523))
 
 ### Features
 
-* **colors:** change color structure to be aligned with figma ([c264d06](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/c264d06ad6de72bed87a1aa67a38e16563cb677c))
-
-
-
-
-
+- **colors:** change color structure to be aligned with figma ([c264d06](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/c264d06ad6de72bed87a1aa67a38e16563cb677c))
 
 ## [0.8.18](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.8.17...admin-site@0.8.18) (2020-12-29)
 

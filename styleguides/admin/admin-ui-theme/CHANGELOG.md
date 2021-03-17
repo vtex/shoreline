@@ -5,318 +5,184 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.21.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.2...@vtex/admin-ui-theme@0.21.0) (2021-03-22)
 
-
 ### Features
 
-* **alert:** icons are no longer related to alert type ([f68beb6](https://github.com/vtex/onda/commit/f68beb6eb8f62cf73fa1df6e4eaa8cfdad964ce6))
-* **alert:** remove actions property ([2b87a0c](https://github.com/vtex/onda/commit/2b87a0cb4b00589463a163e1bb486542ce417ee5))
-
-
-
-
+- **alert:** icons are no longer related to alert type ([f68beb6](https://github.com/vtex/onda/commit/f68beb6eb8f62cf73fa1df6e4eaa8cfdad964ce6))
+- **alert:** remove actions property ([2b87a0c](https://github.com/vtex/onda/commit/2b87a0cb4b00589463a163e1bb486542ce417ee5))
 
 ## [0.20.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2) (2021-03-22)
 
-
 ### Bug Fixes
 
-* **font:** add global font-weight property as normal to avoid inconsistency with vtex-tachyons ([cc6f531](https://github.com/vtex/onda/commit/cc6f5315f0635c149b00911d2414d9e0d22494d7))
-* **tab:** tab not rendering with VTEX Trust on IO ([a1fd398](https://github.com/vtex/onda/commit/a1fd39897b6ab94d44968acf315877f546b6a3ad))
-* **vtex-trust:** vtex IO overriding our font in some components ([66ee3a2](https://github.com/vtex/onda/commit/66ee3a2816a9d1e0b2801f277ecd0a0fcd84258b))
-## [0.20.2-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2-experimental.1) (2021-03-17)
+- **font:** add global font-weight property as normal to avoid inconsistency with vtex-tachyons ([cc6f531](https://github.com/vtex/onda/commit/cc6f5315f0635c149b00911d2414d9e0d22494d7))
+- **tab:** tab not rendering with VTEX Trust on IO ([a1fd398](https://github.com/vtex/onda/commit/a1fd39897b6ab94d44968acf315877f546b6a3ad))
+- **vtex-trust:** vtex IO overriding our font in some components ([66ee3a2](https://github.com/vtex/onda/commit/66ee3a2816a9d1e0b2801f277ecd0a0fcd84258b))
+
+## [0.20.2-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2-experimental.2) (2021-03-17)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
+## [0.20.2-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2-experimental.1) (2021-03-17)
 
-
-
+**Note:** Version bump only for package @vtex/admin-ui-theme
 
 ## [0.20.2-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2-experimental.0) (2021-03-17)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.20.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.0...@vtex/admin-ui-theme@0.20.1) (2021-03-16)
-
 
 ### Bug Fixes
 
-* **font:** vTEX Trust font not loading correctly ([9c5a80b](https://github.com/vtex/onda/commit/9c5a80b0fc6f36e3038f651c9ef87b008842cf8b))
-
-
-
-
+- **font:** vTEX Trust font not loading correctly ([9c5a80b](https://github.com/vtex/onda/commit/9c5a80b0fc6f36e3038f651c9ef87b008842cf8b))
 
 # [0.20.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.3...@vtex/admin-ui-theme@0.20.0) (2021-03-16)
 
-
 ### Features
 
-* **font:** add VTEX Trust font preload ([07f432d](https://github.com/vtex/onda/commit/07f432d8c6f74e8af4de6d5ca5f188466480f567))
+- **font:** add VTEX Trust font preload ([07f432d](https://github.com/vtex/onda/commit/07f432d8c6f74e8af4de6d5ca5f188466480f567))
+
 ## [0.19.4-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.3...@vtex/admin-ui-theme@0.19.4-experimental.2) (2021-03-17)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
-
-
-
-
 
 ## [0.19.4-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.3...@vtex/admin-ui-theme@0.19.4-experimental.1) (2021-03-16)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.19.4-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.3...@vtex/admin-ui-theme@0.19.4-experimental.0) (2021-03-16)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
-
-
-
-
 
 ## [0.19.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.2...@vtex/admin-ui-theme@0.19.3) (2021-03-10)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.19.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.1...@vtex/admin-ui-theme@0.19.2) (2021-03-08)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.19.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.19.0...@vtex/admin-ui-theme@0.19.1) (2021-03-08)
-
 
 ### Bug Fixes
 
-* fixes the problem of the absolute position of the checkbox trace in an indeterminate state that makes the trace stay in a fixed position even when the checkbox changes position ([e3cd2a4](https://github.com/vtex/onda/commit/e3cd2a4f55a17c878b16c8f43afa8f0ca751eb40))
-
-
-
-
+- fixes the problem of the absolute position of the checkbox trace in an indeterminate state that makes the trace stay in a fixed position even when the checkbox changes position ([e3cd2a4](https://github.com/vtex/onda/commit/e3cd2a4f55a17c878b16c8f43afa8f0ca751eb40))
 
 # [0.19.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.18.2...@vtex/admin-ui-theme@0.19.0) (2021-02-25)
 
-
 ### Features
 
-* **theme:** move global styles from core to theme ([416c04b](https://github.com/vtex/onda/commit/416c04bd46e98cb65e428ac017577ac2ec6702ae))
-
-
-
-
+- **theme:** move global styles from core to theme ([416c04b](https://github.com/vtex/onda/commit/416c04bd46e98cb65e428ac017577ac2ec6702ae))
 
 ## [0.18.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.18.1...@vtex/admin-ui-theme@0.18.2) (2021-02-11)
 
-
 ### Bug Fixes
 
-* **admin:** emotion deps on all /admin packages ([3562180](https://github.com/vtex/onda/commit/35621800491ffc5132235e83edcf6c086d0b3ce4))
-
-
-
-
+- **admin:** emotion deps on all /admin packages ([3562180](https://github.com/vtex/onda/commit/35621800491ffc5132235e83edcf6c086d0b3ce4))
 
 ## [0.18.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.18.0...@vtex/admin-ui-theme@0.18.1) (2021-02-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 # [0.18.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.17.0...@vtex/admin-ui-theme@0.18.0) (2021-02-01)
-
 
 ### Features
 
-* **tabs:** add tabs draft component ([f8e7403](https://github.com/vtex/onda/commit/f8e7403a14f903374ef136d1c5271fdf138ebd3a))
-* **tabs:** add Tabs stable version ([3ffb238](https://github.com/vtex/onda/commit/3ffb238b1a41a1f0a39646a26d74e1fec819a11c))
-
-
-
-
+- **tabs:** add tabs draft component ([f8e7403](https://github.com/vtex/onda/commit/f8e7403a14f903374ef136d1c5271fdf138ebd3a))
+- **tabs:** add Tabs stable version ([3ffb238](https://github.com/vtex/onda/commit/3ffb238b1a41a1f0a39646a26d74e1fec819a11c))
 
 # [0.17.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.16.2...@vtex/admin-ui-theme@0.17.0) (2021-02-01)
 
-
 ### Features
 
-* **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
-
-
-
-
+- **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
 
 ## [0.16.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.16.1...@vtex/admin-ui-theme@0.16.2) (2021-01-28)
 
-
 ### Bug Fixes
 
-* **divider:** set height to auto on vertical theme ([535d889](https://github.com/vtex/onda/commit/535d889a06d139bbbd33e50bdf9ab4635aca68cc))
-
-
-
-
+- **divider:** set height to auto on vertical theme ([535d889](https://github.com/vtex/onda/commit/535d889a06d139bbbd33e50bdf9ab4635aca68cc))
 
 ## [0.16.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.16.0...@vtex/admin-ui-theme@0.16.1) (2021-01-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 # [0.16.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.15.0...@vtex/admin-ui-theme@0.16.0) (2021-01-26)
-
 
 ### Bug Fixes
 
-* **alert:** change fluid property to be responsive ([153fb6f](https://github.com/vtex/onda/commit/153fb6fb620cf84b73b5f53f81b11c9286b74184))
-
+- **alert:** change fluid property to be responsive ([153fb6f](https://github.com/vtex/onda/commit/153fb6fb620cf84b73b5f53f81b11c9286b74184))
 
 ### Features
 
-* **alert:** add component ([babff93](https://github.com/vtex/onda/commit/babff9313ee49d000831f3aee09d1cf03a43b9ca))
-* **alert:** update alert according to the design specifications ([3b44b3d](https://github.com/vtex/onda/commit/3b44b3d619cb339c1919586dffd23a99aaca2dd3))
-
-
-
-
+- **alert:** add component ([babff93](https://github.com/vtex/onda/commit/babff9313ee49d000831f3aee09d1cf03a43b9ca))
+- **alert:** update alert according to the design specifications ([3b44b3d](https://github.com/vtex/onda/commit/3b44b3d619cb339c1919586dffd23a99aaca2dd3))
 
 # [0.15.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.14.0...@vtex/admin-ui-theme@0.15.0) (2021-01-26)
 
-
 ### Features
 
-* **menu:** add dangerous prop ([515fd19](https://github.com/vtex/onda/commit/515fd1999122731f780095769e2b2ffba8385d99))
-
-
-
-
+- **menu:** add dangerous prop ([515fd19](https://github.com/vtex/onda/commit/515fd1999122731f780095769e2b2ffba8385d99))
 
 # [0.14.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.13.0...@vtex/admin-ui-theme@0.14.0) (2021-01-25)
 
-
 ### Features
 
-* **table:** add onRowClick function ([ad2ff2f](https://github.com/vtex/onda/commit/ad2ff2f20bbeb06c42bebeb09b2ff3b6e0ca8cb7))
-
-
-
-
+- **table:** add onRowClick function ([ad2ff2f](https://github.com/vtex/onda/commit/ad2ff2f20bbeb06c42bebeb09b2ff3b6e0ca8cb7))
 
 # [0.13.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.0...@vtex/admin-ui-theme@0.13.0) (2021-01-21)
 
-
 ### Features
 
-* **admin-system:** create a unique emotion instance along with the createSystem function ([074e0fc](https://github.com/vtex/onda/commit/074e0fca868c127d55e2e1d9694668f3af7b87e9))
-
-
-
-
+- **admin-system:** create a unique emotion instance along with the createSystem function ([074e0fc](https://github.com/vtex/onda/commit/074e0fca868c127d55e2e1d9694668f3af7b87e9))
 
 ## [0.12.1-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.1-experimental.3...@vtex/admin-ui-theme@0.12.1-experimental.4) (2021-01-21)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.12.1-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.1-experimental.2...@vtex/admin-ui-theme@0.12.1-experimental.3) (2021-01-19)
-
 
 ### Features
 
-* **admin-system:** create a unique emotion instance along with the createSystem function ([f9dfb6c](https://github.com/vtex/onda/commit/f9dfb6cd04df69d10f271c42d01d605b16732fbf))
-
-
-
-
+- **admin-system:** create a unique emotion instance along with the createSystem function ([f9dfb6c](https://github.com/vtex/onda/commit/f9dfb6cd04df69d10f271c42d01d605b16732fbf))
 
 ## [0.12.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.1-experimental.1...@vtex/admin-ui-theme@0.12.1-experimental.2) (2021-01-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.12.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.1-experimental.0...@vtex/admin-ui-theme@0.12.1-experimental.1) (2021-01-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
-
-
-
-
 
 ## [0.12.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.12.0...@vtex/admin-ui-theme@0.12.1-experimental.0) (2021-01-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 # [0.12.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.11.0...@vtex/admin-ui-theme@0.12.0) (2021-01-12)
-
 
 ### Features
 
-* **admin-ui-system:** add color types ([42a73e3](https://github.com/vtex/onda/commit/42a73e34d9b097b3e29681c7abe03ef0b6dda02b))
-
-
-
-
+- **admin-ui-system:** add color types ([42a73e3](https://github.com/vtex/onda/commit/42a73e34d9b097b3e29681c7abe03ef0b6dda02b))
 
 # [0.11.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.11.0-experimental.3...@vtex/admin-ui-theme@0.11.0) (2021-01-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 # [0.11.0-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.6-experimental.0...@vtex/admin-ui-theme@0.11.0-experimental.3) (2021-01-08)
-
 
 ### Bug Fixes
 
-* **dependencies:** admin packages dependencies versions ([0de5a5c](https://github.com/vtex/onda/commit/0de5a5ca259d7d5c7f6d4042e27f7788e94a5db2))
-
-
-
-
+- **dependencies:** admin packages dependencies versions ([0de5a5c](https://github.com/vtex/onda/commit/0de5a5ca259d7d5c7f6d4042e27f7788e94a5db2))
 
 ## [0.10.6-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.5...@vtex/admin-ui-theme@0.10.6-experimental.0) (2021-01-07)
 
-
 ### Bug Fixes
 
-* **colors:** remove accent colors ([a83e2e7](https://github.com/vtex/onda/commit/a83e2e7188cba71734bfb1b0a45e68208d8f1895))
-
+- **colors:** remove accent colors ([a83e2e7](https://github.com/vtex/onda/commit/a83e2e7188cba71734bfb1b0a45e68208d8f1895))
 
 ### Features
 
-* **colors:** change color structure to be aligned with figma ([96c3a70](https://github.com/vtex/onda/commit/96c3a7015e92d9ea98a200820706d33b50991d6f))
-
-
-
-
+- **colors:** change color structure to be aligned with figma ([96c3a70](https://github.com/vtex/onda/commit/96c3a7015e92d9ea98a200820706d33b50991d6f))
 
 ## [0.10.5](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.4...@vtex/admin-ui-theme@0.10.5) (2021-01-04)
 
@@ -324,18 +190,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.11.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.3...@vtex/admin-ui-theme@0.11.0-experimental.1) (2020-12-29)
 
-
 ### Bug Fixes
 
-* **colors:** remove accent colors ([b127bfb](https://github.com/vtex/onda/commit/b127bfb0c069f68b7592683b0b3cbbe13e215523))
-
+- **colors:** remove accent colors ([b127bfb](https://github.com/vtex/onda/commit/b127bfb0c069f68b7592683b0b3cbbe13e215523))
 
 ### Features
 
-* **colors:** change color structure to be aligned with figma ([c264d06](https://github.com/vtex/onda/commit/c264d06ad6de72bed87a1aa67a38e16563cb677c))
-
-
-
+- **colors:** change color structure to be aligned with figma ([c264d06](https://github.com/vtex/onda/commit/c264d06ad6de72bed87a1aa67a38e16563cb677c))
 
 ## [0.10.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.3...@vtex/admin-ui-theme@0.10.4) (2021-01-04)
 
@@ -343,19 +204,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.11.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.3...@vtex/admin-ui-theme@0.11.0-experimental.0) (2020-12-28)
 
-
 ### Bug Fixes
 
-* **colors:** remove accent colors ([4e877e4](https://github.com/vtex/onda/commit/4e877e47037231f7bb532f0fc9314c5ac4cbfb4b))
-
+- **colors:** remove accent colors ([4e877e4](https://github.com/vtex/onda/commit/4e877e47037231f7bb532f0fc9314c5ac4cbfb4b))
 
 ### Features
 
-* **colors:** change color structure to be aligned with figma ([b6419be](https://github.com/vtex/onda/commit/b6419be42bfa7a72be170713a395d58326a52962))
-
-
-
-
+- **colors:** change color structure to be aligned with figma ([b6419be](https://github.com/vtex/onda/commit/b6419be42bfa7a72be170713a395d58326a52962))
 
 ## [0.10.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.10.2...@vtex/admin-ui-theme@0.10.3) (2020-12-28)
 

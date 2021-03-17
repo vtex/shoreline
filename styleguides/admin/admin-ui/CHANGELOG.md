@@ -4,675 +4,427 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [0.85.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.5...@vtex/admin-ui@0.85.0) (2021-03-22)
-## [0.84.3-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3-experimental.1) (2021-03-17)
 
+## [0.84.3-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3-experimental.2) (2021-03-17)
 
 ### Bug Fixes
 
-* **set:** omit styles prop from FlexProps ([44af83b](https://github.com/vtex/onda/commit/44af83b8231b0267e77753020002feb25c99974a))
-* **sidebar:** backdrop spacing and border ([0c2515f](https://github.com/vtex/onda/commit/0c2515fe0e1d720fbcf95a273a632cd2144aea0c))
-* **sidebar:** clean transition side effect ([d439815](https://github.com/vtex/onda/commit/d43981548fef59b6686f4729735665318a461195))
-* **sidebar:** collapsed style ([ffe174a](https://github.com/vtex/onda/commit/ffe174ac9c81afba940b27b4ad180baf74cc9bb3))
-* **sidebar:** get rid of circular deps ([ec14094](https://github.com/vtex/onda/commit/ec14094b7e6ac603e6e43eee44eb7165b05f98c9))
-* **sidebar:** move menu state level to sidebar item ([81ae065](https://github.com/vtex/onda/commit/81ae0654663bf6acb75521180124e0ed50522795))
-* sidebar secret props contract ([afce511](https://github.com/vtex/onda/commit/afce511efff09aa0579d5a884e792e43d9cf1cd6))
-
+- **set:** omit styles prop from FlexProps ([44af83b](https://github.com/vtex/onda/commit/44af83b8231b0267e77753020002feb25c99974a))
+- **sidebar:** backdrop spacing and border ([0c2515f](https://github.com/vtex/onda/commit/0c2515fe0e1d720fbcf95a273a632cd2144aea0c))
+- **sidebar:** clean transition side effect ([d439815](https://github.com/vtex/onda/commit/d43981548fef59b6686f4729735665318a461195))
+- **sidebar:** collapsed style ([ffe174a](https://github.com/vtex/onda/commit/ffe174ac9c81afba940b27b4ad180baf74cc9bb3))
+- **sidebar:** get rid of circular deps ([ec14094](https://github.com/vtex/onda/commit/ec14094b7e6ac603e6e43eee44eb7165b05f98c9))
+- **sidebar:** move menu state level to sidebar item ([81ae065](https://github.com/vtex/onda/commit/81ae0654663bf6acb75521180124e0ed50522795))
+- sidebar secret props contract ([afce511](https://github.com/vtex/onda/commit/afce511efff09aa0579d5a884e792e43d9cf1cd6))
 
 ### Features
 
-* **alert:** icons are no longer related to alert type ([f68beb6](https://github.com/vtex/onda/commit/f68beb6eb8f62cf73fa1df6e4eaa8cfdad964ce6))
-* **alert:** remove actions property ([2b87a0c](https://github.com/vtex/onda/commit/2b87a0cb4b00589463a163e1bb486542ce417ee5))
-* **sidebar:** arrow keys navigation ([341deae](https://github.com/vtex/onda/commit/341deaecafe95749d78e10d672d143de3a8de83e))
+- **sidebar:** arrow keys navigation ([341deae](https://github.com/vtex/onda/commit/341deaecafe95749d78e10d672d143de3a8de83e))
 
-
-
-
-
-## [0.84.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.4...@vtex/admin-ui@0.84.5) (2021-03-22)
-## [0.84.3-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3-experimental.0) (2021-03-17)
-
+## [0.84.3-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3-experimental.1) (2021-03-17)
 
 ### Bug Fixes
 
-* **vtex-trust:** vtex IO overriding our font in some components ([66ee3a2](https://github.com/vtex/onda/commit/66ee3a2816a9d1e0b2801f277ecd0a0fcd84258b))
+- **set:** omit styles prop from FlexProps ([44af83b](https://github.com/vtex/onda/commit/44af83b8231b0267e77753020002feb25c99974a))
+- **sidebar:** backdrop spacing and border ([0c2515f](https://github.com/vtex/onda/commit/0c2515fe0e1d720fbcf95a273a632cd2144aea0c))
+- **sidebar:** clean transition side effect ([d439815](https://github.com/vtex/onda/commit/d43981548fef59b6686f4729735665318a461195))
+- **sidebar:** collapsed style ([ffe174a](https://github.com/vtex/onda/commit/ffe174ac9c81afba940b27b4ad180baf74cc9bb3))
+- **sidebar:** get rid of circular deps ([ec14094](https://github.com/vtex/onda/commit/ec14094b7e6ac603e6e43eee44eb7165b05f98c9))
+- **sidebar:** move menu state level to sidebar item ([81ae065](https://github.com/vtex/onda/commit/81ae0654663bf6acb75521180124e0ed50522795))
+- sidebar secret props contract ([afce511](https://github.com/vtex/onda/commit/afce511efff09aa0579d5a884e792e43d9cf1cd6))
 
+### Features
 
+- **alert:** icons are no longer related to alert type ([f68beb6](https://github.com/vtex/onda/commit/f68beb6eb8f62cf73fa1df6e4eaa8cfdad964ce6))
+- **alert:** remove actions property ([2b87a0c](https://github.com/vtex/onda/commit/2b87a0cb4b00589463a163e1bb486542ce417ee5))
+- **sidebar:** arrow keys navigation ([341deae](https://github.com/vtex/onda/commit/341deaecafe95749d78e10d672d143de3a8de83e))
 
+## [0.84.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.4...@vtex/admin-ui@0.84.5) (2021-03-22)
 
+## [0.84.3-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3-experimental.0) (2021-03-17)
+
+### Bug Fixes
+
+- **vtex-trust:** vtex IO overriding our font in some components ([66ee3a2](https://github.com/vtex/onda/commit/66ee3a2816a9d1e0b2801f277ecd0a0fcd84258b))
 
 ## [0.84.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3...@vtex/admin-ui@0.84.4) (2021-03-19)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.84.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3) (2021-03-19)
-
 
 ### Bug Fixes
 
-* **numericstepper:** modifies NumericStepper to reflect external changes in value ([832fb27](https://github.com/vtex/onda/commit/832fb2743c56990b96334e74452750c4578516e3)), closes [#514](https://github.com/vtex/onda/issues/514)
-* **set:** omit styles prop from FlexProps ([44af83b](https://github.com/vtex/onda/commit/44af83b8231b0267e77753020002feb25c99974a))
-* **sidebar:** clean transition side effect ([d439815](https://github.com/vtex/onda/commit/d43981548fef59b6686f4729735665318a461195))
-* **sidebar:** collapsed style ([ffe174a](https://github.com/vtex/onda/commit/ffe174ac9c81afba940b27b4ad180baf74cc9bb3))
-* **sidebar:** get rid of circular deps ([ec14094](https://github.com/vtex/onda/commit/ec14094b7e6ac603e6e43eee44eb7165b05f98c9))
-* **sidebar:** move menu state level to sidebar item ([81ae065](https://github.com/vtex/onda/commit/81ae0654663bf6acb75521180124e0ed50522795))
-* sidebar secret props contract ([afce511](https://github.com/vtex/onda/commit/afce511efff09aa0579d5a884e792e43d9cf1cd6))
-
+- **numericstepper:** modifies NumericStepper to reflect external changes in value ([832fb27](https://github.com/vtex/onda/commit/832fb2743c56990b96334e74452750c4578516e3)), closes [#514](https://github.com/vtex/onda/issues/514)
+- **set:** omit styles prop from FlexProps ([44af83b](https://github.com/vtex/onda/commit/44af83b8231b0267e77753020002feb25c99974a))
+- **sidebar:** clean transition side effect ([d439815](https://github.com/vtex/onda/commit/d43981548fef59b6686f4729735665318a461195))
+- **sidebar:** collapsed style ([ffe174a](https://github.com/vtex/onda/commit/ffe174ac9c81afba940b27b4ad180baf74cc9bb3))
+- **sidebar:** get rid of circular deps ([ec14094](https://github.com/vtex/onda/commit/ec14094b7e6ac603e6e43eee44eb7165b05f98c9))
+- **sidebar:** move menu state level to sidebar item ([81ae065](https://github.com/vtex/onda/commit/81ae0654663bf6acb75521180124e0ed50522795))
+- sidebar secret props contract ([afce511](https://github.com/vtex/onda/commit/afce511efff09aa0579d5a884e792e43d9cf1cd6))
 
 ### Features
 
-* **sidebar:** arrow keys navigation ([341deae](https://github.com/vtex/onda/commit/341deaecafe95749d78e10d672d143de3a8de83e))
-
-
-
-
+- **sidebar:** arrow keys navigation ([341deae](https://github.com/vtex/onda/commit/341deaecafe95749d78e10d672d143de3a8de83e))
 
 ## [0.84.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1...@vtex/admin-ui@0.84.2) (2021-03-16)
-## [0.84.1-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1-experimental.4...@vtex/admin-ui@0.84.1-experimental.6) (2021-03-17)
 
+## [0.84.1-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1-experimental.4...@vtex/admin-ui@0.84.1-experimental.6) (2021-03-17)
 
 ### Bug Fixes
 
-* **sidebar:** get rid of circular deps ([7e09204](https://github.com/vtex/onda/commit/7e09204bd675045cc73a3784c236c788fe437c6b))
-
-
-
-
+- **sidebar:** get rid of circular deps ([7e09204](https://github.com/vtex/onda/commit/7e09204bd675045cc73a3784c236c788fe437c6b))
 
 ## [0.84.1-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1-experimental.4...@vtex/admin-ui@0.84.1-experimental.5) (2021-03-17)
 
-
 ### Bug Fixes
 
-* **sidebar:** get rid of circular deps ([7e09204](https://github.com/vtex/onda/commit/7e09204bd675045cc73a3784c236c788fe437c6b))
-
-
-
-
+- **sidebar:** get rid of circular deps ([7e09204](https://github.com/vtex/onda/commit/7e09204bd675045cc73a3784c236c788fe437c6b))
 
 ## [0.84.1-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1-experimental.3...@vtex/admin-ui@0.84.1-experimental.4) (2021-03-17)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.84.1-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1-experimental.2...@vtex/admin-ui@0.84.1-experimental.3) (2021-03-17)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.84.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.0...@vtex/admin-ui@0.84.1) (2021-03-16)
 
-
 ### Bug Fixes
 
-* **modal:** styleOverrides prop as required ([b26eaea](https://github.com/vtex/onda/commit/b26eaea5b326f60080dc1b99b198e96057b0e705))
+- **modal:** styleOverrides prop as required ([b26eaea](https://github.com/vtex/onda/commit/b26eaea5b326f60080dc1b99b198e96057b0e705))
+
 ## [0.84.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.3...@vtex/admin-ui@0.84.1-experimental.2) (2021-03-17)
 
-
 ### Bug Fixes
 
-* **set:** omit styles prop from FlexProps ([34da6b4](https://github.com/vtex/onda/commit/34da6b4927655242c346471344a52417172fa10e))
-* **sidebar:** clean transition side effect ([14ca915](https://github.com/vtex/onda/commit/14ca915888fb11986028a5ae96e770a1062b0569))
-* **sidebar:** collapsed style ([af1a16a](https://github.com/vtex/onda/commit/af1a16a3c7d6e99089bef39419d7bbcc86b69adb))
-* **sidebar:** move menu state level to sidebar item ([96594ee](https://github.com/vtex/onda/commit/96594ee102a2811287e1a9f550f75143da27c142))
-* sidebar secret props contract ([c125363](https://github.com/vtex/onda/commit/c125363cdda6d7e36e581b4a79ac8658d9cc41f7))
-
+- **set:** omit styles prop from FlexProps ([34da6b4](https://github.com/vtex/onda/commit/34da6b4927655242c346471344a52417172fa10e))
+- **sidebar:** clean transition side effect ([14ca915](https://github.com/vtex/onda/commit/14ca915888fb11986028a5ae96e770a1062b0569))
+- **sidebar:** collapsed style ([af1a16a](https://github.com/vtex/onda/commit/af1a16a3c7d6e99089bef39419d7bbcc86b69adb))
+- **sidebar:** move menu state level to sidebar item ([96594ee](https://github.com/vtex/onda/commit/96594ee102a2811287e1a9f550f75143da27c142))
+- sidebar secret props contract ([c125363](https://github.com/vtex/onda/commit/c125363cdda6d7e36e581b4a79ac8658d9cc41f7))
 
 ### Features
 
-* **admin-primitives:** box primitive ([cd68229](https://github.com/vtex/onda/commit/cd68229b842afb1cdbe7d3f8d8d5c87a52253d13))
-* **sidebar:** arrow keys navigation ([843e864](https://github.com/vtex/onda/commit/843e8641e2b272b77171955b9ec865ccbe0bc270))
-
+- **admin-primitives:** box primitive ([cd68229](https://github.com/vtex/onda/commit/cd68229b842afb1cdbe7d3f8d8d5c87a52253d13))
+- **sidebar:** arrow keys navigation ([843e864](https://github.com/vtex/onda/commit/843e8641e2b272b77171955b9ec865ccbe0bc270))
 
 ### BREAKING CHANGES
 
-* **admin-primitives:** removed themeKey prop from all primitives
-
-
-
-
+- **admin-primitives:** removed themeKey prop from all primitives
 
 ## [0.84.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.3...@vtex/admin-ui@0.84.1-experimental.1) (2021-03-16)
 
-
 ### Bug Fixes
 
-* **set:** omit styles prop from FlexProps ([34da6b4](https://github.com/vtex/onda/commit/34da6b4927655242c346471344a52417172fa10e))
-* **sidebar:** clean transition side effect ([14ca915](https://github.com/vtex/onda/commit/14ca915888fb11986028a5ae96e770a1062b0569))
-* **sidebar:** collapsed style ([af1a16a](https://github.com/vtex/onda/commit/af1a16a3c7d6e99089bef39419d7bbcc86b69adb))
-* **sidebar:** move menu state level to sidebar item ([96594ee](https://github.com/vtex/onda/commit/96594ee102a2811287e1a9f550f75143da27c142))
-* sidebar secret props contract ([c125363](https://github.com/vtex/onda/commit/c125363cdda6d7e36e581b4a79ac8658d9cc41f7))
-
+- **set:** omit styles prop from FlexProps ([34da6b4](https://github.com/vtex/onda/commit/34da6b4927655242c346471344a52417172fa10e))
+- **sidebar:** clean transition side effect ([14ca915](https://github.com/vtex/onda/commit/14ca915888fb11986028a5ae96e770a1062b0569))
+- **sidebar:** collapsed style ([af1a16a](https://github.com/vtex/onda/commit/af1a16a3c7d6e99089bef39419d7bbcc86b69adb))
+- **sidebar:** move menu state level to sidebar item ([96594ee](https://github.com/vtex/onda/commit/96594ee102a2811287e1a9f550f75143da27c142))
+- sidebar secret props contract ([c125363](https://github.com/vtex/onda/commit/c125363cdda6d7e36e581b4a79ac8658d9cc41f7))
 
 ### Features
 
-* **admin-primitives:** box primitive ([cd68229](https://github.com/vtex/onda/commit/cd68229b842afb1cdbe7d3f8d8d5c87a52253d13))
-* **sidebar:** arrow keys navigation ([843e864](https://github.com/vtex/onda/commit/843e8641e2b272b77171955b9ec865ccbe0bc270))
-
+- **admin-primitives:** box primitive ([cd68229](https://github.com/vtex/onda/commit/cd68229b842afb1cdbe7d3f8d8d5c87a52253d13))
+- **sidebar:** arrow keys navigation ([843e864](https://github.com/vtex/onda/commit/843e8641e2b272b77171955b9ec865ccbe0bc270))
 
 ### BREAKING CHANGES
 
-* **admin-primitives:** removed themeKey prop from all primitives
-
-
-
-
+- **admin-primitives:** removed themeKey prop from all primitives
 
 ## [0.84.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.3...@vtex/admin-ui@0.84.1-experimental.0) (2021-03-16)
 
-
 ### Bug Fixes
 
-* **set:** omit styles prop from FlexProps ([34da6b4](https://github.com/vtex/onda/commit/34da6b4927655242c346471344a52417172fa10e))
-* **sidebar:** clean transition side effect ([14ca915](https://github.com/vtex/onda/commit/14ca915888fb11986028a5ae96e770a1062b0569))
-* **sidebar:** collapsed style ([af1a16a](https://github.com/vtex/onda/commit/af1a16a3c7d6e99089bef39419d7bbcc86b69adb))
-* **sidebar:** move menu state level to sidebar item ([96594ee](https://github.com/vtex/onda/commit/96594ee102a2811287e1a9f550f75143da27c142))
-* sidebar secret props contract ([c125363](https://github.com/vtex/onda/commit/c125363cdda6d7e36e581b4a79ac8658d9cc41f7))
-
+- **set:** omit styles prop from FlexProps ([34da6b4](https://github.com/vtex/onda/commit/34da6b4927655242c346471344a52417172fa10e))
+- **sidebar:** clean transition side effect ([14ca915](https://github.com/vtex/onda/commit/14ca915888fb11986028a5ae96e770a1062b0569))
+- **sidebar:** collapsed style ([af1a16a](https://github.com/vtex/onda/commit/af1a16a3c7d6e99089bef39419d7bbcc86b69adb))
+- **sidebar:** move menu state level to sidebar item ([96594ee](https://github.com/vtex/onda/commit/96594ee102a2811287e1a9f550f75143da27c142))
+- sidebar secret props contract ([c125363](https://github.com/vtex/onda/commit/c125363cdda6d7e36e581b4a79ac8658d9cc41f7))
 
 ### Features
 
-* **admin-primitives:** box primitive ([cd68229](https://github.com/vtex/onda/commit/cd68229b842afb1cdbe7d3f8d8d5c87a52253d13))
-* **sidebar:** arrow keys navigation ([843e864](https://github.com/vtex/onda/commit/843e8641e2b272b77171955b9ec865ccbe0bc270))
-
+- **admin-primitives:** box primitive ([cd68229](https://github.com/vtex/onda/commit/cd68229b842afb1cdbe7d3f8d8d5c87a52253d13))
+- **sidebar:** arrow keys navigation ([843e864](https://github.com/vtex/onda/commit/843e8641e2b272b77171955b9ec865ccbe0bc270))
 
 ### BREAKING CHANGES
 
-* **admin-primitives:** removed themeKey prop from all primitives
-
-
-
-
+- **admin-primitives:** removed themeKey prop from all primitives
 
 # [0.84.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.3...@vtex/admin-ui@0.84.0) (2021-03-12)
 
-
 ### Features
 
-* **admin-primitives:** box primitive ([8adf236](https://github.com/vtex/onda/commit/8adf236d6d3e5406d765fa59cf520505971f80bd))
-
+- **admin-primitives:** box primitive ([8adf236](https://github.com/vtex/onda/commit/8adf236d6d3e5406d765fa59cf520505971f80bd))
 
 ### BREAKING CHANGES
 
-* **admin-primitives:** removed themeKey prop from all primitives
-
-
-
-
+- **admin-primitives:** removed themeKey prop from all primitives
 
 ## [0.83.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.2...@vtex/admin-ui@0.83.3) (2021-03-10)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.83.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.1...@vtex/admin-ui@0.83.2) (2021-03-08)
 
 **Note:** Version bump only for package @vtex/admin-ui
-
-
-
-
 
 ## [0.83.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.83.0...@vtex/admin-ui@0.83.1) (2021-03-08)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 # [0.83.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.7...@vtex/admin-ui@0.83.0) (2021-03-03)
-
 
 ### Features
 
-* **icons:** export icons from @vtex/admin-ui package ([686d873](https://github.com/vtex/onda/commit/686d873a01b7f22abc71653959780a86d13e7d9a))
-
-
-
-
+- **icons:** export icons from @vtex/admin-ui package ([686d873](https://github.com/vtex/onda/commit/686d873a01b7f22abc71653959780a86d13e7d9a))
 
 ## [0.82.7](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.6...@vtex/admin-ui@0.82.7) (2021-03-03)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.82.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.5...@vtex/admin-ui@0.82.6) (2021-03-01)
-
 
 ### Bug Fixes
 
-* **primitives:** change the way Grid and Flex are implemented to use createComponent function ([05631d8](https://github.com/vtex/onda/commit/05631d890bc6d3984a21418717519c19e83cc127))
-
-
-
-
+- **primitives:** change the way Grid and Flex are implemented to use createComponent function ([05631d8](https://github.com/vtex/onda/commit/05631d890bc6d3984a21418717519c19e83cc127))
 
 ## [0.82.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.4...@vtex/admin-ui@0.82.5) (2021-02-25)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.82.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.3...@vtex/admin-ui@0.82.4) (2021-02-12)
-
 
 ### Bug Fixes
 
-* **admin-ui-set:** wrong type inference on useSet hook ([af4fb4b](https://github.com/vtex/onda/commit/af4fb4bbe26da397b1b343dc5c41e0544153c5e5))
-
-
-
-
+- **admin-ui-set:** wrong type inference on useSet hook ([af4fb4b](https://github.com/vtex/onda/commit/af4fb4bbe26da397b1b343dc5c41e0544153c5e5))
 
 ## [0.82.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.2...@vtex/admin-ui@0.82.3) (2021-02-12)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.82.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.1...@vtex/admin-ui@0.82.2) (2021-02-11)
-
 
 ### Bug Fixes
 
-* **admin-ui:** css-prop typescript ([71f1817](https://github.com/vtex/onda/commit/71f181757006fde0a9281187178b0aa837ea12d4))
-
-
-
-
+- **admin-ui:** css-prop typescript ([71f1817](https://github.com/vtex/onda/commit/71f181757006fde0a9281187178b0aa837ea12d4))
 
 ## [0.82.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.82.0...@vtex/admin-ui@0.82.1) (2021-02-11)
 
-
 ### Bug Fixes
 
-* **admin:** emotion deps on all /admin packages ([3562180](https://github.com/vtex/onda/commit/35621800491ffc5132235e83edcf6c086d0b3ce4))
-
-
-
-
+- **admin:** emotion deps on all /admin packages ([3562180](https://github.com/vtex/onda/commit/35621800491ffc5132235e83edcf6c086d0b3ce4))
 
 # [0.82.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.81.0...@vtex/admin-ui@0.82.0) (2021-02-08)
 
-
 ### Features
 
-* **search:** create component ([c2d7a10](https://github.com/vtex/onda/commit/c2d7a10033f4a18455d621dc6c4670dc9fd59c90))
-* **spinner:** create component ([129d385](https://github.com/vtex/onda/commit/129d385076dd47be574e3edfd4cc43a741f1ede9))
-
-
-
-
+- **search:** create component ([c2d7a10](https://github.com/vtex/onda/commit/c2d7a10033f4a18455d621dc6c4670dc9fd59c90))
+- **spinner:** create component ([129d385](https://github.com/vtex/onda/commit/129d385076dd47be574e3edfd4cc43a741f1ede9))
 
 # [0.81.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.80.0...@vtex/admin-ui@0.81.0) (2021-02-02)
 
-
 ### Features
 
-* **jsxs:** create package to standarize component creation ([8af7695](https://github.com/vtex/onda/commit/8af7695c761d60f9cedb9f18086e414cd7ceb25e))
-
-
-
-
+- **jsxs:** create package to standarize component creation ([8af7695](https://github.com/vtex/onda/commit/8af7695c761d60f9cedb9f18086e414cd7ceb25e))
 
 # [0.80.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.79.0...@vtex/admin-ui@0.80.0) (2021-02-01)
 
-
 ### Features
 
-* **mobile-detect:** export isMobile from react-device-detect dep ([bd97f9a](https://github.com/vtex/onda/commit/bd97f9a7fc1355bae596fb12a07345f2d8625fd7))
-
-
-
-
+- **mobile-detect:** export isMobile from react-device-detect dep ([bd97f9a](https://github.com/vtex/onda/commit/bd97f9a7fc1355bae596fb12a07345f2d8625fd7))
 
 # [0.79.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.78.0...@vtex/admin-ui@0.79.0) (2021-02-01)
 
-
 ### Features
 
-* **tabs:** add tabs draft component ([f8e7403](https://github.com/vtex/onda/commit/f8e7403a14f903374ef136d1c5271fdf138ebd3a))
-* **tabs:** add Tabs stable version ([3ffb238](https://github.com/vtex/onda/commit/3ffb238b1a41a1f0a39646a26d74e1fec819a11c))
-
-
-
-
+- **tabs:** add tabs draft component ([f8e7403](https://github.com/vtex/onda/commit/f8e7403a14f903374ef136d1c5271fdf138ebd3a))
+- **tabs:** add Tabs stable version ([3ffb238](https://github.com/vtex/onda/commit/3ffb238b1a41a1f0a39646a26d74e1fec819a11c))
 
 # [0.78.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.77.3...@vtex/admin-ui@0.78.0) (2021-02-01)
 
-
 ### Features
 
-* **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
-
-
-
-
+- **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
 
 ## [0.77.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.77.2...@vtex/admin-ui@0.77.3) (2021-01-29)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.77.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.77.1...@vtex/admin-ui@0.77.2) (2021-01-28)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.77.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.77.0...@vtex/admin-ui@0.77.1) (2021-01-28)
-
 
 ### Bug Fixes
 
-* **alert:** fix forwardRef ([b7aeda5](https://github.com/vtex/onda/commit/b7aeda56af5eba659f3a63b8e5f67f1a6aec6f9e))
-
-
-
-
+- **alert:** fix forwardRef ([b7aeda5](https://github.com/vtex/onda/commit/b7aeda56af5eba659f3a63b8e5f67f1a6aec6f9e))
 
 # [0.77.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.76.1...@vtex/admin-ui@0.77.0) (2021-01-28)
 
-
 ### Bug Fixes
 
-* **alert:** add forwardRef ([370b94a](https://github.com/vtex/onda/commit/370b94aca393c30c894db014e5de4513f816e8ad))
-
+- **alert:** add forwardRef ([370b94a](https://github.com/vtex/onda/commit/370b94aca393c30c894db014e5de4513f816e8ad))
 
 ### Features
 
-* **alert:** add custom icon option ([4c643eb](https://github.com/vtex/onda/commit/4c643ebde145c5188aaca05ce3fd325b9221ae90))
-
-
-
-
+- **alert:** add custom icon option ([4c643eb](https://github.com/vtex/onda/commit/4c643ebde145c5188aaca05ce3fd325b9221ae90))
 
 ## [0.76.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.76.0...@vtex/admin-ui@0.76.1) (2021-01-26)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 # [0.76.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.75.0...@vtex/admin-ui@0.76.0) (2021-01-26)
-
 
 ### Bug Fixes
 
-* **alert:** change fluid property to be responsive ([153fb6f](https://github.com/vtex/onda/commit/153fb6fb620cf84b73b5f53f81b11c9286b74184))
-* **alert:** tests ([7f30491](https://github.com/vtex/onda/commit/7f30491889d4368dbb718476fa9e4eb1c3141969))
-
+- **alert:** change fluid property to be responsive ([153fb6f](https://github.com/vtex/onda/commit/153fb6fb620cf84b73b5f53f81b11c9286b74184))
+- **alert:** tests ([7f30491](https://github.com/vtex/onda/commit/7f30491889d4368dbb718476fa9e4eb1c3141969))
 
 ### Features
 
-* **alert:** add component ([babff93](https://github.com/vtex/onda/commit/babff9313ee49d000831f3aee09d1cf03a43b9ca))
-* **alert:** update alert according to the design specifications ([3b44b3d](https://github.com/vtex/onda/commit/3b44b3d619cb339c1919586dffd23a99aaca2dd3))
-
-
-
-
+- **alert:** add component ([babff93](https://github.com/vtex/onda/commit/babff9313ee49d000831f3aee09d1cf03a43b9ca))
+- **alert:** update alert according to the design specifications ([3b44b3d](https://github.com/vtex/onda/commit/3b44b3d619cb339c1919586dffd23a99aaca2dd3))
 
 # [0.75.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.74.1...@vtex/admin-ui@0.75.0) (2021-01-26)
 
-
 ### Features
 
-* **menu:** add dangerous prop ([515fd19](https://github.com/vtex/onda/commit/515fd1999122731f780095769e2b2ffba8385d99))
-
-
-
-
+- **menu:** add dangerous prop ([515fd19](https://github.com/vtex/onda/commit/515fd1999122731f780095769e2b2ffba8385d99))
 
 ## [0.74.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.74.0...@vtex/admin-ui@0.74.1) (2021-01-25)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 # [0.74.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.73.1...@vtex/admin-ui@0.74.0) (2021-01-25)
-
 
 ### Features
 
-* **table:** add onRowClick function ([ad2ff2f](https://github.com/vtex/onda/commit/ad2ff2f20bbeb06c42bebeb09b2ff3b6e0ca8cb7))
-
-
-
-
+- **table:** add onRowClick function ([ad2ff2f](https://github.com/vtex/onda/commit/ad2ff2f20bbeb06c42bebeb09b2ff3b6e0ca8cb7))
 
 ## [0.73.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.73.0...@vtex/admin-ui@0.73.1) (2021-01-22)
 
-
 ### Bug Fixes
 
-* specifies the type of the select button to type = button to solve the problem of the select submit the form in which it is inserted when clicking on it. ([ac78444](https://github.com/vtex/onda/commit/ac784447dfb7898ac75cfc52254d2d8c53db78a3))
-
-
-
-
+- specifies the type of the select button to type = button to solve the problem of the select submit the form in which it is inserted when clicking on it. ([ac78444](https://github.com/vtex/onda/commit/ac784447dfb7898ac75cfc52254d2d8c53db78a3))
 
 # [0.73.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.0...@vtex/admin-ui@0.73.0) (2021-01-21)
 
-
 ### Bug Fixes
 
-* **emotion:** add emotion cache unique key ([b92fd2e](https://github.com/vtex/onda/commit/b92fd2e919d618f4e6ada44ea1c574a26d1f6abe))
-* **emotion:** add unique key to emotion cache ([ed21df8](https://github.com/vtex/onda/commit/ed21df8fa64958457f42d2df60a55fe78fb0e654))
-* **emotion:** fix Global styles ([360c23b](https://github.com/vtex/onda/commit/360c23b7dec9f9bd9c476a17d5dd81ce968c8c39))
-* **emotion:** remove emotion-instance ([ded87a3](https://github.com/vtex/onda/commit/ded87a3ee813103737ab29c6fc028554857f863c))
-* **emotion:** use css function from emotion-instance instead of emotion package ([5af42f7](https://github.com/vtex/onda/commit/5af42f7cfdfb45361a7774240ea82e39fd0a60ae))
-
+- **emotion:** add emotion cache unique key ([b92fd2e](https://github.com/vtex/onda/commit/b92fd2e919d618f4e6ada44ea1c574a26d1f6abe))
+- **emotion:** add unique key to emotion cache ([ed21df8](https://github.com/vtex/onda/commit/ed21df8fa64958457f42d2df60a55fe78fb0e654))
+- **emotion:** fix Global styles ([360c23b](https://github.com/vtex/onda/commit/360c23b7dec9f9bd9c476a17d5dd81ce968c8c39))
+- **emotion:** remove emotion-instance ([ded87a3](https://github.com/vtex/onda/commit/ded87a3ee813103737ab29c6fc028554857f863c))
+- **emotion:** use css function from emotion-instance instead of emotion package ([5af42f7](https://github.com/vtex/onda/commit/5af42f7cfdfb45361a7774240ea82e39fd0a60ae))
 
 ### Features
 
-* **admin-core:** add admin-core package ([6f5b56b](https://github.com/vtex/onda/commit/6f5b56bd92b2fcd9af93160ece3c44e7260a887d))
-* **admin-system:** create a unique emotion instance along with the createSystem function ([074e0fc](https://github.com/vtex/onda/commit/074e0fca868c127d55e2e1d9694668f3af7b87e9))
-* **emotion:** add emotion CacheProvider ([f970270](https://github.com/vtex/onda/commit/f970270d14865baad8971e11533e2d340363e2d0))
-
-
-
-
+- **admin-core:** add admin-core package ([6f5b56b](https://github.com/vtex/onda/commit/6f5b56bd92b2fcd9af93160ece3c44e7260a887d))
+- **admin-system:** create a unique emotion instance along with the createSystem function ([074e0fc](https://github.com/vtex/onda/commit/074e0fca868c127d55e2e1d9694668f3af7b87e9))
+- **emotion:** add emotion CacheProvider ([f970270](https://github.com/vtex/onda/commit/f970270d14865baad8971e11533e2d340363e2d0))
 
 ## [0.72.1-experimental.7](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.6...@vtex/admin-ui@0.72.1-experimental.7) (2021-01-21)
 
-
 ### Features
 
-* **admin-core:** add admin-core package ([325dbae](https://github.com/vtex/onda/commit/325dbae14c2d43a3517a74899dc5d44bbb92ddf9))
-
-
-
-
+- **admin-core:** add admin-core package ([325dbae](https://github.com/vtex/onda/commit/325dbae14c2d43a3517a74899dc5d44bbb92ddf9))
 
 ## [0.72.1-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.5...@vtex/admin-ui@0.72.1-experimental.6) (2021-01-19)
 
-
 ### Features
 
-* **admin-system:** create a unique emotion instance along with the createSystem function ([f9dfb6c](https://github.com/vtex/onda/commit/f9dfb6cd04df69d10f271c42d01d605b16732fbf))
-
-
-
-
+- **admin-system:** create a unique emotion instance along with the createSystem function ([f9dfb6c](https://github.com/vtex/onda/commit/f9dfb6cd04df69d10f271c42d01d605b16732fbf))
 
 ## [0.72.1-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.4...@vtex/admin-ui@0.72.1-experimental.5) (2021-01-15)
 
-
 ### Bug Fixes
 
-* **emotion:** fix Global styles ([611cd5a](https://github.com/vtex/onda/commit/611cd5a0eebc718564c85741bc4a3b9d305125ec))
-
-
-
-
+- **emotion:** fix Global styles ([611cd5a](https://github.com/vtex/onda/commit/611cd5a0eebc718564c85741bc4a3b9d305125ec))
 
 ## [0.72.1-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.3...@vtex/admin-ui@0.72.1-experimental.4) (2021-01-15)
 
-
 ### Bug Fixes
 
-* **emotion:** remove emotion-instance ([e5da155](https://github.com/vtex/onda/commit/e5da155c095563d929fd3cf0a2c06dd28d71a2a7))
-
-
-
-
+- **emotion:** remove emotion-instance ([e5da155](https://github.com/vtex/onda/commit/e5da155c095563d929fd3cf0a2c06dd28d71a2a7))
 
 ## [0.72.1-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.2...@vtex/admin-ui@0.72.1-experimental.3) (2021-01-15)
 
-
 ### Bug Fixes
 
-* **emotion:** add emotion cache unique key ([2b1386a](https://github.com/vtex/onda/commit/2b1386a839528a911a9157641160c29ac6c12bc1))
-
-
-
-
+- **emotion:** add emotion cache unique key ([2b1386a](https://github.com/vtex/onda/commit/2b1386a839528a911a9157641160c29ac6c12bc1))
 
 ## [0.72.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.1...@vtex/admin-ui@0.72.1-experimental.2) (2021-01-15)
 
-
 ### Bug Fixes
 
-* **emotion:** use css function from emotion-instance instead of emotion package ([6768b57](https://github.com/vtex/onda/commit/6768b5732882f295ae5cc83e5bf81fde33354484))
-
-
-
-
+- **emotion:** use css function from emotion-instance instead of emotion package ([6768b57](https://github.com/vtex/onda/commit/6768b5732882f295ae5cc83e5bf81fde33354484))
 
 ## [0.72.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.1-experimental.0...@vtex/admin-ui@0.72.1-experimental.1) (2021-01-15)
 
-
 ### Bug Fixes
 
-* **emotion:** add unique key to emotion cache ([0008bc6](https://github.com/vtex/onda/commit/0008bc679d26941b4f981f3f4dc7dbd26af6d986))
-
-
-
-
+- **emotion:** add unique key to emotion cache ([0008bc6](https://github.com/vtex/onda/commit/0008bc679d26941b4f981f3f4dc7dbd26af6d986))
 
 ## [0.72.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.72.0...@vtex/admin-ui@0.72.1-experimental.0) (2021-01-14)
 
-
 ### Features
 
-* **emotion:** add emotion CacheProvider ([1352986](https://github.com/vtex/onda/commit/1352986399e595cc13520d7710d7d3546223a12d))
-
-
-
-
+- **emotion:** add emotion CacheProvider ([1352986](https://github.com/vtex/onda/commit/1352986399e595cc13520d7710d7d3546223a12d))
 
 # [0.72.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.71.0...@vtex/admin-ui@0.72.0) (2021-01-12)
 
-
 ### Features
 
-* **admin-ui-system:** add color types ([42a73e3](https://github.com/vtex/onda/commit/42a73e34d9b097b3e29681c7abe03ef0b6dda02b))
-
-
-
-
+- **admin-ui-system:** add color types ([42a73e3](https://github.com/vtex/onda/commit/42a73e34d9b097b3e29681c7abe03ef0b6dda02b))
 
 # [0.71.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.71.0-experimental.4...@vtex/admin-ui@0.71.0) (2021-01-11)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 # [0.71.0-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.5-experimental.0...@vtex/admin-ui@0.71.0-experimental.4) (2021-01-08)
-
 
 ### Bug Fixes
 
-* **dependencies:** admin packages dependencies versions ([0de5a5c](https://github.com/vtex/onda/commit/0de5a5ca259d7d5c7f6d4042e27f7788e94a5db2))
-
-
-
-
+- **dependencies:** admin packages dependencies versions ([0de5a5c](https://github.com/vtex/onda/commit/0de5a5ca259d7d5c7f6d4042e27f7788e94a5db2))
 
 ## [0.70.5-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.4...@vtex/admin-ui@0.70.5-experimental.0) (2021-01-07)
 
-
 ### Bug Fixes
 
-* **colors:** remove accent colors ([a83e2e7](https://github.com/vtex/onda/commit/a83e2e7188cba71734bfb1b0a45e68208d8f1895))
-* **typescript:** omit not allowed properties: style, color, and className ([2c2592b](https://github.com/vtex/onda/commit/2c2592b7b056733d65a04c6cd1d0f5e3422fda8e))
-
+- **colors:** remove accent colors ([a83e2e7](https://github.com/vtex/onda/commit/a83e2e7188cba71734bfb1b0a45e68208d8f1895))
+- **typescript:** omit not allowed properties: style, color, and className ([2c2592b](https://github.com/vtex/onda/commit/2c2592b7b056733d65a04c6cd1d0f5e3422fda8e))
 
 ### Features
 
-* **colors:** change color structure to be aligned with figma ([96c3a70](https://github.com/vtex/onda/commit/96c3a7015e92d9ea98a200820706d33b50991d6f))
-
-
-
-
+- **colors:** change color structure to be aligned with figma ([96c3a70](https://github.com/vtex/onda/commit/96c3a7015e92d9ea98a200820706d33b50991d6f))
 
 ## [0.70.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.3...@vtex/admin-ui@0.70.4) (2021-01-04)
-## [0.70.2-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.1...@vtex/admin-ui@0.70.2-experimental.0) (2020-12-29)
 
+## [0.70.2-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.1...@vtex/admin-ui@0.70.2-experimental.0) (2020-12-29)
 
 ### Bug Fixes
 
-* **onda:** remove theme-ui hoisting ([154f3a1](https://github.com/vtex/onda/commit/154f3a1fff21b4b66af3a31001b95881c2f68c1e))
-
-
-
-
+- **onda:** remove theme-ui hoisting ([154f3a1](https://github.com/vtex/onda/commit/154f3a1fff21b4b66af3a31001b95881c2f68c1e))
 
 ## [0.70.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.2...@vtex/admin-ui@0.70.3) (2021-01-04)
 
-
 ### Bug Fixes
 
-* **admin-ui-system:** rename jsx to jsxs to avoid name conflicts ([cde16ec](https://github.com/vtex/onda/commit/cde16ec2fdbfdcc8ae5b7e3e400c55af399035a3))
-
-
-
-
+- **admin-ui-system:** rename jsx to jsxs to avoid name conflicts ([cde16ec](https://github.com/vtex/onda/commit/cde16ec2fdbfdcc8ae5b7e3e400c55af399035a3))
 
 ## [0.70.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.1...@vtex/admin-ui@0.70.2) (2021-01-04)
 
 **Note:** Version bump only for package @vtex/admin-ui
-* **colors:** remove accent colors ([b127bfb](https://github.com/vtex/onda/commit/b127bfb0c069f68b7592683b0b3cbbe13e215523))
-* **typescript:** omit not allowed properties: style, color, and className ([67a7103](https://github.com/vtex/onda/commit/67a710333f2ccde921ec5a8cbc249dcbf8643e4e))
 
+- **colors:** remove accent colors ([b127bfb](https://github.com/vtex/onda/commit/b127bfb0c069f68b7592683b0b3cbbe13e215523))
+- **typescript:** omit not allowed properties: style, color, and className ([67a7103](https://github.com/vtex/onda/commit/67a710333f2ccde921ec5a8cbc249dcbf8643e4e))
 
 ### Features
 
-* **colors:** change color structure to be aligned with figma ([c264d06](https://github.com/vtex/onda/commit/c264d06ad6de72bed87a1aa67a38e16563cb677c))
-
-
-
-
+- **colors:** change color structure to be aligned with figma ([c264d06](https://github.com/vtex/onda/commit/c264d06ad6de72bed87a1aa67a38e16563cb677c))
 
 ## [0.70.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.70.0...@vtex/admin-ui@0.70.1) (2020-12-29)
 
