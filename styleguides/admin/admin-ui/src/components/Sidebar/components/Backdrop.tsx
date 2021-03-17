@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react'
-import { SCALES, transition } from '../consts'
-import { useSidebarContext } from '../context'
-import { motion } from 'framer-motion'
-import { SidebarCollapseButton } from './CollapseButton'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
+import { motion } from 'framer-motion'
+import { SCALES, transition } from '../consts'
+import { useSidebarContext } from '../context'
+import { SidebarCollapseButton } from './CollapseButton'
 
 /**
  * Components that acts as a spacer.

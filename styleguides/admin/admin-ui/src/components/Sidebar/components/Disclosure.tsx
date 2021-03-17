@@ -1,8 +1,8 @@
 import React, { forwardRef, ReactNode, Ref } from 'react'
 import { StyleObject } from '@vtex/admin-styles'
+import { useSidebarContext } from '../context'
 import { ButtonProps, Button } from '../../Button'
 import { Tooltip } from '../../Tooltip'
-import { useSidebarContext } from '../context'
 
 export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   props: SidebarDisclosureProps,

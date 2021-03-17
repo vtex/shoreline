@@ -1,12 +1,12 @@
 import React, { Children, cloneElement, useEffect, useMemo } from 'react'
-import {
-  SidebarDisclosureProps,
-  SidebarDisclosure,
-  useCompositeState,
-  CompositeItem,
-} from './index'
-import { SystemComponent } from '../../../types'
 import { get, useSystem, useTheme } from '@vtex/admin-core'
+import { HTMLAttributesWithRef } from 'reakit-utils/ts'
+import { motion } from 'framer-motion'
+import { isElement } from 'react-is'
+import { Box } from '@vtex/admin-primitives'
+import { SystemComponent } from '../../../types'
+import { SidebarDisclosureProps, SidebarDisclosure } from './Disclosure'
+import { CompositeItem, useCompositeState } from './Aria'
 import { useSidebarContext } from '../context'
 import { SCALES, transition } from '../consts'
 import {
@@ -15,10 +15,6 @@ import {
   SidebarSecretProps,
   SidebarItemVariantsKey,
 } from '../types'
-import { HTMLAttributesWithRef } from 'reakit-utils/ts'
-import { motion } from 'framer-motion'
-import { isElement } from 'react-is'
-import { Box } from '@vtex/admin-primitives'
 
 export function SidebarItem(props: _SidebarItemProps) {
   const { cn } = useSystem()

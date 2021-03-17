@@ -5,12 +5,12 @@ import React, {
   ReactNode,
   Ref,
 } from 'react'
+import { isElement } from 'react-is'
+import { useComposite } from './Aria'
+import { SidebarSecretProps } from '../types'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
-import { SidebarSecretProps } from '../types'
-import { isElement } from 'react-is'
-import { useComposite } from './Aria'
 
 export const SidebarSection = forwardRef(function SidebarSection(
   props: _SidebarSectionProps,
