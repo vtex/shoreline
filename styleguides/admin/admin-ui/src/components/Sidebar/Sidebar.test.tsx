@@ -1,31 +1,65 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { render, waitFor } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import { Sidebar } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
-import { bottomCornerItems, topCornerItems } from './testUtils'
+import { bottomCornerItems, SECTIONS, topCornerItems } from './testUtils'
 import { Item } from './types'
+import { isElement } from 'react-is'
+import { SidebarSubItemProps } from './components'
 
 const Component = ({ index: itemIndex, scope: itemScope }: Item) => {
   return (
     <Sidebar>
       <Sidebar.Header>
-        {topCornerItems.map(({ scope = 'top', ...props }, index) => (
+        {topCornerItems.map((props, index) => (
           <Sidebar.Item
             {...props}
-            selected={index === itemIndex && scope === itemScope}
+            selected={itemScope === 'top' && index === itemIndex}
             key={index}
-          />
+          >
+            {SECTIONS[props.label].sections.map((section, idx) => (
+              <Sidebar.Section
+                title={section.title}
+                index={topCornerItems.length + idx}
+              >
+                {section.subItems.map((label) => (
+                  <Sidebar.SubItem
+                    key={label}
+                    onClick={() => console.log(`hey`)}
+                  >
+                    {label}
+                  </Sidebar.SubItem>
+                ))}
+              </Sidebar.Section>
+            ))}
+          </Sidebar.Item>
         ))}
       </Sidebar.Header>
       <Sidebar.Footer>
-        {bottomCornerItems.map(({ scope = 'bottom', ...props }, index) => (
+        {bottomCornerItems.map((props, index) => (
           <Sidebar.Item
             {...props}
-            selected={index === itemIndex && scope === itemScope}
+            selected={itemScope === 'bottom' && index === itemIndex}
             key={index}
-          />
+          >
+            {SECTIONS[props.label].sections.map((section, idx) => (
+              <Sidebar.Section
+                title={section.title}
+                index={topCornerItems.length + idx}
+              >
+                {section.subItems.map((label) => (
+                  <Sidebar.SubItem
+                    key={label}
+                    onClick={() => console.log(`hey`)}
+                  >
+                    {label}
+                  </Sidebar.SubItem>
+                ))}
+              </Sidebar.Section>
+            ))}
+          </Sidebar.Item>
         ))}
       </Sidebar.Footer>
     </Sidebar>
@@ -105,14 +139,23 @@ describe('Sidebar tests', () => {
       expect(sectionElement).toBeVisible()
     })
 
-    item.sections!.forEach((section) => {
-      const sectionElement = getByText(section.title)
-      expect(sectionElement).toBeVisible()
+    Array.isArray(item.children) &&
+      item.children.forEach((child) => {
+        const section = isElement(child) && child
 
-      section.children.forEach((subItem) => {
-        expect(getByText(subItem.label)).toBeVisible()
+        if (!section) {
+          expect(true).toBe(false)
+        }
+
+        const sectionElement = getByText((section as ReactElement).props.title)
+
+        expect(sectionElement).toBeVisible()
+        ;(section as ReactElement).props.children.forEach(
+          (subItem: SidebarSubItemProps) => {
+            expect(subItem.children).toBeVisible()
+          }
+        )
       })
-    })
   })
 
   it("selected item with no sections should't have a drawer", async () => {
