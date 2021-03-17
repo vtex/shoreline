@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.84.3-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3-experimental.3) (2021-03-17)
+
+
+### Bug Fixes
+
+* **set:** omit styles prop from FlexProps ([44af83b](https://github.com/vtex/onda/commit/44af83b8231b0267e77753020002feb25c99974a))
+* **sidebar:** backdrop spacing and border ([0c2515f](https://github.com/vtex/onda/commit/0c2515fe0e1d720fbcf95a273a632cd2144aea0c))
+* **sidebar:** clean transition side effect ([d439815](https://github.com/vtex/onda/commit/d43981548fef59b6686f4729735665318a461195))
+* **sidebar:** collapsed style ([ffe174a](https://github.com/vtex/onda/commit/ffe174ac9c81afba940b27b4ad180baf74cc9bb3))
+* **sidebar:** get rid of circular deps ([ec14094](https://github.com/vtex/onda/commit/ec14094b7e6ac603e6e43eee44eb7165b05f98c9))
+* **sidebar:** move menu state level to sidebar item ([81ae065](https://github.com/vtex/onda/commit/81ae0654663bf6acb75521180124e0ed50522795))
+* sidebar secret props contract ([afce511](https://github.com/vtex/onda/commit/afce511efff09aa0579d5a884e792e43d9cf1cd6))
+
+
+### Features
+
+* **sidebar:** arrow keys navigation ([341deae](https://github.com/vtex/onda/commit/341deaecafe95749d78e10d672d143de3a8de83e))
+
+
+
+
+
 ## [0.84.3-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3-experimental.2) (2021-03-17)
 
 
