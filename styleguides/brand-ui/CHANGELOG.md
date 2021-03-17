@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.1-experimental.4](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.40.1-experimental.4) (2021-03-17)
+
+
+### Features
+
+* add animation to collapsible and accordion ([30d5ded](https://github.com/vtex/onda/commit/30d5ded11a609048f2e44b3aabdd038070b6cbd0))
+
+
+
+
+
 ## [0.40.1-experimental.3](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.40.1-experimental.3) (2021-03-17)
 
 
