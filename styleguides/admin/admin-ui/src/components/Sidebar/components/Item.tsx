@@ -263,6 +263,11 @@ function useSidebarItemState(props: SidebarItemProps) {
   }
 }
 
+export type SidebarItemProps = Omit<_SidebarItemProps, 'state'>
+
+/**
+ * Private interface
+ */
 export interface _SidebarItemProps
   extends Omit<SidebarDisclosureProps, 'children'>,
     SystemComponent,
@@ -273,5 +278,3 @@ export interface _SidebarItemProps
    */
   label: string
 }
-
-export type SidebarItemProps = Omit<_SidebarItemProps, 'state'>

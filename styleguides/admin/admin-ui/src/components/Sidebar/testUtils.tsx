@@ -80,7 +80,12 @@ export const SECTIONS: {
   Orders: {
     sections: [{ subItems: orders, title: 'Orders' }],
   },
-  Products: { sections: [{ subItems: catalog, title: 'Discounts' }] },
+  Products: {
+    sections: [
+      { subItems: catalog, title: 'Discounts' },
+      { subItems: catalog2, title: 'Prices' },
+    ],
+  },
   Promotions: { sections: [{ subItems: promotions, title: 'Promotions' }] },
   Storefront: {
     sections: [{ subItems: intelligentSearch, title: 'Intelligent Search' }],
