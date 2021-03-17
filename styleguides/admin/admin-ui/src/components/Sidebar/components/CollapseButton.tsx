@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Button, ButtonProps } from '../../Button'
-import { useSidebarContext } from '../context'
 import { Box } from '@vtex/admin-primitives'
+import { useSidebarContext } from '../context'
+import { Button, ButtonProps } from '../../Button'
 
 /**
  * Component that renders the sidebar collapser button.

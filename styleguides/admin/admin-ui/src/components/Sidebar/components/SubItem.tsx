@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react'
 import { StyleObject } from '@vtex/admin-styles'
-import { ButtonProps, Button } from '../../Button'
+import { useCompositeItem } from './Aria'
 import { useSidebarContext } from '../context'
 import { ArrowKeys, SidebarSecretProps } from '../types'
-import { useCompositeItem } from './Aria'
+import { ButtonProps, Button } from '../../Button'
 
 export function SidebarSubItem(props: _SidebarSubItemProps) {
   const { onClick, selected, children, parentId, state } = props

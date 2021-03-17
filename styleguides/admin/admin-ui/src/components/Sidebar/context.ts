@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
-import { CompositeStateReturn } from './components'
 import invariant from 'tiny-invariant'
+import { CompositeStateReturn } from './components'
 import { AnchorDirection, Item } from './types'
 
 const SidebarContext = createContext<{
