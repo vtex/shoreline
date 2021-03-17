@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import { NumericStepper } from './index'
@@ -61,6 +61,37 @@ describe('NumericStepper tests', () => {
       </ThemeProvider>
     )
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('change value externally', async () => {
+    const { rerender } = 
+    render(
+      <ThemeProvider>
+        <NumericStepper
+          value={1} 
+          onChange={() => {}}
+          label="stepper number" 
+          data-testid="numeric-stepper"
+        />
+      </ThemeProvider>
+    )
+
+    const input = screen.getByTestId('numeric-stepper')
+    expect(input).toHaveValue(1)
+
+    rerender(
+      <ThemeProvider>
+        <NumericStepper
+          value={10} 
+          onChange={() => {}}
+          label="stepper number" 
+          data-testid="numeric-stepper"
+        />
+      </ThemeProvider>
+    )
+
+    
+    expect(input).toHaveValue(10)
   })
 
   it('should not have any violations', async () => {
