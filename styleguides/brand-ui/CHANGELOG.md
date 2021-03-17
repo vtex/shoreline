@@ -15,6 +15,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 # [0.41.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.41.0) (2021-03-19)
+## [0.40.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.40.1-experimental.0) (2021-03-17)
 
 
 ### Features
