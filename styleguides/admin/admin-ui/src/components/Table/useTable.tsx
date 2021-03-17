@@ -79,7 +79,9 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
             ? column.sortFns.asc
             : column.sortFns.dsc
 
-        return items.sort(sortFn)
+        const itemsCopy = items.slice()
+
+        return itemsCopy.sort(sortFn)
       }
     }
 
