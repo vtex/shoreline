@@ -1,27 +1,23 @@
-import React, { forwardRef, ReactNode, Ref } from 'react'
-import { HTMLAttributesWithRef } from 'reakit-utils/ts'
+import React, { ReactNode } from 'react'
 import { StyleObject } from '@vtex/admin-styles'
 import { ButtonProps, Button } from '../../Button'
 import { useSidebarContext } from '../context'
 import { ArrowKeys, SidebarSecretProps } from '../types'
+import { useCompositeItem } from './Aria'
 
-export const SidebarSubItem = forwardRef(function SidebarSubItem(
-  props: _SidebarSubItemProps,
-  ref: Ref<HTMLButtonElement>
-) {
-  const { onClick, selected, children, parentId, ...itemProps } = props
+export function SidebarSubItem(props: _SidebarSubItemProps) {
+  const { onClick, selected, children, parentId, state } = props
   const { collapse, rootState } = useSidebarContext()
+
+  const compositeProps = useCompositeItem(state)
 
   const handleOnClick = (event?: React.MouseEvent<any, MouseEvent>) => {
     onClick(event)
   }
 
-  const handleOnKeyDown = (
-    event: React.KeyboardEvent<any>,
-    itemProps: HTMLAttributesWithRef
-  ) => {
-    if (typeof itemProps.onKeyDown === 'function') {
-      itemProps.onKeyDown(event)
+  const handleOnKeyDown = (event: React.KeyboardEvent<any>) => {
+    if (typeof compositeProps.onKeyDown === 'function') {
+      compositeProps.onKeyDown(event)
 
       if (event.key === ArrowKeys.Left) {
         // Move focus to parent component, which is
@@ -54,19 +50,19 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
 
   return (
     <Button
-      ref={ref}
       variant="tertiary"
       size="small"
       csx={csx}
       {...props}
+      {...compositeProps}
       disabled={!!collapse}
       onClick={handleOnClick}
-      onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
+      onKeyDown={handleOnKeyDown}
     >
       {children}
     </Button>
   )
-})
+}
 
 export type SidebarSubItemProps = Omit<_SidebarSubItemProps, 'state'>
 

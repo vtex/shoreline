@@ -4,6 +4,8 @@ import {
   CompositeItem,
   CompositeStateReturn,
   CompositeGroup,
+  useCompositeItem,
+  useComposite,
 } from 'reakit/Composite'
 
 export {
@@ -12,4 +14,6 @@ export {
   CompositeItem,
   CompositeStateReturn,
   CompositeGroup,
+  useCompositeItem,
+  useComposite,
 }
