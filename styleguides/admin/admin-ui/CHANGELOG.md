@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [0.84.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1...@vtex/admin-ui@0.84.2) (2021-03-16)
+## [0.84.1-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1-experimental.4...@vtex/admin-ui@0.84.1-experimental.6) (2021-03-17)
+
+
+### Bug Fixes
+
+* **sidebar:** get rid of circular deps ([7e09204](https://github.com/vtex/onda/commit/7e09204bd675045cc73a3784c236c788fe437c6b))
+
+
+
+
+
 ## [0.84.1-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1-experimental.4...@vtex/admin-ui@0.84.1-experimental.5) (2021-03-17)
 
 
