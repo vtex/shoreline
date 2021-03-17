@@ -19,8 +19,6 @@ export function SidebarBackdrop() {
   } = useBackdropState()
   const { cn } = useSystem()
 
-  console.log({ currentItem })
-
   return (
     <>
       <motion.div
