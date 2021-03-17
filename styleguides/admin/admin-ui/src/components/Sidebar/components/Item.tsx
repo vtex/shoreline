@@ -1,9 +1,8 @@
-import React, { cloneElement, useEffect, useMemo } from 'react'
+import React, { Children, cloneElement, useEffect, useMemo } from 'react'
 import {
   SidebarDisclosureProps,
   SidebarDisclosure,
   useCompositeState,
-  Composite,
   CompositeItem,
 } from './index'
 import { SystemComponent } from '../../../types'
@@ -18,6 +17,8 @@ import {
 } from '../types'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { motion } from 'framer-motion'
+import { isElement } from 'react-is'
+import { Box } from '@vtex/admin-primitives'
 
 export function SidebarItem(props: _SidebarItemProps) {
   const { cn } = useSystem()
@@ -57,49 +58,25 @@ export function SidebarItem(props: _SidebarItemProps) {
             variants={variants}
             data-testid={`${label}-ul`}
           >
-            <Composite
+            <Box
               aria-label={`${label} menu`}
-              as="li"
+              element="li"
               style={{
                 listStyle: 'none',
               }}
-              {...state}
-              {...baseProps}
             >
-              {children ? (
-                Array.isArray(children) ? (
-                  children.map((child, index) => {
-                    return (
-                      <CompositeItem {...state} key={index}>
-                        {(itemProps) =>
-                          cloneElement(child, {
-                            parentId: label,
-                            key: index,
-                            state,
-                            ...baseProps,
-                            ...itemProps,
-                            children: child.props.children,
-                          })
-                        }
-                      </CompositeItem>
-                    )
+              {Children.map(children, (child, index) => {
+                if (child && isElement(child)) {
+                  return cloneElement(child, {
+                    parentId: label,
+                    key: index,
+                    state,
                   })
-                ) : (
-                  <CompositeItem {...state}>
-                    {(itemProps) =>
-                      cloneElement(children, {
-                        parentId: label,
-                        key: 0,
-                        state,
-                        ...baseProps,
-                        ...itemProps,
-                        children: children.props.children,
-                      })
-                    }
-                  </CompositeItem>
-                )
-              ) : null}
-            </Composite>
+                }
+
+                return null
+              })}
+            </Box>
           </motion.ul>
         </>
       )}
@@ -133,6 +110,7 @@ function useSidebarItemState(props: SidebarItemProps) {
     children.length > 0 &&
     children?.some(
       (child) =>
+        isElement(child) &&
         child.props.children &&
         Array.isArray(child.props.children) &&
         child.props.children.length > 0
@@ -193,8 +171,7 @@ function useSidebarItemState(props: SidebarItemProps) {
         [direction]: SCALES.FIXED_AREA_WIDTH,
         display: 'block',
         opacity: 1,
-        borderRight: '1px solid',
-        borderColor: 'mid.tertiary',
+        borderRight: `1px solid ${get(theme, 'colors.mid.tertiary')}`,
         transition,
         transitionEnd: {
           zIndex: 0,
@@ -203,7 +180,7 @@ function useSidebarItemState(props: SidebarItemProps) {
       [SidebarItemVariantsKey.FullyCollapsed]: () => ({
         [direction]:
           selected && !!currentItem?.isCollapsible ? '-8.125rem' : '-13.5rem',
-        border: 'unset',
+        border: 'none',
         transition,
         zIndex: -1,
         transitionEnd: {
@@ -213,7 +190,7 @@ function useSidebarItemState(props: SidebarItemProps) {
       [SidebarItemVariantsKey.PartiallyExpanded]: () => ({
         [direction]: SCALES.FIXED_AREA_WIDTH,
         display: 'block',
-        borderRight: 'unset',
+        border: 'none',
         opacity: 1,
         transition: {
           ...transition,
@@ -233,7 +210,7 @@ function useSidebarItemState(props: SidebarItemProps) {
         },
         zIndex: -1,
         opacity: 0,
-        border: 'unset',
+        border: 'none',
         transitionEnd: {
           display: 'none',
         },
@@ -291,7 +268,7 @@ function useSidebarItemState(props: SidebarItemProps) {
 }
 
 export interface _SidebarItemProps
-  extends Omit<SidebarDisclosureProps, 'children' | 'ref'>,
+  extends Omit<SidebarDisclosureProps, 'children'>,
     SystemComponent,
     SidebarSecretProps {
   /**

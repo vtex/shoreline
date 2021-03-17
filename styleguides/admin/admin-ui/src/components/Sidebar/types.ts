@@ -1,14 +1,11 @@
-import { ReactElement } from 'react'
-import { ExtractHTMLAttributes } from 'reakit-utils/ts'
+import { ReactNode } from 'react'
 import { SystemComponent } from '../../types'
 import { CompositeStateReturn } from './components/Aria'
 
 export type CornerScope = 'top' | 'bottom'
 
-export interface SidebarSecretProps
-  extends Omit<SystemComponent, 'children'>,
-    ExtractHTMLAttributes<unknown> {
-  children?: SidebarChildren
+export interface SidebarSecretProps extends Omit<SystemComponent, 'children'> {
+  children?: ReactNode
   state?: CompositeStateReturn
   /**
    * `parentId` refers to the current Composite root state item.
@@ -23,7 +20,6 @@ export interface SidebarSecretProps
    * on the top, or bottom of the sidebar.
    */
   scope?: CornerScope
-  ref?: any
 }
 
 export type AnchorDirection = 'left' | 'right'
@@ -45,7 +41,3 @@ export enum SidebarItemVariantsKey {
   PartiallyExpanded = 'partiallyExpanded',
   PartiallyCollapsed = 'partiallyCollapsed',
 }
-
-export type SidebarChildren =
-  | ReactElement<SidebarSecretProps>
-  | ReactElement<SidebarSecretProps>[]
