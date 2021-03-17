@@ -67,7 +67,7 @@ function useBackdropState() {
   const { width, variants, isCollapsed } = useMemo(() => {
     const width = currentItem?.isCollapsible
       ? collapse
-        ? SCALES.COLLAPSED_BACKDROP_WIDTH
+        ? '1rem'
         : SCALES.COLLAPSIBLE_AREA_WIDTH
       : '0rem'
 

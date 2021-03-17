@@ -33,7 +33,7 @@ export default {
     top: 0,
     maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
     height: '100%',
-    width: 200,
+    width: '12.5rem',
     padding: '1.5rem 0.5rem',
     outline: 'none',
     overflow: 'auto',
@@ -41,7 +41,7 @@ export default {
     transform: 'unset !important',
   },
   section: {
-    width: 'calc(200px - 1rem)',
+    width: '11.5rem',
     paddingBottom: 8,
   },
   backdrop: {
@@ -55,7 +55,6 @@ export default {
     zIndex: 1,
     height: 80,
     marginLeft: -24,
-    left: 16,
     top: '0.875rem',
     cursor: 'pointer',
   },
@@ -73,7 +72,7 @@ export default {
     },
     '&:hover': {
       backgroundColor: 'blue.secondary',
-      borderColor: 'light.secondary',
+      borderColor: 'blue.secondary',
       '> div > svg': {
         color: 'blue',
       },
