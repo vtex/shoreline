@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react'
+import React, { forwardRef, ReactNode, Ref } from 'react'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { StyleObject } from '@vtex/admin-styles'
 import { ButtonProps, Button } from '../../Button'
@@ -9,7 +9,7 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
   props: _SidebarSubItemProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { onClick, selected, label, parentId, ...itemProps } = props
+  const { onClick, selected, children, parentId, ...itemProps } = props
   const { collapse, rootState } = useSidebarContext()
 
   const handleOnClick = (event?: React.MouseEvent<any, MouseEvent>) => {
@@ -36,6 +36,7 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
     width: '100%',
     height: 28,
     marginY: 1,
+    textAlign: 'left',
     backgroundColor: selected ? 'sidebar.hover' : 'unset',
     '> div': {
       justifyContent: 'start',
@@ -62,7 +63,7 @@ export const SidebarSubItem = forwardRef(function SidebarSubItem(
       onClick={handleOnClick}
       onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
     >
-      {label}
+      {children}
     </Button>
   )
 })
@@ -73,9 +74,9 @@ export type SidebarSubItemProps = Omit<_SidebarSubItemProps, 'state'>
  * Private interface
  */
 export interface _SidebarSubItemProps
-  extends Omit<ButtonProps, 'children'>,
-    SidebarSecretProps {
+  extends Omit<ButtonProps, 'children' | 'ref'>,
+    Omit<SidebarSecretProps, 'children' | 'ref'> {
   onClick: (event?: React.MouseEvent<any, MouseEvent>) => void
-  label: string
+  children: ReactNode
   selected?: boolean
 }

@@ -13,6 +13,11 @@ import {
   useCompositeState,
   CompositeGroup,
   _SidebarItemProps,
+  SidebarSection,
+  SidebarSubItem,
+  SidebarItemProps,
+  SidebarSectionProps,
+  SidebarSubItemProps,
 } from './components'
 import { SidebarProvider } from './context'
 import { AnchorDirection, Item } from './types'
@@ -24,41 +29,7 @@ export interface SidebarProps extends SystemComponent {
   direction?: AnchorDirection
 }
 
-/**
- * Sidebar component.
- *
- * The sidebar structure is as follows:
- * ```bash
- * └── Sidebar
- *  └── Sidebar.Header or Sidebar.Footer
- *       └── Sidebar.Item
- *           └── Sidebar.Section
- *               └── Sidebar.SubItem
- *```
- *
- * @example
- * ```jsx
- * import { Sidebar } from `@vtex/admin-ui`
- *
- * <Sidebar>
- *    <Sidebar.Header>
- *      <Sidebar.Item
- *         selected={false}
- *         onClick={() => console.log("Hello")}
- *         sections={[
- *            title: "Example section",
- *            children: [{
- *              onClick: () => console.log("Hi"),
- *              selected: false,
- *              label: "Example sub item"
- *            }]
- *         ]}
- *      />
- *    </Sidebar.Header>
- * </Sidebar>
- * ```
- */
-export function Sidebar(props: SidebarProps) {
+function _Sidebar(props: SidebarProps) {
   const [currentItem, setCurrentItem] = useState<Item | null>(null)
   const [selectedItemsMemory, setSelectedItemsMemory] = useState<Item[]>([])
   const [collapse, setCollapse] = useState<boolean | null>(null)
@@ -126,9 +97,16 @@ export function Sidebar(props: SidebarProps) {
 }
 
 /**
- * Sidebar.Item corresponds to an item of the sidebar's
- * first level. It can hold multiple sections exhibited
- * when the sidebar is expanded.
+ * Sidebar component.
+ *
+ * The sidebar structure is as follows:
+ * ```bash
+ * └── Sidebar
+ *  └── Sidebar.Header or Sidebar.Footer
+ *       └── Sidebar.Item
+ *           └── Sidebar.Section
+ *               └── Sidebar.SubItem
+ *```
  *
  * @example
  * ```jsx
@@ -152,78 +130,107 @@ export function Sidebar(props: SidebarProps) {
  * </Sidebar>
  * ```
  */
-Sidebar.Item = SidebarItem
-
-/**
- * Sidebar.Header will stick whatever is inside
- * of it to the top of the sidebar.
- *
- * @example
- * ```jsx
- * import { Sidebar } from `@vtex/admin-ui`
- *
- * <Sidebar>
- *    <Sidebar.Header>
- *      <Sidebar.Item
- *         selected={false}
- *         onClick={() => console.log("Hello")}
- *         sections={[
- *            title: "Example section",
- *            children: [{
- *              onClick: () => console.log("Hi"),
- *              selected: false,
- *              label: "Example sub item"
- *            }]
- *         ]}
- *      />
- *    </Sidebar.Header>
- * </Sidebar>
- * ```
- */
-Sidebar.Header = (props: SidebarCornerProps) => (
-  <SidebarCorner {...props} scope={'top'} />
-)
-
-/**
- * Sidebar.Footer will stick whatever is inside
- * of it to the bottom of the sidebar.
- *
- * @example
- * ```jsx
- * import { Sidebar } from `@vtex/admin-ui`
- *
- * <Sidebar>
- *    <Sidebar.Header>
- *      <Sidebar.Item
- *         selected={false}
- *         onClick={() => console.log("Hello, I'm at the top!")}
- *         sections={[
- *            title: "Example section from the top",
- *            children: [{
- *              onClick: () => console.log("Hi from the top"),
- *              selected: false,
- *              label: "Example sub item"
- *            }]
- *         ]}
- *      />
- *    </Sidebar.Header>
- *    <Sidebar.Footer>
- *      <Sidebar.Item
- *         selected={false}
- *         onClick={() => console.log("Hello, I'm at the bottom!")}
- *         sections={[
- *            title: "Example section at the bottom",
- *            children: [{
- *              onClick: () => console.log("Hi from the bottom"),
- *              selected: false,
- *              label: "Example sub item"
- *            }]
- *         ]}
- *      />
- *    </Sidebar.Footer>
- * </Sidebar>
- * ```
- */
-Sidebar.Footer = (props: SidebarCornerProps) => (
-  <SidebarCorner {...props} scope={'bottom'} />
-)
+export const Sidebar = Object.assign(_Sidebar, {
+  /**
+   * Sidebar.Header will stick whatever is inside
+   * of it to the top of the sidebar.
+   *
+   * @example
+   * ```jsx
+   * import { Sidebar } from `@vtex/admin-ui`
+   *
+   * <Sidebar>
+   *    <Sidebar.Header>
+   *      <Sidebar.Item
+   *         selected={false}
+   *         onClick={() => console.log("Hello")}
+   *         sections={[
+   *            title: "Example section",
+   *            children: [{
+   *              onClick: () => console.log("Hi"),
+   *              selected: false,
+   *              label: "Example sub item"
+   *            }]
+   *         ]}
+   *      />
+   *    </Sidebar.Header>
+   * </Sidebar>
+   * ```
+   */
+  Header: (props: SidebarCornerProps) => (
+    <SidebarCorner {...props} scope={'top'} />
+  ),
+  /**
+   * Sidebar.Footer will stick whatever is inside
+   * of it to the bottom of the sidebar.
+   *
+   * @example
+   * ```jsx
+   * import { Sidebar } from `@vtex/admin-ui`
+   *
+   * <Sidebar>
+   *    <Sidebar.Header>
+   *      <Sidebar.Item
+   *         selected={false}
+   *         onClick={() => console.log("Hello, I'm at the top!")}
+   *         sections={[
+   *            title: "Example section from the top",
+   *            children: [{
+   *              onClick: () => console.log("Hi from the top"),
+   *              selected: false,
+   *              label: "Example sub item"
+   *            }]
+   *         ]}
+   *      />
+   *    </Sidebar.Header>
+   *    <Sidebar.Footer>
+   *      <Sidebar.Item
+   *         selected={false}
+   *         onClick={() => console.log("Hello, I'm at the bottom!")}
+   *         sections={[
+   *            title: "Example section at the bottom",
+   *            children: [{
+   *              onClick: () => console.log("Hi from the bottom"),
+   *              selected: false,
+   *              label: "Example sub item"
+   *            }]
+   *         ]}
+   *      />
+   *    </Sidebar.Footer>
+   * </Sidebar>
+   * ```
+   */
+  Footer: (props: SidebarCornerProps) => (
+    <SidebarCorner {...props} scope={'bottom'} />
+  ),
+  /**
+   * Sidebar.Item corresponds to an item of the sidebar's
+   * first level. It can hold multiple sections exhibited
+   * when the sidebar is expanded.
+   *
+   * @example
+   * ```jsx
+   * import { Sidebar } from `@vtex/admin-ui`
+   *
+   * <Sidebar>
+   *    <Sidebar.Header>
+   *      <Sidebar.Item
+   *         selected={false}
+   *         onClick={() => console.log("Hello")}
+   *         sections={[
+   *            title: "Example section",
+   *            children: [{
+   *              onClick: () => console.log("Hi"),
+   *              selected: false,
+   *              label: "Example sub item"
+   *            }]
+   *         ]}
+   *      />
+   *    </Sidebar.Header>
+   * </Sidebar>
+   * ```
+   */
+  Item: (props: SidebarItemProps) => <SidebarItem {...props} />,
+  Section: (props: SidebarSectionProps) => <SidebarSection {...props} />,
+  SubItem: (props: SidebarSubItemProps) => <SidebarSubItem {...props} />,
+})
