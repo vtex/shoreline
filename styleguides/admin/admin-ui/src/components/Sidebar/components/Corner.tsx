@@ -1,4 +1,5 @@
-import React, { cloneElement } from 'react'
+import React, { Children, cloneElement } from 'react'
+import { isElement } from 'react-is'
 import { Set } from '../../Set'
 import { SidebarSecretProps, CornerScope } from '../types'
 
@@ -11,13 +12,12 @@ export function SidebarCorner(props: _SidebarCornerProps) {
 
   return (
     <Set spacing={1} orientation="vertical" role="menubar">
-      {children
-        ? Array.isArray(children)
-          ? children.map((child, index) =>
-              cloneElement(child, { scope, index })
-            )
-          : cloneElement(children, { scope, index: 0 })
-        : null}
+      {children &&
+        Children.map(
+          children,
+          (child, index) =>
+            isElement(child) && cloneElement(child, { scope, index })
+        )}
     </Set>
   )
 }

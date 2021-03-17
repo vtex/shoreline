@@ -1,15 +1,24 @@
-import React, { cloneElement, forwardRef, Ref } from 'react'
+import React, {
+  Children,
+  cloneElement,
+  forwardRef,
+  ReactNode,
+  Ref,
+} from 'react'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
-import { SidebarChildren, SidebarSecretProps } from '../types'
-import { CompositeItem } from './Aria'
+import { SidebarSecretProps } from '../types'
+import { isElement } from 'react-is'
+import { useComposite } from './Aria'
 
 export const SidebarSection = forwardRef(function SidebarSection(
   props: _SidebarSectionProps,
-  ref: Ref<HTMLButtonElement>
+  _: Ref<HTMLButtonElement>
 ) {
   const { title, children, state, parentId } = props
+
+  const compositeProps = useComposite(state)
 
   return (
     <Set
@@ -18,6 +27,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
       csx={{
         themeKey: 'components.sidebar.section',
       }}
+      {...compositeProps}
     >
       <Text
         variant="action"
@@ -31,28 +41,15 @@ export const SidebarSection = forwardRef(function SidebarSection(
       >
         {title}
       </Text>
-      {Array.isArray(children) ? (
-        children.map((child, index) => (
-          <CompositeItem {...state} key={index} ref={ref}>
-            {(itemProps) =>
-              cloneElement(child, {
-                parentId,
-                ...itemProps,
-                children: child.props.children,
-              })
-            }
-          </CompositeItem>
-        ))
-      ) : (
-        <CompositeItem {...state} ref={ref}>
-          {(itemProps) =>
-            cloneElement(children, {
-              parentId,
-              ...itemProps,
-              children: children.props.children,
-            })
-          }
-        </CompositeItem>
+      {Children.map(
+        children,
+        (child, index) =>
+          isElement(child) &&
+          cloneElement(child, {
+            parentId,
+            state,
+            key: index,
+          })
       )}
     </Set>
   )
@@ -75,5 +72,5 @@ export interface _SidebarSectionProps
    * Those are the items over which clients will interact in order to
    * navigate between different pages.
    */
-  children: SidebarChildren
+  children: ReactNode
 }
