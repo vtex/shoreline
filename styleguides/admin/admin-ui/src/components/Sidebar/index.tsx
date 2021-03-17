@@ -129,20 +129,42 @@ function _Sidebar(props: SidebarProps) {
  * import { Sidebar } from `@vtex/admin-ui`
  *
  * <Sidebar>
- *    <Sidebar.Header>
- *      <Sidebar.Item
- *         selected={false}
- *         onClick={() => console.log("Hello")}
- *         sections={[
- *            title: "Example section",
- *            children: [{
- *              onClick: () => console.log("Hi"),
- *              selected: false,
- *              label: "Example sub item"
- *            }]
- *         ]}
- *      />
- *    </Sidebar.Header>
+ *   <Sidebar.Header>
+ *     <Sidebar.Item
+ *        selected={someCondition}
+ *        onClick={() => alert('hey from header')}
+ *      >
+ *        <Sidebar.Section
+ *          title={section.title}
+ *          index={topCornerItems.length + idx}
+ *        >
+ *          <Sidebar.SubItem
+ *            key={label}
+ *            onClick={() => alert('hi from header')}
+ *          >
+ *            {label}
+ *          </Sidebar.SubItem>
+ *        </Sidebar.Section>
+ *     </Sidebar.Item>
+ *   </Sidebar.Header>
+ *   <Sidebar.Footer>
+ *     <Sidebar.Item
+ *        selected={someCondition}
+ *        onClick={() => alert('hey from footer')}
+ *      >
+ *        <Sidebar.Section
+ *          title={section.title}
+ *          index={topCornerItems.length + idx}
+ *        >
+ *          <Sidebar.SubItem
+ *            key={label}
+ *            onClick={() => alert('hi from footer')}
+ *          >
+ *            {label}
+ *          </Sidebar.SubItem>
+ *        </Sidebar.Section>
+ *     </Sidebar.Item>
+ *   </Sidebar.Footer>
  * </Sidebar>
  * ```
  */
@@ -156,20 +178,24 @@ export const Sidebar = Object.assign(_Sidebar, {
    * import { Sidebar } from `@vtex/admin-ui`
    *
    * <Sidebar>
-   *    <Sidebar.Header>
-   *      <Sidebar.Item
-   *         selected={false}
-   *         onClick={() => console.log("Hello")}
-   *         sections={[
-   *            title: "Example section",
-   *            children: [{
-   *              onClick: () => console.log("Hi"),
-   *              selected: false,
-   *              label: "Example sub item"
-   *            }]
-   *         ]}
-   *      />
-   *    </Sidebar.Header>
+   *   <Sidebar.Header>
+   *     <Sidebar.Item
+   *        selected={someCondition}
+   *        onClick={() => alert('hey from header')}
+   *      >
+   *        <Sidebar.Section
+   *          title={section.title}
+   *          index={topCornerItems.length + idx}
+   *        >
+   *          <Sidebar.SubItem
+   *            key={label}
+   *            onClick={() => alert('hi from header')}
+   *          >
+   *            {label}
+   *          </Sidebar.SubItem>
+   *        </Sidebar.Section>
+   *     </Sidebar.Item>
+   *   </Sidebar.Header>
    * </Sidebar>
    * ```
    */
@@ -185,34 +211,24 @@ export const Sidebar = Object.assign(_Sidebar, {
    * import { Sidebar } from `@vtex/admin-ui`
    *
    * <Sidebar>
-   *    <Sidebar.Header>
-   *      <Sidebar.Item
-   *         selected={false}
-   *         onClick={() => console.log("Hello, I'm at the top!")}
-   *         sections={[
-   *            title: "Example section from the top",
-   *            children: [{
-   *              onClick: () => console.log("Hi from the top"),
-   *              selected: false,
-   *              label: "Example sub item"
-   *            }]
-   *         ]}
-   *      />
-   *    </Sidebar.Header>
-   *    <Sidebar.Footer>
-   *      <Sidebar.Item
-   *         selected={false}
-   *         onClick={() => console.log("Hello, I'm at the bottom!")}
-   *         sections={[
-   *            title: "Example section at the bottom",
-   *            children: [{
-   *              onClick: () => console.log("Hi from the bottom"),
-   *              selected: false,
-   *              label: "Example sub item"
-   *            }]
-   *         ]}
-   *      />
-   *    </Sidebar.Footer>
+   *   <Sidebar.Footer>
+   *     <Sidebar.Item
+   *        selected={someCondition}
+   *        onClick={() => alert('hey from footer')}
+   *      >
+   *        <Sidebar.Section
+   *          title={section.title}
+   *          index={topCornerItems.length + idx}
+   *        >
+   *          <Sidebar.SubItem
+   *            key={label}
+   *            onClick={() => alert('hi from footer')}
+   *          >
+   *            {label}
+   *          </Sidebar.SubItem>
+   *        </Sidebar.Section>
+   *     </Sidebar.Item>
+   *   </Sidebar.Footer>
    * </Sidebar>
    * ```
    */
@@ -229,24 +245,143 @@ export const Sidebar = Object.assign(_Sidebar, {
    * import { Sidebar } from `@vtex/admin-ui`
    *
    * <Sidebar>
-   *    <Sidebar.Header>
-   *      <Sidebar.Item
-   *         selected={false}
-   *         onClick={() => console.log("Hello")}
-   *         sections={[
-   *            title: "Example section",
-   *            children: [{
-   *              onClick: () => console.log("Hi"),
-   *              selected: false,
-   *              label: "Example sub item"
-   *            }]
-   *         ]}
-   *      />
-   *    </Sidebar.Header>
+   *   <Sidebar.Header>
+   *     <Sidebar.Item
+   *        selected={someCondition}
+   *        onClick={() => alert('hey from header')}
+   *      >
+   *        <Sidebar.Section
+   *          title={section.title}
+   *          index={topCornerItems.length + idx}
+   *        >
+   *          <Sidebar.SubItem
+   *            key={label}
+   *            onClick={() => alert('hi from header')}
+   *          >
+   *            {label}
+   *          </Sidebar.SubItem>
+   *        </Sidebar.Section>
+   *     </Sidebar.Item>
+   *   </Sidebar.Header>
+   *   <Sidebar.Footer>
+   *     <Sidebar.Item
+   *        selected={someCondition}
+   *        onClick={() => alert('hey from footer')}
+   *      >
+   *        <Sidebar.Section
+   *          title={section.title}
+   *          index={topCornerItems.length + idx}
+   *        >
+   *          <Sidebar.SubItem
+   *            key={label}
+   *            onClick={() => alert('hi from footer')}
+   *          >
+   *            {label}
+   *          </Sidebar.SubItem>
+   *        </Sidebar.Section>
+   *     </Sidebar.Item>
+   *   </Sidebar.Footer>
    * </Sidebar>
    * ```
    */
   Item: (props: SidebarItemProps) => <SidebarItem {...props} />,
+  /**
+   * Sidebar.Section corresponds to an item of the sidebar's
+   * second level. It holds and divides sub items between
+   * sections. It only appears when the sidebar is open.
+   *
+   * @example
+   * ```jsx
+   * import { Sidebar } from `@vtex/admin-ui`
+   *
+   * <Sidebar>
+   *   <Sidebar.Header>
+   *     <Sidebar.Item
+   *        selected={someCondition}
+   *        onClick={() => alert('hey from header')}
+   *      >
+   *        <Sidebar.Section
+   *          title={section.title}
+   *          index={topCornerItems.length + idx}
+   *        >
+   *          <Sidebar.SubItem
+   *            key={label}
+   *            onClick={() => alert('hi from header')}
+   *          >
+   *            {label}
+   *          </Sidebar.SubItem>
+   *        </Sidebar.Section>
+   *     </Sidebar.Item>
+   *   </Sidebar.Header>
+   *   <Sidebar.Footer>
+   *     <Sidebar.Item
+   *        selected={someCondition}
+   *        onClick={() => alert('hey from footer')}
+   *      >
+   *        <Sidebar.Section
+   *          title={section.title}
+   *          index={topCornerItems.length + idx}
+   *        >
+   *          <Sidebar.SubItem
+   *            key={label}
+   *            onClick={() => alert('hi from footer')}
+   *          >
+   *            {label}
+   *          </Sidebar.SubItem>
+   *        </Sidebar.Section>
+   *     </Sidebar.Item>
+   *   </Sidebar.Footer>
+   * </Sidebar>
+   * ```
+   */
   Section: (props: SidebarSectionProps) => <SidebarSection {...props} />,
+  /**
+   * Sidebar.SubItem are the items which clients will interact
+   * most. They are the further and final node of the Sidebar.
+   *
+   * @example
+   * ```jsx
+   * import { Sidebar } from `@vtex/admin-ui`
+   *
+   * <Sidebar>
+   *   <Sidebar.Header>
+   *     <Sidebar.Item
+   *        selected={someCondition}
+   *        onClick={() => alert('hey from header')}
+   *      >
+   *        <Sidebar.Section
+   *          title={section.title}
+   *          index={topCornerItems.length + idx}
+   *        >
+   *          <Sidebar.SubItem
+   *            key={label}
+   *            onClick={() => alert('hi from header')}
+   *          >
+   *            {label}
+   *          </Sidebar.SubItem>
+   *        </Sidebar.Section>
+   *     </Sidebar.Item>
+   *   </Sidebar.Header>
+   *   <Sidebar.Footer>
+   *     <Sidebar.Item
+   *        selected={someCondition}
+   *        onClick={() => alert('hey from footer')}
+   *      >
+   *        <Sidebar.Section
+   *          title={section.title}
+   *          index={topCornerItems.length + idx}
+   *        >
+   *          <Sidebar.SubItem
+   *            key={label}
+   *            onClick={() => alert('hi from footer')}
+   *          >
+   *            {label}
+   *          </Sidebar.SubItem>
+   *        </Sidebar.Section>
+   *     </Sidebar.Item>
+   *   </Sidebar.Footer>
+   * </Sidebar>
+   * ```
+   */
   SubItem: (props: SidebarSubItemProps) => <SidebarSubItem {...props} />,
 })
