@@ -17,40 +17,46 @@ const iconProps: IconProps = {}
 
 type ItemProps = SidebarItemProps[]
 
-const orders = [
+export const orders = [
   'All Orders',
-  'Subscriptions',
+  'Subscriptions Super Long Text',
   'Transactions',
-  'Bank Conciliation',
+  'Bank Conciliation Super Long Text',
 ]
 
-const promotions = [
+export const promotions = [
   'All Promotions',
   'Coupons',
-  'Campaign Audience',
+  'Campaign Audience Super Long Text',
   'Gift Cards',
   'Taxes',
 ]
 
-const storeFront = ['Layout', 'Site Editor', 'Pages', 'Styles', 'Banners']
+export const storeFront = [
+  'Layout',
+  'Site Editor',
+  'Pages',
+  'Styles',
+  'Banners',
+]
 
-const catalog = [
+export const catalog = [
   'All Products',
   'Categories',
   'Brands',
   'Collections',
   'List Types',
   'Inventory',
-  'Custom Fields',
-  'Import and Export',
+  'Custom Fields Supor Long Text',
+  'Import and Export Super Long Text',
   'Reviews',
   'Reports',
 ]
-const catalog2 = ['Price List', 'Price Rules']
+export const catalog2 = ['Price List', 'Price Rules']
 
-const intelligentSearch = [
+export const intelligentSearch = [
   'Explained Search',
-  'Merchandising Rules',
+  'Merchandising Rules Super Long Text',
   'Synonyms',
   'Indexing Status',
   'Relevance Rules',
@@ -58,12 +64,38 @@ const intelligentSearch = [
   'Redirects',
 ]
 
-const shipping = [
+export const shipping = [
   'Shipping Rates',
   'Shipping Simulator',
-  'Pickup Points',
+  'Pickup Points Super Long Text',
   'Shipping Strategy',
 ]
+
+export const SECTIONS: {
+  [key: string]: { sections: { subItems: string[]; title: string }[] }
+} = {
+  Home: {
+    sections: [],
+  },
+  Orders: {
+    sections: [{ subItems: orders, title: 'Orders' }],
+  },
+  Products: { sections: [{ subItems: catalog, title: 'Discounts' }] },
+  Promotions: { sections: [{ subItems: promotions, title: 'Promotions' }] },
+  Storefront: {
+    sections: [{ subItems: intelligentSearch, title: 'Intelligent Search' }],
+  },
+  Shipping: { sections: [{ subItems: shipping, title: 'Shipping' }] },
+  Marketplace: {
+    sections: [],
+  },
+  'App Store': {
+    sections: [],
+  },
+  Settings: {
+    sections: [],
+  },
+}
 
 export const topCornerItems: ItemProps = [
   {
@@ -75,92 +107,26 @@ export const topCornerItems: ItemProps = [
     icon: <IconOrders {...iconProps} />,
     onClick: () => console.log('Click me'),
     label: 'Orders',
-    sections: [
-      {
-        title: 'Orders (section)', // (section) is included for testing purposes
-        children: orders.map((label, index) => ({
-          onClick: () => console.log('Click me'),
-          selected: index === 0,
-          label,
-        })),
-      },
-    ],
   },
   {
     icon: <IconProducts {...iconProps} />,
     onClick: () => console.log('Click me'),
     label: 'Products',
-    sections: [
-      {
-        title: 'Product',
-        children: catalog.map((label, index) => ({
-          onClick: () => console.log('Click me'),
-          selected: index === 0,
-          label,
-        })),
-      },
-      {
-        title: 'Prices',
-        children: catalog2.map((label) => ({
-          onClick: () => console.log('Click me'),
-          selected: false,
-          label,
-        })),
-      },
-    ],
   },
   {
     icon: <IconPromotions {...iconProps} />,
     onClick: () => console.log('Click me'),
     label: 'Promotions',
-    sections: [
-      {
-        title: 'Discounts',
-        children: promotions.map((label, index) => ({
-          onClick: () => console.log('Click me'),
-          selected: index === 0,
-          label,
-        })),
-      },
-    ],
   },
   {
     icon: <IconStorefront {...iconProps} />,
     onClick: () => console.log('Click me'),
     label: 'Storefront',
-    sections: [
-      {
-        title: 'Content Management',
-        children: storeFront.map((label, index) => ({
-          onClick: () => console.log('Click me'),
-          selected: index === 0,
-          label,
-        })),
-      },
-      {
-        title: 'Intelligent Search',
-        children: intelligentSearch.map((label) => ({
-          onClick: () => console.log('Click me'),
-          selected: false,
-          label,
-        })),
-      },
-    ],
   },
   {
     icon: <IconShipping {...iconProps} />,
     onClick: () => console.log('Click me'),
     label: 'Shipping',
-    sections: [
-      {
-        title: 'Shipping (section)', // (section) is included for testing purposes
-        children: shipping.map((label, index) => ({
-          onClick: () => console.log('Click me'),
-          selected: index === 0,
-          label,
-        })),
-      },
-    ],
   },
   {
     icon: <IconMarketplace {...iconProps} />,

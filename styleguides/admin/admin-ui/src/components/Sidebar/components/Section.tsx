@@ -1,10 +1,9 @@
-import React, { forwardRef, Ref } from 'react'
-import { SidebarSubItemProps, CompositeItem } from './index'
+import React, { cloneElement, forwardRef, Ref } from 'react'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
-import { SidebarSecretProps } from '../types'
-import { SidebarSubItem } from './SubItem'
+import { SidebarChildren, SidebarSecretProps } from '../types'
+import { CompositeItem } from './Aria'
 
 export const SidebarSection = forwardRef(function SidebarSection(
   props: _SidebarSectionProps,
@@ -32,18 +31,29 @@ export const SidebarSection = forwardRef(function SidebarSection(
       >
         {title}
       </Text>
-      {children.map((props, index) => (
-        <CompositeItem {...state} key={index} ref={ref}>
-          {(itemProps) => (
-            <SidebarSubItem
-              state={state}
-              parentId={parentId}
-              {...itemProps}
-              {...props}
-            />
-          )}
+      {Array.isArray(children) ? (
+        children.map((child, index) => (
+          <CompositeItem {...state} key={index} ref={ref}>
+            {(itemProps) =>
+              cloneElement(child, {
+                parentId,
+                ...itemProps,
+                children: child.props.children,
+              })
+            }
+          </CompositeItem>
+        ))
+      ) : (
+        <CompositeItem {...state} ref={ref}>
+          {(itemProps) =>
+            cloneElement(children, {
+              parentId,
+              ...itemProps,
+              children: children.props.children,
+            })
+          }
         </CompositeItem>
-      ))}
+      )}
     </Set>
   )
 })
@@ -61,9 +71,9 @@ export interface _SidebarSectionProps
    */
   title: string
   /**
-   * `chilren` are multiple `<Sidebar.SubItem {...props} />` components.
+   * `chilren` should be multiple `<Sidebar.SubItem {...props} />` components.
    * Those are the items over which clients will interact in order to
    * navigate between different pages.
    */
-  children: SidebarSubItemProps[]
+  children: SidebarChildren
 }
