@@ -40,7 +40,7 @@ export const FormikToggle = ({ name, label, onChange, id, ...props }: FormikTogg
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
       { errorMessage && (
-        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 1}}>
+        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 2}}>
           {errorMessage}
         </Text>
       )}

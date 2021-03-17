@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useIntl } from 'react-intl'
 import {
+  Box,
   RadioGroup,
   RadioGroupProps,
   Text,
@@ -37,17 +38,17 @@ export const FormikRadioGroup = ({ name, children, ...props }: FormikRadioGroupP
   const errorMessage = errorCode && formatMessage({ id: errorCode })
 
   return (
-    <>
-    <RadioGroup state={radioState} {...props}>
-      <FormikRadioGroupContext.Provider value={radioState}>
-        {children}
-      </FormikRadioGroupContext.Provider>
-    </RadioGroup>
-    {errorMessage && (
-      <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 1}}>
-        {errorMessage}
-      </Text>
-    )}
-  </>
+    <Box styles={{ marginBottom: 6 }}>
+      <RadioGroup state={radioState} styleOverrides={{ marginBottom: 1 }} {...props}>
+        <FormikRadioGroupContext.Provider value={radioState}>
+          {children}
+        </FormikRadioGroupContext.Provider>
+      </RadioGroup>
+      {errorMessage && (
+        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 2}}>
+          {errorMessage}
+        </Text>
+      )}
+    </Box>
   )
 }

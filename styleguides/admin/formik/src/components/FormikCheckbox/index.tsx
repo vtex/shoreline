@@ -54,7 +54,7 @@ export const FormikCheckbox = ({ name, label, error, errorMessage, ...props }: F
       </Set>
       { 
         finalError && (
-        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 1}}>
+        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 2}}>
           {finalErrorMessage}
         </Text>
       )}

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useIntl } from 'react-intl'
 import {
+  Box,
   CheckboxGroup,
   CheckboxGroupProps,
   Text,
@@ -14,7 +15,7 @@ export interface FormikCheckboxGroupProps extends Omit<CheckboxGroupProps,'state
   name: string
 }
 
-export const FormikCheckboxGroup = ({ name, children, ...props }: FormikCheckboxGroupProps) => {
+export const FormikCheckboxGroup = ({ name, children,  ...props }: FormikCheckboxGroupProps) => {
   const { formatMessage } = useIntl()
   const [field, meta, helpers] = useField({ name })
   const checkboxState = useCheckboxState({ state: meta.initialValue })
@@ -43,18 +44,18 @@ export const FormikCheckboxGroup = ({ name, children, ...props }: FormikCheckbox
     : errorCode && formatMessage({ id: errorCode })
 
   return (
-    <>
-    <CheckboxGroup {...props}>
-      <FormikCheckboxGroupContext.Provider value={checkboxState}>
-        {children}
-      </FormikCheckboxGroupContext.Provider>
-    </CheckboxGroup>
-    {errorMessage && (
-      <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 1}}>
-        {errorMessage}
-      </Text>
-    )}
-  </>
+    <Box styles={{ marginBottom: 6 }}>
+      <CheckboxGroup styleOverrides={{ marginBottom: 0 }} {...props} >
+        <FormikCheckboxGroupContext.Provider value={checkboxState}>
+          {children}
+        </FormikCheckboxGroupContext.Provider>
+      </CheckboxGroup>
+      {errorMessage && (
+        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 2}}>
+          {errorMessage}
+        </Text>
+      )}
+    </Box>
   )
 }
 
