@@ -5,6 +5,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.2.5](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.4...@vtex/admin-primitives@0.2.5) (2021-03-22)
 
+## [0.2.3-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.2...@vtex/admin-primitives@0.2.3-experimental.3) (2021-03-17)
+
+**Note:** Version bump only for package @vtex/admin-primitives
+
 ## [0.2.3-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.2...@vtex/admin-primitives@0.2.3-experimental.2) (2021-03-17)
 
 **Note:** Version bump only for package @vtex/admin-primitives

@@ -5,6 +5,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.21.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.2...@vtex/admin-ui-theme@0.21.0) (2021-03-22)
 
+## [0.20.2-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2-experimental.3) (2021-03-17)
+
+**Note:** Version bump only for package @vtex/admin-ui-theme
+
+## [0.20.2-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2-experimental.2) (2021-03-17)
+
 ### Features
 
 - **alert:** icons are no longer related to alert type ([f68beb6](https://github.com/vtex/onda/commit/f68beb6eb8f62cf73fa1df6e4eaa8cfdad964ce6))
