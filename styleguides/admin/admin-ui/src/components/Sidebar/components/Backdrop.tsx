@@ -26,7 +26,10 @@ export function SidebarBackdrop() {
           minWidth: width,
           maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
           backgroundColor: isCollapsed ? 'light.primary' : 'sidebar.light',
-          borderRight: '1px solid',
+          borderRight:
+            currentItem && currentItem.isCollapsible
+              ? '1px solid'
+              : '0px solid',
           borderColor:
             currentItem && currentItem.isCollapsible
               ? 'mid.tertiary'
