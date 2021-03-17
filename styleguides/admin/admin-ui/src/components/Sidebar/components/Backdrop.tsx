@@ -38,7 +38,13 @@ export function SidebarBackdrop() {
             currentItem && currentItem.isCollapsible ? '0.25rem' : '0rem',
         })}
         initial={isCollapsed ? 'collapsed' : 'expanded'}
-        animate={isCollapsed ? 'collapsed' : 'expanded'}
+        animate={
+          currentItem?.isCollapsible
+            ? isCollapsed
+              ? 'collapsed'
+              : 'expanded'
+            : 'fullyCollapsed'
+        }
         variants={variants}
       />
       {currentItem?.isCollapsible && (
@@ -82,6 +88,14 @@ function useBackdropState() {
           zIndex: -2,
         }),
         collapsed: () => ({
+          minWidth: width,
+          width,
+          transition,
+        }),
+        // This animation only runs when transitioning
+        // from one collapsible sidebar item in a collapsed
+        // state, to a non collapsible sidebar item
+        fullyCollapsed: () => ({
           minWidth: width,
           width,
           transition,

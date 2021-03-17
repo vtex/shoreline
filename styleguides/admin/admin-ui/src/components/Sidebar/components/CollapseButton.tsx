@@ -23,7 +23,6 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
     <Box
       csx={{
         themeKey: 'components.sidebar.collapse-button-container',
-        left: show ? 9 : 16,
       }}
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
