@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [0.85.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.5...@vtex/admin-ui@0.85.0) (2021-03-22)
+## [0.84.3-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3-experimental.5...@vtex/admin-ui@0.84.3-experimental.6) (2021-03-18)
+
+
+### Bug Fixes
+
+* **sidebar:** click issues ([44af9fa](https://github.com/vtex/onda/commit/44af9fa15dda36a67402187da1821fd77f3b9d01))
+
+
+
+
+
 ## [0.84.3-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3-experimental.4...@vtex/admin-ui@0.84.3-experimental.5) (2021-03-18)
 
 **Note:** Version bump only for package @vtex/admin-ui
