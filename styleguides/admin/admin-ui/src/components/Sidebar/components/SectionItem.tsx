@@ -5,7 +5,7 @@ import { ArrowKeys, SidebarSecretProps } from '../types'
 import { ButtonProps, Button } from '../../Button'
 
 export function SidebarSectionItem(props: SidebarSectionItem) {
-  const { selected, children, parentId, state } = props
+  const { selected, children, parentId, state, ...buttonProps } = props
   const { collapse, rootState } = useSidebarContext()
 
   const compositeProps = useCompositeItem(state)
@@ -46,9 +46,9 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
           },
         },
       }}
-      {...props}
-      {...compositeProps}
       disabled={!!collapse}
+      {...compositeProps}
+      {...buttonProps}
       onKeyDown={handleOnKeyDown}
     >
       {children}
