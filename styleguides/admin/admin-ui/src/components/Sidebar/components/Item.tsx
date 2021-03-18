@@ -15,8 +15,9 @@ import {
   SidebarSecretProps,
   SidebarItemVariantsKey,
 } from '../types'
+import { SidebarSection } from './Section'
 
-export function SidebarItem(props: _SidebarItemProps) {
+function _SidebarItem(props: SidebarItemProps) {
   const { cn } = useSystem()
   const {
     hasSection,
@@ -258,12 +259,10 @@ function useSidebarItemState(props: SidebarItemProps) {
   }
 }
 
-export type SidebarItemProps = Omit<_SidebarItemProps, 'state'>
-
-/**
- * Private interface
- */
-export interface _SidebarItemProps
+export const SidebarItem = Object.assign(_SidebarItem, {
+  Section: SidebarSection,
+})
+export interface SidebarItemProps
   extends Omit<SidebarDisclosureProps, 'children'>,
     SystemComponent,
     SidebarSecretProps {

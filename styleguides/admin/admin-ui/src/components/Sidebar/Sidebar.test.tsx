@@ -7,7 +7,7 @@ import { ThemeProvider } from '@vtex/admin-core'
 import { bottomCornerItems, SECTIONS, topCornerItems } from './testUtils'
 import { Item } from './types'
 import { isElement } from 'react-is'
-import { SidebarSubItemProps } from './components'
+import { SidebarSectionItem } from './components'
 
 const Component = ({ index: itemIndex, scope: itemScope }: Item) => {
   return (
@@ -20,19 +20,19 @@ const Component = ({ index: itemIndex, scope: itemScope }: Item) => {
             key={index}
           >
             {SECTIONS[props.label].sections.map((section, idx) => (
-              <Sidebar.Section
+              <Sidebar.Item.Section
                 title={section.title}
                 index={topCornerItems.length + idx}
               >
                 {section.subItems.map((label) => (
-                  <Sidebar.SubItem
+                  <Sidebar.Item.Section.Item
                     key={label}
                     onClick={() => console.log(`hey`)}
                   >
                     {label}
-                  </Sidebar.SubItem>
+                  </Sidebar.Item.Section.Item>
                 ))}
-              </Sidebar.Section>
+              </Sidebar.Item.Section>
             ))}
           </Sidebar.Item>
         ))}
@@ -45,19 +45,19 @@ const Component = ({ index: itemIndex, scope: itemScope }: Item) => {
             key={index}
           >
             {SECTIONS[props.label].sections.map((section, idx) => (
-              <Sidebar.Section
+              <Sidebar.Item.Section
                 title={section.title}
                 index={topCornerItems.length + idx}
               >
                 {section.subItems.map((label) => (
-                  <Sidebar.SubItem
+                  <Sidebar.Item.Section.Item
                     key={label}
                     onClick={() => console.log(`hey`)}
                   >
                     {label}
-                  </Sidebar.SubItem>
+                  </Sidebar.Item.Section.Item>
                 ))}
-              </Sidebar.Section>
+              </Sidebar.Item.Section>
             ))}
           </Sidebar.Item>
         ))}
@@ -151,7 +151,7 @@ describe('Sidebar tests', () => {
 
         expect(sectionElement).toBeVisible()
         ;(section as ReactElement).props.children.forEach(
-          (subItem: SidebarSubItemProps) => {
+          (subItem: SidebarSectionItem) => {
             expect(subItem.children).toBeVisible()
           }
         )
