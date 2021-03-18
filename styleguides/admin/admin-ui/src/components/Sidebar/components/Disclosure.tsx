@@ -1,5 +1,6 @@
 import React, { forwardRef, ReactNode, Ref } from 'react'
-import { StyleObject } from '@vtex/admin-styles'
+import { merge } from '@vtex/admin-core'
+
 import { useSidebarContext } from '../context'
 import { ButtonProps, Button } from '../../Button'
 import { Tooltip } from '../../Tooltip'
@@ -8,22 +9,8 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   props: SidebarDisclosureProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { icon, selected, label, ...buttonProps } = props
+  const { icon, selected, label, csx = {}, ...buttonProps } = props
   const { direction } = useSidebarContext()
-
-  const csx: StyleObject = {
-    backgroundColor: selected ? 'sidebar.hover' : 'unset',
-    'div > svg': {
-      color: selected ? 'unset' : 'sidebar.dark',
-    },
-    '&:hover, &:focus': {
-      backgroundColor: 'sidebar.hover',
-      'div > svg': {
-        color: 'blue',
-        opacity: 1,
-      },
-    },
-  }
 
   return (
     <Tooltip label={label} placement={direction}>
@@ -31,7 +18,22 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         ref={ref}
         variant="tertiary"
         icon={icon}
-        csx={csx}
+        csx={merge(
+          {
+            backgroundColor: selected ? 'sidebar.hover' : 'unset',
+            'div > svg': {
+              color: selected ? 'unset' : 'sidebar.dark',
+            },
+            '&:hover, &:focus': {
+              backgroundColor: 'sidebar.hover',
+              'div > svg': {
+                color: 'blue',
+                opacity: 1,
+              },
+            },
+          },
+          csx
+        )}
         {...buttonProps}
       />
     </Tooltip>

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, Fragment } from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
 import { motion, Variants } from 'framer-motion'
@@ -20,7 +20,7 @@ export function SidebarBackdrop() {
   const { cn } = useSystem()
 
   return (
-    <>
+    <Fragment>
       <motion.div
         className={cn({
           minWidth: width,
@@ -63,7 +63,7 @@ export function SidebarBackdrop() {
           }
         />
       )}
-    </>
+    </Fragment>
   )
 }
 

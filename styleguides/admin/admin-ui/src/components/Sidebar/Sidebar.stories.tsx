@@ -62,19 +62,19 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
                 key={index}
               >
                 {SECTIONS[props.label].sections.map((section, idx) => (
-                  <Sidebar.Section
+                  <Sidebar.Item.Section
                     title={section.title}
                     index={topCornerItems.length + idx}
                   >
                     {section.subItems.map((label) => (
-                      <Sidebar.SubItem
+                      <Sidebar.Item.Section.Item
                         key={label}
                         onClick={() => console.log(`hey`)}
                       >
                         {label}
-                      </Sidebar.SubItem>
+                      </Sidebar.Item.Section.Item>
                     ))}
-                  </Sidebar.Section>
+                  </Sidebar.Item.Section>
                 ))}
               </Sidebar.Item>
             ))}

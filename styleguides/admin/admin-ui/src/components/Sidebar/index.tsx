@@ -13,13 +13,7 @@ import {
   SidebarItem,
   useCompositeState,
   CompositeGroup,
-  _SidebarItemProps,
-  SidebarSection,
-  SidebarSubItem,
-  SidebarItemProps,
-  SidebarSectionProps,
   SidebarBackdrop,
-  SidebarSubItemProps,
   SidebarSkeleton,
 } from './components'
 import { SidebarProvider } from './context'
@@ -176,7 +170,7 @@ export const Sidebar = Object.assign(_Sidebar, {
    * ```
    */
   Header: (props: SidebarCornerProps) => (
-    <SidebarCorner {...props} scope={'top'} />
+    <SidebarCorner {...props} scope="top" />
   ),
   /**
    * Sidebar.Footer will stick whatever is inside
@@ -219,7 +213,7 @@ export const Sidebar = Object.assign(_Sidebar, {
    * ```
    */
   Footer: (props: SidebarCornerProps) => (
-    <SidebarCorner {...props} scope={'bottom'} />
+    <SidebarCorner {...props} scope="bottom" />
   ),
   /**
    * Sidebar.Item corresponds to an item of the sidebar's
@@ -248,7 +242,5 @@ export const Sidebar = Object.assign(_Sidebar, {
    * </Sidebar>
    * ```
    */
-  Item: (props: SidebarItemProps) => <SidebarItem {...props} />,
-  Section: (props: SidebarSectionProps) => <SidebarSection {...props} />,
-  SubItem: (props: SidebarSubItemProps) => <SidebarSubItem {...props} />,
+  Item: SidebarItem,
 })

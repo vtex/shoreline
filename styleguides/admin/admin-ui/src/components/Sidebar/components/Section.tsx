@@ -11,17 +11,18 @@ import { SidebarSecretProps } from '../types'
 import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { SystemComponent } from '../../../types'
+import { SidebarSectionItem } from './SectionItem'
 
-export const SidebarSection = forwardRef(function SidebarSection(
-  props: _SidebarSectionProps,
-  _: Ref<HTMLButtonElement>
+const _SidebarSection = forwardRef(function SidebarSection(
+  props: SidebarSectionProps,
+  ref: Ref<HTMLButtonElement>
 ) {
   const { title, children, state, parentId } = props
-
   const compositeProps = useComposite(state)
 
   return (
     <Set
+      ref={ref}
       spacing={0.5}
       orientation="vertical"
       csx={{
@@ -55,12 +56,11 @@ export const SidebarSection = forwardRef(function SidebarSection(
   )
 })
 
-export type SidebarSectionProps = Omit<_SidebarSectionProps, 'state'>
+export const SidebarSection = Object.assign(_SidebarSection, {
+  Item: SidebarSectionItem,
+})
 
-/**
- * Private interface
- */
-export interface _SidebarSectionProps
+export interface SidebarSectionProps
   extends SystemComponent,
     SidebarSecretProps {
   /**

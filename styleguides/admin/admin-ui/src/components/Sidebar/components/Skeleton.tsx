@@ -2,13 +2,8 @@ import React from 'react'
 import { Set } from '../../Set'
 import { Skeleton } from '../../Skeleton'
 
-interface SidebarSkeletonProps {
-  /**
-   * How many skeletons should be displayed
-   * @default 7
-   */
-  amount?: number
-}
+// size of the skeleton
+const size = 40
 
 /**
  * Skeleton component for the sidebar.
@@ -22,13 +17,21 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
       {Array.from(new Array(amount)).map(() => (
         <Skeleton
           csx={{
-            minHeight: 40,
-            maxHeight: 40,
-            minWidth: 40,
-            maxWidth: 40,
+            minHeight: size,
+            maxHeight: size,
+            minWidth: size,
+            maxWidth: size,
           }}
         />
       ))}
     </Set>
   )
+}
+
+export interface SidebarSkeletonProps {
+  /**
+   * How many skeletons should be displayed
+   * @default 7
+   */
+  amount?: number
 }
