@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-core",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "main": "dist/index.js",
   "module": "dist/admin-core.esm.js",
   "typings": "dist/index.d.ts",

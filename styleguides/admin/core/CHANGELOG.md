@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.1...@vtex/admin-core@0.9.2) (2021-03-19)
+
+
+### Bug Fixes
+
+* **theme-provider:** use jsxs on ThemeProvider were returning console warnings ([4b46ab3](https://github.com/vtex/onda/commit/4b46ab38450cef09d50c0f7001de5ad9d769d03b))
+
+
+
+
+
 ## [0.9.1](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.0...@vtex/admin-core@0.9.1) (2021-03-16)
 
 
