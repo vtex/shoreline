@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { Input as ReakitInput } from 'reakit'
 import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
@@ -60,6 +60,18 @@ export function NumericStepper(props: NumericStepperProps) {
       onChange,
       step,
     })
+
+  useEffect(() => {
+    if (state.value !== value) {
+      dispatch({
+        type: 'change',
+        value,
+        onChange,
+        minValue,
+        maxValue,
+      })
+    }
+  }, [value])
 
   return (
     <Box csx={{ width: 106 }}>
