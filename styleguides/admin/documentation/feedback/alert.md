@@ -194,7 +194,7 @@ function Example() {
 | actions   | `Actions`             | Possible actions              | 🚫        | -                   |
 | icon      | `ReactNode`           | Icon to display               | 🚫        | -                   |
 | onDismiss | `() => void`          | Action to dispatch on dismiss | 🚫        | -                   |
-| visible   | `boolean`             | Whether is visible            | 🚫        | false               |
+| visible   | `boolean`             | Whether it's visible or not           | 🚫        | false               |
 | type      | `'error'              | 'success'                     | 'warning' | 'info'`             | Icon to display | 🚫  | warning |
 | children  | `ReactNode`           | Component children            | 🚫        | -                   |
 | sticky    | `boolean`             | Whether is whether is sticky  | 🚫        | false               |
