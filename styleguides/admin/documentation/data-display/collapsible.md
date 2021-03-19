@@ -184,7 +184,7 @@ As the name already says, it represents the `content` of the collapsible. It ren
 
 | Name    | Type         | Description                                        |
 | ------- | ------------ | -------------------------------------------------- |
-| visible | `booelan`    | Whether is visible                                 |
+| visible | `booelan`    | Whether the content is visible or not                                |
 | baseId  | `string`     | ID that will serve as a base for all the items IDs |
 | toggle  | `() => void` | Toggles the visible state                          |
 
