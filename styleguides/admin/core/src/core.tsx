@@ -1,10 +1,11 @@
+import React from 'react'
 import { createContext, ReactNode, useContext } from 'react'
 import { CacheProvider } from '@vtex/admin-ui-system'
 import invariant from 'tiny-invariant'
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
 
-import { createSystem, jsxs, defaultSystem } from './system'
+import { createSystem, defaultSystem } from './system'
 import { Styles, Imports, FontsPreload } from './global'
 
 const SystemContext = createContext<ReturnType<typeof createSystem> | null>(
@@ -14,18 +15,16 @@ const SystemContext = createContext<ReturnType<typeof createSystem> | null>(
 export function ThemeProvider(props: ThemeProviderProps) {
   const { children, system = defaultSystem } = props
 
-  return jsxs(CacheProvider, { value: system.emotionInstance.cache }, [
-    jsxs(
-      SystemContext.Provider,
-      { value: system },
-      ...[
-        jsxs(FontsPreload, {}),
-        jsxs(Imports, {}),
-        jsxs(Styles, {}),
-        jsxs(system.ThemeProvider, {}, children),
-      ]
-    ),
-  ])
+  return (
+    <CacheProvider value={system.emotionInstance.cache}>
+      <SystemContext.Provider value={system}>
+        <FontsPreload />
+        <Imports />
+        <Styles />
+        <system.ThemeProvider>{children}</system.ThemeProvider>
+      </SystemContext.Provider>
+    </CacheProvider>
+  )
 }
 
 export function useSystem() {
