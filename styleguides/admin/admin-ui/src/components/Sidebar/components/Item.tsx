@@ -57,8 +57,14 @@ function _SidebarItem(props: SidebarItemProps) {
                   : '-13.5rem',
             })}
             data-testid={`${label}-ul`}
-            onMouseEnter={() => setShowCollapseButton(true)}
-            onMouseLeave={() => setShowCollapseButton(false)}
+            onMouseEnter={() =>
+              typeof setShowCollapseButton === 'function' &&
+              setShowCollapseButton(true)
+            }
+            onMouseLeave={() =>
+              typeof setShowCollapseButton === 'function' &&
+              setShowCollapseButton(false)
+            }
           >
             <Box
               aria-label={`${label} menu`}
@@ -216,8 +222,48 @@ function useSidebarItemState(props: SidebarItemProps) {
 }
 
 export const SidebarItem = Object.assign(_SidebarItem, {
+  /**
+   * Each `<Sidebar.Item.Section />` is responsible for
+   * defining the scope of a section within a sidebar item.
+   * It holds the `<Sidebar.Item.Section.Item />`, which
+   * is the last node of the sidebar tree and where clients
+   * will interact most to perform actions.
+   *
+   * @example
+   * ```jsx
+   * import { Sidebar } from `@vtex/admin-ui`
+   *
+   * <Sidebar>
+   *    <Sidebar.Header>
+   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/promotions" })}>
+   *       <Sidebar.Item.Section title={"Promotions"}>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/promotions" })}>
+   *         Promotions
+   *        </Sidebar.Item.Section.Item>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/discounts"})} >
+   *         Discounts
+   *        </Sidebar.Item.Section.Item>
+   *       </Sidebar.Item.Section>
+   *      </Sidebar.Item>
+   *    </Sidebar.Header>
+   *    <Sidebar.Footer>
+   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/apps" })}>
+   *       <Sidebar.Item.Section title={"Apps"}>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps" })}>
+   *         Installed apps
+   *        </Sidebar.Item.Section.Item>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps-store"})} >
+   *         Apps store
+   *        </Sidebar.Item.Section.Item>
+   *       </Sidebar.Item.Section>
+   *      </Sidebar.Item>
+   *    </Sidebar.Footer>
+   * </Sidebar>
+   * ```
+   */
   Section: SidebarSection,
 })
+
 export interface SidebarItemProps
   extends Omit<SidebarDisclosureProps, 'children'>,
     SystemComponent,
@@ -227,6 +273,4 @@ export interface SidebarItemProps
    * its value is displayed on its disclosure's tooltip.
    */
   label: string
-
-  setShowCollapseButton: (showCollapseButton: boolean) => void
 }

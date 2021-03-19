@@ -23,7 +23,15 @@ export interface SidebarSecretProps extends Omit<SystemComponent, 'children'> {
    *  @internal
    */
   scope?: CornerScope
+  /**
+   * `showCollapseButton` lets <SidebarCollapseButton /> know whether or not
+   * to switch the opacity of its button
+   */
   showCollapseButton?: boolean
+  /**
+   * `setShowCollapseButton` changes the `showCollapseButton`
+   * variable
+   */
   setShowCollapseButton?: (showCollapseButton: boolean) => void
 }
 
