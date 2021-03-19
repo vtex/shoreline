@@ -197,7 +197,7 @@ function Example() {
 | visible   | `boolean`             | Whether it's visible or not           | 🚫        | false               |
 | type      | `'error'              | 'success'                     | 'warning' | 'info'`             | Icon to display | 🚫  | warning |
 | children  | `ReactNode`           | Component children            | 🚫        | -                   |
-| sticky    | `boolean`             | Whether is whether is sticky  | 🚫        | false               |
+| sticky    | `boolean`             | Whether it's sticky or not  | 🚫        | false               |
 | fluid     | `Responsive<boolean>` | Whether the height is fluid   | 🚫        | [true, true, false] |
 
 ### Actions
