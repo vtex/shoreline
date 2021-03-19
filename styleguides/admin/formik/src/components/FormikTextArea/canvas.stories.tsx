@@ -53,8 +53,8 @@ export const Playground: Story<FormikTextAreaProps> = (args) => {
         {({ resetForm, values, dirty }) => (
           <Form id='form-admin-formik-input'>
             <Flex direction='row' align='center' justify='start'>
-              <Flex direction='column' justify='center' styles={{marginX: 8}}>
-                <Box styles={{ width: 300 , marginBottom: 3}}>
+              <Flex direction='column' justify='center' csx={{marginX: 8}}>
+                <Box csx={{ width: 300 , marginBottom: 3}}>
                   <FormikTextArea
                     {...args}
                   />
@@ -71,7 +71,7 @@ export const Playground: Story<FormikTextAreaProps> = (args) => {
                 <Text 
                   variant='small' 
                   feedback='secondary' 
-                  styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                  csx={{marginBottom: 3, textAlign: 'center'}}
                 >
                   Change values in formik to current initial values
                 </Text>
@@ -81,7 +81,7 @@ export const Playground: Story<FormikTextAreaProps> = (args) => {
                 <Text 
                   variant='small' 
                   feedback='secondary' 
-                  styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                  csx={{marginBottom: 3, textAlign: 'center'}}
                 >
                   Set the current value as initial value
                 </Text>
@@ -95,7 +95,7 @@ export const Playground: Story<FormikTextAreaProps> = (args) => {
                 <Text 
                   variant='small' 
                   feedback='secondary' 
-                  styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                  csx={{marginBottom: 3, textAlign: 'center'}}
                 >
                   Set "admin-formik" as new initial value
                 </Text>
@@ -155,7 +155,7 @@ export const Basic = () => {
         {({ values }) => (
             <Form id='form-admin-formik-input'>
               <Flex direction='row' align='center' justify='start'>
-                <Box styles={{ width: 300, marginX: 8 }}>
+                <Box csx={{ width: 300, marginX: 8 }}>
                   <FormikTextArea
                     name="value"
                     label="Label"
@@ -213,7 +213,7 @@ export const Error = () => {
       >
         {({ values }) => (
             <Form id='form-admin-formik-input'>
-              <Box styles={{ width: 300 }}>
+              <Box csx={{ width: 300 }}>
                 <FormikTextArea
                   name="value"
                   label="Label"
@@ -256,7 +256,7 @@ export const ChangeValueOutside = () => {
         {({ values , setFieldValue}) => (
             <Form id='form-admin-formik-input'>
               <Flex direction='row' align='center' justify='start'>
-                <Box styles={{ width: 300, marginX: 8 }}>
+                <Box csx={{ width: 300, marginX: 8 }}>
                   <FormikTextArea
                     name="value"
                     label="Label"
@@ -305,7 +305,7 @@ export const ChangeInitialValue = () => {
         {({ values }) => (
             <Form id='form-admin-formik-input'>
               <Flex direction='row' align='center' justify='start'>
-                <Box styles={{ width: 300, marginX: 8 }}>
+                <Box csx={{ width: 300, marginX: 8 }}>
                   <FormikTextArea
                     name="value"
                     label="Label"
@@ -317,13 +317,13 @@ export const ChangeInitialValue = () => {
                     <Text 
                       variant='small' 
                       feedback='secondary' 
-                      styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                      csx={{marginBottom: 3, textAlign: 'center'}}
                     >
                       When the initial value changes the form is restarted
                     </Text>
                   </Flex>
                 </Box>
-                  <Set orientation='vertical' styleOverrides={{marginX: 8}}>
+                  <Set orientation='vertical' csx={{marginX: 8}}>
                     <Text variant='subtitle'> 
                       Current value in formik : 
                     </Text>

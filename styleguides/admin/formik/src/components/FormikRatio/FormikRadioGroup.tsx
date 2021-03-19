@@ -38,14 +38,14 @@ export const FormikRadioGroup = ({ name, children, ...props }: FormikRadioGroupP
   const errorMessage = errorCode && formatMessage({ id: errorCode })
 
   return (
-    <Box styles={{ marginBottom: 6 }}>
-      <RadioGroup state={radioState} styleOverrides={{ marginBottom: 1 }} {...props}>
+    <Box csx={{ marginBottom: 6 }}>
+      <RadioGroup state={radioState} csx={{ marginBottom: 1 }} {...props}>
         <FormikRadioGroupContext.Provider value={radioState}>
           {children}
         </FormikRadioGroupContext.Provider>
       </RadioGroup>
       {errorMessage && (
-        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 2}}>
+        <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
           {errorMessage}
         </Text>
       )}

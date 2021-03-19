@@ -49,8 +49,8 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
         {({ resetForm, values, dirty }) => (
           <Form id='form-admin-formik-input'>
             <Flex direction='row' align='center' justify='start'>
-              <Flex direction='column' justify='center' styles={{marginX: 8}}>
-                <Box styles={{ width: 300 , marginBottom: 3}}>
+              <Flex direction='column' justify='center' csx={{marginX: 8}}>
+                <Box csx={{ width: 300 , marginBottom: 3}}>
                   <FormikSelect
                     {...args}
                   />
@@ -67,7 +67,7 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
                 <Text 
                   variant='small' 
                   feedback='secondary' 
-                  styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                  csx={{marginBottom: 3, textAlign: 'center'}}
                 >
                   Change values in formik to current initial values
                 </Text>
@@ -77,7 +77,7 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
                 <Text 
                   variant='small' 
                   feedback='secondary' 
-                  styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                  csx={{marginBottom: 3, textAlign: 'center'}}
                 >
                   Set the current value as initial value
                 </Text>
@@ -91,7 +91,7 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
                 <Text 
                   variant='small' 
                   feedback='secondary' 
-                  styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                  csx={{marginBottom: 3, textAlign: 'center'}}
                 >
                   Set "{args.items[1]}" as new initial value
                 </Text>
@@ -152,7 +152,7 @@ export const Basic = () => {
         {({ values }) => (
             <Form id='form-admin-formik-input'>
               <Flex direction='row' align='center' justify='start'>
-                <Box styles={{ width: 300, marginX: 8 }}>
+                <Box csx={{ width: 300, marginX: 8 }}>
                   <FormikSelect
                     name="value"
                     label="Label"
@@ -212,7 +212,7 @@ export const Error = () => {
       >
         {({ values }) => (
             <Form id='form-admin-formik-input'>
-              <Box styles={{ width: 300 }}>
+              <Box csx={{ width: 300 }}>
                 <FormikSelect
                   name="value"
                   label="Label"
@@ -257,7 +257,7 @@ export const ChangeValueOutside = () => {
         {({ values , setFieldValue}) => (
             <Form id='form-admin-formik-input'>
               <Flex direction='row' align='center' justify='start'>
-                <Box styles={{ width: 300, marginX: 8 }}>
+                <Box csx={{ width: 300, marginX: 8 }}>
                   <FormikSelect
                     name="value"
                     label="Label"
@@ -265,7 +265,7 @@ export const ChangeValueOutside = () => {
                   />
                   <Button 
                     onClick={()=> setFieldValue("value", options[Math.floor(Math.random() * options.length)  ])}
-                    styleOverrides={{marginY: 2}}
+                    csx={{marginY: 2}}
                   >
                     Change value
                   </Button>
@@ -311,7 +311,7 @@ export const ChangeInitialValue = () => {
         {({ values }) => (
             <Form id='form-admin-formik-input'>
               <Flex direction='row' align='center' justify='start'>
-                <Box styles={{ width: 300, marginX: 8 }}>
+                <Box csx={{ width: 300, marginX: 8 }}>
                   <FormikSelect
                     name="value"
                     label="Label"
@@ -320,20 +320,20 @@ export const ChangeInitialValue = () => {
                   <Flex direction='column'>
                     <Button 
                       onClick={()=> setCourentInicialValues({value: options[Math.floor(Math.random() * options.length)  ]})}
-                      styleOverrides={{marginY: 2}}
+                      csx={{marginY: 2}}
                     >
                       Change initial value
                     </Button>
                     <Text 
                       variant='small' 
                       feedback='secondary' 
-                      styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                      csx={{marginBottom: 3, textAlign: 'center'}}
                     >
                       When the initial value changes the form is restarted
                     </Text>
                   </Flex>
                 </Box>
-                  <Set orientation='vertical' styleOverrides={{marginX: 8}}>
+                  <Set orientation='vertical' csx={{marginX: 8}}>
                     <Text variant='subtitle'> 
                       Current value in formik : 
                     </Text>

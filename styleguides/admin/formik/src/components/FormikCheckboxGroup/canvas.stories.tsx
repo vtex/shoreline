@@ -54,8 +54,8 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
         {({ resetForm, values, dirty }) => (
           <Form id='form-admin-formik-input'>
             <Flex direction='row' align='center' justify='start'>
-              <Flex direction={args.orientation === 'vertical' ? 'row' : 'column'} justify='center' styles={{marginX: 8}}>
-                <Box styles={{ width: args.orientation === 'vertical' ? 200 : 600, marginBottom: 3}}>
+              <Flex direction={args.orientation === 'vertical' ? 'row' : 'column'} justify='center' csx={{marginX: 8}}>
+                <Box csx={{ width: args.orientation === 'vertical' ? 200 : 600, marginBottom: 3}}>
                   <FormikCheckboxGroup
                     {...args}
                   >
@@ -73,7 +73,7 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                   </FormikCheckboxGroup>
                 </Box>
                 <Flex direction={args.orientation === 'vertical' ? 'column' : 'row'}>
-                  <Flex direction='column' justify='center' styles={{ marginRight: 4, maxWidth: args.orientation==='vertical' ? 'auto' : 150 }} >
+                  <Flex direction='column' justify='center' csx={{ marginRight: 4, maxWidth: args.orientation==='vertical' ? 'auto' : 150 }} >
                     <Button
                       variant="secondary"
                       type="reset"
@@ -86,24 +86,24 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                     <Text 
                       variant='small' 
                       feedback='secondary' 
-                      styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                      csx={{marginBottom: 3, textAlign: 'center'}}
                     >
                       Change values in formik to current initial values
                     </Text>
                   </Flex>
-                  <Flex direction='column' justify='center' styles={{ marginRight: 4, maxWidth: args.orientation==='vertical' ? 'auto' : 150 }} >
+                  <Flex direction='column' justify='center' csx={{ marginRight: 4, maxWidth: args.orientation==='vertical' ? 'auto' : 150 }} >
                     <Button type="submit" size='small'>
                       Save
                     </Button>
                     <Text 
                       variant='small' 
                       feedback='secondary' 
-                      styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                      csx={{marginBottom: 3, textAlign: 'center'}}
                     >
                       Set the current value as initial value
                     </Text>
                   </Flex>
-                  <Flex direction='column' justify='center' styles={{ marginRight: 4, maxWidth: args.orientation==='vertical' ? 'auto' : 150 }} >
+                  <Flex direction='column' justify='center' csx={{ marginRight: 4, maxWidth: args.orientation==='vertical' ? 'auto' : 150 }} >
                     <Button 
                       variant='secondary' 
                       size='small'
@@ -114,7 +114,7 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                     <Text 
                       variant='small' 
                       feedback='secondary' 
-                      styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                      csx={{marginBottom: 3, textAlign: 'center'}}
                     >
                       Set "[{options[1]}]" as new initial value
                     </Text>
@@ -176,7 +176,7 @@ export const Basic = () => {
         {({ values }) => (
             <Form id='form-admin-formik-input'>
               <Flex direction='row' align='center' justify='start'>
-                <Box styles={{ width: 300, marginX: 8 }}>
+                <Box csx={{ width: 300, marginX: 8 }}>
                   <FormikCheckboxGroup
                     name="value"
                     label="Label Title"
@@ -298,7 +298,7 @@ export const ChangeValueOutside = () => {
         {({ values , setFieldValue}) => (
             <Form id='form-admin-formik-input'>
               <Flex direction='row' align='center' justify='start'>
-                <Box styles={{ width: 200, marginX: 8 }}>
+                <Box csx={{ width: 200, marginX: 8 }}>
                   <FormikCheckboxGroup
                     name="value"
                     label="Label Title"
@@ -319,7 +319,7 @@ export const ChangeValueOutside = () => {
                 </Box>
                 <Button 
                   onClick={()=> setFieldValue("value", [ options[Math.floor(Math.random() * options.length)] ])}
-                  styleOverrides={{marginX: 8}}
+                  csx={{marginX: 8}}
                 >
                   Change value
                 </Button>
@@ -364,7 +364,7 @@ export const ChangeInitialValue = () => {
         {({ values }) => (
             <Form id='form-admin-formik-input'>
               <Flex direction='row' align='center' justify='start'>
-                <Box styles={{ width: 200, marginX: 8 }}>
+                <Box csx={{ width: 200, marginX: 8 }}>
                   <FormikCheckboxGroup
                     name="value"
                     label="Label Title"
@@ -386,19 +386,19 @@ export const ChangeInitialValue = () => {
                 <Flex direction='column'>
                   <Button 
                     onClick={()=> setCourentInicialValues({value: [ options[Math.floor(Math.random() * options.length)] ]})}
-                    styleOverrides={{marginY: 2}}
+                    csx={{marginY: 2}}
                   >
                     Change initial value
                   </Button>
                   <Text 
                     variant='small' 
                     feedback='secondary' 
-                    styleOverrides={{marginBottom: 3, textAlign: 'center'}}
+                    csx={{marginBottom: 3, textAlign: 'center'}}
                   >
                     When the initial value changes the form is restarted
                   </Text>
                 </Flex>
-                <Set orientation='vertical' styleOverrides={{marginX: 8}}>
+                <Set orientation='vertical' csx={{marginX: 8}}>
                   <Text variant='subtitle'> 
                     Current value in formik : 
                   </Text>

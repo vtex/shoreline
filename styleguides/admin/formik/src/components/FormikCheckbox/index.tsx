@@ -48,13 +48,13 @@ export const FormikCheckbox = ({ name, label, error, errorMessage, ...props }: F
 
   return (
     <Set orientation="vertical" >
-      <Set spacing={3} styleOverrides={{ marginY: 1 }}>
+      <Set spacing={3} csx={{ marginY: 1 }}>
         <Checkbox id={name} state={checkboxState} {...props} />
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
       { 
         finalError && (
-        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 2}}>
+        <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
           {finalErrorMessage}
         </Text>
       )}

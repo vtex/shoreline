@@ -44,14 +44,14 @@ export const FormikCheckboxGroup = ({ name, children,  ...props }: FormikCheckbo
     : errorCode && formatMessage({ id: errorCode })
 
   return (
-    <Box styles={{ marginBottom: 6 }}>
-      <CheckboxGroup styleOverrides={{ marginBottom: 0 }} {...props} >
+    <Box csx={{ marginBottom: 6 }}>
+      <CheckboxGroup csx={{ marginBottom: 0 }} {...props} >
         <FormikCheckboxGroupContext.Provider value={checkboxState}>
           {children}
         </FormikCheckboxGroupContext.Provider>
       </CheckboxGroup>
       {errorMessage && (
-        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 2}}>
+        <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
           {errorMessage}
         </Text>
       )}

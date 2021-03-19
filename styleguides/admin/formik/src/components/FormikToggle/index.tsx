@@ -26,7 +26,7 @@ export const FormikToggle = ({ name, label, onChange, id, ...props }: FormikTogg
 
   return (
     <Set orientation="vertical">
-      <Set spacing={3} styleOverrides={{ marginY: 1 }}>
+      <Set spacing={3} csx={{ marginY: 1 }}>
           <Toggle
           id={id ? id : name}
           checked={field.value}
@@ -40,7 +40,7 @@ export const FormikToggle = ({ name, label, onChange, id, ...props }: FormikTogg
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
       { errorMessage && (
-        <Text variant="small" feedback="danger" styleOverrides={{paddingTop: 2}}>
+        <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
           {errorMessage}
         </Text>
       )}
