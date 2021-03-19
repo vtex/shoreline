@@ -1,27 +1,22 @@
 import React, { useMemo, Fragment } from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
-import { motion, Variants } from 'framer-motion'
-import { SCALES, transition } from '../consts'
+import { SCALES } from '../consts'
 import { useSidebarContext } from '../context'
 import { SidebarCollapseButton } from './CollapseButton'
+import { SidebarSecretProps } from '../types'
 
 /**
  * Components that acts as a spacer.
  */
-export function SidebarBackdrop() {
-  const {
-    collapse,
-    currentItem,
-    width,
-    isCollapsed,
-    variants,
-  } = useBackdropState()
+export function SidebarBackdrop(props: SidebarBackdropProps) {
+  const { showCollapseButton, setShowCollapseButton } = props
+  const { collapse, currentItem, width, isCollapsed } = useBackdropState()
   const { cn } = useSystem()
 
   return (
     <Fragment>
-      <motion.div
+      <div
         className={cn({
           minWidth: width,
           maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
@@ -37,18 +32,13 @@ export function SidebarBackdrop() {
           marginRight:
             currentItem && currentItem.isCollapsible ? '0.25rem' : '0rem',
         })}
-        initial={isCollapsed ? 'collapsed' : 'expanded'}
-        animate={
-          currentItem?.isCollapsible
-            ? isCollapsed
-              ? 'collapsed'
-              : 'expanded'
-            : 'fullyCollapsed'
-        }
-        variants={variants}
+        onMouseEnter={() => setShowCollapseButton(true)}
+        onMouseLeave={() => setShowCollapseButton(false)}
       />
       {currentItem?.isCollapsible && (
         <SidebarCollapseButton
+          setShowCollapseButton={setShowCollapseButton}
+          showCollapseButton={showCollapseButton}
           icon={
             <IconCaret
               direction={collapse ? 'right' : 'left'}
@@ -70,7 +60,7 @@ export function SidebarBackdrop() {
 function useBackdropState() {
   const { collapse, currentItem } = useSidebarContext()
 
-  const { width, variants, isCollapsed } = useMemo(() => {
+  const { width, isCollapsed } = useMemo(() => {
     const width = currentItem?.isCollapsible
       ? collapse
         ? '1rem'
@@ -80,31 +70,14 @@ function useBackdropState() {
     const isCollapsed = !currentItem?.isCollapsible || collapse
 
     return {
-      variants: {
-        expanded: () => ({
-          minWidth: width,
-          width,
-          transition,
-          zIndex: -2,
-        }),
-        collapsed: () => ({
-          minWidth: width,
-          width,
-          transition,
-        }),
-        // This animation only runs when transitioning
-        // from one collapsible sidebar item in a collapsed
-        // state, to a non collapsible sidebar item
-        fullyCollapsed: () => ({
-          minWidth: width,
-          width,
-          transition,
-        }),
-      } as Variants,
       width,
       isCollapsed,
     }
   }, [currentItem, collapse])
 
-  return { width, variants, isCollapsed, collapse, currentItem }
+  return { width, isCollapsed, collapse, currentItem }
 }
+
+export type SidebarBackdropProps = Required<
+  Pick<SidebarSecretProps, 'showCollapseButton' | 'setShowCollapseButton'>
+>

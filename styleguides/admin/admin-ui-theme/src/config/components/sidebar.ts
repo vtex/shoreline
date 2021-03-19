@@ -48,18 +48,12 @@ export default {
     minWidth: '12.775rem',
     maxWidth: '12.775rem',
   },
-  'collapse-button-container': {
+  'collapse-button': {
     position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
     zIndex: 1,
-    height: '5rem',
     left: '0.5625em',
     marginLeft: '-1.5rem',
     top: '0.875rem',
-    cursor: 'pointer',
-  },
-  'collapse-button': {
     cursor: 'pointer',
     border: '1px solid',
     borderRadius: '100%',

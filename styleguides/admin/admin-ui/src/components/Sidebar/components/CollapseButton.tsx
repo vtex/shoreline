@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
-import { Box } from '@vtex/admin-primitives'
+import React from 'react'
 import { useSidebarContext } from '../context'
 import { Button, ButtonProps } from '../../Button'
+import { SidebarSecretProps } from '../types'
 
 /**
  * Component that renders the sidebar collapser button.
  */
 export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
-  const { onClick, ...buttonProps } = props
+  const {
+    onClick,
+    showCollapseButton,
+    setShowCollapseButton,
+    ...buttonProps
+  } = props
   const { setCollapse, collapse } = useSidebarContext()
-  const [show, setShow] = useState(false)
 
   const handleOnClick = (event: React.MouseEvent<any, MouseEvent>) => {
     setCollapse(!collapse)
@@ -20,25 +24,22 @@ export function SidebarCollapseButton(props: SidebarCollapseButtonProps) {
   }
 
   return (
-    <Box
+    <Button
       csx={{
-        themeKey: 'components.sidebar.collapse-button-container',
+        themeKey: 'components.sidebar.collapse-button',
+        opacity: showCollapseButton ? 1 : 0,
+        transitionDuration: '.3s',
       }}
-      onMouseEnter={() => setShow(true)}
-      onMouseLeave={() => setShow(false)}
-    >
-      <Button
-        csx={{
-          themeKey: 'components.sidebar.collapse-button',
-          opacity: show ? 1 : 0,
-          transitionDuration: '.3s',
-        }}
-        onClick={handleOnClick}
-        {...props}
-        {...buttonProps}
-      />
-    </Box>
+      {...props}
+      {...buttonProps}
+      onClick={handleOnClick}
+      onMouseEnter={() => setShowCollapseButton(true)}
+      onMouseLeave={() => setShowCollapseButton(false)}
+    />
   )
 }
 
-type SidebarCollapseButtonProps = ButtonProps
+type SidebarCollapseButtonProps = ButtonProps &
+  Required<
+    Pick<SidebarSecretProps, 'showCollapseButton' | 'setShowCollapseButton'>
+  >

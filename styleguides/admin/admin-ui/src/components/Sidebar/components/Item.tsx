@@ -1,14 +1,12 @@
 import React, { Children, cloneElement, useEffect, useMemo } from 'react'
 import { useSystem } from '@vtex/admin-core'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
-import { motion } from 'framer-motion'
 import { isElement } from 'react-is'
 import { Box } from '@vtex/admin-primitives'
 import { SystemComponent } from '../../../types'
 import { SidebarDisclosureProps, SidebarDisclosure } from './Disclosure'
 import { CompositeItem, useCompositeState } from './Aria'
 import { useSidebarContext } from '../context'
-import { SCALES, transition } from '../consts'
 import {
   ArrowKeys,
   Item,
@@ -21,7 +19,6 @@ function _SidebarItem(props: SidebarItemProps) {
   const { cn } = useSystem()
   const {
     hasSection,
-    variants,
     isCollapsed,
     rootState,
     state,
@@ -32,6 +29,10 @@ function _SidebarItem(props: SidebarItemProps) {
     children,
     selected,
     variant,
+    direction,
+    currentItem,
+    collapse,
+    setShowCollapseButton,
     ...baseProps
   } = useSidebarItemState(props)
 
@@ -47,14 +48,17 @@ function _SidebarItem(props: SidebarItemProps) {
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
-          <motion.ul
+          <ul
             className={cn({
               themeKey: 'components.sidebar.item',
+              [direction]:
+                selected && !!currentItem?.isCollapsible && !collapse
+                  ? '3.5rem'
+                  : '-13.5rem',
             })}
-            initial={variant}
-            animate={variant}
-            variants={variants}
             data-testid={`${label}-ul`}
+            onMouseEnter={() => setShowCollapseButton(true)}
+            onMouseLeave={() => setShowCollapseButton(false)}
           >
             <Box
               aria-label={`${label} menu`}
@@ -75,7 +79,7 @@ function _SidebarItem(props: SidebarItemProps) {
                 return null
               })}
             </Box>
-          </motion.ul>
+          </ul>
         </>
       )}
     </CompositeItem>
@@ -161,55 +165,6 @@ function useSidebarItemState(props: SidebarItemProps) {
     }
   }
 
-  const variants = useMemo(() => {
-    return {
-      [SidebarItemVariantsKey.FullyExpanded]: () => ({
-        [direction]: SCALES.FIXED_AREA_WIDTH,
-        display: 'block',
-        opacity: 1,
-        transition,
-        transitionEnd: {
-          zIndex: 0,
-        },
-      }),
-      [SidebarItemVariantsKey.FullyCollapsed]: () => ({
-        [direction]:
-          selected && !!currentItem?.isCollapsible ? '-8.125rem' : '-13.5rem',
-        transition,
-        zIndex: -1,
-        transitionEnd: {
-          display: 'none',
-        },
-      }),
-      [SidebarItemVariantsKey.PartiallyExpanded]: () => ({
-        [direction]: SCALES.FIXED_AREA_WIDTH,
-        display: 'block',
-        opacity: 1,
-        transition: {
-          ...transition,
-          stiffness: 500,
-        },
-        transitionEnd: {
-          zIndex: 0,
-        },
-      }),
-      [SidebarItemVariantsKey.PartiallyCollapsed]: () => ({
-        [direction]:
-          selected && !!currentItem?.isCollapsible ? '-8.125rem' : '2.5rem',
-        transition: {
-          ...transition,
-          stiffness: 1000,
-        },
-        zIndex: -1,
-        opacity: 0,
-        border: 'none',
-        transitionEnd: {
-          display: 'none',
-        },
-      }),
-    }
-  }, [direction, currentItem, selected])
-
   const isCollapsed = useMemo(
     () => (selected && !currentItem?.isCollapsible) || !selected || collapse,
     [selected, currentItem, collapse]
@@ -245,7 +200,6 @@ function useSidebarItemState(props: SidebarItemProps) {
   return {
     shouldFullyCollapseOnTransition,
     isCollapsed,
-    variants,
     handleOnKeyDown,
     handleOnClick,
     hasSection,
@@ -253,7 +207,9 @@ function useSidebarItemState(props: SidebarItemProps) {
     children,
     variant,
     currentItem,
+    direction,
     selected,
+    collapse,
     ...ctx,
     ...baseProps,
   }
@@ -271,4 +227,6 @@ export interface SidebarItemProps
    * its value is displayed on its disclosure's tooltip.
    */
   label: string
+
+  setShowCollapseButton: (showCollapseButton: boolean) => void
 }

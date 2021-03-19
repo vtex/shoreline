@@ -29,7 +29,9 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
       size="small"
       csx={{
         width: '100%',
-        height: 28,
+        minHeight: 20,
+        paddingY: '0.25rem',
+        height: 'auto',
         marginY: 1,
         textAlign: 'left',
         backgroundColor: selected ? 'sidebar.hover' : 'unset',

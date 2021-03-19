@@ -30,6 +30,7 @@ function _Sidebar(props: SidebarProps) {
   const [currentItem, setCurrentItem] = useState<Item | null>(null)
   const [selectedItemsMemory, setSelectedItemsMemory] = useState<Item[]>([])
   const [collapse, setCollapse] = useState<boolean | null>(null)
+  const [showCollapseButton, setShowCollapseButton] = useState(false)
   const {
     children,
     loading = false,
@@ -90,6 +91,7 @@ function _Sidebar(props: SidebarProps) {
                   cloneElement(child as ReactElement, {
                     ...itemProps,
                     key: index,
+                    setShowCollapseButton,
                   })
                 )
               }
@@ -103,7 +105,10 @@ function _Sidebar(props: SidebarProps) {
           )}
         </Box>
       </Box>
-      <SidebarBackdrop />
+      <SidebarBackdrop
+        showCollapseButton={showCollapseButton}
+        setShowCollapseButton={setShowCollapseButton}
+      />
     </SidebarProvider>
   )
 }
@@ -116,8 +121,8 @@ function _Sidebar(props: SidebarProps) {
  * └── Sidebar
  *  └── Sidebar.Header or Sidebar.Footer
  *       └── Sidebar.Item
- *           └── Sidebar.Section
- *               └── Sidebar.SubItem
+ *           └── Sidebar.Item.Section
+ *               └── Sidebar.Item.Section.Item
  *```
  *
  * @example
@@ -126,19 +131,29 @@ function _Sidebar(props: SidebarProps) {
  *
  * <Sidebar>
  *    <Sidebar.Header>
- *      <Sidebar.Item
- *         selected={false}
- *         onClick={() => console.log("Hello")}
- *         sections={[
- *            title: "Example section",
- *            children: [{
- *              onClick: () => console.log("Hi"),
- *              selected: false,
- *              label: "Example sub item"
- *            }]
- *         ]}
- *      />
+ *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/promotions" })}>
+ *       <Sidebar.Item.Section title={"Promotions"}>
+ *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/promotions" })}>
+ *         Promotions
+ *        </Sidebar.Item.Section.Item>
+ *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/discounts"})} >
+ *         Discounts
+ *        </Sidebar.Item.Section.Item>
+ *       </Sidebar.Item.Section>
+ *      </Sidebar.Item>
  *    </Sidebar.Header>
+ *    <Sidebar.Footer>
+ *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/apps" })}>
+ *       <Sidebar.Item.Section title={"Apps"}>
+ *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps" })}>
+ *         Installed apps
+ *        </Sidebar.Item.Section.Item>
+ *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps-store"})} >
+ *         Apps store
+ *        </Sidebar.Item.Section.Item>
+ *       </Sidebar.Item.Section>
+ *      </Sidebar.Item>
+ *    </Sidebar.Footer>
  * </Sidebar>
  * ```
  */
@@ -153,18 +168,16 @@ export const Sidebar = Object.assign(_Sidebar, {
    *
    * <Sidebar>
    *    <Sidebar.Header>
-   *      <Sidebar.Item
-   *         selected={false}
-   *         onClick={() => console.log("Hello")}
-   *         sections={[
-   *            title: "Example section",
-   *            children: [{
-   *              onClick: () => console.log("Hi"),
-   *              selected: false,
-   *              label: "Example sub item"
-   *            }]
-   *         ]}
-   *      />
+   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/promotions" })}>
+   *       <Sidebar.Item.Section title={"Promotions"}>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/promotions" })}>
+   *         Promotions
+   *        </Sidebar.Item.Section.Item>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/discounts"})} >
+   *         Discounts
+   *        </Sidebar.Item.Section.Item>
+   *       </Sidebar.Item.Section>
+   *      </Sidebar.Item>
    *    </Sidebar.Header>
    * </Sidebar>
    * ```
@@ -181,33 +194,17 @@ export const Sidebar = Object.assign(_Sidebar, {
    * import { Sidebar } from `@vtex/admin-ui`
    *
    * <Sidebar>
-   *    <Sidebar.Header>
-   *      <Sidebar.Item
-   *         selected={false}
-   *         onClick={() => console.log("Hello, I'm at the top!")}
-   *         sections={[
-   *            title: "Example section from the top",
-   *            children: [{
-   *              onClick: () => console.log("Hi from the top"),
-   *              selected: false,
-   *              label: "Example sub item"
-   *            }]
-   *         ]}
-   *      />
-   *    </Sidebar.Header>
    *    <Sidebar.Footer>
-   *      <Sidebar.Item
-   *         selected={false}
-   *         onClick={() => console.log("Hello, I'm at the bottom!")}
-   *         sections={[
-   *            title: "Example section at the bottom",
-   *            children: [{
-   *              onClick: () => console.log("Hi from the bottom"),
-   *              selected: false,
-   *              label: "Example sub item"
-   *            }]
-   *         ]}
-   *      />
+   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/apps" })}>
+   *       <Sidebar.Item.Section title={"Apps"}>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps" })}>
+   *         Installed apps
+   *        </Sidebar.Item.Section.Item>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps-store"})} >
+   *         Apps store
+   *        </Sidebar.Item.Section.Item>
+   *       </Sidebar.Item.Section>
+   *      </Sidebar.Item>
    *    </Sidebar.Footer>
    * </Sidebar>
    * ```
@@ -226,19 +223,29 @@ export const Sidebar = Object.assign(_Sidebar, {
    *
    * <Sidebar>
    *    <Sidebar.Header>
-   *      <Sidebar.Item
-   *         selected={false}
-   *         onClick={() => console.log("Hello")}
-   *         sections={[
-   *            title: "Example section",
-   *            children: [{
-   *              onClick: () => console.log("Hi"),
-   *              selected: false,
-   *              label: "Example sub item"
-   *            }]
-   *         ]}
-   *      />
+   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/promotions" })}>
+   *       <Sidebar.Item.Section title={"Promotions"}>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/promotions" })}>
+   *         Promotions
+   *        </Sidebar.Item.Section.Item>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/discounts"})} >
+   *         Discounts
+   *        </Sidebar.Item.Section.Item>
+   *       </Sidebar.Item.Section>
+   *      </Sidebar.Item>
    *    </Sidebar.Header>
+   *    <Sidebar.Footer>
+   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/apps" })}>
+   *       <Sidebar.Item.Section title={"Apps"}>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps" })}>
+   *         Installed apps
+   *        </Sidebar.Item.Section.Item>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps-store"})} >
+   *         Apps store
+   *        </Sidebar.Item.Section.Item>
+   *       </Sidebar.Item.Section>
+   *      </Sidebar.Item>
+   *    </Sidebar.Footer>
    * </Sidebar>
    * ```
    */
