@@ -61,8 +61,8 @@ export function NumericStepper(props: NumericStepperProps) {
       step,
     })
 
-  useEffect(()=> {
-    if (state.value !== value){
+  useEffect(() => {
+    if (state.value !== value) {
       dispatch({
         type: 'change',
         value,
