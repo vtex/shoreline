@@ -28,4 +28,6 @@ import { VisuallyHidden } from '@vtex/admin-ui'
 
 ## Props
 
-No props to show
+| Name     | Type        | Description             | Required | Default |
+| -------- | ----------- | ----------------------- | -------- | ------- |
+| children | `ReactNode` | VisuallyHidden children |
