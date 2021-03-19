@@ -195,6 +195,10 @@ const { Compiler: renderAst } = new RehypeReact({
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',
+            code: {
+              color: 'purple',
+              fontSize: 1,
+            },
           })}
           {...props}
         />

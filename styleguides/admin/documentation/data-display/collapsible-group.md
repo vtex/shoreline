@@ -1,16 +1,17 @@
 ---
-path: /collapsible-group/
+path: /data-display/collapsible-group/
 ---
 
 # CollapsibleGroup
 
 A Component that groups Collapsible components. It's a container that separates its children with an `<hr>` element.
+You may want to check the [Collapsible Documentation](/data-display/collapsible/) before using the CollapsibleGroup component.
 
-<blockquote palette="blue">
+## Import
 
-You may want to check the [Collapsible Documentation](/collapsible/) before using the CollapsibleGroup component.
-
-</blockquote>
+```jsx isStatic
+import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -20,44 +21,32 @@ function Example() {
   const marketing = useCollapsible()
 
   return (
-    <>
-      <CollapsibleGroup csx={{ width: 400 }}>
-        <Collapsible state={promos}>
-          <Collapsible.Header label="Promos" />
-          <Collapsible.Content>
-            <Text variant="action">
-              APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
-              ALEMANA
+    <CollapsibleGroup csx={{ width: 400 }}>
+      <Collapsible state={promos}>
+        <Collapsible.Header label="Promos" />
+        <Collapsible.Content>
+          <Text variant="action">
+            APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
+            ALEMANA
+          </Text>
+        </Collapsible.Content>
+      </Collapsible>
+      <Collapsible state={marketing}>
+        <Collapsible.Header label="Marketing" />
+        <Collapsible.Content>
+          <Set orientation="vertical">
+            <Text variant="small" csx={{ color: 'dark.secondary' }}>
+              Partner - app_ios
             </Text>
-          </Collapsible.Content>
-        </Collapsible>
-        <Collapsible state={marketing}>
-          <Collapsible.Header label="Marketing" />
-          <Collapsible.Content>
-            <Set orientation="vertical">
-              <Text variant="small" csx={{ color: 'dark.secondary' }}>
-                Partner - app_ios
-              </Text>
-              <Text variant="small" csx={{ color: 'dark.secondary' }}>
-                Campaign - Campaign Name
-              </Text>
-            </Set>
-          </Collapsible.Content>
-        </Collapsible>
-      </CollapsibleGroup>
-    </>
+            <Text variant="small" csx={{ color: 'dark.secondary' }}>
+              Campaign - Campaign Name
+            </Text>
+          </Set>
+        </Collapsible.Content>
+      </Collapsible>
+    </CollapsibleGroup>
   )
 }
-```
-
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
 ```
 
 ## Variation
@@ -131,26 +120,20 @@ function Example() {
   )
 
   return (
-    <>
-      <CollapsibleGroup csx={{ width: 400 }}>
-        <Collapsible state={promosAndPartner}>
-          <Collapsible.Header label="Promos and Partnerships" />
-          <Collapsible.Content>{PromosGroup}</Collapsible.Content>
-        </Collapsible>
-        <Collapsible state={shipping}>
-          <Collapsible.Header label="Shipping" />
-          <Collapsible.Content>{PackagesGroup}</Collapsible.Content>
-        </Collapsible>
-      </CollapsibleGroup>
-    </>
+    <CollapsibleGroup csx={{ width: 400 }}>
+      <Collapsible state={promosAndPartner}>
+        <Collapsible.Header label="Promos and Partnerships" />
+        <Collapsible.Content>{PromosGroup}</Collapsible.Content>
+      </Collapsible>
+      <Collapsible state={shipping}>
+        <Collapsible.Header label="Shipping" />
+        <Collapsible.Content>{PackagesGroup}</Collapsible.Content>
+      </Collapsible>
+    </CollapsibleGroup>
   )
 }
 ```
 
-## Customization
-
-You can use the [csx](/theming/inline-styles/#styles--csx) property to handle different styles. The `CollapsibleGroup` and its composites accepts this property.
-
 ## Props
 
-<propdetails heading="CollapsibleGroup" component="CollapsibleGroup"></propdetails>
+Same as [Box](/primitives/box/).

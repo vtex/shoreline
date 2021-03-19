@@ -1,10 +1,16 @@
 ---
-path: /collapsible/
+path: /data-display/collapsible/
 ---
 
 # Collapsible
 
-A `Collapsible` component is a container that allows toggling the display of its content. It renders a `<div>` element.
+A `Collapsible` component is a container that allows toggling the display of its content.
+
+## Installation
+
+```jsx isStatic
+import { Collapsible, useCollapsible } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -28,14 +34,28 @@ function Example() {
 }
 ```
 
-## Installation
+## State
 
-```sh isStatic
-yarn add @vtex/admin-ui
-```
+For convenience, we provide a hook that already implements the state logic for you. It can be very handy if you have a group of collapsible and want to handle the states of each one. You should pass the hook return to the `state` property.
 
-```jsx isStatic
-import { Collapsible, useCollapsible } from '@vtex/admin-ui'
+This hook is extracted directly from `reakit/disclosure` with the same props. You can check [Reakit docs](https://reakit.io/docs/disclosure/#usedisclosurestate) for detailed info
+
+```jsx
+function Example() {
+  const collapsibleState = useCollapsible()
+
+  return (
+    <Collapsible state={collapsibleState} csx={{ width: 500 }}>
+      <Collapsible.Header label="State Logic" />
+      <Collapsible.Content>
+        It’s all about being ready to grow and reach new levels. Have a solid
+        foundation, modular thinking and flexible essence, and you’re building
+        for scale. We are global but we’re audacious enough to aim for the
+        stars.
+      </Collapsible.Content>
+    </Collapsible>
+  )
+}
 ```
 
 ## Variation
@@ -135,62 +155,41 @@ It represents a set of `buttons` and it's always located on the right side of th
 
 As the name already says, it represents the `content` of the collapsible. It renders a `<section>` and can be `hidden` or `visible`.
 
-## State
-
-### useCollapsible hook
-
-For convenience, we provide a hook that already implements the state logic for you. It can be very handy if you have a group of collapsible and want to handle the states of each one. You should pass the hook return to the `state` property.
-
-This hook is extracted directly from `reakit/disclosure` with the same props. You can check [Reakit docs](https://reakit.io/docs/disclosure/#usedisclosurestate) for detailed info
-
-### Example
-
-```jsx
-function Example() {
-  const collapsibleState = useCollapsible()
-
-  return (
-    <Collapsible state={collapsibleState} csx={{ width: 500 }}>
-      <Collapsible.Header label="State Logic" />
-      <Collapsible.Content>
-        It’s all about being ready to grow and reach new levels. Have a solid
-        foundation, modular thinking and flexible essence, and you’re building
-        for scale. We are global but we’re audacious enough to aim for the
-        stars.
-      </Collapsible.Content>
-    </Collapsible>
-  )
-}
-```
-
-## Customization
-
-You can use the [csx](/theming/inline-styles/#styles--csx) property to handle different styles. The `Collapsible` and its composites accepts this property.
-
-### Example
-
-```jsx
-function Example() {
-  const collapsibleState = useCollapsible()
-
-  return (
-    <Collapsible state={collapsibleState} csx={{ width: 500, margin: 3 }}>
-      <Collapsible.Header
-        label="Customization"
-        csx={{ bg: 'light.secondary' }}
-      />
-      <Collapsible.Content csx={{ color: 'blue' }}>
-        <Paragraph>Text with blue color!</Paragraph>
-      </Collapsible.Content>
-    </Collapsible>
-  )
-}
-```
-
 ## Props
 
-<propdetails heading="Collapsible" component="Collapsible"></propdetails>
+| Name      | Type          | Description                                                                                                                                           | Required | Default |
+| --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| state     | `State`       | Component state                                                                                                                                       | ✅       | -       |
+| csx       | `StyleObject` | Custom styles                                                                                                                                         | 🚫       | {}      |
+| focusable | `booelan`     | When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set | 🚫       | true    |
+| disabled  | `boolean`     | Same as the HTML attribute                                                                                                                            | 🚫       | false   |
+| children  | `ReactNode`   | Collapsible children                                                                                                                                  | 🚫       | -       |
 
-<propdetails heading="Collapsible.Header" component="Header"></propdetails>
+### Collapsible.Header Props
 
-<propdetails heading="Collapsible.Content" component="Content"></propdetails>
+| Name     | Type          | Description                | Required | Default |
+| -------- | ------------- | -------------------------- | -------- | ------- |
+| csx      | `StyleObject` | Custom styles              | 🚫       | {}      |
+| label    | `ReactNode`   | Toggle button label        | 🚫       | -       |
+| children | `ReactNode`   | CollapsibleHeader children | 🚫       | -       |
+
+### Collapsible.Content Props
+
+| Name     | Type          | Description                 | Required | Default |
+| -------- | ------------- | --------------------------- | -------- | ------- |
+| csx      | `StyleObject` | Custom styles               | 🚫       | {}      |
+| children | `ReactNode`   | CollapsibleContent children | 🚫       | -       |
+
+### State
+
+| Name    | Type         | Description                                        |
+| ------- | ------------ | -------------------------------------------------- |
+| visible | `booelan`    | Whether the content is visible or not                                |
+| baseId  | `string`     | ID that will serve as a base for all the items IDs |
+| toggle  | `() => void` | Toggles the visible state                          |
+
+### useCollapsible params
+
+| Name    | Type      | Description        | Required | Default |
+| ------- | --------- | ------------------ | -------- | ------- |
+| visible | `boolean` | Whether is visible | 🚫       | false   |

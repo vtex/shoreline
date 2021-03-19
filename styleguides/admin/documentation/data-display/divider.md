@@ -1,25 +1,21 @@
 ---
-path: /divider/
+path: /data-display/divider/
 ---
 
 # Divider
 
 It renders an `hr` element and grants accessibility described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator).
 
+## Import
+
+```jsx isStatic
+import { Divider } from '@vtex/admin-ui'
+```
+
 ## Behavior
 
 ```jsx
 <Divider />
-```
-
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Divider } from '@vtex/admin-ui'
 ```
 
 ## Variation
@@ -29,7 +25,7 @@ import { Divider } from '@vtex/admin-ui'
 By default, the orientation property has a `horizontal` value.
 
 ```jsx
-<Card width={500}>
+<Card csx={{ width: 500 }}>
   <Set orientation="vertical" spacing={2}>
     <Heading>Tolerance</Heading>
     <Paragraph csx={{ color: 'mid.primary' }}>
@@ -37,7 +33,9 @@ By default, the orientation property has a `horizontal` value.
       limit. Tolerance is set per account.
     </Paragraph>
   </Set>
-  <Divider marginY={6} />
+
+  <Divider csx={{ marginY: 6 }} />
+
   <Set orientation="vertical" spacing={2}>
     <Heading>Automatic account creation</Heading>
     <Paragraph csx={{ color: 'mid.primary' }}>
@@ -52,7 +50,7 @@ By default, the orientation property has a `horizontal` value.
 The orientation property can also have a `vertical` value.
 
 ```jsx
-<Card width={600}>
+<Card csx={{ width: 600 }}>
   <Columns>
     <Columns.Item>
       <Heading>Cards</Heading>
@@ -75,18 +73,9 @@ The orientation property can also have a `vertical` value.
 </Card>
 ```
 
-## Customization
-
-You can use the [csx](/theming/inline-styles/#styles--csx) property to handle different styles, and also [Space Style Props](/theming/css-props/#spacing).
-
-### Example
-
-For example, you can customize the Divider `margin` and `color`. One way to do this is by using `csx`, check the example below!
-
-```jsx
-<Divider csx={{ margin: 6, borderColor: 'dark.primary' }} />
-```
-
 ## Props
 
-<proptypes heading="Divider" component="Divider"/>
+| Name        | Type          | Description   | Required            | Default |
+| ----------- | ------------- | ------------- | ------------------- | ------- | ------------ |
+| csx         | `StyleObject` | Custom styles | 🚫                  | {}      |
+| orientation | `'horizontal' | 'vertical'`   | Divider orientation | 🚫      | 'horizontal' |

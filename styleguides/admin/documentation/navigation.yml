@@ -20,7 +20,20 @@
     - /primitives/box/
     - /primitives/flex/
     - /primitives/grid/
-    - /primitives/skeleton/
+- section: Feedback
+  paths:
+    - /feedback/alert/
+    - /feedback/spinner/
+    - /feedback/skeleton/
+- section: Data display
+  paths:
+    - /data-display/card/
+    - /data-display/collapsible-group/
+    - /data-display/collapsible/
+    - /data-display/divider/
+    - /data-display/table/
+    - /data-display/tag/
+    - /data-display/visually-hidden/
 - section: Layouts
   paths:
     - /layouts/introduction/
@@ -36,21 +49,12 @@
     - /typography/text/
 - section: Components
   paths:
-    - /alert/
     - /avatar/
     - /button/
-    - /card/
-    - /collapsible-group/
-    - /collapsible/
-    - /divider/
     - /menu/
     - /modal/
-    - /table/
     - /tabs/
-    - /tag/
     - /tooltip/
-    - /spinner/
-    - /visually-hidden/
 - section: Forms
   paths:
     - /form/checkbox-group/

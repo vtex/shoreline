@@ -1,10 +1,16 @@
 ---
-path: /visually-hidden/
+path: /data-display/visually-hidden/
 ---
 
 # VisuallyHidden
 
 VisuallyHidden is a common technique used in web accessibility to hide content from the visual client, but keep it readable for screen readers.
+
+## Import
+
+```jsx isStatic
+import { VisuallyHidden } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -20,16 +26,8 @@ VisuallyHidden is a common technique used in web accessibility to hide content f
 </Box>
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { VisuallyHidden } from '@vtex/admin-ui'
-```
-
 ## Props
 
-<proptypes heading="VisuallyHidden" component="VisuallyHidden">
+| Name     | Type        | Description             | Required | Default |
+| -------- | ----------- | ----------------------- | -------- | ------- |
+| children | `ReactNode` | VisuallyHidden children |
