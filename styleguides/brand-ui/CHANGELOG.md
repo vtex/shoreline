@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.41.0...@vtex/brand-ui@0.42.0) (2021-03-19)
+
+
+### Features
+
+* **jsx:** export jsx from theme-ui ([9ad3d92](https://github.com/vtex/onda/commit/9ad3d92c4a9d082a0f721eb479484ac7190699fd))
+
+
+
+
+
 # [0.41.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.40.0...@vtex/brand-ui@0.41.0) (2021-03-19)
 
 
