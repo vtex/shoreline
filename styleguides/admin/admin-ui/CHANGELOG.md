@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.84.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3) (2021-03-19)
+
+
+### Bug Fixes
+
+* **numericstepper:** modifies NumericStepper to reflect external changes in value ([832fb27](https://github.com/vtex/onda/commit/832fb2743c56990b96334e74452750c4578516e3)), closes [#514](https://github.com/vtex/onda/issues/514)
+
+
+
+
+
 ## [0.84.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.1...@vtex/admin-ui@0.84.2) (2021-03-16)
 
 **Note:** Version bump only for package @vtex/admin-ui
