@@ -8,7 +8,7 @@ import { Set } from '../../Set'
  * or bottom of its parent.
  */
 export function SidebarCorner(props: SidebarCornerProps) {
-  const { children, scope } = props
+  const { children, scope, setShowCollapseButton } = props
 
   return (
     <Set spacing={1} orientation="vertical" role="menubar">
@@ -16,7 +16,8 @@ export function SidebarCorner(props: SidebarCornerProps) {
         Children.map(
           children,
           (child, index) =>
-            isElement(child) && cloneElement(child, { scope, index })
+            isElement(child) &&
+            cloneElement(child, { scope, index, setShowCollapseButton })
         )}
     </Set>
   )

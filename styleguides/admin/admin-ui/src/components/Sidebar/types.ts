@@ -23,6 +23,8 @@ export interface SidebarSecretProps extends Omit<SystemComponent, 'children'> {
    *  @internal
    */
   scope?: CornerScope
+  showCollapseButton?: boolean
+  setShowCollapseButton?: (showCollapseButton: boolean) => void
 }
 
 export type AnchorDirection = 'left' | 'right'

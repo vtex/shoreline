@@ -57,6 +57,42 @@ const _SidebarSection = forwardRef(function SidebarSection(
 })
 
 export const SidebarSection = Object.assign(_SidebarSection, {
+  /**
+   * The last node of the sidebar tree. This is where clients
+   * will interact most to perform actions.
+   *
+   * @example
+   * ```jsx
+   * import { Sidebar } from `@vtex/admin-ui`
+   *
+   * <Sidebar>
+   *    <Sidebar.Header>
+   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/promotions" })}>
+   *       <Sidebar.Item.Section title={"Promotions"}>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/promotions" })}>
+   *         Promotions
+   *        </Sidebar.Item.Section.Item>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/discounts"})} >
+   *         Discounts
+   *        </Sidebar.Item.Section.Item>
+   *       </Sidebar.Item.Section>
+   *      </Sidebar.Item>
+   *    </Sidebar.Header>
+   *    <Sidebar.Footer>
+   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/apps" })}>
+   *       <Sidebar.Item.Section title={"Apps"}>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps" })}>
+   *         Installed apps
+   *        </Sidebar.Item.Section.Item>
+   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps-store"})} >
+   *         Apps store
+   *        </Sidebar.Item.Section.Item>
+   *       </Sidebar.Item.Section>
+   *      </Sidebar.Item>
+   *    </Sidebar.Footer>
+   * </Sidebar>
+   * ```
+   */
   Item: SidebarSectionItem,
 })
 
