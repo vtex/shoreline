@@ -44,7 +44,7 @@ const warning = {
 
 const info = {
   ...styles,
-  bg: lightness('blue.secondary.default', 0.94),
+  bg: 'light.secondary',
   borderColor: 'blue.secondary',
 }
 

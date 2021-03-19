@@ -6,6 +6,7 @@ import { Set } from '../Set'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { IconWarningCircle } from '@vtex/admin-ui-icons'
+import { Anchor } from '../Anchor'
 
 export default {
   title: 'admin-ui/Alert',
@@ -20,7 +21,6 @@ Playground.args = {
   children: 'Order successfully placed',
   visible: true,
   csx: {},
-  actions: { primary: { label: 'Print' }, tertiary: { label: 'Cancel' } },
   onDismiss: () => {},
 }
 
@@ -28,7 +28,8 @@ export function Types() {
   return (
     <Set orientation="vertical" fluid>
       <Alert type="info" visible>
-        Order successfully placed
+        Order successfully placed{' '}
+        <Anchor csx={{ cursor: 'pointer' }}>Heyyyy</Anchor>
       </Alert>
       <Alert type="success" visible>
         Order successfully placed
@@ -46,30 +47,11 @@ export function Types() {
 export function Actions() {
   return (
     <Set orientation="vertical" fluid>
-      <Alert
-        type="success"
-        actions={{
-          primary: {
-            label: 'Print',
-          },
-        }}
-        visible
-      >
+      <Alert type="success" visible>
         Order successfully placed
       </Alert>
 
-      <Alert
-        type="error"
-        actions={{
-          primary: {
-            label: 'try again',
-          },
-          tertiary: {
-            label: 'cancel',
-          },
-        }}
-        visible
-      >
+      <Alert type="error" visible>
         Order successfully placed
       </Alert>
     </Set>
@@ -85,19 +67,7 @@ export function Visible() {
   return (
     <Box>
       <Button onClick={handleToggle}>Toggle</Button>
-      <Alert
-        visible={visible}
-        onDismiss={handleDismiss}
-        actions={{
-          primary: {
-            label: 'Print',
-          },
-          tertiary: {
-            label: 'Cancel',
-            onClick: handleDismiss,
-          },
-        }}
-      >
+      <Alert visible={visible} onDismiss={handleDismiss}>
         This account is inactive. Check your billing for more information.
       </Alert>
     </Box>
@@ -122,20 +92,7 @@ export function Fluid() {
 
 export function Sticky() {
   return (
-    <Alert
-      onDismiss={() => {}}
-      type="success"
-      actions={{
-        primary: {
-          label: 'try again',
-        },
-        tertiary: {
-          label: 'cancel',
-        },
-      }}
-      visible
-      sticky
-    >
+    <Alert onDismiss={() => {}} type="success" visible sticky>
       Order successfully placed
     </Alert>
   )

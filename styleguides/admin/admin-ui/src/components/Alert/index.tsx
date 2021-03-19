@@ -14,7 +14,7 @@ import {
 
 import { SystemComponent } from '../../types'
 import { Box } from '@vtex/admin-primitives'
-import { Button, ButtonProps } from '../Button'
+import { Button } from '../Button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
 import { Flex } from '@vtex/admin-primitives'
@@ -26,7 +26,6 @@ export const Alert = forwardRef(
   (props: AlertProps, ref: Ref<HTMLDivElement>) => {
     const {
       children,
-      actions,
       onDismiss,
       csx,
       DefaultIcon,
@@ -50,45 +49,16 @@ export const Alert = forwardRef(
           </Flex>
           <Paragraph>{children}</Paragraph>
         </Set>
-        <Set
-          spacing={3}
-          csx={{
-            alignItems: responsiveFluid ? 'flex-start' : 'center',
-          }}
-        >
-          {actions?.tertiary && (
-            <Button
-              size="small"
-              variant="tertiary"
-              onClick={actions.tertiary.onClick}
-            >
-              {actions.tertiary?.label}
-            </Button>
-          )}
-          {actions?.secondary && (
-            <Button
-              size="small"
-              variant="secondary"
-              onClick={actions.secondary.onClick}
-            >
-              {actions.secondary?.label}
-            </Button>
-          )}
-          {actions?.primary && (
-            <Button size="small" onClick={actions.primary.onClick}>
-              {actions.primary?.label}
-            </Button>
-          )}
-          {onDismiss && (
-            <Button
-              size="small"
-              variant="adaptative-dark"
-              icon={<IconClose />}
-              csx={{ color: 'dark.primary' }}
-              onClick={onDismiss}
-            />
-          )}
-        </Set>
+
+        {onDismiss && (
+          <Button
+            size="small"
+            variant="adaptative-dark"
+            icon={<IconClose />}
+            csx={{ color: 'dark.primary' }}
+            onClick={onDismiss}
+          />
+        )}
       </Box>
     )
   }
@@ -101,7 +71,6 @@ export function useAlert(props: AlertProps) {
     visible = false,
     sticky = false,
     children,
-    actions,
     onDismiss,
     csx = {},
     ...htmlProps
@@ -143,34 +112,13 @@ export function useAlert(props: AlertProps) {
     responsiveFluid,
     themeKey,
     children,
-    actions,
     onDismiss,
     csx,
     ...htmlProps,
   }
 }
-export interface AlertActionProps extends Pick<ButtonProps, 'onClick'> {
-  label: ReactNode
-}
 
 export interface AlertProps extends SystemComponent {
-  /**
-   * possible actions
-   */
-  actions?: {
-    /**
-     * primary action
-     */
-    primary?: AlertActionProps
-    /**
-     * secondary action
-     */
-    secondary?: AlertActionProps
-    /**
-     * tertiary action
-     */
-    tertiary?: AlertActionProps
-  }
   /**
    * Alert Icon
    */
