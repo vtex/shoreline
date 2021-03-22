@@ -95,6 +95,7 @@ exports[`Search tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   width: 100%;
   height: 48px;
@@ -308,6 +309,7 @@ exports[`Search tests should match snapshot on loading 1`] = `
 }
 
 .emotion-3 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   width: 100%;
   height: 48px;

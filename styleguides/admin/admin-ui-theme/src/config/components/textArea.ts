@@ -1,6 +1,7 @@
 import { colors } from '../base'
 
 const textAreaInputStyle = {
+  fontFamily: 'sans',
   paddingTop: 24,
   height: 100,
   resize: 'none',

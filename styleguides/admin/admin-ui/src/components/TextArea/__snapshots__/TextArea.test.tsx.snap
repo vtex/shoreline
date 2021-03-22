@@ -57,6 +57,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   padding-top: 24px;
   height: 100px;
   resize: none;
@@ -190,6 +191,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   padding-top: 24px;
   height: 100px;
   resize: none;
@@ -301,6 +303,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   padding-top: 24px;
   height: 100px;
   resize: none;
@@ -479,6 +482,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   padding-top: 24px;
   height: 100px;
   resize: none;
@@ -602,6 +606,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   padding-top: 24px;
   height: 100px;
   resize: none;
