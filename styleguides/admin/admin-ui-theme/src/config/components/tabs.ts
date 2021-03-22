@@ -1,5 +1,6 @@
 export const tab = {
   styles: {
+    fontFamily: 'sans',
     fontSettings: 'regular',
     border: 'none',
     borderRadius: 'default',
