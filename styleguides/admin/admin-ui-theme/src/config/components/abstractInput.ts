@@ -3,6 +3,7 @@ import { merge } from '@vtex/admin-ui-system'
 import { colors } from '../base'
 
 const inputStyle = {
+  fontFamily: 'sans',
   fontSettings: 'regular',
   width: 'full',
   height: 48,

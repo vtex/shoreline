@@ -139,6 +139,7 @@ const mobileLabelSelectedItem = {
 }
 
 const mobileSelect = {
+  fontFamilly: 'sans',
   color: 'dark.primary',
   outline: 'none',
   fontSize: 1,

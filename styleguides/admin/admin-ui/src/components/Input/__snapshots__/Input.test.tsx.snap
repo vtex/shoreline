@@ -41,6 +41,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   width: 100%;
   height: 48px;
@@ -176,6 +177,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   width: 100%;
   height: 48px;
@@ -320,6 +322,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   width: 100%;
   height: 48px;
@@ -466,6 +469,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   width: 100%;
   height: 48px;
@@ -616,6 +620,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   width: 100%;
   height: 48px;
@@ -762,6 +767,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   width: 100%;
   height: 48px;
@@ -984,6 +990,7 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   width: 100%;
   height: 48px;
