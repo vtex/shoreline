@@ -79,7 +79,7 @@ function Example() {
 
 ### Action
 
-You can easily add action into `Alert` using the `Anchor` component.
+You can easily add an action into any `Alert` using the `Anchor` component.
 
 ```jsx
 function Example() {
