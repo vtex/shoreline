@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.2...@vtex/admin-ui-theme@0.21.0) (2021-03-22)
+
+
+### Features
+
+* **alert:** icons are no longer related to alert type ([f68beb6](https://github.com/vtex/onda/commit/f68beb6eb8f62cf73fa1df6e4eaa8cfdad964ce6))
+* **alert:** remove actions property ([2b87a0c](https://github.com/vtex/onda/commit/2b87a0cb4b00589463a163e1bb486542ce417ee5))
+
+
+
+
+
 ## [0.20.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2) (2021-03-22)
 
 
