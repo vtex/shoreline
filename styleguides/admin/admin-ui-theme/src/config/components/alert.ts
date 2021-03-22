@@ -16,6 +16,9 @@ const styles = {
   transition: 'pop',
   borderStyle: 'solid',
   borderWidth: 1,
+  a: {
+    fontSettings: 'medium',
+  },
 }
 
 const visible = {

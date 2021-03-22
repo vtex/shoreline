@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
 import { Meta, Story } from '@storybook/react'
+import {
+  IconWarningColorful,
+  IconSuccessColorful,
+  IconErrorColorful,
+  IconHelp,
+} from '@vtex/admin-ui-icons'
 
 import { Alert, AlertProps } from './index'
 import { Set } from '../Set'
@@ -27,17 +33,16 @@ Playground.args = {
 export function Types() {
   return (
     <Set orientation="vertical" fluid>
-      <Alert type="info" visible>
-        Order successfully placed{' '}
-        <Anchor csx={{ cursor: 'pointer' }}>Heyyyy</Anchor>
-      </Alert>
-      <Alert type="success" visible>
+      <Alert type="info" icon={<IconHelp />} visible>
         Order successfully placed
       </Alert>
-      <Alert type="warning" visible>
+      <Alert type="success" icon={<IconSuccessColorful />} visible>
+        Order successfully placed
+      </Alert>
+      <Alert type="warning" icon={<IconWarningColorful />} visible>
         This account is inactive. Check your billing for more information.
       </Alert>
-      <Alert type="error" visible>
+      <Alert type="error" icon={<IconErrorColorful />} visible>
         Somenthing went wrong. Please, try again.
       </Alert>
     </Set>
@@ -48,11 +53,12 @@ export function Actions() {
   return (
     <Set orientation="vertical" fluid>
       <Alert type="success" visible>
-        Order successfully placed
+        Order successfully placed <Anchor>See order</Anchor>
       </Alert>
 
-      <Alert type="error" visible>
-        Order successfully placed
+      <Alert visible onDismiss={() => {}}>
+        You’re beta testing the new Order Details{' '}
+        <Anchor>Back to the old version</Anchor>
       </Alert>
     </Set>
   )

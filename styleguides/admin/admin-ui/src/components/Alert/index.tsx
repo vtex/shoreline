@@ -1,11 +1,5 @@
 import React, { ReactNode, forwardRef, Ref } from 'react'
-import {
-  IconWarningColorful,
-  IconSuccessColorful,
-  IconErrorColorful,
-  IconClose,
-  IconHelp,
-} from '@vtex/admin-ui-icons'
+import { IconClose } from '@vtex/admin-ui-icons'
 import {
   inlineVariant,
   useResponsiveValue,
@@ -28,10 +22,10 @@ export const Alert = forwardRef(
       children,
       onDismiss,
       csx,
-      DefaultIcon,
       iconContainerStyles,
       responsiveFluid,
       themeKey,
+      icon,
       ...htmlProps
     } = useAlert(props)
 
@@ -44,9 +38,11 @@ export const Alert = forwardRef(
             marginRight: 3,
           }}
         >
-          <Flex align="center" csx={iconContainerStyles}>
-            {props.icon ?? <DefaultIcon />}
-          </Flex>
+          {icon && (
+            <Flex align="center" csx={iconContainerStyles}>
+              {icon}
+            </Flex>
+          )}
           <Paragraph>{children}</Paragraph>
         </Set>
 
@@ -73,6 +69,7 @@ export function useAlert(props: AlertProps) {
     children,
     onDismiss,
     csx = {},
+    icon,
     ...htmlProps
   } = props
 
@@ -83,13 +80,6 @@ export function useAlert(props: AlertProps) {
     [responsiveFluid, '-fluid'],
     [sticky, '-sticky'],
   ])
-
-  const DefaultIcon = {
-    warning: IconWarningColorful,
-    success: IconSuccessColorful,
-    error: IconErrorColorful,
-    info: IconHelp,
-  }[type]
 
   const iconContainerStyles = {
     warning: {
@@ -107,12 +97,12 @@ export function useAlert(props: AlertProps) {
   }[type]
 
   return {
-    DefaultIcon,
     iconContainerStyles,
     responsiveFluid,
     themeKey,
     children,
     onDismiss,
+    icon,
     csx,
     ...htmlProps,
   }

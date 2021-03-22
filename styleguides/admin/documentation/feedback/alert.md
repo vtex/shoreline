@@ -77,9 +77,9 @@ function Example() {
 }
 ```
 
-### Actions
+### Action
 
-The Alert can have action buttons that handle the interactions with the component. There are three main actions: `primary`, `secondary`, and `tertiary`.
+You can easily add action into `Alert` using the `Anchor` component.
 
 ```jsx
 function Example() {
@@ -89,21 +89,8 @@ function Example() {
 
   return (
     <Set spacing={2} orientation="vertical" fluid>
-      <Alert
-        visible
-        actions={{
-          primary: { label: 'Primary Action', onClick: handlePrimaryAction },
-          secondary: {
-            label: 'Secondary Action',
-            onClick: handleSecondaryAction,
-          },
-          tertiary: {
-            label: 'Tertiary Action',
-            onClick: handleTertiaryAction,
-          },
-        }}
-      >
-        Alert with Actions
+      <Alert type="success" icon={<IconSuccessColorful />} visible>
+        Order successfully placed <Anchor>See order.</Anchor>
       </Alert>
     </Set>
   )
@@ -161,24 +148,24 @@ function Example() {
 }
 ```
 
-### Custom Icon
+### With Icon
 
-You can add a custom Icon on the left side of the `Alert`. Just use the `icon` property.
+You can add an icon on the left side of the `Alert`. Just use the `icon` property.
 
 ```jsx
 function Example() {
   return (
     <Set spacing={2} orientation="vertical" fluid>
-      <Alert visible type="info" icon={<IconHelpCenter />}>
+      <Alert type="info" icon={<IconHelp />} visible>
         Info Alert
       </Alert>
-      <Alert visible type="success" icon={<IconWhatsNew />}>
+      <Alert type="success" icon={<IconSuccessColorful />} visible>
         Success Alert
       </Alert>
-      <Alert visible type="warning" icon={<IconWarningTriangle />}>
+      <Alert type="warning" icon={<IconWarningColorful />} visible>
         Warning Alert
       </Alert>
-      <Alert visible type="error" icon={<IconRefresh />}>
+      <Alert type="error" icon={<IconErrorColorful />} visible>
         Error Alert
       </Alert>
     </Set>
@@ -191,26 +178,10 @@ function Example() {
 | Name      | Type                  | Description                   | Required  | Default             |
 | --------- | --------------------- | ----------------------------- | --------- | ------------------- | --------------- | --- | ------- |
 | csx       | `StyleObject`         | Custom styles                 | 🚫        | {}                  |
-| actions   | `Actions`             | Possible actions              | 🚫        | -                   |
 | icon      | `ReactNode`           | Icon to display               | 🚫        | -                   |
 | onDismiss | `() => void`          | Action to dispatch on dismiss | 🚫        | -                   |
-| visible   | `boolean`             | Whether it's visible or not           | 🚫        | false               |
+| visible   | `boolean`             | Whether it's visible or not   | 🚫        | false               |
 | type      | `'error'              | 'success'                     | 'warning' | 'info'`             | Icon to display | 🚫  | warning |
 | children  | `ReactNode`           | Component children            | 🚫        | -                   |
-| sticky    | `boolean`             | Whether it's sticky or not  | 🚫        | false               |
+| sticky    | `boolean`             | Whether it's sticky or not    | 🚫        | false               |
 | fluid     | `Responsive<boolean>` | Whether the height is fluid   | 🚫        | [true, true, false] |
-
-### Actions
-
-| Name      | Type     | Description      | Required | Default |
-| --------- | -------- | ---------------- | -------- | ------- |
-| primary   | `Action` | Primary action   | 🚫       | -       |
-| secondary | `Action` | Secondary action | 🚫       | -       |
-| tertiary  | `Action` | Tertiary action  | 🚫       | -       |
-
-### Action
-
-| Name    | Type                 | Description                | Required | Default |
-| ------- | -------------------- | -------------------------- | -------- | ------- |
-| label   | `string`             | Action text                | ✅       | -       |
-| onClick | `(e: Event) => void` | Action to perform on click | 🚫       | -       |
