@@ -44,28 +44,6 @@ exports[`Alert tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: start;
-  justify-content: start;
-}
-
-.emotion-4 >*:not(:first-child) {
-  margin-left: 0.75rem;
-}
-
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -94,6 +72,10 @@ exports[`Alert tests should match snapshot 1`] = `
   border-color: #CEE8DE;
 }
 
+.emotion-4 a {
+  font-variation-settings: 'wght' 120;
+}
+
 .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -107,7 +89,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-5"
+    class="emotion-4"
   >
     <div
       class="emotion-3"
@@ -141,9 +123,6 @@ exports[`Alert tests should match snapshot 1`] = `
         Order successfully placed
       </p>
     </div>
-    <div
-      class="emotion-4"
-    />
   </div>
   .emotion-3 {
   display: -webkit-box;
@@ -187,28 +166,6 @@ exports[`Alert tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: start;
-  justify-content: start;
-}
-
-.emotion-4 >*:not(:first-child) {
-  margin-left: 0.75rem;
-}
-
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -237,6 +194,10 @@ exports[`Alert tests should match snapshot 1`] = `
   border-color: #F6E0BA;
 }
 
+.emotion-4 a {
+  font-variation-settings: 'wght' 120;
+}
+
 .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -250,7 +211,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-5"
+    class="emotion-4"
   >
     <div
       class="emotion-3"
@@ -291,9 +252,6 @@ exports[`Alert tests should match snapshot 1`] = `
         This account is inactive. Check your billing for more information.
       </p>
     </div>
-    <div
-      class="emotion-4"
-    />
   </div>
   .emotion-3 {
   display: -webkit-box;
@@ -337,28 +295,6 @@ exports[`Alert tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: start;
-  justify-content: start;
-}
-
-.emotion-4 >*:not(:first-child) {
-  margin-left: 0.75rem;
-}
-
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -387,6 +323,10 @@ exports[`Alert tests should match snapshot 1`] = `
   border-color: #FEDADA;
 }
 
+.emotion-4 a {
+  font-variation-settings: 'wght' 120;
+}
+
 .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -400,7 +340,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-5"
+    class="emotion-4"
   >
     <div
       class="emotion-3"
@@ -441,9 +381,6 @@ exports[`Alert tests should match snapshot 1`] = `
         Somenthing went wrong. Please, try again.
       </p>
     </div>
-    <div
-      class="emotion-4"
-    />
   </div>
 </DocumentFragment>
 `;

@@ -7,6 +7,7 @@ exports[`Anchor tests should match snapshot 1`] = `
   color: #2953B2;
   -webkit-text-decoration: none;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .emotion-0:active {
@@ -32,6 +33,7 @@ exports[`Anchor tests should match snapshot 1`] = `
   color: #2953B2;
   -webkit-text-decoration: none;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .emotion-0:active {
@@ -57,6 +59,7 @@ exports[`Anchor tests should match snapshot 1`] = `
   color: #2953B2;
   -webkit-text-decoration: none;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .emotion-0:active {
@@ -82,6 +85,7 @@ exports[`Anchor tests should match snapshot 1`] = `
   color: #2953B2;
   -webkit-text-decoration: none;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .emotion-0:active {
