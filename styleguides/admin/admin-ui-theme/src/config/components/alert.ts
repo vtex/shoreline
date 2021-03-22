@@ -4,7 +4,7 @@ const styles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  height: 56,
+  height: 48,
   paddingY: 3,
   paddingLeft: 4,
   paddingRight: 3,
@@ -16,6 +16,9 @@ const styles = {
   transition: 'pop',
   borderStyle: 'solid',
   borderWidth: 1,
+  a: {
+    fontSettings: 'medium',
+  },
 }
 
 const visible = {
@@ -44,7 +47,7 @@ const warning = {
 
 const info = {
   ...styles,
-  bg: lightness('blue.secondary.default', 0.94),
+  bg: 'light.secondary',
   borderColor: 'blue.secondary',
 }
 

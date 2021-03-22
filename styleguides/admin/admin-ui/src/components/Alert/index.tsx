@@ -1,11 +1,5 @@
 import React, { ReactNode, forwardRef, Ref } from 'react'
-import {
-  IconWarningColorful,
-  IconSuccessColorful,
-  IconErrorColorful,
-  IconClose,
-  IconHelp,
-} from '@vtex/admin-ui-icons'
+import { IconClose } from '@vtex/admin-ui-icons'
 import {
   inlineVariant,
   useResponsiveValue,
@@ -14,7 +8,7 @@ import {
 
 import { SystemComponent } from '../../types'
 import { Box } from '@vtex/admin-primitives'
-import { Button, ButtonProps } from '../Button'
+import { Button } from '../Button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
 import { Flex } from '@vtex/admin-primitives'
@@ -26,13 +20,12 @@ export const Alert = forwardRef(
   (props: AlertProps, ref: Ref<HTMLDivElement>) => {
     const {
       children,
-      actions,
       onDismiss,
       csx,
-      DefaultIcon,
       iconContainerStyles,
       responsiveFluid,
       themeKey,
+      icon,
       ...htmlProps
     } = useAlert(props)
 
@@ -45,50 +38,23 @@ export const Alert = forwardRef(
             marginRight: 3,
           }}
         >
-          <Flex align="center" csx={iconContainerStyles}>
-            {props.icon ?? <DefaultIcon />}
-          </Flex>
+          {icon && (
+            <Flex align="center" csx={iconContainerStyles}>
+              {icon}
+            </Flex>
+          )}
           <Paragraph>{children}</Paragraph>
         </Set>
-        <Set
-          spacing={3}
-          csx={{
-            alignItems: responsiveFluid ? 'flex-start' : 'center',
-          }}
-        >
-          {actions?.tertiary && (
-            <Button
-              size="small"
-              variant="tertiary"
-              onClick={actions.tertiary.onClick}
-            >
-              {actions.tertiary?.label}
-            </Button>
-          )}
-          {actions?.secondary && (
-            <Button
-              size="small"
-              variant="secondary"
-              onClick={actions.secondary.onClick}
-            >
-              {actions.secondary?.label}
-            </Button>
-          )}
-          {actions?.primary && (
-            <Button size="small" onClick={actions.primary.onClick}>
-              {actions.primary?.label}
-            </Button>
-          )}
-          {onDismiss && (
-            <Button
-              size="small"
-              variant="adaptative-dark"
-              icon={<IconClose />}
-              csx={{ color: 'dark.primary' }}
-              onClick={onDismiss}
-            />
-          )}
-        </Set>
+
+        {onDismiss && (
+          <Button
+            size="small"
+            variant="adaptative-dark"
+            icon={<IconClose />}
+            csx={{ color: 'dark.primary' }}
+            onClick={onDismiss}
+          />
+        )}
       </Box>
     )
   }
@@ -101,9 +67,9 @@ export function useAlert(props: AlertProps) {
     visible = false,
     sticky = false,
     children,
-    actions,
     onDismiss,
     csx = {},
+    icon,
     ...htmlProps
   } = props
 
@@ -114,13 +80,6 @@ export function useAlert(props: AlertProps) {
     [responsiveFluid, '-fluid'],
     [sticky, '-sticky'],
   ])
-
-  const DefaultIcon = {
-    warning: IconWarningColorful,
-    success: IconSuccessColorful,
-    error: IconErrorColorful,
-    info: IconHelp,
-  }[type]
 
   const iconContainerStyles = {
     warning: {
@@ -138,39 +97,18 @@ export function useAlert(props: AlertProps) {
   }[type]
 
   return {
-    DefaultIcon,
     iconContainerStyles,
     responsiveFluid,
     themeKey,
     children,
-    actions,
     onDismiss,
+    icon,
     csx,
     ...htmlProps,
   }
 }
-export interface AlertActionProps extends Pick<ButtonProps, 'onClick'> {
-  label: ReactNode
-}
 
 export interface AlertProps extends SystemComponent {
-  /**
-   * possible actions
-   */
-  actions?: {
-    /**
-     * primary action
-     */
-    primary?: AlertActionProps
-    /**
-     * secondary action
-     */
-    secondary?: AlertActionProps
-    /**
-     * tertiary action
-     */
-    tertiary?: AlertActionProps
-  }
   /**
    * Alert Icon
    */

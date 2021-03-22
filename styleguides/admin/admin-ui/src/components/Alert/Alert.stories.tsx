@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 import { Meta, Story } from '@storybook/react'
+import {
+  IconWarningColorful,
+  IconSuccessColorful,
+  IconErrorColorful,
+  IconHelp,
+} from '@vtex/admin-ui-icons'
 
 import { Alert, AlertProps } from './index'
 import { Set } from '../Set'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { IconWarningCircle } from '@vtex/admin-ui-icons'
+import { Anchor } from '../Anchor'
 
 export default {
   title: 'admin-ui/Alert',
@@ -20,23 +27,22 @@ Playground.args = {
   children: 'Order successfully placed',
   visible: true,
   csx: {},
-  actions: { primary: { label: 'Print' }, tertiary: { label: 'Cancel' } },
   onDismiss: () => {},
 }
 
 export function Types() {
   return (
     <Set orientation="vertical" fluid>
-      <Alert type="info" visible>
+      <Alert type="info" icon={<IconHelp />} visible>
         Order successfully placed
       </Alert>
-      <Alert type="success" visible>
+      <Alert type="success" icon={<IconSuccessColorful />} visible>
         Order successfully placed
       </Alert>
-      <Alert type="warning" visible>
+      <Alert type="warning" icon={<IconWarningColorful />} visible>
         This account is inactive. Check your billing for more information.
       </Alert>
-      <Alert type="error" visible>
+      <Alert type="error" icon={<IconErrorColorful />} visible>
         Somenthing went wrong. Please, try again.
       </Alert>
     </Set>
@@ -46,31 +52,13 @@ export function Types() {
 export function Actions() {
   return (
     <Set orientation="vertical" fluid>
-      <Alert
-        type="success"
-        actions={{
-          primary: {
-            label: 'Print',
-          },
-        }}
-        visible
-      >
-        Order successfully placed
+      <Alert type="success" visible>
+        Order successfully placed <Anchor>See order</Anchor>
       </Alert>
 
-      <Alert
-        type="error"
-        actions={{
-          primary: {
-            label: 'try again',
-          },
-          tertiary: {
-            label: 'cancel',
-          },
-        }}
-        visible
-      >
-        Order successfully placed
+      <Alert visible onDismiss={() => {}}>
+        You’re beta testing the new Order Details{' '}
+        <Anchor>Back to the old version</Anchor>
       </Alert>
     </Set>
   )
@@ -85,19 +73,7 @@ export function Visible() {
   return (
     <Box>
       <Button onClick={handleToggle}>Toggle</Button>
-      <Alert
-        visible={visible}
-        onDismiss={handleDismiss}
-        actions={{
-          primary: {
-            label: 'Print',
-          },
-          tertiary: {
-            label: 'Cancel',
-            onClick: handleDismiss,
-          },
-        }}
-      >
+      <Alert visible={visible} onDismiss={handleDismiss}>
         This account is inactive. Check your billing for more information.
       </Alert>
     </Box>
@@ -122,20 +98,7 @@ export function Fluid() {
 
 export function Sticky() {
   return (
-    <Alert
-      onDismiss={() => {}}
-      type="success"
-      actions={{
-        primary: {
-          label: 'try again',
-        },
-        tertiary: {
-          label: 'cancel',
-        },
-      }}
-      visible
-      sticky
-    >
+    <Alert onDismiss={() => {}} type="success" visible sticky>
       Order successfully placed
     </Alert>
   )

@@ -4,6 +4,12 @@ import { axe } from 'jest-axe'
 
 import { Alert } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
+import {
+  IconErrorColorful,
+  IconInfo,
+  IconSuccessColorful,
+  IconWarningColorful,
+} from '@vtex/admin-ui-icons'
 
 describe('Alert tests', () => {
   beforeEach(() => {
@@ -29,7 +35,12 @@ describe('Alert tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <Alert data-testid="alert" visible csx={{ bg: 'coral' }} />
+        <Alert
+          data-testid="alert"
+          icon={<IconInfo />}
+          visible
+          csx={{ bg: 'coral' }}
+        />
       </ThemeProvider>
     )
 
@@ -39,13 +50,13 @@ describe('Alert tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <Alert type="success" visible>
+        <Alert type="success" icon={<IconSuccessColorful />} visible>
           Order successfully placed
         </Alert>
-        <Alert type="warning" visible>
+        <Alert type="warning" icon={<IconWarningColorful />} visible>
           This account is inactive. Check your billing for more information.
         </Alert>
-        <Alert type="error" visible>
+        <Alert type="error" icon={<IconErrorColorful />} visible>
           Somenthing went wrong. Please, try again.
         </Alert>
       </ThemeProvider>
@@ -57,13 +68,13 @@ describe('Alert tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ThemeProvider>
-        <Alert type="success" visible>
+        <Alert type="success" icon={<IconSuccessColorful />} visible>
           Order successfully placed
         </Alert>
-        <Alert type="warning" visible>
+        <Alert type="warning" icon={<IconWarningColorful />} visible>
           This account is inactive. Check your billing for more information.
         </Alert>
-        <Alert type="error" visible>
+        <Alert type="error" icon={<IconErrorColorful />} visible>
           Somenthing went wrong. Please, try again.
         </Alert>
       </ThemeProvider>
