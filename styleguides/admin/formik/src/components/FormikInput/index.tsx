@@ -1,11 +1,11 @@
 import React from 'react'
-import { useIntl } from 'react-intl'
 import { Input, InputProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
 export interface FormikInputProps extends Omit<InputProps, 'id'> {
   name: string
   id?: string
+  formatMessage?: (errorCode: string) => string
 }
 
 export const FormikInput = ({
@@ -13,9 +13,9 @@ export const FormikInput = ({
   error,
   errorMessage,
   id,
+  formatMessage,
   ...props
 }: FormikInputProps) => {
-  const { formatMessage } = useIntl()
 
   const [field, meta] = useField({ name })
 
@@ -25,8 +25,10 @@ export const FormikInput = ({
   const finalErrorMessage = error
     ? errorMessage
     : errorCode
-    ? formatMessage({ id: errorCode })
-    : undefined
+      ? formatMessage 
+        ? formatMessage(errorCode)
+        : errorCode
+      : undefined
 
   const inputProps = {
     ...field,

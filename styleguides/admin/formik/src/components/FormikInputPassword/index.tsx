@@ -1,21 +1,21 @@
 import React from 'react'
-import { useIntl } from 'react-intl'
 import { InputPassword, InputPasswordProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
 export interface FormikInputPasswordProps extends Omit<InputPasswordProps, 'id'> {
   name: string
   id?: string
+  formatMessage?: (errorCode: string) => string
 }
 
 export const FormikInputPassword = ({
   name,
   error,
   errorMessage,
+  formatMessage,
   id,
   ...props
 }: FormikInputPasswordProps) => {
-  const { formatMessage } = useIntl()
 
   const [field, meta] = useField({ name })
 
@@ -25,8 +25,10 @@ export const FormikInputPassword = ({
   const finalErrorMessage = error
     ? errorMessage
     : errorCode
-    ? formatMessage({ id: errorCode })
-    : undefined
+      ? formatMessage 
+        ? formatMessage(errorCode)
+        : errorCode
+      : undefined
 
   const inputProps = {
     ...field,

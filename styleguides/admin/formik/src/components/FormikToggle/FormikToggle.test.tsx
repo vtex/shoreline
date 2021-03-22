@@ -4,7 +4,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { ThemeProvider } from '@vtex/admin-core'
-import { IntlProvider } from 'react-intl'
+import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 import { FormikToggle } from './index'
 import { Button } from '@vtex/admin-ui';
@@ -32,21 +32,19 @@ describe('Toggle tests', () => {
 
     render( 
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            initialValues={{value: false}}
-            onSubmit={handleSubmit}
-          >
-              <Form id='form-admin-formik-input'>
-                <FormikToggle
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-          </Formik> 
-        </IntlProvider> 
+        <Formik
+          initialValues={{value: false}}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikToggle
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+            />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik> 
       </ThemeProvider>
     )
     
@@ -69,28 +67,26 @@ describe('Toggle tests', () => {
 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            initialValues={{value: false}}
-            onSubmit={handleSubmit}
-          >
-            {({ setFieldValue }) => (
-              <Form id='form-admin-formik-input'>
-                <FormikToggle
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                />
-                <Button 
-                  size='small' 
-                  children="Change Value" 
-                  onClick={()=> setFieldValue("value", false)}
-                />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-            )}
-          </Formik>
-        </IntlProvider> 
+        <Formik
+          initialValues={{value: false}}
+          onSubmit={handleSubmit}
+        >
+          {({ setFieldValue }) => (
+            <Form id='form-admin-formik-input'>
+              <FormikToggle
+                name="value"
+                data-testid="text-field"
+                label="TextField label"
+              />
+              <Button 
+                size='small' 
+                children="Change Value" 
+                onClick={()=> setFieldValue("value", false)}
+              />
+              <Button type="submit" size='small' children="Submit"/>
+            </Form>
+          )}
+        </Formik>
       </ThemeProvider>
     )
 
@@ -117,22 +113,20 @@ describe('Toggle tests', () => {
     const { rerender } = 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            enableReinitialize
-            initialValues={{value: false}}
-            onSubmit={handleSubmit}
-          >
-              <Form id='form-admin-formik-input'>
-                <FormikToggle
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-          </Formik>
-        </IntlProvider> 
+        <Formik
+          enableReinitialize
+          initialValues={{value: false}}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikToggle
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+            />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
       </ThemeProvider>
     )
 
@@ -146,22 +140,20 @@ describe('Toggle tests', () => {
     
     rerender(
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            enableReinitialize
-            initialValues={{value: true}}
-            onSubmit={handleSubmit}
-            >
-              <Form id='form-admin-formik-input'>
-                <FormikToggle
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                  />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-          </Formik>
-        </IntlProvider> 
+        <Formik
+          enableReinitialize
+          initialValues={{value: true}}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikToggle
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
       </ThemeProvider>
     )
     
@@ -171,29 +163,70 @@ describe('Toggle tests', () => {
 
   it('error in forms', async () => {
     const handleSubmit = jest.fn()
+
+    const validate = () => ({ value: 'Error message' });
+
+    render( 
+      <ThemeProvider>
+        <Formik
+          initialValues={{value: false}}
+          validate={validate}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikToggle
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+            />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
+      </ThemeProvider>
+    )
+
+    const toggle = screen.getByRole('switch')
+
+    userEvent.click(toggle)
+    await waitFor(() => expect(toggle.getAttribute("aria-checked")).toBe("true"))
+
+    expect(await screen.findByText("Error message")).not.toBeNull();
+  })
+
+  it('error in forms with intl', async () => {
     const messagesEN = {
       'admin/admin-formik.error.message': "Error message"
     }
 
-    const validate = () => ({ value: 'admin/admin-formik.error.message' });
+    const Content = () => {
+      const { formatMessage } = useIntl()
+      const handleSubmit = jest.fn()
+
+      const validate = () => ({ value: 'admin/admin-formik.error.message' });
+
+      return( 
+        <Formik
+          initialValues={{value: false}}
+          validate={validate}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikToggle
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              formatMessage={(errorCode) => formatMessage({ id: errorCode})}
+            />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
+      )
+    }
 
     render( 
       <ThemeProvider>
         <IntlProvider locale={'en'} messages={messagesEN}>
-          <Formik
-            initialValues={{value: false}}
-            validate={validate}
-            onSubmit={handleSubmit}
-          >
-              <Form id='form-admin-formik-input'>
-                <FormikToggle
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-          </Formik>
+          <Content/>
         </IntlProvider> 
       </ThemeProvider>
     )
@@ -209,21 +242,19 @@ describe('Toggle tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            enableReinitialize
-            initialValues={{value: false}}
-            onSubmit={()=>{}}
-          >
-              <Form id='form-admin-formik-input'>
-                <FormikToggle
-                  name="value"
-                  aria-label="toggle"
-                  size="regular"
-                />
-              </Form>
-          </Formik>
-        </IntlProvider>
+        <Formik
+          enableReinitialize
+          initialValues={{value: false}}
+          onSubmit={()=>{}}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikToggle
+              name="value"
+              aria-label="toggle"
+              size="regular"
+            />
+          </Form>
+        </Formik>
       </ThemeProvider>
     )
     const toggle = screen.getByRole('switch')

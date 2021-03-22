@@ -2,15 +2,14 @@ import React from 'react'
 
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-
 import { axe } from 'jest-axe'
 
 import { ThemeProvider } from '@vtex/admin-core'
-import { IntlProvider } from 'react-intl'
 import { Form, Formik } from 'formik'
-// import * as Yup from 'yup'
 import { FormikInput } from './index'
 import { Button } from '@vtex/admin-ui';
+
+import { IntlProvider, useIntl } from 'react-intl'
 
 describe('Input tests', () => {
   it('change value in formik by input component', async () => {
@@ -18,22 +17,20 @@ describe('Input tests', () => {
 
     render( 
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            initialValues={{value: ''}}
-            onSubmit={handleSubmit}
-          >
-              <Form id='form-admin-formik-input'>
-                <FormikInput
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                  id="text-field-1"
-                />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-          </Formik>
-        </IntlProvider> 
+        <Formik
+          initialValues={{value: ''}}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikInput
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              id="text-field-1"
+            />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
       </ThemeProvider>
     )
 
@@ -52,29 +49,27 @@ describe('Input tests', () => {
 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            initialValues={{value: ''}}
-            onSubmit={handleSubmit}
-          >
-            {({ setFieldValue }) => (
-              <Form id='form-admin-formik-input'>
-                <FormikInput
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                  id="text-field-1"
-                />
-                <Button 
-                  size='small' 
-                  children="Change Value" 
-                  onClick={()=> setFieldValue("value", "value changed by setFieldValue")}
-                />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-            )}
-          </Formik>
-        </IntlProvider> 
+        <Formik
+          initialValues={{value: ''}}
+          onSubmit={handleSubmit}
+        >
+          {({ setFieldValue }) => (
+            <Form id='form-admin-formik-input'>
+              <FormikInput
+                name="value"
+                data-testid="text-field"
+                label="TextField label"
+                id="text-field-1"
+              />
+              <Button 
+                size='small' 
+                children="Change Value" 
+                onClick={()=> setFieldValue("value", "value changed by setFieldValue")}
+              />
+              <Button type="submit" size='small' children="Submit"/>
+            </Form>
+          )}
+        </Formik>
       </ThemeProvider>
     )
 
@@ -82,7 +77,6 @@ describe('Input tests', () => {
     userEvent.type(input , 'value of test')
     userEvent.click(screen.getByRole('button', {name: "Change Value"}))
 
-    // const input = screen.getByPlaceholderText("TextField label")
     expect(input).toHaveValue('value changed by setFieldValue')
 
     userEvent.click(screen.getByRole('button', {name: "Submit"}))
@@ -100,23 +94,21 @@ describe('Input tests', () => {
     const { rerender } = 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            enableReinitialize
-            initialValues={{value: ""}}
-            onSubmit={handleSubmit}
-          >
-              <Form id='form-admin-formik-input'>
-                <FormikInput
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                  id="text-field-1"
-                />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-          </Formik>
-        </IntlProvider> 
+        <Formik
+          enableReinitialize
+          initialValues={{value: ""}}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikInput
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              id="text-field-1"
+            />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
       </ThemeProvider>
     )
 
@@ -128,23 +120,21 @@ describe('Input tests', () => {
     
     rerender(
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            enableReinitialize
-            initialValues={{value: "new initial value"}}
-            onSubmit={handleSubmit}
-            >
-              <Form id='form-admin-formik-input'>
-                <FormikInput
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                  id="text-field-1"
-                  />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-          </Formik>
-        </IntlProvider> 
+        <Formik
+          enableReinitialize
+          initialValues={{value: "new initial value"}}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikInput
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              id="text-field-1"
+              />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
       </ThemeProvider>
     )
     
@@ -154,30 +144,68 @@ describe('Input tests', () => {
 
   it('error in forms', async () => {
     const handleSubmit = jest.fn()
+    const validate = () => ({ value: 'Error message' });
+
+    render( 
+      <ThemeProvider>
+        <Formik
+          initialValues={{value: ''}}
+          validate={validate}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikInput
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              id="text-field-1"
+            />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
+      </ThemeProvider>
+    )
+
+    const input = screen.getByLabelText(/TextField label/i)
+    fireEvent.blur(input);
+
+    expect(await screen.findByText("Error message")).not.toBeNull();
+  })
+
+  it('error in forms  with intl', async () => {
     const messagesEN = {
       'admin/admin-formik.error.message': "Error message"
     }
+    
+    const Content = () => {
+      const handleSubmit = jest.fn()
+      const { formatMessage } = useIntl()
+      const validate = () => ({ value: 'admin/admin-formik.error.message' });
 
-    const validate = () => ({ value: 'admin/admin-formik.error.message' });
+      return (
+        <Formik
+          initialValues={{value: ''}}
+          validate={validate}
+          onSubmit={handleSubmit}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikInput
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              id="text-field-1"
+              formatMessage={(errorCode) => formatMessage({ id: errorCode})}
+            />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
+      )
+    }
 
     render( 
       <ThemeProvider>
         <IntlProvider locale={'en'} messages={messagesEN}>
-          <Formik
-            initialValues={{value: ''}}
-            validate={validate}
-            onSubmit={handleSubmit}
-          >
-              <Form id='form-admin-formik-input'>
-                <FormikInput
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                  id="text-field-1"
-                />
-                <Button type="submit" size='small' children="Submit"/>
-              </Form>
-          </Formik>
+          <Content />
         </IntlProvider> 
       </ThemeProvider>
     )
@@ -188,25 +216,24 @@ describe('Input tests', () => {
     expect(await screen.findByText("Error message")).not.toBeNull();
   })
 
+
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ThemeProvider>
-        <IntlProvider locale={'en'}>
-          <Formik
-            enableReinitialize
-            initialValues={{value: ''}}
-            onSubmit={()=>{}}
-          >
-              <Form id='form-admin-formik-input'>
-                <FormikInput
-                  name="value"
-                  data-testid="text-field"
-                  label="TextField label"
-                  id="text-field-1"
-                />
-              </Form>
-          </Formik>
-        </IntlProvider>
+        <Formik
+          enableReinitialize
+          initialValues={{value: ''}}
+          onSubmit={()=>{}}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikInput
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              id="text-field-1"
+            />
+          </Form>
+        </Formik>
       </ThemeProvider>
     )
 

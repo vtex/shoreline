@@ -1,5 +1,4 @@
 import React from 'react'
-import { useIntl } from 'react-intl'
 import { TextArea, TextAreaProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
@@ -8,17 +7,18 @@ export interface FormikTextAreaProps
   name: string
   id?: string
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
+  formatMessage?: (errorCode: string) => string
 }
 
 export const FormikTextArea = ({
   name,
   error,
   errorMessage,
+  formatMessage,
   id,
   onChange,
   ...props
 }: FormikTextAreaProps) => {
-  const { formatMessage } = useIntl()
 
   const [field, meta] = useField({ name })
 
@@ -28,8 +28,10 @@ export const FormikTextArea = ({
   const finalErrorMessage = error
     ? errorMessage
     : errorCode
-    ? formatMessage({ id: errorCode })
-    : undefined
+      ? formatMessage 
+        ? formatMessage(errorCode)
+        : errorCode
+      : undefined
 
   const inputProps = {
     ...field,

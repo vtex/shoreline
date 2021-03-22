@@ -30,8 +30,7 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "react-dom": ">=16",
-    "react-intl": ">=5.8.1"
+    "react-dom": ">=16"
   },
   "dependencies": {
     "@vtex/admin-ui": "*",

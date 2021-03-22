@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { useIntl } from 'react-intl'
 import {
   Box,
   CheckboxGroup,
@@ -13,10 +12,12 @@ import { FormikCheckbox } from './FormikCheckbox'
 
 export interface FormikCheckboxGroupProps extends Omit<CheckboxGroupProps,'state'> {
   name: string
+  error?: boolean;
+  errorMessage?: string;
+  formatMessage?: (errorCode: string) => string
 }
 
-export const FormikCheckboxGroup = ({ name, children,  ...props }: FormikCheckboxGroupProps) => {
-  const { formatMessage } = useIntl()
+export const FormikCheckboxGroup = ({ name, children, error, errorMessage, formatMessage, ...props }: FormikCheckboxGroupProps) => {
   const [field, meta, helpers] = useField({ name })
   const checkboxState = useCheckboxState({ state: meta.initialValue })
 
@@ -36,12 +37,21 @@ export const FormikCheckboxGroup = ({ name, children,  ...props }: FormikCheckbo
 
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
-  const errorMessage = Array.isArray(errorCode) 
-    ? errorCode.filter(x => x !== (null || undefined) )
-      .map((value) => { 
-        return value && formatMessage({ id: value })
-      }).join(', ')
-    : errorCode && formatMessage({ id: errorCode })
+  const finalError = error ?? !!errorCode
+  const finalErrorMessage = error
+    ? errorMessage
+    : Array.isArray(errorCode) 
+      ? errorCode.filter(x => x !== (null || undefined) )
+        .map((value) => { 
+          return value 
+            && formatMessage 
+              ? formatMessage(value)
+              : value
+        }).join(', ')
+      : errorCode 
+        && formatMessage 
+          ? formatMessage(errorCode)
+          : errorCode
 
   return (
     <Box csx={{ marginBottom: 6 }}>
@@ -50,9 +60,9 @@ export const FormikCheckboxGroup = ({ name, children,  ...props }: FormikCheckbo
           {children}
         </FormikCheckboxGroupContext.Provider>
       </CheckboxGroup>
-      {errorMessage && (
+      {finalError && (
         <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
-          {errorMessage}
+          {finalErrorMessage}
         </Text>
       )}
     </Box>

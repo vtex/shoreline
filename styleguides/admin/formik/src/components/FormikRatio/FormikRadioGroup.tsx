@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { useIntl } from 'react-intl'
 import {
   Box,
   RadioGroup,
@@ -12,10 +11,12 @@ import { FormikRadioGroupContext } from './FormikRadioGroupContext'
 
 export interface FormikRadioGroupProps extends Omit<RadioGroupProps,'state'> {
   name: string
+  error?: boolean;
+  errorMessage?: string;
+  formatMessage?: (errorCode: string) => string
 }
 
-export const FormikRadioGroup = ({ name, children, ...props }: FormikRadioGroupProps) => {
-  const { formatMessage } = useIntl()
+export const FormikRadioGroup = ({ name, children, error, errorMessage, formatMessage, ...props }: FormikRadioGroupProps) => {
   const [field, meta, helpers] = useField({ name })
   const radioState = useRadioState({ state: meta.initialValue })
 
@@ -35,7 +36,21 @@ export const FormikRadioGroup = ({ name, children, ...props }: FormikRadioGroupP
 
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
-  const errorMessage = errorCode && formatMessage({ id: errorCode })
+  const finalError = error ?? !!errorCode
+  const finalErrorMessage = error
+    ? errorMessage
+    : Array.isArray(errorCode) 
+      ? errorCode.filter(x => x !== (null || undefined) )
+        .map((value) => { 
+          return value 
+            && formatMessage 
+              ? formatMessage(value)
+              : value
+        }).join(', ')
+      : errorCode 
+        && formatMessage 
+          ? formatMessage(errorCode)
+          : errorCode
 
   return (
     <Box csx={{ marginBottom: 6 }}>
@@ -44,9 +59,9 @@ export const FormikRadioGroup = ({ name, children, ...props }: FormikRadioGroupP
           {children}
         </FormikRadioGroupContext.Provider>
       </RadioGroup>
-      {errorMessage && (
+      {finalError && (
         <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
-          {errorMessage}
+          {finalErrorMessage}
         </Text>
       )}
     </Box>

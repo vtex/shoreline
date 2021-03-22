@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import { useIntl } from 'react-intl'
 import { Select, useSelectState, SelectProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
 export interface FormikSelectProps<T> extends Omit<SelectProps<T>, 'state'> {
   name: string
+  formatMessage?: (errorCode: string) => string
 }
 
 export const FormikSelect = <T extends unknown>({
@@ -13,9 +13,9 @@ export const FormikSelect = <T extends unknown>({
   label,
   error,
   errorMessage,
+  formatMessage,
   ...props
 }: FormikSelectProps<T>) => {
-  const { formatMessage } = useIntl()
 
   const [field, meta, helpers] = useField({ name })
 
@@ -40,12 +40,14 @@ export const FormikSelect = <T extends unknown>({
 
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
+  const finalError = error ?? !!errorCode
   const finalErrorMessage = error
     ? errorMessage
     : errorCode
-    ? formatMessage({ id: errorCode })
-    : undefined
-  const finalError = error ?? !!errorCode
+      ? formatMessage 
+        ? formatMessage(errorCode)
+        : errorCode
+      : undefined
 
   const inputProps = {
     ...props,

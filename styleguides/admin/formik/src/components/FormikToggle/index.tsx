@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import { Label, Set, Text, Toggle, ToggleProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
-import { useIntl } from 'react-intl'
 
 export interface FormikToggleProps extends ToggleProps {
   name: string,
-  label?: string
+  label?: string | ReactNode
+  error?: boolean;
+  errorMessage?: string;
+  formatMessage?: (errorCode: string) => string
 }
 
-export const FormikToggle = ({ name, label, onChange, id, ...props }: FormikToggleProps) => {
+export const FormikToggle = ({ name, label, error, errorMessage, formatMessage, onChange, id, ...props }: FormikToggleProps) => {
+  
   const [field, meta, helpers] = useField({ name })
-  const { formatMessage } = useIntl()
 
   useEffect(()=>{
     helpers.setTouched(true)
@@ -22,7 +24,14 @@ export const FormikToggle = ({ name, label, onChange, id, ...props }: FormikTogg
 
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
-  const errorMessage = errorCode && formatMessage({ id: errorCode })
+  const finalError = error ?? !!errorCode
+  const finalErrorMessage = error
+    ? errorMessage
+    : errorCode
+      ? formatMessage 
+        ? formatMessage(errorCode)
+        : errorCode
+      : undefined
 
   return (
     <Set orientation="vertical">
@@ -39,9 +48,10 @@ export const FormikToggle = ({ name, label, onChange, id, ...props }: FormikTogg
         />
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
-      { errorMessage && (
+      { 
+        finalError && (
         <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
-          {errorMessage}
+          {finalErrorMessage}
         </Text>
       )}
     </Set>

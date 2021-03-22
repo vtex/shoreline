@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useIntl } from 'react-intl'
 import { Box, NumericStepper, NumericStepperProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
@@ -7,6 +6,7 @@ export interface FormikNumericStepperProps extends Omit<NumericStepperProps, 'id
   name: string
   id?: string
   onChange?: (value: {value: number}) => void
+  formatMessage?: (errorCode: string) => string
 }
 
 export const FormikNumericStepper = ({
@@ -15,9 +15,9 @@ export const FormikNumericStepper = ({
   errorMessage,
   id,
   onChange,
+  formatMessage,
   ...props
 }: FormikNumericStepperProps) => {
-  const { formatMessage } = useIntl()
 
   const [field, meta, helpers] = useField<number>({ name })
   const [value, setValue] = useState<number>(field.value)
@@ -38,17 +38,19 @@ export const FormikNumericStepper = ({
   const finalErrorMessage = error
     ? errorMessage
     : errorCode
-    ? formatMessage({ id: errorCode })
-    : undefined
+      ? formatMessage 
+        ? formatMessage(errorCode)
+        : errorCode
+      : undefined
 
 
   
   const inputProps = {
     onChange: (event : {value: number}) => {
+      onChange && onChange(event)
       helpers.setValue(event.value)
       helpers.setTouched(true)
       setValue(event.value)
-      onChange && onChange(event)
     },
     id: id ?? name,
     errorMessage: finalErrorMessage && finalErrorMessage,

@@ -1,5 +1,4 @@
 import React, { ReactNode, useEffect } from 'react'
-import { useIntl } from 'react-intl'
 import {
   Checkbox,
   CheckboxProps,
@@ -15,10 +14,10 @@ export interface FormikCheckboxProps extends CheckboxProps {
   label?: string | ReactNode
   error?: boolean;
   errorMessage?: string;
+  formatMessage?: (errorCode: string) => string
 }
 
-export const FormikCheckbox = ({ name, label, error, errorMessage, ...props }: FormikCheckboxProps) => {
-  const { formatMessage } = useIntl()
+export const FormikCheckbox = ({ name, label, error, errorMessage, formatMessage, ...props }: FormikCheckboxProps) => {
   
   const [field, meta, helpers] = useField({ name })
   const checkboxState = useCheckboxState({ state: meta.initialValue })
@@ -43,8 +42,10 @@ export const FormikCheckbox = ({ name, label, error, errorMessage, ...props }: F
   const finalErrorMessage = error
     ? errorMessage
     : errorCode
-    ? formatMessage({ id: errorCode })
-    : undefined
+      ? formatMessage 
+        ? formatMessage(errorCode)
+        : errorCode
+      : undefined
 
   return (
     <Set orientation="vertical" >
