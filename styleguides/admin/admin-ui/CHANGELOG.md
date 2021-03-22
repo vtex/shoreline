@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.84.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.4...@vtex/admin-ui@0.84.5) (2021-03-22)
+
+
+### Bug Fixes
+
+* **vtex-trust:** vtex IO overriding our font in some components ([66ee3a2](https://github.com/vtex/onda/commit/66ee3a2816a9d1e0b2801f277ecd0a0fcd84258b))
+
+
+
+
+
 ## [0.84.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3...@vtex/admin-ui@0.84.4) (2021-03-19)
 
 **Note:** Version bump only for package @vtex/admin-ui

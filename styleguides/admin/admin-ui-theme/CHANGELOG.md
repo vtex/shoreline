@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2) (2021-03-22)
+
+
+### Bug Fixes
+
+* **font:** add global font-weight property as normal to avoid inconsistency with vtex-tachyons ([cc6f531](https://github.com/vtex/onda/commit/cc6f5315f0635c149b00911d2414d9e0d22494d7))
+* **tab:** tab not rendering with VTEX Trust on IO ([a1fd398](https://github.com/vtex/onda/commit/a1fd39897b6ab94d44968acf315877f546b6a3ad))
+* **vtex-trust:** vtex IO overriding our font in some components ([66ee3a2](https://github.com/vtex/onda/commit/66ee3a2816a9d1e0b2801f277ecd0a0fcd84258b))
+
+
+
+
+
 ## [0.20.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.0...@vtex/admin-ui-theme@0.20.1) (2021-03-16)
 
 
