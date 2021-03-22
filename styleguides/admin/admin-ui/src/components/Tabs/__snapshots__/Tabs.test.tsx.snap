@@ -10,6 +10,7 @@ exports[`Tabs tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -47,6 +48,7 @@ exports[`Tabs tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -154,6 +156,7 @@ exports[`Tabs tests should match snapshot 1`] = `
     Tab 2 Content
   </div>
   .emotion-1 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
@@ -209,6 +212,7 @@ exports[`Tabs tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
   border-radius: 4px;
