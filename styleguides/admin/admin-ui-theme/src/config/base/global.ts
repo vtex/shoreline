@@ -3,7 +3,8 @@ export default {
     '@font-face': {
       fontFamily: 'VTEXTrustVF',
       fontStyle: 'normal',
-      src: "url('https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2')",
+      src:
+        "url('https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2')",
       fontDisplay: 'swap',
     },
     body: {
@@ -24,6 +25,7 @@ export default {
     '*': {
       fontFamily: 'sans',
       fontSettings: 'regular',
+      fontWeight: 'normal',
     },
     '*, ::before, ::after': {
       boxSizing: 'border-box',
