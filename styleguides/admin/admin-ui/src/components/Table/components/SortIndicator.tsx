@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from '@vtex/admin-primitives'
 import { IconTriangle } from '@vtex/admin-ui-icons'
 
-export function SortIndicator(props: Props) {
+export function SortIndicator(props: SortIndicatorProps) {
   const { order } = props
 
   return (
@@ -48,6 +48,6 @@ export function SortIndicator(props: Props) {
   )
 }
 
-export interface Props {
+export interface SortIndicatorProps {
   order?: 'ASC' | 'DSC'
 }
