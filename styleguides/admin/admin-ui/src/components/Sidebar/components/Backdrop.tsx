@@ -1,47 +1,79 @@
-import React, { useMemo, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
-import { useSystem } from '@vtex/admin-core'
+import { Box } from '@vtex/admin-primitives'
+
 import { SCALES } from '../consts'
-import { useSidebarContext } from '../context'
-import { SidebarCollapseButton } from './CollapseButton'
-import { SidebarSecretProps } from '../types'
+import { Button } from '../../Button'
+import { SidebarState } from '../hooks'
+import { Skeleton } from '../../Skeleton'
 
 /**
  * Components that acts as a spacer.
  */
 export function SidebarBackdrop(props: SidebarBackdropProps) {
-  const { showCollapseButton, setShowCollapseButton } = props
-  const { collapse, currentItem, width, isCollapsed } = useBackdropState()
-  const { cn } = useSystem()
+  const {
+    state: {
+      selectedItem,
+      layout: { showToggle, hideToggle, reduced, toggleVisible, toggle },
+    },
+    loading = false,
+  } = props
+
+  const expandable = selectedItem?.expandable ?? loading
 
   return (
     <Fragment>
-      <div
-        className={cn({
-          minWidth: width,
+      <Box
+        csx={{
+          minWidth: expandable
+            ? reduced
+              ? '1rem'
+              : SCALES.COLLAPSIBLE_AREA_WIDTH
+            : '0rem',
           maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
-          backgroundColor: isCollapsed ? 'light.primary' : 'sidebar.light',
-          borderRight:
-            currentItem && currentItem.isCollapsible
-              ? '1px solid'
-              : '0px solid',
-          borderColor:
-            currentItem && currentItem.isCollapsible
-              ? 'mid.tertiary'
-              : 'transparent',
-          marginRight:
-            currentItem && currentItem.isCollapsible ? '0.25rem' : '0rem',
-        })}
-        onMouseEnter={() => setShowCollapseButton(true)}
-        onMouseLeave={() => setShowCollapseButton(false)}
-      />
-      {currentItem?.isCollapsible && (
-        <SidebarCollapseButton
-          setShowCollapseButton={setShowCollapseButton}
-          showCollapseButton={showCollapseButton}
+          bg: !expandable || reduced ? 'light.primary' : 'sidebar.light',
+          borderRight: expandable ? '1px solid' : '0px solid',
+          borderColor: expandable ? 'mid.tertiary' : 'transparent',
+          marginRight: expandable ? '0.25rem' : '0rem',
+        }}
+        onMouseEnter={showToggle}
+        onMouseLeave={hideToggle}
+      >
+        {loading && <Skeleton />}
+      </Box>
+
+      {expandable && (
+        <Button
+          csx={{
+            position: 'relative',
+            zIndex: 1,
+            left: '0.5625em',
+            marginLeft: '-1.5rem',
+            top: '0.875rem',
+            cursor: 'pointer',
+            border: '1px solid',
+            borderRadius: '100%',
+            borderColor: 'mid.tertiary',
+            height: '1.25rem',
+            width: '1.25rem',
+            transition: '0.3',
+            backgroundColor: 'light.primary',
+            '> div > svg': {
+              color: 'mid.primary',
+            },
+            '&:hover': {
+              backgroundColor: 'blue.secondary',
+              borderColor: 'blue.secondary',
+              '> div > svg': {
+                color: 'blue',
+              },
+            },
+            opacity: toggleVisible ? 1 : 0,
+            transitionDuration: '.3s',
+          }}
           icon={
             <IconCaret
-              direction={collapse ? 'right' : 'left'}
+              direction={reduced ? 'right' : 'left'}
               csx={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -51,33 +83,17 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
               }}
             />
           }
+          disabled={loading}
+          onClick={toggle}
+          onMouseEnter={showToggle}
+          onMouseLeave={hideToggle}
         />
       )}
     </Fragment>
   )
 }
 
-function useBackdropState() {
-  const { collapse, currentItem } = useSidebarContext()
-
-  const { width, isCollapsed } = useMemo(() => {
-    const width = currentItem?.isCollapsible
-      ? collapse
-        ? '1rem'
-        : SCALES.COLLAPSIBLE_AREA_WIDTH
-      : '0rem'
-
-    const isCollapsed = !currentItem?.isCollapsible || collapse
-
-    return {
-      width,
-      isCollapsed,
-    }
-  }, [currentItem, collapse])
-
-  return { width, isCollapsed, collapse, currentItem }
+export interface SidebarBackdropProps {
+  state: SidebarState
+  loading?: boolean
 }
-
-export type SidebarBackdropProps = Required<
-  Pick<SidebarSecretProps, 'showCollapseButton' | 'setShowCollapseButton'>
->

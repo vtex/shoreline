@@ -1,27 +1,13 @@
 import { createContext, useContext } from 'react'
-import invariant from 'tiny-invariant'
-import { CompositeStateReturn } from './components'
-import { AnchorDirection, Item } from './types'
+import { SidebarState } from './hooks'
 
-const SidebarContext = createContext<{
-  rootState: CompositeStateReturn
-  direction: AnchorDirection
-  currentItem: Item | null
-  collapse: boolean | null
-  selectedItemsMemory: Item[]
-  setCurrentItem: (currentItem: Item | null) => void
-  setCollapse: (state: boolean | null) => void
-  setSelectedItemsMemory: (items: Item[]) => void
-} | null>(null)
+export const SidebarContext = createContext<SidebarState | null>(null)
 
 export function useSidebarContext() {
-  const context = useContext(SidebarContext)
+  const ctx = useContext(SidebarContext)
+  if (!ctx) {
+    throw new Error('out of sidebar')
+  }
 
-  invariant(context, 'You must use Sidebar composites inside Sidebar context!')
-
-  return context
+  return ctx
 }
-
-const { Provider } = SidebarContext
-
-export { Provider as SidebarProvider }

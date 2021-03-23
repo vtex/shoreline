@@ -40,37 +40,4 @@ export default {
     backgroundColor: 'transparent',
     transform: 'unset !important',
   },
-  section: {
-    width: '11.5rem',
-    paddingBottom: 8,
-  },
-  backdrop: {
-    minWidth: '12.775rem',
-    maxWidth: '12.775rem',
-  },
-  'collapse-button': {
-    position: 'relative',
-    zIndex: 1,
-    left: '0.5625em',
-    marginLeft: '-1.5rem',
-    top: '0.875rem',
-    cursor: 'pointer',
-    border: '1px solid',
-    borderRadius: '100%',
-    borderColor: 'mid.tertiary',
-    height: '1.25rem',
-    width: '1.25rem',
-    transition: 0.3,
-    backgroundColor: 'light.primary',
-    '> div > svg': {
-      color: 'mid.primary',
-    },
-    '&:hover': {
-      backgroundColor: 'blue.secondary',
-      borderColor: 'blue.secondary',
-      '> div > svg': {
-        color: 'blue',
-      },
-    },
-  },
 }

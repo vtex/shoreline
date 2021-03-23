@@ -1,115 +1,76 @@
 import React, {
   Children,
   cloneElement,
+  Fragment,
   ReactElement,
   ReactNode,
-  useState,
 } from 'react'
-import { useSystem } from '@vtex/admin-core'
 import { Box } from '@vtex/admin-primitives'
 import {
   SidebarCorner,
-  SidebarCornerProps,
   SidebarItem,
-  useCompositeState,
   CompositeGroup,
   SidebarBackdrop,
   SidebarSkeleton,
 } from './components'
-import { SidebarProvider } from './context'
-import { AnchorDirection, Item } from './types'
 import { SystemComponent } from '../../types'
-
-export interface SidebarProps extends SystemComponent {
-  children: ReactNode
-  direction?: AnchorDirection
-  loading?: boolean
-}
+import { SidebarState } from './hooks'
+import { SidebarContext } from './context'
 
 function _Sidebar(props: SidebarProps) {
-  const [currentItem, setCurrentItem] = useState<Item | null>(null)
-  const [selectedItemsMemory, setSelectedItemsMemory] = useState<Item[]>([])
-  const [collapse, setCollapse] = useState<boolean | null>(null)
-  const [showCollapseButton, setShowCollapseButton] = useState(false)
-  const {
-    children,
-    loading = false,
-    direction = 'left',
-    csx = {},
-    ...baseProps
-  } = props
-  const { cn } = useSystem()
-
-  const rootState = useCompositeState({
-    baseId: 'sidebar-menu-base-id--',
-    orientation: 'vertical',
-    wrap: 'vertical',
-    loop: true,
-  })
+  const { children, loading = false, csx = {}, state, ...baseProps } = props
 
   return (
-    <SidebarProvider
-      value={{
-        direction,
-        currentItem,
-        collapse,
-        selectedItemsMemory,
-        setCurrentItem,
-        setCollapse,
-        setSelectedItemsMemory,
-        rootState,
-      }}
-    >
+    <Fragment>
       <Box
-        className={cn({
+        csx={{
           themeKey: 'components.sidebar.container',
-          backgroundColor:
-            !currentItem ||
-            !currentItem.isCollapsible ||
-            (collapse && currentItem.isCollapsible)
-              ? 'light.primary'
-              : 'sidebar.light',
+          backgroundColor: state.isReduced()
+            ? 'light.primary'
+            : 'sidebar.light',
           boxShadow:
-            collapse && currentItem
-              ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
-              : 'unset',
-        })}
-        csx={csx}
+            // state.reduced.reduced && state.selectedItem
+            state.isReduced() ? '1px 0px 6px -2px rgb(0 0 0 / 30%)' : 'unset',
+          ...csx,
+        }}
       >
         <Box
           element="nav"
           csx={{
             themeKey: 'components.sidebar.root',
           }}
-          {...rootState}
+          {...state.composite}
           {...baseProps}
         >
-          {!loading && (
-            <CompositeGroup {...rootState} aria-label={'Sidebar'} role="menu">
-              {(itemProps) =>
-                Children.map(children, (child, index) =>
-                  cloneElement(child as ReactElement, {
-                    ...itemProps,
-                    key: index,
-                    setShowCollapseButton,
-                  })
-                )
-              }
-            </CompositeGroup>
-          )}
+          <SidebarContext.Provider value={state}>
+            {!loading && (
+              <CompositeGroup
+                {...state.composite}
+                aria-label={'Sidebar'}
+                role="menu"
+              >
+                {(itemProps) =>
+                  Children.map(children, (child, index) =>
+                    cloneElement(child as ReactElement, {
+                      ...itemProps,
+                      index,
+                      key: index,
+                    })
+                  )
+                }
+              </CompositeGroup>
+            )}
+          </SidebarContext.Provider>
           {loading && (
-            <>
+            <Fragment>
               <SidebarSkeleton />
               <SidebarSkeleton amount={2} />
-            </>
+            </Fragment>
           )}
         </Box>
       </Box>
-      <SidebarBackdrop
-        showCollapseButton={showCollapseButton}
-        setShowCollapseButton={setShowCollapseButton}
-      />
-    </SidebarProvider>
+      <SidebarBackdrop state={state} loading={loading} />
+    </Fragment>
   )
 }
 
@@ -182,9 +143,7 @@ export const Sidebar = Object.assign(_Sidebar, {
    * </Sidebar>
    * ```
    */
-  Header: (props: SidebarCornerProps) => (
-    <SidebarCorner {...props} scope="top" />
-  ),
+  Top: SidebarCorner,
   /**
    * Sidebar.Footer will stick whatever is inside
    * of it to the bottom of the sidebar.
@@ -209,9 +168,7 @@ export const Sidebar = Object.assign(_Sidebar, {
    * </Sidebar>
    * ```
    */
-  Footer: (props: SidebarCornerProps) => (
-    <SidebarCorner {...props} scope="bottom" />
-  ),
+  Bottom: SidebarCorner,
   /**
    * Sidebar.Item corresponds to an item of the sidebar's
    * first level. It can hold multiple sections exhibited
@@ -251,3 +208,11 @@ export const Sidebar = Object.assign(_Sidebar, {
    */
   Item: SidebarItem,
 })
+
+export { useSidebarState, SidebarState } from './hooks'
+
+export interface SidebarProps extends SystemComponent {
+  children: ReactNode
+  loading?: boolean
+  state: SidebarState
+}

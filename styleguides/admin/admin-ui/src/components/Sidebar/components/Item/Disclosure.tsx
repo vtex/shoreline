@@ -1,19 +1,17 @@
 import React, { forwardRef, ReactNode, Ref } from 'react'
 import { merge } from '@vtex/admin-core'
 
-import { useSidebarContext } from '../context'
-import { ButtonProps, Button } from '../../Button'
-import { Tooltip } from '../../Tooltip'
+import { ButtonProps, Button } from '../../../Button'
+import { Tooltip } from '../../../Tooltip'
 
 export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   props: SidebarDisclosureProps,
   ref: Ref<HTMLButtonElement>
 ) {
   const { icon, selected, label, csx = {}, ...buttonProps } = props
-  const { direction } = useSidebarContext()
 
   return (
-    <Tooltip label={label} placement={direction}>
+    <Tooltip label={label} placement="right">
       <Button
         ref={ref}
         variant="tertiary"
@@ -40,7 +38,8 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   )
 })
 
-export interface SidebarDisclosureProps extends ButtonProps {
+export interface SidebarDisclosureProps
+  extends Omit<ButtonProps, 'children' | 'icon'> {
   /**
    * `icon` which the `<Sidebar.Item {...props} />` disclosure should exhibit.
    */
@@ -50,7 +49,6 @@ export interface SidebarDisclosureProps extends ButtonProps {
    * composite ID and its value is displayed on the tooltip.
    */
   label: string
-  onClick: (event?: React.MouseEvent<any, MouseEvent>) => void
   /**
    * This props is shared between this component and the `<Sidebar.Item {...props} />`.
    * It indicates whether its parent component is selected or not, and is used here
