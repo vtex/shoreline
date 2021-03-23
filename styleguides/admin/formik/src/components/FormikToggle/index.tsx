@@ -26,8 +26,8 @@ export const FormikToggle = ({ name, label, error, errorMessage, formatMessage, 
       : undefined
 
   return (
-    <Set orientation="vertical">
-      <Set spacing={3} csx={{ marginY: 1 }}>
+    <Set orientation="vertical" spacing={0}>
+      <Set spacing={2} >
         <div onClick={()=>helpers.setTouched(true)}>
           <Toggle
             id={id ? id : name}
@@ -43,7 +43,7 @@ export const FormikToggle = ({ name, label, error, errorMessage, formatMessage, 
       </Set>
       { 
         finalError && (
-        <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
+        <Text variant="small" feedback="danger" csx={{paddingTop: '0.063rem', marginLeft: 1}}>
           {finalErrorMessage}
         </Text>
       )}

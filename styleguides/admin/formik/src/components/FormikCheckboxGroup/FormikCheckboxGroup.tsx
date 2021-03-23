@@ -58,7 +58,7 @@ export const FormikCheckboxGroup = ({ name, children, error, errorMessage, forma
         </FormikCheckboxGroupContext.Provider>
       </CheckboxGroup>
       {finalError && (
-        <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
+        <Text variant="small" feedback="danger" csx={{paddingTop: 1}}>
           {finalErrorMessage}
         </Text>
       )}

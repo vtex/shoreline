@@ -51,13 +51,13 @@ export const FormikRadioGroup = ({ name, children, error, errorMessage, formatMe
 
   return (
     <Box csx={{ marginBottom: 6 }}>
-      <RadioGroup state={radioState} csx={{ marginBottom: 1 }} {...props}>
+      <RadioGroup state={radioState} csx={{ marginBottom: 0 }} {...props}>
         <FormikRadioGroupContext.Provider value={{state: radioState, setTouched: helpers.setTouched}}>
           {children}
         </FormikRadioGroupContext.Provider>
       </RadioGroup>
       {finalError && (
-        <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
+        <Text variant="small" feedback="danger" csx={{paddingTop: 1}}>
           {finalErrorMessage}
         </Text>
       )}

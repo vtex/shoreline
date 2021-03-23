@@ -43,8 +43,8 @@ export const FormikCheckbox = ({ name, label, error, errorMessage, formatMessage
       : undefined
 
   return (
-    <Set orientation="vertical" >
-      <Set spacing={3} csx={{ marginY: 1 }}>
+    <Set orientation="vertical" spacing={0} >
+      <Set spacing={2} >
         <div onClick={()=>helpers.setTouched(true)}>
           <Checkbox id={name} state={checkboxState} {...props} />
         </div>
@@ -52,7 +52,7 @@ export const FormikCheckbox = ({ name, label, error, errorMessage, formatMessage
       </Set>
       { 
         finalError && (
-        <Text variant="small" feedback="danger" csx={{paddingTop: 2}}>
+        <Text variant="small" feedback="danger" csx={{paddingTop: 1, marginLeft: 1}}>
           {finalErrorMessage}
         </Text>
       )}
