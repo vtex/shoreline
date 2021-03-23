@@ -14,14 +14,6 @@ export const FormikToggle = ({ name, label, error, errorMessage, formatMessage, 
   
   const [field, meta, helpers] = useField({ name })
 
-  useEffect(()=>{
-    helpers.setTouched(true)
-  }, [field.value])
-
-  useEffect(()=>{
-    helpers.setTouched(false)
-  }, [meta.initialValue])
-
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
   const finalError = error ?? !!errorCode
@@ -36,16 +28,17 @@ export const FormikToggle = ({ name, label, error, errorMessage, formatMessage, 
   return (
     <Set orientation="vertical">
       <Set spacing={3} csx={{ marginY: 1 }}>
+        <div onClick={()=>helpers.setTouched(true)}>
           <Toggle
-          id={id ? id : name}
-          checked={field.value}
-          onChange={(e: any) => {
-            field.onChange(e)
-            helpers.setTouched(true)
-            onChange && onChange(e)
-          }}
-          {...props}
-        />
+            id={id ? id : name}
+            checked={field.value}
+            onChange={(e: any) => {
+              field.onChange(e)
+              onChange && onChange(e)
+            }}
+            {...props}
+          />
+        </div>
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
       { 

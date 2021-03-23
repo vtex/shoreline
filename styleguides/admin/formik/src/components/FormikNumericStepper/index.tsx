@@ -22,15 +22,12 @@ export const FormikNumericStepper = ({
   const [field, meta, helpers] = useField<number>({ name })
   const [value, setValue] = useState<number>(field.value)
 
-
   // useEffects to maintain consistency between state and value in formik
   useEffect(() => {
-    meta.initialValue && setValue(meta.initialValue)
-  }, [meta.initialValue]) // When initial value is changed
-
-  useEffect(() => {
-    setValue(field.value)
-  }, [field.value]) // When forms is reset
+    if (value !== field.value) {
+      setValue(field.value)
+    }
+  }, [field.value]) // When forms is reset or the field is changed outside
 
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
@@ -49,7 +46,6 @@ export const FormikNumericStepper = ({
     onChange: (event : {value: number}) => {
       onChange && onChange(event)
       helpers.setValue(event.value)
-      helpers.setTouched(true)
       setValue(event.value)
     },
     id: id ?? name,
@@ -59,7 +55,7 @@ export const FormikNumericStepper = ({
   }
 
   return (
-    <Box>
+    <Box onClick={()=>helpers.setTouched(true)}>
       <NumericStepper value={value} {...inputProps} />
     </Box>
   )

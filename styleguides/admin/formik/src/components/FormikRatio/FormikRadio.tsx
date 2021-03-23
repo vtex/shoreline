@@ -5,9 +5,11 @@ import { useRadioGroupContext } from './FormikRadioGroupContext'
 export interface FormikRadioProps extends Omit<RadioProps,'state'> {}
 
 export const FormikRadio = ({ ...props }: FormikRadioProps) => {
-  const radioState = useRadioGroupContext()
+  const {state, setTouched} = useRadioGroupContext()
 
   return (
-    <Radio state={radioState} {...props} />
+    <div onClick={()=>setTouched(true)}>
+      <Radio state={state} {...props} />
+    </div>
   )
 }

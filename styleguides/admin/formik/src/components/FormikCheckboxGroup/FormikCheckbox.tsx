@@ -9,9 +9,11 @@ export interface FormikCheckboxProps extends Omit<CheckboxProps,'state'> {}
 
 export const FormikCheckbox = ({ ...props }: FormikCheckboxProps) => {
 
-  const checkboxState = useCheckboxGroupContext()
+  const {state, setTouched} = useCheckboxGroupContext()
 
   return (
-    <Checkbox state={checkboxState} {...props} />
+    <div onClick={()=>setTouched(true)}>
+      <Checkbox state={state} {...props} />
+    </div>
   )
 }

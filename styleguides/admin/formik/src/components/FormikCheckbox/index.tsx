@@ -24,17 +24,12 @@ export const FormikCheckbox = ({ name, label, error, errorMessage, formatMessage
 
   // useEffects to maintain consistency between checkbox state and value in formik
   useEffect(() => {
-    checkboxState.setState(meta.initialValue)
-  }, [meta.initialValue]) // When initial value is changed
-
-  useEffect(() => {
     checkboxState.setState(field.value)
-  }, [field.value]) // When forms is reset
+  }, [field.value]) // When forms is reset or the field is changed outside
 
   useEffect(() => {
     helpers.setValue(checkboxState.state)
-    helpers.setTouched(true)
-  }, [checkboxState.state]) // When the user changes the value
+  }, [checkboxState.state]) // When the user changes the value by the component
 
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
@@ -50,7 +45,9 @@ export const FormikCheckbox = ({ name, label, error, errorMessage, formatMessage
   return (
     <Set orientation="vertical" >
       <Set spacing={3} csx={{ marginY: 1 }}>
-        <Checkbox id={name} state={checkboxState} {...props} />
+        <div onClick={()=>helpers.setTouched(true)}>
+          <Checkbox id={name} state={checkboxState} {...props} />
+        </div>
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
       { 

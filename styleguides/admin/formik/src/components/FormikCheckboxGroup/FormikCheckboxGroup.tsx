@@ -23,17 +23,14 @@ export const FormikCheckboxGroup = ({ name, children, error, errorMessage, forma
 
   // useEffects to maintain consistency between checkbox state and value in formik
   useEffect(() => {
-    checkboxState.setState(meta.initialValue)
-  }, [meta.initialValue]) // When initial value is changed
-
-  useEffect(() => {
-    checkboxState.setState(field.value)
-  }, [field.value]) // When forms is reset
+    if (checkboxState.state !== field.value) {
+      checkboxState.setState(field.value)
+    }
+  }, [field.value]) // When forms is reset or the field is changed outside
 
   useEffect(() => {
     helpers.setValue(checkboxState.state)
-    helpers.setTouched(true)
-  }, [checkboxState.state]) // When the user changes the value
+  }, [checkboxState.state])  // When the user changes the value by the component
 
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
@@ -56,7 +53,7 @@ export const FormikCheckboxGroup = ({ name, children, error, errorMessage, forma
   return (
     <Box csx={{ marginBottom: 6 }}>
       <CheckboxGroup csx={{ marginBottom: 0 }} {...props} >
-        <FormikCheckboxGroupContext.Provider value={checkboxState}>
+        <FormikCheckboxGroupContext.Provider value={{state: checkboxState, setTouched: helpers.setTouched}}>
           {children}
         </FormikCheckboxGroupContext.Provider>
       </CheckboxGroup>

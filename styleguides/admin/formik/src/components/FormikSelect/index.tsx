@@ -26,17 +26,14 @@ export const FormikSelect = <T extends unknown>({
 
   // useEffects to maintain consistency between select state and value in formik
   useEffect(() => {
-    itemState.selectItem(meta.initialValue)
-  }, [meta.initialValue]) // When initial value is changed
-
-  useEffect(() => {
-    itemState.selectItem(field.value)
-  }, [field.value]) // When forms is reset
+    if (itemState.selectedItem !== field.value) {
+      itemState.selectItem(field.value)
+    }
+  }, [field.value]) // When forms is reset or the field is changed outside
 
   useEffect(() => {
     helpers.setValue(itemState.selectedItem)
-    helpers.setTouched(true)
-  }, [itemState.selectedItem]) // When the user changes the value
+  }, [itemState.selectedItem]) // When the user changes the value by the component
 
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
@@ -56,12 +53,14 @@ export const FormikSelect = <T extends unknown>({
   }
 
   return (
-    <Select
-      {...inputProps}
-      label={label}
-      items={items}
-      state={itemState}
-    />
+    <div onClick={()=>helpers.setTouched(true)}>
+      <Select
+        {...inputProps}
+        label={label}
+        items={items}
+        state={itemState}
+      />
+    </div>
   )
 }
 

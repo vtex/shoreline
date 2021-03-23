@@ -22,17 +22,14 @@ export const FormikRadioGroup = ({ name, children, error, errorMessage, formatMe
 
   // useEffects to maintain consistency between checkbox state and value in formik
   useEffect(() => {
-    radioState.setState(meta.initialValue)
-  }, [meta.initialValue]) // When initial value is changed
-
-  useEffect(() => {
-    radioState.setState(field.value)
-  }, [field.value]) // When forms is reset
+    if (radioState.state !== field.value) {
+      radioState.setState(field.value)
+    }
+  }, [field.value]) // When forms is reset or the field is changed outside
 
   useEffect(() => {
     helpers.setValue(radioState.state)
-    helpers.setTouched(true)
-  }, [radioState.state]) // When the user changes the value
+  }, [radioState.state])  // When the user changes the value by the component
 
   // Verify if there is any error and show message
   const errorCode = meta.touched && meta.error
@@ -55,7 +52,7 @@ export const FormikRadioGroup = ({ name, children, error, errorMessage, formatMe
   return (
     <Box csx={{ marginBottom: 6 }}>
       <RadioGroup state={radioState} csx={{ marginBottom: 1 }} {...props}>
-        <FormikRadioGroupContext.Provider value={radioState}>
+        <FormikRadioGroupContext.Provider value={{state: radioState, setTouched: helpers.setTouched}}>
           {children}
         </FormikRadioGroupContext.Provider>
       </RadioGroup>
