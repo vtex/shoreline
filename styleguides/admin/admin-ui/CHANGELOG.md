@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [0.85.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.5...@vtex/admin-ui@0.85.0) (2021-03-22)
+# [0.85.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3-experimental.8...@vtex/admin-ui@0.85.0-experimental.0) (2021-03-23)
+
+
+### Features
+
+* **admin-sidebar:** stateless approach ([5eacb34](https://github.com/vtex/onda/commit/5eacb347f748b466d23c1a1c287abc4255d306bb))
+
+
+
+
+
 ## [0.84.3-experimental.8](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3-experimental.7...@vtex/admin-ui@0.84.3-experimental.8) (2021-03-19)
 
 

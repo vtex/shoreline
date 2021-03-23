@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [0.2.5](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.4...@vtex/admin-primitives@0.2.5) (2021-03-22)
+## [0.2.3-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.3-experimental.5...@vtex/admin-primitives@0.2.3-experimental.6) (2021-03-23)
+
+**Note:** Version bump only for package @vtex/admin-primitives
+
+
+
+
+
 ## [0.2.3-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.3-experimental.4...@vtex/admin-primitives@0.2.3-experimental.5) (2021-03-19)
 
 **Note:** Version bump only for package @vtex/admin-primitives
