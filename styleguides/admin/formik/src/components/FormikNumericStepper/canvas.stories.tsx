@@ -239,7 +239,7 @@ export const ErrorLimit = () => {
       validationSchema={schemaValidationError}
       onSubmit={handleSubmit}
     >
-      {({ values, setFieldValue }) => (
+      {({ values, setFieldValue, setFieldTouched }) => (
           <Form id='form-admin-formik-input'>
             <Set spacing={8} css={{ marginBottom: 8}}>
               <Box>
@@ -251,7 +251,10 @@ export const ErrorLimit = () => {
                 />
               </Box>
               <Set orientation='vertical' spacing={1}>
-                <Button onClick={()=> setFieldValue("value", maxValue+1)}>
+                <Button onClick={()=> {
+                  setFieldValue("value", maxValue+1)
+                  setFieldTouched("value", true)
+                }}>
                   Change value
                 </Button>
                 <Text feedback='secondary'>
