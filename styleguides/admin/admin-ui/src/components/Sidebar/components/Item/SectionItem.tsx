@@ -1,14 +1,16 @@
 import React, { ReactNode } from 'react'
-import { useCompositeItem } from './Aria'
-import { useSidebarContext } from '../context'
-import { ArrowKeys, SidebarSecretProps } from '../types'
-import { ButtonProps, Button } from '../../Button'
+import { useCompositeItem } from '../Aria'
+import { ButtonProps, Button } from '../../../Button'
+import { useSidebarContext } from '../../context'
+import { useItemContext, ArrowKeys } from './shared'
 
 export function SidebarSectionItem(props: SidebarSectionItem) {
-  const { selected, children, parentId, state, ...buttonProps } = props
-  const { collapse, rootState } = useSidebarContext()
+  const { children, selected = false, ...buttonProps } = props
+  const rootState = useSidebarContext()
+  const { state, id, selected: parentSelected } = useItemContext()
 
   const compositeProps = useCompositeItem(state)
+  const isSelected = parentSelected && selected
 
   const handleOnKeyDown = (event: React.KeyboardEvent<any>) => {
     if (typeof compositeProps.onKeyDown === 'function') {
@@ -18,7 +20,7 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
         // Move focus to parent component, which is
         // at the sidebar's first level and under the
         // root state scope.
-        rootState.move(parentId!)
+        rootState.composite.move(id!)
       }
     }
   }
@@ -34,21 +36,20 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
         height: 'auto',
         marginY: 1,
         textAlign: 'left',
-        backgroundColor: selected ? 'sidebar.hover' : 'unset',
+        backgroundColor: isSelected ? 'sidebar.hover' : 'unset',
         '> div': {
           justifyContent: 'start',
           fontSize: '14px',
-          fontSettings: selected ? 'medium' : 'regular',
-          color: selected ? 'blue' : 'dark.secondary',
+          fontSettings: isSelected ? 'medium' : 'regular',
+          color: isSelected ? 'blue' : 'dark.secondary',
         },
         '&:hover, &:focus': {
           backgroundColor: 'sidebar.hover',
           '> div': {
-            color: selected ? 'blue' : 'dark.secondary',
+            color: isSelected ? 'blue' : 'dark.secondary',
           },
         },
       }}
-      disabled={!!collapse}
       {...compositeProps}
       {...buttonProps}
       onKeyDown={handleOnKeyDown}
@@ -58,8 +59,7 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
   )
 }
 
-type IntrisicProps = Omit<ButtonProps, 'children' | 'ref'> &
-  Omit<SidebarSecretProps, 'children' | 'ref'>
+type IntrisicProps = Omit<ButtonProps, 'children' | 'ref'>
 
 export interface SidebarSectionItem extends IntrisicProps {
   children: ReactNode

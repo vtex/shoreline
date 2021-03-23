@@ -1,11 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Sidebar, SidebarProps } from './index'
+import { Sidebar, SidebarProps, useSidebarState } from './index'
 import { Box } from '@vtex/admin-primitives'
-import { CornerScope } from './types'
 import { Paragraph } from '../Paragraph'
-import { bottomCornerItems, SECTIONS, topCornerItems } from './testUtils'
+import {
+  IconAppStore,
+  IconHome,
+  IconMarketplace,
+  IconOrders,
+  IconProducts,
+  IconPromotions,
+  IconSettings,
+  IconShipping,
+  IconStorefront,
+} from '@vtex/admin-ui-icons'
 
 export default {
   title: 'shell/Sidebar',
@@ -16,16 +25,121 @@ interface PlaygroundArgs extends SidebarProps {
   id: string
 }
 
-interface ItemCursor {
-  index: number
-  scope: CornerScope
-}
+export const top = [
+  {
+    icon: <IconHome />,
+    onClick: () => console.log('Click me'),
+    label: 'Home',
+    sections: [],
+  },
+  {
+    icon: <IconOrders />,
+    onClick: () => console.log('Click me'),
+    label: 'Orders',
+    sections: [
+      {
+        title: 'Orders',
+        subItems: [
+          'All Orders',
+          'Subscriptions Super Long Text',
+          'Transactions',
+          'Bank Conciliation Super Long Text',
+        ],
+      },
+    ],
+  },
+  {
+    icon: <IconProducts />,
+    onClick: () => console.log('Click me'),
+    label: 'Products',
+    sections: [
+      {
+        title: 'Discounts',
+        subItems: [
+          'All Products',
+          'Categories',
+          'Brands',
+          'Collections',
+          'List Types',
+          'Inventory',
+          'Custom Fields Supor Long Text',
+          'Import and Export Super Long Text',
+          'Reviews',
+          'Reports',
+        ],
+      },
+      { title: 'Prices', subItems: ['Price List', 'Price Rules'] },
+    ],
+  },
+  {
+    icon: <IconPromotions />,
+    onClick: () => console.log('Click me'),
+    label: 'Promotions',
+    sections: [
+      {
+        title: 'Promotions',
+        subItems: [
+          'All Promotions',
+          'Coupons',
+          'Campaign Audience Super Long Text',
+          'Gift Cards',
+          'Taxes',
+        ],
+      },
+    ],
+  },
+  {
+    icon: <IconStorefront />,
+    onClick: () => console.log('Click me'),
+    label: 'Storefront',
+    sections: [
+      {
+        subItems: ['Layout', 'Site Editor', 'Pages', 'Styles', 'Banners'],
+        title: 'Intelligent Search',
+      },
+    ],
+  },
+  {
+    icon: <IconShipping />,
+    onClick: () => console.log('Click me'),
+    label: 'Shipping',
+    sections: [
+      {
+        title: 'Shipping',
+        subItems: [
+          'Shipping Rates',
+          'Shipping Simulator',
+          'Pickup Points Super Long Text',
+          'Shipping Strategy',
+        ],
+      },
+    ],
+  },
+  {
+    icon: <IconMarketplace />,
+    onClick: () => console.log('Click me'),
+    label: 'Marketplace',
+    sections: [],
+  },
+]
+
+export const bottom = [
+  {
+    icon: <IconAppStore />,
+    onClick: () => console.log('Click me'),
+    label: 'App Store',
+    sections: [],
+  },
+  {
+    icon: <IconSettings />,
+    onClick: () => console.log('Click me'),
+    label: 'Settings',
+    sections: [],
+  },
+]
 
 export const Playground: Story<PlaygroundArgs> = (args) => {
-  const [currentItem, setCurrentItem] = useState<ItemCursor>({
-    index: 0,
-    scope: 'top',
-  })
+  const state = useSidebarState()
 
   return (
     <>
@@ -50,21 +164,19 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
           overflow: 'hidden',
         }}
       >
-        <Sidebar {...args}>
-          <Sidebar.Header>
-            {topCornerItems.map((props, index) => (
+        <Sidebar {...args} state={state}>
+          <Sidebar.Top>
+            {top.map((item) => (
               <Sidebar.Item
-                {...props}
-                selected={
-                  currentItem.scope === 'top' && currentItem.index === index
-                }
-                onClick={() => setCurrentItem({ index, scope: 'top' })}
-                key={index}
+                label={item.label}
+                uniqueKey={item.label}
+                icon={item.icon}
+                key={item.label}
               >
-                {SECTIONS[props.label].sections.map((section, idx) => (
+                {item.sections.map((section) => (
                   <Sidebar.Item.Section
                     title={section.title}
-                    index={topCornerItems.length + idx}
+                    key={section.title}
                   >
                     {section.subItems.map((label) => (
                       <Sidebar.Item.Section.Item
@@ -78,19 +190,17 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
                 ))}
               </Sidebar.Item>
             ))}
-          </Sidebar.Header>
-          <Sidebar.Footer>
-            {bottomCornerItems.map((props, index) => (
+          </Sidebar.Top>
+          <Sidebar.Bottom>
+            {bottom.map((item) => (
               <Sidebar.Item
-                {...props}
-                selected={
-                  currentItem.scope === 'bottom' && currentItem.index === index
-                }
-                onClick={() => setCurrentItem({ index, scope: 'bottom' })}
-                key={index}
+                icon={item.icon}
+                label={item.label}
+                uniqueKey={item.label}
+                key={item.label}
               />
             ))}
-          </Sidebar.Footer>
+          </Sidebar.Bottom>
         </Sidebar>
         <Box
           csx={{
@@ -113,6 +223,5 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
 
 Playground.args = {
   id: 'Sidebar',
-  direction: 'left',
   loading: false,
 }
