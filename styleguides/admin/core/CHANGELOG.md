@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.2-experimental.5...@vtex/admin-core@0.9.2-experimental.6) (2021-03-23)
+
+**Note:** Version bump only for package @vtex/admin-core
+
+
+
+
+
 ## [0.9.2-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.2-experimental.4...@vtex/admin-core@0.9.2-experimental.5) (2021-03-19)
 
 **Note:** Version bump only for package @vtex/admin-core
