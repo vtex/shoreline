@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react'
+import React, { ReactNode } from 'react'
 import { Label, Set, Text, Toggle, ToggleProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 

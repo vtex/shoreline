@@ -7,7 +7,7 @@ import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 import { FormikSelect } from './index'
-import { Button } from '@vtex/admin-ui';
+import { Button, Text } from '@vtex/admin-ui';
 
 describe('Select tests', () => {
   it('change value in formik by input component', async () => {
@@ -147,6 +147,50 @@ describe('Select tests', () => {
     
     await waitFor(() => expect(select).toHaveTextContent(options[0]))
 
+  })
+
+  it('set toched when click and untouched when reset forms', async () => {
+    const handleSubmit = jest.fn()
+    const options = ['option 1', 'option 2', 'option 3', 'error']
+
+    render(
+      <ThemeProvider>
+        <Formik
+          initialValues={{value: false}}
+          onSubmit={handleSubmit}
+        >
+          {({ touched, resetForm }) => (
+            <Form id='form-admin-formik-input'>
+              <FormikSelect
+                name="value"
+                items={options}
+                data-testid="text-field"
+                label="TextField label"
+              />
+              <Button 
+                size='small' 
+                children="Reset Form" 
+                onClick={()=> resetForm()}
+              />
+              <Text feedback='secondary'>
+                <pre>
+                  {JSON.stringify(touched)}
+                </pre>
+              </Text>
+              <Button type="submit" size='small' children="Submit"/>
+            </Form>
+          )}
+        </Formik>
+      </ThemeProvider>
+    )
+
+    expect(await screen.findByText('{}')).not.toBeNull();
+    
+    userEvent.click(screen.getByRole('button',{ name: /TextField label/i}))
+    expect(await screen.findByText('{"value":true}')).not.toBeNull();
+
+    userEvent.click(screen.getByRole('button', {name: "Reset Form"}))
+    expect(await screen.findByText('{}')).not.toBeNull();
   })
 
   it('error in forms', async () => {

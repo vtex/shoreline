@@ -7,7 +7,7 @@ import { axe } from 'jest-axe'
 import { ThemeProvider } from '@vtex/admin-core'
 import { Form, Formik } from 'formik'
 import { FormikInput } from './index'
-import { Button } from '@vtex/admin-ui';
+import { Button, Text } from '@vtex/admin-ui';
 
 import { IntlProvider, useIntl } from 'react-intl'
 
@@ -142,6 +142,50 @@ describe('Input tests', () => {
 
   })
 
+  it('set toched when click and untouched when reset forms', async () => {
+    const handleSubmit = jest.fn()
+
+    render(
+      <ThemeProvider>
+        <Formik
+          initialValues={{value: false}}
+          onSubmit={handleSubmit}
+        >
+          {({ touched, resetForm }) => (
+            <Form id='form-admin-formik-input'>
+              <FormikInput
+                name="value"
+                data-testid="text-field"
+                label="TextField label"
+                id="text-field-1"
+              />
+              <Button 
+                size='small' 
+                children="Reset Form" 
+                onClick={()=> resetForm()}
+              />
+              <Text feedback='secondary'>
+                <pre>
+                  {JSON.stringify(touched)}
+                </pre>
+              </Text>
+              <Button type="submit" size='small' children="Submit"/>
+            </Form>
+          )}
+        </Formik>
+      </ThemeProvider>
+    )
+
+    expect(await screen.findByText('{}')).not.toBeNull();
+    const input = screen.getByLabelText(/TextField label/i)
+
+    fireEvent.blur(input);
+    expect(await screen.findByText('{"value":true}')).not.toBeNull();
+
+    userEvent.click(screen.getByRole('button', {name: "Reset Form"}))
+    expect(await screen.findByText('{}')).not.toBeNull();
+  })
+
   it('error in forms', async () => {
     const handleSubmit = jest.fn()
     const validate = () => ({ value: 'Error message' });
@@ -215,7 +259,6 @@ describe('Input tests', () => {
 
     expect(await screen.findByText("Error message")).not.toBeNull();
   })
-
 
   it('should not have a11y violations', async () => {
     const { container } = render(

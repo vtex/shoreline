@@ -10,7 +10,7 @@ import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import { FormikNumericStepper } from './index'
-import { Button } from '@vtex/admin-ui';
+import { Button, Text } from '@vtex/admin-ui';
 
 describe('Numeric Stepper tests', () => {
   it('change value in formik by input component', async () => {
@@ -159,6 +159,66 @@ describe('Numeric Stepper tests', () => {
 
   })
 
+  it('set toched when click and untouched when reset forms', async () => {
+    const handleSubmit = jest.fn()
+
+    render(
+      <ThemeProvider>
+        <Formik
+          initialValues={{value: false}}
+          onSubmit={handleSubmit}
+        >
+          {({ touched, resetForm }) => (
+            <Form id='form-admin-formik-input'>
+              <FormikNumericStepper
+                name="value"
+                data-testid="numeric-field"
+                label="NumericStepper label"
+                id="numeric-field-1"
+              />
+              <Button 
+                size='small' 
+                children="Reset Form" 
+                onClick={()=> resetForm()}
+              />
+              <Text feedback='secondary'>
+                <pre>
+                  {JSON.stringify(touched)}
+                </pre>
+              </Text>
+              <Button type="submit" size='small' children="Submit"/>
+            </Form>
+          )}
+        </Formik>
+      </ThemeProvider>
+    )
+
+    expect(await screen.findByText('{}')).not.toBeNull();
+    
+    const btnIncrement = screen.getByLabelText('NumericStepper label-increase-button}')
+    userEvent.click(btnIncrement)
+    expect(await screen.findByText('{"value":true}')).not.toBeNull();
+
+    userEvent.click(screen.getByRole('button', {name: "Reset Form"}))
+    expect(await screen.findByText('{}')).not.toBeNull();
+
+
+    const btnDecrement = screen.getByLabelText('NumericStepper label-decrease-button')
+    userEvent.click(btnDecrement)
+    expect(await screen.findByText('{"value":true}')).not.toBeNull();
+
+    userEvent.click(screen.getByRole('button', {name: "Reset Form"}))
+    expect(await screen.findByText('{}')).not.toBeNull();
+
+
+    const input = screen.getByTestId('numeric-field')
+    userEvent.type(input, '5')
+    expect(await screen.findByText('{"value":true}')).not.toBeNull();
+
+    userEvent.click(screen.getByRole('button', {name: "Reset Form"}))
+    expect(await screen.findByText('{}')).not.toBeNull();
+  })
+
   it('error message in forms', async () => {
     const handleSubmit = jest.fn()
 
@@ -205,7 +265,7 @@ describe('Numeric Stepper tests', () => {
           validationSchema={schemaValidationError}
           onSubmit={handleSubmit}
         >
-          {({ setFieldValue }) => (
+          {({ setFieldValue, setFieldTouched }) => (
             <Form id='form-admin-formik-input'>
               <FormikNumericStepper
                 name="value"
@@ -217,7 +277,10 @@ describe('Numeric Stepper tests', () => {
               <Button 
                 size='small' 
                 children="Change Value" 
-                onClick={()=> setFieldValue("value", maxValue+2)}
+                onClick={()=> {
+                  setFieldValue("value", maxValue+2)
+                  setFieldTouched("value",true)
+                }}
               />
             </Form>
           )}

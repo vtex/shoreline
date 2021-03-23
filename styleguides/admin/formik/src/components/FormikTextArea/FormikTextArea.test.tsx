@@ -10,7 +10,7 @@ import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 // import * as Yup from 'yup'
 import { FormikTextArea } from './index'
-import { Button } from '@vtex/admin-ui';
+import { Button, Text } from '@vtex/admin-ui';
 
 describe('TextArea tests', () => {
   it('change value in formik by input component', async () => {
@@ -144,6 +144,50 @@ describe('TextArea tests', () => {
     
     await waitFor(() => expect(input).toHaveValue('new initial value'))
 
+  })
+
+  it('set toched when click and untouched when reset forms', async () => {
+    const handleSubmit = jest.fn()
+
+    render(
+      <ThemeProvider>
+        <Formik
+          initialValues={{value: false}}
+          onSubmit={handleSubmit}
+        >
+          {({ touched, resetForm }) => (
+            <Form id='form-admin-formik-input'>
+              <FormikTextArea
+                name="value"
+                data-testid="text-field"
+                label="TextField label"
+                id="text-field-1"
+              />
+              <Button 
+                size='small' 
+                children="Reset Form" 
+                onClick={()=> resetForm()}
+              />
+              <Text feedback='secondary'>
+                <pre>
+                  {JSON.stringify(touched)}
+                </pre>
+              </Text>
+              <Button type="submit" size='small' children="Submit"/>
+            </Form>
+          )}
+        </Formik>
+      </ThemeProvider>
+    )
+
+    expect(await screen.findByText('{}')).not.toBeNull();
+    const input = screen.getByLabelText(/TextField label/i)
+
+    fireEvent.blur(input);
+    expect(await screen.findByText('{"value":true}')).not.toBeNull();
+
+    userEvent.click(screen.getByRole('button', {name: "Reset Form"}))
+    expect(await screen.findByText('{}')).not.toBeNull();
   })
 
   it('error in forms', async () => {
