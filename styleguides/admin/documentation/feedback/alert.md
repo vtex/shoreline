@@ -63,10 +63,10 @@ function Example() {
       <Alert visible type="info">
         Info Alert
       </Alert>
-      <Alert visible type="success">
+      <Alert visible type="warning">
         Warning Alert
       </Alert>
-      <Alert visible type="warning">
+      <Alert visible type="success">
         Success Alert
       </Alert>
       <Alert visible type="error">
