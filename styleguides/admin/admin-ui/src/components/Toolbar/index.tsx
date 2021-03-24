@@ -1,6 +1,7 @@
 import React, { ReactNode, forwardRef, Ref } from 'react'
 import { Set, SetProps } from '../Set'
 import { ReakitToolbar, ToolbarItem, ToolbarState } from './components'
+import { ToolbarContext } from './context'
 
 const _Toolbar = forwardRef(function Toolbar(
   props: ToolbarProps,
@@ -10,9 +11,11 @@ const _Toolbar = forwardRef(function Toolbar(
 
   return (
     <ReakitToolbar {...state}>
-      <Set spacing={3} {...rest} ref={ref}>
-        {children}
-      </Set>
+      <ToolbarContext.Provider value={state}>
+        <Set spacing={3} {...rest} ref={ref}>
+          {children}
+        </Set>
+      </ToolbarContext.Provider>
     </ReakitToolbar>
   )
 })
@@ -27,13 +30,13 @@ const _Toolbar = forwardRef(function Toolbar(
  * const state = useToolbarState()
  *
  * <Toolbar state={state}>
- *  <Toolbar.Item state={state}>
+ *  <Toolbar.Item>
  *   {(itemProps) => <Button {...itemProps}>Item 1</Button>}
  *  </Toolbar.Item>
- *  <Toolbar.Item state={state}>
+ *  <Toolbar.Item>
  *   {(itemProps) => <Button {...itemProps}>Item 2</Button>}
  *  </Toolbar.Item>
- *  <Toolbar.Item state={state}>
+ *  <Toolbar.Item>
  *   {(itemProps) => (
  *     <MenuDisclosure state={menuState}>
  *       <Button variant="adaptative-dark" {...itemProps}>
@@ -42,7 +45,7 @@ const _Toolbar = forwardRef(function Toolbar(
  *     </MenuDisclosure>
  *   )}
  *  </Toolbar.Item>
- *  <Toolbar.Item state={state}>
+ *  <Toolbar.Item>
  *   {(itemProps) => (
  *     <ModalDisclosure state={modalState}>
  *       <Button variant="adaptative-dark" {...itemProps}>
@@ -87,13 +90,13 @@ export const Toolbar = Object.assign(_Toolbar, {
    * const state = useToolbarState()
    *
    * <Toolbar state={state}>
-   *  <Toolbar.Item state={state}>
+   *  <Toolbar.Item>
    *   {(itemProps) => <Button {...itemProps}>Item 1</Button>}
    *  </Toolbar.Item>
-   *  <Toolbar.Item state={state}>
+   *  <Toolbar.Item>
    *   {(itemProps) => <Button {...itemProps}>Item 2</Button>}
    *  </Toolbar.Item>
-   *  <Toolbar.Item state={state}>
+   *  <Toolbar.Item>
    *   {(itemProps) => (
    *     <MenuDisclosure state={menuState}>
    *       <Button variant="adaptative-dark" {...itemProps}>
@@ -102,7 +105,7 @@ export const Toolbar = Object.assign(_Toolbar, {
    *     </MenuDisclosure>
    *   )}
    *  </Toolbar.Item>
-   *  <Toolbar.Item state={state}>
+   *  <Toolbar.Item>
    *   {(itemProps) => (
    *     <ModalDisclosure state={modalState}>
    *       <Button variant="adaptative-dark" {...itemProps}>
@@ -140,7 +143,7 @@ export const Toolbar = Object.assign(_Toolbar, {
 
 export interface ToolbarProps extends SetProps {
   /**
-   * `children`
+   * children component
    */
   children: ReactNode
   /**

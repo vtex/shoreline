@@ -1,9 +1,11 @@
 import React, { ReactNode } from 'react'
 import { ExtractHTMLAttributes } from 'reakit-utils/ts'
-import { ReakitToolbarItem, ToolbarState } from './Aria'
+import { useToolbarContext } from '../context'
+import { ReakitToolbarItem } from './Aria'
 
 export function ToolbarItem(props: ToolbarItemProps) {
-  const { state, children } = props
+  const { children } = props
+  const state = useToolbarContext()
 
   return (
     <ReakitToolbarItem {...state}>
@@ -13,6 +15,5 @@ export function ToolbarItem(props: ToolbarItemProps) {
 }
 
 interface ToolbarItemProps {
-  state: ToolbarState
   children: (itemProps: ExtractHTMLAttributes<any>) => ReactNode
 }
