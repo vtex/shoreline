@@ -1,5 +1,5 @@
 import React, { MouseEventHandler } from 'react'
-import { Flex } from '@vtex/admin-primitives'
+import { BoxProps, Flex } from '@vtex/admin-primitives'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { Button } from '../Button'
 import { Text } from '../Text'
@@ -22,7 +22,7 @@ const buttonCsx = {
   },
 }
 
-export function Pagination(props: Props) {
+export function Pagination(props: PaginationProps) {
   const {
     total,
     numberOfItemsFrom,
@@ -35,6 +35,7 @@ export function Pagination(props: Props) {
     tooltipLabelNext,
     loading,
     csx,
+    ...boxProps
   } = props
 
   const isPrevDisabled = numberOfItemsFrom <= 1
@@ -43,7 +44,7 @@ export function Pagination(props: Props) {
     numberOfItemsTo <= total ? numberOfItemsTo : total
 
   return (
-    <Flex align="center" csx={{ ...csx }}>
+    <Flex align="center" csx={{ ...csx }} {...boxProps}>
       {!loading && (
         <Text
           csx={{
@@ -79,7 +80,7 @@ export function Pagination(props: Props) {
   )
 }
 
-interface Props {
+interface PaginationProps extends BoxProps<'div'> {
   total: string | number
   numberOfItemsFrom: string | number
   numberOfItemsTo: string | number
