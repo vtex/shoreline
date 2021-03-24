@@ -27,7 +27,7 @@ export const Basic = () => {
   return (
     <Toolbar state={state}>
       {labels.map((label) => (
-        <Toolbar.Item state={state}>
+        <Toolbar.Item>
           {(itemProps) => (
             <Button variant="adaptative-dark" {...itemProps} key={label}>
               {label}
@@ -47,7 +47,7 @@ export const WithMenu = () => {
     <>
       <Toolbar state={state}>
         {labels.map((label) => (
-          <Toolbar.Item state={state}>
+          <Toolbar.Item>
             {(itemProps) => (
               <Button variant="adaptative-dark" {...itemProps} key={label}>
                 {label}
@@ -55,7 +55,7 @@ export const WithMenu = () => {
             )}
           </Toolbar.Item>
         ))}
-        <Toolbar.Item state={state}>
+        <Toolbar.Item>
           {(itemProps) => (
             <MenuDisclosure state={menuState}>
               <Button variant="adaptative-dark" {...itemProps}>
@@ -87,7 +87,7 @@ export const WithModal = () => {
     <>
       <Toolbar state={state}>
         {labels.map((label) => (
-          <Toolbar.Item state={state}>
+          <Toolbar.Item>
             {(itemProps) => (
               <Button variant="adaptative-dark" {...itemProps} key={label}>
                 {label}
@@ -95,7 +95,7 @@ export const WithModal = () => {
             )}
           </Toolbar.Item>
         ))}
-        <Toolbar.Item state={state}>
+        <Toolbar.Item>
           {(itemProps) => (
             <MenuDisclosure state={menuState}>
               <Button variant="adaptative-dark" {...itemProps}>
@@ -104,7 +104,7 @@ export const WithModal = () => {
             </MenuDisclosure>
           )}
         </Toolbar.Item>
-        <Toolbar.Item state={state}>
+        <Toolbar.Item>
           {(itemProps) => (
             <ModalDisclosure state={modalState}>
               <Button {...itemProps} variant="adaptative-dark">
