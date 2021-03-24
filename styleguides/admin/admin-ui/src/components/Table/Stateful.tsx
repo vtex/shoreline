@@ -7,6 +7,7 @@ import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
 import { Box } from '@vtex/admin-primitives'
+import { Pagination } from '../Pagination'
 
 /**
  * Table used to show static & simple information
@@ -55,7 +56,13 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     [density, loading, dir]
   )
 
-  const { data, resolveCell, resolveHeader, Providers } = useTable<T>({
+  const {
+    data,
+    resolveCell,
+    resolveHeader,
+    Providers,
+    pagination,
+  } = useTable<T>({
     length,
     columns,
     resolvers,
@@ -66,6 +73,23 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
   return (
     <Providers>
       <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
+        <Box csx={{ marginBottom: '1.5rem', display: 'flex' }}>
+          {/* Later this box should be the Toolbar component */}
+
+          <Pagination
+            numberOfItemsTo={pagination.paginationState.currentItemTo}
+            numberOfItemsFrom={pagination.paginationState.currentItemFrom}
+            textOf="of"
+            textResults="results"
+            tooltipLabelNext="Next"
+            tooltipLabelPrev="Prev"
+            total={items.length}
+            loading={loading}
+            onClickNext={() => pagination.paginate('next')}
+            onClickPrev={() => pagination.paginate('prev')}
+            csx={{ marginLeft: 'auto' }}
+          />
+        </Box>
         <Table dir={context.dir} density={density}>
           <Table.Head>
             <Table.Row>

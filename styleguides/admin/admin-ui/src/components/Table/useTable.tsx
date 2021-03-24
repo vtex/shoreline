@@ -18,6 +18,7 @@ import {
 import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
 import { SelectionProvider } from './resolvers/selection'
+import { PaginationObj, usePagination } from '../Pagination/usePagination'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const {
@@ -62,10 +63,22 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     [resolvers, context]
   )
 
-  const data = useMemo(() => (context.loading ? skeletonCollection : items), [
+  const pagination = usePagination(length)
+
+  const data = useMemo(() => {
+    if (context.loading) {
+      return skeletonCollection
+    }
+    return [...items].slice(
+      pagination.paginationState.currentItemFrom - 1,
+      pagination.paginationState.currentItemTo
+    )
+  }, [
     items,
     context.loading,
     skeletonCollection,
+    pagination.paginationState.currentItemFrom,
+    pagination.paginationState.currentItemTo,
   ])
 
   function Providers(props: PropsWithChildren<unknown>) {
@@ -90,6 +103,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     data,
     columns,
     Providers,
+    pagination,
   }
 }
 
@@ -122,12 +136,11 @@ export interface UseTableParams<T> {
 export interface UseTableReturn<T> {
   skeletonCollection: T[]
   resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
-  resolveHeader: (
-    args: ResolverCallee<ResolveHeaderArgs<T>>
-  ) => Record<string, unknown> | null | undefined
+  resolveHeader: (args: ResolverCallee<ResolveHeaderArgs<T>>) => ReactNode
   data: T[]
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
+  pagination: PaginationObj
 }
 
 type ResolverCallee<T> = Omit<T, 'resolvers' | 'context'>
