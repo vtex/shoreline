@@ -4,6 +4,7 @@ import { IconCaret } from '@vtex/admin-ui-icons'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
+import { StyleProp } from 'styleguides/admin/styles/dist'
 
 const buttonCsx = {
   color: 'dark.secondary',
@@ -33,13 +34,16 @@ export function Pagination(props: Props) {
     tooltipLabelPrev,
     tooltipLabelNext,
     loading,
+    csx,
   } = props
 
   const isPrevDisabled = numberOfItemsFrom <= 1
   const isNextDisabled = numberOfItemsTo >= total
+  const displayedNumberOfItemsTo =
+    numberOfItemsTo <= total ? numberOfItemsTo : total
 
   return (
-    <Flex align="center">
+    <Flex align="center" csx={{ ...csx }}>
       {!loading && (
         <Text
           csx={{
@@ -50,7 +54,8 @@ export function Pagination(props: Props) {
             fontWeight: 'normal',
           }}
         >
-          {numberOfItemsFrom} — {numberOfItemsTo} {textOf} {total} {textResults}
+          {numberOfItemsFrom} — {displayedNumberOfItemsTo} {textOf} {total}{' '}
+          {textResults}
         </Text>
       )}
       <Tooltip label={tooltipLabelPrev}>
@@ -85,4 +90,5 @@ interface Props {
   tooltipLabelPrev: string
   tooltipLabelNext: string
   loading?: boolean
+  csx?: StyleProp
 }
