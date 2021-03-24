@@ -15,5 +15,5 @@ export function ToolbarItem(props: ToolbarItemProps) {
 }
 
 interface ToolbarItemProps {
-  children: (itemProps: ExtractHTMLAttributes<any>) => ReactNode
+  children: (itemProps: ExtractHTMLAttributes<HTMLButtonElement>) => ReactNode
 }
