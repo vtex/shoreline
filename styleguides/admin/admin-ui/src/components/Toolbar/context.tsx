@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react'
+import invariant from 'tiny-invariant'
 import { ToolbarState } from './components'
 
 export const ToolbarContext = createContext<ToolbarState | null>(null)
@@ -6,9 +7,7 @@ export const ToolbarContext = createContext<ToolbarState | null>(null)
 export function useToolbarContext() {
   const ctx = useContext(ToolbarContext)
 
-  if (!ctx) {
-    throw new Error('out of toolbar')
-  }
+  invariant(ctx, 'Toolbar composites must not be used outside of its context')
 
   return ctx
 }
