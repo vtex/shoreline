@@ -29,7 +29,7 @@ export function Topbar(props: TopbarProps) {
   return (
     <Grid
       templateAreas={['left center right']}
-      csx={{ height: 56, border: 'divider-bottom', paddingX: 3, ...csx }}
+      csx={{ height: '3.5rem', border: 'divider-bottom', paddingX: 3, ...csx }}
       {...restProps}
     >
       {loading ? <TopbarSkeleton /> : children}
@@ -44,10 +44,10 @@ function TopbarSkeleton() {
   return (
     <Fragment>
       <Topbar.Left>
-        <Skeleton csx={{ height: 24, width: '100%' }} />
+        <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
       </Topbar.Left>
       <Topbar.Right>
-        <Skeleton csx={{ height: 24, width: '100%' }} />
+        <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
       </Topbar.Right>
     </Fragment>
   )
@@ -56,45 +56,39 @@ function TopbarSkeleton() {
 export function TopbarLeft(props: FlexProps) {
   const { children, csx, ...restProps } = props
   return (
-    <Grid.Item
-      element={Flex}
-      area="left"
+    <Flex
       align="center"
-      csx={{ height: '100%', ...csx }}
+      csx={{ height: '100%', gridArea: 'left', ...csx }}
       {...restProps}
     >
       {children}
-    </Grid.Item>
+    </Flex>
   )
 }
 
 export function TopbarRight(props: FlexProps) {
   const { children, csx, ...restProps } = props
   return (
-    <Grid.Item
-      element={Flex}
-      area="right"
+    <Flex
       align="center"
-      csx={{ height: '100%', ...csx }}
+      csx={{ height: '100%', gridArea: 'right', ...csx }}
       {...restProps}
     >
       {children}
-    </Grid.Item>
+    </Flex>
   )
 }
 
 export function TopbarCenter(props: FlexProps) {
   const { children, csx, ...restProps } = props
   return (
-    <Grid.Item
-      element={Flex}
-      area="center"
+    <Flex
       align="center"
-      csx={{ height: '100%', ...csx }}
+      csx={{ height: '100%', gridArea: 'center', ...csx }}
       {...restProps}
     >
       {children}
-    </Grid.Item>
+    </Flex>
   )
 }
 
