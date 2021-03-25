@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.85.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.85.0...@vtex/admin-ui@0.85.1-experimental.0) (2021-03-25)
+
+
+### Bug Fixes
+
+* **admin-sidebar:** style on reduced states ([b01ef3b](https://github.com/vtex/onda/commit/b01ef3b663303e0237d0cfb40d7b3aae939cccad))
+* **set:** omit styles prop from FlexProps ([86e422e](https://github.com/vtex/onda/commit/86e422ef45b77a8be898ca85cf57d95068594be2))
+* **sidebar:** backdrop spacing and border ([c9070cd](https://github.com/vtex/onda/commit/c9070cd031394054927d083188e4a64f5c426880))
+* **sidebar:** clean transition side effect ([c60dcee](https://github.com/vtex/onda/commit/c60dcee6fbe7f6f3a0d5b7dfa0e5e746e42cfa8a))
+* **sidebar:** click issues ([fdc9982](https://github.com/vtex/onda/commit/fdc9982613469f24d4f61cd3aa310638fe80496c))
+* **sidebar:** collapsed style ([88a4ae9](https://github.com/vtex/onda/commit/88a4ae9c03366edb9627dde3070763480fa946ed))
+* **sidebar:** get rid of circular deps ([4011a0c](https://github.com/vtex/onda/commit/4011a0c78fa89fdc8a74ad5ddc799da1bb364ab0))
+* **sidebar:** move menu state level to sidebar item ([4b0f5fa](https://github.com/vtex/onda/commit/4b0f5fa8d97c37bbcf4dc62139ec0a937c648d6a))
+* **sidebar:** remove setShowCollapseButton prop override from Sidebar.Item ([54fa157](https://github.com/vtex/onda/commit/54fa157746441443b88390fff242be34ec51a686))
+* sidebar secret props contract ([0ef5dc2](https://github.com/vtex/onda/commit/0ef5dc25194b3969a55465306214324aa340d83d))
+
+
+### Features
+
+* **admin-sidebar:** stateless approach ([cd95e26](https://github.com/vtex/onda/commit/cd95e26b89a13fcec2a755ffd82098111ef60847))
+* **sidebar:** arrow keys navigation ([b5913bc](https://github.com/vtex/onda/commit/b5913bc8cb1eefcc3ee09cd36d34de5ddc01b4a0))
+* **toolbar:** add toolbar ([5f504ea](https://github.com/vtex/onda/commit/5f504ea71f375e28a4338892bd48993b0fee0a76))
+* **topbar:** add Topbar component ([925d16b](https://github.com/vtex/onda/commit/925d16b588fe7bc550fbd896854c3533c8f4057e))
+
+
+
+
+
 # [0.85.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.5...@vtex/admin-ui@0.85.0) (2021-03-22)
 # [0.85.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.85.0-experimental.0...@vtex/admin-ui@0.85.0-experimental.1) (2021-03-24)
 
