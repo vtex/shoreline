@@ -1,6 +1,11 @@
 import React, { ReactNode, forwardRef, Ref } from 'react'
 import { Set, SetProps } from '../Set'
-import { ReakitToolbar, ToolbarItem, ToolbarState } from './components'
+import {
+  ReakitToolbar,
+  ToolbarItem,
+  ToolbarState,
+  useToolbarState,
+} from './components'
 import { ToolbarContext } from './context'
 
 const _Toolbar = forwardRef(function Toolbar(
@@ -151,3 +156,5 @@ export interface ToolbarProps extends SetProps {
    */
   state: ToolbarState
 }
+
+export { useToolbarState, ToolbarState }
