@@ -37,9 +37,10 @@ export function useSidebarState(): SidebarState {
 
   const isReduced = useCallback(() => {
     if (!selectedItem) return false
+    const { expandable } = selectedItem
 
-    return (layout.reduced && selectedItem?.expandable) ?? false
-  }, [])
+    return (expandable && layout.reduced) || !expandable
+  }, [selectedItem, layout.reduced])
 
   return {
     isSelected,

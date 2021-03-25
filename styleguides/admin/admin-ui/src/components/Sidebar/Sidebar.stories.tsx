@@ -25,7 +25,7 @@ interface PlaygroundArgs extends SidebarProps {
   id: string
 }
 
-export const top = [
+const top = [
   {
     icon: <IconHome />,
     onClick: () => console.log('Click me'),
@@ -123,7 +123,7 @@ export const top = [
   },
 ]
 
-export const bottom = [
+const bottom = [
   {
     icon: <IconAppStore />,
     onClick: () => console.log('Click me'),

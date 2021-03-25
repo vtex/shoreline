@@ -28,9 +28,9 @@ function _Sidebar(props: SidebarProps) {
           backgroundColor: state.isReduced()
             ? 'light.primary'
             : 'sidebar.light',
-          boxShadow:
-            // state.reduced.reduced && state.selectedItem
-            state.isReduced() ? '1px 0px 6px -2px rgb(0 0 0 / 30%)' : 'unset',
+          boxShadow: state.isReduced()
+            ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
+            : 'unset',
           ...csx,
         }}
       >

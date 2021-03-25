@@ -22,7 +22,7 @@ function _SidebarItem(props: SidebarItemProps) {
   })
 
   const expandable = state.isExpandable(children)
-  const translate = selected && !state.layout.reduced ? '3.5rem' : '-13.5rem'
+  const translate = selected && !state.layout.reduced ? '3rem' : '-13.5rem'
 
   const handleSelection = () => {
     const currItem = {
@@ -30,23 +30,16 @@ function _SidebarItem(props: SidebarItemProps) {
       expandable,
     }
     state.setSelectedItem(currItem)
-    state.layout.expand()
   }
 
   const handleExpansion = () => {
-    // This means the item the user has interacted with
-    // doesn't have children, so we set this to null to
-    // warn the surrounding components that the sidebar
-    // should not open.
-    if (!expandable) {
-      state.setSelectedItem(null)
-    } else {
-      state.layout.expand()
-      handleSelection()
-    }
+    if (!expandable) return
+
+    state.layout.expand()
   }
 
   const handleOnClick = (event: React.MouseEvent<any, MouseEvent>) => {
+    handleSelection()
     handleExpansion()
     onClick?.(event)
   }
