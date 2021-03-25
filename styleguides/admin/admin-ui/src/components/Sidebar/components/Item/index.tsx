@@ -7,6 +7,7 @@ import { SidebarDisclosureProps, SidebarDisclosure } from './Disclosure'
 import { SidebarSection } from './Section'
 import { ItemProvider, ArrowKeys } from './shared'
 import { useSidebarContext } from '../../context'
+import { SCALES } from '../../consts'
 
 function _SidebarItem(props: SidebarItemProps) {
   const { children, onClick, label, uniqueKey, icon } = props
@@ -53,6 +54,7 @@ function _SidebarItem(props: SidebarItemProps) {
 
       // Opens sidebar and focus on the first sidebar sub item
       if (event.key === ArrowKeys.Right) {
+        handleSelection()
         handleExpansion()
         // We need a delay here in order to allow the object to mount,
         // otherwise there would be nothing to focus on
@@ -83,7 +85,15 @@ function _SidebarItem(props: SidebarItemProps) {
           <Box
             element="ul"
             csx={{
-              themeKey: 'components.sidebar.item',
+              position: 'absolute',
+              top: 0,
+              maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
+              height: '100%',
+              width: '12.5rem',
+              padding: '1.5rem 0.5rem',
+              outline: 'none',
+              overflow: 'auto',
+              backgroundColor: 'transparent',
               transform: `translateX(${translate})`,
             }}
             data-testid={`${label}-ul`}

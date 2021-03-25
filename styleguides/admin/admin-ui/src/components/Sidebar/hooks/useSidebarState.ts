@@ -59,6 +59,7 @@ export interface Item {
 }
 
 export interface SidebarState {
+  /** if hte state is reduced or not */
   isReduced: () => boolean
   isSelected: (item: string | number) => boolean
   selectedItem: Item | null

@@ -5,8 +5,11 @@ export const SidebarContext = createContext<SidebarState | null>(null)
 
 export function useSidebarContext() {
   const ctx = useContext(SidebarContext)
+
   if (!ctx) {
-    throw new Error('out of sidebar')
+    throw new Error(
+      'You are trying to use a Sidebar composite outside of context. Check the render method of your Sidebar'
+    )
   }
 
   return ctx

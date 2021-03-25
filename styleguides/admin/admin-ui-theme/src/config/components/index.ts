@@ -27,8 +27,6 @@ import modal from './modal'
 import skeleton from './skeleton'
 import collapsible from './collapsible'
 import avatar from './avatar'
-// shell
-import sidebar from './sidebar'
 
 export default {
   button,
@@ -57,5 +55,4 @@ export default {
   tab,
   tabList,
   tabContent,
-  sidebar,
 }

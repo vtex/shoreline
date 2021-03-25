@@ -16,6 +16,7 @@ import {
 import { SystemComponent } from '../../types'
 import { SidebarState } from './hooks'
 import { SidebarContext } from './context'
+import { SCALES } from './consts'
 
 function _Sidebar(props: SidebarProps) {
   const { children, loading = false, csx = {}, state, ...baseProps } = props
@@ -24,7 +25,15 @@ function _Sidebar(props: SidebarProps) {
     <Fragment>
       <Box
         csx={{
-          themeKey: 'components.sidebar.container',
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          maxWidth: SCALES.MAX_SIDEBAR_WIDTH,
+          minWidth: SCALES.FIXED_AREA_WIDTH,
+          outline: 'none',
+          borderRight: '1px solid',
+          borderColor: 'mid.tertiary',
           backgroundColor: state.isReduced()
             ? 'light.primary'
             : 'sidebar.light',
@@ -37,7 +46,16 @@ function _Sidebar(props: SidebarProps) {
         <Box
           element="nav"
           csx={{
-            themeKey: 'components.sidebar.root',
+            position: 'absolute',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingY: '0.625rem',
+            maxWidth: '16rem',
+            height: '100%',
+            width: '100%',
+            overflow: 'initial',
           }}
           {...state.composite}
           {...baseProps}
@@ -80,7 +98,7 @@ function _Sidebar(props: SidebarProps) {
  * The sidebar structure is as follows:
  * ```bash
  * └── Sidebar
- *  └── Sidebar.Header or Sidebar.Footer
+ *  └── Sidebar.Top or Sidebar.Bottom
  *       └── Sidebar.Item
  *           └── Sidebar.Item.Section
  *               └── Sidebar.Item.Section.Item
@@ -88,39 +106,35 @@ function _Sidebar(props: SidebarProps) {
  *
  * @example
  * ```jsx
- * import { Sidebar } from `@vtex/admin-ui`
+ * import { Sidebar, useSidebarState } from `@vtex/admin-ui`
  *
- * <Sidebar>
- *    <Sidebar.Header>
- *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/promotions" })}>
- *       <Sidebar.Item.Section title={"Promotions"}>
- *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/promotions" })}>
- *         Promotions
- *        </Sidebar.Item.Section.Item>
- *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/discounts"})} >
- *         Discounts
- *        </Sidebar.Item.Section.Item>
- *       </Sidebar.Item.Section>
- *      </Sidebar.Item>
- *    </Sidebar.Header>
- *    <Sidebar.Footer>
- *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/apps" })}>
- *       <Sidebar.Item.Section title={"Apps"}>
- *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps" })}>
- *         Installed apps
- *        </Sidebar.Item.Section.Item>
- *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps-store"})} >
- *         Apps store
+ * const state = useSidebarState()
+ *
+ * <Sidebar state={state}>
+ *    <Sidebar.Top>
+ *      <Sidebar.Item label="Label">
+ *       <Sidebar.Item.Section title="Title">
+ *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/admin/page1" })}>
+ *         Title
  *        </Sidebar.Item.Section.Item>
  *       </Sidebar.Item.Section>
  *      </Sidebar.Item>
- *    </Sidebar.Footer>
+ *    </Sidebar.Top>
+ *    <Sidebar.Bottom>
+ *      <Sidebar.Item label="Label">
+ *       <Sidebar.Item.Section title="Title">
+ *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/admin/page2" })}>
+ *         Title
+ *        </Sidebar.Item.Section.Item>
+ *       </Sidebar.Item.Section>
+ *      </Sidebar.Item>
+ *    </Sidebar.Bottom>
  * </Sidebar>
  * ```
  */
 export const Sidebar = Object.assign(_Sidebar, {
   /**
-   * Sidebar.Header will stick whatever is inside
+   * Sidebar.Top will stick whatever is inside
    * of it to the top of the sidebar.
    *
    * @example
@@ -128,24 +142,21 @@ export const Sidebar = Object.assign(_Sidebar, {
    * import { Sidebar } from `@vtex/admin-ui`
    *
    * <Sidebar>
-   *    <Sidebar.Header>
-   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/promotions" })}>
-   *       <Sidebar.Item.Section title={"Promotions"}>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/promotions" })}>
-   *         Promotions
-   *        </Sidebar.Item.Section.Item>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/discounts"})} >
-   *         Discounts
+   *    <Sidebar.Top>
+   *      <Sidebar.Item>
+   *       <Sidebar.Item.Section title="Example">
+   *        <Sidebar.Item.Section.Item>
+   *          Example
    *        </Sidebar.Item.Section.Item>
    *       </Sidebar.Item.Section>
    *      </Sidebar.Item>
-   *    </Sidebar.Header>
+   *    </Sidebar.Top>
    * </Sidebar>
    * ```
    */
   Top: SidebarCorner,
   /**
-   * Sidebar.Footer will stick whatever is inside
+   * Sidebar.Bottom will stick whatever is inside
    * of it to the bottom of the sidebar.
    *
    * @example
@@ -153,18 +164,15 @@ export const Sidebar = Object.assign(_Sidebar, {
    * import { Sidebar } from `@vtex/admin-ui`
    *
    * <Sidebar>
-   *    <Sidebar.Footer>
-   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/apps" })}>
-   *       <Sidebar.Item.Section title={"Apps"}>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps" })}>
-   *         Installed apps
-   *        </Sidebar.Item.Section.Item>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps-store"})} >
-   *         Apps store
+   *    <Sidebar.Bottom>
+   *      <Sidebar.Item>
+   *       <Sidebar.Item.Section title="Example">
+   *        <Sidebar.Item.Section.Item>
+   *          Example
    *        </Sidebar.Item.Section.Item>
    *       </Sidebar.Item.Section>
    *      </Sidebar.Item>
-   *    </Sidebar.Footer>
+   *    </Sidebar.Bottom>
    * </Sidebar>
    * ```
    */
@@ -179,32 +187,17 @@ export const Sidebar = Object.assign(_Sidebar, {
    * import { Sidebar } from `@vtex/admin-ui`
    *
    * <Sidebar>
-   *    <Sidebar.Header>
-   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/promotions" })}>
-   *       <Sidebar.Item.Section title={"Promotions"}>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/promotions" })}>
-   *         Promotions
-   *        </Sidebar.Item.Section.Item>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/discounts"})} >
-   *         Discounts
+   *    <Sidebar.Bottom>
+   *      <Sidebar.Item uniqueKey="" label="Example">
+   *       <Sidebar.Item.Section title="Example">
+   *        <Sidebar.Item.Section.Item>
+   *          Example
    *        </Sidebar.Item.Section.Item>
    *       </Sidebar.Item.Section>
    *      </Sidebar.Item>
-   *    </Sidebar.Header>
-   *    <Sidebar.Footer>
-   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/apps" })}>
-   *       <Sidebar.Item.Section title={"Apps"}>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps" })}>
-   *         Installed apps
-   *        </Sidebar.Item.Section.Item>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps-store"})} >
-   *         Apps store
-   *        </Sidebar.Item.Section.Item>
-   *       </Sidebar.Item.Section>
-   *      </Sidebar.Item>
-   *    </Sidebar.Footer>
+   *    </Sidebar.Bottom>
    * </Sidebar>
-   * ```
+   *```
    */
   Item: SidebarItem,
 })

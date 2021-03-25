@@ -15,7 +15,9 @@ export function useItemContext() {
   const ctx = useContext(ItemContext)
 
   if (!ctx) {
-    throw new Error('outside of item')
+    throw new Error(
+      'You are trying to use a Sidebar.Item composite outside of context. Check the render method of your Sidebar.Item'
+    )
   }
 
   return ctx
