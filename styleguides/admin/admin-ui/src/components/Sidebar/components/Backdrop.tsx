@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { IconCaret } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
+import { IconSidebarCaret } from '@vtex/admin-ui-icons'
 
 import { SCALES } from '../consts'
 import { Button } from '../../Button'
@@ -47,20 +47,17 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
           csx={{
             position: 'relative',
             zIndex: 1,
-            left: '0.5625em',
+            left: '0.5em',
             marginLeft: '-1.5rem',
-            top: '0.875rem',
+            top: '1.2rem',
             cursor: 'pointer',
             border: '1px solid',
             borderRadius: '100%',
             borderColor: 'mid.tertiary',
-            height: '1.25rem',
-            width: '1.25rem',
+            height: '1.5rem',
+            width: '1.5rem',
             transition: '0.3',
             backgroundColor: 'light.primary',
-            '> div > svg': {
-              color: 'mid.primary',
-            },
             '&:hover': {
               backgroundColor: 'blue.secondary',
               borderColor: 'blue.secondary',
@@ -72,11 +69,13 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
             transitionDuration: '.3s',
           }}
           icon={
-            <IconCaret
-              direction={reduced ? 'right' : 'left'}
+            <IconSidebarCaret
               csx={{
                 display: 'flex',
                 justifyContent: 'center',
+                transition: '0.3',
+                transform: reduced ? 'rotate(180deg)' : 'rotate(0deg)',
+                color: 'black',
                 '> path': {
                   strokeWidth: 2,
                 },
