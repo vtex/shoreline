@@ -11,15 +11,15 @@ import { Skeleton } from '../Skeleton'
  * import { Topbar } from `@vtex/admin-ui`
  *
  * <Topbar>
- *    <Topbar.Left>
+ *    <Topbar.Start>
  *      {children}
- *    </Topbar.Left>
+ *    </Topbar.Start>
  *    <Topbar.Center>
  *      {children}
  *    </Topbar.Center>
- *    <Topbar.Right>
+ *    <Topbar.End>
  *      {children}
- *    </Topbar.Right>
+ *    </Topbar.End>
  * </Topbar>
  * ```
  */
@@ -28,7 +28,7 @@ export function Topbar(props: TopbarProps) {
 
   return (
     <Grid
-      templateAreas={['left center right']}
+      templateAreas={['start center end']}
       csx={{ height: '3.5rem', border: 'divider-bottom', paddingX: 3, ...csx }}
       {...restProps}
     >
@@ -43,35 +43,23 @@ export function Topbar(props: TopbarProps) {
 function TopbarSkeleton() {
   return (
     <Fragment>
-      <Topbar.Left>
+      <Topbar.Start>
         <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
-      </Topbar.Left>
-      <Topbar.Right>
+      </Topbar.Start>
+      <Topbar.End>
         <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
-      </Topbar.Right>
+      </Topbar.End>
     </Fragment>
   )
 }
 
-export function TopbarLeft(props: FlexProps) {
+export function TopbarStart(props: FlexProps) {
   const { children, csx, ...restProps } = props
   return (
     <Flex
       align="center"
-      csx={{ height: '100%', gridArea: 'left', ...csx }}
-      {...restProps}
-    >
-      {children}
-    </Flex>
-  )
-}
-
-export function TopbarRight(props: FlexProps) {
-  const { children, csx, ...restProps } = props
-  return (
-    <Flex
-      align="center"
-      csx={{ height: '100%', gridArea: 'right', ...csx }}
+      justify="flex-start"
+      csx={{ height: '100%', gridArea: 'start', ...csx }}
       {...restProps}
     >
       {children}
@@ -92,18 +80,34 @@ export function TopbarCenter(props: FlexProps) {
   )
 }
 
+export function TopbarEnd(props: FlexProps) {
+  const { children, csx, ...restProps } = props
+  return (
+    <Flex
+      align="center"
+      justify="flex-end"
+      csx={{ height: '100%', gridArea: 'end', ...csx }}
+      {...restProps}
+    >
+      {children}
+    </Flex>
+  )
+}
+
 /**
- * Topbar content positioned in the left.
+ * Topbar content positioned in the start.
  */
-Topbar.Left = TopbarLeft
-/**
- * Topbar content positioned in the right.
- */
-Topbar.Right = TopbarRight
+Topbar.Start = TopbarStart
+
 /**
  * Topbar content positioned in the center.
  */
 Topbar.Center = TopbarCenter
+
+/**
+ * Topbar content positioned in the end.
+ */
+Topbar.End = TopbarEnd
 
 export interface TopbarProps extends SystemComponent, GridProps {
   loading?: boolean

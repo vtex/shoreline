@@ -22,15 +22,15 @@ export default {
 export function Example() {
   return (
     <Topbar>
-      <Topbar.Left justify="flex-start">
+      <Topbar.Start>
         <Set spacing={3}>
           <Button icon={<IconImage />} variant="adaptative-dark" />
           <Text csx={{ fontSize: 2, fontSettings: 'medium' }}>
             dpsppinheiros
           </Text>
         </Set>
-      </Topbar.Left>
-      <Topbar.Right justify="flex-end">
+      </Topbar.Start>
+      <Topbar.End>
         <Set spacing={0}>
           <Button
             variant="tertiary"
@@ -51,7 +51,7 @@ export function Example() {
           <Button variant="tertiary" icon={<IconNotifications />} />
           <Button variant="tertiary" icon={<IconHelp />} />
         </Set>
-      </Topbar.Right>
+      </Topbar.End>
     </Topbar>
   )
 }
@@ -62,15 +62,15 @@ export function Loading() {
   return (
     <Fragment>
       <Topbar loading={loading}>
-        <Topbar.Left justify="flex-start">
+        <Topbar.Start>
           <Set spacing={3}>
             <Button icon={<IconImage />} variant="adaptative-dark" />
             <Text csx={{ fontSize: 2, fontSettings: 'medium' }}>
               dpsppinheiros
             </Text>
           </Set>
-        </Topbar.Left>
-        <Topbar.Right justify="flex-end">
+        </Topbar.Start>
+        <Topbar.End>
           <Set spacing={0}>
             <Button
               variant="tertiary"
@@ -93,7 +93,7 @@ export function Loading() {
             <Button variant="tertiary" icon={<IconNotifications />} />
             <Button variant="tertiary" icon={<IconHelp />} />
           </Set>
-        </Topbar.Right>
+        </Topbar.End>
       </Topbar>
       <br />
       <Button onClick={() => setLoading((prev) => !prev)}>
