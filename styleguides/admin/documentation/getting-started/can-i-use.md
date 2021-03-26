@@ -52,12 +52,12 @@ admin-ui features separated by status:
 | Card             | supported      | -                                       |
 | CollapsibleGroup | supported      | We expect to change the animations soon |
 | Collapsible      | supported      | We expect to change the animation soon  |
+| Toolbar          | experimental   | -                                       |
 | Table            | in development | -                                       |
 | Filters          | in development | -                                       |
+| Pagination       | in development | -                                       |
 | Autocomplete     | upcoming       | -                                       |
-| Pagination       | upcoming       | -                                       |
 | Charts library   | upcoming       | -                                       |
-| Toolbar          | upcoming       | -                                       |
 
 ### Overlay
 
@@ -105,9 +105,9 @@ admin-ui features separated by status:
 | component  | status         | notes |
 | ---------- | -------------- | ----- |
 | Tabs       | experimental   | -     |
-| Sidebar    | in development | -     |
-| PageHeader | upcomming      | -     |
-| Topbar     | upcomming      | -     |
+| Sidebar    | experimental   | -     |
+| Topbar     | experimental   | -     |
+| PageHeader | in development | -     |
 
 ### Layouts
 
