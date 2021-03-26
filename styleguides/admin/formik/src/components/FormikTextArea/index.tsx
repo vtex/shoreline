@@ -10,15 +10,16 @@ export interface FormikTextAreaProps
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikTextArea = ({
-  name,
-  error,
-  errorMessage,
-  formatMessage,
-  id,
-  onChange,
-  ...props
-}: FormikTextAreaProps) => {
+export const FormikTextArea = ( props : FormikTextAreaProps) => {
+  const {
+    name,
+    error,
+    errorMessage,
+    formatMessage,
+    id,
+    onChange,
+    ...patialTextAreaProps
+  } = props
 
   const [field, meta] = useField({ name })
 
@@ -33,7 +34,7 @@ export const FormikTextArea = ({
         : errorCode
       : undefined
 
-  const inputProps = {
+  const textAreaProps = {
     ...field,
     onChange: onChange
       ? (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -41,11 +42,11 @@ export const FormikTextArea = ({
           onChange(event)
         }
       : field.onChange,
-    ...props,
+    ...patialTextAreaProps,
     id: id ?? name,
     errorMessage: finalErrorMessage,
     error: finalError,
   }
 
-  return <TextArea {...inputProps} />
+  return <TextArea {...textAreaProps} />
 }

@@ -7,7 +7,7 @@ import { useCheckboxGroupContext } from './context'
 
 export interface FormikCheckboxProps extends Omit<CheckboxProps,'state'> {}
 
-export const FormikCheckbox = ({ ...props }: FormikCheckboxProps) => {
+export const FormikCheckbox = ( props : FormikCheckboxProps) => {
 
   const {state, setTouched} = useCheckboxGroupContext()
 

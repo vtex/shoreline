@@ -8,15 +8,16 @@ export interface FormikInputPasswordProps extends Omit<InputPasswordProps, 'id'>
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikInputPassword = ({
-  name,
-  error,
-  errorMessage,
-  formatMessage,
-  id,
-  ...props
-}: FormikInputPasswordProps) => {
-
+export const FormikInputPassword = ( props : FormikInputPasswordProps) => {
+  const {
+    name,
+    error,
+    errorMessage,
+    formatMessage,
+    id,
+    ...partialInputProps
+  } = props
+  
   const [field, meta] = useField({ name })
 
   // Verify if there is any error and show message
@@ -32,7 +33,7 @@ export const FormikInputPassword = ({
 
   const inputProps = {
     ...field,
-    ...props,
+    ...partialInputProps,
     id: id ?? name,
     errorMessage: finalErrorMessage,
     error: finalError,

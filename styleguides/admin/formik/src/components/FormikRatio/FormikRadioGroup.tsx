@@ -16,7 +16,16 @@ export interface FormikRadioGroupProps extends Omit<RadioGroupProps,'state'> {
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikRadioGroup = ({ name, children, error, errorMessage, formatMessage, ...props }: FormikRadioGroupProps) => {
+export const FormikRadioGroup = ( props : FormikRadioGroupProps) => {
+  const { 
+    name, 
+    children, 
+    error, 
+    errorMessage, 
+    formatMessage, 
+    ...radioGroupProps 
+  } = props
+
   const [field, meta, helpers] = useField({ name })
   const radioState = useRadioState({ state: meta.initialValue })
 
@@ -51,7 +60,7 @@ export const FormikRadioGroup = ({ name, children, error, errorMessage, formatMe
 
   return (
     <Box csx={{ marginBottom: 6 }}>
-      <RadioGroup state={radioState} csx={{ marginBottom: 0 }} {...props}>
+      <RadioGroup state={radioState} csx={{ marginBottom: 0 }} {...radioGroupProps}>
         <FormikRadioGroupContext.Provider value={{state: radioState, setTouched: helpers.setTouched}}>
           {children}
         </FormikRadioGroupContext.Provider>

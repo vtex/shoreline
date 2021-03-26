@@ -9,15 +9,16 @@ export interface FormikNumericStepperProps extends Omit<NumericStepperProps, 'id
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikNumericStepper = ({
-  name,
-  error,
-  errorMessage,
-  id,
-  onChange,
-  formatMessage,
-  ...props
-}: FormikNumericStepperProps) => {
+export const FormikNumericStepper = ( props : FormikNumericStepperProps) => {
+  const {
+    name,
+    error,
+    errorMessage,
+    id,
+    onChange,
+    formatMessage,
+    ...partialNumericStepperProps
+  } = props
 
   const [field, meta, helpers] = useField<number>({ name })
   const [value, setValue] = useState<number>(field.value)
@@ -42,7 +43,7 @@ export const FormikNumericStepper = ({
 
 
   
-  const inputProps = {
+  const numericStepperProps = {
     onChange: (event : {value: number}) => {
       onChange && onChange(event)
       helpers.setValue(event.value)
@@ -51,12 +52,12 @@ export const FormikNumericStepper = ({
     id: id ?? name,
     errorMessage: finalErrorMessage && finalErrorMessage,
     error: finalError===true ? finalError : undefined,
-    ...props,
+    ...partialNumericStepperProps,
   }
 
   return (
     <Box onClick={()=>helpers.setTouched(true)}>
-      <NumericStepper value={value} {...inputProps} />
+      <NumericStepper value={value} {...numericStepperProps} />
     </Box>
   )
 }

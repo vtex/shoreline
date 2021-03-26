@@ -4,7 +4,7 @@ import { useRadioGroupContext } from './context'
 
 export interface FormikRadioProps extends Omit<RadioProps,'state'> {}
 
-export const FormikRadio = ({ ...props }: FormikRadioProps) => {
+export const FormikRadio = ( props : FormikRadioProps) => {
   const {state, setTouched} = useRadioGroupContext()
 
   return (

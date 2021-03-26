@@ -10,8 +10,18 @@ export interface FormikToggleProps extends ToggleProps {
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikToggle = ({ name, label, error, errorMessage, formatMessage, onChange, id, ...props }: FormikToggleProps) => {
-  
+export const FormikToggle = ( props : FormikToggleProps) => {
+  const { 
+    name, 
+    label, 
+    error, 
+    errorMessage, 
+    formatMessage, 
+    onChange, 
+    id, 
+    ...toggleProps 
+  } = props
+
   const [field, meta, helpers] = useField({ name })
 
   // Verify if there is any error and show message
@@ -36,7 +46,7 @@ export const FormikToggle = ({ name, label, error, errorMessage, formatMessage, 
               field.onChange(e)
               onChange && onChange(e)
             }}
-            {...props}
+            {...toggleProps}
           />
         </div>
         {label && typeof label === "string" ? <Label>{label}</Label> : label}

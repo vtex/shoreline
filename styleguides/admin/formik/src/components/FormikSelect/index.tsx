@@ -7,15 +7,16 @@ export interface FormikSelectProps<T> extends Omit<SelectProps<T>, 'state'> {
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikSelect = <T extends unknown>({
-  name,
-  items,
-  label,
-  error,
-  errorMessage,
-  formatMessage,
-  ...props
-}: FormikSelectProps<T>) => {
+export const FormikSelect = <T extends unknown>( props: FormikSelectProps<T>) => {
+  const {
+    name,
+    items,
+    label,
+    error,
+    errorMessage,
+    formatMessage,
+    ...patialSelectProps
+  } = props
 
   const [field, meta, helpers] = useField({ name })
 
@@ -46,8 +47,8 @@ export const FormikSelect = <T extends unknown>({
         : errorCode
       : undefined
 
-  const inputProps = {
-    ...props,
+  const selectProps = {
+    ...patialSelectProps,
     errorMessage: finalErrorMessage,
     error: finalError,
   }
@@ -55,7 +56,7 @@ export const FormikSelect = <T extends unknown>({
   return (
     <div onClick={()=>helpers.setTouched(true)}>
       <Select
-        {...inputProps}
+        {...selectProps}
         label={label}
         items={items}
         state={itemState}

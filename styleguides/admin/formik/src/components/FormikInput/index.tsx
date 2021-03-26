@@ -8,14 +8,15 @@ export interface FormikInputProps extends Omit<InputProps, 'id'> {
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikInput = ({
-  name,
-  error,
-  errorMessage,
-  id,
-  formatMessage,
-  ...props
-}: FormikInputProps) => {
+export const FormikInput = ( props : FormikInputProps) => {
+  const {
+    name,
+    error,
+    errorMessage,
+    id,
+    formatMessage,
+    ...partialInputProps
+  } = props
 
   const [field, meta] = useField({ name })
 
@@ -32,7 +33,7 @@ export const FormikInput = ({
 
   const inputProps = {
     ...field,
-    ...props,
+    ...partialInputProps,
     id: id ?? name,
     errorMessage: finalErrorMessage,
     error: finalError,

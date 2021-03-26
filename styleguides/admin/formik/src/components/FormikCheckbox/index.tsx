@@ -17,8 +17,16 @@ export interface FormikCheckboxProps extends CheckboxProps {
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikCheckbox = ({ name, label, error, errorMessage, formatMessage, ...props }: FormikCheckboxProps) => {
-  
+export const FormikCheckbox = ( props : FormikCheckboxProps) => {
+  const {
+    name, 
+    label, 
+    error, 
+    errorMessage, 
+    formatMessage,
+    ...checkboxProps
+  } = props
+
   const [field, meta, helpers] = useField({ name })
   const checkboxState = useCheckboxState({ state: meta.initialValue })
 
@@ -46,7 +54,7 @@ export const FormikCheckbox = ({ name, label, error, errorMessage, formatMessage
     <Set orientation="vertical" spacing={0} >
       <Set spacing={2} >
         <div onClick={()=>helpers.setTouched(true)}>
-          <Checkbox id={name} state={checkboxState} {...props} />
+          <Checkbox id={name} state={checkboxState} {...checkboxProps} />
         </div>
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>

@@ -17,7 +17,16 @@ export interface FormikCheckboxGroupProps extends Omit<CheckboxGroupProps,'state
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikCheckboxGroup = ({ name, children, error, errorMessage, formatMessage, ...props }: FormikCheckboxGroupProps) => {
+export const FormikCheckboxGroup = ( props : FormikCheckboxGroupProps) => {
+  const {
+    name, 
+    children, 
+    error, 
+    errorMessage, 
+    formatMessage,
+    ...checkboxGroupProps
+  } = props
+  
   const [field, meta, helpers] = useField({ name })
   const checkboxState = useCheckboxState({ state: meta.initialValue })
 
@@ -52,7 +61,7 @@ export const FormikCheckboxGroup = ({ name, children, error, errorMessage, forma
 
   return (
     <Box csx={{ marginBottom: 6 }}>
-      <CheckboxGroup csx={{ marginBottom: 0 }} {...props} >
+      <CheckboxGroup csx={{ marginBottom: 0 }} {...checkboxGroupProps} >
         <FormikCheckboxGroupContext.Provider value={{state: checkboxState, setTouched: helpers.setTouched}}>
           {children}
         </FormikCheckboxGroupContext.Provider>
