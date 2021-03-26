@@ -7,7 +7,7 @@ import {
   useRadioState,
 } from '@vtex/admin-ui'
 import { useField } from 'formik'
-import { FormikRadioGroupContext } from './FormikRadioGroupContext'
+import { FormikRadioGroupContext } from './context'
 
 export interface FormikRadioGroupProps extends Omit<RadioGroupProps,'state'> {
   name: string

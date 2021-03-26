@@ -3,7 +3,7 @@ import {
   Checkbox,
   CheckboxProps,
 } from '@vtex/admin-ui'
-import { useCheckboxGroupContext } from './FormikCheckboxGroupContext'
+import { useCheckboxGroupContext } from './context'
 
 export interface FormikCheckboxProps extends Omit<CheckboxProps,'state'> {}
 

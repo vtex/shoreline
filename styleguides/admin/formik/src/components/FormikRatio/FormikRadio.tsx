@@ -1,6 +1,6 @@
 import React from 'react'
 import { Radio, RadioProps } from '@vtex/admin-ui'
-import { useRadioGroupContext } from './FormikRadioGroupContext'
+import { useRadioGroupContext } from './context'
 
 export interface FormikRadioProps extends Omit<RadioProps,'state'> {}
 
