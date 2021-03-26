@@ -59,9 +59,14 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
   )
 }
 
-type IntrisicProps = Omit<ButtonProps, 'children' | 'ref'>
+type IntrinsicProps = Omit<ButtonProps, 'ref'>
 
-export interface SidebarSectionItem extends IntrisicProps {
+export interface SidebarSectionItem extends IntrinsicProps {
+  /** Sidebar section item content */
   children: ReactNode
+  /**
+   * Whether this item is selected or not
+   * @default false
+   * */
   selected?: boolean
 }
