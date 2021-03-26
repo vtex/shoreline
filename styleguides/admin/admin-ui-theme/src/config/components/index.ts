@@ -54,5 +54,5 @@ export default {
   alert,
   tab,
   tabList,
-  tabContent
+  tabContent,
 }
