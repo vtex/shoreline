@@ -11,7 +11,7 @@ export function ItemSkeleton() {
   return (
     <Box
       csx={{
-        width: SCALES.COLLAPSED_BACKDROP_WIDTH,
+        width: SCALES.COLLAPSIBLE_AREA_WIDTH,
         padding: '1.5rem 0.5rem',
       }}
     >
