@@ -50,18 +50,18 @@ export function useInitalState<T>(initialState: InitialState<T>) {
 }
 
 export interface ReducedState {
-  /** if is reduced or not */
+  /** If is reduced or not */
   reduced: boolean
-  /** toggle button visibility */
+  /** Toggle button visibility */
   toggleVisible: boolean
-  /** toggle reduced state */
+  /** Toggle reduced state */
   toggle: () => void
-  /** reduce the nav */
+  /** Reduce the nav */
   reduce: () => void
-  /** expand the nav */
+  /** Expand the nav */
   expand: () => void
-  /** enable button visibility */
+  /** Enable button visibility */
   showToggle: () => void
-  /** disable button visibility */
+  /** Disable button visibility */
   hideToggle: () => void
 }

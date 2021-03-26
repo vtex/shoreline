@@ -110,5 +110,10 @@ Topbar.Center = TopbarCenter
 Topbar.End = TopbarEnd
 
 export interface TopbarProps extends SystemComponent, GridProps {
+  /**
+   * Whether the topbar is loading or not
+   * @default false
+   */
+
   loading?: boolean
 }

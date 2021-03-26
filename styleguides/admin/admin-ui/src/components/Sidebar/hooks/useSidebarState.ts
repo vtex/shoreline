@@ -60,12 +60,24 @@ export interface Item {
 }
 
 export interface SidebarState {
-  /** if hte state is reduced or not */
+  /** Checks whether the state is reduced or not */
   isReduced: () => boolean
+  /** Checks whether an item is selected or not */
   isSelected: (item: string | number) => boolean
+  /** The selected item */
   selectedItem: Item | null
+  /** Sets the selected item */
   setSelectedItem: (newItem: Item | null) => void
+  /** Checks whether a sidebar item is expandable or not */
   isExpandable: (children: ReactNode) => boolean
+  /**
+   * Sidebar's layout controller interface.
+   * See `useReducedState` for more information on this.
+   */
   layout: ReturnType<typeof useReducedState>
+  /**
+   * Sidebar's root composite state.
+   * This allows accessible navigation through the Sidebar.
+   */
   composite: CompositeStateReturn
 }
