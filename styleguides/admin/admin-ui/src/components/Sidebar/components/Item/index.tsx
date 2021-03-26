@@ -10,7 +10,7 @@ import { useSidebarContext } from '../../context'
 import { SCALES } from '../../consts'
 
 function _SidebarItem(props: SidebarItemProps) {
-  const { children, onClick, label, uniqueKey, icon } = props
+  const { children, onClick, label, uniqueKey, icon, ...baseProps } = props
 
   const state = useSidebarContext()
   const selected = useMemo(() => state.isSelected(uniqueKey), [
@@ -65,6 +65,22 @@ function _SidebarItem(props: SidebarItemProps) {
     }
   }
 
+  const handleShowToggle = (event: React.MouseEvent<any, MouseEvent>) => {
+    state.layout.showToggle()
+
+    if (typeof baseProps.onMouseEnter === 'function') {
+      baseProps.onMouseEnter(event)
+    }
+  }
+
+  const handleHideToggle = (event: React.MouseEvent<any, MouseEvent>) => {
+    state.layout.hideToggle()
+
+    if (typeof baseProps.onMouseLeave === 'function') {
+      baseProps.onMouseLeave(event)
+    }
+  }
+
   return (
     <CompositeItem
       {...state.composite}
@@ -97,8 +113,9 @@ function _SidebarItem(props: SidebarItemProps) {
               transform: `translateX(${translate})`,
             }}
             data-testid={`${label}-ul`}
-            onMouseEnter={state.layout.showToggle}
-            onMouseLeave={state.layout.hideToggle}
+            {...baseProps}
+            onMouseEnter={handleShowToggle}
+            onMouseLeave={handleHideToggle}
           >
             <Box
               aria-label={`${label} menu`}
