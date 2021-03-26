@@ -6,12 +6,12 @@ import { useSidebarContext } from '../../context'
 import { useItemContext, ArrowKeys } from './shared'
 
 export function SidebarSectionItem(props: SidebarSectionItem) {
-  const { children, selected = false, ...buttonProps } = props
+  const { children, selected: currentSelected = false, ...buttonProps } = props
   const rootState = useSidebarContext()
   const { state, id, selected: parentSelected } = useItemContext()
 
   const compositeProps = useCompositeItem(state)
-  const isSelected = parentSelected && selected
+  const selected = parentSelected && currentSelected
 
   const handleOnKeyDown = (event: React.KeyboardEvent<any>) => {
     if (typeof compositeProps.onKeyDown === 'function') {
@@ -38,17 +38,17 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
           height: 'auto',
           marginY: 1,
           textAlign: 'left',
-          backgroundColor: isSelected ? 'sidebar.hover' : 'unset',
+          backgroundColor: selected ? 'sidebar.hover' : 'unset',
           '> div': {
             justifyContent: 'start',
             fontSize: '14px',
-            fontSettings: isSelected ? 'medium' : 'regular',
-            color: isSelected ? 'blue' : 'dark.secondary',
+            fontSettings: selected ? 'medium' : 'regular',
+            color: selected ? 'blue' : 'dark.secondary',
           },
           '&:hover': {
             backgroundColor: 'sidebar.hover',
             '> div': {
-              color: isSelected ? 'blue' : 'dark.secondary',
+              color: selected ? 'blue' : 'dark.secondary',
             },
           },
         },
