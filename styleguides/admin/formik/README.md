@@ -1,4 +1,4 @@
-## admin ui formik
+## admin formik
 
 <!-- todo add link to package -->
 
@@ -9,7 +9,7 @@ Package that standarize the component to use admin-ui with formik
 ### Installation
 
 ```sh
-yarn add @vtex/admin-ui-formik @vtex/admin-ui @emotion/react
+yarn add @vtex/admin-ui-formik @vtex/admin-ui
 ```
 
 ### Usage
