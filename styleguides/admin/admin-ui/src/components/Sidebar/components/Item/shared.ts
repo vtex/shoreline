@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react'
+import invariant from 'tiny-invariant'
 import { CompositeStateReturn } from '../Aria'
 
 const ItemContext = createContext<{
@@ -14,11 +15,10 @@ export { Provider as ItemProvider }
 export function useItemContext() {
   const ctx = useContext(ItemContext)
 
-  if (!ctx) {
-    throw new Error(
-      'You are trying to use a Sidebar.Item composite outside of context. Check the render method of your Sidebar.Item'
-    )
-  }
+  invariant(
+    ctx,
+    'You are trying to use a Sidebar.Item composite outside of context. Check the render method of your Sidebar.Item'
+  )
 
   return ctx
 }
