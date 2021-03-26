@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Box } from '@vtex/admin-primitives'
-import { IconSidebarCaret } from '@vtex/admin-ui-icons'
+import { IconCaretSmall } from '@vtex/admin-ui-icons'
 
 import { SCALES } from '../consts'
 import { Button } from '../../Button'
@@ -69,12 +69,12 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
             transitionDuration: '.3s',
           }}
           icon={
-            <IconSidebarCaret
+            <IconCaretSmall
+              direction={reduced ? 'down' : 'up'}
               csx={{
                 display: 'flex',
                 justifyContent: 'center',
                 transition: '0.3',
-                transform: reduced ? 'rotate(180deg)' : 'rotate(0deg)',
                 color: 'black',
                 '> path': {
                   strokeWidth: 2,
