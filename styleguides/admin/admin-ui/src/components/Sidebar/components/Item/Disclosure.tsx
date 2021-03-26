@@ -22,7 +22,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
             'div > svg': {
               color: selected ? 'unset' : 'sidebar.dark',
             },
-            '&:hover, &:focus': {
+            '&:hover': {
               backgroundColor: 'sidebar.hover',
               'div > svg': {
                 color: 'blue',
@@ -50,7 +50,7 @@ export interface SidebarDisclosureProps
    */
   label: string
   /**
-   * This props is shared between this component and the `<Sidebar.Item {...props} />`.
+   * This prop is shared between this component and the `<Sidebar.Item {...props} />`.
    * It indicates whether its parent component is selected or not, and is used here
    * for styling only.
    */

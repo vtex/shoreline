@@ -43,7 +43,7 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
           fontSettings: isSelected ? 'medium' : 'regular',
           color: isSelected ? 'blue' : 'dark.secondary',
         },
-        '&:hover, &:focus': {
+        '&:hover': {
           backgroundColor: 'sidebar.hover',
           '> div': {
             color: isSelected ? 'blue' : 'dark.secondary',
