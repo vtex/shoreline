@@ -5,7 +5,7 @@ import React, {
   ReactElement,
   ReactNode,
 } from 'react'
-import { Box } from '@vtex/admin-primitives'
+import { Box, BoxProps } from '@vtex/admin-primitives'
 import {
   SidebarCorner,
   SidebarItem,
@@ -13,13 +13,19 @@ import {
   SidebarBackdrop,
   SidebarSkeleton,
 } from './components'
-import { SystemComponent } from '../../types'
 import { SidebarState } from './hooks'
 import { SidebarContext } from './context'
 import { SCALES } from './consts'
 
 function _Sidebar(props: SidebarProps) {
-  const { children, loading = false, csx = {}, state, ...baseProps } = props
+  const {
+    children,
+    loading = false,
+    csx = {},
+    rootProps = {},
+    state,
+    ...baseProps
+  } = props
 
   return (
     <Fragment>
@@ -40,8 +46,9 @@ function _Sidebar(props: SidebarProps) {
           boxShadow: state.isReduced()
             ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
             : 'unset',
-          ...csx,
+          ...rootProps.csx,
         }}
+        {...rootProps}
       >
         <Box
           element="nav"
@@ -204,8 +211,36 @@ export const Sidebar = Object.assign(_Sidebar, {
 
 export { useSidebarState, SidebarState } from './hooks'
 
-export interface SidebarProps extends SystemComponent {
+export interface SidebarProps extends BoxProps<'nav'> {
+  /**
+   * Sidebar content element. Should follow the following
+   * structure:
+   *
+   *```bash
+   * └── Sidebar
+   *    └── Sidebar.Top or Sidebar.Bottom
+   *       └── Sidebar.Item
+   *           └── Sidebar.Item.Section
+   *               └── Sidebar.Item.Section.Item
+   *```
+   */
   children: ReactNode
+  /**
+   * Whether the sidebar is loading or not.
+   * @default false
+   */
   loading?: boolean
+  /**
+   * Sidebar's state.
+   * See `useSidebarState` for more information on this.
+   */
   state: SidebarState
+  /**
+   * Sidebar root props. This element is the root sidebar's element.
+   * If you're looking to customize the `nav` element within the
+   * sidebar, use shorthand props instead.
+   *
+   * @default {}
+   */
+  rootProps?: BoxProps<'div'>
 }
