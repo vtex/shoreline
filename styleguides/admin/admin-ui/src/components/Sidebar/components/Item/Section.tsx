@@ -1,8 +1,7 @@
 import React, { forwardRef, ReactNode, Ref } from 'react'
 import { useComposite } from '../Aria'
-import { Set } from '../../../Set'
+import { Set, SetProps } from '../../../Set'
 import { Text } from '../../../Text'
-import { SystemComponent } from '../../../../types'
 import { SidebarSectionItem } from './SectionItem'
 import { useItemContext } from './shared'
 
@@ -10,13 +9,12 @@ const _SidebarSection = forwardRef(function SidebarSection(
   props: SidebarSectionProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { title, children } = props
+  const { title, children, ...baseProps } = props
   const { state } = useItemContext()
   const compositeProps = useComposite(state)
 
   return (
     <Set
-      ref={ref}
       spacing={0.5}
       orientation="vertical"
       csx={{
@@ -24,6 +22,8 @@ const _SidebarSection = forwardRef(function SidebarSection(
         paddingBottom: 8,
       }}
       {...compositeProps}
+      {...baseProps}
+      ref={ref}
     >
       <Text
         variant="action"
@@ -82,7 +82,7 @@ export const SidebarSection = Object.assign(_SidebarSection, {
   Item: SidebarSectionItem,
 })
 
-export interface SidebarSectionProps extends SystemComponent {
+export interface SidebarSectionProps extends SetProps {
   /**
    * `title` of a section. This is what separates each item's section.
    */
