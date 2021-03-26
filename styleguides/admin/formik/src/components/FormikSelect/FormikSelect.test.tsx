@@ -272,4 +272,65 @@ describe('Select tests', () => {
     expect(await screen.findByText("Error message")).not.toBeNull();
   })
 
+
+  it('Select with array of objects', async () => {
+    const handleSubmit = jest.fn()
+    const options = [
+      { id: 'option-1', label: 'Option 1'}, 
+      { id: 'option-2', label: 'Option 2'}, 
+      { id: 'option-3', label: 'Option 3'},
+      { id: 'option-error', label: 'Invalid Option'}
+    ]
+
+    const validate = ( values : { value: { id: string, label: string }})  => {
+        if ( values.value.id === '') 
+          return { value: { id: 'This field is required.' }}
+        else if ( values.value.id === 'option-error')
+          return { value: { id: 'Error message' }}
+        else
+          return
+    }
+
+    render( 
+      <ThemeProvider>
+        <Formik
+          initialValues={ {value: { id: '', label: ''} } }
+          onSubmit={handleSubmit}
+          validate={validate}
+        >
+          <Form id='form-admin-formik-input'>
+            <FormikSelect
+              name="value"
+              items={options}
+              data-testid="text-field"
+              label="TextField label"
+              itemToString={ (item) => item ? item.label : ''}
+              renderItem={ (item) => item ? item.label : ''}
+            />
+            <Button type="submit" size='small' children="Submit"/>
+          </Form>
+        </Formik>
+      </ThemeProvider>
+    )
+    
+    userEvent.click(screen.getByRole('button',{ name: /TextField label/i}))
+    userEvent.click(screen.getByText(options[1].label))
+
+    userEvent.click(screen.getByRole('button', {name: "Submit"}))
+
+    await waitFor(() =>
+      expect(handleSubmit).toHaveBeenCalledWith({
+        value: options[1]
+      }, expect.anything())
+    )
+     
+    userEvent.click(screen.getByRole('button',{ name: /TextField label/i}))
+    userEvent.click(screen.getByText(options[3].label))
+
+    userEvent.click(screen.getByRole('button', {name: "Submit"}))
+    
+    expect(await screen.findByText("Error message")).not.toBeNull();
+  })
+
+
 })

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Select, useSelectState, SelectProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
 export interface FormikSelectProps<T> extends Omit<SelectProps<T>, 'state'> {
   name: string
   formatMessage?: (errorCode: string) => string
+  itemToString?: (item: T | null) => string
 }
 
 export const FormikSelect = <T extends unknown>( props: FormikSelectProps<T>) => {
@@ -15,6 +16,7 @@ export const FormikSelect = <T extends unknown>( props: FormikSelectProps<T>) =>
     error,
     errorMessage,
     formatMessage,
+    itemToString,
     ...patialSelectProps
   } = props
 
@@ -23,6 +25,7 @@ export const FormikSelect = <T extends unknown>( props: FormikSelectProps<T>) =>
   const itemState = useSelectState({
     items,
     initialSelectedItem: meta.initialValue,
+    itemToString: itemToString ? itemToString : (item) => item
   })
 
   // useEffects to maintain consistency between select state and value in formik
@@ -36,21 +39,42 @@ export const FormikSelect = <T extends unknown>( props: FormikSelectProps<T>) =>
     helpers.setValue(itemState.selectedItem)
   }, [itemState.selectedItem]) // When the user changes the value by the component
 
-  // Verify if there is any error and show message
-  const errorCode = meta.touched && meta.error
-  const finalError = error ?? !!errorCode
-  const finalErrorMessage = error
-    ? errorMessage
-    : errorCode
-      ? formatMessage 
-        ? formatMessage(errorCode)
-        : errorCode
-      : undefined
+  // Verify if there is any error and show 
+  const finalError = useRef<boolean>(false)
+  const finalErrorMessage = useRef<string>()
+  if (typeof meta.error === "object") {
+    const errorCode = meta.touched && Object.values((meta.error as unknown) as Record<
+      keyof typeof field.value,
+      string
+    >)
+    finalError.current = error ?? !!errorCode
+    finalErrorMessage.current = error
+      ? errorMessage
+      : errorCode
+        ? errorCode.filter(x => x !== (null || undefined) )
+          .map((value) => { 
+            return value 
+              && formatMessage 
+                ? formatMessage(value)
+                : value
+          }).join(', ')
+        : ''
+  } else {
+    const errorCode = meta.touched && meta.error
+    finalError.current = error ?? !!errorCode
+    finalErrorMessage.current = error
+      ? errorMessage
+      : errorCode
+        ? formatMessage 
+          ? formatMessage(errorCode)
+          : errorCode
+        : undefined
+  }
 
   const selectProps = {
     ...patialSelectProps,
-    errorMessage: finalErrorMessage,
-    error: finalError,
+    errorMessage: finalErrorMessage.current,
+    error: finalError.current,
   }
 
   return (

@@ -172,6 +172,64 @@ export const Basic = () => {
   )
 }
 
+
+export const WithObjectList = () => {
+  const options = [
+    { id: 'option-1', label: 'Option 1'}, 
+    { id: 'option-2', label: 'Option 2'}, 
+    { id: 'option-3', label: 'Option 3'},
+    { id: 'option-error', label: 'Invalid Option'}
+  ]
+  
+    type FormValuesInterface = { value: { id: string, label: string }}
+    const schemaValidationError = Yup.object({ 
+      value: Yup.object({
+        id: Yup.string()
+          .notOneOf(['option-error'],'Error message')
+          .required('This field is required.'),
+        label: Yup.string()})
+    })
+  
+    const handleSubmit = (
+      _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    ) => {
+      setSubmitting(false) // Lock the form to not be modified
+    }
+
+  return (
+    <Formik
+      enableReinitialize
+      initialValues={{ value: { id: '', label: ''} }}
+      validationSchema={schemaValidationError}
+      onSubmit={handleSubmit}
+    >
+      {({ values }) => (
+        <Form id='form-admin-formik-input'>
+          <Box csx={{ width: 300 }}>
+            <FormikSelect
+              name="value"
+              label="Label"
+              items={options}
+              itemToString={ (item) => item ? item.label : ''}
+              renderItem={ (item) => item ? item.label : ''}
+            />
+          </Box>
+          <Set>
+            <Text variant='subtitle'> 
+              Current value in formik : 
+            </Text>
+            <Text feedback='secondary'>
+              <pre>
+                {JSON.stringify(values)}
+              </pre> 
+            </Text>
+          </Set>
+        </Form>
+      )}
+    </Formik>
+  )
+}
+
 export const Error = () => {
   const options = ['error 1', 'error 2', 'error 3', 'error']
   type FormValuesInterface = { value: string;}
