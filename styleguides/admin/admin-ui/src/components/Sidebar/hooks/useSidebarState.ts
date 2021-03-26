@@ -16,7 +16,8 @@ export function useSidebarState(): SidebarState {
   })
 
   const isSelected = useCallback(
-    (unk: string | number) => unk === selectedItem?.uniqueKey ?? false,
+    (uniqueKey: string | number) =>
+      uniqueKey === selectedItem?.uniqueKey ?? false,
     [selectedItem]
   )
 
