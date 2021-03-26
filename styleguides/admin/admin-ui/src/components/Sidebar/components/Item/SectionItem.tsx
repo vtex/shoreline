@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import { merge } from '@vtex/admin-core'
 import { useCompositeItem } from '../Aria'
 import { ButtonProps, Button } from '../../../Button'
 import { useSidebarContext } from '../../context'
@@ -29,27 +30,30 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
     <Button
       variant="tertiary"
       size="small"
-      csx={{
-        width: '100%',
-        minHeight: 20,
-        paddingY: '0.25rem',
-        height: 'auto',
-        marginY: 1,
-        textAlign: 'left',
-        backgroundColor: isSelected ? 'sidebar.hover' : 'unset',
-        '> div': {
-          justifyContent: 'start',
-          fontSize: '14px',
-          fontSettings: isSelected ? 'medium' : 'regular',
-          color: isSelected ? 'blue' : 'dark.secondary',
-        },
-        '&:hover': {
-          backgroundColor: 'sidebar.hover',
+      csx={merge(
+        {
+          width: '100%',
+          minHeight: 20,
+          paddingY: '0.25rem',
+          height: 'auto',
+          marginY: 1,
+          textAlign: 'left',
+          backgroundColor: isSelected ? 'sidebar.hover' : 'unset',
           '> div': {
+            justifyContent: 'start',
+            fontSize: '14px',
+            fontSettings: isSelected ? 'medium' : 'regular',
             color: isSelected ? 'blue' : 'dark.secondary',
           },
+          '&:hover': {
+            backgroundColor: 'sidebar.hover',
+            '> div': {
+              color: isSelected ? 'blue' : 'dark.secondary',
+            },
+          },
         },
-      }}
+        buttonProps.csx
+      )}
       {...compositeProps}
       {...buttonProps}
       onKeyDown={handleOnKeyDown}
