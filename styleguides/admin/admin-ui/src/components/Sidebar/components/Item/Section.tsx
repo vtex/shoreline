@@ -4,6 +4,7 @@ import { Set, SetProps } from '../../../Set'
 import { Text } from '../../../Text'
 import { SidebarSectionItem } from './SectionItem'
 import { useItemContext } from './shared'
+import { SCALES } from '../../consts'
 
 const _SidebarSection = forwardRef(function SidebarSection(
   props: SidebarSectionProps,
@@ -18,7 +19,7 @@ const _SidebarSection = forwardRef(function SidebarSection(
       spacing={0.5}
       orientation="vertical"
       csx={{
-        width: '11.5rem',
+        width: SCALES.SIDEBAR_SECTION_WIDTH,
         paddingBottom: 8,
       }}
       {...compositeProps}

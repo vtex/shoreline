@@ -5,7 +5,7 @@ import { IconCaretSmall } from '@vtex/admin-ui-icons'
 import { SCALES } from '../consts'
 import { Button } from '../../Button'
 import { SidebarState } from '../hooks'
-import { Skeleton } from '../../Skeleton'
+import { ItemSkeleton } from './Item/Skeleton'
 
 /**
  * Components that acts as a spacer.
@@ -39,7 +39,7 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
         onMouseEnter={showToggle}
         onMouseLeave={hideToggle}
       >
-        {loading && <Skeleton />}
+        {loading && <ItemSkeleton />}
       </Box>
 
       {expandable && (
