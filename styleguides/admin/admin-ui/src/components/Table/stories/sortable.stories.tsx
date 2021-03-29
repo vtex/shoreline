@@ -99,7 +99,7 @@ export function Sortable() {
     {
       id: 'name',
       header: 'Product Name',
-      compare: (a, b) => a.name.localeCompare(b.name),
+      compare: (a, b) => b.name.localeCompare(a.name),
     },
     {
       id: 'lastSale',
