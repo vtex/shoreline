@@ -32,7 +32,7 @@ export function Pagination(props: PaginationProps) {
     prevLabel,
     nextLabel,
     loading,
-    csx,
+    csx = {},
     ...boxProps
   } = props
 
@@ -41,7 +41,7 @@ export function Pagination(props: PaginationProps) {
   const displayedEndOfRange = range[1] <= total ? range[1] : total
 
   return (
-    <Flex align="center" csx={{ ...csx }} {...boxProps}>
+    <Flex align="center" csx={csx} {...boxProps}>
       {!loading && (
         <Text
           csx={{
