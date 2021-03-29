@@ -25,23 +25,21 @@ const buttonCsx = {
 export function Pagination(props: PaginationProps) {
   const {
     total,
-    numberOfItemsFrom,
-    numberOfItemsTo,
-    textOf,
-    textResults,
+    range,
+    preposition,
+    subject,
     onClickPrev,
     onClickNext,
-    tooltipLabelPrev,
-    tooltipLabelNext,
+    prevLabel,
+    nextLabel,
     loading,
     csx,
     ...boxProps
   } = props
 
-  const isPrevDisabled = numberOfItemsFrom <= 1
-  const isNextDisabled = numberOfItemsTo >= total
-  const displayedNumberOfItemsTo =
-    numberOfItemsTo <= total ? numberOfItemsTo : total
+  const isPrevDisabled = range[0] <= 1
+  const isNextDisabled = range[1] >= total
+  const displayedEndOfRange = range[1] <= total ? range[1] : total
 
   return (
     <Flex align="center" csx={{ ...csx }} {...boxProps}>
@@ -55,11 +53,10 @@ export function Pagination(props: PaginationProps) {
             fontWeight: 'normal',
           }}
         >
-          {numberOfItemsFrom} — {displayedNumberOfItemsTo} {textOf} {total}{' '}
-          {textResults}
+          {range[0]} — {displayedEndOfRange} {preposition} {total} {subject}
         </Text>
       )}
-      <Tooltip label={tooltipLabelPrev}>
+      <Tooltip label={prevLabel}>
         <Button
           disabled={loading || isPrevDisabled}
           onClick={onClickPrev}
@@ -68,7 +65,7 @@ export function Pagination(props: PaginationProps) {
         />
       </Tooltip>
 
-      <Tooltip label={tooltipLabelNext}>
+      <Tooltip label={nextLabel}>
         <Button
           disabled={loading || isNextDisabled}
           onClick={onClickNext}
@@ -82,14 +79,13 @@ export function Pagination(props: PaginationProps) {
 
 interface PaginationProps extends BoxProps<'div'> {
   total: string | number
-  numberOfItemsFrom: string | number
-  numberOfItemsTo: string | number
-  textOf: string
-  textResults: string
+  range: [string | number, string | number]
+  preposition: string
+  subject: string
   onClickPrev?: MouseEventHandler<any>
   onClickNext?: MouseEventHandler<any>
-  tooltipLabelPrev: string
-  tooltipLabelNext: string
+  prevLabel: string
+  nextLabel: string
   loading?: boolean
   csx?: StyleProp
 }

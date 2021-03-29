@@ -77,12 +77,14 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
           {/* Later this box should be the Toolbar component */}
 
           <Pagination
-            numberOfItemsTo={pagination.paginationState.currentItemTo}
-            numberOfItemsFrom={pagination.paginationState.currentItemFrom}
-            textOf="of"
-            textResults="results"
-            tooltipLabelNext="Next"
-            tooltipLabelPrev="Prev"
+            range={[
+              pagination.paginationState.currentItemTo,
+              pagination.paginationState.currentItemFrom,
+            ]}
+            preposition="of"
+            subject="results"
+            prevLabel="Prev"
+            nextLabel="Next"
             total={items.length}
             loading={loading}
             onClickNext={() => pagination.paginate('next')}
