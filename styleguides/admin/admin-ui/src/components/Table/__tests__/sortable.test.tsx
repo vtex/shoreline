@@ -22,10 +22,7 @@ describe('Sortable tests', () => {
                 {
                   id: 'name',
                   header: 'Nome',
-                  sortFns: {
-                    asc: (a, b) => b.name.localeCompare(a.name),
-                    dsc: (a, b) => a.name.localeCompare(b.name),
-                  },
+                  compare: (a, b) => b.name.localeCompare(a.name),
                 },
               ]}
             />
