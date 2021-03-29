@@ -35,6 +35,7 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
           borderRight: expandable ? '1px solid' : '0px solid',
           borderColor: expandable ? 'mid.tertiary' : 'transparent',
           marginRight: expandable ? '0.25rem' : '0rem',
+          transition: 'callout',
         }}
         onMouseEnter={showToggle}
         onMouseLeave={hideToggle}
@@ -66,7 +67,7 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
               },
             },
             opacity: toggleVisible ? 1 : 0,
-            transitionDuration: '.3s',
+            transitionDuration: 'pop',
           }}
           icon={
             <IconCaretSmall

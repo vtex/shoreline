@@ -2,7 +2,7 @@ import React, { forwardRef, ReactNode, Ref } from 'react'
 import { merge } from '@vtex/admin-core'
 
 import { ButtonProps, Button } from '../../../Button'
-import { Tooltip } from '../../../Tooltip'
+// import { Tooltip } from '../../../Tooltip'
 
 export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   props: SidebarDisclosureProps,
@@ -11,30 +11,31 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   const { icon, selected, label, csx = {}, ...buttonProps } = props
 
   return (
-    <Tooltip label={label} placement="right">
-      <Button
-        ref={ref}
-        variant="tertiary"
-        icon={icon}
-        csx={merge(
-          {
-            backgroundColor: selected ? 'sidebar.hover' : 'unset',
+    // <Tooltip label={label} placement="right">
+    <Button
+      ref={ref}
+      variant="tertiary"
+      icon={icon}
+      csx={merge(
+        {
+          zIndex: 'sidebarDisclosure',
+          backgroundColor: selected ? 'sidebar.hover' : 'unset',
+          'div > svg': {
+            color: selected ? 'unset' : 'sidebar.dark',
+          },
+          '&:hover': {
+            backgroundColor: 'sidebar.hover',
             'div > svg': {
-              color: selected ? 'unset' : 'sidebar.dark',
-            },
-            '&:hover': {
-              backgroundColor: 'sidebar.hover',
-              'div > svg': {
-                color: 'blue',
-                opacity: 1,
-              },
+              color: 'blue',
+              opacity: 1,
             },
           },
-          csx
-        )}
-        {...buttonProps}
-      />
-    </Tooltip>
+        },
+        csx
+      )}
+      {...buttonProps}
+    />
+    // </Tooltip>
   )
 })
 

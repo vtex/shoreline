@@ -29,7 +29,13 @@ export function Topbar(props: TopbarProps) {
   return (
     <Grid
       templateAreas={['start center end']}
-      csx={{ height: '3.5rem', border: 'divider-bottom', paddingX: 3, ...csx }}
+      csx={{
+        height: '3.5rem',
+        border: 'divider-bottom',
+        paddingX: 3,
+        zIndex: 'topbar',
+        ...csx,
+      }}
       {...restProps}
     >
       {loading ? <TopbarSkeleton /> : children}

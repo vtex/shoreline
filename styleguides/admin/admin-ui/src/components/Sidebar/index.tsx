@@ -40,9 +40,7 @@ function _Sidebar(props: SidebarProps) {
           outline: 'none',
           borderRight: '1px solid',
           borderColor: 'mid.tertiary',
-          backgroundColor: state.isReduced()
-            ? 'light.primary'
-            : 'sidebar.light',
+          bg: state.isReduced() ? 'light.primary' : 'sidebar.light',
           boxShadow: state.isReduced()
             ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
             : 'unset',
@@ -94,6 +92,17 @@ function _Sidebar(props: SidebarProps) {
           )}
         </Box>
       </Box>
+      <Box
+        csx={{
+          bg: state.isReduced() ? 'light.primary' : 'sidebar.light',
+          width: 56,
+          top: 0,
+          bottom: 0,
+          zIndex: 'sidebarOverlay',
+          position: 'fixed',
+          maxHeight: '100%',
+        }}
+      />
       <SidebarBackdrop state={state} loading={loading} />
     </Fragment>
   )
