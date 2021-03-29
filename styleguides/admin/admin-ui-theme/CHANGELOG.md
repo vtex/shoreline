@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.22.0...@vtex/admin-ui-theme@0.23.0) (2021-03-29)
+
+
+### Features
+
+* **admin:** sidebar animations ([5dc035e](https://github.com/vtex/onda/commit/5dc035e99bcf7ce6686f7e7be8dfcc459d00a48e))
+
+
+
+
+
 # [0.22.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.21.1-experimental.1...@vtex/admin-ui-theme@0.22.0) (2021-03-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
