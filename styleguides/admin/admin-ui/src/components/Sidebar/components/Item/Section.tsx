@@ -21,6 +21,7 @@ const _SidebarSection = forwardRef(function SidebarSection(
       csx={{
         width: SCALES.SIDEBAR_SECTION_WIDTH,
         paddingBottom: 8,
+        zIndex: 'sidebarUl',
       }}
       {...compositeProps}
       {...baseProps}

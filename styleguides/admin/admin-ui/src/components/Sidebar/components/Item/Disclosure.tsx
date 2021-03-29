@@ -18,6 +18,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         icon={icon}
         csx={merge(
           {
+            zIndex: 'sidebarDisclosure',
             backgroundColor: selected ? 'sidebar.hover' : 'unset',
             'div > svg': {
               color: selected ? 'unset' : 'sidebar.dark',
