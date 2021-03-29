@@ -11,13 +11,12 @@ export default {
 export function Basic() {
   return (
     <Pagination
-      numberOfItemsFrom={1}
-      numberOfItemsTo={50}
-      textOf="of"
+      range={[1, 50]}
       total={74}
-      textResults="results"
-      tooltipLabelPrev="Back"
-      tooltipLabelNext="Next"
+      preposition="of"
+      subject="results"
+      prevLabel="Back"
+      nextLabel="Next"
     />
   )
 }
