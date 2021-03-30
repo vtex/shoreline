@@ -40,12 +40,29 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
       >
         {loading && <ItemSkeleton />}
       </Box>
-      <Button
+
+      <Box
         csx={{
           position: 'relative',
+          width: 1,
+          bg: 'mid.tertiary',
+          transition: 'transform 240ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+          transform: `translateX(${
+            selectedItem?.expandable ? (reduced ? 16 : 199) : -2
+          }px)`,
+          transformOrigin: 'left',
+          zIndex: -1,
+        }}
+      />
+
+      <Button
+        csx={{
+          transform: `translateX(${
+            selectedItem?.expandable ? (reduced ? 5 : 187) : -2
+          }px)`,
+          transformOrigin: 'left',
+          position: 'relative',
           zIndex: 1,
-          left: '0.5em',
-          marginLeft: '-1.5rem',
           top: '1.2rem',
           cursor: 'pointer',
           border: '1px solid',
@@ -53,7 +70,7 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
           borderColor: 'mid.tertiary',
           height: '1.5rem',
           width: '1.5rem',
-          transition: '0.3',
+          transition: 'transform 240ms cubic-bezier(0.4, 0.14, 0.3, 1)',
           backgroundColor: 'light.primary',
           '&:hover': {
             backgroundColor: 'blue.secondary',
