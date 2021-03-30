@@ -82,11 +82,11 @@ export interface UsePaginationParams {
    */
   manualPagination?: [number, number]
   /**
-   * initialState
+   * Table pagination initial state
    */
   paginationInitialState?: PaginationState
   /**
-   *
+   * Prop used in case the array doesn't contain the full amount of itens
    */
   totalAmountOfItems?: number
 }
