@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.87.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.87.0...@vtex/admin-ui@0.87.1-experimental.0) (2021-03-30)
+
+
+### Features
+
+* **admin-ui:** use motion values on sidebar to avoid rerenders ([0b5963c](https://github.com/vtex/onda/commit/0b5963ce0bea4aff5ffcc1e1fa3a951660a5559b))
+
+
+
+
+
 # [0.87.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.86.0...@vtex/admin-ui@0.87.0) (2021-03-29)
 
 
