@@ -45,6 +45,9 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     csx,
     length = 5,
     onRowClick,
+    manualPagination,
+    paginationCallback,
+    paginationReducer,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -68,6 +71,9 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     resolvers,
     context,
     items,
+    manualPagination,
+    paginationCallback,
+    paginationReducer,
   })
 
   return (

@@ -18,7 +18,11 @@ import {
 import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
 import { SelectionProvider } from './resolvers/selection'
-import { PaginationObj, usePagination } from '../Pagination/usePagination'
+import {
+  PaginationObj,
+  usePagination,
+  UsePaginationParams,
+} from '../Pagination/usePagination'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const {
@@ -31,6 +35,8 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     },
     length = 5,
     items = [],
+    paginationReducer,
+    paginationCallback,
   } = params
 
   const skeletonCollection = useMemo<T[]>(() => {
@@ -63,7 +69,11 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     [resolvers, context]
   )
 
-  const pagination = usePagination(length)
+  const pagination = usePagination({
+    size: length,
+    paginationReducer,
+    paginationCallback,
+  })
 
   const data = useMemo(() => {
     if (context.loading) {
@@ -107,7 +117,11 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   }
 }
 
-export interface UseTableParams<T> {
+export interface UseTableParams<T>
+  extends Pick<
+    UsePaginationParams,
+    'manualPagination' | 'paginationReducer' | 'paginationCallback'
+  > {
   /**
    * Table column spec
    */

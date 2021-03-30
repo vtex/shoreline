@@ -4,7 +4,6 @@ import { IconCaret } from '@vtex/admin-ui-icons'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
-import { StyleProp } from 'styleguides/admin/styles/dist'
 
 const buttonCsx = {
   color: 'dark.secondary',
@@ -78,14 +77,40 @@ export function Pagination(props: PaginationProps) {
 }
 
 interface PaginationProps extends BoxProps<'div'> {
-  total: string | number
-  range: [string | number, string | number]
+  /**
+   * Full amount of itens
+   */
+  total: number
+  /**
+   * Range of displayed itens in current table page
+   */
+  range: [number, number]
+  /**
+   * String displayed in beetwen end of range and total amount of itens
+   */
   preposition: string
+  /**
+   * String displayed in the end of the component
+   */
   subject: string
+  /**
+   * Function fired when previous button is clicked
+   */
   onClickPrev?: MouseEventHandler<any>
+  /**
+   * Function fired when next button is clicked
+   */
   onClickNext?: MouseEventHandler<any>
+  /**
+   * Label used in previous button tooltip
+   */
   prevLabel: string
+  /**
+   * Label used in next button tooltip
+   */
   nextLabel: string
+  /**
+   * Whether the table is loading or not
+   */
   loading?: boolean
-  csx?: StyleProp
 }
