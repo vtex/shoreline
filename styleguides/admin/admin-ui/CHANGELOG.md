@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.88.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.87.1-experimental.0...@vtex/admin-ui@0.88.0-experimental.0) (2021-03-30)
+
+
+### Features
+
+* **admin-ui:** animate sidebar scale instead of width ([3d6d67d](https://github.com/vtex/onda/commit/3d6d67dce1d41c42fba098ed36ec5ab7c8714b0a))
+
+
+
+
+
 ## [0.87.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.87.0...@vtex/admin-ui@0.87.1-experimental.0) (2021-03-30)
 
 
