@@ -38,6 +38,7 @@ export function Pagination(props: PaginationProps) {
 
   const isPrevDisabled = range[0] <= 1
   const isNextDisabled = range[1] >= total
+  const displayedStartOfRange = range[0] <= total ? range[0] : total
   const displayedEndOfRange = range[1] <= total ? range[1] : total
 
   return (
@@ -52,7 +53,8 @@ export function Pagination(props: PaginationProps) {
             fontWeight: 'normal',
           }}
         >
-          {range[0]} — {displayedEndOfRange} {preposition} {total} {subject}
+          {displayedStartOfRange} — {displayedEndOfRange} {preposition} {total}{' '}
+          {subject}
         </Text>
       )}
       <Tooltip label={prevLabel}>

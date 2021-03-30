@@ -48,6 +48,8 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     manualPagination,
     paginationCallback,
     paginationReducer,
+    paginationInitialState,
+    totalAmountOfItems,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -74,6 +76,8 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     manualPagination,
     paginationCallback,
     paginationReducer,
+    paginationInitialState,
+    totalAmountOfItems,
   })
 
   return (
@@ -83,15 +87,16 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
           {/* Later this box should be the Toolbar component */}
 
           <Pagination
-            range={[
-              pagination.paginationState.currentItemTo,
-              pagination.paginationState.currentItemFrom,
-            ]}
+            range={
+              manualPagination
+                ? manualPagination
+                : pagination.paginationState.range
+            }
             preposition="of"
             subject="results"
             prevLabel="Prev"
             nextLabel="Next"
-            total={items.length}
+            total={totalAmountOfItems ? totalAmountOfItems : items.length}
             loading={loading}
             onClickNext={() => pagination.paginate('next')}
             onClickPrev={() => pagination.paginate('prev')}

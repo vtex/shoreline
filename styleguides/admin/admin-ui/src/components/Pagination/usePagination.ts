@@ -3,19 +3,20 @@ import { Dispatch, useCallback, useReducer } from 'react'
 export function usePagination(params: UsePaginationParams): PaginationObj {
   const {
     size,
-    paginationReducer = reducer,
     paginationCallback = defaultPaginationCallback,
+    paginationReducer = reducer,
+    paginationInitialState,
   } = params
 
   const [paginationState, dispatch] = useReducer(paginationReducer, {
+    ...paginationInitialState,
     currentPage: 1,
-    currentItemFrom: 1,
-    currentItemTo: size,
+    range: [1, size],
   })
 
   const paginate = useCallback(
     (type: 'next' | 'prev') => {
-      paginationCallback({ type, dispatch, size })
+      paginationCallback({ type, dispatch, size, paginationState })
     },
     [size, dispatch, paginationCallback]
   )
@@ -27,7 +28,10 @@ function defaultPaginationCallback({ type, size, dispatch }: PaginateParams) {
   dispatch({ type: type, tableSize: size })
 }
 
-function reducer(state: PaginationState, action: PaginationAction) {
+function reducer(
+  state: PaginationState,
+  action: PaginationAction
+): PaginationState {
   switch (action.type) {
     case 'next': {
       const newPage = state.currentPage + 1
@@ -35,16 +39,14 @@ function reducer(state: PaginationState, action: PaginationAction) {
       return {
         ...state,
         currentPage: state.currentPage + 1,
-        currentItemFrom: state.currentItemTo + 1,
-        currentItemTo: action.tableSize * newPage,
+        range: [state.range[1] + 1, action.tableSize * newPage],
       }
     }
     case 'prev': {
       return {
         ...state,
         currentPage: state.currentPage - 1,
-        currentItemFrom: state.currentItemFrom - action.tableSize,
-        currentItemTo: state.currentItemFrom - 1,
+        range: [state.range[0] - action.tableSize, state.range[0] - 1],
       }
     }
     default:
@@ -56,6 +58,7 @@ export interface PaginateParams {
   type: 'next' | 'prev'
   dispatch: Dispatch<PaginationAction>
   size: number
+  paginationState: PaginationState
 }
 
 export interface UsePaginationParams {
@@ -77,13 +80,20 @@ export interface UsePaginationParams {
   /**
    * Decides if pagination is dealed by table or it's user
    */
-  manualPagination?: boolean
+  manualPagination?: [number, number]
+  /**
+   * initialState
+   */
+  paginationInitialState?: PaginationState
+  /**
+   *
+   */
+  totalAmountOfItems?: number
 }
 
 export interface PaginationState {
   currentPage: number
-  currentItemFrom: number
-  currentItemTo: number
+  range: [number, number]
 }
 
 export interface PaginationAction {

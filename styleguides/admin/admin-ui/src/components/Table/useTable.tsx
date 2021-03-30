@@ -37,6 +37,9 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     items = [],
     paginationReducer,
     paginationCallback,
+    manualPagination,
+    paginationInitialState,
+    totalAmountOfItems,
   } = params
 
   const skeletonCollection = useMemo<T[]>(() => {
@@ -73,22 +76,28 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     size: length,
     paginationReducer,
     paginationCallback,
+    paginationInitialState,
+    totalAmountOfItems,
   })
 
   const data = useMemo(() => {
     if (context.loading) {
       return skeletonCollection
     }
+
+    if (manualPagination) {
+      return items
+    }
+
     return [...items].slice(
-      pagination.paginationState.currentItemFrom - 1,
-      pagination.paginationState.currentItemTo
+      pagination.paginationState.range[0] - 1,
+      pagination.paginationState.range[1]
     )
   }, [
     items,
     context.loading,
     skeletonCollection,
-    pagination.paginationState.currentItemFrom,
-    pagination.paginationState.currentItemTo,
+    pagination.paginationState.range,
   ])
 
   function Providers(props: PropsWithChildren<unknown>) {
@@ -120,7 +129,11 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
 export interface UseTableParams<T>
   extends Pick<
     UsePaginationParams,
-    'manualPagination' | 'paginationReducer' | 'paginationCallback'
+    | 'manualPagination'
+    | 'paginationReducer'
+    | 'paginationCallback'
+    | 'paginationInitialState'
+    | 'totalAmountOfItems'
   > {
   /**
    * Table column spec

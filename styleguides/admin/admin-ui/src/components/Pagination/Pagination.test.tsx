@@ -10,13 +10,12 @@ describe('Pagination tests', () => {
       <ThemeProvider>
         <Pagination
           data-testid="pagination"
-          numberOfItemsFrom={1}
-          numberOfItemsTo={2}
-          textResults="results"
-          textOf="of"
-          tooltipLabelNext="Next"
-          tooltipLabelPrev="Prev"
-          total={3}
+          range={[1, 2]}
+          total={50}
+          preposition="of"
+          subject="results"
+          prevLabel="Back"
+          nextLabel="Next"
           csx={{ bg: 'coral' }}
         />
       </ThemeProvider>
