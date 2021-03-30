@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react'
-import { Box } from '@vtex/admin-primitives'
+import React, { Fragment, useEffect } from 'react'
 import { IconCaretSmall } from '@vtex/admin-ui-icons'
+import { useSystem } from '@vtex/admin-core'
+import { motion, useMotionValue } from 'framer-motion'
 
-import { SCALES } from '../consts'
 import { Button } from '../../Button'
 import { SidebarState } from '../hooks'
 import { ItemSkeleton } from './Item/Skeleton'
@@ -20,28 +20,37 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
   } = props
 
   const expandable = selectedItem?.expandable ?? loading
+  const { cn } = useSystem()
+
+  const width = useMotionValue(
+    selectedItem?.expandable ? (reduced ? 16 : 200) : 0
+  )
+
+  useEffect(() => {
+    if (selectedItem?.expandable) {
+      if (reduced) width.set(16)
+      else width.set(256)
+    } else width.set(0)
+  }, [reduced, selectedItem])
 
   return (
     <Fragment>
-      <Box
-        csx={{
-          minWidth: expandable
-            ? reduced
-              ? '1rem'
-              : SCALES.COLLAPSIBLE_AREA_WIDTH
-            : '0rem',
-          maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
+      <motion.div
+        style={{
+          width,
+        }}
+        className={cn({
           bg: !expandable || reduced ? 'light.primary' : 'sidebar.light',
           borderRight: expandable ? '1px solid' : '0px solid',
           borderColor: expandable ? 'mid.tertiary' : 'transparent',
           marginRight: expandable ? '0.25rem' : '0rem',
           transition: 'callout',
-        }}
+        })}
         onMouseEnter={showToggle}
         onMouseLeave={hideToggle}
       >
         {loading && <ItemSkeleton />}
-      </Box>
+      </motion.div>
 
       {expandable && (
         <Button
