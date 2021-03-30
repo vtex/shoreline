@@ -95,7 +95,7 @@ function _Sidebar(props: SidebarProps) {
       <Box
         csx={{
           bg: state.isReduced() ? 'light.primary' : 'sidebar.light',
-          width: 56,
+          width: 55,
           top: 0,
           bottom: 0,
           zIndex: 'sidebarOverlay',

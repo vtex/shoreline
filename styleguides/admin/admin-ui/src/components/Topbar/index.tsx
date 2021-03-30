@@ -34,6 +34,7 @@ export function Topbar(props: TopbarProps) {
         border: 'divider-bottom',
         paddingX: 3,
         zIndex: 'topbar',
+        bg: 'light.primary',
         ...csx,
       }}
       {...restProps}
