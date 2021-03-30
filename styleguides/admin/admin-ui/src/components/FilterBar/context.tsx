@@ -3,7 +3,7 @@ import invariant from 'tiny-invariant'
 import { Resolver } from './resolvers/core'
 import { FilterConditionProps, FilterConjunction, FilterProps } from './typings'
 
-export interface FilterBarContextProps<T extends {}> {
+export interface FilterBarContextProps<T> {
   filters: FilterProps<T>[]
   resolvers: Record<string, Resolver<T>>
   handleFilterChange: (filter: FilterProps<T>, index: number) => void

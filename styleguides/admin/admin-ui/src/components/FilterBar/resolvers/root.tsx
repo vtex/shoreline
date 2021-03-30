@@ -29,5 +29,6 @@ export function rootResolver<T>() {
 
 export type RootResolver<T> = {
   type: 'root'
+  defaultValue: T
   render: (props: ResolverRenderProps<T, null>) => ReactNode
 }

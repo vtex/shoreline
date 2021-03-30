@@ -19,6 +19,7 @@ export type FilterConjunction = 'And' | 'Or'
 
 export interface FilterProps<T, R = BaseResolvers<T>> {
   label: string
+  id: string
   conditions: FilterConditionProps[]
   resolver: R
 }

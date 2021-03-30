@@ -12,7 +12,7 @@ export type ResolverShortcut<I, S = unknown> = S & { type: I }
 
 export type ResolveFilterArgs<T> = {
   statement: FilterStatement<T>
-  resolvers: Record<string, Resolver>
+  resolvers: Record<string, Resolver<T>>
   index: number
   handleValueChange: (value: T, index: number) => void
 }
@@ -76,6 +76,8 @@ export type ResolverRenderProps<T, D> = {
 }
 
 /** Default render of resolvers */
-export function defaultRender({ data }: ResolverRenderProps<any, ReactNode>) {
+export function defaultRender({
+  data,
+}: ResolverRenderProps<unknown, ReactNode>) {
   return <React.Fragment>{data}</React.Fragment>
 }

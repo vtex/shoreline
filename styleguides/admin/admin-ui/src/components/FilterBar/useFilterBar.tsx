@@ -48,6 +48,7 @@ function defaultReducer<T>(
 ): FilterStatements<T> {
   switch (action.type) {
     case 'conjunction': {
+      console.log('conjunction')
       const { conjunction, handleStatementChange } = action
       const { statements } = state
 
@@ -58,11 +59,16 @@ function defaultReducer<T>(
       return nextState
     }
     case 'filter': {
+      console.log('filter')
       const { filter, handleStatementChange, index } = action
       const { conjunction, statements: currentStatements } = state
 
       let statements = currentStatements
-      statements[index] = { ...currentStatements[index], filter }
+      statements[index] = {
+        condition: filter.conditions[0],
+        filter,
+        value: filter.resolver.defaultValue,
+      }
 
       const nextState = { conjunction, statements }
 
@@ -71,6 +77,7 @@ function defaultReducer<T>(
       return nextState
     }
     case 'condition': {
+      console.log('condition')
       const { condition, handleStatementChange, index } = action
       const { conjunction, statements } = state
 
@@ -82,6 +89,7 @@ function defaultReducer<T>(
       return { conjunction, statements: nextState }
     }
     case 'value': {
+      console.log('value')
       const { value, handleStatementChange, index } = action
       const { conjunction, statements: currentStatements } = state
 
@@ -95,12 +103,14 @@ function defaultReducer<T>(
       return nextState
     }
     case 'newStatement': {
+      console.log('newStatement')
       const { handleStatementChange, filter } = action
       const { conjunction, statements } = state
 
       const emptyStatement = {
         filter: filter,
         condition: filter.conditions[0],
+        value: filter.resolver.defaultValue,
       } as FilterStatement<T>
 
       const nextState = {
@@ -113,6 +123,7 @@ function defaultReducer<T>(
       return nextState
     }
     case 'filtersReset': {
+      console.log('filtersReset')
       const { handleStatementChange } = action
 
       const nextState = {
@@ -125,6 +136,7 @@ function defaultReducer<T>(
       return nextState
     }
     case 'duplicateStatement': {
+      console.log('duplicateStatement')
       const { index, handleStatementChange } = action
       const { conjunction, statements } = state
 
@@ -140,10 +152,12 @@ function defaultReducer<T>(
       return nextState
     }
     case 'deleteStatement': {
+      console.log('deleteStatement')
       const { index, handleStatementChange } = action
       const { conjunction, statements } = state
-
+      console.log('before', state)
       statements.splice(index, 1)
+      console.log('after', statements)
       const nextState = { conjunction, statements }
 
       handleStatementChange(nextState)

@@ -41,7 +41,8 @@
     "jest-environment-jsdom-fourteen": "^1.0.1",
     "mutationobserver-shim": "^0.3.7",
     "react-beautiful-dnd": "^13.0.0",
-    "react-window": "^1.8.5"
+    "react-window": "^1.8.5",
+    "use-debounce": "^6.0.0"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.2.0",

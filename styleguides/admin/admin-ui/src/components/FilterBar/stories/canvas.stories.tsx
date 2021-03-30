@@ -1,14 +1,14 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { FilterBar } from './index'
+import { FilterBar } from '../index'
 
 export default {
   title: 'components/FilterBar',
   component: FilterBar,
 } as Meta
 
-export const WithStatements: Story = () => {
+export const Basic: Story = () => {
   const conditions = [
     { label: 'is', id: '1' },
     { label: 'contains', id: '2' },
@@ -20,6 +20,7 @@ export const WithStatements: Story = () => {
       filters={[
         {
           label: 'Status',
+          id: 'status',
           conditions: [
             ...conditions,
             { label: 'is not', id: '3' },
@@ -28,20 +29,34 @@ export const WithStatements: Story = () => {
           ],
           resolver: {
             type: 'simple',
+            defaultValue: { label: '2' },
+            items: [{ label: '1' }, { label: '2' }, { label: '3' }],
+            accessor: 'label',
+          },
+        },
+        {
+          label: 'Specific Store Label',
+          id: 'specificStoreLabel',
+          conditions,
+          resolver: {
+            type: 'simple',
+            defaultValue: { label: '2', id: '5' },
             items: [
-              { label: 'Active' },
-              { label: 'Inactive' },
-              { label: 'Archived' },
+              { label: '1', id: '3' },
+              { label: '2', id: '5' },
+              { label: '3', id: '4' },
             ],
             accessor: 'label',
           },
         },
         {
           label: 'Topic',
+          id: 'topic',
           conditions,
           resolver: {
             type: 'simple',
             accessor: 'label',
+            defaultValue: { label: '2', id: '5' },
             items: [
               { label: '1', id: '3' },
               { label: '2', id: '5' },
@@ -49,11 +64,14 @@ export const WithStatements: Story = () => {
             ],
           },
         },
+
         {
           label: 'Specific Store Label',
+          id: 'specificStoreLabel',
           conditions,
           resolver: {
             type: 'simple',
+            defaultValue: { label: '1', id: '3' },
             items: [
               { label: '1', id: '3' },
               { label: '2', id: '5' },

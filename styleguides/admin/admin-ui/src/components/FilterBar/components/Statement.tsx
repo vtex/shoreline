@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconAction, IconDelete, IconDuplicate } from '@vtex/admin-ui-icons'
-import { get, useSystem } from '@vtex/admin-core'
+import { get } from '@vtex/admin-core'
 
 import { Set } from '../../Set'
 import { FilterStatement, FilterConjunction } from '../typings'
@@ -8,8 +8,9 @@ import { Flex, Box } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
 import { ResolvedValue } from '../resolvers/core'
 import { Menu } from '../../Menu'
-import { Dropdown, DropdownProps, useDropdownState } from '../../Dropdown'
+import { useDropdownState } from '../../Dropdown'
 import { useFilterBarContext } from '../context'
+import { FilterDropdown } from './FilterDropdown'
 
 export function Statement<T>(props: NewStatementProps<T>) {
   const { statement, index, conjunction } = props
@@ -31,8 +32,6 @@ export function Statement<T>(props: NewStatementProps<T>) {
       if (!filter) return
 
       handleFilterChange(filter, index)
-      handleConditionChange(filter.conditions[0], index)
-      handleValueChange(undefined, index)
     },
   })
 
@@ -67,18 +66,30 @@ export function Statement<T>(props: NewStatementProps<T>) {
             {index === 0 ? 'Where' : conjunction}
           </Box>
         )}
-        <StatementDropdown
+        <FilterDropdown
           state={filtersState}
           label="Filter"
           items={filters}
+          renderItem={(item) => (
+            <Box csx={{ themeKey: 'components.filterBar.dropdown-label' }}>
+              {get(item, 'label')}
+            </Box>
+          )}
+          csx={{ maxWidth: 150 }}
         />
-        <StatementDropdown
+        <FilterDropdown
           state={conditionsState}
           label="Condition"
           items={conditions}
+          renderItem={(item) => (
+            <Box csx={{ themeKey: 'components.filterBar.dropdown-label' }}>
+              {get(item, 'label')}
+            </Box>
+          )}
+          csx={{ maxWidth: 150 }}
         />
         <ResolvedValue
-          resolvers={resolvers}
+          resolvers={resolvers as any}
           statement={statement}
           index={index}
           handleValueChange={handleValueChange}
@@ -120,7 +131,6 @@ export interface NewStatementProps<T> {
 
 function ConjunctionDropdown(props: ConjunctionDropdownProps) {
   const { conjunction, handleConjunctionChange } = props
-  const { stylesOf } = useSystem()
 
   const conjunctions = ['And', 'Or'] as FilterConjunction[]
 
@@ -135,13 +145,11 @@ function ConjunctionDropdown(props: ConjunctionDropdownProps) {
   })
 
   return (
-    <Dropdown
+    <FilterDropdown
       state={conjunctionState}
       items={conjunctions}
       label="Conjunction"
-      variant="adaptative-dark"
       csx={{
-        ...stylesOf('components.filterBar.dropdown'),
         minWidth: 100,
       }}
     />
@@ -151,21 +159,4 @@ function ConjunctionDropdown(props: ConjunctionDropdownProps) {
 interface ConjunctionDropdownProps {
   conjunction: FilterConjunction
   handleConjunctionChange: (conjunction: FilterConjunction) => void
-}
-
-function StatementDropdown<T>(props: DropdownProps<T>) {
-  const { stylesOf } = useSystem()
-
-  return (
-    <Dropdown
-      {...props}
-      variant="adaptative-dark"
-      renderItem={(item) => (
-        <Box csx={{ themeKey: 'components.filterBar.dropdown-label' }}>
-          {get(item, 'label')}
-        </Box>
-      )}
-      csx={{ ...stylesOf('components.filterBar.dropdown'), maxWidth: 150 }}
-    />
-  )
 }

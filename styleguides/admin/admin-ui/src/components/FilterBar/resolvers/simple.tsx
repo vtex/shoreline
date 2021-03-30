@@ -5,20 +5,22 @@ import { Dropdown, useDropdownState } from '../../Dropdown'
 import { createResolver, defaultRender, ResolverRenderProps } from './core'
 import warning from 'tiny-warning'
 
-export function simpleResolver<T extends { label?: string }>() {
+export function simpleResolver<T>() {
   return createResolver<T, 'simple', SimpleResolver<T>>({
     value: function SimpleResolver({ statement, index, handleValueChange }) {
       const { value, filter } = statement
       const { resolver } = filter
-      const { items, accessor } = resolver
+      const { items, accessor = '', defaultValue } = resolver
 
       const { stylesOf } = useSystem()
+
+      const selectedItemValue = value ?? defaultValue
 
       const render = resolver?.render ?? defaultRender
 
       const state = useDropdownState({
         items,
-        selectedItem: value ?? items[0],
+        selectedItem: selectedItemValue,
         onSelectedItemChange: ({ selectedItem: value }) => {
           if (value) {
             handleValueChange(value, index)
@@ -27,13 +29,13 @@ export function simpleResolver<T extends { label?: string }>() {
       })
 
       const renderItem = (item: T | null) => {
-        if (!item) return
+        if (typeof item !== 'object') return item
 
         const selectedValue = get(item, accessor, undefined)
 
         warning(
           selectedValue,
-          `Simple resolver: The selected data is undefined. Make sure that you are using the correct acessor for the following filter: ${filter.label}`
+          `Simple resolver: The selected data is undefined. Make sure that you are using the correct accessor for the following filter: ${filter.label}`
         )
 
         return selectedValue
@@ -58,6 +60,7 @@ export function simpleResolver<T extends { label?: string }>() {
 export type SimpleResolver<T> = {
   type: 'simple'
   items: T[]
-  accessor: string
+  accessor?: string
+  defaultValue: T
   render?: (props: ResolverRenderProps<T, JSX.Element>) => ReactNode
 }
