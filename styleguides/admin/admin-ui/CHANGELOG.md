@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.88.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.0...@vtex/admin-ui@0.88.0-experimental.1) (2021-03-30)
+
+
+### Features
+
+* **admin-ui:** sidebar border ([cae65e6](https://github.com/vtex/onda/commit/cae65e6c1f36c04ad563ba3a676f43854fd0e94e))
+
+
+
+
+
 # [0.88.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.87.1-experimental.0...@vtex/admin-ui@0.88.0-experimental.0) (2021-03-30)
 
 
