@@ -24,16 +24,14 @@ export const FormikNumericStepper = ( props : FormikNumericStepperProps) => {
   const [field, meta, helpers] = useField<number>({ name })
   const [value, setValue] = useState<number>(field.value)
 
+  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
+
   // useEffects to maintain consistency between state and value in formik
   useEffect(() => {
     if (value !== field.value) {
       setValue(field.value)
     }
   }, [field.value]) // When forms is reset or the field is changed outside
-
-
-  // Verify if there is any error and show message
-  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   const numericStepperProps = {
     onChange: (event : {value: number}) => {

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Select, useSelectState, SelectProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
-import { useErrorMessage } from '../util'
+import { useErrorMessage, useSyncedState } from '../util'
 
 export interface FormikSelectProps<T> extends Omit<SelectProps<T>, 'state'> {
   name: string
@@ -29,18 +29,8 @@ export const FormikSelect = <T extends unknown>( props: FormikSelectProps<T>) =>
     itemToString: itemToString ? itemToString : (item) => item
   })
 
-  // useEffects to maintain consistency between select state and value in formik
-  useEffect(() => {
-    if (itemState.selectedItem !== field.value) {
-      itemState.selectItem(field.value)
-    }
-  }, [field.value]) // When forms is reset or the field is changed outside
+  useSyncedState(itemState.selectedItem, itemState.selectItem,field.value,helpers.setValue)
 
-  useEffect(() => {
-    helpers.setValue(itemState.selectedItem)
-  }, [itemState.selectedItem]) // When the user changes the value by the component
-
-  // Verify if there is any error and show message
   const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   const selectProps = {

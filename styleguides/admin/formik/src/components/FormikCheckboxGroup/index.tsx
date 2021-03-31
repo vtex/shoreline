@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   Box,
   CheckboxGroup,
@@ -9,7 +9,7 @@ import {
 import { useField } from 'formik'
 import { FormikCheckboxGroupContext } from './context'
 import { FormikCheckbox } from './FormikCheckbox'
-import { useErrorMessage } from '../util'
+import { useErrorMessage, useSyncedState } from '../util'
 
 export interface FormikCheckboxGroupProps extends Omit<CheckboxGroupProps,'state'> {
   name: string
@@ -31,18 +31,8 @@ export const FormikCheckboxGroup = ( props : FormikCheckboxGroupProps) => {
   const [field, meta, helpers] = useField({ name })
   const checkboxState = useCheckboxState({ state: meta.initialValue })
 
-  // useEffects to maintain consistency between checkbox state and value in formik
-  useEffect(() => {
-    if (checkboxState.state !== field.value) {
-      checkboxState.setState(field.value)
-    }
-  }, [field.value]) // When forms is reset or the field is changed outside
+  useSyncedState(checkboxState.state,checkboxState.setState,field.value,helpers.setValue)
 
-  useEffect(() => {
-    helpers.setValue(checkboxState.state)
-  }, [checkboxState.state])  // When the user changes the value by the component
-
-  // Verify if there is any error and show message
   const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   return (

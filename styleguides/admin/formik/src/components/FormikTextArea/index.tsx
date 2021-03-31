@@ -24,7 +24,6 @@ export const FormikTextArea = ( props : FormikTextAreaProps) => {
 
   const [field, meta] = useField({ name })
 
-  // Verify if there is any error and show message
   const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   const textAreaProps = {

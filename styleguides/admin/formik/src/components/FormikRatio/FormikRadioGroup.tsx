@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   Box,
   RadioGroup,
@@ -8,7 +8,7 @@ import {
 } from '@vtex/admin-ui'
 import { useField } from 'formik'
 import { FormikRadioGroupContext } from './context'
-import { useErrorMessage } from '../util'
+import { useErrorMessage, useSyncedState } from '../util'
 
 export interface FormikRadioGroupProps extends Omit<RadioGroupProps,'state'> {
   name: string
@@ -30,18 +30,8 @@ export const FormikRadioGroup = ( props : FormikRadioGroupProps) => {
   const [field, meta, helpers] = useField({ name })
   const radioState = useRadioState({ state: meta.initialValue })
 
-  // useEffects to maintain consistency between checkbox state and value in formik
-  useEffect(() => {
-    if (radioState.state !== field.value) {
-      radioState.setState(field.value)
-    }
-  }, [field.value]) // When forms is reset or the field is changed outside
+  useSyncedState(radioState.state,radioState.setState,field.value,helpers.setValue)
 
-  useEffect(() => {
-    helpers.setValue(radioState.state)
-  }, [radioState.state])  // When the user changes the value by the component
-
-  // Verify if there is any error and show message
   const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   return (

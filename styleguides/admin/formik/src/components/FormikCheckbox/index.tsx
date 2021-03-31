@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react'
+import React, { ReactNode } from 'react'
 import {
   Checkbox,
   CheckboxProps,
@@ -8,7 +8,7 @@ import {
   useCheckboxState,
 } from '@vtex/admin-ui'
 import { useField } from 'formik'
-import { useErrorMessage } from '../util'
+import { useErrorMessage, useSyncedState } from '../util'
 
 export interface FormikCheckboxProps extends CheckboxProps {
   name: string
@@ -31,16 +31,8 @@ export const FormikCheckbox = ( props : FormikCheckboxProps) => {
   const [field, meta, helpers] = useField({ name })
   const checkboxState = useCheckboxState({ state: meta.initialValue })
 
-  // useEffects to maintain consistency between checkbox state and value in formik
-  useEffect(() => {
-    checkboxState.setState(field.value)
-  }, [field.value]) // When forms is reset or the field is changed outside
+  useSyncedState(checkboxState.state,checkboxState.setState,field.value,helpers.setValue)
 
-  useEffect(() => {
-    helpers.setValue(checkboxState.state)
-  }, [checkboxState.state]) // When the user changes the value by the component
-
-  // Verify if there is any error and show message
   const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   return (

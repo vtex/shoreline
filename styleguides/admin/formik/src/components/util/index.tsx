@@ -1,5 +1,7 @@
 import type { FieldMetaProps } from "formik"
+import { useEffect } from "react"
 
+// Verify if there is any error and show message
 export function useErrorMessage(
   currentError: boolean | undefined,
   currentErrorMessage: string | undefined,
@@ -21,4 +23,22 @@ export function useErrorMessage(
       }).join(', ')
   }
   return null
+}
+
+// useEffects to maintain consistency between select state and value in formik
+export function useSyncedState(
+  value: any,
+  setValue: (value: any) => void,
+  fieldValue: any,
+  setFieldValue: (value: any) => void,
+) {
+  useEffect(() => {
+    if (value !== fieldValue) {
+      setValue(fieldValue)
+    }
+  }, [fieldValue]) // When forms is reset or the field is changed outside
+
+  useEffect(() => {
+    setFieldValue(value)
+  }, [value]) // When the user changes the value by the component
 }
