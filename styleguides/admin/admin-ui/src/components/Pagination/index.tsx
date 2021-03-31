@@ -80,15 +80,15 @@ export function Pagination(props: PaginationProps) {
 
 interface PaginationProps extends BoxProps<'div'> {
   /**
-   * Full amount of itens
+   * Total amount of items
    */
   total: number
   /**
-   * Range of displayed itens in current table page
+   * Range of displayed items in current table page
    */
   range: [number, number]
   /**
-   * String displayed in beetwen end of range and total amount of itens
+   * String displayed in between the end of the range and the total amount of items
    */
   preposition: string
   /**
