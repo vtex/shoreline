@@ -8,6 +8,7 @@ import {
   useCheckboxState,
 } from '@vtex/admin-ui'
 import { useField } from 'formik'
+import { useErrorMessage } from '../util'
 
 export interface FormikCheckboxProps extends CheckboxProps {
   name: string
@@ -21,8 +22,8 @@ export const FormikCheckbox = ( props : FormikCheckboxProps) => {
   const {
     name, 
     label, 
-    error, 
-    errorMessage, 
+    error: currentError, 
+    errorMessage: currentErrorMessage, 
     formatMessage,
     ...checkboxProps
   } = props
@@ -40,15 +41,7 @@ export const FormikCheckbox = ( props : FormikCheckboxProps) => {
   }, [checkboxState.state]) // When the user changes the value by the component
 
   // Verify if there is any error and show message
-  const errorCode = meta.touched && meta.error
-  const finalError = error ?? !!errorCode
-  const finalErrorMessage = error
-    ? errorMessage
-    : errorCode
-      ? formatMessage 
-        ? formatMessage(errorCode)
-        : errorCode
-      : undefined
+  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   return (
     <Set orientation="vertical" spacing={0} >
@@ -59,9 +52,9 @@ export const FormikCheckbox = ( props : FormikCheckboxProps) => {
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
       { 
-        finalError && (
+        errorMessage && (
         <Text variant="small" feedback="danger" csx={{paddingTop: 1, marginLeft: 1}}>
-          {finalErrorMessage}
+          {errorMessage}
         </Text>
       )}
     </Set>

@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { Select, useSelectState, SelectProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
+import { useErrorMessage } from '../util'
 
 export interface FormikSelectProps<T> extends Omit<SelectProps<T>, 'state'> {
   name: string
@@ -13,8 +14,8 @@ export const FormikSelect = <T extends unknown>( props: FormikSelectProps<T>) =>
     name,
     items,
     label,
-    error,
-    errorMessage,
+    error: currentError, 
+    errorMessage: currentErrorMessage, 
     formatMessage,
     itemToString,
     ...patialSelectProps
@@ -39,42 +40,13 @@ export const FormikSelect = <T extends unknown>( props: FormikSelectProps<T>) =>
     helpers.setValue(itemState.selectedItem)
   }, [itemState.selectedItem]) // When the user changes the value by the component
 
-  // Verify if there is any error and show 
-  const finalError = useRef<boolean>(false)
-  const finalErrorMessage = useRef<string>()
-  if (typeof meta.error === "object") {
-    const errorCode = meta.touched && Object.values((meta.error as unknown) as Record<
-      keyof typeof field.value,
-      string
-    >)
-    finalError.current = error ?? !!errorCode
-    finalErrorMessage.current = error
-      ? errorMessage
-      : errorCode
-        ? errorCode.filter(x => x !== (null || undefined) )
-          .map((value) => { 
-            return value 
-              && formatMessage 
-                ? formatMessage(value)
-                : value
-          }).join(', ')
-        : ''
-  } else {
-    const errorCode = meta.touched && meta.error
-    finalError.current = error ?? !!errorCode
-    finalErrorMessage.current = error
-      ? errorMessage
-      : errorCode
-        ? formatMessage 
-          ? formatMessage(errorCode)
-          : errorCode
-        : undefined
-  }
+  // Verify if there is any error and show message
+  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   const selectProps = {
     ...patialSelectProps,
-    errorMessage: finalErrorMessage.current,
-    error: finalError.current,
+    errorMessage: errorMessage ? errorMessage : undefined,
+    error: !!errorMessage,
   }
 
   return (

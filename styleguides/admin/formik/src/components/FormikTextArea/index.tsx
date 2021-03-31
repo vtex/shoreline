@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextArea, TextAreaProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
+import { useErrorMessage } from '../util'
 
 export interface FormikTextAreaProps
   extends Omit<TextAreaProps, 'id' | 'value' | 'onChange'> {
@@ -13,8 +14,8 @@ export interface FormikTextAreaProps
 export const FormikTextArea = ( props : FormikTextAreaProps) => {
   const {
     name,
-    error,
-    errorMessage,
+    error: currentError, 
+    errorMessage: currentErrorMessage, 
     formatMessage,
     id,
     onChange,
@@ -24,15 +25,7 @@ export const FormikTextArea = ( props : FormikTextAreaProps) => {
   const [field, meta] = useField({ name })
 
   // Verify if there is any error and show message
-  const errorCode = meta.touched && meta.error
-  const finalError = error ?? !!errorCode
-  const finalErrorMessage = error
-    ? errorMessage
-    : errorCode
-      ? formatMessage 
-        ? formatMessage(errorCode)
-        : errorCode
-      : undefined
+  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   const textAreaProps = {
     ...field,
@@ -44,8 +37,8 @@ export const FormikTextArea = ( props : FormikTextAreaProps) => {
       : field.onChange,
     ...patialTextAreaProps,
     id: id ?? name,
-    errorMessage: finalErrorMessage,
-    error: finalError,
+    errorMessage: errorMessage ? errorMessage : undefined,
+    error: !!errorMessage,
   }
 
   return <TextArea {...textAreaProps} />

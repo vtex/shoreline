@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { Label, Set, Text, Toggle, ToggleProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
+import { useErrorMessage } from '../util'
 
 export interface FormikToggleProps extends ToggleProps {
   name: string,
@@ -14,8 +15,8 @@ export const FormikToggle = ( props : FormikToggleProps) => {
   const { 
     name, 
     label, 
-    error, 
-    errorMessage, 
+    error: currentError, 
+    errorMessage: currentErrorMessage, 
     formatMessage, 
     onChange, 
     id, 
@@ -25,15 +26,7 @@ export const FormikToggle = ( props : FormikToggleProps) => {
   const [field, meta, helpers] = useField({ name })
 
   // Verify if there is any error and show message
-  const errorCode = meta.touched && meta.error
-  const finalError = error ?? !!errorCode
-  const finalErrorMessage = error
-    ? errorMessage
-    : errorCode
-      ? formatMessage 
-        ? formatMessage(errorCode)
-        : errorCode
-      : undefined
+  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   return (
     <Set orientation="vertical" spacing={0}>
@@ -52,9 +45,9 @@ export const FormikToggle = ( props : FormikToggleProps) => {
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
       { 
-        finalError && (
+        errorMessage && (
         <Text variant="small" feedback="danger" csx={{paddingTop: '0.063rem', marginLeft: 1}}>
-          {finalErrorMessage}
+          {errorMessage}
         </Text>
       )}
     </Set>

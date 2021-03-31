@@ -9,6 +9,7 @@ import {
 import { useField } from 'formik'
 import { FormikCheckboxGroupContext } from './context'
 import { FormikCheckbox } from './FormikCheckbox'
+import { useErrorMessage } from '../util'
 
 export interface FormikCheckboxGroupProps extends Omit<CheckboxGroupProps,'state'> {
   name: string
@@ -21,8 +22,8 @@ export const FormikCheckboxGroup = ( props : FormikCheckboxGroupProps) => {
   const {
     name, 
     children, 
-    error, 
-    errorMessage, 
+    error: currentError, 
+    errorMessage: currentErrorMessage, 
     formatMessage,
     ...checkboxGroupProps
   } = props
@@ -42,22 +43,7 @@ export const FormikCheckboxGroup = ( props : FormikCheckboxGroupProps) => {
   }, [checkboxState.state])  // When the user changes the value by the component
 
   // Verify if there is any error and show message
-  const errorCode = meta.touched && meta.error
-  const finalError = error ?? !!errorCode
-  const finalErrorMessage = error
-    ? errorMessage
-    : Array.isArray(errorCode) 
-      ? errorCode.filter(x => x !== (null || undefined) )
-        .map((value) => { 
-          return value 
-            && formatMessage 
-              ? formatMessage(value)
-              : value
-        }).join(', ')
-      : errorCode 
-        && formatMessage 
-          ? formatMessage(errorCode)
-          : errorCode
+  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   return (
     <Box csx={{ marginBottom: 6 }}>
@@ -66,9 +52,9 @@ export const FormikCheckboxGroup = ( props : FormikCheckboxGroupProps) => {
           {children}
         </FormikCheckboxGroupContext.Provider>
       </CheckboxGroup>
-      {finalError && (
+      {errorMessage && (
         <Text variant="small" feedback="danger" csx={{paddingTop: 1}}>
-          {finalErrorMessage}
+          {errorMessage}
         </Text>
       )}
     </Box>

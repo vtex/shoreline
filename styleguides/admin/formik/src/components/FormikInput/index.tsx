@@ -1,6 +1,7 @@
 import React from 'react'
 import { Input, InputProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
+import { useErrorMessage } from '../util'
 
 export interface FormikInputProps extends Omit<InputProps, 'id'> {
   name: string
@@ -11,8 +12,8 @@ export interface FormikInputProps extends Omit<InputProps, 'id'> {
 export const FormikInput = ( props : FormikInputProps) => {
   const {
     name,
-    error,
-    errorMessage,
+    error: currentError, 
+    errorMessage: currentErrorMessage, 
     id,
     formatMessage,
     ...partialInputProps
@@ -21,22 +22,14 @@ export const FormikInput = ( props : FormikInputProps) => {
   const [field, meta] = useField({ name })
 
   // Verify if there is any error and show message
-  const errorCode = meta.touched && meta.error
-  const finalError = error ?? !!errorCode
-  const finalErrorMessage = error
-    ? errorMessage
-    : errorCode
-      ? formatMessage 
-        ? formatMessage(errorCode)
-        : errorCode
-      : undefined
+  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   const inputProps = {
     ...field,
     ...partialInputProps,
     id: id ?? name,
-    errorMessage: finalErrorMessage,
-    error: finalError,
+    errorMessage: errorMessage ? errorMessage : undefined,
+    error: !!errorMessage,
   }
 
   return <Input {...inputProps} />

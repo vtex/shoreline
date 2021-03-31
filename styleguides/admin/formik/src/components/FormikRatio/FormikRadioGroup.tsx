@@ -8,6 +8,7 @@ import {
 } from '@vtex/admin-ui'
 import { useField } from 'formik'
 import { FormikRadioGroupContext } from './context'
+import { useErrorMessage } from '../util'
 
 export interface FormikRadioGroupProps extends Omit<RadioGroupProps,'state'> {
   name: string
@@ -20,8 +21,8 @@ export const FormikRadioGroup = ( props : FormikRadioGroupProps) => {
   const { 
     name, 
     children, 
-    error, 
-    errorMessage, 
+    error: currentError, 
+    errorMessage: currentErrorMessage, 
     formatMessage, 
     ...radioGroupProps 
   } = props
@@ -41,22 +42,7 @@ export const FormikRadioGroup = ( props : FormikRadioGroupProps) => {
   }, [radioState.state])  // When the user changes the value by the component
 
   // Verify if there is any error and show message
-  const errorCode = meta.touched && meta.error
-  const finalError = error ?? !!errorCode
-  const finalErrorMessage = error
-    ? errorMessage
-    : Array.isArray(errorCode) 
-      ? errorCode.filter(x => x !== (null || undefined) )
-        .map((value) => { 
-          return value 
-            && formatMessage 
-              ? formatMessage(value)
-              : value
-        }).join(', ')
-      : errorCode 
-        && formatMessage 
-          ? formatMessage(errorCode)
-          : errorCode
+  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
 
   return (
     <Box csx={{ marginBottom: 6 }}>
@@ -65,9 +51,9 @@ export const FormikRadioGroup = ( props : FormikRadioGroupProps) => {
           {children}
         </FormikRadioGroupContext.Provider>
       </RadioGroup>
-      {finalError && (
+      {errorMessage && (
         <Text variant="small" feedback="danger" csx={{paddingTop: 1}}>
-          {finalErrorMessage}
+          {errorMessage}
         </Text>
       )}
     </Box>
