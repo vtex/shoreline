@@ -22,18 +22,15 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
     <Fragment>
       <Box
         csx={{
-          width: 1,
+          width: selectedItem?.expandable ? (reduced ? 16 : 245) : 0,
           bg:
             !selectedItem?.expandable || reduced
               ? 'light.primary'
               : 'sidebar.light',
-          transition: 'transform 240ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          willChange: 'transform',
-          transform: `scaleX(${
-            selectedItem?.expandable ? (reduced ? 16 : 200) : 0
-          })`,
-          transformOrigin: 'left',
-          zIndex: -1,
+          transition: 'width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+          borderRight: selectedItem?.expandable ? 1 : 0,
+          borderRightColor: 'mid.tertiary',
+          borderRightStyle: 'solid',
         }}
         onMouseEnter={showToggle}
         onMouseLeave={hideToggle}
@@ -41,25 +38,9 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
         {loading && <ItemSkeleton />}
       </Box>
 
-      <Box
-        csx={{
-          position: 'relative',
-          width: 1,
-          bg: 'mid.tertiary',
-          transition: 'transform 240ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          transform: `translateX(${
-            selectedItem?.expandable ? (reduced ? 16 : 199) : -2
-          }px)`,
-          transformOrigin: 'left',
-          zIndex: -1,
-        }}
-      />
-
       <Button
         csx={{
-          transform: `translateX(${
-            selectedItem?.expandable ? (reduced ? 5 : 187) : -2
-          }px)`,
+          marginLeft: -3,
           transformOrigin: 'left',
           position: 'relative',
           zIndex: 1,
@@ -70,7 +51,8 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
           borderColor: 'mid.tertiary',
           height: '1.5rem',
           width: '1.5rem',
-          transition: 'transform 240ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+          transition: 'transform 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+          opacity: selectedItem?.expandable && toggleVisible ? 1 : 0,
           backgroundColor: 'light.primary',
           '&:hover': {
             backgroundColor: 'blue.secondary',
@@ -79,8 +61,6 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
               color: 'blue',
             },
           },
-          opacity: selectedItem?.expandable && toggleVisible ? 1 : 0,
-          transitionDuration: 'pop',
         }}
         icon={
           <IconCaretSmall

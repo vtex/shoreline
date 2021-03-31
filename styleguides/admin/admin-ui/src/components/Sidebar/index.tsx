@@ -41,9 +41,10 @@ function _Sidebar(props: SidebarProps) {
           borderRight: '1px solid',
           borderColor: 'mid.tertiary',
           bg: state.isReduced() ? 'light.primary' : 'sidebar.light',
-          boxShadow: state.isReduced()
-            ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
-            : 'unset',
+          boxShadow:
+            state.selectedItem?.expandable && state.layout.reduced
+              ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
+              : 'unset',
           ...rootProps.csx,
         }}
         {...rootProps}

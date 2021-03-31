@@ -112,7 +112,7 @@ function _SidebarItem(props: SidebarItemProps) {
               backgroundColor: 'transparent',
               transform: `translateX(${translate})`,
               opacity: selected ? 1 : 0,
-              transition: 'callout',
+              transition: 'all 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
             }}
             data-testid={`${label}-ul`}
             {...baseProps}
