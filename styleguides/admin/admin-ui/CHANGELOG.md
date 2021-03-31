@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.88.0-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.1...@vtex/admin-ui@0.88.0-experimental.2) (2021-03-31)
+
+
+### Features
+
+* **admin-ui:** bring sidebar width & reduce tooltips ([ed79240](https://github.com/vtex/onda/commit/ed792405e102b7ebb948d983fabf3cba87501cd1))
+
+
+
+
+
 # [0.88.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.0...@vtex/admin-ui@0.88.0-experimental.1) (2021-03-30)
 
 
