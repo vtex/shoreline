@@ -74,7 +74,7 @@ export interface InputProps extends SystemComponentProps<InputOwnProps> {
   /** label text */
   label: string
   /** unique id of the component */
-  id: string
+  id?: string
   /** Input helper text */
   helperText?: string
   /** Input char limit */
