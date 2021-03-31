@@ -10,7 +10,7 @@ export function useTableSort<T>(params: UseTableSortParams<T>) {
     initialState,
     sortDirections = ['ASC', 'DSC'],
     reducer = sortReducer,
-    manualSort,
+    manualSort: sortCallback = defaultSortCallback,
   } = params
 
   const [sortState, dispatch] = useReducer(reducer, {
@@ -20,21 +20,14 @@ export function useTableSort<T>(params: UseTableSortParams<T>) {
 
   const sort = useCallback(
     (id: keyof T) => {
-      if (manualSort) {
-        manualSort({ currentSortState: sortState, dispatch, columnId: id })
-        return
-      }
-
-      const { by, order } = sortState
-      if (!by || by !== id) {
-        dispatch({ type: sortDirections[0], payload: { id } })
-      } else if (order === sortDirections[0] && sortDirections[1]) {
-        dispatch({ type: sortDirections[1], payload: { id } })
-      } else {
-        dispatch({ type: 'CLEAR' })
-      }
+      sortCallback({
+        columnId: id,
+        currentSortState: sortState,
+        dispatch,
+        sortDirections,
+      })
     },
-    [sortState.by, sortState.order, dispatch, manualSort]
+    [sortState, dispatch, sortCallback, sortDirections]
   )
 
   const resolveSorting = useCallback(
@@ -73,6 +66,22 @@ function sortReducer(state: SortState, action: SortAction) {
   }
 }
 
+function defaultSortCallback<T>({
+  currentSortState,
+  columnId,
+  dispatch,
+  sortDirections,
+}: SortCallbackParams<T>) {
+  const { by, order } = currentSortState
+  if (!by || by !== columnId) {
+    dispatch({ type: sortDirections[0], payload: { id: columnId } })
+  } else if (order === sortDirections[0] && sortDirections[1]) {
+    dispatch({ type: sortDirections[1], payload: { id: columnId } })
+  } else {
+    dispatch({ type: 'CLEAR' })
+  }
+}
+
 type SortOrder = 'ASC' | 'DSC'
 
 export type SortDirections = ['ASC', 'DSC'] | ['DSC', 'ASC'] | ['ASC' | 'DSC']
@@ -89,17 +98,18 @@ export interface SortAction {
   }
 }
 
-export interface ManualSortParams<T> {
+export interface SortCallbackParams<T> {
   currentSortState: SortState
   dispatch: Dispatch<SortAction>
   columnId: keyof T
+  sortDirections: SortDirections
 }
 
 interface UseTableSortParams<T> {
   initialState?: Partial<SortState>
   sortDirections?: SortDirections
   reducer?(state: SortState, action: SortAction): SortState
-  manualSort?(params: ManualSortParams<T>): void
+  manualSort?(params: SortCallbackParams<T>): void
 }
 
 export interface UseSortReturn {
@@ -110,7 +120,7 @@ export interface UseSortReturn {
 
 export interface ManualSort<T> {
   reducer?(state: SortState, action: SortAction): SortState
-  sort?(params: ManualSortParams<T>): void
+  sort?(params: SortCallbackParams<T>): void
 }
 
 export interface OnSortParams {
