@@ -45,23 +45,20 @@ export function Pagination(props: PaginationProps) {
     <Flex align="center" csx={csx} {...boxProps}>
       {!loading && (
         <Text
-          csx={{
-            marginRight: '1.25rem',
-            fontSize: '0.75rem',
-            lineHeight: '1.125rem',
-            color: 'dark.secondary',
-            fontWeight: 'normal',
-          }}
+          feedback="secondary"
+          variant="small"
+          csx={{ marginRight: '1.25rem' }}
         >
           {displayedStartOfRange} — {displayedEndOfRange} {preposition} {total}{' '}
           {subject}
         </Text>
       )}
+    <Set spacing={2}>
       <Tooltip label={prevLabel}>
         <Button
           disabled={loading || isPrevDisabled}
           onClick={onClickPrev}
-          csx={{ marginRight: '0.5rem', ...buttonCsx }}
+          csx={buttonCsx}
           icon={<IconCaret direction="left" />}
         />
       </Tooltip>
@@ -70,10 +67,11 @@ export function Pagination(props: PaginationProps) {
         <Button
           disabled={loading || isNextDisabled}
           onClick={onClickNext}
-          csx={{ marginLeft: '0.5rem', ...buttonCsx }}
+          csx={buttonCsx}
           icon={<IconCaret direction="right" />}
         />
       </Tooltip>
+    </Set>
     </Flex>
   )
 }

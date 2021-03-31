@@ -83,10 +83,11 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
   return (
     <Providers>
       <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
-        <Box csx={{ marginBottom: '1.5rem', display: 'flex' }}>
+        <Flex csx={{ marginBottom: '1.5rem' }}>
           {/* Later this box should be the Toolbar component */}
 
-          <Pagination
+          <Flex.Spacer />
+          <Pagination          
             range={
               manualPagination
                 ? manualPagination
@@ -100,7 +101,6 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
             loading={loading}
             onClickNext={() => pagination.paginate('next')}
             onClickPrev={() => pagination.paginate('prev')}
-            csx={{ marginLeft: 'auto' }}
           />
         </Box>
         <Table dir={context.dir} density={density}>
