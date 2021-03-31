@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react'
-import { Label, Set, Text, Toggle, ToggleProps } from '@vtex/admin-ui'
+import React, { ReactNode, useEffect } from 'react'
+import { Label, Set, Text, Toggle, ToggleProps, useToggleState } from '@vtex/admin-ui'
 import { useField } from 'formik'
 import { useErrorMessage } from '../util'
 
@@ -24,6 +24,16 @@ export const FormikToggle = ( props : FormikToggleProps) => {
   } = props
 
   const [field, meta, helpers] = useField({ name })
+  const toggleState = useToggleState({ state: meta.initialValue })
+
+  // useEffects to maintain consistency between checkbox state and value in formik
+  useEffect(() => {
+    toggleState.setState(field.value)
+  }, [field.value]) // When forms is reset or the field is changed outside
+
+  useEffect(() => {
+    helpers.setValue(toggleState.state)
+  }, [toggleState.state]) // When the user changes the value by the component
 
   // Verify if there is any error and show message
   const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
@@ -34,11 +44,7 @@ export const FormikToggle = ( props : FormikToggleProps) => {
         <div onClick={()=>helpers.setTouched(true)}>
           <Toggle
             id={id ? id : name}
-            checked={field.value}
-            onChange={(e: any) => {
-              field.onChange(e)
-              onChange && onChange(e)
-            }}
+            state={toggleState}
             {...toggleProps}
           />
         </div>
