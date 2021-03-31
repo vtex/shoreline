@@ -6,7 +6,7 @@ import { TableDensity, TableDir } from './typings'
 import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
-import { Box } from '@vtex/admin-primitives'
+import { Box, Flex } from '@vtex/admin-primitives'
 import { Pagination } from '../Pagination'
 
 /**
@@ -87,7 +87,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
           {/* Later this box should be the Toolbar component */}
 
           <Flex.Spacer />
-          <Pagination          
+          <Pagination
             range={
               manualPagination
                 ? manualPagination
@@ -102,7 +102,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
             onClickNext={() => pagination.paginate('next')}
             onClickPrev={() => pagination.paginate('prev')}
           />
-        </Box>
+        </Flex>
         <Table dir={context.dir} density={density}>
           <Table.Head>
             <Table.Row>

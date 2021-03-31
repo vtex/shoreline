@@ -1,5 +1,6 @@
 import React, { MouseEventHandler } from 'react'
 import { BoxProps, Flex } from '@vtex/admin-primitives'
+import { Set } from '../Set'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { Button } from '../Button'
 import { Text } from '../Text'
@@ -53,25 +54,25 @@ export function Pagination(props: PaginationProps) {
           {subject}
         </Text>
       )}
-    <Set spacing={2}>
-      <Tooltip label={prevLabel}>
-        <Button
-          disabled={loading || isPrevDisabled}
-          onClick={onClickPrev}
-          csx={buttonCsx}
-          icon={<IconCaret direction="left" />}
-        />
-      </Tooltip>
+      <Set spacing={2}>
+        <Tooltip label={prevLabel}>
+          <Button
+            disabled={loading || isPrevDisabled}
+            onClick={onClickPrev}
+            csx={buttonCsx}
+            icon={<IconCaret direction="left" />}
+          />
+        </Tooltip>
 
-      <Tooltip label={nextLabel}>
-        <Button
-          disabled={loading || isNextDisabled}
-          onClick={onClickNext}
-          csx={buttonCsx}
-          icon={<IconCaret direction="right" />}
-        />
-      </Tooltip>
-    </Set>
+        <Tooltip label={nextLabel}>
+          <Button
+            disabled={loading || isNextDisabled}
+            onClick={onClickNext}
+            csx={buttonCsx}
+            icon={<IconCaret direction="right" />}
+          />
+        </Tooltip>
+      </Set>
     </Flex>
   )
 }
