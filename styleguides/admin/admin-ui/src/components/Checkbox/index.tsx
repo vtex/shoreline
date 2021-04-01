@@ -33,6 +33,8 @@ type AbstractCheckboxProps = Pick<
   | 'name'
   | 'onChange'
   | 'onClick'
+  | 'onFocus'
+  | 'onBlur'
   | 'aria-label'
   | 'aria-labelledby'
   | 'id'

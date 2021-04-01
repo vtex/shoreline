@@ -38,9 +38,7 @@ export const FormikCheckbox = forwardRef(( props : FormikCheckboxProps, ref: Ref
   return (
     <Set orientation="vertical" spacing={0} >
       <Set spacing={2} >
-        <div onClick={()=>helpers.setTouched(true)}>
-          <Checkbox id={name} state={checkboxState} {...checkboxProps} ref={ref} />
-        </div>
+        <Checkbox id={name} state={checkboxState} {...checkboxProps} ref={ref} onBlur={()=>helpers.setTouched(true)} />
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
       { 

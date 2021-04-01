@@ -12,8 +12,6 @@ export const FormikCheckbox = forwardRef(( props : FormikCheckboxProps, ref: Ref
   const {state, setTouched} = useCheckboxGroupContext()
 
   return (
-    <div onClick={()=>setTouched(true)}>
-      <Checkbox state={state} {...props} ref={ref}/>
-    </div>
+    <Checkbox state={state} {...props} ref={ref} onBlur={()=>setTouched(true)}/>
   )
 })

@@ -8,8 +8,6 @@ export const FormikRadio = forwardRef(( props : FormikRadioProps, ref: Ref<HTMLI
   const {state, setTouched} = useRadioGroupContext()
 
   return (
-    <div onClick={()=>setTouched(true)}>
-      <Radio state={state} {...props} ref={ref}/>
-    </div>
+    <Radio state={state} {...props} ref={ref} onBlur={()=>setTouched(true)}/>
   )
 })

@@ -33,14 +33,13 @@ export const FormikToggle = forwardRef(( props : FormikToggleProps, ref: Ref<HTM
   return (
     <Set orientation="vertical" spacing={0}>
       <Set spacing={2} >
-        <div onClick={()=>helpers.setTouched(true)}>
           <Toggle
             id={id ? id : name}
             state={toggleState}
             {...toggleProps}
             ref={ref}
+            onBlur={()=>helpers.setTouched(true)}
           />
-        </div>
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
       { 

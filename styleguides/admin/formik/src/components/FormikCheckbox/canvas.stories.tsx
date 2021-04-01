@@ -189,7 +189,7 @@ export const Error = () => {
                 name="value"
                 label="Label"
               />
-              <Text feedback='primary' children="Change de value to true to appear the error" />
+              <Text feedback='primary' children="Change the value to true and click outside to appear the error" />
             </Box>
             <Set>
               <Text variant='subtitle'> 
@@ -238,7 +238,7 @@ export const WithIntl = () => {
                   label="Label"
                   formatMessage={(errorCode) => formatMessage({ id: errorCode})}
                 />
-                <Text feedback='primary' children="Change de value to true to appear the error" />
+                <Text feedback='primary' children="Change the value to true to appear the error" />
               </Box>
               <Set>
                 <Text variant='subtitle'> 
