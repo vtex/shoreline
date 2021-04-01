@@ -104,7 +104,12 @@ function _Sidebar(props: SidebarProps) {
           maxHeight: '100%',
         }}
       />
-      <SidebarBackdrop state={state} loading={loading} />
+      <SidebarBackdrop
+        state={state}
+        loading={
+          state.selectedItem?.expandable && loading && !state.layout.reduced
+        }
+      />
     </Fragment>
   )
 }

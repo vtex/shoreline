@@ -17,6 +17,7 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
       {Array.from(new Array(amount)).map(() => (
         <Skeleton
           csx={{
+            zIndex: 999,
             minHeight: size,
             maxHeight: size,
             minWidth: size,

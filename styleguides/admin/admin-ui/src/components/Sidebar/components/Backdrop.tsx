@@ -18,17 +18,17 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
     loading = false,
   } = props
 
+  const expandable = selectedItem?.expandable
+  const active = expandable && !reduced
+
   return (
     <Fragment>
       <Box
         csx={{
-          width: selectedItem?.expandable ? (reduced ? 16 : 245) : 0,
-          bg:
-            !selectedItem?.expandable || reduced
-              ? 'light.primary'
-              : 'sidebar.light',
-          transition: 'width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          borderRight: selectedItem?.expandable ? 1 : 0,
+          minWidth: expandable ? (reduced ? 16 : 200) : 0,
+          transition: 'minWidth 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+          bg: active ? 'sidebar.light' : 'light.primary',
+          borderRight: expandable ? 1 : 0,
           borderRightColor: 'mid.tertiary',
           borderRightStyle: 'solid',
         }}
@@ -40,22 +40,21 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
 
       <Button
         csx={{
-          marginLeft: -3,
-          transformOrigin: 'left',
-          position: 'relative',
+          position: 'absolute',
           zIndex: 1,
-          top: '1.2rem',
+          top: 104,
+          left: expandable && reduced ? 76 : 258,
           cursor: 'pointer',
           border: '1px solid',
           borderRadius: '100%',
           borderColor: 'mid.tertiary',
           height: '1.5rem',
           width: '1.5rem',
-          transition: 'transform 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          opacity: selectedItem?.expandable && toggleVisible ? 1 : 0,
-          backgroundColor: 'light.primary',
+          transition: 'display 125ms cubic-bezier(0.4, 0.14, 0.3, 1) 100ms',
+          display: expandable && toggleVisible ? 'unset' : 'none',
+          bg: 'light.primary',
           '&:hover': {
-            backgroundColor: 'blue.secondary',
+            bg: 'blue.secondary',
             borderColor: 'blue.secondary',
             '> div > svg': {
               color: 'blue',
@@ -68,7 +67,7 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
             csx={{
               display: 'flex',
               justifyContent: 'center',
-              transition: '0.3',
+              transition: '125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
               color: 'black',
               '> path': {
                 strokeWidth: 2,
