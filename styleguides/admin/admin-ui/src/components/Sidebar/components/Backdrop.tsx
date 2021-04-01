@@ -42,8 +42,8 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
         csx={{
           position: 'absolute',
           zIndex: 1,
-          top: 104,
-          left: expandable && reduced ? 76 : 258,
+          top: 82,
+          left: expandable && reduced ? 60 : 244,
           cursor: 'pointer',
           border: '1px solid',
           borderRadius: '100%',
