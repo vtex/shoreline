@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.88.0-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.3...@vtex/admin-ui@0.88.0-experimental.4) (2021-04-01)
+
+
+### Bug Fixes
+
+* **admin-ui:** sidebar buttons distance ([e298472](https://github.com/vtex/onda/commit/e298472e1eeeca9387fd047fd8027879ba43102f))
+
+
+
+
+
 # [0.88.0-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.2...@vtex/admin-ui@0.88.0-experimental.3) (2021-04-01)
 
 
