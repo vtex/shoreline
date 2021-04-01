@@ -7,9 +7,9 @@ export const FormikInput = forwardRef(
   (props: FormikInputProps, ref: Ref<HTMLInputElement>) => {
     const {
       name,
+      id = name,
       error: currentError,
       errorMessage: currentErrorMessage,
-      id,
       formatMessage,
       ...partialInputProps
     } = props
@@ -26,7 +26,7 @@ export const FormikInput = forwardRef(
     const inputProps = {
       ...field,
       ...partialInputProps,
-      id: id ?? name,
+      id,
       errorMessage: errorMessage ? errorMessage : undefined,
       error: !!errorMessage,
     }

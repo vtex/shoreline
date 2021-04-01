@@ -11,7 +11,11 @@ import { FormikCheckbox } from './index'
 import { Button, Text } from '@vtex/admin-ui'
 
 describe('Checkbox tests', () => {
-  beforeAll(() => {
+  beforeEach(() => {
+    /**
+     * 🚧 Workaround for window.match media
+     * @see https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+     */
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => ({
@@ -27,7 +31,7 @@ describe('Checkbox tests', () => {
     })
   })
 
-  it('change value in formik by input component', async () => {
+  it.only('change value in formik by input component', async () => {
     const handleSubmit = jest.fn()
 
     render(
@@ -39,7 +43,7 @@ describe('Checkbox tests', () => {
               data-testid="checkbox-field"
               label="CheckboxField label"
             />
-            <Button type="submit" size="small" children="Submit" />
+            <button type="submit" children="Submit" />
           </Form>
         </Formik>
       </ThemeProvider>

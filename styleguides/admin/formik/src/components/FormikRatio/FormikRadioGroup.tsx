@@ -13,6 +13,7 @@ import { useErrorMessage, useSyncedState } from '../util'
 export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
   const {
     name,
+    id = name,
     children,
     error: currentError,
     errorMessage: currentErrorMessage,
@@ -42,6 +43,7 @@ export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
       <RadioGroup
         state={radioState}
         csx={{ marginBottom: 0 }}
+        id={id}
         {...radioGroupProps}
       >
         <FormikRadioGroupContext.Provider

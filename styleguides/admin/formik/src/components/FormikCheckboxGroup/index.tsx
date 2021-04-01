@@ -14,6 +14,7 @@ import { useErrorMessage, useSyncedState } from '../util'
 export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
   const {
     name,
+    id = name,
     children,
     error: currentError,
     errorMessage: currentErrorMessage,
@@ -40,7 +41,7 @@ export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
 
   return (
     <Box csx={{ marginBottom: 6 }}>
-      <CheckboxGroup csx={{ marginBottom: 0 }} {...checkboxGroupProps}>
+      <CheckboxGroup csx={{ marginBottom: 0 }} {...checkboxGroupProps} id={id}>
         <FormikCheckboxGroupContext.Provider
           value={{ state: checkboxState, setTouched: helpers.setTouched }}
         >

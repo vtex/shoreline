@@ -7,10 +7,10 @@ export const FormikTextArea = forwardRef(
   (props: FormikTextAreaProps, ref: Ref<HTMLTextAreaElement>) => {
     const {
       name,
+      id = name,
       error: currentError,
       errorMessage: currentErrorMessage,
       formatMessage,
-      id,
       onChange,
       ...patialTextAreaProps
     } = props
@@ -33,7 +33,7 @@ export const FormikTextArea = forwardRef(
           }
         : field.onChange,
       ...patialTextAreaProps,
-      id: id ?? name,
+      id,
       errorMessage: errorMessage ? errorMessage : undefined,
       error: !!errorMessage,
     }

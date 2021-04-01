@@ -14,12 +14,12 @@ export const FormikToggle = forwardRef(
   (props: FormikToggleProps, ref: Ref<HTMLInputElement>) => {
     const {
       name,
+      id = name,
       label,
       error: currentError,
       errorMessage: currentErrorMessage,
       formatMessage,
       onChange,
-      id,
       ...toggleProps
     } = props
 
@@ -41,23 +41,19 @@ export const FormikToggle = forwardRef(
     )
 
     return (
-      <Set orientation="vertical" spacing={0}>
+      <Set orientation="vertical" spacing={1}>
         <Set spacing={2}>
           <Toggle
-            id={id ? id : name}
+            id={id}
             state={toggleState}
             {...toggleProps}
             ref={ref}
             onBlur={() => helpers.setTouched(true)}
           />
-          {label && typeof label === 'string' ? <Label>{label}</Label> : label}
+          {label && <Label htmlFor={id}>{label}</Label>}
         </Set>
         {errorMessage && (
-          <Text
-            variant="small"
-            feedback="danger"
-            csx={{ paddingTop: '0.063rem', marginLeft: 1 }}
-          >
+          <Text variant="small" feedback="danger" csx={{ marginLeft: 1 }}>
             {errorMessage}
           </Text>
         )}

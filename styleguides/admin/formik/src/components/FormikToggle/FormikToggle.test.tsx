@@ -11,7 +11,11 @@ import { Button, Text } from '@vtex/admin-ui'
 import { axe } from 'jest-axe'
 
 describe('Toggle tests', () => {
-  beforeAll(() => {
+  beforeEach(() => {
+    /**
+     * 🚧 Workaround for window.match media
+     * @see https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+     */
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => ({

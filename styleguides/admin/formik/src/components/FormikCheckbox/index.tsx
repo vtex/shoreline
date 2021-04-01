@@ -14,6 +14,7 @@ export const FormikCheckbox = forwardRef(
   (props: FormikCheckboxProps, ref: Ref<HTMLInputElement>) => {
     const {
       name,
+      id = name,
       label,
       error: currentError,
       errorMessage: currentErrorMessage,
@@ -39,23 +40,19 @@ export const FormikCheckbox = forwardRef(
     )
 
     return (
-      <Set orientation="vertical" spacing={0}>
+      <Set orientation="vertical" spacing={1}>
         <Set spacing={2}>
           <Checkbox
-            id={name}
+            id={id}
             state={checkboxState}
             {...checkboxProps}
             ref={ref}
             onBlur={() => helpers.setTouched(true)}
           />
-          {label && typeof label === 'string' ? <Label>{label}</Label> : label}
+          <Label htmlFor={id}>{label}</Label>
         </Set>
         {errorMessage && (
-          <Text
-            variant="small"
-            feedback="danger"
-            csx={{ paddingTop: 1, marginLeft: 1 }}
-          >
+          <Text variant="small" feedback="danger" csx={{ marginLeft: 1 }}>
             {errorMessage}
           </Text>
         )}
@@ -66,7 +63,7 @@ export const FormikCheckbox = forwardRef(
 
 export interface FormikCheckboxProps extends CheckboxProps {
   name: string
-  label?: string | ReactNode
+  label: string | ReactNode
   error?: boolean
   errorMessage?: string
   formatMessage?: (errorCode: string) => string

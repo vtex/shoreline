@@ -7,9 +7,9 @@ export const FormikNumericStepper = forwardRef(
   (props: FormikNumericStepperProps, ref: Ref<HTMLDivElement>) => {
     const {
       name,
+      id = name,
       error: currentError,
       errorMessage: currentErrorMessage,
-      id,
       onChange,
       formatMessage,
       ...partialNumericStepperProps
@@ -38,7 +38,7 @@ export const FormikNumericStepper = forwardRef(
         helpers.setValue(event.value)
         setValue(event.value)
       },
-      id: id ?? name,
+      id,
       errorMessage: errorMessage ? errorMessage : undefined,
       error: !!errorMessage,
       ...partialNumericStepperProps,
