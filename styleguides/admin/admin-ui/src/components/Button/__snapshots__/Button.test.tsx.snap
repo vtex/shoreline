@@ -30,7 +30,6 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: uppercase;
   color: #FFFFFF;
   background-color: #2953B2;
   font-size: 0.875rem;
@@ -101,7 +100,6 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: uppercase;
   color: #FFFFFF;
   background-color: #2953B2;
   font-size: 0.875rem;
@@ -172,7 +170,6 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: uppercase;
   background-color: #DAE3F5;
   color: #2953B2;
   font-size: 0.875rem;
@@ -243,7 +240,6 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: capitalize;
   background-color: transparent;
   color: #2953B2;
   font-size: 0.875rem;
@@ -315,7 +311,6 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: uppercase;
   color: #FFFFFF;
   background-color: #2953B2;
   font-size: 0.75rem;
@@ -386,7 +381,6 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: uppercase;
   color: #FFFFFF;
   background-color: #CB4242;
   font-size: 0.875rem;

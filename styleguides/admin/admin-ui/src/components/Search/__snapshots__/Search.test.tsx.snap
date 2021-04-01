@@ -40,7 +40,6 @@ exports[`Search tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: uppercase;
   color: #FFFFFF;
   background-color: #2953B2;
   font-size: 0.875rem;
@@ -254,7 +253,6 @@ exports[`Search tests should match snapshot on loading 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: uppercase;
   color: #FFFFFF;
   background-color: #2953B2;
   font-size: 0.875rem;

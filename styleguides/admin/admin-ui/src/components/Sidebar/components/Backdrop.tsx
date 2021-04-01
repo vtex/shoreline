@@ -1,10 +1,22 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useMemo, useState } from 'react'
 import { IconCaretSmall } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
 
 import { Button } from '../../Button'
 import { SidebarState } from '../hooks'
 import { ItemSkeleton } from './Item/Skeleton'
+
+const laziness = 120
+
+const width = {
+  expanded: 200,
+  reduced: 16,
+  hidden: 0,
+}
+const distance = {
+  expanded: 244,
+  reduced: 60,
+}
 
 /**
  * Components that acts as a spacer.
@@ -20,13 +32,48 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
 
   const expandable = selectedItem?.expandable
   const active = expandable && !reduced
+  const [lazyReduced, setLazyReduced] = useState(reduced)
+  const [lazySelectedItem, setLazySelectedItem] = useState(selectedItem)
+
+  useEffect(
+    function lazilyReduce() {
+      if (reduced) {
+        setTimeout(() => {
+          setLazyReduced(reduced)
+        }, laziness)
+      } else {
+        setLazyReduced(reduced)
+      }
+    },
+    [reduced]
+  )
+
+  useEffect(
+    function lazilySelect() {
+      if (selectedItem?.expandable) {
+        setLazySelectedItem(selectedItem)
+      } else {
+        setTimeout(() => {
+          setLazySelectedItem(selectedItem)
+        }, laziness)
+      }
+    },
+    [selectedItem]
+  )
+
+  const minWidth = useMemo(() => {
+    return lazySelectedItem?.expandable
+      ? lazyReduced
+        ? width.reduced
+        : width.expanded
+      : width.hidden
+  }, [lazySelectedItem, lazyReduced])
 
   return (
     <Fragment>
       <Box
         csx={{
-          minWidth: expandable ? (reduced ? 16 : 200) : 0,
-          transition: 'minWidth 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+          minWidth,
           bg: active ? 'sidebar.light' : 'light.primary',
           borderRight: expandable ? 1 : 0,
           borderRightColor: 'mid.tertiary',
@@ -43,7 +90,7 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
           position: 'absolute',
           zIndex: 1,
           top: 82,
-          left: expandable && reduced ? 60 : 244,
+          left: expandable && reduced ? distance.reduced : distance.expanded,
           cursor: 'pointer',
           border: '1px solid',
           borderRadius: '100%',
