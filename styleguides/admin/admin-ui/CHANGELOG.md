@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.88.0-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.2...@vtex/admin-ui@0.88.0-experimental.3) (2021-04-01)
+
+
+### Bug Fixes
+
+* **admin-ui:** sidebar padding & skeleton ([c4ba49d](https://github.com/vtex/onda/commit/c4ba49dfe27a4ca8339d3032c690391c71b85d0e))
+
+
+
+
+
 # [0.88.0-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.1...@vtex/admin-ui@0.88.0-experimental.2) (2021-03-31)
 
 
