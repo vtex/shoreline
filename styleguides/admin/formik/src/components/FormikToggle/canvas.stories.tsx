@@ -13,25 +13,30 @@ export default {
 } as Meta
 
 export const Playground: Story<FormikToggleProps> = (args) => {
-
-  type FormValuesInterface = { [ key: string ]: boolean;}
+  type FormValuesInterface = { [key: string]: boolean }
   const initialValues: FormValuesInterface = { [args.name]: false }
 
-  const schemaValidation = Yup.object({[args.name]: Yup.bool().isTrue('Error message')})
+  const schemaValidation = Yup.object({
+    [args.name]: Yup.bool().isTrue('Error message'),
+  })
 
-  const [courentInicialValues, setCourentInicialValues] = useState<FormValuesInterface>(initialValues)
+  const [
+    courentInicialValues,
+    setCourentInicialValues,
+  ] = useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
-    values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(true) // Lock the form to not be modified
     setCourentInicialValues(values)
     setSubmitting(false) // Lock the form to not be modified
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     let value = Object.values(courentInicialValues)[0]
-    setCourentInicialValues( { [args.name]: value } )
+    setCourentInicialValues({ [args.name]: value })
   }, [args.name])
 
   return (
@@ -42,81 +47,73 @@ export const Playground: Story<FormikToggleProps> = (args) => {
       onSubmit={handleSubmit}
     >
       {({ resetForm, values, dirty }) => (
-        <Form id='form-admin-formik-input'>
-          <Flex direction='row' align='center' justify='start'>
-            <Flex direction='column' justify='center' csx={{marginX: 8}}>
-              <Box csx={{ width: 300 , marginBottom: 3}}>
-                <FormikToggle
-                  {...args}
-                />
+        <Form id="form-admin-formik-input">
+          <Flex direction="row" align="center" justify="start">
+            <Flex direction="column" justify="center" csx={{ marginX: 8 }}>
+              <Box csx={{ width: 300, marginBottom: 3 }}>
+                <FormikToggle {...args} />
               </Box>
               <Button
                 variant="secondary"
                 type="reset"
-                size='small'
+                size="small"
                 onClick={() => resetForm()}
                 disabled={!dirty}
               >
                 Reset Forms
               </Button>
-              <Text 
-                variant='small' 
-                feedback='secondary' 
-                csx={{marginBottom: 3, textAlign: 'center'}}
+              <Text
+                variant="small"
+                feedback="secondary"
+                csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Change values in formik to current initial values
               </Text>
-              <Button type="submit" size='small'>
+              <Button type="submit" size="small">
                 Save
               </Button>
-              <Text 
-                variant='small' 
-                feedback='secondary' 
-                csx={{marginBottom: 3, textAlign: 'center'}}
+              <Text
+                variant="small"
+                feedback="secondary"
+                csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Set the current value as initial value
               </Text>
-              <Button 
-                variant='secondary' 
-                size='small'
-                onClick={() => setCourentInicialValues({[args.name]: !values.value})} 
+              <Button
+                variant="secondary"
+                size="small"
+                onClick={() =>
+                  setCourentInicialValues({ [args.name]: !values.value })
+                }
               >
                 Set initial values
               </Button>
-              <Text 
-                variant='small' 
-                feedback='secondary' 
-                csx={{marginBottom: 3, textAlign: 'center'}}
+              <Text
+                variant="small"
+                feedback="secondary"
+                csx={{ marginBottom: 3, textAlign: 'center' }}
               >
-                { 'Set "' + !values.value + '" as new initial value'}
+                {'Set "' + !values.value + '" as new initial value'}
               </Text>
             </Flex>
-            <Set orientation='vertical' spacing={4}>
-              <Set orientation='vertical'>
-                <Text variant='subtitle'> 
-                  Current value in formik : 
-                </Text>
-                <Text feedback='secondary'>
-                  <pre>
-                    {JSON.stringify(values)}
-                  </pre> 
+            <Set orientation="vertical" spacing={4}>
+              <Set orientation="vertical">
+                <Text variant="subtitle">Current value in formik :</Text>
+                <Text feedback="secondary">
+                  <pre>{JSON.stringify(values)}</pre>
                 </Text>
               </Set>
-              <Set orientation='vertical'>
-                <Text variant='subtitle'> 
-                  Current initial value in formik: 
-                </Text>
-                <Text feedback='secondary'>
-                  <pre>
-                    {JSON.stringify(courentInicialValues)}
-                  </pre>
+              <Set orientation="vertical">
+                <Text variant="subtitle">Current initial value in formik:</Text>
+                <Text feedback="secondary">
+                  <pre>{JSON.stringify(courentInicialValues)}</pre>
                 </Text>
               </Set>
-            </Set> 
+            </Set>
           </Flex>
         </Form>
       )}
-    </Formik> 
+    </Formik>
   )
 }
 
@@ -126,37 +123,28 @@ Playground.args = {
 }
 
 export const Basic = () => {
-  type FormValuesInterface = { value: boolean;}
+  type FormValuesInterface = { value: boolean }
   const initialValues: FormValuesInterface = { value: false }
 
   const handleSubmit = (
-    _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(false) // Lock the form to not be modified
   }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values }) => (
-        <Form id='form-admin-formik-input'>
-          <Flex direction='row' align='center' justify='start'>
+        <Form id="form-admin-formik-input">
+          <Flex direction="row" align="center" justify="start">
             <Box csx={{ width: 300, marginX: 8 }}>
-              <FormikToggle
-                name="value"
-                label="Label"
-              />
+              <FormikToggle name="value" label="Label" />
             </Box>
-            <Set orientation='vertical'>
-              <Text variant='subtitle'> 
-                Current value in formik : 
-              </Text>
-              <Text feedback='secondary'>
-                <pre>
-                  {JSON.stringify(values)}
-                </pre> 
+            <Set orientation="vertical">
+              <Text variant="subtitle">Current value in formik :</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
           </Flex>
@@ -167,12 +155,15 @@ export const Basic = () => {
 }
 
 export const Error = () => {
-  type FormValuesInterface = { value: boolean;}
+  type FormValuesInterface = { value: boolean }
 
-  const schemaValidationError = Yup.object({ value: Yup.bool().isFalse('Error message')})
-  
+  const schemaValidationError = Yup.object({
+    value: Yup.bool().isFalse('Error message'),
+  })
+
   const handleSubmit = (
-    _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(false) // Lock the form to not be modified
   }
@@ -180,27 +171,23 @@ export const Error = () => {
   return (
     <Formik
       enableReinitialize
-      initialValues={{value: true }}
+      initialValues={{ value: true }}
       validationSchema={schemaValidationError}
       onSubmit={handleSubmit}
     >
       {({ values }) => (
-        <Form id='form-admin-formik-input'>
+        <Form id="form-admin-formik-input">
           <Box csx={{ width: 300 }}>
-            <FormikToggle
-              name="value"
-              label="Label"
+            <FormikToggle name="value" label="Label" />
+            <Text
+              feedback="primary"
+              children="Change the value to true and click outside to appear the error"
             />
-            <Text feedback='primary' children="Change the value to true and click outside to appear the error" />
           </Box>
           <Set>
-            <Text variant='subtitle'> 
-              Current value in formik : 
-            </Text>
-            <Text feedback='secondary'>
-              <pre>
-                {JSON.stringify(values)}
-              </pre> 
+            <Text variant="subtitle">Current value in formik :</Text>
+            <Text feedback="secondary">
+              <pre>{JSON.stringify(values)}</pre>
             </Text>
           </Set>
         </Form>
@@ -211,16 +198,19 @@ export const Error = () => {
 
 export const WithIntl = () => {
   const messagesEN = {
-    'admin/admin-formik.error.message': "Error message"
+    'admin/admin-formik.error.message': 'Error message',
   }
 
   const Content = () => {
     const { formatMessage } = useIntl()
-    type FormValuesInterface = { value: boolean;}
-    const schemaValidationError = Yup.object({ value: Yup.bool().isFalse('admin/admin-formik.error.message')})
-  
+    type FormValuesInterface = { value: boolean }
+    const schemaValidationError = Yup.object({
+      value: Yup.bool().isFalse('admin/admin-formik.error.message'),
+    })
+
     const handleSubmit = (
-      _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+      _values: FormValuesInterface,
+      { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
     ) => {
       setSubmitting(false) // Lock the form to not be modified
     }
@@ -228,28 +218,27 @@ export const WithIntl = () => {
     return (
       <Formik
         enableReinitialize
-        initialValues={{value: true }}
+        initialValues={{ value: true }}
         validationSchema={schemaValidationError}
         onSubmit={handleSubmit}
       >
         {({ values }) => (
-          <Form id='form-admin-formik-input'>
+          <Form id="form-admin-formik-input">
             <Box csx={{ width: 300 }}>
               <FormikToggle
                 name="value"
                 label="Label"
-                formatMessage={(errorCode) => formatMessage({ id: errorCode})}
+                formatMessage={(errorCode) => formatMessage({ id: errorCode })}
               />
-              <Text feedback='primary' children="Change the value to true to appear the error" />
+              <Text
+                feedback="primary"
+                children="Change the value to true to appear the error"
+              />
             </Box>
             <Set>
-              <Text variant='subtitle'> 
-                Current value in formik : 
-              </Text>
-              <Text feedback='secondary'>
-                <pre>
-                  {JSON.stringify(values)}
-                </pre> 
+              <Text variant="subtitle">Current value in formik :</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
           </Form>
@@ -266,43 +255,34 @@ export const WithIntl = () => {
 }
 
 export const ChangeValueOutside = () => {
-  type FormValuesInterface = { value: boolean;}
+  type FormValuesInterface = { value: boolean }
   const initialValues: FormValuesInterface = { value: false }
 
   const handleSubmit = (
-    _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(false) // Lock the form to not be modified
   }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-    >
-      {({ values , setFieldValue}) => (
-        <Form id='form-admin-formik-input'>
-          <Flex direction='row' align='center' justify='start'>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      {({ values, setFieldValue }) => (
+        <Form id="form-admin-formik-input">
+          <Flex direction="row" align="center" justify="start">
             <Box csx={{ width: 300, marginX: 8 }}>
-              <FormikToggle
-                name="value"
-                label="Label"
-              />
-              <Button 
-                onClick={()=> setFieldValue("value", !values.value )}
-                csx={{marginY: 2}}
+              <FormikToggle name="value" label="Label" />
+              <Button
+                onClick={() => setFieldValue('value', !values.value)}
+                csx={{ marginY: 2 }}
               >
                 Change value
               </Button>
             </Box>
-            <Set orientation='vertical'>
-              <Text variant='subtitle'> 
-                Current value in formik : 
-              </Text>
-              <Text feedback='secondary'>
-                <pre>
-                  {JSON.stringify(values)}
-                </pre> 
+            <Set orientation="vertical">
+              <Text variant="subtitle">Current value in formik :</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
           </Flex>
@@ -313,13 +293,17 @@ export const ChangeValueOutside = () => {
 }
 
 export const ChangeInitialValue = () => {
-  type FormValuesInterface = { value: boolean;}
+  type FormValuesInterface = { value: boolean }
   const initialValues: FormValuesInterface = { value: false }
 
-  const [courentInicialValues, setCourentInicialValues] = useState<FormValuesInterface>(initialValues)
+  const [
+    courentInicialValues,
+    setCourentInicialValues,
+  ] = useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
-    _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(false) // Lock the form to not be modified
   }
@@ -331,49 +315,40 @@ export const ChangeInitialValue = () => {
       onSubmit={handleSubmit}
     >
       {({ values, initialValues }) => (
-        <Form id='form-admin-formik-input'>
-          <Flex direction='row' align='center' justify='start'>
+        <Form id="form-admin-formik-input">
+          <Flex direction="row" align="center" justify="start">
             <Box csx={{ width: 300, marginX: 8 }}>
-              <FormikToggle
-                name="value"
-                label="Label"
-              />
-              <Flex direction='column'>
-                <Button 
-                  onClick={()=> setCourentInicialValues({value: !initialValues.value})}
-                  csx={{marginY: 2}}
+              <FormikToggle name="value" label="Label" />
+              <Flex direction="column">
+                <Button
+                  onClick={() =>
+                    setCourentInicialValues({ value: !initialValues.value })
+                  }
+                  csx={{ marginY: 2 }}
                 >
                   Change initial value
                 </Button>
-                <Text 
-                  variant='small' 
-                  feedback='secondary' 
-                  csx={{marginBottom: 3, textAlign: 'center'}}
+                <Text
+                  variant="small"
+                  feedback="secondary"
+                  csx={{ marginBottom: 3, textAlign: 'center' }}
                 >
                   When the initial value changes the form is restarted
                 </Text>
               </Flex>
             </Box>
-              <Set orientation='vertical' csx={{marginX: 8}}>
-                <Text variant='subtitle'> 
-                  Current value in formik : 
-                </Text>
-                <Text feedback='secondary'>
-                  <pre>
-                    {JSON.stringify(values)}
-                  </pre> 
-                </Text>
-              </Set>
-              <Set orientation='vertical'>
-                <Text variant='subtitle'> 
-                  Current initial value in formik: 
-                </Text>
-                <Text feedback='secondary'>
-                  <pre>
-                    {JSON.stringify(courentInicialValues)}
-                  </pre>
-                </Text>
-              </Set>
+            <Set orientation="vertical" csx={{ marginX: 8 }}>
+              <Text variant="subtitle">Current value in formik :</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(values)}</pre>
+              </Text>
+            </Set>
+            <Set orientation="vertical">
+              <Text variant="subtitle">Current initial value in formik:</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(courentInicialValues)}</pre>
+              </Text>
+            </Set>
           </Flex>
         </Form>
       )}

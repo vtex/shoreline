@@ -10,42 +10,58 @@ import { useField } from 'formik'
 import { FormikRadioGroupContext } from './context'
 import { useErrorMessage, useSyncedState } from '../util'
 
-export interface FormikRadioGroupProps extends Omit<RadioGroupProps,'state'> {
-  name: string
-  error?: boolean;
-  errorMessage?: string;
-  formatMessage?: (errorCode: string) => string
-}
-
-export const FormikRadioGroup = ( props : FormikRadioGroupProps) => {
-  const { 
-    name, 
-    children, 
-    error: currentError, 
-    errorMessage: currentErrorMessage, 
-    formatMessage, 
-    ...radioGroupProps 
+export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
+  const {
+    name,
+    children,
+    error: currentError,
+    errorMessage: currentErrorMessage,
+    formatMessage,
+    ...radioGroupProps
   } = props
 
   const [field, meta, helpers] = useField({ name })
   const radioState = useRadioState({ state: meta.initialValue })
 
-  useSyncedState(radioState.state,radioState.setState,field.value,helpers.setValue)
+  useSyncedState(
+    radioState.state,
+    radioState.setState,
+    field.value,
+    helpers.setValue
+  )
 
-  const errorMessage = useErrorMessage(currentError,currentErrorMessage,meta,formatMessage)
+  const errorMessage = useErrorMessage(
+    currentError,
+    currentErrorMessage,
+    meta,
+    formatMessage
+  )
 
   return (
     <Box csx={{ marginBottom: 6 }}>
-      <RadioGroup state={radioState} csx={{ marginBottom: 0 }} {...radioGroupProps}>
-        <FormikRadioGroupContext.Provider value={{state: radioState, setTouched: helpers.setTouched}}>
+      <RadioGroup
+        state={radioState}
+        csx={{ marginBottom: 0 }}
+        {...radioGroupProps}
+      >
+        <FormikRadioGroupContext.Provider
+          value={{ state: radioState, setTouched: helpers.setTouched }}
+        >
           {children}
         </FormikRadioGroupContext.Provider>
       </RadioGroup>
       {errorMessage && (
-        <Text variant="small" feedback="danger" csx={{paddingTop: 1}}>
+        <Text variant="small" feedback="danger" csx={{ paddingTop: 1 }}>
           {errorMessage}
         </Text>
       )}
     </Box>
   )
+}
+
+export interface FormikRadioGroupProps extends Omit<RadioGroupProps, 'state'> {
+  name: string
+  error?: boolean
+  errorMessage?: string
+  formatMessage?: (errorCode: string) => string
 }

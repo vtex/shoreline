@@ -13,24 +13,30 @@ export default {
 } as Meta
 
 export const Playground: Story<FormikTextAreaProps> = (args) => {
-  type FormValuesInterface = { [ key: string ]: string;}
+  type FormValuesInterface = { [key: string]: string }
   const initialValues: FormValuesInterface = { [args.name]: '' }
-  
-  const schemaValidation = Yup.object({[args.name]: Yup.string().required('This field is required.') })
 
-  const [courentInicialValues, setCourentInicialValues] = useState<FormValuesInterface>(initialValues)
+  const schemaValidation = Yup.object({
+    [args.name]: Yup.string().required('This field is required.'),
+  })
+
+  const [
+    courentInicialValues,
+    setCourentInicialValues,
+  ] = useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
-    values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(true) // Lock the form to not be modified
     setCourentInicialValues(values)
     setSubmitting(false) // Lock the form to not be modified
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     let value = Object.values(courentInicialValues)[0]
-    setCourentInicialValues( { [args.name]: value } )
+    setCourentInicialValues({ [args.name]: value })
   }, [args.name])
 
   return (
@@ -41,122 +47,105 @@ export const Playground: Story<FormikTextAreaProps> = (args) => {
       onSubmit={handleSubmit}
     >
       {({ resetForm, values, dirty }) => (
-        <Form id='form-admin-formik-input'>
-          <Flex direction='row' align='center' justify='start'>
-            <Flex direction='column' justify='center' csx={{marginX: 8}}>
-              <Box csx={{ width: 300 , marginBottom: 3}}>
-                <FormikTextArea
-                  {...args}
-                />
+        <Form id="form-admin-formik-input">
+          <Flex direction="row" align="center" justify="start">
+            <Flex direction="column" justify="center" csx={{ marginX: 8 }}>
+              <Box csx={{ width: 300, marginBottom: 3 }}>
+                <FormikTextArea {...args} />
               </Box>
               <Button
                 variant="secondary"
                 type="reset"
-                size='small'
+                size="small"
                 onClick={() => resetForm()}
                 disabled={!dirty}
               >
                 Reset Forms
               </Button>
-              <Text 
-                variant='small' 
-                feedback='secondary' 
-                csx={{marginBottom: 3, textAlign: 'center'}}
+              <Text
+                variant="small"
+                feedback="secondary"
+                csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Change values in formik to current initial values
               </Text>
-              <Button type="submit" size='small'>
+              <Button type="submit" size="small">
                 Save
               </Button>
-              <Text 
-                variant='small' 
-                feedback='secondary' 
-                csx={{marginBottom: 3, textAlign: 'center'}}
+              <Text
+                variant="small"
+                feedback="secondary"
+                csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Set the current value as initial value
               </Text>
-              <Button 
-                variant='secondary' 
-                size='small'
-                onClick={() => setCourentInicialValues({[args.name]: 'admin-formik'})} 
+              <Button
+                variant="secondary"
+                size="small"
+                onClick={() =>
+                  setCourentInicialValues({ [args.name]: 'admin-formik' })
+                }
               >
                 Set initial values
               </Button>
-              <Text 
-                variant='small' 
-                feedback='secondary' 
-                csx={{marginBottom: 3, textAlign: 'center'}}
+              <Text
+                variant="small"
+                feedback="secondary"
+                csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Set "admin-formik" as new initial value
               </Text>
             </Flex>
-            <Set orientation='vertical' spacing={4}>
-              <Set orientation='vertical'>
-                <Text variant='subtitle'> 
-                  Current value in formik : 
-                </Text>
-                <Text feedback='secondary'>
-                  <pre>
-                    {JSON.stringify(values)}
-                  </pre> 
+            <Set orientation="vertical" spacing={4}>
+              <Set orientation="vertical">
+                <Text variant="subtitle">Current value in formik :</Text>
+                <Text feedback="secondary">
+                  <pre>{JSON.stringify(values)}</pre>
                 </Text>
               </Set>
-              <Set orientation='vertical'>
-                <Text variant='subtitle'> 
-                  Current initial value in formik: 
-                </Text>
-                <Text feedback='secondary'>
-                  <pre>
-                    {JSON.stringify(courentInicialValues)}
-                  </pre>
+              <Set orientation="vertical">
+                <Text variant="subtitle">Current initial value in formik:</Text>
+                <Text feedback="secondary">
+                  <pre>{JSON.stringify(courentInicialValues)}</pre>
                 </Text>
               </Set>
-            </Set> 
+            </Set>
           </Flex>
         </Form>
       )}
-    </Formik> 
+    </Formik>
   )
 }
 
 Playground.args = {
   label: 'Label',
   name: 'value',
-  charLimit: 100
+  charLimit: 100,
 }
 
 export const Basic = () => {
-  type FormValuesInterface = { value: string;}
+  type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
   const handleSubmit = (
-    _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(false) // Lock the form to not be modified
   }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values }) => (
-        <Form id='form-admin-formik-input'>
-          <Flex direction='row' align='center' justify='start'>
+        <Form id="form-admin-formik-input">
+          <Flex direction="row" align="center" justify="start">
             <Box csx={{ width: 300, marginX: 8 }}>
-              <FormikTextArea
-                name="value"
-                label="Label"
-              />
+              <FormikTextArea name="value" label="Label" />
             </Box>
-            <Set orientation='vertical'>
-              <Text variant='subtitle'> 
-                Current value in formik : 
-              </Text>
-              <Text feedback='secondary'>
-                <pre>
-                  {JSON.stringify(values)}
-                </pre> 
+            <Set orientation="vertical">
+              <Text variant="subtitle">Current value in formik :</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
           </Flex>
@@ -167,15 +156,17 @@ export const Basic = () => {
 }
 
 export const Error = () => {
-  type FormValuesInterface = { value: string;}
+  type FormValuesInterface = { value: string }
 
-  const schemaValidationError = Yup.object({ value: Yup.string()
-    .equals([''],'Error message')
-    .required('This field is required.')
+  const schemaValidationError = Yup.object({
+    value: Yup.string()
+      .equals([''], 'Error message')
+      .required('This field is required.'),
   })
-  
+
   const handleSubmit = (
-    _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(false) // Lock the form to not be modified
   }
@@ -183,12 +174,12 @@ export const Error = () => {
   return (
     <Formik
       enableReinitialize
-      initialValues={{value: 'error' }}
+      initialValues={{ value: 'error' }}
       validationSchema={schemaValidationError}
       onSubmit={handleSubmit}
     >
       {({ values }) => (
-        <Form id='form-admin-formik-input'>
+        <Form id="form-admin-formik-input">
           <Box csx={{ width: 300 }}>
             <FormikTextArea
               name="value"
@@ -197,13 +188,9 @@ export const Error = () => {
             />
           </Box>
           <Set>
-            <Text variant='subtitle'> 
-              Current value in formik : 
-            </Text>
-            <Text feedback='secondary'>
-              <pre>
-                {JSON.stringify(values)}
-              </pre> 
+            <Text variant="subtitle">Current value in formik :</Text>
+            <Text feedback="secondary">
+              <pre>{JSON.stringify(values)}</pre>
             </Text>
           </Set>
         </Form>
@@ -214,20 +201,22 @@ export const Error = () => {
 
 export const WithIntl = () => {
   const messagesEN = {
-    'admin/admin-formik.error.required': "This field is required.",
-    'admin/admin-formik.error.message': "Error message"
+    'admin/admin-formik.error.required': 'This field is required.',
+    'admin/admin-formik.error.message': 'Error message',
   }
 
   const Content = () => {
     const { formatMessage } = useIntl()
-    type FormValuesInterface = { value: string;}
-    const schemaValidationError = Yup.object({ value: Yup.string()
-      .equals([''],'admin/admin-formik.error.message')
-      .required('admin/admin-formik.error.required')
+    type FormValuesInterface = { value: string }
+    const schemaValidationError = Yup.object({
+      value: Yup.string()
+        .equals([''], 'admin/admin-formik.error.message')
+        .required('admin/admin-formik.error.required'),
     })
-  
+
     const handleSubmit = (
-      _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+      _values: FormValuesInterface,
+      { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
     ) => {
       setSubmitting(false) // Lock the form to not be modified
     }
@@ -235,28 +224,24 @@ export const WithIntl = () => {
     return (
       <Formik
         enableReinitialize
-        initialValues={{value: 'error' }}
+        initialValues={{ value: 'error' }}
         validationSchema={schemaValidationError}
         onSubmit={handleSubmit}
       >
         {({ values }) => (
-          <Form id='form-admin-formik-input'>
+          <Form id="form-admin-formik-input">
             <Box csx={{ width: 300 }}>
               <FormikTextArea
                 name="value"
                 label="Label"
                 helperText="Change de value in input to appear the error"
-                formatMessage={(errorCode) => formatMessage({ id: errorCode})}
+                formatMessage={(errorCode) => formatMessage({ id: errorCode })}
               />
             </Box>
             <Set>
-              <Text variant='subtitle'> 
-                Current value in formik : 
-              </Text>
-              <Text feedback='secondary'>
-                <pre>
-                  {JSON.stringify(values)}
-                </pre> 
+              <Text variant="subtitle">Current value in formik :</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
           </Form>
@@ -273,40 +258,38 @@ export const WithIntl = () => {
 }
 
 export const ChangeValueOutside = () => {
-  type FormValuesInterface = { value: string;}
+  type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
   const handleSubmit = (
-    _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(false) // Lock the form to not be modified
   }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-    >
-      {({ values , setFieldValue}) => (
-        <Form id='form-admin-formik-input'>
-          <Flex direction='row' align='center' justify='start'>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      {({ values, setFieldValue }) => (
+        <Form id="form-admin-formik-input">
+          <Flex direction="row" align="center" justify="start">
             <Box csx={{ width: 300, marginX: 8 }}>
-              <FormikTextArea
-                name="value"
-                label="Label"
-              />
-              <Button onClick={()=> setFieldValue("value", "Randow number "+Math.trunc(Math.random()*10))}>
+              <FormikTextArea name="value" label="Label" />
+              <Button
+                onClick={() =>
+                  setFieldValue(
+                    'value',
+                    'Randow number ' + Math.trunc(Math.random() * 10)
+                  )
+                }
+              >
                 Change value
               </Button>
             </Box>
-            <Set orientation='vertical'>
-              <Text variant='subtitle'> 
-                Current value in formik : 
-              </Text>
-              <Text feedback='secondary'>
-                <pre>
-                  {JSON.stringify(values)}
-                </pre> 
+            <Set orientation="vertical">
+              <Text variant="subtitle">Current value in formik :</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
           </Flex>
@@ -317,13 +300,17 @@ export const ChangeValueOutside = () => {
 }
 
 export const ChangeInitialValue = () => {
-  type FormValuesInterface = { value: string;}
+  type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
-  const [courentInicialValues, setCourentInicialValues] = useState<FormValuesInterface>(initialValues)
+  const [
+    courentInicialValues,
+    setCourentInicialValues,
+  ] = useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
-    _values: FormValuesInterface, { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(false) // Lock the form to not be modified
   }
@@ -335,46 +322,41 @@ export const ChangeInitialValue = () => {
       onSubmit={handleSubmit}
     >
       {({ values }) => (
-        <Form id='form-admin-formik-input'>
-          <Flex direction='row' align='center' justify='start'>
+        <Form id="form-admin-formik-input">
+          <Flex direction="row" align="center" justify="start">
             <Box csx={{ width: 300, marginX: 8 }}>
-              <FormikTextArea
-                name="value"
-                label="Label"
-              />
-              <Flex direction='column'>
-                <Button onClick={()=> setCourentInicialValues({value: "Randow number "+Math.trunc(Math.random()*10)})}>
+              <FormikTextArea name="value" label="Label" />
+              <Flex direction="column">
+                <Button
+                  onClick={() =>
+                    setCourentInicialValues({
+                      value: 'Randow number ' + Math.trunc(Math.random() * 10),
+                    })
+                  }
+                >
                   Change initial value
                 </Button>
-                <Text 
-                  variant='small' 
-                  feedback='secondary' 
-                  csx={{marginBottom: 3, textAlign: 'center'}}
+                <Text
+                  variant="small"
+                  feedback="secondary"
+                  csx={{ marginBottom: 3, textAlign: 'center' }}
                 >
                   When the initial value changes the form is restarted
                 </Text>
               </Flex>
             </Box>
-              <Set orientation='vertical' csx={{marginX: 8}}>
-                <Text variant='subtitle'> 
-                  Current value in formik : 
-                </Text>
-                <Text feedback='secondary'>
-                  <pre>
-                    {JSON.stringify(values)}
-                  </pre> 
-                </Text>
-              </Set>
-              <Set orientation='vertical'>
-                <Text variant='subtitle'> 
-                  Current initial value in formik: 
-                </Text>
-                <Text feedback='secondary'>
-                  <pre>
-                    {JSON.stringify(courentInicialValues)}
-                  </pre>
-                </Text>
-              </Set>
+            <Set orientation="vertical" csx={{ marginX: 8 }}>
+              <Text variant="subtitle">Current value in formik :</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(values)}</pre>
+              </Text>
+            </Set>
+            <Set orientation="vertical">
+              <Text variant="subtitle">Current initial value in formik:</Text>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(courentInicialValues)}</pre>
+              </Text>
+            </Set>
           </Flex>
         </Form>
       )}

@@ -8,7 +8,7 @@ import { axe } from 'jest-axe'
 import { ThemeProvider } from '@vtex/admin-core'
 import { Form, Formik } from 'formik'
 import { FormikInputPassword } from './index'
-import { Button, Text } from '@vtex/admin-ui';
+import { Button, Text } from '@vtex/admin-ui'
 
 import { useIntl, IntlProvider } from 'react-intl'
 
@@ -16,32 +16,32 @@ describe('Input password tests', () => {
   it('change value in formik by input component', async () => {
     const handleSubmit = jest.fn()
 
-    render( 
+    render(
       <ThemeProvider>
-        <Formik
-          initialValues={{value: ''}}
-          onSubmit={handleSubmit}
-        >
-          <Form id='form-admin-formik-input'>
+        <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
+          <Form id="form-admin-formik-input">
             <FormikInputPassword
               name="value"
               data-testid="text-field"
               label="TextField label"
               id="text-field-1"
             />
-            <Button type="submit" size='small' children="Submit"/>
+            <Button type="submit" size="small" children="Submit" />
           </Form>
         </Formik>
       </ThemeProvider>
     )
 
     userEvent.type(screen.getByLabelText(/TextField label/i), 'value of test')
-    userEvent.click(screen.getByRole('button', {name: "Submit"}))
+    userEvent.click(screen.getByRole('button', { name: 'Submit' }))
 
     await waitFor(() =>
-      expect(handleSubmit).toHaveBeenCalledWith({
-        value: 'value of test'
-      }, expect.anything())
+      expect(handleSubmit).toHaveBeenCalledWith(
+        {
+          value: 'value of test',
+        },
+        expect.anything()
+      )
     )
   })
 
@@ -50,24 +50,23 @@ describe('Input password tests', () => {
 
     render(
       <ThemeProvider>
-        <Formik
-          initialValues={{value: ''}}
-          onSubmit={handleSubmit}
-        >
+        <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
           {({ setFieldValue }) => (
-            <Form id='form-admin-formik-input'>
+            <Form id="form-admin-formik-input">
               <FormikInputPassword
                 name="value"
                 data-testid="text-field"
                 label="TextField label"
                 id="text-field-1"
               />
-              <Button 
-                size='small' 
-                children="Change Value" 
-                onClick={()=> setFieldValue("value", "value changed by setFieldValue")}
+              <Button
+                size="small"
+                children="Change Value"
+                onClick={() =>
+                  setFieldValue('value', 'value changed by setFieldValue')
+                }
               />
-              <Button type="submit" size='small' children="Submit"/>
+              <Button type="submit" size="small" children="Submit" />
             </Form>
           )}
         </Formik>
@@ -75,39 +74,41 @@ describe('Input password tests', () => {
     )
 
     const input = screen.getByLabelText(/TextField label/i)
-    userEvent.type(input , 'value of test')
-    userEvent.click(screen.getByRole('button', {name: "Change Value"}))
+    userEvent.type(input, 'value of test')
+    userEvent.click(screen.getByRole('button', { name: 'Change Value' }))
 
     expect(input).toHaveValue('value changed by setFieldValue')
 
-    userEvent.click(screen.getByRole('button', {name: "Submit"}))
+    userEvent.click(screen.getByRole('button', { name: 'Submit' }))
 
     await waitFor(() =>
-      expect(handleSubmit).toHaveBeenCalledWith({
-        value: 'value changed by setFieldValue'
-      }, expect.anything())
+      expect(handleSubmit).toHaveBeenCalledWith(
+        {
+          value: 'value changed by setFieldValue',
+        },
+        expect.anything()
+      )
     )
   })
 
   it('change initial value in formik', async () => {
     const handleSubmit = jest.fn()
 
-    const { rerender } = 
-    render(
+    const { rerender } = render(
       <ThemeProvider>
         <Formik
           enableReinitialize
-          initialValues={{value: ""}}
+          initialValues={{ value: '' }}
           onSubmit={handleSubmit}
         >
-          <Form id='form-admin-formik-input'>
+          <Form id="form-admin-formik-input">
             <FormikInputPassword
               name="value"
               data-testid="text-field"
               label="TextField label"
               id="text-field-1"
             />
-            <Button type="submit" size='small' children="Submit"/>
+            <Button type="submit" size="small" children="Submit" />
           </Form>
         </Formik>
       </ThemeProvider>
@@ -115,32 +116,31 @@ describe('Input password tests', () => {
 
     const input = screen.getByLabelText(/TextField label/i)
     expect(input).toHaveValue('')
-    
-    userEvent.type(input , 'value of test')
+
+    userEvent.type(input, 'value of test')
     await waitFor(() => expect(input).toHaveValue('value of test'))
-    
+
     rerender(
       <ThemeProvider>
         <Formik
           enableReinitialize
-          initialValues={{value: "new initial value"}}
+          initialValues={{ value: 'new initial value' }}
           onSubmit={handleSubmit}
         >
-          <Form id='form-admin-formik-input'>
+          <Form id="form-admin-formik-input">
             <FormikInputPassword
               name="value"
               data-testid="text-field"
               label="TextField label"
               id="text-field-1"
-              />
-            <Button type="submit" size='small' children="Submit"/>
+            />
+            <Button type="submit" size="small" children="Submit" />
           </Form>
         </Formik>
       </ThemeProvider>
     )
-    
-    await waitFor(() => expect(input).toHaveValue('new initial value'))
 
+    await waitFor(() => expect(input).toHaveValue('new initial value'))
   })
 
   it('set toched when click and untouched when reset forms', async () => {
@@ -148,120 +148,113 @@ describe('Input password tests', () => {
 
     render(
       <ThemeProvider>
-        <Formik
-          initialValues={{value: false}}
-          onSubmit={handleSubmit}
-        >
+        <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
           {({ touched, resetForm }) => (
-            <Form id='form-admin-formik-input'>
+            <Form id="form-admin-formik-input">
               <FormikInputPassword
                 name="value"
                 data-testid="text-field"
                 label="TextField label"
                 id="text-field-1"
               />
-              <Button 
-                size='small' 
-                children="Reset Form" 
-                onClick={()=> resetForm()}
+              <Button
+                size="small"
+                children="Reset Form"
+                onClick={() => resetForm()}
               />
-              <Text feedback='secondary'>
-                <pre>
-                  {JSON.stringify(touched)}
-                </pre>
+              <Text feedback="secondary">
+                <pre>{JSON.stringify(touched)}</pre>
               </Text>
-              <Button type="submit" size='small' children="Submit"/>
+              <Button type="submit" size="small" children="Submit" />
             </Form>
           )}
         </Formik>
       </ThemeProvider>
     )
 
-    expect(await screen.findByText('{}')).not.toBeNull();
+    expect(await screen.findByText('{}')).not.toBeNull()
     const input = screen.getByLabelText(/TextField label/i)
 
-    fireEvent.blur(input);
-    expect(await screen.findByText('{"value":true}')).not.toBeNull();
+    fireEvent.blur(input)
+    expect(await screen.findByText('{"value":true}')).not.toBeNull()
 
-    userEvent.click(screen.getByRole('button', {name: "Reset Form"}))
-    expect(await screen.findByText('{}')).not.toBeNull();
+    userEvent.click(screen.getByRole('button', { name: 'Reset Form' }))
+    expect(await screen.findByText('{}')).not.toBeNull()
   })
 
   it('error in forms', async () => {
     const handleSubmit = jest.fn()
-    const validate = () => ({ value: 'Error message' });
+    const validate = () => ({ value: 'Error message' })
 
-    render( 
+    render(
       <ThemeProvider>
         <Formik
-          initialValues={{value: ''}}
+          initialValues={{ value: '' }}
           validate={validate}
           onSubmit={handleSubmit}
         >
-          <Form id='form-admin-formik-input'>
+          <Form id="form-admin-formik-input">
             <FormikInputPassword
               name="value"
               data-testid="text-field"
               label="TextField label"
               id="text-field-1"
             />
-            <Button type="submit" size='small' children="Submit"/>
+            <Button type="submit" size="small" children="Submit" />
           </Form>
         </Formik>
       </ThemeProvider>
     )
 
     const input = screen.getByLabelText(/TextField label/i)
-    fireEvent.blur(input);
+    fireEvent.blur(input)
 
-    expect(await screen.findByText("Error message")).not.toBeNull();
+    expect(await screen.findByText('Error message')).not.toBeNull()
   })
 
   it('error in forms', async () => {
     const messagesEN = {
-      'admin/admin-formik.error.message': "Error message"
+      'admin/admin-formik.error.message': 'Error message',
     }
 
     const Content = () => {
       const handleSubmit = jest.fn()
       const { formatMessage } = useIntl()
 
-      const validate = () => ({ value: 'admin/admin-formik.error.message' });
+      const validate = () => ({ value: 'admin/admin-formik.error.message' })
 
-      
-
-      return( 
+      return (
         <Formik
-          initialValues={{value: ''}}
+          initialValues={{ value: '' }}
           validate={validate}
           onSubmit={handleSubmit}
         >
-          <Form id='form-admin-formik-input'>
+          <Form id="form-admin-formik-input">
             <FormikInputPassword
               name="value"
               data-testid="text-field"
               label="TextField label"
               id="text-field-1"
-              formatMessage={(errorCode) => formatMessage({ id: errorCode})}
+              formatMessage={(errorCode) => formatMessage({ id: errorCode })}
             />
-            <Button type="submit" size='small' children="Submit"/>
+            <Button type="submit" size="small" children="Submit" />
           </Form>
         </Formik>
       )
     }
 
-    render( 
+    render(
       <ThemeProvider>
         <IntlProvider locale={'en'} messages={messagesEN}>
-          <Content/>
-        </IntlProvider> 
+          <Content />
+        </IntlProvider>
       </ThemeProvider>
     )
 
     const input = screen.getByLabelText(/TextField label/i)
-    fireEvent.blur(input);
+    fireEvent.blur(input)
 
-    expect(await screen.findByText("Error message")).not.toBeNull();
+    expect(await screen.findByText('Error message')).not.toBeNull()
   })
 
   it('should not have a11y violations', async () => {
@@ -269,10 +262,10 @@ describe('Input password tests', () => {
       <ThemeProvider>
         <Formik
           enableReinitialize
-          initialValues={{value: ''}}
-          onSubmit={()=>{}}
+          initialValues={{ value: '' }}
+          onSubmit={() => {}}
         >
-          <Form id='form-admin-formik-input'>
+          <Form id="form-admin-formik-input">
             <FormikInputPassword
               name="value"
               data-testid="text-field"
