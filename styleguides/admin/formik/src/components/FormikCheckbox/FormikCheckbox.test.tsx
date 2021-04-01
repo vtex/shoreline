@@ -199,6 +199,8 @@ describe('Checkbox tests', () => {
     const checkbox = screen.getByRole('checkbox')
 
     userEvent.click(checkbox)
+    checkbox.blur()
+    
     expect(await screen.findByText('{"value":true}')).not.toBeNull();
 
     userEvent.click(screen.getByRole('button', {name: "Reset Form"}))
@@ -231,6 +233,7 @@ describe('Checkbox tests', () => {
     const checkbox = screen.getByRole('checkbox')
 
     userEvent.click(checkbox)
+    checkbox.blur()
     await waitFor(() => expect(checkbox.getAttribute("aria-checked")).toBe("true"))
 
     expect(await screen.findByText("Error message")).not.toBeNull();
@@ -275,8 +278,9 @@ describe('Checkbox tests', () => {
     )
 
     const checkbox = screen.getByRole('checkbox')
-
+    
     userEvent.click(checkbox)
+    checkbox.blur()
     await waitFor(() => expect(checkbox.getAttribute("aria-checked")).toBe("true"))
 
     expect(await screen.findByText("Error message")).not.toBeNull();
