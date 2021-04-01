@@ -74,6 +74,7 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
       <Box
         csx={{
           minWidth,
+          transition: 'min-width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
           bg: active ? 'sidebar.light' : 'light.primary',
           borderRight: expandable ? 1 : 0,
           borderRightColor: 'mid.tertiary',
