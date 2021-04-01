@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.88.0-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.4...@vtex/admin-ui@0.88.0-experimental.5) (2021-04-01)
+
+
+### Features
+
+* **admin-ui:** sync sidebar animation & remove buttons text-transform ([9b91ce2](https://github.com/vtex/onda/commit/9b91ce2b182b5609b38058a719a886dccd9d7faf))
+
+
+
+
+
 # [0.88.0-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.3...@vtex/admin-ui@0.88.0-experimental.4) (2021-04-01)
 
 
