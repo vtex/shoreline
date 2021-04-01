@@ -31,7 +31,7 @@ describe('Checkbox tests', () => {
     })
   })
 
-  it.only('change value in formik by input component', async () => {
+  it('change value in formik by input component', async () => {
     const handleSubmit = jest.fn()
 
     render(
