@@ -4,7 +4,7 @@
 
 ### Summary
 
-Package that standarize the component to use admin-ui with formik
+A package that standardizes components from admin-ui to be used along formik
 
 ### Installation
 
@@ -13,4 +13,3 @@ yarn add @vtex/admin-ui-formik @vtex/admin-ui
 ```
 
 ### Usage
-
