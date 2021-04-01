@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.88.0-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.5...@vtex/admin-ui@0.88.0-experimental.6) (2021-04-01)
+
+
+### Bug Fixes
+
+* **admin-ui:** sidebar missing transitions ([ac90a95](https://github.com/vtex/onda/commit/ac90a95f120f7a0505f2e85282515b8f64f6e0eb))
+
+
+
+
+
 # [0.88.0-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.4...@vtex/admin-ui@0.88.0-experimental.5) (2021-04-01)
 
 
