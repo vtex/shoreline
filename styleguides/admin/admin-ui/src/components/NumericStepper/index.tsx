@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { forwardRef, Ref, useEffect, useReducer } from 'react'
 import { Input as ReakitInput } from 'reakit'
 import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
@@ -8,7 +8,7 @@ import { Box } from '@vtex/admin-primitives'
 import { SystemComponent } from '../../types'
 import { Button } from '../Button'
 
-export function NumericStepper(props: NumericStepperProps) {
+export const NumericStepper = forwardRef((props: NumericStepperProps, ref: Ref<HTMLDivElement>) => {
   const {
     value,
     minValue = -10e9,
@@ -74,7 +74,7 @@ export function NumericStepper(props: NumericStepperProps) {
   }, [value])
 
   return (
-    <Box csx={{ width: 106 }}>
+    <Box csx={{ width: 106 }} ref={ref}>
       <Box csx={{ themeKey: 'components.numericStepper.container' }}>
         <ReakitInput
           value={state.value}
@@ -131,7 +131,7 @@ export function NumericStepper(props: NumericStepperProps) {
       )}
     </Box>
   )
-}
+})
 
 function reducer(state: StateValue, action: Action): StateValue {
   switch (action.type) {

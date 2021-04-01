@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { forwardRef, ReactNode, Ref } from 'react'
 import {
   Checkbox,
   CheckboxProps,
@@ -18,7 +18,7 @@ export interface FormikCheckboxProps extends CheckboxProps {
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikCheckbox = ( props : FormikCheckboxProps) => {
+export const FormikCheckbox = forwardRef(( props : FormikCheckboxProps, ref: Ref<HTMLInputElement>) => {
   const {
     name, 
     label, 
@@ -39,7 +39,7 @@ export const FormikCheckbox = ( props : FormikCheckboxProps) => {
     <Set orientation="vertical" spacing={0} >
       <Set spacing={2} >
         <div onClick={()=>helpers.setTouched(true)}>
-          <Checkbox id={name} state={checkboxState} {...checkboxProps} />
+          <Checkbox id={name} state={checkboxState} {...checkboxProps} ref={ref} />
         </div>
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
       </Set>
@@ -51,4 +51,4 @@ export const FormikCheckbox = ( props : FormikCheckboxProps) => {
       )}
     </Set>
   )
-}
+})

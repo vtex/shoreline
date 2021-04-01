@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef, Ref } from 'react'
 import { InputPassword, InputPasswordProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 import { useErrorMessage } from '../util'
@@ -9,7 +9,7 @@ export interface FormikInputPasswordProps extends Omit<InputPasswordProps, 'id'>
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikInputPassword = ( props : FormikInputPasswordProps) => {
+export const FormikInputPassword = forwardRef(( props : FormikInputPasswordProps, ref: Ref<HTMLInputElement>) => {
   const {
     name,
     error: currentError, 
@@ -31,5 +31,5 @@ export const FormikInputPassword = ( props : FormikInputPasswordProps) => {
     error: !!errorMessage,
   }
 
-  return <InputPassword {...inputProps} />
-}
+  return <InputPassword {...inputProps} ref={ref}/>
+})

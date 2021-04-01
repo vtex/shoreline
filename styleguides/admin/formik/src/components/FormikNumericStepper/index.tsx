@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { forwardRef, Ref, useEffect, useState } from 'react'
 import { Box, NumericStepper, NumericStepperProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 import { useErrorMessage } from '../util'
@@ -10,7 +10,7 @@ export interface FormikNumericStepperProps extends Omit<NumericStepperProps, 'id
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikNumericStepper = ( props : FormikNumericStepperProps) => {
+export const FormikNumericStepper = forwardRef(( props : FormikNumericStepperProps, ref: Ref<HTMLDivElement>) => {
   const {
     name,
     error: currentError, 
@@ -47,8 +47,8 @@ export const FormikNumericStepper = ( props : FormikNumericStepperProps) => {
 
   return (
     <Box onClick={()=>helpers.setTouched(true)}>
-      <NumericStepper value={value} {...numericStepperProps} />
+      <NumericStepper value={value} {...numericStepperProps} ref={ref}/>
     </Box>
   )
-}
+})
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef, Ref } from 'react'
 import { Input, InputProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
 import { useErrorMessage } from '../util'
@@ -9,7 +9,7 @@ export interface FormikInputProps extends Omit<InputProps, 'id'> {
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikInput = ( props : FormikInputProps) => {
+export const FormikInput = forwardRef(( props : FormikInputProps, ref: Ref<HTMLInputElement>) => {
   const {
     name,
     error: currentError, 
@@ -31,6 +31,5 @@ export const FormikInput = ( props : FormikInputProps) => {
     error: !!errorMessage,
   }
 
-  return <Input {...inputProps} />
-}
-
+  return <Input {...inputProps} ref={ref}/>
+})

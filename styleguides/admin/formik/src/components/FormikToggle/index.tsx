@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { forwardRef, ReactNode, Ref } from 'react'
 import { Label, Set, Text, Toggle, ToggleProps, useToggleState } from '@vtex/admin-ui'
 import { useField } from 'formik'
 import { useErrorMessage, useSyncedState } from '../util'
@@ -11,7 +11,7 @@ export interface FormikToggleProps extends ToggleProps {
   formatMessage?: (errorCode: string) => string
 }
 
-export const FormikToggle = ( props : FormikToggleProps) => {
+export const FormikToggle = forwardRef(( props : FormikToggleProps, ref: Ref<HTMLInputElement>) => {
   const { 
     name, 
     label, 
@@ -38,6 +38,7 @@ export const FormikToggle = ( props : FormikToggleProps) => {
             id={id ? id : name}
             state={toggleState}
             {...toggleProps}
+            ref={ref}
           />
         </div>
         {label && typeof label === "string" ? <Label>{label}</Label> : label}
@@ -51,4 +52,4 @@ export const FormikToggle = ( props : FormikToggleProps) => {
     </Set>
     
   )
-}
+})

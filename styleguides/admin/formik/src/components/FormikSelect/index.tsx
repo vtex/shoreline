@@ -26,7 +26,7 @@ export const FormikSelect = <T extends unknown>( props: FormikSelectProps<T>) =>
   const itemState = useSelectState({
     items,
     initialSelectedItem: meta.initialValue,
-    itemToString: itemToString ? itemToString : (item) => item
+    itemToString: itemToString ? itemToString : (item: any) => item
   })
 
   useSyncedState(itemState.selectedItem, itemState.selectItem,field.value,helpers.setValue)
