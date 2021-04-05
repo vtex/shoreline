@@ -9,4 +9,5 @@ export type Variant =
   | 'danger'
   | 'danger-secondary'
   | 'danger-tertiary'
+  | 'table-variant'
 export type Size = 'small' | 'regular'
