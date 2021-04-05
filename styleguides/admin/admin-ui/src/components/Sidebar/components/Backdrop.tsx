@@ -3,19 +3,20 @@ import { IconCaretSmall } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
 
 import { Button } from '../../Button'
-import { SidebarState } from '../hooks'
+import { Item, SidebarState } from '../hooks'
 import { ItemSkeleton } from './Item/Skeleton'
 
 const laziness = 120
 
 const width = {
-  expanded: 200,
-  reduced: 16,
-  hidden: 0,
+  expanded: '12.5rem',
+  reduced: '1rem',
+  hidden: '0rem',
 }
+
 const distance = {
-  expanded: 244,
-  reduced: 60,
+  expanded: '15.25rem',
+  reduced: '3.75rem',
 }
 
 /**
@@ -32,6 +33,82 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
 
   const expandable = selectedItem?.expandable
   const active = expandable && !reduced
+  const { minWidth, left } = useLazyMeasures({
+    reduced,
+    selectedItem,
+  })
+
+  return (
+    <Fragment>
+      <Box
+        csx={{
+          minWidth,
+          transition: 'min-width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+          bg: active ? 'sidebar.light' : 'light.primary',
+          borderRight: expandable ? 1 : 0,
+          borderRightColor: 'mid.tertiary',
+          borderRightStyle: 'solid',
+        }}
+        onMouseEnter={showToggle}
+        onMouseLeave={hideToggle}
+      >
+        {loading && <ItemSkeleton />}
+      </Box>
+
+      <Button
+        csx={{
+          left,
+          opacity: expandable && toggleVisible ? 1 : 0,
+          position: 'absolute',
+          zIndex: 1,
+          top: '4.6875rem',
+          cursor: 'pointer',
+          border: '1px solid',
+          borderRadius: '100%',
+          borderColor: 'mid.tertiary',
+          height: '1.5rem',
+          width: '1.5rem',
+          transition:
+            'left 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 175ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+          bg: 'light.primary',
+          '&:hover': {
+            bg: 'blue.secondary',
+            borderColor: 'blue.secondary',
+            '> div > svg': {
+              color: 'blue',
+            },
+          },
+        }}
+        icon={
+          <IconCaretSmall
+            direction={reduced ? 'down' : 'up'}
+            csx={{
+              display: 'flex',
+              justifyContent: 'center',
+              transition: '125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+              color: 'black',
+              '> path': {
+                strokeWidth: 2,
+              },
+            }}
+          />
+        }
+        disabled={loading || !expandable}
+        onClick={toggle}
+        onMouseEnter={showToggle}
+        onMouseLeave={hideToggle}
+      />
+    </Fragment>
+  )
+}
+
+interface UseLazyMeasuresParams {
+  reduced: boolean
+  selectedItem: Item | null
+}
+
+function useLazyMeasures(params: UseLazyMeasuresParams) {
+  const { reduced, selectedItem } = params
   const [lazyReduced, setLazyReduced] = useState(reduced)
   const [lazySelectedItem, setLazySelectedItem] = useState(selectedItem)
 
@@ -69,67 +146,16 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
       : width.hidden
   }, [lazySelectedItem, lazyReduced])
 
-  return (
-    <Fragment>
-      <Box
-        csx={{
-          minWidth,
-          transition: 'min-width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          bg: active ? 'sidebar.light' : 'light.primary',
-          borderRight: expandable ? 1 : 0,
-          borderRightColor: 'mid.tertiary',
-          borderRightStyle: 'solid',
-        }}
-        onMouseEnter={showToggle}
-        onMouseLeave={hideToggle}
-      >
-        {loading && <ItemSkeleton />}
-      </Box>
+  const left = useMemo(() => {
+    return lazySelectedItem?.expandable && lazyReduced
+      ? distance.reduced
+      : distance.expanded
+  }, [lazySelectedItem, lazyReduced])
 
-      <Button
-        csx={{
-          position: 'absolute',
-          zIndex: 1,
-          top: 82,
-          left: expandable && reduced ? distance.reduced : distance.expanded,
-          cursor: 'pointer',
-          border: '1px solid',
-          borderRadius: '100%',
-          borderColor: 'mid.tertiary',
-          height: '1.5rem',
-          width: '1.5rem',
-          transition: 'display 125ms cubic-bezier(0.4, 0.14, 0.3, 1) 100ms',
-          display: expandable && toggleVisible ? 'unset' : 'none',
-          bg: 'light.primary',
-          '&:hover': {
-            bg: 'blue.secondary',
-            borderColor: 'blue.secondary',
-            '> div > svg': {
-              color: 'blue',
-            },
-          },
-        }}
-        icon={
-          <IconCaretSmall
-            direction={reduced ? 'down' : 'up'}
-            csx={{
-              display: 'flex',
-              justifyContent: 'center',
-              transition: '125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-              color: 'black',
-              '> path': {
-                strokeWidth: 2,
-              },
-            }}
-          />
-        }
-        disabled={loading}
-        onClick={toggle}
-        onMouseEnter={showToggle}
-        onMouseLeave={hideToggle}
-      />
-    </Fragment>
-  )
+  return {
+    minWidth,
+    left,
+  }
 }
 
 export interface SidebarBackdropProps {

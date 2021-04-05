@@ -2,7 +2,6 @@ import React from 'react'
 import { Set } from '../../Set'
 import { Skeleton } from '../../Skeleton'
 
-// size of the skeleton
 const size = 40
 
 /**
