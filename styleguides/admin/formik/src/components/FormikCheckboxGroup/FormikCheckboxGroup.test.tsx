@@ -220,7 +220,7 @@ describe('CheckboxGroup tests', () => {
     )
   })
 
-  it('set toched when click and untouched when reset forms', async () => {
+  it('set touched when click and untouched when reset forms', async () => {
     const handleSubmit = jest.fn()
     const options = ['option 1', 'option 2', 'option 3', 'error']
 

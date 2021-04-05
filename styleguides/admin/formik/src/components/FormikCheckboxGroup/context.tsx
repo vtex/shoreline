@@ -16,7 +16,7 @@ export function useCheckboxGroupContext() {
 
   invariant(
     context,
-    'You must use FormikCheckobxGroup.Item inside FormikCheckboxGroup!'
+    'You must use FormikCheckboxGroup.Item inside FormikCheckboxGroup!'
   )
 
   return context

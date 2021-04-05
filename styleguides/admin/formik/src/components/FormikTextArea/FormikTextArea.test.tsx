@@ -8,7 +8,6 @@ import { axe } from 'jest-axe'
 import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
-// import * as Yup from 'yup'
 import { FormikTextArea } from './index'
 import { Button, Text } from '@vtex/admin-ui'
 
