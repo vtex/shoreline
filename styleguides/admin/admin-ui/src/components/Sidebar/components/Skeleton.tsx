@@ -2,7 +2,6 @@ import React from 'react'
 import { Set } from '../../Set'
 import { Skeleton } from '../../Skeleton'
 
-// size of the skeleton
 const size = 40
 
 /**
@@ -17,6 +16,7 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
       {Array.from(new Array(amount)).map(() => (
         <Skeleton
           csx={{
+            zIndex: 999,
             minHeight: size,
             maxHeight: size,
             minWidth: size,

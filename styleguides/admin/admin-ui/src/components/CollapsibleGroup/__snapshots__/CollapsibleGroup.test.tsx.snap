@@ -34,7 +34,6 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: none;
   background-color: transparent;
   color: #323845;
   font-size: 0.875rem;
@@ -42,6 +41,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  text-transform: none;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -212,7 +212,6 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  text-transform: none;
   background-color: transparent;
   color: #323845;
   font-size: 0.875rem;
@@ -220,6 +219,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  text-transform: none;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {

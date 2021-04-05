@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.88.0-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.5...@vtex/admin-ui@0.88.0-experimental.6) (2021-04-01)
+
+
+### Bug Fixes
+
+* **admin-ui:** sidebar missing transitions ([ac90a95](https://github.com/vtex/onda/commit/ac90a95f120f7a0505f2e85282515b8f64f6e0eb))
+
+
+
+
+
+# [0.88.0-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.4...@vtex/admin-ui@0.88.0-experimental.5) (2021-04-01)
+
+
+### Features
+
+* **admin-ui:** sync sidebar animation & remove buttons text-transform ([9b91ce2](https://github.com/vtex/onda/commit/9b91ce2b182b5609b38058a719a886dccd9d7faf))
+
+
+
+
+
+# [0.88.0-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.3...@vtex/admin-ui@0.88.0-experimental.4) (2021-04-01)
+
+
+### Bug Fixes
+
+* **admin-ui:** sidebar buttons distance ([e298472](https://github.com/vtex/onda/commit/e298472e1eeeca9387fd047fd8027879ba43102f))
+
+
+
+
+
+# [0.88.0-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.2...@vtex/admin-ui@0.88.0-experimental.3) (2021-04-01)
+
+
+### Bug Fixes
+
+* **admin-ui:** sidebar padding & skeleton ([c4ba49d](https://github.com/vtex/onda/commit/c4ba49dfe27a4ca8339d3032c690391c71b85d0e))
+
+
+
+
+
+# [0.88.0-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.1...@vtex/admin-ui@0.88.0-experimental.2) (2021-03-31)
+
+
+### Features
+
+* **admin-ui:** bring sidebar width & reduce tooltips ([ed79240](https://github.com/vtex/onda/commit/ed792405e102b7ebb948d983fabf3cba87501cd1))
+
+
+
+
+
+# [0.88.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.0...@vtex/admin-ui@0.88.0-experimental.1) (2021-03-30)
+
+
+### Features
+
+* **admin-ui:** sidebar border ([cae65e6](https://github.com/vtex/onda/commit/cae65e6c1f36c04ad563ba3a676f43854fd0e94e))
+
+
+
+
+
+# [0.88.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.87.1-experimental.0...@vtex/admin-ui@0.88.0-experimental.0) (2021-03-30)
+
+
+### Features
+
+* **admin-ui:** animate sidebar scale instead of width ([3d6d67d](https://github.com/vtex/onda/commit/3d6d67dce1d41c42fba098ed36ec5ab7c8714b0a))
+
+
+
+
+
+## [0.87.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.87.0...@vtex/admin-ui@0.87.1-experimental.0) (2021-03-30)
+
+
+### Features
+
+* **admin-ui:** use motion values on sidebar to avoid rerenders ([0b5963c](https://github.com/vtex/onda/commit/0b5963ce0bea4aff5ffcc1e1fa3a951660a5559b))
+
+
+
+
+
 # [0.87.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.86.0...@vtex/admin-ui@0.87.0) (2021-03-29)
 
 

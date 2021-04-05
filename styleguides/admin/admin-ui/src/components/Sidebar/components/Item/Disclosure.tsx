@@ -11,7 +11,20 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   const { icon, selected, label, csx = {}, ...buttonProps } = props
 
   return (
-    <Tooltip label={label} placement="right">
+    <Tooltip
+      label={label}
+      placement="right"
+      csx={{
+        display: 'flex',
+        alignItems: 'center',
+        fontSize: 0,
+        paddingY: 1,
+        paddingX: 2,
+        borderRadius: 'default',
+        minHeight: 24,
+        zIndex: 'over',
+      }}
+    >
       <Button
         ref={ref}
         variant="tertiary"

@@ -142,7 +142,13 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
   const state = useSidebarState()
 
   return (
-    <>
+    <Box
+      csx={{
+        height: '100%',
+        width: '100%',
+        position: 'relative',
+      }}
+    >
       <Box
         csx={{
           height: 30,
@@ -217,7 +223,7 @@ export const Playground: Story<PlaygroundArgs> = (args) => {
           <Paragraph>APPS</Paragraph>
         </Box>
       </Box>
-    </>
+    </Box>
   )
 }
 

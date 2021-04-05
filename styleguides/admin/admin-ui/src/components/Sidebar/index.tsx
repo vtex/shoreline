@@ -41,9 +41,10 @@ function _Sidebar(props: SidebarProps) {
           borderRight: '1px solid',
           borderColor: 'mid.tertiary',
           bg: state.isReduced() ? 'light.primary' : 'sidebar.light',
-          boxShadow: state.isReduced()
-            ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
-            : 'unset',
+          boxShadow:
+            state.selectedItem?.expandable && state.layout.reduced
+              ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
+              : 'unset',
           ...rootProps.csx,
         }}
         {...rootProps}
@@ -95,7 +96,7 @@ function _Sidebar(props: SidebarProps) {
       <Box
         csx={{
           bg: state.isReduced() ? 'light.primary' : 'sidebar.light',
-          width: 56,
+          width: '3.4375rem',
           top: 0,
           bottom: 0,
           zIndex: 'sidebarOverlay',
@@ -103,7 +104,12 @@ function _Sidebar(props: SidebarProps) {
           maxHeight: '100%',
         }}
       />
-      <SidebarBackdrop state={state} loading={loading} />
+      <SidebarBackdrop
+        state={state}
+        loading={
+          state.selectedItem?.expandable && loading && !state.layout.reduced
+        }
+      />
     </Fragment>
   )
 }
