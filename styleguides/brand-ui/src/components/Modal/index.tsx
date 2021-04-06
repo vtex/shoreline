@@ -36,7 +36,7 @@ const surfaceAnimation = css`
 `
 
 interface TitleProps {
-  title: string
+  title: string | ReactNode
   handleClose: () => void
 }
 
@@ -163,7 +163,7 @@ export interface ModalProps {
   /**
    * Modal title, does not work on dialog variant
    */
-  title?: string
+  title?: string | ReactNode
   /**
    * Function to be run after the modal is closed
    */

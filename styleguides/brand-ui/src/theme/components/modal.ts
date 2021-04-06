@@ -38,6 +38,7 @@ const backdrop = {
   flexDirection: 'column',
   alignItems: 'center',
   display: 'flex',
+  zIndex: 1,
 }
 
 const boxStyles = {

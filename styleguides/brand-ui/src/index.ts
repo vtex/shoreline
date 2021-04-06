@@ -1,5 +1,14 @@
 export { ThemeProvider } from './theme'
-export { Box, Flex, Text, SxStyleProp, SxProps, Grid, Link, jsx } from 'theme-ui'
+export {
+  Box,
+  Flex,
+  Text,
+  SxStyleProp,
+  SxProps,
+  Grid,
+  Link,
+  jsx,
+} from 'theme-ui'
 export { useTheme, Theme } from '@vtex-components/theme'
 export { Button, ButtonProps } from './components/Button'
 export { FooterLanding } from './components/FooterLanding'
@@ -41,7 +50,7 @@ export {
   DayProps,
 } from './components/Calendar'
 export { Carousel, CarouselProps } from './components/Carousel'
-export { Modal, ModalProps } from './components/Modal'
+export { Modal, ModalProps, useModalState } from './components/Modal'
 export { default as useToast } from './components/Toast/useToast'
 export { ToastProps, ToastProvider } from './components/Toast'
 export { Select, SelectProps } from './components/Select'
