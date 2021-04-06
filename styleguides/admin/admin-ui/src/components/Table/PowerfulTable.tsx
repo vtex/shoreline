@@ -159,11 +159,11 @@ export interface PowerfulTableProps<T> extends StatefulTableProps<T> {
    */
   onImport?: MouseEventHandler<any> | undefined
   /**
-   * Export disabled sate
+   * Export disabled state
    */
   exportDisabled?: boolean
   /**
-   * Import disabled sate
+   * Import disabled state
    */
   importDisabled?: boolean
   /**
