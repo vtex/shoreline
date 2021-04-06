@@ -163,7 +163,7 @@ export interface UseTableParams<T> {
    */
   length?: number
   /**
-   * Defines sorting directions and it's order
+   * Defines sorting directions and their order
    */
   sortDirections?: SortDirections
   /**
@@ -171,7 +171,7 @@ export interface UseTableParams<T> {
    */
   sortInitialValue?: Partial<SortState>
   /**
-   * Object that allow users to pass reducer and sort function to allow inversion of control
+   * Object that allows users to pass reducer and sort function for inversion of control
    */
   manualSort?: ManualSort<T>
 }
