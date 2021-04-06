@@ -4,6 +4,8 @@ import React, {
   Fragment,
   ReactElement,
   ReactNode,
+  forwardRef,
+  Ref,
 } from 'react'
 import { Box, BoxProps } from '@vtex/admin-primitives'
 import {
@@ -17,7 +19,10 @@ import { SidebarState } from './hooks'
 import { SidebarContext } from './context'
 import { SCALES } from './consts'
 
-function _Sidebar(props: SidebarProps) {
+const _Sidebar = forwardRef(function Sidebar(
+  props: SidebarProps,
+  ref: Ref<any>
+) {
   const {
     children,
     loading = false,
@@ -50,6 +55,7 @@ function _Sidebar(props: SidebarProps) {
         {...rootProps}
       >
         <Box
+          ref={ref}
           element="nav"
           csx={{
             position: 'absolute',
@@ -112,7 +118,7 @@ function _Sidebar(props: SidebarProps) {
       />
     </Fragment>
   )
-}
+})
 
 /**
  * Sidebar component.

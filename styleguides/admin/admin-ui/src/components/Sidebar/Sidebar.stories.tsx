@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Sidebar, SidebarProps, useSidebarState } from './index'
+import { Sidebar, useSidebarState } from './index'
 import { Box } from '@vtex/admin-primitives'
 import { Paragraph } from '../Paragraph'
 import {
@@ -20,10 +20,6 @@ export default {
   title: 'shell/Sidebar',
   component: Sidebar,
 } as Meta
-
-interface PlaygroundArgs extends SidebarProps {
-  id: string
-}
 
 const top = [
   {
@@ -138,7 +134,7 @@ const bottom = [
   },
 ]
 
-export const Playground: Story<PlaygroundArgs> = (args) => {
+export const Playground: Story<any> = (args) => {
   const state = useSidebarState()
 
   return (

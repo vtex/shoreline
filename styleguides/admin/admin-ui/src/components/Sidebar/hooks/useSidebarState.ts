@@ -9,7 +9,7 @@ export function useSidebarState(): SidebarState {
   const layout = useReducedState()
 
   const composite = useCompositeState({
-    baseId: 'sidebar-menu-base-id--',
+    baseId: 'sidebar-root--',
     orientation: 'vertical',
     wrap: 'vertical',
     loop: true,
