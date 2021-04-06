@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.88.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.6...@vtex/admin-ui@0.88.1) (2021-04-06)
+
+
+### Bug Fixes
+
+* **admin-ui/sidebar:** reduced laziness by 100ms ([ca29fd8](https://github.com/vtex/onda/commit/ca29fd876f6d3529093160c194b511dec4ebb6b8))
+
+
+
+
+
 # [0.88.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.6...@vtex/admin-ui@0.88.0) (2021-04-05)
 
 **Note:** Version bump only for package @vtex/admin-ui
