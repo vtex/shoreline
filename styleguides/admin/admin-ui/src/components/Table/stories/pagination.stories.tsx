@@ -3,6 +3,8 @@ import { Meta } from '@storybook/react'
 import faker from 'faker'
 
 import { StatefulTable } from '../index'
+import { usePagination } from '../../Pagination/usePagination'
+import { Pagination } from '../../Pagination'
 
 export default {
   title: 'admin-ui/Table/Pagination',
@@ -20,6 +22,8 @@ interface Item {
   lastSale: string
   price: string
 }
+
+const customPaginationTableSize = 5
 
 function getItems(start: number, end: number): Promise<GetItemsReturn> {
   return new Promise((resolve) => {
@@ -53,6 +57,10 @@ export function Simple() {
     })
   }, [])
 
+  const pagination = usePagination({
+    size: 5,
+  })
+
   return (
     <StatefulTable
       columns={[
@@ -74,12 +82,24 @@ export function Simple() {
           },
         },
       ]}
-      items={items}
+      items={items.slice(
+        pagination.state.range[0] - 1,
+        pagination.state.range[1]
+      )}
       length={5}
+      paginationComponent={
+        <Pagination
+          pagination={pagination}
+          total={items.length}
+          preposition="of"
+          subject="results"
+          prevLabel="Back"
+          nextLabel="Next"
+        />
+      }
     />
   )
 }
-const customPaginationTableSize = 5
 
 export function CustomPagination() {
   const [{ items, total }, setItems] = useState<GetItemsReturn>({
@@ -126,42 +146,52 @@ export function CustomPagination() {
         },
       ]}
       items={items}
-      totalAmountOfItems={total}
       loading={loading}
       length={customPaginationTableSize}
-      manualPagination={range}
-      paginationCallback={async ({ type }) => {
-        if (type === 'next') {
-          const newPage = currentPage + 1
+      paginationComponent={
+        <Pagination
+          pagination={{
+            state: { currentPage, range },
+            paginate: async (type) => {
+              if (type === 'next') {
+                const newPage = currentPage + 1
 
-          const newRange: [number, number] = [
-            range[1] + 1,
-            customPaginationTableSize * newPage,
-          ]
+                const newRange: [number, number] = [
+                  range[1] + 1,
+                  customPaginationTableSize * newPage,
+                ]
 
-          await fetchItems(...newRange)
+                await fetchItems(...newRange)
 
-          setPagination((previousState) => ({
-            ...previousState,
-            range: newRange,
-            currentPage: currentPage + 1,
-          }))
-          return
-        }
+                setPagination((previousState) => ({
+                  ...previousState,
+                  range: newRange,
+                  currentPage: currentPage + 1,
+                }))
+                return
+              }
 
-        const newRange: [number, number] = [
-          range[0] - customPaginationTableSize,
-          range[0] - 1,
-        ]
+              const newRange: [number, number] = [
+                range[0] - customPaginationTableSize,
+                range[0] - 1,
+              ]
 
-        await fetchItems(...newRange)
+              await fetchItems(...newRange)
 
-        setPagination((previousState) => ({
-          ...previousState,
-          range: newRange,
-          currentPage: previousState.currentPage + 1,
-        }))
-      }}
+              setPagination((previousState) => ({
+                ...previousState,
+                range: newRange,
+                currentPage: previousState.currentPage + 1,
+              }))
+            },
+          }}
+          total={total}
+          preposition="of"
+          subject="results"
+          prevLabel="Back"
+          nextLabel="Next"
+        />
+      }
     />
   )
 }

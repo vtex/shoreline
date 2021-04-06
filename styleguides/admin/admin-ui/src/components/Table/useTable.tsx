@@ -18,11 +18,6 @@ import {
 import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
 import { SelectionProvider } from './resolvers/selection'
-import {
-  PaginationObj,
-  usePagination,
-  UsePaginationParams,
-} from '../Pagination/usePagination'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const {
@@ -35,11 +30,6 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     },
     length = 5,
     items = [],
-    paginationReducer,
-    paginationCallback,
-    manualPagination,
-    paginationInitialState,
-    totalAmountOfItems,
   } = params
 
   const skeletonCollection = useMemo<T[]>(() => {
@@ -72,33 +62,13 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     [resolvers, context]
   )
 
-  const pagination = usePagination({
-    size: length,
-    paginationReducer,
-    paginationCallback,
-    paginationInitialState,
-    totalAmountOfItems,
-  })
-
   const data = useMemo(() => {
     if (context.loading) {
       return skeletonCollection
     }
 
-    if (manualPagination) {
-      return items
-    }
-
-    return [...items].slice(
-      pagination.paginationState.range[0] - 1,
-      pagination.paginationState.range[1]
-    )
-  }, [
-    items,
-    context.loading,
-    skeletonCollection,
-    pagination.paginationState.range,
-  ])
+    return items
+  }, [items, context.loading, skeletonCollection])
 
   function Providers(props: PropsWithChildren<unknown>) {
     return selectionColumn ? (
@@ -122,19 +92,10 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     data,
     columns,
     Providers,
-    pagination,
   }
 }
 
-export interface UseTableParams<T>
-  extends Pick<
-    UsePaginationParams,
-    | 'manualPagination'
-    | 'paginationReducer'
-    | 'paginationCallback'
-    | 'paginationInitialState'
-    | 'totalAmountOfItems'
-  > {
+export interface UseTableParams<T> {
   /**
    * Table column spec
    */
@@ -167,7 +128,6 @@ export interface UseTableReturn<T> {
   data: T[]
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
-  pagination: PaginationObj
 }
 
 type ResolverCallee<T> = Omit<T, 'resolvers' | 'context'>

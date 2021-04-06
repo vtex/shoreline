@@ -1,6 +1,8 @@
 import { Dispatch, useCallback, useReducer } from 'react'
 
-export function usePagination(params: UsePaginationParams): PaginationObj {
+export function usePagination(
+  params: UsePaginationParams
+): UsePaginationReturn {
   const {
     size,
     paginationCallback = defaultPaginationCallback,
@@ -8,7 +10,7 @@ export function usePagination(params: UsePaginationParams): PaginationObj {
     paginationInitialState,
   } = params
 
-  const [paginationState, dispatch] = useReducer(paginationReducer, {
+  const [state, dispatch] = useReducer(paginationReducer, {
     ...paginationInitialState,
     currentPage: 1,
     range: [1, size],
@@ -16,12 +18,12 @@ export function usePagination(params: UsePaginationParams): PaginationObj {
 
   const paginate = useCallback(
     (type: 'next' | 'prev') => {
-      paginationCallback({ type, dispatch, size, paginationState })
+      paginationCallback({ type, dispatch, size, state })
     },
     [size, dispatch, paginationCallback]
   )
 
-  return { paginationState, paginate }
+  return { state, paginate }
 }
 
 function defaultPaginationCallback({ type, size, dispatch }: PaginateParams) {
@@ -58,7 +60,7 @@ export interface PaginateParams {
   type: 'next' | 'prev'
   dispatch: Dispatch<PaginationAction>
   size: number
-  paginationState: PaginationState
+  state: PaginationState
 }
 
 export interface UsePaginationParams {
@@ -101,7 +103,7 @@ export interface PaginationAction {
   tableSize: number
 }
 
-export interface PaginationObj {
-  paginationState: PaginationState
+export interface UsePaginationReturn {
+  state: PaginationState
   paginate: (type: 'next' | 'prev') => void
 }

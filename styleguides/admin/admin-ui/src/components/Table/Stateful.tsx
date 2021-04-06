@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, ReactNode } from 'react'
 import { get } from '@vtex/admin-core'
 
 import { ResolverContext } from './resolvers/core'
@@ -7,7 +7,6 @@ import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
 import { Box, Flex } from '@vtex/admin-primitives'
-import { Pagination } from '../Pagination'
 
 /**
  * Table used to show static & simple information
@@ -45,11 +44,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     csx,
     length = 5,
     onRowClick,
-    manualPagination,
-    paginationCallback,
-    paginationReducer,
-    paginationInitialState,
-    totalAmountOfItems,
+    paginationComponent,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -61,23 +56,12 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     [density, loading, dir]
   )
 
-  const {
-    data,
-    resolveCell,
-    resolveHeader,
-    Providers,
-    pagination,
-  } = useTable<T>({
+  const { data, resolveCell, resolveHeader, Providers } = useTable<T>({
     length,
     columns,
     resolvers,
     context,
     items,
-    manualPagination,
-    paginationCallback,
-    paginationReducer,
-    paginationInitialState,
-    totalAmountOfItems,
   })
 
   return (
@@ -87,21 +71,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
           {/* Later this box should be the Toolbar component */}
 
           <Flex.Spacer />
-          <Pagination
-            range={
-              manualPagination
-                ? manualPagination
-                : pagination.paginationState.range
-            }
-            preposition="of"
-            subject="results"
-            prevLabel="Prev"
-            nextLabel="Next"
-            total={totalAmountOfItems ? totalAmountOfItems : items.length}
-            loading={loading}
-            onClickNext={() => pagination.paginate('next')}
-            onClickPrev={() => pagination.paginate('prev')}
-          />
+          {paginationComponent}
         </Flex>
         <Table dir={context.dir} density={density}>
           <Table.Head>
@@ -171,4 +141,8 @@ export interface StatefulTableProps<T>
    * @default 'ltr'
    */
   dir?: TableDir
+  /**
+   * Pagination component used in the table
+   */
+  paginationComponent?: ReactNode
 }

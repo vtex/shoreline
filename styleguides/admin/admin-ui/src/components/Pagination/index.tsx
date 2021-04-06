@@ -1,10 +1,11 @@
-import React, { MouseEventHandler } from 'react'
+import React from 'react'
 import { BoxProps, Flex } from '@vtex/admin-primitives'
 import { Set } from '../Set'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
+import { UsePaginationReturn } from './usePagination'
 
 const buttonCsx = {
   color: 'dark.secondary',
@@ -25,11 +26,12 @@ const buttonCsx = {
 export function Pagination(props: PaginationProps) {
   const {
     total,
-    range,
+    pagination: {
+      state: { range },
+      paginate,
+    },
     preposition,
     subject,
-    onClickPrev,
-    onClickNext,
     prevLabel,
     nextLabel,
     loading,
@@ -58,7 +60,7 @@ export function Pagination(props: PaginationProps) {
         <Tooltip label={prevLabel}>
           <Button
             disabled={loading || isPrevDisabled}
-            onClick={onClickPrev}
+            onClick={() => paginate('prev')}
             csx={buttonCsx}
             icon={<IconCaret direction="left" />}
           />
@@ -67,7 +69,7 @@ export function Pagination(props: PaginationProps) {
         <Tooltip label={nextLabel}>
           <Button
             disabled={loading || isNextDisabled}
-            onClick={onClickNext}
+            onClick={() => paginate('next')}
             csx={buttonCsx}
             icon={<IconCaret direction="right" />}
           />
@@ -83,10 +85,6 @@ interface PaginationProps extends BoxProps<'div'> {
    */
   total: number
   /**
-   * Range of displayed items in current table page
-   */
-  range: [number, number]
-  /**
    * String displayed in between the end of the range and the total amount of items
    */
   preposition: string
@@ -94,14 +92,6 @@ interface PaginationProps extends BoxProps<'div'> {
    * String displayed in the end of the component
    */
   subject: string
-  /**
-   * Function fired when previous button is clicked
-   */
-  onClickPrev?: MouseEventHandler<any>
-  /**
-   * Function fired when next button is clicked
-   */
-  onClickNext?: MouseEventHandler<any>
   /**
    * Label used in previous button tooltip
    */
@@ -114,4 +104,8 @@ interface PaginationProps extends BoxProps<'div'> {
    * Whether the table is loading or not
    */
   loading?: boolean
+  /**
+   * Object used to show and control pagination component
+   */
+  pagination: UsePaginationReturn
 }

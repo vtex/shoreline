@@ -10,21 +10,16 @@ export default {
 } as Meta
 
 export function Basic() {
-  const {
-    paginate,
-    paginationState: { range },
-  } = usePagination({ size: 5 })
+  const pagination = usePagination({ size: 5 })
 
   return (
     <Pagination
-      range={range}
+      pagination={pagination}
       total={74}
       preposition="of"
       subject="results"
       prevLabel="Back"
       nextLabel="Next"
-      onClickPrev={() => paginate('prev')}
-      onClickNext={() => paginate('next')}
     />
   )
 }
