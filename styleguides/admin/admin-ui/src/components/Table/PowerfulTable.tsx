@@ -49,21 +49,19 @@ export function TableToolbar<T>(props: TableToolbarProps<T>) {
         </Box>
       )}
       <Toolbar state={toolbarState} csx={{ padding: 0 }}>
-        {false && (
-          <Toolbar.Item>
-            {(itemProps) => (
-              <Button
-                icon={<IconFilter />}
-                variant="table-variant"
-                size="small"
-                disabled={filterDisabled}
-                {...itemProps}
-              >
-                {filterLabel}
-              </Button>
-            )}
-          </Toolbar.Item>
-        )}
+        <Toolbar.Item>
+          {(itemProps) => (
+            <Button
+              icon={<IconFilter />}
+              variant="table-variant"
+              size="small"
+              disabled={filterDisabled}
+              {...itemProps}
+            >
+              {filterLabel}
+            </Button>
+          )}
+        </Toolbar.Item>
         {Boolean(onImport) && (
           <Toolbar.Item>
             {(itemProps) => (
@@ -184,12 +182,12 @@ export interface PowerfulTableProps<T> extends StatefulTableProps<T> {
   importLabel?: string
   /**
    * Export button label
-   * @default "Import"
+   * @default "Export"
    */
   exportLabel?: string
   /**
    * Filter button label
-   * @default "Export"
+   * @default "Label"
    */
   filterLabel?: string
 }
