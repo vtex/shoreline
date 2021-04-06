@@ -42,7 +42,7 @@ export function TableToolbar<T>(props: TableToolbarProps<T>) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             id="search"
-            csx={{ height: '32px' }}
+            csx={{ height: '2rem' }}
             loading={searchLoading}
             disabled={searchDisabled}
           />
