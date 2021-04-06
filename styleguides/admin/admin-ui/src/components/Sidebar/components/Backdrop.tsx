@@ -6,7 +6,7 @@ import { Button } from '../../Button'
 import { Item, SidebarState } from '../hooks'
 import { ItemSkeleton } from './Item/Skeleton'
 
-const laziness = 120
+const laziness = 25
 
 const width = {
   expanded: '12.5rem',
