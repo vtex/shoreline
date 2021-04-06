@@ -29,6 +29,8 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         ref={ref}
         variant="tertiary"
         icon={icon}
+        title={label}
+        name={label}
         csx={merge(
           {
             zIndex: 'sidebarDisclosure',

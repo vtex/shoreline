@@ -1,12 +1,10 @@
-import React, { Fragment, useEffect, useMemo, useState } from 'react'
+import React, { Fragment } from 'react'
 import { IconCaretSmall } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
 
 import { Button } from '../../Button'
-import { Item, SidebarState } from '../hooks'
+import { SidebarState } from '../hooks'
 import { ItemSkeleton } from './Item/Skeleton'
-
-const laziness = 25
 
 const width = {
   expanded: '12.5rem',
@@ -31,21 +29,21 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
     loading = false,
   } = props
 
-  const expandable = selectedItem?.expandable
-  const active = expandable && !reduced
-  const { minWidth, left } = useLazyMeasures({
-    reduced,
-    selectedItem,
-  })
-
   return (
     <Fragment>
       <Box
         csx={{
-          minWidth,
+          minWidth: selectedItem?.expandable
+            ? reduced
+              ? width.reduced
+              : width.expanded
+            : width.hidden,
           transition: 'min-width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          bg: active ? 'sidebar.light' : 'light.primary',
-          borderRight: expandable ? 1 : 0,
+          bg:
+            selectedItem?.expandable && !reduced
+              ? 'sidebar.light'
+              : 'light.primary',
+          borderRight: selectedItem?.expandable ? 1 : 0,
           borderRightColor: 'mid.tertiary',
           borderRightStyle: 'solid',
         }}
@@ -56,9 +54,14 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
       </Box>
 
       <Button
+        title="toggle sidebar collapse"
+        name="toggle sidebar collapse"
         csx={{
-          left,
-          opacity: expandable && toggleVisible ? 1 : 0,
+          left:
+            selectedItem?.expandable && reduced
+              ? distance.reduced
+              : distance.expanded,
+          opacity: selectedItem?.expandable && toggleVisible ? 1 : 0,
           position: 'absolute',
           zIndex: 1,
           top: '4.6875rem',
@@ -93,69 +96,13 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
             }}
           />
         }
-        disabled={loading || !expandable}
+        disabled={loading || !selectedItem?.expandable}
         onClick={toggle}
         onMouseEnter={showToggle}
         onMouseLeave={hideToggle}
       />
     </Fragment>
   )
-}
-
-interface UseLazyMeasuresParams {
-  reduced: boolean
-  selectedItem: Item | null
-}
-
-function useLazyMeasures(params: UseLazyMeasuresParams) {
-  const { reduced, selectedItem } = params
-  const [lazyReduced, setLazyReduced] = useState(reduced)
-  const [lazySelectedItem, setLazySelectedItem] = useState(selectedItem)
-
-  useEffect(
-    function lazilyReduce() {
-      if (reduced) {
-        setTimeout(() => {
-          setLazyReduced(reduced)
-        }, laziness)
-      } else {
-        setLazyReduced(reduced)
-      }
-    },
-    [reduced]
-  )
-
-  useEffect(
-    function lazilySelect() {
-      if (selectedItem?.expandable) {
-        setLazySelectedItem(selectedItem)
-      } else {
-        setTimeout(() => {
-          setLazySelectedItem(selectedItem)
-        }, laziness)
-      }
-    },
-    [selectedItem]
-  )
-
-  const minWidth = useMemo(() => {
-    return lazySelectedItem?.expandable
-      ? lazyReduced
-        ? width.reduced
-        : width.expanded
-      : width.hidden
-  }, [lazySelectedItem, lazyReduced])
-
-  const left = useMemo(() => {
-    return lazySelectedItem?.expandable && lazyReduced
-      ? distance.reduced
-      : distance.expanded
-  }, [lazySelectedItem, lazyReduced])
-
-  return {
-    minWidth,
-    left,
-  }
 }
 
 export interface SidebarBackdropProps {

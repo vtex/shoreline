@@ -10,7 +10,10 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
   const rootState = useSidebarContext()
   const { state, id, selected: parentSelected } = useItemContext()
 
-  const compositeProps = useCompositeItem(state)
+  const compositeProps = useCompositeItem({
+    ...state,
+    baseId: 'section-item--',
+  })
   const selected = parentSelected && currentSelected
 
   const handleOnKeyDown = (event: React.KeyboardEvent<any>) => {

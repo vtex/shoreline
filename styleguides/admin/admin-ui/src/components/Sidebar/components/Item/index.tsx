@@ -18,6 +18,7 @@ function _SidebarItem(props: SidebarItemProps) {
     state.isSelected,
   ])
   const compositeState = useCompositeState({
+    baseId: 'item--',
     orientation: 'vertical',
     loop: true,
   })

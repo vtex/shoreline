@@ -12,7 +12,7 @@ const _SidebarSection = forwardRef(function SidebarSection(
 ) {
   const { title, children, ...baseProps } = props
   const { state } = useItemContext()
-  const compositeProps = useComposite(state)
+  const compositeProps = useComposite({ ...state, baseId: 'section--' })
 
   return (
     <Set
