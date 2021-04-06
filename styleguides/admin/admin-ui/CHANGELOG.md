@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.88.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.1...@vtex/admin-ui@0.88.2) (2021-04-06)
+
+
+### Bug Fixes
+
+* **admin-ui-sidebar:** remove delay completly & add tests ([264073b](https://github.com/vtex/onda/commit/264073bcd75e96ae49eed27c18b1ee5832243365))
+
+
+
+
+
 ## [0.88.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.6...@vtex/admin-ui@0.88.1) (2021-04-06)
 
 
