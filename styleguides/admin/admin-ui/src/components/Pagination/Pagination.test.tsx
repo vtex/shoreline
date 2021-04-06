@@ -23,8 +23,11 @@ describe('Pagination tests', () => {
     const { getByTestId } = render(
       <ThemeProvider>
         <Pagination
+          pagination={{
+            state: { range: [0, 50], currentPage: 0 },
+            paginate: () => {},
+          }}
           data-testid="pagination"
-          range={[1, 2]}
           total={50}
           preposition="of"
           subject="results"
