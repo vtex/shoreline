@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { Meta } from '@storybook/react'
+import faker from 'faker'
 
 import { PowerfulTable } from '../index'
 
@@ -8,52 +9,53 @@ export default {
   component: PowerfulTable,
 } as Meta
 
+const items = [...Array(10).keys()].map((id) => {
+  return {
+    id: `${id}`,
+    name: faker.commerce.productName(),
+    lastSale: faker.date.past().toDateString(),
+    price: faker.commerce.price(),
+  }
+})
+
 export function Simple() {
-  const fruits = [
-    {
-      id: 1,
-      productName: 'Orange',
-      inStock: 380,
-      skus: 0,
-      price: 120,
-    },
-    {
-      id: 2,
-      productName: 'Lemon',
-      inStock: 380,
-      skus: 26,
-      price: 120,
-    },
-    {
-      id: 3,
-      productName: 'Tomato',
-      inStock: 380,
-      skus: 26,
-      price: 120,
-    },
-  ]
+  const [searchValue, setSearchValue] = useState('')
+
+  const filteredItems = useMemo(() => {
+    return items.filter((item) => {
+      return (
+        item.name.includes(searchValue) ||
+        item.lastSale.includes(searchValue) ||
+        item.price.includes(searchValue)
+      )
+    })
+  }, [searchValue])
 
   return (
     <PowerfulTable
       columns={[
         {
-          id: 'productName',
+          id: 'name',
           header: 'Product Name',
         },
         {
-          id: 'inStock',
-          header: 'In Stock',
-        },
-        {
-          id: 'skus',
-          header: 'SKUs',
+          id: 'lastSale',
+          header: 'Last Sale',
         },
         {
           id: 'price',
           header: 'Price',
+          resolver: {
+            type: 'currency',
+            locale: 'en-US',
+            currency: 'USD',
+          },
         },
       ]}
-      items={fruits}
+      items={filteredItems}
+      onSearch={setSearchValue}
+      onExport={() => {}}
+      onImport={() => {}}
     />
   )
 }
