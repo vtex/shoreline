@@ -70,10 +70,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
         {(enhancedProps) => (
           <Flex variant={`input.${size}-${state}${darkMode ? '-dark' : ''}`}>
             {prefix && <Flex variant="input.prefix">{prefix}</Flex>}
-            <ThemeUIInput
-              {...enhancedProps}
-              sx={{ width: suffix ? 'calc(100% - 24px)' : 'initial' }}
-            />
+            <ThemeUIInput {...enhancedProps} />
             <Label htmlFor={id} variant={labelVariant}>
               {label}
             </Label>
