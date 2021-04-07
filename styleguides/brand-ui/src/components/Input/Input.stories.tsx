@@ -159,6 +159,8 @@ export const Sizes = () => {
         helpMessage="This is a regular input."
       />
       <Input
+        value={value}
+        onChange={(e: any) => setValue(e.target.value)}
         id="large"
         size="large"
         label="Large"
