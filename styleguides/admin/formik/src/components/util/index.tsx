@@ -28,7 +28,10 @@ export function useErrorMessage(
   return null
 }
 
-// useEffects to maintain consistency between select state and value in formik
+/**
+ * useSyncedState
+ * useEffects to maintain consistency between select state and value in formik
+ */
 export function useSyncedState(
   value: any,
   setValue: (value: any) => void,
