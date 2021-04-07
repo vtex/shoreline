@@ -2,7 +2,7 @@ const styles = {
   paddingX: 5,
   alignItems: 'center',
   position: 'relative',
-  width: 'fit-content',
+  width: '100%',
   borderWidth: 1,
   borderStyle: 'solid',
   borderRadius: 3,
@@ -11,7 +11,7 @@ const styles = {
 const inputBase = {
   border: 'none',
   borderRadius: 0,
-  width: 'fit-content',
+  width: '100%',
   p: 0,
   ':focus': {
     outline: 'none',
@@ -266,10 +266,12 @@ const helpMessageDark = {
 const iconBase = {
   alignItems: 'center',
   color: 'muted.0',
+  minWidth: '24px',
+  minHeight: '24px',
 }
 
 const container = {
-  width: 'fit-content',
+  width: '100%',
   mb: 3,
 }
 

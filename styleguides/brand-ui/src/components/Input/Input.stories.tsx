@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
 import { Flex, Box } from 'theme-ui'
 
@@ -21,9 +21,13 @@ export default {
 
 const Template: Story<InputProps> = (args: InputProps) => {
   const { prefix, suffix, ...restArgs } = args
+  const [value, setValue] = useState('')
+
   return (
-    <Box sx={{ backgroundColor: 'white', p: 5 }}>
+    <Box sx={{ maxWidth: '25rem' }}>
       <Input
+        value={value}
+        onChange={(e: any) => setValue(e.target.value)}
         {...restArgs}
         prefix={prefix && <IconMock />}
         suffix={suffix && <IconMock />}
@@ -48,6 +52,8 @@ Playground.args = {
 
 export const States = () => {
   const checkbox = useCheckboxState({ state: false })
+  const [valueDefault, setValueDefault] = useState('')
+  const [valueFilled, setValueFilled] = useState("I'm on the run with you")
   const props = {
     prefix: <IconMock />,
     suffix: <IconMock />,
@@ -62,14 +68,18 @@ export const States = () => {
           backgroundColor: checkbox.state ? 'secondary.base' : 'background',
           flexDirection: ['column', 'column', 'column', 'row'],
           marginTop: 3,
+          padding: 3,
+          width: 'fit-content',
         }}
       >
-        <Flex sx={{ p: 5, flexDirection: 'column' }}>
+        <Flex sx={{ flexDirection: 'column', maxWidth: '25rem', pr: 5 }}>
           <Input
             {...props}
             id="default-empty"
             label="Idle"
             helpMessage="Default and empty input."
+            value={valueDefault}
+            onChange={(e: any) => setValueDefault(e.target.value)}
           />
           <Input
             {...props}
@@ -91,15 +101,18 @@ export const States = () => {
             label="Error"
             error
             helpMessage="Error and empty input."
+            value={valueDefault}
+            onChange={(e: any) => setValueDefault(e.target.value)}
           />
         </Flex>
-        <Flex sx={{ p: 5, flexDirection: 'column' }}>
+        <Flex sx={{ flexDirection: 'column', maxWidth: '25rem' }}>
           <Input
             {...props}
             id="default-filled"
             label="Filled"
             helpMessage="Idle and filled input."
-            value="They'll hang us in the Louvre..."
+            value={valueFilled}
+            onChange={(e: any) => setValueFilled(e.target.value)}
           />
           <Input
             {...props}
@@ -122,8 +135,9 @@ export const States = () => {
             id="error-filled"
             label="Error"
             error
-            value="Be my mistake..."
             helpMessage="Error and filled input."
+            value={valueFilled}
+            onChange={(e: any) => setValueFilled(e.target.value)}
           />
         </Flex>
       </Flex>
@@ -131,48 +145,66 @@ export const States = () => {
   )
 }
 
-export const Sizes = () => (
-  <Box sx={{ backgroundColor: 'white', p: 5 }}>
-    <Input
-      id="regular"
-      size="regular"
-      label="Regular"
-      helpMessage="This is a regular input."
-    />
-    <Input
-      id="large"
-      size="large"
-      label="Large"
-      helpMessage="This is a large input."
-    />
-  </Box>
-)
+export const Sizes = () => {
+  const [value, setValue] = useState('')
 
-export const Contents = () => (
-  <Box sx={{ backgroundColor: 'white', p: 5 }}>
-    <Input
-      id="text-only"
-      label="Text only"
-      helpMessage="This is a basic input."
-    />
-    <Input
-      id="text-suffix"
-      label="Text + Suffix"
-      helpMessage="This input has a suffix."
-      suffix={<IconMock />}
-    />
-    <Input
-      id="text-prefix"
-      label="Text + Prefix"
-      helpMessage="This input has a prefix."
-      prefix={<IconMock />}
-    />
-    <Input
-      id="text-prefix-suffix"
-      label="Text + Prefix + Suffix"
-      helpMessage="This input has a prefix and a suffix."
-      prefix={<IconMock />}
-      suffix={<IconMock />}
-    />
-  </Box>
-)
+  return (
+    <Box sx={{ maxWidth: '25rem' }}>
+      <Input
+        value={value}
+        onChange={(e: any) => setValue(e.target.value)}
+        id="regular"
+        size="regular"
+        label="Regular"
+        helpMessage="This is a regular input."
+      />
+      <Input
+        id="large"
+        size="large"
+        label="Large"
+        helpMessage="This is a large input."
+      />
+    </Box>
+  )
+}
+
+export const Contents = () => {
+  const [value, setValue] = useState('')
+
+  return (
+    <Box sx={{ maxWidth: '25rem' }}>
+      <Input
+        value={value}
+        onChange={(e: any) => setValue(e.target.value)}
+        id="text-only"
+        label="Text only"
+        helpMessage="This is a basic input."
+      />
+      <Input
+        value={value}
+        onChange={(e: any) => setValue(e.target.value)}
+        id="text-suffix"
+        label="Suffix"
+        helpMessage="This input has a suffix."
+        suffix={<IconMock />}
+      />
+      <Input
+        value={value}
+        onChange={(e: any) => setValue(e.target.value)}
+        id="text-prefix"
+        label="Prefix"
+        helpMessage="This input has a prefix."
+        prefix={<IconMock />}
+      />
+      <Input
+        value={value}
+        onChange={(e: any) => setValue(e.target.value)}
+        id="text-prefix-suffix"
+        label="Prefix + Suffix"
+        helpMessage="This input has a prefix and a suffix."
+        prefix={<IconMock />}
+        suffix={<IconMock />}
+      />
+    </Box>
+  )
+}
