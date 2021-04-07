@@ -693,27 +693,27 @@ describe('theme parse', () => {
   it('handles responsive aliases', () => {
     const result = styles({
       bg: 'black',
-      '@mobile': {
-        bg: 'primary',
-      },
       '@tablet': {
         bg: 'secondary',
       },
       '@desktop': {
         bg: 'background',
       },
+      '@widescreen': {
+        bg: 'primary',
+      },
     })(theme)
 
     expect(result).toEqual({
       backgroundColor: 'black',
-      '@media (max-width: 768px)': {
-        backgroundColor: 'blue',
-      },
       '@media (min-width: 768px) and (max-width: 1024px)': {
         backgroundColor: 'cyan',
       },
       '@media (min-width: 1024px) and (max-width: 1200px)': {
         backgroundColor: 'white',
+      },
+      '@media (min-width: 1200px)': {
+        backgroundColor: 'blue',
       },
     })
   })

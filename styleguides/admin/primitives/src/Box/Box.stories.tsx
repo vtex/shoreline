@@ -61,11 +61,11 @@ export const UsingClassNames: Story = () => {
 export const WithMediaQueryAliases: Story = () => {
   return (
     <Box
-      styles={{
+      csx={{
         bg: 'yellow',
-        color: 'light.primary',
-        '@mobile': { bg: 'blue' },
         '@tablet': { bg: 'green' },
+        '@desktop': { bg: 'blue' },
+        '@widescreen': { bg: 'red' },
       }}
     >
       Box

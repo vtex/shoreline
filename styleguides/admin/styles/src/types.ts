@@ -114,9 +114,9 @@ interface AliasesCSSProperties {
 }
 
 interface ResponsiveAliases {
-  '@mobile'?: StyleProp
   '@tablet'?: StyleProp
   '@desktop'?: StyleProp
+  '@widescreen'?: StyleProp
 }
 
 interface OverwriteCSSProperties {

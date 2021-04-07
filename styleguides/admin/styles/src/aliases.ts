@@ -5,12 +5,12 @@ export const alias = (key: string, theme: Theme) => {
   const breakpoints =
     (theme && (theme.breakpoints as string[])) || defaultBreakpoints
 
-  const [, tablet, desktop, wideScreen] = breakpoints
+  const [, tablet, desktop, widescreen] = breakpoints
 
   const responsiveAliases = {
-    '@mobile': `@media (max-width: ${tablet})`,
     '@tablet': `@media (min-width: ${tablet}) and (max-width: ${desktop})`,
     '@desktop': `@media (min-width: ${desktop}) and (max-width: ${wideScreen})`,
+    '@widescreen': `@media (min-width: ${widescreen})`
   }
 
   const aliases = {
