@@ -13,7 +13,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   return (
     <Tooltip
       label={label}
-      placement="right"
+      placement="bottom-start"
       csx={{
         display: 'flex',
         alignItems: 'center',
