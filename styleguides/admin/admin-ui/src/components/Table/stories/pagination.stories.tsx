@@ -4,7 +4,7 @@ import { Flex } from '@vtex/admin-primitives'
 import faker from 'faker'
 
 import { StatefulTable } from '../index'
-import { usePagination } from '../../Pagination/usePagination'
+import { usePaginationState } from '../../Pagination'
 import { Pagination } from '../../Pagination'
 
 export default {
@@ -58,7 +58,7 @@ export function Simple() {
     })
   }, [])
 
-  const pagination = usePagination({
+  const paginationState = usePaginationState({
     size: 5,
   })
 
@@ -84,8 +84,8 @@ export function Simple() {
         },
       ]}
       items={items.slice(
-        pagination.state.range[0] - 1,
-        pagination.state.range[1]
+        paginationState.range[0] - 1,
+        paginationState.range[1]
       )}
       length={5}
     >
@@ -94,7 +94,7 @@ export function Simple() {
 
         <Flex.Spacer />
         <Pagination
-          pagination={pagination}
+          state={paginationState}
           total={items.length}
           preposition="of"
           subject="results"
@@ -159,8 +159,9 @@ export function CustomPagination() {
 
         <Flex.Spacer />
         <Pagination
-          pagination={{
-            state: { currentPage, range },
+          state={{
+            currentPage,
+            range,
             paginate: async (type) => {
               if (type === 'next') {
                 const newPage = currentPage + 1

@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import { Pagination } from './'
-import { usePagination } from './usePagination'
+import { usePaginationState } from './usePaginationState'
 
 export default {
   title: 'admin-ui/Pagination',
@@ -10,11 +10,11 @@ export default {
 } as Meta
 
 export function Basic() {
-  const pagination = usePagination({ size: 5 })
+  const state = usePaginationState({ size: 5 })
 
   return (
     <Pagination
-      pagination={pagination}
+      state={state}
       total={74}
       preposition="of"
       subject="results"

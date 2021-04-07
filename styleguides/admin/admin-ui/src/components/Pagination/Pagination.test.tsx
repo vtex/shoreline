@@ -23,8 +23,9 @@ describe('Pagination tests', () => {
     const { getByTestId } = render(
       <ThemeProvider>
         <Pagination
-          pagination={{
-            state: { range: [0, 50], currentPage: 0 },
+          state={{
+            range: [0, 50],
+            currentPage: 0,
             paginate: () => {},
           }}
           data-testid="pagination"

@@ -5,7 +5,7 @@ import { IconCaret } from '@vtex/admin-ui-icons'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
-import { UsePaginationReturn } from './usePagination'
+import { UsePaginationReturn } from './usePaginationState'
 
 const buttonCsx = {
   color: 'dark.secondary',
@@ -26,10 +26,7 @@ const buttonCsx = {
 export function Pagination(props: PaginationProps) {
   const {
     total,
-    pagination: {
-      state: { range },
-      paginate,
-    },
+    state: { range, paginate },
     preposition,
     subject,
     prevLabel,
@@ -79,6 +76,8 @@ export function Pagination(props: PaginationProps) {
   )
 }
 
+export * from './usePaginationState'
+
 interface PaginationProps extends BoxProps<'div'> {
   /**
    * Total amount of items
@@ -107,5 +106,5 @@ interface PaginationProps extends BoxProps<'div'> {
   /**
    * Object used to show and control pagination component
    */
-  pagination: UsePaginationReturn
+  state: UsePaginationReturn
 }
