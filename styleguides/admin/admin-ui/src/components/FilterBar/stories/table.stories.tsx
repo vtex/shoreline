@@ -4,7 +4,7 @@ import { useDebounce } from 'use-debounce'
 
 import { FilterBar } from '../index'
 import { StatefulTable } from '../../Table'
-import { FilterProps, FilterStatement, FilterStatements } from '../typings'
+import { Statement, Filters } from '../typings'
 import { AbstractInput } from '../../AbstractInput'
 import { ResolverRenderProps } from '../resolvers/core'
 import { Flex } from '@vtex/admin-primitives'
@@ -22,18 +22,22 @@ interface Item {
   price: number
 }
 
-function FilterInput(statement: ResolverRenderProps<string, null>) {
+function FilterInput(statement: ResolverRenderProps<FiltersType, null>) {
   const {
-    statement: { value = '' },
+    statement: { target = { value: '' } },
     handleValueChange,
     index,
   } = statement
+
+  const { value } = target
+
+  if (typeof value !== 'string') return <></>
 
   const [inputValue, setInputValue] = useState(value)
   const [newValue] = useDebounce(inputValue, 300)
 
   useEffect(() => {
-    handleValueChange(newValue, index)
+    handleValueChange({ value: newValue }, index)
   }, [newValue])
 
   useEffect(() => {
@@ -64,8 +68,10 @@ export const Table: Story = () => {
 
   const [items, setItems] = useState(products)
 
-  function filterByProduct(statement: FilterStatement<string>, item: any) {
-    const { condition, value = '' } = statement
+  function filterByProduct(statement: Statement<FiltersType>, item: any) {
+    const { condition, target: { value } = { value: '' } } = statement
+
+    if (typeof value !== 'string') return
 
     if (!value) return true
 
@@ -81,23 +87,23 @@ export const Table: Story = () => {
       }
     }
   }
-  function filterByPrice(statement: FilterStatement<FiltersType>, item: any) {
-    const { condition, value } = statement
+  function filterByPrice(statement: Statement<FiltersType>, item: any) {
+    const { condition, target } = statement
 
     switch (condition.label) {
       case 'is smaller than': {
-        return value && item.price < value
+        return target && item.price < target.value
       }
       case 'is bigger than': {
-        return value && item.price > value
+        return target && item.price > target.value
       }
       default:
         return true
     }
   }
 
-  const filter = (s: FilterStatements<FiltersType>) => {
-    const { conjunction, statements } = s
+  const filter = (filters: Filters<FiltersType>) => {
+    const { conjunction, statements } = filters
     const filteredItems = products.filter((item) => {
       const conditions = statements.map((statement) => {
         const {
@@ -106,7 +112,7 @@ export const Table: Story = () => {
 
         switch (id) {
           case 'productName': {
-            return filterByProduct(statement as FilterStatement<string>, item)
+            return filterByProduct(statement, item)
           }
           case 'price': {
             return filterByPrice(statement, item)
@@ -133,43 +139,47 @@ export const Table: Story = () => {
       <Flex direction="column" csx={{ width: 1000 }}>
         <FilterBar
           label="Use a filter to find products, create collections or generate a report"
-          filters={
-            [
-              {
-                id: 'price',
-                label: 'Price',
-                conditions: [
-                  { label: 'is bigger than', id: '3' },
-                  { label: 'is smaller than', id: '4' },
+          filters={[
+            {
+              id: 'price',
+              label: 'Price',
+              conditions: [
+                { label: 'is bigger than', id: '3' },
+                { label: 'is smaller than', id: '4' },
+              ],
+              resolver: {
+                type: 'simple',
+                defaultValue: { value: 100 },
+                items: [
+                  { value: 1 },
+                  { value: 10 },
+                  { value: 50 },
+                  { value: 100 },
+                  { value: 250 },
+                  { value: 500 },
                 ],
-                resolver: {
-                  type: 'simple',
-                  accessor: 'value',
-                  defaultValue: 100,
-                  items: [1, 10, 50, 100, 250, 500],
+              },
+            },
+            {
+              id: 'productName',
+              label: 'Product Name',
+              conditions: [
+                { label: 'is equal', id: '1' },
+                { label: 'is not equal', id: '2' },
+                { label: 'contains', id: '2' },
+              ],
+              resolver: {
+                type: 'root',
+                defaultValue: { value: '' },
+                render: (props) => {
+                  return <FilterInput {...props} />
                 },
               },
-              {
-                id: 'productName',
-                label: 'Product Name',
-                conditions: [
-                  { label: 'is equal', id: '1' },
-                  { label: 'is not equal', id: '2' },
-                  { label: 'contains', id: '2' },
-                ],
-                resolver: {
-                  type: 'root',
-                  defaultValue: '',
-                  render: (props: ResolverRenderProps<string, null>) => {
-                    return <FilterInput {...props} />
-                  },
-                },
-              },
-            ] as FilterProps<FiltersType>[]
-          }
-          handleStatementChange={(statements) => {
-            console.log(statements)
-            filter(statements)
+            },
+          ]}
+          handleStatementChange={(filters) => {
+            console.log(filters)
+            filter(filters)
           }}
         />
         <StatefulTable
@@ -194,4 +204,4 @@ export const Table: Story = () => {
   )
 }
 
-type FiltersType = number | string
+type FiltersType = { value: number } | { value: string }

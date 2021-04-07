@@ -1,21 +1,17 @@
 import React, { useReducer } from 'react'
 
 import { Box, Flex } from '@vtex/admin-primitives'
-import { Button } from '../Button'
 import { IconAdd } from '@vtex/admin-ui-icons'
-import { Statement } from './components/Statement'
+
+import { Button } from '../Button'
+import { FilterStatement } from './components'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
 import { useFilterBar } from './useFilterBar'
-import {
-  FilterConditionProps,
-  FilterConjunction,
-  FilterBarProps,
-  FilterProps,
-} from './typings'
+import { Condition, Conjunction, FilterBarProps, Filter } from './typings'
 import { FilterBarProvider } from './context'
 
-export function FilterBar<T>(props: FilterBarProps<T>) {
+export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
   const {
     reducer,
     conjunction: initialConjunction,
@@ -64,7 +60,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleStatementChange,
     })
 
-  const handleValueChange = (value: T | undefined, index: number) =>
+  const handleValueChange = (value: V, index: number) =>
     dispatch({
       type: 'value',
       value,
@@ -72,7 +68,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleStatementChange,
     })
 
-  const handleFilterChange = (filter: FilterProps<T>, index: number) =>
+  const handleFilterChange = (filter: Filter<V>, index: number) =>
     dispatch({
       type: 'filter',
       filter,
@@ -80,10 +76,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleStatementChange,
     })
 
-  const handleConditionChange = (
-    condition: FilterConditionProps,
-    index: number
-  ) =>
+  const handleConditionChange = (condition: Condition, index: number) =>
     dispatch({
       type: 'condition',
       condition: condition,
@@ -91,7 +84,7 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
       handleStatementChange,
     })
 
-  const handleConjunctionChange = (conjunction: FilterConjunction) =>
+  const handleConjunctionChange = (conjunction: Conjunction) =>
     dispatch({
       type: 'conjunction',
       conjunction,
@@ -111,22 +104,18 @@ export function FilterBar<T>(props: FilterBarProps<T>) {
     >
       <Box csx={{ border: 'default' }} {...htmlProps}>
         {statements.length === 0 ? (
-          <Box
-            csx={{
-              themeKey: 'components.filterBar.statements-container-empty',
-            }}
-          >
+          <Box csx={{ themeKey: 'components.filterBar.body-empty' }}>
             <Paragraph>{label}</Paragraph>
           </Box>
         ) : (
-          <Box csx={{ themeKey: 'components.filterBar.statements-container' }}>
+          <Box csx={{ themeKey: 'components.filterBar.body' }}>
             <Set orientation="vertical" spacing={2}>
               {statements.map((statement, index) => {
                 return (
-                  <Statement
-                    key={index}
+                  <FilterStatement
+                    key={`filter-statement-${index}`}
                     index={index}
-                    conjunction={conjunction ?? initialConjunction}
+                    conjunction={conjunction}
                     statement={statement}
                   />
                 )

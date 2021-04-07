@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { get } from '@vtex/admin-core'
-import { FilterStatement } from '../typings'
+import { Statement } from '../typings'
 import invariant from 'tiny-invariant'
 import { BaseResolvers } from './base'
 
@@ -10,26 +10,28 @@ import { BaseResolvers } from './base'
  */
 export type ResolverShortcut<I, S = unknown> = S & { type: I }
 
-export type ResolveFilterArgs<T> = {
-  statement: FilterStatement<T>
-  resolvers: Record<string, Resolver<T>>
-  index: number
-  handleValueChange: (value: T, index: number) => void
-}
-
-export function createResolver<T, I, S = Record<string, unknown>>(
-  resolver: Resolver<T, I, S>
-): Resolver<T, I, S> {
-  return resolver
-}
-
-export interface Resolver<T = any, I = any, S = any> {
+export interface Resolver<T, I = any, S = any> {
   value: (helpers: {
     /** current statement */
-    statement: FilterStatement<T, ResolverShortcut<I, S>>
+    statement: Statement<T, ResolverShortcut<I, S>>
     handleValueChange: (value: T, index: number) => void
     index: number
   }) => ReactNode
+}
+
+export function createResolver<
+  T extends { value?: T },
+  I,
+  S = Record<string, unknown>
+>(resolver: Resolver<T, I, S>): Resolver<T, I, S> {
+  return resolver
+}
+
+export type ResolveFilterArgs<T> = {
+  statement: Statement<T>
+  resolvers: Record<string, Resolver<T>>
+  index: number
+  handleValueChange: (value: T, index: number) => void
 }
 
 /**
@@ -68,16 +70,14 @@ export function ResolvedValue<T>(args: ResolveFilterArgs<T>) {
  * @generic T: Type of statement value
  * @generic D: Type of data
  */
-export type ResolverRenderProps<T, D> = {
+export type ResolverRenderProps<T, D = null> = {
   data: D
-  statement: FilterStatement<T>
+  statement: Statement<T>
   index: number
   handleValueChange: (value: T, index: number) => void
 }
 
 /** Default render of resolvers */
-export function defaultRender({
-  data,
-}: ResolverRenderProps<unknown, ReactNode>) {
+export function defaultRender<T>({ data }: ResolverRenderProps<T, ReactNode>) {
   return <React.Fragment>{data}</React.Fragment>
 }

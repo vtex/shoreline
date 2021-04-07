@@ -1,29 +1,29 @@
 import React, { ReactNode } from 'react'
-import { get, useSystem } from '@vtex/admin-core'
-import { Dropdown, useDropdownState } from '../../Dropdown'
+import { get } from '@vtex/admin-core'
+import invariant from 'tiny-invariant'
 
-import { createResolver, defaultRender, ResolverRenderProps } from './core'
-import warning from 'tiny-warning'
+import { useDropdownState } from '../../Dropdown'
+import { ResolverRenderProps } from './core'
+import { createResolver, defaultRender } from './core'
+import { FilterDropdown } from '../components'
 
 export function simpleResolver<T>() {
   return createResolver<T, 'simple', SimpleResolver<T>>({
     value: function SimpleResolver({ statement, index, handleValueChange }) {
-      const { value, filter } = statement
+      const { target, filter } = statement
       const { resolver } = filter
-      const { items, accessor = '', defaultValue } = resolver
+      const { items, accessor, defaultValue } = resolver
 
-      const { stylesOf } = useSystem()
-
-      const selectedItemValue = value ?? defaultValue
+      const selectedItemValue = target ?? defaultValue
 
       const render = resolver?.render ?? defaultRender
 
-      const state = useDropdownState({
+      const state = useDropdownState<T>({
         items,
         selectedItem: selectedItemValue,
-        onSelectedItemChange: ({ selectedItem: value }) => {
-          if (value) {
-            handleValueChange(value, index)
+        onSelectedItemChange: ({ selectedItem }) => {
+          if (selectedItem) {
+            handleValueChange(selectedItem, index)
           }
         },
       })
@@ -31,24 +31,24 @@ export function simpleResolver<T>() {
       const renderItem = (item: T | null) => {
         if (typeof item !== 'object') return item
 
-        const selectedValue = get(item, accessor, undefined)
+        const path = accessor ? `.${accessor}` : ``
 
-        warning(
-          selectedValue,
-          `Simple resolver: The selected data is undefined. Make sure that you are using the correct accessor for the following filter: ${filter.label}`
+        const selectedValue = get(item, `value${path}`, undefined)
+
+        invariant(
+          selectedValue && typeof selectedValue !== 'object',
+          `Simple resolver: The selected data is undefined or an object. Make sure that you are using the correct accessor for the following filter: ${filter.label}`
         )
 
         return selectedValue
       }
 
       const data = (
-        <Dropdown
+        <FilterDropdown<T>
           state={state}
           renderItem={renderItem}
           label="Value"
           items={items}
-          variant="adaptative-dark"
-          csx={stylesOf('components.filterBar.dropdown')}
         />
       )
 

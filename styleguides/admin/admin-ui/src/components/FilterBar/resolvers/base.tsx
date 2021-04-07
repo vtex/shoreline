@@ -4,7 +4,7 @@ import { simpleResolver, SimpleResolver } from './simple'
 /**
  * Filter base resolvers
  */
-export function baseResolvers<T extends unknown>() {
+export function baseResolvers<T>() {
   return {
     simple: simpleResolver<T>(),
     root: rootResolver<T>(),

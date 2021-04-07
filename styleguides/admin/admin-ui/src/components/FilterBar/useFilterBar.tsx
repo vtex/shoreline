@@ -1,12 +1,12 @@
 import { useCallback, useMemo } from 'react'
 import { baseResolvers } from './resolvers/base'
 import {
-  FilterConditionProps,
-  FilterConjunction,
+  Condition,
+  Conjunction,
   FilterBarProps,
-  FilterProps,
-  FilterStatement,
-  FilterStatements,
+  Filter,
+  Statement,
+  Filters,
 } from './typings'
 
 export function useFilterBar<T>(props: FilterBarProps<T>) {
@@ -15,18 +15,17 @@ export function useFilterBar<T>(props: FilterBarProps<T>) {
     conjunction = 'And',
     filters,
     resolvers: defaultResolvers = baseResolvers<T>(),
-    handleStatementChange: defaultHandleStatementChange,
+    handleStatementChange: onStatementChange,
     ...restProps
   } = props
 
   const reducer = useCallback(
-    (state: FilterStatements<T>, action: Action<T>) =>
-      defaultReducer(state, action),
+    (state: Filters<T>, action: Action<T>) => defaultReducer(state, action),
     [defaultReducer]
   )
 
-  const handleStatementChange = useCallback(defaultHandleStatementChange, [
-    defaultHandleStatementChange,
+  const handleStatementChange = useCallback(onStatementChange, [
+    onStatementChange,
   ])
 
   const resolvers = useMemo(() => defaultResolvers, [defaultResolvers])
@@ -42,13 +41,9 @@ export function useFilterBar<T>(props: FilterBarProps<T>) {
   }
 }
 
-function defaultReducer<T>(
-  state: FilterStatements<T>,
-  action: Action<T>
-): FilterStatements<T> {
+function defaultReducer<T>(state: Filters<T>, action: Action<T>): Filters<T> {
   switch (action.type) {
     case 'conjunction': {
-      console.log('conjunction')
       const { conjunction, handleStatementChange } = action
       const { statements } = state
 
@@ -59,7 +54,6 @@ function defaultReducer<T>(
       return nextState
     }
     case 'filter': {
-      console.log('filter')
       const { filter, handleStatementChange, index } = action
       const { conjunction, statements: currentStatements } = state
 
@@ -67,7 +61,7 @@ function defaultReducer<T>(
       statements[index] = {
         condition: filter.conditions[0],
         filter,
-        value: filter.resolver.defaultValue,
+        target: filter.resolver.defaultValue,
       }
 
       const nextState = { conjunction, statements }
@@ -77,7 +71,6 @@ function defaultReducer<T>(
       return nextState
     }
     case 'condition': {
-      console.log('condition')
       const { condition, handleStatementChange, index } = action
       const { conjunction, statements } = state
 
@@ -89,12 +82,11 @@ function defaultReducer<T>(
       return { conjunction, statements: nextState }
     }
     case 'value': {
-      console.log('value')
       const { value, handleStatementChange, index } = action
       const { conjunction, statements: currentStatements } = state
 
       let statements = currentStatements
-      statements[index] = { ...currentStatements[index], value }
+      statements[index] = { ...currentStatements[index], target: value }
 
       const nextState = { conjunction, statements }
 
@@ -103,15 +95,14 @@ function defaultReducer<T>(
       return nextState
     }
     case 'newStatement': {
-      console.log('newStatement')
       const { handleStatementChange, filter } = action
       const { conjunction, statements } = state
 
       const emptyStatement = {
         filter: filter,
         condition: filter.conditions[0],
-        value: filter.resolver.defaultValue,
-      } as FilterStatement<T>
+        target: filter.resolver.defaultValue,
+      } as Statement<T>
 
       const nextState = {
         conjunction,
@@ -123,20 +114,18 @@ function defaultReducer<T>(
       return nextState
     }
     case 'filtersReset': {
-      console.log('filtersReset')
       const { handleStatementChange } = action
 
       const nextState = {
         conjunction: 'And',
         statements: [],
-      } as FilterStatements<T>
+      } as Filters<T>
 
       handleStatementChange(nextState)
 
       return nextState
     }
     case 'duplicateStatement': {
-      console.log('duplicateStatement')
       const { index, handleStatementChange } = action
       const { conjunction, statements } = state
 
@@ -152,12 +141,10 @@ function defaultReducer<T>(
       return nextState
     }
     case 'deleteStatement': {
-      console.log('deleteStatement')
       const { index, handleStatementChange } = action
       const { conjunction, statements } = state
-      console.log('before', state)
       statements.splice(index, 1)
-      console.log('after', statements)
+
       const nextState = { conjunction, statements }
 
       handleStatementChange(nextState)
@@ -170,43 +157,43 @@ function defaultReducer<T>(
 export type Action<T> =
   | {
       type: 'conjunction'
-      conjunction: FilterConjunction
-      handleStatementChange: (statement: FilterStatements<T>) => void
+      conjunction: Conjunction
+      handleStatementChange: (filters: Filters<T>) => void
     }
   | {
       type: 'filter'
-      filter: FilterProps<T>
+      filter: Filter<T>
       index: number
-      handleStatementChange: (statement: FilterStatements<T>) => void
+      handleStatementChange: (filters: Filters<T>) => void
     }
   | {
       type: 'condition'
-      condition: FilterConditionProps
+      condition: Condition
       index: number
-      handleStatementChange: (statement: FilterStatements<T>) => void
+      handleStatementChange: (filters: Filters<T>) => void
     }
   | {
       type: 'value'
-      value?: T
+      value: T
       index: number
-      handleStatementChange: (statement: FilterStatements<T>) => void
+      handleStatementChange: (filters: Filters<T>) => void
     }
   | {
       type: 'newStatement'
-      filter: FilterProps<T>
-      handleStatementChange: (statement: FilterStatements<T>) => void
+      filter: Filter<T>
+      handleStatementChange: (filters: Filters<T>) => void
     }
   | {
       type: 'filtersReset'
-      handleStatementChange: (statement: FilterStatements<T>) => void
+      handleStatementChange: (filters: Filters<T>) => void
     }
   | {
       type: 'duplicateStatement'
       index: number
-      handleStatementChange: (statement: FilterStatements<T>) => void
+      handleStatementChange: (filters: Filters<T>) => void
     }
   | {
       type: 'deleteStatement'
       index: number
-      handleStatementChange: (statement: FilterStatements<T>) => void
+      handleStatementChange: (filters: Filters<T>) => void
     }

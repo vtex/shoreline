@@ -1,5 +1,5 @@
 export default {
-  'dropdown': {
+  'filter-dropdown': {
     bg: 'light.primary',
     border: 'default',
     color: 'dark.secondary',
@@ -8,13 +8,13 @@ export default {
     },
     minWidth: 150,
   },
-  'dropdown-label': {
+  'filter-dropdown-label': {
     textOverflow: 'ellipsis',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
   },
-  'statements-container': { padding: 2, paddingLeft: 4, bg: 'light.secondary' },
-  'statements-container-empty': {
+  'body': { padding: 2, paddingLeft: 4, bg: 'light.secondary' },
+  'body-empty': {
     padding: 4,
     paddingLeft: 6,
     bg: 'light.secondary',

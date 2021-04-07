@@ -2,35 +2,34 @@ import { BaseResolvers } from './resolvers/base'
 import { Resolver } from './resolvers/core'
 
 export interface FilterBarProps<T> {
-  handleStatementChange: (statements: FilterStatements<T>) => void
-  conjunction?: FilterConjunction
-  statements?: FilterStatement<T>[]
-  filters: FilterProps<T>[]
+  handleStatementChange: (flters: Filters<T>) => void
+  conjunction?: Conjunction
+  statements?: Statement<T>[]
+  filters: Filter<T>[]
   label: string
   resolvers?: Record<string, Resolver<T>>
 }
 
-export interface FilterStatements<T> {
-  statements: FilterStatement<T>[]
-  conjunction?: FilterConjunction
+export interface Filters<T> {
+  statements: Statement<T>[]
+  conjunction: Conjunction
 }
 
-export type FilterConjunction = 'And' | 'Or'
+export type Conjunction = 'And' | 'Or'
 
-export interface FilterProps<T, R = BaseResolvers<T>> {
+export interface Filter<T, R = BaseResolvers<T>> {
   label: string
   id: string
-  conditions: FilterConditionProps[]
+  conditions: Condition[]
   resolver: R
 }
 
-export interface FilterStatement<T, R = BaseResolvers<T>> {
-  condition: FilterConditionProps
-  value?: T
-  filter: FilterProps<T, R>
+export type Statement<T, R = BaseResolvers<T>> = {
+  condition: Condition
+  filter: Filter<T, R>
+  target: T
 }
-
-export interface FilterConditionProps {
+export interface Condition {
   label: string
   id: string
 }

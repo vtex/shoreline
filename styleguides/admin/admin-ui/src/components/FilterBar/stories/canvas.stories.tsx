@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react'
 import { FilterBar } from '../index'
 
 export default {
-  title: 'components/FilterBar',
+  title: 'components/FilterBar/Basic',
   component: FilterBar,
 } as Meta
 
@@ -29,9 +29,8 @@ export const Basic: Story = () => {
           ],
           resolver: {
             type: 'simple',
-            defaultValue: { label: '2' },
-            items: [{ label: '1' }, { label: '2' }, { label: '3' }],
-            accessor: 'label',
+            defaultValue: { value: '2' },
+            items: [{ value: '1' }],
           },
         },
         {
@@ -40,13 +39,14 @@ export const Basic: Story = () => {
           conditions,
           resolver: {
             type: 'simple',
-            defaultValue: { label: '2', id: '5' },
-            items: [
-              { label: '1', id: '3' },
-              { label: '2', id: '5' },
-              { label: '3', id: '4' },
-            ],
             accessor: 'label',
+            defaultValue: { value: { label: '1' } },
+            items: [
+              { value: { label: '1' } },
+              { value: { label: '2' } },
+              { value: { label: '3' } },
+              { value: { label: '4' } },
+            ],
           },
         },
         {
@@ -55,13 +55,8 @@ export const Basic: Story = () => {
           conditions,
           resolver: {
             type: 'simple',
-            accessor: 'label',
-            defaultValue: { label: '2', id: '5' },
-            items: [
-              { label: '1', id: '3' },
-              { label: '2', id: '5' },
-              { label: '3', id: '4' },
-            ],
+            defaultValue: { value: '2' },
+            items: [{ value: '1' }, { value: '2' }, { value: '3' }],
           },
         },
 
@@ -71,18 +66,18 @@ export const Basic: Story = () => {
           conditions,
           resolver: {
             type: 'simple',
-            defaultValue: { label: '1', id: '3' },
+            defaultValue: { value: { label: '1' } },
             items: [
-              { label: '1', id: '3' },
-              { label: '2', id: '5' },
-              { label: '3', id: '4' },
+              { value: { label: '1' } },
+              { value: { label: '2' } },
+              { value: { label: '3' } },
             ],
-            accessor: 'label',
+            accessor: 'value.label',
           },
         },
       ]}
-      handleStatementChange={(statements) => {
-        console.log(statements)
+      handleStatementChange={(filters) => {
+        console.log(filters)
       }}
     />
   )
