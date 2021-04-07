@@ -23,8 +23,8 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
   })
 
   const [
-    courentInicialValues,
-    setCourentInicialValues,
+    courentInitialValues,
+    setCourentInitialValues,
   ] = useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
@@ -32,19 +32,19 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
     { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     setSubmitting(true) // Lock the form to not be modified
-    setCourentInicialValues(values)
+    setCourentInitialValues(values)
     setSubmitting(false) // Lock the form to not be modified
   }
 
   useEffect(() => {
-    let value = Object.values(courentInicialValues)[0]
-    setCourentInicialValues({ [args.name]: value })
+    let value = Object.values(courentInitialValues)[0]
+    setCourentInitialValues({ [args.name]: value })
   }, [args.name])
 
   return (
     <Formik
       enableReinitialize
-      initialValues={courentInicialValues}
+      initialValues={courentInitialValues}
       validationSchema={schemaValidation}
       onSubmit={handleSubmit}
     >
@@ -85,7 +85,7 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
                 variant="secondary"
                 size="small"
                 onClick={() =>
-                  setCourentInicialValues({ [args.name]: args.items[1] })
+                  setCourentInitialValues({ [args.name]: args.items[1] })
                 }
               >
                 Set initial values
@@ -108,7 +108,7 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
               <Set orientation="vertical">
                 <Text variant="subtitle">Current initial value in formik:</Text>
                 <Text feedback="secondary">
-                  <pre>{JSON.stringify(courentInicialValues)}</pre>
+                  <pre>{JSON.stringify(courentInitialValues)}</pre>
                 </Text>
               </Set>
             </Set>
@@ -385,8 +385,8 @@ export const ChangeInitialValue = () => {
   const initialValues: FormValuesInterface = { value: '' }
 
   const [
-    courentInicialValues,
-    setCourentInicialValues,
+    courentInitialValues,
+    setCourentInitialValues,
   ] = useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
@@ -399,7 +399,7 @@ export const ChangeInitialValue = () => {
   return (
     <Formik
       enableReinitialize
-      initialValues={courentInicialValues}
+      initialValues={courentInitialValues}
       onSubmit={handleSubmit}
     >
       {({ values }) => (
@@ -410,7 +410,7 @@ export const ChangeInitialValue = () => {
               <Flex direction="column">
                 <Button
                   onClick={() =>
-                    setCourentInicialValues({
+                    setCourentInitialValues({
                       value:
                         options[Math.floor(Math.random() * options.length)],
                     })
@@ -437,7 +437,7 @@ export const ChangeInitialValue = () => {
             <Set orientation="vertical">
               <Text variant="subtitle">Current initial value in formik:</Text>
               <Text feedback="secondary">
-                <pre>{JSON.stringify(courentInicialValues)}</pre>
+                <pre>{JSON.stringify(courentInitialValues)}</pre>
               </Text>
             </Set>
           </Flex>
