@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Meta } from '@storybook/react'
+import { Flex } from '@vtex/admin-primitives'
 import faker from 'faker'
 
 import { StatefulTable } from '../index'
@@ -87,7 +88,11 @@ export function Simple() {
         pagination.state.range[1]
       )}
       length={5}
-      paginationComponent={
+    >
+      <Flex csx={{ marginBottom: '1.5rem' }}>
+        {/* Later this box should be the Toolbar component */}
+
+        <Flex.Spacer />
         <Pagination
           pagination={pagination}
           total={items.length}
@@ -96,8 +101,8 @@ export function Simple() {
           prevLabel="Back"
           nextLabel="Next"
         />
-      }
-    />
+      </Flex>
+    </StatefulTable>
   )
 }
 
@@ -148,7 +153,11 @@ export function CustomPagination() {
       items={items}
       loading={loading}
       length={customPaginationTableSize}
-      paginationComponent={
+    >
+      <Flex csx={{ marginBottom: '1.5rem' }}>
+        {/* Later this box should be the Toolbar component */}
+
+        <Flex.Spacer />
         <Pagination
           pagination={{
             state: { currentPage, range },
@@ -191,7 +200,7 @@ export function CustomPagination() {
           prevLabel="Back"
           nextLabel="Next"
         />
-      }
-    />
+      </Flex>
+    </StatefulTable>
   )
 }

@@ -6,7 +6,7 @@ import { TableDensity, TableDir } from './typings'
 import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
-import { Box, Flex } from '@vtex/admin-primitives'
+import { Box } from '@vtex/admin-primitives'
 
 /**
  * Table used to show static & simple information
@@ -44,7 +44,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     csx,
     length = 5,
     onRowClick,
-    paginationComponent,
+    children,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -67,12 +67,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
   return (
     <Providers>
       <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
-        <Flex csx={{ marginBottom: '1.5rem' }}>
-          {/* Later this box should be the Toolbar component */}
-
-          <Flex.Spacer />
-          {paginationComponent}
-        </Flex>
+        {children}
         <Table dir={context.dir} density={density}>
           <Table.Head>
             <Table.Row>
@@ -144,5 +139,5 @@ export interface StatefulTableProps<T>
   /**
    * Pagination component used in the table
    */
-  paginationComponent?: ReactNode
+  children?: ReactNode
 }
