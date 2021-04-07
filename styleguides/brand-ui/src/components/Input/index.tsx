@@ -1,4 +1,4 @@
-import React, { useState, useRef, PropsWithChildren, ReactNode } from 'react'
+import React, { useRef, PropsWithChildren, ReactNode } from 'react'
 import {
   Box,
   Flex,
@@ -25,7 +25,7 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
     readOnly,
     disabled,
     error,
-    value: initialValue,
+    value,
     type = 'text',
     sx = {},
     ...inputProps
@@ -34,7 +34,6 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
   const ref = useRef<HTMLInputElement>(null)
   const redirectFocus = () => ref.current?.focus()
 
-  const [value, setValue] = useState(initialValue)
   const { state, charCount, setFocused, transform } = useInputState({
     disabled,
     readOnly,
@@ -51,7 +50,12 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
   }.${state}`
 
   return (
-    <Box variant="input.container" sx={sx} onFocus={() => redirectFocus()}>
+    <Box
+      variant="input.container"
+      sx={sx}
+      onClick={() => redirectFocus()}
+      onFocus={() => redirectFocus()}
+    >
       <ReakitInput
         value={value}
         onFocus={() => setFocused(true)}
@@ -60,7 +64,6 @@ export const Input = (props: PropsWithChildren<InputProps>) => {
         readOnly={readOnly}
         type={type}
         id={id}
-        onChange={(e) => setValue(e.target.value)}
         ref={ref}
         {...inputProps}
       >
@@ -91,11 +94,14 @@ export type Size = 'regular' | 'large'
 export type InputState = 'error' | 'default' | 'disabled' | 'readOnly'
 
 export interface InputProps
-  extends Pick<BaseProps, 'disabled' | 'readOnly' | 'value' | 'type'> {
+  extends Pick<
+    BaseProps,
+    'disabled' | 'readOnly' | 'value' | 'type' | 'onChange'
+  > {
   id: string
   label: string
-  helpMessage?: string
   value?: string | number
+  helpMessage?: string
   error?: boolean
   charLimit?: number
   prefix?: ReactNode

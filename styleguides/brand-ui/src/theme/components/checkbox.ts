@@ -40,6 +40,9 @@ const styles = {
 
 export default {
   ...styles,
+  container: {
+    width: 'fit-content',
+  },
   error: {
     ...styles,
     borderColor: 'danger.base',

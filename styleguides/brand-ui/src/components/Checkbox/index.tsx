@@ -9,26 +9,25 @@ import {
 } from 'reakit/Checkbox'
 import { forwardRef } from '@vtex-components/utils'
 
-const BrandCheckbox = (props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
-  const { label, disabled, error, errorMessage, ...restProps } = props
-
-  return (
-    <Box>
-      <Label variant={`checkbox.label${disabled ? '.disabled' : ''}`}>
-        <ReakitCheckbox
-          disabled={disabled}
-          ref={ref}
-          sx={{ variant: `checkbox${error ? '.error' : ''}` }}
-          {...restProps}
-        />
-        {label}
-      </Label>
-      {error && errorMessage && (
-        <Text variant="checkbox.errorMessage">{errorMessage}</Text>
-      )}
-    </Box>
-  )
-}
+const BrandCheckbox = (
+  { label, disabled, error, errorMessage, sx, ...restProps }: CheckboxProps,
+  ref: Ref<HTMLInputElement>
+) => (
+  <Box variant="checkbox.container" sx={sx}>
+    <Label variant={`checkbox.label${disabled ? '.disabled' : ''}`}>
+      <ReakitCheckbox
+        disabled={disabled}
+        ref={ref}
+        sx={{ variant: `checkbox${error ? '.error' : ''}` }}
+        {...restProps}
+      />
+      {label}
+    </Label>
+    {error && errorMessage && (
+      <Text variant="checkbox.errorMessage">{errorMessage}</Text>
+    )}
+  </Box>
+)
 
 export interface CheckboxProps
   extends Pick<
