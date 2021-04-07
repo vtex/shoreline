@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.89.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.2...@vtex/admin-ui@0.89.0) (2021-04-07)
+
+
+### Bug Fixes
+
+* **table-pagination:** add boxProps to Pagination component ([1f81f78](https://github.com/vtex/onda/commit/1f81f78d5e8fb6651b98e80be4b6226fa86eac13))
+* **table-pagination:** grammar error in Pagination component prop coments ([0c43383](https://github.com/vtex/onda/commit/0c43383d475f083e443f867f371a75587c3f7e2c))
+* **table-pagination:** missing imports in table pagination ([9a26a1d](https://github.com/vtex/onda/commit/9a26a1d54a3b5832d58711cf12115ddca33d9ebe))
+* **table-pagination:** remove pagination logic from useTable hook ([a231e1f](https://github.com/vtex/onda/commit/a231e1fdb28dd06bb34da03a217f3271134f68f8))
+* **table-pagination:** verify total numbersOfItemsTo ([33651a8](https://github.com/vtex/onda/commit/33651a85dc7e0f96ae1b1272a3cc8a792614a0c9))
+
+
+### Features
+
+* **table-pagination:** add inversion of control to Pagination ([839d92e](https://github.com/vtex/onda/commit/839d92e70d883a08ce3874d468c67801b6720b3a))
+* **table-pagination:** add manual pagination to table pagination ([9812d33](https://github.com/vtex/onda/commit/9812d335f65b937c317812979fb10a59401c970d))
+* **table-pagination:** add pagination to table ([4fbc0c4](https://github.com/vtex/onda/commit/4fbc0c4088a919e171f0f129a0e906b17fc8f0d3))
+* **table-pagination:** create Pagination component ([e8bc5d2](https://github.com/vtex/onda/commit/e8bc5d2697a1fa1680bac8fc0335a495d4093c22))
+* **table-pagination:** create Pagination stories ([607e0ea](https://github.com/vtex/onda/commit/607e0ea9d72b6681f00ba5f8fad74f18dd5878fa))
+* **table-pagination:** create table pagination story ([2dbe661](https://github.com/vtex/onda/commit/2dbe661f6cc310e488b542ffffcb3b81b3c9ed4d))
+* **table-pagination:** create usePagination hook ([8d86464](https://github.com/vtex/onda/commit/8d8646438d2af162cdb5d0033a15fae26552d80d))
+* **table-pagination:** remove pagination component prop and use children ([d0ad42f](https://github.com/vtex/onda/commit/d0ad42f58a3b9d1f75f7d45014b1eb486e38d152))
+
+
+
+
+
 ## [0.88.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.1...@vtex/admin-ui@0.88.2) (2021-04-06)
 
 

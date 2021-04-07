@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.42.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.42.1...@vtex/brand-ui@0.42.2) (2021-04-07)
+
+
+### Bug Fixes
+
+* **checkbox:** sx prop and width ([9c8a73b](https://github.com/vtex/onda/commit/9c8a73bdf61f0b7a87465be7ccec9384685ff17d))
+* **input:** focus, onChange prop and full width ([e27bb34](https://github.com/vtex/onda/commit/e27bb34eab6d47bd7dff364677354970cbfddd2f))
+
+
+
+
+
 ## [0.42.1](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.42.0...@vtex/brand-ui@0.42.1) (2021-04-06)
 
 **Note:** Version bump only for package @vtex/brand-ui
