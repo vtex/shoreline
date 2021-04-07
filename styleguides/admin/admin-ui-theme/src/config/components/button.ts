@@ -217,21 +217,6 @@ const variant = {
       color: 'mid.primary',
     },
   },
-  'table-variant': {
-    color: 'dark.secondary',
-    bg: 'transparent',
-    ':hover': {
-      bg: 'light.secondary',
-    },
-    ':active': {
-      color: 'blue',
-      bg: 'light.secondary',
-    },
-    ':disabled': {
-      bg: 'transparent',
-      color: 'mid.primary',
-    },
-  },
 }
 
 const styles = {
