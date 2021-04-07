@@ -13,7 +13,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   return (
     <Tooltip
       label={label}
-      placement="right"
+      placement="bottom-start"
       csx={{
         display: 'flex',
         alignItems: 'center',
@@ -66,9 +66,10 @@ export interface SidebarDisclosureProps
    */
   label: string
   /**
-   * This prop is shared between this component and the `<Sidebar.Item {...props} />`.
-   * It indicates whether its parent component is selected or not, and is used here
-   * for styling only.
+   * Note that, if the `Sidebar.Item` component have children,
+   * setting this to `true` will have no effect. This is because
+   * we give precedence to the `Sidebar.Item.Section.Item`'s `select`
+   * property.
    */
   selected?: boolean
 }
