@@ -174,7 +174,7 @@ export const Playground: Story<any> = (args) => {
                 uniqueKey={item.label}
                 icon={item.icon}
                 key={item.label}
-                selected={index === 0 && true}
+                selected={index === 0}
               >
                 {item.sections.map((section) => (
                   <Sidebar.Item.Section
