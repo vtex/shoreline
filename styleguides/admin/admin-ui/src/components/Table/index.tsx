@@ -1,5 +1,4 @@
 export * from './components'
 export { useTable, UseTableParams, UseTableReturn } from './useTable'
 export { StatefulTable, StatefulTableProps } from './Stateful'
-export { PowerfulTable, PowerfulTableProps } from './PowerfulTable'
 export * from './typings'

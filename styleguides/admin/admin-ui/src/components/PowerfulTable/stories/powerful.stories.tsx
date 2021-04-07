@@ -53,9 +53,12 @@ export function Simple() {
         },
       ]}
       items={filteredItems}
-      onSearch={setSearchValue}
-      onExport={() => {}}
-      onImport={() => {}}
-    />
+    >
+      <PowerfulTable.Toolbar
+        onSearch={setSearchValue}
+        onExport={() => {}}
+        onImport={() => {}}
+      />
+    </PowerfulTable>
   )
 }
