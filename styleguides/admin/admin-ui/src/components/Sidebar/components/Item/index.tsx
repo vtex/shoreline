@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo } from 'react'
+import React, { ReactNode, useEffect, useMemo } from 'react'
 import { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { Box } from '@vtex/admin-primitives'
 import { CompositeItem, useCompositeState } from '../Aria'
@@ -10,7 +10,15 @@ import { useSidebarContext } from '../../context'
 import { SCALES } from '../../consts'
 
 function _SidebarItem(props: SidebarItemProps) {
-  const { children, onClick, label, uniqueKey, icon, ...baseProps } = props
+  const {
+    children,
+    onClick,
+    label,
+    uniqueKey,
+    selected: currentSelected,
+    icon,
+    ...baseProps
+  } = props
 
   const state = useSidebarContext()
   const selected = useMemo(() => state.isSelected(uniqueKey), [
@@ -25,6 +33,12 @@ function _SidebarItem(props: SidebarItemProps) {
 
   const expandable = state.isExpandable(children)
   const translate = selected && !state.layout.reduced ? '3rem' : '-13.5rem'
+
+  useEffect(() => {
+    if (currentSelected && !expandable) {
+      handleSelection()
+    }
+  }, [currentSelected])
 
   const handleSelection = () => {
     const currItem = {

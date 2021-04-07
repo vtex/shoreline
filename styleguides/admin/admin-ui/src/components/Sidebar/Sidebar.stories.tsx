@@ -168,12 +168,13 @@ export const Playground: Story<any> = (args) => {
       >
         <Sidebar {...args} state={state}>
           <Sidebar.Top>
-            {top.map((item) => (
+            {top.map((item, index) => (
               <Sidebar.Item
                 label={item.label}
                 uniqueKey={item.label}
                 icon={item.icon}
                 key={item.label}
+                selected={index === 0 && true}
               >
                 {item.sections.map((section) => (
                   <Sidebar.Item.Section
