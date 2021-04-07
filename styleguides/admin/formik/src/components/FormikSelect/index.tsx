@@ -39,15 +39,16 @@ export const FormikSelect = <T extends unknown>(
     formatMessage
   )
 
-  const selectProps = {
-    ...patialSelectProps,
-    errorMessage: errorMessage ? errorMessage : undefined,
-    error: !!errorMessage,
-  }
-
   return (
     <div onClick={() => helpers.setTouched(true)}>
-      <Select {...selectProps} label={label} items={items} state={itemState} />
+      <Select
+        label={label}
+        items={items}
+        state={itemState}
+        error={!!errorMessage}
+        errorMessage={errorMessage ?? undefined}
+        {...patialSelectProps}
+      />
     </div>
   )
 }

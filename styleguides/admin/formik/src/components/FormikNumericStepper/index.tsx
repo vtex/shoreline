@@ -32,21 +32,23 @@ export const FormikNumericStepper = forwardRef(
       }
     }, [field.value]) // When forms is reset or the field is changed outside
 
-    const numericStepperProps = {
-      onChange: (event: { value: number }) => {
-        onChange && onChange(event)
-        helpers.setValue(event.value)
-        setValue(event.value)
-      },
-      id,
-      errorMessage: errorMessage ? errorMessage : undefined,
-      error: !!errorMessage,
-      ...partialNumericStepperProps,
+    const handleChange = (event: { value: number }) => {
+      onChange && onChange(event)
+      helpers.setValue(event.value)
+      setValue(event.value)
     }
 
     return (
       <Box onClick={() => helpers.setTouched(true)}>
-        <NumericStepper value={value} {...numericStepperProps} ref={ref} />
+        <NumericStepper
+          id={id}
+          value={value}
+          onChange={handleChange}
+          error={!!errorMessage}
+          errorMessage={errorMessage ?? undefined}
+          {...partialNumericStepperProps}
+          ref={ref}
+        />
       </Box>
     )
   }

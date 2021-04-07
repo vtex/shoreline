@@ -24,21 +24,24 @@ export const FormikTextArea = forwardRef(
       formatMessage
     )
 
-    const textAreaProps = {
-      ...field,
-      onChange: onChange
-        ? (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-            field.onChange(event)
-            onChange(event)
-          }
-        : field.onChange,
-      ...patialTextAreaProps,
-      id,
-      errorMessage: errorMessage ? errorMessage : undefined,
-      error: !!errorMessage,
-    }
+    const handleChange = onChange
+      ? (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+          field.onChange(event)
+          onChange(event)
+        }
+      : field.onChange
 
-    return <TextArea {...textAreaProps} ref={ref} />
+    return (
+      <TextArea
+        id={id}
+        {...field}
+        onChange={handleChange}
+        error={!!errorMessage}
+        errorMessage={errorMessage ?? undefined}
+        {...patialTextAreaProps}
+        ref={ref}
+      />
+    )
   }
 )
 

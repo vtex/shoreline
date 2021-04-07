@@ -23,15 +23,16 @@ export const FormikInput = forwardRef(
       formatMessage
     )
 
-    const inputProps = {
-      ...field,
-      ...partialInputProps,
-      id,
-      errorMessage: errorMessage ? errorMessage : undefined,
-      error: !!errorMessage,
-    }
-
-    return <Input {...inputProps} ref={ref} />
+    return (
+      <Input
+        id={id}
+        error={!!errorMessage}
+        errorMessage={errorMessage ?? undefined}
+        {...field}
+        {...partialInputProps}
+        ref={ref}
+      />
+    )
   }
 )
 

@@ -23,15 +23,16 @@ export const FormikInputPassword = forwardRef(
       formatMessage
     )
 
-    const inputProps = {
-      ...field,
-      ...partialInputProps,
-      id,
-      errorMessage: errorMessage ? errorMessage : undefined,
-      error: !!errorMessage,
-    }
-
-    return <InputPassword {...inputProps} ref={ref} />
+    return (
+      <InputPassword
+        id={id}
+        error={!!errorMessage}
+        errorMessage={errorMessage ?? undefined}
+        {...field}
+        {...partialInputProps}
+        ref={ref}
+      />
+    )
   }
 )
 
