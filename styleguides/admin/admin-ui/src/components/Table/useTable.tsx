@@ -122,9 +122,7 @@ export interface UseTableParams<T> {
 export interface UseTableReturn<T> {
   skeletonCollection: T[]
   resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
-  resolveHeader: (
-    args: ResolverCallee<ResolveHeaderArgs<T>>
-  ) => Record<string, unknown> | null | undefined
+  resolveHeader: (args: ResolverCallee<ResolveHeaderArgs<T>>) => ReactNode
   data: T[]
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element

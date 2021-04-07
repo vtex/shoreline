@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, ReactNode } from 'react'
 import { get } from '@vtex/admin-core'
 
 import { ResolverContext } from './resolvers/core'
@@ -44,6 +44,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
     csx,
     length = 5,
     onRowClick,
+    children,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -66,6 +67,7 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
   return (
     <Providers>
       <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
+        {children}
         <Table dir={context.dir} density={density}>
           <Table.Head>
             <Table.Row>
@@ -134,4 +136,8 @@ export interface StatefulTableProps<T>
    * @default 'ltr'
    */
   dir?: TableDir
+  /**
+   * Pagination component used in the table
+   */
+  children?: ReactNode
 }
