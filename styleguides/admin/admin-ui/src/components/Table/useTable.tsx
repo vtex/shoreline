@@ -62,13 +62,11 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     [resolvers, context]
   )
 
-  const data = useMemo(() => {
-    if (context.loading) {
-      return skeletonCollection
-    }
-
-    return items
-  }, [items, context.loading, skeletonCollection])
+  const data = useMemo(() => (context.loading ? skeletonCollection : items), [
+    items,
+    context.loading,
+    skeletonCollection,
+  ])
 
   function Providers(props: PropsWithChildren<unknown>) {
     return selectionColumn ? (
