@@ -10,10 +10,10 @@ path: /theming/responsive-design/
 
 | name       | min-width em | min-width px |
 | ---------- | ------------ | ------------ |
-| mobile     | `40rem`      | `640px`      |
-| tablet     | `48rem`      | `768px`      |
-| desktop    | `64rem`      | `1024px`     |
-| widescreen | `80rem`      | `1280px`     |
+| mobile     | `40em`       | `640px`      |
+| tablet     | `48em`       | `768px`      |
+| desktop    | `64em`       | `1024px`     |
+| widescreen | `75em`       | `1200px`     |
 
 ## Responsive Values
 
@@ -49,4 +49,23 @@ If you want to skip a breakpoint, you can use the value `null`. This is useful i
     bg: 'dark.primary',
   }}
 />
+```
+
+### Responsive aliases
+
+We provide some properties that combine our breakpoints with media queries making it easier to add responsiveness into your layout.
+
+For example, you can use the alias `@tablet` if you want to apply specific styles only to devices with widths similar to a tablet.
+
+```jsx
+<Box
+  csx={{
+    bg: 'yellow',
+    '@tablet': { bg: 'green' },
+    '@desktop': { bg: 'blue' },
+    '@widescreen': { bg: 'red' },
+  }}
+>
+  Box
+</Box>
 ```

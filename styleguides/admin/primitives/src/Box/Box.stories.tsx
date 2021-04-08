@@ -57,3 +57,18 @@ export const UsingClassNames: Story = () => {
     </Box>
   )
 }
+
+export const WithMediaQueryAliases: Story = () => {
+  return (
+    <Box
+      csx={{
+        bg: 'yellow',
+        '@tablet': { bg: 'green' },
+        '@desktop': { bg: 'blue' },
+        '@widescreen': { bg: 'red' },
+      }}
+    >
+      Box
+    </Box>
+  )
+}

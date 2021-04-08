@@ -162,7 +162,7 @@ describe('theme parse', () => {
       '@media screen and (min-width: 40em)': {
         fontSize: 24,
       },
-      '@media screen and (min-width: 52em)': {
+      '@media screen and (min-width: 48em)': {
         fontSize: 36,
       },
       color: 'blue',
@@ -400,7 +400,7 @@ describe('theme parse', () => {
     expect(keys).toEqual([
       'width',
       '@media screen and (min-width: 40em)',
-      '@media screen and (min-width: 52em)',
+      '@media screen and (min-width: 48em)',
       'color',
     ])
     expect(result).toEqual({
@@ -408,7 +408,7 @@ describe('theme parse', () => {
       '@media screen and (min-width: 40em)': {
         color: 'green',
       },
-      '@media screen and (min-width: 52em)': {
+      '@media screen and (min-width: 48em)': {
         width: '50%',
         color: 'blue',
       },
@@ -432,7 +432,7 @@ describe('theme parse', () => {
       'flexDirection',
       'justifyContent',
       '@media screen and (min-width: 40em)',
-      '@media screen and (min-width: 52em)',
+      '@media screen and (min-width: 48em)',
       'color',
       'height',
       'paddingLeft',
@@ -664,7 +664,7 @@ describe('theme parse', () => {
     expect(result).toEqual({
       width: '100%',
       '@media screen and (min-width: 40em)': {},
-      '@media screen and (min-width: 52em)': {
+      '@media screen and (min-width: 48em)': {
         width: '50%',
       },
     })
@@ -687,6 +687,34 @@ describe('theme parse', () => {
         padding: 8,
       },
       padding: 32,
+    })
+  })
+
+  it('handles responsive aliases', () => {
+    const result = styles({
+      bg: 'black',
+      '@tablet': {
+        bg: 'secondary',
+      },
+      '@desktop': {
+        bg: 'background',
+      },
+      '@widescreen': {
+        bg: 'primary',
+      },
+    })(theme)
+
+    expect(result).toEqual({
+      backgroundColor: 'black',
+      '@media (min-width: 48em) and (max-width: 64em)': {
+        backgroundColor: 'cyan',
+      },
+      '@media (min-width: 64em) and (max-width: 75em)': {
+        backgroundColor: 'white',
+      },
+      '@media (min-width: 75em)': {
+        backgroundColor: 'blue',
+      },
     })
   })
 })

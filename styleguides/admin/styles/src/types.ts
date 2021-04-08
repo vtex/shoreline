@@ -113,6 +113,12 @@ interface AliasesCSSProperties {
     | StandardCSSProperties['fontVariationSettings']
 }
 
+interface ResponsiveAliases {
+  '@tablet'?: StyleProp
+  '@desktop'?: StyleProp
+  '@widescreen'?: StyleProp
+}
+
 interface OverwriteCSSProperties {
   /**
    * CSS **`color`** property
@@ -281,7 +287,8 @@ export interface CSSOthersObject {
 export type StyleObject = CSSProps &
   CSSPseudoSelectorProps &
   CSSOthersObject &
-  ThemeKeyProp
+  ThemeKeyProp &
+  ResponsiveAliases
 
 /**
  * The `StyleProp` extends [style props](https://emotion.sh/docs/object-styles)

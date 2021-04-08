@@ -10,7 +10,7 @@ export default {
   sizes,
   colors,
   space,
-  breakpoints: ['640px', '768px', '1024px', '1280px'],
+  breakpoints: ['40em', '48em', '64em', '75em'],
   transitions: {
     snap: 'all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9)',
     fade: 'all 110ms cubic-bezier(0.2, 0.2, 0.38, 0.9)',
