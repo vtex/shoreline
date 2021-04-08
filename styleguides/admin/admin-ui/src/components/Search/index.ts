@@ -53,7 +53,7 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
         csx: {
           ...(height === 'small'
             ? {
-                height: 32,
+                height: '2rem',
                 padding: '0.4375rem 0.25rem 0.4375rem 2rem',
                 margin: 0,
               }
