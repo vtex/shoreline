@@ -10,10 +10,10 @@ path: /theming/responsive-design/
 
 | name       | min-width em | min-width px |
 | ---------- | ------------ | ------------ |
-| mobile     | `40rem`      | `640px`      |
-| tablet     | `48rem`      | `768px`      |
-| desktop    | `64rem`      | `1024px`     |
-| widescreen | `75rem`      | `1200px`     |
+| mobile     | `40em`       | `640px`      |
+| tablet     | `48em`       | `768px`      |
+| desktop    | `64em`       | `1024px`     |
+| widescreen | `75em`       | `1200px`     |
 
 ## Responsive Values
 

@@ -10,7 +10,7 @@ export const alias = (key: string, theme: Theme) => {
   const responsiveAliases = {
     '@tablet': `@media (min-width: ${tablet}) and (max-width: ${desktop})`,
     '@desktop': `@media (min-width: ${desktop}) and (max-width: ${widescreen})`,
-    '@widescreen': `@media (min-width: ${widescreen})`
+    '@widescreen': `@media (min-width: ${widescreen})`,
   }
 
   const aliases = {

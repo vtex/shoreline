@@ -46,7 +46,7 @@ export const styles = (args: StyleProp = {}) => (
     const x = stylx[key as keyof typeof stylx]
     const val = typeof x === 'function' ? x(theme) : x
     const prop = alias(key, theme)
-  
+
     if (val && typeof val === 'object') {
       result[prop] = styles(val as StyleObject)(theme)
       continue
