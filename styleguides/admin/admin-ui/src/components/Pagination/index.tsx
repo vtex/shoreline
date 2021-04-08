@@ -7,22 +7,6 @@ import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
 import { UsePaginationReturn } from './usePaginationState'
 
-const buttonCsx = {
-  color: 'dark.secondary',
-  bg: 'transparent',
-  ':hover': {
-    bg: 'light.secondary',
-  },
-  ':active': {
-    color: 'blue',
-    bg: 'light.secondary',
-  },
-  ':disabled': {
-    bg: 'transparent',
-    color: 'mid.primary',
-  },
-}
-
 export function Pagination(props: PaginationProps) {
   const {
     total,
@@ -58,7 +42,8 @@ export function Pagination(props: PaginationProps) {
           <Button
             disabled={loading || isPrevDisabled}
             onClick={() => paginate('prev')}
-            csx={buttonCsx}
+            variant="adaptative-dark"
+            size="small"
             icon={<IconCaret direction="left" />}
           />
         </Tooltip>
@@ -67,7 +52,8 @@ export function Pagination(props: PaginationProps) {
           <Button
             disabled={loading || isNextDisabled}
             onClick={() => paginate('next')}
-            csx={buttonCsx}
+            variant="adaptative-dark"
+            size="small"
             icon={<IconCaret direction="right" />}
           />
         </Tooltip>
