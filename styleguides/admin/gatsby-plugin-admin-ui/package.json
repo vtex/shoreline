@@ -1,6 +1,6 @@
 {
   "name": "@vtex/gatsby-plugin-admin-ui",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "license": "MIT",
   "author": "@matheusps",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/vtex/onda.git"
   },
   "devDependencies": {
-    "@vtex/admin-ui": "^0.89.0",
+    "@vtex/admin-ui": "^0.89.1",
     "@vtex/admin-ui-icons": "^0.10.4"
   },
   "peerDependencies": {

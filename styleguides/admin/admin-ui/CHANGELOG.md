@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.89.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.89.0...@vtex/admin-ui@0.89.1) (2021-04-08)
+
+
+### Bug Fixes
+
+* **sidebar:** prevent not expandable sidebar item from having x translated backdrop ([aed45fa](https://github.com/vtex/onda/commit/aed45fa269c6d544323482956a890ea98500f7ad))
+
+
+
+
+
 # [0.89.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.2...@vtex/admin-ui@0.89.0) (2021-04-07)
 
 
