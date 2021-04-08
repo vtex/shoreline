@@ -13,7 +13,15 @@ import { Spinner } from '../Spinner'
 export const Search = createComponent(Primitive, useSearch)
 
 export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
-  const { id, placeholder, onSubmit, loading, ...inputProps } = props
+  const {
+    id,
+    placeholder,
+    onSubmit,
+    loading,
+    height = 'regular',
+    csx = {},
+    ...inputProps
+  } = props
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -31,7 +39,27 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
         placeholder,
         icon: loading
           ? jsxs(Spinner, {})
-          : jsxs(IconSearch, { csx: { color: 'blue' } }),
+          : jsxs(IconSearch, {
+              csx: {
+                color: 'blue',
+                ...(height === 'small'
+                  ? {
+                      margin: '0.375rem 0 0.376rem 0.5rem',
+                      top: 0,
+                    }
+                  : {}),
+              },
+            }),
+        csx: {
+          ...(height === 'small'
+            ? {
+                height: 32,
+                padding: '0.4375rem 0.25rem 0.4375rem 2rem',
+                margin: 0,
+              }
+            : {}),
+          ...csx,
+        },
         ...inputProps,
       }),
       jsxs(VisuallyHidden, {}, jsxs(Button, { type: 'submit' }, 'Search')),
@@ -53,4 +81,8 @@ export interface SearchProps extends SystemComponentProps<SearchOwnProps> {
   placeholder: string
   /** action to perform on submit */
   onSubmit?: () => void
+  /** Size of the button
+   * @default regular
+   */
+  height?: 'small' | 'regular'
 }

@@ -1,4 +1,4 @@
-import React, { useMemo, ReactNode } from 'react'
+import React, { useMemo, ReactNode, forwardRef, Ref } from 'react'
 import { get } from '@vtex/admin-core'
 
 import { ResolverContext } from './resolvers/core'
@@ -7,6 +7,8 @@ import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
 import { Box } from '@vtex/admin-primitives'
+import { TableToolbar, TableToolbarButton } from './components/Toolbar'
+import { TableTopbar } from './components/Topbar'
 
 /**
  * Table used to show static & simple information
@@ -31,7 +33,8 @@ import { Box } from '@vtex/admin-primitives'
  * <StatefulTable columns={columns} items={items} />
  * ```
  */
-export function StatefulTable<T>(props: StatefulTableProps<T>) {
+
+function _StatefulTable<T>(props: StatefulTableProps<T>) {
   const {
     columns,
     items = [],
@@ -65,34 +68,15 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
   })
 
   return (
-    <Providers>
-      <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
-        {children}
-        <Table dir={context.dir} density={density}>
-          <Table.Head>
-            <Table.Row>
-              {columns.map((column) => {
-                const content = resolveHeader({ column, items: data })
-
-                return (
-                  <Table.Cell key={column.id as string} column={column}>
-                    {content}
-                  </Table.Cell>
-                )
-              })}
-            </Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {data.map((item) => (
-              <Table.Row
-                key={getRowKey(item) as string}
-                onClick={onRowClick ? () => onRowClick(item) : undefined}
-              >
+    <Box>
+      {children}
+      <Providers>
+        <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
+          <Table dir={context.dir} density={density}>
+            <Table.Head>
+              <Table.Row>
                 {columns.map((column) => {
-                  const content = resolveCell({
-                    column,
-                    item,
-                  })
+                  const content = resolveHeader({ column, items: data })
 
                   return (
                     <Table.Cell key={column.id as string} column={column}>
@@ -101,13 +85,40 @@ export function StatefulTable<T>(props: StatefulTableProps<T>) {
                   )
                 })}
               </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Box>
-    </Providers>
+            </Table.Head>
+            <Table.Body>
+              {data.map((item) => (
+                <Table.Row
+                  key={getRowKey(item) as string}
+                  onClick={onRowClick ? () => onRowClick(item) : undefined}
+                >
+                  {columns.map((column) => {
+                    const content = resolveCell({
+                      column,
+                      item,
+                    })
+
+                    return (
+                      <Table.Cell key={column.id as string} column={column}>
+                        {content}
+                      </Table.Cell>
+                    )
+                  })}
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </Box>
+      </Providers>
+    </Box>
   )
 }
+
+export const StatefulTable = Object.assign(_StatefulTable, {
+  Toolbar: TableToolbar,
+  Topbar: TableTopbar,
+  ToolbarButton: TableToolbarButton,
+})
 
 export interface StatefulTableProps<T>
   extends Omit<UseTableParams<T>, 'context'>,
