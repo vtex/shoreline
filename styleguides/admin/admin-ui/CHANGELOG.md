@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.90.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.89.1...@vtex/admin-ui@0.90.0) (2021-04-08)
+
+
+### Features
+
+* **admin-ui:** export safari, chrome, firefox & edge detection ([b85afdb](https://github.com/vtex/onda/commit/b85afdb395ed2ddbfdda67cd28bd6e60405f249c))
+
+
+
+
+
 ## [0.89.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.89.0...@vtex/admin-ui@0.89.1) (2021-04-08)
 
 
