@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref, useEffect, useState } from 'react'
 import { Box, NumericStepper, NumericStepperProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
-import { useErrorMessage } from '../util'
+import { handleErrorMessage } from '../util'
 
 export const FormikNumericStepper = forwardRef(
   (props: FormikNumericStepperProps, ref: Ref<HTMLDivElement>) => {
@@ -18,10 +18,10 @@ export const FormikNumericStepper = forwardRef(
     const [field, meta, helpers] = useField<number>({ name })
     const [value, setValue] = useState<number>(field.value)
 
-    const errorMessage = useErrorMessage(
+    const errorMessage = handleErrorMessage(
+      meta,
       currentError,
       currentErrorMessage,
-      meta,
       formatMessage
     )
 

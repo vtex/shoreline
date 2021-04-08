@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from 'react'
 import { TextArea, TextAreaProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
-import { useErrorMessage } from '../util'
+import { handleErrorMessage } from '../util'
 
 export const FormikTextArea = forwardRef(
   (props: FormikTextAreaProps, ref: Ref<HTMLTextAreaElement>) => {
@@ -17,10 +17,10 @@ export const FormikTextArea = forwardRef(
 
     const [field, meta] = useField({ name })
 
-    const errorMessage = useErrorMessage(
+    const errorMessage = handleErrorMessage(
+      meta,
       currentError,
       currentErrorMessage,
-      meta,
       formatMessage
     )
 

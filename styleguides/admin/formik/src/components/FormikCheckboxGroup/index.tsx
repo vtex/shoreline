@@ -9,7 +9,7 @@ import {
 import { useField } from 'formik'
 import { FormikCheckboxGroupContext } from './context'
 import { FormikCheckbox } from './FormikCheckbox'
-import { useErrorMessage, useSyncedState } from '../util'
+import { handleErrorMessage, useSyncedState } from '../util'
 
 export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
   const {
@@ -32,10 +32,10 @@ export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
     helpers.setValue
   )
 
-  const errorMessage = useErrorMessage(
+  const errorMessage = handleErrorMessage(
+    meta,
     currentError,
     currentErrorMessage,
-    meta,
     formatMessage
   )
 

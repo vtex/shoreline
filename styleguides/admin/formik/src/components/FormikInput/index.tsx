@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from 'react'
 import { Input, InputProps } from '@vtex/admin-ui'
 import { useField } from 'formik'
-import { useErrorMessage } from '../util'
+import { handleErrorMessage } from '../util'
 
 export const FormikInput = forwardRef(
   (props: FormikInputProps, ref: Ref<HTMLInputElement>) => {
@@ -16,10 +16,10 @@ export const FormikInput = forwardRef(
 
     const [field, meta] = useField({ name })
 
-    const errorMessage = useErrorMessage(
+    const errorMessage = handleErrorMessage(
+      meta,
       currentError,
       currentErrorMessage,
-      meta,
       formatMessage
     )
 

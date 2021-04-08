@@ -8,7 +8,7 @@ import {
 } from '@vtex/admin-ui'
 import { useField } from 'formik'
 import { FormikRadioGroupContext } from './context'
-import { useErrorMessage, useSyncedState } from '../util'
+import { handleErrorMessage, useSyncedState } from '../util'
 
 export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
   const {
@@ -31,10 +31,10 @@ export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
     helpers.setValue
   )
 
-  const errorMessage = useErrorMessage(
+  const errorMessage = handleErrorMessage(
+    meta,
     currentError,
     currentErrorMessage,
-    meta,
     formatMessage
   )
 

@@ -8,7 +8,7 @@ import {
   useToggleState,
 } from '@vtex/admin-ui'
 import { useField } from 'formik'
-import { useErrorMessage, useSyncedState } from '../util'
+import { handleErrorMessage, useSyncedState } from '../util'
 
 export const FormikToggle = forwardRef(
   (props: FormikToggleProps, ref: Ref<HTMLInputElement>) => {
@@ -33,10 +33,10 @@ export const FormikToggle = forwardRef(
       helpers.setValue
     )
 
-    const errorMessage = useErrorMessage(
+    const errorMessage = handleErrorMessage(
+      meta,
       currentError,
       currentErrorMessage,
-      meta,
       formatMessage
     )
 
