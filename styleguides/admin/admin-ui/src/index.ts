@@ -41,4 +41,10 @@ export * from './components/Search'
 export * from './components/Sidebar'
 export * from './components/Topbar'
 export * from './components/Toolbar'
-export { isMobile } from 'react-device-detect'
+export {
+  isMobile,
+  isSafari,
+  isChrome,
+  isFirefox,
+  isEdge,
+} from 'react-device-detect'
