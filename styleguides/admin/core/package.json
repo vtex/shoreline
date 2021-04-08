@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-core",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "main": "dist/index.js",
   "module": "dist/admin-core.esm.js",
   "typings": "dist/index.d.ts",
@@ -35,8 +35,8 @@
     "react-dom": ">=16"
   },
   "dependencies": {
-    "@vtex/admin-ui-system": "^0.15.0",
-    "@vtex/admin-ui-theme": "^0.24.2",
+    "@vtex/admin-ui-system": "^0.15.1",
+    "@vtex/admin-ui-theme": "^0.24.3",
     "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",
     "react-helmet": "6.1.0",

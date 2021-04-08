@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.24.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.24.2...@vtex/admin-ui-theme@0.24.3) (2021-04-08)
+
+
+### Bug Fixes
+
+* **responsive-aliases:** change media queries to have a max and min widths range ([f15efb0](https://github.com/vtex/onda/commit/f15efb04c416ff8cc7bd569ddeb9e76864d382bd))
+
+
+
+
+
 ## [0.24.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.24.0...@vtex/admin-ui-theme@0.24.2) (2021-04-06)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme

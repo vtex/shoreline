@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.3.4...@vtex/admin-primitives@0.4.0) (2021-04-08)
+
+
+### Features
+
+* **responsive-value:** add responsive aliases on styleObject ([2019d0f](https://github.com/vtex/onda/commit/2019d0f1678478c02857ff3b6ad25e47075d8909))
+
+
+
+
+
 ## [0.3.4](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.3.2...@vtex/admin-primitives@0.3.4) (2021-04-06)
 
 **Note:** Version bump only for package @vtex/admin-primitives
