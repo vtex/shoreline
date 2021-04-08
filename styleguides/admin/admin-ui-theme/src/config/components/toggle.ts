@@ -3,6 +3,7 @@ export default {
     appearance: 'none',
     position: 'relative',
     cursor: 'pointer',
+    margin: 0,
     borderRadius: '6.25rem',
     backgroundColor: 'mid.primary',
     borderStyle: 'solid',

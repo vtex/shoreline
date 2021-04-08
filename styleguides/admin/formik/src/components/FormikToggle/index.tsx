@@ -53,7 +53,7 @@ export const FormikToggle = forwardRef(
           {label && <Label htmlFor={id}>{label}</Label>}
         </Set>
         {errorMessage && (
-          <Text variant="small" feedback="danger" csx={{ marginLeft: 1 }}>
+          <Text variant="small" feedback="danger">
             {errorMessage}
           </Text>
         )}
