@@ -88,7 +88,6 @@ export function CompleteTopbar() {
           height="small"
           value={search}
           onChange={(e) => {
-            console.log(e.target.value)
             setSearch(e.target.value)
           }}
         />
