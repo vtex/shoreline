@@ -1,4 +1,4 @@
-import React, { useMemo, ReactNode, forwardRef, Ref } from 'react'
+import React, { useMemo, ReactNode } from 'react'
 import { get } from '@vtex/admin-core'
 
 import { ResolverContext } from './resolvers/core'
