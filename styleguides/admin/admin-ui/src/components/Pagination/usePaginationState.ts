@@ -17,7 +17,7 @@ export function usePaginationState(
   })
 
   const paginate = useCallback(
-    (type: 'next' | 'prev') => {
+    (type: 'next' | 'prev' | 'clear') => {
       paginationCallback({ type, dispatch, size, state })
     },
     [size, dispatch, paginationCallback]
@@ -51,13 +51,22 @@ function reducer(
         range: [state.range[0] - action.tableSize, state.range[0] - 1],
       }
     }
+    case 'clear': {
+      return {
+        ...state,
+        currentPage: 1,
+        range: [1, action.tableSize],
+      }
+    }
     default:
       return state
   }
 }
 
+type PaginationActionType = 'next' | 'prev' | 'clear'
+
 export interface PaginateParams {
-  type: 'next' | 'prev'
+  type: PaginationActionType
   dispatch: Dispatch<PaginationAction>
   size: number
   state: PaginationState
@@ -80,17 +89,9 @@ export interface UsePaginationParams {
    */
   paginationCallback?: (params: PaginateParams) => void
   /**
-   * Decides if pagination is dealed by table or it's user
-   */
-  manualPagination?: [number, number]
-  /**
    * Table pagination initial state
    */
   paginationInitialState?: PaginationState
-  /**
-   * Prop used in case the array doesn't contain the full amount of itens
-   */
-  totalAmountOfItems?: number
 }
 
 export interface PaginationState {
@@ -99,10 +100,10 @@ export interface PaginationState {
 }
 
 export interface PaginationAction {
-  type: 'next' | 'prev'
+  type: PaginationActionType
   tableSize: number
 }
 
 export interface UsePaginationReturn extends PaginationState {
-  paginate: (type: 'next' | 'prev') => void
+  paginate: (type: PaginationActionType) => void
 }
