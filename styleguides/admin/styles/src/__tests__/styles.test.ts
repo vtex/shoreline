@@ -159,10 +159,10 @@ describe('theme parse', () => {
 
     expect(result).toEqual({
       fontSize: 16,
-      '@media screen and (min-width: 640px)': {
+      '@media screen and (min-width: 40em)': {
         fontSize: 24,
       },
-      '@media screen and (min-width: 768px)': {
+      '@media screen and (min-width: 48em)': {
         fontSize: 36,
       },
       color: 'blue',
@@ -198,7 +198,7 @@ describe('theme parse', () => {
       h1: {
         paddingTop: 16,
         paddingBottom: 16,
-        '@media screen and (min-width: 640px)': {
+        '@media screen and (min-width: 40em)': {
           paddingTop: 32,
           paddingBottom: 32,
         },
@@ -266,7 +266,7 @@ describe('theme parse', () => {
     })(theme)
 
     expect(result).toEqual({
-      '@media screen and (min-width: 640px)': {
+      '@media screen and (min-width: 40em)': {
         color: 'cyan',
       },
       color: 'blue',
@@ -326,7 +326,7 @@ describe('theme parse', () => {
       fontSize: 14,
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
-      '@media screen and (min-width: 640px)': {
+      '@media screen and (min-width: 40em)': {
         fontSize: 16,
       },
     })
@@ -399,16 +399,16 @@ describe('theme parse', () => {
 
     expect(keys).toEqual([
       'width',
-      '@media screen and (min-width: 640px)',
-      '@media screen and (min-width: 768px)',
+      '@media screen and (min-width: 40em)',
+      '@media screen and (min-width: 48em)',
       'color',
     ])
     expect(result).toEqual({
       width: '100%',
-      '@media screen and (min-width: 640px)': {
+      '@media screen and (min-width: 40em)': {
         color: 'green',
       },
-      '@media screen and (min-width: 768px)': {
+      '@media screen and (min-width: 48em)': {
         width: '50%',
         color: 'blue',
       },
@@ -431,8 +431,8 @@ describe('theme parse', () => {
     expect(keys).toEqual([
       'flexDirection',
       'justifyContent',
-      '@media screen and (min-width: 640px)',
-      '@media screen and (min-width: 768px)',
+      '@media screen and (min-width: 40em)',
+      '@media screen and (min-width: 48em)',
       'color',
       'height',
       'paddingLeft',
@@ -593,7 +593,7 @@ describe('theme parse', () => {
       fontSize: 14,
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
-      '@media screen and (min-width: 640px)': {
+      '@media screen and (min-width: 40em)': {
         fontSize: 16,
       },
     })
@@ -607,7 +607,7 @@ describe('theme parse', () => {
     expect(result).toEqual({
       fontSize: 24,
       letterSpacing: '-0.01em',
-      '@media screen and (min-width: 640px)': {
+      '@media screen and (min-width: 40em)': {
         fontSize: 36,
         letterSpacing: '-0.02em',
       },
@@ -663,8 +663,8 @@ describe('theme parse', () => {
 
     expect(result).toEqual({
       width: '100%',
-      '@media screen and (min-width: 640px)': {},
-      '@media screen and (min-width: 768px)': {
+      '@media screen and (min-width: 40em)': {},
+      '@media screen and (min-width: 48em)': {
         width: '50%',
       },
     })
@@ -706,13 +706,13 @@ describe('theme parse', () => {
 
     expect(result).toEqual({
       backgroundColor: 'black',
-      '@media (min-width: 768px) and (max-width: 1024px)': {
+      '@media (min-width: 48em) and (max-width: 64em)': {
         backgroundColor: 'cyan',
       },
-      '@media (min-width: 1024px) and (max-width: 1200px)': {
+      '@media (min-width: 64em) and (max-width: 75em)': {
         backgroundColor: 'white',
       },
-      '@media (min-width: 1200px)': {
+      '@media (min-width: 75em)': {
         backgroundColor: 'blue',
       },
     })
