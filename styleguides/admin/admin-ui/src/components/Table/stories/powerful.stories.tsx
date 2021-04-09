@@ -6,6 +6,8 @@ import { IconExport, IconImport, IconFilter } from '@vtex/admin-ui-icons'
 import { Pagination, usePaginationState } from '../../Pagination'
 import { FlexSpacer } from '@vtex/admin-primitives'
 import { Search } from '../../Search'
+import { Toolbar } from '../../Toolbar'
+import { Button } from '../../Button'
 
 export default {
   title: 'admin-ui/Table/Powerful',
@@ -48,12 +50,6 @@ export function CompleteTopbar() {
     })
   }, [search])
 
-  const buttons = [
-    { children: 'Filter', icon: <IconFilter /> },
-    { children: 'Import', icon: <IconImport /> },
-    { children: 'Export', icon: <IconExport /> },
-  ]
-
   return (
     <StatefulTable
       columns={[
@@ -81,31 +77,65 @@ export function CompleteTopbar() {
       )}
       length={tableSize}
     >
-      <StatefulTable.Topbar>
-        <Search
-          id="search"
-          placeholder="Search"
-          height="small"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value)
-          }}
-        />
-        <StatefulTable.Toolbar>
-          {buttons.map((button) => (
-            <StatefulTable.ToolbarButton {...button} />
-          ))}
-        </StatefulTable.Toolbar>
-        <FlexSpacer />
-        <Pagination
-          state={paginationState}
-          preposition="of"
-          subject="results"
-          prevLabel="Back"
-          nextLabel="Next"
-          total={items.length}
-        />
-      </StatefulTable.Topbar>
+      <StatefulTable.Actionbar>
+        {({ getButtonProps, getToolbarProps }) => (
+          <>
+            <Search
+              id="search"
+              placeholder="Search"
+              height="small"
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value)
+              }}
+            />
+            <Toolbar {...getToolbarProps()}>
+              <Toolbar.Item>
+                {(itemProps) => (
+                  <Button
+                    icon={<IconFilter />}
+                    {...getButtonProps()}
+                    {...itemProps}
+                  >
+                    Filter
+                  </Button>
+                )}
+              </Toolbar.Item>
+              <Toolbar.Item>
+                {(itemProps) => (
+                  <Button
+                    icon={<IconImport />}
+                    {...getButtonProps()}
+                    {...itemProps}
+                  >
+                    Import
+                  </Button>
+                )}
+              </Toolbar.Item>
+              <Toolbar.Item>
+                {(itemProps) => (
+                  <Button
+                    icon={<IconExport />}
+                    {...getButtonProps()}
+                    {...itemProps}
+                  >
+                    Export
+                  </Button>
+                )}
+              </Toolbar.Item>
+            </Toolbar>
+            <FlexSpacer />
+            <Pagination
+              state={paginationState}
+              preposition="of"
+              subject="results"
+              prevLabel="Back"
+              nextLabel="Next"
+              total={items.length}
+            />
+          </>
+        )}
+      </StatefulTable.Actionbar>
     </StatefulTable>
   )
 }
