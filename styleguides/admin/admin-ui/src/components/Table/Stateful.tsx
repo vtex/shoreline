@@ -89,7 +89,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
               {data.map((item) => (
                 <Table.Row
                   key={getRowKey(item) as string}
-                  onClick={onRowClick ? () => onRowClick(item) : undefined}
+                  onClick={typeof onRowClick === "function" ? () => onRowClick(item) : undefined}
                 >
                   {columns.map((column) => {
                     const content = resolveCell({
