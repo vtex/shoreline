@@ -20,11 +20,11 @@ export function HeadingLevels() {
   return (
     <>
       <Heading>Heading 1</Heading>
-      <Heading element="h2">Heading 2</Heading>
-      <Heading element="h3">Heading 3</Heading>
-      <Heading element="h4">Heading 4</Heading>
-      <Heading element="h5">Heading 5</Heading>
-      <Heading element="h6">Heading 6</Heading>
+      <Heading as="h2">Heading 2</Heading>
+      <Heading as="h3">Heading 3</Heading>
+      <Heading as="h4">Heading 4</Heading>
+      <Heading as="h5">Heading 5</Heading>
+      <Heading as="h6">Heading 6</Heading>
     </>
   )
 }

@@ -1,9 +1,8 @@
 // elements
 import button from './button'
-import divider from './divider'
 import tag from './tag'
-import anchor from './anchor'
 import alert from './alert'
+import divider from './divider'
 import { tab, tabList, tabContent } from './tabs'
 // data
 import table from './table'
@@ -42,11 +41,10 @@ export default {
   menu,
   modal,
   skeleton,
-  divider,
   collapsible,
   avatar,
   tag,
-  anchor,
+  divider,
   dropdown,
   textArea,
   numericStepper,
