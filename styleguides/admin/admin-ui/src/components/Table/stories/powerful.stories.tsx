@@ -78,51 +78,34 @@ export function CompleteTopbar() {
       length={tableSize}
     >
       <StatefulTable.ActionBar>
-        {({ buttonProps, toolbarProps, searchProps }) => (
-          <>
-            <Search
-              id="search"
-              placeholder="Search"
-              value={search}
-              onChange={(e) => {
-                setSearch(e.target.value)
-              }}
-              {...searchProps}
-            />
-            <Toolbar {...toolbarProps}>
-              <Toolbar.Item>
-                {(itemProps) => (
-                  <Button icon={<IconFilter />} {...buttonProps} {...itemProps}>
-                    Filter
-                  </Button>
-                )}
-              </Toolbar.Item>
-              <Toolbar.Item>
-                {(itemProps) => (
-                  <Button icon={<IconImport />} {...buttonProps} {...itemProps}>
-                    Import
-                  </Button>
-                )}
-              </Toolbar.Item>
-              <Toolbar.Item>
-                {(itemProps) => (
-                  <Button icon={<IconExport />} {...buttonProps} {...itemProps}>
-                    Export
-                  </Button>
-                )}
-              </Toolbar.Item>
-            </Toolbar>
-            <FlexSpacer />
-            <Pagination
-              state={paginationState}
-              preposition="of"
-              subject="results"
-              prevLabel="Back"
-              nextLabel="Next"
-              total={items.length}
-            />
-          </>
-        )}
+        <StatefulTable.Search
+          id="search"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value)
+          }}
+        />
+        <StatefulTable.Toolbar>
+          <StatefulTable.ToolbarButton icon={<IconFilter />}>
+            Filter
+          </StatefulTable.ToolbarButton>
+          <StatefulTable.ToolbarButton icon={<IconImport />}>
+            Import
+          </StatefulTable.ToolbarButton>
+          <StatefulTable.ToolbarButton icon={<IconExport />}>
+            Export
+          </StatefulTable.ToolbarButton>
+        </StatefulTable.Toolbar>
+        <FlexSpacer />
+        <Pagination
+          state={paginationState}
+          preposition="of"
+          subject="results"
+          prevLabel="Back"
+          nextLabel="Next"
+          total={items.length}
+        />
       </StatefulTable.ActionBar>
     </StatefulTable>
   )

@@ -7,7 +7,9 @@ import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
 import { Box } from '@vtex/admin-primitives'
+import { TableToolbar, TableToolbarButton } from './components/Toolbar'
 import { TableActionBar } from './components/ActionBar'
+import { TableSearch } from './components/Search'
 
 /**
  * Table used to show static & simple information
@@ -89,7 +91,11 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
               {data.map((item) => (
                 <Table.Row
                   key={getRowKey(item) as string}
-                  onClick={typeof onRowClick === "function" ? () => onRowClick(item) : undefined}
+                  onClick={
+                    typeof onRowClick === 'function'
+                      ? () => onRowClick(item)
+                      : undefined
+                  }
                 >
                   {columns.map((column) => {
                     const content = resolveCell({
@@ -114,7 +120,10 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
 }
 
 export const StatefulTable = Object.assign(_StatefulTable, {
+  Toolbar: TableToolbar,
   ActionBar: TableActionBar,
+  ToolbarButton: TableToolbarButton,
+  Search: TableSearch,
 })
 
 export interface StatefulTableProps<T>
