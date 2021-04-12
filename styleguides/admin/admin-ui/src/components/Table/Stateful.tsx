@@ -7,7 +7,7 @@ import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
 import { Box } from '@vtex/admin-primitives'
-import { TableActionbar } from './components/Actionbar'
+import { TableActionBar } from './components/ActionBar'
 
 /**
  * Table used to show static & simple information
@@ -114,7 +114,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
 }
 
 export const StatefulTable = Object.assign(_StatefulTable, {
-  Actionbar: TableActionbar,
+  ActionBar: TableActionBar,
 })
 
 export interface StatefulTableProps<T>

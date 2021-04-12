@@ -77,48 +77,36 @@ export function CompleteTopbar() {
       )}
       length={tableSize}
     >
-      <StatefulTable.Actionbar>
-        {({ getButtonProps, getToolbarProps }) => (
+      <StatefulTable.ActionBar>
+        {({ buttonProps, toolbarProps, searchProps }) => (
           <>
             <Search
               id="search"
               placeholder="Search"
-              height="small"
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value)
               }}
+              {...searchProps}
             />
-            <Toolbar {...getToolbarProps()}>
+            <Toolbar {...toolbarProps}>
               <Toolbar.Item>
                 {(itemProps) => (
-                  <Button
-                    icon={<IconFilter />}
-                    {...getButtonProps()}
-                    {...itemProps}
-                  >
+                  <Button icon={<IconFilter />} {...buttonProps} {...itemProps}>
                     Filter
                   </Button>
                 )}
               </Toolbar.Item>
               <Toolbar.Item>
                 {(itemProps) => (
-                  <Button
-                    icon={<IconImport />}
-                    {...getButtonProps()}
-                    {...itemProps}
-                  >
+                  <Button icon={<IconImport />} {...buttonProps} {...itemProps}>
                     Import
                   </Button>
                 )}
               </Toolbar.Item>
               <Toolbar.Item>
                 {(itemProps) => (
-                  <Button
-                    icon={<IconExport />}
-                    {...getButtonProps()}
-                    {...itemProps}
-                  >
+                  <Button icon={<IconExport />} {...buttonProps} {...itemProps}>
                     Export
                   </Button>
                 )}
@@ -135,7 +123,7 @@ export function CompleteTopbar() {
             />
           </>
         )}
-      </StatefulTable.Actionbar>
+      </StatefulTable.ActionBar>
     </StatefulTable>
   )
 }
