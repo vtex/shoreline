@@ -1,17 +1,16 @@
 import React from 'react'
-import { Box } from '@vtex/admin-primitives'
+import { Flex } from '@vtex/admin-primitives'
 import { IconTriangle } from '@vtex/admin-ui-icons'
 
 export function SortIndicator(props: SortIndicatorProps) {
   const { order } = props
 
   return (
-    <Box
+    <Flex
+      direction="column"
+      justify="center"
       csx={{
         margin: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
         minHeight: '0.75rem',
       }}
     >
@@ -44,7 +43,7 @@ export function SortIndicator(props: SortIndicatorProps) {
           direction="down"
         />
       )}
-    </Box>
+    </Flex>
   )
 }
 
