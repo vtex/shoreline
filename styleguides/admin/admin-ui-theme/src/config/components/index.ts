@@ -2,7 +2,6 @@
 import button from './button'
 import tag from './tag'
 import alert from './alert'
-import divider from './divider'
 import { tab, tabList, tabContent } from './tabs'
 // data
 import table from './table'
@@ -25,7 +24,6 @@ import modal from './modal'
 // layouts
 import skeleton from './skeleton'
 import collapsible from './collapsible'
-import avatar from './avatar'
 
 export default {
   button,
@@ -42,9 +40,7 @@ export default {
   modal,
   skeleton,
   collapsible,
-  avatar,
   tag,
-  divider,
   dropdown,
   textArea,
   numericStepper,

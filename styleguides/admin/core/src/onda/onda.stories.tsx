@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { Button as ReakitButton } from 'reakit'
+import { Button as ReakitButton, Separator } from 'reakit'
 
 import { onda } from './index'
 import { ThemeProvider } from '../core'
@@ -19,7 +19,7 @@ export function Plain() {
         csx={{
           bg: 'blue',
           color: 'light.primary',
-          marginTop: 2,
+          marginY: 2,
           size: 100,
         }}
       >
@@ -73,6 +73,7 @@ export function Themed() {
 export function Extend() {
   const Div = onda('div', {
     size: 100,
+    marginY: 1,
   })
 
   const NegativeDiv = onda(Div, {
@@ -82,6 +83,7 @@ export function Extend() {
 
   return (
     <ThemeProvider>
+      <Div>Normal div</Div>
       <NegativeDiv>Negative div</NegativeDiv>
       <NegativeDiv
         csx={{
@@ -426,6 +428,131 @@ export function WithReakit() {
       <Button color="red" appearance="outline">
         Outlined Red Button
       </Button>
+    </ThemeProvider>
+  )
+}
+
+export function OwnProps() {
+  const Divider = onda(
+    {
+      as: Separator,
+      ownProps: ['orientation'],
+    },
+    {
+      border: 'solid',
+      borderWidth: 1,
+      borderColor: 'mid.tertiary',
+      margin: 0,
+      variants: {
+        orientation: {
+          vertical: {
+            borderLeft: 0,
+            height: 'auto',
+          },
+          horizontal: {
+            borderBottom: 0,
+          },
+        },
+      },
+    }
+  )
+
+  Divider.defaultProps = {
+    orientation: 'horizontal',
+  }
+
+  const Div = onda('div')
+  const Heading = onda('h1')
+  const Paragraph = onda('p')
+
+  return (
+    <ThemeProvider>
+      <Div csx={{ width: 500, margin: 5 }}>
+        <Heading csx={{ marginBottom: 2 }}>Tolerance</Heading>
+        <Paragraph>
+          Allows orders to be placed even if they pass X% of the account`s
+          credit limit. Tolerance is set per account.
+        </Paragraph>
+        <Divider as="hr" orientation="horizontal" csx={{ marginY: 6 }} />
+        <Heading csx={{ marginBottom: 2 }}>Automatic account creation</Heading>
+        <Paragraph>
+          Allows users who have not been previously credited to close a
+          purchase.
+        </Paragraph>
+      </Div>
+      <Div
+        csx={{
+          display: 'flex',
+          width: 500,
+          justifyContent: 'center',
+          margin: 5,
+        }}
+      >
+        <Div csx={{ width: '1/2' }}>
+          <Heading csx={{ marginY: 2 }}>Cards</Heading>
+          <Paragraph>
+            In Cards, your customer is given autonomy to manage credit cards
+            related to his account, and can add, remove or edit credit card
+            data.
+          </Paragraph>
+        </Div>
+        <Divider orientation="vertical" csx={{ marginX: 6 }} />
+        <Div csx={{ width: '1/2' }}>
+          <Heading csx={{ marginY: 2 }}>Personal data</Heading>
+          <Paragraph>
+            In this section, the user can manage their personal data registered
+            on the store site.
+          </Paragraph>
+        </Div>
+      </Div>
+    </ThemeProvider>
+  )
+}
+
+export function UseHook() {
+  interface AvatarOwnProps {
+    label: string
+  }
+
+  const Avatar = onda(
+    {
+      as: 'div',
+      useHook: (ownProps: AvatarOwnProps) => {
+        return { children: ownProps.label.charAt(0) }
+      },
+      ownProps: ['label'],
+    },
+    {
+      size: 100,
+      borderRadius: 'circle',
+      margin: 1,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: 3,
+      variants: {
+        palette: {
+          blue: {
+            bg: 'blue',
+            color: 'light.primary',
+          },
+          red: {
+            bg: 'red',
+            color: 'light.primary',
+          },
+        },
+      },
+    }
+  )
+
+  Avatar.defaultProps = {
+    palette: 'blue',
+  }
+
+  return (
+    <ThemeProvider>
+      <Avatar label="Blue" />
+      <Avatar label="Red" palette="red" />
     </ThemeProvider>
   )
 }

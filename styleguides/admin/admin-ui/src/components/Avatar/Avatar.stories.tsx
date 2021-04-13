@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { Avatar, AvatarProps } from './index'
+import { Avatar, AvatarOwnProps } from './index'
 import { Set } from '../Set'
 
 export default {
@@ -9,7 +9,7 @@ export default {
   component: Avatar,
 } as Meta
 
-export const Playground: Story<AvatarProps> = (args) => {
+export const Playground: Story<AvatarOwnProps> = (args) => {
   return <Avatar {...args} />
 }
 

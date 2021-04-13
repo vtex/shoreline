@@ -1,7 +1,4 @@
-import { jsxs, createComponent } from '@vtex/admin-core'
-
-import { SystemComponent } from '../../types'
-import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
+import { onda } from '@vtex/admin-core'
 
 /**
  * Component to create a user avatar from a passed label
@@ -13,33 +10,52 @@ import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
  * <Avatar label="label" palette="danger" />
  * ```
  */
-export const Avatar = createComponent(Primitive, useAvatar)
-
-export function useAvatar(props: AvatarProps): PrimitiveProps<'div'> {
-  const { palette = 'base', label, csx, ...primitiveProps } = props
-
-  return {
-    csx: {
-      themeKey: {
-        avatar: {
-          palette,
+export const Avatar = onda(
+  {
+    as: 'div',
+    useHook: (ownProps: AvatarOwnProps) => {
+      return {
+        children: ownProps.label.charAt(0),
+      }
+    },
+    ownProps: ['label'],
+  },
+  {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 24,
+    height: 24,
+    padding: 2,
+    borderRadius: 'circle',
+    textTransform: 'uppercase',
+    text: 'highlight',
+    variants: {
+      palette: {
+        base: {
+          bg: 'dark.primary',
+          color: 'light.primary',
+        },
+        primary: {
+          bg: 'blue',
+          color: 'light.primary',
+        },
+        danger: {
+          bg: 'red',
+          color: 'light.primary',
         },
       },
-      ...csx,
     },
-    children: jsxs(Primitive, { csx: { text: 'highlight' } }, label?.charAt(0)),
-    ...primitiveProps,
   }
+)
+
+Avatar.defaultProps = {
+  palette: 'base',
 }
 
-export interface AvatarProps extends SystemComponent {
+export interface AvatarOwnProps {
   /**
    * String that will have its first letter capitalized
    */
   label: string
-  /**
-   * Avatar theme
-   * @default base
-   */
-  palette?: 'base' | 'primary' | 'danger'
 }
