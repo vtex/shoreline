@@ -22,7 +22,6 @@ import {
   UseSortReturn,
   useTableSort,
   UseTableSortParams,
-  SortDirections,
 } from './hooks/useTableSort'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
@@ -36,7 +35,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     },
     length = 5,
     items = [],
-    sort,
+    sort = {},
   } = params
 
   const sorting = useTableSort(sort)
@@ -60,14 +59,12 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const resolveCell = useCallback(
     (args: ResolverCallee<ResolveCellArgs<T>>) =>
       unstableResolveCell<T>({ ...args, resolvers, context }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [resolvers, context]
   )
 
   const resolveHeader = useCallback(
     (args: ResolverCallee<ResolveHeaderArgs<T>>) =>
       unstableResolveHeader<T>({ ...args, resolvers, context }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [resolvers, context]
   )
 
@@ -154,10 +151,6 @@ export interface UseTableParams<T> {
    * @default 5
    */
   length?: number
-  /**
-   * Defines sorting directions and their order
-   */
-  sortDirections?: SortDirections
   /**
    * Object used in sort hook
    */
