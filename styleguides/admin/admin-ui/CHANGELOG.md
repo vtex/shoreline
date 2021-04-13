@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.91.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.90.1...@vtex/admin-ui@0.91.0) (2021-04-13)
+
+
+### Bug Fixes
+
+* **table-toolbar:** change searchbar height value to rem ([5fdcd34](https://github.com/vtex/onda/commit/5fdcd345a37c7dc06a93380cefea257f8130406d))
+* **table-toolbar:** check onrowclick type ([cc78cae](https://github.com/vtex/onda/commit/cc78cae357b8698033bfbc895f5201c67fc74810))
+* **table-toolbar:** powerfultable prop coment typo ([19aa28c](https://github.com/vtex/onda/commit/19aa28cb766e80133fad8a86f04afbcb1581e2ec))
+* **table-toolbar:** remove console.log ([abf1293](https://github.com/vtex/onda/commit/abf129347df36d81eec9c05888699103c03989dc))
+* **table-toolbar:** remove table variant button ([2ff2bfc](https://github.com/vtex/onda/commit/2ff2bfc0a0df5ec2546652c5a52c3c34e5feac15))
+* **table-toolbar:** remove unused imports ([0c996d5](https://github.com/vtex/onda/commit/0c996d5eb8e6c6d7a27a68f92701b01f99c8d240))
+* **table-toolbar:** revert input id prop type ([a58af9c](https://github.com/vtex/onda/commit/a58af9c986d47a0a2d89f118eee05b67be082d9c))
+* **table-toolbar:** show filter button ([7692204](https://github.com/vtex/onda/commit/76922048562f5400b7302944eadf3e2a47dbdf7e))
+* **table-toolbar:** use adaptative-dark variant in pagination button ([d81cfec](https://github.com/vtex/onda/commit/d81cfecc326a523c4979ebdaeb93a1afc7698418))
+* **table-toolbar:** use rem value in search height ([a14ebe2](https://github.com/vtex/onda/commit/a14ebe2a0be421ebbbea6d188b095ba1ae36d602))
+* **talbe-toolbar:** remove unused types ([470e176](https://github.com/vtex/onda/commit/470e17668602848e9287e7e71da5b2cb035cf07a))
+
+
+### Features
+
+* **table-toolbar:** add clear to pagination action type ([beb2917](https://github.com/vtex/onda/commit/beb2917618f83992c658d798cf18882b5ed11500))
+* **table-toolbar:** add csx prop to Toolbar component ([68cced1](https://github.com/vtex/onda/commit/68cced17de8844c41fef538c0e3ce9ac7da4f5c2))
+* **table-toolbar:** add PowerfulTable story ([f44738d](https://github.com/vtex/onda/commit/f44738d35288c7c33c0c411147a9951324ceb658))
+* **table-toolbar:** add searchbar and buttons to table toolbar ([687fd44](https://github.com/vtex/onda/commit/687fd44c91a77e9bd18082081cb6d29824455cd1))
+* **table-toolbar:** add table functionalities to stories ([5b5945f](https://github.com/vtex/onda/commit/5b5945fb4b5f8b19c4af0d150c81a98241250d4b))
+* **table-toolbar:** add table variant to button ([4c874c5](https://github.com/vtex/onda/commit/4c874c57974ed91c387c39f481f5f3abc6d475ca))
+* **table-toolbar:** assign table toolbar button to table toolbar ([db30f32](https://github.com/vtex/onda/commit/db30f32f41272ea77eea05f8c8b490922d746bc2))
+* **table-toolbar:** create PowerfulTable component ([c5b54db](https://github.com/vtex/onda/commit/c5b54db2b7082c44c97c71555e2a70c997de1b54))
+
+
+
+
+
 ## [0.90.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.90.0...@vtex/admin-ui@0.90.1) (2021-04-08)
 
 **Note:** Version bump only for package @vtex/admin-ui
