@@ -74,7 +74,7 @@ export function CompleteTopbar() {
       )}
       length={tableSize}
     >
-      <StatefulTable.ActionBar>
+      <StatefulTable.Section>
         <StatefulTable.Search
           id="search"
           placeholder="Search"
@@ -103,7 +103,7 @@ export function CompleteTopbar() {
           nextLabel="Next"
           total={items.length}
         />
-      </StatefulTable.ActionBar>
+      </StatefulTable.Section>
     </StatefulTable>
   )
 }

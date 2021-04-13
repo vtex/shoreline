@@ -3,7 +3,7 @@ import { Toolbar, useToolbarState } from '../../Toolbar'
 import { Button, ButtonProps } from '../../Button'
 import { StyleObject } from 'styleguides/admin/styles/dist'
 
-export function TableToolbarButton(props: ButtonProps) {
+function TableToolbarButton(props: ButtonProps) {
   const { variant = 'adaptative-dark', size = 'small', ...buttonProps } = props
 
   return (
@@ -15,7 +15,7 @@ export function TableToolbarButton(props: ButtonProps) {
   )
 }
 
-export const _TableToolbar = forwardRef(function TableToolbar(
+const _TableToolbar = forwardRef(function TableToolbar(
   props: TableToolbarProps,
   ref: Ref<HTMLDivElement>
 ) {

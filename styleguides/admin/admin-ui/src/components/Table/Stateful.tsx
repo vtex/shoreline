@@ -7,8 +7,8 @@ import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
 import { Box } from '@vtex/admin-primitives'
-import { TableToolbar, TableToolbarButton } from './components/Toolbar'
-import { TableActionBar } from './components/ActionBar'
+import { TableToolbar } from './components/Toolbar'
+import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
 
 /**
@@ -121,8 +121,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
 
 export const StatefulTable = Object.assign(_StatefulTable, {
   Toolbar: TableToolbar,
-  ActionBar: TableActionBar,
-  ToolbarButton: TableToolbarButton,
+  Section: TableSection,
   Search: TableSearch,
 })
 
