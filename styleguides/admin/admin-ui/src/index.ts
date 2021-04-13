@@ -1,6 +1,7 @@
 export * from '@vtex/admin-core'
 export * from '@vtex/admin-primitives'
 export * from '@vtex/admin-ui-icons'
+export * from '@vtex/admin-illustrations'
 export * from './components/Skeleton'
 export * from './components/Label'
 export * from './components/Menu'

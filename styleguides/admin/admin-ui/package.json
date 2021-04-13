@@ -50,6 +50,7 @@
     "@vtex/admin-core": "^0.10.6",
     "@vtex/admin-primitives": "^0.4.1",
     "@vtex/admin-ui-icons": "^0.10.6",
+    "@vtex/admin-illustrations": "*",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
     "downshift": "^6.0.6",
