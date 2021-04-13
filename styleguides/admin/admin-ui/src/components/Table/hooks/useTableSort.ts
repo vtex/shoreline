@@ -42,7 +42,7 @@ export function useTableSort<T>(params: UseTableSortParams<T>) {
   )
 
   function clear() {
-    dispatch({ type: 'CLEAR' })
+    dispatch({ type: 'RESET' })
   }
 
   return { sortState, sort, clear, resolveSorting }
@@ -58,7 +58,7 @@ function sortReducer(state: SortState, action: SortAction) {
         order: action.type,
       }
     }
-    case 'CLEAR': {
+    case 'RESET': {
       return clearState
     }
     default:
@@ -78,7 +78,7 @@ function defaultSortCallback<T>({
   } else if (order === sortDirections[0] && sortDirections[1]) {
     dispatch({ type: sortDirections[1], payload: { id: columnId } })
   } else {
-    dispatch({ type: 'CLEAR' })
+    dispatch({ type: 'RESET' })
   }
 }
 
@@ -92,7 +92,7 @@ export interface SortState {
 }
 
 export interface SortAction {
-  type: SortOrder | 'CLEAR'
+  type: SortOrder | 'RESET'
   payload?: {
     id: string | number | symbol
   }
@@ -125,5 +125,5 @@ export interface ManualSort<T> {
 
 export interface OnSortParams {
   columnId: string | number | symbol
-  sortAction: SortOrder | 'CLEAR'
+  sortAction: SortOrder | 'RESET'
 }

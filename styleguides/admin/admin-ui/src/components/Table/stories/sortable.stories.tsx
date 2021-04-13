@@ -4,7 +4,7 @@ import faker from 'faker'
 
 import { StatefulTable } from '../index'
 import { Column } from '../typings'
-import { SortState, SortAction, ManualSortParams } from '../hooks/useTableSort'
+import { SortState, SortAction } from '../hooks/useTableSort'
 
 export default {
   title: 'experimental/Table/Sort',
@@ -34,7 +34,7 @@ const itemsCompareFn: Record<
 }
 
 function getItems(
-  direction?: 'ASC' | 'DSC' | 'CLEAR',
+  direction?: 'ASC' | 'DSC' | 'RESET',
   by?: keyof Item
 ): Promise<Item[]> {
   return new Promise((resolve) => {
@@ -66,7 +66,7 @@ function getItems(
             price: '285.0',
           },
         ].sort(
-          direction && direction !== 'CLEAR' && by
+          direction && direction !== 'RESET' && by
             ? (a, b) => {
                 if (direction === 'ASC') {
                   return itemsCompareFn[by]?.(a, b) ?? 0

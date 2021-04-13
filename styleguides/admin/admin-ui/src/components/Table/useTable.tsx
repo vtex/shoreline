@@ -22,6 +22,7 @@ import {
   UseSortReturn,
   useTableSort,
   UseTableSortParams,
+  SortDirections,
 } from './hooks/useTableSort'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
@@ -158,8 +159,11 @@ export interface UseTableParams<T> {
   /**
    * Defines sorting directions and their order
    */
-
-  sort: UseTableSortParams<T>
+  sortDirections?: SortDirections
+  /**
+   * Object used in sort hook
+   */
+  sort?: UseTableSortParams<T>
 }
 
 export interface UseTableReturn<T> {
