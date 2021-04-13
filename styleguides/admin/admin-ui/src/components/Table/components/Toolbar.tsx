@@ -15,7 +15,7 @@ export function TableToolbarButton(props: ButtonProps) {
   )
 }
 
-export const TableToolbar = forwardRef(function TableToolbar(
+export const _TableToolbar = forwardRef(function TableToolbar(
   props: TableToolbarProps,
   ref: Ref<HTMLDivElement>
 ) {
@@ -28,6 +28,10 @@ export const TableToolbar = forwardRef(function TableToolbar(
       {children}
     </Toolbar>
   )
+})
+
+export const TableToolbar = Object.assign(_TableToolbar, {
+  Button: TableToolbarButton,
 })
 
 export interface TableToolbarProps {
