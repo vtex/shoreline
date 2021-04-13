@@ -8,6 +8,7 @@
   paths:
     - /core-concepts/icons/
     - /core-concepts/csx-prop/
+    - /core-concepts/onda-factory/
 - section: Theming
   paths:
     - /theming/default-theme/
