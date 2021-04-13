@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '../Box'
+import { Box } from '@vtex/admin-primitives'
 import { IconTriangle } from '@vtex/admin-ui-icons'
 
 export function SortIndicator(props: Props) {
@@ -7,7 +7,7 @@ export function SortIndicator(props: Props) {
 
   return (
     <Box
-      styles={{
+      csx={{
         margin: 1,
         display: 'flex',
         flexDirection: 'column',
@@ -17,7 +17,7 @@ export function SortIndicator(props: Props) {
     >
       {order !== 'DSC' && (
         <IconTriangle
-          styleOverrides={{
+          csx={{
             width: '6px',
             height: '5px',
             minHeight: '5px',
@@ -31,7 +31,7 @@ export function SortIndicator(props: Props) {
       )}
       {order !== 'ASC' && (
         <IconTriangle
-          styleOverrides={{
+          csx={{
             width: '6px',
             height: '5px',
             minHeight: '5px',

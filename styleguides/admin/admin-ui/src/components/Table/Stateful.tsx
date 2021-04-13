@@ -46,10 +46,10 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     resolvers,
     density = 'regular',
     dir = 'ltr',
-    csx,
     length = 5,
     onRowClick,
     children,
+    csx = {},
   } = props
 
   const context: ResolverContext = useMemo(
@@ -97,7 +97,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
                       onClick={() => sorting.sort(column.id)}
                     >
                       <Box
-                        styles={{
+                        csx={{
                           display: 'flex',
                           alignItems: 'center',
                           cursor: isSortable ? 'pointer' : undefined,
