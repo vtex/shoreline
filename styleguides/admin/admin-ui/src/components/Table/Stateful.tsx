@@ -50,9 +50,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     onRowClick,
     children,
     csx = {},
-    sortDirections,
-    sortInitialValue,
-    manualSort,
+    sort,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -70,9 +68,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     resolvers,
     context,
     items,
-    manualSort,
-    sortDirections,
-    sortInitialValue,
+    sort,
   })
 
   return (

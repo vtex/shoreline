@@ -21,9 +21,7 @@ import { SelectionProvider } from './resolvers/selection'
 import {
   UseSortReturn,
   useTableSort,
-  SortDirections,
-  SortState,
-  ManualSort,
+  UseTableSortParams,
 } from './hooks/useTableSort'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
@@ -37,16 +35,11 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     },
     length = 5,
     items = [],
-    sortDirections,
-    sortInitialValue,
-    manualSort,
+    sort,
   } = params
 
   const sorting = useTableSort({
-    initialState: sortInitialValue,
-    sortDirections,
-    reducer: manualSort?.reducer,
-    manualSort: manualSort?.sort,
+    ...sort,
   })
 
   const skeletonCollection = useMemo<T[]>(() => {
@@ -165,15 +158,8 @@ export interface UseTableParams<T> {
   /**
    * Defines sorting directions and their order
    */
-  sortDirections?: SortDirections
-  /**
-   * Defines sort initial state
-   */
-  sortInitialValue?: Partial<SortState>
-  /**
-   * Object that allows users to pass reducer and sort function for inversion of control
-   */
-  manualSort?: ManualSort<T>
+
+  sort: UseTableSortParams<T>
 }
 
 export interface UseTableReturn<T> {

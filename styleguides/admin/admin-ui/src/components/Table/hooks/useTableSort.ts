@@ -7,7 +7,7 @@ const clearState: SortState = {
 
 export function useTableSort<T>(params: UseTableSortParams<T>) {
   const {
-    initialState,
+    sortInitialValue,
     sortDirections = ['ASC', 'DSC'],
     reducer = sortReducer,
     manualSort: sortCallback = defaultSortCallback,
@@ -15,7 +15,7 @@ export function useTableSort<T>(params: UseTableSortParams<T>) {
 
   const [sortState, dispatch] = useReducer(reducer, {
     ...clearState,
-    ...initialState,
+    ...sortInitialValue,
   })
 
   const sort = useCallback(
@@ -105,8 +105,8 @@ export interface SortCallbackParams<T> {
   sortDirections: SortDirections
 }
 
-interface UseTableSortParams<T> {
-  initialState?: Partial<SortState>
+export interface UseTableSortParams<T> {
+  sortInitialValue?: Partial<SortState>
   sortDirections?: SortDirections
   reducer?(state: SortState, action: SortAction): SortState
   manualSort?(params: SortCallbackParams<T>): void
