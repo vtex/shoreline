@@ -5,9 +5,6 @@ import { StatefulTable } from '../Stateful'
 import { IconExport, IconImport, IconFilter } from '@vtex/admin-ui-icons'
 import { Pagination, usePaginationState } from '../../Pagination'
 import { FlexSpacer } from '@vtex/admin-primitives'
-import { Search } from '../../Search'
-import { Toolbar } from '../../Toolbar'
-import { Button } from '../../Button'
 
 export default {
   title: 'admin-ui/Table/Powerful',
@@ -87,15 +84,15 @@ export function CompleteTopbar() {
           }}
         />
         <StatefulTable.Toolbar>
-          <StatefulTable.ToolbarButton icon={<IconFilter />}>
+          <StatefulTable.Toolbar.Button icon={<IconFilter />}>
             Filter
-          </StatefulTable.ToolbarButton>
-          <StatefulTable.ToolbarButton icon={<IconImport />}>
+          </StatefulTable.Toolbar.Button>
+          <StatefulTable.Toolbar.Button icon={<IconImport />}>
             Import
-          </StatefulTable.ToolbarButton>
-          <StatefulTable.ToolbarButton icon={<IconExport />}>
+          </StatefulTable.Toolbar.Button>
+          <StatefulTable.Toolbar.Button icon={<IconExport />}>
             Export
-          </StatefulTable.ToolbarButton>
+          </StatefulTable.Toolbar.Button>
         </StatefulTable.Toolbar>
         <FlexSpacer />
         <Pagination
