@@ -37,7 +37,7 @@ export function CompleteTopbar() {
 
   const filteredItems: Item[] = useMemo(() => {
     return items.filter((item) => {
-      paginationState.paginate('clear')
+      paginationState.paginate('reset')
 
       return (
         item.name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1 ||

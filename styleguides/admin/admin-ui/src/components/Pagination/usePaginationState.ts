@@ -17,7 +17,7 @@ export function usePaginationState(
   })
 
   const paginate = useCallback(
-    (type: 'next' | 'prev' | 'clear') => {
+    (type: PaginationActionType) => {
       paginationCallback({ type, dispatch, size, state })
     },
     [size, dispatch, paginationCallback]
@@ -51,7 +51,7 @@ function reducer(
         range: [state.range[0] - action.tableSize, state.range[0] - 1],
       }
     }
-    case 'clear': {
+    case 'reset': {
       return {
         ...state,
         currentPage: 1,
@@ -63,7 +63,7 @@ function reducer(
   }
 }
 
-type PaginationActionType = 'next' | 'prev' | 'clear'
+export type PaginationActionType = 'next' | 'prev' | 'reset'
 
 export interface PaginateParams {
   type: PaginationActionType
