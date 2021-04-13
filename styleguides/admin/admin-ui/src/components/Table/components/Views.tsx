@@ -1,7 +1,5 @@
 import React, { PropsWithChildren } from 'react'
-import { TableStates as TableStatesProps } from '../context'
 import { Box, Grid, Flex } from '@vtex/admin-primitives'
-import { Text } from '../../Text'
 
 const ilustrations = {
   notFoundItems: (
@@ -301,11 +299,11 @@ const ilustrations = {
   ),
 }
 
-export function TableStates({
+export function TableViews({
+  illustration,
   children,
-  state,
-}: PropsWithChildren<TableStatesProps>) {
-  return state ? (
+}: PropsWithChildren<TableViewsProps>) {
+  return (
     <Grid
       csx={{ bg: '#F8F9FA', borderRadius: '4px', paddingY: '5rem' }}
       templateColumns="repeat(3, 1fr)"
@@ -313,19 +311,26 @@ export function TableStates({
     >
       <Grid.Item area="item-2" csx={{ justifySelf: 'center' }}>
         <Flex direction="column">
-          <Box csx={{ marginLeft: '-1.8rem' }}>{ilustrations[state]}</Box>
-          <Flex direction="column" csx={{ marginY: 5 }}>
-            <Text variant="subtitle">
-              No product match your search criteria
-            </Text>
-            <Text variant="body" feedback="secondary">
-              Please, search for a different term
-            </Text>
-          </Flex>
+          <Box csx={{ marginLeft: '-1.8rem', marginY: 5 }}>{illustration}</Box>
+          {children}
         </Flex>
       </Grid.Item>
     </Grid>
-  ) : (
-    children
   )
 }
+
+export interface TableViewsProps {
+  illustration?: JSX.Element
+  children?: JSX.Element
+}
+
+/**
+  <Flex direction="column" >
+      <Text variant="subtitle">
+        No product match your search criteria
+      </Text>
+      <Text variant="body" feedback="secondary">
+        Please, search for a different term
+      </Text>
+    </Flex>
+ */
