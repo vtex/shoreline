@@ -39,9 +39,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     sort,
   } = params
 
-  const sorting = useTableSort({
-    ...sort,
-  })
+  const sorting = useTableSort(sort)
 
   const skeletonCollection = useMemo<T[]>(() => {
     return [...Array(length).keys()].map((id) => {
