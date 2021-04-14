@@ -1,4 +1,4 @@
-import { createComponent, jsxs } from '@vtex/admin-core'
+import { createComponent, jsxs, StyleObject } from '@vtex/admin-core'
 import { IconSearch } from '@vtex/admin-ui-icons'
 
 import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
@@ -12,13 +12,19 @@ import { Spinner } from '../Spinner'
 
 export const Search = createComponent(Primitive, useSearch)
 
+const iconCsx = {
+  color: 'dark.primary',
+  margin: '0.625rem 0.25rem 0 0.5rem',
+  top: 0,
+}
+
 export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
   const {
     id,
     placeholder,
     onSubmit,
     loading,
-    height = 'regular',
+    wrappingFormCSX = {},
     csx = {},
     ...inputProps
   } = props
@@ -32,32 +38,17 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
     element: 'form',
     role: 'search',
     onSubmit: handleSubmit,
+    csx: wrappingFormCSX,
     children: [
       jsxs(VisuallyHidden, {}, jsxs(Label, { htmlFor: id }, placeholder)),
       jsxs(AbstractInput, {
         id,
         placeholder,
-        icon: loading
-          ? jsxs(Spinner, {})
-          : jsxs(IconSearch, {
-              csx: {
-                color: 'blue',
-                ...(height === 'small'
-                  ? {
-                      margin: '0.375rem 0 0.376rem 0.5rem',
-                      top: 0,
-                    }
-                  : {}),
-              },
-            }),
+        icon: jsxs(loading ? Spinner : IconSearch, { csx: iconCsx }),
         csx: {
-          ...(height === 'small'
-            ? {
-                height: '2rem',
-                padding: '0.4375rem 0.25rem 0.4375rem 2rem',
-                margin: 0,
-              }
-            : {}),
+          height: '2.5rem',
+          padding: '0.4375rem 0.25rem 0.4375rem 2rem',
+          margin: 0,
           ...csx,
         },
         ...inputProps,
@@ -81,8 +72,6 @@ export interface SearchProps extends SystemComponentProps<SearchOwnProps> {
   placeholder: string
   /** action to perform on submit */
   onSubmit?: () => void
-  /** Size of the button
-   * @default regular
-   */
-  height?: 'small' | 'regular'
+  /** style object for form wrapping search input */
+  wrappingFormCSX?: StyleObject
 }
