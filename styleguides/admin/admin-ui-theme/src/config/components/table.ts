@@ -43,6 +43,7 @@ const styles = {
   cell: {
     flex: 1,
     borderBottomWidth: 1,
+    fontSize: 1,
     borderBottomStyle: 'solid',
     borderBottomColor: 'mid.tertiary',
     display: 'table-cell',
