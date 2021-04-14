@@ -24,7 +24,12 @@ const _TableToolbar = forwardRef(function TableToolbar(
   const toolbarState = useToolbarState({ loop: true })
 
   return (
-    <Toolbar state={toolbarState} ref={ref} csx={{ padding: 0, ...csx }}>
+    <Toolbar
+      spacing={0}
+      state={toolbarState}
+      ref={ref}
+      csx={{ padding: 0, ...csx }}
+    >
       {children}
     </Toolbar>
   )

@@ -12,12 +12,12 @@ const _Toolbar = forwardRef(function Toolbar(
   props: ToolbarProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { children, state, csx = {}, ...rest } = props
+  const { children, spacing = 3, state, csx = {}, ...rest } = props
 
   return (
     <ReakitToolbar {...state}>
       <ToolbarContext.Provider value={state}>
-        <Set spacing={3} csx={csx} {...rest} ref={ref}>
+        <Set spacing={spacing} csx={csx} {...rest} ref={ref}>
           {children}
         </Set>
       </ToolbarContext.Provider>
@@ -155,6 +155,10 @@ export interface ToolbarProps extends SetProps {
    * Allows accessible navigation
    */
   state: ToolbarState
+  /**
+   * Set spacing prop
+   */
+  spacing?: number | undefined
 }
 
 export { useToolbarState, ToolbarState }
