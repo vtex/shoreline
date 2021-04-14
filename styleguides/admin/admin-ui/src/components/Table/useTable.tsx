@@ -68,7 +68,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
         ...args,
         resolvers,
         context,
-        sortState: { by: sortState.by, order: sortState.order },
+        sortState,
       }),
     [resolvers, context, sortState.by, sortState.order]
   )
