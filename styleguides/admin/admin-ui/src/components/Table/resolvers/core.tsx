@@ -86,7 +86,7 @@ export type ResolveHeaderArgs<T> = {
   resolvers: Record<string, Resolver<T>>
   context: ResolverContext
   items: T[]
-  sortState: SortState
+  sortState?: SortState
 }
 
 export type ResolveHeaderReturn = {
@@ -103,7 +103,7 @@ export type ResolveHeaderReturn = {
 export function resolveHeader<T>(
   args: ResolveHeaderArgs<T>
 ): ResolveHeaderReturn {
-  const { column, resolvers, context, items, sortState } = args
+  const { column, resolvers, context, items, sortState = {} } = args
 
   const id = get(column, 'resolver.type', 'plain')
 
