@@ -27,7 +27,7 @@ export const HamburgerMenu = ({ children, sx }: PropsWithChildren<SxProps>) => {
       </Disclosure>
       <DisclosureContent
         {...disclosure}
-        sx={{ ...sx, variant: 'hamburgerMenu.open' }}
+        sx={{ variant: 'hamburgerMenu.open', ...sx }}
       >
         {children}
       </DisclosureContent>
