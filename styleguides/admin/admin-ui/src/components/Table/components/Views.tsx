@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react'
-import { Box, Grid, Flex } from '@vtex/admin-primitives'
+import { Box, Flex } from '@vtex/admin-primitives'
 import { useViewContext, TableViewState } from '../context'
 import { Anchor, AnchorProps } from '../../Anchor'
 import { Text } from '../../Text'
@@ -312,18 +312,26 @@ export function TableViews({
   children,
 }: PropsWithChildren<TableViewsProps>) {
   return (
-    <Grid
-      csx={{ bg: '#F8F9FA', borderRadius: '4px', paddingY: '5rem' }}
-      templateColumns="repeat(3, 1fr)"
-      templateAreas={['item-1 item-2 item-3']}
+    <Flex
+      justify="center"
+      csx={{
+        bg: '#F8F9FA',
+        borderRadius: '4px',
+        paddingY: '8rem',
+        overflow: 'auto',
+        width: 'full',
+      }}
     >
-      <Grid.Item area="item-2" csx={{ justifySelf: 'center' }}>
-        <Flex direction="column">
-          <Box csx={{ marginLeft: '-1.7rem', marginY: 5 }}>{illustration}</Box>
-          {children}
-        </Flex>
-      </Grid.Item>
-    </Grid>
+      <Flex
+        direction="column"
+        justify="center"
+        csx={{ width: '300px' }}
+        wrap="wrap"
+      >
+        <Box csx={{ marginLeft: '-1.7rem', marginY: 5 }}>{illustration}</Box>
+        {children}
+      </Flex>
+    </Flex>
   )
 }
 
