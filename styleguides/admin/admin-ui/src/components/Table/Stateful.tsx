@@ -100,6 +100,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
                         styles={{
                           display: 'flex',
                           alignItems: 'center',
+                          cursor: isSortable ? 'pointer' : undefined,
                         }}
                       >
                         {content} {suffix}
