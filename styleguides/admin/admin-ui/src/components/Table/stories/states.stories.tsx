@@ -128,7 +128,7 @@ export function DataFetch() {
   )
 }
 
-export function Empty() {
+export function Views() {
   const [tableState, setTableState] = useState<keyof TableViewState>()
 
   return (

@@ -403,14 +403,3 @@ export type TableViewsType = Omit<
   Record<keyof TableViewState, TableView>,
   'loading'
 >
-
-/**
-  <Flex direction="column" >
-      <Text variant="subtitle">
-        No product match your search criteria
-      </Text>
-      <Text variant="body" feedback="secondary">
-        Please, search for a different term
-      </Text>
-    </Flex>
- */
