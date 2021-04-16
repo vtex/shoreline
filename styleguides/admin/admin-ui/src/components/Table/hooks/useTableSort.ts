@@ -10,10 +10,10 @@ export function useTableSort<T>(params: UseTableSortParams<T>) {
     initialValue,
     directions = ['ASC', 'DSC'],
     reducer = sortReducer,
-    manual: sortCallback = defaultSortCallback,
+    sortCallback = defaultSortCallback,
   } = params
 
-  const [sortState, dispatch] = useReducer(reducer, {
+  const [state, dispatch] = useReducer(reducer, {
     ...clearState,
     ...initialValue,
   })
@@ -22,30 +22,26 @@ export function useTableSort<T>(params: UseTableSortParams<T>) {
     (id: keyof T) => {
       sortCallback({
         columnId: id,
-        currentSortState: sortState,
+        currentSortState: state,
         dispatch,
         directions,
       })
     },
-    [sortState, dispatch, sortCallback, directions]
+    [state, dispatch, sortCallback, directions]
   )
 
   const resolveSorting = useCallback(
     (compareResult: number) => {
-      if (sortState.order === directions[0]) {
+      if (state.order === directions[0]) {
         return compareResult
       }
 
       return compareResult * -1
     },
-    [directions, sortState.order]
+    [directions, state.order]
   )
 
-  function clear() {
-    dispatch({ type: 'RESET' })
-  }
-
-  return { sortState, sort, clear, resolveSorting }
+  return { ...state, sort, resolveSorting }
 }
 
 function sortReducer(state: SortState, action: SortAction) {
@@ -82,7 +78,7 @@ function defaultSortCallback<T>({
   }
 }
 
-type SortOrder = 'ASC' | 'DSC'
+export type SortOrder = 'ASC' | 'DSC'
 
 export type SortDirections = ['ASC', 'DSC'] | ['DSC', 'ASC'] | ['ASC' | 'DSC']
 
@@ -109,21 +105,9 @@ export interface UseTableSortParams<T> {
   initialValue?: Partial<SortState>
   directions?: SortDirections
   reducer?(state: SortState, action: SortAction): SortState
-  manual?(params: SortCallbackParams<T>): void
+  sortCallback?(params: SortCallbackParams<T>): void
 }
 
-export interface UseSortReturn {
-  sortState: SortState
+export interface UseSortReturn extends SortState {
   sort(id: string | number | symbol): void
-  clear(): void
-}
-
-export interface ManualSort<T> {
-  reducer?(state: SortState, action: SortAction): SortState
-  sort?(params: SortCallbackParams<T>): void
-}
-
-export interface OnSortParams {
-  columnId: string | number | symbol
-  sortAction: SortOrder | 'RESET'
 }

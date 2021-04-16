@@ -10,7 +10,6 @@ import { Box } from '@vtex/admin-primitives'
 import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
-import { SortIndicator } from './components/SortIndicator'
 
 /**
  * Table used to show static & simple information
@@ -62,7 +61,13 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     [density, loading, dir]
   )
 
-  const { data, resolveCell, resolveHeader, Providers, sorting } = useTable<T>({
+  const {
+    data,
+    resolveCell,
+    resolveHeader,
+    Providers,
+    sortState,
+  } = useTable<T>({
     length,
     columns,
     resolvers,
@@ -80,34 +85,18 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
             <Table.Head>
               <Table.Row>
                 {columns.map((column) => {
-                  const content = resolveHeader({ column, items: data })
-                  const isSortable =
-                    Boolean(column.compare) || Boolean(column.sortable)
-                  const suffix = isSortable ? (
-                    <SortIndicator
-                      order={
-                        sorting.sortState.by === column.id
-                          ? sorting.sortState.order
-                          : null
-                      }
-                    />
-                  ) : null
+                  const content = resolveHeader({
+                    column,
+                    items: data,
+                  })
 
                   return (
                     <Table.Cell
                       key={column.id as string}
                       column={column}
-                      onClick={() => sorting.sort(column.id)}
+                      onClick={() => sortState.sort(column.id)}
                     >
-                      <Box
-                        csx={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          cursor: isSortable ? 'pointer' : undefined,
-                        }}
-                      >
-                        {content} {suffix}
-                      </Box>
+                      {content}
                     </Table.Cell>
                   )
                 })}

@@ -6,6 +6,9 @@ import warning from 'tiny-warning'
 import { get } from '@vtex/admin-core'
 
 import { Column, TableDensity, TableDir } from '../typings'
+import { SortIndicator } from '../components/SortIndicator'
+import { SortState } from '../hooks/useTableSort'
+import { Flex } from '@vtex/admin-primitives'
 
 /**
  * Used to recursive define resolver
@@ -85,6 +88,7 @@ export type ResolveHeaderArgs<T> = {
   resolvers: Record<string, Resolver<T>>
   context: ResolverContext
   items: T[]
+  sortState: SortState
 }
 
 /**
@@ -93,15 +97,34 @@ export type ResolveHeaderArgs<T> = {
  * @param resolvers
  */
 export function resolveHeader<T>(args: ResolveHeaderArgs<T>) {
-  const { column, resolvers, context, items } = args
+  const { column, resolvers, context, items, sortState } = args
 
   const id = get(column, 'resolver.type', 'plain')
 
   const { header } = resolvers[id]
 
-  return header
-    ? header({ getData: () => accessHeader(column), context, items, column })
+  const isSortable = Boolean(column.compare) || Boolean(column.sortable)
+
+  const content = header
+    ? header({
+        getData: () => accessHeader(column),
+        context,
+        items,
+        column,
+      })
     : accessHeader(column)
+
+  if (isSortable)
+    return (
+      <Flex align="center">
+        {content}
+        <SortIndicator
+          order={sortState.by === column.id ? sortState.order : null}
+        />
+      </Flex>
+    )
+
+  return content
 }
 
 export type ResolveCellArgs<T> = {

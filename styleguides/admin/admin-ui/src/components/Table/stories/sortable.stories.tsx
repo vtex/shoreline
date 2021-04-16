@@ -4,7 +4,12 @@ import faker from 'faker'
 
 import { StatefulTable } from '../index'
 import { Column } from '../typings'
-import { SortState, SortAction } from '../hooks/useTableSort'
+import {
+  SortState,
+  SortAction,
+  SortOrder,
+  SortCallbackParams,
+} from '../hooks/useTableSort'
 
 export default {
   title: 'experimental/Table/Sort',
@@ -167,7 +172,11 @@ export function SortDirections() {
   ]
 
   return (
-    <StatefulTable columns={columns} items={items} sortDirections={['ASC']} />
+    <StatefulTable
+      columns={columns}
+      items={items}
+      sort={{ directions: ['ASC'] }}
+    />
   )
 }
 
@@ -215,8 +224,10 @@ export function SortInitialState() {
     <StatefulTable
       columns={columns}
       items={items}
-      sortDirections={['ASC', 'DSC']}
-      sortInitialValue={{ by: 'price', order: 'DSC' }}
+      sort={{
+        directions: ['ASC', 'DSC'],
+        initialValue: { by: 'price', order: 'DSC' },
+      }}
     />
   )
 }
@@ -226,10 +237,7 @@ export function CustomSort() {
   const [sortIterator, setSortIterator] = useState(0)
   const [loading, setLoading] = useState(false)
 
-  async function fetchItems(
-    direction?: 'ASC' | 'DSC' | 'CLEAR',
-    by?: keyof Item
-  ) {
+  async function fetchItems(direction?: SortOrder | 'RESET', by?: keyof Item) {
     setLoading(true)
     const fetchedItems = await getItems(direction, by)
 
@@ -238,7 +246,7 @@ export function CustomSort() {
   }
 
   useEffect(() => {
-    fetchItems('CLEAR')
+    fetchItems('RESET')
   }, [])
 
   function reducer(sortState: SortState, sortAction: SortAction) {
@@ -257,7 +265,7 @@ export function CustomSort() {
           order: sortAction.type,
         }
       }
-      case 'CLEAR': {
+      case 'RESET': {
         return {
           by: undefined,
           order: undefined,
@@ -268,13 +276,13 @@ export function CustomSort() {
     }
   }
 
-  async function sort({ columnId, dispatch }: ManualSortParams<Item>) {
+  async function sort({ columnId, dispatch }: SortCallbackParams<Item>) {
     setLoading(true)
 
     const type = !(sortIterator % 2)
       ? 'DSC'
       : !(sortIterator % 3)
-      ? 'CLEAR'
+      ? 'RESET'
       : 'ASC'
 
     await fetchItems(type, columnId)
@@ -312,11 +320,7 @@ export function CustomSort() {
       columns={columns}
       items={items}
       loading={loading}
-      sortDirections={['ASC', 'DSC']}
-      manualSort={{
-        reducer,
-        sort,
-      }}
+      sort={{ directions: ['ASC', 'DSC'], reducer, sortCallback: sort }}
     />
   )
 }

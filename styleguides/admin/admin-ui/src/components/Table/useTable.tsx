@@ -38,7 +38,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     sort = {},
   } = params
 
-  const sorting = useTableSort(sort)
+  const sortState = useTableSort(sort)
 
   const skeletonCollection = useMemo<T[]>(() => {
     return [...Array(length).keys()].map((id) => {
@@ -64,8 +64,13 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
 
   const resolveHeader = useCallback(
     (args: ResolverCallee<ResolveHeaderArgs<T>>) =>
-      unstableResolveHeader<T>({ ...args, resolvers, context }),
-    [resolvers, context]
+      unstableResolveHeader<T>({
+        ...args,
+        resolvers,
+        context,
+        sortState: { by: sortState.by, order: sortState.order },
+      }),
+    [resolvers, context, sortState.by, sortState.order]
   )
 
   const data = useMemo(() => {
@@ -73,17 +78,15 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
       return skeletonCollection
     }
 
-    if (sorting.sortState.by && sorting.sortState.order) {
-      const column = columns.find(
-        (column) => column.id === sorting.sortState.by
-      )
+    if (sortState.by && sortState.order) {
+      const column = columns.find((column) => column.id === sortState.by)
 
       if (column && column.compare) {
         const itemsCopy = items.slice()
 
         return itemsCopy.sort((a, b) => {
           if (column.compare) {
-            return sorting.resolveSorting(column.compare(a, b))
+            return sortState.resolveSorting(column.compare(a, b))
           }
 
           return 0
@@ -96,8 +99,8 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     items,
     context.loading,
     skeletonCollection,
-    sorting.sortState.by,
-    sorting.sortState.order,
+    sortState.by,
+    sortState.order,
     columns,
   ])
 
@@ -123,7 +126,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     data,
     columns,
     Providers,
-    sorting,
+    sortState,
   }
 }
 
@@ -164,7 +167,7 @@ export interface UseTableReturn<T> {
   data: T[]
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
-  sorting: UseSortReturn
+  sortState: UseSortReturn
 }
 
-type ResolverCallee<T> = Omit<T, 'resolvers' | 'context'>
+type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
