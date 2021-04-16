@@ -18,7 +18,7 @@ import {
 import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
 import { SelectionProvider } from './resolvers/selection'
-import { Sort, useTableSort } from './useTableSort'
+import { Sort, useTableSort } from './hooks/useTableSort'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const {

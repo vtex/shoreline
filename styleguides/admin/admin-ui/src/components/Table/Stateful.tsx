@@ -10,7 +10,7 @@ import { Box } from '@vtex/admin-primitives'
 import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
-import { SortIndicator } from './SortIndicator'
+import { SortIndicator } from './components/SortIndicator'
 
 /**
  * Table used to show static & simple information
