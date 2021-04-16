@@ -17,6 +17,7 @@ export type Column<T, R = BaseResolvers<T>> =
       // TODO FIX
       width?: any
       compare?: (a: T, b: T) => number
+      sortable?: boolean
     }
   | {
       id: Exclude<string, keyof T>
@@ -26,6 +27,7 @@ export type Column<T, R = BaseResolvers<T>> =
       // TODO FIX
       width?: any
       compare?: (a: T, b: T) => number
+      sortable?: boolean
     }
   | {
       id: Exclude<string, keyof T>
@@ -35,6 +37,7 @@ export type Column<T, R = BaseResolvers<T>> =
       // TODO FIX
       width?: any
       compare?: (a: T, b: T) => number
+      sortable?: boolean
     }
 
 export type TableDensity = 'compact' | 'regular' | 'variable'

@@ -19,11 +19,11 @@ import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
 import { SelectionProvider } from './resolvers/selection'
 import {
-  Sort,
+  UseSortReturn,
   useTableSort,
   SortDirections,
-  OnSortParams,
   SortState,
+  ManualSort,
 } from './hooks/useTableSort'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
@@ -39,13 +39,14 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     items = [],
     sortDirections,
     sortInitialValue,
-    onSort,
+    manualSort,
   } = params
 
   const sorting = useTableSort({
     initialState: sortInitialValue,
     sortDirections,
-    onSort,
+    reducer: manualSort?.reducer,
+    manualSort: manualSort?.sort,
   })
 
   const skeletonCollection = useMemo<T[]>(() => {
@@ -88,7 +89,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
         (column) => column.id === sorting.sortState.by
       )
 
-      if (column && column.compare && !onSort) {
+      if (column && column.compare) {
         const itemsCopy = items.slice()
 
         return itemsCopy.sort((a, b) => {
@@ -166,13 +167,13 @@ export interface UseTableParams<T> {
    */
   sortDirections?: SortDirections
   /**
-   *  Defines sort initial state
+   * Defines sort initial state
    */
   sortInitialValue?: Partial<SortState>
   /**
-   * Function used to handle sorting
+   * Object that allow users to pass reducer and sort function to allow inversion of control
    */
-  onSort?: (params: OnSortParams) => void
+  manualSort?: ManualSort<T>
 }
 
 export interface UseTableReturn<T> {
@@ -182,7 +183,7 @@ export interface UseTableReturn<T> {
   data: T[]
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
-  sorting: Sort
+  sorting: UseSortReturn
 }
 
 type ResolverCallee<T> = Omit<T, 'resolvers' | 'context'>

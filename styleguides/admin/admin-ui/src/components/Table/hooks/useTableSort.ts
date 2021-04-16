@@ -1,10 +1,16 @@
-import { useReducer, useCallback } from 'react'
+import { useReducer, useCallback, Dispatch } from 'react'
 
-export function useTableSort(params: UseTableSortParams) {
+const clearState: SortState = {
+  by: undefined,
+  order: undefined,
+}
+
+export function useTableSort<T>(params: UseTableSortParams<T>) {
   const {
     initialState,
-    sortDirections = [SortOrder.ASC, SortOrder.DSC],
-    onSort,
+    sortDirections = ['ASC', 'DSC'],
+    reducer = sortReducer,
+    manualSort,
   } = params
 
   const [sortState, dispatch] = useReducer(reducer, {
@@ -13,20 +19,22 @@ export function useTableSort(params: UseTableSortParams) {
   })
 
   const sort = useCallback(
-    (id: string | number | symbol) => {
+    (id: keyof T) => {
+      if (manualSort) {
+        manualSort({ currentSortState: sortState, dispatch, columnId: id })
+        return
+      }
+
       const { by, order } = sortState
       if (!by || by !== id) {
-        onSort?.({ columnId: id, sortAction: sortDirections[0] })
         dispatch({ type: sortDirections[0], payload: { id } })
       } else if (order === sortDirections[0] && sortDirections[1]) {
-        onSort?.({ columnId: id, sortAction: sortDirections[0] })
         dispatch({ type: sortDirections[1], payload: { id } })
       } else {
-        onSort?.({ columnId: id, sortAction: 'CLEAR' })
         dispatch({ type: 'CLEAR' })
       }
     },
-    [sortState.by, sortState.order, dispatch]
+    [sortState.by, sortState.order, dispatch, manualSort]
   )
 
   const resolveSorting = useCallback(
@@ -47,20 +55,14 @@ export function useTableSort(params: UseTableSortParams) {
   return { sortState, sort, clear, resolveSorting }
 }
 
-function reducer(state: SortState, action: Action) {
+function sortReducer(state: SortState, action: SortAction) {
   switch (action.type) {
-    case 'ASC': {
-      const { id } = action.payload ?? { id: undefined }
-      return {
-        by: id,
-        order: SortOrder.ASC,
-      }
-    }
+    case 'ASC':
     case 'DSC': {
       const { id } = action.payload ?? { id: undefined }
       return {
         by: id,
-        order: SortOrder.DSC,
+        order: action.type,
       }
     }
     case 'CLEAR': {
@@ -71,43 +73,44 @@ function reducer(state: SortState, action: Action) {
   }
 }
 
-enum SortOrder {
-  ASC = 'ASC',
-  DSC = 'DSC',
-}
+type SortOrder = 'ASC' | 'DSC'
 
-export type SortDirections =
-  | [SortOrder.ASC, SortOrder.DSC]
-  | [SortOrder.DSC, SortOrder.ASC]
-  | [SortOrder.ASC | SortOrder.DSC]
+export type SortDirections = ['ASC', 'DSC'] | ['DSC', 'ASC'] | ['ASC' | 'DSC']
 
 export interface SortState {
   order?: SortOrder
   by?: string | number | symbol
 }
 
-interface Action {
+export interface SortAction {
   type: SortOrder | 'CLEAR'
   payload?: {
     id: string | number | symbol
   }
 }
 
-const clearState: SortState = {
-  by: undefined,
-  order: undefined,
+export interface ManualSortParams<T> {
+  currentSortState: SortState
+  dispatch: Dispatch<SortAction>
+  columnId: keyof T
 }
 
-export interface Sort {
-  sortState: SortState
-  sort: (id: string | number | symbol) => void
-  clear: () => void
-}
-
-interface UseTableSortParams {
+interface UseTableSortParams<T> {
   initialState?: Partial<SortState>
   sortDirections?: SortDirections
-  onSort?: (params: OnSortParams) => void
+  reducer?(state: SortState, action: SortAction): SortState
+  manualSort?(params: ManualSortParams<T>): void
+}
+
+export interface UseSortReturn {
+  sortState: SortState
+  sort(id: string | number | symbol): void
+  clear(): void
+}
+
+export interface ManualSort<T> {
+  reducer?(state: SortState, action: SortAction): SortState
+  sort?(params: ManualSortParams<T>): void
 }
 
 export interface OnSortParams {
