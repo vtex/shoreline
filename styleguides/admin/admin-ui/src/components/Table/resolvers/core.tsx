@@ -6,9 +6,7 @@ import warning from 'tiny-warning'
 import { get } from '@vtex/admin-core'
 
 import { Column, TableDensity, TableDir } from '../typings'
-import { SortIndicator } from '../components/SortIndicator'
-import { SortState } from '../hooks/useTableSort'
-import { Flex } from '@vtex/admin-primitives'
+import { SortOrder, SortState } from '../hooks/useTableSort'
 
 /**
  * Used to recursive define resolver
@@ -91,19 +89,30 @@ export type ResolveHeaderArgs<T> = {
   sortState: SortState
 }
 
+export type ResolveHeaderReturn = {
+  isSortable: boolean
+  content: ReactNode
+  sortDirection?: SortOrder | null
+}
+
 /**
  * Resolve current header within a loop
  * @param column
  * @param resolvers
  */
-export function resolveHeader<T>(args: ResolveHeaderArgs<T>) {
+export function resolveHeader<T>(
+  args: ResolveHeaderArgs<T>
+): ResolveHeaderReturn {
   const { column, resolvers, context, items, sortState } = args
 
   const id = get(column, 'resolver.type', 'plain')
 
   const { header } = resolvers[id]
 
-  const isSortable = Boolean(column.compare) || Boolean(column.sortable)
+  const isSortable =
+    (Boolean(column.compare) || Boolean(column.sortable)) && !context.loading
+
+  const sortDirection = sortState.by === column.id ? sortState.order : null
 
   const content = header
     ? header({
@@ -114,17 +123,7 @@ export function resolveHeader<T>(args: ResolveHeaderArgs<T>) {
       })
     : accessHeader(column)
 
-  if (isSortable)
-    return (
-      <Flex align="center">
-        {content}
-        <SortIndicator
-          order={sortState.by === column.id ? sortState.order : null}
-        />
-      </Flex>
-    )
-
-  return content
+  return { content, isSortable, sortDirection }
 }
 
 export type ResolveCellArgs<T> = {

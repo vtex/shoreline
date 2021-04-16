@@ -6,10 +6,11 @@ import { TableDensity, TableDir } from './typings'
 import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
-import { Box } from '@vtex/admin-primitives'
+import { Box, Flex } from '@vtex/admin-primitives'
 import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
+import { SortIndicator } from './components/SortIndicator'
 
 /**
  * Table used to show static & simple information
@@ -85,7 +86,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
             <Table.Head>
               <Table.Row>
                 {columns.map((column) => {
-                  const content = resolveHeader({
+                  const { content, isSortable, sortDirection } = resolveHeader({
                     column,
                     items: data,
                   })
@@ -94,9 +95,18 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
                     <Table.Cell
                       key={column.id as string}
                       column={column}
-                      onClick={() => sortState.sort(column.id)}
+                      onClick={
+                        isSortable ? () => sortState.sort(column.id) : undefined
+                      }
                     >
-                      {content}
+                      {isSortable ? (
+                        <Flex align="center">
+                          {content}
+                          <SortIndicator direction={sortDirection} />
+                        </Flex>
+                      ) : (
+                        content
+                      )}
                     </Table.Cell>
                   )
                 })}

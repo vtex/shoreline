@@ -109,12 +109,6 @@ export function Sortable() {
     {
       id: 'lastSale',
       header: 'Last Sale',
-      compare: (a, b) => {
-        const aLastSale = new Date(a.lastSale).valueOf()
-        const bLastSale = new Date(b.lastSale).valueOf()
-
-        return bLastSale - aLastSale
-      },
     },
     {
       id: 'price',
@@ -156,7 +150,7 @@ export function SortDirections() {
         const aLastSale = new Date(a.lastSale).valueOf()
         const bLastSale = new Date(b.lastSale).valueOf()
 
-        return aLastSale - bLastSale
+        return bLastSale - aLastSale
       },
     },
     {

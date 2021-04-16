@@ -28,7 +28,15 @@ export const TableCell = forwardRef(function Td<T>(
           themeKey: variants[role],
           minWidth: column.width,
           maxWidth: column.width,
-          ...csx,
+          cursor: 'pointer',
+          userSelect: 'none',
+          ':focus:not([data-focus-visible-added])': {
+            outline: 'none',
+            boxShadow: 'none',
+          },
+          ':focus': {
+            outlineColor: 'focus',
+          },
         })}
         onClick={onClick}
         role={role}

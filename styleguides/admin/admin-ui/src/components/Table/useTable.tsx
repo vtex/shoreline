@@ -14,6 +14,7 @@ import {
   ResolverContext,
   ResolveCellArgs,
   ResolveHeaderArgs,
+  ResolveHeaderReturn,
 } from './resolvers/core'
 import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
@@ -70,7 +71,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
         context,
         sortState,
       }),
-    [resolvers, context, sortState.by, sortState.order]
+    [resolvers, context, sortState]
   )
 
   const data = useMemo(() => {
@@ -163,7 +164,9 @@ export interface UseTableParams<T> {
 export interface UseTableReturn<T> {
   skeletonCollection: T[]
   resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
-  resolveHeader: (args: ResolverCallee<ResolveHeaderArgs<T>>) => ReactNode
+  resolveHeader: (
+    args: ResolverCallee<ResolveHeaderArgs<T>>
+  ) => ResolveHeaderReturn
   data: T[]
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element

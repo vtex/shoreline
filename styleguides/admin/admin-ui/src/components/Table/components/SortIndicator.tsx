@@ -3,7 +3,7 @@ import { Flex } from '@vtex/admin-primitives'
 import { IconTriangle } from '@vtex/admin-ui-icons'
 
 export function SortIndicator(props: SortIndicatorProps) {
-  const { order } = props
+  const { direction } = props
 
   return (
     <Flex
@@ -14,7 +14,7 @@ export function SortIndicator(props: SortIndicatorProps) {
         minHeight: '0.75rem',
       }}
     >
-      {order !== 'DSC' && (
+      {direction !== 'DSC' && (
         <IconTriangle
           csx={{
             width: '6px',
@@ -23,12 +23,12 @@ export function SortIndicator(props: SortIndicatorProps) {
             minWidth: '6px',
             marginBottom: 0.5,
             path: {
-              fill: order === 'ASC' ? 'dark.secondary' : 'mid.secondary',
+              fill: direction === 'ASC' ? 'dark.secondary' : 'mid.secondary',
             },
           }}
         />
       )}
-      {order !== 'ASC' && (
+      {direction !== 'ASC' && (
         <IconTriangle
           csx={{
             width: '6px',
@@ -37,7 +37,7 @@ export function SortIndicator(props: SortIndicatorProps) {
             minWidth: '6px',
             marginTop: 0.5,
             path: {
-              fill: order === 'DSC' ? 'dark.secondary' : 'mid.secondary',
+              fill: direction === 'DSC' ? 'dark.secondary' : 'mid.secondary',
             },
           }}
           direction="down"
@@ -48,5 +48,5 @@ export function SortIndicator(props: SortIndicatorProps) {
 }
 
 export interface SortIndicatorProps {
-  order?: 'ASC' | 'DSC' | null
+  direction?: 'ASC' | 'DSC' | null
 }
