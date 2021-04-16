@@ -10,7 +10,7 @@ import { Box } from '@vtex/admin-primitives'
 import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
-import { IconCaret } from '@vtex/admin-ui-icons'
+import { SortIndicator } from './SortIndicator'
 
 /**
  * Table used to show static & simple information
@@ -81,13 +81,13 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
                   const content = resolveHeader({ column, items: data })
                   const isSortable = !!column.sortFns
                   const suffix = isSortable ? (
-                    sorting.sorted.by === column.id ? (
-                      <IconCaret
-                        direction={
-                          sorting.sorted.order === 'ASC' ? 'up' : 'down'
-                        }
-                      />
-                    ) : null
+                    <SortIndicator
+                      order={
+                        sorting.sorted.by === column.id
+                          ? sorting.sorted.order
+                          : undefined
+                      }
+                    />
                   ) : null
 
                   return (
@@ -96,7 +96,14 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
                       column={column}
                       onClick={() => sorting.sort(column.id)}
                     >
-                      {content} {suffix}
+                      <Box
+                        styles={{
+                          display: 'flex',
+                          alignItems: 'center',
+                        }}
+                      >
+                        {content} {suffix}
+                      </Box>
                     </Table.Cell>
                   )
                 })}
