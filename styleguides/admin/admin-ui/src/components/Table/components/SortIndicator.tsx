@@ -49,5 +49,5 @@ export function SortIndicator(props: SortIndicatorProps) {
 }
 
 export interface SortIndicatorProps {
-  order?: 'ASC' | 'DSC'
+  order?: 'ASC' | 'DSC' | null
 }

@@ -92,7 +92,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
                       order={
                         sorting.sortState.by === column.id
                           ? sorting.sortState.order
-                          : undefined
+                          : null
                       }
                     />
                   ) : null
