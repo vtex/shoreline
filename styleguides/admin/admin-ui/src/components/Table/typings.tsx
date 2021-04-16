@@ -16,6 +16,10 @@ export type Column<T, R = BaseResolvers<T>> =
       resolver?: R
       // TODO FIX
       width?: any
+      sortFns?: {
+        asc: (a: T, b: T) => number
+        dsc: (a: T, b: T) => number
+      }
     }
   | {
       id: Exclude<string, keyof T>
@@ -24,6 +28,10 @@ export type Column<T, R = BaseResolvers<T>> =
       resolver?: R
       // TODO FIX
       width?: any
+      sortFns?: {
+        asc: (a: T, b: T) => number
+        dsc: (a: T, b: T) => number
+      }
     }
   | {
       id: Exclude<string, keyof T>
@@ -32,6 +40,10 @@ export type Column<T, R = BaseResolvers<T>> =
       resolver: R
       // TODO FIX
       width?: any
+      sortFns?: {
+        asc: (a: T, b: T) => number
+        dsc: (a: T, b: T) => number
+      }
     }
 
 export type TableDensity = 'compact' | 'regular' | 'variable'

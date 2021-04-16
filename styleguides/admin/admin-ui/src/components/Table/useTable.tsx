@@ -18,6 +18,7 @@ import {
 import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
 import { SelectionProvider } from './resolvers/selection'
+import { Sort, useTableSort } from './useTableSort'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const {
@@ -31,6 +32,8 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     length = 5,
     items = [],
   } = params
+
+  const sorting = useTableSort()
 
   const skeletonCollection = useMemo<T[]>(() => {
     return [...Array(length).keys()].map((id) => {
@@ -62,10 +65,32 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     [resolvers, context]
   )
 
-  const data = useMemo(() => (context.loading ? skeletonCollection : items), [
+  const data = useMemo(() => {
+    if (context.loading) {
+      return skeletonCollection
+    }
+
+    if (sorting.sorted.by && sorting.sorted.order) {
+      const column = columns.find((column) => column.id === sorting.sorted.by)
+
+      if (column && column.sortFns) {
+        const sortFn =
+          sorting.sorted.order === 'ASC'
+            ? column.sortFns.asc
+            : column.sortFns.dsc
+
+        return items.sort(sortFn)
+      }
+    }
+
+    return items
+  }, [
     items,
     context.loading,
     skeletonCollection,
+    sorting.sorted.by,
+    sorting.sorted.order,
+    columns,
   ])
 
   function Providers(props: PropsWithChildren<unknown>) {
@@ -90,6 +115,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     data,
     columns,
     Providers,
+    sorting,
   }
 }
 
@@ -126,6 +152,7 @@ export interface UseTableReturn<T> {
   data: T[]
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
+  sorting: Sort
 }
 
 type ResolverCallee<T> = Omit<T, 'resolvers' | 'context'>

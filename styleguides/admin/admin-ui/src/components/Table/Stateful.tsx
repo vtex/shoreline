@@ -10,6 +10,7 @@ import { Box } from '@vtex/admin-primitives'
 import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
+import { IconCaret } from '@vtex/admin-ui-icons'
 
 /**
  * Table used to show static & simple information
@@ -60,7 +61,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     [density, loading, dir]
   )
 
-  const { data, resolveCell, resolveHeader, Providers } = useTable<T>({
+  const { data, resolveCell, resolveHeader, Providers, sorting } = useTable<T>({
     length,
     columns,
     resolvers,
@@ -78,10 +79,24 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
               <Table.Row>
                 {columns.map((column) => {
                   const content = resolveHeader({ column, items: data })
+                  const isSortable = !!column.sortFns
+                  const suffix = isSortable ? (
+                    sorting.sorted.by === column.id ? (
+                      <IconCaret
+                        direction={
+                          sorting.sorted.order === 'ASC' ? 'up' : 'down'
+                        }
+                      />
+                    ) : null
+                  ) : null
 
                   return (
-                    <Table.Cell key={column.id as string} column={column}>
-                      {content}
+                    <Table.Cell
+                      key={column.id as string}
+                      column={column}
+                      onClick={() => sorting.sort(column.id)}
+                    >
+                      {content} {suffix}
                     </Table.Cell>
                   )
                 })}

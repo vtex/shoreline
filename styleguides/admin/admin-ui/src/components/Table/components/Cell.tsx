@@ -54,4 +54,8 @@ export type TableCellProps<T> = SystemComponent & {
    * cell ref
    */
   ref?: Ref<HTMLElement>
+  /**
+   * action to dispatch on click
+   */
+  onClick?: () => void
 }
