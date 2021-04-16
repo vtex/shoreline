@@ -50,6 +50,9 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     onRowClick,
     children,
     csx = {},
+    onSort,
+    sortDirections,
+    sortInitialValue,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -67,6 +70,9 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     resolvers,
     context,
     items,
+    onSort,
+    sortDirections,
+    sortInitialValue,
   })
 
   return (
@@ -79,12 +85,12 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
               <Table.Row>
                 {columns.map((column) => {
                   const content = resolveHeader({ column, items: data })
-                  const isSortable = !!column.sortFns
+                  const isSortable = !!column.compare
                   const suffix = isSortable ? (
                     <SortIndicator
                       order={
-                        sorting.sorted.by === column.id
-                          ? sorting.sorted.order
+                        sorting.sortState.by === column.id
+                          ? sorting.sortState.order
                           : undefined
                       }
                     />

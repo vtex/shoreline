@@ -18,7 +18,13 @@ import {
 import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
 import { SelectionProvider } from './resolvers/selection'
-import { Sort, useTableSort } from './hooks/useTableSort'
+import {
+  Sort,
+  useTableSort,
+  SortDirections,
+  OnSortParams,
+  SortState,
+} from './hooks/useTableSort'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const {
@@ -31,9 +37,16 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     },
     length = 5,
     items = [],
+    sortDirections,
+    sortInitialValue,
+    onSort,
   } = params
 
-  const sorting = useTableSort()
+  const sorting = useTableSort({
+    initialState: sortInitialValue,
+    sortDirections,
+    onSort,
+  })
 
   const skeletonCollection = useMemo<T[]>(() => {
     return [...Array(length).keys()].map((id) => {
@@ -70,18 +83,21 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
       return skeletonCollection
     }
 
-    if (sorting.sorted.by && sorting.sorted.order) {
-      const column = columns.find((column) => column.id === sorting.sorted.by)
+    if (sorting.sortState.by && sorting.sortState.order) {
+      const column = columns.find(
+        (column) => column.id === sorting.sortState.by
+      )
 
-      if (column && column.sortFns) {
-        const sortFn =
-          sorting.sorted.order === 'ASC'
-            ? column.sortFns.asc
-            : column.sortFns.dsc
-
+      if (column && column.compare && !onSort) {
         const itemsCopy = items.slice()
 
-        return itemsCopy.sort(sortFn)
+        return itemsCopy.sort((a, b) => {
+          if (column.compare) {
+            return sorting.resolveSorting(column.compare(a, b))
+          }
+
+          return 0
+        })
       }
     }
 
@@ -90,8 +106,8 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     items,
     context.loading,
     skeletonCollection,
-    sorting.sorted.by,
-    sorting.sorted.order,
+    sorting.sortState.by,
+    sorting.sortState.order,
     columns,
   ])
 
@@ -145,6 +161,18 @@ export interface UseTableParams<T> {
    * @default 5
    */
   length?: number
+  /**
+   * Defines sorting directions and it's order
+   */
+  sortDirections?: SortDirections
+  /**
+   *  Defines sort initial state
+   */
+  sortInitialValue?: Partial<SortState>
+  /**
+   * Function used to handle sorting
+   */
+  onSort?: (params: OnSortParams) => void
 }
 
 export interface UseTableReturn<T> {
