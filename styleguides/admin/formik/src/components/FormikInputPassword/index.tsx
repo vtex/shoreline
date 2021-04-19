@@ -11,7 +11,7 @@ export const FormikInputPassword = forwardRef(
       error: currentError,
       errorMessage: currentErrorMessage,
       formatMessage,
-      ...partialInputProps
+      ...inputProps
     } = props
 
     const [field, meta] = useField({ name })
@@ -29,7 +29,7 @@ export const FormikInputPassword = forwardRef(
         error={!!errorMessage}
         errorMessage={errorMessage ?? undefined}
         {...field}
-        {...partialInputProps}
+        {...inputProps}
         ref={ref}
       />
     )

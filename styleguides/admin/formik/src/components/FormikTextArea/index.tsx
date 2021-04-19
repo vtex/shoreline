@@ -12,7 +12,7 @@ export const FormikTextArea = forwardRef(
       errorMessage: currentErrorMessage,
       formatMessage,
       onChange,
-      ...patialTextAreaProps
+      ...textAreaProps
     } = props
 
     const [field, meta] = useField({ name })
@@ -38,7 +38,7 @@ export const FormikTextArea = forwardRef(
         onChange={handleChange}
         error={!!errorMessage}
         errorMessage={errorMessage ?? undefined}
-        {...patialTextAreaProps}
+        {...textAreaProps}
         ref={ref}
       />
     )

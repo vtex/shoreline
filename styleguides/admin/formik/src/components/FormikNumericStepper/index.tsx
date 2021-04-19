@@ -12,7 +12,7 @@ export const FormikNumericStepper = forwardRef(
       errorMessage: currentErrorMessage,
       onChange,
       formatMessage,
-      ...partialNumericStepperProps
+      ...numericStepperProps
     } = props
 
     const [field, meta, helpers] = useField<number>({ name })
@@ -46,7 +46,7 @@ export const FormikNumericStepper = forwardRef(
           onChange={handleChange}
           error={!!errorMessage}
           errorMessage={errorMessage ?? undefined}
-          {...partialNumericStepperProps}
+          {...numericStepperProps}
           ref={ref}
         />
       </Box>

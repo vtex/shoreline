@@ -14,7 +14,7 @@ export const FormikSelect = <T extends unknown>(
     errorMessage: currentErrorMessage,
     formatMessage,
     itemToString,
-    ...patialSelectProps
+    ...selectProps
   } = props
 
   const [field, meta, helpers] = useField({ name })
@@ -47,7 +47,7 @@ export const FormikSelect = <T extends unknown>(
         state={itemState}
         error={!!errorMessage}
         errorMessage={errorMessage ?? undefined}
-        {...patialSelectProps}
+        {...selectProps}
       />
     </div>
   )
