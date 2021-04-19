@@ -22,7 +22,12 @@ export const FormikSelect = <T extends unknown>(
   const itemState = useSelectState({
     items,
     initialSelectedItem: meta.initialValue,
-    itemToString: itemToString ? itemToString : (item: any) => item,
+    itemToString: itemToString
+      ? itemToString
+      : (item: T | null) => {
+          if (typeof item !== 'string') return ''
+          return item
+        },
   })
 
   useSyncedState(
