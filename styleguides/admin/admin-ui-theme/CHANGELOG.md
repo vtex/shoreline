@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.24.3...@vtex/admin-ui-theme@0.25.0) (2021-04-19)
+
+
+### Bug Fixes
+
+* **table-toolbar:** remove table variant button ([2ff2bfc](https://github.com/vtex/onda/commit/2ff2bfc0a0df5ec2546652c5a52c3c34e5feac15))
+* **table-toolbar-improvements:** table cell font size ([2fe7766](https://github.com/vtex/onda/commit/2fe77668fc8a90e7472fb2220596e4bd58801f96))
+
+
+### Features
+
+* **table-toolbar:** add table variant to button ([4c874c5](https://github.com/vtex/onda/commit/4c874c57974ed91c387c39f481f5f3abc6d475ca))
+
+
+
+
+
 ## [0.24.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.24.2...@vtex/admin-ui-theme@0.24.3) (2021-04-08)
 
 

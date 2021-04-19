@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.42.3](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.42.2...@vtex/brand-ui@0.42.3) (2021-04-19)
+
+
+### Bug Fixes
+
+* **menu-hamburger:** change the order of properties ([5b0cbf4](https://github.com/vtex/onda/commit/5b0cbf48efccb110ecec710976f8b1acecf334a1))
+
+
+
+
+
 ## [0.42.2](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.42.1...@vtex/brand-ui@0.42.2) (2021-04-07)
 
 

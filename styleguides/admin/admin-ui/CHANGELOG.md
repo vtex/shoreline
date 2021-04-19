@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.91.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.91.0...@vtex/admin-ui@0.91.1) (2021-04-19)
+
+
+### Bug Fixes
+
+* **table-toolbar-improvement:** table search component height and width ([8acf2ee](https://github.com/vtex/onda/commit/8acf2ee2157dcf2bc38cab7de9c5a37df62afd63))
+* **table-toolbar-improvements:** table toolbar spacing ([099b6b9](https://github.com/vtex/onda/commit/099b6b96c604f42db03822d6c28388b07875d2c6))
+
+
+
+
+
 # [0.91.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.90.1...@vtex/admin-ui@0.91.0) (2021-04-13)
 
 
