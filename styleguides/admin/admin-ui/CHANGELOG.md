@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.92.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.91.1...@vtex/admin-ui@0.92.0) (2021-04-20)
+
+
+### Bug Fixes
+
+* **sortable-table:** accept sortState with value undefined in resolveHeader ([99b8a97](https://github.com/vtex/onda/commit/99b8a977f554976e653ab1264f75035a910bf49b))
+* **sortable-table:** add sort directions to prop ([e4d62e8](https://github.com/vtex/onda/commit/e4d62e87c8cedac61772e08dca8595f65d9ac4b4))
+* **sortable-table:** change styles and styleOverrides props to csx ([34850c0](https://github.com/vtex/onda/commit/34850c08caf78a0da690f02a85914fa12f6e5e20))
+* **sortable-table:** create items copy to apply sort to not mutate original items in Table ([b613a2d](https://github.com/vtex/onda/commit/b613a2df677a7df59463286a71a9840f7c710bda))
+* **sortable-table:** fix sortable stories compare function ([cc706ae](https://github.com/vtex/onda/commit/cc706aefabe39512cd03d253b6d4673461c65e90))
+* **sortable-table:** null in sortindicator order ([987aa7b](https://github.com/vtex/onda/commit/987aa7b721a810dec7d9d35c405084992bfb8865))
+* **sortable-table:** use object in hook params instead of destructuring ([67941c2](https://github.com/vtex/onda/commit/67941c282b8509569d64312bfdf354204909d529))
+* **sortable-table:** usetableparams prop typo ([0cb406f](https://github.com/vtex/onda/commit/0cb406f20b34d940bec5914d852913609a5e42d9))
+* **table-sort:** fix header table cell clickable ([f5f5f7b](https://github.com/vtex/onda/commit/f5f5f7b3aababec45eb9f496cfe85467e08b04a7))
+
+
+### Features
+
+* **admin-illustrations:** new package to store illustrations ([27db803](https://github.com/vtex/onda/commit/27db803604190bf5aff5a999e7c26e4166abd397))
+* **sortable-table:** add cursor type pointer to table cell div ([7578248](https://github.com/vtex/onda/commit/7578248843da504bc9791876f61f2eccb84f9b1a))
+* **sortable-table:** add inversion of control to table sort ([ce27b67](https://github.com/vtex/onda/commit/ce27b67fb006cc03b03817dfcbd17b2a091fd27c))
+* **sortable-table:** add sort  directions and sort initial value ([fe8e1a0](https://github.com/vtex/onda/commit/fe8e1a0645a440067b3a1ed37ce3247df8d99a86))
+* **sortable-table:** add SortIndicator to StatefulTable component ([f319ab2](https://github.com/vtex/onda/commit/f319ab292117412a49a538446baa60a6a007de26))
+* **sortable-table:** clear table sort after DSC sorting ([87df93a](https://github.com/vtex/onda/commit/87df93a487753cc3564f0c7ed60a002842117328))
+* **sortable-table:** create SortIndicator component ([e26f49e](https://github.com/vtex/onda/commit/e26f49e86dd0033647535cd12c475c4c683e8216))
+* **sortable-table:** create useTableSort hook ([41fe1d1](https://github.com/vtex/onda/commit/41fe1d1626c2bff16cb605b35c1a8018c79b3b17))
+* **sortable-table:** use useTableSort hook in table ([2e0e7d8](https://github.com/vtex/onda/commit/2e0e7d83eae28b0e2eb9988bd7f635f1547a7f59))
+
+
+### BREAKING CHANGES
+
+* **sortable-table:** 🧨 \
+
+
+
+
+
 ## [0.91.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.91.0...@vtex/admin-ui@0.91.1) (2021-04-19)
 
 
