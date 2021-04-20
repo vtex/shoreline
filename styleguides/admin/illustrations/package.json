@@ -25,8 +25,7 @@
   },
   "scripts": {
     "start": "tsdx watch --verbose --noClean",
-    "build": "tsdx build --tsconfig tsconfig.json",
-    "test": "tsdx test"
+    "build": "tsdx build --tsconfig tsconfig.json"
   },
   "peerDependencies": {
     "react": ">=16",
