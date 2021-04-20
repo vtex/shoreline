@@ -23,9 +23,15 @@ const weekdayCell: SxStyleProp = {
   color: 'muted.1',
 }
 
-const activeDayCell: SxStyleProp = {
+const activeDayCellIncident: SxStyleProp = {
   cursor: 'pointer',
   backgroundColor: 'focus',
+  color: 'secondary.base',
+  outline: 'none',
+}
+
+const activeDayCell: SxStyleProp = {
+  backgroundColor: 'white',
   color: 'secondary.base',
   outline: 'none',
 }
@@ -35,11 +41,31 @@ const hoverDayCell: SxStyleProp = {
   backgroundColor: 'muted.3',
 }
 
-const baseDayCell: SxStyleProp = {
+const baseDayCellIncident: SxStyleProp = {
   ...baseCell,
   transition: 'all .3s ease-in-out',
   ':hover': {
     ...hoverDayCell,
+  },
+  ':focus': {
+    ...activeDayCellIncident,
+    pointerEvents: 'none',
+  },
+  ':disabled': {
+    cursor: 'not-allowed',
+    border: 'none',
+  },
+  ':active': {
+    ...baseCell,
+    ...activeDayCellIncident,
+  },
+}
+
+const monthCell: SxStyleProp = {
+  ...baseCell,
+  transition: 'all .3s ease-in-out',
+  ':hover': {
+    backgroundColor: 'white',
   },
   ':focus': {
     ...activeDayCell,
@@ -53,12 +79,21 @@ const baseDayCell: SxStyleProp = {
     ...baseCell,
     ...activeDayCell,
   },
+  current: {
+    ...baseDayCellIncident,
+    cursor: 'pointer',
+    borderColor: 'bubblegum.base',
+    borderStyle: 'solid',
+    borderWidth: '2px',
+    color: 'primary.base',
+    fontVariationSettings: 'medium',
+  },
 }
 
-const monthCell: SxStyleProp = {
-  ...baseDayCell,
+const monthCellIncident: SxStyleProp = {
+  ...baseDayCellIncident,
   current: {
-    ...baseDayCell,
+    ...baseDayCellIncident,
     cursor: 'pointer',
     borderColor: 'bubblegum.base',
     borderStyle: 'solid',
@@ -69,7 +104,7 @@ const monthCell: SxStyleProp = {
 }
 
 const extraCell: SxStyleProp = {
-  ...baseDayCell,
+  ...baseDayCellIncident,
   color: 'muted.2',
 }
 
@@ -150,6 +185,7 @@ const calendar: SxStyleProp = {
   grid,
   weekdayCell,
   monthCell,
+  monthCellIncident,
   extraCell,
   event,
   eventContainer,

@@ -137,9 +137,14 @@ export const Calendar = ({
           const isCurrentDay =
             monthCell.toJSDate().setHours(0, 0, 0, 0) ===
             new Date().setHours(0, 0, 0, 0)
+          const haveIncident = events?.[monthCell.toFormat('yyyy-MM-dd')]
+            ? true
+            : false
           return renderDayCell({
             value: monthCell,
-            variant: `calendar.monthCell${isCurrentDay ? '.current' : ''}`,
+            variant: `calendar.monthCell${haveIncident ? 'Incident' : ''}${
+              isCurrentDay ? '.current' : ''
+            }`,
           })
         })}
         {getFinalCells(date).map((finalCell) =>
