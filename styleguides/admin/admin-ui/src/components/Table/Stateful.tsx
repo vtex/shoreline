@@ -6,10 +6,11 @@ import { TableDensity, TableDir } from './typings'
 import { useTable, UseTableParams } from './useTable'
 import { Table } from './components'
 import { SystemComponent } from '../../types'
-import { Box } from '@vtex/admin-primitives'
+import { Box, Flex } from '@vtex/admin-primitives'
 import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
+import { SortIndicator } from './components/SortIndicator'
 
 /**
  * Table used to show static & simple information
@@ -45,10 +46,11 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     resolvers,
     density = 'regular',
     dir = 'ltr',
-    csx,
     length = 5,
     onRowClick,
     children,
+    csx = {},
+    sort,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -60,12 +62,19 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     [density, loading, dir]
   )
 
-  const { data, resolveCell, resolveHeader, Providers } = useTable<T>({
+  const {
+    data,
+    resolveCell,
+    resolveHeader,
+    Providers,
+    sortState,
+  } = useTable<T>({
     length,
     columns,
     resolvers,
     context,
     items,
+    sort,
   })
 
   return (
@@ -77,11 +86,27 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
             <Table.Head>
               <Table.Row>
                 {columns.map((column) => {
-                  const content = resolveHeader({ column, items: data })
+                  const { content, isSortable, sortDirection } = resolveHeader({
+                    column,
+                    items: data,
+                  })
 
                   return (
-                    <Table.Cell key={column.id as string} column={column}>
-                      {content}
+                    <Table.Cell
+                      key={column.id as string}
+                      column={column}
+                      onClick={
+                        isSortable ? () => sortState.sort(column.id) : undefined
+                      }
+                    >
+                      {isSortable ? (
+                        <Flex align="center">
+                          {content}
+                          <SortIndicator direction={sortDirection} />
+                        </Flex>
+                      ) : (
+                        content
+                      )}
                     </Table.Cell>
                   )
                 })}

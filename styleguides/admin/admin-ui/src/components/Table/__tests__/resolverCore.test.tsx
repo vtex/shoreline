@@ -110,7 +110,7 @@ describe('table resolver core tests', () => {
         },
       })
 
-      const result = resolveHeader({
+      const { content } = resolveHeader({
         column: {
           id: 'test',
           header: 'Correct',
@@ -129,7 +129,7 @@ describe('table resolver core tests', () => {
         },
       })
 
-      expect(result).toBe('Correct')
+      expect(content).toBe('Correct')
     })
 
     it('chooses the resolver type correctly', () => {
@@ -142,7 +142,7 @@ describe('table resolver core tests', () => {
         },
       })
 
-      const result = resolveHeader({
+      const { content } = resolveHeader({
         column: {
           id: 'test',
           header: 'Correct',
@@ -161,7 +161,7 @@ describe('table resolver core tests', () => {
         },
       })
 
-      expect(result).toBe('Correct')
+      expect(content).toBe('Correct')
     })
   })
 

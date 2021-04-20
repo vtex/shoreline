@@ -6,6 +6,7 @@ import warning from 'tiny-warning'
 import { get } from '@vtex/admin-core'
 
 import { Column, TableDensity, TableDir } from '../typings'
+import { SortOrder, SortState } from '../hooks/useTableSort'
 
 /**
  * Used to recursive define resolver
@@ -85,6 +86,13 @@ export type ResolveHeaderArgs<T> = {
   resolvers: Record<string, Resolver<T>>
   context: ResolverContext
   items: T[]
+  sortState?: SortState
+}
+
+export type ResolveHeaderReturn = {
+  isSortable: boolean
+  content: ReactNode
+  sortDirection?: SortOrder | null
 }
 
 /**
@@ -92,16 +100,30 @@ export type ResolveHeaderArgs<T> = {
  * @param column
  * @param resolvers
  */
-export function resolveHeader<T>(args: ResolveHeaderArgs<T>) {
-  const { column, resolvers, context, items } = args
+export function resolveHeader<T>(
+  args: ResolveHeaderArgs<T>
+): ResolveHeaderReturn {
+  const { column, resolvers, context, items, sortState = {} } = args
 
   const id = get(column, 'resolver.type', 'plain')
 
   const { header } = resolvers[id]
 
-  return header
-    ? header({ getData: () => accessHeader(column), context, items, column })
+  const isSortable =
+    (Boolean(column.compare) || Boolean(column.sortable)) && !context.loading
+
+  const sortDirection = sortState.by === column.id ? sortState.order : null
+
+  const content = header
+    ? header({
+        getData: () => accessHeader(column),
+        context,
+        items,
+        column,
+      })
     : accessHeader(column)
+
+  return { content, isSortable, sortDirection }
 }
 
 export type ResolveCellArgs<T> = {

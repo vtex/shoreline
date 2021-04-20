@@ -14,10 +14,16 @@ import {
   ResolverContext,
   ResolveCellArgs,
   ResolveHeaderArgs,
+  ResolveHeaderReturn,
 } from './resolvers/core'
 import { baseResolvers } from './resolvers/base'
 import { Column } from './typings'
 import { SelectionProvider } from './resolvers/selection'
+import {
+  UseSortReturn,
+  useTableSort,
+  UseTableSortParams,
+} from './hooks/useTableSort'
 
 export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const {
@@ -30,7 +36,10 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     },
     length = 5,
     items = [],
+    sort = {},
   } = params
+
+  const sortState = useTableSort(sort)
 
   const skeletonCollection = useMemo<T[]>(() => {
     return [...Array(length).keys()].map((id) => {
@@ -51,21 +60,49 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const resolveCell = useCallback(
     (args: ResolverCallee<ResolveCellArgs<T>>) =>
       unstableResolveCell<T>({ ...args, resolvers, context }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [resolvers, context]
   )
 
   const resolveHeader = useCallback(
     (args: ResolverCallee<ResolveHeaderArgs<T>>) =>
-      unstableResolveHeader<T>({ ...args, resolvers, context }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [resolvers, context]
+      unstableResolveHeader<T>({
+        ...args,
+        resolvers,
+        context,
+        sortState,
+      }),
+    [resolvers, context, sortState]
   )
 
-  const data = useMemo(() => (context.loading ? skeletonCollection : items), [
+  const data = useMemo(() => {
+    if (context.loading) {
+      return skeletonCollection
+    }
+
+    if (sortState.by && sortState.order) {
+      const column = columns.find((column) => column.id === sortState.by)
+
+      if (column && column.compare) {
+        const itemsCopy = items.slice()
+
+        return itemsCopy.sort((a, b) => {
+          if (column.compare) {
+            return sortState.resolveSorting(column.compare(a, b))
+          }
+
+          return 0
+        })
+      }
+    }
+
+    return items
+  }, [
     items,
     context.loading,
     skeletonCollection,
+    sortState.by,
+    sortState.order,
+    columns,
   ])
 
   function Providers(props: PropsWithChildren<unknown>) {
@@ -90,6 +127,7 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     data,
     columns,
     Providers,
+    sortState,
   }
 }
 
@@ -117,15 +155,22 @@ export interface UseTableParams<T> {
    * @default 5
    */
   length?: number
+  /**
+   * Object used in sort hook
+   */
+  sort?: UseTableSortParams<T>
 }
 
 export interface UseTableReturn<T> {
   skeletonCollection: T[]
   resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
-  resolveHeader: (args: ResolverCallee<ResolveHeaderArgs<T>>) => ReactNode
+  resolveHeader: (
+    args: ResolverCallee<ResolveHeaderArgs<T>>
+  ) => ResolveHeaderReturn
   data: T[]
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
+  sortState: UseSortReturn
 }
 
-type ResolverCallee<T> = Omit<T, 'resolvers' | 'context'>
+type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
