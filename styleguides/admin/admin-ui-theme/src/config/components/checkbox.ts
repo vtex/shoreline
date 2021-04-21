@@ -7,6 +7,7 @@ export default {
     borderRadius: 3,
     cursor: 'pointer',
     display: 'flex',
+    margin: 0,
     alignItems: 'center',
     justifyContent: 'center',
     '&:checked': {

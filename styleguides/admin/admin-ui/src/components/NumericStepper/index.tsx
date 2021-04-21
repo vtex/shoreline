@@ -1,137 +1,140 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { forwardRef, Ref, useEffect, useReducer } from 'react'
 import { Input as ReakitInput } from 'reakit'
 import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
 import invariant from 'tiny-invariant'
 
 import { Box } from '@vtex/admin-primitives'
-import { SystemComponent } from '../../types'
+import { SystemComponentProps } from '../../types'
 import { Button } from '../Button'
+import { AbstractInputOwnProps } from '../AbstractInput'
 
-export function NumericStepper(props: NumericStepperProps) {
-  const {
-    value,
-    minValue = -10e9,
-    maxValue = 10e9,
-    disabled,
-    step = 1,
-    onChange,
-    errorMessage,
-    helperText,
-    error,
-    label,
-    csx,
-    ...inputProps
-  } = props
-
-  const { cn } = useSystem()
-  const initialState = { value }
-
-  const [state, dispatch] = useReducer(reducer, initialState)
-
-  const hasHelper = error ?? helperText
-
-  const className = cn({
-    ...csx,
-    themeKey: `components.numericStepper.default${error ? '-error' : ''}`,
-  })
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    dispatch({
-      type: 'change',
-      value: Number(event.target.value),
+export const NumericStepper = forwardRef(
+  (props: NumericStepperProps, ref: Ref<HTMLDivElement>) => {
+    const {
+      value,
+      minValue = -10e9,
+      maxValue = 10e9,
+      disabled,
+      step = 1,
       onChange,
-      minValue,
-      maxValue,
+      errorMessage,
+      helperText,
+      error,
+      label,
+      csx,
+      ...inputProps
+    } = props
+
+    const { cn } = useSystem()
+    const initialState = { value }
+
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+    const hasHelper = error ?? helperText
+
+    const className = cn({
+      ...csx,
+      themeKey: `components.numericStepper.default${error ? '-error' : ''}`,
     })
 
-  const handleIncrement = () =>
-    dispatch({
-      type: 'increment',
-      maxValue,
-      onChange,
-      step,
-    })
-
-  const handleDecrement = () =>
-    dispatch({
-      type: 'decrement',
-      minValue,
-      onChange,
-      step,
-    })
-
-  useEffect(() => {
-    if (state.value !== value) {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({
         type: 'change',
-        value,
+        value: Number(event.target.value),
         onChange,
         minValue,
         maxValue,
       })
-    }
-  }, [value])
 
-  return (
-    <Box csx={{ width: 106 }}>
-      <Box csx={{ themeKey: 'components.numericStepper.container' }}>
-        <ReakitInput
-          value={state.value}
-          type="number"
-          min={minValue}
-          max={maxValue}
-          onChange={(event) => handleChange(event)}
-          disabled={disabled}
-          aria-label={label}
-          className={className}
-          {...inputProps}
-        />
+    const handleIncrement = () =>
+      dispatch({
+        type: 'increment',
+        maxValue,
+        onChange,
+        step,
+      })
 
-        <Button
-          size="small"
-          variant="adaptative-dark"
-          icon={<IconRemove />}
-          csx={{
-            color: 'blue',
-            height: 40,
-            position: 'absolute',
-            left: 1,
-          }}
-          aria-label={`${label}-decrease-button`}
-          onClick={handleDecrement}
-          disabled={disabled ?? state.value === minValue}
-        />
+    const handleDecrement = () =>
+      dispatch({
+        type: 'decrement',
+        minValue,
+        onChange,
+        step,
+      })
 
-        <Button
-          size="small"
-          variant="adaptative-dark"
-          icon={<IconAdd />}
-          aria-label={`${label}-increase-button}`}
-          csx={{
-            color: 'blue',
-            height: 40,
-            position: 'absolute',
-            right: 1,
-          }}
-          onClick={handleIncrement}
-          disabled={disabled ?? state.value === maxValue}
-        />
-      </Box>
-      {hasHelper && (
-        <Box
-          csx={{
-            text: 'small',
-            color: error ? 'red' : 'mid.primary',
-            marginTop: 2,
-          }}
-        >
-          {error ? errorMessage : helperText}
+    useEffect(() => {
+      if (state.value !== value) {
+        dispatch({
+          type: 'change',
+          value,
+          onChange,
+          minValue,
+          maxValue,
+        })
+      }
+    }, [value])
+
+    return (
+      <Box csx={{ width: 106 }} ref={ref}>
+        <Box csx={{ themeKey: 'components.numericStepper.container' }}>
+          <ReakitInput
+            value={state.value}
+            type="number"
+            min={minValue}
+            max={maxValue}
+            onChange={(event) => handleChange(event)}
+            disabled={disabled}
+            aria-label={label}
+            className={className}
+            {...inputProps}
+          />
+
+          <Button
+            size="small"
+            variant="adaptative-dark"
+            icon={<IconRemove />}
+            csx={{
+              color: 'blue',
+              height: 40,
+              position: 'absolute',
+              left: 1,
+            }}
+            aria-label={`${label}-decrease-button`}
+            onClick={handleDecrement}
+            disabled={disabled ?? state.value === minValue}
+          />
+
+          <Button
+            size="small"
+            variant="adaptative-dark"
+            icon={<IconAdd />}
+            aria-label={`${label}-increase-button}`}
+            csx={{
+              color: 'blue',
+              height: 40,
+              position: 'absolute',
+              right: 1,
+            }}
+            onClick={handleIncrement}
+            disabled={disabled ?? state.value === maxValue}
+          />
         </Box>
-      )}
-    </Box>
-  )
-}
+        {hasHelper && (
+          <Box
+            csx={{
+              text: 'small',
+              color: error ? 'red' : 'mid.primary',
+              marginTop: 2,
+            }}
+          >
+            {error ? errorMessage : helperText}
+          </Box>
+        )}
+      </Box>
+    )
+  }
+)
 
 function reducer(state: StateValue, action: Action): StateValue {
   switch (action.type) {
@@ -210,7 +213,8 @@ type Action =
       onChange: (value: StateValue) => void
     }
 
-export interface NumericStepperProps extends SystemComponent {
+export interface NumericStepperProps
+  extends SystemComponentProps<AbstractInputOwnProps> {
   /** NumericStepper value */
   value: number
   /**

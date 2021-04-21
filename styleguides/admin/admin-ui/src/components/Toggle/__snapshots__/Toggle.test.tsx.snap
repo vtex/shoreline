@@ -9,6 +9,7 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
   appearance: none;
   position: relative;
   cursor: pointer;
+  margin: 0rem;
   border-radius: 6.25rem;
   background-color: #898F9E;
   border-style: solid;
@@ -104,6 +105,7 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
   appearance: none;
   position: relative;
   cursor: pointer;
+  margin: 0rem;
   border-radius: 6.25rem;
   background-color: #898F9E;
   border-style: solid;
