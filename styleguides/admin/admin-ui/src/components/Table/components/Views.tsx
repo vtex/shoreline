@@ -27,6 +27,7 @@ export function TableViews(props: PropsWithChildren<TableViewsProps>) {
   return (
     <Flex
       justify="center"
+      align="center"
       csx={{
         bg: 'light.secondary',
         borderRadius: '4px',
