@@ -68,7 +68,7 @@ export function TableViewResolver(props: TableViewResolverProps) {
       <TableViews illustration={illustrations[state]}>
         <Flex direction="column">
           <Text variant="subtitle">
-            {views?.[state].title ?? tableViewTitleFallback[state]}
+            {views?.[state].title ?? titleFallback[state]}
           </Text>
           {views?.[state].text && (
             <Text variant="body" feedback="secondary">
