@@ -3,9 +3,9 @@ import { Illustration, IllustrationProps } from '../Illustration'
 
 export function CollectionEmpty(props: IllustrationProps) {
   const {
-    width = 191,
-    height = 102,
-    viewBox = '0 0 191 102',
+    width = 193,
+    height = 97,
+    viewBox = '0 0 193 97',
     ...illustrationProps
   } = props
   return (
