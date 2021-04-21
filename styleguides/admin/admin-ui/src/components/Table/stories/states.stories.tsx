@@ -196,7 +196,7 @@ export function Views() {
             text: 'Please, search for a different term',
           },
           empty: {
-            title: 'You don’t have any product yet',
+            title: 'You don’t have a product yet',
             anchor: {
               text: 'Create your first product',
             },
