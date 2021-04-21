@@ -21,10 +21,9 @@ const tableViewTitleFallback = {
   error: 'Something went wrong',
 }
 
-export function TableViews({
-  illustration,
-  children,
-}: PropsWithChildren<TableViewsProps>) {
+export function TableViews(props: PropsWithChildren<TableViewsProps>) {
+  const { illustration, children } = props
+
   return (
     <Flex
       justify="center"
@@ -49,7 +48,9 @@ export function TableViews({
   )
 }
 
-export function TableViewResolver({ children, views }: TableViewResolverProps) {
+export function TableViewResolver(props: TableViewResolverProps) {
+  const { children, views } = props
+
   const { loading, error, itemsNotFound, empty } = useViewContext()
 
   const state = loading
