@@ -1,6 +1,8 @@
 import React, { PropsWithChildren } from 'react'
 import { Box, Grid, Flex } from '@vtex/admin-primitives'
 import { useViewContext, TableViewState } from '../context'
+import { Anchor, AnchorProps } from '../../Anchor'
+import { Text } from '../../Text'
 
 const illustrations = {
   itemsNotFound: (
@@ -299,6 +301,12 @@ const illustrations = {
   ),
 }
 
+const tableViewTitleFallback = {
+  itemsNotFound: 'No product match your search criteria',
+  empty: 'You don’t have any product yet',
+  error: 'Something went wrong',
+}
+
 export function TableViews({
   illustration,
   children,
@@ -319,7 +327,7 @@ export function TableViews({
   )
 }
 
-export function TableViewResolver({ children, views }: ViewResolverProps) {
+export function TableViewResolver({ children, views }: TableViewResolverProps) {
   const { loading, error, itemsNotFound, empty } = useViewContext()
 
   const state = loading
@@ -332,12 +340,31 @@ export function TableViewResolver({ children, views }: ViewResolverProps) {
     ? 'empty'
     : undefined
 
-  if (state && state !== 'loading')
+  if (state && state !== 'loading') {
     return (
       <TableViews illustration={illustrations[state]}>
-        {views?.[state]}
+        <Flex direction="column">
+          <Text variant="subtitle">
+            {views?.[state].title ?? tableViewTitleFallback[state]}
+          </Text>
+          {views?.[state].text && (
+            <Text variant="body" feedback="secondary">
+              {views[state].text}
+            </Text>
+          )}
+          {views?.[state].anchor && (
+            <Anchor
+              csx={{ fontSize: 1 }}
+              href={views[state].anchor?.href}
+              onClick={views[state].anchor?.onClick}
+            >
+              {views[state].anchor?.text}
+            </Anchor>
+          )}
+        </Flex>
       </TableViews>
     )
+  }
 
   return children
 }
@@ -347,13 +374,34 @@ export interface TableViewsProps {
   children?: JSX.Element
 }
 
-export interface ViewResolverProps {
+export interface TableViewResolverProps {
   children: JSX.Element
-  views?: TableViews
+  views?: TableViewsType
 }
 
-export type TableViews = Partial<
-  Omit<Record<keyof TableViewState, JSX.Element>, 'loading'>
+export interface BasicTableView {
+  title?: string
+}
+
+export interface TablewViewWithAnchor extends BasicTableView {
+  anchor?: ViewAnchor
+  text?: never
+}
+
+export interface TablewViewWithText extends BasicTableView {
+  anchor?: never
+  text?: string
+}
+
+type TableView = TablewViewWithText | TablewViewWithAnchor
+
+interface ViewAnchor extends Pick<AnchorProps, 'onClick' | 'href'> {
+  text: string
+}
+
+export type TableViewsType = Omit<
+  Record<keyof TableViewState, TableView>,
+  'loading'
 >
 
 /**

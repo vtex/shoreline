@@ -191,30 +191,22 @@ export function Empty() {
         error={tableState === 'error'}
         itemsNotFound={tableState === 'itemsNotFound'}
         views={{
-          itemsNotFound: (
-            <Flex direction="column">
-              <Text variant="subtitle">
-                No product match your search criteria
-              </Text>
-              <Text variant="body" feedback="secondary">
-                Please, search for a different term
-              </Text>
-            </Flex>
-          ),
-          empty: (
-            <Flex direction="column">
-              <Text variant="subtitle">You don’t have any product yet</Text>
-              <Anchor csx={{ fontSize: '0.875rem' }}>
-                Create your first product
-              </Anchor>
-            </Flex>
-          ),
-          error: (
-            <Flex direction="column">
-              <Text variant="subtitle">Something went wrong</Text>
-              <Anchor csx={{ fontSize: '0.875rem' }}>Try again</Anchor>
-            </Flex>
-          ),
+          itemsNotFound: {
+            title: 'No product match your search criteria',
+            text: 'Please, search for a different term',
+          },
+          empty: {
+            title: 'You don’t have any product yet',
+            anchor: {
+              text: 'Create your first product',
+            },
+          },
+          error: {
+            title: 'Try again',
+            anchor: {
+              text: 'Something went wrong',
+            },
+          },
         }}
       />
     </Box>

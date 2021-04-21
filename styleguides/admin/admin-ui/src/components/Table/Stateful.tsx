@@ -11,7 +11,7 @@ import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
 import { SortIndicator } from './components/SortIndicator'
-import { TableViewResolver, TableViews } from './components/Views'
+import { TableViewResolver, TableViewsType } from './components/Views'
 import { ViewContext, TableViewState } from './context'
 
 /**
@@ -194,5 +194,5 @@ export interface StatefulTableProps<T>
    */
   children?: ReactNode
 
-  views?: TableViews
+  views?: TableViewsType
 }
