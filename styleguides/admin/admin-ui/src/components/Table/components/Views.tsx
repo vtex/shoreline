@@ -35,12 +35,7 @@ export function TableViews(props: PropsWithChildren<TableViewsProps>) {
         width: 'full',
       }}
     >
-      <Flex
-        direction="column"
-        justify="center"
-        csx={{ width: '300px' }}
-        wrap="wrap"
-      >
+      <Flex justify="center" csx={{ width: '300px' }} wrap="wrap">
         <Box csx={{ marginLeft: '-1.7rem', marginY: 5 }}>{illustration}</Box>
         {children}
       </Flex>
@@ -66,7 +61,7 @@ export function TableViewResolver(props: TableViewResolverProps) {
   if (state && state !== 'loading') {
     return (
       <TableViews illustration={illustrations[state]}>
-        <Flex direction="column">
+        <Flex direction="column" align="center">
           <Text variant="subtitle">
             {views?.[state].title ?? titleFallback[state]}
           </Text>
