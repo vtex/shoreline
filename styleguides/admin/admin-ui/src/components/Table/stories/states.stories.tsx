@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { StatefulTable, StatefulTableProps } from '../index'
 import { baseResolvers } from '../resolvers/base'
-import { Box } from '@vtex/admin-primitives'
+import { Box, Flex } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
-import { TableStates } from '../components/States'
+import { TableViewState } from '../context'
+import { Set } from '../../Set'
+import { Text } from '../../Text'
+import { Anchor } from '../../Anchor'
 
 export default {
   title: 'admin-ui/Table/States',
@@ -126,8 +129,17 @@ export function DataFetch() {
 }
 
 export function Empty() {
+  const [tableState, setTableState] = useState<keyof TableViewState>()
+
   return (
-    <TableStates state="notFoundItems">
+    <Box>
+      <Set>
+        <Button onClick={() => setTableState('empty')}>empty</Button>
+        <Button onClick={() => setTableState('itemsNotFound')}>
+          items not found
+        </Button>
+        <Button onClick={() => setTableState('error')}>error</Button>
+      </Set>
       <StatefulTable
         density="compact"
         columns={[
@@ -174,7 +186,37 @@ export function Empty() {
           },
         ]}
         length={4}
+        loading={tableState === 'loading'}
+        empty={tableState === 'empty'}
+        error={tableState === 'error'}
+        itemsNotFound={tableState === 'itemsNotFound'}
+        views={{
+          itemsNotFound: (
+            <Flex direction="column">
+              <Text variant="subtitle">
+                No product match your search criteria
+              </Text>
+              <Text variant="body" feedback="secondary">
+                Please, search for a different term
+              </Text>
+            </Flex>
+          ),
+          empty: (
+            <Flex direction="column">
+              <Text variant="subtitle">You don’t have any product yet</Text>
+              <Anchor csx={{ fontSize: '0.875rem' }}>
+                Create your first product
+              </Anchor>
+            </Flex>
+          ),
+          error: (
+            <Flex direction="column">
+              <Text variant="subtitle">Something went wrong</Text>
+              <Anchor csx={{ fontSize: '0.875rem' }}>Try again</Anchor>
+            </Flex>
+          ),
+        }}
       />
-    </TableStates>
+    </Box>
   )
 }

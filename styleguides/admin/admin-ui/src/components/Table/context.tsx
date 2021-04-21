@@ -14,6 +14,11 @@ export const StylesContext = createContext<StylesContextType | null>(null)
 export const CellRoleContext = createContext<CellRole | null>(null)
 
 /**
+ * Context of table view
+ */
+export const ViewContext = createContext<TableViewState | null>(null)
+
+/**
  * Get table styles
  */
 export function useStylesContext() {
@@ -31,6 +36,17 @@ export function useCellRoleContext() {
   const ctx = useContext(CellRoleContext)
 
   invariant(ctx, 'A cell must be within a Table.Head or Table.Body context')
+
+  return ctx
+}
+
+/**
+ * Get table view state
+ */
+export function useViewContext() {
+  const ctx = useContext(ViewContext)
+
+  invariant(ctx, 'The table view must not be used outside of its context')
 
   return ctx
 }
@@ -53,3 +69,26 @@ type StylesContextType = {
 }
 
 type CellRole = 'columnheader' | 'cell'
+
+export interface TableViewState {
+  /**
+   * Whether the table is loading or not
+   * @default false
+   */
+  loading?: boolean
+  /**
+   * Displays table empty state
+   * @default false
+   */
+  empty?: boolean
+  /**
+   * Displays table state when there're no items found
+   * @default false
+   */
+  itemsNotFound?: boolean
+  /**
+   * Displays table error state
+   * @default false
+   */
+  error?: boolean
+}

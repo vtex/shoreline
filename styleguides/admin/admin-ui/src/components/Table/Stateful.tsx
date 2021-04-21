@@ -11,6 +11,8 @@ import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
 import { SortIndicator } from './components/SortIndicator'
+import { TableViewResolver, TableViews } from './components/Views'
+import { ViewContext, TableViewState } from './context'
 
 /**
  * Table used to show static & simple information
@@ -51,6 +53,10 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
     children,
     csx = {},
     sort,
+    empty,
+    error,
+    itemsNotFound,
+    views,
   } = props
 
   const context: ResolverContext = useMemo(
@@ -79,67 +85,77 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
 
   return (
     <Box>
-      {children}
-      <Providers>
-        <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
-          <Table dir={context.dir} density={density}>
-            <Table.Head>
-              <Table.Row>
-                {columns.map((column) => {
-                  const { content, isSortable, sortDirection } = resolveHeader({
-                    column,
-                    items: data,
-                  })
+      <ViewContext.Provider value={{ loading, empty, error, itemsNotFound }}>
+        {children}
+        <Providers>
+          <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
+            <TableViewResolver views={views}>
+              <Table dir={context.dir} density={density}>
+                <Table.Head>
+                  <Table.Row>
+                    {columns.map((column) => {
+                      const {
+                        content,
+                        isSortable,
+                        sortDirection,
+                      } = resolveHeader({
+                        column,
+                        items: data,
+                      })
 
-                  return (
-                    <Table.Cell
-                      key={column.id as string}
-                      column={column}
+                      return (
+                        <Table.Cell
+                          key={column.id as string}
+                          column={column}
+                          onClick={
+                            isSortable
+                              ? () => sortState.sort(column.id)
+                              : undefined
+                          }
+                        >
+                          {isSortable ? (
+                            <Flex align="center">
+                              {content}
+                              <SortIndicator direction={sortDirection} />
+                            </Flex>
+                          ) : (
+                            content
+                          )}
+                        </Table.Cell>
+                      )
+                    })}
+                  </Table.Row>
+                </Table.Head>
+                <Table.Body>
+                  {data.map((item) => (
+                    <Table.Row
+                      key={getRowKey(item) as string}
                       onClick={
-                        isSortable ? () => sortState.sort(column.id) : undefined
+                        typeof onRowClick === 'function'
+                          ? () => onRowClick(item)
+                          : undefined
                       }
                     >
-                      {isSortable ? (
-                        <Flex align="center">
-                          {content}
-                          <SortIndicator direction={sortDirection} />
-                        </Flex>
-                      ) : (
-                        content
-                      )}
-                    </Table.Cell>
-                  )
-                })}
-              </Table.Row>
-            </Table.Head>
-            <Table.Body>
-              {data.map((item) => (
-                <Table.Row
-                  key={getRowKey(item) as string}
-                  onClick={
-                    typeof onRowClick === 'function'
-                      ? () => onRowClick(item)
-                      : undefined
-                  }
-                >
-                  {columns.map((column) => {
-                    const content = resolveCell({
-                      column,
-                      item,
-                    })
+                      {columns.map((column) => {
+                        const content = resolveCell({
+                          column,
+                          item,
+                        })
 
-                    return (
-                      <Table.Cell key={column.id as string} column={column}>
-                        {content}
-                      </Table.Cell>
-                    )
-                  })}
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table>
-        </Box>
-      </Providers>
+                        return (
+                          <Table.Cell key={column.id as string} column={column}>
+                            {content}
+                          </Table.Cell>
+                        )
+                      })}
+                    </Table.Row>
+                  ))}
+                </Table.Body>
+              </Table>
+            </TableViewResolver>
+          </Box>
+        </Providers>
+      </ViewContext.Provider>
     </Box>
   )
 }
@@ -152,17 +168,13 @@ export const StatefulTable = Object.assign(_StatefulTable, {
 
 export interface StatefulTableProps<T>
   extends Omit<UseTableParams<T>, 'context'>,
-    SystemComponent {
+    SystemComponent,
+    TableViewState {
   /**
    * Key extractor
    * @default (item)=>item.id
    */
   getRowKey?: (item: T) => string
-  /**
-   * Whether the table is loading or not
-   * @default false
-   */
-  loading?: boolean
   /**
    * Table row height
    * @default regular
@@ -181,4 +193,6 @@ export interface StatefulTableProps<T>
    * Pagination component used in the table
    */
   children?: ReactNode
+
+  views?: TableViews
 }

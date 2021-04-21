@@ -1,8 +1,9 @@
 import React, { PropsWithChildren } from 'react'
 import { Box, Grid, Flex } from '@vtex/admin-primitives'
+import { useViewContext, TableViewState } from '../context'
 
-const ilustrations = {
-  notFoundItems: (
+const illustrations = {
+  itemsNotFound: (
     <svg
       width="193"
       height="97"
@@ -311,7 +312,7 @@ export function TableViews({
     >
       <Grid.Item area="item-2" csx={{ justifySelf: 'center' }}>
         <Flex direction="column">
-          <Box csx={{ marginLeft: '-1.8rem', marginY: 5 }}>{illustration}</Box>
+          <Box csx={{ marginLeft: '-1.7rem', marginY: 5 }}>{illustration}</Box>
           {children}
         </Flex>
       </Grid.Item>
@@ -319,10 +320,40 @@ export function TableViews({
   )
 }
 
+export function TableViewResolver({ children, views }: ViewResolverProps) {
+  const { loading, error, itemsNotFound, empty } = useViewContext()
+
+  const state = loading
+    ? 'loading'
+    : error
+    ? 'error'
+    : itemsNotFound
+    ? 'itemsNotFound'
+    : empty
+    ? 'empty'
+    : undefined
+
+  if (state && state !== 'loading')
+    return (
+      <TableViews illustration={illustrations[state]}>
+        {views?.[state]}
+      </TableViews>
+    )
+
+  return children
+}
+
 export interface TableViewsProps {
   illustration?: JSX.Element
   children?: JSX.Element
 }
+
+export interface ViewResolverProps {
+  children: JSX.Element
+  views?: TableViews
+}
+
+export type TableViews = Partial<Omit<Record<keyof TableViewState, JSX.Element>, 'loading'>>
 
 /**
   <Flex direction="column" >
