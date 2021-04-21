@@ -1,0 +1,29 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 0.1.0 (2021-04-21)
+
+
+### Bug Fixes
+
+* **formiktoggle:** fix control of value to correct operation of formik validation ([2ba782c](https://github.com/vtex/onda/commit/2ba782c584aecd79284e0331bef805b6cd08831c))
+* **intl:** remove intl-react dependence ([f535262](https://github.com/vtex/onda/commit/f535262e027a41b4c540615ccafe854b049f8e3e))
+* **numericstepper:** fix settouched in story about error limit ([e7a7fb5](https://github.com/vtex/onda/commit/e7a7fb5d64edb50b6596ab024e04751b3a860a97))
+* adds missing exports in main index ([2f0c9aa](https://github.com/vtex/onda/commit/2f0c9aaa1eb590b3b6f5e5b11f990c51b80c4aeb))
+* change package configs ([d2f40a4](https://github.com/vtex/onda/commit/d2f40a4c4a68b68288e9a10bb03a944c0ce1ece9))
+* fix behavior pf set touched and when change initial value ([175b3d4](https://github.com/vtex/onda/commit/175b3d4731e15f5e1630a9a3fda0299e5d979063))
+
+
+### Features
+
+* **formikcheckbox:** add component ([26c355d](https://github.com/vtex/onda/commit/26c355d7d69a94d96975c42b6723129f1f5c7450))
+* **formikcheckboxgroup:** add component ([aea8551](https://github.com/vtex/onda/commit/aea8551d8d0179fadeda467b3501fa633fc1aed0))
+* **formikinputpassword:** add component ([136ba74](https://github.com/vtex/onda/commit/136ba74326d99ed4b5050626038dfbc3795cb5de))
+* **formiknumericstepper:** add component ([1e97528](https://github.com/vtex/onda/commit/1e97528aed6cc85c310496091151f38557ff56d1))
+* **formikradio:** add component ([a13423c](https://github.com/vtex/onda/commit/a13423cee8c386feb57756820adb6048826baf0f))
+* **formikselect:** add case with a array of object as props items ([6c8f7c5](https://github.com/vtex/onda/commit/6c8f7c573af47468988a2c74db4a1deaf62ff08e))
+* **formikselect:** add component ([dc62a2c](https://github.com/vtex/onda/commit/dc62a2cd39c3f44b1289d2e2803c6e1e1c1ccb77))
+* **formiktextarea:** add component ([d73098a](https://github.com/vtex/onda/commit/d73098ac091ba2648bb587b9eb06d3f734bccf2b))
+* **formiktoggle:** add component ([dfe3d10](https://github.com/vtex/onda/commit/dfe3d10cb7198a9dc26d15b7d9820f98b0d896d0))
