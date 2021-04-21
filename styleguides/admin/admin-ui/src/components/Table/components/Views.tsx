@@ -17,7 +17,7 @@ const illustrations = {
 
 const titleFallback = {
   itemsNotFound: 'No product match your search criteria',
-  empty: 'You don’t have any product yet',
+  empty: 'You don’t have a product yet',
   error: 'Something went wrong',
 }
 
