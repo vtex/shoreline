@@ -15,7 +15,7 @@ const illustrations = {
   empty: <CollectionEmpty />,
 }
 
-const tableViewTitleFallback = {
+const titleFallback = {
   itemsNotFound: 'No product match your search criteria',
   empty: 'You don’t have any product yet',
   error: 'Something went wrong',
