@@ -130,21 +130,42 @@ export const Calendar = ({
             {weekDay}
           </Box>
         ))}
-        {getInitialCells(date).map((initialCell) =>
-          renderDayCell({ value: initialCell, variant: 'calendar.extraCell' })
-        )}
+        {getInitialCells(date).map((initialCell) => {
+          const haveIncident = events?.[initialCell.toFormat('yyyy-MM-dd')]
+            ? true
+            : false
+          return renderDayCell({
+            value: initialCell,
+            variant: `calendar.extraCell.${
+              haveIncident ? 'incident' : 'noIncident'
+            }`,
+          })
+        })}
         {getMonthCells(date).map((monthCell) => {
           const isCurrentDay =
             monthCell.toJSDate().setHours(0, 0, 0, 0) ===
             new Date().setHours(0, 0, 0, 0)
+          const haveIncident = events?.[monthCell.toFormat('yyyy-MM-dd')]
+            ? true
+            : false
           return renderDayCell({
             value: monthCell,
-            variant: `calendar.monthCell${isCurrentDay ? '.current' : ''}`,
+            variant: `calendar.monthCell${haveIncident ? 'Incident' : ''}${
+              isCurrentDay ? '.current' : ''
+            }`,
           })
         })}
-        {getFinalCells(date).map((finalCell) =>
-          renderDayCell({ value: finalCell, variant: 'calendar.extraCell' })
-        )}
+        {getFinalCells(date).map((finalCell) => {
+          const haveIncident = events?.[finalCell.toFormat('yyyy-MM-dd')]
+            ? true
+            : false
+          return renderDayCell({
+            value: finalCell,
+            variant: `calendar.extraCell.${
+              haveIncident ? 'incident' : 'noIncident'
+            }`,
+          })
+        })}
       </Grid>
       {children}
     </Box>
