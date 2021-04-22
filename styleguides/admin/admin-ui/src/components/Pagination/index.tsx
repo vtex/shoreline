@@ -11,10 +11,10 @@ export function Pagination(props: PaginationProps) {
   const {
     total,
     state: { range, paginate },
-    preposition,
-    subject,
-    prevLabel,
-    nextLabel,
+    preposition = 'of',
+    subject = 'results',
+    prevLabel = 'Back',
+    nextLabel = 'Next',
     loading,
     csx = {},
     ...boxProps
@@ -71,22 +71,27 @@ interface PaginationProps extends BoxProps<'div'> {
   total: number
   /**
    * String displayed in between the end of the range and the total amount of items
+   * @default 'of'
    */
-  preposition: string
+  preposition?: string
   /**
    * String displayed in the end of the component
+   * @default 'results'
    */
-  subject: string
+  subject?: string
   /**
    * Label used in previous button tooltip
+   * @default 'Back'
    */
-  prevLabel: string
+  prevLabel?: string
   /**
    * Label used in next button tooltip
+   * @default 'Next'
    */
-  nextLabel: string
+  nextLabel?: string
   /**
    * Whether the table is loading or not
+   * @default false
    */
   loading?: boolean
   /**
