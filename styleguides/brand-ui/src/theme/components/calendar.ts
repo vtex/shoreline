@@ -34,6 +34,9 @@ const activeDayCell: SxStyleProp = {
   backgroundColor: 'white',
   color: 'secondary.base',
   outline: 'none',
+  borderColor: 'muted.2',
+  borderStyle: 'solid',
+  borderWidth: '2px',
 }
 
 const hoverDayCell: SxStyleProp = {
@@ -104,8 +107,14 @@ const monthCellIncident: SxStyleProp = {
 }
 
 const extraCell: SxStyleProp = {
-  ...baseDayCellIncident,
-  color: 'muted.2',
+  incident: {
+    ...baseDayCellIncident,
+    color: 'muted.2',
+  },
+  noIncident: {
+    ...monthCell,
+    color: 'muted.2',
+  },
 }
 
 const title: SxStyleProp = {
