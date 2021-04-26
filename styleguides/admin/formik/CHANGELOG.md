@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.1.0...@vtex/admin-formik@0.1.1) (2021-04-26)
+
+
+### Bug Fixes
+
+* **formiktoggle-onchange:** no more separe onChange of toggleProps to pass it to formiktoggle ([30739ab](https://github.com/vtex/onda/commit/30739ab7f18c4e4c9dfa61b594c3bf6daf39d8c2))
+
+
+
+
+
 # 0.1.0 (2021-04-21)
 
 

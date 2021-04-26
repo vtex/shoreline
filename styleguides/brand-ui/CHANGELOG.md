@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.42.3...@vtex/brand-ui@0.43.0) (2021-04-26)
+
+
+### Features
+
+* fix active calendar button ([a4cec34](https://github.com/vtex/onda/commit/a4cec34b4bd62b9bc09b7a3aaef91f9eb784d4f2))
+
+
+
+
+
 ## [0.42.3](https://github.com/vtex/onda/compare/@vtex/brand-ui@0.42.2...@vtex/brand-ui@0.42.3) (2021-04-19)
 
 
