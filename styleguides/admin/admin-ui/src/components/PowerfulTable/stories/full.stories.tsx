@@ -4,11 +4,11 @@ import { Meta } from '@storybook/react'
 import { Button } from '../../Button'
 import { Text } from '../../Text'
 import { Card } from '../../Card'
-import { StatefulTable } from '../index'
+import { StatefulTable } from '../Stateful'
 import { Skeleton } from '../../Skeleton'
 
 export default {
-  title: 'admin-ui/Table/Full',
+  title: 'admin-ui/Table/Stateful',
   component: StatefulTable,
 } as Meta
 

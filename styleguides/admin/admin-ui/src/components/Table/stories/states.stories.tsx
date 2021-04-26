@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { StatefulTable, StatefulTableProps } from '../index'
+import { StatefulTable, StatefulTableProps } from '../../PowerfulTable'
 import { baseResolvers } from '../resolvers/base'
 import { Box, Flex } from '@vtex/admin-primitives'
 import { Button } from '../../Button'

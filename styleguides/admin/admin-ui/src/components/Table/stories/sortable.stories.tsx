@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { Meta } from '@storybook/react'
 import faker from 'faker'
 
-import { StatefulTable } from '../index'
+import { StatefulTable } from '../../PowerfulTable'
 import { Column } from '../typings'
 import {
   SortState,
