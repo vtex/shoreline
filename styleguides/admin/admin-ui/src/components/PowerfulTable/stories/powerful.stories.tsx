@@ -7,7 +7,7 @@ import { Pagination, usePaginationState } from '../../Pagination'
 import { FlexSpacer } from '@vtex/admin-primitives'
 
 export default {
-  title: 'admin-ui/Powerful/CompleteToolbar',
+  title: 'admin-ui/PowerfulTable/CompleteToolbar',
   component: StatefulTable,
 } as Meta
 

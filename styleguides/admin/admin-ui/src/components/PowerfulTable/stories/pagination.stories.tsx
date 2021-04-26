@@ -8,7 +8,7 @@ import { usePaginationState } from '../../Pagination'
 import { Pagination } from '../../Pagination'
 
 export default {
-  title: 'admin-ui/Powerful/Pagination',
+  title: 'admin-ui/PowerfulTable/Pagination',
   component: StatefulTable,
 } as Meta
 

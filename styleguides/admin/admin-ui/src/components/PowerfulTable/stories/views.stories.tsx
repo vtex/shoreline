@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Meta, Story } from '@storybook/react'
+import { Meta } from '@storybook/react'
 
 import { StatefulTable } from '../../PowerfulTable'
 import { Box } from '@vtex/admin-primitives'
@@ -8,7 +8,7 @@ import { TableViewState } from '../../Table/context'
 import { Set } from '../../Set'
 
 export default {
-  title: 'admin-ui/Table/Views',
+  title: 'admin-ui/PowerfulTable/Views',
   component: StatefulTable,
 } as Meta
 

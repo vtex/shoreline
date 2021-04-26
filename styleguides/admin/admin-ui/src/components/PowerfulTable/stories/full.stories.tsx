@@ -8,7 +8,7 @@ import { StatefulTable } from '../Stateful'
 import { Skeleton } from '../../Skeleton'
 
 export default {
-  title: 'admin-ui/Powerful/Stateful',
+  title: 'admin-ui/PowerfulTable/Stateful',
   component: StatefulTable,
 } as Meta
 
