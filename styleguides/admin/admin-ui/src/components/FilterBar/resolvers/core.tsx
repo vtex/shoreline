@@ -12,9 +12,11 @@ export type ResolverShortcut<I, S = unknown> = S & { type: I }
 
 export interface Resolver<T, I = any, S = any> {
   value: (helpers: {
-    /** current statement */
+    /** Current statement */
     statement: Statement<T, ResolverShortcut<I, S>>
+    /** Handles the state of statement value */
     handleValueChange: (value: T, index: number) => void
+    /** Current statement index on Statements array */
     index: number
   }) => ReactNode
 }
@@ -28,14 +30,18 @@ export function createResolver<
 }
 
 export type ResolveFilterArgs<T> = {
+  /** Current statement */
   statement: Statement<T>
+  /** FilterBar resolvers */
   resolvers: Record<string, Resolver<T>>
+  /** Current statement index on Statements array */
   index: number
+  /** Handles the state of statement value */
   handleValueChange: (value: T, index: number) => void
 }
 
 /**
- * Resolve current value
+ * Resolve current statement value
  * @param statement
  * @param resolvers
  * @param index

@@ -4,13 +4,21 @@ import { Resolver } from './resolvers/core'
 import { Condition, Conjunction, Filter } from './typings'
 
 export interface FilterBarContextProps<T> {
+  /** Filters available */
   filters: Filter<T>[]
+  /** FilterBar resolvers */
   resolvers: Record<string, Resolver<T>>
+  /** Handles the state of the statement filter */
   handleFilterChange: (filter: Filter<T>, index: number) => void
+  /** Handles the state of the statement condition */
   handleConditionChange: (filter: Condition, index: number) => void
+  /** Handles the state of the statement value */
   handleValueChange: (value: T, index: number) => void
+  /** Handles the state of FilterBar conjunction */
   handleConjunctionChange: (conjunction: Conjunction) => void
+  /** Handles the state of the statement deletion */
   handleDeleteStatement: (index: number) => void
+  /** Handles the state of the statement duplication */
   handleDuplicateStatement: (index: number) => void
 }
 

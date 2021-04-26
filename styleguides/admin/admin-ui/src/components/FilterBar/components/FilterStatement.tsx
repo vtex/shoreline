@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { IconAction, IconDelete, IconDuplicate } from '@vtex/admin-ui-icons'
 import { Flex, Box } from '@vtex/admin-primitives'
 
@@ -35,7 +35,7 @@ export function FilterStatement<T>(props: FilterStatementProps<T>) {
     },
   })
 
-  const conditions = statement.filter.conditions
+  const conditions = useMemo(() => statement.filter.conditions, [])
 
   const conditionsState = useDropdownState({
     items: conditions,
@@ -114,8 +114,11 @@ export function FilterStatement<T>(props: FilterStatementProps<T>) {
 }
 
 export interface FilterStatementProps<T> {
+  /** Current statement */
   statement: Statement<T>
+  /** Current conjunction */
   conjunction: Conjunction
+  /** Current statement index on Statements array */
   index: number
 }
 
