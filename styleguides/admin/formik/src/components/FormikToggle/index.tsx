@@ -19,7 +19,6 @@ export const FormikToggle = forwardRef(
       error: currentError,
       errorMessage: currentErrorMessage,
       formatMessage,
-      onChange,
       ...toggleProps
     } = props
 
