@@ -12,7 +12,7 @@ import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
 import { SortIndicator } from '../Table/components/SortIndicator'
 import { TableViewResolver, TableViewsType } from './components/Views'
-import { ViewContext, TableViewState } from './context'
+import { ViewContext, TableViewState } from '../Table/context'
 
 /**
  * Table used to show static & simple information
