@@ -193,6 +193,8 @@ export interface StatefulTableProps<T>
    * Pagination component used in the table
    */
   children?: ReactNode
-
+  /**
+   * Object with the strings to display on each state
+   */
   views?: TableViewsType
 }
