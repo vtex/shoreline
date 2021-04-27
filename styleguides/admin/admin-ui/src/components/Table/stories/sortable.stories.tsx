@@ -246,16 +246,14 @@ export function CustomSort() {
   function reducer(sortState: SortState, sortAction: SortAction) {
     switch (sortAction.type) {
       case 'ASC': {
-        const { id } = sortAction.payload ?? { id: undefined }
         return {
-          by: id,
+          by: sortAction.columnId,
           order: sortAction.type,
         }
       }
       case 'DSC': {
-        const { id } = sortAction.payload ?? { id: undefined }
         return {
-          by: id,
+          by: sortAction.columnId,
           order: sortAction.type,
         }
       }
@@ -280,7 +278,7 @@ export function CustomSort() {
       : 'ASC'
 
     await fetchItems(type, columnId)
-    dispatch({ type, payload: { id: columnId } })
+    dispatch({ type, columnId })
 
     setSortIterator((sortIterator) => sortIterator + 1)
     setLoading(false)
@@ -314,7 +312,7 @@ export function CustomSort() {
       columns={columns}
       items={items}
       loading={loading}
-      sort={{ directions: ['ASC', 'DSC'], reducer, sortCallback: sort }}
+      sort={{ directions: ['ASC', 'DSC'], reducer, callback: sort }}
     />
   )
 }
