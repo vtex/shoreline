@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { cloneElement } from 'react'
 import {
   IconErrorColorful,
   IconNotifications,
@@ -7,15 +7,22 @@ import {
 } from '@vtex/admin-ui-icons'
 import { merge } from '@vtex/admin-core'
 import { ToastIconProps } from './typings'
+import { isElement } from 'react-is'
 
 /**
  * Toast icon renders an icon that corresponds
  * to the toast type.
  */
 export function ToastIcon(props: ToastIconProps) {
-  const { type, ...rest } = props
+  const { type, children, ...rest } = props
 
-  const csx = merge({ marginRight: '12px' }, rest.csx)
+  const csx = merge({ marginRight: '12px', color: 'blue' }, rest.csx)
+
+  if (children && isElement(children)) {
+    return cloneElement(children, {
+      csx,
+    })
+  }
 
   switch (type) {
     case 'success':

@@ -13,11 +13,11 @@ function createToaster() {
  *
  * @example
  * ```jsx
- * const toast = useToast()
+ * const toaster = useToaster()
  *
  * <Button
  *   onClick={() =>
- *     toast.notify({
+ *     toaster.notify({
  *       type: 'success',
  *       message: 'Succes!',
  *     })

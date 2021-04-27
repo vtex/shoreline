@@ -1,4 +1,5 @@
 import { IconProps } from 'styleguides/admin/admin-ui-icons/dist'
+import { SystemComponent } from '../../../types'
 
 export interface ToastManagerState {
   /**
@@ -27,7 +28,7 @@ export interface ToastManagerActions {
   notify: (props: ToastProps) => string
 }
 
-export interface ToastProps {
+export interface ToastProps extends SystemComponent {
   /**
    * Message displayed to the end user.
    */
@@ -46,6 +47,11 @@ export interface ToastProps {
   type?: ToastType
   dismissible?: boolean
   action?: () => void
+  /**
+   * Toast icon's props. Touchpoint to customize
+   * the toats' icon.
+   */
+  iconProps?: ToastIconProps
 }
 
 /**
@@ -54,7 +60,7 @@ export interface ToastProps {
 export type ToastType = 'success' | 'warning' | 'error' | 'info'
 
 export interface ToastIconProps extends IconProps {
-  type: ToastType
+  type?: ToastType
 }
 
 type ToastPosition = 'bottom'
