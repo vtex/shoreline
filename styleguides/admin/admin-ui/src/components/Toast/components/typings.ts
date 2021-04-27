@@ -1,3 +1,4 @@
+import { ButtonProps } from 'reakit/ts'
 import { IconProps } from 'styleguides/admin/admin-ui-icons/dist'
 import { SystemComponent } from '../../../types'
 
@@ -15,7 +16,7 @@ export interface ToastOptions extends ToastProps {
    */
   id: string
   /**
-   * Removes toast from the stack.
+   * Removes specific toast from the stack.
    */
   remove: (id: string) => void
 }
@@ -45,8 +46,14 @@ export interface ToastProps extends SystemComponent {
    * The toast's type.
    */
   type?: ToastType
+  /**
+   * Whether the toast can be dismissed or not.
+   */
   dismissible?: boolean
-  action?: () => void
+  /**
+   * Toast's actions' props.
+   */
+  action?: ButtonProps
   /**
    * Toast icon's props. Touchpoint to customize
    * the toats' icon.
@@ -66,5 +73,13 @@ export interface ToastIconProps extends IconProps {
 type ToastPosition = 'bottom'
 
 export interface ToasterProps {
+  /**
+   * Whether the toaster should render its portal
+   * on the topmost window or not. Set this to
+   * true in case you're on an iframe scenario and
+   * you want to host your toaster on the topmost
+   * window.
+   * @default false
+   */
   subframe?: boolean
 }

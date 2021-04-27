@@ -4,7 +4,8 @@ import { IconClose } from '@vtex/admin-ui-icons'
 import { merge, StyleProp } from '@vtex/admin-core'
 import { ToastIconProps, ToastOptions, ToastType } from './typings'
 import { ToastIcon } from './Icon'
-import { Button } from '../../Button'
+import { Button, ButtonProps } from '../../Button'
+import { Text } from '../../Text'
 
 /**
  * The toast is a variation of an alert that provides immediate
@@ -20,6 +21,7 @@ export function Toast(props: ToastOptions) {
     id,
     iconProps,
     dismissible,
+    action,
   } = useToast(props)
 
   useEffect(() => {
@@ -36,15 +38,19 @@ export function Toast(props: ToastOptions) {
     <Flex csx={csx} justify="space-between" align="center">
       <Flex align="center">
         <ToastIcon {...iconProps} />
-        {message}
+        <Text csx={{ textAlign: 'start' }}>{message}</Text>
       </Flex>
-      {dismissible && (
+      {(dismissible || action) && (
         <Flex align="center">
-          <Button
-            icon={<IconClose />}
-            variant="adaptative-dark"
-            onClick={handleOnDismiss}
-          />
+          {action && <Button {...action} />}
+          {dismissible && (
+            <Button
+              icon={<IconClose />}
+              variant="adaptative-dark"
+              onClick={handleOnDismiss}
+              size="small"
+            />
+          )}
         </Flex>
       )}
     </Flex>
@@ -52,7 +58,12 @@ export function Toast(props: ToastOptions) {
 }
 
 function useToast(props: ToastOptions) {
-  const { type = 'info', iconProps: maybeIconProps, csx: maybeCsx } = props
+  const {
+    type = 'info',
+    iconProps: maybeIconProps,
+    csx: maybeCsx,
+    action: maybeAction,
+  } = props
 
   const iconProps: ToastIconProps = {
     ...maybeIconProps,
@@ -61,10 +72,22 @@ function useToast(props: ToastOptions) {
 
   const csx = merge(setCsx(type), maybeCsx)
 
+  const action: ButtonProps | undefined = maybeAction
+    ? {
+        ...maybeAction,
+        variant: 'adaptative-dark',
+        csx: {
+          color: 'blue',
+          whiteSpace: 'nowrap',
+        },
+      }
+    : undefined
+
   return {
     csx,
     type,
     ...props,
+    action,
     iconProps,
   }
 }

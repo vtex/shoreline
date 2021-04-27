@@ -57,7 +57,7 @@ export function ToastManager(props: ToastManagerProps) {
     <Box
       element="li"
       csx={{
-        position: 'absolute',
+        position: 'fixed',
         bottom: '12px',
         left: 0,
         right: 0,
