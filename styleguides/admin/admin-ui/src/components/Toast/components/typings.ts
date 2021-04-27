@@ -1,3 +1,5 @@
+import { IconProps } from 'styleguides/admin/admin-ui-icons/dist'
+
 export interface ToastManagerState {
   /**
    * Position where the toasts are rendered
@@ -46,5 +48,13 @@ export interface ToastProps {
   action?: () => void
 }
 
+/**
+ * Type of the toast to be rendered
+ */
 export type ToastType = 'success' | 'warning' | 'error' | 'info'
+
+export interface ToastIconProps extends IconProps {
+  type: ToastType
+}
+
 type ToastPosition = 'bottom'

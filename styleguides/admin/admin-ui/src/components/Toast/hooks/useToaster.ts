@@ -1,9 +1,9 @@
 import { toaster } from '../components/Toaster'
 
-function createToast() {
-  const toast = Object.assign({}, toaster)
+function createToaster() {
+  const toasterInstance = Object.assign({}, toaster)
 
-  return toast
+  return toasterInstance
 }
 
 /**
@@ -27,6 +27,6 @@ function createToast() {
  * </Button>
  * ```
  */
-export function useToast() {
-  return createToast()
+export function useToaster() {
+  return createToaster()
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Box } from '@vtex/admin-primitives'
 import { Toast } from './Toast'
 import {
   ToastManagerProps,
@@ -30,14 +31,14 @@ export function ToastManager(props: ToastManagerProps) {
   }
 
   const createToast = (props: ToastProps): ToastOptions => {
-    const { message, position = 'bottom', duration = 5000 } = props
+    const { position = 'bottom', duration = 5000 } = props
 
     counter.current += 1
     const id = counter.current
 
     return {
+      ...props,
       id: String(id),
-      message,
       position,
       duration,
       remove: removeToast,
@@ -53,10 +54,30 @@ export function ToastManager(props: ToastManagerProps) {
   }
 
   return (
-    <ul>
-      {state.bottom.map((toast) => {
-        return <Toast key={toast.id} {...toast} />
-      })}
-    </ul>
+    <Box
+      element="li"
+      csx={{
+        position: 'absolute',
+        bottom: '12px',
+        left: 0,
+        right: 0,
+        textAlign: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        maxWidth: '374px',
+        minHeight: '72px',
+        listStyle: 'none',
+        '> *:not(:last-child)': {
+          marginBottom: '12px',
+        },
+      }}
+    >
+      {state.bottom
+        .slice(0)
+        .reverse()
+        .map((toast) => {
+          return <Toast key={toast.id} {...toast} />
+        })}
+    </Box>
   )
 }

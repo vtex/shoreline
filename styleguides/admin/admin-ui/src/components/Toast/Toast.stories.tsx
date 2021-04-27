@@ -2,20 +2,20 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { Button } from '../Button'
 import { Set } from '../Set'
-import { useToast } from '.'
+import { useToaster } from '.'
 
 export default {
   title: 'admin-ui/Toast',
 } as Meta
 
 export function Basic() {
-  const toast = useToast()
+  const toaster = useToaster()
 
   return (
     <Set>
       <Button
         onClick={() =>
-          toast.notify({
+          toaster.notify({
             message: 'Info!',
           })
         }
@@ -24,7 +24,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toast.notify({
+          toaster.notify({
             type: 'success',
             message: 'Succes!',
           })
@@ -34,7 +34,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toast.notify({
+          toaster.notify({
             type: 'error',
             message: 'Error!',
           })
@@ -44,7 +44,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toast.notify({
+          toaster.notify({
             type: 'warning',
             message: 'Warning!',
           })
