@@ -33,7 +33,11 @@ By default, the column's width is defined to fit the available space without bre
 
 ### sortable
 
-defines if that column is sortable or not,
+Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatefulTable sort prop.
+
+### compare
+
+Function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function results.
 
 ## Resolvers API
 
@@ -369,6 +373,115 @@ function Example() {
           inStock: 380,
         },
       ]}
+    />
+  )
+}
+```
+
+## Sortable API
+
+The table has the sort prop which recievies an object that have other properties that handles sorting.
+If you just want regular sorting just provide a compare function inside of the table columns objects.
+This will handle the table sort UI state and not the sorting of the items.
+
+### initialValue
+
+Defines the table initial sorting value. `{ order?: 'ASC' | 'DSC', by?: string }`
+
+### order
+
+Order is related to the sorting order.
+
+### by
+
+By indicates which column is being sorted, this value should be the id of the column.
+
+### directions
+
+Define in which sorting order the table will be sorted.
+It accept's an array with `ASC` and `DSC` as possible values.
+You can pass an array with two or one sorting direction, if you pass an array with only one sorting direction the table will only sort in one direction.
+
+### reducer
+
+Receives the reducer that will be used inside of the useReducer that handles the sorting state, it's not required and if not provided the default reducer function will be used.
+The reducer function is called with the current sort state `{ order?: SortOrder, by?: string }` and the sorting action `{ type: SortOrder | 'RESET', columnId?: string }`.
+
+### callback
+
+Receives a function that will be fired when the user clicks the table header cell of a column.
+This function is called with an object containing the current sort state, the dispatch of the current useReducer that handles the sorting state, the column id of the column that was clicked and the current sort directions being used.
+
+```jsx
+function Sortable() {
+  const items = []
+
+  const columns = [
+    {
+      header: 'Name',
+      sortable: true,
+      id: 'name',
+    },
+    {
+      header: 'Age',
+      sortable: true,
+      id: 'age',
+    },
+    {
+      header: 'Address',
+      sortable: true,
+      id: 'address',
+    },
+  ]
+
+  /**
+   * Theese are the default reducer, callback, sort directions and initial state that will be used if you do not provide one of them.
+   **/
+  const initialValue = {
+    by: undefined,
+    order: undefined,
+  }
+
+  function sortReducer(state, action) {
+    switch (action.type) {
+      case 'ASC':
+      case 'DSC': {
+        return {
+          by: action.columnId,
+          order: action.type,
+        }
+      }
+      case 'RESET': {
+        return initialValue
+      }
+      default:
+        return state
+    }
+  }
+
+  function sortCallback({ currentSortState, columnId, dispatch, directions }) {
+    const { by, order } = currentSortState
+    if (!by || by !== columnId) {
+      dispatch({ type: directions[0], columnId: columnId })
+    } else if (order === directions[0] && directions[1]) {
+      dispatch({ type: directions[1], columnId: columnId })
+    } else {
+      dispatch({ type: 'RESET' })
+    }
+  }
+
+  const sortDirections = ['ASC', 'DSC']
+
+  return (
+    <StatefulTable
+      items={items}
+      columns={columns}
+      sort={{
+        reducer: sortReducer,
+        callback: sortCallback,
+        directions: sortDirections,
+        initialValue,
+      }}
     />
   )
 }
