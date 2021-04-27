@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { ThemeProvider } from '@vtex/admin-core'
 import { ToastManager } from './Manager'
-import { ToastManagerActions } from './typings'
+import { ToasterProps, ToastManagerActions } from './typings'
 
 /**
  * Wraps the ToastManager. This component mounts the
@@ -15,16 +15,20 @@ class Toaster {
     this.notify = actions.notify
   }
 
-  public constructor() {
+  public constructor(props: ToasterProps) {
+    const { subframe } = props
     let portal: HTMLElement
-    const existingPortal = document.getElementById(this.portalId)
+
+    const documentRef = subframe ? window.top.document : document
+
+    const existingPortal = documentRef.getElementById(this.portalId)
 
     if (existingPortal) {
       portal = existingPortal
     } else {
-      const div = document.createElement('div')
+      const div = documentRef.createElement('div')
       div.id = this.portalId
-      document.body.appendChild(div)
+      documentRef.body.appendChild(div)
       portal = div
     }
 
@@ -39,4 +43,5 @@ class Toaster {
   public notify!: ToastManagerActions['notify']
 }
 
-export const toaster = new Toaster()
+export const toaster = new Toaster({ subframe: false })
+export const iframeToaster = new Toaster({ subframe: true })

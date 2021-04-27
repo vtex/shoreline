@@ -1,8 +1,15 @@
-import { toaster } from '../components/Toaster'
+import { toaster, iframeToaster } from '../components/Toaster'
+import { ToasterProps } from '../components/typings'
 
-function createToaster() {
+function createToaster(props?: ToasterProps) {
+  const isSubframe = props?.subframe
+
+  if (isSubframe) {
+    const toasterInstance = Object.assign({}, iframeToaster)
+    return toasterInstance
+  }
+
   const toasterInstance = Object.assign({}, toaster)
-
   return toasterInstance
 }
 
@@ -27,6 +34,6 @@ function createToaster() {
  * </Button>
  * ```
  */
-export function useToaster() {
-  return createToaster()
+export function useToaster(props?: ToasterProps) {
+  return createToaster(props)
 }

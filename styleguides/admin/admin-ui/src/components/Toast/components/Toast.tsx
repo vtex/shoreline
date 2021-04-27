@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { Flex } from '@vtex/admin-primitives'
+import { IconClose } from '@vtex/admin-ui-icons'
 import { merge, StyleProp } from '@vtex/admin-core'
 import { ToastIconProps, ToastOptions, ToastType } from './typings'
 import { ToastIcon } from './Icon'
+import { Button } from '../../Button'
 
 /**
  * The toast is a variation of an alert that provides immediate
@@ -10,7 +12,15 @@ import { ToastIcon } from './Icon'
  * It displays a message that goes away after a set period of time.
  */
 export function Toast(props: ToastOptions) {
-  const { message, duration, csx, remove, id, iconProps } = useToast(props)
+  const {
+    message,
+    duration,
+    csx,
+    remove,
+    id,
+    iconProps,
+    dismissible,
+  } = useToast(props)
 
   useEffect(() => {
     setTimeout(() => {
@@ -18,12 +28,25 @@ export function Toast(props: ToastOptions) {
     }, duration)
   }, [])
 
+  const handleOnDismiss = () => {
+    remove(id)
+  }
+
   return (
     <Flex csx={csx} justify="space-between" align="center">
       <Flex align="center">
         <ToastIcon {...iconProps} />
         {message}
       </Flex>
+      {dismissible && (
+        <Flex align="center">
+          <Button
+            icon={<IconClose />}
+            variant="adaptative-dark"
+            onClick={handleOnDismiss}
+          />
+        </Flex>
+      )}
     </Flex>
   )
 }

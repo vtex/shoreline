@@ -64,3 +64,7 @@ export interface ToastIconProps extends IconProps {
 }
 
 type ToastPosition = 'bottom'
+
+export interface ToasterProps {
+  subframe?: boolean
+}
