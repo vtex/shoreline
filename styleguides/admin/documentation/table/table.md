@@ -40,29 +40,26 @@ function Simple() {
     },
   ]
 
-  return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'productName',
-          header: 'Product Name',
-        },
-        {
-          id: 'inStock',
-          header: 'In Stock',
-        },
-        {
-          id: 'skus',
-          header: 'SKUs',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-        },
-      ]}
-      items={fruits}
-    />
-  )
+  const columns = [
+    {
+      id: 'productName',
+      header: 'Product Name',
+    },
+    {
+      id: 'inStock',
+      header: 'In Stock',
+    },
+    {
+      id: 'skus',
+      header: 'SKUs',
+    },
+    {
+      id: 'price',
+      header: 'Price',
+    },
+  ]
+
+  return <StatefulTable columns={columns} items={fruits} />
 }
 ```
 
