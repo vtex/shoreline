@@ -7,6 +7,7 @@ import {
   ToastOptions,
   ToastProps,
 } from './typings'
+import { AnimatePresence } from 'framer-motion'
 
 /**
  * Manages toasts. This component is responsible for creating toasts,
@@ -24,6 +25,15 @@ export function ToastManager(props: ToastManagerProps) {
     })
   }, [])
 
+  useEffect(() => {
+    if (state.bottom.length === 0) {
+      // Resetting the toast count allows us
+      // to have consistent animations differentiated
+      // by the toast position on the stack.
+      counter.current = 0
+    }
+  }, [state.bottom])
+
   const removeToast = (id: string) => {
     setState((previousState) => ({
       bottom: previousState.bottom.filter((toast) => toast.id !== String(id)),
@@ -31,7 +41,7 @@ export function ToastManager(props: ToastManagerProps) {
   }
 
   const createToast = (props: ToastProps): ToastOptions => {
-    const { position = 'bottom', duration = 5000 } = props
+    const { position = 'bottom', duration = 10000 } = props
 
     counter.current += 1
     const id = counter.current
@@ -42,6 +52,7 @@ export function ToastManager(props: ToastManagerProps) {
       position,
       duration,
       remove: removeToast,
+      stack: [],
     }
   }
 
@@ -72,12 +83,17 @@ export function ToastManager(props: ToastManagerProps) {
         },
       }}
     >
-      {state.bottom
-        .slice(0)
-        .reverse()
-        .map((toast) => {
-          return <Toast key={toast.id} {...toast} />
+      <AnimatePresence>
+        {state.bottom.map((toast) => {
+          return (
+            <Toast
+              key={`${toast.position}-${toast.id}`}
+              {...toast}
+              stack={state.bottom.map((toast) => toast.id)}
+            />
+          )
         })}
+      </AnimatePresence>
     </Box>
   )
 }

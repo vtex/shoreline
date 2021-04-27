@@ -19,6 +19,10 @@ export interface ToastOptions extends ToastProps {
    * Removes specific toast from the stack.
    */
   remove: (id: string) => void
+  /**
+   * The ID of each toast on the stack.
+   */
+  stack: string[]
 }
 
 export interface ToastManagerProps {
@@ -35,19 +39,23 @@ export interface ToastProps extends SystemComponent {
    */
   message: string
   /**
-   * How long the toast should be apparent.
+   * How long the toast should be apparent, in milliseconds.
+   * @default 10000
    */
   duration?: number
   /**
    * The position which the toast should be rendered at.
+   * @default "bottom"
    */
   position?: ToastPosition
   /**
    * The toast's type.
+   * @default "info"
    */
   type?: ToastType
   /**
    * Whether the toast can be dismissed or not.
+   * @default false
    */
   dismissible?: boolean
   /**

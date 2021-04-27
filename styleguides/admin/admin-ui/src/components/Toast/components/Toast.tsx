@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { Flex } from '@vtex/admin-primitives'
 import { IconClose } from '@vtex/admin-ui-icons'
-import { merge, StyleProp } from '@vtex/admin-core'
+import { merge, StyleProp, useSystem } from '@vtex/admin-core'
 import { ToastIconProps, ToastOptions, ToastType } from './typings'
 import { ToastIcon } from './Icon'
 import { Button, ButtonProps } from '../../Button'
 import { Text } from '../../Text'
+import { motion } from 'framer-motion'
 
 /**
  * The toast is a variation of an alert that provides immediate
@@ -21,8 +22,10 @@ export function Toast(props: ToastOptions) {
     id,
     iconProps,
     dismissible,
+    stack,
     action,
   } = useToast(props)
+  const { cn } = useSystem()
 
   useEffect(() => {
     setTimeout(() => {
@@ -34,8 +37,28 @@ export function Toast(props: ToastOptions) {
     remove(id)
   }
 
+  const isFirst = useMemo(() => {
+    return (
+      stack
+        .slice(0)
+        .reverse()
+        .findIndex((toastId) => toastId === id) === 0
+    )
+  }, [stack])
+
   return (
-    <Flex csx={csx} justify="space-between" align="center">
+    <motion.div
+      className={cn(csx)}
+      initial={{ top: 84 }}
+      animate={{ top: 0 }}
+      exit={{
+        opacity: isFirst ? 1 : 0,
+        top: isFirst ? 84 : 0,
+      }}
+      transition={{
+        duration: 0.3,
+      }}
+    >
       <Flex align="center">
         <ToastIcon {...iconProps} />
         <Text csx={{ textAlign: 'start' }}>{message}</Text>
@@ -53,7 +76,7 @@ export function Toast(props: ToastOptions) {
           )}
         </Flex>
       )}
-    </Flex>
+    </motion.div>
   )
 }
 
@@ -94,6 +117,11 @@ function useToast(props: ToastOptions) {
 
 function setCsx(type: ToastType) {
   const styles: StyleProp = {
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     minWidth: '258px',
     width: 'auto',
     minHeight: '72px',
