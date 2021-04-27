@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.93.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.92.1...@vtex/admin-ui@0.93.0) (2021-04-27)
+
+
+### Bug Fixes
+
+* **table-empty-state:** add table views prop comment ([1506953](https://github.com/vtex/onda/commit/15069532d7906de81c6ddac5499105f1d94581f2))
+* **table-empty-state:** align center ([fa2855f](https://github.com/vtex/onda/commit/fa2855f9f8a01822e3f30411cdde4ef4980775d6))
+* **table-empty-state:** improve table view empty title fallback ([b59500e](https://github.com/vtex/onda/commit/b59500ed9b891284d663cdf0e032e3a2f06d3064))
+* **table-empty-state:** improve table view empty title fallback ([c41ab01](https://github.com/vtex/onda/commit/c41ab0177f3390b7930b8d451cf759f3e407d24f))
+* **table-empty-state:** justify table views illustration and tex ([1ce4827](https://github.com/vtex/onda/commit/1ce4827b07326c0287b21f2845fa71b24c87acfb))
+* **table-empty-state:** remove align center ([27564db](https://github.com/vtex/onda/commit/27564db20ff0230c2eb3e3500eacb4fe604306e2))
+* **table-empty-state:** replace old variable name with titleFallback ([f124b55](https://github.com/vtex/onda/commit/f124b55648de647d19d521457c482039a3dc0e75))
+* **table-empty-state:** table views layout styles ([ee7d2f2](https://github.com/vtex/onda/commit/ee7d2f220ed1a0fbd6313ab180abe20427da6212))
+* **table-empty-state:** use admin-ui colors in table views component bg ([53e699d](https://github.com/vtex/onda/commit/53e699d70ec547be23ed8b8e73bf872b94500197))
+
+
+### Features
+
+* **table-empty-state:** add state to table views ([2bd0c4c](https://github.com/vtex/onda/commit/2bd0c4cca5adde7ffa5e19aeaa100d6c5fe617db))
+* **table-empty-state:** add table state to stories ([1f31c45](https://github.com/vtex/onda/commit/1f31c45933a376124b067e28b8ada74451e1267e))
+* **table-empty-state:** create table state component ([e1e348a](https://github.com/vtex/onda/commit/e1e348a955f86be1bff56292c5feb8b8e7b5ff48))
+* **table-empty-state:** up empty state illustration ([f30b1f4](https://github.com/vtex/onda/commit/f30b1f42b5e4553b5de4d4f3b67d55d711915d60))
+* export Pagination and usePaginationState ([33f53db](https://github.com/vtex/onda/commit/33f53db21dbda5b1f0940abaf3ee7e342dd4da83))
+
+
+
+
+
 ## [0.92.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.92.0...@vtex/admin-ui@0.92.1) (2021-04-21)
 
 **Note:** Version bump only for package @vtex/admin-ui
