@@ -14,13 +14,13 @@ export default {
 } as Meta
 
 export function Basic() {
-  const toaster = useToaster()
+  const { toast } = useToaster()
 
   return (
     <Set>
       <Button
         onClick={() =>
-          toaster.notify({
+          toast({
             message,
           })
         }
@@ -29,7 +29,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toaster.notify({
+          toast({
             type: 'success',
             message,
           })
@@ -39,7 +39,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toaster.notify({
+          toast({
             type: 'error',
             message,
           })
@@ -49,7 +49,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toaster.notify({
+          toast({
             type: 'warning',
             message,
           })
@@ -59,7 +59,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toaster.notify({
+          toast({
             type: 'success',
             message: "I'm customized 😎!",
             csx: {
@@ -85,13 +85,13 @@ export function Basic() {
 }
 
 export function Interactive() {
-  const toaster = useToaster()
+  const { toast } = useToaster()
 
   return (
     <Set>
       <Button
         onClick={() =>
-          toaster.notify({
+          toast({
             message,
             dismissible: true,
           })
@@ -101,7 +101,7 @@ export function Interactive() {
       </Button>
       <Button
         onClick={() =>
-          toaster.notify({
+          toast({
             type: 'success',
             message,
             action: {
@@ -115,7 +115,7 @@ export function Interactive() {
       </Button>
       <Button
         onClick={() =>
-          toaster.notify({
+          toast({
             type: 'warning',
             message,
             dismissible: true,
@@ -130,7 +130,7 @@ export function Interactive() {
       </Button>
       <Button
         onClick={() =>
-          toaster.notify({
+          toast({
             message: 'Type here a longer message but not much longer than that',
             dismissible: true,
             action: {
@@ -147,12 +147,12 @@ export function Interactive() {
 }
 
 export const Playground: Story<ToastProps> = (args) => {
-  const toaster = useToaster()
+  const { toast } = useToaster()
 
   return (
     <Button
       onClick={() =>
-        toaster.notify({
+        toast({
           ...args,
         })
       }

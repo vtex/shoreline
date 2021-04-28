@@ -25,11 +25,11 @@ function createToaster(props?: ToasterProps) {
  *
  * @example
  * ```jsx
- * const toaster = useToaster()
+ * const { toast } = useToaster()
  *
  * <Button
  *   onClick={() =>
- *     toaster.notify({
+ *     toast({
  *       type: 'success',
  *       message: 'Succes!',
  *     })

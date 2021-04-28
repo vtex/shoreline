@@ -12,7 +12,7 @@ class Toaster {
   private portalId = 'onda-toast-portal'
 
   private bindActions = (actions: ToastManagerActions) => {
-    this.notify = actions.notify
+    this.toast = actions.notify
   }
 
   public constructor(props: ToasterProps) {
@@ -40,7 +40,7 @@ class Toaster {
     )
   }
 
-  public notify!: ToastManagerActions['notify']
+  public toast!: ToastManagerActions['notify']
 }
 
 export const toaster = new Toaster({ subframe: false })
