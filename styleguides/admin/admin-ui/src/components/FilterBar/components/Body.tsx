@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, BoxProps } from '@vtex/admin-primitives'
 import { Set } from '../../Set'
 import { Paragraph } from '../../Paragraph'
-import { BodyStatement } from './BodyStatement'
+import { Statement } from './Statement'
 
 export function Body(props: BodyProps) {
   const { empty, label, children, ...restProps } = props
@@ -22,7 +22,7 @@ export function Body(props: BodyProps) {
   )
 }
 
-Body.Statement = BodyStatement
+Body.Statement = Statement
 
 export interface BodyProps extends BoxProps<'div'> {
   /** Whether has statement or not */

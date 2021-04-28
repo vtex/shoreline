@@ -1,4 +1,5 @@
 export * from './StatementDropdown'
-export * from './BodyStatement'
+export * from './StatementMenu'
+export * from './Statement'
 export * from './Footer'
 export * from './Body'

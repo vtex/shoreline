@@ -1,18 +1,32 @@
 import React from 'react'
 import { get, useSystem } from '@vtex/admin-core'
 
-import { Dropdown, DropdownProps } from '../../Dropdown'
+import { Dropdown, DropdownProps, useDropdownState } from '../../Dropdown'
 import { Box } from '@vtex/admin-primitives'
+import { UseSelectStateChange } from 'downshift'
 
-export function StatementDropdown<T>(props: DropdownProps<T>) {
+export function StatementDropdown<T>(props: StatementDropdownProps<T>) {
   const dropdownProps = useStatementDropdown(props)
 
   return <Dropdown {...dropdownProps} />
 }
 
-export function useStatementDropdown<T>(props: DropdownProps<T>) {
-  const { csx, variant = 'adaptative-dark', ...restProps } = props
+export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
+  const {
+    csx,
+    variant = 'adaptative-dark',
+    items,
+    selectedItem,
+    handleItemChange,
+    ...restProps
+  } = props
   const { stylesOf } = useSystem()
+
+  const state = useDropdownState({
+    items,
+    selectedItem,
+    onSelectedItemChange: handleItemChange,
+  })
 
   const renderItem = (item: T | null) => {
     if (typeof item !== 'object') return item
@@ -31,6 +45,14 @@ export function useStatementDropdown<T>(props: DropdownProps<T>) {
       ...stylesOf('components.filterBar.dropdown'),
       ...csx,
     },
+    state,
+    items,
     ...restProps,
   }
+}
+
+export interface StatementDropdownProps<T>
+  extends Omit<DropdownProps<T>, 'state'> {
+  handleItemChange: (item: UseSelectStateChange<T>) => void
+  selectedItem: T
 }

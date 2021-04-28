@@ -4,10 +4,11 @@ import { Box } from '@vtex/admin-primitives'
 import { IconAdd } from '@vtex/admin-ui-icons'
 
 import { Button } from '../Button'
-import { Body, Footer } from './components'
+import { Body, Statement, Footer } from './components'
 import { useFilterBar } from './useFilterBar'
 import { Condition, Conjunction, FilterBarProps, Filter } from './typings'
-import { FilterBarProvider } from './context'
+import { IconDuplicate, IconDelete } from '@vtex/admin-ui-icons'
+import { Menu } from '../Menu'
 
 export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
   const {
@@ -91,48 +92,90 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
 
   return (
     <Box csx={{ border: 'default' }} {...htmlProps}>
-      <FilterBarProvider
-        filters={filters}
-        resolvers={resolvers}
-        handleValueChange={handleValueChange}
-        handleConditionChange={handleConditionChange}
-        handleConjunctionChange={handleConjunctionChange}
-        handleDeleteStatement={handleDeleteStatement}
-        handleFilterChange={handleFilterChange}
-        handleDuplicateStatement={handleDuplicateStatement}
-      >
-        <Body empty={statements.length === 0} label={label}>
-          {statements.map((statement, index) => {
-            return (
-              <Body.Statement
-                key={`filter-statement-${index}`}
+      <Body empty={statements.length === 0} label={label}>
+        {statements.map((statement, index) => {
+          return (
+            <Statement key={`filter-statement-${index}`}>
+              <Statement.Conjunction
+                label="Conjunction"
+                selectedItem={conjunction}
                 index={index}
-                conjunction={conjunction}
-                statement={statement}
+                items={['And', 'Or']}
+                handleItemChange={({ selectedItem }) => {
+                  if (selectedItem) {
+                    handleConjunctionChange(selectedItem)
+                  }
+                }}
               />
-            )
-          })}
-        </Body>
 
-        <Footer>
-          <Button
-            size="small"
-            variant="tertiary"
-            icon={<IconAdd />}
-            onClick={handleNewStatement}
-          >
-            Add Filter
-          </Button>
-          <Button
-            size="small"
-            variant="adaptative-dark"
-            csx={{ color: 'dark.secondary' }}
-            onClick={handleFiltersReset}
-          >
-            Reset Filters
-          </Button>
-        </Footer>
-      </FilterBarProvider>
+              <Statement.Filter
+                label="Filter"
+                items={filters}
+                selectedItem={statement.filter}
+                handleItemChange={({ selectedItem: filter }) => {
+                  if (!filter) return
+
+                  handleFilterChange(filter, index)
+                }}
+                csx={{ maxWidth: 150 }}
+              />
+
+              <Statement.Conditions
+                selectedItem={statement.condition}
+                handleItemChange={({ selectedItem: condition }) => {
+                  if (!condition) return
+
+                  handleConditionChange(condition, index)
+                }}
+                label="Condition"
+                items={statement.filter.conditions}
+                csx={{ maxWidth: 150 }}
+              />
+
+              <Statement.Value
+                resolvers={resolvers}
+                statement={statement}
+                index={index}
+                handleValueChange={handleValueChange}
+              />
+
+              <Statement.Menu aria-label={`statement-menu-${index}`}>
+                <Menu.Item
+                  onClick={() => handleDuplicateStatement(index)}
+                  icon={<IconDuplicate />}
+                >
+                  Duplicate
+                </Menu.Item>
+                <Menu.Item
+                  onClick={() => handleDeleteStatement(index)}
+                  icon={<IconDelete />}
+                >
+                  Delete
+                </Menu.Item>
+              </Statement.Menu>
+            </Statement>
+          )
+        })}
+      </Body>
+
+      <Footer>
+        <Button
+          size="small"
+          variant="tertiary"
+          icon={<IconAdd />}
+          onClick={handleNewStatement}
+        >
+          Add Filter
+        </Button>
+        <Button
+          size="small"
+          variant="adaptative-dark"
+          csx={{ color: 'dark.secondary' }}
+          onClick={handleFiltersReset}
+        >
+          Reset Filters
+        </Button>
+      </Footer>
     </Box>
   )
 }

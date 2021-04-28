@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react'
 import { get } from '@vtex/admin-core'
 import invariant from 'tiny-invariant'
 
-import { useDropdownState } from '../../Dropdown'
 import { ResolverRenderProps } from './core'
 import { createResolver, defaultRender } from './core'
 import { StatementDropdown } from '../components'
@@ -17,16 +16,6 @@ export function simpleResolver<T>() {
       const selectedItemValue = target ?? defaultValue
 
       const render = resolver?.render ?? defaultRender
-
-      const state = useDropdownState<T>({
-        items,
-        selectedItem: selectedItemValue,
-        onSelectedItemChange: ({ selectedItem }) => {
-          if (selectedItem) {
-            handleValueChange(selectedItem, index)
-          }
-        },
-      })
 
       const renderItem = (item: T | null) => {
         if (typeof item !== 'object') return item
@@ -45,7 +34,12 @@ export function simpleResolver<T>() {
 
       const data = (
         <StatementDropdown<T>
-          state={state}
+          handleItemChange={({ selectedItem }) => {
+            if (selectedItem) {
+              handleValueChange(selectedItem, index)
+            }
+          }}
+          selectedItem={selectedItemValue}
           renderItem={renderItem}
           label="Value"
           items={items}
