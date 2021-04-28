@@ -7,7 +7,7 @@ export function useOwnPropsIdentity<OwnProps, Props>(_: OwnProps, props: Props) 
 }
 
 /**
- * clean not valid html props
+ * clean invalid HTML props
  * @param props
  */
 export function cleanProps<P extends {}>(props: P) {
