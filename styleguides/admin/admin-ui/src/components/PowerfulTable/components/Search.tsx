@@ -6,7 +6,7 @@ export function TableSearch(props: SearchProps) {
 
   return (
     <Search
-      wrappingFormCSX={{ width: '25%', minWidth: '22.25rem' }}
+      wrappingFormCSX={{ width: '25%', minWidth: '12.25rem' }}
       height={height}
       {...searchProps}
     />

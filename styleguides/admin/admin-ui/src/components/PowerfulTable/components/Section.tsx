@@ -4,5 +4,11 @@ import { Set, SetProps } from '../../Set'
 export function TableSection(props: PropsWithoutRef<SetProps>) {
   const { spacing = 3, csx = {}, ...setProps } = props
 
-  return <Set spacing={spacing} csx={{ paddingY: '4', ...csx }} {...setProps} />
+  return (
+    <Set
+      spacing={spacing}
+      csx={{ paddingY: '4', overflow: 'auto', ...csx }}
+      {...setProps}
+    />
+  )
 }

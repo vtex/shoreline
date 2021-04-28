@@ -31,7 +31,7 @@ export function Pagination(props: PaginationProps) {
         <Text
           feedback="secondary"
           variant="small"
-          csx={{ marginRight: '1.25rem' }}
+          csx={{ marginRight: '1.25rem', whiteSpace: 'nowrap' }}
         >
           {displayedStartOfRange} — {displayedEndOfRange} {preposition} {total}{' '}
           {subject}
