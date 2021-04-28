@@ -1,6 +1,11 @@
 import { toaster, iframeToaster } from '../components/Toaster'
 import { ToasterProps } from '../components/typings'
 
+/**
+ * Abstracts the existing toaster instance, making it possible
+ * to reuse the instance and therefore persist the toast
+ * stack regardless of what's the component calling `useToaster`.
+ */
 function createToaster(props?: ToasterProps) {
   const isSubframe = props?.subframe
 
