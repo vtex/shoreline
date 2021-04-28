@@ -508,7 +508,7 @@ This is the table button, you should use it inside the table toolbar.
 
 ### Pagination
 
-This is the component that handles pagination in the table. It's behavior is documented at [Pagination](/components/pagination)'s page.
+This is the component that handles pagination in the table. It's behavior is documented at [Pagination](/pagination)'s page.
 
 ```jsx
 function CompleteTopbar() {

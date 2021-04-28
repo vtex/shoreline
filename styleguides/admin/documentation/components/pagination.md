@@ -1,5 +1,5 @@
 ---
-path: /pagination
+path: /pagination/
 ---
 
 # Pagination
