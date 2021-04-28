@@ -2,15 +2,15 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { Button as ReakitButton, Separator } from 'reakit'
 
-import { onda } from './index'
+import { createOnda } from './index'
 import { ThemeProvider } from '../core'
 
 export default {
-  title: 'Core/onda',
+  title: 'Core/createOnda',
 } as Meta
 
 export function Plain() {
-  const Div = onda('div')
+  const Div = createOnda('div')
 
   return (
     <ThemeProvider>
@@ -41,7 +41,7 @@ export function Plain() {
 }
 
 export function Themed() {
-  const Div = onda('div', {
+  const Div = createOnda('div', {
     size: 100,
   })
 
@@ -71,12 +71,12 @@ export function Themed() {
 }
 
 export function Extend() {
-  const Div = onda('div', {
+  const Div = createOnda('div', {
     size: 100,
     marginY: 1,
   })
 
-  const NegativeDiv = onda(Div, {
+  const NegativeDiv = createOnda(Div, {
     bg: 'red.secondary',
     color: 'red',
   })
@@ -98,16 +98,16 @@ export function Extend() {
 }
 
 export function DoubleExtend() {
-  const Div = onda('div', {
+  const Div = createOnda('div', {
     size: 100,
   })
 
-  const Primary = onda(Div, {
+  const Primary = createOnda(Div, {
     bg: 'blue',
     color: 'light.primary',
   })
 
-  const Hoverable = onda(Primary, {
+  const Hoverable = createOnda(Primary, {
     cursor: 'pointer',
     ':hover': {
       bg: 'blue.hover',
@@ -129,7 +129,7 @@ export function DoubleExtend() {
 }
 
 export function ButtonSeries() {
-  const Button = onda('button', {
+  const Button = createOnda('button', {
     height: 32,
     cursor: 'pointer',
     bg: 'transparent',
@@ -143,7 +143,7 @@ export function ButtonSeries() {
     },
   })
 
-  const Primary = onda(Button, {
+  const Primary = createOnda(Button, {
     bg: 'blue',
     color: 'light.primary',
     ':hover': {
@@ -154,7 +154,7 @@ export function ButtonSeries() {
     },
   })
 
-  const Secondary = onda(Button, {
+  const Secondary = createOnda(Button, {
     bg: 'blue.secondary',
     color: 'blue',
     ':hover': {
@@ -175,7 +175,7 @@ export function ButtonSeries() {
 }
 
 export function ButtonVariants() {
-  const Button = onda('button', {
+  const Button = createOnda('button', {
     cursor: 'pointer',
     margin: 1,
     borderRadius: 'default',
@@ -229,7 +229,7 @@ export function ButtonVariants() {
 }
 
 export function SyncVariants() {
-  const Button = onda(
+  const Button = createOnda(
     'button',
     {
       cursor: 'pointer',
@@ -331,7 +331,7 @@ export function SyncVariants() {
 }
 
 export function WithReakit() {
-  const Button = onda(
+  const Button = createOnda(
     ReakitButton,
     {
       cursor: 'pointer',
@@ -433,7 +433,7 @@ export function WithReakit() {
 }
 
 export function OwnProps() {
-  const Divider = onda(
+  const Divider = createOnda(
     {
       as: Separator,
       ownProps: ['orientation'],
@@ -461,9 +461,9 @@ export function OwnProps() {
     orientation: 'horizontal',
   }
 
-  const Div = onda('div')
-  const Heading = onda('h1')
-  const Paragraph = onda('p')
+  const Div = createOnda('div')
+  const Heading = createOnda('h1')
+  const Paragraph = createOnda('p')
 
   return (
     <ThemeProvider>
@@ -514,7 +514,7 @@ export function UseOwnProps() {
     label: string
   }
 
-  const Avatar = onda(
+  const Avatar = createOnda(
     {
       as: 'div',
       useOwnProps: (ownProps: AvatarOwnProps) => {

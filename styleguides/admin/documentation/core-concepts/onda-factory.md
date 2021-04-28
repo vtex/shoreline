@@ -4,14 +4,14 @@ path: /core-concepts/onda-factory/
 
 # onda factory
 
-The `onda` function is a unique way to define and compose `admin-ui-powered` components.
+The `createOnda` function is a unique way to define and compose `admin-ui-powered` components.
 
 ## Types
 
 Here are all the types that you need to know
 
 ```ts isStatic
-type onda = (
+type createOnda = (
   subject: React.ElementType | React.ComponentType | OndaComponent,
   sheet: Sheet,
   sync: Sync[]
@@ -44,7 +44,7 @@ A valid `React.ElementType` is accepted as a subject. This will create a new `On
 
 ```jsx
 function ElementType() {
-  const Button = onda('button')
+  const Button = createOnda('button')
 
   return <Button>Button</Button>
 }
@@ -57,7 +57,7 @@ You can also pass a component. This is useful to compose a new admin-ui powered 
 ```jsx
 function ComponentType() {
   // import { Link as GatsbyLink } from 'gatsby'
-  const Link = onda(GatsbyLink)
+  const Link = createOnda(GatsbyLink)
 
   return (
     <Link
@@ -78,7 +78,7 @@ You can define default value for a OndaComponent props, for example:
 
 ```jsx
 function DefaultProps() {
-  const Square = onda('div', {
+  const Square = createOnda('div', {
     size: 100,
     padding: 1,
     bg: 'light.secondary',
@@ -102,7 +102,7 @@ You can always pass custom styles, or override the existing ones. This can be do
 
 ```jsx
 function Styles() {
-  const Div = onda('div', {
+  const Div = createOnda('div', {
     fontSize: 3,
   })
 
@@ -128,7 +128,7 @@ function Styles() {
 
 ```jsx
 function Variants() {
-  const Square = onda('div', {
+  const Square = createOnda('div', {
     size: 100,
     variants: {
       color: {
@@ -174,7 +174,7 @@ In the example below, we have a square with maybe `solid` or `outline` filling. 
 
 ```jsx
 function Sync() {
-  const Square = onda(
+  const Square = createOnda(
     'div',
     {
       size: 100,
@@ -254,16 +254,16 @@ Onda components can be extended to define a family of components
 
 ```jsx
 function Composition() {
-  const Square = onda('div', {
+  const Square = createOnda('div', {
     size: 100,
     bg: 'mid.primary',
   })
 
-  const BlueSquare = onda(Square, {
+  const BlueSquare = createOnda(Square, {
     bg: 'blue',
   })
 
-  const RedSquare = onda(Square, {
+  const RedSquare = createOnda(Square, {
     bg: 'red',
   })
 
@@ -283,7 +283,7 @@ Using the `as` prop you can define the component render type, to extend or chang
 
 ```jsx
 function Polymorphism() {
-  const Button = onda('button', {
+  const Button = createOnda('button', {
     cursor: 'pointer',
     bg: 'blue',
     color: 'light.primary',

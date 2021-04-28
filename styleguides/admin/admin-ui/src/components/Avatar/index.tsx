@@ -1,4 +1,4 @@
-import { onda } from '@vtex/admin-core'
+import { createOnda } from '@vtex/admin-core'
 
 /**
  * Component to create a user avatar from a passed label
@@ -10,7 +10,7 @@ import { onda } from '@vtex/admin-core'
  * <Avatar label="label" palette="danger" />
  * ```
  */
-export const Avatar = onda(
+export const Avatar = createOnda(
   {
     as: 'div',
     useOwnProps: (ownProps: AvatarOwnProps) => {

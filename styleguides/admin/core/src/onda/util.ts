@@ -2,7 +2,7 @@ import isPropValid from '@emotion/is-prop-valid'
 import { pick } from '../system'
 import { ONDA_METADATA } from './symbols'
 
-export function identity<I, J>(_: I, j: J) {
+export function useOwnPropsIdentity<OwnProps, Props>(_: OwnProps, j: Props) {
   return j
 }
 

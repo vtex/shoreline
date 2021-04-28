@@ -1,6 +1,6 @@
-import { onda } from '@vtex/admin-core'
+import { createOnda } from '@vtex/admin-core'
 
-export const Card = onda('div', {
+export const Card = createOnda('div', {
   bg: 'light.primary',
   color: 'dark.primary',
   border: 'default',

@@ -1,9 +1,9 @@
-import { onda } from '@vtex/admin-core'
+import { createOnda } from '@vtex/admin-core'
 
 /**
  * Component to add links within an admin page
  */
-export const Anchor = onda('a', {
+export const Anchor = createOnda('a', {
   font: 'inherit',
   color: 'blue',
   textDecoration: 'none',

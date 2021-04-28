@@ -1,5 +1,5 @@
-import { onda } from '@vtex/admin-core'
+import { createOnda } from '@vtex/admin-core'
 
-export const Heading = onda('h1', {
+export const Heading = createOnda('h1', {
   text: 'headline',
 })

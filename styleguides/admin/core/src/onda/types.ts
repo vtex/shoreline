@@ -1,5 +1,5 @@
 import { useSystem } from '../core'
-import { StyleObject, StyleProp } from '../system'
+import { StyleProp } from '../system'
 import { ONDA_METADATA } from './symbols'
 
 /**
@@ -58,10 +58,10 @@ export interface OndaComponentMetadata {
    * props that will pass through
    */
   ownProps: string[]
-  sheet: any
+  styleSheet: any
 }
 
-export type Component<T extends As, O, V> = {
+export type OndaComponent<T extends As, O, V> = {
   <TT extends As>(
     props: PropsWithAs<O, TT> & { as: TT } & VariantsCall<V>
   ): JSX.Element
@@ -91,18 +91,6 @@ export type Options<T extends As, O, V> =
       ) => React.ComponentPropsWithoutRef<T>
       defaultProps?: Partial<PropsWithAs<O, T> & VariantsCall<V>>
     }
-
-export type Sheet<Variants> = StyleObject & {
-  variants?: {
-    [k in keyof Variants]: { [b in keyof Variants[k]]: StyleObject }
-  }
-}
-
-export type Sync<Variants> = {
-  [k in keyof Variants]?: keyof Variants[k]
-} & {
-  csx?: StyleObject
-}
 
 export type VariantsCall<Variants> = {
   [k in keyof Variants]?: keyof Variants[k]

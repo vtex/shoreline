@@ -1,7 +1,7 @@
 import { Separator } from 'reakit'
-import { onda } from '@vtex/admin-core'
+import { createOnda } from '@vtex/admin-core'
 
-export const Divider = onda(
+export const Divider = createOnda(
   {
     as: Separator,
     ownProps: ['orientation'],
