@@ -29,6 +29,28 @@ function Example() {
 }
 ```
 
+## Variations
+
+### Loading
+
+```jsx
+function Loading() {
+  const state = usePaginationState({ size: 5 })
+
+  return (
+    <Pagination
+      state={state}
+      preposition="of"
+      subject="results"
+      prevLabel="Back"
+      nextLabel="Next"
+      loading
+      total={35}
+    />
+  )
+}
+```
+
 ## Props
 
 | Name        | Type                  | Description                                                                    | Required | Default |
