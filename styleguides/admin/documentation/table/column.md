@@ -37,7 +37,7 @@ Defines if that column is sortable or not, passing true to this prop won't sort 
 
 ### compare
 
-Function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function results.
+The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result.
 
 ## Resolvers API
 
@@ -381,21 +381,14 @@ function Example() {
 ## Sortable API
 
 The table has the sort prop to handle sorting.
-If you just want regular sorting just provide a compare function inside of the table columns objects.
+If you just want regular sorting just provide a compare function inside of the table column objects.
 This will handle the table sort UI state and not the sorting of the items.
 All of these are optional values and if you do not provide them the default value will be used.
 
 ### initialValue
 
 Defines the table initial sorting value. `{ order?: 'ASC' | 'DSC', by?: string }`
-
-### order
-
-Order is related to the sorting order.
-
-### by
-
-By indicates which column is being sorted, this value should be the id of the column.
+The `order` prop is related to the sorting order and `by` indicates which column is being sorted, this value should be the id of the column.
 
 ### directions
 
@@ -496,7 +489,7 @@ We have also developed a few components that should be used in this section.
 
 ### Search
 
-This is the input you should use when implementing search on the table. It's behavior is documented at [Search](/form/search)'s page.
+This is the input you should use when implementing search on the table. Its behavior is documented in [Search](/form/search)'s page.
 
 ### Toolbar
 
@@ -508,7 +501,7 @@ This is the table button, you should use it inside the table toolbar.
 
 ### Pagination
 
-This is the component that handles pagination in the table. It's behavior is documented at [Pagination](/pagination)'s page.
+This is the component that handles pagination in the table. Its behavior is documented in [Pagination](/pagination)'s page.
 
 ```jsx
 function CompleteTopbar() {

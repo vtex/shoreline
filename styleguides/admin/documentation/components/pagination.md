@@ -4,7 +4,7 @@ path: /pagination/
 
 # Pagination
 
-The pagination component allows the user to move back and forth between pages showing the number of items on the page and in the rest of the collection.
+The pagination component allows the user to move back and forth between pages, showing the number of items on the page and in the rest of the collection.
 
 ```jsx isStatic
 import { Pagination } from '@vtex/admin-ui'
