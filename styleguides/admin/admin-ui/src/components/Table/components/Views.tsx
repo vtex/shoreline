@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from 'react'
+import React, { ComponentPropsWithRef, PropsWithChildren } from 'react'
 import { Box, Flex } from '@vtex/admin-primitives'
 import { useViewContext, TableViewState } from '../context'
-import { Anchor, AnchorProps } from '../../Anchor'
+import { Anchor } from '../../Anchor'
 import { Text } from '../../Text'
 import {
   CollectionEmpty,
@@ -113,7 +113,8 @@ export interface TablewViewWithText extends BasicTableView {
 
 type TableView = TablewViewWithText | TablewViewWithAnchor
 
-interface ViewAnchor extends Pick<AnchorProps, 'onClick' | 'href'> {
+interface ViewAnchor
+  extends Pick<ComponentPropsWithRef<'a'>, 'onClick' | 'href'> {
   text: string
 }
 

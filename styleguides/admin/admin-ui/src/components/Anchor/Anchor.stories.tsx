@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { Anchor, AnchorProps } from './index'
+import { Anchor } from './index'
 import { Paragraph } from '../Paragraph'
 import { List } from '../List'
 
@@ -19,7 +19,7 @@ Playground.args = {
   children: 'Link 1',
 }
 
-export const withinAParagraph: Story<AnchorProps> = () => {
+export const withinAParagraph: Story = () => {
   return (
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a
@@ -37,7 +37,7 @@ export const withinAParagraph: Story<AnchorProps> = () => {
   )
 }
 
-export const withinAList: Story<AnchorProps> = () => {
+export const withinAList: Story = () => {
   return (
     <List style="none">
       <List.Item csx={{ mb: '2' }}>

@@ -2,7 +2,7 @@
 
 exports[`Avatar tests should match snaphot with label 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -20,32 +20,25 @@ exports[`Avatar tests should match snaphot with label 1`] = `
   padding: 0.5rem;
   border-radius: 100%;
   text-transform: uppercase;
-  background-color: #323845;
-  color: #FFFFFF;
-}
-
-.emotion-0 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
+  background-color: #323845;
+  color: #FFFFFF;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
-    <div
-      class="emotion-0"
-    >
-      T
-    </div>
+    T
   </div>
 </DocumentFragment>
 `;
 
 exports[`Avatar tests should match snaphot with pallette 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -63,34 +56,20 @@ exports[`Avatar tests should match snaphot with pallette 1`] = `
   padding: 0.5rem;
   border-radius: 100%;
   text-transform: uppercase;
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   background-color: #323845;
   color: #FFFFFF;
 }
 
-.emotion-0 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
-    <div
-      class="emotion-0"
-    >
-      T
-    </div>
+    T
   </div>
   .emotion-0 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -108,27 +87,20 @@ exports[`Avatar tests should match snaphot with pallette 1`] = `
   padding: 0.5rem;
   border-radius: 100%;
   text-transform: uppercase;
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   background-color: #CB4242;
   color: #FFFFFF;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
-    <div
-      class="emotion-0"
-    >
-      T
-    </div>
+    T
   </div>
   .emotion-0 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'wght' 92;
-  font-size: 0.875rem;
-}
-
-.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -146,18 +118,18 @@ exports[`Avatar tests should match snaphot with pallette 1`] = `
   padding: 0.5rem;
   border-radius: 100%;
   text-transform: uppercase;
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
   background-color: #2953B2;
   color: #FFFFFF;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
-    <div
-      class="emotion-0"
-    >
-      T
-    </div>
+    T
   </div>
 </DocumentFragment>
 `;

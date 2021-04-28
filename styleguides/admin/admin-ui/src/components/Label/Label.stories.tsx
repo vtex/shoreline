@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { Label, LabelProps } from './index'
+import { Label } from './index'
 import { Flex } from '@vtex/admin-primitives'
 
 export default {
@@ -9,7 +9,7 @@ export default {
   component: Label,
 } as Meta
 
-export const Playground: Story<LabelProps> = (args) => {
+export const Playground: Story = (args) => {
   return (
     <Label {...args}>
       <input type="checkbox" />

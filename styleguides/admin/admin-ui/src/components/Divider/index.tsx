@@ -1,31 +1,27 @@
-import { Separator as ReakitSeparator } from 'reakit'
-import { useSystem, createComponent } from '@vtex/admin-core'
+import { Separator } from 'reakit'
+import { createOnda } from '@vtex/admin-core'
 
-import { SystemComponent } from '../../types'
-
-export const Divider = createComponent(ReakitSeparator, useDivider)
-
-export function useDivider(props: DividerProps) {
-  const { orientation = 'horizontal', csx, ...htmlProps } = props
-  const { cn } = useSystem()
-
-  const className = cn({
+export const Divider = createOnda(
+  {
+    as: Separator,
+    ownProps: ['orientation'],
+  },
+  {
     text: 'headline',
-    themeKey: `components.divider.${orientation}`,
-    ...csx,
-  })
-
-  return {
-    orientation,
-    className,
-    ...htmlProps,
+    border: 'solid',
+    borderWidth: 1,
+    borderColor: 'mid.tertiary',
+    margin: 0,
+    variants: {
+      orientation: {
+        horizontal: {
+          borderBottom: 0,
+        },
+        vertical: {
+          borderLeft: 0,
+          height: 'auto',
+        },
+      },
+    },
   }
-}
-
-export interface DividerProps extends SystemComponent {
-  /**
-   * Divider orientation
-   * @default 'horizontal'
-   */
-  orientation?: 'horizontal' | 'vertical'
-}
+)
