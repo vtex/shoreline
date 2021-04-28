@@ -30,12 +30,16 @@ export function TableViews(props: PropsWithChildren<TableViewsProps>) {
       csx={{
         bg: 'light.secondary',
         borderRadius: '4px',
-        paddingY: '8rem',
+        paddingY: '3.375rem',
         overflow: 'auto',
         width: 'full',
       }}
     >
-      <Flex justify="center" csx={{ width: '300px' }} wrap="wrap">
+      <Flex
+        justify="center"
+        csx={{ width: '18.75rem', minHeight: '11.375rem' }}
+        wrap="wrap"
+      >
         <Box csx={{ marginLeft: '-1.7rem', marginY: 5 }}>{illustration}</Box>
         {children}
       </Flex>
