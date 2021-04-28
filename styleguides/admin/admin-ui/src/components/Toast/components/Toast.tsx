@@ -48,6 +48,7 @@ export function Toast(props: ToastOptions) {
 
   return (
     <motion.div
+      layout
       className={cn(csx)}
       initial={{ top: 84 }}
       animate={{ top: 0 }}

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useSystem } from '@vtex/admin-core'
 import { Box } from '@vtex/admin-primitives'
 import { Toast } from './Toast'
 import {
@@ -7,7 +8,7 @@ import {
   ToastOptions,
   ToastProps,
 } from './typings'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
 /**
  * Manages toasts. This component is responsible for creating toasts,
@@ -18,6 +19,7 @@ export function ToastManager(props: ToastManagerProps) {
     bottom: [],
   })
   const counter = useRef(0)
+  const { cn } = useSystem()
 
   useEffect(() => {
     props.actions({
@@ -41,7 +43,7 @@ export function ToastManager(props: ToastManagerProps) {
   }
 
   const createToast = (props: ToastProps): ToastOptions => {
-    const { position = 'bottom', duration = 10000 } = props
+    const { position = 'bottom', duration = 5000 } = props
 
     counter.current += 1
     const id = counter.current
@@ -66,8 +68,8 @@ export function ToastManager(props: ToastManagerProps) {
 
   return (
     <Box
-      element="li"
-      csx={{
+      element="ul"
+      className={cn({
         position: 'fixed',
         bottom: '12px',
         left: 0,
@@ -81,19 +83,21 @@ export function ToastManager(props: ToastManagerProps) {
         '> *:not(:last-child)': {
           marginBottom: '12px',
         },
-      }}
+      })}
     >
-      <AnimatePresence>
-        {state.bottom.map((toast) => {
-          return (
-            <Toast
-              key={`${toast.position}-${toast.id}`}
-              {...toast}
-              stack={state.bottom.map((toast) => toast.id)}
-            />
-          )
-        })}
-      </AnimatePresence>
+      <AnimateSharedLayout>
+        <AnimatePresence>
+          {state.bottom.map((toast) => {
+            return (
+              <Toast
+                key={`${toast.position}-${toast.id}`}
+                {...toast}
+                stack={state.bottom.map((toast) => toast.id)}
+              />
+            )
+          })}
+        </AnimatePresence>
+      </AnimateSharedLayout>
     </Box>
   )
 }
