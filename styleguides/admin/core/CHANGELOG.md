@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.8-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.7...@vtex/admin-core@0.10.8-experimental.0) (2021-04-28)
+
+
+### Features
+
+* **admin-core:** accept own props & useHook on onda factory ([f4796a5](https://github.com/vtex/onda/commit/f4796a53af462cea6e85109b24f34f87db9d1024))
+* **admin-core:** onda factory ([e88a5b2](https://github.com/vtex/onda/commit/e88a5b2dee976f84e1208b56d4fbbd0781fc1cf3))
+* **core:** add inline onda call ([04c8cd8](https://github.com/vtex/onda/commit/04c8cd8844e3edc0fd71a848518dd503d299773b))
+
+
+### BREAKING CHANGES
+
+* **admin-core:** heading 'element' prop, is now called 'as'
+
+
+
+
+
 ## [0.10.7](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.6...@vtex/admin-core@0.10.7) (2021-04-21)
 
 **Note:** Version bump only for package @vtex/admin-core

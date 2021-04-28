@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui-system",
-  "version": "0.15.1",
+  "version": "0.15.2-experimental.0",
   "main": "dist/index.js",
   "module": "dist/admin-ui-system.esm.js",
   "typings": "dist/index.d.ts",
@@ -42,7 +42,7 @@
     "reakit": "^1.2.5"
   },
   "dependencies": {
-    "@vtex/admin-jsxs": "^0.1.1",
+    "@vtex/admin-jsxs": "^0.1.2-experimental.0",
     "@vtex/admin-styles": "^0.3.0",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",

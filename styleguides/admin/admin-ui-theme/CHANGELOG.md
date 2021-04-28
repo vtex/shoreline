@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.2-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.25.1...@vtex/admin-ui-theme@0.25.2-experimental.0) (2021-04-28)
+
+
+### Features
+
+* **admin-core:** accept own props & useHook on onda factory ([f4796a5](https://github.com/vtex/onda/commit/f4796a53af462cea6e85109b24f34f87db9d1024))
+* **admin-core:** onda factory ([e88a5b2](https://github.com/vtex/onda/commit/e88a5b2dee976f84e1208b56d4fbbd0781fc1cf3))
+
+
+### BREAKING CHANGES
+
+* **admin-core:** heading 'element' prop, is now called 'as'
+
+
+
+
+
 ## [0.25.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.25.0...@vtex/admin-ui-theme@0.25.1) (2021-04-21)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
