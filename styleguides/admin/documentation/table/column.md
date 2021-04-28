@@ -380,9 +380,10 @@ function Example() {
 
 ## Sortable API
 
-The table has the sort prop which recievies an object that have other properties that handles sorting.
+The table has the sort prop to handle sorting.
 If you just want regular sorting just provide a compare function inside of the table columns objects.
 This will handle the table sort UI state and not the sorting of the items.
+All of these are optional values and if you do not provide them the default value will be used.
 
 ### initialValue
 
