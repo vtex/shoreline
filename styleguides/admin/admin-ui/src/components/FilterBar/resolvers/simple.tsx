@@ -5,7 +5,7 @@ import invariant from 'tiny-invariant'
 import { useDropdownState } from '../../Dropdown'
 import { ResolverRenderProps } from './core'
 import { createResolver, defaultRender } from './core'
-import { FilterDropdown } from '../components'
+import { StatementDropdown } from '../components'
 
 export function simpleResolver<T>() {
   return createResolver<T, 'simple', SimpleResolver<T>>({
@@ -44,7 +44,7 @@ export function simpleResolver<T>() {
       }
 
       const data = (
-        <FilterDropdown<T>
+        <StatementDropdown<T>
           state={state}
           renderItem={renderItem}
           label="Value"

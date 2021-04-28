@@ -39,7 +39,10 @@ export function FilterBarProvider<T>(
 export function useFilterBarContext<T>() {
   const context = useContext<FilterBarContextProps<T>>(FilterBarContext as any)
 
-  invariant(context, 'context null')
+  invariant(
+    context,
+    'You are trying to use FilterBar composite outside of context. Check the render method of your FilterBar'
+  )
 
   return context
 }

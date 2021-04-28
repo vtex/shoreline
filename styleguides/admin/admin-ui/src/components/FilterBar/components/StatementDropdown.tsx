@@ -4,13 +4,13 @@ import { get, useSystem } from '@vtex/admin-core'
 import { Dropdown, DropdownProps } from '../../Dropdown'
 import { Box } from '@vtex/admin-primitives'
 
-export function FilterDropdown<T>(props: DropdownProps<T>) {
-  const dropdownProps = useFilterDropdown(props)
+export function StatementDropdown<T>(props: DropdownProps<T>) {
+  const dropdownProps = useStatementDropdown(props)
 
   return <Dropdown {...dropdownProps} />
 }
 
-export function useFilterDropdown<T>(props: DropdownProps<T>) {
+export function useStatementDropdown<T>(props: DropdownProps<T>) {
   const { csx, variant = 'adaptative-dark', ...restProps } = props
   const { stylesOf } = useSystem()
 
@@ -18,7 +18,7 @@ export function useFilterDropdown<T>(props: DropdownProps<T>) {
     if (typeof item !== 'object') return item
 
     return (
-      <Box csx={{ themeKey: 'components.filterBar.filter-dropdown-label' }}>
+      <Box csx={{ themeKey: 'components.filterBar.dropdown-label' }}>
         {get(item, 'label')}
       </Box>
     )
@@ -28,7 +28,7 @@ export function useFilterDropdown<T>(props: DropdownProps<T>) {
     variant,
     renderItem,
     csx: {
-      ...stylesOf('components.filterBar.filter-dropdown'),
+      ...stylesOf('components.filterBar.dropdown'),
       ...csx,
     },
     ...restProps,

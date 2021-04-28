@@ -1,12 +1,10 @@
 import React, { useReducer } from 'react'
 
-import { Box, Flex } from '@vtex/admin-primitives'
+import { Box } from '@vtex/admin-primitives'
 import { IconAdd } from '@vtex/admin-ui-icons'
 
 import { Button } from '../Button'
-import { FilterStatement } from './components'
-import { Set } from '../Set'
-import { Paragraph } from '../Paragraph'
+import { Body, Footer } from './components'
 import { useFilterBar } from './useFilterBar'
 import { Condition, Conjunction, FilterBarProps, Filter } from './typings'
 import { FilterBarProvider } from './context'
@@ -92,38 +90,31 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
     })
 
   return (
-    <FilterBarProvider
-      filters={filters}
-      resolvers={resolvers}
-      handleValueChange={handleValueChange}
-      handleConditionChange={handleConditionChange}
-      handleConjunctionChange={handleConjunctionChange}
-      handleDeleteStatement={handleDeleteStatement}
-      handleFilterChange={handleFilterChange}
-      handleDuplicateStatement={handleDuplicateStatement}
-    >
-      <Box csx={{ border: 'default' }} {...htmlProps}>
-        {statements.length === 0 ? (
-          <Box csx={{ themeKey: 'components.filterBar.body-empty' }}>
-            <Paragraph>{label}</Paragraph>
-          </Box>
-        ) : (
-          <Box csx={{ themeKey: 'components.filterBar.body' }}>
-            <Set orientation="vertical" spacing={2}>
-              {statements.map((statement, index) => {
-                return (
-                  <FilterStatement
-                    key={`filter-statement-${index}`}
-                    index={index}
-                    conjunction={conjunction}
-                    statement={statement}
-                  />
-                )
-              })}
-            </Set>
-          </Box>
-        )}
-        <Flex csx={{ themeKey: 'components.filterBar.footer' }}>
+    <Box csx={{ border: 'default' }} {...htmlProps}>
+      <FilterBarProvider
+        filters={filters}
+        resolvers={resolvers}
+        handleValueChange={handleValueChange}
+        handleConditionChange={handleConditionChange}
+        handleConjunctionChange={handleConjunctionChange}
+        handleDeleteStatement={handleDeleteStatement}
+        handleFilterChange={handleFilterChange}
+        handleDuplicateStatement={handleDuplicateStatement}
+      >
+        <Body empty={statements.length === 0} label={label}>
+          {statements.map((statement, index) => {
+            return (
+              <Body.Statement
+                key={`filter-statement-${index}`}
+                index={index}
+                conjunction={conjunction}
+                statement={statement}
+              />
+            )
+          })}
+        </Body>
+
+        <Footer>
           <Button
             size="small"
             variant="tertiary"
@@ -140,8 +131,8 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
           >
             Reset Filters
           </Button>
-        </Flex>
-      </Box>
-    </FilterBarProvider>
+        </Footer>
+      </FilterBarProvider>
+    </Box>
   )
 }

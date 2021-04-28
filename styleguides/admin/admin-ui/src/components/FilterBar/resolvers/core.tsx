@@ -53,11 +53,7 @@ export function ResolvedValue<T>(args: ResolveFilterArgs<T>) {
 
   invariant(id, 'resolver.type is required while using a filter')
 
-  const resolver = get(resolvers, id) as Resolver<
-    T,
-    typeof id,
-    BaseResolvers<T>
-  >
+  const resolver: Resolver<T, typeof id, BaseResolvers<T>> = get(resolvers, id)
 
   invariant(
     resolver,

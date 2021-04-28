@@ -9,10 +9,10 @@ import { ResolvedValue } from '../resolvers/core'
 import { Menu } from '../../Menu'
 import { useDropdownState } from '../../Dropdown'
 import { useFilterBarContext } from '../context'
-import { FilterDropdown } from './FilterDropdown'
+import { StatementDropdown } from './StatementDropdown'
 
-export function FilterStatement<T>(props: FilterStatementProps<T>) {
-  const { statement, index, conjunction } = props
+export function BodyStatement<T>(props: BodyStatementProps<T>) {
+  const { statement, index, conjunction, ...htmlProps } = props
 
   const {
     filters,
@@ -35,7 +35,9 @@ export function FilterStatement<T>(props: FilterStatementProps<T>) {
     },
   })
 
-  const conditions = useMemo(() => statement.filter.conditions, [])
+  const conditions = useMemo(() => statement.filter.conditions, [
+    statement.filter,
+  ])
 
   const conditionsState = useDropdownState({
     items: conditions,
@@ -48,7 +50,7 @@ export function FilterStatement<T>(props: FilterStatementProps<T>) {
   })
 
   return (
-    <Flex justify="space-between" csx={{ width: '100%' }} key={index}>
+    <Flex justify="space-between" csx={{ width: '100%' }} {...htmlProps}>
       <Set
         spacing={2}
         csx={{
@@ -66,13 +68,13 @@ export function FilterStatement<T>(props: FilterStatementProps<T>) {
             {index === 0 ? 'Where' : conjunction}
           </Box>
         )}
-        <FilterDropdown
+        <StatementDropdown
           state={filtersState}
           label="Filter"
           items={filters}
           csx={{ maxWidth: 150 }}
         />
-        <FilterDropdown
+        <StatementDropdown
           state={conditionsState}
           label="Condition"
           items={conditions}
@@ -86,7 +88,7 @@ export function FilterStatement<T>(props: FilterStatementProps<T>) {
         />
       </Set>
       <Menu
-        aria-label={`${index}-statement-menu`}
+        aria-label={`statement-menu-${index}`}
         hideOnClick
         disclosure={
           <Button
@@ -113,7 +115,7 @@ export function FilterStatement<T>(props: FilterStatementProps<T>) {
   )
 }
 
-export interface FilterStatementProps<T> {
+export interface BodyStatementProps<T> {
   /** Current statement */
   statement: Statement<T>
   /** Current conjunction */
@@ -125,7 +127,7 @@ export interface FilterStatementProps<T> {
 function ConjunctionDropdown(props: ConjunctionDropdownProps) {
   const { conjunction, handleConjunctionChange } = props
 
-  const conjunctions = ['And', 'Or'] as Conjunction[]
+  const conjunctions: Conjunction[] = ['And', 'Or']
 
   const conjunctionState = useDropdownState({
     items: conjunctions,
@@ -138,7 +140,7 @@ function ConjunctionDropdown(props: ConjunctionDropdownProps) {
   })
 
   return (
-    <FilterDropdown
+    <StatementDropdown
       state={conjunctionState}
       items={conjunctions}
       label="Conjunction"
@@ -148,6 +150,8 @@ function ConjunctionDropdown(props: ConjunctionDropdownProps) {
 }
 
 interface ConjunctionDropdownProps {
+  /** Current conjunction */
   conjunction: Conjunction
+  /** Handles the state of the FilterBar conjunction */
   handleConjunctionChange: (conjunction: Conjunction) => void
 }
