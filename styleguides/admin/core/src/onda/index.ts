@@ -27,7 +27,7 @@ export function onda<T extends As, O, Variants, InferVariants extends Variants>(
   const configuration = {
     type: (isValidElementType(morphType) ? morphType : morphType.as) as T,
     ownProps: pickOwnProps(unsafeType),
-    useHook: unsafeType?.useHook ?? identity,
+    useOwnProps: unsafeType?.useOwnProps ?? identity,
     sheet: isOndaComponent(unsafeType)
       ? merge(unsafeType[ONDA_METADATA].sheet, sheet)
       : sheet,
@@ -38,7 +38,7 @@ export function onda<T extends As, O, Variants, InferVariants extends Variants>(
     ref: React.Ref<T>
   ) => {
     const system = useSystem()
-    const interceptedProps = configuration.useHook(
+    const interceptedProps = configuration.useOwnProps(
       pick(props, configuration.ownProps),
       omit(props, configuration.ownProps),
       system
@@ -71,7 +71,7 @@ export function onda<T extends As, O, Variants, InferVariants extends Variants>(
 
   return Object.assign(Forwarded, {
     [ONDA_METADATA]: {
-      useHook: configuration.useHook,
+      useOwnProps: configuration.useOwnProps,
       ownProps: configuration.ownProps,
       sheet: configuration?.sheet ?? {},
     },

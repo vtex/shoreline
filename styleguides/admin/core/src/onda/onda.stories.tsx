@@ -509,7 +509,7 @@ export function OwnProps() {
   )
 }
 
-export function UseHook() {
+export function UseOwnProps() {
   interface AvatarOwnProps {
     label: string
   }
@@ -517,7 +517,7 @@ export function UseHook() {
   const Avatar = onda(
     {
       as: 'div',
-      useHook: (ownProps: AvatarOwnProps) => {
+      useOwnProps: (ownProps: AvatarOwnProps) => {
         return { children: ownProps.label.charAt(0) }
       },
       ownProps: ['label'],
@@ -556,154 +556,3 @@ export function UseHook() {
     </ThemeProvider>
   )
 }
-
-// export function Element() {
-//   const Block = onda('div', {
-//     size: 100,
-//     padding: 2,
-//     margin: 2,
-//     bg: 'blue.secondary',
-//     variants: {
-//       size: {
-//         small: {
-//           size: 50,
-//         },
-//         large: {
-//           size: 200,
-//         },
-//       },
-//     },
-//   })
-
-//   const WithVariants = onda('div', {
-//     size: 100,
-//     padding: 2,
-//     margin: 2,
-//     variants: {
-//       theme: {
-//         primary: {
-//           bg: 'blue',
-//           color: 'light.primary',
-//         },
-//         secondary: {
-//           bg: 'blue.secondary',
-//           color: 'blue',
-//         },
-//       },
-//     },
-//   })
-
-//   const Extension = onda(Block, {
-//     variants: {
-//       theme: {
-//         primary: {
-//           bg: 'blue',
-//           color: 'light.primary',
-//         },
-//         secondary: {
-//           bg: 'blue.secondary',
-//           color: 'blue',
-//         },
-//       },
-//     },
-//   })
-
-//   return (
-//     <ThemeProvider>
-//       <Block size="small">Block</Block>
-//       <Block
-//         csx={{
-//           bg: 'pink',
-//         }}
-//       >
-//         Block CSX
-//       </Block>
-
-//       <WithVariants theme="primary">Primary</WithVariants>
-//       <WithVariants theme="secondary">Secondary</WithVariants>
-
-//       <Extension size="large" theme="primary">
-//         Extension Primary
-//       </Extension>
-//       <Extension theme="secondary">Extension Secondary</Extension>
-//     </ThemeProvider>
-//   )
-// }
-
-// export function Component() {
-//   const Block = onda(Role, {
-//     size: 100,
-//     padding: 2,
-//     margin: 2,
-//     variants: {
-//       theme: {
-//         primary: {
-//           bg: 'blue',
-//           color: 'light.primary',
-//         },
-//         secondary: {
-//           bg: 'blue.secondary',
-//           color: 'blue',
-//         },
-//       },
-//     },
-//   })
-
-//   return (
-//     <ThemeProvider>
-//       <Block theme="primary">Primary</Block>
-//       <Block theme="secondary">Secondary</Block>
-//     </ThemeProvider>
-//   )
-// }
-
-// export function Simple() {
-//   interface Options {
-//     label: string
-//   }
-
-//   const Block = onda(
-//     {
-//       as: Role,
-//       useHook: (options: Options) => {
-//         const { label, ...rest } = options
-//         return {
-//           children: label.charAt(0),
-//           ...rest,
-//         }
-//       },
-//     },
-//     {
-//       size: 100,
-//       padding: 2,
-//       variants: {
-//         theme: {
-//           primary: {
-//             bg: 'blue',
-//             color: 'light.primary',
-//           },
-//           secondary: {
-//             bg: 'blue.secondary',
-//             color: 'blue',
-//           },
-//         },
-//       },
-//     }
-//   )
-
-//   Block.defaultProps = {
-//     theme: 'primary',
-//   }
-
-//   return (
-//     <ThemeProvider>
-//       <Block
-//         as="a"
-//         theme="primary"
-//         href="http://google.com.br"
-//         target="blank"
-//         label="Label"
-//       />
-//     </ThemeProvider>
-//   )
-// }

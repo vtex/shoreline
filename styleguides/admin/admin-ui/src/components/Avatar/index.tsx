@@ -13,7 +13,7 @@ import { onda } from '@vtex/admin-core'
 export const Avatar = onda(
   {
     as: 'div',
-    useHook: (ownProps: AvatarOwnProps) => {
+    useOwnProps: (ownProps: AvatarOwnProps) => {
       return {
         children: ownProps.label.charAt(0),
       }

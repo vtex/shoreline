@@ -14,7 +14,7 @@ export type As<P = any> = React.ElementType<P>
  * @memberof types
  * @template P Props
  */
-export type RenderProp<P = {}> = (props: P) => React.ReactElement<any>
+export type RenderProp<P = {}> = (props: P) => React.ReactElement<P>
 
 /**
  * @memberof types
@@ -51,22 +51,9 @@ export type PropsWithAs<P, T extends As> = P &
     children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
   }
 
-/**
- * Generic component props with "as" prop
- * @memberof types
- * @template P Additional props
- * @template T React component or string element
- */
-// type PropsWithoutAs<P, T extends As> = P &
-//   Omit<React.ComponentProps<T>, 'as' | 'state' | keyof P> & {
-//     csx?: StyleProp
-//     css?: any
-//     children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
-//   }
-
 export interface OndaComponentMetadata {
   /** attached behavior */
-  useHook: Function
+  useOwnProps: Function
   /**
    * props that will pass through
    */
@@ -97,7 +84,7 @@ export type Options<T extends As, O, V> =
   | {
       as: T
       ownProps: string[]
-      useHook: (
+      useOwnProps: (
         ownProps: O,
         props: React.ComponentPropsWithoutRef<T>,
         system: ReturnType<typeof useSystem>
