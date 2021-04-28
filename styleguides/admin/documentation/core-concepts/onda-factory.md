@@ -124,7 +124,7 @@ function Styles() {
 
 ### Variants
 
-`Variants` are props that change the component look. These are also manageble by `defaultProps`.
+`Variants` are props that change the component look. These are also manageable by `defaultProps`.
 
 ```jsx
 function Variants() {
