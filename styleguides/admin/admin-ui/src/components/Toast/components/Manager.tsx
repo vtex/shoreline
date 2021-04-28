@@ -15,14 +15,15 @@ import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
  * adding and removing them from the stack, as well as rendering them.
  */
 export function ToastManager(props: ToastManagerProps) {
+  const { actions } = props
+  const { cn } = useSystem()
+  const counter = useRef(0)
   const [state, setState] = useState<ToastManagerState>({
     bottom: [],
   })
-  const counter = useRef(0)
-  const { cn } = useSystem()
 
   useEffect(() => {
-    props.actions({
+    actions({
       notify,
     })
   }, [])
@@ -66,25 +67,24 @@ export function ToastManager(props: ToastManagerProps) {
     return toast.id
   }
 
+  const styles = cn({
+    position: 'fixed',
+    bottom: '12px',
+    left: 0,
+    right: 0,
+    textAlign: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    maxWidth: '374px',
+    minHeight: '72px',
+    listStyle: 'none',
+    '> *:not(:last-child)': {
+      marginBottom: '12px',
+    },
+  })
+
   return (
-    <Box
-      element="ul"
-      className={cn({
-        position: 'fixed',
-        bottom: '12px',
-        left: 0,
-        right: 0,
-        textAlign: 'center',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: '374px',
-        minHeight: '72px',
-        listStyle: 'none',
-        '> *:not(:last-child)': {
-          marginBottom: '12px',
-        },
-      })}
-    >
+    <Box data-testid="toast-manager" element="ul" className={styles}>
       <AnimateSharedLayout>
         <AnimatePresence>
           {state.bottom.map((toast) => {

@@ -6,6 +6,7 @@ import { Set } from '../Set'
 import { useToaster } from '.'
 import { Toast } from './components/Toast'
 import { ToastProps } from './components/typings'
+import { message } from './testUtils'
 
 export default {
   title: 'admin-ui/Toast',
@@ -20,7 +21,7 @@ export function Basic() {
       <Button
         onClick={() =>
           toaster.notify({
-            message: 'Type here a short message',
+            message,
           })
         }
       >
@@ -30,7 +31,7 @@ export function Basic() {
         onClick={() =>
           toaster.notify({
             type: 'success',
-            message: 'Type here a short message',
+            message,
           })
         }
       >
@@ -40,7 +41,7 @@ export function Basic() {
         onClick={() =>
           toaster.notify({
             type: 'error',
-            message: 'Type here a short message',
+            message,
           })
         }
       >
@@ -50,7 +51,7 @@ export function Basic() {
         onClick={() =>
           toaster.notify({
             type: 'warning',
-            message: 'Type here a short message',
+            message,
           })
         }
       >
@@ -91,7 +92,7 @@ export function Interactive() {
       <Button
         onClick={() =>
           toaster.notify({
-            message: 'Type here a short message',
+            message,
             dismissible: true,
           })
         }
@@ -102,7 +103,7 @@ export function Interactive() {
         onClick={() =>
           toaster.notify({
             type: 'success',
-            message: 'Type here a short message',
+            message,
             action: {
               children: <span>Action</span>,
               onClick: () => alert('Toast callback'),
@@ -116,7 +117,7 @@ export function Interactive() {
         onClick={() =>
           toaster.notify({
             type: 'warning',
-            message: 'Type here a short message',
+            message,
             dismissible: true,
             action: {
               children: <span>Action</span>,

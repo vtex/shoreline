@@ -49,6 +49,7 @@ export function Toast(props: ToastOptions) {
   return (
     <motion.div
       layout
+      data-testid="toast"
       className={cn(csx)}
       initial={{ top: 84 }}
       animate={{ top: 0 }}
@@ -73,6 +74,7 @@ export function Toast(props: ToastOptions) {
               variant="adaptative-dark"
               onClick={handleOnDismiss}
               size="small"
+              aria-label="Close toast"
             />
           )}
         </Flex>
