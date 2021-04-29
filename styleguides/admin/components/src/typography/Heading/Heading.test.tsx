@@ -1,18 +1,15 @@
-import React from 'react'
-import { render } from '@testing-library/react'
+import React, { Fragment } from 'react'
 import { axe } from 'jest-axe'
 
 import { Heading } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render } from '../../test-utils'
 
 describe('Heading tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Heading data-testid="heading" csx={{ color: 'azure' }}>
-          Heading 1
-        </Heading>
-      </ThemeProvider>
+      <Heading data-testid="heading" csx={{ color: 'azure' }}>
+        Heading 1
+      </Heading>
     )
 
     expect(getByTestId('heading')).toHaveStyleRule('color', 'azure')
@@ -20,14 +17,14 @@ describe('Heading tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <Heading>Heading 1</Heading>
         <Heading as="h2">Heading 2</Heading>
         <Heading as="h3">Heading 3</Heading>
         <Heading as="h4">Heading 4</Heading>
         <Heading as="h5">Heading 5</Heading>
         <Heading as="h6">Heading 6</Heading>
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -35,14 +32,14 @@ describe('Heading tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <Fragment>
         <Heading>Heading 1</Heading>
         <Heading as="h2">Heading 2</Heading>
         <Heading as="h3">Heading 3</Heading>
         <Heading as="h4">Heading 4</Heading>
         <Heading as="h5">Heading 5</Heading>
         <Heading as="h6">Heading 6</Heading>
-      </ThemeProvider>
+      </Fragment>
     )
 
     const results = await axe(container)

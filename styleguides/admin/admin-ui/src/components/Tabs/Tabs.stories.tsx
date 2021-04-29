@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 import { Tabs, useTabState } from './index'
 import { Card } from '../Card'
 import { Box } from '@vtex/admin-primitives'
-import { Heading } from '../Heading'
+import { Heading } from '@vtex/admin-components'
 import { Set } from '../Set'
 
 export default {

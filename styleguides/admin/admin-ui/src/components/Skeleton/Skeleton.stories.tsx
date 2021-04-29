@@ -4,8 +4,8 @@ import { Story, Meta } from '@storybook/react'
 import { Skeleton, SkeletonProps } from './index'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
-import { Heading } from '../Heading'
-import { Paragraph } from '../Paragraph'
+import { Heading } from '@vtex/admin-components'
+import { Paragraph } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/Skeleton',

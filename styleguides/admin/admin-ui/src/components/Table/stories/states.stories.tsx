@@ -3,12 +3,10 @@ import { Meta, Story } from '@storybook/react'
 
 import { StatefulTable, StatefulTableProps } from '../index'
 import { baseResolvers } from '../resolvers/base'
-import { Box, Flex } from '@vtex/admin-primitives'
+import { Box } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
 import { TableViewState } from '../context'
 import { Set } from '../../Set'
-import { Text } from '../../Text'
-import { Anchor } from '../../Anchor'
 
 export default {
   title: 'admin-ui/Table/States',

@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 
 import { Sidebar, useSidebarState } from './index'
 import { Box } from '@vtex/admin-primitives'
-import { Paragraph } from '../Paragraph'
+import { Paragraph } from '@vtex/admin-components'
 import {
   IconAppStore,
   IconHome,

@@ -10,7 +10,7 @@ import { SystemComponent } from '../../types'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { Set } from '../Set'
-import { Paragraph } from '../Paragraph'
+import { Paragraph } from '@vtex/admin-components'
 import { Flex } from '@vtex/admin-primitives'
 
 /**

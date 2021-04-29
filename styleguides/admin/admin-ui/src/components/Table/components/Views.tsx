@@ -1,7 +1,7 @@
 import React, { ComponentPropsWithRef, PropsWithChildren } from 'react'
 import { Box, Flex } from '@vtex/admin-primitives'
 import { useViewContext, TableViewState } from '../context'
-import { Anchor } from '../../Anchor'
+import { Anchor } from '@vtex/admin-components'
 import { Text } from '../../Text'
 import {
   CollectionEmpty,

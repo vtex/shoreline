@@ -2,11 +2,10 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Anchor } from './index'
-import { Paragraph } from '../Paragraph'
-import { List } from '../List'
+import { Paragraph } from '../../typography'
 
 export default {
-  title: 'admin-ui/Anchor',
+  title: 'navigation/Anchor',
   component: Anchor,
 } as Meta
 
@@ -34,21 +33,5 @@ export const withinAParagraph: Story = () => {
       finibus neque ultrices ut. Phasellus fermentum urna at ex rhoncus aliquam{' '}
       <Anchor href="/?path=/story/beta-link--variants">Link 1</Anchor>
     </Paragraph>
-  )
-}
-
-export const withinAList: Story = () => {
-  return (
-    <List style="none">
-      <List.Item csx={{ mb: '2' }}>
-        <Anchor href="/?path=/story/beta-link--variants">Link 1</Anchor>
-      </List.Item>
-      <List.Item csx={{ mb: '2' }}>
-        <Anchor href="/?path=/story/beta-link--variants">Link 2</Anchor>
-      </List.Item>
-      <List.Item csx={{ mb: '2' }}>
-        <Anchor href="/?path=/story/beta-link--variants">Link 3</Anchor>
-      </List.Item>
-    </List>
   )
 }

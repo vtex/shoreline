@@ -4,8 +4,8 @@ import { Meta } from '@storybook/react'
 import { Divider } from './index'
 import { Card } from '../Card'
 import { Box } from '@vtex/admin-primitives'
-import { Heading } from '../Heading'
-import { Paragraph } from '../Paragraph'
+import { Heading } from '@vtex/admin-components'
+import { Paragraph } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/Divider',

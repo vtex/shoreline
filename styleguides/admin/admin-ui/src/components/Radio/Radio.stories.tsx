@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { Radio, RadioProps, useRadioState } from './index'
 import { RadioGroup } from '../RadioGroup'
 import { Label } from '../Label'
-import { Heading } from '../Heading'
+import { Heading } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/Radio',

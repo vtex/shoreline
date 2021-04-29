@@ -3,8 +3,8 @@ import { Meta } from '@storybook/react'
 
 import { Columns } from '../Columns'
 import { Card } from './index'
-import { Heading } from '../Heading'
-import { Paragraph } from '../Paragraph'
+import { Heading } from '@vtex/admin-components'
+import { Paragraph } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/Card',

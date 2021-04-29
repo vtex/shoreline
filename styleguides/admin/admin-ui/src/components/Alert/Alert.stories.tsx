@@ -12,7 +12,7 @@ import { Set } from '../Set'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { IconWarningCircle } from '@vtex/admin-ui-icons'
-import { Anchor } from '../Anchor'
+import { Anchor } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/Alert',
