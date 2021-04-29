@@ -40,22 +40,26 @@
     - /layouts/introduction/
     - /layouts/columns/
     - /layouts/set/
+- section: Navigation
+  paths:
+    - /navigation/anchor/
 - section: Typography
   paths:
     - /typography/introduction/
-    - /typography/anchor/
     - /typography/heading/
     - /typography/list/
     - /typography/paragraph/
     - /typography/text/
 - section: Components
   paths:
-    - /avatar/
     - /button/
     - /menu/
     - /modal/
     - /tabs/
     - /tooltip/
+- section: Media
+  paths:
+    - /media/avatar/
 - section: Forms
   paths:
     - /form/checkbox-group/
