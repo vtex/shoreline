@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { Set } from '../Set'
-import { useToaster } from '.'
+import { useToaster } from './index'
 import { Toast } from './components/Toast'
 import { ToastProps } from './components/typings'
 import { message } from './testUtils'
@@ -14,13 +14,13 @@ export default {
 } as Meta
 
 export function Basic() {
-  const { toast } = useToaster()
+  const toaster = useToaster()
 
   return (
     <Set>
       <Button
         onClick={() =>
-          toast({
+          toaster.toast({
             message,
           })
         }
@@ -29,7 +29,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toast({
+          toaster.toast({
             type: 'success',
             message,
           })
@@ -39,7 +39,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toast({
+          toaster.toast({
             type: 'error',
             message,
           })
@@ -49,7 +49,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toast({
+          toaster.toast({
             type: 'warning',
             message,
           })
@@ -59,7 +59,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toast({
+          toaster.toast({
             type: 'success',
             message: "I'm customized 😎!",
             csx: {
@@ -85,13 +85,13 @@ export function Basic() {
 }
 
 export function Interactive() {
-  const { toast } = useToaster()
+  const toaster = useToaster()
 
   return (
     <Set>
       <Button
         onClick={() =>
-          toast({
+          toaster.toast({
             message,
             dismissible: true,
           })
@@ -101,7 +101,7 @@ export function Interactive() {
       </Button>
       <Button
         onClick={() =>
-          toast({
+          toaster.toast({
             type: 'success',
             message,
             action: {
@@ -115,7 +115,7 @@ export function Interactive() {
       </Button>
       <Button
         onClick={() =>
-          toast({
+          toaster.toast({
             type: 'warning',
             message,
             dismissible: true,
@@ -130,7 +130,7 @@ export function Interactive() {
       </Button>
       <Button
         onClick={() =>
-          toast({
+          toaster.toast({
             message: 'Type here a longer message but not much longer than that',
             dismissible: true,
             action: {
@@ -147,12 +147,12 @@ export function Interactive() {
 }
 
 export const Playground: Story<ToastProps> = (args) => {
-  const { toast } = useToaster()
+  const toaster = useToaster()
 
   return (
     <Button
       onClick={() =>
-        toast({
+        toaster.toast({
           ...args,
         })
       }

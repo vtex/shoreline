@@ -88,6 +88,7 @@ export interface ToasterProps {
    * you want to host your toaster on the topmost
    * window.
    * @default false
+   * @unstable use at your own risk
    */
   subframe?: boolean
 }

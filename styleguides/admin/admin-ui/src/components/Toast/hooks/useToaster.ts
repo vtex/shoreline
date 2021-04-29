@@ -1,5 +1,8 @@
-import { toaster, iframeToaster } from '../components/Toaster'
+import { Toaster } from '../components/Toaster'
 import { ToasterProps } from '../components/typings'
+
+let toasterInstance: Toaster | null = null
+let iframeToasterInstance: Toaster | null = null
 
 /**
  * Abstracts the existing toaster instance, making it possible
@@ -7,14 +10,23 @@ import { ToasterProps } from '../components/typings'
  * stack regardless of what's the component calling `useToaster`.
  */
 function createToaster(props?: ToasterProps) {
-  const isSubframe = props?.subframe
+  const isSubframe = !!props?.subframe
 
   if (isSubframe) {
-    const toasterInstance = Object.assign({}, iframeToaster)
+    if (iframeToasterInstance) {
+      return iframeToasterInstance
+    }
+
+    iframeToasterInstance = new Toaster({ subframe: true })
+    return iframeToasterInstance
+  }
+
+  if (toasterInstance) {
     return toasterInstance
   }
 
-  const toasterInstance = Object.assign({}, toaster)
+  toasterInstance = new Toaster({ subframe: false })
+
   return toasterInstance
 }
 

@@ -15,7 +15,6 @@ import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
  * adding and removing them from the stack, as well as rendering them.
  */
 export function ToastManager(props: ToastManagerProps) {
-  const { actions } = props
   const { cn } = useSystem()
   const counter = useRef(0)
   const [state, setState] = useState<ToastManagerState>({
@@ -23,7 +22,7 @@ export function ToastManager(props: ToastManagerProps) {
   })
 
   useEffect(() => {
-    actions({
+    props.actions({
       notify,
     })
   }, [])
@@ -62,7 +61,9 @@ export function ToastManager(props: ToastManagerProps) {
   const notify = (props: ToastProps) => {
     const toast = createToast(props)
 
-    setState((previousState) => ({ bottom: [...previousState.bottom, toast] }))
+    setState((previousState) => ({
+      bottom: [...previousState.bottom, toast],
+    }))
 
     return toast.id
   }

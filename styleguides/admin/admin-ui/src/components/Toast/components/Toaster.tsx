@@ -8,7 +8,7 @@ import { ToasterProps, ToastManagerActions } from './typings'
  * Wraps the ToastManager. This component mounts the
  * ToastManager on a Portal, and composes the client API.
  * */
-class Toaster {
+export class Toaster {
   private portalId = 'onda-toast-portal'
 
   private bindActions = (actions: ToastManagerActions) => {
@@ -16,6 +16,11 @@ class Toaster {
   }
 
   public constructor(props: ToasterProps) {
+    if (!isBrowser) {
+      console.warn('Toast components can only be rendered on the client side.')
+      return
+    }
+
     const { subframe } = props
     let portal: HTMLElement
 
@@ -43,5 +48,8 @@ class Toaster {
   public toast!: ToastManagerActions['notify']
 }
 
-export const toaster = new Toaster({ subframe: false })
-export const iframeToaster = new Toaster({ subframe: true })
+const isBrowser = !!(
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.createElement
+)
