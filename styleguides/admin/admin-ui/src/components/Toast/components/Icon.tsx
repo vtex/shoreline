@@ -15,7 +15,7 @@ import { isElement } from 'react-is'
 export function ToastIcon(props: ToastIconProps) {
   const { type, children, ...rest } = props
 
-  const csx = { marginRight: '12px', color: 'blue', ...rest.csx }
+  const csx = { marginRight: '0.75rem', color: 'blue', ...rest.csx }
 
   if (children && isElement(children)) {
     return cloneElement(children, {

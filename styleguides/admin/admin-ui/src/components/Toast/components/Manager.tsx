@@ -70,17 +70,17 @@ export function ToastManager(props: ToastManagerProps) {
 
   const styles = cn({
     position: 'fixed',
-    bottom: '12px',
+    bottom: '0.75rem',
     left: 0,
     right: 0,
     textAlign: 'center',
     marginLeft: 'auto',
     marginRight: 'auto',
-    maxWidth: '374px',
-    minHeight: '72px',
+    maxWidth: '23.375rem',
+    minHeight: '4.5rem',
     listStyle: 'none',
     '> *:not(:last-child)': {
-      marginBottom: '12px',
+      marginBottom: '0.75rem',
     },
   })
 
