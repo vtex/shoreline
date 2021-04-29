@@ -17,7 +17,7 @@ export class Toaster {
 
   public constructor(props: ToasterProps) {
     if (!isBrowser) {
-      console.warn('Toast components can only be rendered on the client side.')
+      console.warn('Toasts can only be rendered on the client-side.')
       return
     }
 

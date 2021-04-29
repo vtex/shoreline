@@ -32,16 +32,25 @@ function createToaster(props?: ToasterProps) {
 
 /**
  * This function returns a toaster instance,
- * which has a `notify` method you can use
+ * which has a `toast` method you can use
  * to make some toasts.
+ *
+ * Destructuring the toaster will make
+ * the toast method unavailable,
+ * once the toast method binding
+ * is asynchronous, and destructuring
+ * will dereference the unbound method.
  *
  * @example
  * ```jsx
+ * // correct usage ✅
+ * const toaster = useToaster()
+ * // incorrect usage 🚫
  * const { toast } = useToaster()
  *
  * <Button
  *   onClick={() =>
- *     toast({
+ *     toaster.toast({
  *       type: 'success',
  *       message: 'Succes!',
  *     })

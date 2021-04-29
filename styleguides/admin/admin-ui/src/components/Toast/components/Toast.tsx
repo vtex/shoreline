@@ -10,8 +10,9 @@ import { motion } from 'framer-motion'
 
 /**
  * The toast is a variation of an alert that provides immediate
- * feedback over actions that just happened, and were caused by the user.
- * It displays a message that goes away after a set period of time.
+ * feedback over actions that just happened and were caused by the user.
+ *
+ * It displays a message that goes away after a set period.
  */
 export function Toast(props: ToastOptions) {
   const {

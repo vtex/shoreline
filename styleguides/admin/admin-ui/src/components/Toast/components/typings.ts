@@ -35,7 +35,7 @@ export interface ToastManagerActions {
 
 export interface ToastProps extends SystemComponent {
   /**
-   * Message displayed to the end user.
+   * Message displayed to the end-user.
    */
   message: string
   /**

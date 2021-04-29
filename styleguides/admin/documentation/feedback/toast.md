@@ -4,7 +4,7 @@ path: /feedback/toast/
 
 # Toast
 
-The toast is a variation of an alert that provides immediate feedback over actions that just happened, and were caused by the user. It displays a message that goes away after a set period of time.
+A toast is a variation of an alert that provides immediate feedback over actions that just happened and were caused by the user.
 
 ## Import
 
@@ -12,112 +12,163 @@ The toast is a variation of an alert that provides immediate feedback over actio
 import { useToaster } from '@vtex/admin-ui'
 ```
 
-## Behavior
-
-```jsx isStatic
-function Example() {
-  const toaster = useToaster()
-
-  return (
-    <Button onClick={() => toaster.toast({ message: 'Hello world' })}>
-      Display toast
-    </Button>
-  )
-}
-```
-
 ## Variations
 
-### Type
+### Info
 
 ```jsx
 function Example() {
   const toaster = useToaster()
 
-  const message = 'Hello world'
-
   return (
-    <Set orientation="vertical" spacing={3}>
-      <Set>
-        <Button onClick={() => toaster.toast({ type: 'info', message })}>
-          Info toast
-        </Button>
-        <Button onClick={() => toaster.toast({ type: 'success', message })}>
-          Success toast
-        </Button>
-        <Button onClick={() => toaster.toast({ type: 'warning', message })}>
-          Warning toast
-        </Button>
-        <Button onClick={() => toaster.toast({ type: 'error', message })}>
-          Error toast
-        </Button>
-      </Set>
-      <Set>
-        <Button
-          onClick={() =>
-            toaster.toast({
-              message,
-              dismissible: true,
-            })
-          }
-        >
-          Dismissable
-        </Button>
-        <Button
-          onClick={() =>
-            toaster.toast({
-              type: 'success',
-              message,
-              action: {
-                children: <span>Action</span>,
-                onClick: () => alert('Toast callback'),
-              },
-            })
-          }
-        >
-          With action
-        </Button>
-        <Button
-          onClick={() =>
-            toaster.toast({
-              type: 'warning',
-              message,
-              dismissible: true,
-              action: {
-                children: <span>Action</span>,
-                onClick: () => alert('Toast callback'),
-              },
-            })
-          }
-        >
-          Dismissable, with action
-        </Button>
-        <Button
-          onClick={() =>
-            toaster.toast({
-              message:
-                'Type here a longer message but not much longer than that',
-              dismissible: true,
-              action: {
-                children: <span>Action</span>,
-                onClick: () => alert('Toast callback'),
-              },
-            })
-          }
-        >
-          With long message
-        </Button>
-      </Set>
-    </Set>
+    <Button
+      onClick={() =>
+        toaster.toast({
+          type: 'info',
+          message: 'Type here a longer message but not much longer than that',
+        })
+      }
+    >
+      Info toast
+    </Button>
   )
 }
 ```
 
-## toast props
+### Success
+
+```jsx
+function Example() {
+  const toaster = useToaster()
+
+  return (
+    <Button
+      onClick={() =>
+        toaster.toast({ type: 'success', message: 'Type a short message here' })
+      }
+    >
+      Success toast
+    </Button>
+  )
+}
+```
+
+### Warning
+
+```jsx
+function Example() {
+  const toaster = useToaster()
+
+  return (
+    <Button
+      onClick={() =>
+        toaster.toast({
+          type: 'warning',
+          message: 'Type here a longer message but not much longer than that',
+        })
+      }
+    >
+      Warning toast
+    </Button>
+  )
+}
+```
+
+### Error
+
+```jsx
+function Example() {
+  const toaster = useToaster()
+
+  return (
+    <Button
+      onClick={() =>
+        toaster.toast({ type: 'error', message: 'Type a short message here' })
+      }
+    >
+      Error toast
+    </Button>
+  )
+}
+```
+
+### Dismissible
+
+```jsx
+function Example() {
+  const toaster = useToaster()
+
+  return (
+    <Button
+      onClick={() =>
+        toaster.toast({
+          message: 'Type here a longer message but not much longer than that',
+          dismissible: true,
+        })
+      }
+    >
+      Dismissable
+    </Button>
+  )
+}
+```
+
+### Action
+
+```jsx
+function Example() {
+  const toaster = useToaster()
+
+  return (
+    <Button
+      onClick={() =>
+        toaster.toast({
+          type: 'success',
+          message: 'Type a short message here',
+          action: {
+            children: <span>Action</span>,
+            onClick: () => alert('Toast callback'),
+          },
+        })
+      }
+    >
+      With action
+    </Button>
+  )
+}
+```
+
+### Action + Dismissible
+
+```jsx
+function Example() {
+  const toaster = useToaster()
+
+  return (
+    <Button
+      onClick={() =>
+        toaster.toast({
+          type: 'warning',
+          message: 'Type here a longer message but not much longer than that',
+          dismissible: true,
+          action: {
+            children: <span>Action</span>,
+            onClick: () => alert('Toast callback'),
+          },
+        })
+      }
+    >
+      Dismissable, with action
+    </Button>
+  )
+}
+```
+
+## toaster.toast props
 
 | Name        | Type             | Description                                                  | Required | Default     |
 | ----------- | ---------------- | ------------------------------------------------------------ | -------- | ----------- |
-| message     | `string`         | Message displayed to the end user.                           | ✅       | -           |
+| message     | `string`         | Message displayed to the end-user.                           | ✅       | -           |
 | type        | `ToastType`      | The toast's type.                                            | 🚫       | `info`      |
 | duration    | `boolean`        | How long the toast should be apparent, in milliseconds.      | 🚫       | `false`     |
 | dismissible | `boolean`        | Whether the toast can be dismissed or not.                   | 🚫       | `false`     |
@@ -129,7 +180,7 @@ function Example() {
 
 <blockquote palette="red">
 
-The `subframe` prop is still unstable and not ready for production usage. Use it on your risk.
+The subframe prop is still unstable and not ready for production usage. Use it on your risk.
 
 </blockquote>
 
@@ -139,4 +190,5 @@ The `subframe` prop is still unstable and not ready for production usage. Use it
 
 ## Limitations
 
-Toasts can only be rendered on the client side.
+- Destructuring the toaster will make the toast method unavailable, once the toast method binding is asynchronous, and destructuring will dereference the unbound method.
+- Toasts can only be rendered on the client-side.
