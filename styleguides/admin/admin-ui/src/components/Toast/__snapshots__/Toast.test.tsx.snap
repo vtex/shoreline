@@ -64,7 +64,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-3"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -165,7 +165,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-3"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -266,7 +266,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-3"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -359,7 +359,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-3"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -459,7 +459,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-3"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -633,7 +633,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-7"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -842,7 +842,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-7"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -1043,7 +1043,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-7"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -1251,7 +1251,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-7"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -1445,7 +1445,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-6"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -1622,7 +1622,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-6"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -1791,7 +1791,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-6"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -1967,7 +1967,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-6"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -2196,7 +2196,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-9"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -2456,7 +2456,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-9"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -2708,7 +2708,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-9"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -2967,7 +2967,7 @@ exports[`Toast tests should match snapshot 1`] = `
 <div
     class="emotion-9"
     data-testid="toast"
-    style="top: 84px;"
+    style="top: 7.5px;"
   >
     <div
       class="emotion-2"
@@ -3058,12 +3058,12 @@ exports[`ToastManager tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   position: fixed;
-  bottom: 0.75rem;
+  bottom: 3rem;
+  z-index: 999;
   left: 0rem;
-  right: 0rem;
+  right: 2rem;
   text-align: center;
   margin-left: auto;
-  margin-right: auto;
   max-width: 23.375rem;
   min-height: 4.5rem;
   list-style: none;
