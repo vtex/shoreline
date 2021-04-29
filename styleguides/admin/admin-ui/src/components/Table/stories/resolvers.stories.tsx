@@ -2,7 +2,7 @@ import React, { Fragment, useMemo } from 'react'
 import { Meta } from '@storybook/react'
 
 import { Text } from '../../Text'
-import { StatefulTable } from '../index'
+import { StatefulTable } from '../../PowerfulTable/index'
 import { Skeleton } from '../../Skeleton'
 
 export default {
