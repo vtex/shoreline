@@ -22,6 +22,7 @@ export function Toast(props: ToastOptions) {
     remove,
     id,
     iconProps,
+    position = 'bottom-right',
     dismissible,
     stack,
     action,
@@ -30,12 +31,12 @@ export function Toast(props: ToastOptions) {
 
   useEffect(() => {
     setTimeout(() => {
-      remove(id)
+      remove(id, position)
     }, duration)
   }, [])
 
   const handleOnDismiss = () => {
-    remove(id)
+    remove(id, position)
   }
 
   const isFirst = useMemo(() => {
@@ -52,11 +53,11 @@ export function Toast(props: ToastOptions) {
       layout
       data-testid="toast"
       className={cn(csx)}
-      initial={{ top: 84 }}
+      initial={{ top: '7.5rem' }}
       animate={{ top: 0 }}
       exit={{
         opacity: isFirst ? 1 : 0,
-        top: isFirst ? 84 : 0,
+        top: isFirst ? '7.5rem' : 0,
       }}
       transition={{
         duration: 0.3,

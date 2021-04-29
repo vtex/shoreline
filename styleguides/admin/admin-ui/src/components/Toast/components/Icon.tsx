@@ -5,6 +5,7 @@ import {
   IconSuccessColorful,
   IconWarningColorful,
 } from '@vtex/admin-ui-icons'
+import { StyleProp } from '@vtex/admin-core'
 import { ToastIconProps } from './typings'
 import { isElement } from 'react-is'
 
@@ -13,9 +14,9 @@ import { isElement } from 'react-is'
  * to the toast type.
  */
 export function ToastIcon(props: ToastIconProps) {
-  const { type, children, ...rest } = props
+  const { type, children, csx: maybeCsx = {}, ...rest } = props
 
-  const csx = { marginRight: '0.75rem', color: 'blue', ...rest.csx }
+  const csx: StyleProp = { marginRight: '0.75rem', color: 'blue', ...maybeCsx }
 
   if (children && isElement(children)) {
     return cloneElement(children, {

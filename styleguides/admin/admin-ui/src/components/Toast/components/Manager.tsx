@@ -7,6 +7,7 @@ import {
   ToastManagerState,
   ToastOptions,
   ToastProps,
+  ToastPosition,
 } from './typings'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
@@ -18,7 +19,7 @@ export function ToastManager(props: ToastManagerProps) {
   const { cn } = useSystem()
   const counter = useRef(0)
   const [state, setState] = useState<ToastManagerState>({
-    bottom: [],
+    'bottom-right': [],
   })
 
   useEffect(() => {
@@ -28,22 +29,25 @@ export function ToastManager(props: ToastManagerProps) {
   }, [])
 
   useEffect(() => {
-    if (state.bottom.length === 0) {
+    if (state['bottom-right'].length === 0) {
       // Resetting the toast count allows us
       // to have consistent animations differentiated
       // by the toast position on the stack.
       counter.current = 0
     }
-  }, [state.bottom])
+  }, [state['bottom-right']])
 
-  const removeToast = (id: string) => {
+  const removeToast = (id: string, position: ToastPosition) => {
     setState((previousState) => ({
-      bottom: previousState.bottom.filter((toast) => toast.id !== String(id)),
+      ...previousState,
+      [position]: previousState[position].filter(
+        (toast) => toast.id !== String(id)
+      ),
     }))
   }
 
   const createToast = (props: ToastProps): ToastOptions => {
-    const { position = 'bottom', duration = 5000 } = props
+    const { position = 'bottom-right', duration = 5000 } = props
 
     counter.current += 1
     const id = counter.current
@@ -62,7 +66,8 @@ export function ToastManager(props: ToastManagerProps) {
     const toast = createToast(props)
 
     setState((previousState) => ({
-      bottom: [...previousState.bottom, toast],
+      ...previousState,
+      [toast.position!]: [...previousState[toast.position!], toast],
     }))
 
     return toast.id
@@ -70,12 +75,12 @@ export function ToastManager(props: ToastManagerProps) {
 
   const styles = cn({
     position: 'fixed',
-    bottom: '0.75rem',
+    bottom: '3rem',
+    zIndex: 'over',
     left: 0,
-    right: 0,
+    right: '2rem',
     textAlign: 'center',
     marginLeft: 'auto',
-    marginRight: 'auto',
     maxWidth: '23.375rem',
     minHeight: '4.5rem',
     listStyle: 'none',
@@ -88,12 +93,12 @@ export function ToastManager(props: ToastManagerProps) {
     <Box data-testid="toast-manager" element="ul" className={styles}>
       <AnimateSharedLayout>
         <AnimatePresence>
-          {state.bottom.map((toast) => {
+          {state['bottom-right'].map((toast) => {
             return (
               <Toast
                 key={`${toast.position}-${toast.id}`}
                 {...toast}
-                stack={state.bottom.map((toast) => toast.id)}
+                stack={state['bottom-right'].map((toast) => toast.id)}
               />
             )
           })}

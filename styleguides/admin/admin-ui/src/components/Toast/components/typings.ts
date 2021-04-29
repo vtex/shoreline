@@ -6,7 +6,7 @@ export interface ToastManagerState {
   /**
    * Position where the toasts are rendered
    */
-  bottom: ToastOptions[]
+  'bottom-right': ToastOptions[]
 }
 
 export interface ToastOptions extends ToastProps {
@@ -18,7 +18,7 @@ export interface ToastOptions extends ToastProps {
   /**
    * Removes specific toast from the stack.
    */
-  remove: (id: string) => void
+  remove: (id: string, position: ToastPosition) => void
   /**
    * The ID of each toast on the stack.
    */
@@ -45,7 +45,7 @@ export interface ToastProps extends SystemComponent {
   duration?: number
   /**
    * The position which the toast should be rendered at.
-   * @default "bottom"
+   * @default "bottom-right"
    */
   position?: ToastPosition
   /**
@@ -78,7 +78,7 @@ export interface ToastIconProps extends IconProps {
   type?: ToastType
 }
 
-type ToastPosition = 'bottom'
+export type ToastPosition = 'bottom-right'
 
 export interface ToasterProps {
   /**

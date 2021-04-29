@@ -166,15 +166,15 @@ function Example() {
 
 ## toaster.toast props
 
-| Name        | Type             | Description                                                  | Required | Default     |
-| ----------- | ---------------- | ------------------------------------------------------------ | -------- | ----------- |
-| message     | `string`         | Message displayed to the end-user.                           | ✅       | -           |
-| type        | `ToastType`      | The toast's type.                                            | 🚫       | `info`      |
-| duration    | `boolean`        | How long the toast should be apparent, in milliseconds.      | 🚫       | `false`     |
-| dismissible | `boolean`        | Whether the toast can be dismissed or not.                   | 🚫       | `false`     |
-| position    | `ToastPosition`  | The position which the toast should be rendered at.          | 🚫       | `bottom`    |
-| action      | `ButtonProps`    | Toast's actions' props.                                      | 🚫       | `undefined` |
-| iconProps   | `ToastIconProps` | Toast icon's props. Touchpoint to customize the toats' icon. | 🚫       | `undefined` |
+| Name        | Type             | Description                                                  | Required | Default        |
+| ----------- | ---------------- | ------------------------------------------------------------ | -------- | -------------- |
+| message     | `string`         | Message displayed to the end-user.                           | ✅       | -              |
+| type        | `ToastType`      | The toast's type.                                            | 🚫       | `info`         |
+| duration    | `boolean`        | How long the toast should be apparent, in milliseconds.      | 🚫       | `false`        |
+| dismissible | `boolean`        | Whether the toast can be dismissed or not.                   | 🚫       | `false`        |
+| position    | `ToastPosition`  | The position which the toast should be rendered at.          | 🚫       | `bottom-right` |
+| action      | `ButtonProps`    | Toast's actions' props.                                      | 🚫       | `undefined`    |
+| iconProps   | `ToastIconProps` | Toast icon's props. Touchpoint to customize the toats' icon. | 🚫       | `undefined`    |
 
 ## useToaster props
 
