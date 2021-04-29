@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
 
 import { Box } from '@vtex/admin-primitives'
-import { Label } from '../Label'
+import { Label } from '@vtex/admin-components'
 import { useSystem } from '@vtex/admin-core'
 import { SelectProps } from './index'
 

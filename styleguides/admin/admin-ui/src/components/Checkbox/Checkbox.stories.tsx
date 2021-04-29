@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { Label } from '../Label'
+import { Label } from '@vtex/admin-components'
 import { Checkbox, useCheckboxState } from './index'
 import { Text } from '../Text'
 

@@ -1,19 +1,17 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { Columns } from '../Columns'
 import { Card } from './index'
-import { Heading } from '@vtex/admin-components'
-import { Paragraph } from '@vtex/admin-components'
+import { Heading, Paragraph } from '../../typography'
 
 export default {
-  title: 'admin-ui/Card',
+  title: 'data-display/Card',
   component: Card,
 } as Meta
 
 export const Example = () => {
   return (
-    <Card csx={{ width: '1/2' }}>
+    <Card csx={{ width: '50%' }}>
       <Heading>Build for community</Heading>
       <Paragraph>
         It’s all about being ready to grow and reach new levels. Have a solid
@@ -22,35 +20,6 @@ export const Example = () => {
         stars.
       </Paragraph>
     </Card>
-  )
-}
-
-export const WithColumns = () => {
-  return (
-    <Columns>
-      <Columns.Item units={[12, 12, 8]}>
-        <Card csx={{ height: 'full' }}>
-          <Heading>Build for community</Heading>
-          <Paragraph>
-            It’s all about being ready to grow and reach new levels. Have a
-            solid foundation, modular thinking and flexible essence, and you’re
-            building for scale. We are global but we’re audacious enough to aim
-            for the stars.
-          </Paragraph>
-        </Card>
-      </Columns.Item>
-      <Columns.Item units={[12, 12, 4]}>
-        <Card>
-          <Heading>Build for community</Heading>
-          <Paragraph>
-            It’s all about being ready to grow and reach new levels. Have a
-            solid foundation, modular thinking and flexible essence, and you’re
-            building for scale. We are global but we’re audacious enough to aim
-            for the stars.
-          </Paragraph>
-        </Card>
-      </Columns.Item>
-    </Columns>
   )
 }
 

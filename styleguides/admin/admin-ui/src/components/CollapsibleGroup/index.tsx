@@ -2,8 +2,8 @@ import React, { Children, ReactNode, Fragment } from 'react'
 import { isElement } from 'react-is'
 
 import { SystemComponent } from '../../types'
-import { Card } from '../Card'
-import { Divider } from '../Divider'
+import { Card } from '@vtex/admin-components'
+import { Divider } from '@vtex/admin-components'
 import { Group } from '../Group'
 
 const FIRST_CHILD_INDEX = 0

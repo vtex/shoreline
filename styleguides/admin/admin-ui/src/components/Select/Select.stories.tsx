@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import { Select, useSelectState } from './index'
 import { Set } from '../Set'
-import { Card } from '../Card'
+import { Card } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/Select',

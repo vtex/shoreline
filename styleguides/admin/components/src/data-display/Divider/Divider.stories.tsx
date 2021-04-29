@@ -1,14 +1,13 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
+import { onda } from '@vtex/admin-core'
 
 import { Divider } from './index'
 import { Card } from '../Card'
-import { Box } from '@vtex/admin-primitives'
-import { Heading } from '@vtex/admin-components'
-import { Paragraph } from '@vtex/admin-components'
+import { Heading, Paragraph } from '../../typography'
 
 export default {
-  title: 'admin-ui/Divider',
+  title: 'data-display/Divider',
   component: Divider,
 } as Meta
 
@@ -38,21 +37,21 @@ export function Vertical() {
         justifyContent: 'center',
       }}
     >
-      <Box csx={{ width: '1/2' }}>
+      <onda.div csx={{ width: '1/2' }}>
         <Heading csx={{ marginY: 2 }}>Cards</Heading>
         <Paragraph>
           In Cards, your customer is given autonomy to manage credit cards
           related to his account, and can add, remove or edit credit card data.
         </Paragraph>
-      </Box>
+      </onda.div>
       <Divider orientation="vertical" csx={{ marginX: 6 }} />
-      <Box csx={{ width: '1/2' }}>
+      <onda.div csx={{ width: '1/2' }}>
         <Heading csx={{ marginY: 2 }}>Personal data</Heading>
         <Paragraph>
           In this section, the user can manage their personal data registered on
           the store site.
         </Paragraph>
-      </Box>
+      </onda.div>
     </Card>
   )
 }

@@ -4,7 +4,7 @@ import { axe } from 'jest-axe'
 
 import { CheckboxGroup } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
-import { Label } from '../Label'
+import { Label } from '@vtex/admin-components'
 
 describe('CheckboxGroup tests', () => {
   it('should have overridable styles', () => {

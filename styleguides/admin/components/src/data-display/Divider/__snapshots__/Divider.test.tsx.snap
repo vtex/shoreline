@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Heading tests should match snapshot 1`] = `
+exports[`Divider tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;

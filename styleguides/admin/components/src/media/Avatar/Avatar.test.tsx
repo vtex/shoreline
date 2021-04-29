@@ -1,52 +1,36 @@
-import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
-import serializer, { matchers } from 'jest-emotion'
+import React, { Fragment } from 'react'
 
 import { Avatar } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
-
-expect.addSnapshotSerializer(serializer)
-expect.extend(matchers)
+import { render } from '../../test-utils'
 
 describe('Avatar tests', () => {
   it('should render the first letter', () => {
-    const { getByText } = render(
-      <ThemeProvider>
-        <Avatar label="Test" />
-      </ThemeProvider>
-    )
+    const { getByText } = render(<Avatar label="Test" />)
 
     expect(getByText('T')).toBeTruthy()
   })
 
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Avatar data-testid="avatar" label="Test" csx={{ bg: 'azure' }} />
-      </ThemeProvider>
+      <Avatar data-testid="avatar" label="Test" csx={{ bg: 'azure' }} />
     )
 
     expect(getByTestId('avatar')).toHaveStyleRule('background-color', 'azure')
   })
 
   it('should match snaphot with label', () => {
-    const { asFragment } = render(
-      <ThemeProvider>
-        <Avatar label="Test" />
-      </ThemeProvider>
-    )
+    const { asFragment } = render(<Avatar label="Test" />)
 
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('should match snaphot with pallette', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <Avatar label="Test" palette="base" />
         <Avatar label="Test" palette="danger" />
         <Avatar label="Test" palette="primary" />
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()

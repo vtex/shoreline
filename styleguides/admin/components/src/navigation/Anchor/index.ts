@@ -1,7 +1,15 @@
 import { createOnda } from '@vtex/admin-core'
 
 /**
- * Component to add links within an admin page
+ * A navigation link
+ * It renders a `a` jsx element by default
+ * @example
+
+ * import { Anchor } from `@vtex/admin-ui`
+ *
+ * function UseCase() {
+ *   return <Anchor href="your link">Link to something</Anchor>
+ * }
  */
 export const Anchor = createOnda('a', {
   font: 'inherit',

@@ -1,14 +1,15 @@
 import { createOnda } from '@vtex/admin-core'
 
 /**
- * Component to create a user avatar from a passed label
- * It shows the first letter capitalized in the center
+ * Component to create a user avatar from a passed label, showing the first letter capitalized in the center
+ * It renders a label div element by default
  * @example
- * ```jsx
- * <Avatar label="label" />
- * <Avatar label="label" palette="primary" />
- * <Avatar label="label" palette="danger" />
- * ```
+ *
+ * import { Avatar } from `@vtex/admin-ui`
+ *
+ * function UseCase() {
+ *   return <Avatar>Username</Avatar>
+ * }
  */
 export const Avatar = createOnda(
   {

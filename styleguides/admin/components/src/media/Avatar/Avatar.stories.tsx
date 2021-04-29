@@ -2,10 +2,10 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Avatar, AvatarOwnProps } from './index'
-import { Set } from '../Set'
+import { onda } from '@vtex/admin-core'
 
 export default {
-  title: 'admin-ui/Avatar',
+  title: 'media/Avatar',
   component: Avatar,
 } as Meta
 
@@ -19,10 +19,10 @@ Playground.args = {
 
 export const Basic = () => {
   return (
-    <Set>
+    <onda.div csx={{ 'div + div': { paddingLeft: 2 } }}>
       <Avatar label="base" />
       <Avatar label="primary" palette="primary" />
       <Avatar label="danger" palette="danger" />
-    </Set>
+    </onda.div>
   )
 }

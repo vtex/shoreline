@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import { Tabs, useTabState } from './index'
-import { Card } from '../Card'
+import { Card } from '@vtex/admin-components'
 import { Box } from '@vtex/admin-primitives'
 import { Heading } from '@vtex/admin-components'
 import { Set } from '../Set'

@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
-import { axe } from 'jest-axe'
 
 import { Heading } from './index'
-import { render } from '../../test-utils'
+import { render, axe } from '../../test-utils'
 
 describe('Heading tests', () => {
   it('should have overridable styles', () => {

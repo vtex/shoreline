@@ -1,19 +1,15 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
+import React, { Fragment } from 'react'
 
 import { Label } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
 describe('Label tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Label data-testid="label" csx={{ color: 'azure' }}>
-          <input type="checkbox" />
-          Checkbox Input Label!
-        </Label>
-      </ThemeProvider>
+      <Label data-testid="label" csx={{ color: 'azure' }}>
+        <input type="checkbox" />
+        Checkbox Input Label!
+      </Label>
     )
 
     expect(getByTestId('label')).toHaveStyleRule('color', 'azure')
@@ -21,14 +17,14 @@ describe('Label tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <Label htmlFor="text-id">Text Input Label!</Label>
         <input type="text" id="text-id" />
         <Label>
           <input type="checkbox" />
           Checkbox Input Label!
         </Label>
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -36,14 +32,14 @@ describe('Label tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <Fragment>
         <Label htmlFor="text-id">Text Input Label!</Label>
         <input type="text" id="text-id" />
         <Label>
           <input type="checkbox" />
           Checkbox Input Label!
         </Label>
-      </ThemeProvider>
+      </Fragment>
     )
 
     const results = await axe(container)

@@ -1,16 +1,12 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
+import React, { Fragment } from 'react'
 
 import { Divider } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
-describe('Heading tests', () => {
+describe('Divider tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Divider data-testid="divider" csx={{ bg: 'azure' }} />
-      </ThemeProvider>
+      <Divider data-testid="divider" csx={{ bg: 'azure' }} />
     )
 
     expect(getByTestId('divider')).toHaveStyleRule('background-color', 'azure')
@@ -18,10 +14,10 @@ describe('Heading tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <Divider />
         <Divider orientation="vertical" />
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -29,10 +25,10 @@ describe('Heading tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <Fragment>
         <Divider />
         <Divider orientation="vertical" />
-      </ThemeProvider>
+      </Fragment>
     )
 
     const results = await axe(container)

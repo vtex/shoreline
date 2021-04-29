@@ -2,10 +2,10 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Label } from './index'
-import { Flex } from '@vtex/admin-primitives'
+import { onda } from '@vtex/admin-core'
 
 export default {
-  title: 'admin-ui/Label',
+  title: 'forms/Label',
   component: Label,
 } as Meta
 
@@ -22,9 +22,9 @@ Playground.args = { csx: { display: 'flex' } }
 
 export const HtmlFor = () => {
   return (
-    <Flex direction="column" csx={{ width: 160 }}>
+    <onda.div csx={{ display: 'flex', flexDirection: 'column', width: 160 }}>
       <Label htmlFor="text-id">Text Input Label!</Label>
       <input type="text" id="text-id" />
-    </Flex>
+    </onda.div>
   )
 }

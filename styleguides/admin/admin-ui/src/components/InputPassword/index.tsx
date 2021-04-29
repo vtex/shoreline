@@ -5,7 +5,7 @@ import {
   AbstractInputPasswordProps,
 } from '../AbstractInput'
 import { Text } from '../Text'
-import { Label } from '../Label'
+import { Label } from '@vtex/admin-components'
 import { SystemComponentProps } from '../../types'
 import { Box } from '@vtex/admin-primitives'
 import { useSystem } from '@vtex/admin-core'

@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 
 import { Set } from '../Set'
 import { Dropdown, DropdownProps, useDropdownState } from './index'
-import { Card } from '../Card'
+import { Card } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/Dropdown',

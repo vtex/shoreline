@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
-import { axe } from 'jest-axe'
 
 import { Anchor } from './index'
-import { render } from '../../test-utils'
+import { render, axe } from '../../test-utils'
 
 describe('Anchor tests', () => {
   it('should match snapshot', () => {
