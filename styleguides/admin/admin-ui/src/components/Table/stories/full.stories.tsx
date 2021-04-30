@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import { Button } from '../../Button'
 import { Text } from '../../Text'
-import { Card } from '../../Card'
+import { Card } from '@vtex/admin-components'
 import { StatefulTable } from '../index'
 import { Skeleton } from '../../Skeleton'
 

@@ -3,8 +3,8 @@ import { Meta, Story } from '@storybook/react'
 
 import { Radio, useRadioState } from '../Radio'
 import { RadioGroup } from './index'
-import { Label } from '../Label'
-import { Heading } from '../Heading'
+import { Label } from '@vtex/admin-components'
+import { Heading } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/RadioGroup',

@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 
 import { CheckboxGroup } from './index'
 import { Checkbox, useCheckboxState } from '../Checkbox'
-import { Label } from '../Label'
+import { Label } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/CheckboxGroup',

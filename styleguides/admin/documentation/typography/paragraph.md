@@ -4,7 +4,13 @@ path: /typography/paragraph/
 
 # Paragraph
 
-`<Paragraph>` renders a `<p>` element with reset styles.
+Typography element designed for paragraphs. It renders a `p` jsx element by default.
+
+## Import
+
+```jsx isStatic
+import { Paragraph } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -23,41 +29,11 @@ path: /typography/paragraph/
 </Paragraph>
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Paragraph, ParagraphProps } from '@vtex/admin-ui'
-```
-
-## Customization
-
-You can use the `csx` property to handle different styles, and also the `TextPattern` and `SpaceStyleProps`.
-
-### Example
-
-```jsx
-<Paragraph
-  text="body"
-  padding={6}
-  csx={{ bg: 'light.secondary', color: 'blue' }}
->
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a aliquam
-  ex, quis pretium enim. Sed cursus quam ac lorem efficitur, ac sodales lorem
-  convallis. Ut scelerisque mauris velit, sit amet iaculis elit feugiat commodo.
-  Etiam egestas ante nibh, eget pulvinar erat ultrices et. In quis ante aliquam,
-  ullamcorper leo et, porta sapien. Quisque lobortis eu velit at molestie. Ut
-  vel gravida lorem, in efficitur nulla. Vestibulum tincidunt, nulla in semper
-  dignissim, eros lacus molestie quam, sit amet tempus ante quam at mauris. Duis
-  urna eros, cursus eget leo sit amet, sollicitudin blandit nibh. Cras
-  pellentesque sapien nibh, eget finibus neque ultrices ut. Phasellus fermentum
-  urna at ex rhoncus aliquam.
-</Paragraph>
-```
-
 ## Props
 
-<proptypes heading="Paragraph" component="Paragraph"/>
+All props of the `p` element.
+
+| Name | Type               | Description         | Required       | Default            |
+| ---- | ------------------ | ------------------- | -------------- | ------------------ | --- | --- |
+| csx  | `StyleObject`      | Custom styles       | 🚫             | {}                 |
+| as   | `React.ElementType | React.ComponentType | OndaComponent` | Polymorphic render | 🚫  | 🚫  |

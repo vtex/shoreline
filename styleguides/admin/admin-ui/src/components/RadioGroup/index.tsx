@@ -5,7 +5,7 @@ import {
 } from 'reakit/Radio'
 
 import { SystemComponent } from '../../types'
-import { Label } from '../Label'
+import { Label } from '@vtex/admin-components'
 import { useSystem } from '@vtex/admin-core'
 
 export function RadioGroup(props: RadioGroupProps) {

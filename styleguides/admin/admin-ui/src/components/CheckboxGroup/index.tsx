@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { useSystem } from '@vtex/admin-core'
 
-import { Label } from '../Label'
+import { Label } from '@vtex/admin-components'
 import { SystemComponent } from '../../types'
 
 export function CheckboxGroup(props: CheckboxGroupProps) {

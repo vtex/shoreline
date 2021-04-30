@@ -3,7 +3,7 @@ import { IconCaret, IconCheck } from '@vtex/admin-ui-icons'
 
 import { Box } from '@vtex/admin-primitives'
 import { SelectProps } from './index'
-import { Label } from '../Label'
+import { Label } from '@vtex/admin-components'
 import { useSystem } from '@vtex/admin-core'
 
 /**

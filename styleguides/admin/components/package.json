@@ -1,0 +1,61 @@
+{
+  "name": "@vtex/admin-components",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/admin-components.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "styleguides/admin",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "test": "tsdx test"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-dom": ">=16.8",
+    "@emotion/css": ">=11",
+    "@emotion/react": ">=11",
+    "reakit": ">=1.3"
+  },
+  "devDependencies": {
+    "reakit": "^1.3.8",
+    "jest-environment-jsdom-fourteen": "^1.0.1",
+    "mutationobserver-shim": "^0.3.7",
+    "@emotion/css": "^11.1.3",
+    "@emotion/react": "^11.1.5",
+    "@vtex/admin-core": "^0.10.8-experimental.0",
+    "@vtex/admin-illustrations": "^0.1.1",
+    "@vtex/admin-primitives": "^0.4.3-experimental.0",
+    "@vtex/admin-ui-icons": "^0.11.2-experimental.0"
+  },
+  "dependencies": {
+    "csstype": "^3.0.5",
+    "deepmerge": "^4.2.2",
+    "downshift": "^6.0.6",
+    "focus-visible": "^5.1.0",
+    "polished": "^3.6.7",
+    "react-device-detect": "^1.15.0",
+    "react-is": "^17.0.1",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
+  },
+  "gitHead": "201e6a0149b4eb0b836a5f5f69b2497475877a71"
+}

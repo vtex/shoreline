@@ -3,13 +3,13 @@ import { Meta, Story } from '@storybook/react'
 
 import { Checkbox, useCheckboxState } from '../Checkbox'
 import { Box } from '@vtex/admin-primitives'
-import { Label } from '../Label'
+import { Label } from '@vtex/admin-components'
 import { Button } from '../Button'
 import { Modal, ModalDisclosure, StatelessModal, useModalState } from './index'
 import { Text } from '../Text'
 import { ModalProps } from './Stateful'
-import { Heading } from '../Heading'
-import { Paragraph } from '../Paragraph'
+import { Heading } from '@vtex/admin-components'
+import { Paragraph } from '@vtex/admin-components'
 
 export default {
   title: 'admin-ui/Modal',
