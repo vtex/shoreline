@@ -44,6 +44,7 @@ export * from './components/Topbar'
 export * from './components/Toolbar'
 export * from './components/Pagination'
 export * from './components/PowerfulTable'
+
 export {
   isMobile,
   isSafari,
