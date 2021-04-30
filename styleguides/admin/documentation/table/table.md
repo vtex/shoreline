@@ -1,5 +1,5 @@
 ---
-path: /table/basic
+path: /table/basic/
 ---
 
 # Table

@@ -35,8 +35,11 @@
     - /data-display/visually-hidden/
 - section: Table
   paths:
-    - /table/basic
-    - /table/column
+    - /table/basic/
+    - /table/column/
+    - /table/section/
+    - /table/sortable/
+    - /table/views/
 - section: Layouts
   paths:
     - /layouts/introduction/
