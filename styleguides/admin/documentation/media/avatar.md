@@ -15,7 +15,7 @@ import { Avatar } from '@vtex/admin-ui'
 ## Behavior
 
 ```jsx
-<Avatar>The headline</Avatar>
+<Avatar label="Avatar" />
 ```
 
 ## Variation
