@@ -190,7 +190,7 @@ export interface StatefulTableProps<T>
    */
   dir?: TableDir
   /**
-   * Pagination component used in the table
+   * Element that will be displayed on top of the table
    */
   children?: ReactNode
   /**
