@@ -31,9 +31,12 @@
     - /data-display/collapsible-group/
     - /data-display/collapsible/
     - /data-display/divider/
-    - /data-display/table/
     - /data-display/tag/
     - /data-display/visually-hidden/
+- section: Table
+  paths:
+    - /table/basic
+    - /table/column
 - section: Layouts
   paths:
     - /layouts/introduction/

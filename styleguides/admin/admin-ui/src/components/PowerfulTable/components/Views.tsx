@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { Box, Flex } from '@vtex/admin-primitives'
-import { useViewContext, TableViewState } from '../context'
+import { useViewContext, TableViewState } from '../../Table/context'
 import { Anchor, AnchorProps } from '../../Anchor'
 import { Text } from '../../Text'
 import {

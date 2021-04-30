@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { StatefulTable } from '../index'
+import { StatefulTable } from '../../PowerfulTable/index'
 
 export default {
   title: 'admin-ui/Table/Directions',

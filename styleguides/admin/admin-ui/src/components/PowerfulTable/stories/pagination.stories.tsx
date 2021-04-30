@@ -8,7 +8,7 @@ import { usePaginationState } from '../../Pagination'
 import { Pagination } from '../../Pagination'
 
 export default {
-  title: 'admin-ui/Table/Pagination',
+  title: 'admin-ui/PowerfulTable/Pagination',
   component: StatefulTable,
 } as Meta
 
@@ -24,7 +24,7 @@ interface Item {
   price: string
 }
 
-const customPaginationTableSize = 5
+const size = 5
 
 function getItems(start: number, end: number): Promise<GetItemsReturn> {
   return new Promise((resolve) => {
@@ -59,7 +59,7 @@ export function Simple() {
   }, [])
 
   const paginationState = usePaginationState({
-    size: 5,
+    size,
   })
 
   return (
@@ -89,9 +89,7 @@ export function Simple() {
       )}
       length={5}
     >
-      <Flex csx={{ marginBottom: '1.5rem' }}>
-        {/* Later this box should be the Toolbar component */}
-
+      <StatefulTable.Section>
         <Flex.Spacer />
         <Pagination
           state={paginationState}
@@ -101,7 +99,7 @@ export function Simple() {
           prevLabel="Back"
           nextLabel="Next"
         />
-      </Flex>
+      </StatefulTable.Section>
     </StatefulTable>
   )
 }
@@ -112,10 +110,41 @@ export function CustomPagination() {
     items: [],
   })
   const [loading, setLoading] = useState(false)
-  const [{ range, currentPage }, setPagination] = useState<{
-    range: [number, number]
-    currentPage: number
-  }>({ range: [1, customPaginationTableSize], currentPage: 1 })
+
+  const paginationState = usePaginationState({
+    paginationReducer: (currentPaginationState, action) => {
+      if (action.type === 'next') {
+        const newPage = currentPaginationState.currentPage + 1
+
+        const newRange: [number, number] = [
+          currentPaginationState.range[1] + 1,
+          action.tableSize * newPage,
+        ]
+
+        fetchItems(...newRange)
+
+        return {
+          ...currentPaginationState,
+          range: newRange,
+          currentPage: newPage,
+        }
+      }
+
+      const newRange: [number, number] = [
+        currentPaginationState.range[0] - action.tableSize,
+        currentPaginationState.range[0] - 1,
+      ]
+
+      fetchItems(...newRange)
+
+      return {
+        ...currentPaginationState,
+        range: newRange,
+        currentPage: currentPaginationState.currentPage + 1,
+      }
+    },
+    size,
+  })
 
   async function fetchItems(start: number, end: number) {
     setLoading(true)
@@ -152,56 +181,12 @@ export function CustomPagination() {
       ]}
       items={items}
       loading={loading}
-      length={customPaginationTableSize}
+      length={size}
     >
-      <Flex csx={{ marginBottom: '1.5rem' }}>
-        {/* Later this box should be the Toolbar component */}
-
+      <StatefulTable.Section>
         <Flex.Spacer />
-        <Pagination
-          state={{
-            currentPage,
-            range,
-            paginate: async (type) => {
-              if (type === 'next') {
-                const newPage = currentPage + 1
-
-                const newRange: [number, number] = [
-                  range[1] + 1,
-                  customPaginationTableSize * newPage,
-                ]
-
-                await fetchItems(...newRange)
-
-                setPagination((previousState) => ({
-                  ...previousState,
-                  range: newRange,
-                  currentPage: currentPage + 1,
-                }))
-                return
-              }
-
-              const newRange: [number, number] = [
-                range[0] - customPaginationTableSize,
-                range[0] - 1,
-              ]
-
-              await fetchItems(...newRange)
-
-              setPagination((previousState) => ({
-                ...previousState,
-                range: newRange,
-                currentPage: previousState.currentPage + 1,
-              }))
-            },
-          }}
-          total={total}
-          preposition="of"
-          subject="results"
-          prevLabel="Back"
-          nextLabel="Next"
-        />
-      </Flex>
+        <Pagination state={paginationState} total={total} loading={loading} />
+      </StatefulTable.Section>
     </StatefulTable>
   )
 }

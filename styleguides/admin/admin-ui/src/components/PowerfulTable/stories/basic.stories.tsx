@@ -1,10 +1,10 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { StatefulTable } from '../index'
+import { StatefulTable } from '../'
 
 export default {
-  title: 'admin-ui/Table/Basic',
+  title: 'admin-ui/PowerfulTable/Basic',
   component: StatefulTable,
 } as Meta
 

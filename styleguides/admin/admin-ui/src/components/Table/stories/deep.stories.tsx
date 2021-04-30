@@ -66,7 +66,7 @@ export function LowerLevel() {
       <Table.Head>
         <Table.Row>
           {table.columns.map((column) => {
-            const content = table.resolveHeader({ column, items })
+            const { content } = table.resolveHeader({ column, items })
 
             return (
               <Table.Cell key={column.id as string} column={column}>
@@ -165,7 +165,7 @@ export function Windowing() {
       <Table.Head>
         <Table.Row>
           {table.columns.map((column) => {
-            const content = table.resolveHeader({
+            const { content } = table.resolveHeader({
               column,
               items: fakeCollection,
             })
@@ -277,7 +277,7 @@ export function Dnd() {
       <Table.Head>
         <Table.Row>
           {table.columns.map((column) => {
-            const content = table.resolveHeader({ column, items })
+            const { content } = table.resolveHeader({ column, items })
 
             return (
               <Table.Cell key={column.id as string} column={column}>

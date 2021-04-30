@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { StatefulTable, StatefulTableProps } from '../index'
+import { StatefulTable, StatefulTableProps } from '../../PowerfulTable/index'
 import { baseResolvers } from '../resolvers/base'
 
 export default {
