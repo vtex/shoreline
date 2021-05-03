@@ -16,9 +16,9 @@ The `order` prop is related to the sorting order and `by` indicates which column
 
 ## directions
 
-Define in which sorting order the table will be sorted.
-It accept's an array with `ASC` and `DSC` as possible values.
-You can pass an array with two or one sorting direction, if you pass an array with only one sorting direction the table will only sort in one direction.
+Defines the sorting order of the table.
+It accepts an array with `ASC` and `DSC` as possible values.
+You can pass an array with one or two sorting directions. If you pass an array with only one sorting direction the table will only sort in one direction.
 
 ## reducer
 
