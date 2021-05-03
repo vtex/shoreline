@@ -21,7 +21,7 @@ function Example() {
       state={state}
       preposition="of"
       subject="results"
-      prevLabel="Back"
+      prevLabel="Previous"
       nextLabel="Next"
       total={35}
     />
@@ -72,6 +72,6 @@ For convenience, we also provide a hook that already implements the state logic 
 | Name                   | Type                                                                    | Description                                                                                                    | Required | Default                                |
 | ---------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------- |
 | paginationInitialState | `PaginationState`                                                       | Hook initial state                                                                                             | 🚫       | `{ currentPage: 1, range: [1, size] }` |
-| size                   | `number`                                                                | Amount of itens that will be displayed in a page                                                               | ✅       | -                                      |
+| size                   | `number`                                                                | Amount of items that will be displayed in a page                                                               | ✅       | -                                      |
 | paginationReducer      | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer                             | 🚫       | usePagination hook default reducer     |
 | paginationCallback     | `(params: PaginateParams) => void`                                      | Optional way to provide a function that will be triggered by pagination component when the buttons are clicked | 🚫       | usePagination hook default callback    |
