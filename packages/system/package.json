@@ -28,12 +28,7 @@
     "build": "tsdx build --tsconfig tsconfig.json",
     "test": "tsdx test"
   },
-  "devDependencies": {
-    "@types/lodash.get": "^4.4.6",
-    "@types/lodash.merge": "^4.6.6"
-  },
   "dependencies": {
-    "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.2"
+    "@vtex/onda-util": "*"
   }
 }

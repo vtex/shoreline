@@ -1,5 +1,5 @@
 import createEmotion, { Emotion } from '@emotion/css/create-instance'
-import { createCSS, StyleProp } from '@vtex/onda-css'
+import { runtime, StyleProp } from '@vtex/onda-runtime-emotion'
 import { Plugin, StepsInstance, buildSteps } from '@vtex/onda-system'
 import { plugins as defaultPlugins } from '@vtex/onda-plugins'
 
@@ -58,21 +58,3 @@ export function createStyleCompiler<Theme extends Record<string, any>>(
     return className
   }
 }
-
-/**
-
-structure
-  - alias
-  - rule
-  - split
-  - transform
-
-parse
-  - use the defined structure to parse human -> meta
-  (h: Human) -> meta (object)
-
-compile
-  - use the parse to meta -> machine
-  (m: Meta) => string
-
- */

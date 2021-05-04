@@ -1,9 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import pick from 'lodash.pick'
-import omit from 'lodash.omit'
-
-export { pick, omit }
-
 /**
  * Whether an Record<string, unknown> is empty
  */

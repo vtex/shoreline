@@ -1,5 +1,5 @@
 import { Plugin } from '../types'
-import { get } from '../../util'
+import { get } from '@vtex/onda-util'
 
 export function buildRule<Theme extends Record<string, any>>(
   theme: Theme,
