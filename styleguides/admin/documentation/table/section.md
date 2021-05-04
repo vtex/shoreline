@@ -136,7 +136,7 @@ function CompleteTopbar() {
           state={paginationState}
           preposition="of"
           subject="results"
-          prevLabel="Back"
+          prevLabel="Previous"
           nextLabel="Next"
           total={fruits.length}
         />

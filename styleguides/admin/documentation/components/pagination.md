@@ -46,7 +46,7 @@ function Loading() {
       state={state}
       preposition="of"
       subject="results"
-      prevLabel="Back"
+      prevLabel="Previous"
       nextLabel="Next"
       loading
       total={35}

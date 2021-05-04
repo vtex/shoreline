@@ -18,7 +18,7 @@ export function Basic() {
       total={74}
       preposition="of"
       subject="results"
-      prevLabel="Back"
+      prevLabel="Previous"
       nextLabel="Next"
     />
   )

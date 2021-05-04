@@ -96,7 +96,7 @@ export function Simple() {
           total={items.length}
           preposition="of"
           subject="results"
-          prevLabel="Back"
+          prevLabel="Previous"
           nextLabel="Next"
         />
       </StatefulTable.Section>
