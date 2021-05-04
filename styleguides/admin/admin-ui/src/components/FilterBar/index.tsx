@@ -5,7 +5,7 @@ import { IconDuplicate, IconDelete, IconAdd } from '@vtex/admin-ui-icons'
 
 import { Set } from '../Set'
 import { Button } from '../Button'
-import { Body, Statement, Footer } from './components'
+import { Content, Statement, Footer } from './components'
 import { useFilterBar } from './useFilterBar'
 import { Condition, Conjunction, FilterBarProps, Filter } from './typings'
 import { Menu } from '../Menu'
@@ -92,17 +92,11 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
 
   return (
     <Box csx={{ border: 'default' }} {...htmlProps}>
-      <Body empty={statements.length === 0} label={label}>
+      <Content empty={statements.length === 0} label={label}>
         {statements.map((statement, index) => {
           return (
             <Statement key={`filter-statement-${index}`}>
-              <Set
-                spacing={2}
-                csx={{
-                  '> div:nth-child(n+2)': { minWidth: 150, maxWidth: 150 },
-                  '> div:first-child': { minWidth: 100, maxWidth: 100 },
-                }}
-              >
+              <Set spacing={2}>
                 <Statement.Conjunction
                   label="Conjunction"
                   selectedItem={conjunction}
@@ -163,7 +157,7 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
             </Statement>
           )
         })}
-      </Body>
+      </Content>
 
       <Footer>
         <Button

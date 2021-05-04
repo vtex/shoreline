@@ -5,7 +5,7 @@ import invariant from 'tiny-invariant'
 import { BaseResolvers } from './base'
 
 /**
- * Used to recursive define resolver
+ * Used to define resolver recursively
  * @generic I: ID of the resolver
  */
 export type ResolverShortcut<I, S = unknown> = S & { type: I }

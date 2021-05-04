@@ -28,10 +28,12 @@ Statement.Conjunction = function StatementConjunction(
       selectedItem={selectedItem}
       handleItemChange={handleItemChange}
       items={items}
-      csx={{ minWidth: 100 }}
+      csx={{ minWidth: 100, maxWidth: 100 }}
     />
   ) : (
-    <Box csx={{ paddingLeft: 3 }}>{index === 0 ? 'Where' : selectedItem}</Box>
+    <Box csx={{ paddingLeft: 3, minWidth: 100, maxWidth: 100 }}>
+      {index === 0 ? 'Where' : selectedItem}
+    </Box>
   )
 }
 Statement.Filter = StatementDropdown
