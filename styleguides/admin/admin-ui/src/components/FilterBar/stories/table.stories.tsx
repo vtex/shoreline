@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Meta, Story } from '@storybook/react'
 import { useDebounce } from 'use-debounce'
+import { Flex } from '@vtex/admin-primitives'
 
 import { FilterBar } from '../index'
-import { StatefulTable } from '../../Table'
+import { StatefulTable } from '../../PowerfulTable'
 import { Statement, Filters } from '../typings'
 import { AbstractInput } from '../../AbstractInput'
 import { ResolverRenderProps } from '../resolvers/core'
-import { Flex } from '@vtex/admin-primitives'
 import faker from 'faker'
 
 export default {

@@ -7,10 +7,15 @@ import { Statement } from './Statement'
 export function Body(props: BodyProps) {
   const { empty, label, children, ...restProps } = props
 
-  const themeKey = { filterBar: { body: empty ? 'empty' : 'default' } }
-
   return (
-    <Box csx={{ themeKey }} {...restProps}>
+    <Box
+      csx={{
+        bg: 'light.secondary',
+        padding: empty ? 4 : 2,
+        paddingLeft: empty ? 6 : 4,
+      }}
+      {...restProps}
+    >
       {empty ? (
         <Paragraph>{label}</Paragraph>
       ) : (

@@ -1,13 +1,13 @@
 import React, { useReducer } from 'react'
 
 import { Box } from '@vtex/admin-primitives'
-import { IconAdd } from '@vtex/admin-ui-icons'
+import { IconDuplicate, IconDelete, IconAdd } from '@vtex/admin-ui-icons'
 
+import { Set } from '../Set'
 import { Button } from '../Button'
 import { Body, Statement, Footer } from './components'
 import { useFilterBar } from './useFilterBar'
 import { Condition, Conjunction, FilterBarProps, Filter } from './typings'
-import { IconDuplicate, IconDelete } from '@vtex/admin-ui-icons'
 import { Menu } from '../Menu'
 
 export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
@@ -96,49 +96,56 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
         {statements.map((statement, index) => {
           return (
             <Statement key={`filter-statement-${index}`}>
-              <Statement.Conjunction
-                label="Conjunction"
-                selectedItem={conjunction}
-                index={index}
-                items={['And', 'Or']}
-                handleItemChange={({ selectedItem }) => {
-                  if (selectedItem) {
-                    handleConjunctionChange(selectedItem)
-                  }
+              <Set
+                spacing={2}
+                csx={{
+                  '> div:nth-child(n+2)': { minWidth: 150, maxWidth: 150 },
+                  '> div:first-child': { minWidth: 100, maxWidth: 100 },
                 }}
-              />
+              >
+                <Statement.Conjunction
+                  label="Conjunction"
+                  selectedItem={conjunction}
+                  index={index}
+                  items={['And', 'Or']}
+                  handleItemChange={({ selectedItem }) => {
+                    if (selectedItem) {
+                      handleConjunctionChange(selectedItem)
+                    }
+                  }}
+                />
 
-              <Statement.Filter
-                label="Filter"
-                items={filters}
-                selectedItem={statement.filter}
-                handleItemChange={({ selectedItem: filter }) => {
-                  if (!filter) return
+                <Statement.Filter
+                  label="Filter"
+                  items={filters}
+                  selectedItem={statement.filter}
+                  handleItemChange={({ selectedItem: filter }) => {
+                    if (!filter) return
 
-                  handleFilterChange(filter, index)
-                }}
-                csx={{ maxWidth: 150 }}
-              />
+                    handleFilterChange(filter, index)
+                  }}
+                  csx={{ maxWidth: 150 }}
+                />
 
-              <Statement.Conditions
-                selectedItem={statement.condition}
-                handleItemChange={({ selectedItem: condition }) => {
-                  if (!condition) return
+                <Statement.Conditions
+                  selectedItem={statement.condition}
+                  handleItemChange={({ selectedItem: condition }) => {
+                    if (!condition) return
 
-                  handleConditionChange(condition, index)
-                }}
-                label="Condition"
-                items={statement.filter.conditions}
-                csx={{ maxWidth: 150 }}
-              />
+                    handleConditionChange(condition, index)
+                  }}
+                  label="Condition"
+                  items={statement.filter.conditions}
+                  csx={{ maxWidth: 150 }}
+                />
 
-              <Statement.Value
-                resolvers={resolvers}
-                statement={statement}
-                index={index}
-                handleValueChange={handleValueChange}
-              />
-
+                <Statement.Value
+                  resolvers={resolvers}
+                  statement={statement}
+                  index={index}
+                  handleValueChange={handleValueChange}
+                />
+              </Set>
               <Statement.Menu aria-label={`statement-menu-${index}`}>
                 <Menu.Item
                   onClick={() => handleDuplicateStatement(index)}

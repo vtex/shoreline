@@ -1,7 +1,6 @@
 import React from 'react'
 import { Flex, Box, FlexProps } from '@vtex/admin-primitives'
 
-import { Set } from '../../Set'
 import { Conjunction } from '../typings'
 
 import { StatementDropdown, StatementDropdownProps } from './StatementDropdown'
@@ -13,15 +12,7 @@ export function Statement(props: StatementProps) {
 
   return (
     <Flex justify="space-between" csx={{ width: '100%' }} {...htmlProps}>
-      <Set
-        spacing={2}
-        csx={{
-          '> div:nth-child(n+2)': { minWidth: 150, maxWidth: 150 },
-          '> div:first-child': { minWidth: 100, maxWidth: 100 },
-        }}
-      >
-        {children}
-      </Set>
+      {children}
     </Flex>
   )
 }

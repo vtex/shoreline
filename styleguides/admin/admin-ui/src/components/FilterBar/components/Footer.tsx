@@ -6,7 +6,13 @@ export function Footer(props: FlexProps) {
 
   return (
     <Flex
-      csx={{ themeKey: 'components.filterBar.footer', ...csx }}
+      csx={{
+        paddingY: 2,
+        paddingX: 3,
+        border: 'divider-top',
+        justifyContent: 'space-between',
+        ...csx,
+      }}
       {...restProps}
     />
   )

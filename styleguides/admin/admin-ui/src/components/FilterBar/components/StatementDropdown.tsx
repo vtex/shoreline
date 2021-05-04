@@ -1,9 +1,9 @@
 import React from 'react'
-import { get, useSystem } from '@vtex/admin-core'
+import { UseSelectStateChange } from 'downshift'
+import { get } from '@vtex/admin-core'
+import { Box } from '@vtex/admin-primitives'
 
 import { Dropdown, DropdownProps, useDropdownState } from '../../Dropdown'
-import { Box } from '@vtex/admin-primitives'
-import { UseSelectStateChange } from 'downshift'
 
 export function StatementDropdown<T>(props: StatementDropdownProps<T>) {
   const dropdownProps = useStatementDropdown(props)
@@ -20,7 +20,6 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
     handleItemChange,
     ...restProps
   } = props
-  const { stylesOf } = useSystem()
 
   const state = useDropdownState({
     items,
@@ -32,7 +31,13 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
     if (typeof item !== 'object') return item
 
     return (
-      <Box csx={{ themeKey: 'components.filterBar.dropdown-label' }}>
+      <Box
+        csx={{
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+        }}
+      >
         {get(item, 'label')}
       </Box>
     )
@@ -42,7 +47,13 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
     variant,
     renderItem,
     csx: {
-      ...stylesOf('components.filterBar.dropdown'),
+      bg: 'light.primary',
+      border: 'default',
+      color: 'dark.secondary',
+      div: {
+        justifyContent: 'space-between',
+      },
+      minWidth: 150,
       ...csx,
     },
     state,
