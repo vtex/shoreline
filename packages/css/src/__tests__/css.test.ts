@@ -1,9 +1,5 @@
-import { createAliases } from '../createAliases'
-import { createRules } from '../createRules'
-import { createSplit } from '../createSplit'
-import { createTransform } from '../createTransform'
-import { createCss } from '../css'
-import { plugins } from '../plugins'
+import { buildPhases, plugins } from '@vtex/onda-system'
+import { createCSS } from '../css'
 
 const theme = {
   space: [0, 1, 2, 4, 8],
@@ -15,19 +11,8 @@ const theme = {
   },
 }
 
-const alias = createAliases(theme, plugins)
-const rule = createRules(theme, plugins)
-const split = createSplit(plugins)
-const transform = createTransform(plugins)
-
-const phases = {
-  alias,
-  rule,
-  split,
-  transform,
-}
-
-const css = createCss(phases)
+const phases = buildPhases(theme, plugins)
+const css = createCSS(phases)
 
 describe('resilience', () => {
   it('returns a function', () => {

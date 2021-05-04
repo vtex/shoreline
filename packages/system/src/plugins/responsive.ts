@@ -1,4 +1,4 @@
-import { createPlugin } from '../createPlugin'
+import { createPlugin } from '../plugin'
 
 const defaultBreakpoints = ['40em', '48em', '64em', '75em']
 

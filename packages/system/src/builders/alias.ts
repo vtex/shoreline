@@ -1,6 +1,9 @@
-import { Plugin } from './createPlugin'
+import { Plugin } from '../plugin'
 
-export function createAliases<Theme>(theme: Theme, plugins: Plugin[]) {
+export function buildAlias<Theme extends Record<string, any>>(
+  theme: Theme,
+  plugins: Plugin<Theme>[]
+) {
   const collection = plugins
     .map((p) => p.onCreateAlias)
     .reduce(

@@ -1,14 +1,17 @@
-import { Plugin } from './createPlugin'
-import { get } from './util'
+import { Plugin } from '../plugin'
+import { get } from '../util'
 
-export function createTransform(plugins: Plugin[]) {
+export function buildTransform<Theme extends Record<string, any>>(
+  theme: Theme,
+  plugins: Plugin<Theme>[]
+) {
   return function hydrateTransform(prop: string) {
     const transformations = plugins
       .map((p) => p.onTransform)
       .reduce(
         (acc, callbackRule) => ({
           ...acc,
-          ...callbackRule(),
+          ...callbackRule(theme),
         }),
         {}
       ) as Record<string, string>

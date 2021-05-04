@@ -1,4 +1,4 @@
-import { createPlugin } from '../createPlugin'
+import { createPlugin } from '../plugin'
 
 export const typography = createPlugin({
   name: 'onda-plugin-typography',

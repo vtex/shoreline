@@ -1,12 +1,15 @@
-import { Plugin } from './createPlugin'
+import { Plugin } from '../plugin'
 
-export function createSplit(plugins: Plugin[]) {
+export function buildSplit<Theme extends Record<string, any>>(
+  theme: Theme,
+  plugins: Plugin<Theme>[]
+) {
   const collection = plugins
     .map((p) => p.onSplit)
     .reduce(
       (acc, callbackRule) => ({
         ...acc,
-        ...callbackRule(),
+        ...callbackRule(theme),
       }),
       {}
     ) as Record<string, string[]>

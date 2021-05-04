@@ -1,4 +1,4 @@
-import { createPlugin } from '../createPlugin'
+import { createPlugin } from '../plugin'
 
 export const sizes = createPlugin({
   name: 'onda-plugin-sizes',

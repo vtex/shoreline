@@ -1,4 +1,4 @@
-import { createPlugin } from '../createPlugin'
+import { createPlugin } from '../plugin'
 
 export const flex = createPlugin({
   name: 'onda-plugin-flex',

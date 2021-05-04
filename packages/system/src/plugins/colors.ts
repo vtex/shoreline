@@ -1,4 +1,4 @@
-import { createPlugin } from '../createPlugin'
+import { createPlugin } from '../plugin'
 
 export const colors = createPlugin({
   name: 'onda-plugin-colors',

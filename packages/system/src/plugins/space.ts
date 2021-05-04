@@ -1,4 +1,4 @@
-import { createPlugin } from '../createPlugin'
+import { createPlugin } from '../plugin'
 import { get } from '../util'
 
 export const space = createPlugin({

@@ -1,29 +1,9 @@
 import { CSSObject as EmotionCSSObject } from '@emotion/css'
+import { Phases } from '@vtex/onda-system'
 
 import { StyleObject, StyleProp, Theme } from './types'
 
-interface Phases {
-  alias: {
-    value: Record<string, string>
-    exec: (prop: string) => string
-  }
-  rule: {
-    value: Record<string, string>
-    exec: (prop: string) => any
-  }
-  split: {
-    value: Record<string, string[]>
-    exec: (prop: string, value: any) => Record<string, any>
-  }
-  transform: (
-    prop: string
-  ) => {
-    value: Record<string, string>
-    exec: (rule: Record<string, string>, value: any) => any
-  }
-}
-
-export function createCss(phases: Phases) {
+export function createCSS(phases: Phases) {
   return function css(csx: StyleProp = {}) {
     return (theme: Theme = {}): EmotionCSSObject => {
       const cssObject: EmotionCSSObject = {}

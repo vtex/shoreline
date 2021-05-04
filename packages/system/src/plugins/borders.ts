@@ -1,4 +1,4 @@
-import { createPlugin } from '../createPlugin'
+import { createPlugin } from '../plugin'
 
 export const borders = createPlugin({
   name: 'onda-plugin-borders',
