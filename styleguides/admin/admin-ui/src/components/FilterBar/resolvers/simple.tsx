@@ -20,9 +20,9 @@ export function simpleResolver<T>() {
       const renderItem = (item: T | null) => {
         if (typeof item !== 'object') return item
 
-        const path = accessor ? `.${accessor}` : ``
+        const path = accessor ? `value.${accessor}` : `value`
 
-        const selectedValue = get(item, `value${path}`, undefined)
+        const selectedValue = get(item, path, undefined)
 
         invariant(
           selectedValue && typeof selectedValue !== 'object',

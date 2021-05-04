@@ -1,0 +1,336 @@
+---
+path: /data-display/filter-bar/
+---
+
+# FilterBar
+
+The `FilterBar` component represents a list of Statements that when combined it filters a data
+
+## Behavior
+
+```jsx
+function Example() {
+  return (
+    <FilterBar
+      label="Use a filter to find products, create collections or generate a report"
+      filters={[
+        {
+          label: 'Status',
+          id: 'status',
+          conditions: [
+            { label: 'Is', id: '3' },
+            { label: 'Is not', id: '4' },
+            { label: 'Contains', id: '5' },
+            { label: 'Does not contains', id: '5' },
+          ],
+          resolver: {
+            type: 'simple',
+            defaultValue: { value: 'Archived' },
+            items: [
+              { value: 'Archived' },
+              { value: 'In stock' },
+              { value: 'Out of stock' },
+            ],
+          },
+        },
+        {
+          label: 'Price',
+          id: 'price',
+          conditions: [
+            { label: 'Is not', id: '3' },
+            { label: 'Is empty', id: '4' },
+            { label: 'Is equal to', id: '5' },
+          ],
+          resolver: {
+            type: 'simple',
+            defaultValue: { value: 1 },
+            items: [
+              { value: 1 },
+              { value: 50 },
+              { value: 100 },
+              { value: 250 },
+            ],
+          },
+        },
+      ]}
+      handleStatementChange={(filters) => {
+        console.log(filters)
+      }}
+    />
+  )
+}
+```
+
+## Import
+
+```jsx isStatic
+import { FilterBar } from '@vtex/admin-ui'
+```
+
+## Statement
+
+The FilterBar statement is a combination of a **filter**, a **condition**, a **value**, and a **conjunction**. Important to note that the conjunction value is shared along all statements.
+
+```ts isStatic
+/**
+ * @generic T: Type of statement value
+ * @generic R: Type of resolvers
+ */
+interface Statement<T, R = BaseResolvers<T>> = {
+  /** Statement condition */
+  condition: Condition
+  /** Statement Filter */
+  filter: Filter<T, R>
+  /** Statement value */
+  target: T
+}
+```
+
+## Filter
+
+```ts isStatic
+interface Filter<T, R = BaseResolvers<T>> {
+  /** Filter label */
+  label: string
+  /** Filter id */
+  id: string
+  /** Filter conditions */
+  conditions: Condition[]
+  /** Filter resolver */
+  resolver: R
+}
+```
+
+### Resolvers
+
+You can use this feature to apply pre-defined filters in an easier way. For example, you can render a simple select filter without implement the component from scratch, you just need to pass the requiring properties to our `Simple` resolver. Check the exaples below to go further.
+
+#### Simple
+
+Use this when you want to render a simple select filter.
+
+##### Interface
+
+```ts isStatic
+interface SimpleResolver<T> {
+  /**
+   * Resolver type
+   */
+  type: 'simple'
+  /**
+   * Defines the path to the select item label
+   * @default 'value'
+   */
+  accessor?: string
+  /**
+   * Select items
+   */
+  items: T[]
+  /**
+   * Filter default value. When the filter is added it will be the first value applied.
+   */
+  defaultValue: T
+  /**
+   * Custom filter render props
+   */
+  render?: (props: ResolverRenderProps<T, JSX.Element>) => ReactNode
+}
+```
+
+**Check also:**
+
+- [ResolverRenderProps<T, JSX.Element>](/data-display/filter-bar/#common-interfaces)
+
+##### Example
+
+```jsx
+function Example() {
+  return (
+    <FilterBar
+      label="Use a filter to find products, create collections or generate a report"
+      filters={[
+        {
+          label: 'Status',
+          id: 'status',
+          conditions: [
+            { label: 'Is', id: '3' },
+            { label: 'Is not', id: '4' },
+            { label: 'Contains', id: '5' },
+            { label: 'Does not contains', id: '5' },
+          ],
+          resolver: {
+            type: 'simple',
+            defaultValue: { value: { label: 'Archived', value: 0 } },
+            accessor: 'label',
+            items: [
+              { value: { label: 'Archived', value: 0 } },
+              { value: { label: 'In stock', value: 1 } },
+              { value: { label: 'Out of stock', value: -1 } },
+            ],
+          },
+        },
+        {
+          label: 'Price',
+          id: 'price',
+          conditions: [
+            { label: 'Is not', id: '3' },
+            { label: 'Is empty', id: '4' },
+            { label: 'Is equal to', id: '5' },
+          ],
+          resolver: {
+            type: 'simple',
+            defaultValue: { value: 100 },
+            items: [
+              { value: 1 },
+              { value: 50 },
+              { value: 100 },
+              { value: 250 },
+            ],
+          },
+        },
+      ]}
+      handleStatementChange={(filters) => {
+        console.log(filters)
+      }}
+    />
+  )
+}
+```
+
+#### Root
+
+Use this when you want to create your own specific filter that it isn't defined in our resolvers.
+
+##### Interface
+
+```ts isStatic
+interface RootResolver<T> {
+  /**
+   * Resolver type
+   */
+  type: 'root'
+  /**
+   * Filter default value. When the filter is added it will be the first value applied.
+   */
+  defaultValue: T
+  /**
+   * Custom Filter render props
+   */
+  render: (props: ResolverRenderProps<T, null> => ReactNode
+}
+```
+
+**Check also:**
+
+- [ResolverRenderProps<T, null>](/data-display/filter-bar/#common-interfaces)
+
+##### Example
+
+```jsx
+function Example() {
+  return (
+    <FilterBar
+      label="Use a filter to find products, create collections or generate a report"
+      filters={[
+        {
+          label: 'Product Name',
+          id: 'productName',
+          conditions: [
+            { label: 'Is equal', id: '1' },
+            { label: 'Is not equal', id: '2' },
+            { label: 'Contains', id: '3' },
+            { label: 'Does not contains', id: '4' },
+          ],
+          resolver: {
+            type: 'root',
+            defaultValue: { value: '' },
+            render: (props) => {
+              const { statement, handleValueChange, index } = props
+              const { target = { value: '' } } = statement
+
+              React.useEffect(() => {
+                setValue(target.value)
+              }, [statement])
+
+              const [value, setValue] = React.useState(target.value)
+
+              return (
+                <Flex align="center" csx={{ position: 'relative' }}>
+                  <AbstractInput
+                    id="filter-input"
+                    value={value}
+                    csx={{
+                      bg: 'light.primary',
+                      height: 40,
+                      marginY: 0,
+                      paddingRight: '60px',
+                    }}
+                    onChange={(e) => setValue(e.target.value)}
+                  />
+                  <Button
+                    csx={{ position: 'absolute', right: 1 }}
+                    onClick={() => handleValueChange({ value }, index)}
+                    variant="tertiary"
+                    size="small"
+                  >
+                    Apply
+                  </Button>
+                </Flex>
+              )
+            },
+          },
+        },
+      ]}
+      handleStatementChange={(filters) => {
+        console.log(filters)
+      }}
+    />
+  )
+}
+```
+
+#### Common Resolver Interfaces
+
+```ts isStatic
+/**
+ * Resolver render props
+ * @generic T: Type of statement value
+ * @generic D: Type of data
+ */
+interface ResolverRenderProps<T, D = null> {
+  data: D
+  /** Respective statement value */
+  statement: Statement<T>
+  /** Respective statement index position on FilterBar */
+  index: number
+  /** Function that handles the respective statement value change on FilterBar */
+  handleValueChange: (value: T, index: number) => void
+}
+```
+
+## Condition
+
+It is represented by the filter conditions.
+
+```ts isStatic
+interface Condition {
+  label: string
+  id: string
+}
+```
+
+## Value
+
+It is represented by the filter resolver.
+
+## Props
+
+| Name                  | Type                            | Description                                                         | Required              | Default            |
+| --------------------- | ------------------------------- | ------------------------------------------------------------------- | --------------------- | ------------------ | --- |
+| label                 | `string`                        | FilterBar label. It will appear when there are no statements        | ✅                    | -                  |
+| handleStatementChange | `(filters: Filters<T>) => void` | Render props function that is called everytime a statements changes | ✅                    | -                  |
+| csx                   | `StyleObject`                   | Custom styles                                                       | 🚫                    | {}                 |
+| conjunction           | `and                            | or`                                                                 | FilterBar conjunction | 🚫                 | -   |
+| statement             | `Statement<T>[]`                | FilterBar initial statements                                        | 🚫                    | []                 |
+| filters               | `Filter<T>[]`                   | FilterBar filters                                                   | 🚫                    | -                  |
+| resolvers             | `Record<String, Resolver<T>>`   | FilterBar resolvers                                                 | 🚫                    | baseResolvers<T>() |

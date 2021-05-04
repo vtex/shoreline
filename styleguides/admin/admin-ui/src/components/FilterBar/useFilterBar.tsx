@@ -154,65 +154,46 @@ function defaultReducer<T>(state: Filters<T>, action: Action<T>): Filters<T> {
   }
 }
 
-type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never }
-
-type XOR<T, U> = T | U extends object
-  ? (Without<T, U> & U) | (Without<U, T> & T)
-  : T | U
-
-export type Action<T> = XOR<
-  {
-    type: 'conjunction'
-    conjunction: Conjunction
-    handleStatementChange: (filters: Filters<T>) => void
-  },
-  XOR<
-    {
+export type Action<T> =
+  | {
+      type: 'conjunction'
+      conjunction: Conjunction
+      handleStatementChange: (filters: Filters<T>) => void
+    }
+  | {
       type: 'filter'
       filter: Filter<T>
       index: number
       handleStatementChange: (filters: Filters<T>) => void
-    },
-    XOR<
-      {
-        type: 'condition'
-        condition: Condition
-        index: number
-        handleStatementChange: (filters: Filters<T>) => void
-      },
-      XOR<
-        {
-          type: 'value'
-          value: T
-          index: number
-          handleStatementChange: (filters: Filters<T>) => void
-        },
-        XOR<
-          {
-            type: 'newStatement'
-            filter: Filter<T>
-            handleStatementChange: (filters: Filters<T>) => void
-          },
-          XOR<
-            {
-              type: 'filtersReset'
-              handleStatementChange: (filters: Filters<T>) => void
-            },
-            XOR<
-              {
-                type: 'duplicateStatement'
-                index: number
-                handleStatementChange: (filters: Filters<T>) => void
-              },
-              {
-                type: 'deleteStatement'
-                index: number
-                handleStatementChange: (filters: Filters<T>) => void
-              }
-            >
-          >
-        >
-      >
-    >
-  >
->
+    }
+  | {
+      type: 'condition'
+      condition: Condition
+      index: number
+      handleStatementChange: (filters: Filters<T>) => void
+    }
+  | {
+      type: 'value'
+      value: T
+      index: number
+      handleStatementChange: (filters: Filters<T>) => void
+    }
+  | {
+      type: 'newStatement'
+      filter: Filter<T>
+      handleStatementChange: (filters: Filters<T>) => void
+    }
+  | {
+      type: 'filtersReset'
+      handleStatementChange: (filters: Filters<T>) => void
+    }
+  | {
+      type: 'duplicateStatement'
+      index: number
+      handleStatementChange: (filters: Filters<T>) => void
+    }
+  | {
+      type: 'deleteStatement'
+      index: number
+      handleStatementChange: (filters: Filters<T>) => void
+    }
