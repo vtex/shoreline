@@ -22,13 +22,13 @@ You can pass an array with one or two sorting directions. If you pass an array w
 
 ## reducer
 
-Receives the reducer that will be used inside of the useReducer that handles the sorting state, it's not required and if not provided the default reducer function will be used.
+Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it's not required and if not provided the default reducer function will be used.
 The reducer function is called with the current sort state `{ order?: SortOrder, by?: string }` and the sorting action `{ type: SortOrder | 'RESET', columnId?: string }`.
 
 ## callback
 
 Receives a function that will be fired when the user clicks the table header cell of a column.
-This function is called with an object containing the current sort state, the dispatch of the current useReducer that handles the sorting state, the column id of the column that was clicked and the current sort directions being used.
+This function is called with an object containing the current sort state, the dispatch of the current `useReducer` that handles the sorting state, the column id of the column that was clicked and the current sort directions being used.
 
 ```jsx
 function Sortable() {
@@ -53,7 +53,7 @@ function Sortable() {
   ]
 
   /**
-   * Theese are the default reducer, callback, sort directions and initial state that will be used if you do not provide one of them.
+   * These are the default reducer, callback, sort directions, and initial state that will be used if none of them is provided.
    **/
   const initialValue = {
     by: undefined,

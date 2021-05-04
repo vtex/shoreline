@@ -14,11 +14,11 @@ This is the input you should use when implementing search on the table. Its beha
 
 ## Toolbar
 
-If you have buttons on your table that trigger actions related to the table you should display them inside the toolbar.
+If you have buttons on your table that trigger actions related to the table you should display them inside the toolbar, the table has it's own Toolbar.
 
 ### Toolbar.Button
 
-This is the table button, you should use it inside the table toolbar.
+This is the table toolbar's button, you should use it inside the table toolbar.
 
 ## Pagination
 
