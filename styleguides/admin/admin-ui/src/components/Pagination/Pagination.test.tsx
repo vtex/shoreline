@@ -32,7 +32,7 @@ describe('Pagination tests', () => {
           total={50}
           preposition="of"
           subject="results"
-          prevLabel="Back"
+          prevLabel="Previous"
           nextLabel="Next"
           csx={{ bg: 'coral' }}
         />
