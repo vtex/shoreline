@@ -1,11 +1,11 @@
-import { Plugin } from '../plugin'
+import { Plugin } from '../types'
 
 export function buildSplit<Theme extends Record<string, any>>(
   theme: Theme,
   plugins: Plugin<Theme>[]
 ) {
   const collection = plugins
-    .map((p) => p.onSplit)
+    .map((p) => p.steps.split)
     .reduce(
       (acc, callbackRule) => ({
         ...acc,

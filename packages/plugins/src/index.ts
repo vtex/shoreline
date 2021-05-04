@@ -8,7 +8,7 @@ import { sizes } from './sizes'
 import { space } from './space'
 import { typography } from './typography'
 
-export const plugins = [
+export const standard = [
   animation,
   borders,
   colors,

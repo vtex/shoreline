@@ -1,4 +1,5 @@
-import { buildPhases, plugins } from '@vtex/onda-system'
+import { buildSteps } from '@vtex/onda-system'
+import { plugins } from '@vtex/onda-plugins'
 import { createCSS } from '../css'
 
 const theme = {
@@ -11,8 +12,8 @@ const theme = {
   },
 }
 
-const phases = buildPhases(theme, plugins)
-const css = createCSS(phases)
+const steps = buildSteps(theme, plugins)
+const css = createCSS(steps)
 
 describe('resilience', () => {
   it('returns a function', () => {

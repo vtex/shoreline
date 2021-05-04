@@ -1,4 +1,4 @@
-import { createPlugin } from '../plugin'
+import { createPlugin } from '@vtex/onda-system'
 
 export const sizes = createPlugin({
   name: 'onda-plugin-sizes',

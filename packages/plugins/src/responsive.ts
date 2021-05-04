@@ -1,4 +1,4 @@
-import { createPlugin } from '../plugin'
+import { createPlugin } from '@vtex/onda-system'
 
 const defaultBreakpoints = ['40em', '48em', '64em', '75em']
 

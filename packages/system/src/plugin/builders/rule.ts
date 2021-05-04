@@ -1,12 +1,12 @@
-import { Plugin } from '../plugin'
-import { get } from '../util'
+import { Plugin } from '../types'
+import { get } from '../../util'
 
 export function buildRule<Theme extends Record<string, any>>(
   theme: Theme,
   plugins: Plugin<Theme>[]
 ) {
   const rules = plugins
-    .map((p) => p.onCreateRule)
+    .map((p) => p.steps.rule)
     .reduce(
       (acc, callbackRule) => ({
         ...acc,

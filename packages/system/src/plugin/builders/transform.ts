@@ -1,5 +1,5 @@
-import { Plugin } from '../plugin'
-import { get } from '../util'
+import { Plugin } from '../types'
+import { get } from '../../util'
 
 export function buildTransform<Theme extends Record<string, any>>(
   theme: Theme,
@@ -7,7 +7,7 @@ export function buildTransform<Theme extends Record<string, any>>(
 ) {
   return function hydrateTransform(prop: string) {
     const transformations = plugins
-      .map((p) => p.onTransform)
+      .map((p) => p.steps.transform)
       .reduce(
         (acc, callbackRule) => ({
           ...acc,

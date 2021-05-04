@@ -41,7 +41,9 @@
     "@types/lodash.pick": "^4.4.6"
   },
   "dependencies": {
+    "@vtex/onda-system": "*",
     "@vtex/onda-css": "*",
+    "@vtex/onda-plugins": "*",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",

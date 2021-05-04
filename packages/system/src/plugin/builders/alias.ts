@@ -1,11 +1,11 @@
-import { Plugin } from '../plugin'
+import { Plugin } from '../types'
 
 export function buildAlias<Theme extends Record<string, any>>(
   theme: Theme,
   plugins: Plugin<Theme>[]
 ) {
   const collection = plugins
-    .map((p) => p.onCreateAlias)
+    .map((p) => p.steps.alias)
     .reduce(
       (acc, callbackRule) => ({
         ...acc,

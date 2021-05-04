@@ -1,4 +1,4 @@
-import { createPlugin } from '../plugin'
+import { createPlugin } from '@vtex/onda-system'
 
 export const colors = createPlugin({
   name: 'onda-plugin-colors',
