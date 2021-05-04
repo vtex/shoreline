@@ -12,7 +12,7 @@ export function createPlugin(specs: PluginSpec): Plugin {
 
 export type Plugin = Required<PluginSpec>
 
-interface PluginSpec {
+export interface PluginSpec {
   name: string
   onCreateAlias?: (theme: Theme) => Record<string, string>
   onCreateRule?: () => Record<string, string>

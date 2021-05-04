@@ -1,4 +1,33 @@
-import { css } from '../css'
+import { createAliases } from '../createAliases'
+import { createRules } from '../createRules'
+import { createSplit } from '../createSplit'
+import { createTransform } from '../createTransform'
+import { createCss } from '../css'
+import { plugins } from '../plugins'
+
+const theme = {
+  space: [0, 1, 2, 4, 8],
+  text: {
+    small: {
+      fontSize: 1,
+      fontFamily: 'sans-serif',
+    },
+  },
+}
+
+const alias = createAliases(theme, plugins)
+const rule = createRules(theme, plugins)
+const split = createSplit(plugins)
+const transform = createTransform(plugins)
+
+const phases = {
+  alias,
+  rule,
+  split,
+  transform,
+}
+
+const css = createCss(phases)
 
 describe('resilience', () => {
   it('returns a function', () => {
