@@ -1,14 +1,6 @@
 import * as CSS from 'csstype'
 
 type StandardCSSProperties = CSS.Properties<number | string>
-/**
- * The `styles` function accepts arrays as values for mobile-first responsive styles.
- * Note that this extends to non-theme values also. For example `display=['none', 'block']`
- * will also works.
- *
- * For more information see: https://styled-system.com/responsive-styles
- */
-export type ResponsiveStyleValue<T> = T | Array<T | null | undefined>
 
 /**
  * All non-vendor-prefixed CSS properties. (Allow `number` to support CSS-in-JS libs,
@@ -242,8 +234,8 @@ export interface ExtendedCSSProps
     OverwriteCSSProperties {}
 
 export type StylePropertyValue<T> =
-  | ResponsiveStyleValue<Exclude<T, undefined>>
-  | ((theme: Theme) => ResponsiveStyleValue<Exclude<T, undefined>> | undefined)
+  | Exclude<T, undefined>
+  | ((theme: Theme) => Exclude<T, undefined>)
   | StyleProp
 
 export type CSSProps = {
@@ -314,11 +306,3 @@ export interface Theme {
     [k: string]: StyleObject
   }
 }
-
-export type WithStyles<P> = P & {
-  styles?: StyleProp
-}
-
-export type CssPropsArgument = { theme: Theme } | Theme
-
-export type ResponsiveValue<T> = T | T[]

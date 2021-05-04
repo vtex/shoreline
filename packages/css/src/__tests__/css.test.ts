@@ -1,6 +1,6 @@
-import { buildSteps } from '@vtex/onda-system'
+import { buildRuntime, buildSteps } from '@vtex/onda-system'
 import { plugins } from '@vtex/onda-plugins'
-import { createCSS } from '../css'
+import { runtime } from '../css'
 
 const theme = {
   space: [0, 1, 2, 4, 8],
@@ -13,16 +13,18 @@ const theme = {
 }
 
 const steps = buildSteps(theme, plugins)
-const css = createCSS(steps)
+const {
+  parse: { exec: css },
+} = buildRuntime(steps, runtime)
 
 describe('resilience', () => {
-  it('returns a function', () => {
+  it('returns a object', () => {
     const result = css()
-    expect(typeof result).toBe('function')
+    expect(typeof result).toBe('object')
   })
 
   it('returns an object', () => {
-    const result = css()()
+    const result = css()
     expect(typeof result).toBe('object')
   })
 
@@ -31,7 +33,7 @@ describe('resilience', () => {
       fontSize: 32,
       color: 'blue',
       borderRadius: 4,
-    })()
+    })
 
     expect(result).toEqual({
       fontSize: 32,
@@ -42,15 +44,11 @@ describe('resilience', () => {
 })
 
 describe('basic rules', () => {
-  const theme = {
-    space: [0, 1, 2, 4, 8],
-  }
-
   it('should be able to consume a rule', () => {
     const result = css({
       padding: 4,
       margin: 3,
-    })(theme)
+    })
 
     expect(result).toEqual({
       padding: 8,
@@ -62,7 +60,7 @@ describe('basic rules', () => {
     const result = css({
       padding: 20,
       margin: 100,
-    })(theme)
+    })
 
     expect(result).toEqual({
       padding: 20,
@@ -73,7 +71,7 @@ describe('basic rules', () => {
   it('should be able to handle aliases', () => {
     const result = css({
       bg: 'blue',
-    })(theme)
+    })
 
     expect(result).toEqual({
       backgroundColor: 'blue',
@@ -84,7 +82,7 @@ describe('basic rules', () => {
     const result = css({
       marginX: 4,
       size: 100,
-    })(theme)
+    })
 
     expect(result).toEqual({
       marginLeft: 8,
@@ -96,21 +94,11 @@ describe('basic rules', () => {
 })
 
 describe('complex rules', () => {
-  const theme = {
-    space: [0, 1, 2, 4, 8],
-    text: {
-      small: {
-        fontSize: 1,
-        fontFamily: 'sans-serif',
-      },
-    },
-  }
-
   it('should be able to consume object rules', () => {
     const result = css({
       padding: 4,
       text: 'small',
-    })(theme)
+    })
 
     expect(result).toEqual({
       padding: 8,

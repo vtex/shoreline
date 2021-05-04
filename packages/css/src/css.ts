@@ -1,11 +1,12 @@
 import { CSSObject as EmotionCSSObject } from '@emotion/css'
-import { StepsInstance } from '@vtex/onda-system'
+import { createRuntime } from '@vtex/onda-system'
 
-import { StyleObject, StyleProp, Theme } from './types'
+import { StyleObject, StyleProp } from './types'
 
-export function createCSS(steps: StepsInstance) {
-  return function css(csx: StyleProp = {}) {
-    return (theme: Theme = {}): EmotionCSSObject => {
+export const runtime = createRuntime({
+  name: 'onda-runtime-emotion',
+  onParse: (steps) =>
+    function css(csx: StyleProp = {}) {
       const cssObject: EmotionCSSObject = {}
 
       for (const key in csx) {
@@ -13,7 +14,7 @@ export function createCSS(steps: StepsInstance) {
         const token = csx[key as keyof typeof csx]
 
         if (token && typeof token === 'object') {
-          cssObject[cssProperty] = css(token as StyleObject)(theme)
+          cssObject[cssProperty] = css(token as StyleObject)
           continue
         }
 
@@ -32,6 +33,5 @@ export function createCSS(steps: StepsInstance) {
       }
 
       return cssObject
-    }
-  }
-}
+    },
+})
