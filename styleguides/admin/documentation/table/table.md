@@ -4,9 +4,21 @@ path: /table/basic/
 
 # Table
 
-## Import
+Tables display information in rows of data. It's a good component to display data sets.
 
-WIP
+## Behavior
+
+The Table is a compound component that contains a component to every HTML element related to the `<table>`, which are `Head`, `Body`, `Row` and `Cell`. But you can also use the table's variations, like for example the StatefulTable component which provide a simpler API that allows you to provide only the array of columns and the data set.
+
+## Installation
+
+```sh isStatic
+yarn add @vtex/admin-ui
+```
+
+```jsx isStatic
+import { Table } from '@vtex/admin-ui'
+```
 
 ## Variation
 
@@ -63,7 +75,9 @@ function Simple() {
 }
 ```
 
-## Density
+## Code example
+
+### Density
 
 ```jsx
 <StatefulTable
@@ -126,9 +140,27 @@ Still TDB. Suited for advanced usages such as Windowing and Drag n Drop. If that
 
 This component is unstable beacause is also missing some (quite crucial) features, such as:
 
-- Empty states
 - Checkboxes resolvers
 
 ## Props
 
-WIP
+| Name         | Type                          | Description                                                                 | Required | Default                              |
+| ------------ | ----------------------------- | --------------------------------------------------------------------------- | -------- | ------------------------------------ |
+| columns      | `Column<T>[]`                 | Table column spec                                                           | ✅       | -                                    |
+| context      | `ResolverContext`             | Resolver context                                                            | 🚫       | -                                    |
+| resolvers    | `Record<string, Resolver<T>>` | Table field resolvers                                                       | 🚫       | Table's default resolvers            |
+| items        | `T[]`                         | Table items                                                                 | 🚫       | `[]`                                 |
+| length       | `number`                      | Expected items length                                                       | 🚫       | `5`                                  |
+| sort         | `UseTableSortParams<T>`       | useTableSort hook params                                                    | 🚫       | -                                    |
+| css          | `any`                         | Emotion css prop                                                            | 🚫       | -                                    |
+| csx          | `StyleProp`                   | Define component styles                                                     | 🚫       | {}                                   |
+| getRowKey    | `(item: T) => string`         | Key extractor                                                               | 🚫       | Table's default key extractor        |
+| loading      | `boolean`                     | Whether the table is loading or not                                         | 🚫       | `false`                              |
+| empty        | `boolean`                     | Displays table empty state when there're no items in the collection         | 🚫       | `false`                              |
+| itemsNotFoun | `boolean`                     | Displays table state when there're no items found in search                 | 🚫       | `false`                              |
+| error        | `boolean`                     | Displays table error state                                                  | 🚫       | `false`                              |
+| density      | `TableDensity`                | Table row height                                                            | 🚫       | `regular`                            |
+| onRowClick   | `(item: T) => void`           | Action to dispatch on a row click                                           | 🚫       | -                                    |
+| dir          | `TableDir`                    | HTML Dir                                                                    | 🚫       | ltr                                  |
+| children     | `ReactNode`                   | Element that will be displayed on top of the table                          | 🚫       | -                                    |
+| views        | `TableViewsType`              | Object with the strings and types of element to display on each table state | 🚫       | Table's default state fallback title |

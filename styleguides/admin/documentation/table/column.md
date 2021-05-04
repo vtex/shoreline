@@ -377,33 +377,3 @@ function Example() {
   )
 }
 ```
-
-## Limitations
-
-This component is unstable beacause is also missing some (quite crucial) features, such as:
-
-- Empty states
-- Checkboxes resolvers
-
-## Props
-
-| Name         | Type                          | Description                                                                 | Required | Default                              |
-| ------------ | ----------------------------- | --------------------------------------------------------------------------- | -------- | ------------------------------------ |
-| columns      | `Column<T>[]`                 | Table column spec                                                           | ✅       | -                                    |
-| context      | `ResolverContext`             | Resolver context                                                            | 🚫       | -                                    |
-| resolvers    | `Record<string, Resolver<T>>` | Table field resolvers                                                       | 🚫       | Table's default resolvers            |
-| items        | `T[]`                         | Table items                                                                 | 🚫       | `[]`                                 |
-| length       | `number`                      | Expected items length                                                       | 🚫       | `5`                                  |
-| sort         | `UseTableSortParams<T>`       | useTableSort hook params                                                    | 🚫       | -                                    |
-| css          | `any`                         | Emotion css prop                                                            | 🚫       | -                                    |
-| csx          | `StyleProp`                   | Define component styles                                                     | 🚫       | {}                                   |
-| getRowKey    | `(item: T) => string`         | Key extractor                                                               | 🚫       | Table's default key extractor        |
-| loading      | `boolean`                     | Whether the table is loading or not                                         | 🚫       | `false`                              |
-| empty        | `boolean`                     | Displays table empty state when there're no items in the collection         | 🚫       | `false`                              |
-| itemsNotFoun | `boolean`                     | Displays table state when there're no items found in search                 | 🚫       | `false`                              |
-| error        | `boolean`                     | Displays table error state                                                  | 🚫       | `false`                              |
-| density      | `TableDensity`                | Table row height                                                            | 🚫       | `regular`                            |
-| onRowClick   | `(item: T) => void`           | Action to dispatch on a row click                                           | 🚫       | -                                    |
-| dir          | `TableDir`                    | HTML Dir                                                                    | 🚫       | ltr                                  |
-| children     | `ReactNode`                   | Element that will be displayed on top of the table                          | 🚫       | -                                    |
-| views        | `TableViewsType`              | Object with the strings and types of element to display on each table state | 🚫       | Table's default state fallback title |
