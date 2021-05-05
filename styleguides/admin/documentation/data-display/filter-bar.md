@@ -4,7 +4,7 @@ path: /data-display/filter-bar/
 
 # FilterBar
 
-The `FilterBar` component represents a list of Statements that when combined it filters a data
+A component that represents a list of statements that when combined it filters a data.
 
 ## Behavior
 
@@ -69,7 +69,7 @@ import { FilterBar } from '@vtex/admin-ui'
 
 ## Statement
 
-The FilterBar statement is a combination of a **filter**, a **condition**, a **value**, and a **conjunction**. Important to note that the conjunction value is shared along all statements.
+The FilterBar statement is a combination of a **filter**, a **condition**, a **value**, and a **conjunction**. Important to note that the conjunction value is shared along with all statements.
 
 ```ts isStatic
 /**
@@ -103,7 +103,7 @@ interface Filter<T, R = BaseResolvers<T>> {
 
 ### Resolvers
 
-You can use this feature to apply pre-defined filters in an easier way. For example, you can render a simple select filter without implement the component from scratch, you just need to pass the requiring properties to our `Simple` resolver. Check the exaples below to go further.
+You can use this feature to apply predefined filters more easily. For example, you can render a simple select filter without implementing the component from scratch, you just need to pass the requiring properties to our `Simple` resolver. Check the examples below to go further.
 
 #### Simple
 
@@ -153,10 +153,10 @@ function Example() {
           label: 'Status',
           id: 'status',
           conditions: [
-            { label: 'Is', id: '3' },
-            { label: 'Is not', id: '4' },
-            { label: 'Contains', id: '5' },
-            { label: 'Does not contains', id: '5' },
+            { label: 'Is', id: '1' },
+            { label: 'Is not', id: '2' },
+            { label: 'Contains', id: '3' },
+            { label: 'Does not contains', id: '4' },
           ],
           resolver: {
             type: 'simple',
@@ -173,9 +173,9 @@ function Example() {
           label: 'Price',
           id: 'price',
           conditions: [
-            { label: 'Is not', id: '3' },
-            { label: 'Is empty', id: '4' },
-            { label: 'Is equal to', id: '5' },
+            { label: 'Is not', id: '1' },
+            { label: 'Is empty', id: '2' },
+            { label: 'Is equal to', id: '3' },
           ],
           resolver: {
             type: 'simple',
@@ -199,7 +199,7 @@ function Example() {
 
 #### Root
 
-Use this when you want to create your own specific filter that it isn't defined in our resolvers.
+Use this when you want to create your specific filter that isn't defined in our resolvers.
 
 ##### Interface
 
