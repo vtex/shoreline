@@ -6,7 +6,7 @@ import {
 import { Ocean, buildRuntime, buildSteps } from '@vtex/onda-system'
 import { plugins as defaultPlugins } from '@vtex/onda-plugins'
 
-interface SystemSpec<Theme extends Record<string, any>> {
+export interface SystemSpec<Theme extends Record<string, any>> {
   id: string
   theme: Theme
   ocean?: Ocean<Theme>
@@ -15,6 +15,7 @@ interface SystemSpec<Theme extends Record<string, any>> {
 export const SystemContext = React.createContext<{
   theme: any
   cn: (styleProp: StyleProp) => string
+  instance: any
 } | null>(null)
 
 export function useSystem() {
@@ -31,7 +32,7 @@ export function createSystem<Theme extends Record<string, any>>(
   const { id, theme, ocean = { plugins: defaultPlugins } } = spec
 
   const steps = buildSteps(theme, ocean.plugins)
-  const { exec: cn } = buildRuntime({ id }, steps, emotionRuntime)
+  const { exec: cn, instance } = buildRuntime({ id }, steps, emotionRuntime)
 
   function SystemProvider(props: any) {
     const { children } = props
@@ -40,6 +41,7 @@ export function createSystem<Theme extends Record<string, any>>(
         value={{
           theme,
           cn,
+          instance,
         }}
       >
         {children}
