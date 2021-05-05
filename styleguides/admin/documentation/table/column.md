@@ -6,7 +6,15 @@ path: /table/column/
 
 ## Column API
 
-
+| Attribute | Description                                                                                                                                                                                        | Required |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| id        | String that defines the property name that the column represents.                                                                                                                                  | Yes      |
+| header    | Controls the title which appears on the table Header.<br>It can receive either a string or an element.                                                                                             |          |
+| acessor   | Defines how to access a property                                                                                                                                                                   |          |
+| resolver  | [Resolvers](/docs/components/table/#resolvers-api) api<br>Will select the [plain resolver](/docs/components/table/#plain) by default                                                               |          |
+| width     | Defines a fixed width for the specific column.<br>Receives either a string or number.<br>By default, the column's width is defined to fit the available space without breaking the content.        |          |
+| sortable  | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatefulTable sort prop. |          |
+| compare   | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result.                                |          |
 
 ## Resolvers API
 
