@@ -68,8 +68,18 @@ You can use the `csx` property to handle different styles, and also the `TextPat
 
 ## Props
 
-<propdetails heading="List" component="List">
-</propdetails>
+### List
 
-<propdetails heading="List.Item" component="ListItem">
-</propdetails>
+| Name     | Type            | Description                      | Required | Default |
+| -------- | --------------- | -------------------------------- | -------- | ------- |
+| children | `ReactNode`     | List children                    | 🚫       | -       |
+| ordered  | `boolean`       | Indicates if the list is ordered | 🚫       | -       |
+| style    | `ListStyleType` | List style                       | 🚫       | `disc`  |
+| csx      | `StyleProp`     | Defines component styles         | 🚫       | `{}`    |
+
+### List.Item
+
+| Name     | Type        | Description              | Required | Default |
+| -------- | ----------- | ------------------------ | -------- | ------- |
+| children | `ReactNode` | Component children       | 🚫       | -       |
+| csx      | `StyleProp` | Defines component styles | 🚫       | `{}`    |
