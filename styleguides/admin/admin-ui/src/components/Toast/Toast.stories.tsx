@@ -3,24 +3,20 @@ import { Meta, Story } from '@storybook/react'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../Button'
 import { Set } from '../Set'
-import { useToaster } from './index'
-import { Toast } from './components/Toast'
+import { toast } from './index'
 import { ToastProps } from './components/typings'
 import { message } from './testUtils'
 
 export default {
   title: 'admin-ui/Toast',
-  component: Toast,
 } as Meta
 
 export function Basic() {
-  const toaster = useToaster()
-
   return (
     <Set>
       <Button
         onClick={() =>
-          toaster.toast({
+          toast.dispatch({
             message,
           })
         }
@@ -29,7 +25,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toaster.toast({
+          toast.dispatch({
             type: 'success',
             message,
           })
@@ -39,7 +35,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toaster.toast({
+          toast.dispatch({
             type: 'error',
             message,
           })
@@ -49,7 +45,7 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toaster.toast({
+          toast.dispatch({
             type: 'warning',
             message,
           })
@@ -59,18 +55,20 @@ export function Basic() {
       </Button>
       <Button
         onClick={() =>
-          toaster.toast({
+          toast.dispatch({
             type: 'success',
             message: "I'm customized 😎!",
             csx: {
-              background:
-                'radial-gradient(ellipse at top, #e66465, transparent),radial-gradient(ellipse at bottom, #4d9f0c, transparent);',
-              color: 'white',
+              background: 'black',
               borderRadius: '8px',
+              display: 'flex',
               height: '72px',
               padding: '22px',
               whiteSpace: 'nowrap',
               overflow: 'hidden',
+              '> div > span': {
+                color: 'white',
+              },
             },
             iconProps: {
               children: <Box>🔥</Box>,
@@ -85,13 +83,11 @@ export function Basic() {
 }
 
 export function Interactive() {
-  const toaster = useToaster()
-
   return (
     <Set>
       <Button
         onClick={() =>
-          toaster.toast({
+          toast.dispatch({
             message,
             dismissible: true,
           })
@@ -101,7 +97,7 @@ export function Interactive() {
       </Button>
       <Button
         onClick={() =>
-          toaster.toast({
+          toast.dispatch({
             type: 'success',
             message,
             action: {
@@ -115,7 +111,7 @@ export function Interactive() {
       </Button>
       <Button
         onClick={() =>
-          toaster.toast({
+          toast.dispatch({
             type: 'warning',
             message,
             dismissible: true,
@@ -130,7 +126,7 @@ export function Interactive() {
       </Button>
       <Button
         onClick={() =>
-          toaster.toast({
+          toast.dispatch({
             message: 'Type here a longer message but not much longer than that',
             dismissible: true,
             action: {
@@ -147,12 +143,10 @@ export function Interactive() {
 }
 
 export const Playground: Story<ToastProps> = (args) => {
-  const toaster = useToaster()
-
   return (
     <Button
       onClick={() =>
-        toaster.toast({
+        toast.dispatch({
           ...args,
         })
       }

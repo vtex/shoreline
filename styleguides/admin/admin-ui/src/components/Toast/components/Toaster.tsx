@@ -10,9 +10,21 @@ import { ToasterProps, ToastManagerActions } from './typings'
  * */
 export class Toaster {
   private portalId = 'onda-toast-portal'
+  private portal: HTMLElement | null = null
 
   private bindActions = (actions: ToastManagerActions) => {
-    this.toast = actions.notify
+    this.dispatch = actions.dispatch
+  }
+
+  private mount = () => {
+    setTimeout(() => {
+      render(
+        <ThemeProvider>
+          <ToastManager actions={this.bindActions} />
+        </ThemeProvider>,
+        this.portal
+      )
+    }, 100)
   }
 
   public constructor(props: ToasterProps) {
@@ -22,30 +34,24 @@ export class Toaster {
     }
 
     const { subframe } = props
-    let portal: HTMLElement
 
-    const documentRef = subframe ? window.top.document : document
+    const documentRef = !!subframe ? window.top.document : document
 
     const existingPortal = documentRef.getElementById(this.portalId)
 
     if (existingPortal) {
-      portal = existingPortal
+      this.portal = existingPortal
     } else {
       const div = documentRef.createElement('div')
       div.id = this.portalId
       documentRef.body.appendChild(div)
-      portal = div
+      this.portal = div
     }
 
-    render(
-      <ThemeProvider>
-        <ToastManager actions={this.bindActions} />
-      </ThemeProvider>,
-      portal
-    )
+    this.mount()
   }
 
-  public toast!: ToastManagerActions['notify']
+  public dispatch!: ToastManagerActions['dispatch']
 }
 
 const isBrowser = !!(

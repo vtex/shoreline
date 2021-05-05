@@ -30,9 +30,9 @@ export function Toast(props: ToastOptions) {
   const { cn } = useSystem()
 
   useEffect(() => {
-    setTimeout(() => {
-      remove(id, position)
-    }, duration)
+    const timeout = setTimeout(() => remove(id, position), duration)
+
+    return () => clearTimeout(timeout)
   }, [])
 
   const handleOnDismiss = () => {

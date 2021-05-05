@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "run-p storybook",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build:storybook": "yarn --cwd ../../../ build && yarn run build-storybook"
   },
   "peerDependencies": {

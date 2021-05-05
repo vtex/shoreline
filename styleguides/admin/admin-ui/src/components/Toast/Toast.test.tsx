@@ -1,6 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from '@vtex/admin-core'
-import { render, waitFor } from '@testing-library/react'
+import { getByText, queryByText, render, waitFor } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import { Toast } from './components/Toast'
 import {
@@ -12,6 +12,7 @@ import {
 import { message, types } from './testUtils'
 import { ToastManager } from './components/Manager'
 import { act } from 'react-dom/test-utils'
+import { toast } from './index'
 
 const mockedToastProps: ToastOptions = {
   remove: () => null,
@@ -137,9 +138,9 @@ describe('ToastManager tests', () => {
   })
 
   it('should add toast on the stack', () => {
-    let notify: (props: ToastProps) => string
+    let dispatch: (props: ToastProps) => string
     const bindActions = jest.fn((actions: ToastManagerActions) => {
-      notify = actions.notify
+      dispatch = actions.dispatch
     })
 
     const { getByTestId } = render(
@@ -151,7 +152,7 @@ describe('ToastManager tests', () => {
     expect(bindActions).toHaveBeenCalled()
 
     act(() => {
-      notify!({
+      dispatch!({
         message: "I'm a toast!",
       })
     })
@@ -160,9 +161,9 @@ describe('ToastManager tests', () => {
   })
 
   it('should stack toasts', () => {
-    let notify: (props: ToastProps) => string
+    let dispatch: (props: ToastProps) => string
     const bindActions = jest.fn((actions: ToastManagerActions) => {
-      notify = actions.notify
+      dispatch = actions.dispatch
     })
 
     const { queryAllByTestId, getByText } = render(
@@ -174,13 +175,13 @@ describe('ToastManager tests', () => {
     expect(bindActions).toHaveBeenCalled()
 
     act(() => {
-      notify!({
+      dispatch!({
         message: "I'm a toast!",
       })
-      notify!({
+      dispatch!({
         message: "I'm another toast!",
       })
-      notify!({
+      dispatch!({
         message: "I'm the third toast!",
       })
     })
@@ -192,9 +193,9 @@ describe('ToastManager tests', () => {
   })
 
   it('should remove toast after specified duration', async () => {
-    let notify: (props: ToastProps) => string
+    let dispatch: (props: ToastProps) => string
     const bindActions = jest.fn((actions: ToastManagerActions) => {
-      notify = actions.notify
+      dispatch = actions.dispatch
     })
 
     const { getByText, queryByText } = render(
@@ -206,7 +207,7 @@ describe('ToastManager tests', () => {
     expect(bindActions).toHaveBeenCalled()
 
     act(() => {
-      notify!({
+      dispatch!({
         message: "I'm a toast!",
         duration: 3000,
       })
@@ -223,9 +224,9 @@ describe('ToastManager tests', () => {
   })
 
   it('should remove toast from stack after specified duration', async () => {
-    let notify: (props: ToastProps) => string
+    let dispatch: (props: ToastProps) => string
     const bindActions = jest.fn((actions: ToastManagerActions) => {
-      notify = actions.notify
+      dispatch = actions.dispatch
     })
 
     const { getByText, queryByText } = render(
@@ -237,12 +238,12 @@ describe('ToastManager tests', () => {
     expect(bindActions).toHaveBeenCalled()
 
     act(() => {
-      notify!({
+      dispatch!({
         message: "I'm a toast!",
         duration: 3000,
       })
       setTimeout(() => {
-        notify!({
+        dispatch!({
           message: "I'm another toast!",
           duration: 3000,
         })
@@ -272,6 +273,60 @@ describe('ToastManager tests', () => {
     await waitFor(
       () => {
         expect(queryByText("I'm another toast!")).not.toBeInTheDocument()
+      },
+      {
+        timeout: 5000,
+      }
+    )
+  })
+})
+
+describe('toast tests', () => {
+  it('should dispatch toasts and remove them from stack', async () => {
+    act(() => {
+      toast.dispatch!({
+        message: "I'm a toast!",
+        duration: 3000,
+      })
+      setTimeout(() => {
+        toast.dispatch!({
+          message: "I'm another toast!",
+          duration: 3000,
+        })
+      }, 1000)
+    })
+
+    expect(getByText(document.body, "I'm a toast!")).toBeInTheDocument()
+    await waitFor(
+      () => {
+        expect(
+          getByText(document.body, "I'm another toast!")
+        ).toBeInTheDocument()
+      },
+      {
+        timeout: 1000,
+      }
+    )
+
+    await waitFor(
+      () => {
+        expect(
+          queryByText(document.body, "I'm a toast!")
+        ).not.toBeInTheDocument()
+        expect(
+          getByText(document.body, "I'm another toast!")
+        ).toBeInTheDocument()
+      },
+      {
+        timeout: 4000,
+      }
+    )
+
+    await waitFor(
+      () => {
+        expect(
+          queryByText(document.body, "I'm another toast!")
+        ).not.toBeInTheDocument()
       },
       {
         timeout: 5000,

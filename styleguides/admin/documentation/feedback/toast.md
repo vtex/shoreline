@@ -9,7 +9,7 @@ A toast is a variation of an alert that provides immediate feedback over actions
 ## Import
 
 ```jsx isStatic
-import { useToaster } from '@vtex/admin-ui'
+import { toast } from '@vtex/admin-ui'
 ```
 
 ## Variations
@@ -18,12 +18,10 @@ import { useToaster } from '@vtex/admin-ui'
 
 ```jsx
 function Example() {
-  const toaster = useToaster()
-
   return (
     <Button
       onClick={() =>
-        toaster.toast({
+        toast.dispatch({
           type: 'info',
           message: 'Type here a longer message but not much longer than that',
         })
@@ -39,12 +37,13 @@ function Example() {
 
 ```jsx
 function Example() {
-  const toaster = useToaster()
-
   return (
     <Button
       onClick={() =>
-        toaster.toast({ type: 'success', message: 'Type a short message here' })
+        toast.dispatch({
+          type: 'success',
+          message: 'Type a short message here',
+        })
       }
     >
       Success toast
@@ -57,12 +56,10 @@ function Example() {
 
 ```jsx
 function Example() {
-  const toaster = useToaster()
-
   return (
     <Button
       onClick={() =>
-        toaster.toast({
+        toast.dispatch({
           type: 'warning',
           message: 'Type here a longer message but not much longer than that',
         })
@@ -78,12 +75,10 @@ function Example() {
 
 ```jsx
 function Example() {
-  const toaster = useToaster()
-
   return (
     <Button
       onClick={() =>
-        toaster.toast({ type: 'error', message: 'Type a short message here' })
+        toast.dispatch({ type: 'error', message: 'Type a short message here' })
       }
     >
       Error toast
@@ -96,12 +91,10 @@ function Example() {
 
 ```jsx
 function Example() {
-  const toaster = useToaster()
-
   return (
     <Button
       onClick={() =>
-        toaster.toast({
+        toast.dispatch({
           message: 'Type here a longer message but not much longer than that',
           dismissible: true,
         })
@@ -117,12 +110,10 @@ function Example() {
 
 ```jsx
 function Example() {
-  const toaster = useToaster()
-
   return (
     <Button
       onClick={() =>
-        toaster.toast({
+        toast.dispatch({
           type: 'success',
           message: 'Type a short message here',
           action: {
@@ -142,12 +133,10 @@ function Example() {
 
 ```jsx
 function Example() {
-  const toaster = useToaster()
-
   return (
     <Button
       onClick={() =>
-        toaster.toast({
+        toast.dispatch({
           type: 'warning',
           message: 'Type here a longer message but not much longer than that',
           dismissible: true,
@@ -164,11 +153,11 @@ function Example() {
 }
 ```
 
-## toaster.toast props
+## toast.dispatch props
 
 | Name        | Type             | Description                                                  | Required | Default        |
 | ----------- | ---------------- | ------------------------------------------------------------ | -------- | -------------- |
-| message     | `string`         | Message displayed to the end-user.                           | ✅       | -              |
+| message     | `ReactNode`      | Message displayed to the end-user.                           | ✅       | -              |
 | type        | `ToastType`      | The toast's type.                                            | 🚫       | `info`         |
 | duration    | `boolean`        | How long the toast should be apparent, in milliseconds.      | 🚫       | `false`        |
 | dismissible | `boolean`        | Whether the toast can be dismissed or not.                   | 🚫       | `false`        |
@@ -176,19 +165,6 @@ function Example() {
 | action      | `ButtonProps`    | Toast's actions' props.                                      | 🚫       | `undefined`    |
 | iconProps   | `ToastIconProps` | Toast icon's props. Touchpoint to customize the toats' icon. | 🚫       | `undefined`    |
 
-## useToaster props
-
-<blockquote palette="red">
-
-The subframe prop is still unstable and not ready for production usage. Use it on your risk.
-
-</blockquote>
-
-| Name     | Type      | Description                                                                                                                                                                               | Required | Default |
-| -------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| subframe | `boolean` | Whether the toaster should render its portal on the topmost window or not. Set this to true in case you're on an iframe scenario and you want to host your toaster on the topmost window. | 🚫       | `false` |
-
 ## Limitations
 
-- Destructuring the toaster will make the toast method unavailable, once the toast method binding is asynchronous, and destructuring will dereference the unbound method.
 - Toasts can only be rendered on the client-side.

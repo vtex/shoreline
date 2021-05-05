@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { ButtonProps } from 'reakit/ts'
 import { IconProps } from 'styleguides/admin/admin-ui-icons/dist'
 import { SystemComponent } from '../../../types'
@@ -30,14 +31,14 @@ export interface ToastManagerProps {
 }
 
 export interface ToastManagerActions {
-  notify: (props: ToastProps) => string
+  dispatch: (props: ToastProps) => string
 }
 
 export interface ToastProps extends SystemComponent {
   /**
    * Message displayed to the end-user.
    */
-  message: string
+  message: ReactNode
   /**
    * How long the toast should be apparent, in milliseconds.
    * @default 10000
