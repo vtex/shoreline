@@ -4,11 +4,11 @@ path: /table/basic/
 
 # Table
 
-Tables display information in rows of data. It's a good component to display data sets.
+Tables display information in rows of data. It favors the display of data sets.
 
 ## Behavior
 
-The Table is a compound component that contains a component to every HTML element related to the `<table>`, which are `Head`, `Body`, `Row` and `Cell`. But you can also use the table's variations, like for example the StatefulTable component which provide a simpler API that allows you to provide only the array of columns and the data set.
+The table is a compound component that contains a component for every HTML element related to the `<table>`. HTML elements include `Head`, `Body`, `Row` and `Cell`. It is also possible to use table's variations, like the `StatefulTable` component which provides a simpler API, that requires only the array of columns and the data set.
 
 ## Installation
 
