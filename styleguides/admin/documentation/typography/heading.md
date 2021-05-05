@@ -55,4 +55,8 @@ You can use the `csx` property to handle different styles, and also the `TextPat
 
 ## Props
 
-<proptypes heading="Heading" component="Heading"/>
+| Name     | Type        | Description              | Required | Default |
+| -------- | ----------- | ------------------------ | -------- | ------- | ---- | ----- | ----------------- | --- | ------ |
+| element  | `'h1'       | 'h2'                     | 'h3'     | 'h4'    | 'h5' | 'h6'` | Element to render | 🚫  | `'h1'` |
+| children | `ReactNode` | Heading children         | 🚫       | -       |
+| csx      | `StyleProp` | Defines component styles | 🚫       | `{}`    |
