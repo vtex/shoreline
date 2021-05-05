@@ -35,45 +35,57 @@ function useText(props: TextProps) {
   }
 }
 
+export type TextElementType =
+  | 'code'
+  | 'span'
+  | 'strong'
+  | 'i'
+  | 'u'
+  | 'abbr'
+  | 'cite'
+  | 'del'
+  | 'em'
+  | 'ins'
+  | 'kbd'
+  | 'mark'
+  | 's'
+  | 'samp'
+  | 'sub'
+  | 'pre'
+  | 'sup'
+
+export type TextVariantType =
+  | 'headline'
+  | 'subtitle'
+  | 'body'
+  | 'small'
+  | 'action'
+  | 'highlight'
+  | 'code'
+
+export type TextFeedbackType =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+
 export interface TextProps extends SystemComponent {
   /**
    * Element to render
    * @default span
    */
-  element?:
-    | 'code'
-    | 'span'
-    | 'strong'
-    | 'i'
-    | 'u'
-    | 'abbr'
-    | 'cite'
-    | 'del'
-    | 'em'
-    | 'ins'
-    | 'kbd'
-    | 'mark'
-    | 's'
-    | 'samp'
-    | 'sub'
-    | 'pre'
-    | 'sup'
+  element?: TextElementType
   /**
-   * heading children
+   * Text children
    */
   children?: ReactNode
   /**
    * Text variant. Consumes the text pattern
    * @default body
    */
-  variant?:
-    | 'headline'
-    | 'subtitle'
-    | 'body'
-    | 'small'
-    | 'action'
-    | 'highlight'
-    | 'code'
+  variant?: TextVariantType
   /**
    * html id
    */
@@ -82,11 +94,5 @@ export interface TextProps extends SystemComponent {
    * text feedback
    * @default 'default'
    */
-  feedback?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'danger'
-    | 'warning'
+  feedback?: TextFeedbackType
 }

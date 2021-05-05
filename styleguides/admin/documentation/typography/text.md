@@ -132,4 +132,11 @@ You can use the `csx` property to handle different styles.
 
 ## Props
 
-<proptypes heading="Text" component="Text"/>
+| Name     | Type               | Description                             | Required | Default    |
+| -------- | ------------------ | --------------------------------------- | -------- | ---------- |
+| element  | `TextElementType`  | Element to render                       | 🚫       | `'span'`   |
+| variant  | `TextVariantType`  | Text variant. Consumes the text pattern | 🚫       | `body`     |
+| feedback | `TextFeedbackType` | Text feedback                           | 🚫       | ` default` |
+| id       | `string`           | HTML id                                 | 🚫       | -          |
+| children | `ReactNode`        | Text children                           | 🚫       | -          |
+| csx      | `StyleProp`        | Defines component styles                | 🚫       | `{}`       |
