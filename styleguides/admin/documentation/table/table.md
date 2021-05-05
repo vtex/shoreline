@@ -20,11 +20,11 @@ yarn add @vtex/admin-ui
 import { Table } from '@vtex/admin-ui'
 ```
 
-## Variation
+## Variations
 
 ### StatefulTable
 
-This is the simplest way to use the Table. It handles common table use cases for the developer.
+This is the simplest way to use the Table. It handles common table use cases.
 
 ```jsx
 function Simple() {
@@ -75,7 +75,7 @@ function Simple() {
 }
 ```
 
-## Code example
+## Code examples
 
 ### Density
 
@@ -140,7 +140,7 @@ Still TDB. Suited for advanced usages such as Windowing and Drag n Drop. If that
 
 This component is unstable because is also missing some (quite crucial) features, such as:
 
-- Checkboxes resolvers
+- Checkbox resolvers
 
 ## Props
 
