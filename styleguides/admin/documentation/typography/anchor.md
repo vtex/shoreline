@@ -30,4 +30,9 @@ You can use the `csx` property to customize any style.
 
 # Props
 
-<proptypes heading="Anchor" component="Anchor" />
+| Name     | Type        | Description              | Required | Default |
+| -------- | ----------- | ------------------------ | -------- | ------- |
+| children | `ReactNode` | Component children       | 🚫       | -       |
+| csx      | `StyleProp` | Defines component styles | 🚫       | `{}`    |
+
+The Anchor component also has all anchor HTML attributes
