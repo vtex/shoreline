@@ -44,7 +44,7 @@ export const runtime = createRuntime({
     }
   },
   onCompile: (instance) => {
-    return function complie(meta) {
+    return function compile(meta) {
       const className = instance.css(meta)
       return className
     }

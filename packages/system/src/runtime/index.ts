@@ -1,5 +1,6 @@
 import { RuntimeParams, Runtime } from './types'
 import { StepsInstance } from '../plugin'
+export * from './types'
 
 export function createRuntime<
   InstanceParams = {},
@@ -75,8 +76,12 @@ export function buildRuntime<
   runtime: Runtime<InstanceParams, InstanceReturn, HumanReadableCSS, MetaCSS>
 ) {
   const instance = buildInstance(params, runtime)
+  const parse = buildParser(steps, runtime)
+  const compile = buildCompiler(instance, runtime)
   return {
-    parse: buildParser(steps, runtime),
-    compile: buildCompiler(instance, runtime),
+    instance,
+    parse,
+    compile,
+    exec: (css: HumanReadableCSS) => compile.exec(parse.exec(css)),
   }
 }
