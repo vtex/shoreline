@@ -6,6 +6,15 @@ path: /data-display/filter-bar/
 
 A component that represents a list of statements that when combined it filters a data.
 
+```ts isStatic
+interface Filters<T> {
+  /** FilterBar statements */
+  statements: Statement<T>[]
+  /** FilterBar conjunction */
+  conjunction: Conjunction
+}
+```
+
 ## Behavior
 
 ```jsx
@@ -84,6 +93,14 @@ interface Statement<T, R = BaseResolvers<T>> = {
   /** Statement value */
   target: T
 }
+```
+
+## Conjunction
+
+Represents the Boolean logic that must be applied between the statements
+
+```ts isStatic
+type Conjunction = 'And' | 'Or'
 ```
 
 ## Filter
@@ -314,7 +331,9 @@ It is represented by the filter conditions.
 
 ```ts isStatic
 interface Condition {
+  /** Condition label */
   label: string
+  /** Condition id */
   id: string
 }
 ```
