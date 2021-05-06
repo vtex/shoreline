@@ -138,7 +138,7 @@ Still TDB. Suited for advanced usages such as Windowing and Drag n Drop. If that
 
 ## Limitations
 
-This component is unstable because is also missing some (quite crucial) features, such as:
+This component is unstable because it is missing some crucial features such as:
 
 - Checkbox resolvers
 
