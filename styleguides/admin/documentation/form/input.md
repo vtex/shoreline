@@ -203,4 +203,19 @@ function Example() {
 
 ## Props
 
-<proptypes heading="Input" components="Input"/>
+| Name           | Type                 | Description                | Required | Default |
+| -------------- | -------------------- | -------------------------- | -------- | ------- |
+| label          | `string`             | Label text                 | ✅       | -       |
+| id             | `string`             | unique id of the component | ✅       | -       |
+| helperText     | `string`             | Input helper text          | 🚫       | -       |
+| charLimit      | `number`             | Input char limit           | 🚫       | -       |
+| errorMessage   | `string`             | Input error message        | 🚫       | -       |
+| type           | ``InputType`         | Input type                 | 🚫       | -       |
+| icon           | `ReactNode`          | Input Icon                 | 🚫       | -       |
+| suffix         | `string`             | Input Suffix               | 🚫       | -       |
+| onClear        | () => void           | onClear input              | 🚫       | -       |
+| labelElement   | `ReactNode`          | Render an optional label   | 🚫       | -       |
+| buttonElements | `ReactNode`          | Button elements            | 🚫       | -       |
+| onChange       | `ChangeEventHandler` | onChange event             | 🚫       | -       |
+| error          | `boolean`            | Input error state          | 🚫       | -       |
+| csx            | `StyleProp`          | Defines component styles   | 🚫       | `{}`    |
