@@ -49,4 +49,8 @@ function Example() {
 
 ## Props
 
-<proptypes heading="Label" component="Label">
+| Name     | Type        | Description              | Required | Default |
+| -------- | ----------- | ------------------------ | -------- | ------- |
+| htmlFor  | `string`    | Label native htmlFor     | 🚫       | -       |
+| children | `ReactNode` | Label children           | 🚫       | -       |
+| csx      | `StyleProp` | Defines component styles | 🚫       | `{}`    |
