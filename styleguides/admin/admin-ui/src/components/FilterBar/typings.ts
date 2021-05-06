@@ -4,7 +4,7 @@ import { Resolver } from './resolvers/core'
 
 export interface FilterBarProps<T> extends SystemComponent {
   /** Handles the state of FilterBar statements */
-  handleStatementChange: (flters: Filters<T>) => void
+  onStatementChange: (flters: Filters<T>) => void
   /** FilterBar initial conjunction */
   conjunction?: Conjunction
   /** FilterBar initial statements */

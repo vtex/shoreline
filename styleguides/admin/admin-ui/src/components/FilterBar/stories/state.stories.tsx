@@ -68,7 +68,7 @@ export const State: Story = () => {
           },
         },
       ]}
-      handleStatementChange={(filters) => {
+      onStatementChange={(filters) => {
         console.log(filters)
       }}
     />

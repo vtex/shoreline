@@ -62,7 +62,7 @@ function Example() {
           },
         },
       ]}
-      handleStatementChange={(filters) => {
+      onStatementChange={(filters) => {
         console.log(filters)
       }}
     />
@@ -206,7 +206,7 @@ function Example() {
           },
         },
       ]}
-      handleStatementChange={(filters) => {
+      onStatementChange={(filters) => {
         console.log(filters)
       }}
     />
@@ -298,7 +298,7 @@ function Example() {
           },
         },
       ]}
-      handleStatementChange={(filters) => {
+      onStatementChange={(filters) => {
         console.log(filters)
       }}
     />
@@ -344,12 +344,12 @@ It is represented by the filter resolver.
 
 ## Props
 
-| Name                  | Type                            | Description                                                         | Required              | Default            |
-| --------------------- | ------------------------------- | ------------------------------------------------------------------- | --------------------- | ------------------ | --- |
-| label                 | `string`                        | FilterBar label. It appears when there are no statements            | ✅                    | -                  |
-| handleStatementChange | `(filters: Filters<T>) => void` | Render props function that is called everytime a statements changes | ✅                    | -                  |
-| csx                   | `StyleObject`                   | Custom styles                                                       | 🚫                    | {}                 |
-| conjunction           | `and                            | or`                                                                 | FilterBar conjunction | 🚫                 | -   |
-| statement             | `Statement<T>[]`                | FilterBar initial statements                                        | 🚫                    | []                 |
-| filters               | `Filter<T>[]`                   | FilterBar filters                                                   | 🚫                    | -                  |
-| resolvers             | `Record<String, Resolver<T>>`   | FilterBar resolvers                                                 | 🚫                    | baseResolvers<T>() |
+| Name              | Type                            | Description                                                         | Required              | Default            |
+| ----------------- | ------------------------------- | ------------------------------------------------------------------- | --------------------- | ------------------ | --- |
+| label             | `string`                        | FilterBar label. It appears when there are no statements            | ✅                    | -                  |
+| onStatementChange | `(filters: Filters<T>) => void` | Render props function that is called everytime a statements changes | ✅                    | -                  |
+| csx               | `StyleObject`                   | Custom styles                                                       | 🚫                    | {}                 |
+| conjunction       | `and                            | or`                                                                 | FilterBar conjunction | 🚫                 | -   |
+| statement         | `Statement<T>[]`                | FilterBar initial statements                                        | 🚫                    | []                 |
+| filters           | `Filter<T>[]`                   | FilterBar filters                                                   | 🚫                    | -                  |
+| resolvers         | `Record<String, Resolver<T>>`   | FilterBar resolvers                                                 | 🚫                    | baseResolvers<T>() |

@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useCallback, useReducer } from 'react'
 
 import { Box } from '@vtex/admin-primitives'
 import { IconDuplicate, IconDelete, IconAdd } from '@vtex/admin-ui-icons'
@@ -6,22 +6,33 @@ import { IconDuplicate, IconDelete, IconAdd } from '@vtex/admin-ui-icons'
 import { Set } from '../Set'
 import { Button } from '../Button'
 import { Content, Statement, Footer } from './components'
-import { useFilterBar } from './useFilterBar'
-import { Condition, Conjunction, FilterBarProps, Filter } from './typings'
+import {
+  Condition,
+  Conjunction,
+  FilterBarProps,
+  Filter,
+  Filters,
+} from './typings'
 import { Menu } from '../Menu'
+import { Action, defaultReducer } from './reducer'
+import { baseResolvers } from './resolvers/base'
 
 export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
   const {
-    reducer,
-    conjunction: initialConjunction,
-    statements: initialStatements,
+    conjunction: initialConjunction = 'And',
+    statements: initialStatements = [],
     filters,
-    resolvers,
+    resolvers = baseResolvers<V>(),
     label,
-    handleStatementChange,
+    onStatementChange,
     csx = {},
     ...htmlProps
-  } = useFilterBar(props)
+  } = props
+
+  const reducer = useCallback(
+    (state: Filters<V>, action: Action<V>) => defaultReducer(state, action),
+    [defaultReducer]
+  )
 
   const initialState = {
     conjunction: initialConjunction,
@@ -32,32 +43,31 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
     reducer,
     initialState
   )
-
   const handleNewStatement = () =>
     dispatch({
       type: 'newStatement',
       filter: filters[0],
-      handleStatementChange,
+      onStatementChange,
     })
 
   const handleDeleteStatement = (index: number) =>
     dispatch({
       type: 'deleteStatement',
       index,
-      handleStatementChange,
+      onStatementChange,
     })
 
   const handleDuplicateStatement = (index: number) =>
     dispatch({
       type: 'duplicateStatement',
       index,
-      handleStatementChange,
+      onStatementChange,
     })
 
   const handleFiltersReset = () =>
     dispatch({
       type: 'filtersReset',
-      handleStatementChange,
+      onStatementChange,
     })
 
   const handleValueChange = (value: V, index: number) =>
@@ -65,7 +75,7 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
       type: 'value',
       value,
       index,
-      handleStatementChange,
+      onStatementChange,
     })
 
   const handleFilterChange = (filter: Filter<V>, index: number) =>
@@ -73,7 +83,7 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
       type: 'filter',
       filter,
       index,
-      handleStatementChange,
+      onStatementChange,
     })
 
   const handleConditionChange = (condition: Condition, index: number) =>
@@ -81,14 +91,14 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
       type: 'condition',
       condition: condition,
       index,
-      handleStatementChange,
+      onStatementChange,
     })
 
   const handleConjunctionChange = (conjunction: Conjunction) =>
     dispatch({
       type: 'conjunction',
       conjunction,
-      handleStatementChange,
+      onStatementChange,
     })
 
   return (

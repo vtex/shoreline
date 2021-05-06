@@ -177,7 +177,7 @@ export const Table: Story = () => {
               },
             },
           ]}
-          handleStatementChange={(filters) => {
+          onStatementChange={(filters) => {
             console.log(filters)
             filter(filters)
           }}
