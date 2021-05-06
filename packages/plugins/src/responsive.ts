@@ -4,6 +4,7 @@ const defaultBreakpoints = ['40em', '48em', '64em', '75em']
 
 export const responsive = createPlugin({
   name: 'onda-plugin-responsive',
+  namespaces: ['breakpoints'],
   onCreateAlias: (theme) => {
     const breakpoints = theme?.breakpoints ?? defaultBreakpoints
 

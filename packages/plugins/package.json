@@ -29,12 +29,9 @@
     "test": "tsdx test"
   },
   "devDependencies": {
-    "@vtex/onda-system": "*",
-    "@types/lodash.get": "^4.4.6",
-    "@types/lodash.merge": "^4.6.6"
+    "@vtex/onda-system": "*"
   },
   "dependencies": {
-    "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.2"
+    "@vtex/onda-util": "*"
   }
 }

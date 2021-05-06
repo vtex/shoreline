@@ -4,7 +4,7 @@ import {
   StyleProp,
 } from '@vtex/onda-runtime-emotion'
 import { Ocean, buildRuntime, buildSteps } from '@vtex/onda-system'
-import { plugins as defaultPlugins } from '@vtex/onda-plugins'
+import { standard } from '@vtex/onda-plugins'
 
 export interface SystemSpec<Theme extends Record<string, any>> {
   id: string
@@ -29,7 +29,7 @@ export function useSystem() {
 export function createSystem<Theme extends Record<string, any>>(
   spec: SystemSpec<Theme>
 ) {
-  const { id, theme, ocean = { plugins: defaultPlugins } } = spec
+  const { id, theme, ocean = { plugins: standard } } = spec
 
   const steps = buildSteps(theme, ocean.plugins)
   const { exec: cn, instance } = buildRuntime({ id }, steps, emotionRuntime)

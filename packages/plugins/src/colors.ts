@@ -2,6 +2,7 @@ import { createPlugin } from '@vtex/onda-system'
 
 export const colors = createPlugin({
   name: 'onda-plugin-colors',
+  namespaces: ['colors'],
   onCreateAlias: () => ({
     bg: 'backgroundColor',
   }),

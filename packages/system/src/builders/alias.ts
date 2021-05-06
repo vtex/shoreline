@@ -1,4 +1,4 @@
-import { Plugin } from '../types'
+import { Plugin } from '../plugin/types'
 
 export function buildAlias<Theme extends Record<string, any>>(
   theme: Theme,

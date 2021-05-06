@@ -2,6 +2,13 @@ import { createPlugin } from '@vtex/onda-system'
 
 export const borders = createPlugin({
   name: 'onda-plugin-borders',
+  namespaces: [
+    'border',
+    'borders',
+    'borderWidths',
+    'borderStyles',
+    'borderRadius',
+  ],
   onCreateRule: () => ({
     border: 'border',
     borderTop: 'borders',

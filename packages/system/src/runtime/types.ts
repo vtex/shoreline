@@ -29,17 +29,3 @@ export interface Runtime<
     compile: (instance: InstanceReturn) => (meta: MetaCSS) => string
   }
 }
-
-// export interface RuntimeInstance<
-//   InstanceReturn = {},
-//   HumanReadableCSS = {},
-//   MetaCSS = {}
-// > {
-//   get: () => InstanceReturn
-//   parse: {
-//     exec: Parser<HumanReadableCSS, MetaCSS>
-//   }
-//   compile: {
-//     exec: (meta: MetaCSS) => string
-//   }
-// }

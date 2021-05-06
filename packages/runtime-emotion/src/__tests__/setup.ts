@@ -4,7 +4,7 @@ import { matchers } from 'jest-emotion'
 expect.extend(matchers)
 
 import { buildRuntime, buildSteps } from '@vtex/onda-system'
-import { plugins } from '@vtex/onda-plugins'
+import { standard } from '@vtex/onda-plugins'
 import { runtime } from '../runtime'
 
 const theme = {
@@ -17,7 +17,7 @@ const theme = {
   },
 }
 
-const steps = buildSteps(theme, plugins)
+const steps = buildSteps(theme, standard)
 const {
   parse: { exec: parse },
   compile: { exec: compile },
