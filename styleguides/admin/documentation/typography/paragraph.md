@@ -60,4 +60,7 @@ You can use the `csx` property to handle different styles, and also the `TextPat
 
 ## Props
 
-<proptypes heading="Paragraph" component="Paragraph"/>
+| Name     | Type        | Description              | Required | Default |
+| -------- | ----------- | ------------------------ | -------- | ------- |
+| children | `ReactNode` | Paragraph children       | 🚫       | -       |
+| csx      | `StyleProp` | Defines component styles | 🚫       | `{}`    |
