@@ -1,7 +1,8 @@
+import { SystemComponent } from '../../types'
 import { BaseResolvers } from './resolvers/base'
 import { Resolver } from './resolvers/core'
 
-export interface FilterBarProps<T> {
+export interface FilterBarProps<T> extends SystemComponent {
   /** Handles the state of FilterBar statements */
   handleStatementChange: (flters: Filters<T>) => void
   /** FilterBar initial conjunction */
@@ -10,7 +11,7 @@ export interface FilterBarProps<T> {
   statements?: Statement<T>[]
   /** Filters available */
   filters: Filter<T>[]
-  /** FilterBar label. It will appear when there are no statements */
+  /** FilterBar label. It appears when there are no statements */
   label: string
   /**
    * FilterBar resolvers

@@ -5,6 +5,17 @@ import { Box } from '@vtex/admin-primitives'
 
 import { Dropdown, DropdownProps, useDropdownState } from '../../Dropdown'
 
+/**
+ * FilterBar statement dropdown
+ *
+ * @example
+ * <StatementDropdown
+ *   label={label}
+ *   selectedItem={selectedItem}
+ *   handleItemChange={(item) => {}}
+ *   items={items}
+ * />
+ */
 export function StatementDropdown<T>(props: StatementDropdownProps<T>) {
   const dropdownProps = useStatementDropdown(props)
 
@@ -54,6 +65,7 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
         justifyContent: 'space-between',
       },
       minWidth: 150,
+      maxWidth: 150,
       ...csx,
     },
     state,
@@ -64,6 +76,12 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
 
 export interface StatementDropdownProps<T>
   extends Omit<DropdownProps<T>, 'state'> {
+  /**
+   * Render function that is called everytime the current selected item changes
+   */
   handleItemChange: (item: UseSelectStateChange<T>) => void
+  /**
+   * Dropdown current selected item
+   */
   selectedItem: T
 }

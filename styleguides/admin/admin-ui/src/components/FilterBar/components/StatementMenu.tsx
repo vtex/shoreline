@@ -13,6 +13,7 @@ export function StatementMenu(props: Omit<MenuProps, 'disclosure'>) {
       hideOnClick
       disclosure={
         <Button
+          aria-label={menuProps['aria-label']}
           variant="adaptative-dark"
           csx={{ color: 'dark.secondary' }}
           icon={<IconAction />}

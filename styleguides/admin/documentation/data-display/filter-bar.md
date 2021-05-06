@@ -346,7 +346,7 @@ It is represented by the filter resolver.
 
 | Name                  | Type                            | Description                                                         | Required              | Default            |
 | --------------------- | ------------------------------- | ------------------------------------------------------------------- | --------------------- | ------------------ | --- |
-| label                 | `string`                        | FilterBar label. It will appear when there are no statements        | ✅                    | -                  |
+| label                 | `string`                        | FilterBar label. It appears when there are no statements            | ✅                    | -                  |
 | handleStatementChange | `(filters: Filters<T>) => void` | Render props function that is called everytime a statements changes | ✅                    | -                  |
 | csx                   | `StyleObject`                   | Custom styles                                                       | 🚫                    | {}                 |
 | conjunction           | `and                            | or`                                                                 | FilterBar conjunction | 🚫                 | -   |

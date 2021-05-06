@@ -29,8 +29,8 @@ export const Basic: Story = () => {
           ],
           resolver: {
             type: 'simple',
-            defaultValue: { value: '2' },
-            items: [{ value: '1' }],
+            defaultValue: { value: '1' },
+            items: [{ value: '1' }, { value: '2' }],
           },
         },
         {
@@ -57,22 +57,6 @@ export const Basic: Story = () => {
             type: 'simple',
             defaultValue: { value: '2' },
             items: [{ value: '1' }, { value: '2' }, { value: '3' }],
-          },
-        },
-
-        {
-          label: 'Specific Store Label',
-          id: 'specificStoreLabel',
-          conditions,
-          resolver: {
-            type: 'simple',
-            defaultValue: { value: { label: '1' } },
-            items: [
-              { value: { label: '1' } },
-              { value: { label: '2' } },
-              { value: { label: '3' } },
-            ],
-            accessor: 'value.label',
           },
         },
       ]}

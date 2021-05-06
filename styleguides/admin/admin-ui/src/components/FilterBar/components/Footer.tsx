@@ -11,6 +11,7 @@ export function Footer(props: FlexProps) {
         paddingX: 3,
         border: 'divider-top',
         justifyContent: 'space-between',
+        bg: 'light.primary',
         ...csx,
       }}
       {...restProps}

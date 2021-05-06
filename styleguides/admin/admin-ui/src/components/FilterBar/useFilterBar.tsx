@@ -55,9 +55,8 @@ function defaultReducer<T>(state: Filters<T>, action: Action<T>): Filters<T> {
     }
     case 'filter': {
       const { filter, handleStatementChange, index } = action
-      const { conjunction, statements: currentStatements } = state
 
-      let statements = currentStatements
+      const { conjunction, statements } = state
       statements[index] = {
         condition: filter.conditions[0],
         filter,
@@ -74,19 +73,19 @@ function defaultReducer<T>(state: Filters<T>, action: Action<T>): Filters<T> {
       const { condition, handleStatementChange, index } = action
       const { conjunction, statements } = state
 
-      let nextState = statements
-      nextState[index] = { ...statements[index], condition }
+      statements[index] = { ...statements[index], condition }
 
-      handleStatementChange({ conjunction, statements: nextState })
+      const nextState = { conjunction, statements }
 
-      return { conjunction, statements: nextState }
+      handleStatementChange(nextState)
+
+      return nextState
     }
     case 'value': {
       const { value, handleStatementChange, index } = action
-      const { conjunction, statements: currentStatements } = state
+      const { conjunction, statements } = state
 
-      let statements = currentStatements
-      statements[index] = { ...currentStatements[index], target: value }
+      statements[index] = { ...statements[index], target: value }
 
       const nextState = { conjunction, statements }
 

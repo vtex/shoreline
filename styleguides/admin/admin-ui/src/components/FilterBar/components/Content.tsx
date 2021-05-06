@@ -8,11 +8,7 @@ export function Content(props: ContentProps) {
 
   return (
     <Box
-      csx={{
-        bg: 'light.secondary',
-        padding: empty ? 4 : 2,
-        paddingLeft: empty ? 6 : 4,
-      }}
+      csx={{ padding: empty ? 4 : 2, paddingLeft: empty ? 6 : 4 }}
       {...restProps}
     >
       {empty ? (
@@ -29,6 +25,6 @@ export function Content(props: ContentProps) {
 export interface ContentProps extends BoxProps<'div'> {
   /** Whether has statement or not */
   empty: boolean
-  /** Content label. It will appear when Content is empty */
+  /** Content label. It appears when Content is empty */
   label: string
 }

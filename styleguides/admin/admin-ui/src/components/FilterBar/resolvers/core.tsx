@@ -21,11 +21,9 @@ export interface Resolver<T, I = any, S = any> {
   }) => ReactNode
 }
 
-export function createResolver<
-  T extends { value?: T },
-  I,
-  S = Record<string, unknown>
->(resolver: Resolver<T, I, S>): Resolver<T, I, S> {
+export function createResolver<T, I, S = Record<string, unknown>>(
+  resolver: Resolver<T, I, S>
+): Resolver<T, I, S> {
   return resolver
 }
 

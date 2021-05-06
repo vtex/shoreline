@@ -19,6 +19,7 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
     resolvers,
     label,
     handleStatementChange,
+    csx = {},
     ...htmlProps
   } = useFilterBar(props)
 
@@ -91,7 +92,10 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
     })
 
   return (
-    <Box csx={{ border: 'default' }} {...htmlProps}>
+    <Box
+      csx={{ border: 'default', bg: 'light.secondary', ...csx }}
+      {...htmlProps}
+    >
       <Content empty={statements.length === 0} label={label}>
         {statements.map((statement, index) => {
           return (
@@ -118,7 +122,6 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
 
                     handleFilterChange(filter, index)
                   }}
-                  csx={{ maxWidth: 150 }}
                 />
 
                 <Statement.Conditions
@@ -130,7 +133,6 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
                   }}
                   label="Condition"
                   items={statement.filter.conditions}
-                  csx={{ maxWidth: 150 }}
                 />
 
                 <Statement.Value

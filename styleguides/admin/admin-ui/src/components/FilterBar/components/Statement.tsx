@@ -7,6 +7,9 @@ import { StatementDropdown, StatementDropdownProps } from './StatementDropdown'
 import { ResolvedValue } from '../resolvers/core'
 import { StatementMenu } from './StatementMenu'
 
+/**
+ * Statement container
+ */
 export function Statement(props: StatementProps) {
   const { children, ...htmlProps } = props
 
@@ -17,6 +20,9 @@ export function Statement(props: StatementProps) {
   )
 }
 
+/**
+ * It renders either a Dropdown to select the FilterBar conjunction or the conjunction label.
+ */
 Statement.Conjunction = function StatementConjunction(
   props: StatementDropdownProps<Conjunction> & { index: number }
 ) {
@@ -36,9 +42,21 @@ Statement.Conjunction = function StatementConjunction(
     </Box>
   )
 }
+/**
+ * It renders a Dropdown to select the statement filter.
+ */
 Statement.Filter = StatementDropdown
+/**
+ * It renders a Dropdown to select the statement condition according to the statement filter conditions.
+ */
 Statement.Conditions = StatementDropdown
+/**
+ * It renders a component according to the statement filter resolver.
+ */
 Statement.Value = ResolvedValue
+/**
+ * It renders a menu where it's possible to delete or duplicate the current statement.
+ */
 Statement.Menu = StatementMenu
 
 export type StatementProps = FlexProps
