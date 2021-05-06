@@ -195,4 +195,11 @@ This type of button combines an icon and an action. It embodies more complex act
 
 ## Props
 
-<propdetails heading="Button" component="Button"></propdetails>
+| Name         | Type        | Description              | Required             | Default     |
+| ------------ | ----------- | ------------------------ | -------------------- | ----------- | --------- |
+| size         | `Size`      | Size of the button       | 🚫                   | `'regular'` |
+| variant      | `Variant`   | Button variant           | 🚫                   | `primary`   |
+| icon         | `ReactNode` | Icon of the button       | 🚫                   | -           |
+| iconPosition | `'start'    | 'end'`                   | Position of the icon | 🚫          | `'start'` |
+| children     | `ReactNode` | Heading children         | 🚫                   | -           |
+| csx          | `StyleProp` | Defines component styles | 🚫                   | `{}`        |
