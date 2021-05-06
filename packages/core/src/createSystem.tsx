@@ -39,7 +39,7 @@ export function createSystem<Theme extends Record<string, any>>(
     return (
       <SystemContext.Provider
         value={{
-          theme,
+          theme: steps.theme.exec(theme),
           cn,
           instance,
         }}

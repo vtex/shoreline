@@ -11,11 +11,13 @@ export function buildSteps<Theme extends Record<string, any>>(
   theme: Theme,
   plugins: Plugin<Theme>[]
 ): StepsInstance {
+  const themeBuilderInstance = buildTheme(theme, plugins)
+  const themeAfterBuild = themeBuilderInstance.exec(theme)
   return {
-    theme: buildTheme(theme, plugins),
-    alias: buildAlias(theme, plugins),
-    rule: buildRule(theme, plugins),
-    split: buildSplit(theme, plugins),
-    transform: buildTransform(theme, plugins),
+    theme: themeBuilderInstance,
+    alias: buildAlias(themeAfterBuild, plugins),
+    rule: buildRule(themeAfterBuild, plugins),
+    split: buildSplit(themeAfterBuild, plugins),
+    transform: buildTransform(themeAfterBuild, plugins),
   }
 }

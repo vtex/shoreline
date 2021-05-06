@@ -29,6 +29,7 @@ export interface PluginParams<Theme extends Record<string, any>> {
 export interface StepsInstance {
   theme: {
     value: Record<string, any>
+    exec: (theme: any) => any
   }
   alias: {
     value: Record<string, string>
