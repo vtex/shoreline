@@ -58,4 +58,8 @@ You can also use the `csx` property to customize any style.
 
 # Props
 
-<proptypes heading="Avatar" component="Avatar" />
+| Name    | Type        | Description                                        | Required  | Default      |
+| ------- | ----------- | -------------------------------------------------- | --------- | ------------ | --- | -------- |
+| label   | `string`    | String that will have its first letter capitalized | ✅        | -            |
+| palette | `'base'     | 'primary'                                          | 'danger'` | Avatar theme | 🚫  | `'base'` |
+| csx     | `StyleProp` | Defines component styles                           | 🚫        | `{}`         |
