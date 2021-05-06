@@ -142,7 +142,10 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
                   handleValueChange={handleValueChange}
                 />
               </Set>
-              <Statement.Menu aria-label={`statement-menu-${index}`}>
+              <Statement.Menu
+                baseId="statement-menu"
+                aria-label={`statement-menu-${index}`}
+              >
                 <Menu.Item
                   onClick={() => handleDuplicateStatement(index)}
                   icon={<IconDuplicate />}
