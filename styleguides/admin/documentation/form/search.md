@@ -54,4 +54,17 @@ function Example() {
 
 ## Props
 
-<propdetails heading="Search" component="Search"></propdetails>
+| Name            | Type                 | Description                                 | Required | Default |
+| --------------- | -------------------- | ------------------------------------------- | -------- | ------- |
+| loading         | `boolean`            | Wheather is loading @default false          | 🚫       | `false` |
+| id              | `string`             | Search id, must be unique within a page     | ✅       | -       |
+| placeholder     | `string`             | Placeholder text                            | ✅       | -       |
+| onSubmit        | `() => void`         | Action to perform on submit                 | 🚫       | -       |
+| wrappingFormCSX | `StyleObject`        | Style object for form wrapping search input | 🚫       | `{}`    |
+| suffix          | `string`             | Input Suffix                                | 🚫       | -       |
+| onClear         | `() => void`         | onClear input                               | 🚫       | -       |
+| labelElement    | `ReactNode`          | Render an optional label                    | 🚫       | -       |
+| buttonElements  | `ReactNode`          | Button elements                             | 🚫       | -       |
+| onChange        | `ChangeEventHandler` | onChange event                              | 🚫       | -       |
+| error           | `boolean`            | Input error state                           | 🚫       | -       |
+| csx             | `StyleProp`          | Defines component styles                    | 🚫       | `{}`    |
