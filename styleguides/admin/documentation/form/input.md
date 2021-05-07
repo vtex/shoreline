@@ -210,10 +210,10 @@ function Example() {
 | helperText     | `string`             | Input helper text          | 🚫       | -       |
 | charLimit      | `number`             | Input char limit           | 🚫       | -       |
 | errorMessage   | `string`             | Input error message        | 🚫       | -       |
-| type           | ``InputType`         | Input type                 | 🚫       | -       |
+| type           | `InputType`          | Input type                 | 🚫       | -       |
 | icon           | `ReactNode`          | Input Icon                 | 🚫       | -       |
 | suffix         | `string`             | Input Suffix               | 🚫       | -       |
-| onClear        | () => void           | onClear input              | 🚫       | -       |
+| onClear        | `() => void`         | onClear input              | 🚫       | -       |
 | labelElement   | `ReactNode`          | Render an optional label   | 🚫       | -       |
 | buttonElements | `ReactNode`          | Button elements            | 🚫       | -       |
 | onChange       | `ChangeEventHandler` | onChange event             | 🚫       | -       |
