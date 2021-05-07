@@ -132,4 +132,12 @@ This component uses a flexbox under the hood. Knowing that it has the same limit
 
 # Props
 
-<proptypes component="Set" />
+| Name        | Type                        | Description                                              | Required             | Default |
+| ----------- | --------------------------- | -------------------------------------------------------- | -------------------- | ------- | ------------ |
+| orientation | `ResponsiveValue<'vertical' | 'horizontal'>`                                           | orientation of items | 🚫      | `'vertical'` |
+| fluid       | `boolean`                   | If the items should grow in width to match the container | 🚫                   | `false` |
+| spacing     | `ResponsiveValue<number>`   | Space between items                                      | 🚫                   | `0`     |
+| align       | `ResponsiveValue<'start'    | 'end'>`                                                  | Items alignment      | 🚫      | `start`      |
+| themeKey    | `string`                    | Optional themeKey                                        | 🚫                   | -       |
+| children    | `ReactNode`                 | Set children                                             | 🚫                   | -       |
+| csx         | `StyleProp`                 | Defines component styles                                 | 🚫                   | `{}`    |
