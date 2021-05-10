@@ -75,9 +75,10 @@ export function PageLayout(props: Props) {
             direction="column"
             csx={{
               width: '80%',
-              flex: 1,
+              flex: '1 1 0',
               padding: 4,
               maxWidth: '64rem',
+              overflow: 'auto',
             }}
           >
             {children}
