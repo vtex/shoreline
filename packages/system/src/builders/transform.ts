@@ -1,4 +1,4 @@
-import { Plugin } from '../types'
+import { Plugin } from '../plugin/types'
 import { get } from '@vtex/onda-util'
 
 export function buildTransform<Theme extends Record<string, any>>(

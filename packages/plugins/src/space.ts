@@ -1,8 +1,9 @@
 import { createPlugin } from '@vtex/onda-system'
-import { get } from './util'
+import { get } from '@vtex/onda-util'
 
 export const space = createPlugin({
   name: 'onda-plugin-space',
+  namespaces: ['space'],
   onCreateAlias: () => ({
     m: 'margin',
     mx: 'marginX',

@@ -1,28 +1,36 @@
 export interface Plugin<Theme extends Record<string, any>> {
   name: string
+  namespaces: string[]
   steps: PluginSteps<Theme>
 }
 
 export interface PluginSteps<Theme extends Record<string, any>> {
-  alias: (theme: Theme) => Record<string, string>
-  rule: (theme: Theme) => Record<string, string>
+  theme: (theme: Partial<Theme>) => Record<string, any>
+  alias: (theme: Partial<Theme>) => Record<string, string>
+  rule: (theme: Partial<Theme>) => Record<string, string>
   transform: (
-    theme: Theme
+    theme: Partial<Theme>
   ) => Record<string, (rule: Record<string, string>, value: any) => any>
-  split: (theme: Theme) => Record<string, string[]>
+  split: (theme: Partial<Theme>) => Record<string, string[]>
 }
 
 export interface PluginParams<Theme extends Record<string, any>> {
   name: string
-  onCreateAlias?: (theme: Theme) => Record<string, string>
-  onCreateRule?: (theme: Theme) => Record<string, string>
+  namespaces: string[]
+  onCreateTheme?: (theme: Partial<Theme>) => Record<string, any>
+  onCreateAlias?: (theme: Partial<Theme>) => Record<string, string>
+  onCreateRule?: (theme: Partial<Theme>) => Record<string, string>
   onTransform?: (
-    theme: Theme
+    theme: Partial<Theme>
   ) => Record<string, (rule: Record<string, string>, value: any) => any>
-  onSplit?: (theme: Theme) => Record<string, string[]>
+  onSplit?: (theme: Partial<Theme>) => Record<string, string[]>
 }
 
 export interface StepsInstance {
+  theme: {
+    value: Record<string, any>
+    exec: (theme: any) => any
+  }
   alias: {
     value: Record<string, string>
     exec: (prop: string) => string

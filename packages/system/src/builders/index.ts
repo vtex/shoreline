@@ -1,3 +1,4 @@
+export * from './theme'
 export * from './alias'
 export * from './rule'
 export * from './split'

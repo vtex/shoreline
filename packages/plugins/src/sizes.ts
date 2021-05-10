@@ -2,6 +2,7 @@ import { createPlugin } from '@vtex/onda-system'
 
 export const sizes = createPlugin({
   name: 'onda-plugin-sizes',
+  namespaces: ['sizes'],
   onCreateRule: () => ({
     width: 'sizes',
     minWidth: 'sizes',
