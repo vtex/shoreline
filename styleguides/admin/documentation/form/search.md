@@ -56,7 +56,7 @@ function Example() {
 
 | Name            | Type                 | Description                                 | Required | Default |
 | --------------- | -------------------- | ------------------------------------------- | -------- | ------- |
-| loading         | `boolean`            | Wheather is loading @default false          | 🚫       | `false` |
+| loading         | `boolean`            | Defines if the Search is loading            | 🚫       | `false` |
 | id              | `string`             | Search id, must be unique within a page     | ✅       | -       |
 | placeholder     | `string`             | Placeholder text                            | ✅       | -       |
 | onSubmit        | `() => void`         | Action to perform on submit                 | 🚫       | -       |
