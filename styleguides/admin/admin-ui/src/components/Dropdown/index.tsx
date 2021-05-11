@@ -18,6 +18,7 @@ export const Dropdown = forwardRef(
       size = 'regular',
       state,
       renderItem = (item) => item,
+      csx,
       ...buttonProps
     } = props
 
@@ -37,6 +38,7 @@ export const Dropdown = forwardRef(
           icon={<IconCaret direction="down" />}
           iconPosition="end"
           {...state.getToggleButtonProps()}
+          csx={csx}
           {...buttonProps}
         >
           {renderItem(state.selectedItem)}

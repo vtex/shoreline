@@ -51,6 +51,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   margin-top: 0.25rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  min-width: inherit;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -221,6 +222,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   margin-top: 0.25rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  min-width: inherit;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -391,6 +393,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   margin-top: 0.25rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  min-width: inherit;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -567,6 +570,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   margin-top: 0.25rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  min-width: inherit;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -737,6 +741,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   margin-top: 0.25rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  min-width: inherit;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;

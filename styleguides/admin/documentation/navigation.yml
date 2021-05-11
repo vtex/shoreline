@@ -33,6 +33,7 @@
     - /data-display/divider/
     - /data-display/tag/
     - /data-display/visually-hidden/
+    - /data-display/filter-bar/
 - section: Table
   paths:
     - /table/basic/
