@@ -3,19 +3,25 @@ import { PluginParams, Plugin } from './types'
 export function createPlugin<Theme extends Record<string, any>>(
   params: PluginParams<Theme>
 ): Plugin<Theme> {
-  function returnsEmptyObject() {
-    return {}
-  }
+  const {
+    name,
+    namespaces,
+    entries,
+    aliases,
+    rules,
+    transforms,
+    splits,
+  } = params
 
   return {
-    name: params.name,
-    namespaces: params.namespaces,
+    name: name,
+    namespaces: namespaces,
     steps: {
-      theme: params?.onCreateTheme ?? returnsEmptyObject,
-      alias: params?.onCreateAlias ?? returnsEmptyObject,
-      rule: params?.onCreateRule ?? returnsEmptyObject,
-      transform: params?.onTransform ?? returnsEmptyObject,
-      split: params?.onSplit ?? returnsEmptyObject,
+      entries: entries ?? {},
+      aliases: aliases ?? {},
+      rules: rules ?? {},
+      transforms: transforms ?? {},
+      splits: splits ?? {},
     },
   }
 }

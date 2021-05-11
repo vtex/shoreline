@@ -1,16 +1,17 @@
 import { Plugin } from '../plugin/types'
 import { merge, pick } from '@vtex/onda-util'
+import { callOrReturn } from './util'
 
-export function buildTheme<Theme extends Record<string, any>>(
+export function buildEntries<Theme extends Record<string, any>>(
   theme: Theme,
   plugins: Plugin<Theme>[]
 ) {
   const collection = plugins
-    .map((p) => ({ callback: p.steps.theme, namespaces: p.namespaces }))
+    .map((p) => ({ callback: p.steps.entries, namespaces: p.namespaces }))
     .reduce(
       (acc, { callback, namespaces }) => ({
         ...acc,
-        ...callback(pick(theme, namespaces) as Partial<Theme>),
+        ...callOrReturn(callback, pick(theme, namespaces) as Partial<Theme>),
       }),
       []
     )

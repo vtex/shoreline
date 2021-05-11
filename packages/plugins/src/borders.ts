@@ -9,7 +9,7 @@ export const borders = createPlugin({
     'borderStyles',
     'borderRadius',
   ],
-  onCreateRule: () => ({
+  rules: {
     border: 'border',
     borderTop: 'borders',
     borderRight: 'borders',
@@ -52,5 +52,5 @@ export const borders = createPlugin({
     borderInlineWidth: 'borderWidths',
     borderStartEndRadius: 'borderRadius',
     borderStartStartRadius: 'borderRadius',
-  }),
+  },
 })

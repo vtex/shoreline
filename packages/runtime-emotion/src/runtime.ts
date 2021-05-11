@@ -18,7 +18,7 @@ export const runtime = createRuntime({
       const cssObject: EmotionCSSObject = {}
 
       for (const key in csx) {
-        const cssProperty = steps.alias.exec(key)
+        const cssProperty = steps.aliases.exec(key)
         const token = csx[key as keyof typeof csx]
 
         if (token && typeof token === 'object') {
@@ -26,14 +26,14 @@ export const runtime = createRuntime({
           continue
         }
 
-        const rule = steps.rule.exec(cssProperty)
-        const transform = steps.transform(cssProperty)
+        const rule = steps.rules.exec(cssProperty)
+        const transform = steps.transforms(cssProperty)
         const value = transform.exec(rule, token)
 
         if (typeof value === 'object') {
           Object.assign(cssObject, value)
-        } else if (cssProperty in steps.split.value) {
-          const splitValue = steps.split.exec(cssProperty, value)
+        } else if (cssProperty in steps.splits.value) {
+          const splitValue = steps.splits.exec(cssProperty, value)
           Object.assign(cssObject, splitValue)
         } else {
           cssObject[cssProperty] = value
