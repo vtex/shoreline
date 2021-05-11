@@ -496,3 +496,51 @@ export const ChangeInitialValue = () => {
     </Formik>
   )
 }
+
+export const OnChangeExample = () => {
+  const options = ['option 1', 'option 2', 'option 3', 'Disabled']
+  type FormValuesInterface = { value: string }
+  const initialValues: FormValuesInterface = { value: '' }
+  const [changes, setChanges] = useState(0)
+
+  const handleSubmit = (
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
+  ) => {
+    setSubmitting(false) // Lock the form to not be modified
+  }
+
+  return (
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Form id="form-admin-formik-input">
+        <Flex direction="row" align="center" justify="start">
+          <Box csx={{ width: 300, marginX: 8 }}>
+            <FormikRadioGroup
+              name="value"
+              label="Label Title"
+              orientation="vertical"
+              onChange={() => setChanges(changes + 1)}
+            >
+              {options.map((value, key) => {
+                return (
+                  <Label key={key}>
+                    <FormikRadio
+                      value={value}
+                      disabled={value === 'Disabled'}
+                    />
+                    {value}
+                  </Label>
+                )
+              })}
+            </FormikRadioGroup>
+          </Box>
+          <Set orientation="vertical">
+            <Text variant="subtitle">
+              Number of times the value has changed: {' ' + changes}
+            </Text>
+          </Set>
+        </Flex>
+      </Form>
+    </Formik>
+  )
+}

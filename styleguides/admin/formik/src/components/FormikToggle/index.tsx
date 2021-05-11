@@ -19,6 +19,7 @@ export const FormikToggle = forwardRef(
       error: currentError,
       errorMessage: currentErrorMessage,
       formatMessage,
+      onChange,
       ...toggleProps
     } = props
 
@@ -29,7 +30,8 @@ export const FormikToggle = forwardRef(
       toggleState.state,
       toggleState.setState,
       field.value,
-      helpers.setValue
+      helpers.setValue,
+      onChange
     )
 
     const errorMessage = handleErrorMessage(
@@ -61,7 +63,8 @@ export const FormikToggle = forwardRef(
   }
 )
 
-export interface FormikToggleProps extends ToggleProps {
+export interface FormikToggleProps
+  extends Omit<ToggleProps, 'state' | 'checked' | 'value'> {
   name: string
   label?: string | ReactNode
   error?: boolean

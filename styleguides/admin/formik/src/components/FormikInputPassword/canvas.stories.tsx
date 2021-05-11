@@ -363,3 +363,37 @@ export const ChangeInitialValue = () => {
     </Formik>
   )
 }
+
+export const OnChangeExample = () => {
+  type FormValuesInterface = { value: string }
+  const initialValues: FormValuesInterface = { value: '' }
+  const [changes, setChanges] = useState(0)
+
+  const handleSubmit = (
+    _values: FormValuesInterface,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
+  ) => {
+    setSubmitting(false) // Lock the form to not be modified
+  }
+
+  return (
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Form id="form-admin-formik-input">
+        <Flex direction="row" align="center" justify="start">
+          <Box csx={{ width: 300, marginX: 8 }}>
+            <FormikInputPassword
+              name="value"
+              label="Label"
+              onChange={() => setChanges(changes + 1)}
+            />
+          </Box>
+          <Set orientation="vertical">
+            <Text variant="subtitle">
+              Number of times the value has changed: {' ' + changes}
+            </Text>
+          </Set>
+        </Flex>
+      </Form>
+    </Formik>
+  )
+}

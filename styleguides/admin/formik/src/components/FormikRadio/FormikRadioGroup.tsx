@@ -18,6 +18,7 @@ export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
     error: currentError,
     errorMessage: currentErrorMessage,
     formatMessage,
+    onChange,
     ...radioGroupProps
   } = props
 
@@ -28,7 +29,8 @@ export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
     radioState.state,
     radioState.setState,
     field.value,
-    helpers.setValue
+    helpers.setValue,
+    onChange
   )
 
   const errorMessage = handleErrorMessage(
@@ -66,4 +68,5 @@ export interface FormikRadioGroupProps extends Omit<RadioGroupProps, 'state'> {
   error?: boolean
   errorMessage?: string
   formatMessage?: (errorCode: string) => string
+  onChange?: (value: string) => void
 }

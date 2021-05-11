@@ -11,6 +11,7 @@ export const FormikInput = forwardRef(
       error: currentError,
       errorMessage: currentErrorMessage,
       formatMessage,
+      onChange,
       ...inputProps
     } = props
 
@@ -23,12 +24,20 @@ export const FormikInput = forwardRef(
       formatMessage
     )
 
+    const handleChange = onChange
+      ? (event: React.ChangeEvent<HTMLInputElement>) => {
+          field.onChange(event)
+          onChange(event)
+        }
+      : field.onChange
+
     return (
       <Input
         id={id}
         error={!!errorMessage}
         errorMessage={errorMessage ?? undefined}
         {...field}
+        onChange={handleChange}
         {...inputProps}
         ref={ref}
       />
@@ -36,7 +45,7 @@ export const FormikInput = forwardRef(
   }
 )
 
-export interface FormikInputProps extends Omit<InputProps, 'id'> {
+export interface FormikInputProps extends Omit<InputProps, 'id' | 'value'> {
   name: string
   id?: string
   formatMessage?: (errorCode: string) => string
