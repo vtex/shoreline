@@ -3,6 +3,19 @@ import invariant from 'tiny-invariant'
 import { ResolverRenderProps } from './core'
 import { createResolver } from './core'
 
+/**
+ * Resolver that renders a specific component.
+ *
+ * @example
+ *
+ * resolver: {
+ *   type: 'root',
+ *   defaultValue,
+ *   render: ({ handleValueChange, statement, index }) => {
+ *     return <Component />
+ *   }
+ * }
+ */
 export function rootResolver<T>() {
   return createResolver<T, 'root', RootResolver<T>>({
     value: function RootResolver({ statement, index, handleValueChange }) {

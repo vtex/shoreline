@@ -1,10 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-// import { axe } from 'jest-axe'
-
 import { ThemeProvider } from '@vtex/admin-core'
-import { FilterBar } from '../index'
 import { axe } from 'jest-axe'
+
+import { FilterBar } from '../index'
 
 describe('FilterBar tests', () => {
   beforeAll(() => {
@@ -14,8 +13,6 @@ describe('FilterBar tests', () => {
         matches: false,
         media: query,
         onchange: null,
-        addListener: jest.fn(), // Deprecated
-        removeListener: jest.fn(), // Deprecated
         addEventListener: jest.fn(),
         removeEventListener: jest.fn(),
         dispatchEvent: jest.fn(),

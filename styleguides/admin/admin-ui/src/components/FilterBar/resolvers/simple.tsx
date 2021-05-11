@@ -6,6 +6,17 @@ import { ResolverRenderProps } from './core'
 import { createResolver, defaultRender } from './core'
 import { StatementDropdown } from '../components'
 
+/**
+ * Resolver that renders a simple select component
+ *
+ * @example
+ *
+ * resolver: {
+ *   type: 'simple',
+ *   defaultValue: { value: 1 },
+ *   items: [{ value: 1 }, { value: 2 }],
+ * }
+ */
 export function simpleResolver<T>() {
   return createResolver<T, 'simple', SimpleResolver<T>>({
     value: function SimpleResolver({ statement, index, handleValueChange }) {
