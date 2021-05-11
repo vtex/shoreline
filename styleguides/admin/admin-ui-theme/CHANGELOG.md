@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.25.1...@vtex/admin-ui-theme@0.26.0) (2021-05-11)
+
+
+### Features
+
+* **filter-bar:** add FilterBar component draft ([c98ffae](https://github.com/vtex/onda/commit/c98ffaebde8ba9a8db8676bdb457aa89474098f6))
+* **filter-bar:** add first stable version ([81def4c](https://github.com/vtex/onda/commit/81def4c1be626eab4820661ef73363dfebce0f7d))
+
+
+
+
+
 ## [0.25.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.25.0...@vtex/admin-ui-theme@0.25.1) (2021-04-21)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme

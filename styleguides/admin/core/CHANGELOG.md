@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.8](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.7...@vtex/admin-core@0.10.8) (2021-05-11)
+
+**Note:** Version bump only for package @vtex/admin-core
+
+
+
+
+
 ## [0.10.7](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.6...@vtex/admin-core@0.10.7) (2021-04-21)
 
 **Note:** Version bump only for package @vtex/admin-core

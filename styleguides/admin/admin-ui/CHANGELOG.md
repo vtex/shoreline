@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.94.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.93.0...@vtex/admin-ui@0.94.0) (2021-05-11)
+
+
+### Bug Fixes
+
+* **split-table:** stateful table and components to powerful table missing changes ([df53442](https://github.com/vtex/onda/commit/df534422c42f5ec20420fb890d9c8b1b3704dcb4))
+* **table-documentation:** change all pagination prevLabel prop value to Previous ([78b06b2](https://github.com/vtex/onda/commit/78b06b23dedb1491616d80806eba4ba1230f455b))
+* **table-documentation:** change all pagination prevLabel prop value to Previous ([f32d66f](https://github.com/vtex/onda/commit/f32d66f44e8be2262051df42e6c4bc18ad275c39))
+* **table-layout:** table layout responsivity ([a7a3788](https://github.com/vtex/onda/commit/a7a3788954f9f214a383464f8a896c4783b5b33f))
+* **table-layout:** table views height ([d50d52a](https://github.com/vtex/onda/commit/d50d52a84f1f657b2d724c4185e754a7f6bb6ff4))
+
+
+### Features
+
+* **filter-bar:** add FilterBar component draft ([c98ffae](https://github.com/vtex/onda/commit/c98ffaebde8ba9a8db8676bdb457aa89474098f6))
+* **filter-bar:** add first stable version ([81def4c](https://github.com/vtex/onda/commit/81def4c1be626eab4820661ef73363dfebce0f7d))
+* **table-documentation:** export pagination component in admin-ui ([1190de4](https://github.com/vtex/onda/commit/1190de4071f33265e2566520559e8a8dedb7b756))
+
+
+
+
+
 # [0.93.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.92.1...@vtex/admin-ui@0.93.0) (2021-04-27)
 
 
