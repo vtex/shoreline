@@ -3,10 +3,10 @@ import { createPlugin } from '@vtex/onda-system'
 export const colors = createPlugin({
   name: 'onda-plugin-colors',
   namespaces: ['colors'],
-  onCreateAlias: () => ({
+  aliases: {
     bg: 'backgroundColor',
-  }),
-  onCreateRule: () => ({
+  },
+  rules: {
     color: 'colors',
     backgroundColor: 'colors',
     borderColor: 'colors',
@@ -19,5 +19,5 @@ export const colors = createPlugin({
     fill: 'colors',
     stroke: 'colors',
     outlineColor: 'colors',
-  }),
+  },
 })

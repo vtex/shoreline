@@ -4,7 +4,7 @@ import { get } from '@vtex/onda-util'
 export const space = createPlugin({
   name: 'onda-plugin-space',
   namespaces: ['space'],
-  onCreateAlias: () => ({
+  aliases: {
     m: 'margin',
     mx: 'marginX',
     my: 'marginY',
@@ -19,8 +19,8 @@ export const space = createPlugin({
     pr: 'paddingRight',
     pb: 'paddingBottom',
     pl: 'paddingLeft',
-  }),
-  onCreateRule: () => ({
+  },
+  rules: {
     margin: 'space',
     marginTop: 'space',
     marginRight: 'space',
@@ -71,34 +71,32 @@ export const space = createPlugin({
     gap: 'space',
     columnGap: 'space',
     rowGap: 'space',
-  }),
-  onTransform: () => {
-    return [
-      'margin',
-      'marginTop',
-      'marginRight',
-      'marginBottom',
-      'marginLeft',
-      'marginX',
-      'marginY',
-      'marginBlock',
-      'marginBlockEnd',
-      'marginBlockStart',
-      'marginInline',
-      'marginInlineEnd',
-      'marginInlineStart',
-      'top',
-      'bottom',
-      'left',
-      'right',
-    ].reduce(reducer, {})
   },
-  onSplit: () => ({
+  transforms: [
+    'margin',
+    'marginTop',
+    'marginRight',
+    'marginBottom',
+    'marginLeft',
+    'marginX',
+    'marginY',
+    'marginBlock',
+    'marginBlockEnd',
+    'marginBlockStart',
+    'marginInline',
+    'marginInlineEnd',
+    'marginInlineStart',
+    'top',
+    'bottom',
+    'left',
+    'right',
+  ].reduce(reducer, {}),
+  splits: {
     marginX: ['marginLeft', 'marginRight'],
     marginY: ['marginTop', 'marginBottom'],
     paddingX: ['paddingLeft', 'paddingRight'],
     paddingY: ['paddingTop', 'paddingBottom'],
-  }),
+  },
 })
 
 function reducer(acc: Record<string, any>, curr: string) {

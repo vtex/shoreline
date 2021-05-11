@@ -1,4 +1,4 @@
-import { buildTheme } from '../builders'
+import { buildEntries } from '../builders'
 import { createPlugin } from '../plugin'
 
 const theme = {
@@ -11,7 +11,7 @@ const theme = {
 const plugin = createPlugin({
   name: 'onda-plugin-test',
   namespaces: ['test'],
-  onCreateTheme: (theme) => {
+  entries: (theme) => {
     const { test } = theme
     return {
       test: test.map((t: number) => t * 2),
@@ -19,10 +19,10 @@ const plugin = createPlugin({
   },
 })
 
-const instance = buildTheme(theme, [plugin])
+const instance = buildEntries(theme, [plugin])
 
-describe('theme.builder', () => {
-  it('do not produce side effects to the theme', () => {
+describe('entries.builder', () => {
+  it('do not produce side effects to the theme entries', () => {
     instance.exec(theme)
     expect(theme).toStrictEqual({
       colors: {

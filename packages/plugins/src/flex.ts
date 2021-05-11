@@ -3,7 +3,7 @@ import { createPlugin } from '@vtex/onda-system'
 export const flex = createPlugin({
   name: 'onda-plugin-flex',
   namespaces: [],
-  onCreateAlias: () => ({
+  aliases: {
     justify: 'justifyContent',
     direction: 'flexDirection',
     align: 'alignItems',
@@ -11,5 +11,5 @@ export const flex = createPlugin({
     shrink: 'flexShrink',
     basis: 'flexBasis',
     wrap: 'flexWrap',
-  }),
+  },
 })

@@ -1,15 +1,16 @@
 import { Plugin } from '../plugin/types'
+import { callOrReturn } from './util'
 
-export function buildAlias<Theme extends Record<string, any>>(
+export function buildAliases<Theme extends Record<string, any>>(
   theme: Theme,
   plugins: Plugin<Theme>[]
 ) {
   const collection = plugins
-    .map((p) => p.steps.alias)
+    .map((p) => p.steps.aliases)
     .reduce(
       (acc, callbackRule) => ({
         ...acc,
-        ...callbackRule(theme),
+        ...callOrReturn(callbackRule, theme),
       }),
       {}
     ) as Record<string, string>

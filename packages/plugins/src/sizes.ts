@@ -3,7 +3,7 @@ import { createPlugin } from '@vtex/onda-system'
 export const sizes = createPlugin({
   name: 'onda-plugin-sizes',
   namespaces: ['sizes'],
-  onCreateRule: () => ({
+  rules: {
     width: 'sizes',
     minWidth: 'sizes',
     maxWidth: 'sizes',
@@ -21,11 +21,11 @@ export const sizes = createPlugin({
     minSize: 'sizes',
     maxSize: 'sizes',
     absoluteSize: 'sizes',
-  }),
-  onSplit: () => ({
+  },
+  splits: {
     size: ['width', 'height'],
     minSize: ['minWidth', 'minHeight'],
     maxSize: ['maxWidth', 'maxHeight'],
     absoluteSize: ['minWidth', 'minHeight', 'maxWidth', 'maxHeight'],
-  }),
+  },
 })

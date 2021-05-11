@@ -31,7 +31,7 @@ export function createSystem<Theme extends Record<string, any>>(
 ) {
   const { id, theme, ocean = { plugins: standard } } = spec
 
-  const steps = buildSteps(theme, ocean.plugins)
+  const steps = buildSteps(theme, ocean.plugins as any)
   const { exec: cn, instance } = buildRuntime({ id }, steps, emotionRuntime)
 
   function SystemProvider(props: any) {
@@ -39,7 +39,7 @@ export function createSystem<Theme extends Record<string, any>>(
     return (
       <SystemContext.Provider
         value={{
-          theme: steps.theme.exec(theme),
+          theme: steps.entries.exec(theme),
           cn,
           instance,
         }}

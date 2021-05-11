@@ -1,16 +1,17 @@
 import { Plugin } from '../plugin/types'
 import { get } from '@vtex/onda-util'
+import { callOrReturn } from './util'
 
-export function buildRule<Theme extends Record<string, any>>(
+export function buildRules<Theme extends Record<string, any>>(
   theme: Theme,
   plugins: Plugin<Theme>[]
 ) {
   const rules = plugins
-    .map((p) => p.steps.rule)
+    .map((p) => p.steps.rules)
     .reduce(
       (acc, callbackRule) => ({
         ...acc,
-        ...callbackRule(theme),
+        ...callOrReturn(callbackRule, theme),
       }),
       {}
     ) as Record<string, string>

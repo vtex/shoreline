@@ -11,10 +11,10 @@ export const typography = createPlugin({
     'fontSettings',
     'text',
   ],
-  onCreateAlias: () => ({
+  aliases: {
     fontSettings: 'fontVariationSettings',
-  }),
-  onCreateRule: () => ({
+  },
+  rules: {
     fontFamily: 'fonts',
     fontSize: 'fontSizes',
     fontWeight: 'fontWeights',
@@ -22,5 +22,5 @@ export const typography = createPlugin({
     letterSpacing: 'letterSpacings',
     fontVariationSettings: 'fontSettings',
     text: 'text',
-  }),
+  },
 })
