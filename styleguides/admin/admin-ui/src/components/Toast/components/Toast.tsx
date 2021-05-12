@@ -7,6 +7,7 @@ import { ToastIcon } from './Icon'
 import { Button, ButtonProps } from '../../Button'
 import { Text } from '../../Text'
 import { motion } from 'framer-motion'
+import { errorStyles, styles, successStyles, warningStyles } from './consts'
 
 /**
  * The toast is a variation of an alert that provides immediate
@@ -51,7 +52,7 @@ export function Toast(props: ToastOptions) {
   return (
     <motion.div
       layout
-      data-testid="toast"
+      data-testid="onda-toast-component"
       className={cn(csx)}
       initial={{ top: '7.5rem' }}
       animate={{ top: 0 }}
@@ -121,42 +122,21 @@ function useToast(props: ToastOptions) {
 }
 
 function setCsx(type: ToastType) {
-  const styles: StyleProp = {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    minWidth: '16.125rem',
-    width: 'auto',
-    minHeight: '4.5rem',
-    height: 'auto',
-    maxHeight: '4.5rem',
-    borderRadius: '0.25rem',
-    padding: '1rem',
-    boxShadow: 'subtle',
-    backgroundColor: 'white',
-    border: 'default',
-  }
-
   switch (type) {
     case 'error':
       return {
         ...styles,
-        backgroundColor: '#FFF8F8',
-        borderColor: '#EDB6B6',
+        ...errorStyles,
       } as StyleProp
     case 'warning':
       return {
         ...styles,
-        backgroundColor: '#FFF9EE',
-        borderColor: '#E5C38E',
+        ...warningStyles,
       } as StyleProp
     case 'success':
       return {
         ...styles,
-        backgroundColor: '#F0F8F5',
-        borderColor: '#8FC2B1',
+        ...successStyles,
       } as StyleProp
     case 'info':
     default:
