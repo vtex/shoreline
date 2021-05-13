@@ -3,11 +3,12 @@ import { Meta } from '@storybook/react'
 import { Button as ReakitButton, Separator } from 'reakit'
 
 import { createComponent } from '../index'
-import { createSystem } from '@vtex/onda-core'
+import { createOnda } from '@vtex/onda-core'
 import theme from './theme'
 
-const { SystemProvider: ThemeProvider } = createSystem({
-  id: 'sb-onda',
+const [ThemeProvider] = createOnda({
+  name: 'sb-onda',
+  description: 'sb-onda description',
   theme,
 })
 

@@ -36,7 +36,11 @@ export function createComponent<
   }
 
   const ConcreteOndaComponent = ((
-    { as: ComponentCall = configuration?.type, ...props }: PropsWithAs<O, T>,
+    {
+      as: ComponentCall = configuration?.type,
+      state = {},
+      ...props
+    }: PropsWithAs<O, T>,
     ref: React.Ref<T>
   ) => {
     const system = useSystem()
@@ -64,7 +68,7 @@ export function createComponent<
           )
 
     return (
-      <ComponentCall ref={ref} {...htmlProps}>
+      <ComponentCall {...state} ref={ref} {...htmlProps}>
         {isFunction(children) ? children(htmlProps) : children}
       </ComponentCall>
     )
