@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Box, useSystem, Text, Flex } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
@@ -45,58 +45,67 @@ export function Sidebar() {
         },
       }}
     >
-      {data.allNavigationYaml.nodes.map((node) => (
-        <nav
-          className={cn({
-            paddingX: 4,
-            paddingY: 1,
-          })}
-          key={node.section}
-          aria-labelledby={getId(node.section)}
-        >
-          <Text
-            csx={{
-              paddingY: 0,
-              paddingX: 0,
-              color: 'dark.secondary',
-            }}
-            variant="highlight"
-            id={getId(node.section)}
-          >
-            {node.section}
-          </Text>
-          <Box element="ul" csx={{ padding: 0 }}>
-            {node.paths
-              .filter((path) =>
-                current !== ''
-                  ? getTitle(path)
-                      .toLocaleLowerCase()
-                      .includes(current.toLowerCase())
-                  : path
-              )
-              .map((path) => (
-                <Flex
-                  element="li"
-                  key={path}
-                  justify="space-between"
-                  csx={{
-                    listStyle: 'none',
-                    width: '100%',
-                  }}
-                >
-                  <Link
-                    className={cn({
-                      themeKey: 'components.sidebarLink',
-                    })}
-                    to={path}
-                  >
-                    {getTitle(path)}
-                  </Link>
-                </Flex>
-              ))}
-          </Box>
-        </nav>
-      ))}
+      {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
+        const paths = node.paths
+          .filter((path) =>
+            current !== ''
+              ? getTitle(path)
+                  .toLocaleLowerCase()
+                  .includes(current.toLowerCase())
+              : path
+          )
+          .map((path) => (
+            <Flex
+              element="li"
+              key={path}
+              justify="space-between"
+              csx={{
+                listStyle: 'none',
+                width: '100%',
+              }}
+            >
+              <Link
+                className={cn({
+                  themeKey: 'components.sidebarLink',
+                })}
+                to={path}
+              >
+                {getTitle(path)}
+              </Link>
+            </Flex>
+          ))
+
+        if (paths.length > 0) {
+          return [
+            ...acc,
+            <nav
+              className={cn({
+                paddingX: 4,
+                paddingY: 1,
+              })}
+              key={node.section}
+              aria-labelledby={getId(node.section)}
+            >
+              <Text
+                csx={{
+                  paddingY: 0,
+                  paddingX: 0,
+                  color: 'dark.secondary',
+                }}
+                variant="highlight"
+                id={getId(node.section)}
+              >
+                {node.section}
+              </Text>
+              <Box element="ul" csx={{ padding: 0 }}>
+                {paths}
+              </Box>
+            </nav>,
+          ]
+        }
+
+        return acc
+      }, [])}
     </Box>
   )
 }
