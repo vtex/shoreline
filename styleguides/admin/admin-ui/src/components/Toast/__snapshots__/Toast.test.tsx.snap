@@ -63,7 +63,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-3"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -164,7 +164,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-3"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -265,7 +265,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-3"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -358,7 +358,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-3"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -458,7 +458,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-3"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -632,7 +632,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-7"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -841,7 +841,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-7"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -1042,7 +1042,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-7"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -1250,7 +1250,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-7"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -1444,7 +1444,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-6"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -1621,7 +1621,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-6"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -1790,7 +1790,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-6"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -1966,7 +1966,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-6"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -2195,7 +2195,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-9"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -2455,7 +2455,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-9"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -2707,7 +2707,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-9"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div
@@ -2966,7 +2966,7 @@ exports[`Toast tests should match snapshot 1`] = `
 
 <div
     class="emotion-9"
-    data-testid="toast"
+    data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
     <div

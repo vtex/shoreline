@@ -66,7 +66,10 @@ describe('Toast tests', () => {
       </ThemeProvider>
     )
 
-    expect(getByTestId('toast')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('onda-toast-component')).toHaveStyleRule(
+      'background-color',
+      'azure'
+    )
   })
 
   it('should have info style when no type is passed', () => {
@@ -76,7 +79,10 @@ describe('Toast tests', () => {
       </ThemeProvider>
     )
 
-    expect(getByTestId('toast')).toHaveStyleRule('background-color', 'white')
+    expect(getByTestId('onda-toast-component')).toHaveStyleRule(
+      'background-color',
+      'white'
+    )
   })
 
   it('should match snapshot', () => {
@@ -157,7 +163,9 @@ describe('ToastManager tests', () => {
       })
     })
 
-    expect(getByTestId('toast')).toHaveTextContent("I'm a toast!")
+    expect(getByTestId('onda-toast-component')).toHaveTextContent(
+      "I'm a toast!"
+    )
   })
 
   it('should stack toasts', () => {
@@ -186,7 +194,7 @@ describe('ToastManager tests', () => {
       })
     })
 
-    expect(queryAllByTestId('toast')).toHaveLength(3)
+    expect(queryAllByTestId('onda-toast-component')).toHaveLength(3)
     expect(getByText("I'm a toast!")).toBeVisible()
     expect(getByText("I'm another toast!")).toBeVisible()
     expect(getByText("I'm the third toast!")).toBeVisible()
