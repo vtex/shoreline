@@ -7,7 +7,10 @@
       "styleguides/brand-ui",
       "styleguides/admin/*"
     ],
-    "nohoist": ["**/theme-ui", "**/theme-ui/**"]
+    "nohoist": [
+      "**/theme-ui",
+      "**/theme-ui/**"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,10 +26,12 @@
     "test": "lerna run test",
     "start": "lerna run start",
     "version": "lerna run version",
-    "prepublish:packages": "yarn && yarn build",
+    "prepublish:main": "yarn && yarn build",
     "prepublish:experimental": "yarn && yarn build",
-    "publish:packages": "lerna publish --yes",
-    "publish:experimental": "lerna publish --canary --preid experimental",
+    "prepublish:labs": "yarn && yarn build",
+    "publish:main": "lerna publish",
+    "publish:experimental": "lerna publish --preid experimental --dist-tag experimental",
+    "publish:labs": "lerna publish --preid labs --dist-tag labs",
     "clean": "lerna clean && lerna run clean",
     "format": "prettier --write \"styleguides/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "eslint styleguides/ --ext .js,.ts,.jsx,.tsx",
