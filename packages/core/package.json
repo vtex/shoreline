@@ -1,6 +1,6 @@
 {
   "name": "@vtex/onda-core",
-  "version": "0.0.0",
+  "version": "0.1.0-labs.0",
   "main": "dist/index.js",
   "module": "dist/onda-core.esm.js",
   "typings": "dist/index.d.ts",
@@ -39,10 +39,10 @@
     "@emotion/react": "^11.1.5"
   },
   "dependencies": {
-    "@vtex/onda-system": "*",
-    "@vtex/onda-runtime-emotion": "*",
-    "@vtex/onda-plugins": "*",
-    "@vtex/onda-util": "*",
+    "@vtex/onda-plugins": "^0.1.0-labs.0",
+    "@vtex/onda-runtime-emotion": "^0.1.0-labs.0",
+    "@vtex/onda-system": "^0.1.0-labs.0",
+    "@vtex/onda-util": "^0.1.0-labs.0",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",

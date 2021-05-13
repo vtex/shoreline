@@ -1,6 +1,6 @@
 {
   "name": "@vtex/onda-plugins",
-  "version": "0.0.0",
+  "version": "0.1.0-labs.0",
   "main": "dist/index.js",
   "module": "dist/onda-plugins.esm.js",
   "typings": "dist/index.d.ts",
@@ -29,9 +29,9 @@
     "test": "tsdx test"
   },
   "devDependencies": {
-    "@vtex/onda-system": "*"
+    "@vtex/onda-system": "^0.1.0-labs.0"
   },
   "dependencies": {
-    "@vtex/onda-util": "*"
+    "@vtex/onda-util": "^0.1.0-labs.0"
   }
 }
