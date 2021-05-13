@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-labs.1](https://github.com/vtex/onda/compare/@vtex/onda-core@0.1.0-labs.0...@vtex/onda-core@0.1.0-labs.1) (2021-05-13)
+
+
+### Features
+
+* **onda-core:** change signatures of create function ([691474c](https://github.com/vtex/onda/commit/691474c1a57131880f40301ea9f08a49611c7040))
+
+
+
+
+
 # 0.1.0-labs.0 (2021-05-13)
 
 
