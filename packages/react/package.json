@@ -1,0 +1,49 @@
+{
+  "name": "@vtex/onda-react",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/onda-react.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/react",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "test": "tsdx test --passWithNoTests",
+    "storybook": "start-storybook -p 6005",
+    "storybook:build": "yarn --cwd ../../ build && yarn run build-storybook"
+  },
+  "peerDependencies": {
+    "@emotion/css": ">=11",
+    "@emotion/react": ">=11",
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "devDependencies": {
+    "@vtex/onda-core": "*",
+    "polished": "^4.1.2"
+  },
+  "dependencies": {
+    "@emotion/is-prop-valid": "^1.1.0",
+    "react-is": "^17.0.2",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
+  }
+}
