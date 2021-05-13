@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import {
   runtime as emotionRuntime,
   StyleProp,
@@ -6,8 +6,9 @@ import {
 import { Ocean, buildRuntime, buildSteps } from '@vtex/onda-system'
 import { standard } from '@vtex/onda-plugins'
 
-export interface SystemSpec<Theme extends Record<string, any>> {
-  id: string
+export interface SytemSpec<Theme extends Record<string, any>> {
+  name: string
+  description: string
   theme: Theme
   ocean?: Ocean<Theme>
 }
@@ -16,6 +17,10 @@ export const SystemContext = React.createContext<{
   theme: any
   cn: (styleProp: StyleProp) => string
   instance: any
+  about: {
+    name: string
+    description: string
+  }
 } | null>(null)
 
 export function useSystem() {
@@ -26,15 +31,25 @@ export function useSystem() {
   return ctx
 }
 
-export function createSystem<Theme extends Record<string, any>>(
-  spec: SystemSpec<Theme>
-) {
-  const { id, theme, ocean = { plugins: standard } } = spec
+export type DesignSystem = [
+  (props: { children: React.ReactNode }) => ReactElement,
+  typeof useSystem,
+  (styleProp: StyleProp) => string
+]
+
+export function createOnda<Theme extends Record<string, any>>(
+  spec: SytemSpec<Theme>
+): DesignSystem {
+  const { name, description, theme, ocean = { plugins: standard } } = spec
 
   const steps = buildSteps(theme, ocean.plugins as any)
-  const { exec: cn, instance } = buildRuntime({ id }, steps, emotionRuntime)
+  const { exec: cn, instance } = buildRuntime(
+    { id: name },
+    steps,
+    emotionRuntime
+  )
 
-  function SystemProvider(props: any) {
+  function SystemProvider(props: { children: React.ReactNode }) {
     const { children } = props
     return (
       <SystemContext.Provider
@@ -42,6 +57,10 @@ export function createSystem<Theme extends Record<string, any>>(
           theme: steps.entries.exec(theme),
           cn,
           instance,
+          about: {
+            name,
+            description,
+          },
         }}
       >
         {children}
@@ -49,9 +68,5 @@ export function createSystem<Theme extends Record<string, any>>(
     )
   }
 
-  return {
-    cn,
-    useSystem,
-    SystemProvider,
-  }
+  return [SystemProvider, useSystem, cn]
 }

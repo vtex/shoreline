@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { createSystem, useSystem } from '../createSystem'
+import { createOnda, useSystem } from '../createOnda'
 import { render } from '@testing-library/react'
 
 describe('context', () => {
   it('should execute the system', () => {
-    const { SystemProvider } = createSystem({
-      id: 'app',
+    const [Provider] = createOnda({
+      name: 'onda-design-system-tst',
+      description: 'test of createOnda()',
       theme: {
         space: [0, 1, 2, 4, 8],
       },
@@ -25,9 +26,9 @@ describe('context', () => {
     }
 
     const { getByTestId } = render(
-      <SystemProvider>
+      <Provider>
         <Div />
-      </SystemProvider>
+      </Provider>
     )
 
     expect(getByTestId('div')).toHaveStyleRule('padding', '8px')
