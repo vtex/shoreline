@@ -25,6 +25,7 @@
     - /feedback/alert/
     - /feedback/spinner/
     - /feedback/skeleton/
+    - /feedback/toast/
 - section: Data display
   paths:
     - /data-display/card/
