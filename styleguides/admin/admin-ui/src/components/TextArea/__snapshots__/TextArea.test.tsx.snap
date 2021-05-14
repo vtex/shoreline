@@ -67,7 +67,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #898F9E;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -201,7 +201,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #898F9E;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -313,7 +313,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #898F9E;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -492,7 +492,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #898F9E;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
@@ -616,7 +616,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #898F9E;
+  border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
   margin-top: 0.25rem;
