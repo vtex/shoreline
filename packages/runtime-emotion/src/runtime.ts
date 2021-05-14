@@ -1,4 +1,5 @@
 import createEmotion from '@emotion/css/create-instance'
+import { Global } from '@emotion/react'
 import { CSSObject as EmotionCSSObject } from '@emotion/css'
 import { createRuntime } from '@vtex/onda-system'
 
@@ -11,7 +12,7 @@ export const runtime = createRuntime({
       key: id,
     })
 
-    return emotion
+    return { Global, emotion }
   },
   onParse: (steps) => {
     return function css(csx: StyleProp = {}) {
@@ -43,9 +44,9 @@ export const runtime = createRuntime({
       return cssObject
     }
   },
-  onCompile: (instance) => {
+  onCompile: ({ emotion }) => {
     return function compile(meta) {
-      const className = instance.css(meta)
+      const className = emotion.css(meta)
       return className
     }
   },
