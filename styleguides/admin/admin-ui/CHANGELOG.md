@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.95.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.94.0...@vtex/admin-ui@0.95.0) (2021-05-14)
+
+
+### Bug Fixes
+
+* **toast:** don't destruct toaster's toast method ([dd875d7](https://github.com/vtex/onda/commit/dd875d7dd66a2df31896402e1fbf81fa0b7bba6c))
+
+
+### Features
+
+* **toast:** action prop ([c4ac5bd](https://github.com/vtex/onda/commit/c4ac5bd90ce067d861924f2aec7b572ce3687736))
+* **toast:** add parent frame rendering logic ([df9791a](https://github.com/vtex/onda/commit/df9791a96db66c0ccb5a8baf13c0e76f30c39603))
+* **toast:** animate entire toast stack when new toast is added ([8386f19](https://github.com/vtex/onda/commit/8386f197e14ba7fde50086ce9cbeead26de9e50a))
+* **toast:** basic toast styling ([5e5f525](https://github.com/vtex/onda/commit/5e5f5253528edd7c0963d228beff3dbadf2ab7b2))
+* **toast:** first and rest of stack toast's exit animation ([34c00bd](https://github.com/vtex/onda/commit/34c00bded8c1ec32a0a5f894094c9919c3303a20))
+* **toast:** make toast customizable ([f8ced91](https://github.com/vtex/onda/commit/f8ced91b82258b8bd0a196f15643aff22cdd1307))
+* **toast:** toast stacking logic ([86d1ec6](https://github.com/vtex/onda/commit/86d1ec68dee7a581315908586b2c6fb4ab793110))
+
+
+
+
+
 # [0.94.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.93.0...@vtex/admin-ui@0.94.0) (2021-05-11)
 
 

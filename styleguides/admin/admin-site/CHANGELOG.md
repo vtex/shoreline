@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.15](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.12.14...admin-site@0.12.15) (2021-05-14)
+
+
+### Bug Fixes
+
+* **admin-site-quick-wins:** filter sections with no paths ([9808246](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/98082465f8066c1806ff8a7bc620a52592c36950))
+* **admin-site-quick-wins:** stop page width variation ([4d127bf](https://github.com/vtex/onda/tree/master/styleguides/admin/site/commit/4d127bf1c31ca02218c51eb6ceabc186f3dffbe2))
+
+
+
+
+
 ## [0.12.14](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.12.13...admin-site@0.12.14) (2021-05-11)
 
 **Note:** Version bump only for package admin-site
