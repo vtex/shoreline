@@ -2,6 +2,7 @@ import React from 'react'
 
 import { createOnda, useSystem } from '../createOnda'
 import { render } from '@testing-library/react'
+import { createPlugin } from '@vtex/onda-system'
 
 describe('context', () => {
   it('should execute the system', () => {
@@ -11,6 +12,15 @@ describe('context', () => {
       theme: {
         space: [0, 1, 2, 4, 8],
       },
+      plugins: [
+        createPlugin({
+          name: 'onda-plugin-space-tst',
+          namespaces: ['space'],
+          rules: {
+            padding: 'space',
+          },
+        }),
+      ],
     })
 
     function Div() {

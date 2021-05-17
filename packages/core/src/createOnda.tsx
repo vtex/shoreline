@@ -1,16 +1,15 @@
 import React, { ReactElement } from 'react'
 import {
-  runtime as emotionRuntime,
+  runtime as runtimeEmotion,
   StyleProp,
 } from '@vtex/onda-runtime-emotion'
-import { Ocean, buildRuntime, buildSteps } from '@vtex/onda-system'
-import { standard } from '@vtex/onda-plugins'
+import { buildRuntime, buildSteps, Plugin } from '@vtex/onda-system'
 
 export interface SytemSpec<Theme extends Record<string, any>> {
   name: string
   description: string
   theme: Theme
-  ocean?: Ocean<Theme>
+  plugins: Plugin<Theme>[]
 }
 
 export const SystemContext = React.createContext<{
@@ -40,29 +39,33 @@ export type DesignSystem = [
 export function createOnda<Theme extends Record<string, any>>(
   spec: SytemSpec<Theme>
 ): DesignSystem {
-  const { name, description, theme, ocean = { plugins: standard } } = spec
+  const { name, description, theme, plugins = [] } = spec
 
-  const steps = buildSteps(theme, ocean.plugins as any)
-  const { exec: cn, instance } = buildRuntime(
-    { id: name },
-    steps,
-    emotionRuntime
-  )
+  const steps = buildSteps(theme, plugins as any)
+  const {
+    exec: cn,
+    parse,
+    instance: { emotion, Global },
+  } = buildRuntime({ id: name }, steps, runtimeEmotion)
+
+  const finalTheme = steps.entries.exec(theme)
+  const globalStyles = parse.exec(finalTheme?.global ?? {})
 
   function SystemProvider(props: { children: React.ReactNode }) {
     const { children } = props
     return (
       <SystemContext.Provider
         value={{
-          theme: steps.entries.exec(theme),
+          theme: finalTheme,
           cn,
-          instance,
+          instance: emotion,
           about: {
             name,
             description,
           },
         }}
       >
+        <Global styles={globalStyles} />
         {children}
       </SystemContext.Provider>
     )
