@@ -1,9 +1,10 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useLayoutEffect } from 'react'
 import {
   runtime as runtimeEmotion,
   StyleProp,
 } from '@vtex/onda-runtime-emotion'
 import { buildRuntime, buildSteps, Plugin } from '@vtex/onda-system'
+import { applyCSSVariables, createTheme } from './createTheme'
 
 export interface SytemSpec<Theme extends Record<string, any>> {
   name: string
@@ -39,7 +40,10 @@ export type DesignSystem = [
 export function createOnda<Theme extends Record<string, any>>(
   spec: SytemSpec<Theme>
 ): DesignSystem {
-  const { name, description, theme, plugins = [] } = spec
+  const { name, description, theme: preTheme, plugins = [] } = spec
+
+  const { global, ...flashTheme } = preTheme
+  const [theme, cssProps] = createTheme(flashTheme)
 
   const steps = buildSteps(theme, plugins as any)
   const {
@@ -48,15 +52,19 @@ export function createOnda<Theme extends Record<string, any>>(
     instance: { emotion, Global },
   } = buildRuntime({ id: name }, steps, runtimeEmotion)
 
-  const finalTheme = steps.entries.exec(theme)
-  const globalStyles = parse.exec(finalTheme?.global ?? {})
+  const globalStyles = parse.exec(global ?? {})
 
   function SystemProvider(props: { children: React.ReactNode }) {
     const { children } = props
+
+    useLayoutEffect(() => {
+      applyCSSVariables(cssProps)
+    }, [])
+
     return (
       <SystemContext.Provider
         value={{
-          theme: finalTheme,
+          theme: steps.entries.exec(theme),
           cn,
           instance: emotion,
           about: {
