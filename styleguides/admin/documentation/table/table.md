@@ -79,9 +79,11 @@ function Simple() {
 
 ### Density
 
+The density prop changes the height of the table row, you can have `regular`, `compact` and `variable`.
+
 ```jsx
 <StatefulTable
-  density="regular"
+  density="compact"
   columns={[
     {
       id: 'location',
@@ -128,19 +130,212 @@ function Simple() {
 />
 ```
 
+### Row click
+
+You can pass a function to the prop onRowClick and that function we'll be called passing the item of that row.
+
+```jsx
+<StatefulTable
+  onRowClick={(item) => alert(item.productName)}
+  columns={[
+    {
+      id: 'productName',
+      header: 'Product Name',
+    },
+    {
+      id: 'inStock',
+      header: 'In Stock',
+    },
+    {
+      id: 'skus',
+      header: 'SKUs',
+    },
+    {
+      id: 'price',
+      header: 'Price',
+    },
+  ]}
+  items={[
+    {
+      id: 1,
+      productName: 'Orange',
+      inStock: 380,
+      skus: 0,
+      price: 120,
+    },
+    {
+      id: 2,
+      productName: 'Lemon',
+      inStock: 380,
+      skus: 26,
+      price: 120,
+    },
+    {
+      id: 3,
+      productName: 'Tomato',
+      inStock: 380,
+      skus: 26,
+      price: 120,
+    },
+  ]}
+/>
+```
+
+### Direction
+
+You can have right to left wrinting on the table using the dir prop
+
+```jsx
+<StatefulTable
+  dir="rtl"
+  density="variable"
+  columns={[
+    {
+      id: 'location',
+      width: 148,
+      header: 'موقعك',
+      resolver: {
+        type: 'plain',
+      },
+    },
+    {
+      id: 'date',
+      header: 'تاريخ',
+      width: 148,
+      resolver: {
+        type: 'date',
+        locale: 'ar-AE',
+        options: {
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
+          day: 'numeric',
+          month: 'numeric',
+          year: 'numeric',
+        },
+      },
+    },
+    {
+      id: 'status',
+      width: 156,
+      header: 'الحالة',
+      resolver: {
+        type: 'plain',
+      },
+    },
+  ]}
+  items={[
+    {
+      id: 1,
+      location: 'ساو باولو- اس بي',
+      date: '8/7/2020, 23:29',
+      status: `تم التوصيل`,
+    },
+    {
+      id: 2,
+      location: 'ساو باولو- اس بي',
+      date: '6/7/2020, 21:12',
+      status: `وصل إلى ساو باولو`,
+    },
+    {
+      id: 3,
+      location: 'ساو باولو- اس بي',
+      date: '5/7/2020, 13:04',
+      status: `في طريقها من ريو دي جانيرو إلى ساو باولو`,
+    },
+    {
+      id: 4,
+      location: 'ساو باولو- اس بي',
+      date: '4/7/2020, 14:48',
+      status: `إرسال الكائن في مكتب البريد`,
+    },
+  ]}
+/>
+```
+
 ### Table
 
 <blockquote palette="red">
 
-Still TDB. Suited for advanced usages such as Windowing and Drag n Drop. If that's your case, check the storybook stories for more details in how to acomplish it.
+Still TBD. Suited for advanced usages such as Windowing and Drag n Drop. If that's your case, check the storybook stories for more details in how to acomplish it.
 
 </blockquote>
 
-## Limitations
+```jsx
+function Example() {
+  const columns = [
+    {
+      id: 'productName',
+      header: 'Product Name',
+    },
+    {
+      id: 'inStock',
+      header: 'In Stock',
+    },
+    {
+      id: 'skus',
+      header: 'SKUs',
+    },
+    {
+      id: 'price',
+      header: 'Price',
+    },
+  ]
 
-This component is unstable because it is missing some crucial features such as:
+  const items = [
+    {
+      id: 1,
+      productName: 'Orange',
+      inStock: 380,
+      skus: 0,
+      price: 120,
+    },
+    {
+      id: 2,
+      productName: 'Lemon',
+      inStock: 380,
+      skus: 26,
+      price: 120,
+    },
+    {
+      id: 3,
+      productName: 'Tomato',
+      inStock: 380,
+      skus: 26,
+      price: 120,
+    },
+  ]
 
-- Checkbox resolvers
+  return (
+    <Table>
+      <Table.Head>
+        <Table.Row>
+          {columns.map((column) => {
+            return (
+              <Table.Cell key={column.id} column={column}>
+                {column.header}
+              </Table.Cell>
+            )
+          })}
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        {items.map((item) => (
+          <Table.Row key={item.id}>
+            {columns.map((column) => {
+              return (
+                <Table.Cell key={column.id} column={column}>
+                  {item[column.id]}
+                </Table.Cell>
+              )
+            })}
+          </Table.Row>
+        ))}
+      </Table.Body>
+    </Table>
+  )
+}
+```
 
 ## Props
 
@@ -152,7 +347,6 @@ This component is unstable because it is missing some crucial features such as:
 | items         | `T[]`                         | Table items                                                                 | 🚫       | `[]`                                 |
 | length        | `number`                      | Expected items length                                                       | 🚫       | `5`                                  |
 | sort          | `UseTableSortParams<T>`       | useTableSort hook params                                                    | 🚫       | -                                    |
-| css           | `any`                         | Emotion css prop                                                            | 🚫       | -                                    |
 | csx           | `StyleProp`                   | Define component styles                                                     | 🚫       | {}                                   |
 | getRowKey     | `(item: T) => string`         | Key extractor                                                               | 🚫       | Table's default key extractor        |
 | loading       | `boolean`                     | Whether the table is loading or not                                         | 🚫       | `false`                              |
