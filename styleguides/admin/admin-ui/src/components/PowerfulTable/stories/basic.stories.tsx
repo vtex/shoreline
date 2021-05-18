@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
 import { StatefulTable } from '../'
@@ -105,6 +105,69 @@ export function OnRowClick() {
         },
       ]}
       items={fruits}
+      loading
     />
+  )
+}
+
+export function LoadingAndRowClick() {
+  const [loading, setLoading] = useState(false)
+
+  const fruits = [
+    {
+      id: 1,
+      productName: 'Orange',
+      inStock: 380,
+      skus: 0,
+      price: 120,
+    },
+    {
+      id: 2,
+      productName: 'Lemon',
+      inStock: 380,
+      skus: 26,
+      price: 120,
+    },
+    {
+      id: 3,
+      productName: 'Tomato',
+      inStock: 380,
+      skus: 26,
+      price: 120,
+    },
+  ]
+
+  return (
+    <StatefulTable
+      onRowClick={(item) => alert(item.productName)}
+      columns={[
+        {
+          id: 'productName',
+          header: 'Product Name',
+        },
+        {
+          id: 'inStock',
+          header: 'In Stock',
+        },
+        {
+          id: 'skus',
+          header: 'SKUs',
+        },
+        {
+          id: 'price',
+          header: 'Price',
+        },
+      ]}
+      items={fruits}
+      loading={loading}
+    >
+      <StatefulTable.Section>
+        <StatefulTable.Toolbar>
+          <StatefulTable.Toolbar.Button onClick={() => setLoading(!loading)}>
+            loading
+          </StatefulTable.Toolbar.Button>
+        </StatefulTable.Toolbar>
+      </StatefulTable.Section>
+    </StatefulTable>
   )
 }
