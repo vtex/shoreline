@@ -1,5 +1,6 @@
 {
   "name": "@vtex/onda-system",
+  "license": "MIT",
   "version": "0.1.0-labs.0",
   "main": "dist/index.js",
   "module": "dist/onda-system.esm.js",
