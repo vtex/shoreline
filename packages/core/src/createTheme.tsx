@@ -59,11 +59,27 @@ export function applyCSSVariables(props: Record<string, any>) {
   })
 }
 
-export function createTheme(draftTheme: Record<string, any>) {
-  if (!draftTheme) return [{}, {}]
+export interface ThemeOptions {
+  disableCSSVariables?: boolean
+}
 
-  const theme = toCustomProperties(draftTheme)
-  const cssVariables = objectToVars(draftTheme)
+export function createTheme(
+  draftTheme: Record<string, any>,
+  options?: ThemeOptions
+) {
+  if (!draftTheme)
+    return [
+      {
+        global: {},
+      },
+      {},
+    ]
+  if (options?.disableCSSVariables) return [draftTheme, {}]
 
-  return [theme, cssVariables]
+  const { global = {}, ...themeWithoutGlobal } = draftTheme
+
+  const theme = toCustomProperties(themeWithoutGlobal)
+  const cssVariables = objectToVars(themeWithoutGlobal)
+
+  return [{ global, ...theme }, cssVariables]
 }

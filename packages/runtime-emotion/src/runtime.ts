@@ -32,7 +32,12 @@ export const runtime = createRuntime({
         const value = transform.exec(rule, token)
 
         if (typeof value === 'object') {
-          Object.assign(cssObject, value)
+          if (value.default) {
+            // handle default entries
+            cssObject[cssProperty] = value.default
+          } else {
+            Object.assign(cssObject, value)
+          }
         } else if (cssProperty in steps.splits.value) {
           const splitValue = steps.splits.exec(cssProperty, value)
           Object.assign(cssObject, splitValue)
