@@ -131,7 +131,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
                     <Table.Row
                       key={getRowKey(item) as string}
                       onClick={
-                        typeof onRowClick === 'function'
+                        typeof onRowClick === 'function' && !loading
                           ? () => onRowClick(item)
                           : undefined
                       }
