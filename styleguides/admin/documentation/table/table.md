@@ -183,7 +183,7 @@ You can pass a function to the prop onRowClick and that function we'll be called
 
 ### Direction
 
-You can have right to left wrinting on the table using the dir prop
+You can have right to left writing on the table using the dir prop
 
 ```jsx
 <StatefulTable
@@ -257,7 +257,7 @@ You can have right to left wrinting on the table using the dir prop
 
 <blockquote palette="red">
 
-Still TBD. Suited for advanced usages such as Windowing and Drag n Drop. If that's your case, check the storybook stories for more details in how to acomplish it.
+Still TBD. Suited for advanced usages such as Windowing and Drag n Drop. If that's your case, check the storybook stories for more details in how to accomplish this.
 
 </blockquote>
 

@@ -89,7 +89,7 @@ It's possible to pass compare functions to the sortable property in the column o
 
 ## Resolvers API
 
-The column object has an optional property that allows you to provide a resolver object that will handle the rendering of the cells and header of that column, the resolver object receives a type, a optional render function and depending on the type other props will be necessary. If you don't provide the render function we have a default render function that we'll be used.
+The column object has an optional property that allows you to provide a resolver object that will handle the rendering of the cells and header of that column, the resolver object receives a type, an optional render function and depending on the type, other props might be necessary. If you don't provide the render function we have a default render function that we'll be used.
 
 ### Plain
 

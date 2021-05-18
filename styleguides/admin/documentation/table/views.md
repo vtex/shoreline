@@ -60,7 +60,7 @@ function Views() {
           id: 4,
           location: 'Itaquaquecetuba, SP',
           date: '4/7/2020, 14:48',
-          status: `Object dispatched at the post office`,
+          status: 'Object dispatched at the post office',
         },
       ]}
       length={4}
@@ -70,7 +70,7 @@ function Views() {
       itemsNotFound={tableState === 'itemsNotFound'}
       views={{
         itemsNotFound: {
-          title: 'No product match your search criteria',
+          title: 'No product matches your search criteria',
           text: 'Please, search for a different term',
         },
         empty: {
