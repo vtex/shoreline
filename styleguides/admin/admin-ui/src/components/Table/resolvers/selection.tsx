@@ -13,7 +13,13 @@ export function selectionResolver<T>() {
       return (
         <SelectionContext.Consumer>
           {(state) => {
-            return <Checkbox state={state?.root} disabled={context.loading} />
+            return (
+              <Checkbox
+                state={state?.root}
+                disabled={context.loading}
+                onClick={(e) => e.stopPropagation()}
+              />
+            )
           }}
         </SelectionContext.Consumer>
       )
@@ -29,6 +35,7 @@ export function selectionResolver<T>() {
                 value={resolver?.mapId(item)}
                 state={state?.items}
                 disabled={context.loading}
+                onClick={(e) => e.stopPropagation()}
               />
             )
           }}
