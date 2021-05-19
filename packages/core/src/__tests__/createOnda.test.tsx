@@ -21,6 +21,9 @@ describe('context', () => {
           },
         }),
       ],
+      options: {
+        disableCSSVariables: true,
+      },
     })
 
     function Div() {

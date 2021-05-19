@@ -1,6 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { Button as ReakitButton, Separator } from 'reakit'
+import { standard } from '@vtex/onda-plugins'
 
 import { createComponent } from '../index'
 import { createOnda } from '@vtex/onda-core'
@@ -9,6 +10,7 @@ import theme from './theme'
 const [ThemeProvider] = createOnda({
   name: 'sb-onda',
   description: 'sb-onda description',
+  plugins: standard,
   theme,
 })
 

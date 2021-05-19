@@ -15,6 +15,12 @@ const theme = {
       fontFamily: 'sans-serif',
     },
   },
+  colors: {
+    primary: {
+      default: 'blue',
+      hover: 'red',
+    },
+  },
 }
 
 const steps = buildSteps(theme, standard)

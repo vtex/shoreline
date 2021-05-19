@@ -28,6 +28,16 @@ describe('parse', () => {
   })
 
   describe('basic rules', () => {
+    it('should be able to handle default entries', () => {
+      const result = parse({
+        color: 'primary',
+      })
+
+      expect(result).toEqual({
+        color: 'blue',
+      })
+    })
+
     it('should be able to consume a rule', () => {
       const result = parse({
         padding: 4,
