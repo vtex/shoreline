@@ -16,7 +16,80 @@ path: /table/column/
 | sortable  | `(a: T, b: T) => number`            | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatefulTable sort prop. | 🚫                                                                                                     |
 | compare   | `boolean`                           | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result.                                | 🚫                                                                                                     |
 
+## Sortable
+
+It's possible to pass compare functions to the sortable property in the column object and that function will be used to sort the items of the table when the header of that column is clicked.
+
+```jsx
+<StatefulTable
+  length="5"
+  columns={[
+    {
+      id: 'productName',
+      header: 'Product Name',
+      compare: (a, b) => b.productName.localeCompare(a.productName),
+    },
+    {
+      id: 'inStock',
+      header: 'In Stock',
+      compare: (a, b) => b.inStock - a.inStock,
+    },
+    {
+      id: 'price',
+      header: 'Price',
+      compare: (a, b) => b.price - a.price,
+    },
+  ]}
+  items={[
+    {
+      id: 1,
+      productName: 'Orange',
+      inStock: 180,
+      price: 130,
+    },
+    {
+      id: 2,
+      productName: 'Lemon',
+      inStock: 320,
+      price: 320,
+    },
+    {
+      id: 3,
+      productName: 'Tomato',
+      inStock: 383,
+      price: 123,
+    },
+    {
+      id: 4,
+      productName: 'Grape',
+      inStock: 480,
+      price: 340,
+    },
+    {
+      id: 5,
+      productName: 'Apple',
+      inStock: 350,
+      price: 220,
+    },
+    {
+      id: 6,
+      productName: 'Banana',
+      inStock: 360,
+      price: 520,
+    },
+    {
+      id: 7,
+      productName: 'Mango',
+      inStock: 387,
+      price: 823,
+    },
+  ]}
+/>
+```
+
 ## Resolvers API
+
+The column object has an optional property that allows you to provide a resolver object that will handle the rendering of the cells and header of that column, the resolver object receives a type, an optional render function, and depending on the type, other props might be necessary. If you don't provide the render function we have a default render function that we'll be used.
 
 ### Plain
 

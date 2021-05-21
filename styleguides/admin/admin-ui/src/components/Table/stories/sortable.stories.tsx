@@ -12,7 +12,7 @@ import {
 } from '../hooks/useTableSort'
 
 export default {
-  title: 'experimental/Table/Sort',
+  title: 'admin-ui/Table/Sort',
   component: StatefulTable,
 } as Meta
 
