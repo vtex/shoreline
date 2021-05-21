@@ -79,7 +79,7 @@ function Simple() {
 
 ### Density
 
-The density prop changes the height of the table row, you can have `regular`, `compact` and `variable`.
+The density prop changes the height of the table row. You can set its value to `regular`, `compact`, or `variable`.
 
 ```jsx
 <StatefulTable
