@@ -255,11 +255,7 @@ You can have right to left writing on the table using the dir prop
 
 ### Table
 
-<blockquote palette="red">
-
-Still TBD. Suited for advanced usages such as Windowing and Drag n Drop. If that's your case, check the storybook stories for more details in how to accomplish this.
-
-</blockquote>
+Suited for advanced usages such as [Windowing](https://admin-ui.vercel.app/?path=/story/admin-ui-table-deep--windowing) and [Drag n Drop](https://admin-ui.vercel.app/?path=/story/admin-ui-table-deep--dnd). If that's your case, check the storybook stories for more details in how to accomplish this.
 
 ```jsx
 function Example() {
