@@ -14,6 +14,9 @@ export const Playground: Story<SearchProps> = (args) => {
     <Search
       value={value}
       onChange={(e) => setValue(e.target.value)}
+      onClear={() => {
+        setValue('')
+      }}
       {...args}
     />
   )
