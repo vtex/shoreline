@@ -1,5 +1,5 @@
 import { createComponent, jsxs, StyleObject } from '@vtex/admin-core'
-import { IconSearch } from '@vtex/admin-ui-icons'
+import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
 
 import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
 import { AbstractInput, AbstractInputProps } from '../AbstractInput'
@@ -24,10 +24,14 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
     placeholder,
     onSubmit,
     loading,
+    onClear,
+    value = '',
     wrappingFormCSX = {},
     csx = {},
     ...inputProps
   } = props
+
+  const showClear = !!onClear && value.toString().length > 0
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -38,16 +42,33 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
     element: 'form',
     role: 'search',
     onSubmit: handleSubmit,
-    csx: wrappingFormCSX,
+    csx: { position: 'relative', wrappingFormCSX },
     children: [
       jsxs(VisuallyHidden, {}, jsxs(Label, { htmlFor: id }, placeholder)),
       jsxs(AbstractInput, {
         id,
         placeholder,
+        value,
         icon: jsxs(loading ? Spinner : IconSearch, { csx: iconCsx }),
+        buttonElements: showClear
+          ? jsxs(Button, {
+              icon: jsxs(IconCancel, {}),
+              onClick: onClear,
+              size: 'small',
+              variant: 'adaptative-dark',
+              csx: {
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                marginRight: '0.375rem',
+              },
+            })
+          : undefined,
         csx: {
           height: '2.5rem',
-          padding: '0.4375rem 0.25rem 0.4375rem 2rem',
+          paddingY: '0.4375rem',
+          paddingLeft: '2rem',
+          paddingRight: '2.5rem',
           margin: 0,
           ...csx,
         },
@@ -60,7 +81,7 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
 
 export type SearchOwnProps = Omit<
   AbstractInputProps,
-  'icon' | 'id' | 'placeholder'
+  'icon' | 'id' | 'placeholder' | 'buttonElements' | 'suffix'
 >
 
 export interface SearchProps extends SystemComponentProps<SearchOwnProps> {
