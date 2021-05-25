@@ -61,10 +61,8 @@ function Example() {
 | placeholder     | `string`             | Placeholder text                            | ✅       | -       |
 | onSubmit        | `() => void`         | Action to perform on submit                 | 🚫       | -       |
 | wrappingFormCSX | `StyleObject`        | Style object for form wrapping search input | 🚫       | `{}`    |
-| suffix          | `string`             | Input Suffix                                | 🚫       | -       |
 | onClear         | `() => void`         | onClear input                               | 🚫       | -       |
 | labelElement    | `ReactNode`          | Render an optional label                    | 🚫       | -       |
-| buttonElements  | `ReactNode`          | Button elements                             | 🚫       | -       |
 | onChange        | `ChangeEventHandler` | onChange event                              | 🚫       | -       |
 | error           | `boolean`            | Input error state                           | 🚫       | -       |
 | csx             | `StyleProp`          | Defines component styles                    | 🚫       | `{}`    |
