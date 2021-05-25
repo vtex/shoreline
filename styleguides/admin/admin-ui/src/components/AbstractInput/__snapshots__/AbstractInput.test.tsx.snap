@@ -38,7 +38,6 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -286,7 +285,6 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-1:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -457,7 +455,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -524,7 +521,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -606,7 +602,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -801,7 +796,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-1:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -903,7 +897,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-1:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -1041,7 +1034,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-1:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -1235,7 +1227,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-1:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -1376,7 +1367,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -1478,7 +1468,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -1595,7 +1584,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -1715,7 +1703,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-1:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -1853,7 +1840,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-1:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -2067,7 +2053,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-1:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
