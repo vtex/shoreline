@@ -2,7 +2,11 @@
 
 exports[`Search tests should match snapshot 1`] = `
 <DocumentFragment>
-  
+  .emotion-6 {
+  position: relative;
+}
+
+
 
 .emotion-0 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -101,8 +105,8 @@ exports[`Search tests should match snapshot 1`] = `
   height: 2.5rem;
   border-style: solid;
   border-width: 1px;
-  padding-left: 44px;
-  padding-right: 1rem;
+  padding-left: 2rem;
+  padding-right: 2.5rem;
   border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
@@ -113,7 +117,8 @@ exports[`Search tests should match snapshot 1`] = `
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
-  padding: 0.4375rem 0.25rem 0.4375rem 2rem;
+  padding-top: 0.4375rem;
+  padding-bottom: 0.4375rem;
   margin: 0rem;
 }
 
@@ -231,6 +236,10 @@ exports[`Search tests should match snapshot on loading 1`] = `
   }
 }
 
+.emotion-7 {
+  position: relative;
+}
+
 
 
 .emotion-0 {
@@ -315,8 +324,8 @@ exports[`Search tests should match snapshot on loading 1`] = `
   height: 2.5rem;
   border-style: solid;
   border-width: 1px;
-  padding-left: 44px;
-  padding-right: 1rem;
+  padding-left: 2rem;
+  padding-right: 2.5rem;
   border-color: #C4C5CA;
   border-radius: 4px;
   background-color: inherit;
@@ -327,7 +336,8 @@ exports[`Search tests should match snapshot on loading 1`] = `
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
-  padding: 0.4375rem 0.25rem 0.4375rem 2rem;
+  padding-top: 0.4375rem;
+  padding-bottom: 0.4375rem;
   margin: 0rem;
 }
 
