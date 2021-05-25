@@ -81,13 +81,15 @@ export function TableViewResolver(props: TableViewResolverProps) {
             </Text>
           )}
           {views?.[state].anchor && (
-            <Anchor
-              csx={{ fontSize: 1 }}
-              href={views[state].anchor?.href}
-              onClick={views[state].anchor?.onClick}
-            >
-              {views[state].anchor?.text}
-            </Anchor>
+            <Text variant="body">
+              <Anchor
+                csx={{ fontSize: 1 }}
+                href={views[state].anchor?.href}
+                onClick={views[state].anchor?.onClick}
+              >
+                {views[state].anchor?.text}
+              </Anchor>
+            </Text>
           )}
         </Flex>
       </TableViews>
