@@ -36,8 +36,14 @@ export function TableViews(props: PropsWithChildren<TableViewsProps>) {
       }}
     >
       <Flex
-        justify="center"
-        csx={{ width: '18.75rem', minHeight: '11.375rem' }}
+        direction="column"
+        align="center"
+        csx={{
+          padding: 4,
+          maxWidth: '38.75rem',
+          minHeight: '11.375rem',
+          wordBreak: 'break-word',
+        }}
         wrap="wrap"
       >
         <Box csx={{ marginLeft: '-1.7rem', marginY: 5 }}>{illustration}</Box>
