@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.96.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.95.0...@vtex/admin-ui@0.96.0) (2021-05-25)
+
+
+### Bug Fixes
+
+* **checkbox-propagation:** use call event stop propagation in checkbox on click ([09a6fbf](https://github.com/vtex/onda/commit/09a6fbf158a116aa05b1f43ac9b280ef98c473d1))
+* **improve-table-doc:** move table sort stories to admin-ui ([d9c274d](https://github.com/vtex/onda/commit/d9c274d664ab00241f2de14f543a85b78c5d1ffc))
+* **table-loading-row-click:** verify if table is not loading onRowClick ([bca0da9](https://github.com/vtex/onda/commit/bca0da9d725c43e9f99383e92c516feed0bdbb85))
+
+
+### Features
+
+* **checkbox-propagation:** add table stories with checkbox and rowclick ([ac42b2e](https://github.com/vtex/onda/commit/ac42b2e22868d4b2eaa26bc12f3e4143fde05d7e))
+* **table-loading-row-click:** add stories with table loading and row click ([10bfb94](https://github.com/vtex/onda/commit/10bfb94eed6cb11cb538d924619c6810fea91242))
+
+
+
+
+
 # [0.95.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.94.0...@vtex/admin-ui@0.95.0) (2021-05-14)
 
 

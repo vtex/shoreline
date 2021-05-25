@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.1...@vtex/admin-ui-theme@0.26.2) (2021-05-25)
+
+
+### Bug Fixes
+
+* **tooltip-align-center:** remove tooltip min-height and add 1px to padding ([1952a69](https://github.com/vtex/onda/commit/1952a69b319d02b1a4f02c8684d1186bf996a518))
+
+
+
+
+
 ## [0.26.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.0...@vtex/admin-ui-theme@0.26.1) (2021-05-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
