@@ -90,7 +90,6 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -224,7 +223,6 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -336,7 +334,6 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -515,7 +512,6 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -639,7 +635,6 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
