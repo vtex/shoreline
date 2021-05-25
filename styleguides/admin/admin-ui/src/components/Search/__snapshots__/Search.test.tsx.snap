@@ -128,7 +128,6 @@ exports[`Search tests should match snapshot 1`] = `
 
 .emotion-2:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 
@@ -343,7 +342,6 @@ exports[`Search tests should match snapshot on loading 1`] = `
 
 .emotion-3:disabled {
   background-color: #F4F6FB;
-  border-color: #898F9E;
   color: #898F9E;
 }
 

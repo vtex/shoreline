@@ -28,7 +28,6 @@ const textAreaInputStyle = {
   },
   ':disabled': {
     bg: 'light.secondary',
-    borderColor: 'mid.primary',
     color: 'mid.primary',
   },
   // Label styles

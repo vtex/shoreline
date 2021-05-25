@@ -28,7 +28,6 @@ const inputStyle = {
   },
   ':disabled': {
     bg: 'light.secondary',
-    borderColor: 'mid.primary',
     color: 'mid.primary',
   },
   ':focus + label': {
