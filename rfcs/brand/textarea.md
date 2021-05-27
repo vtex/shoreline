@@ -40,7 +40,7 @@ import { Textarea } from '@brand-ui/TextArea'
 
 # Education
 
-- Document the components with its user cases, besides usage examples with all Card's features (with and without padding, with images, buttons, etc).
+- As with any DS component, it must be documented.
 
 # Unresolved questions
 
