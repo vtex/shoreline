@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.97.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.96.0...@vtex/admin-ui@0.97.0) (2021-05-27)
+
+
+### Bug Fixes
+
+* **filter-bar:** export filter-bar components ([8ba5e6e](https://github.com/vtex/onda/commit/8ba5e6edaf4e1319c66d16fa799a5710b2fd2155))
+* **filter-bar:** fix conflicting export ([02b6564](https://github.com/vtex/onda/commit/02b6564233591d053abf9e6ddde31fdee98696bd))
+* **search-onclear:** use buttonElements to display onClear ([2b012af](https://github.com/vtex/onda/commit/2b012af5e5973ec885c4b94cff7fc984f96aa7db))
+* **table-view-sate:** add text with variant body to table view anchor ([ecb9641](https://github.com/vtex/onda/commit/ecb9641eeb094e6356e7f25e66e94d3761f66a13))
+* **table-view-state:** table view state layout responsivity issues ([b04c315](https://github.com/vtex/onda/commit/b04c3152224be3dbbc56adfcbf5702e57b4104b8))
+
+
+### Features
+
+* **search-onclear:** add onClear to Search stories ([0a9c7ed](https://github.com/vtex/onda/commit/0a9c7ed7fbfd5aff41b328af6b7fd70014e7845c))
+* **table-view-state:** add customizable table view story ([2f9098c](https://github.com/vtex/onda/commit/2f9098cc6b98897a753dec358fa224b2189a4fb4))
+
+
+
+
+
 # [0.96.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.95.0...@vtex/admin-ui@0.96.0) (2021-05-25)
 
 
