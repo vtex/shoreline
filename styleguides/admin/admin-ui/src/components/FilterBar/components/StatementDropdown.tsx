@@ -81,7 +81,7 @@ export interface StatementDropdownProps<T>
    */
   handleItemChange: (item: UseSelectStateChange<T>) => void
   /**
-   * Dropdown current selected item
+   * Dropdown initial selected item
    */
-  selectedItem: T
+  selectedItem?: T
 }

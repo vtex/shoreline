@@ -195,3 +195,5 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
     </Box>
   )
 }
+
+export * from './components'
