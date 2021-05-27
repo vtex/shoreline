@@ -196,4 +196,4 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
   )
 }
 
-export * from './components'
+export { StatementDropdown, StatementDropdownProps } from './components'
