@@ -22,8 +22,10 @@ import { Textarea } from '@brand-ui/TextArea'
 
 | prop       | type      | description                                               | required |
 | ---------- | --------- | --------------------------------------------------------- | -------- |
+| value | string    | value associated with the text area| ✔️       |
 | helperText | string    | additional tips on how the TextArea is expected to be filled | ✔️       |
 | label      | string    | label displayed in the TextArea, also used as placeholder    | ✔️       |
+| onChange | function | the function that handles changes on the textarea value |  ✔️        | - |
 | charLimit  | number    | maximum number of characters in TextArea text                | 🚫       |
 | disabled   | boolean   | whether the TextArea is disabled or not                      | 🚫       |
 | pattern    | RegExp    | a pattern the TextArea text must match                       | 🚫       |                         | 🚫       |
@@ -32,6 +34,9 @@ import { Textarea } from '@brand-ui/TextArea'
 | size       | TextAreaSize | sizing of the TextArea                                       | 🚫       |
 | error        | boolean                             | whether the TextArea is error state or not |  🚫       |
 | darkmode        | boolean                             | whether the TextArea is in darkmode state or not  | 🚫       |
+
+
+
 
 
 # Adoption strategy
