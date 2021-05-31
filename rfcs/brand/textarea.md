@@ -31,7 +31,8 @@ import { Textarea } from '@brand-ui/TextArea'
 | pattern    | RegExp    | a pattern the TextArea text must match                       | 🚫       |                         | 🚫       |
 | readOnly   | boolean   | whether the TextArea is read only or not                     | 🚫       |
 | required   | boolean   | whether the TextArea must be filled or not                   | 🚫       |
-| size       | TextAreaSize | sizing of the TextArea                                       | 🚫       |
+| rows       | TextAreaSize | sizing of the TextArea                                       | 🚫       |
+| colums       | TextAreaSize | sizing of the TextArea                                       | 🚫       |
 | error        | boolean                             | whether the TextArea is error state or not |  🚫       |
 | darkmode        | boolean                             | whether the TextArea is in darkmode state or not  | 🚫       |
 
