@@ -12,10 +12,12 @@
 ```jsx
 import { Textarea } from '@brand-ui/TextArea'
 
-;<Textarea label="Please enter your feedbacks here.."
-  helperText="Help Message">
-    <p>Image description</p>
-<Textarea/>
+;<Textarea 
+  label="Please enter your feedbacks here.."
+  helperText="Help Message"
+  value={value}
+  onChange={onChange}
+/>
 ```
 
 # Detailed design
@@ -31,13 +33,10 @@ import { Textarea } from '@brand-ui/TextArea'
 | pattern    | RegExp    | a pattern the TextArea text must match                       | 🚫       |                         | 🚫       |
 | readOnly   | boolean   | whether the TextArea is read only or not                     | 🚫       |
 | required   | boolean   | whether the TextArea must be filled or not                   | 🚫       |
-| rows       | TextAreaSize | sizing of the TextArea                                       | 🚫       |
-| colums       | TextAreaSize | sizing of the TextArea                                       | 🚫       |
+| rows       | number | The number of lines of text visible to the control.                                     | 🚫       |
+| cols       | number | The visible width of the text area, in average character widths                                  | 🚫       |
 | error        | boolean                             | whether the TextArea is error state or not |  🚫       |
 | darkmode        | boolean                             | whether the TextArea is in darkmode state or not  | 🚫       |
-
-
-
 
 
 # Adoption strategy
