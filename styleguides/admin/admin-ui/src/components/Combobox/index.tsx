@@ -4,17 +4,14 @@ import React, {
   ReactNode,
   Ref,
   useContext,
-  useMemo,
 } from 'react'
-import { Portal } from 'reakit'
-import { UseComboboxReturnValue as ComboboxState } from 'downshift'
+import { ComboboxState } from './useComboboxState'
 import { forwardRef, useSystem } from '@vtex/admin-core'
 
 import { VisuallyHidden } from '../VisuallyHidden'
 import invariant from 'tiny-invariant'
 
 const StateContext = createContext<ComboboxState<any> | null>(null)
-const DataContext = createContext<ComboboxData<any> | null>(null)
 
 function useStateContext() {
   const context = useContext(StateContext)
@@ -22,50 +19,22 @@ function useStateContext() {
   return context
 }
 
-function useDataContext() {
-  const context = useContext(DataContext)
-  invariant(context, 'data not found')
-  return context
-}
-
-interface ComboboxData<T> {
-  label: string
-  items: T[]
-  render: (item: T) => any
-}
-
-interface Source<T> {
-  label: string
-  items: T[]
-  render: (item: T) => any
-}
-
-/**
- * function that creates sources
- */
-export function createSource<T>(src: Source<T>) {
-  return src
-}
-
 interface ComboboxProps<T> {
   state: ComboboxState<T>
-  data: ComboboxData<T>
   label: string
   children?: ReactNode
 }
 
 export function Combobox<T>(props: ComboboxProps<T>) {
-  const { state, label, children, data } = props
-  const labelProps = state.getLabelProps()
+  const { state, label, children } = props
+  const labelProps = state.combobox.getLabelProps()
 
   return (
     <StateContext.Provider value={state}>
-      <DataContext.Provider value={data}>
-        <VisuallyHidden>
-          <label {...labelProps}>{label}</label>
-        </VisuallyHidden>
-        {children}
-      </DataContext.Provider>
+      <VisuallyHidden>
+        <label {...labelProps}>{label}</label>
+      </VisuallyHidden>
+      {children}
     </StateContext.Provider>
   )
 }
@@ -85,7 +54,9 @@ function useElementProps(type: any, props: any) {
 Combobox.Input = forwardRef(function Input(props: any, ref: Ref<any>) {
   const { as: Component = 'input', ...restProps } = props
 
-  const { getComboboxProps, getInputProps } = useStateContext()
+  const {
+    combobox: { getComboboxProps, getInputProps },
+  } = useStateContext()
   const elementProps = useElementProps(Component, restProps)
 
   const comboboxProps = getComboboxProps()
@@ -101,8 +72,10 @@ Combobox.Input = forwardRef(function Input(props: any, ref: Ref<any>) {
 Combobox.Menu = forwardRef(function Menu(props: any, ref: Ref<any>) {
   const { as: Component = 'ul', children, ...restProps } = props
 
-  const { getMenuProps, isOpen } = useStateContext()
-  const { items } = useDataContext()
+  const {
+    combobox: { getMenuProps, isOpen, highlightedIndex },
+    collection: { value },
+  } = useStateContext()
   const elementProps = useElementProps(Component, restProps)
 
   const menuProps = getMenuProps()
@@ -110,9 +83,14 @@ Combobox.Menu = forwardRef(function Menu(props: any, ref: Ref<any>) {
   return (
     <Component ref={ref} {...menuProps} {...elementProps}>
       {isOpen &&
-        items.map((item, index) => (
-          <Fragment key={index}>{children(item, index)}</Fragment>
-        ))}
+        value.map((item, index) => {
+          const isHighlighted = highlightedIndex === index
+          return (
+            <Fragment key={index}>
+              {children(item, index, isHighlighted)}
+            </Fragment>
+          )
+        })}
     </Component>
   )
 })
@@ -120,14 +98,17 @@ Combobox.Menu = forwardRef(function Menu(props: any, ref: Ref<any>) {
 Combobox.Option = forwardRef(function Option(props: any, ref: Ref<any>) {
   const { as: Component = 'li', index, item, ...restProps } = props
 
-  const { getItemProps } = useStateContext()
+  const {
+    combobox: { getItemProps },
+    source: { render },
+  } = useStateContext()
   const elementProps = useElementProps(Component, restProps)
 
   const liProps = getItemProps({ item, index })
 
   return (
     <Component ref={ref} {...liProps} {...elementProps}>
-      {item}
+      {render(item)}
     </Component>
   )
 })
