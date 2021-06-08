@@ -31,7 +31,7 @@ export const NumericStepper = forwardRef(
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
-    const hasHelper = !error || helperText
+    const hasHelper = !!error || !!helperText
 
     const className = cn({
       ...csx,
