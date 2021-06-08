@@ -35,7 +35,7 @@ Same props as `Card` adding the props bellow
 
 | prop     | type      | description                     | required |
 | -------- | --------- | ------------------------------- | -------- |
-| as | string | polymorphism | 🚫       |
+| as | React.ElementType,  React.ComponentType | Polymorphic render | 🚫       |
 
 
 # Adoption strategy
