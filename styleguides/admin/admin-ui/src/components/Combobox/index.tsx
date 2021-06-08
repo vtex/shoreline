@@ -27,7 +27,9 @@ export function _Combobox<T>(props: ComboboxProps<T>) {
   )
 }
 
-export const Combobox = Object.assign(_Combobox, {
+export { unstableUseComboboxState } from './hooks/useComboboxState'
+
+export const unstableCombobox = Object.assign(_Combobox, {
   Input,
   Menu,
   Option,

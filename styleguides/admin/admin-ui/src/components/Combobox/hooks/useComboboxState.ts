@@ -4,7 +4,7 @@ import {
   UseComboboxReturnValue,
 } from 'downshift'
 import { Dispatch, ReactNode, SetStateAction, useMemo, useState } from 'react'
-import { usePersistentState } from './usePersistentState'
+import { useValueRecord } from './useValueRecord'
 
 type DownshiftRestProps<C> = Omit<
   UseComboboxProps<C>,
@@ -19,6 +19,9 @@ interface MatchParams {
 interface Params<C> extends DownshiftRestProps<C> {
   id: string
   collection: C[]
+  label?: ReactNode
+  recordLabel?: ReactNode
+  compare?: (a: C, b: C) => boolean
   match?: (params: MatchParams) => boolean
   render?: (item: C) => ReactNode
 }
@@ -32,45 +35,13 @@ export interface ComboboxState<C> {
   collection: {
     value: C[]
     setValue: Dispatch<SetStateAction<C[]>>
+    label: ReactNode
   }
 }
 
-interface RecentValuesParams<C> {
-  id: string
-  activeValue: C[]
-}
-
-function useRecentValues<C>(params: RecentValuesParams<C>) {
-  const { id, activeValue } = params
-
-  const [recentValues, setRecentValues] = usePersistentState<C[]>(
-    [],
-    `@vtex/admin-ui-combobox-${id}`
-  )
-  const [target, setTarget] = useState(recentValues)
-
-  const onType = (inputValue?: string) => {
-    if (inputValue && inputValue !== '') {
-      setTarget(activeValue)
-    } else {
-      setTarget(recentValues)
-    }
-  }
-
-  const onSelect = (selectedItem?: C | null) => {
-    if (selectedItem) {
-      setRecentValues((rv) => [...new Set([...rv, selectedItem])])
-    }
-  }
-
-  return {
-    onType,
-    onSelect,
-    target,
-  }
-}
-
-export function useComboboxState<C>(params: Params<C>): ComboboxState<C> {
+export function unstableUseComboboxState<C>(
+  params: Params<C>
+): ComboboxState<C> {
   const {
     id,
     match = defaultMatch,
@@ -78,6 +49,9 @@ export function useComboboxState<C>(params: Params<C>): ComboboxState<C> {
     itemToString = defaultItemToString,
     collection,
     onSelectedItemChange,
+    label,
+    recordLabel,
+    compare,
     ...downshiftRestProps
   } = params
 
@@ -90,13 +64,16 @@ export function useComboboxState<C>(params: Params<C>): ComboboxState<C> {
   )
 
   const [value, setValue] = useState(source.collection)
-  const { target, onSelect, onType } = useRecentValues({
+  const { currentCollection, onSelect, currentLabel, onType } = useValueRecord({
     id,
-    activeValue: value,
+    value,
+    label,
+    recordLabel,
+    compare,
   })
 
   const combobox = useCombobox({
-    items: target,
+    items: currentCollection,
     itemToString,
     onSelectedItemChange: (onChangeProps) => {
       const { selectedItem } = onChangeProps
@@ -121,7 +98,8 @@ export function useComboboxState<C>(params: Params<C>): ComboboxState<C> {
     source,
     combobox,
     collection: {
-      value: target,
+      value: currentCollection,
+      label: currentLabel,
       setValue,
     },
   }

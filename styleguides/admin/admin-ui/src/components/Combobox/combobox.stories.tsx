@@ -1,9 +1,11 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { Combobox } from './index'
+import {
+  unstableCombobox as Combobox,
+  unstableUseComboboxState as useComboboxState,
+} from './index'
 
-import { useComboboxState } from './hooks/useComboboxState'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 import { Input } from '../Input'
@@ -15,6 +17,8 @@ export default {
 export const Native = () => {
   const state = useComboboxState({
     id: 'with-strings',
+    label: <Paragraph>Admin Pages</Paragraph>,
+    recordLabel: <Paragraph>Last Searches</Paragraph>,
     collection: [
       'Orders',
       'Products',
@@ -82,6 +86,9 @@ export const Native = () => {
 export const NativeWithObjects = () => {
   const state = useComboboxState({
     id: 'with-objects',
+    label: <Paragraph>Admin Pages</Paragraph>,
+    recordLabel: <Paragraph>Last Searches</Paragraph>,
+    compare: (a, b) => a.name === b.name,
     collection: [
       { id: 1, name: 'Orders', description: 'Control your orders' },
       { id: 2, name: 'Products', description: 'Manage products' },
@@ -156,6 +163,9 @@ export const NativeWithObjects = () => {
 export const UsingAdminUI = () => {
   const state = useComboboxState({
     id: 'with-admin-ui',
+    label: <Paragraph>Admin Pages</Paragraph>,
+    recordLabel: <Paragraph>Last Searches</Paragraph>,
+    compare: (a, b) => a.name === b.name,
     collection: [
       { id: 1, name: 'Orders', description: 'Control your orders' },
       { id: 2, name: 'Products', description: 'Manage products' },
@@ -206,6 +216,12 @@ export const UsingAdminUI = () => {
             borderTopRightRadius: 4,
           },
         }}
+        emptyView={
+          <>
+            <h1>No result matches your search criteria</h1>
+            <h2>Please, search for a different term</h2>
+          </>
+        }
       >
         {(item: any, index: number, highlighted: boolean) => (
           <Combobox.Option
@@ -227,233 +243,3 @@ export const UsingAdminUI = () => {
     </Combobox>
   )
 }
-
-// export const Backup = () => {
-//   const [inputItems, setInputItems] = useState(pagesSource.items)
-//   const state = useCombobox({
-//     items: inputItems,
-//     onInputValueChange: ({ inputValue }) => {
-//       setInputItems(
-//         pagesSource.items.filter((item) =>
-//           item.toLowerCase().startsWith(String(inputValue).toLowerCase())
-//         )
-//       )
-//     },
-//     // onSelectedItemChange: (pro) => {
-//     //   setLastSearches((ls) => [pro.selectedItem, ...ls])
-//     // }
-//   })
-
-//   return (
-//     <Combobox state={state} label="Choose an element">
-//       <Combobox.Input
-//         csx={{
-//           border: '1px solid grey',
-//           padding: '10px',
-//           borderRadius: '4px',
-//         }}
-//       />
-//       <Combobox.Menu
-//         csx={{
-//           bg: 'light.primary',
-//           listStyle: 'none',
-//           borderRadius: 4,
-//           marginTop: 4,
-//           width: 500,
-//           border: state.isOpen ? 'default' : 'none',
-//         }}
-//       >
-//         {inputItems.map((item, index) => (
-//           <Combobox.Option key={`${item}-${index}`} item={item} index={index} />
-//         ))}
-//       </Combobox.Menu>
-//     </Combobox>
-//   )
-// }
-
-// export const WithPortals = () => {
-//   const [inputItems, setInputItems] = useState(pagesSource.items)
-//   const state = useCombobox({
-//     items: inputItems,
-//     onInputValueChange: ({ inputValue }) => {
-//       setInputItems(
-//         pagesSource.items.filter((item) =>
-//           item.toLowerCase().startsWith(String(inputValue).toLowerCase())
-//         )
-//       )
-//     },
-//     // onSelectedItemChange: (pro) => {
-//     //   setLastSearches((ls) => [pro.selectedItem, ...ls])
-//     // }
-//   })
-
-//   return (
-//     <Combobox state={state} label="Choose an element">
-//       <Combobox.Input
-//         csx={{
-//           border: '1px solid grey',
-//           padding: '10px',
-//           borderRadius: '4px',
-//         }}
-//       />
-//       <Combobox.Menu
-//         csx={{
-//           bg: 'light.primary',
-//           listStyle: 'none',
-//           borderRadius: 4,
-//           marginTop: 4,
-//           width: 500,
-//           border: state.isOpen ? 'default' : 'none',
-//         }}
-//       >
-//         {inputItems.map((item, index) => (
-//           <Combobox.Option key={`${item}-${index}`} item={item} index={index} />
-//         ))}
-//       </Combobox.Menu>
-//     </Combobox>
-//   )
-// }
-
-// export const AdminUI = () => {
-//   const [inputItems, setInputItems] = useState(pagesSource.items)
-//   const state = useCombobox({
-//     items: inputItems,
-//     onInputValueChange: ({ inputValue }) => {
-//       setInputItems(
-//         pagesSource.items.filter((item) =>
-//           item.toLowerCase().startsWith(String(inputValue).toLowerCase())
-//         )
-//       )
-//     },
-//     // onSelectedItemChange: (pro) => {
-//     //   setLastSearches((ls) => [pro.selectedItem, ...ls])
-//     // }
-//   })
-
-//   return (
-//     <Combobox state={state} label="Choose an element">
-//       <div {...state.getComboboxProps()}>
-//         <Combobox.Input
-//           state={state}
-//           as={Base as any}
-//           label="Search something"
-//         />
-//       </div>
-//       <Combobox.Popover>
-//         <Combobox.List state={state}>
-//           {inputItems.map((item, index) => (
-//             <Combobox.Option
-//               key={`${item}-${index}`}
-//               state={state}
-//               item={item}
-//               index={index}
-//             />
-//           ))}
-//         </Combobox.List>
-//       </Combobox.Popover>
-//     </Combobox>
-//   )
-// }
-
-// export const Custom = () => {
-//   const focus = {
-//     ':focus:not([data-focus-visible-added])': {
-//       outline: 'none',
-//       boxShadow: 'none',
-//     },
-//     ':focus': {
-//       outline: 'none',
-//       boxShadow: 'focus',
-//     },
-//   }
-
-//   const Input = forwardRef(function Input(props: any, ref: any) {
-//     const { onClear, ...rest } = props
-//     const { cn } = useSystem()
-
-//     return (
-//       <Fragment>
-//         <IconSearch
-//           csx={{
-//             color: 'blue',
-//             size: 28,
-//             position: 'absolute',
-//             top: 4,
-//             left: 4,
-//           }}
-//         />
-//         <input
-//           className={cn({
-//             height: 64,
-//             width: 500,
-//             fontSize: 16,
-//             borderRadius: 4,
-//             paddingX: 56,
-//             border: 'default',
-//             ...focus,
-//           })}
-//           ref={ref}
-//           placeholder="Search"
-//           {...rest}
-//         />
-//         {rest.value !== '' && (
-//           <Button
-//             csx={{
-//               position: 'absolute',
-//               right: 4,
-//               top: 3,
-//             }}
-//             variant="tertiary"
-//             icon={<IconCancel />}
-//             onClick={onClear}
-//           />
-//         )}
-//       </Fragment>
-//     )
-//   })
-
-//   const [inputItems, setInputItems] = useState(pagesSource.items)
-//   const state = useCombobox({
-//     items: inputItems,
-//     onInputValueChange: ({ inputValue }) => {
-//       setInputItems(
-//         pagesSource.items.filter((item) =>
-//           item.toLowerCase().startsWith(String(inputValue).toLowerCase())
-//         )
-//       )
-//     },
-//     // onSelectedItemChange: (pro) => {
-//     //   setLastSearches((ls) => [pro.selectedItem, ...ls])
-//     // }
-//   })
-
-//   return (
-//     <Combobox state={state} label="Choose an element">
-//       <Box
-//         csx={{ position: 'relative', width: 500 }}
-//         {...state.getComboboxProps()}
-//       >
-//         <Combobox.Input
-//           state={state}
-//           as={Input}
-//           onClear={() => {
-//             state.setInputValue('')
-//             state.openMenu()
-//           }}
-//         />
-//       </Box>
-//       <Combobox.Popover>
-//         <Combobox.List state={state}>
-//           {inputItems.map((item, index) => (
-//             <Combobox.Option
-//               key={`${item}-${index}`}
-//               state={state}
-//               item={item}
-//               index={index}
-//             />
-//           ))}
-//         </Combobox.List>
-//       </Combobox.Popover>
-//     </Combobox>
-//   )
-// }
