@@ -5,47 +5,38 @@
 
 # Summary
 
-`Cards button` are single button that can display a amount of information, and they are where the user interacts with the screen.
+This RFC is to make some modifications to the component `Card` and open the possibility to change this card as a card button that can go to some link when clicked.
 
 # Basic example
 
 ```jsx
-import { Card } from '@brand-ui/card'
+import { Card } from '@vtex/brand-ui'
 
-<CardButton  page="/tracks/"  noPadding>
-  <CardButton.Header>
-    <h1>Card title</h1>
-    <h3>Subtitle</h3>
-  </CardButton.Header>
-  <CardButton.Image>
-      <img
-      width="100%"
-      src="https://careers.vtex.com/assets/media/perspectives03.jpg"
-    />
-  </CardButton.Image>
-  <CardButton.Body>
-    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
-  </CardButton.Body>
-</CardButton>
+// as button
+<Card as="button" onClick={/** */} />
+
+// as anchor
+<Card as="a" href="/tracks/" />
+
+// If you are using gatsby, for example
+import { Link } from 'gatsby'
+
+<Card as={Link} to="/tracks/" />
+
 ```
 
 # Detailed design
 
-This component is a composition with the `Card` component, it just handles the linked cards.
-
-The Card button has some composites: `Header` is the top section of the card, the `Body` component contains the text of the card, and the `Images` component contains the image or icon of the card. 
+This component is a `Card` component adding more use cases using polymorphism
 
 ## Card Button
 
+Same props as `Card` adding the props bellow
+
 | prop     | type      | description                     | required |
 | -------- | --------- | ------------------------------- | -------- |
-| children | boolean | content of the card body | ✔️       |
-| page | string | the path of the page to go | 🚫       |
-| noPadding | boolean | use the full size of the card body | 🚫       |
+| as | string | polymorphism | 🚫       |
 
-# Drawbacks
-
-- This component depends on the `Card` and `Link`.
 
 # Adoption strategy
 
