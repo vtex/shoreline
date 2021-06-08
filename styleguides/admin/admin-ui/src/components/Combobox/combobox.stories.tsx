@@ -14,6 +14,7 @@ export default {
 
 export const Native = () => {
   const state = useComboboxState({
+    id: 'with-strings',
     collection: [
       'Orders',
       'Products',
@@ -80,6 +81,7 @@ export const Native = () => {
 
 export const NativeWithObjects = () => {
   const state = useComboboxState({
+    id: 'with-objects',
     collection: [
       { id: 1, name: 'Orders', description: 'Control your orders' },
       { id: 2, name: 'Products', description: 'Manage products' },
@@ -153,6 +155,7 @@ export const NativeWithObjects = () => {
 
 export const UsingAdminUI = () => {
   const state = useComboboxState({
+    id: 'with-admin-ui',
     collection: [
       { id: 1, name: 'Orders', description: 'Control your orders' },
       { id: 2, name: 'Products', description: 'Manage products' },

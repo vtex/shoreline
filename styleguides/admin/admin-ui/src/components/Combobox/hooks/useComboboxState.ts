@@ -4,10 +4,11 @@ import {
   UseComboboxReturnValue,
 } from 'downshift'
 import { Dispatch, ReactNode, SetStateAction, useMemo, useState } from 'react'
+import { usePersistentState } from './usePersistentState'
 
 type DownshiftRestProps<C> = Omit<
   UseComboboxProps<C>,
-  'items' | 'itemToString' | 'onInputValueChange'
+  'items' | 'onInputValueChange'
 >
 
 interface MatchParams {
@@ -16,10 +17,10 @@ interface MatchParams {
 }
 
 interface Params<C> extends DownshiftRestProps<C> {
+  id: string
   collection: C[]
   match?: (params: MatchParams) => boolean
   render?: (item: C) => ReactNode
-  itemToString?: (item: C | null) => string
 }
 
 export interface ComboboxState<C> {
@@ -34,12 +35,49 @@ export interface ComboboxState<C> {
   }
 }
 
+interface RecentValuesParams<C> {
+  id: string
+  activeValue: C[]
+}
+
+function useRecentValues<C>(params: RecentValuesParams<C>) {
+  const { id, activeValue } = params
+
+  const [recentValues, setRecentValues] = usePersistentState<C[]>(
+    [],
+    `@vtex/admin-ui-combobox-${id}`
+  )
+  const [target, setTarget] = useState(recentValues)
+
+  const onType = (inputValue?: string) => {
+    if (inputValue && inputValue !== '') {
+      setTarget(activeValue)
+    } else {
+      setTarget(recentValues)
+    }
+  }
+
+  const onSelect = (selectedItem?: C | null) => {
+    if (selectedItem) {
+      setRecentValues((rv) => [...new Set([...rv, selectedItem])])
+    }
+  }
+
+  return {
+    onType,
+    onSelect,
+    target,
+  }
+}
+
 export function useComboboxState<C>(params: Params<C>): ComboboxState<C> {
   const {
+    id,
     match = defaultMatch,
     render = defaultRender,
     itemToString = defaultItemToString,
     collection,
+    onSelectedItemChange,
     ...downshiftRestProps
   } = params
 
@@ -52,11 +90,21 @@ export function useComboboxState<C>(params: Params<C>): ComboboxState<C> {
   )
 
   const [value, setValue] = useState(source.collection)
+  const { target, onSelect, onType } = useRecentValues({
+    id,
+    activeValue: value,
+  })
 
   const combobox = useCombobox({
-    items: value,
+    items: target,
     itemToString,
+    onSelectedItemChange: (onChangeProps) => {
+      const { selectedItem } = onChangeProps
+      onSelect(selectedItem)
+      onSelectedItemChange?.(onChangeProps)
+    },
     onInputValueChange: ({ inputValue }) => {
+      onType(inputValue)
       setValue(
         source.collection.filter((item: any) =>
           match({
@@ -73,7 +121,7 @@ export function useComboboxState<C>(params: Params<C>): ComboboxState<C> {
     source,
     combobox,
     collection: {
-      value,
+      value: target,
       setValue,
     },
   }
