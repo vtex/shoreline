@@ -1,23 +1,11 @@
-import React, {
-  createContext,
-  Fragment,
-  ReactNode,
-  Ref,
-  useContext,
-} from 'react'
-import { ComboboxState } from './useComboboxState'
-import { forwardRef, useSystem } from '@vtex/admin-core'
+import React, { ReactNode } from 'react'
+import { ComboboxState } from './hooks/useComboboxState'
 
 import { VisuallyHidden } from '../VisuallyHidden'
-import invariant from 'tiny-invariant'
-
-const StateContext = createContext<ComboboxState<any> | null>(null)
-
-function useStateContext() {
-  const context = useContext(StateContext)
-  invariant(context, 'state not found')
-  return context
-}
+import { Input } from './components/Input'
+import { Menu } from './components/Menu'
+import { Option } from './components/Option'
+import { StateContext } from './context'
 
 interface ComboboxProps<T> {
   state: ComboboxState<T>
@@ -25,7 +13,7 @@ interface ComboboxProps<T> {
   children?: ReactNode
 }
 
-export function Combobox<T>(props: ComboboxProps<T>) {
+export function _Combobox<T>(props: ComboboxProps<T>) {
   const { state, label, children } = props
   const labelProps = state.combobox.getLabelProps()
 
@@ -39,76 +27,8 @@ export function Combobox<T>(props: ComboboxProps<T>) {
   )
 }
 
-function useElementProps(type: any, props: any) {
-  const { cx, cn } = useSystem()
-  const { className, csx, ...elementProps } = props
-
-  return typeof type === 'string'
-    ? {
-        className: cx(className, cn(csx)),
-        ...elementProps,
-      }
-    : props
-}
-
-Combobox.Input = forwardRef(function Input(props: any, ref: Ref<any>) {
-  const { as: Component = 'input', ...restProps } = props
-
-  const {
-    combobox: { getComboboxProps, getInputProps },
-  } = useStateContext()
-  const elementProps = useElementProps(Component, restProps)
-
-  const comboboxProps = getComboboxProps()
-  const inputProps = getInputProps()
-
-  return (
-    <div {...comboboxProps}>
-      <Component ref={ref} {...inputProps} {...elementProps} />
-    </div>
-  )
-})
-
-Combobox.Menu = forwardRef(function Menu(props: any, ref: Ref<any>) {
-  const { as: Component = 'ul', children, ...restProps } = props
-
-  const {
-    combobox: { getMenuProps, isOpen, highlightedIndex },
-    collection: { value },
-  } = useStateContext()
-  const elementProps = useElementProps(Component, restProps)
-
-  const menuProps = getMenuProps()
-
-  return (
-    <Component ref={ref} {...menuProps} {...elementProps}>
-      {isOpen &&
-        value.map((item, index) => {
-          const isHighlighted = highlightedIndex === index
-          return (
-            <Fragment key={index}>
-              {children(item, index, isHighlighted)}
-            </Fragment>
-          )
-        })}
-    </Component>
-  )
-})
-
-Combobox.Option = forwardRef(function Option(props: any, ref: Ref<any>) {
-  const { as: Component = 'li', index, item, ...restProps } = props
-
-  const {
-    combobox: { getItemProps },
-    source: { render },
-  } = useStateContext()
-  const elementProps = useElementProps(Component, restProps)
-
-  const liProps = getItemProps({ item, index })
-
-  return (
-    <Component ref={ref} {...liProps} {...elementProps}>
-      {render(item)}
-    </Component>
-  )
+export const Combobox = Object.assign(_Combobox, {
+  Input,
+  Menu,
+  Option,
 })

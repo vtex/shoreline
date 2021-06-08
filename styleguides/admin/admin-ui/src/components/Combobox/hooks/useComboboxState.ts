@@ -34,21 +34,6 @@ export interface ComboboxState<C> {
   }
 }
 
-function defaultMatch(params: MatchParams) {
-  const { inputValue, itemString } = params
-  return String(itemString)
-    .toLowerCase()
-    .startsWith(String(inputValue).toLowerCase())
-}
-
-function defaultRender<C>(item: C) {
-  return item
-}
-
-function defaultItemToString<C>(item?: C): string {
-  return item ? String(item) : ''
-}
-
 export function useComboboxState<C>(params: Params<C>): ComboboxState<C> {
   const {
     match = defaultMatch,
@@ -92,4 +77,34 @@ export function useComboboxState<C>(params: Params<C>): ComboboxState<C> {
       setValue,
     },
   }
+}
+
+/**
+ * default match function
+ * @param params
+ * @returns wheather the itemString starts with the input value
+ */
+function defaultMatch(params: MatchParams) {
+  const { inputValue, itemString } = params
+  return String(itemString)
+    .toLowerCase()
+    .startsWith(String(inputValue).toLowerCase())
+}
+
+/**
+ * default render function
+ * @param item
+ * @returns item identity
+ */
+function defaultRender<C>(item: C) {
+  return item
+}
+
+/**
+ * default itemToString function
+ * @param item
+ * @returns string representation of a generic item
+ */
+function defaultItemToString<C>(item?: C): string {
+  return item ? String(item) : ''
 }
