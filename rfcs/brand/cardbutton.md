@@ -9,19 +9,68 @@ This RFC is to make some modifications to the component `Card` and open the poss
 
 # Basic example
 
+### As button
 ```jsx
 import { Card } from '@vtex/brand-ui'
 
-// as button
-<Card as="button" onClick={/** */} />
+<Card 
+  as="button" 
+  onClick={/** */} 
+  shape='square' 
+  orientation='vertical'
+  />
+  <Card.Header  sx={}>
+      <Card.Image src={`https:${card.icon}`}></Card.Image>
+  </Card.Header>
+  <Card.Body sx={}>
+      {card.title}
+  </Card.Body>
+  <Card.Body sx={}>
+      {card.text}
+  </Card.Body
+<Card/>
+```
 
-// as anchor
-<Card as="a" href="/tracks/" />
-
+### As anchor
+```jsx
+<Card 
+  as="a" 
+  href="/tracks/" 
+    shape='square' 
+  orientation='vertical'
+  />
+  <Card.Header  sx={}>
+      <Card.Image src={`https:${card.icon}`}></Card.Image>
+  </Card.Header>
+  <Card.Body sx={}>
+      {card.title}
+  </Card.Body>
+  <Card.Body sx={}>
+      {card.text}
+  </Card.Body
+<Card/>
+```
+### As a Link
+```jsx
 // If you are using gatsby, for example
 import { Link } from 'gatsby'
 
-<Card as={Link} to="/tracks/" />
+<Card 
+  as={Link} 
+  to="/tracks/" 
+  shape='square' 
+  orientation='vertical'
+  />
+  <Card.Header  sx={}>
+      <Card.Image src={`https:${card.icon}`}></Card.Image>
+  </Card.Header>
+  <Card.Body sx={}>
+      {card.title}
+  </Card.Body>
+  <Card.Body sx={}>
+      {card.text}
+  </Card.Body
+<Card/>
 
 ```
 
@@ -36,6 +85,20 @@ Same props as `Card` adding the props bellow
 | prop     | type      | description                     | required |
 | -------- | --------- | ------------------------------- | -------- |
 | as | React.ElementType,  React.ComponentType | Polymorphic render | 🚫       |
+| orientation    | InputOrientation | orientation of the card                    | 🚫       |
+| sx | SxStyleProp | aditional styles | 🚫       |
+
+The `SkeletonShape` type is specified below:
+
+```jsx
+type SkeletonShape = 'rect' | 'square'
+```
+
+The `InputOrientation ` type is specified below:
+
+```jsx
+type InputOrientation  = 'horizontal' | 'vertical'
+```
 
 
 # Adoption strategy
