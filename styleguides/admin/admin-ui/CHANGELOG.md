@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.97.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.97.0...@vtex/admin-ui@0.97.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* **numericstepper:** fix helptertext display ([d10a8da](https://github.com/vtex/onda/commit/d10a8da0c20b7089576ed63034b04f491545bb0a))
+* **numericstepper:** fix helptertext display to display text when error is false not only undefined ([2b6dcf8](https://github.com/vtex/onda/commit/2b6dcf89026e37e3f79ddb371632877c33fcc7ac))
+
+
+
+
+
 # [0.97.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.96.0...@vtex/admin-ui@0.97.0) (2021-05-27)
 
 
