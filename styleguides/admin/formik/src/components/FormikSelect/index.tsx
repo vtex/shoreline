@@ -18,7 +18,7 @@ export const FormikSelect = <T extends unknown>(
     ...selectProps
   } = props
 
-  const [field, meta, helpers] = useField({ name })
+  const [field, meta, helpers] = useField<T | null>({ name })
 
   const itemState = useSelectState({
     items,
@@ -64,5 +64,5 @@ export interface FormikSelectProps<T> extends Omit<SelectProps<T>, 'state'> {
   name: string
   formatMessage?: (errorCode: string) => string
   itemToString?: (item: T | null) => string
-  onChange?: (value: T) => void
+  onChange?: (value: T | null) => void
 }

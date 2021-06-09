@@ -64,10 +64,11 @@ export const FormikToggle = forwardRef(
 )
 
 export interface FormikToggleProps
-  extends Omit<ToggleProps, 'state' | 'checked' | 'value'> {
+  extends Omit<ToggleProps, 'state' | 'checked' | 'value' | 'onChange'> {
   name: string
   label?: string | ReactNode
   error?: boolean
   errorMessage?: string
   formatMessage?: (errorCode: string) => string
+  onChange: (value: boolean) => void
 }

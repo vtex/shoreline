@@ -67,5 +67,5 @@ export interface FormikCheckboxGroupProps
   error?: boolean
   errorMessage?: string
   formatMessage?: (errorCode: string) => string
-  onChange?: (value: string[]) => void
+  onChange?: (value: string[] | number[]) => void
 }

@@ -64,10 +64,11 @@ export const FormikCheckbox = forwardRef(
 )
 
 export interface FormikCheckboxProps
-  extends Omit<CheckboxProps, 'state' | 'checked' | 'value'> {
+  extends Omit<CheckboxProps, 'state' | 'checked' | 'value' | 'onChange'> {
   name: string
   label: string | ReactNode
   error?: boolean
   errorMessage?: string
   formatMessage?: (errorCode: string) => string
+  onChange: (value: boolean | 'indeterminate') => void
 }
