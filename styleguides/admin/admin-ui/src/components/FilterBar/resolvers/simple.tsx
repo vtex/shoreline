@@ -24,7 +24,7 @@ export function simpleResolver<T>() {
       const { resolver } = filter
       const { items, accessor, defaultValue } = resolver
 
-      const selectedItemValue = target ?? defaultValue
+      const selectedItem = target ?? defaultValue
 
       const render = resolver?.render ?? defaultRender
 
@@ -50,7 +50,7 @@ export function simpleResolver<T>() {
               handleValueChange(selectedItem, index)
             }
           }}
-          selectedItem={selectedItemValue}
+          selectedItem={selectedItem}
           renderItem={renderItem}
           label="Value"
           items={items}

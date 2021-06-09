@@ -7,10 +7,7 @@ export function Content(props: ContentProps) {
   const { empty, label, children, ...restProps } = props
 
   return (
-    <Box
-      csx={{ padding: empty ? 4 : 2, paddingLeft: empty ? 6 : 4 }}
-      {...restProps}
-    >
+    <Box csx={{ padding: 4, paddingLeft: empty ? 6 : 4 }} {...restProps}>
       {empty ? (
         <Paragraph>{label}</Paragraph>
       ) : (
