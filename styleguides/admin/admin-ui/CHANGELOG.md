@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.98.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.97.1...@vtex/admin-ui@0.98.0) (2021-06-10)
+
+
+### Features
+
+* **admin-ui:** add combobox component ([d39dc62](https://github.com/vtex/onda/commit/d39dc62a86173aa38ae597e6c643b337e3b22a21))
+* **admin-ui/combobox:** allow local storage save ([8c66ce2](https://github.com/vtex/onda/commit/8c66ce23a8d083d5292be7f42bfd2c5f2820772c))
+* **admin-ui/combobox:** allow multiple render strategies ([98eec66](https://github.com/vtex/onda/commit/98eec6694223c08d7017f83392c79fe73cc1917d))
+* **admin-ui/combobox:** support labeling ([c4c73b8](https://github.com/vtex/onda/commit/c4c73b8f95dcb020a64a09578dd26a1405bc979d))
+
+
+
+
+
 ## [0.97.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.97.0...@vtex/admin-ui@0.97.1) (2021-06-09)
 
 
