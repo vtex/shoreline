@@ -9,7 +9,7 @@ interface Params<C> {
   compare?: (a: C, b: C) => boolean
 }
 
-export function useValueRecord<C>(params: Params<C>) {
+export function useCollection<C>(params: Params<C>) {
   const {
     id,
     value,

@@ -4,7 +4,7 @@ import {
   UseComboboxReturnValue,
 } from 'downshift'
 import { Dispatch, ReactNode, SetStateAction, useMemo, useState } from 'react'
-import { useValueRecord } from './useValueRecord'
+import { useCollection } from './useCollection'
 
 type DownshiftRestProps<C> = Omit<
   UseComboboxProps<C>,
@@ -64,7 +64,7 @@ export function unstableUseComboboxState<C>(
   )
 
   const [value, setValue] = useState(source.collection)
-  const { currentCollection, onSelect, currentLabel, onType } = useValueRecord({
+  const { currentCollection, onSelect, currentLabel, onType } = useCollection({
     id,
     value,
     label,
