@@ -16,10 +16,10 @@ import { Card } from '@vtex/brand-ui'
 <Card 
   as="button" 
   onClick={/** */} 
-  shape='square' 
   orientation='vertical'
+  sx={{ width: 240, height: 272 }}
   />
-  <Card.Header  sx={}>
+  <Card.Header>
       <Card.Image src={`https:${card.icon}`}></Card.Image>
   </Card.Header>
   <Card.Body sx={}>
@@ -36,10 +36,10 @@ import { Card } from '@vtex/brand-ui'
 <Card 
   as="a" 
   href="/tracks/" 
-    shape='square' 
   orientation='vertical'
+  sx={{ width: 240, height: 272 }}
   />
-  <Card.Header  sx={}>
+  <Card.Header>
       <Card.Image src={`https:${card.icon}`}></Card.Image>
   </Card.Header>
   <Card.Body sx={}>
@@ -58,10 +58,10 @@ import { Link } from 'gatsby'
 <Card 
   as={Link} 
   to="/tracks/" 
-  shape='square' 
   orientation='vertical'
+  sx={{ width: 240, height: 272 }}
   />
-  <Card.Header  sx={}>
+  <Card.Header>
       <Card.Image src={`https:${card.icon}`}></Card.Image>
   </Card.Header>
   <Card.Body sx={}>
@@ -88,11 +88,6 @@ Same props as `Card` adding the props bellow
 | orientation    | InputOrientation | orientation of the card                    | 🚫       |
 | sx | SxStyleProp | aditional styles | 🚫       |
 
-The `SkeletonShape` type is specified below:
-
-```jsx
-type SkeletonShape = 'rect' | 'square'
-```
 
 The `InputOrientation ` type is specified below:
 
