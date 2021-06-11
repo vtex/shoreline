@@ -81,7 +81,7 @@ export const WithMenu = () => {
 export const WithModal = () => {
   const state = useToolbarState({ loop: true })
   const menuState = useMenuState()
-  const modalState = useModalState({ animated: true })
+  const modalState = useModalState()
 
   return (
     <>
