@@ -4,8 +4,19 @@ import {
   DialogInitialState,
 } from 'reakit/Dialog'
 
+function useModalState(
+  initialState?: Omit<DialogInitialState, 'animated'> | undefined
+) {
+  const dialogState = useDialogState({
+    animated: true,
+    ...initialState,
+  })
+
+  return dialogState
+}
+
 export {
-  useDialogState as useModalState,
+  useModalState,
   DialogStateReturn as ModalStateReturn,
   DialogInitialState as ModalInitialState,
 }

@@ -57,7 +57,7 @@ export const Stateful: Story<ModalProps> = () => (
 )
 
 export const Stateless = () => {
-  const publishModal = useModalState({ animated: true })
+  const publishModal = useModalState()
 
   return (
     <Box>
