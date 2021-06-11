@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.98.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.98.0...@vtex/admin-ui@0.98.1) (2021-06-11)
+
+
+### Bug Fixes
+
+* **admin-ui/modal:** useModalState not working without { animated: true } ([1bba98c](https://github.com/vtex/onda/commit/1bba98ce77bdbff67ac12f1edea04c1cd7e125b2)), closes [#617](https://github.com/vtex/onda/issues/617)
+
+
+
+
+
 # [0.98.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.97.1...@vtex/admin-ui@0.98.0) (2021-06-10)
 
 
