@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.99.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.98.1...@vtex/admin-ui@0.99.0) (2021-06-11)
+
+
+### Features
+
+* **filter-bar:** add apply filters button ([40201f7](https://github.com/vtex/onda/commit/40201f7e7c3eec0127da6518bf407366b0720182))
+
+
+
+
+
 ## [0.98.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.98.0...@vtex/admin-ui@0.98.1) (2021-06-11)
 
 
