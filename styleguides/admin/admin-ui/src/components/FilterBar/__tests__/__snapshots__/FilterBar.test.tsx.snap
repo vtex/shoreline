@@ -2,7 +2,7 @@
 
 exports[`FilterBar tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-39 {
+  .emotion-42 {
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
@@ -10,15 +10,15 @@ exports[`FilterBar tests should match snapshot 1`] = `
   background-color: coral;
 }
 
-.emotion-38 {
+.emotion-41 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   border-top-width: 1px;
   border-top-style: solid;
   border-top-left-radius: 0;
@@ -106,6 +106,28 @@ exports[`FilterBar tests should match snapshot 1`] = `
   height: 24px;
 }
 
+.emotion-40 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: start;
+  justify-content: start;
+}
+
+.emotion-40 >*:not(:first-child) {
+  margin-left: 0.25rem;
+}
+
 .emotion-37 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
@@ -113,7 +135,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #707685;
+  color: currentColor;
   background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
@@ -144,8 +166,47 @@ exports[`FilterBar tests should match snapshot 1`] = `
   color: #898F9E;
 }
 
+.emotion-39 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF;
+  background-color: #2953B2;
+  font-size: 0.75rem;
+  height: 32px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.emotion-39:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-39:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-39:hover {
+  background-color: #214491;
+}
+
+.emotion-39:active {
+  background-color: #1a3470;
+}
+
+.emotion-39:disabled {
+  color: #323845;
+  background-color: #C4C5CA;
+}
+
 .emotion-32 {
-  padding: 0.5rem;
+  padding: 1rem;
   padding-left: 1rem;
 }
 
@@ -566,7 +627,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-39"
+    class="emotion-42"
     data-testid="filter-bar"
   >
     <div
@@ -896,7 +957,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="emotion-38"
+      class="emotion-41"
     >
       <button
         class="emotion-35"
@@ -926,16 +987,33 @@ exports[`FilterBar tests should match snapshot 1`] = `
           Add Filter
         </div>
       </button>
-      <button
-        class="emotion-37"
-        type="button"
+      <div
+        class="emotion-40"
       >
-        <div
-          class="emotion-20"
+        <button
+          class="emotion-37"
+          type="button"
         >
-          Reset Filters
-        </div>
-      </button>
+          <div
+            class="emotion-20"
+          >
+            Clear Filters
+          </div>
+        </button>
+        <button
+          aria-disabled="true"
+          class="emotion-39"
+          disabled=""
+          style="pointer-events: none;"
+          type="button"
+        >
+          <div
+            class="emotion-20"
+          >
+            Apply
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>

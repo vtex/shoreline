@@ -27,7 +27,7 @@ describe('FilterBar tests', () => {
           label="Filter Bar"
           csx={{ bg: 'coral' }}
           data-testid="filter-bar"
-          onStatementChange={() => {}}
+          onApply={() => {}}
           filters={[
             {
               label: 'Filter',
@@ -61,7 +61,7 @@ describe('FilterBar tests', () => {
           label="Filter Bar"
           csx={{ bg: 'coral' }}
           data-testid="filter-bar"
-          onStatementChange={() => {}}
+          onApply={() => {}}
           statements={[
             {
               condition: { label: 'is', id: '1' },
@@ -112,7 +112,7 @@ describe('FilterBar tests', () => {
           label="Filter Bar"
           csx={{ bg: 'coral' }}
           data-testid="filter-bar"
-          onStatementChange={() => {}}
+          onApply={() => {}}
           statements={[
             {
               condition: { label: 'is', id: '1' },

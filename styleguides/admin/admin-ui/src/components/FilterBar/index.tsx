@@ -11,7 +11,7 @@ import {
   Conjunction,
   FilterBarProps,
   Filter,
-  Filters,
+  ReducerFilters,
 } from './typings'
 import { Menu } from '../Menu'
 import { Action, defaultReducer } from './reducer'
@@ -24,22 +24,24 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
     filters,
     resolvers = baseResolvers<V>(),
     label,
-    onStatementChange,
+    onApply,
     csx = {},
     ...htmlProps
   } = props
 
   const reducer = useCallback(
-    (state: Filters<V>, action: Action<V>) => defaultReducer(state, action),
+    (state: ReducerFilters<V>, action: Action<V>) =>
+      defaultReducer(state, action),
     [defaultReducer]
   )
 
   const initialState = {
     conjunction: initialConjunction,
     statements: initialStatements,
+    applied: true,
   }
 
-  const [{ conjunction, statements }, dispatch] = useReducer(
+  const [{ conjunction, statements, applied }, dispatch] = useReducer(
     reducer,
     initialState
   )
@@ -47,27 +49,28 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
     dispatch({
       type: 'newStatement',
       filter: filters[0],
-      onStatementChange,
+    })
+
+  const handleApply = () =>
+    dispatch({
+      type: 'apply',
     })
 
   const handleDeleteStatement = (index: number) =>
     dispatch({
       type: 'deleteStatement',
       index,
-      onStatementChange,
     })
 
   const handleDuplicateStatement = (index: number) =>
     dispatch({
       type: 'duplicateStatement',
       index,
-      onStatementChange,
     })
 
   const handleFiltersReset = () =>
     dispatch({
       type: 'filtersReset',
-      onStatementChange,
     })
 
   const handleValueChange = (value: V, index: number) =>
@@ -75,7 +78,6 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
       type: 'value',
       value,
       index,
-      onStatementChange,
     })
 
   const handleFilterChange = (filter: Filter<V>, index: number) =>
@@ -83,7 +85,6 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
       type: 'filter',
       filter,
       index,
-      onStatementChange,
     })
 
   const handleConditionChange = (condition: Condition, index: number) =>
@@ -91,19 +92,17 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
       type: 'condition',
       condition: condition,
       index,
-      onStatementChange,
     })
 
   const handleConjunctionChange = (conjunction: Conjunction) =>
     dispatch({
       type: 'conjunction',
       conjunction,
-      onStatementChange,
     })
 
   return (
     <Box
-      csx={{ border: 'default', bg: 'light.secondary', ...csx }}
+      csx={{ border: 'default', bg: 'sidebar.light', ...csx }}
       {...htmlProps}
     >
       <Content empty={statements.length === 0} label={label}>
@@ -183,14 +182,26 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
         >
           Add Filter
         </Button>
-        <Button
-          size="small"
-          variant="adaptative-dark"
-          csx={{ color: 'dark.secondary' }}
-          onClick={handleFiltersReset}
-        >
-          Reset Filters
-        </Button>
+        <Set>
+          <Button
+            size="small"
+            variant="adaptative-dark"
+            disabled={statements.length === 0}
+            onClick={handleFiltersReset}
+          >
+            Clear Filters
+          </Button>
+          <Button
+            size="small"
+            disabled={applied}
+            onClick={() => {
+              handleApply()
+              onApply({ conjunction, statements })
+            }}
+          >
+            Apply
+          </Button>
+        </Set>
       </Footer>
     </Box>
   )

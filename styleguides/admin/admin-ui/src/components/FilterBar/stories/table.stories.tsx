@@ -11,7 +11,7 @@ import { ResolverRenderProps } from '../resolvers/core'
 import faker from 'faker'
 
 export default {
-  title: 'components/FilterBar/Table',
+  title: 'admin-ui/FilterBar/Table',
   component: FilterBar,
 } as Meta
 
@@ -177,7 +177,7 @@ export const Table: Story = () => {
               },
             },
           ]}
-          onStatementChange={(filters) => {
+          onApply={(filters) => {
             console.log(filters)
             filter(filters)
           }}

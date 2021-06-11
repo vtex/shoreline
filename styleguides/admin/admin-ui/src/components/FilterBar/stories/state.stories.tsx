@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react'
 import { FilterBar } from '../index'
 
 export default {
-  title: 'components/FilterBar/State',
+  title: 'admin-ui/FilterBar/State',
   component: FilterBar,
 } as Meta
 
@@ -68,7 +68,7 @@ export const State: Story = () => {
           },
         },
       ]}
-      onStatementChange={(filters) => {
+      onApply={(filters) => {
         console.log(filters)
       }}
     />

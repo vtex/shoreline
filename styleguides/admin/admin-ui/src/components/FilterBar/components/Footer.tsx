@@ -8,7 +8,7 @@ export function Footer(props: FlexProps) {
     <Flex
       csx={{
         paddingY: 2,
-        paddingX: 3,
+        paddingX: 4,
         border: 'divider-top',
         justifyContent: 'space-between',
         bg: 'light.primary',

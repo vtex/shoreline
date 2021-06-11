@@ -4,7 +4,7 @@ import { Resolver } from './resolvers/core'
 
 export interface FilterBarProps<T> extends SystemComponent {
   /** Handles the state of FilterBar statements */
-  onStatementChange: (flters: Filters<T>) => void
+  onApply: (filters: Filters<T>) => void
   /** FilterBar initial conjunction */
   conjunction?: Conjunction
   /** FilterBar initial statements */
@@ -25,6 +25,11 @@ export interface Filters<T> {
   statements: Statement<T>[]
   /** FilterBar conjunction */
   conjunction: Conjunction
+}
+
+export interface ReducerFilters<T> extends Filters<T> {
+  /** Whether current filters are applied or not */
+  applied: boolean
 }
 
 export type Conjunction = 'And' | 'Or'
