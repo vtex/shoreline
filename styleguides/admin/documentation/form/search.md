@@ -54,15 +54,15 @@ function Example() {
 
 ## Props
 
-| Name            | Type                 | Description                                 | Required | Default |
-| --------------- | -------------------- | ------------------------------------------- | -------- | ------- |
-| loading         | `boolean`            | Defines if the Search is loading            | 🚫       | `false` |
-| id              | `string`             | Search id, must be unique within a page     | ✅       | -       |
-| placeholder     | `string`             | Placeholder text                            | ✅       | -       |
-| onSubmit        | `() => void`         | Action to perform on submit                 | 🚫       | -       |
-| wrappingFormCSX | `StyleObject`        | Style object for form wrapping search input | 🚫       | `{}`    |
-| onClear         | `() => void`         | onClear input                               | 🚫       | -       |
-| labelElement    | `ReactNode`          | Render an optional label                    | 🚫       | -       |
-| onChange        | `ChangeEventHandler` | onChange event                              | 🚫       | -       |
-| error           | `boolean`            | Input error state                           | 🚫       | -       |
-| csx             | `StyleProp`          | Defines component styles                    | 🚫       | `{}`    |
+| Name         | Type                 | Description                                 | Required | Default |
+| ------------ | -------------------- | ------------------------------------------- | -------- | ------- |
+| loading      | `boolean`            | Defines if the Search is loading            | 🚫       | `false` |
+| id           | `string`             | Search id, must be unique within a page     | ✅       | -       |
+| placeholder  | `string`             | Placeholder text                            | ✅       | -       |
+| onSubmit     | `() => void`         | Action to perform on submit                 | 🚫       | -       |
+| containerCsx | `StyleObject`        | Style object for form wrapping search input | 🚫       | `{}`    |
+| onClear      | `() => void`         | onClear input                               | 🚫       | -       |
+| labelElement | `ReactNode`          | Render an optional label                    | 🚫       | -       |
+| onChange     | `ChangeEventHandler` | onChange event                              | 🚫       | -       |
+| error        | `boolean`            | Input error state                           | 🚫       | -       |
+| csx          | `StyleProp`          | Defines component styles                    | 🚫       | `{}`    |

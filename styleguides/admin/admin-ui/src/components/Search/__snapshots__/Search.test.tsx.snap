@@ -6,8 +6,6 @@ exports[`Search tests should match snapshot 1`] = `
   position: relative;
 }
 
-
-
 .emotion-0 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
@@ -239,8 +237,6 @@ exports[`Search tests should match snapshot on loading 1`] = `
 .emotion-7 {
   position: relative;
 }
-
-
 
 .emotion-0 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
