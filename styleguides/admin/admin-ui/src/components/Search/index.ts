@@ -26,7 +26,7 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
     loading,
     onClear,
     value = '',
-    wrappingFormCSX = {},
+    containerCsx = {},
     csx = {},
     ...inputProps
   } = props
@@ -42,7 +42,10 @@ export function useSearch(props: SearchProps): PrimitiveProps<'form'> {
     element: 'form',
     role: 'search',
     onSubmit: handleSubmit,
-    csx: { position: 'relative', wrappingFormCSX },
+    csx: {
+      position: 'relative',
+      ...containerCsx,
+    },
     children: [
       jsxs(VisuallyHidden, {}, jsxs(Label, { htmlFor: id }, placeholder)),
       jsxs(AbstractInput, {
@@ -94,5 +97,5 @@ export interface SearchProps extends SystemComponentProps<SearchOwnProps> {
   /** action to perform on submit */
   onSubmit?: () => void
   /** style object for form wrapping search input */
-  wrappingFormCSX?: StyleObject
+  containerCsx?: StyleObject
 }
