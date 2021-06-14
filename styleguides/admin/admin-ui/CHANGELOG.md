@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.99.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.99.0...@vtex/admin-ui@0.99.1) (2021-06-14)
+
+
+### Bug Fixes
+
+* **admin-ui/combobox:** export component ([1353e66](https://github.com/vtex/onda/commit/1353e66875bab6ffc54f52976b11b57eb3fd3430))
+
+
+
+
+
 # [0.99.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.98.1...@vtex/admin-ui@0.99.0) (2021-06-11)
 
 
