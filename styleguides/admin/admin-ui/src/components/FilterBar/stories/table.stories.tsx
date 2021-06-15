@@ -125,7 +125,7 @@ export const Table: Story = () => {
       if (conditions.length === 0) return true
 
       return conditions.reduce((accumulator, currentValue) =>
-        conjunction === 'And'
+        conjunction.value === 'and'
           ? accumulator && currentValue
           : accumulator || currentValue
       )
@@ -181,6 +181,21 @@ export const Table: Story = () => {
             console.log(filters)
             filter(filters)
           }}
+          conjunction={{ label: 'And', value: 'and' }}
+          conjunctions={[
+            { label: 'And', value: 'and' },
+            { label: 'Or', value: 'or' },
+          ]}
+          conjunctionLabel="Conjunction"
+          filterLabel="Filters"
+          conditionLabel="Condition"
+          statementMenuLabel="Statement Menu"
+          applyFilterLabel="Apply"
+          addFilterLabel="Add Filter"
+          clearFilterLabel="Clear Filters"
+          deleteStatementLabel="Delete"
+          duplicateStatementLabel="Duplicate"
+          whereStatementLabel="Where"
         />
         <StatefulTable
           columns={[

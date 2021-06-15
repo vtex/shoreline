@@ -12,7 +12,6 @@ export const State: Story = () => {
   return (
     <FilterBar
       label="Use a filter to find products, create collections or generate a report"
-      conjunction="Or"
       statements={[
         {
           condition: { label: 'is bigger than', id: '1' },
@@ -71,6 +70,21 @@ export const State: Story = () => {
       onApply={(filters) => {
         console.log(filters)
       }}
+      conjunction={{ label: 'Or', value: 'or' }}
+      conjunctions={[
+        { label: 'And', value: 'and' },
+        { label: 'Or', value: 'or' },
+      ]}
+      conjunctionLabel="Conjunction"
+      filterLabel="Filters"
+      conditionLabel="Condition"
+      statementMenuLabel="Statement Menu"
+      applyFilterLabel="Apply"
+      addFilterLabel="Add Filter"
+      clearFilterLabel="Clear Filters"
+      deleteStatementLabel="Delete"
+      duplicateStatementLabel="Duplicate"
+      whereStatementLabel="Where"
     />
   )
 }

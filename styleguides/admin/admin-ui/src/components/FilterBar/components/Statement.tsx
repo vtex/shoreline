@@ -24,9 +24,16 @@ export function Statement(props: StatementProps) {
  * It renders either a Dropdown to select the FilterBar conjunction or the conjunction label.
  */
 Statement.Conjunction = function StatementConjunction(
-  props: StatementDropdownProps<Conjunction> & { index: number }
+  props: StatementConjunctionProps
 ) {
-  const { index, selectedItem, handleItemChange, items, label } = props
+  const {
+    index,
+    whereLabel,
+    selectedItem,
+    handleItemChange,
+    items,
+    label,
+  } = props
 
   return index === 1 ? (
     <StatementDropdown
@@ -38,7 +45,7 @@ Statement.Conjunction = function StatementConjunction(
     />
   ) : (
     <Box csx={{ paddingLeft: 3, minWidth: 100, maxWidth: 100 }}>
-      {index === 0 ? 'Where' : selectedItem}
+      {index === 0 ? whereLabel : selectedItem?.label}
     </Box>
   )
 }
@@ -60,3 +67,11 @@ Statement.Value = ResolvedValue
 Statement.Menu = StatementMenu
 
 export type StatementProps = FlexProps
+
+interface StatementConjunctionProps
+  extends StatementDropdownProps<Conjunction> {
+  /** Current statement index */
+  index: number
+  /** First statement conjunction label */
+  whereLabel: string
+}

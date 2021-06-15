@@ -72,8 +72,9 @@ export function defaultReducer<T>(
       return nextState
     }
     case 'filtersReset': {
+      const { conjunction } = action
       const nextState: ReducerFilters<T> = {
-        conjunction: 'And',
+        conjunction,
         statements: [],
         applied: false,
       }
@@ -135,6 +136,7 @@ export type Action<T> =
     }
   | {
       type: 'filtersReset'
+      conjunction: Conjunction
     }
   | {
       type: 'duplicateStatement'
