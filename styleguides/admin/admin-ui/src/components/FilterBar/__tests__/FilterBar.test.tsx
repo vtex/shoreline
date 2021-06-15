@@ -50,7 +50,7 @@ describe('FilterBar tests', () => {
             { label: 'Or', value: 'or' },
           ]}
           conjunctionLabel="Conjunction"
-          filterLabel="Filters"
+          filterLabel="Filter"
           conditionLabel="Condition"
           statementMenuLabel="Statement Menu"
           applyFilterLabel="Apply"
@@ -119,7 +119,7 @@ describe('FilterBar tests', () => {
             { label: 'Or', value: 'or' },
           ]}
           conjunctionLabel="Conjunction"
-          filterLabel="Filters"
+          filterLabel="Filter"
           conditionLabel="Condition"
           statementMenuLabel="Statement Menu"
           applyFilterLabel="Apply"
@@ -185,7 +185,7 @@ describe('FilterBar tests', () => {
             { label: 'Or', value: 'or' },
           ]}
           conjunctionLabel="Conjunction"
-          filterLabel="Filters"
+          filterLabel="Filter"
           conditionLabel="Condition"
           statementMenuLabel="Statement Menu"
           applyFilterLabel="Apply"

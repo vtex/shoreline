@@ -76,7 +76,7 @@ export const State: Story = () => {
         { label: 'Or', value: 'or' },
       ]}
       conjunctionLabel="Conjunction"
-      filterLabel="Filters"
+      filterLabel="Filter"
       conditionLabel="Condition"
       statementMenuLabel="Statement Menu"
       applyFilterLabel="Apply"
