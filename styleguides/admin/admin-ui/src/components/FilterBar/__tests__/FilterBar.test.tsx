@@ -20,6 +20,19 @@ describe('FilterBar tests', () => {
     })
   })
 
+  const internalLabels = {
+    conjunctionLabel: 'Conjunction',
+    filterLabel: 'Filter',
+    conditionLabel: 'Condition',
+    statementMenuLabel: 'Statement Menu',
+    applyFilterLabel: 'Apply',
+    addFilterLabel: 'Add Filter',
+    clearFilterLabel: 'Clear Filters',
+    deleteStatementLabel: 'Delete',
+    duplicateStatementLabel: 'Duplicate',
+    whereStatementLabel: 'Where',
+  }
+
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
@@ -49,18 +62,7 @@ describe('FilterBar tests', () => {
             { label: 'And', value: 'and' },
             { label: 'Or', value: 'or' },
           ]}
-          internalLabels={{
-            conjunctionLabel: 'Conjunction',
-            filterLabel: 'Filter',
-            conditionLabel: 'Condition',
-            statementMenuLabel: 'Statement Menu',
-            applyFilterLabel: 'Apply',
-            addFilterLabel: 'Add Filter',
-            clearFilterLabel: 'Clear Filters',
-            deleteStatementLabel: 'Delete',
-            duplicateStatementLabel: 'Duplicate',
-            whereStatementLabel: 'Where',
-          }}
+          internalLabels={internalLabels}
         />
       </ThemeProvider>
     )
@@ -120,18 +122,7 @@ describe('FilterBar tests', () => {
             { label: 'And', value: 'and' },
             { label: 'Or', value: 'or' },
           ]}
-          internalLabels={{
-            conjunctionLabel: 'Conjunction',
-            filterLabel: 'Filter',
-            conditionLabel: 'Condition',
-            statementMenuLabel: 'Statement Menu',
-            applyFilterLabel: 'Apply',
-            addFilterLabel: 'Add Filter',
-            clearFilterLabel: 'Clear Filters',
-            deleteStatementLabel: 'Delete',
-            duplicateStatementLabel: 'Duplicate',
-            whereStatementLabel: 'Where',
-          }}
+          internalLabels={internalLabels}
         />
       </ThemeProvider>
     )
@@ -188,18 +179,7 @@ describe('FilterBar tests', () => {
             { label: 'And', value: 'and' },
             { label: 'Or', value: 'or' },
           ]}
-          internalLabels={{
-            conjunctionLabel: 'Conjunction',
-            filterLabel: 'Filter',
-            conditionLabel: 'Condition',
-            statementMenuLabel: 'Statement Menu',
-            applyFilterLabel: 'Apply',
-            addFilterLabel: 'Add Filter',
-            clearFilterLabel: 'Clear Filters',
-            deleteStatementLabel: 'Delete',
-            duplicateStatementLabel: 'Duplicate',
-            whereStatementLabel: 'Where',
-          }}
+          internalLabels={internalLabels}
         />
       </ThemeProvider>
     )
