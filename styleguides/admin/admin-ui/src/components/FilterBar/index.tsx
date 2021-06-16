@@ -8,10 +8,10 @@ import { Button } from '../Button'
 import { Content, Statement, Footer } from './components'
 import {
   Condition,
-  Conjunction,
   FilterBarProps,
   Filter,
   ReducerFilters,
+  Conjunction,
 } from './typings'
 import { Menu } from '../Menu'
 import { Action, defaultReducer } from './reducer'
@@ -19,13 +19,26 @@ import { baseResolvers } from './resolvers/base'
 
 export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
   const {
-    conjunction: initialConjunction = 'And',
+    conjunction: initialConjunction,
+    conjunctions,
     statements: initialStatements = [],
     filters,
     resolvers = baseResolvers<V>(),
     label,
     onApply,
     csx = {},
+    internalLabels: {
+      conjunctionLabel,
+      filterLabel,
+      conditionLabel,
+      addFilterLabel,
+      statementMenuLabel,
+      applyFilterLabel,
+      clearFilterLabel,
+      duplicateStatementLabel,
+      deleteStatementLabel,
+      whereStatementLabel,
+    },
     ...htmlProps
   } = props
 
@@ -68,9 +81,10 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
       index,
     })
 
-  const handleFiltersReset = () =>
+  const handleFiltersReset = (conjunction: Conjunction) =>
     dispatch({
       type: 'filtersReset',
+      conjunction,
     })
 
   const handleValueChange = (value: V, index: number) =>
@@ -111,10 +125,11 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
             <Statement key={`filter-statement-${index}`}>
               <Set spacing={2}>
                 <Statement.Conjunction
-                  label="Conjunction"
+                  label={conjunctionLabel}
+                  whereLabel={whereStatementLabel}
                   selectedItem={conjunction}
                   index={index}
-                  items={['And', 'Or']}
+                  items={conjunctions}
                   handleItemChange={({ selectedItem }) => {
                     if (selectedItem) {
                       handleConjunctionChange(selectedItem)
@@ -123,7 +138,7 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
                 />
 
                 <Statement.Filter
-                  label="Filter"
+                  label={filterLabel}
                   items={filters}
                   selectedItem={statement.filter}
                   handleItemChange={({ selectedItem: filter }) => {
@@ -134,14 +149,14 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
                 />
 
                 <Statement.Conditions
+                  label={conditionLabel}
+                  items={statement.filter.conditions}
                   selectedItem={statement.condition}
                   handleItemChange={({ selectedItem: condition }) => {
                     if (!condition) return
 
                     handleConditionChange(condition, index)
                   }}
-                  label="Condition"
-                  items={statement.filter.conditions}
                 />
 
                 <Statement.Value
@@ -153,19 +168,19 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
               </Set>
               <Statement.Menu
                 baseId="statement-menu"
-                aria-label={`statement-menu-${index}`}
+                aria-label={`${statementMenuLabel} ${index}`}
               >
                 <Menu.Item
                   onClick={() => handleDuplicateStatement(index)}
                   icon={<IconDuplicate />}
                 >
-                  Duplicate
+                  {duplicateStatementLabel}
                 </Menu.Item>
                 <Menu.Item
                   onClick={() => handleDeleteStatement(index)}
                   icon={<IconDelete />}
                 >
-                  Delete
+                  {deleteStatementLabel}
                 </Menu.Item>
               </Statement.Menu>
             </Statement>
@@ -180,16 +195,16 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
           icon={<IconAdd />}
           onClick={handleNewStatement}
         >
-          Add Filter
+          {addFilterLabel}
         </Button>
         <Set>
           <Button
             size="small"
             variant="adaptative-dark"
             disabled={statements.length === 0}
-            onClick={handleFiltersReset}
+            onClick={() => handleFiltersReset(initialConjunction)}
           >
-            Clear Filters
+            {clearFilterLabel}
           </Button>
           <Button
             size="small"
@@ -199,7 +214,7 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
               onApply({ conjunction, statements })
             }}
           >
-            Apply
+            {applyFilterLabel}
           </Button>
         </Set>
       </Footer>

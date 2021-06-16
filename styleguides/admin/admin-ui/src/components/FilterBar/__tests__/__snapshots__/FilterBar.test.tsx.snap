@@ -804,7 +804,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
             aria-controls="statement-menu"
             aria-expanded="false"
             aria-haspopup="menu"
-            aria-label="statement-menu-0"
+            aria-label="Statement Menu 0"
             class="emotion-21"
             type="button"
           >
@@ -841,7 +841,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
             </div>
           </button>
           <div
-            aria-label="statement-menu-0"
+            aria-label="Statement Menu 0"
             aria-orientation="vertical"
             class="emotion-29"
             data-dialog="true"

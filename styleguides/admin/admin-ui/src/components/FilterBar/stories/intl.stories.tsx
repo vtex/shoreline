@@ -4,28 +4,28 @@ import { Meta, Story } from '@storybook/react'
 import { FilterBar } from '../index'
 
 export default {
-  title: 'admin-ui/FilterBar/Basic',
+  title: 'admin-ui/FilterBar',
   component: FilterBar,
 } as Meta
 
-export const Basic: Story = () => {
+export const Intl: Story = () => {
   const conditions = [
-    { label: 'is', id: '1' },
-    { label: 'contains', id: '2' },
+    { label: 'é', id: '1' },
+    { label: 'contém', id: '2' },
   ]
 
   return (
     <FilterBar
-      label="Use a filter to find products, create collections or generate a report"
+      label="Use um filtro para achar produtos, criar coleções ou gerar relatórios"
       filters={[
         {
           label: 'Status',
           id: 'status',
           conditions: [
             ...conditions,
-            { label: 'is not', id: '3' },
-            { label: 'is empty', id: '4' },
-            { label: 'is equal to', id: '5' },
+            { label: 'não é', id: '3' },
+            { label: 'é vázio', id: '4' },
+            { label: 'é igual a', id: '5' },
           ],
           resolver: {
             type: 'simple',
@@ -34,7 +34,7 @@ export const Basic: Story = () => {
           },
         },
         {
-          label: 'Specific Store Label',
+          label: 'Loja específica',
           id: 'specificStoreLabel',
           conditions,
           resolver: {
@@ -50,7 +50,7 @@ export const Basic: Story = () => {
           },
         },
         {
-          label: 'Topic',
+          label: 'Tópico',
           id: 'topic',
           conditions,
           resolver: {
@@ -63,22 +63,22 @@ export const Basic: Story = () => {
       onApply={(filters) => {
         console.log(filters)
       }}
-      conjunction={{ label: 'And', value: 'and' }}
+      conjunction={{ label: 'E', value: 'and' }}
       conjunctions={[
-        { label: 'And', value: 'and' },
-        { label: 'Or', value: 'or' },
+        { label: 'E', value: 'and' },
+        { label: 'Ou', value: 'or' },
       ]}
       internalLabels={{
-        conjunctionLabel: 'Conjunction',
-        filterLabel: 'Filter',
-        conditionLabel: 'Condition',
-        statementMenuLabel: 'Statement Menu',
-        applyFilterLabel: 'Apply',
-        addFilterLabel: 'Add Filter',
-        clearFilterLabel: 'Clear Filters',
-        deleteStatementLabel: 'Delete',
-        duplicateStatementLabel: 'Duplicate',
-        whereStatementLabel: 'Where',
+        conjunctionLabel: 'Conjunção',
+        filterLabel: 'Filtro',
+        conditionLabel: 'Condição',
+        statementMenuLabel: 'Menu da sentença',
+        applyFilterLabel: 'Aplicar',
+        addFilterLabel: 'Adicionar Filtro',
+        clearFilterLabel: 'Limpar Filtros',
+        deleteStatementLabel: 'Deletar',
+        duplicateStatementLabel: 'Duplicar',
+        whereStatementLabel: 'Em que',
       }}
     />
   )

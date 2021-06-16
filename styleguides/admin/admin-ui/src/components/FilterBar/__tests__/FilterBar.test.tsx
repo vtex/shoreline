@@ -20,6 +20,19 @@ describe('FilterBar tests', () => {
     })
   })
 
+  const internalLabels = {
+    conjunctionLabel: 'Conjunction',
+    filterLabel: 'Filter',
+    conditionLabel: 'Condition',
+    statementMenuLabel: 'Statement Menu',
+    applyFilterLabel: 'Apply',
+    addFilterLabel: 'Add Filter',
+    clearFilterLabel: 'Clear Filters',
+    deleteStatementLabel: 'Delete',
+    duplicateStatementLabel: 'Duplicate',
+    whereStatementLabel: 'Where',
+  }
+
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
@@ -44,6 +57,12 @@ describe('FilterBar tests', () => {
               },
             },
           ]}
+          conjunction={{ label: 'And', value: 'and' }}
+          conjunctions={[
+            { label: 'And', value: 'and' },
+            { label: 'Or', value: 'or' },
+          ]}
+          internalLabels={internalLabels}
         />
       </ThemeProvider>
     )
@@ -98,6 +117,12 @@ describe('FilterBar tests', () => {
               },
             },
           ]}
+          conjunction={{ label: 'And', value: 'and' }}
+          conjunctions={[
+            { label: 'And', value: 'and' },
+            { label: 'Or', value: 'or' },
+          ]}
+          internalLabels={internalLabels}
         />
       </ThemeProvider>
     )
@@ -149,6 +174,12 @@ describe('FilterBar tests', () => {
               },
             },
           ]}
+          conjunction={{ label: 'And', value: 'and' }}
+          conjunctions={[
+            { label: 'And', value: 'and' },
+            { label: 'Or', value: 'or' },
+          ]}
+          internalLabels={internalLabels}
         />
       </ThemeProvider>
     )
