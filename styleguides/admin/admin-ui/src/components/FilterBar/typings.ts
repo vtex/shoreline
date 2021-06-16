@@ -20,10 +20,10 @@ export interface FilterBarProps<T> extends SystemComponent {
    */
   resolvers?: Record<string, Resolver<T>>
   /** Set of labels used internally */
-  internalLabels: Labels
+  internalLabels: InternalLabels
 }
 
-export interface Labels {
+export interface InternalLabels {
   /**
    * Conjunction dropdown aria-label
    */

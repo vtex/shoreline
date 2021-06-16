@@ -70,16 +70,18 @@ function Example() {
         { label: 'And', value: 'and' },
         { label: 'Or', value: 'or' },
       ]}
-      conjunctionLabel="Conjunction"
-      filterLabel="Filters"
-      conditionLabel="Condition"
-      statementMenuLabel="Statement Menu"
-      applyFilterLabel="Apply"
-      addFilterLabel="Add Filter"
-      clearFilterLabel="Clear Filters"
-      deleteStatementLabel="Delete"
-      duplicateStatementLabel="Duplicate"
-      whereStatementLabel="Where"
+      internalLabels={{
+        conjunctionLabel: 'Conjunction',
+        filterLabel: 'Filter',
+        conditionLabel: 'Condition',
+        statementMenuLabel: 'Statement Menu',
+        applyFilterLabel: 'Apply',
+        addFilterLabel: 'Add Filter',
+        clearFilterLabel: 'Clear Filters',
+        deleteStatementLabel: 'Delete',
+        duplicateStatementLabel: 'Duplicate',
+        whereStatementLabel: 'Where',
+      }}
     />
   )
 }
@@ -234,16 +236,18 @@ function Example() {
         { label: 'And', value: 'and' },
         { label: 'Or', value: 'or' },
       ]}
-      conjunctionLabel="Conjunction"
-      filterLabel="Filters"
-      conditionLabel="Condition"
-      statementMenuLabel="Statement Menu"
-      applyFilterLabel="Apply"
-      addFilterLabel="Add Filter"
-      clearFilterLabel="Clear Filters"
-      deleteStatementLabel="Delete"
-      duplicateStatementLabel="Duplicate"
-      whereStatementLabel="Where"
+      internalLabels={{
+        conjunctionLabel: 'Conjunction',
+        filterLabel: 'Filter',
+        conditionLabel: 'Condition',
+        statementMenuLabel: 'Statement Menu',
+        applyFilterLabel: 'Apply',
+        addFilterLabel: 'Add Filter',
+        clearFilterLabel: 'Clear Filters',
+        deleteStatementLabel: 'Delete',
+        duplicateStatementLabel: 'Duplicate',
+        whereStatementLabel: 'Where',
+      }}
     />
   )
 }
@@ -341,16 +345,18 @@ function Example() {
         { label: 'And', value: 'and' },
         { label: 'Or', value: 'or' },
       ]}
-      conjunctionLabel="Conjunction"
-      filterLabel="Filters"
-      conditionLabel="Condition"
-      statementMenuLabel="Statement Menu"
-      applyFilterLabel="Apply"
-      addFilterLabel="Add Filter"
-      clearFilterLabel="Clear Filters"
-      deleteStatementLabel="Delete"
-      duplicateStatementLabel="Duplicate"
-      whereStatementLabel="Where"
+      internalLabels={{
+        conjunctionLabel: 'Conjunction',
+        filterLabel: 'Filter',
+        conditionLabel: 'Condition',
+        statementMenuLabel: 'Statement Menu',
+        applyFilterLabel: 'Apply',
+        addFilterLabel: 'Add Filter',
+        clearFilterLabel: 'Clear Filters',
+        deleteStatementLabel: 'Delete',
+        duplicateStatementLabel: 'Duplicate',
+        whereStatementLabel: 'Where',
+      }}
     />
   )
 }
@@ -401,36 +407,60 @@ FilterBar component has a lot of internal labels that need to be translated. The
 **Properties**
 
 ```ts isStatic
-conjunctionLabel: string
-filterLabel: string
-conditionLabel: string
-statementMenuLabel: string
-addFilterLabel: string
-applyFilterLabel: string
-clearFilterLabel: string
-duplicateStatementLabel: string
-deleteStatementLabel: string
-whereStatementLabel: string
+interface InternalLabels {
+  /**
+   * Conjunction dropdown aria-label
+   */
+  conjunctionLabel: string
+  /**
+   * Filter dropdown aria-label
+   */
+  filterLabel: string
+  /**
+   * Condition dropdown aria-label
+   */
+  conditionLabel: string
+  /**
+   * Statement menu aria-label
+   */
+  statementMenuLabel: string
+  /**
+   * Add filter button label
+   */
+  addFilterLabel: string
+  /**
+   * Apply filter button label
+   */
+  applyFilterLabel: string
+  /**
+   * Clear filter button label
+   */
+  clearFilterLabel: string
+  /**
+   * Duplicate statement button label
+   */
+  duplicateStatementLabel: string
+  /**
+   * Delete statement button label
+   */
+  deleteStatementLabel: string
+  /**
+   * First statement conjunction label
+   */
+  whereStatementLabel: string
+}
 ```
 
 ## Props
 
-| Name                    | Type                            | Description                                                              | Required | Default            |
-| ----------------------- | ------------------------------- | ------------------------------------------------------------------------ | -------- | ------------------ |
-| label                   | `string`                        | FilterBar label. It appears when there are no statements                 | ✅       | -                  |
-| onApply                 | `(filters: Filters<T>) => void` | Render props function that is called when the user hits the apply button | ✅       | -                  |
-| csx                     | `StyleObject`                   | Custom styles                                                            | 🚫       | {}                 |
-| conjunction             | `Conjunction`                   | FilterBar conjunction                                                    | 🚫       | -                  |
-| conjunctions            | `Conjunction[]`                 | FilterBar conjunction options                                            | 🚫       | -                  |
-| statement               | `Statement<T>[]`                | FilterBar initial statements                                             | 🚫       | []                 |
-| filters                 | `Filter<T>[]`                   | FilterBar filters                                                        | 🚫       | -                  |
-| resolvers               | `Record<String, Resolver<T>>`   | FilterBar resolvers                                                      | 🚫       | baseResolvers<T>() |
-| conjunctionLabel        | `string`                        | Conjunction field label                                                  | 🚫       | -                  |
-| filterLabel             | `string`                        | Filter field label                                                       | 🚫       | -                  |
-| conditionLabel          | `string`                        | Condition field label                                                    | 🚫       | -                  |
-| statementMenuLabel      | `string`                        | Statement Menu aria-label                                                | 🚫       | -                  |
-| addFilterLabel          | `string`                        | Add Filter label                                                         | 🚫       | -                  |
-| clearFilterLabel        | `string`                        | Clear Filters label                                                      | 🚫       | -                  |
-| duplicateStatementLabel | `string`                        | Duplicate statement label                                                | 🚫       | -                  |
-| deleteStatementLabel    | `string`                        | Delete statement label                                                   | 🚫       | -                  |
-| whereStatementLabel     | `string`                        | First statement conjunction label                                        | 🚫       | -                  |
+| Name           | Type                            | Description                                                              | Required | Default            |
+| -------------- | ------------------------------- | ------------------------------------------------------------------------ | -------- | ------------------ |
+| label          | `string`                        | FilterBar label. It appears when there are no statements                 | ✅       | -                  |
+| internalLabels | `InternalLabels`                | Set of FilterBar internal labels                                         | ✅       | -                  |
+| onApply        | `(filters: Filters<T>) => void` | Render props function that is called when the user hits the apply button | ✅       | -                  |
+| conjunction    | `Conjunction`                   | FilterBar conjunction                                                    | ✅       | -                  |
+| conjunctions   | `Conjunction[]`                 | FilterBar conjunction options                                            | ✅       | -                  |
+| csx            | `StyleObject`                   | Custom styles                                                            | 🚫       | {}                 |
+| statement      | `Statement<T>[]`                | FilterBar initial statements                                             | 🚫       | []                 |
+| filters        | `Filter<T>[]`                   | FilterBar filters                                                        | 🚫       | []                 |
+| resolvers      | `Record<String, Resolver<T>>`   | FilterBar resolvers                                                      | 🚫       | baseResolvers<T>() |
