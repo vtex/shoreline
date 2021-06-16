@@ -27,16 +27,18 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
     label,
     onApply,
     csx = {},
-    conjunctionLabel,
-    filterLabel,
-    conditionLabel,
-    addFilterLabel,
-    statementMenuLabel,
-    applyFilterLabel,
-    clearFilterLabel,
-    duplicateStatementLabel,
-    deleteStatementLabel,
-    whereStatementLabel,
+    internalLabels: {
+      conjunctionLabel,
+      filterLabel,
+      conditionLabel,
+      addFilterLabel,
+      statementMenuLabel,
+      applyFilterLabel,
+      clearFilterLabel,
+      duplicateStatementLabel,
+      deleteStatementLabel,
+      whereStatementLabel,
+    },
     ...htmlProps
   } = props
 

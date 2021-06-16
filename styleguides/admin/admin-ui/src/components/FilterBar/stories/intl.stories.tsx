@@ -68,16 +68,18 @@ export const Intl: Story = () => {
         { label: 'E', value: 'and' },
         { label: 'Ou', value: 'or' },
       ]}
-      conjunctionLabel="Conjunção"
-      filterLabel="Filtro"
-      conditionLabel="Condição"
-      statementMenuLabel="Menu da sentença"
-      applyFilterLabel="Aplicar"
-      addFilterLabel="Adicionar Filtro"
-      clearFilterLabel="Limpar Filtros"
-      deleteStatementLabel="Deletar"
-      duplicateStatementLabel="Duplicar"
-      whereStatementLabel="Em que"
+      internalLabels={{
+        conjunctionLabel: 'Conjunção',
+        filterLabel: 'Filtro',
+        conditionLabel: 'Condição',
+        statementMenuLabel: 'Menu da sentença',
+        applyFilterLabel: 'Aplicar',
+        addFilterLabel: 'Adicionar Filtro',
+        clearFilterLabel: 'Limpar Filtros',
+        deleteStatementLabel: 'Deletar',
+        duplicateStatementLabel: 'Duplicar',
+        whereStatementLabel: 'Em que',
+      }}
     />
   )
 }

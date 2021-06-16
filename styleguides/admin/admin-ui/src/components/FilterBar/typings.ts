@@ -19,6 +19,11 @@ export interface FilterBarProps<T> extends SystemComponent {
    * @default baseResolvers<T>()
    */
   resolvers?: Record<string, Resolver<T>>
+  /** Set of labels used internally */
+  internalLabels: Labels
+}
+
+export interface Labels {
   /**
    * Conjunction dropdown aria-label
    */
@@ -60,7 +65,6 @@ export interface FilterBarProps<T> extends SystemComponent {
    */
   whereStatementLabel: string
 }
-
 export interface Filters<T> {
   /** FilterBar statements */
   statements: Statement<T>[]

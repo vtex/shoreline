@@ -186,16 +186,18 @@ export const Table: Story = () => {
             { label: 'And', value: 'and' },
             { label: 'Or', value: 'or' },
           ]}
-          conjunctionLabel="Conjunction"
-          filterLabel="Filter"
-          conditionLabel="Condition"
-          statementMenuLabel="Statement Menu"
-          applyFilterLabel="Apply"
-          addFilterLabel="Add Filter"
-          clearFilterLabel="Clear Filters"
-          deleteStatementLabel="Delete"
-          duplicateStatementLabel="Duplicate"
-          whereStatementLabel="Where"
+          internalLabels={{
+            conjunctionLabel: 'Conjunction',
+            filterLabel: 'Filter',
+            conditionLabel: 'Condition',
+            statementMenuLabel: 'Statement Menu',
+            applyFilterLabel: 'Apply',
+            addFilterLabel: 'Add Filter',
+            clearFilterLabel: 'Clear Filters',
+            deleteStatementLabel: 'Delete',
+            duplicateStatementLabel: 'Duplicate',
+            whereStatementLabel: 'Where',
+          }}
         />
         <StatefulTable
           columns={[
