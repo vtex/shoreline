@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.100.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.99.1...@vtex/admin-ui@0.100.0) (2021-06-16)
+
+
+### Bug Fixes
+
+* **search-container-csx:** destruct containerCsx object ([ea2dac9](https://github.com/vtex/onda/commit/ea2dac9b7c3cf6075478c26f7af430240e2c7ec0))
+* **search-container-csx:** remove unecessary height prop ([ac067aa](https://github.com/vtex/onda/commit/ac067aab11d8d1b70eba7d7c5699d9bd60df07ff))
+
+
+### Features
+
+* **filter-bar:** add intl to the internal labels ([bd15283](https://github.com/vtex/onda/commit/bd15283cc9e1c5f21299f32fe830768e13c771b3))
+
+
+
+
+
 ## [0.99.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.99.0...@vtex/admin-ui@0.99.1) (2021-06-14)
 
 
