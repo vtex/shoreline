@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from 'react'
+import React from 'react'
 
 import { Box } from '@vtex/admin-primitives'
 import { IconDuplicate, IconDelete, IconAdd } from '@vtex/admin-ui-icons'
@@ -6,24 +6,24 @@ import { IconDuplicate, IconDelete, IconAdd } from '@vtex/admin-ui-icons'
 import { Set } from '../Set'
 import { Button } from '../Button'
 import { Content, Statement, Footer } from './components'
-import {
-  Condition,
-  FilterBarProps,
-  Filter,
-  ReducerFilters,
-  Conjunction,
-} from './typings'
+import { Condition, FilterBarProps, Filter, Conjunction } from './typings'
 import { Menu } from '../Menu'
-import { Action, defaultReducer } from './reducer'
 import { baseResolvers } from './resolvers/base'
 
-export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
+export function FilterBar<T, V extends { value: T }>(
+  props: FilterBarProps<T, V>
+) {
   const {
-    conjunction: initialConjunction,
+    filterBarState: {
+      conjunction,
+      dispatch,
+      applied,
+      statements,
+      initialConjunction,
+    },
     conjunctions,
-    statements: initialStatements = [],
     filters,
-    resolvers = baseResolvers<V>(),
+    resolvers = baseResolvers<T, V>(),
     label,
     onApply,
     csx = {},
@@ -42,22 +42,6 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
     ...htmlProps
   } = props
 
-  const reducer = useCallback(
-    (state: ReducerFilters<V>, action: Action<V>) =>
-      defaultReducer(state, action),
-    [defaultReducer]
-  )
-
-  const initialState = {
-    conjunction: initialConjunction,
-    statements: initialStatements,
-    applied: true,
-  }
-
-  const [{ conjunction, statements, applied }, dispatch] = useReducer(
-    reducer,
-    initialState
-  )
   const handleNewStatement = () =>
     dispatch({
       type: 'newStatement',
@@ -94,7 +78,7 @@ export function FilterBar<T, V extends { value: T }>(props: FilterBarProps<V>) {
       index,
     })
 
-  const handleFilterChange = (filter: Filter<V>, index: number) =>
+  const handleFilterChange = (filter: Filter<T, V>, index: number) =>
     dispatch({
       type: 'filter',
       filter,

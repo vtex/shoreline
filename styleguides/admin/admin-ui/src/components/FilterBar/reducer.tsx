@@ -6,10 +6,10 @@ import {
   Statement,
 } from './typings'
 
-export function defaultReducer<T>(
-  state: ReducerFilters<T>,
-  action: Action<T>
-): ReducerFilters<T> {
+export function defaultReducer<T, V extends { value: T }>(
+  state: ReducerFilters<T, V>,
+  action: Action<T, V>
+): ReducerFilters<T, V> {
   switch (action.type) {
     case 'conjunction': {
       const { conjunction } = action
@@ -57,7 +57,7 @@ export function defaultReducer<T>(
       const { filter } = action
       const { conjunction, statements } = state
 
-      const emptyStatement: Statement<T> = {
+      const emptyStatement: Statement<T, V> = {
         filter: filter,
         condition: filter.conditions[0],
         target: filter.resolver.defaultValue,
@@ -73,7 +73,7 @@ export function defaultReducer<T>(
     }
     case 'filtersReset': {
       const { conjunction } = action
-      const nextState: ReducerFilters<T> = {
+      const nextState: ReducerFilters<T, V> = {
         conjunction,
         statements: [],
         applied: false,
@@ -110,14 +110,14 @@ export function defaultReducer<T>(
   }
 }
 
-export type Action<T> =
+export type Action<T, V extends { value: T }> =
   | {
       type: 'conjunction'
       conjunction: Conjunction
     }
   | {
       type: 'filter'
-      filter: Filter<T>
+      filter: Filter<T, V>
       index: number
     }
   | {
@@ -127,12 +127,12 @@ export type Action<T> =
     }
   | {
       type: 'value'
-      value: T
+      value: V
       index: number
     }
   | {
       type: 'newStatement'
-      filter: Filter<T>
+      filter: Filter<T, V>
     }
   | {
       type: 'filtersReset'

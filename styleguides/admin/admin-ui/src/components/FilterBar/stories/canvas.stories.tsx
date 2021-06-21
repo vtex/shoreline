@@ -2,6 +2,7 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { FilterBar } from '../index'
+import { useFilterBarState } from '../useFilterBarState'
 
 export default {
   title: 'admin-ui/FilterBar/Basic',
@@ -14,8 +15,13 @@ export const Basic: Story = () => {
     { label: 'contains', id: '2' },
   ]
 
+  const filterBarState = useFilterBarState({
+    conjunction: { label: 'And', value: 'and' },
+  })
+
   return (
     <FilterBar
+      filterBarState={filterBarState}
       label="Use a filter to find products, create collections or generate a report"
       filters={[
         {
@@ -63,7 +69,6 @@ export const Basic: Story = () => {
       onApply={(filters) => {
         console.log(filters)
       }}
-      conjunction={{ label: 'And', value: 'and' }}
       conjunctions={[
         { label: 'And', value: 'and' },
         { label: 'Or', value: 'or' },

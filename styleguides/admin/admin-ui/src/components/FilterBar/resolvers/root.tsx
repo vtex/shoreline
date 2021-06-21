@@ -16,8 +16,8 @@ import { createResolver } from './core'
  *   }
  * }
  */
-export function rootResolver<T>() {
-  return createResolver<T, 'root', RootResolver<T>>({
+export function rootResolver<T, V extends { value: T }>() {
+  return createResolver<T, V, 'root', RootResolver<T, V>>({
     value: function RootResolver({ statement, index, handleValueChange }) {
       const { filter } = statement
 
@@ -40,8 +40,8 @@ export function rootResolver<T>() {
   })
 }
 
-export type RootResolver<T> = {
+export type RootResolver<T, V extends { value: T }> = {
   type: 'root'
-  defaultValue: T
-  render: (props: ResolverRenderProps<T, null>) => ReactNode
+  defaultValue: V
+  render: (props: ResolverRenderProps<T, V, null>) => ReactNode
 }

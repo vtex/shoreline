@@ -17,8 +17,8 @@ import { StatementDropdown } from '../components'
  *   items: [{ value: 1 }, { value: 2 }],
  * }
  */
-export function simpleResolver<T>() {
-  return createResolver<T, 'simple', SimpleResolver<T>>({
+export function simpleResolver<T, V extends { value: T }>() {
+  return createResolver<T, V, 'simple', SimpleResolver<T, V>>({
     value: function SimpleResolver({ statement, index, handleValueChange }) {
       const { target, filter } = statement
       const { resolver } = filter
@@ -28,7 +28,7 @@ export function simpleResolver<T>() {
 
       const render = resolver?.render ?? defaultRender
 
-      const renderItem = (item: T | null) => {
+      const renderItem = (item: V | null) => {
         if (typeof item !== 'object') return item
 
         const path = accessor ? `value.${accessor}` : `value`
@@ -44,7 +44,7 @@ export function simpleResolver<T>() {
       }
 
       const data = (
-        <StatementDropdown<T>
+        <StatementDropdown<V>
           handleItemChange={({ selectedItem }) => {
             if (selectedItem) {
               handleValueChange(selectedItem, index)
@@ -62,10 +62,10 @@ export function simpleResolver<T>() {
   })
 }
 
-export type SimpleResolver<T> = {
+export type SimpleResolver<T, V extends { value: T }> = {
   type: 'simple'
-  items: T[]
+  items: V[]
   accessor?: string
-  defaultValue: T
-  render?: (props: ResolverRenderProps<T, JSX.Element>) => ReactNode
+  defaultValue: V
+  render?: (props: ResolverRenderProps<T, V, JSX.Element>) => ReactNode
 }

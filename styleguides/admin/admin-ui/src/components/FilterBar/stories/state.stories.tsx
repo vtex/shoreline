@@ -2,6 +2,7 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { FilterBar } from '../index'
+import { useFilterBarState } from '../useFilterBarState'
 
 export default {
   title: 'admin-ui/FilterBar/State',
@@ -9,28 +10,33 @@ export default {
 } as Meta
 
 export const State: Story = () => {
+  const filterBarState = useFilterBarState({
+    statements: [
+      {
+        condition: { label: 'is bigger than', id: '1' },
+        filter: {
+          id: 'price',
+          label: 'Price',
+          conditions: [
+            { label: 'is bigger than', id: '3' },
+            { label: 'is smaller than', id: '4' },
+          ],
+          resolver: {
+            type: 'simple',
+            defaultValue: { value: 100 },
+            items: [{ value: 1 }, { value: 10 }, { value: 50 }],
+          },
+        },
+        target: { value: 10 },
+      },
+    ],
+    conjunction: { label: 'Or', value: 'or' },
+  })
+
   return (
     <FilterBar
+      filterBarState={filterBarState}
       label="Use a filter to find products, create collections or generate a report"
-      statements={[
-        {
-          condition: { label: 'is bigger than', id: '1' },
-          filter: {
-            id: 'price',
-            label: 'Price',
-            conditions: [
-              { label: 'is bigger than', id: '3' },
-              { label: 'is smaller than', id: '4' },
-            ],
-            resolver: {
-              type: 'simple',
-              defaultValue: { value: 100 },
-              items: [{ value: 1 }, { value: 10 }, { value: 50 }],
-            },
-          },
-          target: { value: 10 },
-        },
-      ]}
       filters={[
         {
           id: 'price',
@@ -70,7 +76,6 @@ export const State: Story = () => {
       onApply={(filters) => {
         console.log(filters)
       }}
-      conjunction={{ label: 'Or', value: 'or' }}
       conjunctions={[
         { label: 'And', value: 'and' },
         { label: 'Or', value: 'or' },

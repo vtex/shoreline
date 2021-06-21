@@ -9,6 +9,7 @@ import { Statement, Filters } from '../typings'
 import { AbstractInput } from '../../AbstractInput'
 import { ResolverRenderProps } from '../resolvers/core'
 import faker from 'faker'
+import { useFilterBarState } from '../useFilterBarState'
 
 export default {
   title: 'admin-ui/FilterBar/Table',
@@ -22,7 +23,9 @@ interface Item {
   price: number
 }
 
-function FilterInput(statement: ResolverRenderProps<FiltersType, null>) {
+function FilterInput(
+  statement: ResolverRenderProps<number | string, FiltersType>
+) {
   const {
     statement: { target = { value: '' } },
     handleValueChange,
@@ -68,7 +71,14 @@ export const Table: Story = () => {
 
   const [items, setItems] = useState(products)
 
-  function filterByProduct(statement: Statement<FiltersType>, item: any) {
+  const filterBarState = useFilterBarState<number | string, FiltersType>({
+    conjunction: { label: 'And', value: 'and' },
+  })
+
+  function filterByProduct(
+    statement: Statement<number | string, FiltersType>,
+    item: any
+  ) {
     const { condition, target: { value } = { value: '' } } = statement
 
     if (typeof value !== 'string') return
@@ -87,7 +97,10 @@ export const Table: Story = () => {
       }
     }
   }
-  function filterByPrice(statement: Statement<FiltersType>, item: any) {
+  function filterByPrice(
+    statement: Statement<number | string, FiltersType>,
+    item: any
+  ) {
     const { condition, target } = statement
 
     switch (condition.label) {
@@ -102,7 +115,7 @@ export const Table: Story = () => {
     }
   }
 
-  const filter = (filters: Filters<FiltersType>) => {
+  const filter = (filters: Filters<number | string, FiltersType>) => {
     const { conjunction, statements } = filters
     const filteredItems = products.filter((item) => {
       const conditions = statements.map((statement) => {
@@ -138,6 +151,7 @@ export const Table: Story = () => {
     <Flex justify="center">
       <Flex direction="column" csx={{ width: 1000 }}>
         <FilterBar
+          filterBarState={filterBarState}
           label="Use a filter to find products, create collections or generate a report"
           filters={[
             {
@@ -178,10 +192,8 @@ export const Table: Story = () => {
             },
           ]}
           onApply={(filters) => {
-            console.log(filters)
             filter(filters)
           }}
-          conjunction={{ label: 'And', value: 'and' }}
           conjunctions={[
             { label: 'And', value: 'and' },
             { label: 'Or', value: 'or' },
