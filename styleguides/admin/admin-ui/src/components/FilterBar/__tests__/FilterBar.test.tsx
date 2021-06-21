@@ -5,6 +5,23 @@ import { axe } from 'jest-axe'
 
 import { FilterBar } from '../index'
 
+import { useFilterBarState } from '../useFilterBarState'
+import { UseFilterBarStateParams, UseFilterBarStateReturn } from '../typings'
+
+interface FilterStateProps<T, V extends { value: T }>
+  extends UseFilterBarStateParams<T, V> {
+  children: (state: UseFilterBarStateReturn<T, V>) => JSX.Element
+}
+
+function FilterState<T, V extends { value: T }>({
+  children,
+  ...hookProps
+}: FilterStateProps<T, V>) {
+  const state = useFilterBarState({ ...hookProps })
+
+  return children(state)
+}
+
 describe('FilterBar tests', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
@@ -36,34 +53,38 @@ describe('FilterBar tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <FilterBar
-          label="Filter Bar"
-          csx={{ bg: 'coral' }}
-          data-testid="filter-bar"
-          onApply={() => {}}
-          filters={[
-            {
-              label: 'Filter',
-              id: 'filter',
-              conditions: [{ label: 'is', id: '1' }],
-              resolver: {
-                type: 'simple',
-                defaultValue: { value: 'item 1' },
-                items: [
-                  { value: 'item 1' },
-                  { value: 'item 2' },
-                  { value: 'item 3' },
-                ],
-              },
-            },
-          ]}
-          conjunction={{ label: 'And', value: 'and' }}
-          conjunctions={[
-            { label: 'And', value: 'and' },
-            { label: 'Or', value: 'or' },
-          ]}
-          internalLabels={internalLabels}
-        />
+        <FilterState conjunction={{ label: 'And', value: 'and' }}>
+          {(state) => (
+            <FilterBar
+              filterBarState={state}
+              label="Filter Bar"
+              csx={{ bg: 'coral' }}
+              data-testid="filter-bar"
+              onApply={() => {}}
+              filters={[
+                {
+                  label: 'Filter',
+                  id: 'filter',
+                  conditions: [{ label: 'is', id: '1' }],
+                  resolver: {
+                    type: 'simple',
+                    defaultValue: { value: 'item 1' },
+                    items: [
+                      { value: 'item 1' },
+                      { value: 'item 2' },
+                      { value: 'item 3' },
+                    ],
+                  },
+                },
+              ]}
+              conjunctions={[
+                { label: 'And', value: 'and' },
+                { label: 'Or', value: 'or' },
+              ]}
+              internalLabels={internalLabels}
+            />
+          )}
+        </FilterState>
       </ThemeProvider>
     )
 
@@ -76,11 +97,7 @@ describe('FilterBar tests', () => {
   it('should match snapshot', async () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <FilterBar
-          label="Filter Bar"
-          csx={{ bg: 'coral' }}
-          data-testid="filter-bar"
-          onApply={() => {}}
+        <FilterState
           statements={[
             {
               condition: { label: 'is', id: '1' },
@@ -101,29 +118,39 @@ describe('FilterBar tests', () => {
               target: { value: 'item 1' },
             },
           ]}
-          filters={[
-            {
-              label: 'Filter',
-              id: 'filter',
-              conditions: [{ label: 'is', id: '1' }],
-              resolver: {
-                type: 'simple',
-                defaultValue: { value: 'item 1' },
-                items: [
-                  { value: 'item 1' },
-                  { value: 'item 2' },
-                  { value: 'item 3' },
-                ],
-              },
-            },
-          ]}
           conjunction={{ label: 'And', value: 'and' }}
-          conjunctions={[
-            { label: 'And', value: 'and' },
-            { label: 'Or', value: 'or' },
-          ]}
-          internalLabels={internalLabels}
-        />
+        >
+          {(state) => (
+            <FilterBar
+              filterBarState={state}
+              label="Filter Bar"
+              csx={{ bg: 'coral' }}
+              data-testid="filter-bar"
+              onApply={() => {}}
+              filters={[
+                {
+                  label: 'Filter',
+                  id: 'filter',
+                  conditions: [{ label: 'is', id: '1' }],
+                  resolver: {
+                    type: 'simple',
+                    defaultValue: { value: 'item 1' },
+                    items: [
+                      { value: 'item 1' },
+                      { value: 'item 2' },
+                      { value: 'item 3' },
+                    ],
+                  },
+                },
+              ]}
+              conjunctions={[
+                { label: 'And', value: 'and' },
+                { label: 'Or', value: 'or' },
+              ]}
+              internalLabels={internalLabels}
+            />
+          )}
+        </FilterState>
       </ThemeProvider>
     )
 
@@ -133,11 +160,7 @@ describe('FilterBar tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ThemeProvider>
-        <FilterBar
-          label="Filter Bar"
-          csx={{ bg: 'coral' }}
-          data-testid="filter-bar"
-          onApply={() => {}}
+        <FilterState
           statements={[
             {
               condition: { label: 'is', id: '1' },
@@ -158,29 +181,39 @@ describe('FilterBar tests', () => {
               target: { value: 'item 1' },
             },
           ]}
-          filters={[
-            {
-              label: 'Filter',
-              id: 'filter',
-              conditions: [{ label: 'is', id: '1' }],
-              resolver: {
-                type: 'simple',
-                defaultValue: { value: 'item 1' },
-                items: [
-                  { value: 'item 1' },
-                  { value: 'item 2' },
-                  { value: 'item 3' },
-                ],
-              },
-            },
-          ]}
           conjunction={{ label: 'And', value: 'and' }}
-          conjunctions={[
-            { label: 'And', value: 'and' },
-            { label: 'Or', value: 'or' },
-          ]}
-          internalLabels={internalLabels}
-        />
+        >
+          {(state) => (
+            <FilterBar
+              filterBarState={state}
+              label="Filter Bar"
+              csx={{ bg: 'coral' }}
+              data-testid="filter-bar"
+              onApply={() => {}}
+              filters={[
+                {
+                  label: 'Filter',
+                  id: 'filter',
+                  conditions: [{ label: 'is', id: '1' }],
+                  resolver: {
+                    type: 'simple',
+                    defaultValue: { value: 'item 1' },
+                    items: [
+                      { value: 'item 1' },
+                      { value: 'item 2' },
+                      { value: 'item 3' },
+                    ],
+                  },
+                },
+              ]}
+              conjunctions={[
+                { label: 'And', value: 'and' },
+                { label: 'Or', value: 'or' },
+              ]}
+              internalLabels={internalLabels}
+            />
+          )}
+        </FilterState>
       </ThemeProvider>
     )
 
