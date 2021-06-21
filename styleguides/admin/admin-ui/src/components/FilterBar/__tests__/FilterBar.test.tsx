@@ -56,7 +56,7 @@ describe('FilterBar tests', () => {
         <FilterState conjunction={{ label: 'And', value: 'and' }}>
           {(state) => (
             <FilterBar
-              filterBarState={state}
+              state={state}
               label="Filter Bar"
               csx={{ bg: 'coral' }}
               data-testid="filter-bar"
@@ -122,7 +122,7 @@ describe('FilterBar tests', () => {
         >
           {(state) => (
             <FilterBar
-              filterBarState={state}
+              state={state}
               label="Filter Bar"
               csx={{ bg: 'coral' }}
               data-testid="filter-bar"
@@ -185,7 +185,7 @@ describe('FilterBar tests', () => {
         >
           {(state) => (
             <FilterBar
-              filterBarState={state}
+              state={state}
               label="Filter Bar"
               csx={{ bg: 'coral' }}
               data-testid="filter-bar"

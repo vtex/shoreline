@@ -14,13 +14,7 @@ export function FilterBar<T, V extends { value: T }>(
   props: FilterBarProps<T, V>
 ) {
   const {
-    filterBarState: {
-      conjunction,
-      dispatch,
-      applied,
-      statements,
-      initialConjunction,
-    },
+    state: { conjunction, dispatch, applied, statements, initialConjunction },
     conjunctions,
     filters,
     resolvers = baseResolvers<T, V>(),

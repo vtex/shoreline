@@ -21,7 +21,7 @@ export const Intl: Story = () => {
 
   return (
     <FilterBar
-      filterBarState={filterBarState}
+      state={filterBarState}
       label="Use um filtro para achar produtos, criar coleções ou gerar relatórios"
       filters={[
         {

@@ -21,7 +21,7 @@ export interface FilterBarProps<T, V extends { value: T }>
   /** Set of labels used internally */
   internalLabels: InternalLabels
 
-  filterBarState: UseFilterBarStateReturn<T, V>
+  state: UseFilterBarStateReturn<T, V>
 }
 
 export interface UseFilterBarStateParams<T, V extends { value: T }> {

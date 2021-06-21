@@ -21,7 +21,7 @@ export const Basic: Story = () => {
 
   return (
     <FilterBar
-      filterBarState={filterBarState}
+      state={filterBarState}
       label="Use a filter to find products, create collections or generate a report"
       filters={[
         {

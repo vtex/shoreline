@@ -151,7 +151,7 @@ export const Table: Story = () => {
     <Flex justify="center">
       <Flex direction="column" csx={{ width: 1000 }}>
         <FilterBar
-          filterBarState={filterBarState}
+          state={filterBarState}
           label="Use a filter to find products, create collections or generate a report"
           filters={[
             {
