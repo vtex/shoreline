@@ -1,4 +1,5 @@
 import { SystemComponent } from '../../types'
+import { Action } from './reducer'
 import { BaseResolvers } from './resolvers/base'
 import { Resolver } from './resolvers/core'
 
@@ -27,6 +28,11 @@ export interface UseFilterBarStateParams<T> {
   filters: Filter<T>[]
   /** Handles the state of FilterBar statements */
   onApply: (filters: Filters<T>) => void
+  /**
+   * Accepts custom reducer to be used in the component's useReducer.
+   * If no reducer is provided the default component reducer will be used
+   */
+  reducer?: (state: ReducerFilters<T>, action: Action<T>) => ReducerFilters<T>
 }
 
 export interface UseFilterBarStateReturn<T> {
@@ -39,7 +45,7 @@ export interface UseFilterBarStateReturn<T> {
   apply: () => void
   deleteStatement: (index: number) => void
   duplicateStatement: (index: number) => void
-  clearFilter: () => void
+  filtersReset: () => void
   valueChange: (value: T, index: number) => void
   filterChange: (filter: Filter<T>, index: number) => void
   conditionChange: (condition: Condition, index: number) => void

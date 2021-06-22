@@ -60,15 +60,15 @@ export const Intl: Story = () => {
         },
       },
     ],
+    onApply: (filters) => {
+      console.log(filters)
+    },
   })
 
   return (
     <FilterBar
       state={filterBarState}
       label="Use um filtro para achar produtos, criar coleções ou gerar relatórios"
-      onApply={(filters) => {
-        console.log(filters)
-      }}
       conjunctions={[
         { label: 'E', value: 'and' },
         { label: 'Ou', value: 'or' },

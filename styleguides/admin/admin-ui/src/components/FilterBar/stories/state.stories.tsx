@@ -67,15 +67,15 @@ export const State: Story = () => {
         },
       },
     ],
+    onApply: (filters) => {
+      console.log(filters)
+    },
   })
 
   return (
     <FilterBar
       state={filterBarState}
       label="Use a filter to find products, create collections or generate a report"
-      onApply={(filters) => {
-        console.log(filters)
-      }}
       conjunctions={[
         { label: 'And', value: 'and' },
         { label: 'Or', value: 'or' },

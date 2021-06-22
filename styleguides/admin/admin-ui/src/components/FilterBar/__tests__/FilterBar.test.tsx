@@ -53,6 +53,7 @@ describe('FilterBar tests', () => {
     const { getByTestId } = render(
       <ThemeProvider>
         <FilterState
+          onApply={() => {}}
           conjunction={{ label: 'And', value: 'and' }}
           filters={[
             {
@@ -77,7 +78,6 @@ describe('FilterBar tests', () => {
               label="Filter Bar"
               csx={{ bg: 'coral' }}
               data-testid="filter-bar"
-              onApply={() => {}}
               conjunctions={[
                 { label: 'And', value: 'and' },
                 { label: 'Or', value: 'or' },
@@ -99,6 +99,7 @@ describe('FilterBar tests', () => {
     const { asFragment } = render(
       <ThemeProvider>
         <FilterState
+          onApply={() => {}}
           statements={[
             {
               condition: { label: 'is', id: '1' },
@@ -143,7 +144,6 @@ describe('FilterBar tests', () => {
               label="Filter Bar"
               csx={{ bg: 'coral' }}
               data-testid="filter-bar"
-              onApply={() => {}}
               conjunctions={[
                 { label: 'And', value: 'and' },
                 { label: 'Or', value: 'or' },
@@ -178,6 +178,7 @@ describe('FilterBar tests', () => {
               },
             },
           ]}
+          onApply={() => {}}
           statements={[
             {
               condition: { label: 'is', id: '1' },
@@ -206,7 +207,6 @@ describe('FilterBar tests', () => {
               label="Filter Bar"
               csx={{ bg: 'coral' }}
               data-testid="filter-bar"
-              onApply={() => {}}
               conjunctions={[
                 { label: 'And', value: 'and' },
                 { label: 'Or', value: 'or' },

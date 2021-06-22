@@ -34,7 +34,7 @@ export function FilterBar<T, V extends { value: T }>(
       filterChange,
       conditionChange,
       conjunctionChange,
-      clearFilter,
+      filtersReset,
     },
     conjunctions,
     resolvers = baseResolvers<V>(),
@@ -143,7 +143,7 @@ export function FilterBar<T, V extends { value: T }>(
             size="small"
             variant="adaptative-dark"
             disabled={statements.length === 0}
-            onClick={clearFilter}
+            onClick={filtersReset}
           >
             {clearFilterLabel}
           </Button>

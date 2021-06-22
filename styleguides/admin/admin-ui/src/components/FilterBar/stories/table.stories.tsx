@@ -109,6 +109,9 @@ export const Table: Story = () => {
         },
       },
     ],
+    onApply: (filters) => {
+      filter(filters)
+    },
   })
 
   function filterByProduct(statement: Statement<FiltersType>, item: any) {
@@ -183,9 +186,6 @@ export const Table: Story = () => {
         <FilterBar
           state={filterBarState}
           label="Use a filter to find products, create collections or generate a report"
-          onApply={(filters) => {
-            filter(filters)
-          }}
           conjunctions={[
             { label: 'And', value: 'and' },
             { label: 'Or', value: 'or' },

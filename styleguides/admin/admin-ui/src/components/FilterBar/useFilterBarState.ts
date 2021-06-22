@@ -15,14 +15,14 @@ export function useFilterBarState<T>(
   const {
     conjunction: initialConjunction,
     statements: initialStatements = [],
+    reducer = defaultReducer,
     filters,
     onApply,
   } = params
 
-  const reducer = useCallback(
-    (state: ReducerFilters<T>, action: Action<T>) =>
-      defaultReducer(state, action),
-    [defaultReducer]
+  const memoizedReducer = useCallback(
+    (state: ReducerFilters<T>, action: Action<T>) => reducer(state, action),
+    [reducer]
   )
 
   const initialState = {
@@ -32,92 +32,74 @@ export function useFilterBarState<T>(
   }
 
   const [{ conjunction, statements, applied }, dispatch] = useReducer(
-    reducer,
+    memoizedReducer,
     initialState
   )
 
-  const newStatement = useCallback(() => {
-    dispatch({
-      type: 'newStatement',
-      filter: filters[0],
-    })
-  }, [filters, dispatch])
+  const memoizedDispatch = useCallback((value: Action<T>) => dispatch(value), [
+    dispatch,
+  ])
 
-  const apply = useCallback(
+  const newStatement = useCallback(
     () =>
       dispatch({
-        type: 'apply',
+        type: 'newStatement',
+        filter: filters[0],
       }),
-    [dispatch]
+    [dispatch, filters]
   )
-
-  const deleteStatement = useCallback(
-    (index: number) =>
-      dispatch({
-        type: 'deleteStatement',
-        index,
-      }),
-    [dispatch]
-  )
-
-  const duplicateStatement = (index: number) =>
-    useCallback(
-      () =>
-        dispatch({
-          type: 'duplicateStatement',
-          index,
-        }),
-      [index]
-    )
-
-  const clearFilter = useCallback(
+  const filtersReset = useCallback(
     () =>
       dispatch({
         type: 'filtersReset',
         conjunction: initialConjunction,
       }),
-    [dispatch, initialConjunction]
+    [dispatch, conjunction]
   )
 
-  const valueChange = useCallback(
-    (value: T, index: number) =>
-      dispatch({
-        type: 'value',
-        value,
-        index,
-      }),
-    [dispatch]
-  )
+  const apply = () =>
+    memoizedDispatch({
+      type: 'apply',
+    })
+
+  const deleteStatement = (index: number) =>
+    memoizedDispatch({
+      type: 'deleteStatement',
+      index,
+    })
+
+  const duplicateStatement = (index: number) =>
+    memoizedDispatch({
+      type: 'duplicateStatement',
+      index,
+    })
+
+  const valueChange = (value: T, index: number) =>
+    memoizedDispatch({
+      type: 'value',
+      value,
+      index,
+    })
 
   const filterChange = (filter: Filter<T>, index: number) =>
-    useCallback(
-      () =>
-        dispatch({
-          type: 'filter',
-          filter,
-          index,
-        }),
-      [dispatch, filter]
-    )
+    memoizedDispatch({
+      type: 'filter',
+      filter,
+      index,
+    })
 
-  const conditionChange = useCallback(
-    (condition: Condition, index: number) =>
-      dispatch({
-        type: 'condition',
-        condition: condition,
-        index,
-      }),
-    [dispatch]
-  )
+  const conditionChange = (condition: Condition, index: number) =>
+    memoizedDispatch({
+      type: 'condition',
+      condition: condition,
+      index,
+    })
 
-  const conjunctionChange = useCallback(
-    (conjunction: Conjunction) =>
-      dispatch({
-        type: 'conjunction',
-        conjunction,
-      }),
-    [dispatch]
-  )
+  const conjunctionChange = (conjunction: Conjunction) =>
+    memoizedDispatch({
+      type: 'conjunction',
+      conjunction,
+    })
 
   return {
     conjunction,
@@ -129,7 +111,7 @@ export function useFilterBarState<T>(
     deleteStatement,
     apply,
     duplicateStatement,
-    clearFilter,
+    filtersReset,
     valueChange,
     filterChange,
     conditionChange,
