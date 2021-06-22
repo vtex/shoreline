@@ -6,9 +6,18 @@ import { IconDuplicate, IconDelete, IconAdd } from '@vtex/admin-ui-icons'
 import { Set } from '../Set'
 import { Button } from '../Button'
 import { Content, Statement, Footer } from './components'
-import { Condition, FilterBarProps, Filter, Conjunction } from './typings'
+import {
+  Condition,
+  FilterBarProps,
+  Filter,
+  Conjunction,
+  UseFilterBarStateParams,
+  UseFilterBarStateReturn,
+} from './typings'
 import { Menu } from '../Menu'
 import { baseResolvers } from './resolvers/base'
+import { useFilterBarState } from './useFilterBarState'
+import { StatementDropdown, StatementDropdownProps } from './components'
 
 export function FilterBar<T, V extends { value: T }>(
   props: FilterBarProps<T, V>
@@ -200,4 +209,11 @@ export function FilterBar<T, V extends { value: T }>(
   )
 }
 
-export { StatementDropdown, StatementDropdownProps } from './components'
+export {
+  useFilterBarState,
+  StatementDropdown,
+  StatementDropdownProps,
+  UseFilterBarStateParams,
+  UseFilterBarStateReturn,
+  FilterBarProps,
+}
