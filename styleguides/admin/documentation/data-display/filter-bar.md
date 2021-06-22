@@ -19,8 +19,13 @@ interface Filters<T> {
 
 ```jsx
 function Example() {
+  const state = useFilterBarState({
+    conjunction: { label: 'Or', value: 'or' },
+  })
+
   return (
     <FilterBar
+      state={state}
       label="Use a filter to find products, create collections or generate a report"
       filters={[
         {
@@ -65,7 +70,6 @@ function Example() {
       onApply={(filters) => {
         console.log(filters)
       }}
-      conjunction={{ label: 'Or', value: 'or' }}
       conjunctions={[
         { label: 'And', value: 'and' },
         { label: 'Or', value: 'or' },
@@ -184,8 +188,13 @@ interface SimpleResolver<T> {
 
 ```jsx
 function Example() {
+  const state = useFilterBarState({
+    conjunction: { label: 'Or', value: 'or' },
+  })
+
   return (
     <FilterBar
+      state={state}
       label="Use a filter to find products, create collections or generate a report"
       filters={[
         {
@@ -231,7 +240,6 @@ function Example() {
       onApply={(filters) => {
         console.log(filters)
       }}
-      conjunction={{ label: 'Or', value: 'or' }}
       conjunctions={[
         { label: 'And', value: 'and' },
         { label: 'Or', value: 'or' },
@@ -284,8 +292,13 @@ interface RootResolver<T> {
 
 ```jsx
 function Example() {
+  const state = useFilterBarState({
+    conjunction: { label: 'Or', value: 'or' },
+  })
+
   return (
     <FilterBar
+      state={state}
       label="Use a filter to find products, create collections or generate a report"
       filters={[
         {
@@ -340,7 +353,6 @@ function Example() {
       onApply={(filters) => {
         console.log(filters)
       }}
-      conjunction={{ label: 'Or', value: 'or' }}
       conjunctions={[
         { label: 'And', value: 'and' },
         { label: 'Or', value: 'or' },
@@ -451,16 +463,26 @@ interface InternalLabels {
 }
 ```
 
+### useFilterBarState
+
+Hook that manages the state logic of the FilterBar component. It receives two parameters that define the component's initial state, conjunction, and statements.
+
+### Parameters
+
+| Name        | Type             | Description                   | Required | Default |
+| ----------- | ---------------- | ----------------------------- | -------- | ------- |
+| conjunction | `Conjunction`    | FilterBar initial conjunction | ✅       | -       |
+| statements  | `Statement<T>[]` | FilterBar initial statements  | 🚫       | []      |
+
 ## Props
 
-| Name           | Type                            | Description                                                              | Required | Default            |
-| -------------- | ------------------------------- | ------------------------------------------------------------------------ | -------- | ------------------ |
-| label          | `string`                        | FilterBar label. It appears when there are no statements                 | ✅       | -                  |
-| internalLabels | `InternalLabels`                | Set of FilterBar internal labels                                         | ✅       | -                  |
-| onApply        | `(filters: Filters<T>) => void` | Render props function that is called when the user hits the apply button | ✅       | -                  |
-| conjunction    | `Conjunction`                   | FilterBar conjunction                                                    | ✅       | -                  |
-| conjunctions   | `Conjunction[]`                 | FilterBar conjunction options                                            | ✅       | -                  |
-| csx            | `StyleObject`                   | Custom styles                                                            | 🚫       | {}                 |
-| statement      | `Statement<T>[]`                | FilterBar initial statements                                             | 🚫       | []                 |
-| filters        | `Filter<T>[]`                   | FilterBar filters                                                        | 🚫       | []                 |
-| resolvers      | `Record<String, Resolver<T>>`   | FilterBar resolvers                                                      | 🚫       | baseResolvers<T>() |
+| Name           | Type                              | Description                                                              | Required | Default            |
+| -------------- | --------------------------------- | ------------------------------------------------------------------------ | -------- | ------------------ |
+| label          | `string`                          | FilterBar label. It appears when there are no statements                 | ✅       | -                  |
+| internalLabels | `InternalLabels`                  | Set of FilterBar internal labels                                         | ✅       | -                  |
+| state          | `UseFilterBarStateReturn<V,T>`    | Object that manages the component state logic                            | ✅       | -                  |
+| onApply        | `(filters: Filters<V,T>) => void` | Render props function that is called when the user hits the apply button | ✅       | -                  |
+| conjunctions   | `Conjunction[]`                   | FilterBar conjunction options                                            | ✅       | -                  |
+| csx            | `StyleObject`                     | Custom styles                                                            | 🚫       | {}                 |
+| filters        | `Filter<V, T>[]`                  | FilterBar filters                                                        | 🚫       | []                 |
+| resolvers      | `Record<String, Resolver<V, T>>`  | FilterBar resolvers                                                      | 🚫       | baseResolvers<T>() |
