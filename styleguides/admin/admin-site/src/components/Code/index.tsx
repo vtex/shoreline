@@ -10,17 +10,21 @@ import {
   useSystem,
   createSystem,
   ThemeProvider,
+  Set,
+  Flex,
 } from '@vtex/admin-ui'
 
 import { copyToClipboard, calculateLinesToHighlight } from './util'
 import scope from './LiveCodeScope'
 import styles from './styles'
+import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit'
 
 export interface CodeProps {
   codeString: string
   className: string
   highlight?: string
   isStatic?: string | boolean
+  isHidden?: boolean
   title?: string
   lineNumbers?: string
   noInline?: boolean
@@ -33,6 +37,7 @@ export function Code(props: CodeProps) {
     codeString,
     className,
     isStatic = false,
+    isHidden = false,
     highlight,
     title,
     lineNumbers,
@@ -54,6 +59,8 @@ export function Code(props: CodeProps) {
     }, 4000)
   }
 
+  const disclosure = useDisclosureState({ visible: !isHidden })
+
   if (!isStatic) {
     return (
       <ThemeProvider system={system}>
@@ -65,19 +72,30 @@ export function Code(props: CodeProps) {
         >
           <Box csx={styles.wrapper}>
             <LivePreview className={cn(styles.preview)} />
-
+            <Flex justify="flex-end" csx={{ padding: 1 }}>
+              <Set>
+                <Disclosure
+                  as={Button}
+                  variant="secondary"
+                  size="small"
+                  {...disclosure}
+                >
+                  {disclosure.visible ? 'Hide code' : 'Show code'}
+                </Disclosure>
+                <Button
+                  size="small"
+                  variant="secondary"
+                  onClick={handleClick}
+                  disabled={copied}
+                >
+                  {copied ? 'Copied!' : 'Copy'}
+                </Button>
+              </Set>
+            </Flex>
             <Box csx={styles.editorWrapper}>
-              <Button
-                size="small"
-                variant="secondary"
-                onClick={handleClick}
-                disabled={copied}
-                csx={styles.copyButton}
-              >
-                {copied ? 'Copied!' : 'Copy'}
-              </Button>
-
-              <LiveEditor />
+              <DisclosureContent {...disclosure}>
+                <LiveEditor />
+              </DisclosureContent>
             </Box>
 
             <LiveError className={cn(styles.liveEditor)} />

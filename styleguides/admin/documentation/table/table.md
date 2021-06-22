@@ -81,7 +81,7 @@ function Simple() {
 
 The density prop changes the height of the table row. You can set its value to `regular`, `compact`, or `variable`.
 
-```jsx
+```jsx isHidden
 <StatefulTable
   density="compact"
   columns={[
@@ -134,7 +134,7 @@ The density prop changes the height of the table row. You can set its value to `
 
 You can pass a function to the prop onRowClick and that function we'll be called passing the item of that row.
 
-```jsx
+```jsx isHidden
 <StatefulTable
   onRowClick={(item) => alert(item.productName)}
   columns={[
@@ -185,7 +185,7 @@ You can pass a function to the prop onRowClick and that function we'll be called
 
 You can have right to left writing on the table using the dir prop
 
-```jsx
+```jsx isHidden
 <StatefulTable
   dir="rtl"
   density="variable"
@@ -257,7 +257,7 @@ You can have right to left writing on the table using the dir prop
 
 Suited for advanced usages such as [Windowing](https://admin-ui.vercel.app/?path=/story/admin-ui-table-deep--windowing) and [Drag n Drop](https://admin-ui.vercel.app/?path=/story/admin-ui-table-deep--dnd). If that's your case, check the storybook stories for more details in how to accomplish this.
 
-```jsx
+```jsx isHidden
 function Example() {
   const columns = [
     {
