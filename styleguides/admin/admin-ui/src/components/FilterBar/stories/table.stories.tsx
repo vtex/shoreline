@@ -23,9 +23,7 @@ interface Item {
   price: number
 }
 
-function FilterInput(
-  statement: ResolverRenderProps<number | string, FiltersType>
-) {
+function FilterInput(statement: ResolverRenderProps<FiltersType>) {
   const {
     statement: { target = { value: '' } },
     handleValueChange,
@@ -71,14 +69,49 @@ export const Table: Story = () => {
 
   const [items, setItems] = useState(products)
 
-  const filterBarState = useFilterBarState<number | string, FiltersType>({
+  const filterBarState = useFilterBarState({
     conjunction: { label: 'And', value: 'and' },
+    filters: [
+      {
+        id: 'price',
+        label: 'Price',
+        conditions: [
+          { label: 'is bigger than', id: '3' },
+          { label: 'is smaller than', id: '4' },
+        ],
+        resolver: {
+          type: 'simple',
+          defaultValue: { value: 100 },
+          items: [
+            { value: 1 },
+            { value: 10 },
+            { value: 50 },
+            { value: 100 },
+            { value: 250 },
+            { value: 500 },
+          ],
+        },
+      },
+      {
+        id: 'productName',
+        label: 'Product Name',
+        conditions: [
+          { label: 'is equal', id: '1' },
+          { label: 'is not equal', id: '2' },
+          { label: 'contains', id: '2' },
+        ],
+        resolver: {
+          type: 'root',
+          defaultValue: { value: '' },
+          render: (props) => {
+            return <FilterInput {...props} />
+          },
+        },
+      },
+    ],
   })
 
-  function filterByProduct(
-    statement: Statement<number | string, FiltersType>,
-    item: any
-  ) {
+  function filterByProduct(statement: Statement<FiltersType>, item: any) {
     const { condition, target: { value } = { value: '' } } = statement
 
     if (typeof value !== 'string') return
@@ -97,10 +130,7 @@ export const Table: Story = () => {
       }
     }
   }
-  function filterByPrice(
-    statement: Statement<number | string, FiltersType>,
-    item: any
-  ) {
+  function filterByPrice(statement: Statement<FiltersType>, item: any) {
     const { condition, target } = statement
 
     switch (condition.label) {
@@ -115,7 +145,7 @@ export const Table: Story = () => {
     }
   }
 
-  const filter = (filters: Filters<number | string, FiltersType>) => {
+  const filter = (filters: Filters<FiltersType>) => {
     const { conjunction, statements } = filters
     const filteredItems = products.filter((item) => {
       const conditions = statements.map((statement) => {
@@ -153,44 +183,6 @@ export const Table: Story = () => {
         <FilterBar
           state={filterBarState}
           label="Use a filter to find products, create collections or generate a report"
-          filters={[
-            {
-              id: 'price',
-              label: 'Price',
-              conditions: [
-                { label: 'is bigger than', id: '3' },
-                { label: 'is smaller than', id: '4' },
-              ],
-              resolver: {
-                type: 'simple',
-                defaultValue: { value: 100 },
-                items: [
-                  { value: 1 },
-                  { value: 10 },
-                  { value: 50 },
-                  { value: 100 },
-                  { value: 250 },
-                  { value: 500 },
-                ],
-              },
-            },
-            {
-              id: 'productName',
-              label: 'Product Name',
-              conditions: [
-                { label: 'is equal', id: '1' },
-                { label: 'is not equal', id: '2' },
-                { label: 'contains', id: '2' },
-              ],
-              resolver: {
-                type: 'root',
-                defaultValue: { value: '' },
-                render: (props) => {
-                  return <FilterInput {...props} />
-                },
-              },
-            },
-          ]}
           onApply={(filters) => {
             filter(filters)
           }}

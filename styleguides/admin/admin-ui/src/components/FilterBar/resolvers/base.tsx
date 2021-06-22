@@ -4,13 +4,11 @@ import { simpleResolver, SimpleResolver } from './simple'
 /**
  * Filter base resolvers
  */
-export function baseResolvers<T, V extends { value: T }>() {
+export function baseResolvers<T>() {
   return {
-    simple: simpleResolver<T, V>(),
-    root: rootResolver<T, V>(),
+    simple: simpleResolver<T>(),
+    root: rootResolver<T>(),
   }
 }
 
-export type BaseResolvers<T, V extends { value: T }> =
-  | SimpleResolver<T, V>
-  | RootResolver<T, V>
+export type BaseResolvers<T> = SimpleResolver<T> | RootResolver<T>

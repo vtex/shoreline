@@ -21,52 +21,47 @@ interface Filters<T> {
 function Example() {
   const state = useFilterBarState({
     conjunction: { label: 'Or', value: 'or' },
+    filters: [
+      {
+        label: 'Status',
+        id: 'status',
+        conditions: [
+          { label: 'Is', id: '3' },
+          { label: 'Is not', id: '4' },
+          { label: 'Contains', id: '5' },
+          { label: 'Does not contains', id: '5' },
+        ],
+        resolver: {
+          type: 'simple',
+          defaultValue: { value: 'Archived' },
+          items: [
+            { value: 'Archived' },
+            { value: 'In stock' },
+            { value: 'Out of stock' },
+          ],
+        },
+      },
+      {
+        label: 'Price',
+        id: 'price',
+        conditions: [
+          { label: 'Is not', id: '3' },
+          { label: 'Is empty', id: '4' },
+          { label: 'Is equal to', id: '5' },
+        ],
+        resolver: {
+          type: 'simple',
+          defaultValue: { value: 1 },
+          items: [{ value: 1 }, { value: 50 }, { value: 100 }, { value: 250 }],
+        },
+      },
+    ],
   })
 
   return (
     <FilterBar
       state={state}
       label="Use a filter to find products, create collections or generate a report"
-      filters={[
-        {
-          label: 'Status',
-          id: 'status',
-          conditions: [
-            { label: 'Is', id: '3' },
-            { label: 'Is not', id: '4' },
-            { label: 'Contains', id: '5' },
-            { label: 'Does not contains', id: '5' },
-          ],
-          resolver: {
-            type: 'simple',
-            defaultValue: { value: 'Archived' },
-            items: [
-              { value: 'Archived' },
-              { value: 'In stock' },
-              { value: 'Out of stock' },
-            ],
-          },
-        },
-        {
-          label: 'Price',
-          id: 'price',
-          conditions: [
-            { label: 'Is not', id: '3' },
-            { label: 'Is empty', id: '4' },
-            { label: 'Is equal to', id: '5' },
-          ],
-          resolver: {
-            type: 'simple',
-            defaultValue: { value: 1 },
-            items: [
-              { value: 1 },
-              { value: 50 },
-              { value: 100 },
-              { value: 250 },
-            ],
-          },
-        },
-      ]}
       onApply={(filters) => {
         console.log(filters)
       }}
@@ -190,53 +185,48 @@ interface SimpleResolver<T> {
 function Example() {
   const state = useFilterBarState({
     conjunction: { label: 'Or', value: 'or' },
+    filters: [
+      {
+        label: 'Status',
+        id: 'status',
+        conditions: [
+          { label: 'Is', id: '1' },
+          { label: 'Is not', id: '2' },
+          { label: 'Contains', id: '3' },
+          { label: 'Does not contains', id: '4' },
+        ],
+        resolver: {
+          type: 'simple',
+          defaultValue: { value: { label: 'Archived', value: 0 } },
+          accessor: 'label',
+          items: [
+            { value: { label: 'Archived', value: 0 } },
+            { value: { label: 'In stock', value: 1 } },
+            { value: { label: 'Out of stock', value: -1 } },
+          ],
+        },
+      },
+      {
+        label: 'Price',
+        id: 'price',
+        conditions: [
+          { label: 'Is not', id: '1' },
+          { label: 'Is empty', id: '2' },
+          { label: 'Is equal to', id: '3' },
+        ],
+        resolver: {
+          type: 'simple',
+          defaultValue: { value: 100 },
+          items: [{ value: 1 }, { value: 50 }, { value: 100 }, { value: 250 }],
+        },
+      },
+    ],
   })
 
   return (
     <FilterBar
       state={state}
       label="Use a filter to find products, create collections or generate a report"
-      filters={[
-        {
-          label: 'Status',
-          id: 'status',
-          conditions: [
-            { label: 'Is', id: '1' },
-            { label: 'Is not', id: '2' },
-            { label: 'Contains', id: '3' },
-            { label: 'Does not contains', id: '4' },
-          ],
-          resolver: {
-            type: 'simple',
-            defaultValue: { value: { label: 'Archived', value: 0 } },
-            accessor: 'label',
-            items: [
-              { value: { label: 'Archived', value: 0 } },
-              { value: { label: 'In stock', value: 1 } },
-              { value: { label: 'Out of stock', value: -1 } },
-            ],
-          },
-        },
-        {
-          label: 'Price',
-          id: 'price',
-          conditions: [
-            { label: 'Is not', id: '1' },
-            { label: 'Is empty', id: '2' },
-            { label: 'Is equal to', id: '3' },
-          ],
-          resolver: {
-            type: 'simple',
-            defaultValue: { value: 100 },
-            items: [
-              { value: 1 },
-              { value: 50 },
-              { value: 100 },
-              { value: 250 },
-            ],
-          },
-        },
-      ]}
       onApply={(filters) => {
         console.log(filters)
       }}
@@ -294,62 +284,62 @@ interface RootResolver<T> {
 function Example() {
   const state = useFilterBarState({
     conjunction: { label: 'Or', value: 'or' },
+    filters: [
+      {
+        label: 'Product Name',
+        id: 'productName',
+        conditions: [
+          { label: 'Is equal', id: '1' },
+          { label: 'Is not equal', id: '2' },
+          { label: 'Contains', id: '3' },
+          { label: 'Does not contains', id: '4' },
+        ],
+        resolver: {
+          type: 'root',
+          defaultValue: { value: '' },
+          render: (props) => {
+            const { statement, handleValueChange, index } = props
+            const { target = { value: '' } } = statement
+
+            React.useEffect(() => {
+              setValue(target.value)
+            }, [statement])
+
+            const [value, setValue] = React.useState(target.value)
+
+            return (
+              <Flex align="center" csx={{ position: 'relative' }}>
+                <AbstractInput
+                  id="filter-input"
+                  value={value}
+                  csx={{
+                    bg: 'light.primary',
+                    height: 40,
+                    marginY: 0,
+                    paddingRight: '60px',
+                  }}
+                  onChange={(e) => setValue(e.target.value)}
+                />
+                <Button
+                  csx={{ position: 'absolute', right: 1 }}
+                  onClick={() => handleValueChange({ value }, index)}
+                  variant="tertiary"
+                  size="small"
+                >
+                  Apply
+                </Button>
+              </Flex>
+            )
+          },
+        },
+      },
+    ],
   })
 
   return (
     <FilterBar
       state={state}
       label="Use a filter to find products, create collections or generate a report"
-      filters={[
-        {
-          label: 'Product Name',
-          id: 'productName',
-          conditions: [
-            { label: 'Is equal', id: '1' },
-            { label: 'Is not equal', id: '2' },
-            { label: 'Contains', id: '3' },
-            { label: 'Does not contains', id: '4' },
-          ],
-          resolver: {
-            type: 'root',
-            defaultValue: { value: '' },
-            render: (props) => {
-              const { statement, handleValueChange, index } = props
-              const { target = { value: '' } } = statement
-
-              React.useEffect(() => {
-                setValue(target.value)
-              }, [statement])
-
-              const [value, setValue] = React.useState(target.value)
-
-              return (
-                <Flex align="center" csx={{ position: 'relative' }}>
-                  <AbstractInput
-                    id="filter-input"
-                    value={value}
-                    csx={{
-                      bg: 'light.primary',
-                      height: 40,
-                      marginY: 0,
-                      paddingRight: '60px',
-                    }}
-                    onChange={(e) => setValue(e.target.value)}
-                  />
-                  <Button
-                    csx={{ position: 'absolute', right: 1 }}
-                    onClick={() => handleValueChange({ value }, index)}
-                    variant="tertiary"
-                    size="small"
-                  >
-                    Apply
-                  </Button>
-                </Flex>
-              )
-            },
-          },
-        },
-      ]}
       onApply={(filters) => {
         console.log(filters)
       }}
@@ -469,20 +459,20 @@ Hook that manages the state logic of the FilterBar component. It receives two pa
 
 ### Parameters
 
-| Name        | Type             | Description                   | Required | Default |
-| ----------- | ---------------- | ----------------------------- | -------- | ------- |
-| conjunction | `Conjunction`    | FilterBar initial conjunction | ✅       | -       |
-| statements  | `Statement<T>[]` | FilterBar initial statements  | 🚫       | []      |
+| Name        | Type                            | Description                                                              | Required | Default |
+| ----------- | ------------------------------- | ------------------------------------------------------------------------ | -------- | ------- |
+| conjunction | `Conjunction`                   | FilterBar initial conjunction                                            | ✅       | -       |
+| statements  | `Statement<T>[]`                | FilterBar initial statements                                             | 🚫       | []      |
+| filters     | `Filter<T>[]`                   | FilterBar filters                                                        | 🚫       | []      |
+| onApply     | `(filters: Filters<T>) => void` | Render props function that is called when the user hits the apply button | ✅       | -       |
 
-## Props
+## Prsops
 
-| Name           | Type                              | Description                                                              | Required | Default            |
-| -------------- | --------------------------------- | ------------------------------------------------------------------------ | -------- | ------------------ |
-| label          | `string`                          | FilterBar label. It appears when there are no statements                 | ✅       | -                  |
-| internalLabels | `InternalLabels`                  | Set of FilterBar internal labels                                         | ✅       | -                  |
-| state          | `UseFilterBarStateReturn<V,T>`    | Object that manages the component state logic                            | ✅       | -                  |
-| onApply        | `(filters: Filters<V,T>) => void` | Render props function that is called when the user hits the apply button | ✅       | -                  |
-| conjunctions   | `Conjunction[]`                   | FilterBar conjunction options                                            | ✅       | -                  |
-| csx            | `StyleObject`                     | Custom styles                                                            | 🚫       | {}                 |
-| filters        | `Filter<V, T>[]`                  | FilterBar filters                                                        | 🚫       | []                 |
-| resolvers      | `Record<String, Resolver<V, T>>`  | FilterBar resolvers                                                      | 🚫       | baseResolvers<T>() |
+| Name           | Type                             | Description                                              | Required | Default            |
+| -------------- | -------------------------------- | -------------------------------------------------------- | -------- | ------------------ |
+| label          | `string`                         | FilterBar label. It appears when there are no statements | ✅       | -                  |
+| internalLabels | `InternalLabels`                 | Set of FilterBar internal labels                         | ✅       | -                  |
+| state          | `UseFilterBarStateReturn<V,T>`   | Object that manages the component state logic            | ✅       | -                  |
+| conjunctions   | `Conjunction[]`                  | FilterBar conjunction options                            | ✅       | -                  |
+| csx            | `StyleObject`                    | Custom styles                                            | 🚫       | {}                 |
+| resolvers      | `Record<String, Resolver<V, T>>` | FilterBar resolvers                                      | 🚫       | baseResolvers<T>() |

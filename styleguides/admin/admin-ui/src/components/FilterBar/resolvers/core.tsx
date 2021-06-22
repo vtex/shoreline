@@ -10,35 +10,32 @@ import { BaseResolvers } from './base'
  */
 export type ResolverShortcut<I, S = unknown> = S & { type: I }
 
-export interface Resolver<T, V extends { value: T }, I = any, S = any> {
+export interface Resolver<T, I = any, S = any> {
   value: (helpers: {
     /** Current statement */
-    statement: Statement<T, V, ResolverShortcut<I, S>>
+    statement: Statement<T, ResolverShortcut<I, S>>
     /** Handles the state of statement value */
-    handleValueChange: (value: V, index: number) => void
+    handleValueChange: (value: T, index: number) => void
     /** Current statement index on Statements array */
     index: number
   }) => ReactNode
 }
 
-export function createResolver<
-  T,
-  V extends { value: T },
-  I,
-  S = Record<string, unknown>
->(resolver: Resolver<T, V, I, S>): Resolver<T, V, I, S> {
+export function createResolver<T, I, S = Record<string, unknown>>(
+  resolver: Resolver<T, I, S>
+): Resolver<T, I, S> {
   return resolver
 }
 
-export type ResolveFilterArgs<T, V extends { value: T }> = {
+export type ResolveFilterArgs<T> = {
   /** Current statement */
-  statement: Statement<T, V>
+  statement: Statement<T>
   /** FilterBar resolvers */
-  resolvers: Record<string, Resolver<T, V>>
+  resolvers: Record<string, Resolver<T>>
   /** Current statement index on Statements array */
   index: number
   /** Handles the state of statement value */
-  handleValueChange: (value: V, index: number) => void
+  handleValueChange: (value: T, index: number) => void
 }
 
 /**
@@ -48,18 +45,13 @@ export type ResolveFilterArgs<T, V extends { value: T }> = {
  * @param index
  * @param handleValueChange
  */
-export function ResolvedValue<T, V extends { value: T }>(
-  args: ResolveFilterArgs<T, V>
-) {
+export function ResolvedValue<T>(args: ResolveFilterArgs<T>) {
   const { resolvers, statement, index, handleValueChange } = args
   const id = statement.filter.resolver.type
 
   invariant(id, 'resolver.type is required while using a filter')
 
-  const resolver: Resolver<T, V, typeof id, BaseResolvers<T, V>> = get(
-    resolvers,
-    id
-  )
+  const resolver: Resolver<T, typeof id, BaseResolvers<T>> = get(resolvers, id)
 
   invariant(
     resolver,
@@ -78,16 +70,14 @@ export function ResolvedValue<T, V extends { value: T }>(
  * @generic T: Type of statement value
  * @generic D: Type of data
  */
-export type ResolverRenderProps<T, V extends { value: T }, D = null> = {
+export type ResolverRenderProps<T, D = null> = {
   data: D
-  statement: Statement<T, V>
+  statement: Statement<T>
   index: number
-  handleValueChange: (value: V, index: number) => void
+  handleValueChange: (value: T, index: number) => void
 }
 
 /** Default render of resolvers */
-export function defaultRender<T, V extends { value: T }>({
-  data,
-}: ResolverRenderProps<T, V, ReactNode>) {
+export function defaultRender<T>({ data }: ResolverRenderProps<T, ReactNode>) {
   return <React.Fragment>{data}</React.Fragment>
 }
