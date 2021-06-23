@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.101.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.100.0...@vtex/admin-ui@0.101.0) (2021-06-23)
+
+
+### Features
+
+* **admin-ui:** add searchbox component ([a9b6f76](https://github.com/vtex/onda/commit/a9b6f7656222001522d1edd435922ba215537896))
+* **admin-ui/icons:** add icon history ([967e233](https://github.com/vtex/onda/commit/967e2332d014dab114a1bba083c1ba2dfbde6901))
+* **admin-ui/searchbox:** add animations with framer-motion ([ca55b92](https://github.com/vtex/onda/commit/ca55b920e7224b2adcd2bef3ac986a4f9448e641))
+
+
+
+
+
 # [0.100.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.99.1...@vtex/admin-ui@0.100.0) (2021-06-16)
 
 
