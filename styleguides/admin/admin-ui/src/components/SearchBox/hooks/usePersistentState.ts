@@ -2,9 +2,10 @@ import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 
 /**
  * Use local storage to persist a state
- * @param defaultValue
- * @param key
- * @returns
+ * @param defaultValue - value if the key is not found within localstorage
+ * @param key - localstorage key
+ * @example
+ * const [state, setState] = usePersistentState('')
  */
 export function usePersistentState<T>(
   defaultValue: T,

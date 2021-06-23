@@ -8,8 +8,8 @@ import React, {
   Ref,
 } from 'react'
 import { useSystem, merge } from '@vtex/admin-core'
-import { Box, Flex } from '@vtex/admin-primitives'
 import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 
 import { Button } from '../Button'
 import { SystemComponent } from '../../types'
@@ -18,28 +18,36 @@ import styles from './styles'
 import { Label } from '../Label'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { intl, Intl } from './intl'
-import { Paragraph } from '../Paragraph'
 
 interface SearchBoxProps extends ComponentPropsWithoutRef<'div'> {
   state: any
-  label: string
 }
 
 const _SearchBox = forwardRef(function SearchBox(
   props: SearchBoxProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { children, state, label, ...boxProps } = props
+  const { children, state, ...boxProps } = props
+  const { cn } = useSystem()
 
   const labelProps = state.combobox.getLabelProps()
 
   return (
-    <Box {...boxProps} ref={ref} csx={styles.box}>
-      <VisuallyHidden>
-        <label {...labelProps}>{label}</label>
-      </VisuallyHidden>
-      <StateContext.Provider value={state}>{children}</StateContext.Provider>
-    </Box>
+    <AnimateSharedLayout type="crossfade">
+      <motion.div
+        {...(boxProps as any)}
+        ref={ref}
+        layout
+        className={cn(styles.box)}
+      >
+        <VisuallyHidden>
+          <label {...labelProps}>
+            <Intl id="comboboxLabel" />
+          </label>
+        </VisuallyHidden>
+        <StateContext.Provider value={state}>{children}</StateContext.Provider>
+      </motion.div>
+    </AnimateSharedLayout>
   )
 })
 
@@ -52,7 +60,7 @@ function Input(props: InputProps) {
   const { cn } = useSystem()
 
   const {
-    combobox: { getComboboxProps, getInputProps, openMenu, setInputValue },
+    combobox: { getComboboxProps, getInputProps, openMenu, reset },
   } = useStateContext()
 
   const comboboxProps = getComboboxProps()
@@ -70,11 +78,11 @@ function Input(props: InputProps) {
       onClear()
     }
 
-    setInputValue('')
+    reset()
   }
 
   return (
-    <Box {...comboboxProps} csx={styles.inputContainer}>
+    <motion.div {...comboboxProps} className={cn(styles.inputContainer)} layout>
       <IconSearch csx={styles.inputIcon} />
       <input
         {...inputProps}
@@ -91,7 +99,7 @@ function Input(props: InputProps) {
           onClick={handleClear}
         />
       )}
-    </Box>
+    </motion.div>
   )
 }
 
@@ -104,32 +112,44 @@ function Menu(props: MenuProps) {
   const { children, emptyView = null, csx, ...elementProps } = props
 
   const {
-    combobox: { getMenuProps, highlightedIndex },
-    collection: { value, label },
+    combobox: { getMenuProps, highlightedIndex, isOpen },
+    collection: { items, label },
   } = useStateContext()
   const { cn } = useSystem()
   const className = cn(merge(styles.menu, csx))
 
   const menuProps = getMenuProps()
-  const empty = value.length === 0
+  const empty = items.length === 0
 
   return (
     <Label>
-      <Paragraph csx={styles.label}>{label}</Paragraph>
-      <ul {...menuProps} {...elementProps} className={className}>
-        {value.map((item: any, index: number) => {
-          const highlighted = highlightedIndex === index
-          return (
-            <Fragment key={index}>
-              {cloneElement(children as any, {
-                item,
-                index,
-                highlighted,
-              })}
-            </Fragment>
-          )
-        })}
-      </ul>
+      {isOpen && (
+        <motion.p
+       
+          className={cn(styles.label)}
+          layout
+        >
+          <motion.span initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}>{label}</motion.span>
+        </motion.p>
+      )}
+      <motion.ul {...menuProps} {...elementProps} layout className={className}>
+        <AnimatePresence>
+          {isOpen &&
+            items.map((item: any, index: number) => {
+              const highlighted = highlightedIndex === index
+              return (
+                <Fragment key={index}>
+                  {cloneElement(children as any, {
+                    item,
+                    index,
+                    highlighted,
+                  })}
+                </Fragment>
+              )
+            })}
+        </AnimatePresence>
+      </motion.ul>
     </Label>
   )
 }
@@ -143,14 +163,15 @@ interface CloneProps {
   highlighted?: boolean
 }
 
-type SuggestionProps = SystemComponent & CloneProps
+interface SuggestionProps extends SystemComponent, CloneProps {
+  render?: (item: any) => void
+}
 
 function Suggestion(props: SuggestionProps) {
-  const { item, index, csx, highlighted, ...elementProps } = props
+  const { item, index, csx, highlighted, render, ...elementProps } = props
 
   const {
     combobox: { getItemProps },
-    source: { render },
   } = useStateContext()
   const { cn } = useSystem()
   const className = cn(
@@ -166,9 +187,17 @@ function Suggestion(props: SuggestionProps) {
   const liProps = getItemProps({ item, index })
 
   return (
-    <li {...liProps} {...elementProps} className={className}>
-      {render(item)}
-    </li>
+    <motion.li
+      {...liProps}
+      {...elementProps}
+      layout
+      className={className}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {render ? render(item) : item}
+    </motion.li>
   )
 }
 
@@ -180,7 +209,8 @@ type KbdProps = ComponentPropsWithoutRef<'kbd'>
  * <Kbd>enter</Kbd>
  */
 function Kbd(props: KbdProps) {
-  return <Box element="kbd" csx={styles.kbd} {...props} />
+  const { cn } = useSystem()
+  return <motion.kbd className={cn(styles.kbd)} {...(props as any)} layout />
 }
 
 /**
@@ -191,26 +221,25 @@ function Kbd(props: KbdProps) {
  * </SearchBox>
  */
 function Footer() {
+  const { cn } = useSystem()
   return (
-    <Flex justify="center" align="center" element="footer" csx={styles.footer}>
-      <Box>
+    <motion.footer layout className={cn(styles.footer)}>
+      <motion.div layout>
         <Kbd>↓</Kbd> <Kbd>↑</Kbd> <Intl id="toNavigate" />
-      </Box>
-      <Box>
+      </motion.div>
+      <motion.div layout>
         <Kbd>enter</Kbd> <Intl id="toSelect" />
-      </Box>
-      <Box>
+      </motion.div>
+      <motion.div layout>
         <Kbd>esc</Kbd> <Intl id="toCancel" />
-      </Box>
-    </Flex>
+      </motion.div>
+    </motion.footer>
   )
 }
-
-
 
 export const unstableSearchBox = Object.assign(_SearchBox, {
   Input,
   Menu,
   Suggestion,
-  Footer
+  Footer,
 })

@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
-import { ComboboxState } from './hooks/useComboboxState'
+import { ComboboxState } from './hooks/useSearchBoxState'
 
 export const StateContext = createContext<ComboboxState<any> | null>(null)
 

@@ -92,6 +92,9 @@ const label = styles({
 })
 
 const footer = styles({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   fontSize: 0,
   fontSettings: 'regular',
   height: 40,

@@ -1,31 +1,7 @@
-/**
- 
-const state = useSearchBoxState({
-
-})
-
-<SearchBox state={state}>
-  <SearchBox.Input />
-  <SearchBox.Menu csx={{}}>
-    {(item, index) => (
-      <Option item={item} index={index}>
-        {item.name}
-      </Option>
-    )}
-  </SearchBox.Menu>
-  
-  <SearchBox.Footer csx={{
-
-  }} />
-</SearchBox>
-
-*/
-
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { unstableSearchBox as SearchBox } from './index'
-import { unstableUseComboboxState as useComboboxState } from './hooks/useComboboxState'
-import { intl } from './intl'
+import { unstableUseComboboxState as useComboboxState } from './hooks/useSearchBoxState'
 
 export default {
   title: 'admin-ui/SearchBox',
@@ -33,9 +9,6 @@ export default {
 
 export function Story() {
   const state = useComboboxState({
-    id: 'with-strings',
-    label: intl('label'),
-    recordLabel: intl('recordLabel'),
     collection: [
       'Orders',
       'Products',
@@ -52,7 +25,7 @@ export function Story() {
   })
 
   return (
-    <SearchBox label="search" state={state}>
+    <SearchBox state={state}>
       <SearchBox.Input />
       <SearchBox.Menu>
         <SearchBox.Suggestion />

@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react'
 
 const ids = {
+  comboboxLabel: 'Search',
   placeholder: 'Search',
-  label: 'Admin Pages',
-  recordLabel: 'Last Searches',
+  adminPages: 'Admin Pages',
+  lastSearches: 'Last Searches',
   toNavigate: 'to navigate',
   toSelect: 'to select',
   toCancel: 'to cancel',
