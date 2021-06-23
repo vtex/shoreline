@@ -8,6 +8,8 @@ const ids = {
   toNavigate: 'to navigate',
   toSelect: 'to select',
   toCancel: 'to cancel',
+  emptyTitle: 'No result matches your search criteria',
+  emptySubtitle: 'Please, search for a different term',
 }
 
 type IntlIds = keyof typeof ids

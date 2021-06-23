@@ -8,8 +8,15 @@ import React, {
   Ref,
 } from 'react'
 import { useSystem, merge } from '@vtex/admin-core'
-import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
+import {
+  IconSearch,
+  IconCancel,
+  IconCaretBig,
+  IconHistory,
+  IconContainer,
+} from '@vtex/admin-ui-icons'
+import { motion, AnimateSharedLayout, Variants } from 'framer-motion'
+import { Flex } from '@vtex/admin-primitives'
 
 import { Button } from '../Button'
 import { SystemComponent } from '../../types'
@@ -18,28 +25,37 @@ import styles from './styles'
 import { Label } from '../Label'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { intl, Intl } from './intl'
+import { Paragraph } from '../Paragraph'
 
-interface SearchBoxProps extends ComponentPropsWithoutRef<'div'> {
+const itemMotion: Variants = {
+  init: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+  },
+  leave: {
+    opacity: 0,
+  },
+}
+
+interface SearchBoxProps {
   state: any
+  children?: ReactNode
 }
 
 const _SearchBox = forwardRef(function SearchBox(
   props: SearchBoxProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { children, state, ...boxProps } = props
+  const { children, state } = props
   const { cn } = useSystem()
 
   const labelProps = state.combobox.getLabelProps()
 
   return (
-    <AnimateSharedLayout type="crossfade">
-      <motion.div
-        {...(boxProps as any)}
-        ref={ref}
-        layout
-        className={cn(styles.box)}
-      >
+    <AnimateSharedLayout>
+      <motion.div ref={ref} layout className={cn(styles.box)}>
         <VisuallyHidden>
           <label {...labelProps}>
             <Intl id="comboboxLabel" />
@@ -60,7 +76,7 @@ function Input(props: InputProps) {
   const { cn } = useSystem()
 
   const {
-    combobox: { getComboboxProps, getInputProps, openMenu, reset },
+    combobox: { getComboboxProps, getInputProps, openMenu, reset, isOpen },
   } = useStateContext()
 
   const comboboxProps = getComboboxProps()
@@ -89,7 +105,7 @@ function Input(props: InputProps) {
         {...elementProps}
         placeholder={intl('placeholder')}
         onFocus={handleFocus}
-        className={cn(styles.input)}
+        className={cn(styles.input(isOpen))}
       />
       {inputProps?.value !== '' && (
         <Button
@@ -113,44 +129,64 @@ function Menu(props: MenuProps) {
 
   const {
     combobox: { getMenuProps, highlightedIndex, isOpen },
-    collection: { items, label },
+    collection: { items, type },
   } = useStateContext()
   const { cn } = useSystem()
-  const className = cn(merge(styles.menu, csx))
 
   const menuProps = getMenuProps()
   const empty = items.length === 0
+  const displayScrollBar = items.length > 10
+  const displayEmptyView = empty && isOpen
+  const displaySuggestions = !empty && isOpen
+  const className = cn(merge(styles.menu(displayScrollBar), csx))
 
   return (
     <Label>
-      {isOpen && (
-        <motion.p
-       
-          className={cn(styles.label)}
-          layout
-        >
-          <motion.span initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}>{label}</motion.span>
+      {displaySuggestions && (
+        <motion.p className={cn(styles.label)} layout>
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <Intl id={type === 'search' ? 'adminPages' : 'lastSearches'} />
+          </motion.span>
         </motion.p>
       )}
       <motion.ul {...menuProps} {...elementProps} layout className={className}>
-        <AnimatePresence>
-          {isOpen &&
-            items.map((item: any, index: number) => {
-              const highlighted = highlightedIndex === index
-              return (
-                <Fragment key={index}>
-                  {cloneElement(children as any, {
-                    item,
-                    index,
-                    highlighted,
-                  })}
-                </Fragment>
-              )
-            })}
-        </AnimatePresence>
+        {displayEmptyView && <EmptyView />}
+        {displaySuggestions &&
+          items.map((item: any, index: number) => {
+            const highlighted = highlightedIndex === index
+            return (
+              <Fragment key={index}>
+                {cloneElement(children as any, {
+                  item,
+                  index,
+                  highlighted,
+                })}
+              </Fragment>
+            )
+          })}
       </motion.ul>
     </Label>
+  )
+}
+
+function EmptyView() {
+  const { cn } = useSystem()
+  return (
+    <motion.li
+      layout
+      className={cn(styles.emptyContainer)}
+      variants={itemMotion}
+      initial="init"
+      animate="enter"
+      exit="leave"
+    >
+      <motion.p layout className={cn(styles.emptyTitle)}>
+        <Intl id="emptyTitle" />
+      </motion.p>
+      <motion.p layout className={cn(styles.emptySubtitle)}>
+        <Intl id="emptySubtitle" />
+      </motion.p>
+    </motion.li>
   )
 }
 
@@ -168,22 +204,21 @@ interface SuggestionProps extends SystemComponent, CloneProps {
 }
 
 function Suggestion(props: SuggestionProps) {
-  const { item, index, csx, highlighted, render, ...elementProps } = props
+  const {
+    item,
+    index,
+    csx,
+    highlighted = false,
+    render,
+    ...elementProps
+  } = props
 
   const {
     combobox: { getItemProps },
+    collection: { type },
   } = useStateContext()
   const { cn } = useSystem()
-  const className = cn(
-    merge(
-      styles.option,
-      {
-        bg: highlighted ? 'sidebar.hover' : 'light.primary',
-        color: highlighted ? 'blue' : 'dark.primary',
-      },
-      csx
-    )
-  )
+  const className = cn(merge(styles.option(highlighted), csx))
   const liProps = getItemProps({ item, index })
 
   return (
@@ -192,11 +227,24 @@ function Suggestion(props: SuggestionProps) {
       {...elementProps}
       layout
       className={className}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      variants={itemMotion}
+      initial="init"
+      animate="enter"
+      exit="leave"
     >
-      {render ? render(item) : item}
+      <Flex align="center">
+        <IconContainer space="regular">
+          {type === 'storage' && (
+            <IconHistory
+              csx={{
+                marginTop: '2px',
+              }}
+            />
+          )}
+        </IconContainer>
+        <Paragraph>{render ? render(item) : item}</Paragraph>
+      </Flex>
+      <IconCaretBig size={14} direction="right" />
     </motion.li>
   )
 }

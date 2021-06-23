@@ -7,7 +7,6 @@ import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
 
 import { useInputValue } from './useInputValue'
 import { usePersistentState } from './usePersistentState'
-import { intl } from '../intl'
 
 type DownshiftRestProps<C> = Omit<
   UseComboboxProps<C>,
@@ -26,18 +25,19 @@ interface Params<C> extends DownshiftRestProps<C> {
   render?: (item: C) => ReactNode
 }
 
+type CollectionType = 'storage' | 'search'
+
 export interface ComboboxState<C> {
   combobox: UseComboboxReturnValue<C>
   collection: {
     items: C[]
-    label: string
+    type: CollectionType
     setItems: Dispatch<SetStateAction<C[]>>
   }
 }
 
 
-
-export function unstableUseComboboxState<C>(
+export function unstableUseSearchBoxState<C>(
   params: Params<C>
 ): ComboboxState<C> {
   const {
@@ -55,7 +55,7 @@ export function unstableUseComboboxState<C>(
     initialState: '',
     timeoutMs: 480
   })
-  const [label, setLabel] = useState('')
+  const [type, setType] = useState<CollectionType>('storage')
   const [items, setItems] = useState(collection)
   const [lastSearches, setLastSearches] = usePersistentState<C[]>(
     [],
@@ -85,7 +85,7 @@ export function unstableUseComboboxState<C>(
       if (downshiftInputValue === '') {
         if (lastSearches.length > 0) {
           setItems(lastSearches)
-          setLabel(intl('lastSearches'))
+          setType('storage')
         }
       }
       
@@ -100,10 +100,10 @@ export function unstableUseComboboxState<C>(
     if (inputValue === '') {
       if (lastSearches.length > 0) {
         setItems(lastSearches)
-        setLabel(intl('lastSearches'))
+        setType('storage')
       }
     } else {
-      setLabel(intl('adminPages'))
+      setType('search')
       setItems(
         collection.filter((item: any) =>
           match({
@@ -119,7 +119,7 @@ export function unstableUseComboboxState<C>(
     combobox,
     collection: {
       items,
-      label,
+      type,
       setItems,
     },
   }

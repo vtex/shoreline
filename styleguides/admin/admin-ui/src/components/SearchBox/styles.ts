@@ -26,50 +26,58 @@ const box = styles({
   boxShadow: '0px 20px 40px rgba(0,0,0,.24)',
 })
 
-const menu = styles({
+const menu = (scrollable: boolean) => styles({
   bg: 'light.primary',
   listStyle: 'none',
   width: '100%',
-  maxHeight: 500,
-  overflow: 'auto',
-  marginTop: 2,
+  maxHeight: 400,
+  overflowY: scrollable ? 'auto' : 'hidden',
+  overflowX: 'hidden',
   ...scrollbar,
 })
 
 /**
  * TODO: use a smooth transition
  */
-const option = styles({
-  paddingX: 3,
-  height: 40,
-  display: 'flex',
-  alignItems: 'center',
-  cursor: 'pointer',
-  border: 'divider-top',
-  ':first-child': {
-    border: 'none',
-  },
-})
+const option = (highlighted: boolean) =>
+  styles({
+    paddingX: 3,
+    height: 40,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    cursor: 'pointer',
+    border: 'divider-bottom',
+    ':last-child': {
+      border: 'none',
+    },
+    bg: highlighted ? 'sidebar.hover' : 'light.primary',
+    color: highlighted ? 'blue' : 'dark.primary',
+    svg: {
+      color: highlighted ? 'blue' : 'mid.primary',
+    }
+  })
 
 const inputContainer = styles({
   position: 'relative',
 })
 
-const input = styles({
-  height: 64,
-  width: '100%',
-  fontSize: 16,
-  paddingX: 56,
-  text: 'body',
-  ':focus': {
-    outline: 'none',
-    boxShadow: 'none',
-  },
-  borderTopRightRadius: 4,
-  borderTopLeftRadius: 4,
-  border: 'divider-bottom',
-  marginBottom: 2,
-})
+const input = (open: boolean) =>
+  styles({
+    height: 64,
+    width: '100%',
+    fontSize: 16,
+    paddingX: 56,
+    text: 'body',
+    ':focus': {
+      outline: 'none',
+      boxShadow: 'none',
+    },
+    borderTopRightRadius: 4,
+    borderTopLeftRadius: 4,
+    border: open ? 'divider-bottom' : 'none',
+  })
 
 const inputIcon = styles({
   color: 'blue',
@@ -89,6 +97,7 @@ const label = styles({
   paddingLeft: 3,
   color: 'dark.secondary',
   fontSize: 0,
+  marginY: 2,
 })
 
 const footer = styles({
@@ -123,6 +132,22 @@ const kbd = styles({
     '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
 })
 
+const emptyContainer = styles({
+  textAlign: 'center',
+  marginY: 6,
+  border: 'none',
+})
+
+const emptyTitle = styles({
+  color: 'dark.primary',
+  fontSize: 1,
+})
+
+const emptySubtitle = styles({
+  color: 'dark.secondary',
+  fontSize: 0,
+})
+
 export default {
   box,
   menu,
@@ -134,4 +159,7 @@ export default {
   label,
   footer,
   kbd,
+  emptyContainer,
+  emptyTitle,
+  emptySubtitle,
 }
