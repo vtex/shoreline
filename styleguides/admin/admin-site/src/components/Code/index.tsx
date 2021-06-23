@@ -24,7 +24,7 @@ export interface CodeProps {
   className: string
   highlight?: string
   isStatic?: string | boolean
-  isHidden?: boolean
+  isShown?: boolean
   title?: string
   lineNumbers?: string
   noInline?: boolean
@@ -37,7 +37,7 @@ export function Code(props: CodeProps) {
     codeString,
     className,
     isStatic = false,
-    isHidden = false,
+    isShown = false,
     highlight,
     title,
     lineNumbers,
@@ -59,7 +59,7 @@ export function Code(props: CodeProps) {
     }, 4000)
   }
 
-  const disclosure = useDisclosureState({ visible: !isHidden })
+  const disclosure = useDisclosureState({ visible: isShown })
 
   if (!isStatic) {
     return (

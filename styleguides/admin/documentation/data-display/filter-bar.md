@@ -182,7 +182,7 @@ interface SimpleResolver<T> {
 
 ##### Example
 
-```jsx isHidden
+```jsx
 function Example() {
   return (
     <FilterBar
@@ -282,7 +282,7 @@ interface RootResolver<T> {
 
 ##### Example
 
-```jsx isHidden
+```jsx
 function Example() {
   return (
     <FilterBar
