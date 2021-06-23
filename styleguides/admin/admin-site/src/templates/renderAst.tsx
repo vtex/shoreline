@@ -116,12 +116,7 @@ const { Compiler: renderAst } = new RehypeReact({
         if (preProps?.children) {
           const codeElement = getChildrenCode(preProps)
 
-          const {
-            static: isStatic,
-            maxHeight,
-            className = '',
-            ...props
-          } = codeElement?.props
+          const { maxHeight, className = '', ...props } = codeElement?.props
 
           const [code] = codeElement?.props?.children
 
