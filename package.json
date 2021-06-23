@@ -3,11 +3,15 @@
   "private": true,
   "workspaces": {
     "packages": [
+      "packages/*",
       "components/*",
       "styleguides/brand-ui",
       "styleguides/admin/*"
     ],
-    "nohoist": ["**/theme-ui", "**/theme-ui/**"]
+    "nohoist": [
+      "**/theme-ui",
+      "**/theme-ui/**"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,10 +27,13 @@
     "test": "lerna run test",
     "start": "lerna run start",
     "version": "lerna run version",
-    "prepublish:packages": "yarn && yarn build",
+    "build:onda": "lerna run --scope @vtex/onda-* build",
+    "test:onda": "lerna run --scope @vtex/onda-* test",
+    "build:onda:fast": "lerna run --scope @vtex/onda-* build:fast",
+    "prepublish:main": "yarn && yarn build",
     "prepublish:experimental": "yarn && yarn build",
-    "publish:packages": "lerna publish --yes",
-    "publish:experimental": "lerna publish --canary --preid experimental",
+    "publish:main": "lerna publish",
+    "publish:experimental": "lerna publish --preid experimental --dist-tag experimental",
     "clean": "lerna clean && lerna run clean",
     "format": "prettier --write \"styleguides/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "eslint styleguides/ --ext .js,.ts,.jsx,.tsx",
