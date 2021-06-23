@@ -1,0 +1,37 @@
+{
+  "name": "@vtex/onda-system",
+  "license": "MIT",
+  "version": "0.1.0-labs.1",
+  "main": "dist/index.js",
+  "module": "dist/onda-system.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/system",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
+    "test": "tsdx test"
+  },
+  "dependencies": {
+    "@vtex/onda-util": "^0.1.0-labs.1",
+    "tiny-invariant": "^1.1.0"
+  }
+}
