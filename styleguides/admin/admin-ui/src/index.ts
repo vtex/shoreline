@@ -54,3 +54,4 @@ export {
   isEdge,
 } from 'react-device-detect'
 export * from './components/Combobox'
+export * from './components/SearchBox'
