@@ -4,6 +4,17 @@ function styles(csx: StyleObject): StyleObject {
   return csx
 }
 
+const typography = {
+  title: styles({
+    fontSize: '1.2rem',
+    fontSettings: "'wght' 72",
+  }),
+  body: styles({
+    fontSize: '1rem',
+    fontSettings: "'wght' 80"
+  })
+}
+
 const scrollbar = styles({
   scrollbarWidth: 'thin',
   scrollbarColor: 'light.primary',
@@ -33,6 +44,7 @@ const menu = (scrollable: boolean) => styles({
   maxHeight: 400,
   overflowY: scrollable ? 'auto' : 'hidden',
   overflowX: 'hidden',
+  paddingX: 2,
   ...scrollbar,
 })
 
@@ -41,6 +53,10 @@ const menu = (scrollable: boolean) => styles({
  */
 const option = (highlighted: boolean) =>
   styles({
+    ...typography.body,
+    p: {
+      ...typography.body,
+    },
     paddingX: 3,
     height: 40,
     display: 'flex',
@@ -51,6 +67,7 @@ const option = (highlighted: boolean) =>
     border: 'divider-bottom',
     ':last-child': {
       border: 'none',
+      marginBottom: 2,
     },
     bg: highlighted ? 'sidebar.hover' : 'light.primary',
     color: highlighted ? 'blue' : 'dark.primary',
@@ -63,20 +80,22 @@ const inputContainer = styles({
   position: 'relative',
 })
 
-const input = (open: boolean) =>
+const input = (open: boolean, standalone: boolean) =>
   styles({
+    ...typography.title,
+    color: 'dark.primary',
     height: 64,
     width: '100%',
-    fontSize: 16,
     paddingX: 56,
-    text: 'body',
     ':focus': {
       outline: 'none',
       boxShadow: 'none',
     },
     borderTopRightRadius: 4,
     borderTopLeftRadius: 4,
-    border: open ? 'divider-bottom' : 'none',
+    borderBottomRightRadius: !open || standalone ? 4 : 0,
+    borderBottomLeftRadius: !open || standalone ? 4 : 0,
+    border: !standalone && open ? 'divider-bottom' : 'none',
   })
 
 const inputIcon = styles({
@@ -91,6 +110,7 @@ const inputButton = styles({
   position: 'absolute',
   right: 4,
   top: 3,
+  color: 'mid.primary'
 })
 
 const label = styles({
@@ -122,8 +142,8 @@ const kbd = styles({
   bg: 'mid.tertiary',
   color: 'dark.secondary',
   borderRadius: 4,
+  paddingX: '6px',
   paddingY: '2px',
-  paddingX: 1,
   fontSize: '11px',
   textTransform: 'uppercase',
   fontWeight: 400,

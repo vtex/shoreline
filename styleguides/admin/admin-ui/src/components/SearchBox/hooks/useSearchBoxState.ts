@@ -25,7 +25,7 @@ interface Params<C> extends DownshiftRestProps<C> {
   render?: (item: C) => ReactNode
 }
 
-type CollectionType = 'storage' | 'search'
+type CollectionType = 'storage' | 'search' | 'seed'
 
 export interface ComboboxState<C> {
   combobox: UseComboboxReturnValue<C>
@@ -35,7 +35,6 @@ export interface ComboboxState<C> {
     setItems: Dispatch<SetStateAction<C[]>>
   }
 }
-
 
 export function unstableUseSearchBoxState<C>(
   params: Params<C>
@@ -56,7 +55,7 @@ export function unstableUseSearchBoxState<C>(
     timeoutMs: 480
   })
   const [type, setType] = useState<CollectionType>('storage')
-  const [items, setItems] = useState(collection)
+  const [items, setItems] = useState<any[]>([])
   const [lastSearches, setLastSearches] = usePersistentState<C[]>(
     [],
     `@vtex/admin-ui-searchbox`
@@ -101,6 +100,9 @@ export function unstableUseSearchBoxState<C>(
       if (lastSearches.length > 0) {
         setItems(lastSearches)
         setType('storage')
+      } else {
+        setItems([])
+        setType('seed')
       }
     } else {
       setType('search')

@@ -1,11 +1,9 @@
 import React, {
   cloneElement,
   ComponentPropsWithoutRef,
-  forwardRef,
   Fragment,
   ReactElement,
   ReactNode,
-  Ref,
 } from 'react'
 import { useSystem, merge } from '@vtex/admin-core'
 import {
@@ -27,6 +25,8 @@ import { VisuallyHidden } from '../VisuallyHidden'
 import { intl, Intl } from './intl'
 import { Paragraph } from '../Paragraph'
 
+export { unstableUseSearchBoxState } from './hooks/useSearchBoxState'
+
 const itemMotion: Variants = {
   init: {
     opacity: 0,
@@ -44,10 +44,7 @@ interface SearchBoxProps {
   children?: ReactNode
 }
 
-const _SearchBox = forwardRef(function SearchBox(
-  props: SearchBoxProps,
-  ref: Ref<HTMLDivElement>
-) {
+function __SearchBox(props: SearchBoxProps) {
   const { children, state } = props
   const { cn } = useSystem()
 
@@ -55,7 +52,7 @@ const _SearchBox = forwardRef(function SearchBox(
 
   return (
     <AnimateSharedLayout>
-      <motion.div ref={ref} layout className={cn(styles.box)}>
+      <motion.div layout className={cn(styles.box)}>
         <VisuallyHidden>
           <label {...labelProps}>
             <Intl id="comboboxLabel" />
@@ -65,7 +62,7 @@ const _SearchBox = forwardRef(function SearchBox(
       </motion.div>
     </AnimateSharedLayout>
   )
-})
+}
 
 interface InputProps extends ComponentPropsWithoutRef<'input'> {
   onClear?: () => void
@@ -77,6 +74,7 @@ function Input(props: InputProps) {
 
   const {
     combobox: { getComboboxProps, getInputProps, openMenu, reset, isOpen },
+    collection: { type },
   } = useStateContext()
 
   const comboboxProps = getComboboxProps()
@@ -105,7 +103,7 @@ function Input(props: InputProps) {
         {...elementProps}
         placeholder={intl('placeholder')}
         onFocus={handleFocus}
-        className={cn(styles.input(isOpen))}
+        className={cn(styles.input(isOpen, type === 'seed'))}
       />
       {inputProps?.value !== '' && (
         <Button
@@ -134,10 +132,11 @@ function Menu(props: MenuProps) {
   const { cn } = useSystem()
 
   const menuProps = getMenuProps()
+  const seed = type === 'seed'
   const empty = items.length === 0
-  const displayScrollBar = items.length > 10
-  const displayEmptyView = empty && isOpen
-  const displaySuggestions = !empty && isOpen
+  const displayScrollBar = !seed && items.length > 10
+  const displayEmptyView = !seed && empty && isOpen
+  const displaySuggestions = !seed && !empty && isOpen
   const className = cn(merge(styles.menu(displayScrollBar), csx))
 
   return (
@@ -242,7 +241,13 @@ function Suggestion(props: SuggestionProps) {
             />
           )}
         </IconContainer>
-        <Paragraph>{render ? render(item) : item}</Paragraph>
+        <Paragraph
+          csx={{
+            marginLeft: 2,
+          }}
+        >
+          {render ? render(item) : item}
+        </Paragraph>
       </Flex>
       <IconCaretBig size={14} direction="right" />
     </motion.li>
@@ -270,8 +275,28 @@ function Kbd(props: KbdProps) {
  */
 function Footer() {
   const { cn } = useSystem()
-  return (
-    <motion.footer layout className={cn(styles.footer)}>
+  const {
+    combobox: { isOpen },
+    collection: { type },
+  } = useStateContext()
+
+  return type !== 'seed' && isOpen ? (
+    <motion.footer
+      layout
+      variants={itemMotion}
+      initial="init"
+      animate="enter"
+      transition={{
+        enter: {
+          delay: 0.380,
+        },
+        leave: {
+          delay: 0.15,
+        },
+      }}
+      exit="leave"
+      className={cn(styles.footer)}
+    >
       <motion.div layout>
         <Kbd>↓</Kbd> <Kbd>↑</Kbd> <Intl id="toNavigate" />
       </motion.div>
@@ -282,10 +307,10 @@ function Footer() {
         <Kbd>esc</Kbd> <Intl id="toCancel" />
       </motion.div>
     </motion.footer>
-  )
+  ) : null
 }
 
-export const unstableSearchBox = Object.assign(_SearchBox, {
+export const unstableSearchBox = Object.assign(__SearchBox, {
   Input,
   Menu,
   Suggestion,

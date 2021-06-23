@@ -1,7 +1,9 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { unstableSearchBox as SearchBox } from './index'
-import { unstableUseSearchBoxState as useSearchBoxState } from './hooks/useSearchBoxState'
+import {
+  unstableSearchBox as SearchBox,
+  unstableUseSearchBoxState as useSearchBoxState,
+} from './index'
 import { Box } from '@vtex/admin-primitives'
 
 export default {
