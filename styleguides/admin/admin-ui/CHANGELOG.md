@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.101.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.1...@vtex/admin-ui@0.101.2) (2021-06-24)
+
+
+### Bug Fixes
+
+* **admin-ui/searchbox:** intl behavior and pt translation ([4d27f8b](https://github.com/vtex/onda/commit/4d27f8b4a358a6cbf31a517b181a9b4fd02420ad))
+
+
+
+
+
 ## [0.101.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.0...@vtex/admin-ui@0.101.1) (2021-06-24)
 
 
