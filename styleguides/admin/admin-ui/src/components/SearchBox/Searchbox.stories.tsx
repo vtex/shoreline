@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode } from 'react'
+import React, { Fragment, ReactNode, useState } from 'react'
 import { Meta } from '@storybook/react'
 import {
   Dialog,
@@ -7,6 +7,7 @@ import {
   useDialogState,
 } from 'reakit/Dialog'
 import { Box } from '@vtex/admin-primitives'
+import { Button } from '../Button'
 
 import {
   unstableSearchBox as SearchBox,
@@ -15,6 +16,7 @@ import {
 import { IconSearch } from '@vtex/admin-ui-icons'
 import { Paragraph } from '../Paragraph'
 import { useSystem, darken } from '@vtex/admin-core'
+import { Locale } from './intl'
 
 export default {
   title: 'admin-ui/SearchBox',
@@ -269,5 +271,54 @@ export function WithDialog() {
         </>
       )}
     </ClassNames>
+  )
+}
+
+export function Intl() {
+  const [locale, setLocale] = useState<Locale>('en-US')
+  const state = useSearchBoxState({
+    id: 'basic',
+    collection: [
+      'Orders',
+      'Products',
+      'Pages',
+      'Shipping',
+      'Store Settings',
+      'Transactions',
+      'Billing',
+      'Site Layout',
+      'Promotions',
+      'Tracking',
+      'Coupons',
+    ],
+  })
+
+  const toggleLocale = () => {
+    if(locale === 'pt-BR') {
+      setLocale('en-US')
+    }
+
+    if(locale === 'en-US') {
+      setLocale('pt-BR')
+    }
+  }
+
+  return (
+    <Box>
+      <Button onClick={toggleLocale}>Toggle locale</Button>
+      <Box
+        csx={{
+          width: 680,
+        }}
+      >
+        <SearchBox state={state} locale={locale}>
+          <SearchBox.Input />
+          <SearchBox.Menu>
+            <SearchBox.Suggestion />
+          </SearchBox.Menu>
+          <SearchBox.Footer />
+        </SearchBox>
+      </Box>
+    </Box>
   )
 }
