@@ -20,7 +20,7 @@ import { useStateContext, StateContext } from './context'
 import styles from './styles'
 import { Label } from '../Label'
 import { VisuallyHidden } from '../VisuallyHidden'
-import { intl, Intl } from './intl'
+import { Intl, Locale, useLocale, LocaleProvider } from './intl'
 import { Paragraph } from '../Paragraph'
 
 export { unstableUseSearchBoxState } from './hooks/useSearchBoxState'
@@ -40,31 +40,36 @@ const itemMotion: Variants = {
 interface SearchBoxProps {
   state: any
   children?: ReactNode
+  locale?: Locale
 }
 
 function __SearchBox(props: SearchBoxProps) {
-  const { children, state } = props
+  const { children, state, locale = 'en-US' } = props
   const { cn } = useSystem()
 
   const labelProps = state.combobox.getLabelProps()
 
   return (
-    <AnimateSharedLayout>
-      <motion.div
-        layout
-        initial={{
-          originY: 'unset',
-        }}
-        className={cn(styles.box)}
-      >
-        <VisuallyHidden>
-          <label {...labelProps}>
-            <Intl id="comboboxLabel" />
-          </label>
-        </VisuallyHidden>
-        <StateContext.Provider value={state}>{children}</StateContext.Provider>
-      </motion.div>
-    </AnimateSharedLayout>
+    <LocaleProvider value={locale}>
+      <AnimateSharedLayout>
+        <motion.div
+          layout
+          initial={{
+            originY: 'unset',
+          }}
+          className={cn(styles.box)}
+        >
+          <VisuallyHidden>
+            <label {...labelProps}>
+              <Intl id="comboboxLabel" />
+            </label>
+          </VisuallyHidden>
+          <StateContext.Provider value={state}>
+            {children}
+          </StateContext.Provider>
+        </motion.div>
+      </AnimateSharedLayout>
+    </LocaleProvider>
   )
 }
 
@@ -75,6 +80,7 @@ interface InputProps extends ComponentPropsWithoutRef<'input'> {
 function Input(props: InputProps) {
   const { onClear, onFocus, ...elementProps } = props
   const { cn } = useSystem()
+  const { intl } = useLocale()
 
   const {
     combobox: { getComboboxProps, getInputProps, openMenu, reset, isOpen },

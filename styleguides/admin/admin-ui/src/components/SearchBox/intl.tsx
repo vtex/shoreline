@@ -1,6 +1,17 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, createContext, useContext, useCallback } from 'react'
 
-const ids = {
+export type Locale =
+  | 'pt-BR'
+  | 'en-US'
+  | 'es-AR'
+  | 'fr-FR'
+  | 'ja-JP'
+  | 'ko-KR'
+  | 'it-IT'
+  | 'nl-NL'
+  | 'ro-RO'
+
+const englishTranslation = {
   comboboxLabel: 'Search',
   placeholder: 'Search',
   adminPages: 'Admin Pages',
@@ -12,29 +23,67 @@ const ids = {
   emptySubtitle: 'Please, search for a different term',
 }
 
-type IntlIds = keyof typeof ids
+const ids: Record<Locale, SearchBoxIntlStrings> = {
+  'pt-BR': {
+    comboboxLabel: 'Buscar',
+    placeholder: 'Buscar',
+    adminPages: 'Páginas do Admin',
+    lastSearches: 'Últimas buscas',
+    toNavigate: 'para navegar',
+    toSelect: 'para selecionar',
+    toCancel: 'para cancelar',
+    emptyTitle: 'Nenhum resultado encontrado para o termo buscado',
+    emptySubtitle: 'Por favor, procure por um termo diferente',
+  },
+  'en-US': englishTranslation,
+  'es-AR': englishTranslation,
+  'fr-FR': englishTranslation,
+  'ja-JP': englishTranslation,
+  'ko-KR': englishTranslation,
+  'it-IT': englishTranslation,
+  'nl-NL': englishTranslation,
+  'ro-RO': englishTranslation,
+}
+
+const LocaleContext = createContext<Locale>('en-US')
+
+export function useLocale() {
+  const locale = useContext(LocaleContext)
+
+  if (!locale) {
+    throw Error('🌎 No locale provided')
+  }
+
+  const intl = useCallback(
+    (id: IntlIds) => {
+      return ids[locale][id]
+    },
+    [locale]
+  )
+
+  return { intl, locale }
+}
+
+const { Provider: LocaleProvider } = LocaleContext
+
+export { LocaleProvider }
+
+type SearchBoxIntlStrings = typeof englishTranslation
+
+type IntlIds = keyof typeof englishTranslation
 
 interface IntlProps {
   id: IntlIds
 }
 
 /**
- * Typesafe i18n function
- * @param id - string id to intl
- * @example
- * intl('placeholder')
- */
-export function intl(id: IntlIds) {
-  return ids[id]
-}
-
-/**
  * Typesafe i18n component
  * @example
- * <Intl key="placeholder" />
+ * <Intl key=“placeholder” >
  */
 export function Intl(props: IntlProps) {
   const { id } = props
+  const { intl } = useLocale()
   const content = intl(id)
   return <Fragment>{content}</Fragment>
 }
