@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.101.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.0...@vtex/admin-ui@0.101.1) (2021-06-24)
+
+
+### Bug Fixes
+
+* **admin-ui/searchbox:** suggestion render-props interaction ([38f356f](https://github.com/vtex/onda/commit/38f356f904b21f143b83cbe220adfa81384e14d9))
+* **admin-ui/searchbox:** transform origin on enter ([177c464](https://github.com/vtex/onda/commit/177c46484f739a26f4a6079f33692e601d13550c))
+
+
+
+
+
 # [0.101.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.100.0...@vtex/admin-ui@0.101.0) (2021-06-23)
 
 

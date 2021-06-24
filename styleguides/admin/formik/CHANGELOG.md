@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.14](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.1.13...@vtex/admin-formik@0.1.14) (2021-06-24)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+
+
+
+
 ## [0.1.13](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.1.12...@vtex/admin-formik@0.1.13) (2021-06-23)
 
 **Note:** Version bump only for package @vtex/admin-formik
