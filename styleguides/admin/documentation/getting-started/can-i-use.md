@@ -34,13 +34,13 @@ admin-ui features separated by status:
 
 ### Feedback
 
-| component | status    | notes                       |
-| --------- | --------- | --------------------------- |
-| Alert     | supported | Design changes comming soon |
-| Spinner   | supported | -                           |
-| Skeleton  | supported | -                           |
-| Toast     | upcoming  | -                           |
-| Progress  | upcoming  | -                           |
+| component | status       | notes                                                                               |
+| --------- | ------------ | ----------------------------------------------------------------------------------- |
+| Alert     | supported    | Design changes comming soon                                                         |
+| Spinner   | supported    | -                                                                                   |
+| Skeleton  | supported    | -                                                                                   |
+| Toast     | experimental | We are facing some rendering issues [#648](https://github.com/vtex/onda/issues/648) |
+| Progress  | upcoming     | -                                                                                   |
 
 ### Data display
 
@@ -53,9 +53,9 @@ admin-ui features separated by status:
 | CollapsibleGroup | supported      | We expect to change the animations soon |
 | Collapsible      | supported      | We expect to change the animation soon  |
 | Toolbar          | experimental   | -                                       |
-| Table            | in development | -                                       |
+| Pagination       | experimental   | -                                       |
 | Filters          | in development | -                                       |
-| Pagination       | in development | -                                       |
+| Table            | in development | -                                       |
 | Autocomplete     | upcoming       | -                                       |
 | Charts library   | upcoming       | -                                       |
 
@@ -83,18 +83,20 @@ admin-ui features separated by status:
 | Button         | supported      | Missing the loading state                                                                |
 | CheckboxGroup  | supported      | Investigating the need for a helper text                                                 |
 | Checkbox       | supported      | -                                                                                        |
-| Dropdown       | supported      | -                                                                                        |
+| Dropdown       | supported      | Design changes coming soon that maybe invalidate this component                          |
 | InputPassword  | supported      | -                                                                                        |
 | Input          | supported      | -                                                                                        |
 | Label          | supported      | -                                                                                        |
 | NumericStepper | supported      | -                                                                                        |
 | RadioGroup     | supported      | Investigating the need for a helper text                                                 |
 | Radio          | supported      | -                                                                                        |
-| Select         | supported      | -                                                                                        |
+| Select         | supported      | Design changes coming soon that maybe invalidate this component                          |
 | Textarea       | supported      | TextArea label covered by input content, [#501](https://github.com/vtex/onda/issues/501) |
 | Toggle         | supported      | -                                                                                        |
+| Formik library | experimental   | -                                                                                        |
 | Search         | experimental   | Big design changes coming soon that maybe invalidate this component                      |
-| Formik library | in development | -                                                                                        |
+| Combobox       | in development | -                                                                                        |
+| Searchbox      | in development | -                                                                                        |
 | FormGroup      | upcoming       | -                                                                                        |
 | DatePicker     | upcoming       | -                                                                                        |
 | TimePicker     | upcoming       | -                                                                                        |
@@ -102,12 +104,12 @@ admin-ui features separated by status:
 
 ### Page structure
 
-| component  | status         | notes |
-| ---------- | -------------- | ----- |
-| Tabs       | experimental   | -     |
-| Sidebar    | experimental   | -     |
-| Topbar     | experimental   | -     |
-| PageHeader | in development | -     |
+| component  | status       | notes |
+| ---------- | ------------ | ----- |
+| Tabs       | experimental | -     |
+| Sidebar    | experimental | -     |
+| Topbar     | experimental | -     |
+| PageHeader | upcoming     | -     |
 
 ### Layouts
 
