@@ -9,12 +9,10 @@ import { useSystem, merge } from '@vtex/admin-core'
 import {
   IconSearch,
   IconCancel,
-  IconCaretBig,
   IconHistory,
   IconContainer,
 } from '@vtex/admin-ui-icons'
 import { motion, AnimateSharedLayout, Variants } from 'framer-motion'
-import { Flex } from '@vtex/admin-primitives'
 
 import { Button } from '../Button'
 import { SystemComponent } from '../../types'
@@ -52,7 +50,13 @@ function __SearchBox(props: SearchBoxProps) {
 
   return (
     <AnimateSharedLayout>
-      <motion.div layout className={cn(styles.box)}>
+      <motion.div
+        layout
+        initial={{
+          originY: 'unset',
+        }}
+        className={cn(styles.box)}
+      >
         <VisuallyHidden>
           <label {...labelProps}>
             <Intl id="comboboxLabel" />
@@ -199,7 +203,7 @@ interface CloneProps {
 }
 
 interface SuggestionProps extends SystemComponent, CloneProps {
-  render?: (item: any) => void
+  children?: (item: any) => ReactNode
 }
 
 function Suggestion(props: SuggestionProps) {
@@ -208,7 +212,7 @@ function Suggestion(props: SuggestionProps) {
     index,
     csx,
     highlighted = false,
-    render,
+    children,
     ...elementProps
   } = props
 
@@ -231,25 +235,22 @@ function Suggestion(props: SuggestionProps) {
       animate="enter"
       exit="leave"
     >
-      <Flex align="center">
-        <IconContainer space="regular">
-          {type === 'storage' && (
-            <IconHistory
-              csx={{
-                marginTop: '2px',
-              }}
-            />
-          )}
-        </IconContainer>
-        <Paragraph
-          csx={{
-            marginLeft: 2,
-          }}
-        >
-          {render ? render(item) : item}
-        </Paragraph>
-      </Flex>
-      <IconCaretBig size={14} direction="right" />
+      <IconContainer space="regular">
+        {type === 'storage' && (
+          <IconHistory
+            csx={{
+              marginTop: '2px',
+            }}
+          />
+        )}
+      </IconContainer>
+      <Paragraph
+        csx={{
+          marginLeft: 2,
+        }}
+      >
+        {children ? children(item) : item}
+      </Paragraph>
     </motion.li>
   )
 }
@@ -288,7 +289,7 @@ function Footer() {
       animate="enter"
       transition={{
         enter: {
-          delay: 0.380,
+          delay: 0.38,
         },
         leave: {
           delay: 0.15,
