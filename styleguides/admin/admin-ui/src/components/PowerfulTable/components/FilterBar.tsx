@@ -156,19 +156,26 @@ export interface TableFilterProps<T, V extends { value: T }>
 
 export interface TableFilterDisclosureProps extends SystemComponent {
   /**
-   * Object that manages the Table Dis
+   * Object that manages the Table Disclosure state
    */
   state: TableFilterDisclosureState
-  children: ReactNode
+  /**
+   * Element that will be displayed inside the Button
+   */
+  children?: ReactNode
+  /**
+   * Button onClick handler
+   */
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 export interface UseTableFilterBarStateParams<T> {
   /**
-   * params that will be passed to the usePopoverState call
+   * Params that will be passed to the usePopoverState
    */
   poopoverInitialState?: SealedInitialState<PopoverInitialState>
   /**
-   * params that will be pass to the useFilterBarState
+   * Params that will be pass to the useFilterBarState
    */
   filterBarParams: UseFilterBarStateParams<T>
 }
@@ -184,7 +191,6 @@ interface PopoverDisclosureProps {
 }
 
 interface TableFilterDisclosureState {
-  onClick?: MouseEventHandler<HTMLButtonElement>
   filtersAmount?: number
   icon: ReactNode
   csx: StyleObject
