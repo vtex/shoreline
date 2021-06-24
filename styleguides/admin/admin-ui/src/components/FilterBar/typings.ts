@@ -10,7 +10,7 @@ export interface FilterBarProps<T, V extends { value: T }>
   label: string
   /**
    * FilterBar resolvers
-   * @default baseResolvers<T, V>()
+   * @default baseResolvers<T>()
    */
   resolvers?: Record<string, Resolver<V>>
   /** Set of labels used internally */
