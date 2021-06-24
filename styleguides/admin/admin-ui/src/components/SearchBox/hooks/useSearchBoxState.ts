@@ -19,6 +19,7 @@ interface MatchParams {
 }
 
 interface Params<C> extends DownshiftRestProps<C> {
+  id: string,
   collection: C[]
   compare?: (a: C, b: C) => boolean
   match?: (params: MatchParams) => boolean
@@ -40,6 +41,7 @@ export function unstableUseSearchBoxState<C>(
   params: Params<C>
 ): ComboboxState<C> {
   const {
+    id,
     match = defaultMatch,
     render = defaultRender,
     itemToString = defaultItemToString,
@@ -58,7 +60,7 @@ export function unstableUseSearchBoxState<C>(
   const [items, setItems] = useState<any[]>([])
   const [lastSearches, setLastSearches] = usePersistentState<C[]>(
     [],
-    `@vtex/admin-ui-searchbox`
+    `@vtex/admin-ui-searchbox-${id}`
   )
 
   const combobox = useCombobox({

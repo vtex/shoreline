@@ -22,6 +22,7 @@ export default {
 
 export function Basic() {
   const state = useSearchBoxState({
+    id: 'basic',
     collection: [
       'Orders',
       'Products',
@@ -54,8 +55,52 @@ export function Basic() {
   )
 }
 
-export function ScrollTest() {
+export function WithObjects() {
+  type Item = {
+    name: string
+  }
+
   const state = useSearchBoxState({
+    id: 'with-objects',
+    collection: [
+      { name: 'Orders' },
+      { name: 'Products' },
+      { name: 'Pages' },
+      { name: 'Shipping' },
+      { name: 'Store Settings' },
+      { name: 'Transactions' },
+      { name: 'Billing' },
+      { name: 'Site Layout' },
+      { name: 'Promotions' },
+      { name: 'Tracking' },
+      { name: 'Coupons' },
+    ],
+    itemToString: (a) => a?.name ?? '',
+    compare: (a, b) => a.name === b.name,
+  })
+
+  return (
+    <Box
+      csx={{
+        width: 680,
+      }}
+    >
+      <SearchBox state={state}>
+        <SearchBox.Input />
+        <SearchBox.Menu>
+          <SearchBox.Suggestion>
+            {(item: Item) => item.name}
+          </SearchBox.Suggestion>
+        </SearchBox.Menu>
+        <SearchBox.Footer />
+      </SearchBox>
+    </Box>
+  )
+}
+
+export function WithScroll() {
+  const state = useSearchBoxState({
+    id: 'with-scroll',
     collection: [
       'Orders',
       'Products',
@@ -179,9 +224,10 @@ function ClassNames(props: ClassNamesProps) {
   )
 }
 
-export function WithinADialog() {
+export function WithDialog() {
   const dialogState = useDialogState()
   const state = useSearchBoxState({
+    id: 'with-dialog',
     collection: [
       'Orders',
       'Products',

@@ -203,7 +203,7 @@ interface CloneProps {
 }
 
 interface SuggestionProps extends SystemComponent, CloneProps {
-  render?: (item: any) => void
+  children?: (item: any) => ReactNode
 }
 
 function Suggestion(props: SuggestionProps) {
@@ -212,7 +212,7 @@ function Suggestion(props: SuggestionProps) {
     index,
     csx,
     highlighted = false,
-    render,
+    children,
     ...elementProps
   } = props
 
@@ -249,7 +249,7 @@ function Suggestion(props: SuggestionProps) {
           marginLeft: 2,
         }}
       >
-        {render ? render(item) : item}
+        {children ? children(item) : item}
       </Paragraph>
     </motion.li>
   )
