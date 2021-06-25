@@ -56,6 +56,41 @@ export function Basic() {
     </Box>
   )
 }
+export function HistorySize() {
+  const state = useSearchBoxState({
+    id: 'history',
+    historySize: 2,
+    collection: [
+      'Orders',
+      'Products',
+      'Pages',
+      'Shipping',
+      'Store Settings',
+      'Transactions',
+      'Billing',
+      'Site Layout',
+      'Promotions',
+      'Tracking',
+      'Coupons',
+    ],
+  })
+
+  return (
+    <Box
+      csx={{
+        width: 680,
+      }}
+    >
+      <SearchBox state={state}>
+        <SearchBox.Input />
+        <SearchBox.Menu>
+          <SearchBox.Suggestion />
+        </SearchBox.Menu>
+        <SearchBox.Footer />
+      </SearchBox>
+    </Box>
+  )
+}
 
 export function WithObjects() {
   type Item = {

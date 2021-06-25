@@ -8,10 +8,7 @@ import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
 import { useInputValue } from './useInputValue'
 import { usePersistentState } from './usePersistentState'
 
-type DownshiftRestProps<C> = Omit<
-  UseComboboxProps<C>,
-  'items'
->
+type DownshiftRestProps<C> = Omit<UseComboboxProps<C>, 'items'>
 
 interface MatchParams {
   inputValue?: string
@@ -19,8 +16,9 @@ interface MatchParams {
 }
 
 interface Params<C> extends DownshiftRestProps<C> {
-  id: string,
+  id: string
   collection: C[]
+  historySize?: number
   compare?: (a: C, b: C) => boolean
   match?: (params: MatchParams) => boolean
   render?: (item: C) => ReactNode
@@ -42,6 +40,7 @@ export function unstableUseSearchBoxState<C>(
 ): ComboboxState<C> {
   const {
     id,
+    historySize = 10,
     match = defaultMatch,
     render = defaultRender,
     itemToString = defaultItemToString,
@@ -54,11 +53,11 @@ export function unstableUseSearchBoxState<C>(
 
   const [inputValue, setInputValue] = useInputValue({
     initialState: '',
-    timeoutMs: 480
+    timeoutMs: 480,
   })
   const [type, setType] = useState<CollectionType>('storage')
   const [items, setItems] = useState<any[]>([])
-  const [lastSearches, setLastSearches] = usePersistentState<C[]>(
+  const [history, setHistory] = usePersistentState<C[]>(
     [],
     `@vtex/admin-ui-searchbox-${id}`
   )
@@ -68,10 +67,18 @@ export function unstableUseSearchBoxState<C>(
     itemToString,
     onSelectedItemChange: (downshiftOnChangeCb) => {
       const { selectedItem } = downshiftOnChangeCb
-      
+
       if (selectedItem) {
-        if (!lastSearches.some((ls) => compare(ls, selectedItem))) {
-          setLastSearches((ls) => [...ls, selectedItem])
+        if (!history.some((ls) => compare(ls, selectedItem))) {
+          setHistory((ls) => {
+            const draft = [...ls]
+
+            if (history.length >= historySize) {
+              draft.pop()
+            }
+
+            return [selectedItem, ...draft]
+          })
         }
       }
 
@@ -81,15 +88,19 @@ export function unstableUseSearchBoxState<C>(
     },
     onInputValueChange: (dowshiftInputCb) => {
       const { inputValue: downshiftInputValue } = dowshiftInputCb
-      if (downshiftInputValue === undefined && typeof downshiftInputValue !== 'string') return
+      if (
+        downshiftInputValue === undefined &&
+        typeof downshiftInputValue !== 'string'
+      )
+        return
 
       if (downshiftInputValue === '') {
-        if (lastSearches.length > 0) {
-          setItems(lastSearches)
+        if (history.length > 0) {
+          setItems(history)
           setType('storage')
         }
       }
-      
+
       setInputValue(downshiftInputValue)
 
       onInputValueChange?.(dowshiftInputCb)
@@ -99,8 +110,8 @@ export function unstableUseSearchBoxState<C>(
 
   useEffect(() => {
     if (inputValue === '') {
-      if (lastSearches.length > 0) {
-        setItems(lastSearches)
+      if (history.length > 0) {
+        setItems(history)
         setType('storage')
       } else {
         setItems([])
