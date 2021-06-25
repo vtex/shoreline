@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.101.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.2...@vtex/admin-ui@0.101.3) (2021-06-25)
+
+
+### Bug Fixes
+
+* **admin-ui/searchbox:** history growing without limit ([dadad7b](https://github.com/vtex/onda/commit/dadad7b126026407f11c4147b0ae90fc5018c4e5))
+
+
+
+
+
 ## [0.101.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.1...@vtex/admin-ui@0.101.2) (2021-06-24)
 
 
