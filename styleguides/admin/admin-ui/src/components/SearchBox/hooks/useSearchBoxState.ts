@@ -10,28 +10,29 @@ import { usePersistentState } from './usePersistentState'
 
 type DownshiftRestProps<C> = Omit<UseComboboxProps<C>, 'items'>
 
-interface MatchParams {
+interface MatchParams<T> {
   inputValue?: string
   itemString?: string
+  item?: T
 }
 
-interface Params<C> extends DownshiftRestProps<C> {
+interface Params<T> extends DownshiftRestProps<T> {
   id: string
-  collection: C[]
+  collection: T[]
   historySize?: number
-  compare?: (a: C, b: C) => boolean
-  match?: (params: MatchParams) => boolean
-  render?: (item: C) => ReactNode
+  compare?: (a: T, b: T) => boolean
+  match?: (params: MatchParams<T>) => boolean
+  render?: (item: T) => ReactNode
 }
 
 type CollectionType = 'storage' | 'search' | 'seed'
 
-export interface ComboboxState<C> {
-  combobox: UseComboboxReturnValue<C>
+export interface ComboboxState<T> {
+  combobox: UseComboboxReturnValue<T>
   collection: {
-    items: C[]
+    items: T[]
     type: CollectionType
-    setItems: Dispatch<SetStateAction<C[]>>
+    setItems: Dispatch<SetStateAction<T[]>>
   }
 }
 
@@ -86,8 +87,8 @@ export function unstableUseSearchBoxState<C>(
 
       return selectedItem
     },
-    onInputValueChange: (dowshiftInputCb) => {
-      const { inputValue: downshiftInputValue } = dowshiftInputCb
+    onInputValueChange: (downshiftInputCb) => {
+      const { inputValue: downshiftInputValue } = downshiftInputCb
       if (
         downshiftInputValue === undefined &&
         typeof downshiftInputValue !== 'string'
@@ -103,7 +104,7 @@ export function unstableUseSearchBoxState<C>(
 
       setInputValue(downshiftInputValue)
 
-      onInputValueChange?.(dowshiftInputCb)
+      onInputValueChange?.(downshiftInputCb)
     },
     ...downshiftRestProps,
   })
@@ -124,6 +125,7 @@ export function unstableUseSearchBoxState<C>(
           match({
             inputValue,
             itemString: itemToString(item),
+            item,
           })
         )
       )
@@ -143,9 +145,9 @@ export function unstableUseSearchBoxState<C>(
 /**
  * default match function
  * @param params
- * @returns wheather the itemString starts with the input value
+ * @returns whether the itemString starts with the input value
  */
-function defaultMatch(params: MatchParams) {
+function defaultMatch<T>(params: MatchParams<T>) {
   const { inputValue, itemString } = params
   return String(itemString)
     .toLowerCase()
