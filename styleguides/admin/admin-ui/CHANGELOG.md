@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.101.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.3...@vtex/admin-ui@0.101.4) (2021-06-28)
+
+
+### Bug Fixes
+
+* **admin-ui/searchbox:** match function without the complete item ([a5ebf88](https://github.com/vtex/onda/commit/a5ebf880119ae7e3773ad041beea7701ea6ddd9e))
+
+
+
+
+
 ## [0.101.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.2...@vtex/admin-ui@0.101.3) (2021-06-25)
 
 
