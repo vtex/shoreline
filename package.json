@@ -24,7 +24,7 @@
   "scripts": {
     "lerna": "lerna",
     "build": "lerna run build",
-    "test": "lerna run test",
+    "test": "lerna run test -- --passWithNoTests",
     "start": "lerna run start",
     "version": "lerna run version",
     "build:onda": "lerna run --scope @vtex/onda-* build",
