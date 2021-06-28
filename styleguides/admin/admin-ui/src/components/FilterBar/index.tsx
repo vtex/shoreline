@@ -26,15 +26,15 @@ export function FilterBar<T, V extends { value: T }>(
       statements,
       filters,
       onApply,
-      newStatement,
+      addStatement,
       deleteStatement,
-      apply,
+      applyFilters,
       duplicateStatement,
-      valueChange,
-      filterChange,
-      conditionChange,
-      conjunctionChange,
-      filtersReset,
+      changeValue,
+      changeFilter,
+      changeCondition,
+      changeConjunction,
+      resetFilters,
     },
     conjunctions,
     resolvers = baseResolvers<V>(),
@@ -73,7 +73,7 @@ export function FilterBar<T, V extends { value: T }>(
                   items={conjunctions}
                   handleItemChange={({ selectedItem }) => {
                     if (selectedItem) {
-                      conjunctionChange(selectedItem)
+                      changeConjunction(selectedItem)
                     }
                   }}
                 />
@@ -85,7 +85,7 @@ export function FilterBar<T, V extends { value: T }>(
                   handleItemChange={({ selectedItem: filter }) => {
                     if (!filter) return
 
-                    filterChange(filter, index)
+                    changeFilter(filter, index)
                   }}
                 />
 
@@ -96,7 +96,7 @@ export function FilterBar<T, V extends { value: T }>(
                   handleItemChange={({ selectedItem: condition }) => {
                     if (!condition) return
 
-                    conditionChange(condition, index)
+                    changeCondition(condition, index)
                   }}
                 />
 
@@ -104,7 +104,7 @@ export function FilterBar<T, V extends { value: T }>(
                   resolvers={resolvers}
                   statement={statement}
                   index={index}
-                  handleValueChange={valueChange}
+                  handleValueChange={changeValue}
                 />
               </Set>
               <Statement.Menu
@@ -134,7 +134,7 @@ export function FilterBar<T, V extends { value: T }>(
           size="small"
           variant="tertiary"
           icon={<IconAdd />}
-          onClick={newStatement}
+          onClick={addStatement}
         >
           {addFilterLabel}
         </Button>
@@ -143,7 +143,7 @@ export function FilterBar<T, V extends { value: T }>(
             size="small"
             variant="adaptative-dark"
             disabled={statements.length === 0}
-            onClick={filtersReset}
+            onClick={resetFilters}
           >
             {clearFilterLabel}
           </Button>
@@ -151,7 +151,7 @@ export function FilterBar<T, V extends { value: T }>(
             size="small"
             disabled={applied}
             onClick={() => {
-              apply()
+              applyFilters()
               onApply({ conjunction, statements })
             }}
           >

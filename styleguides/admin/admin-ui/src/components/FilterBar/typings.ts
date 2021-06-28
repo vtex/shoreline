@@ -36,20 +36,34 @@ export interface UseFilterBarStateParams<T> {
 }
 
 export interface UseFilterBarStateReturn<T> {
+  /** Current filter Conjunction  */
   conjunction: Conjunction
+  /** Current filter Statements */
   statements: Statement<T>[]
+  /** Defines if the filter is being applied */
   applied: boolean
+  /** Possible filters */
   filters: Filter<T>[]
+  /** Function that will be called when the apply button is clicked */
   onApply: (filters: Filters<T>) => void
-  newStatement: () => void
-  apply: () => void
+  /** Function that adds a new statement */
+  addStatement: () => void
+  /** Function that applies the filters */
+  applyFilters: () => void
+  /** Function that deletes a statement */
   deleteStatement: (index: number) => void
+  /** Function that duplicates a statement */
   duplicateStatement: (index: number) => void
-  filtersReset: () => void
-  valueChange: (value: T, index: number) => void
-  filterChange: (filter: Filter<T>, index: number) => void
-  conditionChange: (condition: Condition, index: number) => void
-  conjunctionChange: (conjunction: Conjunction) => void
+  /** Function that clears all filters */
+  resetFilters: () => void
+  /** Function that changes the value of a statement */
+  changeValue: (value: T, index: number) => void
+  /** Function that changes the filter of a statement */
+  changeFilter: (filter: Filter<T>, index: number) => void
+  /** Function that changes the condition of a statement */
+  changeCondition: (condition: Condition, index: number) => void
+  /** Function that changes the conjuntion of the filters */
+  changeConjunction: (conjunction: Conjunction) => void
 }
 
 export interface InternalLabels {
