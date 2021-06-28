@@ -135,6 +135,60 @@ export function WithObjects() {
   )
 }
 
+export function WithCustomMatch() {
+  type Item = {
+    name: string
+  }
+
+  const state = useSearchBoxState({
+    id: 'custom-match',
+    collection: [
+      { name: 'Orders', context: 'OMS' },
+      { name: 'Products', context: 'Catalog' },
+      { name: 'Pages', context: 'Page Front' },
+      { name: 'Shipping', context: 'OMS' },
+      { name: 'Store Settings', context: 'Page Front' },
+      { name: 'Transactions', context: 'Payments' },
+      { name: 'Billing', context: 'Payments' },
+      { name: 'Site Layout', context: 'Store Front' },
+      { name: 'Promotions', context: 'Catalog' },
+      { name: 'Tracking', context: 'OMS' },
+      { name: 'Coupons', context: 'Catalog' },
+    ],
+    itemToString: (a) => a?.name ?? '',
+    compare: (a, b) => a.name === b.name,
+    match: (params) => {
+      const { inputValue, itemString, item } = params
+
+      const startsWith = (target?: string, subString?: string) =>
+        String(target).toLowerCase().startsWith(String(subString).toLowerCase())
+
+      return (
+        startsWith(itemString, inputValue) ||
+        startsWith(item?.context, inputValue)
+      )
+    },
+  })
+
+  return (
+    <Box
+      csx={{
+        width: 680,
+      }}
+    >
+      <SearchBox state={state}>
+        <SearchBox.Input />
+        <SearchBox.Menu>
+          <SearchBox.Suggestion>
+            {(item: Item) => item.name}
+          </SearchBox.Suggestion>
+        </SearchBox.Menu>
+        <SearchBox.Footer />
+      </SearchBox>
+    </Box>
+  )
+}
+
 export function WithScroll() {
   const state = useSearchBoxState({
     id: 'with-scroll',
@@ -329,11 +383,11 @@ export function Intl() {
   })
 
   const toggleLocale = () => {
-    if(locale === 'pt-BR') {
+    if (locale === 'pt-BR') {
       setLocale('en-US')
     }
 
-    if(locale === 'en-US') {
+    if (locale === 'en-US') {
       setLocale('pt-BR')
     }
   }
