@@ -1,6 +1,7 @@
 module.exports = {
   stories: [
     '../../admin-ui/src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../../react/src/**/*.stories.@(js|jsx|ts|tsx)',
     '../../primitives/src/**/*.stories.@(js|jsx|ts|tsx)',
     '../../formik/src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
