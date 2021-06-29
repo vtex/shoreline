@@ -455,7 +455,7 @@ interface InternalLabels {
 
 ### useFilterBarState
 
-Hook that manages the state logic of the FilterBar component. It receives two parameters that define the component's initial state, conjunction, and statements.
+Hook that manages the state logic of the FilterBar component. It receives two parameters that define the component's initial state: `conjunction`, and `statements`.
 
 ### Parameters
 
