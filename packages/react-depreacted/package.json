@@ -3,7 +3,7 @@
   "private": "true",
   "description": "Just for record",
   "license": "MIT",
-  "version": "0.1.0-labs.4",
+  "version": "0.1.0-labs.5",
   "main": "dist/index.js",
   "module": "dist/onda-react.esm.js",
   "typings": "dist/index.d.ts",
@@ -41,7 +41,7 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@vtex/onda-core": "^0.1.0-labs.3",
+    "@vtex/onda-core": "^0.1.0-labs.4",
     "polished": "^4.1.2"
   },
   "dependencies": {

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.102.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.4...@vtex/admin-ui@0.102.0) (2021-06-29)
+
+
+### Bug Fixes
+
+* **filterbar-state-hook:** add missing onApply to hooks ([21462ed](https://github.com/vtex/onda/commit/21462ed3cba53bd3dc396b081adf5cd1dc718dc8))
+* **filterbar-state-hook:** remove unnecessary generic from type documentation ([24a062b](https://github.com/vtex/onda/commit/24a062b32e8de263c1317d698389b4b4fa96f09b))
+
+
+### Features
+
+* **filterbar-state-hook:** export filterbar hook and types ([5d0532b](https://github.com/vtex/onda/commit/5d0532b1f4efdef67f760bdbb6696ec9d04120d0))
+
+
+
+
+
 ## [0.101.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.3...@vtex/admin-ui@0.101.4) (2021-06-28)
 
 

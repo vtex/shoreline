@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/vtex/onda/compare/@vtex/onda-react@0.1.0-labs.4...@vtex/onda-react@0.1.1) (2021-06-29)
+
+
+### Bug Fixes
+
+* **onda-react:** package.json version ([fb98ac4](https://github.com/vtex/onda/commit/fb98ac411f80ae253225940a7c687cb458677e4a))
+
+
+
+
+
 # 0.1.0-labs.4 (2021-06-24)
 
 

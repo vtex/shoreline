@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-labs.3](https://github.com/vtex/onda/compare/@vtex/onda-plugins@0.1.0-labs.2...@vtex/onda-plugins@0.1.0-labs.3) (2021-06-29)
+
+**Note:** Version bump only for package @vtex/onda-plugins
+
+
+
+
+
 # 0.1.0-labs.2 (2021-06-24)
 
 
