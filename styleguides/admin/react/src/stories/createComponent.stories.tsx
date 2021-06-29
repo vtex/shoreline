@@ -557,3 +557,52 @@ export function UseOwnProps() {
     </ThemeProvider>
   )
 }
+
+
+export function Navigation() {
+  
+
+  const _Nav = createComponent('nav', {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    width: '100%',
+    height: 64,
+    bg: 'sidebar.light'
+  })
+
+  const Button  = createComponent('button', {
+    bg: 'blue',
+    color: 'light.primary',
+    cursor: 'pointer',
+    variants: {
+      size: {
+        small: {
+          paddingX: 2,
+          paddingY: 1,
+        },
+        regular: {
+          paddingX: 3,
+          paddingY: 2,
+        }
+      }
+    }
+  })
+
+  Button.defaultProps = {
+    size: 'regular'
+  }
+
+  const Nav = Object.assign(_Nav, {
+    Button
+  })
+
+  return (
+    <ThemeProvider>
+      <Nav>
+        <Nav.Button>button</Nav.Button>
+        <Nav.Button size="small">small button</Nav.Button>
+      </Nav>
+    </ThemeProvider>
+  )
+}
