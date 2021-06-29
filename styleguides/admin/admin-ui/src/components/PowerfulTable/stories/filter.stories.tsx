@@ -56,10 +56,6 @@ function FilterInput(statement: ResolverRenderProps<FiltersType, null>) {
 }
 
 export function TableFilter() {
-  return <Teste />
-}
-
-function Teste() {
   const products = useMemo<Item[]>(() => {
     return [...Array(10).keys()].map((id) => {
       return {
