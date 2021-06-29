@@ -12,7 +12,7 @@ interface FilterStateProps<T> extends UseFilterBarStateParams<T> {
   children: (state: UseFilterBarStateReturn<T>) => JSX.Element
 }
 
-function FilterState<T, V extends { value: T }>({
+function StatefulFilterBar<T, V extends { value: T }>({
   children,
   ...hookProps
 }: FilterStateProps<V>) {
@@ -52,7 +52,7 @@ describe('FilterBar tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <FilterState
+        <StatefulFilterBar
           onApply={() => {}}
           conjunction={{ label: 'And', value: 'and' }}
           filters={[
@@ -85,7 +85,7 @@ describe('FilterBar tests', () => {
               internalLabels={internalLabels}
             />
           )}
-        </FilterState>
+        </StatefulFilterBar>
       </ThemeProvider>
     )
 
@@ -98,7 +98,7 @@ describe('FilterBar tests', () => {
   it('should match snapshot', async () => {
     const { asFragment } = render(
       <ThemeProvider>
-        <FilterState
+        <StatefulFilterBar
           onApply={() => {}}
           statements={[
             {
@@ -151,7 +151,7 @@ describe('FilterBar tests', () => {
               internalLabels={internalLabels}
             />
           )}
-        </FilterState>
+        </StatefulFilterBar>
       </ThemeProvider>
     )
 
@@ -161,7 +161,7 @@ describe('FilterBar tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ThemeProvider>
-        <FilterState
+        <StatefulFilterBar
           filters={[
             {
               label: 'Filter',
@@ -214,7 +214,7 @@ describe('FilterBar tests', () => {
               internalLabels={internalLabels}
             />
           )}
-        </FilterState>
+        </StatefulFilterBar>
       </ThemeProvider>
     )
 
