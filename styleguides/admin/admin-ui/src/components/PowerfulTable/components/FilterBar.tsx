@@ -149,7 +149,7 @@ export const TableFilterBar = Object.assign(_TableFilterBar, {
 export interface TableFilterProps<T, V extends { value: T }>
   extends Omit<FilterBarProps<T, V>, 'state'> {
   /**
-   * Object that manages the Table FilterBar state
+   * Table's filter bar state
    */
   state: TableFilterBarState<V>
 }

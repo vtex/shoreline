@@ -8,7 +8,7 @@ The Table FilterBar component is an implementation of the FilterBar component sp
 
 ## Behavior
 
-The Table FilterBar is a compound component that has the Table FilterBar itself and the Table FilterBar Button, they should both be passed as children to the Table and the Table Filter Button should be passed as children to the Table Toolbar component.
+The `Table FilterBar` is a compound component that has the `Table FilterBar` itself and the `Table FilterBar Button`. Both should be passed as children to the `Table`, and the `Table FilterBar Button` should be passed as children to the `Table Toolbar` component.
 
 ## Installation
 
@@ -193,7 +193,7 @@ function Filter() {
 
 ## useTableFilterBarState
 
-The hook utilized to manage the Table FilterBar state. It returns two objects, the FilterBar state, and the Disclosure State which should be passed to each respective component's state prop.
+This hook manages the `Table FilterBar` state. It returns two objects, the `FilterBar` state, and the `Disclosure` state which should be passed to each respective component's state prop.
 
 ## Props and Params
 
