@@ -87,7 +87,7 @@ function _TableFilterBar<T, V extends { value: T }>(
           csx={{
             position: 'absolute',
             zIndex: 999,
-            top: '42px',
+            top: '2.625rem',
             left: '50%',
             width: '70%',
             minWidth: '40.875rem',
