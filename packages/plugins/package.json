@@ -28,7 +28,7 @@
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
     "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
-    "test": "tsdx test"
+    "test": "tsdx test --passWithNoTests"
   },
   "devDependencies": {
     "@vtex/onda-system": "^0.1.0-labs.2"
