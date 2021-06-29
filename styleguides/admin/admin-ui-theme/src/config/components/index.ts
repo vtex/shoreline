@@ -2,7 +2,6 @@
 import button from './button'
 import divider from './divider'
 import tag from './tag'
-import anchor from './anchor'
 import alert from './alert'
 import { tab, tabList, tabContent } from './tabs'
 // data
@@ -46,7 +45,6 @@ export default {
   collapsible,
   avatar,
   tag,
-  anchor,
   dropdown,
   textArea,
   numericStepper,

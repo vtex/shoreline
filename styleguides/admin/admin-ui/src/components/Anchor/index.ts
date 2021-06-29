@@ -1,4 +1,11 @@
-export default {
+import { createComponent, PropsWithAs } from '@vtex/onda-react'
+
+/**
+ * Anchor component
+ * @example
+ * <Anchor href="#">Link to #</Anchor>
+ */
+export const Anchor = createComponent('a', {
   font: 'inherit',
   color: 'blue',
   textDecoration: 'none',
@@ -11,4 +18,6 @@ export default {
     color: 'blue.hover',
     textDecoration: 'underline',
   },
-}
+})
+
+export type AnchorProps = PropsWithAs<{}, 'a'>
