@@ -56,7 +56,7 @@ function FilterDisclosure(props: TableFilterDisclosureProps) {
                 marginLeft: '0.25rem',
                 paddingX: '0.375rem',
                 paddingY: '0.125rem',
-                borderRadius: '32px',
+                borderRadius: '2rem',
                 fontSize: '0.625rem',
                 bg: 'blue.default',
                 color: 'white',
