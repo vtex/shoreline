@@ -1,11 +1,11 @@
-import { createComponent, PropsWithAs } from '@vtex/onda-react'
+import { jsx, PropsWithAs } from '@vtex/onda-react'
 
 /**
  * Anchor component
  * @example
  * <Anchor href="#">Link to #</Anchor>
  */
-export const Anchor = createComponent('a', {
+export const Anchor = jsx.a({
   font: 'inherit',
   color: 'blue',
   textDecoration: 'none',
