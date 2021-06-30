@@ -49,13 +49,13 @@ function __jsx<T extends As>(type: T) {
       : styleSheet
 
     const ConcreteOndaComponent = ((
-      { as: ComponentCall = type, state = {}, ...props }: PropsWithAs<O, T>,
+      { as: ComponentCall = type, ...props }: PropsWithAs<O, T>,
       ref: React.Ref<T>
     ) => {
       const system = useSystem()
       const interceptedProps = useOptions(
-        pick(props, options as any),
-        omit(props, options as any) as any,
+        pick(props, options) as any,
+        omit(props, options) as any,
         system
       )
 
@@ -74,7 +74,7 @@ function __jsx<T extends As>(type: T) {
           : merge(propsWithCompiledStyle, pick(hookedProps, options))
 
       return (
-        <ComponentCall {...state} ref={ref} {...htmlProps}>
+        <ComponentCall ref={ref} {...htmlProps}>
           {isFunction(children) ? children(htmlProps) : children}
         </ComponentCall>
       )

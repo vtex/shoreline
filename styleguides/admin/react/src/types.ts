@@ -48,7 +48,6 @@ export type PropsWithAs<P, T extends As> = P &
     csx?: StyleObject
     css?: any
     as?: T
-    state?: any
     children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
   }
 
