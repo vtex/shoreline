@@ -10,6 +10,7 @@ import { AbstractInput } from '../../AbstractInput'
 import { ResolverRenderProps } from '../resolvers/core'
 import faker from 'faker'
 import { useFilterBarState } from '../useFilterBarState'
+import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/FilterBar/Table',
@@ -180,6 +181,24 @@ export const Table: Story = () => {
     setItems(filteredItems)
   }
 
+  const tableState = useTableState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items,
+  })
+
   return (
     <Flex justify="center">
       <Flex direction="column" csx={{ width: 1000 }}>
@@ -203,23 +222,7 @@ export const Table: Story = () => {
             whereStatementLabel: 'Where',
           }}
         />
-        <StatefulTable
-          columns={[
-            {
-              id: 'productName',
-              header: 'Product Name',
-            },
-            {
-              id: 'inStock',
-              header: 'In Stock',
-            },
-            {
-              id: 'price',
-              header: 'Price',
-            },
-          ]}
-          items={items}
-        />
+        <StatefulTable state={tableState} />
       </Flex>
     </Flex>
   )

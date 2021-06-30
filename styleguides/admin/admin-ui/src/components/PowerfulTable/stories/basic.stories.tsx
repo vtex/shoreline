@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
 import { StatefulTable } from '../'
+import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/PowerfulTable/Basic',
@@ -33,29 +34,29 @@ export function Simple() {
     },
   ]
 
-  return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'productName',
-          header: 'Product Name',
-        },
-        {
-          id: 'inStock',
-          header: 'In Stock',
-        },
-        {
-          id: 'skus',
-          header: 'SKUs',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-        },
-      ]}
-      items={fruits}
-    />
-  )
+  const tableState = useTableState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: fruits,
+  })
+
+  return <StatefulTable state={tableState} />
 }
 
 export function OnRowClick() {
@@ -83,31 +84,30 @@ export function OnRowClick() {
     },
   ]
 
-  return (
-    <StatefulTable
-      onRowClick={(item) => alert(item.productName)}
-      columns={[
-        {
-          id: 'productName',
-          header: 'Product Name',
-        },
-        {
-          id: 'inStock',
-          header: 'In Stock',
-        },
-        {
-          id: 'skus',
-          header: 'SKUs',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-        },
-      ]}
-      items={fruits}
-      loading
-    />
-  )
+  const tableState = useTableState({
+    onRowClick: (item) => alert(item.productName),
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: fruits,
+  })
+
+  return <StatefulTable state={tableState} />
 }
 
 export function LoadingAndRowClick() {
@@ -137,30 +137,32 @@ export function LoadingAndRowClick() {
     },
   ]
 
+  const tableState = useTableState({
+    onRowClick: (item) => alert(item.productName),
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: fruits,
+    loading,
+  })
+
   return (
-    <StatefulTable
-      onRowClick={(item) => alert(item.productName)}
-      columns={[
-        {
-          id: 'productName',
-          header: 'Product Name',
-        },
-        {
-          id: 'inStock',
-          header: 'In Stock',
-        },
-        {
-          id: 'skus',
-          header: 'SKUs',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-        },
-      ]}
-      items={fruits}
-      loading={loading}
-    >
+    <StatefulTable state={tableState}>
       <StatefulTable.Section>
         <StatefulTable.Toolbar>
           <StatefulTable.Toolbar.Button onClick={() => setLoading(!loading)}>

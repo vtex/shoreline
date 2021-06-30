@@ -90,17 +90,17 @@ function Sortable() {
 
   const sortDirections = ['ASC', 'DSC']
 
-  return (
-    <StatefulTable
-      items={items}
-      columns={columns}
-      sort={{
-        reducer: sortReducer,
-        callback: sortCallback,
-        directions: sortDirections,
-        initialValue,
-      }}
-    />
-  )
+  const state = useTableState({
+    items,
+    columns,
+    sort: {
+      reducer: sortReducer,
+      callback: sortCallback,
+      directions: sortDirections,
+      initialValue,
+    },
+  })
+
+  return <StatefulTable state={state} />
 }
 ```

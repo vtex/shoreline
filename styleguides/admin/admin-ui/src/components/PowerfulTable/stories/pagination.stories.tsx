@@ -6,6 +6,7 @@ import faker from 'faker'
 import { StatefulTable } from '../index'
 import { usePaginationState } from '../../Pagination'
 import { Pagination } from '../../Pagination'
+import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/PowerfulTable/Pagination',
@@ -62,33 +63,32 @@ export function Simple() {
     size,
   })
 
+  const tableState = useTableState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items: items.slice(paginationState.range[0] - 1, paginationState.range[1]),
+    length: 5,
+  })
+
   return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'name',
-          header: 'Product Name',
-        },
-        {
-          id: 'lastSale',
-          header: 'Last Sale',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-          resolver: {
-            type: 'currency',
-            locale: 'en-US',
-            currency: 'USD',
-          },
-        },
-      ]}
-      items={items.slice(
-        paginationState.range[0] - 1,
-        paginationState.range[1]
-      )}
-      length={5}
-    >
+    <StatefulTable state={tableState}>
       <StatefulTable.Section>
         <Flex.Spacer />
         <Pagination
@@ -158,31 +158,33 @@ export function CustomPagination() {
     fetchItems(1, 5)
   }, [])
 
+  const tableState = useTableState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items,
+    loading,
+    length: size,
+  })
+
   return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'name',
-          header: 'Product Name',
-        },
-        {
-          id: 'lastSale',
-          header: 'Last Sale',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-          resolver: {
-            type: 'currency',
-            locale: 'en-US',
-            currency: 'USD',
-          },
-        },
-      ]}
-      items={items}
-      loading={loading}
-      length={size}
-    >
+    <StatefulTable state={tableState}>
       <StatefulTable.Section>
         <Flex.Spacer />
         <Pagination state={paginationState} total={total} loading={loading} />

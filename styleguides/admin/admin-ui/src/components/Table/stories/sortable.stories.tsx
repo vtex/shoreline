@@ -10,6 +10,7 @@ import {
   SortOrder,
   SortCallbackParams,
 } from '../hooks/useTableSort'
+import { useTableState } from '../useTableState'
 
 export default {
   title: 'admin-ui/Table/Sort',
@@ -121,8 +122,9 @@ export function Sortable() {
       compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
     },
   ]
+  const tableState = useTableState({ columns, items })
 
-  return <StatefulTable columns={columns} items={items} />
+  return <StatefulTable state={tableState} />
 }
 
 export function SortDirections() {
@@ -165,13 +167,13 @@ export function SortDirections() {
     },
   ]
 
-  return (
-    <StatefulTable
-      columns={columns}
-      items={items}
-      sort={{ directions: ['ASC'] }}
-    />
-  )
+  const tableState = useTableState({
+    columns: columns,
+    items: items,
+    sort: { directions: ['ASC'] },
+  })
+
+  return <StatefulTable state={tableState} />
 }
 
 export function SortInitialState() {
@@ -214,16 +216,16 @@ export function SortInitialState() {
     },
   ]
 
-  return (
-    <StatefulTable
-      columns={columns}
-      items={items}
-      sort={{
-        directions: ['ASC', 'DSC'],
-        initialValue: { by: 'price', order: 'DSC' },
-      }}
-    />
-  )
+  const tableState = useTableState({
+    items,
+    columns,
+    sort: {
+      directions: ['ASC', 'DSC'],
+      initialValue: { by: 'price', order: 'DSC' },
+    },
+  })
+
+  return <StatefulTable state={tableState} />
 }
 
 export function CustomSort() {
@@ -307,12 +309,12 @@ export function CustomSort() {
     },
   ]
 
-  return (
-    <StatefulTable
-      columns={columns}
-      items={items}
-      loading={loading}
-      sort={{ directions: ['ASC', 'DSC'], reducer, callback: sort }}
-    />
-  )
+  const tableState = useTableState({
+    columns,
+    items,
+    loading,
+    sort: { directions: ['ASC', 'DSC'], reducer, callback: sort },
+  })
+
+  return <StatefulTable state={tableState} />
 }

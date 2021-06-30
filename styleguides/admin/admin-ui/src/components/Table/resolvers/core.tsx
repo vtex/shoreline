@@ -30,6 +30,18 @@ export type ResolverContext = {
    * If is loading or not
    */
   loading: boolean
+  /**
+   * If there's a error related to the table
+   */
+  error: boolean
+  /**
+   * If a search in the table returned no items
+   */
+  itemsNotFound: boolean
+  /**
+   * If the collection has no items
+   */
+  empty: boolean
 }
 
 /**

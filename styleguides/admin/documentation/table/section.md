@@ -85,32 +85,34 @@ function CompleteTopbar() {
     })
   }, [search])
 
+  const state = useTableState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: [...filteredFruits].slice(
+      paginationState.range[0] - 1,
+      paginationState.range[1]
+    ),
+    length: 5,
+  })
+
   return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'productName',
-          header: 'Product Name',
-        },
-        {
-          id: 'inStock',
-          header: 'In Stock',
-        },
-        {
-          id: 'skus',
-          header: 'SKUs',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-        },
-      ]}
-      items={[...filteredFruits].slice(
-        paginationState.range[0] - 1,
-        paginationState.range[1]
-      )}
-      length={5}
-    >
+    <StatefulTable state={state}>
       <StatefulTable.Section>
         <StatefulTable.Search
           id="search"

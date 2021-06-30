@@ -17,27 +17,45 @@ import {
   ResolveHeaderReturn,
 } from './resolvers/core'
 import { baseResolvers } from './resolvers/base'
-import { Column } from './typings'
+import { Column, TableDensity, TableDir } from './typings'
 import { SelectionProvider } from './resolvers/selection'
 import {
   UseSortReturn,
   useTableSort,
   UseTableSortParams,
 } from './hooks/useTableSort'
+import { TableViewState } from './context'
 
-export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
+export function useTableState<T>(params: UseTableParams<T>): UseTableReturn<T> {
   const {
     columns,
     resolvers = baseResolvers<T>(),
-    context = {
-      loading: false,
-      density: 'regular',
-      dir: 'ltr',
-    },
+
     length = 5,
     items = [],
     sort = {},
+    getRowKey = (item: T) =>
+      get((item as unknown) as Record<string, unknown>, 'id', ''),
+    onRowClick,
+    density = 'regular',
+    dir = 'ltr',
+    loading = false,
+    empty = false,
+    error = false,
+    itemsNotFound = false,
   } = params
+
+  const context: ResolverContext = useMemo(
+    () => ({
+      density,
+      loading,
+      dir,
+      empty,
+      error,
+      itemsNotFound,
+    }),
+    [density, loading, dir, empty, error, itemsNotFound]
+  )
 
   const sortState = useTableSort(sort)
 
@@ -128,10 +146,13 @@ export function useTable<T>(params: UseTableParams<T>): UseTableReturn<T> {
     columns,
     Providers,
     sortState,
+    context,
+    getRowKey,
+    onRowClick,
   }
 }
 
-export interface UseTableParams<T> {
+export interface UseTableParams<T> extends TableViewState {
   /**
    * Table column spec
    */
@@ -140,6 +161,16 @@ export interface UseTableParams<T> {
    * Resolver context
    */
   context?: ResolverContext
+  /**
+   * HTML Dir
+   * @default 'ltr'
+   */
+  dir?: TableDir
+  /**
+   * Key extractor
+   * @default (item)=>item.id
+   */
+  getRowKey?: (item: T) => string
   /**
    * Table field resolvers
    * @default {baseResolvers}
@@ -159,6 +190,15 @@ export interface UseTableParams<T> {
    * Object used in sort hook
    */
   sort?: UseTableSortParams<T>
+  /**
+   * Table row height
+   * @default regular
+   */
+  density?: TableDensity
+  /**
+   * Action to dispatch on a row click
+   */
+  onRowClick?: (item: T) => void
 }
 
 export interface UseTableReturn<T> {
@@ -171,6 +211,10 @@ export interface UseTableReturn<T> {
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
   sortState: UseSortReturn
+  context: ResolverContext
+  getRowKey: (item: T) => string | unknown
+  density?: TableDensity
+  onRowClick?: (item: T) => void
 }
 
 type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>

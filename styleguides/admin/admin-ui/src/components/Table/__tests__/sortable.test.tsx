@@ -5,6 +5,17 @@ import '@testing-library/jest-dom/extend-expect'
 import { ThemeProvider } from '@vtex/admin-core'
 import { StylesContext } from '../context'
 import { getStyles } from './testUtil'
+import { UseTableParams, UseTableReturn, useTableState } from '../useTableState'
+
+interface TableStateProps<T> extends UseTableParams<T> {
+  children: (state: UseTableReturn<T>) => JSX.Element
+}
+
+function TableState<T>({ children, ...tableProps }: TableStateProps<T>) {
+  const state = useTableState(tableProps)
+
+  return children(state)
+}
 
 describe('Sortable tests', () => {
   describe('root', () => {
@@ -12,7 +23,7 @@ describe('Sortable tests', () => {
       const { container } = render(
         <ThemeProvider>
           <StylesContext.Provider value={getStyles('compact')}>
-            <StatefulTable
+            <TableState
               items={[
                 { id: '0', name: 'Candido' },
                 { id: '1', name: 'Joseph' },
@@ -25,7 +36,9 @@ describe('Sortable tests', () => {
                   compare: (a, b) => b.name.localeCompare(a.name),
                 },
               ]}
-            />
+            >
+              {(state) => <StatefulTable state={state} />}
+            </TableState>
           </StylesContext.Provider>
         </ThemeProvider>
       )

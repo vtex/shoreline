@@ -3,15 +3,17 @@ import { Meta } from '@storybook/react'
 
 import { StatefulTable } from '../../PowerfulTable/index'
 
+import { useTableState } from '../useTableState'
+
 export default {
   title: 'admin-ui/Table/Directions',
   component: StatefulTable,
 } as Meta
 
-export const LTR = () => (
-  <StatefulTable
-    density="variable"
-    columns={[
+export function LTR() {
+  const tableState = useTableState({
+    density: 'variable',
+    columns: [
       {
         id: 'location',
         width: 148,
@@ -36,8 +38,8 @@ export const LTR = () => (
           type: 'plain',
         },
       },
-    ]}
-    items={[
+    ],
+    items: [
       {
         id: 1,
         location: 'São Paulo, SP',
@@ -62,15 +64,17 @@ export const LTR = () => (
         date: '4/7/2020, 14:48',
         status: `Object dispatched at the post office`,
       },
-    ]}
-  />
-)
+    ],
+  })
 
-export const RTL = () => (
-  <StatefulTable
-    dir="rtl"
-    density="variable"
-    columns={[
+  return <StatefulTable state={tableState} />
+}
+
+export function RTL() {
+  const tableState = useTableState({
+    dir: 'rtl',
+    density: 'variable',
+    columns: [
       {
         id: 'location',
         width: 148,
@@ -104,8 +108,8 @@ export const RTL = () => (
           type: 'plain',
         },
       },
-    ]}
-    items={[
+    ],
+    items: [
       {
         id: 1,
         location: 'ساو باولو- اس بي',
@@ -130,6 +134,8 @@ export const RTL = () => (
         date: '4/7/2020, 14:48',
         status: `إرسال الكائن في مكتب البريد`,
       },
-    ]}
-  />
-)
+    ],
+  })
+
+  return <StatefulTable state={tableState} />
+}

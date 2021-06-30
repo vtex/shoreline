@@ -5,6 +5,7 @@ import { StatefulTable, StatefulTableProps } from '../../PowerfulTable'
 import { baseResolvers } from '../resolvers/base'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
+import { useTableState } from '../useTableState'
 
 export default {
   title: 'admin-ui/Table/States',
@@ -18,10 +19,9 @@ interface Item {
   status: string
 }
 
-const Template: Story<StatefulTableProps<Item>> = (args) => (
-  <StatefulTable
-    {...args}
-    columns={[
+const Template: Story<StatefulTableProps<Item>> = (args) => {
+  const tableState = useTableState({
+    columns: [
       {
         id: 'location',
         header: 'Location',
@@ -37,10 +37,12 @@ const Template: Story<StatefulTableProps<Item>> = (args) => (
         header: 'Status',
         width: 156,
       },
-    ]}
-    items={[]}
-  />
-)
+    ],
+    items: [],
+  })
+
+  return <StatefulTable {...args} state={tableState} />
+}
 
 export const Loading = Template.bind({})
 Loading.args = {
@@ -92,34 +94,36 @@ export function DataFetch() {
     setLoading(false)
   }
 
+  const tableState = useTableState({
+    density: 'compact',
+    columns: [
+      {
+        id: 'location',
+        header: 'Location',
+        width: 148,
+      },
+      {
+        id: 'date',
+        header: 'Date',
+        width: 148,
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        width: 156,
+      },
+    ],
+    loading,
+    items: data,
+    length: 4,
+  })
+
   return (
     <Box>
       <Button onClick={() => fetchData()} disabled={loading}>
         fetch items
       </Button>
-      <StatefulTable
-        density="compact"
-        columns={[
-          {
-            id: 'location',
-            header: 'Location',
-            width: 148,
-          },
-          {
-            id: 'date',
-            header: 'Date',
-            width: 148,
-          },
-          {
-            id: 'status',
-            header: 'Status',
-            width: 156,
-          },
-        ]}
-        loading={loading}
-        items={data}
-        length={4}
-      />
+      <StatefulTable state={tableState} />
     </Box>
   )
 }

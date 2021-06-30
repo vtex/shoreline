@@ -5,6 +5,7 @@ import { StatefulTable } from '../Stateful'
 import { IconExport, IconImport, IconFilter } from '@vtex/admin-ui-icons'
 import { Pagination, usePaginationState } from '../../Pagination'
 import { FlexSpacer } from '@vtex/admin-primitives'
+import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/PowerfulTable/CompleteToolbar',
@@ -47,33 +48,35 @@ export function CompleteTopbar() {
     })
   }, [search])
 
+  const tableState = useTableState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items: [...filteredItems].slice(
+      paginationState.range[0] - 1,
+      paginationState.range[1]
+    ),
+    length: tableSize,
+  })
+
   return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'name',
-          header: 'Product Name',
-        },
-        {
-          id: 'lastSale',
-          header: 'Last Sale',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-          resolver: {
-            type: 'currency',
-            locale: 'en-US',
-            currency: 'USD',
-          },
-        },
-      ]}
-      items={[...filteredItems].slice(
-        paginationState.range[0] - 1,
-        paginationState.range[1]
-      )}
-      length={tableSize}
-    >
+    <StatefulTable state={tableState}>
       <StatefulTable.Section>
         <StatefulTable.Search
           id="search"

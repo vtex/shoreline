@@ -12,7 +12,7 @@ import { StyleProp } from '@vtex/admin-core'
 import { IconDrag } from '@vtex/admin-ui-icons'
 
 import { Table } from '../index'
-import { useTable } from '../useTable'
+import { useTableState } from '../useTableState'
 
 export default {
   title: 'admin-ui/Table/Deep',
@@ -38,7 +38,7 @@ export function LowerLevel() {
     })
   }, [])
 
-  const table = useTable<Item>({
+  const table = useTableState<Item>({
     columns: [
       {
         id: 'name',
@@ -120,7 +120,7 @@ export function Windowing() {
     })
   }, [])
 
-  const table = useTable<Item>({
+  const table = useTableState<Item>({
     columns: [
       {
         id: 'location',
@@ -215,7 +215,7 @@ const fakeData = [...Array(10).keys()].map((id) => {
 
 export function Dnd() {
   const [items, setItems] = useState(fakeData)
-  const table = useTable<Item>({
+  const table = useTableState<Item>({
     columns: [
       {
         id: 'draggable',

@@ -3,6 +3,7 @@ import { Meta, Story } from '@storybook/react'
 
 import { StatefulTable, StatefulTableProps } from '../../PowerfulTable/index'
 import { baseResolvers } from '../resolvers/base'
+import { useTableState } from '../useTableState'
 
 export default {
   title: 'admin-ui/Table/Densities',
@@ -16,10 +17,9 @@ interface Item {
   status: string
 }
 
-const Template: Story<StatefulTableProps<Item>> = (args) => (
-  <StatefulTable
-    {...args}
-    columns={[
+function Template(args: Story<StatefulTableProps<Item>>) {
+  const tableState = useTableState({
+    columns: [
       {
         id: 'location',
         header: 'Location',
@@ -35,8 +35,8 @@ const Template: Story<StatefulTableProps<Item>> = (args) => (
         header: 'Status',
         width: 156,
       },
-    ]}
-    items={[
+    ],
+    items: [
       {
         id: 1,
         location: 'São Paulo, SP',
@@ -61,9 +61,11 @@ const Template: Story<StatefulTableProps<Item>> = (args) => (
         date: '4/7/2020, 14:48',
         status: `Object dispatched at the post office`,
       },
-    ]}
-  />
-)
+    ],
+  })
+
+  return <StatefulTable {...args} state={tableState} />
+}
 
 export const Regular = Template.bind({})
 Regular.args = {

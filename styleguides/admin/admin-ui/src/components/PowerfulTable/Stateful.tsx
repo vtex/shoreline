@@ -1,9 +1,6 @@
-import React, { useMemo, ReactNode } from 'react'
-import { get } from '@vtex/admin-core'
+import React, { ReactNode } from 'react'
 
-import { ResolverContext } from '../Table/resolvers/core'
-import { TableDensity, TableDir } from '../Table/typings'
-import { useTable, UseTableParams } from '../Table/useTable'
+import { UseTableReturn } from '../Table/useTableState'
 import { Table } from '../Table/components'
 import { SystemComponent } from '../../types'
 import { Box, Flex } from '@vtex/admin-primitives'
@@ -12,7 +9,7 @@ import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
 import { SortIndicator } from '../Table/components/SortIndicator'
 import { TableViewResolver, TableViewsType } from './components/Views'
-import { ViewContext, TableViewState } from '../Table/context'
+import { ViewContext } from '../Table/context'
 
 /**
  * Table used to show static & simple information
@@ -40,57 +37,37 @@ import { ViewContext, TableViewState } from '../Table/context'
 
 function _StatefulTable<T>(props: StatefulTableProps<T>) {
   const {
-    columns,
-    items = [],
-    loading = false,
-    getRowKey = (item: T) =>
-      get((item as unknown) as Record<string, unknown>, 'id', ''),
-    resolvers,
-    density = 'regular',
-    dir = 'ltr',
-    length = 5,
-    onRowClick,
+    state: {
+      data,
+      resolveCell,
+      resolveHeader,
+      Providers,
+      sortState,
+      columns,
+      context,
+      getRowKey,
+      onRowClick,
+    },
     children,
     csx = {},
-    sort,
-    empty,
-    error,
-    itemsNotFound,
     views,
   } = props
 
-  const context: ResolverContext = useMemo(
-    () => ({
-      density,
-      loading,
-      dir,
-    }),
-    [density, loading, dir]
-  )
-
-  const {
-    data,
-    resolveCell,
-    resolveHeader,
-    Providers,
-    sortState,
-  } = useTable<T>({
-    length,
-    columns,
-    resolvers,
-    context,
-    items,
-    sort,
-  })
-
   return (
     <Box>
-      <ViewContext.Provider value={{ loading, empty, error, itemsNotFound }}>
+      <ViewContext.Provider
+        value={{
+          loading: context.loading,
+          empty: context.empty,
+          error: context.error,
+          itemsNotFound: context.itemsNotFound,
+        }}
+      >
         {children}
         <Providers>
           <Box csx={{ overflow: 'auto', width: 'full', ...csx }}>
             <TableViewResolver views={views}>
-              <Table dir={context.dir} density={density}>
+              <Table dir={context.dir} density={context.density}>
                 <Table.Head>
                   <Table.Row>
                     {columns.map((column) => {
@@ -131,7 +108,7 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
                     <Table.Row
                       key={getRowKey(item) as string}
                       onClick={
-                        typeof onRowClick === 'function' && !loading
+                        typeof onRowClick === 'function' && !context.loading
                           ? () => onRowClick(item)
                           : undefined
                       }
@@ -166,29 +143,8 @@ export const StatefulTable = Object.assign(_StatefulTable, {
   Search: TableSearch,
 })
 
-export interface StatefulTableProps<T>
-  extends Omit<UseTableParams<T>, 'context'>,
-    SystemComponent,
-    TableViewState {
-  /**
-   * Key extractor
-   * @default (item)=>item.id
-   */
-  getRowKey?: (item: T) => string
-  /**
-   * Table row height
-   * @default regular
-   */
-  density?: TableDensity
-  /**
-   * Action to dispatch on a row click
-   */
-  onRowClick?: (item: T) => void
-  /**
-   * HTML Dir
-   * @default 'ltr'
-   */
-  dir?: TableDir
+export interface StatefulTableProps<T> extends SystemComponent {
+  state: UseTableReturn<T>
   /**
    * Element that will be displayed on top of the table
    */

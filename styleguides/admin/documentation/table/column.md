@@ -21,70 +21,74 @@ path: /table/column/
 It's possible to pass compare functions to the sortable property in the column object and that function will be used to sort the items of the table when the header of that column is clicked.
 
 ```jsx
-<StatefulTable
-  length="5"
-  columns={[
-    {
-      id: 'productName',
-      header: 'Product Name',
-      compare: (a, b) => b.productName.localeCompare(a.productName),
-    },
-    {
-      id: 'inStock',
-      header: 'In Stock',
-      compare: (a, b) => b.inStock - a.inStock,
-    },
-    {
-      id: 'price',
-      header: 'Price',
-      compare: (a, b) => b.price - a.price,
-    },
-  ]}
-  items={[
-    {
-      id: 1,
-      productName: 'Orange',
-      inStock: 180,
-      price: 130,
-    },
-    {
-      id: 2,
-      productName: 'Lemon',
-      inStock: 320,
-      price: 320,
-    },
-    {
-      id: 3,
-      productName: 'Tomato',
-      inStock: 383,
-      price: 123,
-    },
-    {
-      id: 4,
-      productName: 'Grape',
-      inStock: 480,
-      price: 340,
-    },
-    {
-      id: 5,
-      productName: 'Apple',
-      inStock: 350,
-      price: 220,
-    },
-    {
-      id: 6,
-      productName: 'Banana',
-      inStock: 360,
-      price: 520,
-    },
-    {
-      id: 7,
-      productName: 'Mango',
-      inStock: 387,
-      price: 823,
-    },
-  ]}
-/>
+function Example() {
+  const state = useTableState({
+    length: 5,
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+        compare: (a, b) => b.productName.localeCompare(a.productName),
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+        compare: (a, b) => b.inStock - a.inStock,
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        compare: (a, b) => b.price - a.price,
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 180,
+        price: 130,
+      },
+      {
+        id: 2,
+        productName: 'Lemon',
+        inStock: 320,
+        price: 320,
+      },
+      {
+        id: 3,
+        productName: 'Tomato',
+        inStock: 383,
+        price: 123,
+      },
+      {
+        id: 4,
+        productName: 'Grape',
+        inStock: 480,
+        price: 340,
+      },
+      {
+        id: 5,
+        productName: 'Apple',
+        inStock: 350,
+        price: 220,
+      },
+      {
+        id: 6,
+        productName: 'Banana',
+        inStock: 360,
+        price: 520,
+      },
+      {
+        id: 7,
+        productName: 'Mango',
+        inStock: 387,
+        price: 823,
+      },
+    ],
+  })
+
+  return <StatefulTable state={state} />
+}
 ```
 
 ## Resolvers API
@@ -119,48 +123,48 @@ function Example() {
     },
   ]
 
-  return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'product-name',
-          header: 'ProductName',
-          acessor: 'productName',
+  const state = useTableState({
+    columns: [
+      {
+        id: 'product-name',
+        header: 'ProductName',
+        acessor: 'productName',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+        resolver: {
+          type: 'plain',
         },
-        {
-          id: 'inStock',
-          header: 'In Stock',
-          resolver: {
-            type: 'plain',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+        resolver: {
+          type: 'plain',
+          render: function Render({ data }) {
+            return (
+              <Text
+                variant="highlight"
+                csx={{
+                  color: Number(data) > 0 ? 'blue' : 'red',
+                }}
+              >
+                {data}
+              </Text>
+            )
           },
         },
-        {
-          id: 'skus',
-          header: 'SKUs',
-          resolver: {
-            type: 'plain',
-            render: function Render({ data }) {
-              return (
-                <Text
-                  variant="highlight"
-                  csx={{
-                    color: Number(data) > 0 ? 'blue' : 'red',
-                  }}
-                >
-                  {data}
-                </Text>
-              )
-            },
-          },
-        },
-        {
-          id: 'price',
-          header: 'Price',
-        },
-      ]}
-      items={fruits}
-    />
-  )
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: fruits,
+  })
+
+  return <StatefulTable state={state} />
 }
 ```
 
@@ -177,40 +181,40 @@ function Example() {
     },
   ]
 
-  return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'brl',
-          header: 'Preço',
-          resolver: {
-            type: 'currency',
-            locale: 'pt-BR',
-            currency: 'BRL',
-          },
+  const state = useTableState({
+    columns: [
+      {
+        id: 'brl',
+        header: 'Preço',
+        resolver: {
+          type: 'currency',
+          locale: 'pt-BR',
+          currency: 'BRL',
         },
-        {
-          id: 'usd',
-          header: 'Price',
-          resolver: {
-            type: 'currency',
-            locale: 'en-US',
-            currency: 'USD',
-          },
+      },
+      {
+        id: 'usd',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
         },
-        {
-          id: 'cny',
-          header: '价格',
-          resolver: {
-            type: 'currency',
-            locale: 'zh-CN',
-            currency: 'CNY',
-          },
+      },
+      {
+        id: 'cny',
+        header: '价格',
+        resolver: {
+          type: 'currency',
+          locale: 'zh-CN',
+          currency: 'CNY',
         },
-      ]}
-      items={currencies}
-    />
-  )
+      },
+    ],
+    items: currencies,
+  })
+
+  return <StatefulTable state={state} />
 }
 ```
 
@@ -228,65 +232,65 @@ function Example() {
     },
   ]
 
-  return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'pt',
-          header: 'Data',
-          resolver: {
-            type: 'date',
-            locale: 'pt-BR',
-            options: {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            },
+  const state = useTableState({
+    columns: [
+      {
+        id: 'pt',
+        header: 'Data',
+        resolver: {
+          type: 'date',
+          locale: 'pt-BR',
+          options: {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
           },
         },
-        {
-          id: 'ar',
-          header: 'تاريخ',
-          resolver: {
-            type: 'date',
-            locale: 'ar-AE',
-            options: {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            },
+      },
+      {
+        id: 'ar',
+        header: 'تاريخ',
+        resolver: {
+          type: 'date',
+          locale: 'ar-AE',
+          options: {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
           },
         },
-        {
-          id: 'en',
-          header: 'Date',
-          resolver: {
-            type: 'date',
-            locale: 'en-US',
-            options: {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            },
+      },
+      {
+        id: 'en',
+        header: 'Date',
+        resolver: {
+          type: 'date',
+          locale: 'en-US',
+          options: {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
           },
         },
-        {
-          id: 'cn',
-          header: '日期',
-          resolver: {
-            type: 'date',
-            locale: 'zh-CN',
-            options: {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            },
+      },
+      {
+        id: 'cn',
+        header: '日期',
+        resolver: {
+          type: 'date',
+          locale: 'zh-CN',
+          options: {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
           },
         },
-      ]}
-      items={dates}
-    />
-  )
+      },
+    ],
+    items: dates,
+  })
+
+  return <StatefulTable state={state} />
 }
 ```
 
@@ -327,43 +331,43 @@ function Example() {
     },
   ]
 
-  return (
-    <StatefulTable
-      dir="ltr"
-      columns={[
-        {
-          id: 'image',
-          header: 'Image',
-          resolver: {
-            type: 'image',
-            preview: {
-              display: true,
-              size: 'regular',
-              delay: 0,
-            },
+  const state = useTableState({
+    dir: 'ltr',
+    columns: [
+      {
+        id: 'image',
+        header: 'Image',
+        resolver: {
+          type: 'image',
+          preview: {
+            display: true,
+            size: 'regular',
+            delay: 0,
           },
         },
-        {
-          id: 'productName',
-          header: 'Name',
+      },
+      {
+        id: 'productName',
+        header: 'Name',
+      },
+      {
+        id: 'stock',
+        header: 'Stock',
+      },
+      {
+        id: 'price',
+        header: 'Stock',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
         },
-        {
-          id: 'stock',
-          header: 'Stock',
-        },
-        {
-          id: 'price',
-          header: 'Stock',
-          resolver: {
-            type: 'currency',
-            locale: 'en-US',
-            currency: 'USD',
-          },
-        },
-      ]}
-      items={fruits}
-    />
-  )
+      },
+    ],
+    items: fruits,
+  })
+
+  return <StatefulTable state={state} />
 }
 ```
 
@@ -371,59 +375,59 @@ function Example() {
 
 ```jsx
 function Example() {
-  return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'image',
-          header: 'Image',
-          resolver: {
-            type: 'image',
-          },
+  const state = useTableState({
+    columns: [
+      {
+        id: 'image',
+        header: 'Image',
+        resolver: {
+          type: 'image',
         },
-        {
-          id: 'description',
-          header: 'Description',
-          resolver: {
-            type: 'root',
-            render: function Description({ item, context }) {
-              if (context.loading) {
-                return <Skeleton csx={{ height: 24 }} />
-              }
+      },
+      {
+        id: 'description',
+        header: 'Description',
+        resolver: {
+          type: 'root',
+          render: function Description({ item, context }) {
+            if (context.loading) {
+              return <Skeleton csx={{ height: 24 }} />
+            }
 
-              return (
-                <Set orientation="vertical">
-                  <Text variant="highlight">{item.productName}</Text>
-                  <Text>{item.category}</Text>
-                </Set>
-              )
-            },
+            return (
+              <Set orientation="vertical">
+                <Text variant="highlight">{item.productName}</Text>
+                <Text>{item.category}</Text>
+              </Set>
+            )
           },
         },
-        {
-          id: 'inStock',
-          header: 'In Stock',
-        },
-      ]}
-      items={[
-        {
-          id: 1,
-          image:
-            'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
-          productName: 'Orange',
-          category: 'fruit',
-          inStock: 380,
-        },
-        {
-          id: 2,
-          image:
-            'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
-          productName: 'Lemon',
-          category: 'fruit',
-          inStock: 380,
-        },
-      ]}
-    />
-  )
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        image:
+          'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
+        productName: 'Orange',
+        category: 'fruit',
+        inStock: 380,
+      },
+      {
+        id: 2,
+        image:
+          'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
+        productName: 'Lemon',
+        category: 'fruit',
+        inStock: 380,
+      },
+    ],
+  })
+
+  return <StatefulTable state={state} />
 }
 ```
