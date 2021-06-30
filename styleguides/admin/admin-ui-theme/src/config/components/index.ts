@@ -25,7 +25,6 @@ import modal from './modal'
 // layouts
 import skeleton from './skeleton'
 import collapsible from './collapsible'
-import avatar from './avatar'
 
 export default {
   button,
@@ -43,7 +42,6 @@ export default {
   skeleton,
   divider,
   collapsible,
-  avatar,
   tag,
   dropdown,
   textArea,
