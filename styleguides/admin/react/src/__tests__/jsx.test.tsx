@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { render } from './setup'
 import { jsx } from '../index'
 
@@ -129,104 +130,6 @@ describe('createComponent', () => {
       expect(getByTestId('test')).toHaveStyleRule('color', '#33f')
     })
   })
-
-  // describe('strict mode', () => {
-  //   it('should be able to create a component in strict mode', () => {
-  //     const Div = createComponent({ as: 'div' }, { bg: '#000' })
-  //     const { getByTestId } = render(
-  //       <Div data-testid="test" csx={{ color: '#fff' }}>
-  //         Testing
-  //       </Div>
-  //     )
-
-  //     const result = getByTestId('test')
-
-  //     expect(result).toBeInTheDocument()
-  //     expect(result).toHaveTextContent('Testing')
-  //     expect(result).toHaveStyleRule('background-color', '#000')
-  //     expect(result).toHaveStyleRule('color', '#fff')
-  //   })
-
-  //   it('should be able to compose components in strict mode', () => {
-  //     function Component(props: ComponentPropsWithoutRef<'div'>) {
-  //       return <div {...props} />
-  //     }
-
-  //     const Div = createComponent({ as: Component }, { bg: '#000' })
-  //     const { getByTestId } = render(
-  //       <Div data-testid="test" csx={{ color: '#fff' }}>
-  //         Testing
-  //       </Div>
-  //     )
-
-  //     const result = getByTestId('test')
-
-  //     expect(result).toBeInTheDocument()
-  //     expect(result).toHaveTextContent('Testing')
-  //     expect(result).toHaveStyleRule('background-color', '#000')
-  //     expect(result).toHaveStyleRule('color', '#fff')
-  //   })
-
-  //   it('should forward ownProps to components', () => {
-  //     interface OwnProps {
-  //       text: string
-  //     }
-
-  //     function Component(props: ComponentPropsWithoutRef<'div'> & OwnProps) {
-  //       const { text, ...divProps } = props
-  //       return <div {...divProps}>{text}</div>
-  //     }
-
-  //     const Div = createComponent(
-  //       { as: Component, ownProps: ['text'] },
-  //       { bg: '#000' }
-  //     )
-  //     const { getByTestId } = render(
-  //       <Div data-testid="test" text="Test" csx={{ color: '#fff' }} />
-  //     )
-
-  //     const result = getByTestId('test')
-
-  //     expect(result).toBeInTheDocument()
-  //     expect(result).toHaveTextContent('Test')
-  //     expect(result).toHaveStyleRule('background-color', '#000')
-  //     expect(result).toHaveStyleRule('color', '#fff')
-  //   })
-
-  //   it('should be able to intercept ownProps of components', () => {
-  //     interface OwnProps {
-  //       value: number
-  //     }
-
-  //     function Component(props: ComponentPropsWithoutRef<'div'> & OwnProps) {
-  //       const { value, ...divProps } = props
-  //       return <div {...divProps}>{value}</div>
-  //     }
-
-  //     const Double = createComponent(
-  //       {
-  //         as: Component,
-  //         ownProps: ['value'],
-  //         useOwnProps: (ownProps: OwnProps) => {
-  //           return {
-  //             value: ownProps.value * 2,
-  //           }
-  //         },
-  //       },
-  //       { bg: '#000' }
-  //     )
-  //     const { getByTestId } = render(
-  //       <Double data-testid="test" value={2} csx={{ color: '#fff' }} />
-  //     )
-
-  //     const result = getByTestId('test')
-
-  //     expect(result).toBeInTheDocument()
-  //     expect(result).toHaveTextContent('4')
-  //     expect(result).toHaveStyleRule('background-color', '#000')
-  //     expect(result).toHaveStyleRule('color', '#fff')
-  //   })
-  // })
 
   describe('variants', () => {
     it('should be able to create a variant', () => {

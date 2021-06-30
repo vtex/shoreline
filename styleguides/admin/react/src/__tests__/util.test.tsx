@@ -1,6 +1,7 @@
 import React, { ComponentPropsWithoutRef } from 'react'
+
 import { jsx } from '../jsx'
-import { isOndaComponent, cleanProps, pickOptions, isStrict } from '../util'
+import { isOndaComponent, cleanProps, isStrict } from '../util'
 
 describe('utils', () => {
   test('isOndaComponent', () => {
@@ -51,41 +52,41 @@ describe('utils', () => {
     })
   })
 
-  test('pickOptions', () => {
-    const Short = jsx('div')()
-    const Strict = jsx({ as: 'div' })
-    const StrictWithOwnProps = createComponent({
-      as: 'div',
-      ownProps: ['label', 'render'],
-    })
-    const ComposedShort = createComponent(StrictWithOwnProps)
-    const ComposedStrict = createComponent({ as: StrictWithOwnProps })
-    const InheritOwnProps = createComponent({
-      as: StrictWithOwnProps,
-      ownProps: ['intl', 'format'],
-    })
-    const SecondInheritOwnProps = createComponent({
-      as: InheritOwnProps,
-      ownProps: ['__internal', '__hover'],
-    })
+  // test('pickOptions', () => {
+  //   const Short = jsx('div')()
+  //   const Strict = jsx({ as: 'div' })
+  //   const StrictWithOwnProps = createComponent({
+  //     as: 'div',
+  //     ownProps: ['label', 'render'],
+  //   })
+  //   const ComposedShort = createComponent(StrictWithOwnProps)
+  //   const ComposedStrict = createComponent({ as: StrictWithOwnProps })
+  //   const InheritOwnProps = createComponent({
+  //     as: StrictWithOwnProps,
+  //     ownProps: ['intl', 'format'],
+  //   })
+  //   const SecondInheritOwnProps = createComponent({
+  //     as: InheritOwnProps,
+  //     ownProps: ['__internal', '__hover'],
+  //   })
 
-    expect(pickOwnProps(Short)).toEqual([])
-    expect(pickOwnProps(StrictWithOwnProps)).toEqual(['label', 'render'])
-    expect(pickOwnProps(ComposedShort)).toEqual(['label', 'render'])
-    expect(pickOwnProps(ComposedStrict)).toEqual(['label', 'render'])
-    expect(pickOwnProps(InheritOwnProps)).toEqual([
-      'label',
-      'render',
-      'intl',
-      'format',
-    ])
-    expect(pickOwnProps(SecondInheritOwnProps)).toEqual([
-      'label',
-      'render',
-      'intl',
-      'format',
-      '__internal',
-      '__hover',
-    ])
-  })
+  //   expect(pickOwnProps(Short)).toEqual([])
+  //   expect(pickOwnProps(StrictWithOwnProps)).toEqual(['label', 'render'])
+  //   expect(pickOwnProps(ComposedShort)).toEqual(['label', 'render'])
+  //   expect(pickOwnProps(ComposedStrict)).toEqual(['label', 'render'])
+  //   expect(pickOwnProps(InheritOwnProps)).toEqual([
+  //     'label',
+  //     'render',
+  //     'intl',
+  //     'format',
+  //   ])
+  //   expect(pickOwnProps(SecondInheritOwnProps)).toEqual([
+  //     'label',
+  //     'render',
+  //     'intl',
+  //     'format',
+  //     '__internal',
+  //     '__hover',
+  //   ])
+  // })
 })

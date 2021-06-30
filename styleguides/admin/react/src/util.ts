@@ -28,20 +28,7 @@ export function isStrict(type: any) {
 }
 
 /**
- * @example
- * pickOptions('div', { options: ['label'] }) => ['label']
- * 
- * const Button = jsx.button({}, { options: ['x']})
- * const YellowButton = jsx(Button)({
- *  bg: 'yellow',
- *  variant: {
- *    
- *  }
- * }, options: {})
- * 
- * <Avatar as="button" csx={{ ... }} />
- * 
- * pickOptions(Button, { options: ['b'] }) => ['x', 'b']
+ * !TODO
  */
 export function pickOptions(type: any, config: any): string[] {
   if (isOndaComponent(type)) {

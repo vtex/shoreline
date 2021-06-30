@@ -6,8 +6,29 @@ import { ONDA_METADATA } from './symbols'
 import { As, OndaComponent, Configuration, PropsWithAs } from './types'
 import { cleanProps, useOptionsIdentity, isOndaComponent } from './util'
 import { useStyleSheet, StyleSheet } from './useStyleSheet'
-import { domElements } from '.'
+import { domElements } from './domElements'
 
+/**
+ * Base jsx function
+ * Use it to create onda-powered components
+ * @example
+ * // with jsx tag
+ * __jsx('div')()
+ * 
+ * // with component
+ * import { Role } from 'reakit'
+ * 
+ * __jsx(Role)()
+ * 
+ * // composition
+ * const A = __jsx('div')()
+ * const B = __jsx(A)()
+ * 
+ * // polymorphism
+ * const Button = __jsx('button')()
+ * 
+ * <Button as="a" href="#">Button Link</Button>
+ */
 function __jsx<T extends As>(type: T) {
   return function component<O, Variants, InferVariants extends Variants>(
     styleSheet: StyleSheet<Variants> = {},
@@ -43,8 +64,8 @@ function __jsx<T extends As>(type: T) {
       const propsWithCompiledStyle = useStyleSheet({
         styleSheet,
         sync,
+        options,
         props: hookedProps,
-        ownProps: options,
       })
 
       const { children, ...htmlProps } =
@@ -71,12 +92,32 @@ function __jsx<T extends As>(type: T) {
   }
 }
 
-const jsx = __jsx as typeof __jsx & {
-  [key in typeof domElements[number]]: ReturnType<typeof __jsx>;
-};
+/**
+ *
+ * @example
+ * // with elements
+ * const Div = jsx.div({
+ *  color: 'blue'
+ * })
+ *
+ * <Div>Blue colored div</Div>
+ *
+ * // with components
+ * import { Role } from 'reakit' // or any custom library
+ *
+ * const Box = jsx(Role, {
+ *  color: 'blue'
+ * })
+ *
+ * <Box>Blue colored box</Box>
+ */
+const jsx = __jsx as typeof __jsx &
+  {
+    [key in typeof domElements[number]]: ReturnType<typeof __jsx>
+  }
 
-domElements.forEach(domElement => {
-  jsx[domElement] = __jsx(domElement);
-});
+domElements.forEach((domElement) => {
+  jsx[domElement] = __jsx(domElement)
+})
 
 export { jsx }
