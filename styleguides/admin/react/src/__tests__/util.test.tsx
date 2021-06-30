@@ -1,13 +1,13 @@
 import React, { ComponentPropsWithoutRef } from 'react'
-import { createComponent } from '../createComponent'
-import { isOndaComponent, cleanProps, pickOwnProps, isStrict } from '../util'
+import { jsx } from '../jsx'
+import { isOndaComponent, cleanProps, pickOptions, isStrict } from '../util'
 
 describe('utils', () => {
   test('isOndaComponent', () => {
     function FunctionComponent(props: ComponentPropsWithoutRef<'div'>) {
       return <div {...props} />
     }
-    const OndaComponent = createComponent('div')
+    const OndaComponent = jsx('div')()
 
     expect(isOndaComponent(FunctionComponent)).toBe(false)
     expect(isOndaComponent(OndaComponent)).toBe(true)
@@ -51,9 +51,9 @@ describe('utils', () => {
     })
   })
 
-  test('pickOwnProps', () => {
-    const Short = createComponent('div')
-    const Strict = createComponent({ as: 'div' })
+  test('pickOptions', () => {
+    const Short = jsx('div')()
+    const Strict = jsx({ as: 'div' })
     const StrictWithOwnProps = createComponent({
       as: 'div',
       ownProps: ['label', 'render'],
@@ -70,7 +70,6 @@ describe('utils', () => {
     })
 
     expect(pickOwnProps(Short)).toEqual([])
-    expect(pickOwnProps(Strict)).toEqual([])
     expect(pickOwnProps(StrictWithOwnProps)).toEqual(['label', 'render'])
     expect(pickOwnProps(ComposedShort)).toEqual(['label', 'render'])
     expect(pickOwnProps(ComposedStrict)).toEqual(['label', 'render'])

@@ -1,5 +1,6 @@
 import { useSystem, StyleObject } from '@vtex/admin-core'
 import { ONDA_METADATA } from './symbols'
+import { Sync } from './useStyleSheet'
 
 /**
  * "as" prop
@@ -71,26 +72,15 @@ export type OndaComponent<T extends As, O, V> = {
   [ONDA_METADATA]: OndaComponentMetadata
 }
 
-export type Options<T extends As, O, V> =
-  | {
-      as: T
-      defaultProps?: Partial<PropsWithAs<O, T> & VariantsCall<V>>
-    }
-  | {
-      as: T
-      ownProps: string[]
-      defaultProps?: Partial<PropsWithAs<O, T> & VariantsCall<V>>
-    }
-  | {
-      as: T
-      ownProps: string[]
-      useOwnProps: (
-        ownProps: O,
-        props: React.ComponentPropsWithoutRef<T>,
-        system: ReturnType<typeof useSystem>
-      ) => React.ComponentPropsWithoutRef<T>
-      defaultProps?: Partial<PropsWithAs<O, T> & VariantsCall<V>>
-    }
+export interface Configuration<T extends As, O, V> {
+  options?: string[]
+  useOptions?: (
+    options: O,
+    props: React.ComponentPropsWithoutRef<T>,
+    system: ReturnType<typeof useSystem>
+  ) => React.ComponentPropsWithoutRef<T>
+  sync?: Sync<V>[]
+}
 
 export type VariantsCall<Variants> = {
   [k in keyof Variants]?: keyof Variants[k]

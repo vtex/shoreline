@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from './setup'
-import { tag, createComponent } from '../index'
+import { tag, jsx } from '../index'
 
 describe('onda elements', () => {
   it('should create an element', () => {
@@ -40,7 +40,7 @@ describe('onda elements', () => {
   })
 
   it('should be polymorphic', () => {
-    const Button = createComponent('button', {
+    const Button = jsx('button')({
       bg: '#000',
       color: '#fff',
     })

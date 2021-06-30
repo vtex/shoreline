@@ -2,8 +2,8 @@ import isPropValid from '@emotion/is-prop-valid'
 import { pick, get } from '@vtex/onda-util'
 import { ONDA_METADATA } from './symbols'
 
-export function useOwnPropsIdentity<OwnProps, Props>(
-  _: OwnProps,
+export function useOptionsIdentity<Options, Props>(
+  _: Options,
   props: Props
 ) {
   return props
@@ -27,22 +27,29 @@ export function isStrict(type: any) {
   return !!(type as any).as
 }
 
-export function pickOwnProps(type: any): string[] {
-  if (isStrict(type)) {
-    if (isOndaComponent(type.as)) {
-      // passed an onda component on `as`
-      const parentOwnProps = pickOwnProps(type.as)
-      const ownProps = get(type, 'ownProps', [])
-      return [...parentOwnProps, ...ownProps]
-    }
-    return get(type, 'ownProps', [])
-  }
-
-  // is a literal type
+/**
+ * @example
+ * pickOptions('div', { options: ['label'] }) => ['label']
+ * 
+ * const Button = jsx.button({}, { options: ['x']})
+ * const YellowButton = jsx(Button)({
+ *  bg: 'yellow',
+ *  variant: {
+ *    
+ *  }
+ * }, options: {})
+ * 
+ * <Avatar as="button" csx={{ ... }} />
+ * 
+ * pickOptions(Button, { options: ['b'] }) => ['x', 'b']
+ */
+export function pickOptions(type: any, config: any): string[] {
   if (isOndaComponent(type)) {
-    const meta = type[ONDA_METADATA]
-    return get(meta, 'ownProps', [])
+    // passed an onda component on `as`
+    const parentParentOptions = pickOptions(type[ONDA_METADATA].options, {})
+    const componentOptions = get(config, 'options', [])
+    return [...parentParentOptions, ...componentOptions]
   }
-
-  return []
+  
+  return get(config, 'options', [])
 }

@@ -1,18 +1,24 @@
-import React, { ComponentPropsWithoutRef } from 'react'
+import React from 'react'
 import { render } from './setup'
-import { createComponent } from '../index'
+import { jsx } from '../index'
 
 describe('createComponent', () => {
   describe('short mode', () => {
+    it('should return a function', () => {
+      const Func = jsx('div')
+
+      expect(typeof Func).toBe('function')
+    })
+
     it('should create a callable component', () => {
-      const Div = createComponent('div')
+      const Div = jsx('div')()
       const { getByText } = render(<Div>Testing</Div>)
 
       expect(getByText('Testing')).toBeInTheDocument()
     })
 
     it('should create component that accepts data-attributes', () => {
-      const Div = createComponent('div')
+      const Div = jsx('div')()
       const { getByTestId } = render(<Div data-testid="test">Testing</Div>)
 
       expect(getByTestId('test')).toBeInTheDocument()
@@ -20,7 +26,7 @@ describe('createComponent', () => {
     })
 
     it('should create a component with overridable styles', () => {
-      const Div = createComponent('div')
+      const Div = jsx('div')()
       const { getByTestId } = render(
         <Div
           data-testid="test"
@@ -38,7 +44,7 @@ describe('createComponent', () => {
     })
 
     it('should create a component with default styles', () => {
-      const Div = createComponent('div', {
+      const Div = jsx('div')({
         bg: '#000',
         color: '#fff',
       })
@@ -50,7 +56,7 @@ describe('createComponent', () => {
     })
 
     it('should override default styles using csx', () => {
-      const Div = createComponent('div', {
+      const Div = jsx('div')({
         bg: '#000',
         color: '#fff',
       })
@@ -71,7 +77,7 @@ describe('createComponent', () => {
     })
 
     it('should create polymorphic components', () => {
-      const Box = createComponent('div', {
+      const Box = jsx('div')({
         bg: '#000',
         color: '#fff',
       })
@@ -81,11 +87,11 @@ describe('createComponent', () => {
     })
 
     it('should be able to compose a new component and keep its styles', () => {
-      const Square = createComponent('div', {
+      const Square = jsx('div')({
         bg: '#2fa',
       })
 
-      const WithRedColor = createComponent(Square, {
+      const WithRedColor = jsx(Square)({
         color: '#c3a',
       })
 
@@ -99,11 +105,11 @@ describe('createComponent', () => {
     })
 
     it('should allow composed components to override styles', () => {
-      const Square = createComponent('div', {
+      const Square = jsx('div')({
         bg: '#c3a',
       })
 
-      const WithBlueColor = createComponent(Square, {
+      const WithBlueColor = jsx(Square)({
         color: '#33f',
       })
 
@@ -124,107 +130,107 @@ describe('createComponent', () => {
     })
   })
 
-  describe('strict mode', () => {
-    it('should be able to create a component in strict mode', () => {
-      const Div = createComponent({ as: 'div' }, { bg: '#000' })
-      const { getByTestId } = render(
-        <Div data-testid="test" csx={{ color: '#fff' }}>
-          Testing
-        </Div>
-      )
+  // describe('strict mode', () => {
+  //   it('should be able to create a component in strict mode', () => {
+  //     const Div = createComponent({ as: 'div' }, { bg: '#000' })
+  //     const { getByTestId } = render(
+  //       <Div data-testid="test" csx={{ color: '#fff' }}>
+  //         Testing
+  //       </Div>
+  //     )
 
-      const result = getByTestId('test')
+  //     const result = getByTestId('test')
 
-      expect(result).toBeInTheDocument()
-      expect(result).toHaveTextContent('Testing')
-      expect(result).toHaveStyleRule('background-color', '#000')
-      expect(result).toHaveStyleRule('color', '#fff')
-    })
+  //     expect(result).toBeInTheDocument()
+  //     expect(result).toHaveTextContent('Testing')
+  //     expect(result).toHaveStyleRule('background-color', '#000')
+  //     expect(result).toHaveStyleRule('color', '#fff')
+  //   })
 
-    it('should be able to compose components in strict mode', () => {
-      function Component(props: ComponentPropsWithoutRef<'div'>) {
-        return <div {...props} />
-      }
+  //   it('should be able to compose components in strict mode', () => {
+  //     function Component(props: ComponentPropsWithoutRef<'div'>) {
+  //       return <div {...props} />
+  //     }
 
-      const Div = createComponent({ as: Component }, { bg: '#000' })
-      const { getByTestId } = render(
-        <Div data-testid="test" csx={{ color: '#fff' }}>
-          Testing
-        </Div>
-      )
+  //     const Div = createComponent({ as: Component }, { bg: '#000' })
+  //     const { getByTestId } = render(
+  //       <Div data-testid="test" csx={{ color: '#fff' }}>
+  //         Testing
+  //       </Div>
+  //     )
 
-      const result = getByTestId('test')
+  //     const result = getByTestId('test')
 
-      expect(result).toBeInTheDocument()
-      expect(result).toHaveTextContent('Testing')
-      expect(result).toHaveStyleRule('background-color', '#000')
-      expect(result).toHaveStyleRule('color', '#fff')
-    })
+  //     expect(result).toBeInTheDocument()
+  //     expect(result).toHaveTextContent('Testing')
+  //     expect(result).toHaveStyleRule('background-color', '#000')
+  //     expect(result).toHaveStyleRule('color', '#fff')
+  //   })
 
-    it('should forward ownProps to components', () => {
-      interface OwnProps {
-        text: string
-      }
+  //   it('should forward ownProps to components', () => {
+  //     interface OwnProps {
+  //       text: string
+  //     }
 
-      function Component(props: ComponentPropsWithoutRef<'div'> & OwnProps) {
-        const { text, ...divProps } = props
-        return <div {...divProps}>{text}</div>
-      }
+  //     function Component(props: ComponentPropsWithoutRef<'div'> & OwnProps) {
+  //       const { text, ...divProps } = props
+  //       return <div {...divProps}>{text}</div>
+  //     }
 
-      const Div = createComponent(
-        { as: Component, ownProps: ['text'] },
-        { bg: '#000' }
-      )
-      const { getByTestId } = render(
-        <Div data-testid="test" text="Test" csx={{ color: '#fff' }} />
-      )
+  //     const Div = createComponent(
+  //       { as: Component, ownProps: ['text'] },
+  //       { bg: '#000' }
+  //     )
+  //     const { getByTestId } = render(
+  //       <Div data-testid="test" text="Test" csx={{ color: '#fff' }} />
+  //     )
 
-      const result = getByTestId('test')
+  //     const result = getByTestId('test')
 
-      expect(result).toBeInTheDocument()
-      expect(result).toHaveTextContent('Test')
-      expect(result).toHaveStyleRule('background-color', '#000')
-      expect(result).toHaveStyleRule('color', '#fff')
-    })
+  //     expect(result).toBeInTheDocument()
+  //     expect(result).toHaveTextContent('Test')
+  //     expect(result).toHaveStyleRule('background-color', '#000')
+  //     expect(result).toHaveStyleRule('color', '#fff')
+  //   })
 
-    it('should be able to intercept ownProps of components', () => {
-      interface OwnProps {
-        value: number
-      }
+  //   it('should be able to intercept ownProps of components', () => {
+  //     interface OwnProps {
+  //       value: number
+  //     }
 
-      function Component(props: ComponentPropsWithoutRef<'div'> & OwnProps) {
-        const { value, ...divProps } = props
-        return <div {...divProps}>{value}</div>
-      }
+  //     function Component(props: ComponentPropsWithoutRef<'div'> & OwnProps) {
+  //       const { value, ...divProps } = props
+  //       return <div {...divProps}>{value}</div>
+  //     }
 
-      const Double = createComponent(
-        {
-          as: Component,
-          ownProps: ['value'],
-          useOwnProps: (ownProps: OwnProps) => {
-            return {
-              value: ownProps.value * 2,
-            }
-          },
-        },
-        { bg: '#000' }
-      )
-      const { getByTestId } = render(
-        <Double data-testid="test" value={2} csx={{ color: '#fff' }} />
-      )
+  //     const Double = createComponent(
+  //       {
+  //         as: Component,
+  //         ownProps: ['value'],
+  //         useOwnProps: (ownProps: OwnProps) => {
+  //           return {
+  //             value: ownProps.value * 2,
+  //           }
+  //         },
+  //       },
+  //       { bg: '#000' }
+  //     )
+  //     const { getByTestId } = render(
+  //       <Double data-testid="test" value={2} csx={{ color: '#fff' }} />
+  //     )
 
-      const result = getByTestId('test')
+  //     const result = getByTestId('test')
 
-      expect(result).toBeInTheDocument()
-      expect(result).toHaveTextContent('4')
-      expect(result).toHaveStyleRule('background-color', '#000')
-      expect(result).toHaveStyleRule('color', '#fff')
-    })
-  })
+  //     expect(result).toBeInTheDocument()
+  //     expect(result).toHaveTextContent('4')
+  //     expect(result).toHaveStyleRule('background-color', '#000')
+  //     expect(result).toHaveStyleRule('color', '#fff')
+  //   })
+  // })
 
   describe('variants', () => {
     it('should be able to create a variant', () => {
-      const Square = createComponent('div', {
+      const Square = jsx('div')({
         variants: {
           size: {
             small: {
@@ -256,7 +262,7 @@ describe('createComponent', () => {
     })
 
     it('should be able to create multiple variants', () => {
-      const Square = createComponent('div', {
+      const Square = jsx('div')({
         variants: {
           size: {
             small: {
@@ -302,7 +308,7 @@ describe('createComponent', () => {
     })
 
     it('accepts default values for variants', () => {
-      const Square = createComponent('div', {
+      const Square = jsx('div')({
         variants: {
           size: {
             small: {
@@ -353,8 +359,7 @@ describe('createComponent', () => {
     })
 
     it('should be able to sync variants', () => {
-      const Square = createComponent(
-        'div',
+      const Square = jsx('div')(
         {
           variants: {
             size: {
@@ -388,24 +393,26 @@ describe('createComponent', () => {
             },
           },
         },
-        [
-          {
-            theme: 'primary',
-            fill: 'outline',
-            csx: {
-              borderColor: 'azure',
-              bg: 'transparent',
+        {
+          sync: [
+            {
+              theme: 'primary',
+              fill: 'outline',
+              csx: {
+                borderColor: 'azure',
+                bg: 'transparent',
+              },
             },
-          },
-          {
-            theme: 'secondary',
-            fill: 'outline',
-            csx: {
-              borderColor: 'indigo',
-              bg: 'transparent',
+            {
+              theme: 'secondary',
+              fill: 'outline',
+              csx: {
+                borderColor: 'indigo',
+                bg: 'transparent',
+              },
             },
-          },
-        ]
+          ],
+        }
       )
 
       Square.defaultProps = {
