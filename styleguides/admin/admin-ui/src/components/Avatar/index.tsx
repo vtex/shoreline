@@ -1,7 +1,5 @@
-import { jsxs, createComponent } from '@vtex/admin-core'
-
-import { SystemComponent } from '../../types'
-import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
+import React from 'react'
+import { jsx, tag, PropsWithAs } from '@vtex/onda-react'
 
 /**
  * Component to create a user avatar from a passed label
@@ -13,33 +11,52 @@ import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
  * <Avatar label="label" palette="danger" />
  * ```
  */
-export const Avatar = createComponent(Primitive, useAvatar)
-
-export function useAvatar(props: AvatarProps): PrimitiveProps<'div'> {
-  const { palette = 'base', label, csx, ...primitiveProps } = props
-
-  return {
-    csx: {
-      themeKey: {
-        avatar: {
-          palette,
-        },
+export const Avatar = jsx.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 24,
+  height: 24,
+  padding: 2,
+  borderRadius: 'circle',
+  textTransform: 'uppercase',
+  variants: {
+    palette: {
+      base: {
+        bg: 'dark.primary',
+        color: 'light.primary',
       },
-      ...csx,
+      primary: {
+        bg: 'blue',
+        color: 'light.primary',
+      },
+      danger: {
+        bg: 'red',
+        color: 'light.primary',
+      },
     },
-    children: jsxs(Primitive, { csx: { text: 'highlight' } }, label?.charAt(0)),
-    ...primitiveProps,
+  },
+}, {
+  options: ['label'],
+  useOptions: (options: AvatarOptions) => {
+    const { label } = options
+    const content = label?.charAt(0)
+    return {
+      children: (
+        <tag.div csx={{ text: 'highlight' }}>
+          {content}
+        </tag.div>
+      )
+    }
   }
+})
+
+Avatar.defaultProps = {
+  palette: 'base'
 }
 
-export interface AvatarProps extends SystemComponent {
-  /**
-   * String that will have its first letter capitalized
-   */
+interface AvatarOptions {
   label: string
-  /**
-   * Avatar theme
-   * @default base
-   */
-  palette?: 'base' | 'primary' | 'danger'
 }
+
+export type AvatarProps = PropsWithAs<AvatarOptions, 'div'>
