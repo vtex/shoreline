@@ -2,7 +2,33 @@
 
 exports[`AbstractInput tests Password should match snaphost 1`] = `
 <DocumentFragment>
-  .emotion-5 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-9 {
   position: relative;
 }
 
@@ -59,7 +85,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
-.emotion-4 {
+.emotion-8 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -72,7 +98,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   color: #707685;
 }
 
-.emotion-2 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -93,6 +119,8 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   flex-direction: row;
 }
 
+
+
 .emotion-1 {
   min-width: 24px;
   min-height: 24px;
@@ -100,7 +128,46 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   height: 24px;
 }
 
+.emotion-5 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-4 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 .emotion-3 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-7 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -117,29 +184,29 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   margin-top: 0.5rem;
 }
 
-.emotion-3:focus:not([data-focus-visible-added]) {
+.emotion-7:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-3:focus {
+.emotion-7:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-3:hover {
+.emotion-7:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-3:active {
+.emotion-7:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-3:disabled {
+.emotion-7:disabled {
   color: #898F9E;
 }
 
-.emotion-3 svg {
+.emotion-7 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -148,7 +215,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 <div
-    class="emotion-5"
+    class="emotion-9"
   >
     <input
       class="emotion-0"
@@ -158,39 +225,87 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
       value=""
     />
     <div
-      class="emotion-4"
+      class="emotion-8"
     >
       <button
         aria-label="show password content"
-        class="emotion-3"
+        class="emotion-7"
         type="button"
       >
         <div
-          class="emotion-2"
+          class="emotion-6"
         >
-          <svg
-            class="emotion-1"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-2"
           >
-            <path
-              clip-rule="evenodd"
-              d="M7.42275 7.54976C5.9652 8.67616 4.68443 10.2259 3.78399 11.8912C3.74694 11.9598 3.74724 12.0444 3.7842 12.1131C4.68464 13.7787 5.96534 15.3286 7.42278 16.455C8.88442 17.5847 10.4746 18.2524 12.0063 18.2524C13.5379 18.2524 15.1281 17.5847 16.5898 16.4551C18.0473 15.3287 19.3281 13.779 20.2285 12.1137C20.2652 12.0452 20.2652 11.9604 20.2284 11.8919C19.328 10.2263 18.0472 8.67633 16.5897 7.54986C15.1281 6.42018 13.5379 5.75244 12.0063 5.75244C10.4746 5.75244 8.88441 6.42018 7.42275 7.54976ZM6.50552 6.36287C8.13811 5.1012 10.0429 4.25244 12.0063 4.25244C13.9696 4.25244 15.8744 5.1012 17.507 6.36302C19.1437 7.62802 20.5565 9.34452 21.548 11.1788C21.8249 11.6921 21.8252 12.3133 21.5483 12.8266C20.5568 14.6603 19.1437 16.3772 17.507 17.642C15.8744 18.9037 13.9696 19.7524 12.0063 19.7524C10.0429 19.7524 8.1381 18.9037 6.50549 17.6419C4.86877 16.3769 3.45604 14.6604 2.46449 12.8261C2.18757 12.3128 2.18728 11.6916 2.4642 11.1783C3.45575 9.34457 4.86882 7.62773 6.50552 6.36287Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-            <path
-              clip-rule="evenodd"
-              d="M13.6232 10.3861C12.7306 9.49353 11.2833 9.49353 10.3907 10.3861C9.49809 11.2788 9.49809 12.726 10.3907 13.6186C11.2833 14.5112 12.7306 14.5112 13.6232 13.6186C14.5158 12.726 14.5158 11.2788 13.6232 10.3861ZM14.6333 9.37598C13.1828 7.92546 10.8311 7.92546 9.38053 9.37598C7.93001 10.8265 7.93001 13.1783 9.38053 14.6288C10.8311 16.0793 13.1828 16.0793 14.6333 14.6288C16.0839 13.1783 16.0839 10.8265 14.6333 9.37598Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
+            <svg
+              class="emotion-1"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M7.42275 7.54976C5.9652 8.67616 4.68443 10.2259 3.78399 11.8912C3.74694 11.9598 3.74724 12.0444 3.7842 12.1131C4.68464 13.7787 5.96534 15.3286 7.42278 16.455C8.88442 17.5847 10.4746 18.2524 12.0063 18.2524C13.5379 18.2524 15.1281 17.5847 16.5898 16.4551C18.0473 15.3287 19.3281 13.779 20.2285 12.1137C20.2652 12.0452 20.2652 11.9604 20.2284 11.8919C19.328 10.2263 18.0472 8.67633 16.5897 7.54986C15.1281 6.42018 13.5379 5.75244 12.0063 5.75244C10.4746 5.75244 8.88441 6.42018 7.42275 7.54976ZM6.50552 6.36287C8.13811 5.1012 10.0429 4.25244 12.0063 4.25244C13.9696 4.25244 15.8744 5.1012 17.507 6.36302C19.1437 7.62802 20.5565 9.34452 21.548 11.1788C21.8249 11.6921 21.8252 12.3133 21.5483 12.8266C20.5568 14.6603 19.1437 16.3772 17.507 17.642C15.8744 18.9037 13.9696 19.7524 12.0063 19.7524C10.0429 19.7524 8.1381 18.9037 6.50549 17.6419C4.86877 16.3769 3.45604 14.6604 2.46449 12.8261C2.18757 12.3128 2.18728 11.6916 2.4642 11.1783C3.45575 9.34457 4.86882 7.62773 6.50552 6.36287Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M13.6232 10.3861C12.7306 9.49353 11.2833 9.49353 10.3907 10.3861C9.49809 11.2788 9.49809 12.726 10.3907 13.6186C11.2833 14.5112 12.7306 14.5112 13.6232 13.6186C14.5158 12.726 14.5158 11.2788 13.6232 10.3861ZM14.6333 9.37598C13.1828 7.92546 10.8311 7.92546 9.38053 9.37598C7.93001 10.8265 7.93001 13.1783 9.38053 14.6288C10.8311 16.0793 13.1828 16.0793 14.6333 14.6288C16.0839 13.1783 16.0839 10.8265 14.6333 9.37598Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-5"
+          >
+            <svg
+              class="emotion-4"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-3"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-5 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-9 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -203,7 +318,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   color: #707685;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -224,6 +339,8 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   flex-direction: row;
 }
 
+
+
 .emotion-2 {
   min-width: 24px;
   min-height: 24px;
@@ -232,10 +349,49 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
+.emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-10 {
   position: relative;
 }
 
-.emotion-6 label {
+.emotion-10 label {
   left: 44px;
 }
 
@@ -306,7 +462,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
-.emotion-4 {
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -323,29 +479,29 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   margin-top: 0.5rem;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
-.emotion-4 svg {
+.emotion-8 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -354,7 +510,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 <div
-    class="emotion-6"
+    class="emotion-10"
   >
     <svg
       class="emotion-0"
@@ -382,34 +538,56 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
       value=""
     />
     <div
-      class="emotion-5"
+      class="emotion-9"
     >
       <button
         aria-label="show password content"
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <svg
-            class="emotion-2"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-3"
           >
-            <path
-              clip-rule="evenodd"
-              d="M7.42275 7.54976C5.9652 8.67616 4.68443 10.2259 3.78399 11.8912C3.74694 11.9598 3.74724 12.0444 3.7842 12.1131C4.68464 13.7787 5.96534 15.3286 7.42278 16.455C8.88442 17.5847 10.4746 18.2524 12.0063 18.2524C13.5379 18.2524 15.1281 17.5847 16.5898 16.4551C18.0473 15.3287 19.3281 13.779 20.2285 12.1137C20.2652 12.0452 20.2652 11.9604 20.2284 11.8919C19.328 10.2263 18.0472 8.67633 16.5897 7.54986C15.1281 6.42018 13.5379 5.75244 12.0063 5.75244C10.4746 5.75244 8.88441 6.42018 7.42275 7.54976ZM6.50552 6.36287C8.13811 5.1012 10.0429 4.25244 12.0063 4.25244C13.9696 4.25244 15.8744 5.1012 17.507 6.36302C19.1437 7.62802 20.5565 9.34452 21.548 11.1788C21.8249 11.6921 21.8252 12.3133 21.5483 12.8266C20.5568 14.6603 19.1437 16.3772 17.507 17.642C15.8744 18.9037 13.9696 19.7524 12.0063 19.7524C10.0429 19.7524 8.1381 18.9037 6.50549 17.6419C4.86877 16.3769 3.45604 14.6604 2.46449 12.8261C2.18757 12.3128 2.18728 11.6916 2.4642 11.1783C3.45575 9.34457 4.86882 7.62773 6.50552 6.36287Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-            <path
-              clip-rule="evenodd"
-              d="M13.6232 10.3861C12.7306 9.49353 11.2833 9.49353 10.3907 10.3861C9.49809 11.2788 9.49809 12.726 10.3907 13.6186C11.2833 14.5112 12.7306 14.5112 13.6232 13.6186C14.5158 12.726 14.5158 11.2788 13.6232 10.3861ZM14.6333 9.37598C13.1828 7.92546 10.8311 7.92546 9.38053 9.37598C7.93001 10.8265 7.93001 13.1783 9.38053 14.6288C10.8311 16.0793 13.1828 16.0793 14.6333 14.6288C16.0839 13.1783 16.0839 10.8265 14.6333 9.37598Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
+            <svg
+              class="emotion-2"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M7.42275 7.54976C5.9652 8.67616 4.68443 10.2259 3.78399 11.8912C3.74694 11.9598 3.74724 12.0444 3.7842 12.1131C4.68464 13.7787 5.96534 15.3286 7.42278 16.455C8.88442 17.5847 10.4746 18.2524 12.0063 18.2524C13.5379 18.2524 15.1281 17.5847 16.5898 16.4551C18.0473 15.3287 19.3281 13.779 20.2285 12.1137C20.2652 12.0452 20.2652 11.9604 20.2284 11.8919C19.328 10.2263 18.0472 8.67633 16.5897 7.54986C15.1281 6.42018 13.5379 5.75244 12.0063 5.75244C10.4746 5.75244 8.88441 6.42018 7.42275 7.54976ZM6.50552 6.36287C8.13811 5.1012 10.0429 4.25244 12.0063 4.25244C13.9696 4.25244 15.8744 5.1012 17.507 6.36302C19.1437 7.62802 20.5565 9.34452 21.548 11.1788C21.8249 11.6921 21.8252 12.3133 21.5483 12.8266C20.5568 14.6603 19.1437 16.3772 17.507 17.642C15.8744 18.9037 13.9696 19.7524 12.0063 19.7524C10.0429 19.7524 8.1381 18.9037 6.50549 17.6419C4.86877 16.3769 3.45604 14.6604 2.46449 12.8261C2.18757 12.3128 2.18728 11.6916 2.4642 11.1783C3.45575 9.34457 4.86882 7.62773 6.50552 6.36287Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M13.6232 10.3861C12.7306 9.49353 11.2833 9.49353 10.3907 10.3861C9.49809 11.2788 9.49809 12.726 10.3907 13.6186C11.2833 14.5112 12.7306 14.5112 13.6232 13.6186C14.5158 12.726 14.5158 11.2788 13.6232 10.3861ZM14.6333 9.37598C13.1828 7.92546 10.8311 7.92546 9.38053 9.37598C7.93001 10.8265 7.93001 13.1783 9.38053 14.6288C10.8311 16.0793 13.1828 16.0793 14.6333 14.6288C16.0839 13.1783 16.0839 10.8265 14.6333 9.37598Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
@@ -566,7 +744,33 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       class="emotion-1"
     />
   </div>
-  .emotion-5 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-9 {
   position: relative;
 }
 
@@ -623,7 +827,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
-.emotion-4 {
+.emotion-8 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -636,7 +840,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   color: #707685;
 }
 
-.emotion-3 {
+.emotion-7 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -654,29 +858,29 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   margin-right: 0.25rem;
 }
 
-.emotion-3:focus:not([data-focus-visible-added]) {
+.emotion-7:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-3:focus {
+.emotion-7:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-3:hover {
+.emotion-7:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-3:active {
+.emotion-7:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-3:disabled {
+.emotion-7:disabled {
   color: #898F9E;
 }
 
-.emotion-3 svg {
+.emotion-7 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -684,7 +888,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-2 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -705,6 +909,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
 .emotion-1 {
   min-width: 24px;
   min-height: 24px;
@@ -712,8 +918,47 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   height: 24px;
 }
 
+.emotion-5 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-4 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
+.emotion-3 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
 <div
-    class="emotion-5"
+    class="emotion-9"
   >
     <input
       class="emotion-0"
@@ -721,45 +966,67 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       value="Test2"
     />
     <div
-      class="emotion-4"
+      class="emotion-8"
     >
       <button
         aria-label="clear undefined text"
-        class="emotion-3"
+        class="emotion-7"
         type="button"
       >
         <div
-          class="emotion-2"
+          class="emotion-6"
         >
-          <svg
-            class="emotion-1"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-2"
           >
-            <path
-              clip-rule="evenodd"
-              d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
-              fill-rule="evenodd"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 9.16992L9.16998 14.8299"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 14.8299L9.16998 9.16992"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-1"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-5"
+          >
+            <svg
+              class="emotion-4"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-3"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
@@ -1084,7 +1351,33 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       class="emotion-2"
     />
   </div>
-  .emotion-5 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-9 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1097,7 +1390,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   color: #707685;
 }
 
-.emotion-4 {
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -1115,29 +1408,29 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   margin-right: 0.25rem;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
-.emotion-4 svg {
+.emotion-8 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -1145,7 +1438,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1166,6 +1459,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
 .emotion-2 {
   min-width: 24px;
   min-height: 24px;
@@ -1174,10 +1469,49 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
+.emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-10 {
   position: relative;
 }
 
-.emotion-6 label {
+.emotion-10 label {
   left: 44px;
 }
 
@@ -1249,7 +1583,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-6"
+    class="emotion-10"
   >
     <svg
       class="emotion-0"
@@ -1275,45 +1609,67 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       value="Test4"
     />
     <div
-      class="emotion-5"
+      class="emotion-9"
     >
       <button
         aria-label="clear undefined text"
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <svg
-            class="emotion-2"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-3"
           >
-            <path
-              clip-rule="evenodd"
-              d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
-              fill-rule="evenodd"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 9.16992L9.16998 14.8299"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 14.8299L9.16998 9.16992"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-2"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
@@ -1896,7 +2252,33 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       </span>
     </div>
   </div>
-  .emotion-6 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-10 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1909,7 +2291,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   color: #707685;
 }
 
-.emotion-4 {
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -1927,29 +2309,29 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   margin-right: 0.25rem;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
-.emotion-4 svg {
+.emotion-8 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -1957,7 +2339,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1978,6 +2360,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
 .emotion-2 {
   min-width: 24px;
   min-height: 24px;
@@ -1985,11 +2369,50 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   height: 24px;
 }
 
-.emotion-7 {
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
+.emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-11 {
   position: relative;
 }
 
-.emotion-7 label {
+.emotion-11 label {
   left: 44px;
 }
 
@@ -2007,7 +2430,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   position: absolute;
 }
 
-.emotion-5 {
+.emotion-9 {
   color: #898F9E;
   border-left-style: solid;
   border-left-width: 1px;
@@ -2075,7 +2498,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-7"
+    class="emotion-11"
   >
     <svg
       class="emotion-0"
@@ -2101,49 +2524,71 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       value="Test6"
     />
     <div
-      class="emotion-6"
+      class="emotion-10"
     >
       <button
         aria-label="clear undefined text"
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <svg
-            class="emotion-2"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-3"
           >
-            <path
-              clip-rule="evenodd"
-              d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
-              fill-rule="evenodd"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 9.16992L9.16998 14.8299"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M14.83 14.8299L9.16998 9.16992"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-2"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
       <span
-        class="emotion-5"
+        class="emotion-9"
       >
         Kg
       </span>

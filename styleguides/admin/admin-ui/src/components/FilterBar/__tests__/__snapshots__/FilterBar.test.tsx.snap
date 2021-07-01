@@ -2,7 +2,33 @@
 
 exports[`FilterBar tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-42 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-78 {
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
@@ -10,7 +36,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   background-color: coral;
 }
 
-.emotion-41 {
+.emotion-77 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30,7 +56,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   background-color: #FFFFFF;
 }
 
-.emotion-35 {
+.emotion-63 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -46,31 +72,31 @@ exports[`FilterBar tests should match snapshot 1`] = `
   padding-right: 0.75rem;
 }
 
-.emotion-35:focus:not([data-focus-visible-added]) {
+.emotion-63:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-35:focus {
+.emotion-63:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-35:hover {
+.emotion-63:hover {
   color: #214491;
   background-color: rgba(202,215,241,0.24);
 }
 
-.emotion-35:active {
+.emotion-63:active {
   color: #1a3470;
   background-color: rgba(186,203,236,0.32);
 }
 
-.emotion-35:disabled {
+.emotion-63:disabled {
   color: #898F9E;
 }
 
-.emotion-35 svg {
+.emotion-63 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -78,7 +104,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-20 {
+.emotion-36 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -99,14 +125,55 @@ exports[`FilterBar tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-19 {
+
+
+.emotion-31 {
   min-width: 24px;
   min-height: 24px;
   width: 24px;
   height: 24px;
 }
 
-.emotion-40 {
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
+.emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-76 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -124,11 +191,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: start;
 }
 
-.emotion-40 >*:not(:first-child) {
+.emotion-76 >*:not(:first-child) {
   margin-left: 0.25rem;
 }
 
-.emotion-37 {
+.emotion-69 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -144,29 +211,29 @@ exports[`FilterBar tests should match snapshot 1`] = `
   padding-right: 0.75rem;
 }
 
-.emotion-37:focus:not([data-focus-visible-added]) {
+.emotion-69:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-37:focus {
+.emotion-69:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-37:hover {
+.emotion-69:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-37:active {
+.emotion-69:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-37:disabled {
+.emotion-69:disabled {
   color: #898F9E;
 }
 
-.emotion-39 {
+.emotion-75 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -182,35 +249,35 @@ exports[`FilterBar tests should match snapshot 1`] = `
   padding-right: 0.75rem;
 }
 
-.emotion-39:focus:not([data-focus-visible-added]) {
+.emotion-75:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-39:focus {
+.emotion-75:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-39:hover {
+.emotion-75:hover {
   background-color: #214491;
 }
 
-.emotion-39:active {
+.emotion-75:active {
   background-color: #1a3470;
 }
 
-.emotion-39:disabled {
+.emotion-75:disabled {
   color: #323845;
   background-color: #C4C5CA;
 }
 
-.emotion-32 {
+.emotion-56 {
   padding: 1rem;
   padding-left: 1rem;
 }
 
-.emotion-31 {
+.emotion-55 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -228,11 +295,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-31 >*:not(:last-child) {
+.emotion-55 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-.emotion-30 {
+.emotion-54 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -243,7 +310,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: 100%;
 }
 
-.emotion-18 {
+.emotion-30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -261,7 +328,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: start;
 }
 
-.emotion-18 >*:not(:first-child) {
+.emotion-30 >*:not(:first-child) {
   margin-left: 0.5rem;
 }
 
@@ -271,11 +338,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   max-width: 100px;
 }
 
-.emotion-6 {
+.emotion-10 {
   position: relative;
 }
 
-.emotion-4 {
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border-width: 1px;
@@ -295,29 +362,29 @@ exports[`FilterBar tests should match snapshot 1`] = `
   max-width: 150px;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
-.emotion-4 svg {
+.emotion-8 svg {
   width: 24px;
   min-width: 24px;
   height: 24px;
@@ -325,13 +392,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-4 div {
+.emotion-8 div {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -369,7 +436,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-5 {
+.emotion-9 {
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -405,11 +472,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-5 >*:not(:last-child) {
+.emotion-9 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-.emotion-21 {
+.emotion-37 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -425,29 +492,29 @@ exports[`FilterBar tests should match snapshot 1`] = `
   padding-right: 0.25rem;
 }
 
-.emotion-21:focus:not([data-focus-visible-added]) {
+.emotion-37:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-21:focus {
+.emotion-37:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-21:hover {
+.emotion-37:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-21:active {
+.emotion-37:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-21:disabled {
+.emotion-37:disabled {
   color: #898F9E;
 }
 
-.emotion-21 svg {
+.emotion-37 svg {
   width: 24px;
   min-width: 24px;
   height: 24px;
@@ -455,14 +522,14 @@ exports[`FilterBar tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-29 {
+.emotion-53 {
   border: 0;
   padding: 0rem;
   outline: none;
   z-index: 999;
 }
 
-.emotion-28 {
+.emotion-52 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -481,7 +548,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
 }
 
-.emotion-28 hr {
+.emotion-52 hr {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   border-style: solid;
@@ -496,7 +563,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   outline: none;
 }
 
-.emotion-28 item {
+.emotion-52 item {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -508,29 +575,29 @@ exports[`FilterBar tests should match snapshot 1`] = `
   color: #323845;
 }
 
-.emotion-28 item div {
+.emotion-52 item div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-28 item svg {
+.emotion-52 item svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
 
-.emotion-28 item:focus {
+.emotion-52 item:focus {
   background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-28 item:hover {
+.emotion-52 item:hover {
   color: #323845;
 }
 
-.emotion-28 item-dangerous {
+.emotion-52 item-dangerous {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -542,29 +609,29 @@ exports[`FilterBar tests should match snapshot 1`] = `
   color: #CB4242;
 }
 
-.emotion-28 item-dangerous div {
+.emotion-52 item-dangerous div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-28 item-dangerous svg {
+.emotion-52 item-dangerous svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
 
-.emotion-28 item-dangerous:focus {
+.emotion-52 item-dangerous:focus {
   background-color: rgba(254,218,218,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-28 item-dangerous:hover {
+.emotion-52 item-dangerous:hover {
   color: #CB4242;
 }
 
-.emotion-24 {
+.emotion-44 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -583,64 +650,73 @@ exports[`FilterBar tests should match snapshot 1`] = `
   text-transform: initial;
 }
 
-.emotion-24:focus:not([data-focus-visible-added]) {
+.emotion-44:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-24:focus {
+.emotion-44:focus {
   background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-24:hover {
+.emotion-44:hover {
   color: #323845;
 }
 
-.emotion-24:active {
+.emotion-44:active {
   color: #1a3470;
   background-color: rgba(186,203,236,0.32);
 }
 
-.emotion-24:disabled {
+.emotion-44:disabled {
   color: #898F9E;
 }
 
-.emotion-24 svg {
+.emotion-44 svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
 
-.emotion-24 div {
+.emotion-44 div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-22 {
+.emotion-38 {
   min-width: 20px;
   min-height: 20px;
   width: 20px;
   height: 20px;
 }
 
+.emotion-41 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 <div
-    class="emotion-42"
+    class="emotion-78"
     data-testid="filter-bar"
   >
     <div
-      class="emotion-32"
+      class="emotion-56"
     >
       <div
-        class="emotion-31"
+        class="emotion-55"
       >
         <div
-          class="emotion-30"
+          class="emotion-54"
         >
           <div
-            class="emotion-18"
+            class="emotion-30"
           >
             <div
               class="emotion-0"
@@ -648,7 +724,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
               Where
             </div>
             <div
-              class="emotion-6"
+              class="emotion-10"
             >
               <span
                 style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
@@ -664,43 +740,65 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="downshift-0-label downshift-0-toggle-button"
-                class="emotion-4"
+                class="emotion-8"
                 id="downshift-0-toggle-button"
                 type="button"
               >
                 <div
-                  class="emotion-3"
+                  class="emotion-7"
                 >
-                  <svg
-                    class="emotion-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M16 14L12 10L8 14"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
-                    />
-                  </svg>
                   <div
-                    class="emotion-2"
+                    class="emotion-3"
                   >
-                    Filter
+                    <svg
+                      class="emotion-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 14L12 10L8 14"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                      />
+                    </svg>
+                     
+                    <div
+                      class="emotion-2"
+                    >
+                      Filter
+                    </div>
+                  </div>
+                  <div
+                    class="emotion-6"
+                  >
+                    <svg
+                      class="emotion-5"
+                      fill="none"
+                      focusable="false"
+                      viewBox="0 0 50 50"
+                    >
+                      <circle
+                        class="emotion-4"
+                        cx="25"
+                        cy="25"
+                        r="20"
+                      />
+                    </svg>
                   </div>
                 </div>
               </button>
               <div
                 aria-labelledby="downshift-0-label"
-                class="emotion-5"
+                class="emotion-9"
                 id="downshift-0-menu"
                 role="listbox"
                 tabindex="-1"
               />
             </div>
             <div
-              class="emotion-6"
+              class="emotion-10"
             >
               <span
                 style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
@@ -716,43 +814,65 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="downshift-1-label downshift-1-toggle-button"
-                class="emotion-4"
+                class="emotion-8"
                 id="downshift-1-toggle-button"
                 type="button"
               >
                 <div
-                  class="emotion-3"
+                  class="emotion-7"
                 >
-                  <svg
-                    class="emotion-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M16 14L12 10L8 14"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
-                    />
-                  </svg>
                   <div
-                    class="emotion-2"
+                    class="emotion-3"
                   >
-                    is
+                    <svg
+                      class="emotion-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 14L12 10L8 14"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                      />
+                    </svg>
+                     
+                    <div
+                      class="emotion-2"
+                    >
+                      is
+                    </div>
+                  </div>
+                  <div
+                    class="emotion-6"
+                  >
+                    <svg
+                      class="emotion-5"
+                      fill="none"
+                      focusable="false"
+                      viewBox="0 0 50 50"
+                    >
+                      <circle
+                        class="emotion-4"
+                        cx="25"
+                        cy="25"
+                        r="20"
+                      />
+                    </svg>
                   </div>
                 </div>
               </button>
               <div
                 aria-labelledby="downshift-1-label"
-                class="emotion-5"
+                class="emotion-9"
                 id="downshift-1-menu"
                 role="listbox"
                 tabindex="-1"
               />
             </div>
             <div
-              class="emotion-6"
+              class="emotion-10"
             >
               <span
                 style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
@@ -768,32 +888,53 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="downshift-2-label downshift-2-toggle-button"
-                class="emotion-4"
+                class="emotion-8"
                 id="downshift-2-toggle-button"
                 type="button"
               >
                 <div
-                  class="emotion-3"
+                  class="emotion-7"
                 >
-                  <svg
-                    class="emotion-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
+                  <div
+                    class="emotion-3"
                   >
-                    <path
-                      d="M16 14L12 10L8 14"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
-                    />
-                  </svg>
-                  item 1
+                    <svg
+                      class="emotion-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 14L12 10L8 14"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                      />
+                    </svg>
+                     item 1
+                  </div>
+                  <div
+                    class="emotion-6"
+                  >
+                    <svg
+                      class="emotion-5"
+                      fill="none"
+                      focusable="false"
+                      viewBox="0 0 50 50"
+                    >
+                      <circle
+                        class="emotion-4"
+                        cx="25"
+                        cy="25"
+                        r="20"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </button>
               <div
                 aria-labelledby="downshift-2-label"
-                class="emotion-5"
+                class="emotion-9"
                 id="downshift-2-menu"
                 role="listbox"
                 tabindex="-1"
@@ -805,45 +946,67 @@ exports[`FilterBar tests should match snapshot 1`] = `
             aria-expanded="false"
             aria-haspopup="menu"
             aria-label="Statement Menu 0"
-            class="emotion-21"
+            class="emotion-37"
             type="button"
           >
             <div
-              class="emotion-20"
+              class="emotion-36"
             >
-              <svg
-                class="emotion-19"
-                fill="none"
-                viewBox="0 0 24 24"
+              <div
+                class="emotion-3"
               >
-                <path
-                  d="M11.25 12.004C11.25 12.418 11.586 12.754 12 12.75C12.414 12.75 12.75 12.414 12.75 12C12.75 11.586 12.414 11.25 12 11.25C11.586 11.252 11.25 11.588 11.25 12.004"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-                <path
-                  d="M11.25 6.00398C11.25 6.41798 11.586 6.75398 12 6.74998C12.414 6.74998 12.75 6.41398 12.75 5.99998C12.75 5.58598 12.414 5.24998 12 5.24998C11.586 5.25198 11.25 5.58798 11.25 6.00398"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-                <path
-                  d="M11.25 18.004C11.25 18.418 11.586 18.754 12 18.75C12.414 18.75 12.75 18.414 12.75 18C12.75 17.586 12.414 17.25 12 17.25C11.586 17.252 11.25 17.588 11.25 18.004"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
+                <svg
+                  class="emotion-31"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11.25 12.004C11.25 12.418 11.586 12.754 12 12.75C12.414 12.75 12.75 12.414 12.75 12C12.75 11.586 12.414 11.25 12 11.25C11.586 11.252 11.25 11.588 11.25 12.004"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M11.25 6.00398C11.25 6.41798 11.586 6.75398 12 6.74998C12.414 6.74998 12.75 6.41398 12.75 5.99998C12.75 5.58598 12.414 5.24998 12 5.24998C11.586 5.25198 11.25 5.58798 11.25 6.00398"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M11.25 18.004C11.25 18.418 11.586 18.754 12 18.75C12.414 18.75 12.75 18.414 12.75 18C12.75 17.586 12.414 17.25 12 17.25C11.586 17.252 11.25 17.588 11.25 18.004"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                </svg>
+                 
+              </div>
+              <div
+                class="emotion-6"
+              >
+                <svg
+                  class="emotion-5"
+                  fill="none"
+                  focusable="false"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="emotion-4"
+                    cx="25"
+                    cy="25"
+                    r="20"
+                  />
+                </svg>
+              </div>
             </div>
           </button>
           <div
             aria-label="Statement Menu 0"
             aria-orientation="vertical"
-            class="emotion-29"
+            class="emotion-53"
             data-dialog="true"
             hidden=""
             id="statement-menu"
@@ -852,103 +1015,145 @@ exports[`FilterBar tests should match snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="emotion-28"
+              class="emotion-52"
             >
               <button
-                class="emotion-24"
+                class="emotion-44"
                 id="statement-menu-1"
                 role="menuitem"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="emotion-20"
+                  class="emotion-36"
                 >
-                  <svg
-                    class="emotion-22"
-                    fill="none"
-                    viewBox="0 0 24 24"
+                  <div
+                    class="emotion-3"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M4.44852 3.75488C4.06573 3.75488 3.75452 4.0661 3.75452 4.44888V14.5609C3.75452 14.9437 4.06573 15.2549 4.44852 15.2549H5.00452C5.41873 15.2549 5.75452 15.5907 5.75452 16.0049C5.75452 16.4191 5.41873 16.7549 5.00452 16.7549H4.44852C3.2373 16.7549 2.25452 15.7721 2.25452 14.5609V4.44888C2.25452 3.23767 3.2373 2.25488 4.44852 2.25488H14.5595C15.7714 2.25488 16.7545 3.23733 16.7545 4.44888V5.00488C16.7545 5.4191 16.4187 5.75488 16.0045 5.75488C15.5903 5.75488 15.2545 5.4191 15.2545 5.00488V4.44888C15.2545 4.06643 14.9436 3.75488 14.5595 3.75488H4.44852Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M9.44852 8.75488C9.06573 8.75488 8.75452 9.0661 8.75452 9.44888V19.5609C8.75452 19.9437 9.06573 20.2549 9.44852 20.2549H19.5605C19.943 20.2549 20.2545 19.944 20.2545 19.5599V9.44888C20.2545 9.06643 19.9436 8.75488 19.5595 8.75488H9.44852ZM7.25452 9.44888C7.25452 8.23767 8.2373 7.25488 9.44852 7.25488H19.5595C20.7714 7.25488 21.7545 8.23733 21.7545 9.44888V19.5599C21.7545 20.7718 20.7721 21.7549 19.5605 21.7549H9.44852C8.2373 21.7549 7.25452 20.7721 7.25452 19.5609V9.44888Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M14.5045 11.2549C14.9187 11.2549 15.2545 11.5907 15.2545 12.0049V17.0049C15.2545 17.4191 14.9187 17.7549 14.5045 17.7549C14.0903 17.7549 13.7545 17.4191 13.7545 17.0049V12.0049C13.7545 11.5907 14.0903 11.2549 14.5045 11.2549Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.2545 14.5049C11.2545 14.0907 11.5903 13.7549 12.0045 13.7549H17.0045C17.4187 13.7549 17.7545 14.0907 17.7545 14.5049C17.7545 14.9191 17.4187 15.2549 17.0045 15.2549H12.0045C11.5903 15.2549 11.2545 14.9191 11.2545 14.5049Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                  Duplicate
+                    <svg
+                      class="emotion-38"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M4.44852 3.75488C4.06573 3.75488 3.75452 4.0661 3.75452 4.44888V14.5609C3.75452 14.9437 4.06573 15.2549 4.44852 15.2549H5.00452C5.41873 15.2549 5.75452 15.5907 5.75452 16.0049C5.75452 16.4191 5.41873 16.7549 5.00452 16.7549H4.44852C3.2373 16.7549 2.25452 15.7721 2.25452 14.5609V4.44888C2.25452 3.23767 3.2373 2.25488 4.44852 2.25488H14.5595C15.7714 2.25488 16.7545 3.23733 16.7545 4.44888V5.00488C16.7545 5.4191 16.4187 5.75488 16.0045 5.75488C15.5903 5.75488 15.2545 5.4191 15.2545 5.00488V4.44888C15.2545 4.06643 14.9436 3.75488 14.5595 3.75488H4.44852Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        clip-rule="evenodd"
+                        d="M9.44852 8.75488C9.06573 8.75488 8.75452 9.0661 8.75452 9.44888V19.5609C8.75452 19.9437 9.06573 20.2549 9.44852 20.2549H19.5605C19.943 20.2549 20.2545 19.944 20.2545 19.5599V9.44888C20.2545 9.06643 19.9436 8.75488 19.5595 8.75488H9.44852ZM7.25452 9.44888C7.25452 8.23767 8.2373 7.25488 9.44852 7.25488H19.5595C20.7714 7.25488 21.7545 8.23733 21.7545 9.44888V19.5599C21.7545 20.7718 20.7721 21.7549 19.5605 21.7549H9.44852C8.2373 21.7549 7.25452 20.7721 7.25452 19.5609V9.44888Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        clip-rule="evenodd"
+                        d="M14.5045 11.2549C14.9187 11.2549 15.2545 11.5907 15.2545 12.0049V17.0049C15.2545 17.4191 14.9187 17.7549 14.5045 17.7549C14.0903 17.7549 13.7545 17.4191 13.7545 17.0049V12.0049C13.7545 11.5907 14.0903 11.2549 14.5045 11.2549Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        clip-rule="evenodd"
+                        d="M11.2545 14.5049C11.2545 14.0907 11.5903 13.7549 12.0045 13.7549H17.0045C17.4187 13.7549 17.7545 14.0907 17.7545 14.5049C17.7545 14.9191 17.4187 15.2549 17.0045 15.2549H12.0045C11.5903 15.2549 11.2545 14.9191 11.2545 14.5049Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                     Duplicate
+                  </div>
+                  <div
+                    class="emotion-6"
+                  >
+                    <svg
+                      class="emotion-41"
+                      fill="none"
+                      focusable="false"
+                      viewBox="0 0 50 50"
+                    >
+                      <circle
+                        class="emotion-4"
+                        cx="25"
+                        cy="25"
+                        r="20"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </button>
               <button
-                class="emotion-24"
+                class="emotion-44"
                 id="statement-menu-2"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
               >
                 <div
-                  class="emotion-20"
+                  class="emotion-36"
                 >
-                  <svg
-                    class="emotion-22"
-                    fill="none"
-                    viewBox="0 0 24 24"
+                  <div
+                    class="emotion-3"
                   >
-                    <path
-                      d="M18 6V18.75C18 19.993 16.973 21 15.731 21H8.231C6.988 21 6 19.993 6 18.75V6"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1"
-                    />
-                    <path
-                      d="M19.5 6H4.5"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1"
-                    />
-                    <path
-                      d="M10 3H14"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1"
-                    />
-                    <path
-                      d="M14 10V17"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1"
-                    />
-                    <path
-                      d="M10 17V10"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1"
-                    />
-                  </svg>
-                  Delete
+                    <svg
+                      class="emotion-38"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M18 6V18.75C18 19.993 16.973 21 15.731 21H8.231C6.988 21 6 19.993 6 18.75V6"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1"
+                      />
+                      <path
+                        d="M19.5 6H4.5"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1"
+                      />
+                      <path
+                        d="M10 3H14"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1"
+                      />
+                      <path
+                        d="M14 10V17"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1"
+                      />
+                      <path
+                        d="M10 17V10"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1"
+                      />
+                    </svg>
+                     Delete
+                  </div>
+                  <div
+                    class="emotion-6"
+                  >
+                    <svg
+                      class="emotion-41"
+                      fill="none"
+                      focusable="false"
+                      viewBox="0 0 50 50"
+                    >
+                      <circle
+                        class="emotion-4"
+                        cx="25"
+                        cy="25"
+                        r="20"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </button>
             </div>
@@ -957,60 +1162,123 @@ exports[`FilterBar tests should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="emotion-41"
+      class="emotion-77"
     >
       <button
-        class="emotion-35"
+        class="emotion-63"
         type="button"
       >
         <div
-          class="emotion-20"
+          class="emotion-36"
         >
-          <svg
-            class="emotion-19"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-3"
           >
-            <path
-              clip-rule="evenodd"
-              d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-            <path
-              clip-rule="evenodd"
-              d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-          Add Filter
+            <svg
+              class="emotion-31"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+             Add Filter
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
       <div
-        class="emotion-40"
+        class="emotion-76"
       >
         <button
-          class="emotion-37"
+          class="emotion-69"
           type="button"
         >
           <div
-            class="emotion-20"
+            class="emotion-36"
           >
-            Clear Filters
+            <div
+              class="emotion-3"
+            >
+               Clear Filters
+            </div>
+            <div
+              class="emotion-6"
+            >
+              <svg
+                class="emotion-5"
+                fill="none"
+                focusable="false"
+                viewBox="0 0 50 50"
+              >
+                <circle
+                  class="emotion-4"
+                  cx="25"
+                  cy="25"
+                  r="20"
+                />
+              </svg>
+            </div>
           </div>
         </button>
         <button
           aria-disabled="true"
-          class="emotion-39"
+          class="emotion-75"
           disabled=""
           style="pointer-events: none;"
           type="button"
         >
           <div
-            class="emotion-20"
+            class="emotion-36"
           >
-            Apply
+            <div
+              class="emotion-3"
+            >
+               Apply
+            </div>
+            <div
+              class="emotion-6"
+            >
+              <svg
+                class="emotion-5"
+                fill="none"
+                focusable="false"
+                viewBox="0 0 50 50"
+              >
+                <circle
+                  class="emotion-4"
+                  cx="25"
+                  cy="25"
+                  r="20"
+                />
+              </svg>
+            </div>
           </div>
         </button>
       </div>

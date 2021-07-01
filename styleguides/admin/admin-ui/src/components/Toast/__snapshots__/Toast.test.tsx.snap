@@ -497,7 +497,33 @@ exports[`Toast tests should match snapshot 1`] = `
       </span>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -526,7 +552,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-7 {
+.emotion-11 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -556,7 +582,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #E0E2E7;
 }
 
-.emotion-5 {
+.emotion-9 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -572,29 +598,29 @@ exports[`Toast tests should match snapshot 1`] = `
   padding-right: 0.125rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-9:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-9:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-5:active {
+.emotion-9:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-5:disabled {
+.emotion-9:disabled {
   color: #898F9E;
 }
 
-.emotion-5 svg {
+.emotion-9 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -602,7 +628,7 @@ exports[`Toast tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-4 {
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -623,6 +649,8 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
 .emotion-3 {
   min-width: 24px;
   min-height: 24px;
@@ -630,8 +658,47 @@ exports[`Toast tests should match snapshot 1`] = `
   height: 24px;
 }
 
+.emotion-7 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-6 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
+.emotion-5 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
 <div
-    class="emotion-7"
+    class="emotion-11"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -676,37 +743,85 @@ exports[`Toast tests should match snapshot 1`] = `
     >
       <button
         aria-label="Close toast"
-        class="emotion-5"
+        class="emotion-9"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-8"
         >
-          <svg
-            class="emotion-3"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-4"
           >
-            <path
-              d="M6 6L18 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-3"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6L18 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M18 6L6 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-7"
+          >
+            <svg
+              class="emotion-6"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-5"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -735,7 +850,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-7 {
+.emotion-11 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -765,7 +880,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #8FC2B1;
 }
 
-.emotion-5 {
+.emotion-9 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -781,29 +896,29 @@ exports[`Toast tests should match snapshot 1`] = `
   padding-right: 0.125rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-9:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-9:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-5:active {
+.emotion-9:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-5:disabled {
+.emotion-9:disabled {
   color: #898F9E;
 }
 
-.emotion-5 svg {
+.emotion-9 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -811,7 +926,7 @@ exports[`Toast tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-4 {
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -832,6 +947,8 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
 .emotion-3 {
   min-width: 24px;
   min-height: 24px;
@@ -839,8 +956,47 @@ exports[`Toast tests should match snapshot 1`] = `
   height: 24px;
 }
 
+.emotion-7 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-6 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
+.emotion-5 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
 <div
-    class="emotion-7"
+    class="emotion-11"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -877,37 +1033,85 @@ exports[`Toast tests should match snapshot 1`] = `
     >
       <button
         aria-label="Close toast"
-        class="emotion-5"
+        class="emotion-9"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-8"
         >
-          <svg
-            class="emotion-3"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-4"
           >
-            <path
-              d="M6 6L18 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-3"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6L18 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M18 6L6 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-7"
+          >
+            <svg
+              class="emotion-6"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-5"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -936,7 +1140,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-7 {
+.emotion-11 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -966,7 +1170,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #E5C38E;
 }
 
-.emotion-5 {
+.emotion-9 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -982,29 +1186,29 @@ exports[`Toast tests should match snapshot 1`] = `
   padding-right: 0.125rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-9:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-9:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-5:active {
+.emotion-9:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-5:disabled {
+.emotion-9:disabled {
   color: #898F9E;
 }
 
-.emotion-5 svg {
+.emotion-9 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -1012,7 +1216,7 @@ exports[`Toast tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-4 {
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1033,6 +1237,8 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
 .emotion-3 {
   min-width: 24px;
   min-height: 24px;
@@ -1040,8 +1246,47 @@ exports[`Toast tests should match snapshot 1`] = `
   height: 24px;
 }
 
+.emotion-7 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-6 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
+.emotion-5 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
 <div
-    class="emotion-7"
+    class="emotion-11"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -1085,37 +1330,85 @@ exports[`Toast tests should match snapshot 1`] = `
     >
       <button
         aria-label="Close toast"
-        class="emotion-5"
+        class="emotion-9"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-8"
         >
-          <svg
-            class="emotion-3"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-4"
           >
-            <path
-              d="M6 6L18 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-3"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6L18 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M18 6L6 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-7"
+          >
+            <svg
+              class="emotion-6"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-5"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1144,7 +1437,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-7 {
+.emotion-11 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1174,7 +1467,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #EDB6B6;
 }
 
-.emotion-5 {
+.emotion-9 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -1190,29 +1483,29 @@ exports[`Toast tests should match snapshot 1`] = `
   padding-right: 0.125rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-9:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-9:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-5:active {
+.emotion-9:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-5:disabled {
+.emotion-9:disabled {
   color: #898F9E;
 }
 
-.emotion-5 svg {
+.emotion-9 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -1220,7 +1513,7 @@ exports[`Toast tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-4 {
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1241,6 +1534,8 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
 .emotion-3 {
   min-width: 24px;
   min-height: 24px;
@@ -1248,8 +1543,47 @@ exports[`Toast tests should match snapshot 1`] = `
   height: 24px;
 }
 
+.emotion-7 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-6 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
+.emotion-5 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
 <div
-    class="emotion-7"
+    class="emotion-11"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -1293,37 +1627,85 @@ exports[`Toast tests should match snapshot 1`] = `
     >
       <button
         aria-label="Close toast"
-        class="emotion-5"
+        class="emotion-9"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-8"
         >
-          <svg
-            class="emotion-3"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-4"
           >
-            <path
-              d="M6 6L18 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-3"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6L18 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M18 6L6 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-7"
+          >
+            <svg
+              class="emotion-6"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-5"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1352,7 +1734,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-6 {
+.emotion-10 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1382,7 +1764,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #E0E2E7;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1403,7 +1785,48 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 .emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -1420,30 +1843,30 @@ exports[`Toast tests should match snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
 <div
-    class="emotion-6"
+    class="emotion-10"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -1487,20 +1910,68 @@ exports[`Toast tests should match snapshot 1`] = `
       class="emotion-2"
     >
       <button
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <span>
-            Action
-          </span>
+          <div
+            class="emotion-3"
+          >
+             
+            <span>
+              Action
+            </span>
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1529,7 +2000,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-6 {
+.emotion-10 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1559,7 +2030,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #8FC2B1;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1580,7 +2051,48 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 .emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -1597,30 +2109,30 @@ exports[`Toast tests should match snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
 <div
-    class="emotion-6"
+    class="emotion-10"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -1656,20 +2168,68 @@ exports[`Toast tests should match snapshot 1`] = `
       class="emotion-2"
     >
       <button
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <span>
-            Action
-          </span>
+          <div
+            class="emotion-3"
+          >
+             
+            <span>
+              Action
+            </span>
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1698,7 +2258,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-6 {
+.emotion-10 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1728,7 +2288,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #E5C38E;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1749,7 +2309,48 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 .emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -1766,30 +2367,30 @@ exports[`Toast tests should match snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
 <div
-    class="emotion-6"
+    class="emotion-10"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -1832,20 +2433,68 @@ exports[`Toast tests should match snapshot 1`] = `
       class="emotion-2"
     >
       <button
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <span>
-            Action
-          </span>
+          <div
+            class="emotion-3"
+          >
+             
+            <span>
+              Action
+            </span>
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1874,7 +2523,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-6 {
+.emotion-10 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1904,7 +2553,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #EDB6B6;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1925,7 +2574,48 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
+
+
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 .emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -1942,30 +2632,30 @@ exports[`Toast tests should match snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
 <div
-    class="emotion-6"
+    class="emotion-10"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -2008,20 +2698,68 @@ exports[`Toast tests should match snapshot 1`] = `
       class="emotion-2"
     >
       <button
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <span>
-            Action
-          </span>
+          <div
+            class="emotion-3"
+          >
+             
+            <span>
+              Action
+            </span>
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2050,7 +2788,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-9 {
+.emotion-17 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2080,7 +2818,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #E0E2E7;
 }
 
-.emotion-7 {
+.emotion-15 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -2096,29 +2834,29 @@ exports[`Toast tests should match snapshot 1`] = `
   padding-right: 0.125rem;
 }
 
-.emotion-7:focus:not([data-focus-visible-added]) {
+.emotion-15:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-7:focus {
+.emotion-15:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-7:hover {
+.emotion-15:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-7:active {
+.emotion-15:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-7:disabled {
+.emotion-15:disabled {
   color: #898F9E;
 }
 
-.emotion-7 svg {
+.emotion-15 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -2126,7 +2864,7 @@ exports[`Toast tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2147,14 +2885,55 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-5 {
+
+
+.emotion-9 {
   min-width: 24px;
   min-height: 24px;
   width: 24px;
   height: 24px;
 }
 
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 .emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -2171,30 +2950,30 @@ exports[`Toast tests should match snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
 <div
-    class="emotion-9"
+    class="emotion-17"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -2238,50 +3017,120 @@ exports[`Toast tests should match snapshot 1`] = `
       class="emotion-2"
     >
       <button
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <span>
-            Action
-          </span>
+          <div
+            class="emotion-3"
+          >
+             
+            <span>
+              Action
+            </span>
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
       <button
         aria-label="Close toast"
-        class="emotion-7"
+        class="emotion-15"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <svg
-            class="emotion-5"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-3"
           >
-            <path
-              d="M6 6L18 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-9"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6L18 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M18 6L6 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2310,7 +3159,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-9 {
+.emotion-17 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2340,7 +3189,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #8FC2B1;
 }
 
-.emotion-7 {
+.emotion-15 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -2356,29 +3205,29 @@ exports[`Toast tests should match snapshot 1`] = `
   padding-right: 0.125rem;
 }
 
-.emotion-7:focus:not([data-focus-visible-added]) {
+.emotion-15:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-7:focus {
+.emotion-15:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-7:hover {
+.emotion-15:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-7:active {
+.emotion-15:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-7:disabled {
+.emotion-15:disabled {
   color: #898F9E;
 }
 
-.emotion-7 svg {
+.emotion-15 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -2386,7 +3235,7 @@ exports[`Toast tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2407,14 +3256,55 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-5 {
+
+
+.emotion-9 {
   min-width: 24px;
   min-height: 24px;
   width: 24px;
   height: 24px;
 }
 
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 .emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -2431,30 +3321,30 @@ exports[`Toast tests should match snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
 <div
-    class="emotion-9"
+    class="emotion-17"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -2490,50 +3380,120 @@ exports[`Toast tests should match snapshot 1`] = `
       class="emotion-2"
     >
       <button
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <span>
-            Action
-          </span>
+          <div
+            class="emotion-3"
+          >
+             
+            <span>
+              Action
+            </span>
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
       <button
         aria-label="Close toast"
-        class="emotion-7"
+        class="emotion-15"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <svg
-            class="emotion-5"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-3"
           >
-            <path
-              d="M6 6L18 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-9"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6L18 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M18 6L6 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2562,7 +3522,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-9 {
+.emotion-17 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2592,7 +3552,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #E5C38E;
 }
 
-.emotion-7 {
+.emotion-15 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -2608,29 +3568,29 @@ exports[`Toast tests should match snapshot 1`] = `
   padding-right: 0.125rem;
 }
 
-.emotion-7:focus:not([data-focus-visible-added]) {
+.emotion-15:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-7:focus {
+.emotion-15:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-7:hover {
+.emotion-15:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-7:active {
+.emotion-15:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-7:disabled {
+.emotion-15:disabled {
   color: #898F9E;
 }
 
-.emotion-7 svg {
+.emotion-15 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -2638,7 +3598,7 @@ exports[`Toast tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2659,14 +3619,55 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-5 {
+
+
+.emotion-9 {
   min-width: 24px;
   min-height: 24px;
   width: 24px;
   height: 24px;
 }
 
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 .emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -2683,30 +3684,30 @@ exports[`Toast tests should match snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
 <div
-    class="emotion-9"
+    class="emotion-17"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -2749,50 +3750,120 @@ exports[`Toast tests should match snapshot 1`] = `
       class="emotion-2"
     >
       <button
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <span>
-            Action
-          </span>
+          <div
+            class="emotion-3"
+          >
+             
+            <span>
+              Action
+            </span>
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
       <button
         aria-label="Close toast"
-        class="emotion-7"
+        class="emotion-15"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <svg
-            class="emotion-5"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-3"
           >
-            <path
-              d="M6 6L18 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-9"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6L18 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M18 6L6 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>
   </div>
-  .emotion-2 {
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2821,7 +3892,7 @@ exports[`Toast tests should match snapshot 1`] = `
   text-align: start;
 }
 
-.emotion-9 {
+.emotion-17 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2851,7 +3922,7 @@ exports[`Toast tests should match snapshot 1`] = `
   border-color: #EDB6B6;
 }
 
-.emotion-7 {
+.emotion-15 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -2867,29 +3938,29 @@ exports[`Toast tests should match snapshot 1`] = `
   padding-right: 0.125rem;
 }
 
-.emotion-7:focus:not([data-focus-visible-added]) {
+.emotion-15:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-7:focus {
+.emotion-15:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-7:hover {
+.emotion-15:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-7:active {
+.emotion-15:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-7:disabled {
+.emotion-15:disabled {
   color: #898F9E;
 }
 
-.emotion-7 svg {
+.emotion-15 svg {
   width: 20px;
   min-width: 20px;
   height: 20px;
@@ -2897,7 +3968,7 @@ exports[`Toast tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2918,14 +3989,55 @@ exports[`Toast tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-5 {
+
+
+.emotion-9 {
   min-width: 24px;
   min-height: 24px;
   width: 24px;
   height: 24px;
 }
 
+.emotion-6 {
+  position: absolute;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+}
+
 .emotion-4 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+.emotion-8 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -2942,30 +4054,30 @@ exports[`Toast tests should match snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-8:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-4:focus {
+.emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-4:hover {
+.emotion-8:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-4:active {
+.emotion-8:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-4:disabled {
+.emotion-8:disabled {
   color: #898F9E;
 }
 
 <div
-    class="emotion-9"
+    class="emotion-17"
     data-testid="onda-toast-component"
     style="top: 7.5px;"
   >
@@ -3008,45 +4120,89 @@ exports[`Toast tests should match snapshot 1`] = `
       class="emotion-2"
     >
       <button
-        class="emotion-4"
+        class="emotion-8"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <span>
-            Action
-          </span>
+          <div
+            class="emotion-3"
+          >
+             
+            <span>
+              Action
+            </span>
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
       <button
         aria-label="Close toast"
-        class="emotion-7"
+        class="emotion-15"
         type="button"
       >
         <div
-          class="emotion-3"
+          class="emotion-7"
         >
-          <svg
-            class="emotion-5"
-            fill="none"
-            viewBox="0 0 24 24"
+          <div
+            class="emotion-3"
           >
-            <path
-              d="M6 6L18 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+            <svg
+              class="emotion-9"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6L18 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M18 6L6 18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <svg
+              class="emotion-5"
+              fill="none"
+              focusable="false"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                class="emotion-4"
+                cx="25"
+                cy="25"
+                r="20"
+              />
+            </svg>
+          </div>
         </div>
       </button>
     </div>

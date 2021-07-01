@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
 import { IconAppStore } from '@vtex/admin-ui-icons'
 
@@ -63,6 +63,18 @@ export const WithIcon: Story = () => {
         IconEnd
       </Button>
       <Button icon={<IconAppStore title="Icon only" />} variant="tertiary" />
+    </Set>
+  )
+}
+
+export const Loading = () => {
+  const [loading, setLoading] = useState(false)
+
+  return (
+    <Set>
+      <Button loading={loading} onClick={() => setLoading(!loading)}>
+        Loading
+      </Button>
     </Set>
   )
 }

@@ -54,5 +54,5 @@ export function useSpinner(props: SpinnerProps): IconProps {
 }
 
 export interface SpinnerProps extends Pick<IconProps, 'size'>, SystemComponent {
-  color?: Colors
+  color?: Colors | 'currentColor'
 }

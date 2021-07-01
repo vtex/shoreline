@@ -7,7 +7,8 @@ import {
 import { StyleProp, useSystem, jsxs, createComponent } from '@vtex/admin-core'
 import { Variant, Size } from './types'
 import { SystemComponentProps } from '../../types'
-import { Primitive } from '@vtex/admin-primitives'
+import { Primitive, Box } from '@vtex/admin-primitives'
+import { Spinner } from '../Spinner'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -28,6 +29,7 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
     icon,
     children: prevChildren,
     csx,
+    loading = false,
     ...compoundProps
   } = props
 
@@ -58,7 +60,24 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
           ...containerStyles,
         },
       },
-      ...[icon, prevChildren]
+      <Box csx={{ visibility: loading ? 'hidden' : undefined }}>
+        {icon} {prevChildren}
+      </Box>,
+      <Box
+        csx={{
+          position: 'absolute',
+          alignItems: 'center',
+          display: 'flex',
+          justifyContent: 'center',
+          bottom: 0,
+          top: 0,
+          left: 0,
+          right: 0,
+          visibility: loading ? undefined : 'hidden',
+        }}
+      >
+        <Spinner color="currentColor" />
+      </Box>
     ),
     ...compoundProps,
   }
@@ -89,13 +108,18 @@ function useButtonSize({
 }
 
 export interface ButtonProps extends SystemComponentProps<ReakitButtonProps> {
+  /**
+   * Whether the button is loading or not
+   * @default false
+   */
+  loading?: boolean
   /** Size of the button
    * @default regular
-   * */
+   */
   size?: Size
   /** Button variant
    * @default primary
-   * */
+   */
   variant?: Variant
   /**
    * Icon of the button
