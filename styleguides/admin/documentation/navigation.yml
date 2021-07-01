@@ -8,6 +8,7 @@
   paths:
     - /core-concepts/icons/
     - /core-concepts/csx-prop/
+    - /core-concepts/tag/
 - section: Theming
   paths:
     - /theming/default-theme/
