@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.30](https://github.com/vtex/onda/compare/@vtex/gatsby-plugin-admin-ui@0.2.29...@vtex/gatsby-plugin-admin-ui@0.2.30) (2021-07-01)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+
+
+
+
 ## [0.2.29](https://github.com/vtex/onda/compare/@vtex/gatsby-plugin-admin-ui@0.2.28...@vtex/gatsby-plugin-admin-ui@0.2.29) (2021-06-29)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui

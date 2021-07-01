@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/onda/compare/@vtex/onda-react@0.1.1...@vtex/onda-react@0.2.0) (2021-07-01)
+
+
+### Bug Fixes
+
+* **onda-react:** remove unnecessary state ([1465e69](https://github.com/vtex/onda/commit/1465e695a6cb9be6ba3773d0acf51194a0713ea2))
+* **onda-react:** resolve jsx hof types ([2e185ac](https://github.com/vtex/onda/commit/2e185ac2dd319f30d1eb4332a13a2299a38e06cb))
+
+
+### Features
+
+* **onda-react:** rephrase createComponent as jsx ([dd157ff](https://github.com/vtex/onda/commit/dd157ffa2500ed8e911b7d2d04db65268fc7f27b))
+
+
+
+
+
 ## [0.1.1](https://github.com/vtex/onda/compare/@vtex/onda-react@0.1.0-labs.4...@vtex/onda-react@0.1.1) (2021-06-29)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.102.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.0...@vtex/admin-ui@0.102.1) (2021-07-01)
+
+
+### Bug Fixes
+
+* **admin-ui:** call jsx instead of createComponent on anchor component ([086d894](https://github.com/vtex/onda/commit/086d894031f8fba6d907f00f1bb039d5912187c1))
+
+
+
+
+
 # [0.102.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.4...@vtex/admin-ui@0.102.0) (2021-06-29)
 
 
