@@ -512,7 +512,7 @@ export function WithOptions() {
 }
 
 export function UseOptions() {
-  interface AvatarOwnProps {
+  interface AvatarOptions {
     label: string
   }
 
@@ -539,8 +539,8 @@ export function UseOptions() {
       },
     },
     {
-      useOptions: (ownProps: AvatarOwnProps) => {
-        return { children: ownProps.label.charAt(0) }
+      useOptions: (options: AvatarOptions) => {
+        return { children: options.label.charAt(0) }
       },
       options: ['label'],
     }
