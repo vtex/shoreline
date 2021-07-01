@@ -5,7 +5,7 @@ import { merge, pick, omit, isFunction } from '@vtex/onda-util'
 import { __options, __stylesheet } from './symbols'
 import { As, OndaComponent, Configuration, PropsWithAs } from './types'
 import { cleanProps, useOptionsIdentity, getStylesheet, getOptions } from './util'
-import { useStyleSheet, StyleSheet } from './useStyleSheet'
+import { useStylesheet, Stylesheet } from './useStyleSheet'
 import { DOMElements, domElements } from './domElements'
 
 /**
@@ -41,7 +41,7 @@ export function _jsx<T extends As = 'div'>(type: T) {
     Variants extends {},
     InferVariants extends Variants
   >(
-    jsxStylesheet: StyleSheet<Variants> = {},
+    jsxStylesheet: Stylesheet<Variants> = {},
     configuration: Configuration<TT, Options, InferVariants> = {
       sync: [],
       useOptions: useOptionsIdentity,
@@ -70,7 +70,7 @@ export function _jsx<T extends As = 'div'>(type: T) {
       )
       const mergedProps = merge(unparsedProps, interceptedProps)
 
-      const propsWithCompiledStyle = useStyleSheet({
+      const propsWithCompiledStyle = useStylesheet({
         stylesheet,
         sync,
         options,
@@ -126,7 +126,7 @@ const jsx = _jsx as typeof _jsx &
         Variants extends {},
         InferVariants extends Variants
       >(
-        styleSheet?: StyleSheet<Variants>,
+        styleSheet?: Stylesheet<Variants>,
         configuration?: Configuration<TT, Options, InferVariants>
       ): OndaComponent<TT, Options, InferVariants>
     }
