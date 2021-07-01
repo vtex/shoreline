@@ -2,9 +2,9 @@ import React from 'react'
 import { useSystem } from '@vtex/admin-core'
 import { merge, pick, omit, isFunction } from '@vtex/onda-util'
 
-import { ONDA_METADATA } from './symbols'
+import { __options, __stylesheet } from './symbols'
 import { As, OndaComponent, Configuration, PropsWithAs } from './types'
-import { cleanProps, useOptionsIdentity, isOndaComponent } from './util'
+import { cleanProps, useOptionsIdentity, getStylesheet, getOptions } from './util'
 import { useStyleSheet, StyleSheet } from './useStyleSheet'
 import { DOMElements, domElements } from './domElements'
 
@@ -30,6 +30,11 @@ import { DOMElements, domElements } from './domElements'
  * <Button as="a" href="#">Button Link</Button>
  */
 export function _jsx<T extends As = 'div'>(type: T) {
+
+  const parentStylesheet = getStylesheet(type) ?? {}
+  const parentOptions = getOptions(type) ?? []
+
+
   return function component<
     TT extends T,
     Options extends {},
@@ -49,9 +54,8 @@ export function _jsx<T extends As = 'div'>(type: T) {
       options = [],
     } = configuration
 
-    const sheet = isOndaComponent(type as any)
-      ? merge((type as any)[ONDA_METADATA].sheet, styleSheet)
-      : styleSheet
+    const compoundStylesheet = merge(parentStylesheet, styleSheet)
+    const compoundOptions = [...parentOptions, ...options]
 
     const ConcreteOndaComponent = (
       props: PropsWithAs<Options, TT>,
@@ -60,16 +64,16 @@ export function _jsx<T extends As = 'div'>(type: T) {
       const { as: ComponentCall = type, ...unparsedProps } = props
       const system = useSystem()
       const interceptedProps = useOptions(
-        pick(unparsedProps, options) as any,
-        omit(unparsedProps, options) as any,
+        pick(unparsedProps, compoundOptions) as any,
+        omit(unparsedProps, compoundOptions) as any,
         system
       )
       const mergedProps = merge(unparsedProps, interceptedProps)
 
       const propsWithCompiledStyle = useStyleSheet({
-        styleSheet,
+        styleSheet: compoundStylesheet,
         sync,
-        options,
+        options: compoundOptions,
         props: mergedProps,
       })
 
@@ -88,11 +92,8 @@ export function _jsx<T extends As = 'div'>(type: T) {
     const Forwarded = React.forwardRef(ConcreteOndaComponent)
 
     return Object.assign(Forwarded as any, {
-      [ONDA_METADATA]: {
-        useOptions,
-        options,
-        styleSheet: sheet ?? {},
-      },
+      [__options]: options,
+      [__stylesheet]: compoundStylesheet,
     })
   }
 }

@@ -1,5 +1,5 @@
 import { useSystem, StyleObject } from '@vtex/admin-core'
-import { ONDA_METADATA } from './symbols'
+import { __options, __stylesheet } from './symbols'
 import { Sync } from './useStyleSheet'
 
 /**
@@ -51,24 +51,15 @@ export type PropsWithAs<P, T extends As> = P &
     children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
   }
 
-export interface OndaComponentMetadata {
-  /** attached behavior */
-  useOptions: Function
-  /**
-   * props that will pass through
-   */
-  options: string[]
-  styleSheet: any
-}
-
-export type OndaComponent<Type extends As, Options, Variants> = {
+export interface OndaComponent<Type extends As, Options, Variants> {
   <PolymorphicType extends As>(
     props: PropsWithAs<Options, PolymorphicType> & { as: PolymorphicType } & VariantsCall<Variants>
   ): JSX.Element
   (props: PropsWithAs<Options, Type> & VariantsCall<Variants>): JSX.Element
   displayName?: string
   defaultProps?: Partial<PropsWithAs<Options, Type> & VariantsCall<Variants>>
-  [ONDA_METADATA]: OndaComponentMetadata
+  [__stylesheet]: StyleObject
+  [__options]: string[]
 }
 
 export interface Configuration<Type extends As, Options, Variants> {

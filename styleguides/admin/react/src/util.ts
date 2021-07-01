@@ -1,11 +1,9 @@
 import isPropValid from '@emotion/is-prop-valid'
-import { pick, get } from '@vtex/onda-util'
-import { ONDA_METADATA } from './symbols'
+import { get, pick } from '@vtex/onda-util'
+import { StyleObject } from '@vtex/onda-core'
+import { __options, __stylesheet } from './symbols'
 
-export function useOptionsIdentity<Options, Props>(
-  _: Options,
-  props: Props
-) {
+export function useOptionsIdentity<Options, Props>(_: Options, props: Props) {
   return props
 }
 
@@ -19,24 +17,29 @@ export function cleanProps<P extends {}>(props: P) {
   return htmlProps
 }
 
-export function isOndaComponent(value: any): boolean {
-  return !!value[ONDA_METADATA]
-}
-
-export function isStrict(type: any) {
-  return !!(type as any).as
-}
-
-/**
- * !TODO
- */
-export function pickOptions(type: any, config: any): string[] {
-  if (isOndaComponent(type)) {
-    // passed an onda component on `as`
-    const parentParentOptions = pickOptions(type[ONDA_METADATA].options, {})
-    const componentOptions = get(config, 'options', [])
-    return [...parentParentOptions, ...componentOptions]
+export function isOndaComponent(entity: any): boolean {
+  if (!entity) {
+    return false
   }
-  
-  return get(config, 'options', [])
+
+  const hasStylesheet = !!getStylesheet(entity)
+  const hasOptions = !!getOptions(entity)
+
+  return hasStylesheet && hasOptions
+}
+
+export function getStylesheet(entity: any): StyleObject | null {
+  if (!entity) {
+    return null
+  }
+
+  return get(entity, __stylesheet, null)
+}
+
+export function getOptions(entity: any): string[] | null {
+  if (!entity) {
+    return null
+  }
+
+  return get(entity, __options, null)
 }

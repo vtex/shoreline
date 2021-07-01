@@ -1,35 +1,30 @@
 import React, { ComponentPropsWithoutRef } from 'react'
 
 import { jsx } from '../jsx'
-import { isOndaComponent, cleanProps, isStrict } from '../util'
+import { isOndaComponent, cleanProps } from '../util'
 
 describe('utils', () => {
   test('isOndaComponent', () => {
     function FunctionComponent(props: ComponentPropsWithoutRef<'div'>) {
       return <div {...props} />
     }
-    const OndaComponent = jsx('div')()
+    
+    const Plain = jsx('div')()
+    const Aliased = jsx.div()
+    const Themed = jsx('div')({
+      color: 'blue'
+    })
+    const Compound = jsx(FunctionComponent)({
+      bg: 'pink'
+    })
 
     expect(isOndaComponent(FunctionComponent)).toBe(false)
-    expect(isOndaComponent(OndaComponent)).toBe(true)
+    expect(isOndaComponent(Plain)).toBe(true)
+    expect(isOndaComponent(Aliased)).toBe(true)
+    expect(isOndaComponent(Themed)).toBe(true)
+    expect(isOndaComponent(Compound)).toBe(true)
   })
 
-  test('isStrict', () => {
-    const result = {
-      empty: isStrict({}),
-      withoutAs: isStrict({ prop: 'example' }),
-      string: isStrict({ as: 'button' }),
-      function: isStrict({ as: function () {} }),
-      arrowFunction: isStrict({ as: () => {} }),
-      arrowFunctionAndProps: isStrict({ as: () => {}, otherProps: {} }),
-    }
-    expect(result.empty).toBe(false)
-    expect(result.withoutAs).toBe(false)
-    expect(result.string).toBe(true)
-    expect(result.function).toBe(true)
-    expect(result.arrowFunction).toBe(true)
-    expect(result.arrowFunctionAndProps).toBe(true)
-  })
 
   test('cleanProps', () => {
     expect(cleanProps({})).toEqual({})
@@ -51,42 +46,4 @@ describe('utils', () => {
       id: 'id',
     })
   })
-
-  // test('pickOptions', () => {
-  //   const Short = jsx('div')()
-  //   const Strict = jsx({ as: 'div' })
-  //   const StrictWithOwnProps = createComponent({
-  //     as: 'div',
-  //     ownProps: ['label', 'render'],
-  //   })
-  //   const ComposedShort = createComponent(StrictWithOwnProps)
-  //   const ComposedStrict = createComponent({ as: StrictWithOwnProps })
-  //   const InheritOwnProps = createComponent({
-  //     as: StrictWithOwnProps,
-  //     ownProps: ['intl', 'format'],
-  //   })
-  //   const SecondInheritOwnProps = createComponent({
-  //     as: InheritOwnProps,
-  //     ownProps: ['__internal', '__hover'],
-  //   })
-
-  //   expect(pickOwnProps(Short)).toEqual([])
-  //   expect(pickOwnProps(StrictWithOwnProps)).toEqual(['label', 'render'])
-  //   expect(pickOwnProps(ComposedShort)).toEqual(['label', 'render'])
-  //   expect(pickOwnProps(ComposedStrict)).toEqual(['label', 'render'])
-  //   expect(pickOwnProps(InheritOwnProps)).toEqual([
-  //     'label',
-  //     'render',
-  //     'intl',
-  //     'format',
-  //   ])
-  //   expect(pickOwnProps(SecondInheritOwnProps)).toEqual([
-  //     'label',
-  //     'render',
-  //     'intl',
-  //     'format',
-  //     '__internal',
-  //     '__hover',
-  //   ])
-  // })
 })
