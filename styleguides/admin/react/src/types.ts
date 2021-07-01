@@ -53,32 +53,32 @@ export type PropsWithAs<P, T extends As> = P &
 
 export interface OndaComponentMetadata {
   /** attached behavior */
-  useOwnProps: Function
+  useOptions: Function
   /**
    * props that will pass through
    */
-  ownProps: string[]
+  options: string[]
   styleSheet: any
 }
 
-export type OndaComponent<T extends As, O, V> = {
-  <TT extends As>(
-    props: PropsWithAs<O, TT> & { as: TT } & VariantsCall<V>
+export type OndaComponent<Type extends As, Options, Variants> = {
+  <PolymorphicType extends As>(
+    props: PropsWithAs<Options, PolymorphicType> & { as: PolymorphicType } & VariantsCall<Variants>
   ): JSX.Element
-  (props: PropsWithAs<O, T> & VariantsCall<V>): JSX.Element
+  (props: PropsWithAs<Options, Type> & VariantsCall<Variants>): JSX.Element
   displayName?: string
-  defaultProps?: Partial<PropsWithAs<O, T> & VariantsCall<V>>
+  defaultProps?: Partial<PropsWithAs<Options, Type> & VariantsCall<Variants>>
   [ONDA_METADATA]: OndaComponentMetadata
 }
 
-export interface Configuration<T extends As, O, V> {
+export interface Configuration<Type extends As, Options, Variants> {
   options?: string[]
   useOptions?: (
-    options: O,
-    props: React.ComponentPropsWithoutRef<T>,
+    options: Options,
+    props: React.ComponentPropsWithoutRef<Type>,
     system: ReturnType<typeof useSystem>
-  ) => React.ComponentPropsWithoutRef<T>
-  sync?: Sync<V>[]
+  ) => React.ComponentPropsWithoutRef<Type>
+  sync?: Sync<Variants>[]
 }
 
 export type VariantsCall<Variants> = {

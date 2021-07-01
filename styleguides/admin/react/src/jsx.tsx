@@ -6,38 +6,43 @@ import { ONDA_METADATA } from './symbols'
 import { As, OndaComponent, Configuration, PropsWithAs } from './types'
 import { cleanProps, useOptionsIdentity, isOndaComponent } from './util'
 import { useStyleSheet, StyleSheet } from './useStyleSheet'
-import { domElements } from './domElements'
+import { DOMElements, domElements } from './domElements'
 
 /**
  * Base jsx function
  * Use it to create onda-powered components
  * @example
  * // with jsx tag
- * __jsx('div')()
- * 
+ * _jsx('div')()
+ *
  * // with component
  * import { Role } from 'reakit'
- * 
- * __jsx(Role)()
- * 
+ *
+ * _jsx(Role)()
+ *
  * // composition
- * const A = __jsx('div')()
- * const B = __jsx(A)()
- * 
+ * const A = _jsx('div')()
+ * const B = _jsx(A)()
+ *
  * // polymorphism
- * const Button = __jsx('button')()
- * 
+ * const Button = _jsx('button')()
+ *
  * <Button as="a" href="#">Button Link</Button>
  */
-function __jsx<T extends As>(type: T) {
-  return function component<O, Variants, InferVariants extends Variants>(
+export function _jsx<T extends As = 'div'>(type: T) {
+  return function component<
+    TT extends T,
+    Options extends {},
+    Variants extends {},
+    InferVariants extends Variants
+  >(
     styleSheet: StyleSheet<Variants> = {},
-    configuration: Configuration<T, O, InferVariants> = {
+    configuration: Configuration<TT, Options, InferVariants> = {
       sync: [],
       useOptions: useOptionsIdentity,
       options: [],
     }
-  ): OndaComponent<T, O, Variants> {
+  ): OndaComponent<TT, Options, InferVariants> {
     const {
       sync = [],
       useOptions = useOptionsIdentity,
@@ -48,41 +53,41 @@ function __jsx<T extends As>(type: T) {
       ? merge((type as any)[ONDA_METADATA].sheet, styleSheet)
       : styleSheet
 
-    const ConcreteOndaComponent = ((
-      { as: ComponentCall = type, ...props }: PropsWithAs<O, T>,
-      ref: React.Ref<T>
+    const ConcreteOndaComponent = (
+      props: PropsWithAs<Options, TT>,
+      ref: React.Ref<any>
     ) => {
+      const { as: ComponentCall = type, ...unparsedProps } = props
       const system = useSystem()
       const interceptedProps = useOptions(
-        pick(props, options) as any,
-        omit(props, options) as any,
+        pick(unparsedProps, options) as any,
+        omit(unparsedProps, options) as any,
         system
       )
-
-      const hookedProps = merge(props, interceptedProps)
+      const mergedProps = merge(unparsedProps, interceptedProps)
 
       const propsWithCompiledStyle = useStyleSheet({
         styleSheet,
         sync,
         options,
-        props: hookedProps,
+        props: mergedProps,
       })
 
       const { children, ...htmlProps } =
         typeof type === 'string'
           ? cleanProps(propsWithCompiledStyle)
-          : merge(propsWithCompiledStyle, pick(hookedProps, options))
+          : merge(propsWithCompiledStyle, pick(mergedProps, options))
 
       return (
         <ComponentCall ref={ref} {...htmlProps}>
           {isFunction(children) ? children(htmlProps) : children}
         </ComponentCall>
       )
-    }) as OndaComponent<T, O, Variants>
+    }
 
-    const Forwarded = React.forwardRef(ConcreteOndaComponent as any) as any
+    const Forwarded = React.forwardRef(ConcreteOndaComponent)
 
-    return Object.assign(Forwarded, {
+    return Object.assign(Forwarded as any, {
       [ONDA_METADATA]: {
         useOptions,
         options,
@@ -105,19 +110,29 @@ function __jsx<T extends As>(type: T) {
  * // with components
  * import { Role } from 'reakit' // or any custom library
  *
- * const Box = jsx(Role, {
+ * const Box = jsx(Role)({
  *  color: 'blue'
  * })
  *
  * <Box>Blue colored box</Box>
  */
-const jsx = __jsx as typeof __jsx &
+const jsx = _jsx as typeof _jsx &
   {
-    [key in typeof domElements[number]]: ReturnType<typeof __jsx>
+    [key in DOMElements]: {
+      <
+        TT extends key,
+        Options extends {},
+        Variants extends {},
+        InferVariants extends Variants
+      >(
+        styleSheet?: StyleSheet<Variants>,
+        configuration?: Configuration<TT, Options, InferVariants>
+      ): OndaComponent<TT, Options, InferVariants>
+    }
   }
 
 domElements.forEach((domElement) => {
-  jsx[domElement] = __jsx(domElement)
+  jsx[domElement] = _jsx(domElement)
 })
 
 export { jsx }

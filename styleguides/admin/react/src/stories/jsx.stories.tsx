@@ -176,7 +176,7 @@ export function ButtonSeries() {
 }
 
 export function ButtonVariants() {
-  const Button = jsx.button({
+  const Button = jsx('button')({
     cursor: 'pointer',
     margin: 1,
     borderRadius: 'default',

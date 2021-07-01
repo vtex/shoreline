@@ -40,10 +40,10 @@
   },
   "devDependencies": {
     "@vtex/admin-core": "^0.10.11",
-    "@vtex/onda-util": "^0.1.0-labs.2",
     "polished": "^4.1.2"
   },
   "dependencies": {
+    "@vtex/onda-util": "^0.1.0-labs.2",
     "@emotion/is-prop-valid": "^1.1.0",
     "react-is": "^17.0.2",
     "tiny-invariant": "^1.1.0",
