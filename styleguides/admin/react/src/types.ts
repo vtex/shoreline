@@ -1,7 +1,7 @@
 import { useSystem, StyleObject } from '@vtex/admin-core'
 
 import { __options, __stylesheet } from './symbols'
-import { Sync } from './useStyleSheet'
+import { Sync } from './useStylesheet'
 
 /**
  * "as" prop

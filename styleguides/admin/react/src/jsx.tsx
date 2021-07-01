@@ -5,7 +5,7 @@ import { merge, pick, omit, isFunction } from '@vtex/onda-util'
 import { __options, __stylesheet } from './symbols'
 import { As, OndaComponent, Configuration, PropsWithAs } from './types'
 import { cleanProps, useOptionsIdentity, getStylesheet, getOptions } from './util'
-import { useStylesheet, Stylesheet } from './useStyleSheet'
+import { useStylesheet, Stylesheet } from './useStylesheet'
 import { DOMElements, domElements } from './domElements'
 
 /**
