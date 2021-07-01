@@ -1,5 +1,7 @@
 import { useSystem, StyleObject } from '@vtex/admin-core'
-import { ONDA_METADATA } from './symbols'
+
+import { __options, __stylesheet } from './symbols'
+import { Sync } from './useStyleSheet'
 
 /**
  * "as" prop
@@ -47,50 +49,29 @@ export type PropsWithAs<P, T extends As> = P &
     csx?: StyleObject
     css?: any
     as?: T
-    state?: any
     children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
   }
 
-export interface OndaComponentMetadata {
-  /** attached behavior */
-  useOwnProps: Function
-  /**
-   * props that will pass through
-   */
-  ownProps: string[]
-  styleSheet: any
-}
-
-export type OndaComponent<T extends As, O, V> = {
-  <TT extends As>(
-    props: PropsWithAs<O, TT> & { as: TT } & VariantsCall<V>
+export interface OndaComponent<Type extends As, Options, Variants> {
+  <PolymorphicType extends As>(
+    props: PropsWithAs<Options, PolymorphicType> & { as: PolymorphicType } & VariantsCall<Variants>
   ): JSX.Element
-  (props: PropsWithAs<O, T> & VariantsCall<V>): JSX.Element
+  (props: PropsWithAs<Options, Type> & VariantsCall<Variants>): JSX.Element
   displayName?: string
-  defaultProps?: Partial<PropsWithAs<O, T> & VariantsCall<V>>
-  [ONDA_METADATA]: OndaComponentMetadata
+  defaultProps?: Partial<PropsWithAs<Options, Type> & VariantsCall<Variants>>
+  [__stylesheet]: StyleObject
+  [__options]: string[]
 }
 
-export type Options<T extends As, O, V> =
-  | {
-      as: T
-      defaultProps?: Partial<PropsWithAs<O, T> & VariantsCall<V>>
-    }
-  | {
-      as: T
-      ownProps: string[]
-      defaultProps?: Partial<PropsWithAs<O, T> & VariantsCall<V>>
-    }
-  | {
-      as: T
-      ownProps: string[]
-      useOwnProps: (
-        ownProps: O,
-        props: React.ComponentPropsWithoutRef<T>,
-        system: ReturnType<typeof useSystem>
-      ) => React.ComponentPropsWithoutRef<T>
-      defaultProps?: Partial<PropsWithAs<O, T> & VariantsCall<V>>
-    }
+export interface Configuration<Type extends As, Options, Variants> {
+  options?: string[]
+  useOptions?: (
+    options: Options,
+    props: React.ComponentPropsWithoutRef<Type>,
+    system: ReturnType<typeof useSystem>
+  ) => React.ComponentPropsWithoutRef<Type>
+  sync?: Sync<Variants>[]
+}
 
 export type VariantsCall<Variants> = {
   [k in keyof Variants]?: keyof Variants[k]

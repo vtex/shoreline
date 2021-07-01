@@ -1,17 +1,15 @@
 import isPropValid from '@emotion/is-prop-valid'
-import { pick, get } from '@vtex/onda-util'
-import { ONDA_METADATA } from './symbols'
+import { get, pick } from '@vtex/onda-util'
+import { StyleObject } from '@vtex/onda-core'
+import { __options, __stylesheet } from './symbols'
 
-export function useOwnPropsIdentity<OwnProps, Props>(
-  _: OwnProps,
-  props: Props
-) {
+export function useOptionsIdentity<Options, Props>(_: Options, props: Props) {
   return props
 }
 
 /**
  * clean invalid HTML props
- * @param props
+ * @param props - props that can be dirty
  */
 export function cleanProps<P extends {}>(props: P) {
   const validKeys = Object.keys(props).filter(isPropValid)
@@ -19,30 +17,41 @@ export function cleanProps<P extends {}>(props: P) {
   return htmlProps
 }
 
-export function isOndaComponent(value: any): boolean {
-  return !!value[ONDA_METADATA]
-}
-
-export function isStrict(type: any) {
-  return !!(type as any).as
-}
-
-export function pickOwnProps(type: any): string[] {
-  if (isStrict(type)) {
-    if (isOndaComponent(type.as)) {
-      // passed an onda component on `as`
-      const parentOwnProps = pickOwnProps(type.as)
-      const ownProps = get(type, 'ownProps', [])
-      return [...parentOwnProps, ...ownProps]
-    }
-    return get(type, 'ownProps', [])
+/**
+ * wether an entity is an onda component
+ * @param entity - any entity
+ */
+export function isOndaComponent(entity: any): boolean {
+  if (!entity) {
+    return false
   }
 
-  // is a literal type
-  if (isOndaComponent(type)) {
-    const meta = type[ONDA_METADATA]
-    return get(meta, 'ownProps', [])
+  const hasStylesheet = !!getStylesheet(entity)
+  const hasOptions = !!getOptions(entity)
+
+  return hasStylesheet && hasOptions
+}
+
+/**
+ * get the stylesheet from a onda component
+ * @param entity - any entity
+ */
+export function getStylesheet(entity: any): StyleObject | null {
+  if (!entity) {
+    return null
   }
 
-  return []
+  return get(entity, __stylesheet, null)
+}
+
+/**
+ * get the options from a onda component
+ * @param entity - any entity
+ */
+export function getOptions(entity: any): string[] | null {
+  if (!entity) {
+    return null
+  }
+
+  return get(entity, __options, null)
 }

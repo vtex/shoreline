@@ -25,8 +25,27 @@ export function WithStyles() {
   )
 }
 
+export function Standalone() {
+  const Div = tag('div')
+  
+  return (
+    <ThemeProvider>
+      <Div
+        csx={{
+          bg: 'blue',
+          color: 'light.primary',
+          size: 120,
+        }}
+      >
+        Div element
+      </Div>
+    </ThemeProvider>
+  )
+}
+
 export function Polymorphism() {
   const menu = useMenuState()
+
   return (
     <ThemeProvider>
       <tag.button

@@ -1,16 +1,16 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { ThemeProvider } from '@vtex/admin-core'
-import { Button as ReakitButton, Separator } from 'reakit'
+import { Button as ReakitButton, Separator, Role } from 'reakit'
 
-import { createComponent } from '../index'
+import { jsx } from '../index'
 
 export default {
-  title: 'react/createComponent',
+  title: 'react/jsx',
 } as Meta
 
 export function Plain() {
-  const Div = createComponent('div')
+  const Div = jsx.div()
 
   return (
     <ThemeProvider>
@@ -41,7 +41,7 @@ export function Plain() {
 }
 
 export function Themed() {
-  const Div = createComponent('div', {
+  const Div = jsx.div({
     size: 100,
   })
 
@@ -71,12 +71,12 @@ export function Themed() {
 }
 
 export function Extend() {
-  const Div = createComponent('div', {
+  const Div = jsx.div({
     size: 100,
     marginY: 1,
   })
 
-  const NegativeDiv = createComponent(Div, {
+  const NegativeDiv = jsx(Div)({
     bg: 'red.secondary',
     color: 'red',
   })
@@ -98,16 +98,16 @@ export function Extend() {
 }
 
 export function DoubleExtend() {
-  const Div = createComponent('div', {
+  const Div = jsx.div({
     size: 100,
   })
 
-  const Primary = createComponent(Div, {
+  const Primary = jsx(Div)({
     bg: 'blue',
     color: 'light.primary',
   })
 
-  const Hoverable = createComponent(Primary, {
+  const Hoverable = jsx(Primary)({
     cursor: 'pointer',
     ':hover': {
       bg: 'blue.hover',
@@ -129,7 +129,7 @@ export function DoubleExtend() {
 }
 
 export function ButtonSeries() {
-  const Button = createComponent('button', {
+  const Button = jsx.button({
     height: 32,
     cursor: 'pointer',
     bg: 'transparent',
@@ -144,7 +144,7 @@ export function ButtonSeries() {
     },
   })
 
-  const Primary = createComponent(Button, {
+  const Primary = jsx(Button)({
     bg: 'blue',
     color: 'light.primary',
     ':hover': {
@@ -155,7 +155,7 @@ export function ButtonSeries() {
     },
   })
 
-  const Secondary = createComponent(Button, {
+  const Secondary = jsx(Button)({
     bg: 'blue.secondary',
     color: 'blue',
     ':hover': {
@@ -176,7 +176,7 @@ export function ButtonSeries() {
 }
 
 export function ButtonVariants() {
-  const Button = createComponent('button', {
+  const Button = jsx('button')({
     cursor: 'pointer',
     margin: 1,
     borderRadius: 'default',
@@ -230,8 +230,7 @@ export function ButtonVariants() {
 }
 
 export function SyncVariants() {
-  const Button = createComponent(
-    'button',
+  const Button = jsx.button(
     {
       cursor: 'pointer',
       margin: 1,
@@ -275,42 +274,44 @@ export function SyncVariants() {
         },
       },
     },
-    [
-      {
-        color: 'blue',
-        appearance: 'outline',
-        csx: {
-          bg: 'transparent',
-          borderStyle: 'solid',
-          borderColor: 'blue',
-          borderWidth: 1,
+    {
+      sync: [
+        {
           color: 'blue',
-          ':hover': {
-            bg: 'blue.secondary.hover',
-          },
-          ':active': {
-            bg: 'blue.secondary.pressed',
+          appearance: 'outline',
+          csx: {
+            bg: 'transparent',
+            borderStyle: 'solid',
+            borderColor: 'blue',
+            borderWidth: 1,
+            color: 'blue',
+            ':hover': {
+              bg: 'blue.secondary.hover',
+            },
+            ':active': {
+              bg: 'blue.secondary.pressed',
+            },
           },
         },
-      },
-      {
-        color: 'red',
-        appearance: 'outline',
-        csx: {
-          bg: 'transparent',
-          borderStyle: 'solid',
-          borderColor: 'red',
-          borderWidth: 1,
+        {
           color: 'red',
-          ':hover': {
-            bg: 'red.secondary.hover',
-          },
-          ':active': {
-            bg: 'red.secondary.pressed',
+          appearance: 'outline',
+          csx: {
+            bg: 'transparent',
+            borderStyle: 'solid',
+            borderColor: 'red',
+            borderWidth: 1,
+            color: 'red',
+            ':hover': {
+              bg: 'red.secondary.hover',
+            },
+            ':active': {
+              bg: 'red.secondary.pressed',
+            },
           },
         },
-      },
-    ]
+      ],
+    }
   )
 
   Button.defaultProps = {
@@ -332,8 +333,7 @@ export function SyncVariants() {
 }
 
 export function WithReakit() {
-  const Button = createComponent(
-    ReakitButton,
+  const Button = jsx(ReakitButton)(
     {
       cursor: 'pointer',
       margin: 1,
@@ -377,42 +377,44 @@ export function WithReakit() {
         },
       },
     },
-    [
-      {
-        color: 'blue',
-        appearance: 'outline',
-        csx: {
-          bg: 'transparent',
-          borderStyle: 'solid',
-          borderColor: 'blue',
-          borderWidth: 1,
+    {
+      sync: [
+        {
           color: 'blue',
-          ':hover': {
-            bg: 'blue.secondary.hover',
-          },
-          ':active': {
-            bg: 'blue.secondary.pressed',
+          appearance: 'outline',
+          csx: {
+            bg: 'transparent',
+            borderStyle: 'solid',
+            borderColor: 'blue',
+            borderWidth: 1,
+            color: 'blue',
+            ':hover': {
+              bg: 'blue.secondary.hover',
+            },
+            ':active': {
+              bg: 'blue.secondary.pressed',
+            },
           },
         },
-      },
-      {
-        color: 'red',
-        appearance: 'outline',
-        csx: {
-          bg: 'transparent',
-          borderStyle: 'solid',
-          borderColor: 'red',
-          borderWidth: 1,
+        {
           color: 'red',
-          ':hover': {
-            bg: 'red.secondary.hover',
-          },
-          ':active': {
-            bg: 'red.secondary.pressed',
+          appearance: 'outline',
+          csx: {
+            bg: 'transparent',
+            borderStyle: 'solid',
+            borderColor: 'red',
+            borderWidth: 1,
+            color: 'red',
+            ':hover': {
+              bg: 'red.secondary.hover',
+            },
+            ':active': {
+              bg: 'red.secondary.pressed',
+            },
           },
         },
-      },
-    ]
+      ],
+    }
   )
 
   Button.defaultProps = {
@@ -433,12 +435,8 @@ export function WithReakit() {
   )
 }
 
-export function OwnProps() {
-  const Divider = createComponent(
-    {
-      as: Separator,
-      ownProps: ['orientation'],
-    },
+export function WithOptions() {
+  const Divider = jsx(Separator)(
     {
       border: 'solid',
       borderWidth: 1,
@@ -455,6 +453,9 @@ export function OwnProps() {
           },
         },
       },
+    },
+    {
+      options: ['orientation'],
     }
   )
 
@@ -462,9 +463,9 @@ export function OwnProps() {
     orientation: 'horizontal',
   }
 
-  const Div = createComponent('div')
-  const Heading = createComponent('h1')
-  const Paragraph = createComponent('p')
+  const Div = jsx('div')()
+  const Heading = jsx('h1')()
+  const Paragraph = jsx('p')()
 
   return (
     <ThemeProvider>
@@ -510,19 +511,12 @@ export function OwnProps() {
   )
 }
 
-export function UseOwnProps() {
-  interface AvatarOwnProps {
+export function UseOptions() {
+  interface AvatarOptions {
     label: string
   }
 
-  const Avatar = createComponent(
-    {
-      as: 'div',
-      useOwnProps: (ownProps: AvatarOwnProps) => {
-        return { children: ownProps.label.charAt(0) }
-      },
-      ownProps: ['label'],
-    },
+  const Avatar = jsx(Role)(
     {
       size: 100,
       borderRadius: 'circle',
@@ -543,6 +537,12 @@ export function UseOwnProps() {
           },
         },
       },
+    },
+    {
+      useOptions: (options: AvatarOptions) => {
+        return { children: options.label.charAt(0) }
+      },
+      options: ['label'],
     }
   )
 
@@ -558,20 +558,17 @@ export function UseOwnProps() {
   )
 }
 
-
-export function Navigation() {
-  
-
-  const _Nav = createComponent('nav', {
+export function CompoundComponents() {
+  const _Nav = jsx.nav({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
     width: '100%',
     height: 64,
-    bg: 'sidebar.light'
+    bg: 'sidebar.light',
   })
 
-  const Button  = createComponent('button', {
+  const Button = jsx.button({
     bg: 'blue',
     color: 'light.primary',
     cursor: 'pointer',
@@ -584,17 +581,17 @@ export function Navigation() {
         regular: {
           paddingX: 3,
           paddingY: 2,
-        }
-      }
-    }
+        },
+      },
+    },
   })
 
   Button.defaultProps = {
-    size: 'regular'
+    size: 'regular',
   }
 
   const Nav = Object.assign(_Nav, {
-    Button
+    Button,
   })
 
   return (

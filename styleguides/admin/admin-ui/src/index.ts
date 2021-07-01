@@ -46,6 +46,7 @@ export * from './components/Toolbar'
 export * from './components/Pagination'
 export * from './components/PowerfulTable'
 export * from './components/FilterBar'
+export { tag, OndaElement, ElementPropsWithAs } from '@vtex/onda-react'
 export {
   isMobile,
   isSafari,

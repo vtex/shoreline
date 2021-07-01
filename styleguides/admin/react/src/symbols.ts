@@ -1,1 +1,4 @@
-export const ONDA_METADATA = Symbol('Onda component metadata')
+export const __stylesheet = Symbol('stylesheet')
+export const __options = Symbol('component options')
+
+
