@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import { UseTableReturn } from '../Table/useTableState'
+import { UseTableStateReturn } from '../Table/useTableState'
 import { Table } from '../Table/components'
 import { SystemComponent } from '../../types'
 import { Box, Flex } from '@vtex/admin-primitives'
@@ -144,7 +144,7 @@ export const StatefulTable = Object.assign(_StatefulTable, {
 })
 
 export interface StatefulTableProps<T> extends SystemComponent {
-  state: UseTableReturn<T>
+  state: UseTableStateReturn<T>
   /**
    * Element that will be displayed on top of the table
    */

@@ -372,8 +372,9 @@ Hook that manages the state logic of the Table component.
 
 ## Props
 
-| Name     | Type             | Description                                                                 | Required | Default                              |
-| -------- | ---------------- | --------------------------------------------------------------------------- | -------- | ------------------------------------ |
-| csx      | `StyleProp`      | Define component styles                                                     | 🚫       | {}                                   |
-| children | `ReactNode`      | Element that will be displayed on top of the table                          | 🚫       | -                                    |
-| views    | `TableViewsType` | Object with the strings and types of element to display on each table state | 🚫       | Table's default state fallback title |
+| Name     | Type                     | Description                                                                 | Required | Default                              |
+| -------- | ------------------------ | --------------------------------------------------------------------------- | -------- | ------------------------------------ |
+| state    | `UseTableStateReturn<T>` | Object that manages the Table FilterBar state                               | ✅       | -                                    |
+| csx      | `StyleProp`              | Define component styles                                                     | 🚫       | {}                                   |
+| children | `ReactNode`              | Element that will be displayed on top of the table                          | 🚫       | -                                    |
+| views    | `TableViewsType`         | Object with the strings and types of element to display on each table state | 🚫       | Table's default state fallback title |

@@ -1,3 +1,7 @@
 export * from './components'
-export { useTableState, UseTableParams, UseTableReturn } from './useTableState'
+export {
+  useTableState,
+  UseTableStateParams,
+  UseTableStateReturn,
+} from './useTableState'
 export * from './typings'

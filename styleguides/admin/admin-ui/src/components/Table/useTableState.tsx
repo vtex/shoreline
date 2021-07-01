@@ -26,7 +26,9 @@ import {
 } from './hooks/useTableSort'
 import { TableViewState } from './context'
 
-export function useTableState<T>(params: UseTableParams<T>): UseTableReturn<T> {
+export function useTableState<T>(
+  params: UseTableStateParams<T>
+): UseTableStateReturn<T> {
   const {
     columns,
     resolvers = baseResolvers<T>(),
@@ -152,7 +154,7 @@ export function useTableState<T>(params: UseTableParams<T>): UseTableReturn<T> {
   }
 }
 
-export interface UseTableParams<T> extends TableViewState {
+export interface UseTableStateParams<T> extends TableViewState {
   /**
    * Table column spec
    */
@@ -201,7 +203,7 @@ export interface UseTableParams<T> extends TableViewState {
   onRowClick?: (item: T) => void
 }
 
-export interface UseTableReturn<T> {
+export interface UseTableStateReturn<T> {
   skeletonCollection: T[]
   resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
   resolveHeader: (

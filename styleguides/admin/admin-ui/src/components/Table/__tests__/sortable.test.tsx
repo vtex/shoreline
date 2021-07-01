@@ -5,10 +5,14 @@ import '@testing-library/jest-dom/extend-expect'
 import { ThemeProvider } from '@vtex/admin-core'
 import { StylesContext } from '../context'
 import { getStyles } from './testUtil'
-import { UseTableParams, UseTableReturn, useTableState } from '../useTableState'
+import {
+  UseTableStateParams,
+  UseTableStateReturn,
+  useTableState,
+} from '../useTableState'
 
-interface TableStateProps<T> extends UseTableParams<T> {
-  children: (state: UseTableReturn<T>) => JSX.Element
+interface TableStateProps<T> extends UseTableStateParams<T> {
+  children: (state: UseTableStateReturn<T>) => JSX.Element
 }
 
 function TableState<T>({ children, ...tableProps }: TableStateProps<T>) {
