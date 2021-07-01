@@ -1,7 +1,7 @@
 {
   "name": "@vtex/onda-react",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "module": "dist/onda-react.esm.js",
   "typings": "dist/index.d.ts",

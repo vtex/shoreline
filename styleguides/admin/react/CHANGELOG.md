@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/vtex/onda/compare/@vtex/onda-react@0.2.0...@vtex/onda-react@0.2.1) (2021-07-01)
+
+
+### Bug Fixes
+
+* **onda-core:** build imports ([9d30f9e](https://github.com/vtex/onda/commit/9d30f9e743d75b03995547e4d3052aa5a510e095))
+
+
+
+
+
 # [0.2.0](https://github.com/vtex/onda/compare/@vtex/onda-react@0.1.1...@vtex/onda-react@0.2.0) (2021-07-01)
 
 
