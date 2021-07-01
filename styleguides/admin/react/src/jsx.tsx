@@ -41,7 +41,7 @@ export function _jsx<T extends As = 'div'>(type: T) {
     Variants extends {},
     InferVariants extends Variants
   >(
-    styleSheet: StyleSheet<Variants> = {},
+    jsxStylesheet: StyleSheet<Variants> = {},
     configuration: Configuration<TT, Options, InferVariants> = {
       sync: [],
       useOptions: useOptionsIdentity,
@@ -51,11 +51,11 @@ export function _jsx<T extends As = 'div'>(type: T) {
     const {
       sync = [],
       useOptions = useOptionsIdentity,
-      options = [],
+      options: jsxOptions = [],
     } = configuration
 
-    const compoundStylesheet = merge(parentStylesheet, styleSheet)
-    const compoundOptions = [...parentOptions, ...options]
+    const stylesheet = merge(parentStylesheet, jsxStylesheet)
+    const options = [...parentOptions, ...jsxOptions]
 
     const ConcreteOndaComponent = (
       props: PropsWithAs<Options, TT>,
@@ -64,16 +64,16 @@ export function _jsx<T extends As = 'div'>(type: T) {
       const { as: ComponentCall = type, ...unparsedProps } = props
       const system = useSystem()
       const interceptedProps = useOptions(
-        pick(unparsedProps, compoundOptions) as any,
-        omit(unparsedProps, compoundOptions) as any,
+        pick(unparsedProps, options) as any,
+        omit(unparsedProps, options) as any,
         system
       )
       const mergedProps = merge(unparsedProps, interceptedProps)
 
       const propsWithCompiledStyle = useStyleSheet({
-        styleSheet: compoundStylesheet,
+        stylesheet,
         sync,
-        options: compoundOptions,
+        options,
         props: mergedProps,
       })
 
@@ -93,7 +93,7 @@ export function _jsx<T extends As = 'div'>(type: T) {
 
     return Object.assign(Forwarded as any, {
       [__options]: options,
-      [__stylesheet]: compoundStylesheet,
+      [__stylesheet]: stylesheet,
     })
   }
 }

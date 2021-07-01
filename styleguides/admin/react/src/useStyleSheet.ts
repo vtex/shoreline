@@ -2,11 +2,11 @@ import { useSystem, StyleObject } from '@vtex/admin-core'
 import { isObjectEmpty, merge, omit } from '@vtex/onda-util'
 
 export function useStyleSheet<V>(params: UseStyleSheetParams<V>) {
-  const { styleSheet, sync, props, options } = params
+  const { stylesheet, sync, props, options } = params
   const { csx, className, ...htmlProps } = props
   const { cn, cx } = useSystem()
 
-  const { variants = {}, ...preCsx } = styleSheet
+  const { variants = {}, ...preCsx } = stylesheet
   const [variantList, variantStyles] = extractVariantStyles(
     variants,
     sync,
@@ -132,7 +132,7 @@ export type Sync<Variants> = {
 }
 
 export interface UseStyleSheetParams<Variants> {
-  styleSheet: StyleSheet<Variants>
+  stylesheet: StyleSheet<Variants>
   sync: Sync<any>[]
   options: string[]
   props: any

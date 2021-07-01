@@ -1,7 +1,7 @@
 import React, { ComponentPropsWithoutRef } from 'react'
 
 import { jsx } from '../jsx'
-import { isOndaComponent, cleanProps } from '../util'
+import { isOndaComponent, cleanProps, getStylesheet, getOptions } from '../util'
 
 describe('utils', () => {
   test('isOndaComponent', () => {
@@ -23,6 +23,42 @@ describe('utils', () => {
     expect(isOndaComponent(Aliased)).toBe(true)
     expect(isOndaComponent(Themed)).toBe(true)
     expect(isOndaComponent(Compound)).toBe(true)
+  })
+
+  test('getStylesheet', () => {
+    const stylesheet = {
+      size: 10,
+      variants: {
+        theme: {
+          primary: {
+            bg: 'blue'
+          },
+          secondary: {
+            bg: 'purple'
+          }
+        }
+      }
+    }
+
+    const Div = jsx.div(stylesheet)
+    const Compound = jsx(Div)({
+      padding: 2
+    })
+
+
+    expect(getStylesheet(Div)).toEqual(stylesheet)
+    expect(getStylesheet(Compound)).toEqual({
+      ...stylesheet,
+      padding: 2,
+    })
+  })
+
+  test('getOptions', () => {
+    const Div = jsx.div({}, { options: ['a', 'b'] })
+    const Compound = jsx(Div)({}, { options: ['c'] })
+
+    expect(getOptions(Div)).toEqual(['a', 'b'])
+    expect(getOptions(Compound)).toEqual(['a', 'b', 'c'])
   })
 
 
