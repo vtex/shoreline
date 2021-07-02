@@ -1,11 +1,12 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import { Meta } from '@storybook/react'
 
-import { StatefulTable, StatefulTableProps } from '../../PowerfulTable'
+import { StatefulTable } from '../../PowerfulTable'
 import { baseResolvers } from '../resolvers/base'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
 import { useTableState } from '../useTableState'
+import { Resolver } from '../resolvers/core'
 
 export default {
   title: 'admin-ui/Table/States',
@@ -19,29 +20,40 @@ interface Item {
   status: string
 }
 
-const Template: Story<StatefulTableProps<Item>> = (args) => {
-  const tableState = useTableState({
-    columns: [
-      {
-        id: 'location',
-        header: 'Location',
-        width: 148,
-      },
-      {
-        id: 'date',
-        header: 'Date',
-        width: 148,
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        width: 156,
-      },
-    ],
-    items: [],
-  })
+interface TableProps<T> {
+  loading: boolean
+  resolvers: Record<string, Resolver<T>>
+}
 
-  return <StatefulTable {...args} state={tableState} />
+const Template = (args: TableProps<Item>) => {
+  const { loading, resolvers } = args
+
+  const tableState = useTableState(
+    {
+      columns: [
+        {
+          id: 'location',
+          header: 'Location',
+          width: 148,
+        },
+        {
+          id: 'date',
+          header: 'Date',
+          width: 148,
+        },
+        {
+          id: 'status',
+          header: 'Status',
+          width: 156,
+        },
+      ],
+      loading,
+      items: [],
+    },
+    resolvers
+  )
+
+  return <StatefulTable state={tableState} />
 }
 
 export const Loading = Template.bind({})

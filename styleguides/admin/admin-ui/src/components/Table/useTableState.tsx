@@ -27,12 +27,11 @@ import {
 import { TableViewState } from './context'
 
 export function useTableState<T>(
-  params: UseTableStateParams<T>
+  params: UseTableStateParams<T>,
+  resolvers: Record<string, Resolver<T>> | undefined = baseResolvers<T>()
 ): UseTableStateReturn<T> {
   const {
     columns,
-    resolvers = baseResolvers<T>(),
-
     length = 5,
     items = [],
     sort = {},
@@ -173,11 +172,6 @@ export interface UseTableStateParams<T> extends TableViewState {
    * @default (item)=>item.id
    */
   getRowKey?: (item: T) => string
-  /**
-   * Table field resolvers
-   * @default {baseResolvers}
-   */
-  resolvers?: Record<string, Resolver<T>>
   /**
    * Table items
    * @default []
