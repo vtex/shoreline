@@ -1,23 +1,21 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/dracula'
+import theme from 'prism-react-renderer/themes/github'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import {
-  Box,
+  tag,
   Button,
-  useSystem,
   createSystem,
   ThemeProvider,
   Set,
   Flex,
+  IconCode,
+  IconDuplicate,
 } from '@vtex/admin-ui'
 
 import { copyToClipboard, calculateLinesToHighlight } from './util'
 import scope from './LiveCodeScope'
 import styles from './styles'
-import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit'
 
 export interface CodeProps {
   codeString: string
@@ -40,14 +38,12 @@ export function Code(props: CodeProps) {
     isShown = false,
     highlight,
     title,
-    lineNumbers,
+    lineNumbers = false,
     noInline = false,
   } = props
 
-  const { cn, cx } = useSystem()
   const [copied, setCopied] = useState(false)
   const language = className?.replace(/language-/, '')
-
   const shouldHighlightLine = calculateLinesToHighlight(highlight)
 
   const handleClick = () => {
@@ -59,7 +55,7 @@ export function Code(props: CodeProps) {
     }, 4000)
   }
 
-  const disclosure = useDisclosureState({ visible: isShown })
+  const [codeVisible, setCodeVisible] = useState(isShown)
 
   if (!isStatic) {
     return (
@@ -70,36 +66,44 @@ export function Code(props: CodeProps) {
           theme={theme}
           scope={scope}
         >
-          <Box csx={styles.wrapper}>
-            <LivePreview className={cn(styles.preview)} />
-            <Flex justify="flex-end" csx={{ padding: 1 }}>
+          <tag.div csx={styles.wrapper}>
+            <tag.div as={LivePreview} csx={styles.preview} />
+            <Flex
+              justify="flex-end"
+              csx={{
+                padding: 1,
+                bg: 'sidebar.light',
+                borderBottomRightRadius: 4,
+                borderBottomLeftRadius: 4,
+              }}
+            >
               <Set>
-                <Disclosure
-                  as={Button}
-                  variant="secondary"
-                  size="small"
-                  {...disclosure}
-                >
-                  {disclosure.visible ? 'Hide code' : 'Show code'}
-                </Disclosure>
+                {codeVisible && (
+                  <Button
+                    size="small"
+                    icon={<IconDuplicate />}
+                    variant="adaptative-dark"
+                    onClick={handleClick}
+                    disabled={copied}
+                  >
+                    {copied ? 'Copied!' : 'Copy code'}
+                  </Button>
+                )}
                 <Button
+                  icon={<IconCode />}
+                  variant="adaptative-dark"
                   size="small"
-                  variant="secondary"
-                  onClick={handleClick}
-                  disabled={copied}
+                  onClick={() => setCodeVisible((v) => !v)}
                 >
-                  {copied ? 'Copied!' : 'Copy'}
+                  Show/Hide Code
                 </Button>
               </Set>
             </Flex>
-            <Box csx={styles.editorWrapper}>
-              <DisclosureContent {...disclosure}>
-                <LiveEditor />
-              </DisclosureContent>
-            </Box>
-
-            <LiveError className={cn(styles.liveEditor)} />
-          </Box>
+            <tag.div csx={styles.editorWrapper}>
+              {codeVisible && <LiveEditor />}
+            </tag.div>
+            <tag.div as={LiveError} csx={styles.liveEditor} />
+          </tag.div>
         </LiveProvider>
       </ThemeProvider>
     )
@@ -107,7 +111,7 @@ export function Code(props: CodeProps) {
 
   return (
     <ThemeProvider system={system}>
-      {title && <Box csx={styles.preHeader}>{title}</Box>}
+      {title && <tag.div csx={styles.preHeader}>{title}</tag.div>}
       <div className="gatsby-highlight">
         <Highlight
           {...defaultProps}
@@ -122,25 +126,24 @@ export function Code(props: CodeProps) {
             getLineProps,
             getTokenProps,
           }) => (
-            <pre
-              className={cx(
-                cn({
-                  borderRadius: `${title ? '0 0 5px 5px' : '5px'}`,
-                  padding: `${language ? `2rem` : `1rem`} 1rem 1rem 1rem`,
-                  ...styles.pre,
-                }),
-                blockClassName
-              )}
+            <tag.pre
+              csx={{
+                borderRadius: `${title ? '0 0 4px 4px' : '4px'}`,
+                padding: `${language ? `2rem` : `1rem`} 1rem 1rem 1rem`,
+                ...styles.pre,
+              }}
+              className={blockClassName}
               style={style}
             >
               <Button
                 size="small"
-                variant="secondary"
+                icon={<IconCode />}
+                variant="adaptative-dark"
                 onClick={handleClick}
                 disabled={copied}
                 csx={styles.copyButton}
               >
-                {copied ? 'Copied!' : 'Copy'}
+                {copied ? 'Copied!' : 'Copy code'}
               </Button>
               <code>
                 {tokens.map((line, index) => {
@@ -153,9 +156,7 @@ export function Code(props: CodeProps) {
                   return (
                     <div {...lineProps}>
                       {lineNumbers && (
-                        <Box element="span" csx={styles.lineNo}>
-                          {index + 1}
-                        </Box>
+                        <tag.span csx={styles.lineNo}>{index + 1}</tag.span>
                       )}
                       {line.map((token, key) => (
                         <span {...getTokenProps({ token, key })} />
@@ -164,7 +165,7 @@ export function Code(props: CodeProps) {
                   )
                 })}
               </code>
-            </pre>
+            </tag.pre>
           )}
         </Highlight>
       </div>

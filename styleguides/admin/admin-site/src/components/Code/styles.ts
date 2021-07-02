@@ -40,8 +40,8 @@ export default {
   },
   copyButton: {
     position: 'absolute',
-    top: 1,
-    right: 1,
+    top: '18px',
+    right: '6px',
     zIndex: 1,
   },
   preHeader: {
@@ -63,7 +63,6 @@ export default {
     fontFamily: 'mono',
     WebkitOverflowScrolling: 'touch',
     overflowWrap: 'break-word',
-    boxShadow: '1px 1px 20px rgba(20, 20, 20, 0.27)',
     code: {
       cssFloat: 'left',
       minWidth: '100%',
