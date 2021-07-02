@@ -121,9 +121,11 @@ export default function Docs({ data, pageContext }: DocsProps) {
               font-style: normal !important;
             }
           }
+          
           pre[class*='language-'] code {
             font-family: inherit;
           }
+
           pre[class*='language-']::before {
             background: #d9d7e0;
             border-radius: 0 0 4px 4px;
@@ -137,48 +139,57 @@ export default function Docs({ data, pageContext }: DocsProps) {
             left: 1rem;
             text-align: right;
             text-transform: uppercase;
-            top: 0;
+            top: 12px;
           }
+
           pre[class~='language-js']::before,
           pre[class~='language-javascript']::before {
             content: 'js';
             background: #f7df1e;
           }
+
           pre[class~='language-jsx']::before {
             content: 'jsx';
             background: #61dafb;
           }
+
           pre[class~='language-typescript']::before,
           pre[class~='language-ts']::before {
             content: 'ts';
             background: #294e80;
             color: #fff;
           }
+
           pre[class~='language-tsx']::before {
             content: 'tsx';
             background: #294e80;
             color: #fff;
           }
+
           pre[class~='language-graphql']::before {
             content: 'GraphQL';
             background: #e10098;
             color: #fff;
           }
+          
           pre[class~='language-html']::before {
             content: 'html';
             background: #005a9c;
             color: #fff;
           }
+
           pre[class~='language-css']::before {
             content: 'css';
             background: #ff9800;
             color: #fff;
           }
+
           pre[class~='language-mdx']::before {
             content: 'mdx';
             background: #f9ac00;
             color: #fff;
           }
+
           pre[class~='language-shell']::before {
             content: 'shell';
           }
