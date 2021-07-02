@@ -33,15 +33,15 @@ export type ResolverContext = {
   /**
    * If there's a error related to the table
    */
-  error: boolean
+  error?: boolean
   /**
    * If a search in the table returned no items
    */
-  itemsNotFound: boolean
+  itemsNotFound?: boolean
   /**
    * If the collection has no items
    */
-  empty: boolean
+  empty?: boolean
 }
 
 /**

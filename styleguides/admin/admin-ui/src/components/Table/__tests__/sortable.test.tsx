@@ -1,5 +1,5 @@
 import React from 'react'
-import { StatefulTable } from '../../PowerfulTable/Stateful'
+import { StatelessTable } from '../../PowerfulTable/Stateful'
 import { render, fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { ThemeProvider } from '@vtex/admin-core'
@@ -15,7 +15,7 @@ interface TableStateProps<T> extends UseTableStateParams<T> {
   children: (state: UseTableStateReturn<T>) => JSX.Element
 }
 
-function TableState<T>({ children, ...tableProps }: TableStateProps<T>) {
+function StatefulTable<T>({ children, ...tableProps }: TableStateProps<T>) {
   const state = useTableState(tableProps)
 
   return children(state)
@@ -27,7 +27,7 @@ describe('Sortable tests', () => {
       const { container } = render(
         <ThemeProvider>
           <StylesContext.Provider value={getStyles('compact')}>
-            <TableState
+            <StatefulTable
               items={[
                 { id: '0', name: 'Candido' },
                 { id: '1', name: 'Joseph' },
@@ -41,8 +41,8 @@ describe('Sortable tests', () => {
                 },
               ]}
             >
-              {(state) => <StatefulTable state={state} />}
-            </TableState>
+              {(state) => <StatelessTable state={state} />}
+            </StatefulTable>
           </StylesContext.Provider>
         </ThemeProvider>
       )

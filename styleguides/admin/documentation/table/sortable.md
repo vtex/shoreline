@@ -101,6 +101,6 @@ function Sortable() {
     },
   })
 
-  return <StatefulTable state={state} />
+  return <StatelessTable state={state} />
 }
 ```

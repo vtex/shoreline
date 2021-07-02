@@ -4,7 +4,7 @@ import { useDebounce } from 'use-debounce'
 import { Flex } from '@vtex/admin-primitives'
 
 import { FilterBar } from '../index'
-import { StatefulTable } from '../../PowerfulTable'
+import { StatelessTable } from '../../PowerfulTable'
 import { Statement, Filters } from '../typings'
 import { AbstractInput } from '../../AbstractInput'
 import { ResolverRenderProps } from '../resolvers/core'
@@ -222,7 +222,7 @@ export const Table: Story = () => {
             whereStatementLabel: 'Where',
           }}
         />
-        <StatefulTable state={tableState} />
+        <StatelessTable state={tableState} />
       </Flex>
     </Flex>
   )

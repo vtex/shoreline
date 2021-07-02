@@ -112,9 +112,9 @@ function CompleteTopbar() {
   })
 
   return (
-    <StatefulTable state={state}>
-      <StatefulTable.Section>
-        <StatefulTable.Search
+    <StatelessTable state={state}>
+      <StatelessTable.Section>
+        <StatelessTable.Search
           id="search"
           placeholder="Search"
           value={search}
@@ -122,17 +122,17 @@ function CompleteTopbar() {
             setSearch(e.target.value)
           }}
         />
-        <StatefulTable.Toolbar>
-          <StatefulTable.Toolbar.Button icon={<IconFilter />}>
+        <StatelessTable.Toolbar>
+          <StatelessTable.Toolbar.Button icon={<IconFilter />}>
             Filter
-          </StatefulTable.Toolbar.Button>
-          <StatefulTable.Toolbar.Button icon={<IconImport />}>
+          </StatelessTable.Toolbar.Button>
+          <StatelessTable.Toolbar.Button icon={<IconImport />}>
             Import
-          </StatefulTable.Toolbar.Button>
-          <StatefulTable.Toolbar.Button icon={<IconExport />}>
+          </StatelessTable.Toolbar.Button>
+          <StatelessTable.Toolbar.Button icon={<IconExport />}>
             Export
-          </StatefulTable.Toolbar.Button>
-        </StatefulTable.Toolbar>
+          </StatelessTable.Toolbar.Button>
+        </StatelessTable.Toolbar>
         <FlexSpacer />
         <Pagination
           state={paginationState}
@@ -142,8 +142,8 @@ function CompleteTopbar() {
           nextLabel="Next"
           total={fruits.length}
         />
-      </StatefulTable.Section>
-    </StatefulTable>
+      </StatelessTable.Section>
+    </StatelessTable>
   )
 }
 ```

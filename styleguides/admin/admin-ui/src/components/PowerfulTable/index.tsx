@@ -1,1 +1,1 @@
-export { StatefulTable, StatefulTableProps } from './Stateful'
+export { StatelessTable, StatelessTableProps } from './Stateful'

@@ -8,7 +8,7 @@ Tables display information in rows of data. It favors the display of data sets.
 
 ## Behavior
 
-The table is a compound component that contains a component for every HTML element related to the `<table>`. HTML elements include `Head`, `Body`, `Row` and `Cell`. It is also possible to use table's variations, like the `StatefulTable` component which provides a simpler API, that requires only the state, you can get the state passing the array of columns and the data set to the `useTableState` hook, and the `StatefulTable` will render the table for you.
+The table is a compound component that contains a component for every HTML element related to the `<table>`. HTML elements include `Head`, `Body`, `Row` and `Cell`. It is also possible to use table's variations, like the `StatelessTable` component which provides a simpler API, that requires only the state, you can get the state passing the array of columns and the data set to the `useTableState` hook, and the `StatelessTable` will render the table for you.
 
 ## Installation
 
@@ -22,7 +22,7 @@ import { Table } from '@vtex/admin-ui'
 
 ## Variations
 
-### StatefulTable
+### StatelessTable
 
 This is the simplest way to use the Table. It handles common table use cases.
 
@@ -73,7 +73,7 @@ function Simple() {
 
   const state = useTableState({ columns, items: fruits })
 
-  return <StatefulTable state={state} />
+  return <StatelessTable state={state} />
 }
 ```
 
@@ -132,7 +132,7 @@ function Example() {
     ],
   })
 
-  return <StatefulTable state={state} />
+  return <StatelessTable state={state} />
 }
 ```
 
@@ -187,7 +187,7 @@ function Example() {
     ],
   })
 
-  return <StatefulTable state={state} />
+  return <StatelessTable state={state} />
 }
 ```
 
@@ -263,7 +263,7 @@ function Example() {
     ],
   })
 
-  return <StatefulTable state={state} />
+  return <StatelessTable state={state} />
 }
 ```
 

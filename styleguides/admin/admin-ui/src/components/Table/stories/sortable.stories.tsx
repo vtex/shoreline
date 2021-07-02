@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { Meta } from '@storybook/react'
 import faker from 'faker'
 
-import { StatefulTable } from '../../PowerfulTable'
+import { StatelessTable } from '../../PowerfulTable'
 import { Column } from '../typings'
 import {
   SortState,
@@ -14,7 +14,7 @@ import { useTableState } from '../useTableState'
 
 export default {
   title: 'admin-ui/Table/Sort',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 interface Item {
@@ -124,7 +124,7 @@ export function Sortable() {
   ]
   const tableState = useTableState({ columns, items })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export function SortDirections() {
@@ -173,7 +173,7 @@ export function SortDirections() {
     sort: { directions: ['ASC'] },
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export function SortInitialState() {
@@ -225,7 +225,7 @@ export function SortInitialState() {
     },
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export function CustomSort() {
@@ -316,5 +316,5 @@ export function CustomSort() {
     sort: { directions: ['ASC', 'DSC'], reducer, callback: sort },
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }

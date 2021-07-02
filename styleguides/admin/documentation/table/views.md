@@ -69,7 +69,7 @@ function Views() {
   })
 
   return (
-    <StatefulTable
+    <StatelessTable
       state={state}
       views={{
         itemsNotFound: {
@@ -90,27 +90,27 @@ function Views() {
         },
       }}
     >
-      <StatefulTable.Section>
-        <StatefulTable.Toolbar>
-          <StatefulTable.Toolbar.Button onClick={() => setTableState('error')}>
+      <StatelessTable.Section>
+        <StatelessTable.Toolbar>
+          <StatelessTable.Toolbar.Button onClick={() => setTableState('error')}>
             error
-          </StatefulTable.Toolbar.Button>
-          <StatefulTable.Toolbar.Button
+          </StatelessTable.Toolbar.Button>
+          <StatelessTable.Toolbar.Button
             onClick={() => setTableState('loading')}
           >
             loading
-          </StatefulTable.Toolbar.Button>
-          <StatefulTable.Toolbar.Button onClick={() => setTableState('empty')}>
+          </StatelessTable.Toolbar.Button>
+          <StatelessTable.Toolbar.Button onClick={() => setTableState('empty')}>
             empty
-          </StatefulTable.Toolbar.Button>
-          <StatefulTable.Toolbar.Button
+          </StatelessTable.Toolbar.Button>
+          <StatelessTable.Toolbar.Button
             onClick={() => setTableState('itemsNotFound')}
           >
             items not found
-          </StatefulTable.Toolbar.Button>
-        </StatefulTable.Toolbar>
-      </StatefulTable.Section>
-    </StatefulTable>
+          </StatelessTable.Toolbar.Button>
+        </StatelessTable.Toolbar>
+      </StatelessTable.Section>
+    </StatelessTable>
   )
 }
 ```

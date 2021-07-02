@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { StatefulTable } from '../../PowerfulTable'
+import { StatelessTable } from '../../PowerfulTable'
 import { baseResolvers } from '../resolvers/base'
 import { Box } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
@@ -10,7 +10,7 @@ import { Resolver } from '../resolvers/core'
 
 export default {
   title: 'admin-ui/Table/States',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 interface Item {
@@ -53,7 +53,7 @@ const Template = (args: TableProps<Item>) => {
     resolvers
   )
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export const Loading = Template.bind({})
@@ -135,7 +135,7 @@ export function DataFetch() {
       <Button onClick={() => fetchData()} disabled={loading}>
         fetch items
       </Button>
-      <StatefulTable state={tableState} />
+      <StatelessTable state={tableState} />
     </Box>
   )
 }

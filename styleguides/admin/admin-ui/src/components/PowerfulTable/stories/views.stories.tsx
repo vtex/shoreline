@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { Meta } from '@storybook/react'
 
-import { StatefulTable } from '../../PowerfulTable'
+import { StatelessTable } from '../../PowerfulTable'
 import { Box } from '@vtex/admin-primitives'
 import { TableViewState } from '../../Table/context'
 import { Input } from '../../Input'
@@ -9,7 +9,7 @@ import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/PowerfulTable/Views',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 export function Views() {
@@ -67,7 +67,7 @@ export function Views() {
   })
 
   return (
-    <StatefulTable
+    <StatelessTable
       state={tableState}
       views={{
         itemsNotFound: {
@@ -88,26 +88,26 @@ export function Views() {
         },
       }}
     >
-      <StatefulTable.Section>
-        <StatefulTable.Toolbar>
-          <StatefulTable.Toolbar.Button
+      <StatelessTable.Section>
+        <StatelessTable.Toolbar>
+          <StatelessTable.Toolbar.Button
             onClick={() => setTableViewState('empty')}
           >
             empty
-          </StatefulTable.Toolbar.Button>
-          <StatefulTable.Toolbar.Button
+          </StatelessTable.Toolbar.Button>
+          <StatelessTable.Toolbar.Button
             onClick={() => setTableViewState('itemsNotFound')}
           >
             items not found
-          </StatefulTable.Toolbar.Button>
-          <StatefulTable.Toolbar.Button
+          </StatelessTable.Toolbar.Button>
+          <StatelessTable.Toolbar.Button
             onClick={() => setTableViewState('empty')}
           >
             empty
-          </StatefulTable.Toolbar.Button>
-        </StatefulTable.Toolbar>
-      </StatefulTable.Section>
-    </StatefulTable>
+          </StatelessTable.Toolbar.Button>
+        </StatelessTable.Toolbar>
+      </StatelessTable.Section>
+    </StatelessTable>
   )
 }
 
@@ -141,7 +141,7 @@ export function CustomizeView() {
 
   return (
     <Box>
-      <StatefulTable
+      <StatelessTable
         state={tableState}
         views={{
           empty: viewObj,
@@ -149,7 +149,7 @@ export function CustomizeView() {
           itemsNotFound: viewObj,
         }}
       >
-        <StatefulTable.Section>
+        <StatelessTable.Section>
           <Input
             id="title"
             label="Title"
@@ -163,30 +163,30 @@ export function CustomizeView() {
             onChange={(e) => setText(e.target.value)}
           />
 
-          <StatefulTable.Toolbar>
-            <StatefulTable.Toolbar.Button
+          <StatelessTable.Toolbar>
+            <StatelessTable.Toolbar.Button
               onClick={() => setTableViewState('empty')}
             >
               empty
-            </StatefulTable.Toolbar.Button>
-            <StatefulTable.Toolbar.Button
+            </StatelessTable.Toolbar.Button>
+            <StatelessTable.Toolbar.Button
               onClick={() => setTableViewState('itemsNotFound')}
             >
               items not found
-            </StatefulTable.Toolbar.Button>
-            <StatefulTable.Toolbar.Button
+            </StatelessTable.Toolbar.Button>
+            <StatelessTable.Toolbar.Button
               onClick={() => setTableViewState('empty')}
             >
               empty
-            </StatefulTable.Toolbar.Button>
-            <StatefulTable.Toolbar.Button
+            </StatelessTable.Toolbar.Button>
+            <StatelessTable.Toolbar.Button
               onClick={() => setAnchor(anchor === 'anchor' ? 'text' : 'anchor')}
             >
               {anchor === 'anchor' ? 'text' : 'anchor'}
-            </StatefulTable.Toolbar.Button>
-          </StatefulTable.Toolbar>
-        </StatefulTable.Section>
-      </StatefulTable>
+            </StatelessTable.Toolbar.Button>
+          </StatelessTable.Toolbar>
+        </StatelessTable.Section>
+      </StatelessTable>
     </Box>
   )
 }

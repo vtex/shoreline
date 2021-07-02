@@ -4,13 +4,13 @@ import { Meta } from '@storybook/react'
 import { Button } from '../../Button'
 import { Text } from '../../Text'
 import { Card } from '../../Card'
-import { StatefulTable } from '../Stateful'
+import { StatelessTable } from '../Stateful'
 import { Skeleton } from '../../Skeleton'
 import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/PowerfulTable/Stateful',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 export const Example = () => {
@@ -124,7 +124,7 @@ export const Example = () => {
   return (
     <Card csx={{ width: 560, display: 'flex', flexDirection: 'column' }}>
       <Button onClick={() => setLoading((l) => !l)}>Load</Button>
-      <StatefulTable state={tableState} />
+      <StatelessTable state={tableState} />
     </Card>
   )
 }

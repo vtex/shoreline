@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { StatefulTable } from '../../PowerfulTable/index'
+import { StatelessTable } from '../../PowerfulTable/index'
 import { baseResolvers } from '../resolvers/base'
 import { useTableState } from '../useTableState'
 import { TableDensity } from '../typings'
@@ -9,7 +9,7 @@ import { Resolver } from '../resolvers/core'
 
 export default {
   title: 'admin-ui/Table/Densities',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 interface Item {
@@ -75,7 +75,7 @@ function Template({ density, resolvers }: TemplateProps<Item>) {
     resolvers
   )
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export const Regular = Template.bind({})

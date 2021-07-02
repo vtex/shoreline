@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { Meta } from '@storybook/react'
 import faker from 'faker'
-import { StatefulTable } from '../Stateful'
+import { StatelessTable } from '../Stateful'
 import { IconExport, IconImport, IconFilter } from '@vtex/admin-ui-icons'
 import { Pagination, usePaginationState } from '../../Pagination'
 import { FlexSpacer } from '@vtex/admin-primitives'
@@ -9,7 +9,7 @@ import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/PowerfulTable/CompleteToolbar',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 const items = [...Array(10).keys()].map((id) => {
@@ -76,9 +76,9 @@ export function CompleteTopbar() {
   })
 
   return (
-    <StatefulTable state={tableState}>
-      <StatefulTable.Section>
-        <StatefulTable.Search
+    <StatelessTable state={tableState}>
+      <StatelessTable.Section>
+        <StatelessTable.Search
           id="search"
           placeholder="Search"
           value={search}
@@ -86,17 +86,17 @@ export function CompleteTopbar() {
             setSearch(e.target.value)
           }}
         />
-        <StatefulTable.Toolbar>
-          <StatefulTable.Toolbar.Button icon={<IconFilter />}>
+        <StatelessTable.Toolbar>
+          <StatelessTable.Toolbar.Button icon={<IconFilter />}>
             Filter
-          </StatefulTable.Toolbar.Button>
-          <StatefulTable.Toolbar.Button icon={<IconImport />}>
+          </StatelessTable.Toolbar.Button>
+          <StatelessTable.Toolbar.Button icon={<IconImport />}>
             Import
-          </StatefulTable.Toolbar.Button>
-          <StatefulTable.Toolbar.Button icon={<IconExport />}>
+          </StatelessTable.Toolbar.Button>
+          <StatelessTable.Toolbar.Button icon={<IconExport />}>
             Export
-          </StatefulTable.Toolbar.Button>
-        </StatefulTable.Toolbar>
+          </StatelessTable.Toolbar.Button>
+        </StatelessTable.Toolbar>
         <FlexSpacer />
         <Pagination
           state={paginationState}
@@ -106,7 +106,7 @@ export function CompleteTopbar() {
           nextLabel="Next"
           total={items.length}
         />
-      </StatefulTable.Section>
-    </StatefulTable>
+      </StatelessTable.Section>
+    </StatelessTable>
   )
 }

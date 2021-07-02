@@ -2,13 +2,13 @@ import React, { Fragment, useMemo } from 'react'
 import { Meta } from '@storybook/react'
 
 import { Text } from '../../Text'
-import { StatefulTable } from '../../PowerfulTable/index'
+import { StatelessTable } from '../../PowerfulTable/index'
 import { Skeleton } from '../../Skeleton'
 import { useTableState } from '../useTableState'
 
 export default {
   title: 'admin-ui/Table/Resolvers',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 export const Plain = () => {
@@ -77,7 +77,7 @@ export const Plain = () => {
     items: fruits,
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export const Selection = () => {
@@ -140,7 +140,7 @@ export const Selection = () => {
     items: fruits,
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export const SelectionInit = () => {
@@ -208,7 +208,7 @@ export const SelectionInit = () => {
     items: fruits,
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export function SelectionWithRowClick() {
@@ -265,7 +265,7 @@ export function SelectionWithRowClick() {
     },
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 export const Currency = () => {
   const currencies = [
@@ -310,7 +310,7 @@ export const Currency = () => {
     items: currencies,
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export const Date = () => {
@@ -382,7 +382,7 @@ export const Date = () => {
     items: dates,
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export const Image = () => {
@@ -468,7 +468,7 @@ export const Image = () => {
     items: fruits,
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export const Root = () => {
@@ -526,5 +526,5 @@ export const Root = () => {
     ],
   })
 
-  return <StatefulTable state={state} />
+  return <StatelessTable state={state} />
 }

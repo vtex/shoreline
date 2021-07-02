@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
-import { StatefulTable } from '../'
+import { StatelessTable } from '../'
 import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/PowerfulTable/Basic',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 export function Simple() {
@@ -56,7 +56,7 @@ export function Simple() {
     items: fruits,
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export function OnRowClick() {
@@ -107,7 +107,7 @@ export function OnRowClick() {
     items: fruits,
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export function LoadingAndRowClick() {
@@ -162,14 +162,14 @@ export function LoadingAndRowClick() {
   })
 
   return (
-    <StatefulTable state={tableState}>
-      <StatefulTable.Section>
-        <StatefulTable.Toolbar>
-          <StatefulTable.Toolbar.Button onClick={() => setLoading(!loading)}>
+    <StatelessTable state={tableState}>
+      <StatelessTable.Section>
+        <StatelessTable.Toolbar>
+          <StatelessTable.Toolbar.Button onClick={() => setLoading(!loading)}>
             loading
-          </StatefulTable.Toolbar.Button>
-        </StatefulTable.Toolbar>
-      </StatefulTable.Section>
-    </StatefulTable>
+          </StatelessTable.Toolbar.Button>
+        </StatelessTable.Toolbar>
+      </StatelessTable.Section>
+    </StatelessTable>
   )
 }

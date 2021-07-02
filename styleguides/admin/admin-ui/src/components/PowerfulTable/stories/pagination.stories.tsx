@@ -3,14 +3,14 @@ import { Meta } from '@storybook/react'
 import { Flex } from '@vtex/admin-primitives'
 import faker from 'faker'
 
-import { StatefulTable } from '../index'
+import { StatelessTable } from '../index'
 import { usePaginationState } from '../../Pagination'
 import { Pagination } from '../../Pagination'
 import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/PowerfulTable/Pagination',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 interface GetItemsReturn {
@@ -88,8 +88,8 @@ export function Simple() {
   })
 
   return (
-    <StatefulTable state={tableState}>
-      <StatefulTable.Section>
+    <StatelessTable state={tableState}>
+      <StatelessTable.Section>
         <Flex.Spacer />
         <Pagination
           state={paginationState}
@@ -99,8 +99,8 @@ export function Simple() {
           prevLabel="Previous"
           nextLabel="Next"
         />
-      </StatefulTable.Section>
-    </StatefulTable>
+      </StatelessTable.Section>
+    </StatelessTable>
   )
 }
 
@@ -184,11 +184,11 @@ export function CustomPagination() {
   })
 
   return (
-    <StatefulTable state={tableState}>
-      <StatefulTable.Section>
+    <StatelessTable state={tableState}>
+      <StatelessTable.Section>
         <Flex.Spacer />
         <Pagination state={paginationState} total={total} loading={loading} />
-      </StatefulTable.Section>
-    </StatefulTable>
+      </StatelessTable.Section>
+    </StatelessTable>
   )
 }

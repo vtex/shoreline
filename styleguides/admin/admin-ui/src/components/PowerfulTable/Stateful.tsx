@@ -15,13 +15,13 @@ import { ViewContext } from '../Table/context'
  * Table used to show static & simple information
  * @example
  * ```jsx
- * import { StatefulTable, defineColumns } from `@vtex/admin-ui`
+ * import { StatelessTable, useTableState, defineColumns } from `@vtex/admin-ui`
  *
  * type Item = {}
  *
  * const items: Item[] = []
  *
- * const columns = defineColumns<Item>([
+ * const columns = [
  *  {
  *    id: 'prop-to-access',
  *    lead: 'column-lead-text',
@@ -29,13 +29,15 @@ import { ViewContext } from '../Table/context'
  *    resolver: one of BaseResolvers<Item>
  *  },
  *  ...
- * ])
+ * ]
  *
- * <StatefulTable columns={columns} items={items} />
+ * const state = useTableState({ columns, items })
+ *
+ * <StatelessTable state={state} />
  * ```
  */
 
-function _StatefulTable<T>(props: StatefulTableProps<T>) {
+function _StatelessTable<T>(props: StatelessTableProps<T>) {
   const {
     state: {
       data,
@@ -137,13 +139,13 @@ function _StatefulTable<T>(props: StatefulTableProps<T>) {
   )
 }
 
-export const StatefulTable = Object.assign(_StatefulTable, {
+export const StatelessTable = Object.assign(_StatelessTable, {
   Toolbar: TableToolbar,
   Section: TableSection,
   Search: TableSearch,
 })
 
-export interface StatefulTableProps<T> extends SystemComponent {
+export interface StatelessTableProps<T> extends SystemComponent {
   state: UseTableStateReturn<T>
   /**
    * Element that will be displayed on top of the table

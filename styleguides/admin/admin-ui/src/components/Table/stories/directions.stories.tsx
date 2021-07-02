@@ -1,13 +1,13 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import { StatefulTable } from '../../PowerfulTable/index'
+import { StatelessTable } from '../../PowerfulTable/index'
 
 import { useTableState } from '../useTableState'
 
 export default {
   title: 'admin-ui/Table/Directions',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 export function LTR() {
@@ -67,7 +67,7 @@ export function LTR() {
     ],
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
 
 export function RTL() {
@@ -137,5 +137,5 @@ export function RTL() {
     ],
   })
 
-  return <StatefulTable state={tableState} />
+  return <StatelessTable state={tableState} />
 }
