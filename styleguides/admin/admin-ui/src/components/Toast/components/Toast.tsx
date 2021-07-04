@@ -53,7 +53,7 @@ export function Toast(props: ToastOptions) {
     <motion.div
       layout
       data-testid="onda-toast-component"
-      className={cn(csx)}
+      className={cn(csx!)}
       initial={{ top: '7.5rem' }}
       animate={{ top: 0 }}
       exit={{
@@ -86,7 +86,7 @@ export function Toast(props: ToastOptions) {
   )
 }
 
-function useToast(props: ToastOptions) {
+function useToast(props: ToastOptions): ToastOptions {
   const {
     type = 'info',
     iconProps: maybeIconProps,
@@ -99,7 +99,7 @@ function useToast(props: ToastOptions) {
     type,
   }
 
-  const csx = merge(setCsx(type), maybeCsx)
+  const styles: StyleProp = merge(setCsx(type), maybeCsx)
 
   const action: ButtonProps | undefined = maybeAction
     ? {
@@ -113,15 +113,15 @@ function useToast(props: ToastOptions) {
     : undefined
 
   return {
-    csx,
     type,
     ...props,
+    csx: styles,
     action,
     iconProps,
   }
 }
 
-function setCsx(type: ToastType) {
+function setCsx(type: ToastType): StyleProp {
   switch (type) {
     case 'error':
       return {

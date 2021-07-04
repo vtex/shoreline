@@ -1,4 +1,4 @@
-import React from 'react' // { useEffect, useRef, useState }
+import React from 'react'
 import { useSystem } from '@vtex/admin-core'
 import { Box } from '@vtex/admin-primitives'
 import { Toast } from './Toast'
@@ -33,15 +33,13 @@ export function Toaster(props: ToasterProps) {
     <Box data-testid="onda-toaster" element="ul" className={styles}>
       <AnimateSharedLayout>
         <AnimatePresence data-testid="onda-toaster-container">
-          {state['bottom-right'].map((toast) => {
-            return (
-              <Toast
-                key={`${toast.position}-${toast.id}`}
-                {...toast}
-                stack={state['bottom-right'].map((toast) => toast.id)}
-              />
-            )
-          })}
+          {state['bottom-right'].map((toast) => (
+            <Toast
+              key={`${toast.position}-${toast.id}`}
+              {...toast}
+              stack={state['bottom-right'].map((toast) => toast.id)}
+            />
+          ))}
         </AnimatePresence>
       </AnimateSharedLayout>
     </Box>
