@@ -1,61 +1,49 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { ThemeProvider } from '@vtex/admin-core'
-import { ToastManager } from './Manager'
-import { ToasterProps, ToastManagerActions } from './typings'
+import React from 'react' // { useEffect, useRef, useState }
+import { useSystem } from '@vtex/admin-core'
+import { Box } from '@vtex/admin-primitives'
+import { Toast } from './Toast'
+import { ToasterProps } from './typings'
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
 /**
- * Wraps the ToastManager. This component mounts the
- * ToastManager on a Portal, and composes the client API.
- * */
-export class Toaster {
-  private portalId = 'onda-toast-portal'
-  private portal: HTMLElement | null = null
+ * This component is responsible for rendering the toasts.
+ * It's a toaster, after all.
+ */
+export function Toaster(props: ToasterProps) {
+  const { state } = props
+  const { cn } = useSystem()
 
-  private bindActions = (actions: ToastManagerActions) => {
-    this.dispatch = actions.dispatch
-  }
+  const styles = cn({
+    position: 'fixed',
+    bottom: '3rem',
+    zIndex: 'over',
+    left: 0,
+    right: '2rem',
+    textAlign: 'center',
+    marginLeft: 'auto',
+    maxWidth: '23.375rem',
+    minHeight: '4.5rem',
+    listStyle: 'none',
+    '> *:not(:last-child)': {
+      marginBottom: '0.75rem',
+    },
+  })
 
-  private mount = () => {
-    setTimeout(() => {
-      render(
-        <ThemeProvider>
-          <ToastManager actions={this.bindActions} />
-        </ThemeProvider>,
-        this.portal
-      )
-    }, 100)
-  }
-
-  public constructor(props: ToasterProps) {
-    if (!isBrowser) {
-      console.warn('Toasts can only be rendered on the client-side.')
-      return
-    }
-
-    const { subframe } = props
-
-    const documentRef = !!subframe ? window.top.document : document
-
-    const existingPortal = documentRef.getElementById(this.portalId)
-
-    if (existingPortal) {
-      this.portal = existingPortal
-    } else {
-      const div = documentRef.createElement('div')
-      div.id = this.portalId
-      documentRef.body.appendChild(div)
-      this.portal = div
-    }
-
-    this.mount()
-  }
-
-  public dispatch!: ToastManagerActions['dispatch']
+  return (
+    <Box data-testid="onda-toaster" element="ul" className={styles}>
+      <AnimateSharedLayout>
+        <AnimatePresence data-testid="onda-toaster-container">
+          {state['bottom-right'].map((toast) => {
+            return (
+              <Toast
+                key={`${toast.position}-${toast.id}`}
+                {...toast}
+                stack={state['bottom-right'].map((toast) => toast.id)}
+              />
+            )
+          })}
+        </AnimatePresence>
+      </AnimateSharedLayout>
+    </Box>
+  )
 }
-
-const isBrowser = !!(
-  typeof window !== 'undefined' &&
-  window.document &&
-  window.document.createElement
-)

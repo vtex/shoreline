@@ -1,6 +1,6 @@
-import { Toaster } from './components/Toaster'
+import { ToastManager } from './components/ToastManager'
 
-let toaster: Toaster | null = null
+let toastManager: ToastManager | null = null
 
 /**
  * The toast is a Toaster instance, which has
@@ -22,9 +22,9 @@ let toaster: Toaster | null = null
  * ```
  */
 export const toast = (() => {
-  if (!toaster) {
-    toaster = new Toaster({})
+  if (!toastManager) {
+    toastManager = new ToastManager({})
   }
 
-  return toaster
+  return toastManager
 })()
