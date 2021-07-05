@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.102.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.2...@vtex/admin-ui@0.102.3) (2021-07-05)
+
+
+### Bug Fixes
+
+* **toast:** style resetting ([ecd57aa](https://github.com/vtex/onda/commit/ecd57aa56db625b014dd1cce12277f95b4d01bd9))
+* **toast:** unstable rendering ([6b40095](https://github.com/vtex/onda/commit/6b40095e2f4dfdeacdd69322e1d2f09840d405f1))
+
+
+
+
+
 ## [0.102.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.1...@vtex/admin-ui@0.102.2) (2021-07-01)
 
 **Note:** Version bump only for package @vtex/admin-ui
