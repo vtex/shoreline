@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Meta } from '@storybook/react'
 import { ThemeProvider } from '@vtex/admin-core'
 import { Button as ReakitButton, Separator, Role } from 'reakit'
@@ -8,31 +8,6 @@ import { jsx } from '../index'
 export default {
   title: 'react/jsx',
 } as Meta
-
-export function Typescript() {
-  const Anchor = jsx('a')()
-  const AnchorAlias = jsx.a()
-  const Button = jsx('button')()
-  const ButtonAlias = jsx.button()
-
-  return (
-    <React.Fragment>
-      <Anchor href="#" target="blank">Anchor</Anchor>
-      <AnchorAlias as="a" href="#">
-        Anchor Alias
-      </AnchorAlias>
-      <Button as="a" href="">Button</Button>
-      <ButtonAlias
-        csx={{
-          height: '200',
-        }}
-        as="a"
-      >
-        Button Alias
-      </ButtonAlias>
-    </React.Fragment>
-  )
-}
 
 export function Plain() {
   const Div = jsx.div()
@@ -61,6 +36,52 @@ export function Plain() {
       >
         This should be a link
       </Div>
+    </ThemeProvider>
+  )
+}
+
+export function ForwardRef() {
+  const ref = useRef<HTMLInputElement>(null)
+
+  const Input = jsx.input({
+    border: '1px solid #cecece',
+    paddingX: 3,
+    paddingY: 2,
+  })
+
+  useEffect(() => {
+    if(ref.current) {
+      ref.current.focus()
+    }
+  }, [])
+
+  return(
+    <ThemeProvider>
+      <Input ref={ref} />
+    </ThemeProvider>
+  )
+}
+
+export function DeepForwardRef() {
+  const ref = useRef<HTMLInputElement>(null)
+
+  const BaseInput = jsx.input({
+    border: '1px solid #cecece',
+    paddingX: 3,
+    paddingY: 2,
+  })
+
+  const Input = jsx(BaseInput)()
+
+  useEffect(() => {
+    if(ref.current) {
+      ref.current.focus()
+    }
+  }, [])
+
+  return(
+    <ThemeProvider>
+      <Input ref={ref} />
     </ThemeProvider>
   )
 }
