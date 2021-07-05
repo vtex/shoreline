@@ -26,11 +26,11 @@ The most common use-case is the jsx elements:
 
 You can also use tag as a function for elements or components:
 
-```jsx
-function Example() {
-  const Section = tag('section') // jsx tags are allowed
-  const Button = tag(ReakitButton) // also components
+```jsx noInline
+const Section = tag('section') // jsx tags are allowed
+const Button = tag(ReakitButton) // also components
 
+function Example() {
   return (
     <Section csx={{ bg: 'blue.secondary', padding: 4, color: 'blue' }}>
       admin-ui-powered section
@@ -40,6 +40,8 @@ function Example() {
     </Section>
   )
 }
+
+render(<Example />)
 ```
 
 ## Polymorphism
