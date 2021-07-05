@@ -7,7 +7,7 @@ import {
 import { StyleProp, useSystem, jsxs, createComponent } from '@vtex/admin-core'
 import { Variant, Size } from './types'
 import { SystemComponentProps } from '../../types'
-import { Primitive, Box } from '@vtex/admin-primitives'
+import { Primitive, Box, Flex } from '@vtex/admin-primitives'
 import { Spinner } from '../Spinner'
 
 /**
@@ -57,12 +57,15 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
           margin: 'auto',
           alignItems: 'center',
           justifyContent: 'center',
-          ...containerStyles,
         },
       },
-      <Box csx={{ visibility: loading ? 'hidden' : undefined }}>
+      <Flex
+        align="center"
+        justify="center"
+        csx={{ visibility: loading ? 'hidden' : undefined, ...containerStyles }}
+      >
         {icon} {prevChildren}
-      </Box>,
+      </Flex>,
       <Box
         csx={{
           position: 'absolute',
@@ -109,7 +112,7 @@ function useButtonSize({
 
 export interface ButtonProps extends SystemComponentProps<ReakitButtonProps> {
   /**
-   * Whether the button is loading or not
+   *  Whether is loading
    * @default false
    */
   loading?: boolean
