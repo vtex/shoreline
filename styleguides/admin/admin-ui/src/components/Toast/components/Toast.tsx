@@ -19,7 +19,7 @@ export function Toast(props: ToastOptions) {
   const {
     message,
     duration,
-    csx,
+    csx = {},
     remove,
     id,
     iconProps,
@@ -86,11 +86,11 @@ export function Toast(props: ToastOptions) {
   )
 }
 
-function useToast(props: ToastOptions) {
+function useToast(props: ToastOptions): ToastOptions {
   const {
     type = 'info',
     iconProps: maybeIconProps,
-    csx: maybeCsx,
+    csx: customCsx,
     action: maybeAction,
   } = props
 
@@ -99,7 +99,7 @@ function useToast(props: ToastOptions) {
     type,
   }
 
-  const csx = merge(setCsx(type), maybeCsx)
+  const csx: StyleProp = merge(getCsx(type), customCsx)
 
   const action: ButtonProps | undefined = maybeAction
     ? {
@@ -113,15 +113,15 @@ function useToast(props: ToastOptions) {
     : undefined
 
   return {
-    csx,
     type,
     ...props,
+    csx,
     action,
     iconProps,
   }
 }
 
-function setCsx(type: ToastType) {
+function getCsx(type: ToastType): StyleProp {
   switch (type) {
     case 'error':
       return {

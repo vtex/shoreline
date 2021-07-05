@@ -3054,7 +3054,7 @@ exports[`Toast tests should match snapshot 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ToastManager tests should match snapshot 1`] = `
+exports[`Toaster tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   position: fixed;
@@ -3075,7 +3075,7 @@ exports[`ToastManager tests should match snapshot 1`] = `
 
 <ul
     class="emotion-0"
-    data-testid="toast-manager"
+    data-testid="onda-toaster"
   />
 </DocumentFragment>
 `;
