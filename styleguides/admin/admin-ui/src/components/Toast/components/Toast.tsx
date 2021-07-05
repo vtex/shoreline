@@ -90,7 +90,7 @@ function useToast(props: ToastOptions): ToastOptions {
   const {
     type = 'info',
     iconProps: maybeIconProps,
-    csx: maybeCsx,
+    csx: customCsx,
     action: maybeAction,
   } = props
 
@@ -99,7 +99,7 @@ function useToast(props: ToastOptions): ToastOptions {
     type,
   }
 
-  const csx: StyleProp = merge(setCsx(type), maybeCsx)
+  const csx: StyleProp = merge(getCsx(type), customCsx)
 
   const action: ButtonProps | undefined = maybeAction
     ? {
@@ -121,7 +121,7 @@ function useToast(props: ToastOptions): ToastOptions {
   }
 }
 
-function setCsx(type: ToastType): StyleProp {
+function getCsx(type: ToastType): StyleProp {
   switch (type) {
     case 'error':
       return {
