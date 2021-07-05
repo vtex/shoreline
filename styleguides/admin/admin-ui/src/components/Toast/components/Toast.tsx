@@ -99,7 +99,7 @@ function useToast(props: ToastOptions): ToastOptions {
     type,
   }
 
-  const styles: StyleProp = merge(setCsx(type), maybeCsx)
+  const csx: StyleProp = merge(setCsx(type), maybeCsx)
 
   const action: ButtonProps | undefined = maybeAction
     ? {
@@ -115,7 +115,7 @@ function useToast(props: ToastOptions): ToastOptions {
   return {
     type,
     ...props,
-    csx: styles,
+    csx,
     action,
     iconProps,
   }
