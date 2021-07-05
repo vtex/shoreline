@@ -104,7 +104,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-36 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -120,12 +120,26 @@ exports[`FilterBar tests should match snapshot 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+}
+
+.emotion-32 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
 }
-
-
 
 .emotion-31 {
   min-width: 24px;
@@ -398,14 +412,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.emotion-7 {
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -414,6 +425,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  visibility: visible;
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
@@ -950,10 +962,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
             type="button"
           >
             <div
-              class="emotion-36"
+              class="emotion-7"
             >
               <div
-                class="emotion-3"
+                class="emotion-32"
               >
                 <svg
                   class="emotion-31"
@@ -1025,10 +1037,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="emotion-36"
+                  class="emotion-7"
                 >
                   <div
-                    class="emotion-3"
+                    class="emotion-32"
                   >
                     <svg
                       class="emotion-38"
@@ -1089,10 +1101,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 type="button"
               >
                 <div
-                  class="emotion-36"
+                  class="emotion-7"
                 >
                   <div
-                    class="emotion-3"
+                    class="emotion-32"
                   >
                     <svg
                       class="emotion-38"
@@ -1169,10 +1181,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
         type="button"
       >
         <div
-          class="emotion-36"
+          class="emotion-7"
         >
           <div
-            class="emotion-3"
+            class="emotion-32"
           >
             <svg
               class="emotion-31"
@@ -1221,10 +1233,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
           type="button"
         >
           <div
-            class="emotion-36"
+            class="emotion-7"
           >
             <div
-              class="emotion-3"
+              class="emotion-32"
             >
                Clear Filters
             </div>
@@ -1255,10 +1267,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
           type="button"
         >
           <div
-            class="emotion-36"
+            class="emotion-7"
           >
             <div
-              class="emotion-3"
+              class="emotion-32"
             >
                Apply
             </div>

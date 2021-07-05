@@ -62,7 +62,7 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
       <Flex
         align="center"
         justify="center"
-        csx={{ visibility: loading ? 'hidden' : undefined, ...containerStyles }}
+        csx={{ visibility: loading ? 'hidden' : 'visible', ...containerStyles }}
       >
         {icon} {prevChildren}
       </Flex>,
@@ -76,7 +76,7 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
           top: 0,
           left: 0,
           right: 0,
-          visibility: loading ? undefined : 'hidden',
+          visibility: loading ? 'visible' : 'hidden',
         }}
       >
         <Spinner color="currentColor" />
