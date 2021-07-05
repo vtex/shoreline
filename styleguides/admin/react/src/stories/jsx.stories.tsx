@@ -9,6 +9,31 @@ export default {
   title: 'react/jsx',
 } as Meta
 
+export function Typescript() {
+  const Anchor = jsx('a')()
+  const AnchorAlias = jsx.a()
+  const Button = jsx('button')()
+  const ButtonAlias = jsx.button()
+
+  return (
+    <React.Fragment>
+      <Anchor href="#" target="blank">Anchor</Anchor>
+      <AnchorAlias as="a" href="#">
+        Anchor Alias
+      </AnchorAlias>
+      <Button as="a" href="">Button</Button>
+      <ButtonAlias
+        csx={{
+          height: '200',
+        }}
+        as="a"
+      >
+        Button Alias
+      </ButtonAlias>
+    </React.Fragment>
+  )
+}
+
 export function Plain() {
   const Div = jsx.div()
 

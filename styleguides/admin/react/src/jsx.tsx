@@ -3,8 +3,20 @@ import { useSystem } from '@vtex/admin-core'
 import { merge, pick, omit, isFunction } from '@vtex/onda-util'
 
 import { __options, __stylesheet } from './symbols'
-import { As, OndaComponent, Configuration, PropsWithAs } from './types'
-import { cleanProps, useOptionsIdentity, getStylesheet, getOptions } from './util'
+import {
+  As,
+  OndaComponent,
+  Configuration,
+  PropsWithAs,
+  ForElements,
+  ForComponents,
+} from './types'
+import {
+  cleanProps,
+  useOptionsIdentity,
+  getStylesheet,
+  getOptions,
+} from './util'
 import { useStylesheet, Stylesheet } from './useStylesheet'
 import { DOMElements, domElements } from './domElements'
 
@@ -30,10 +42,8 @@ import { DOMElements, domElements } from './domElements'
  * <Button as="a" href="#">Button Link</Button>
  */
 export function _jsx<T extends As = 'div'>(type: T) {
-
   const parentStylesheet = getStylesheet(type) ?? {}
   const parentOptions = getOptions(type) ?? []
-
 
   return function component<
     TT extends T,
@@ -47,7 +57,9 @@ export function _jsx<T extends As = 'div'>(type: T) {
       useOptions: useOptionsIdentity,
       options: [],
     }
-  ): OndaComponent<TT, Options, InferVariants> {
+  ): TT extends string
+    ? ForElements<TT, Options, InferVariants>
+    : ForComponents<TT, Options, InferVariants> {
     const {
       sync = [],
       useOptions = useOptionsIdentity,
@@ -128,7 +140,9 @@ const jsx = _jsx as typeof _jsx &
       >(
         styleSheet?: Stylesheet<Variants>,
         configuration?: Configuration<TT, Options, InferVariants>
-      ): OndaComponent<TT, Options, InferVariants>
+      ): TT extends string
+      ? ForElements<TT, Options, InferVariants>
+      : ForComponents<TT, Options, InferVariants> 
     }
   }
 
