@@ -19,7 +19,7 @@ export function Toast(props: ToastOptions) {
   const {
     message,
     duration,
-    csx,
+    csx = {},
     remove,
     id,
     iconProps,
@@ -53,7 +53,7 @@ export function Toast(props: ToastOptions) {
     <motion.div
       layout
       data-testid="onda-toast-component"
-      className={cn(csx!)}
+      className={cn(csx)}
       initial={{ top: '7.5rem' }}
       animate={{ top: 0 }}
       exit={{
