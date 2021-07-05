@@ -2,37 +2,11 @@
 
 exports[`Dropdown tests should match snapshot 1`] = `
 <DocumentFragment>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-8 {
+  .emotion-5 {
   position: relative;
 }
 
-.emotion-5 {
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -81,45 +55,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
-.emotion-3 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-2 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-7 {
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -155,11 +90,11 @@ exports[`Dropdown tests should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-7 >*:not(:last-child) {
+.emotion-4 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 {
+.emotion-3 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -175,30 +110,30 @@ exports[`Dropdown tests should match snapshot 1`] = `
   padding-right: 0.5rem;
 }
 
-.emotion-6:focus:not([data-focus-visible-added]) {
+.emotion-3:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-6:focus {
+.emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-6:hover {
+.emotion-3:hover {
   background-color: #214491;
 }
 
-.emotion-6:active {
+.emotion-3:active {
   background-color: #1a3470;
 }
 
-.emotion-6:disabled {
+.emotion-3:disabled {
   color: #323845;
   background-color: #C4C5CA;
 }
 
-.emotion-6 svg {
+.emotion-3 svg {
   width: 24px;
   min-width: 24px;
   height: 24px;
@@ -207,7 +142,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-8"
+    class="emotion-5"
   >
     <span
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
@@ -223,12 +158,12 @@ exports[`Dropdown tests should match snapshot 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="downshift-3-label downshift-3-toggle-button"
-      class="emotion-6"
+      class="emotion-3"
       id="downshift-3-toggle-button"
       type="button"
     >
       <div
-        class="emotion-5"
+        class="emotion-2"
       >
         <div
           class="emotion-1"
@@ -248,64 +183,21 @@ exports[`Dropdown tests should match snapshot 1`] = `
           </svg>
            Arabica
         </div>
-        <div
-          class="emotion-4"
-        >
-          <svg
-            class="emotion-3"
-            fill="none"
-            focusable="false"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              class="emotion-2"
-              cx="25"
-              cy="25"
-              r="20"
-            />
-          </svg>
-        </div>
       </div>
     </button>
     <div
       aria-labelledby="downshift-3-label"
-      class="emotion-7"
+      class="emotion-4"
       id="downshift-3-menu"
       role="listbox"
       tabindex="-1"
     />
   </div>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-8 {
+  .emotion-5 {
   position: relative;
 }
 
-.emotion-5 {
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -354,45 +246,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
-.emotion-3 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-2 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-7 {
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -428,11 +281,11 @@ exports[`Dropdown tests should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-7 >*:not(:last-child) {
+.emotion-4 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 {
+.emotion-3 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -448,30 +301,30 @@ exports[`Dropdown tests should match snapshot 1`] = `
   padding-right: 0.5rem;
 }
 
-.emotion-6:focus:not([data-focus-visible-added]) {
+.emotion-3:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-6:focus {
+.emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-6:hover {
+.emotion-3:hover {
   background-color: #cad7f1;
 }
 
-.emotion-6:active {
+.emotion-3:active {
   background-color: #bacbec;
 }
 
-.emotion-6:disabled {
+.emotion-3:disabled {
   color: #898F9E;
   background-color: #F4F6FB;
 }
 
-.emotion-6 svg {
+.emotion-3 svg {
   width: 24px;
   min-width: 24px;
   height: 24px;
@@ -480,7 +333,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-8"
+    class="emotion-5"
   >
     <span
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
@@ -496,12 +349,12 @@ exports[`Dropdown tests should match snapshot 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="downshift-4-label downshift-4-toggle-button"
-      class="emotion-6"
+      class="emotion-3"
       id="downshift-4-toggle-button"
       type="button"
     >
       <div
-        class="emotion-5"
+        class="emotion-2"
       >
         <div
           class="emotion-1"
@@ -521,64 +374,21 @@ exports[`Dropdown tests should match snapshot 1`] = `
           </svg>
            French Press
         </div>
-        <div
-          class="emotion-4"
-        >
-          <svg
-            class="emotion-3"
-            fill="none"
-            focusable="false"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              class="emotion-2"
-              cx="25"
-              cy="25"
-              r="20"
-            />
-          </svg>
-        </div>
       </div>
     </button>
     <div
       aria-labelledby="downshift-4-label"
-      class="emotion-7"
+      class="emotion-4"
       id="downshift-4-menu"
       role="listbox"
       tabindex="-1"
     />
   </div>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-8 {
+  .emotion-5 {
   position: relative;
 }
 
-.emotion-5 {
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -627,45 +437,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
-.emotion-3 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-2 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-7 {
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -701,11 +472,11 @@ exports[`Dropdown tests should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-7 >*:not(:last-child) {
+.emotion-4 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 {
+.emotion-3 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -721,31 +492,31 @@ exports[`Dropdown tests should match snapshot 1`] = `
   padding-right: 0.5rem;
 }
 
-.emotion-6:focus:not([data-focus-visible-added]) {
+.emotion-3:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-6:focus {
+.emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-6:hover {
+.emotion-3:hover {
   color: #214491;
   background-color: rgba(202,215,241,0.24);
 }
 
-.emotion-6:active {
+.emotion-3:active {
   color: #1a3470;
   background-color: rgba(186,203,236,0.32);
 }
 
-.emotion-6:disabled {
+.emotion-3:disabled {
   color: #898F9E;
 }
 
-.emotion-6 svg {
+.emotion-3 svg {
   width: 24px;
   min-width: 24px;
   height: 24px;
@@ -754,7 +525,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-8"
+    class="emotion-5"
   >
     <span
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
@@ -770,12 +541,12 @@ exports[`Dropdown tests should match snapshot 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="downshift-5-label downshift-5-toggle-button"
-      class="emotion-6"
+      class="emotion-3"
       id="downshift-5-toggle-button"
       type="button"
     >
       <div
-        class="emotion-5"
+        class="emotion-2"
       >
         <div
           class="emotion-1"
@@ -795,28 +566,11 @@ exports[`Dropdown tests should match snapshot 1`] = `
           </svg>
            Latte
         </div>
-        <div
-          class="emotion-4"
-        >
-          <svg
-            class="emotion-3"
-            fill="none"
-            focusable="false"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              class="emotion-2"
-              cx="25"
-              cy="25"
-              r="20"
-            />
-          </svg>
-        </div>
       </div>
     </button>
     <div
       aria-labelledby="downshift-5-label"
-      class="emotion-7"
+      class="emotion-4"
       id="downshift-5-menu"
       role="listbox"
       tabindex="-1"
@@ -827,37 +581,11 @@ exports[`Dropdown tests should match snapshot 1`] = `
 
 exports[`Dropdown tests should render a Dropdown with a list of string and other with a list of object 1`] = `
 <DocumentFragment>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-8 {
+  .emotion-5 {
   position: relative;
 }
 
-.emotion-5 {
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -906,45 +634,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-4 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
-.emotion-3 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-2 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-7 {
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -980,11 +669,11 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   justify-content: unset;
 }
 
-.emotion-7 >*:not(:last-child) {
+.emotion-4 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 {
+.emotion-3 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -1000,30 +689,30 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   padding-right: 0.5rem;
 }
 
-.emotion-6:focus:not([data-focus-visible-added]) {
+.emotion-3:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-6:focus {
+.emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-6:hover {
+.emotion-3:hover {
   background-color: #214491;
 }
 
-.emotion-6:active {
+.emotion-3:active {
   background-color: #1a3470;
 }
 
-.emotion-6:disabled {
+.emotion-3:disabled {
   color: #323845;
   background-color: #C4C5CA;
 }
 
-.emotion-6 svg {
+.emotion-3 svg {
   width: 24px;
   min-width: 24px;
   height: 24px;
@@ -1032,7 +721,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 <div
-    class="emotion-8"
+    class="emotion-5"
   >
     <span
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
@@ -1048,12 +737,12 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="downshift-1-label downshift-1-toggle-button"
-      class="emotion-6"
+      class="emotion-3"
       id="downshift-1-toggle-button"
       type="button"
     >
       <div
-        class="emotion-5"
+        class="emotion-2"
       >
         <div
           class="emotion-1"
@@ -1073,64 +762,21 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
           </svg>
            7 days ago
         </div>
-        <div
-          class="emotion-4"
-        >
-          <svg
-            class="emotion-3"
-            fill="none"
-            focusable="false"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              class="emotion-2"
-              cx="25"
-              cy="25"
-              r="20"
-            />
-          </svg>
-        </div>
       </div>
     </button>
     <div
       aria-labelledby="downshift-1-label"
-      class="emotion-7"
+      class="emotion-4"
       id="downshift-1-menu"
       role="listbox"
       tabindex="-1"
     />
   </div>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-8 {
+  .emotion-5 {
   position: relative;
 }
 
-.emotion-5 {
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1179,45 +825,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-4 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
-.emotion-3 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-2 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-7 {
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -1253,11 +860,11 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   justify-content: unset;
 }
 
-.emotion-7 >*:not(:last-child) {
+.emotion-4 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 {
+.emotion-3 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -1273,30 +880,30 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   padding-right: 0.5rem;
 }
 
-.emotion-6:focus:not([data-focus-visible-added]) {
+.emotion-3:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-6:focus {
+.emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-6:hover {
+.emotion-3:hover {
   background-color: #214491;
 }
 
-.emotion-6:active {
+.emotion-3:active {
   background-color: #1a3470;
 }
 
-.emotion-6:disabled {
+.emotion-3:disabled {
   color: #323845;
   background-color: #C4C5CA;
 }
 
-.emotion-6 svg {
+.emotion-3 svg {
   width: 24px;
   min-width: 24px;
   height: 24px;
@@ -1305,7 +912,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 <div
-    class="emotion-8"
+    class="emotion-5"
   >
     <span
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
@@ -1321,12 +928,12 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="downshift-2-label downshift-2-toggle-button"
-      class="emotion-6"
+      class="emotion-3"
       id="downshift-2-toggle-button"
       type="button"
     >
       <div
-        class="emotion-5"
+        class="emotion-2"
       >
         <div
           class="emotion-1"
@@ -1346,28 +953,11 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
           </svg>
            7 days ago
         </div>
-        <div
-          class="emotion-4"
-        >
-          <svg
-            class="emotion-3"
-            fill="none"
-            focusable="false"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              class="emotion-2"
-              cx="25"
-              cy="25"
-              r="20"
-            />
-          </svg>
-        </div>
       </div>
     </button>
     <div
       aria-labelledby="downshift-2-label"
-      class="emotion-7"
+      class="emotion-4"
       id="downshift-2-menu"
       role="listbox"
       tabindex="-1"

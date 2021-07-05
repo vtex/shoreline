@@ -10,40 +10,14 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   >
     Open
   </button>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-25 {
+  .emotion-13 {
   border: 0;
   padding: 0rem;
   outline: none;
   z-index: 999;
 }
 
-.emotion-5 {
+.emotion-2 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -62,43 +36,43 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   text-transform: initial;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-2:focus {
   background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:hover {
+.emotion-2:hover {
   color: #323845;
 }
 
-.emotion-5:active {
+.emotion-2:active {
   color: #1a3470;
   background-color: rgba(186,203,236,0.32);
 }
 
-.emotion-5:disabled {
+.emotion-2:disabled {
   color: #898F9E;
 }
 
-.emotion-5 div {
+.emotion-2 div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-5 svg {
+.emotion-2 svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
 
-.emotion-4 {
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -135,46 +109,7 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   flex-direction: row;
 }
 
-.emotion-3 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
-.emotion-2 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-1 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-24 {
+.emotion-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -193,7 +128,7 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
 }
 
-.emotion-24 hr {
+.emotion-12 hr {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   border-style: solid;
@@ -208,7 +143,7 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   outline: none;
 }
 
-.emotion-24 item {
+.emotion-12 item {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -220,29 +155,29 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   color: #323845;
 }
 
-.emotion-24 item div {
+.emotion-12 item div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-24 item svg {
+.emotion-12 item svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
 
-.emotion-24 item:focus {
+.emotion-12 item:focus {
   background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-24 item:hover {
+.emotion-12 item:hover {
   color: #323845;
 }
 
-.emotion-24 item-dangerous {
+.emotion-12 item-dangerous {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -254,32 +189,32 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   color: #CB4242;
 }
 
-.emotion-24 item-dangerous div {
+.emotion-12 item-dangerous div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-24 item-dangerous svg {
+.emotion-12 item-dangerous svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
 
-.emotion-24 item-dangerous:focus {
+.emotion-12 item-dangerous:focus {
   background-color: rgba(254,218,218,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-24 item-dangerous:hover {
+.emotion-12 item-dangerous:hover {
   color: #CB4242;
 }
 
 <div
     aria-label="menu label"
     aria-orientation="vertical"
-    class="emotion-25"
+    class="emotion-13"
     data-dialog="true"
     data-testid="menu"
     hidden=""
@@ -289,108 +224,57 @@ exports[`Menu tests should match snapshot hidden 1`] = `
     tabindex="-1"
   >
     <div
-      class="emotion-24"
+      class="emotion-12"
       data-testid="menubox"
     >
       <button
-        class="emotion-5"
+        class="emotion-2"
         id="id-1"
         role="menuitem"
         tabindex="0"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-1"
         >
           <div
             class="emotion-0"
           >
              Download
           </div>
-          <div
-            class="emotion-3"
-          >
-            <svg
-              class="emotion-2"
-              fill="none"
-              focusable="false"
-              viewBox="0 0 50 50"
-            >
-              <circle
-                class="emotion-1"
-                cx="25"
-                cy="25"
-                r="20"
-              />
-            </svg>
-          </div>
         </div>
       </button>
       <button
-        class="emotion-5"
+        class="emotion-2"
         id="id-2"
         role="menuitem"
         tabindex="-1"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-1"
         >
           <div
             class="emotion-0"
           >
              Link to
           </div>
-          <div
-            class="emotion-3"
-          >
-            <svg
-              class="emotion-2"
-              fill="none"
-              focusable="false"
-              viewBox="0 0 50 50"
-            >
-              <circle
-                class="emotion-1"
-                cx="25"
-                cy="25"
-                r="20"
-              />
-            </svg>
-          </div>
         </div>
       </button>
       <button
-        class="emotion-5"
+        class="emotion-2"
         id="id-3"
         role="menuitem"
         tabindex="-1"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-1"
         >
           <div
             class="emotion-0"
           >
              Favorite
-          </div>
-          <div
-            class="emotion-3"
-          >
-            <svg
-              class="emotion-2"
-              fill="none"
-              focusable="false"
-              viewBox="0 0 50 50"
-            >
-              <circle
-                class="emotion-1"
-                cx="25"
-                cy="25"
-                r="20"
-              />
-            </svg>
           </div>
         </div>
       </button>
@@ -401,36 +285,19 @@ exports[`Menu tests should match snapshot hidden 1`] = `
         tabindex="-1"
       />
       <button
-        class="emotion-5"
+        class="emotion-2"
         id="id-5"
         role="menuitem"
         tabindex="-1"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-1"
         >
           <div
             class="emotion-0"
           >
              Delete
-          </div>
-          <div
-            class="emotion-3"
-          >
-            <svg
-              class="emotion-2"
-              fill="none"
-              focusable="false"
-              viewBox="0 0 50 50"
-            >
-              <circle
-                class="emotion-1"
-                cx="25"
-                cy="25"
-                r="20"
-              />
-            </svg>
           </div>
         </div>
       </button>
@@ -449,40 +316,14 @@ exports[`Menu tests should match snapshot visible 1`] = `
   >
     Open
   </button>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-25 {
+  .emotion-13 {
   border: 0;
   padding: 0rem;
   outline: none;
   z-index: 999;
 }
 
-.emotion-5 {
+.emotion-2 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -501,43 +342,43 @@ exports[`Menu tests should match snapshot visible 1`] = `
   text-transform: initial;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-2:focus {
   background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:hover {
+.emotion-2:hover {
   color: #323845;
 }
 
-.emotion-5:active {
+.emotion-2:active {
   color: #1a3470;
   background-color: rgba(186,203,236,0.32);
 }
 
-.emotion-5:disabled {
+.emotion-2:disabled {
   color: #898F9E;
 }
 
-.emotion-5 div {
+.emotion-2 div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-5 svg {
+.emotion-2 svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
 
-.emotion-4 {
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -574,46 +415,7 @@ exports[`Menu tests should match snapshot visible 1`] = `
   flex-direction: row;
 }
 
-.emotion-3 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
-.emotion-2 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-1 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-24 {
+.emotion-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -632,7 +434,7 @@ exports[`Menu tests should match snapshot visible 1`] = `
   box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
 }
 
-.emotion-24 hr {
+.emotion-12 hr {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   border-style: solid;
@@ -647,7 +449,7 @@ exports[`Menu tests should match snapshot visible 1`] = `
   outline: none;
 }
 
-.emotion-24 item {
+.emotion-12 item {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -659,29 +461,29 @@ exports[`Menu tests should match snapshot visible 1`] = `
   color: #323845;
 }
 
-.emotion-24 item div {
+.emotion-12 item div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-24 item svg {
+.emotion-12 item svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
 
-.emotion-24 item:focus {
+.emotion-12 item:focus {
   background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-24 item:hover {
+.emotion-12 item:hover {
   color: #323845;
 }
 
-.emotion-24 item-dangerous {
+.emotion-12 item-dangerous {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -693,32 +495,32 @@ exports[`Menu tests should match snapshot visible 1`] = `
   color: #CB4242;
 }
 
-.emotion-24 item-dangerous div {
+.emotion-12 item-dangerous div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-24 item-dangerous svg {
+.emotion-12 item-dangerous svg {
   margin-left: 0rem;
   margin-right: 0.5rem;
 }
 
-.emotion-24 item-dangerous:focus {
+.emotion-12 item-dangerous:focus {
   background-color: rgba(254,218,218,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-24 item-dangerous:hover {
+.emotion-12 item-dangerous:hover {
   color: #CB4242;
 }
 
 <div
     aria-label="menu label"
     aria-orientation="vertical"
-    class="emotion-25"
+    class="emotion-13"
     data-dialog="true"
     data-testid="menu"
     id="id"
@@ -726,108 +528,57 @@ exports[`Menu tests should match snapshot visible 1`] = `
     tabindex="-1"
   >
     <div
-      class="emotion-24"
+      class="emotion-12"
       data-testid="menubox"
     >
       <button
-        class="emotion-5"
+        class="emotion-2"
         id="id-1"
         role="menuitem"
         tabindex="0"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-1"
         >
           <div
             class="emotion-0"
           >
              Download
           </div>
-          <div
-            class="emotion-3"
-          >
-            <svg
-              class="emotion-2"
-              fill="none"
-              focusable="false"
-              viewBox="0 0 50 50"
-            >
-              <circle
-                class="emotion-1"
-                cx="25"
-                cy="25"
-                r="20"
-              />
-            </svg>
-          </div>
         </div>
       </button>
       <button
-        class="emotion-5"
+        class="emotion-2"
         id="id-2"
         role="menuitem"
         tabindex="-1"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-1"
         >
           <div
             class="emotion-0"
           >
              Link to
           </div>
-          <div
-            class="emotion-3"
-          >
-            <svg
-              class="emotion-2"
-              fill="none"
-              focusable="false"
-              viewBox="0 0 50 50"
-            >
-              <circle
-                class="emotion-1"
-                cx="25"
-                cy="25"
-                r="20"
-              />
-            </svg>
-          </div>
         </div>
       </button>
       <button
-        class="emotion-5"
+        class="emotion-2"
         id="id-3"
         role="menuitem"
         tabindex="-1"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-1"
         >
           <div
             class="emotion-0"
           >
              Favorite
-          </div>
-          <div
-            class="emotion-3"
-          >
-            <svg
-              class="emotion-2"
-              fill="none"
-              focusable="false"
-              viewBox="0 0 50 50"
-            >
-              <circle
-                class="emotion-1"
-                cx="25"
-                cy="25"
-                r="20"
-              />
-            </svg>
           </div>
         </div>
       </button>
@@ -838,36 +589,19 @@ exports[`Menu tests should match snapshot visible 1`] = `
         tabindex="-1"
       />
       <button
-        class="emotion-5"
+        class="emotion-2"
         id="id-5"
         role="menuitem"
         tabindex="-1"
         type="button"
       >
         <div
-          class="emotion-4"
+          class="emotion-1"
         >
           <div
             class="emotion-0"
           >
              Delete
-          </div>
-          <div
-            class="emotion-3"
-          >
-            <svg
-              class="emotion-2"
-              fill="none"
-              focusable="false"
-              viewBox="0 0 50 50"
-            >
-              <circle
-                class="emotion-1"
-                cx="25"
-                cy="25"
-                r="20"
-              />
-            </svg>
           </div>
         </div>
       </button>

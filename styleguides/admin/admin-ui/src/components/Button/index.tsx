@@ -66,21 +66,22 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
       >
         {icon} {prevChildren}
       </Flex>,
-      <Box
-        csx={{
-          position: 'absolute',
-          alignItems: 'center',
-          display: 'flex',
-          justifyContent: 'center',
-          bottom: 0,
-          top: 0,
-          left: 0,
-          right: 0,
-          visibility: loading ? 'visible' : 'hidden',
-        }}
-      >
-        <Spinner color="currentColor" />
-      </Box>
+      loading ? (
+        <Box
+          csx={{
+            position: 'absolute',
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+            bottom: 0,
+            top: 0,
+            left: 0,
+            right: 0,
+          }}
+        >
+          <Spinner color="currentColor" />
+        </Box>
+      ) : null
     ),
     ...compoundProps,
   }

@@ -2,33 +2,7 @@
 
 exports[`Button tests should match snapshot 1`] = `
 <DocumentFragment>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-4 {
+  .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -65,46 +39,7 @@ exports[`Button tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-3 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
 .emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-1 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-5 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -120,87 +55,44 @@ exports[`Button tests should match snapshot 1`] = `
   padding-right: 1rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-2:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-2:hover {
   background-color: #214491;
 }
 
-.emotion-5:active {
+.emotion-2:active {
   background-color: #1a3470;
 }
 
-.emotion-5:disabled {
+.emotion-2:disabled {
   color: #323845;
   background-color: #C4C5CA;
 }
 
 <button
-    class="emotion-5"
+    class="emotion-2"
     type="button"
   >
     <div
-      class="emotion-4"
+      class="emotion-1"
     >
       <div
         class="emotion-0"
       >
          Button
       </div>
-      <div
-        class="emotion-3"
-      >
-        <svg
-          class="emotion-2"
-          fill="none"
-          focusable="false"
-          viewBox="0 0 50 50"
-        >
-          <circle
-            class="emotion-1"
-            cx="25"
-            cy="25"
-            r="20"
-          />
-        </svg>
-      </div>
     </div>
   </button>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-4 {
+  .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -237,46 +129,7 @@ exports[`Button tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-3 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
 .emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-1 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-5 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -292,87 +145,44 @@ exports[`Button tests should match snapshot 1`] = `
   padding-right: 1rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-2:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-2:hover {
   background-color: #214491;
 }
 
-.emotion-5:active {
+.emotion-2:active {
   background-color: #1a3470;
 }
 
-.emotion-5:disabled {
+.emotion-2:disabled {
   color: #323845;
   background-color: #C4C5CA;
 }
 
 <button
-    class="emotion-5"
+    class="emotion-2"
     type="button"
   >
     <div
-      class="emotion-4"
+      class="emotion-1"
     >
       <div
         class="emotion-0"
       >
          Button
       </div>
-      <div
-        class="emotion-3"
-      >
-        <svg
-          class="emotion-2"
-          fill="none"
-          focusable="false"
-          viewBox="0 0 50 50"
-        >
-          <circle
-            class="emotion-1"
-            cx="25"
-            cy="25"
-            r="20"
-          />
-        </svg>
-      </div>
     </div>
   </button>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-4 {
+  .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -409,46 +219,7 @@ exports[`Button tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-3 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
 .emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-1 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-5 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -464,87 +235,44 @@ exports[`Button tests should match snapshot 1`] = `
   padding-right: 1rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-2:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-2:hover {
   background-color: #cad7f1;
 }
 
-.emotion-5:active {
+.emotion-2:active {
   background-color: #bacbec;
 }
 
-.emotion-5:disabled {
+.emotion-2:disabled {
   color: #898F9E;
   background-color: #F4F6FB;
 }
 
 <button
-    class="emotion-5"
+    class="emotion-2"
     type="button"
   >
     <div
-      class="emotion-4"
+      class="emotion-1"
     >
       <div
         class="emotion-0"
       >
          Button
       </div>
-      <div
-        class="emotion-3"
-      >
-        <svg
-          class="emotion-2"
-          fill="none"
-          focusable="false"
-          viewBox="0 0 50 50"
-        >
-          <circle
-            class="emotion-1"
-            cx="25"
-            cy="25"
-            r="20"
-          />
-        </svg>
-      </div>
     </div>
   </button>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-4 {
+  .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -581,46 +309,7 @@ exports[`Button tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-3 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
 .emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-1 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-5 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -636,88 +325,45 @@ exports[`Button tests should match snapshot 1`] = `
   padding-right: 1rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-2:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-2:hover {
   color: #214491;
   background-color: rgba(202,215,241,0.24);
 }
 
-.emotion-5:active {
+.emotion-2:active {
   color: #1a3470;
   background-color: rgba(186,203,236,0.32);
 }
 
-.emotion-5:disabled {
+.emotion-2:disabled {
   color: #898F9E;
 }
 
 <button
-    class="emotion-5"
+    class="emotion-2"
     type="button"
   >
     <div
-      class="emotion-4"
+      class="emotion-1"
     >
       <div
         class="emotion-0"
       >
          Button
       </div>
-      <div
-        class="emotion-3"
-      >
-        <svg
-          class="emotion-2"
-          fill="none"
-          focusable="false"
-          viewBox="0 0 50 50"
-        >
-          <circle
-            class="emotion-1"
-            cx="25"
-            cy="25"
-            r="20"
-          />
-        </svg>
-      </div>
     </div>
   </button>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-4 {
+  .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -754,46 +400,7 @@ exports[`Button tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-3 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
 .emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-1 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-5 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -809,87 +416,44 @@ exports[`Button tests should match snapshot 1`] = `
   padding-right: 0.75rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-2:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-2:hover {
   background-color: #214491;
 }
 
-.emotion-5:active {
+.emotion-2:active {
   background-color: #1a3470;
 }
 
-.emotion-5:disabled {
+.emotion-2:disabled {
   color: #323845;
   background-color: #C4C5CA;
 }
 
 <button
-    class="emotion-5"
+    class="emotion-2"
     type="button"
   >
     <div
-      class="emotion-4"
+      class="emotion-1"
     >
       <div
         class="emotion-0"
       >
          Button
       </div>
-      <div
-        class="emotion-3"
-      >
-        <svg
-          class="emotion-2"
-          fill="none"
-          focusable="false"
-          viewBox="0 0 50 50"
-        >
-          <circle
-            class="emotion-1"
-            cx="25"
-            cy="25"
-            r="20"
-          />
-        </svg>
-      </div>
     </div>
   </button>
-  @keyframes animation-0 {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90,150;
-    stroke-dashoffset: -124;
-  }
-}
-
-.emotion-4 {
+  .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -926,46 +490,7 @@ exports[`Button tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-3 {
-  position: absolute;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  bottom: 0rem;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  visibility: hidden;
-}
-
 .emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: animation-0 1.5s linear infinite;
-  animation: animation-0 1.5s linear infinite;
-}
-
-.emotion-1 {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 5;
-  stroke-linecap: round;
-  -webkit-animation: animation-1 1s ease-in-out infinite;
-  animation: animation-1 1s ease-in-out infinite;
-}
-
-.emotion-5 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'wght' 92;
   border: none;
@@ -981,57 +506,40 @@ exports[`Button tests should match snapshot 1`] = `
   padding-right: 1rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
+.emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-5:focus {
+.emotion-2:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-5:hover {
+.emotion-2:hover {
   background-color: #b33131;
 }
 
-.emotion-5:active {
+.emotion-2:active {
   background-color: #932828;
 }
 
-.emotion-5:disabled {
+.emotion-2:disabled {
   color: #323845;
   background-color: #C4C5CA;
 }
 
 <button
-    class="emotion-5"
+    class="emotion-2"
     type="button"
   >
     <div
-      class="emotion-4"
+      class="emotion-1"
     >
       <div
         class="emotion-0"
       >
          Button
-      </div>
-      <div
-        class="emotion-3"
-      >
-        <svg
-          class="emotion-2"
-          fill="none"
-          focusable="false"
-          viewBox="0 0 50 50"
-        >
-          <circle
-            class="emotion-1"
-            cx="25"
-            cy="25"
-            r="20"
-          />
-        </svg>
       </div>
     </div>
   </button>
