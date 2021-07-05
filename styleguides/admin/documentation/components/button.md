@@ -193,15 +193,32 @@ This type of button combines an icon and an action. It embodies more complex act
 </Set>
 ```
 
+### Loading
+
+```jsx
+function Example() {
+  const [loading, setLoading] = React.useState(true)
+
+  return (
+    <Set orientation="vertical">
+      <Button loading={loading} onClick={() => setLoading(!loading)}>
+        Loading
+      </Button>
+    </Set>
+  )
+}
+```
+
 ## Props
 
-| Name         | Type        | Description                        | Required             | Default     |
-| ------------ | ----------- | ---------------------------------- | -------------------- | ----------- | --------- |
-| size         | `Size`      | Size of the button                 | 🚫                   | `'regular'` |
-| variant      | `Variant`   | Button variant                     | 🚫                   | `'primary'` |
-| icon         | `ReactNode` | Icon of the button                 | 🚫                   | -           |
-| iconPosition | `'start'    | 'end'`                             | Position of the icon | 🚫          | `'start'` |
-| disabled     | `boolean`   | Defines if the Button is disabled  | 🚫                   | -           |
-| focusable    | `boolean`   | Defines if the Button is focusable | 🚫                   | -           |
-| children     | `ReactNode` | Button children                    | 🚫                   | -           |
-| csx          | `StyleProp` | Defines component styles           | 🚫                   | `{}`        |
+| Name         | Type        | Description                               | Required             | Default     |
+| ------------ | ----------- | ----------------------------------------- | -------------------- | ----------- | --------- |
+| size         | `Size`      | Size of the button                        | 🚫                   | `'regular'` |
+| variant      | `Variant`   | Button variant                            | 🚫                   | `'primary'` |
+| icon         | `ReactNode` | Icon of the button                        | 🚫                   | -           |
+| iconPosition | `'start'    | 'end'`                                    | Position of the icon | 🚫          | `'start'` |
+| disabled     | `boolean`   | Defines if the Button is disabled         | 🚫                   | -           |
+| loading      | `boolean`   | Defines if the Button is in loading state | 🚫                   | `false`     |
+| focusable    | `boolean`   | Defines if the Button is focusable        | 🚫                   | -           |
+| children     | `ReactNode` | Button children                           | 🚫                   | -           |
+| csx          | `StyleProp` | Defines component styles                  | 🚫                   | `{}`        |
