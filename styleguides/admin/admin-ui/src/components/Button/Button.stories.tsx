@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
-import { IconAppStore } from '@vtex/admin-ui-icons'
+import { IconAppStore, IconAdd } from '@vtex/admin-ui-icons'
 
 import { Box } from '@vtex/admin-primitives'
 import { Button } from './index'
@@ -72,9 +72,81 @@ export const Loading = () => {
 
   return (
     <Set>
-      <Button loading={loading} onClick={() => setLoading(!loading)}>
+      <Button
+        icon={<IconAdd />}
+        loading={loading}
+        variant="primary"
+        onClick={() => setLoading(!loading)}
+      >
         Loading
       </Button>
+      <Button
+        icon={<IconAdd />}
+        loading={loading}
+        variant="danger"
+        iconPosition="end"
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
+      <Button
+        loading={loading}
+        variant="secondary"
+        onClick={() => setLoading(!loading)}
+        size="small"
+      >
+        Loading
+      </Button>
+      <Button
+        icon={<IconAdd />}
+        loading={loading}
+        variant="danger-secondary"
+        onClick={() => setLoading(!loading)}
+      />
+      <Button
+        loading={loading}
+        variant="tertiary"
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
+      <Button
+        loading={loading}
+        variant="danger-tertiary"
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
+      <Box
+        csx={{
+          color: 'light.primary',
+          bg: 'dark.primary',
+          padding: 4,
+        }}
+      >
+        <Button
+          loading={loading}
+          variant="adaptative-light"
+          onClick={() => setLoading(!loading)}
+        >
+          Loading
+        </Button>
+      </Box>
+      <Box
+        csx={{
+          color: 'dark.primary',
+          bg: 'light.primary',
+          padding: 4,
+        }}
+      >
+        <Button
+          loading={loading}
+          variant="adaptative-dark"
+          onClick={() => setLoading(!loading)}
+        >
+          Loading
+        </Button>
+      </Box>
     </Set>
   )
 }
