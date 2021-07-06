@@ -27,36 +27,6 @@ const query = graphql`
   }
 `
 
-export function useSearchableData(): Array<{
-  path: string
-  name: string
-  section: string
-}> {
-  const rawData: Data = useStaticQuery(query)
-  const findMeta = (path: string) =>
-    rawData.allMarkdownRemark.nodes.find(
-      (node) => node.frontmatter.path === path
-    )
-  const getTitle = (path: string) => findMeta(path)?.title ?? ''
-
-  const data = rawData.allNavigationYaml.nodes.reduce((acc: any, node) => {
-    const paths = node.paths
-    const forms = paths.reduce((pathAcc: any, path: string) => {
-      return [
-        ...pathAcc,
-        {
-          name: getTitle(path),
-          section: node.section,
-          path,
-        },
-      ]
-    }, [])
-    return [...acc, ...forms]
-  }, [])
-
-  return data
-}
-
 export function Sidebar() {
   const data: Data = useStaticQuery(query)
   const { id: baseId } = useId({ baseId: 'docs-navigation' })
