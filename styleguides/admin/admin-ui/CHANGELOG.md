@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.103.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.3...@vtex/admin-ui@0.103.0) (2021-07-06)
+
+
+### Bug Fixes
+
+* **button-loading:** button's icon positioning ([b99a832](https://github.com/vtex/onda/commit/b99a832d384a35491e758cb569cd6f7f80e643fb))
+* **button-loading:** use visible in button spinner visibility ([48e5881](https://github.com/vtex/onda/commit/48e588121e5289ac6f43c98c2adee0deb0cd589a))
+
+
+### Features
+
+* **button-loading:** add button loading variations to stories ([8b9206f](https://github.com/vtex/onda/commit/8b9206f348e672144bdc0b8e82b20786947d4a75))
+* **button-loading:** add loading state to button ([6ab4514](https://github.com/vtex/onda/commit/6ab4514b5ef02a045c8c2414159f54d243aaf173))
+
+
+
+
+
 ## [0.102.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.2...@vtex/admin-ui@0.102.3) (2021-07-05)
 
 
