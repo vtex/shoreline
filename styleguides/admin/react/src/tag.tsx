@@ -1,8 +1,8 @@
-import React, { ComponentPropsWithoutRef } from 'react'
+import React from 'react'
 import { StyleObject, useSystem } from '@vtex/admin-core'
 import { isFunction, capitalize } from '@vtex/onda-util'
 
-import { As, ExtractHTMLAttributes, RenderProp } from './types'
+import { ExtractHTMLAttributes, RenderProp } from './types'
 import { DOMElements, domElements } from './domElements'
 
 /**
@@ -19,7 +19,7 @@ import { DOMElements, domElements } from './domElements'
  *
  * <Box as={Link} to="/">Gatsby Link</Box>
  */
-function _tag<T extends As, Props>(type: T): OndaElement<T, Props> {
+function _tag<T extends React.ElementType<any>, Props>(type: T): OndaElement<T, Props> {
   function Element(props: ElementPropsWithAs<Props, T>, ref: React.Ref<T>) {
     const {
       as: ElementCall = type,
@@ -67,15 +67,15 @@ domElements.forEach((t) => {
   tag[t] = _tag(t)
 })
 
-export type OndaElement<T extends As, Props> = {
-  <TT extends As>(
+export type OndaElement<T extends React.ElementType<any>, Props> = {
+  <TT extends React.ElementType<any>>(
     props: ElementPropsWithAs<Props, TT> & { as: TT }
   ): JSX.Element
   (props: ElementPropsWithAs<Props, T>): JSX.Element
 }
 
-export type ElementPropsWithAs<Props, T extends As> = Props &
-  Omit<ComponentPropsWithoutRef<T>, 'as' | keyof Props> & {
+export type ElementPropsWithAs<Props, T extends React.ElementType<any>> = Props &
+  Omit<React.ComponentPropsWithRef<T>, 'as' | keyof Props> & {
     csx?: StyleObject
     className?: string
     css?: any

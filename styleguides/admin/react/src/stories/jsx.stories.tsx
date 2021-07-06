@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Meta } from '@storybook/react'
 import { ThemeProvider } from '@vtex/admin-core'
 import { Button as ReakitButton, Separator, Role } from 'reakit'
@@ -36,6 +36,52 @@ export function Plain() {
       >
         This should be a link
       </Div>
+    </ThemeProvider>
+  )
+}
+
+export function ForwardRef() {
+  const ref = useRef<HTMLInputElement>(null)
+
+  const Input = jsx.input({
+    border: '1px solid #cecece',
+    paddingX: 3,
+    paddingY: 2,
+  })
+
+  useEffect(() => {
+    if(ref.current) {
+      ref.current.focus()
+    }
+  }, [])
+
+  return(
+    <ThemeProvider>
+      <Input ref={ref} />
+    </ThemeProvider>
+  )
+}
+
+export function DeepForwardRef() {
+  const ref = useRef<HTMLInputElement>(null)
+
+  const BaseInput = jsx.input({
+    border: '1px solid #cecece',
+    paddingX: 3,
+    paddingY: 2,
+  })
+
+  const Input = jsx(BaseInput)()
+
+  useEffect(() => {
+    if(ref.current) {
+      ref.current.focus()
+    }
+  }, [])
+
+  return(
+    <ThemeProvider>
+      <Input ref={ref} />
     </ThemeProvider>
   )
 }
