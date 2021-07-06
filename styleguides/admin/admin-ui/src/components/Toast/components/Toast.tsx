@@ -1,13 +1,19 @@
 import React, { useEffect, useMemo } from 'react'
 import { Flex } from '@vtex/admin-primitives'
 import { IconClose } from '@vtex/admin-ui-icons'
-import { merge, StyleProp, useSystem } from '@vtex/admin-core'
+import { merge, StyleObject, StyleProp } from '@vtex/admin-core'
+import { tag } from '@vtex/onda-react'
 import { ToastIconProps, ToastOptions, ToastType } from './typings'
 import { ToastIcon } from './Icon'
 import { Button, ButtonProps } from '../../Button'
 import { Text } from '../../Text'
 import { motion } from 'framer-motion'
-import { errorStyles, styles, successStyles, warningStyles } from './consts'
+import {
+  toastErrorCsx,
+  toastCsx,
+  toastSuccessCsx,
+  toastWarningCsx,
+} from './consts'
 
 /**
  * The toast is a variation of an alert that provides immediate
@@ -28,8 +34,6 @@ export function Toast(props: ToastOptions) {
     stack,
     action,
   } = useToast(props)
-  const { cn } = useSystem()
-
   useEffect(() => {
     const timeout = setTimeout(() => remove(id, position), duration)
 
@@ -50,10 +54,11 @@ export function Toast(props: ToastOptions) {
   }, [stack])
 
   return (
-    <motion.div
+    <tag.div
+      as={motion.div}
       layout
       data-testid="onda-toast-component"
-      className={cn(csx)}
+      csx={csx as StyleObject}
       initial={{ top: '7.5rem' }}
       animate={{ top: 0 }}
       exit={{
@@ -82,7 +87,7 @@ export function Toast(props: ToastOptions) {
           )}
         </Flex>
       )}
-    </motion.div>
+    </tag.div>
   )
 }
 
@@ -125,21 +130,21 @@ function getCsx(type: ToastType): StyleProp {
   switch (type) {
     case 'error':
       return {
-        ...styles,
-        ...errorStyles,
+        ...toastCsx,
+        ...toastErrorCsx,
       } as StyleProp
     case 'warning':
       return {
-        ...styles,
-        ...warningStyles,
+        ...toastCsx,
+        ...toastWarningCsx,
       } as StyleProp
     case 'success':
       return {
-        ...styles,
-        ...successStyles,
+        ...toastCsx,
+        ...toastSuccessCsx,
       } as StyleProp
     case 'info':
     default:
-      return styles
+      return toastCsx
   }
 }
