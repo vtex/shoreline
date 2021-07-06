@@ -1,17 +1,15 @@
 import React from 'react'
-import { useSystem } from '@vtex/admin-ui'
+import { tag } from '@vtex/admin-ui'
 
 export type LogoProps = React.SVGAttributes<SVGElement> & {
   colored?: boolean
 }
 
 export default function Logo({ colored, ...props }: LogoProps) {
-  const { cn } = useSystem()
-
   return (
     <svg height={64} viewBox="0 0 400 205" {...props}>
       <title>VTEX logo</title>
-      <g fillRule="nonzero" className={cn({ fill: 'primary.text' })}>
+      <tag.g fillRule="nonzero" csx={{ fill: 'currentColor' }}>
         <g id="vtex-logo" transform="translate(48.000000, 47.000000)">
           <path
             d="M220.35,41.34 L209.43,41.34 L209.43,78.72 C209.424558,79.4246582 208.854658,79.9945584 208.15,80 L199.74,80 C199.035342,79.9945584 198.465442,79.4246582 198.46,78.72 L198.46,41.34 L187.46,41.34 C187.126939,41.3535592 186.802636,41.2313586 186.561344,41.0013768 C186.320052,40.771395 186.182434,40.4533282 186.18,40.12 L186.18,33.5 C186.182434,33.1666718 186.320052,32.848605 186.561344,32.6186232 C186.802636,32.3886414 187.126939,32.2664408 187.46,32.28 L220.33,32.28 C221.039015,32.2459827 221.642298,32.7911719 221.68,33.5 L221.68,40.12 C221.642291,40.8207243 221.051369,41.3627732 220.35,41.34 Z"
@@ -34,7 +32,7 @@ export default function Logo({ colored, ...props }: LogoProps) {
             id="Shape"
           />
         </g>
-      </g>
+      </tag.g>
     </svg>
   )
 }

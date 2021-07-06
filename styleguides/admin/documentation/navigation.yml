@@ -13,7 +13,6 @@
   paths:
     - /theming/default-theme/
     - /theming/theme-provider/
-    - /theming/components/
     - /theming/responsive-design/
 - section: Primitives
   paths:

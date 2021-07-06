@@ -1,22 +1,15 @@
 import React, { PropsWithChildren, ReactNode } from 'react'
-import { Box, Flex } from '@vtex/admin-ui'
+import { Flex, tag } from '@vtex/admin-ui'
 
 import { Sidebar } from './Sidebar'
 import { TableOfContents } from './TableOfContents'
 import Header from './Header'
 import { SearchProvider, useSearchState } from './Search'
 
-const styles = {
-  container: {
-    display: 'block',
-    margin: 'auto',
-    maxWidth: '90rem',
-  },
-}
-
-function StickyBlock(props: PropsWithChildren<{}>) {
+function StickyBlock(props: PropsWithChildren<{ top?: number }>) {
+  const { top =0 , children } = props
   return (
-    <Box
+    <tag.div
       csx={{
         width: '20%',
         maxWidth: '18rem',
@@ -33,9 +26,9 @@ function StickyBlock(props: PropsWithChildren<{}>) {
         flex: 'none',
       }}
     >
-      <Box
+      <tag.div
         csx={{
-          top: '4.5rem',
+          top,
           position: 'sticky',
           marginRight: 0,
           height: 'auto',
@@ -44,9 +37,9 @@ function StickyBlock(props: PropsWithChildren<{}>) {
           overflow: 'hidden',
         }}
       >
-        {props.children}
-      </Box>
-    </Box>
+        {children}
+      </tag.div>
+    </tag.div>
   )
 }
 
@@ -65,36 +58,46 @@ export function PageLayout(props: Props) {
 
   return (
     <SearchProvider value={search}>
-      <Box csx={styles.container}>
-        <Header />
-        <Flex justify="center" csx={{ width: '100%', marginTop: 'content' }}>
-          <StickyBlock>
-            <Sidebar />
-          </StickyBlock>
-          <Flex
-            direction="column"
-            csx={{
-              width: '80%',
-              flex: '1 1 0',
-              padding: 4,
-              maxWidth: '64rem',
-              overflow: 'auto',
-            }}
-          >
-            {children}
-          </Flex>
-          {title && props.pageContext.tableOfContentsAst && (
-            <StickyBlock>
-              <TableOfContents
-                sourceUrl={sourceUrl}
-                readmeUrl={readmeUrl}
-                tableOfContentsAst={tableOfContentsAst}
-                title={title}
-              />
-            </StickyBlock>
-          )}
+      <tag.div
+        csx={{
+          margin: 'auto',
+          maxWidth: '90rem',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <StickyBlock>
+          <Sidebar />
+        </StickyBlock>
+        <Flex
+          direction="column"
+          csx={{
+            width: '80%',
+            flex: '1 1 0',
+            maxWidth: '64rem',
+            overflow: 'auto',
+          }}
+        >
+          <Header />
+          <tag.div csx={{
+            padding: 4,
+            marginTop: 64,
+            width: '100%'
+          }}> 
+          {children}
+          </tag.div>
         </Flex>
-      </Box>
+        {title && props.pageContext.tableOfContentsAst && (
+          <StickyBlock top={160}>
+            <TableOfContents
+              sourceUrl={sourceUrl}
+              readmeUrl={readmeUrl}
+              tableOfContentsAst={tableOfContentsAst}
+              title={title}
+            />
+          </StickyBlock>
+        )}
+      </tag.div>
     </SearchProvider>
   )
 }

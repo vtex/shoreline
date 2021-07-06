@@ -1,5 +1,5 @@
 import React, { useState, createElement } from 'react'
-import { useSystem } from '@vtex/admin-ui'
+import { tag } from '@vtex/admin-ui'
 import RehypeReact from 'rehype-react'
 
 const { Compiler: renderAst } = new RehypeReact({
@@ -10,20 +10,28 @@ const { Compiler: renderAst } = new RehypeReact({
     },
     a: function Render(props: React.AnchorHTMLAttributes<unknown>) {
       const [href] = useState(() => props.href?.replace(/^.*(#.+)$/, '$1'))
-      const { cn } = useSystem()
 
       if (href) {
         return (
-          <a
+          <tag.a
             {...props}
             href={href}
-            // aria-current={currentId === id ? 'page' : undefined}
-            className={cn({
-              themeKey: 'components.tocLink',
-            })}
+            csx={{
+              color: 'dark.secondary',
+              textDecoration: 'none',
+              transition: 'all 150ms ease',
+              position: 'relative',
+              ':hover': {
+                color: 'dark.primary',
+              },
+              "&[aria-current='page']": {
+                color: 'dark.primary',
+                fontSettings: 'bold',
+              },
+            }}
           >
             {props.children}
-          </a>
+          </tag.a>
         )
       }
 
