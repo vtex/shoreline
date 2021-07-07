@@ -1,7 +1,7 @@
 import React, { cloneElement, Fragment } from 'react'
 import { jsx } from '@vtex/onda-react'
 
-import { CellRoleContext, useStateContext } from '../context'
+import { useStateContext } from '../context'
 
 export const Body = jsx.tbody(
   {
@@ -15,7 +15,7 @@ export const Body = jsx.tbody(
         ...props,
         role: 'rowgroup',
         children: (
-          <CellRoleContext.Provider value="cell">
+          <Fragment>
             {state.data.map((item) => (
               <Fragment key={item.id}>
                 {cloneElement(children as any, {
@@ -23,7 +23,7 @@ export const Body = jsx.tbody(
                 })}
               </Fragment>
             ))}
-          </CellRoleContext.Provider>
+          </Fragment>
         ),
       }
     },

@@ -5,8 +5,8 @@ import { BaseResolvers } from './resolvers/base'
 /**
  * Column type
  * Each column, represents a field within an item
- * @generic T: Item
- * @generic R: Resolver filed
+ * @template T: Item
+ * @template R: Resolver filed
  */
 export type Column<T, R = BaseResolvers<T>> =
   | {

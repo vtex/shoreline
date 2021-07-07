@@ -1,7 +1,6 @@
 import { jsx } from '@vtex/onda-react'
 
 import { Column } from '../typings'
-import { useCellRoleContext } from '../context'
 
 export const Cell = jsx.td(
   {
@@ -13,10 +12,6 @@ export const Cell = jsx.td(
     display: 'table-cell',
     verticalAlign: 'middle',
     paddingX: 2,
-    variant: 'text.body',
-    '[role="columnheader"]': {
-      height: 48
-    },
     variants: {
       density: {
         regular: {
@@ -38,8 +33,6 @@ export const Cell = jsx.td(
       const { column } = options
       const { onClick, ...cellProps } = props
 
-      const role = useCellRoleContext()
-
       const clickableCsx = onClick
         ? {
             cursor: 'pointer',
@@ -56,7 +49,6 @@ export const Cell = jsx.td(
 
       return {
         ...cellProps,
-        role,
         csx: {
           minWidth: column?.width,
           maxWidth: column?.width,
@@ -70,6 +62,7 @@ export const Cell = jsx.td(
 
 Cell.defaultProps = {
   density: 'regular',
+  role: 'cell',
 }
 
 export interface CellOptions {

@@ -23,11 +23,6 @@ export function useStateContext() {
 export const StylesContext = createContext<StylesContextType | null>(null)
 
 /**
- * Context of cell roles
- */
-export const CellRoleContext = createContext<CellRole | null>(null)
-
-/**
  * Context of table view
  */
 export const ViewContext = createContext<TableViewState | null>(null)
@@ -39,17 +34,6 @@ export function useStylesContext() {
   const ctx = useContext(StylesContext)
 
   invariant(ctx, 'Table composites must not be used outside of its context')
-
-  return ctx
-}
-
-/**
- * Get cell role
- */
-export function useCellRoleContext() {
-  const ctx = useContext(CellRoleContext)
-
-  invariant(ctx, 'A cell must be within a Table.Head or Table.Body context')
 
   return ctx
 }
@@ -81,8 +65,6 @@ type StylesContextType = {
    */
   dir: TableDir
 }
-
-type CellRole = 'columnheader' | 'cell'
 
 export interface TableViewState {
   /**
