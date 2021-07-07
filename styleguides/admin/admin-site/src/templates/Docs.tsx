@@ -1,11 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Global, css } from '@emotion/react'
+import { tag } from '@vtex/admin-ui'
 
-import Heading from '../components/Heading'
 import Seo from '../components/SEO'
 import DocsBackNext from '../components/DocsBackNext'
 import { renderAst } from './renderAst'
+import { PageHeader } from '../components/PageHeader'
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -227,8 +228,8 @@ export default function Docs({ data, pageContext }: DocsProps) {
         `}
       />
       <Seo title={`${title} – AdminUI`} description={excerpt} />
-      <Heading>{title}</Heading>
-      {renderAst(htmlAst)}
+      <PageHeader>{title}</PageHeader>
+      <tag.div csx={{ paddingX: 4 }}>{renderAst(htmlAst)}</tag.div>
       <DocsBackNext nextPath={nextPagePath} prevPath={prevPagePath} />
     </>
   )

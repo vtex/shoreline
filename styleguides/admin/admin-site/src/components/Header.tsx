@@ -1,58 +1,88 @@
-import React from 'react'
-import { Box, Search, useSystem, Flex } from '@vtex/admin-ui'
-import { Link } from 'gatsby'
+import React, { useEffect, useState } from 'react'
+import { Search, tag } from '@vtex/admin-ui'
 import { VisuallyHidden } from 'reakit'
 import { FaGithub } from 'react-icons/fa'
 
-import Logo from '../icons/LogoSkeleton'
 import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
 
 import Anchor from './Anchor'
-import SkipToContent from './SkipToContent'
 import { useSearchContext } from './Search'
 
 export default function Header() {
   const isLarge = useViewportWidthGreaterThan(768)
-
-  const { cn } = useSystem()
   const { searchState } = useSearchContext()
+  const [border, setBorder] = useState('none')
+
+  useEffect(() => {
+
+    function handleScroll() {
+      if(window.scrollY > 100) {
+        setBorder('divider-bottom')
+      }else {
+        setBorder('none')
+      }
+    }
+
+    document.addEventListener('scroll', handleScroll)
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
-    <Box
-      element="header"
+    <tag.header
       csx={{
-        themeKey: 'components.header',
+        top: 0,
+        height: 64,
+        position: 'fixed',
+        border,
+        color: 'dark.primary',
+        bg: 'light.primary',
+        width: '80%',
+        maxWidth: 'calc(90rem - 10%)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        zIndex: 9999,
+        paddingX: 4,
+        '& > *:not(:last-child)': {
+          marginRight: 4,
+        },
+        "a:not([href^='#'])": {
+          display: 'inline-flex',
+          alignItems: 'center',
+          height: 'calc(100% - 5px)',
+          color: 'inherit',
+          marginTop: 1,
+          borderBottom: '2px solid transparent',
+          textTransform: 'uppercase',
+          fontSize: '0.875em',
+          "&:not([href='/'])": {
+            paddingX: 4,
+            '&:hover': {
+              color: 'blue',
+              textDecoration: 'none',
+            },
+          },
+        },
       }}
     >
-      <SkipToContent />
-      <Anchor as={Link} to="/">
-        <Logo />
-        <VisuallyHidden>VTEX</VisuallyHidden>
-      </Anchor>
-      <Flex
-        justify="center"
-        align="center"
+      <Search
+        id="search"
+        placeholder="Start typing to filter sidebar items"
         csx={{
-          flex: 1,
-          width: '100%',
+          width: 500,
         }}
-      >
-        <Search
-          id="search"
-          placeholder="Start typing to filter sidebar items"
-          csx={{
-            width: 400,
-          }}
-          {...searchState}
-        />
-      </Flex>
+        {...searchState}
+      />
       <Anchor
         href="https://github.com/vtex/onda/tree/master/styleguides/admin/admin-ui"
         target="blank"
       >
-        <FaGithub className={cn({ fontSize: '1.2em', marginRight: 2 })} />
+        <tag.i as={FaGithub} csx={{ fontSize: '1.5rem', marginRight: 2 }} />
         {!isLarge && <VisuallyHidden>GitHub</VisuallyHidden>}
       </Anchor>
-    </Box>
+    </tag.header>
   )
 }

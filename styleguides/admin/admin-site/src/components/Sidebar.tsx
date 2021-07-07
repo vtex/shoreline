@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react'
-import { Box, useSystem, Text, Flex } from '@vtex/admin-ui'
+import { Text, Flex, tag } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
 import { useSearchContext } from './Search'
+import Logo from '../icons/Logo'
 
 const query = graphql`
   query DocsQuery {
@@ -28,7 +29,6 @@ const query = graphql`
 
 export function Sidebar() {
   const data: Data = useStaticQuery(query)
-  const { cn } = useSystem()
   const { id: baseId } = useId({ baseId: 'docs-navigation' })
   const getId = (section: string) => `${baseId}-${kebabCase(section)}`
   const findMeta = (path: string) =>
@@ -37,14 +37,28 @@ export function Sidebar() {
   const { current } = useSearchContext()
 
   return (
-    <Box
+    <tag.div
       csx={{
-        themeKey: 'components.sidebar',
+        height: '100vh',
+        overflowY: 'auto',
         'nav:first-of-type': {
           margin: 0,
         },
+        borderRight: '1px solid',
+        borderColor: 'mid.tertiary',
       }}
     >
+      <tag.div
+        csx={{
+          height: 64,
+          top: 0,
+          position: 'sticky',
+          bg: 'light.primary',
+          color: 'rebelPink',
+        }}
+      >
+        <Logo />
+      </tag.div>
       {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
         const paths = node.paths
           .filter((path) =>
@@ -64,25 +78,46 @@ export function Sidebar() {
                 width: '100%',
               }}
             >
-              <Link
-                className={cn({
-                  themeKey: 'components.sidebarLink',
-                })}
+              <tag.a
+                as={Link}
+                csx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  borderRadius: 'default',
+                  alignItems: 'center',
+                  height: 32,
+                  paddingX: 2,
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  cursor: 'pointer',
+                  marginBottom: 2,
+                  ':hover:not(:focus)': {
+                    color: 'blue',
+                  },
+                  '&[aria-current="page"]': {
+                    bg: '#EAF0FD',
+                    color: 'blue',
+                  },
+                  ':focus': {
+                    color: 'blue',
+                    outline: 'none',
+                  },
+                }}
                 to={path}
               >
                 {getTitle(path)}
-              </Link>
+              </tag.a>
             </Flex>
           ))
 
         if (paths.length > 0) {
           return [
             ...acc,
-            <nav
-              className={cn({
+            <tag.nav
+              csx={{
                 paddingX: 4,
                 paddingY: 1,
-              })}
+              }}
               key={node.section}
               aria-labelledby={getId(node.section)}
             >
@@ -92,21 +127,18 @@ export function Sidebar() {
                   paddingX: 0,
                   color: 'dark.secondary',
                 }}
-                variant="highlight"
                 id={getId(node.section)}
               >
                 {node.section}
               </Text>
-              <Box element="ul" csx={{ padding: 0 }}>
-                {paths}
-              </Box>
-            </nav>,
+              <tag.ul csx={{ padding: 0 }}>{paths}</tag.ul>
+            </tag.nav>,
           ]
         }
 
         return acc
       }, [])}
-    </Box>
+    </tag.div>
   )
 }
 
