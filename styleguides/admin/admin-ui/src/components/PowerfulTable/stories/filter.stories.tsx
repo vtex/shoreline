@@ -8,6 +8,7 @@ import { Filters, Statement } from '../../FilterBar/typings'
 import { ResolverRenderProps } from '../../FilterBar/resolvers/core'
 import { AbstractInput } from '../../AbstractInput'
 import { useTableFilterBarState } from '../components/FilterBar'
+import { useTableState } from '../../Table'
 
 export default {
   title: 'admin-ui/PowerfulTable/Filter',
@@ -182,24 +183,26 @@ export function TableFilter() {
     },
   })
 
+  const tableState = useTableState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items,
+  })
+
   return (
-    <StatelessTable
-      columns={[
-        {
-          id: 'productName',
-          header: 'Product Name',
-        },
-        {
-          id: 'inStock',
-          header: 'In Stock',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-        },
-      ]}
-      items={items}
-    >
+    <StatelessTable state={tableState}>
       <StatelessTable.Section>
         <StatelessTable.Toolbar>
           <StatelessTable.FilterBar.Disclosure state={disclosureState}>

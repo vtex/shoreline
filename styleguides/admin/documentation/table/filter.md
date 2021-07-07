@@ -17,7 +17,7 @@ yarn add @vtex/admin-ui
 ```
 
 ```jsx isStatic
-import { StatefulTable } from '@vtex/admin-ui'
+import { StatelessTable } from '@vtex/admin-ui'
 ```
 
 ## Code Example
@@ -140,33 +140,35 @@ function Filter() {
     },
   })
 
+  const tableState = useTableState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items,
+  })
+
   return (
-    <StatefulTable
-      columns={[
-        {
-          id: 'productName',
-          header: 'Product Name',
-        },
-        {
-          id: 'inStock',
-          header: 'In Stock',
-        },
-        {
-          id: 'price',
-          header: 'Price',
-        },
-      ]}
-      items={items}
-    >
-      <StatefulTable.Section>
-        <StatefulTable.Search />
-        <StatefulTable.Toolbar>
-          <StatefulTable.FilterBar.Disclosure state={disclosureState}>
+    <StatelessTable state={tableState}>
+      <StatelessTable.Section>
+        <StatelessTable.Search />
+        <StatelessTable.Toolbar>
+          <StatelessTable.FilterBar.Disclosure state={disclosureState}>
             Filters
-          </StatefulTable.FilterBar.Disclosure>
-        </StatefulTable.Toolbar>
-      </StatefulTable.Section>
-      <StatefulTable.FilterBar
+          </StatelessTable.FilterBar.Disclosure>
+        </StatelessTable.Toolbar>
+      </StatelessTable.Section>
+      <StatelessTable.FilterBar
         state={filterBarState}
         label="Use a filter to find products, create collections or generate a report"
         conjunctions={[
@@ -186,7 +188,7 @@ function Filter() {
           whereStatementLabel: 'Where',
         }}
       />
-    </StatefulTable>
+    </StatelessTable>
   )
 }
 ```
