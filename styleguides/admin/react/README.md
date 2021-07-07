@@ -2,7 +2,7 @@
 
 ## jsx
 
-You can use the `jsx` function to create new components using elements or components as reference. It genereates an `OndaJSXComponet` that inherits and enhances the reference types and styles.
+You can use the `jsx` function to create new components using elements or components as reference. It generates an `OndaJSXComponent` that inherits and enhances the reference types and styles.
 
 ### Referencing elements
 
@@ -32,7 +32,7 @@ render(<BlueSquare />)
 
 ### Referencing components
 
-The idea is the same that elements. It will inherit the types and behavior for the passed component.
+The idea is the same as elements. It will inherit the types and behavior of the passed component.
 
 ```jsx
 import { motion } from 'framer-motion'
