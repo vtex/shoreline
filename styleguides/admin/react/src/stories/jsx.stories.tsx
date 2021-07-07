@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { createContext, useContext, useEffect, useRef } from 'react'
 import { Meta } from '@storybook/react'
 import { ThemeProvider } from '@vtex/admin-core'
 import { Button as ReakitButton, Separator, Role } from 'reakit'
@@ -40,6 +40,47 @@ export function Plain() {
   )
 }
 
+export function WithContext() {
+  const Context = createContext<string | null>(null)
+
+  interface ProviderOptions {
+    forward: string
+  }
+
+  const Provider = jsx.div(
+    {},
+    {
+      useOptions(o: ProviderOptions, { children }) {
+        return {
+          children: () => (
+            <Context.Provider value={o.forward}>{children}</Context.Provider>
+          ),
+        }
+      },
+      options: ['forward'],
+    }
+  )
+
+  const Consumer = jsx.p(
+    {},
+    {
+      useOptions: () => {
+        const content = useContext(Context)
+
+        return {
+          children: <>{content}</>,
+        }
+      },
+    }
+  )
+
+  return (
+    <Provider forward="All good">
+      <Consumer />
+    </Provider>
+  )
+}
+
 export function ForwardRef() {
   const ref = useRef<HTMLInputElement>(null)
 
@@ -50,12 +91,12 @@ export function ForwardRef() {
   })
 
   useEffect(() => {
-    if(ref.current) {
+    if (ref.current) {
       ref.current.focus()
     }
   }, [])
 
-  return(
+  return (
     <ThemeProvider>
       <Input ref={ref} />
     </ThemeProvider>
@@ -74,12 +115,12 @@ export function DeepForwardRef() {
   const Input = jsx(BaseInput)()
 
   useEffect(() => {
-    if(ref.current) {
+    if (ref.current) {
       ref.current.focus()
     }
   }, [])
 
-  return(
+  return (
     <ThemeProvider>
       <Input ref={ref} />
     </ThemeProvider>
@@ -217,6 +258,28 @@ export function ButtonSeries() {
       <Button>Base button</Button>
       <Primary>Primary Button</Primary>
       <Secondary>Secondary Button</Secondary>
+    </ThemeProvider>
+  )
+}
+
+export function BooleanVariants() {
+  const Div = jsx.div({
+    size: 100,
+    bg: 'blue',
+    margin: 2,
+    variants: {
+      danger: {
+        true: {
+          bg: 'red'
+        } 
+      }
+    },
+  })
+
+  return (
+    <ThemeProvider>
+      <Div />
+      <Div danger />
     </ThemeProvider>
   )
 }
@@ -585,8 +648,8 @@ export function UseOptions() {
       },
     },
     {
-      useOptions: (options: AvatarOptions) => {
-        return { children: options.label.charAt(0) }
+      useOptions: (options: AvatarOptions, props) => {
+        return { children: options.label.charAt(0), ...props }
       },
       options: ['label'],
     }
