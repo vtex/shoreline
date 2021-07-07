@@ -2,7 +2,6 @@ import React, { useEffect, useMemo } from 'react'
 import { Flex } from '@vtex/admin-primitives'
 import { IconClose } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/onda-react'
-import { StyleObject } from '@vtex/admin-styles'
 import { ToastIconProps, ToastOptions } from './typings'
 import { ToastIcon } from './Icon'
 import { Button, ButtonProps } from '../../Button'
@@ -83,7 +82,7 @@ export function Toast(props: ToastOptions) {
     <ToastContent
       layout
       type={type}
-      csx={csx as StyleObject}
+      csx={csx}
       data-testid="onda-toast-component"
       initial={{ top: '7.5rem' }}
       animate={{ top: 0 }}
