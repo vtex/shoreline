@@ -59,7 +59,7 @@ function FilterDisclosure(props: TableFilterDisclosureProps) {
                 borderRadius: '2rem',
                 fontSize: '0.625rem',
                 bg: 'blue.default',
-                color: 'white',
+                color: 'light.primary',
               }}
             >
               {filtersAmount}
