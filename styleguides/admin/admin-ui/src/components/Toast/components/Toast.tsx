@@ -1,19 +1,44 @@
 import React, { useEffect, useMemo } from 'react'
 import { Flex } from '@vtex/admin-primitives'
 import { IconClose } from '@vtex/admin-ui-icons'
-import { merge, StyleObject, StyleProp } from '@vtex/admin-core'
-import { tag } from '@vtex/onda-react'
-import { ToastIconProps, ToastOptions, ToastType } from './typings'
+import { jsx } from '@vtex/onda-react'
+import { StyleObject } from '@vtex/admin-styles'
+import { ToastIconProps, ToastOptions } from './typings'
 import { ToastIcon } from './Icon'
 import { Button, ButtonProps } from '../../Button'
 import { Text } from '../../Text'
 import { motion } from 'framer-motion'
-import {
-  toastErrorCsx,
-  toastCsx,
-  toastSuccessCsx,
-  toastWarningCsx,
-} from './consts'
+import { toastErrorCsx, toastSuccessCsx, toastWarningCsx } from './consts'
+
+const ToastContent = jsx.div({
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  minWidth: '16.125rem',
+  width: 'auto',
+  minHeight: '4.5rem',
+  height: 'auto',
+  maxHeight: '4.5rem',
+  borderRadius: '0.25rem',
+  padding: '1rem',
+  boxShadow: 'subtle',
+  backgroundColor: 'white',
+  border: 'default',
+  variants: {
+    type: {
+      error: toastErrorCsx,
+      success: toastSuccessCsx,
+      warning: toastWarningCsx,
+      info: {},
+    },
+  },
+})
+
+ToastContent.defaultProps = {
+  type: 'info',
+}
 
 /**
  * The toast is a variation of an alert that provides immediate
@@ -25,14 +50,15 @@ export function Toast(props: ToastOptions) {
   const {
     message,
     duration,
-    csx = {},
     remove,
     id,
     iconProps,
     position = 'bottom-right',
     dismissible,
+    csx,
     stack,
     action,
+    type,
   } = useToast(props)
   useEffect(() => {
     const timeout = setTimeout(() => remove(id, position), duration)
@@ -54,11 +80,12 @@ export function Toast(props: ToastOptions) {
   }, [stack])
 
   return (
-    <tag.div
+    <ToastContent
       as={motion.div}
       layout
-      data-testid="onda-toast-component"
+      type={type}
       csx={csx as StyleObject}
+      data-testid="onda-toast-component"
       initial={{ top: '7.5rem' }}
       animate={{ top: 0 }}
       exit={{
@@ -87,7 +114,7 @@ export function Toast(props: ToastOptions) {
           )}
         </Flex>
       )}
-    </tag.div>
+    </ToastContent>
   )
 }
 
@@ -95,7 +122,6 @@ function useToast(props: ToastOptions): ToastOptions {
   const {
     type = 'info',
     iconProps: maybeIconProps,
-    csx: customCsx,
     action: maybeAction,
   } = props
 
@@ -103,8 +129,6 @@ function useToast(props: ToastOptions): ToastOptions {
     ...maybeIconProps,
     type,
   }
-
-  const csx: StyleProp = merge(getCsx(type), customCsx)
 
   const action: ButtonProps | undefined = maybeAction
     ? {
@@ -120,31 +144,7 @@ function useToast(props: ToastOptions): ToastOptions {
   return {
     type,
     ...props,
-    csx,
     action,
     iconProps,
-  }
-}
-
-function getCsx(type: ToastType): StyleProp {
-  switch (type) {
-    case 'error':
-      return {
-        ...toastCsx,
-        ...toastErrorCsx,
-      } as StyleProp
-    case 'warning':
-      return {
-        ...toastCsx,
-        ...toastWarningCsx,
-      } as StyleProp
-    case 'success':
-      return {
-        ...toastCsx,
-        ...toastSuccessCsx,
-      } as StyleProp
-    case 'info':
-    default:
-      return toastCsx
   }
 }

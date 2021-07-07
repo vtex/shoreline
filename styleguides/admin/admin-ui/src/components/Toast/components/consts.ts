@@ -1,9 +1,9 @@
-import { StyleProp } from '@vtex/admin-core'
+import { StyleObject } from '@vtex/admin-core'
 
 /**
  * Toaster styles
  */
-export const toasterCsx: StyleProp = {
+export const toasterCsx: StyleObject = {
   position: 'fixed',
   bottom: '3rem',
   zIndex: 'over',
@@ -19,27 +19,6 @@ export const toasterCsx: StyleProp = {
   },
 }
 
-/**
- * Toast styles
- */
-export const toastCsx: StyleProp = {
-  position: 'relative',
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  minWidth: '16.125rem',
-  width: 'auto',
-  minHeight: '4.5rem',
-  height: 'auto',
-  maxHeight: '4.5rem',
-  borderRadius: '0.25rem',
-  padding: '1rem',
-  boxShadow: 'subtle',
-  backgroundColor: 'white',
-  border: 'default',
-}
-
 // Important! Although these hexes below
 // are "hardcoded" and don't correspond to
 // any color defined on the Design System
@@ -52,7 +31,7 @@ export const toastCsx: StyleProp = {
 /**
  * Styles of toast of `error` type
  */
-export const toastErrorCsx: StyleProp = {
+export const toastErrorCsx: StyleObject = {
   backgroundColor: '#FFF8F8',
   borderColor: '#EDB6B6',
 }
@@ -60,7 +39,7 @@ export const toastErrorCsx: StyleProp = {
 /**
  * Styles of toast of `warning` type
  */
-export const toastWarningCsx: StyleProp = {
+export const toastWarningCsx: StyleObject = {
   backgroundColor: '#FFF9EE',
   borderColor: '#E5C38E',
 }
@@ -68,7 +47,7 @@ export const toastWarningCsx: StyleProp = {
 /**
  * Styles of toast of `success` type
  */
-export const toastSuccessCsx: StyleProp = {
+export const toastSuccessCsx: StyleObject = {
   backgroundColor: '#F0F8F5',
   borderColor: '#8FC2B1',
 }
