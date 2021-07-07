@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
-import { Divider, DividerProps } from './index'
+import { Divider } from './index'
 import { Card } from '../Card'
 import { Box } from '@vtex/admin-primitives'
 import { Heading } from '../Heading'
@@ -12,7 +12,7 @@ export default {
   component: Divider,
 } as Meta
 
-export const Horizontal: Story<DividerProps> = () => {
+export const Horizontal: Story = () => {
   return (
     <Card csx={{ width: 500 }}>
       <Heading csx={{ marginBottom: 2 }}>Tolerance</Heading>
@@ -29,7 +29,7 @@ export const Horizontal: Story<DividerProps> = () => {
   )
 }
 
-export const Vertical: Story<DividerProps> = () => {
+export const Vertical: Story = () => {
   return (
     <Card
       csx={{

@@ -1,6 +1,5 @@
 // elements
 import button from './button'
-import divider from './divider'
 import tag from './tag'
 import alert from './alert'
 import { tab, tabList, tabContent } from './tabs'
@@ -40,7 +39,6 @@ export default {
   menu,
   modal,
   skeleton,
-  divider,
   collapsible,
   tag,
   dropdown,
