@@ -1,15 +1,16 @@
 import React, { ReactNode } from 'react'
+import { Box, Flex } from '@vtex/admin-primitives'
 
 import { UseTableStateReturn } from '../Table/useTableState'
 import { Table } from '../Table/components'
 import { SystemComponent } from '../../types'
-import { Box, Flex } from '@vtex/admin-primitives'
 import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
 import { SortIndicator } from '../Table/components/SortIndicator'
 import { TableViewResolver, TableViewsType } from './components/Views'
 import { ViewContext } from '../Table/context'
+import { TableFilterBar } from './components/FilterBar'
 
 /**
  * Table used to show static & simple information
@@ -143,6 +144,7 @@ export const StatelessTable = Object.assign(_StatelessTable, {
   Toolbar: TableToolbar,
   Section: TableSection,
   Search: TableSearch,
+  FilterBar: TableFilterBar,
 })
 
 export interface StatelessTableProps<T> extends SystemComponent {
