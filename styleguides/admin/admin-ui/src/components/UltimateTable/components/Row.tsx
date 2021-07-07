@@ -24,7 +24,7 @@ export const Row = jsx.tr(
         : {}
 
       const handleClick = () => {
-        if(onClick && !state.context.loading ) {
+        if (onClick && !state.context.loading) {
           onClick?.(item)
         }
       }
@@ -42,8 +42,9 @@ export const Row = jsx.tr(
               return (
                 <Fragment key={`${item.id}-${String(column.id)}`}>
                   {cloneElement(children as any, {
+                    column,
                     children: <Fragment>{content}</Fragment>,
-                    column
+                    density: state.context.density,
                   })}
                 </Fragment>
               )
@@ -56,7 +57,7 @@ export const Row = jsx.tr(
         ...rowProps,
       }
     },
-    options: ['item', 'onClick']
+    options: ['item', 'onClick'],
   }
 )
 

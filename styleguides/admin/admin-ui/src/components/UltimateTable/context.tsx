@@ -1,7 +1,6 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 
-import { TableDir } from './typings'
 import { UseTableStateReturn } from './hooks/useTableState'
 
 /**
@@ -18,25 +17,9 @@ export function useStateContext() {
 }
 
 /**
- * Context of table styles
- */
-export const StylesContext = createContext<StylesContextType | null>(null)
-
-/**
  * Context of table view
  */
 export const ViewContext = createContext<TableViewState | null>(null)
-
-/**
- * Get table styles
- */
-export function useStylesContext() {
-  const ctx = useContext(StylesContext)
-
-  invariant(ctx, 'Table composites must not be used outside of its context')
-
-  return ctx
-}
 
 /**
  * Get table view state
@@ -47,23 +30,6 @@ export function useViewContext() {
   invariant(ctx, 'The table view must not be used outside of its context')
 
   return ctx
-}
-
-type StylesContextType = {
-  variants: {
-    base: string
-    table: string
-    header: string
-    body: string
-    row: string
-    rowClickable: string
-    cell: string
-    columnheader: string
-  }
-  /**
-   * layout direction
-   */
-  dir: TableDir
 }
 
 export interface TableViewState {

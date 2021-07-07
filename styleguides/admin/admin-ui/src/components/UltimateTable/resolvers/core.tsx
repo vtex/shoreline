@@ -5,7 +5,7 @@ import React, { ReactNode, Fragment } from 'react'
 import warning from 'tiny-warning'
 import { get } from '@vtex/admin-core'
 
-import { Column, TableDensity, TableDir } from '../typings'
+import { Column, TableDensity } from '../typings'
 import { SortOrder, SortState } from '../hooks/useTableSort'
 
 /**
@@ -18,10 +18,6 @@ export type ResolverShorcut<I, T = unknown> = T & { type: I }
  * Table context
  */
 export type ResolverContext = {
-  /**
-   * HTML Dir
-   */
-  dir: TableDir
   /**
    * Table current density
    */

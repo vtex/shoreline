@@ -80,13 +80,13 @@ function ImageWithPreview(props: PreviewComponentProps) {
   const {
     url,
     preview,
-    context: { dir, density },
+    context: { density },
     alt,
   } = props
   const { cn } = useSystem()
 
   const tooltip = useTooltipState({
-    placement: dir === 'rtl' ? 'left' : 'right',
+    placement: 'right',
     animated: true,
     visible: false,
   })
@@ -128,7 +128,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
           opacity: 0,
           img: {
             willChange: 'transform',
-            transformOrigin: `${dir === 'rtl' ? 'right' : 'left'} center`,
+            transformOrigin: 'right center',
             transition: `transform 100ms ease-in ${preview.delay}ms`,
             transform: 'scale(0.6)',
           },

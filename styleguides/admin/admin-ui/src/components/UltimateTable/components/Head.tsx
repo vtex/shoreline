@@ -29,6 +29,7 @@ export const Head = jsx.thead(
                   {cloneElement(children as any, {
                     column,
                     role: 'columnheader',
+                    density: 'compact',
                     children: <Fragment>{content}</Fragment>,
                   })}
                 </Fragment>

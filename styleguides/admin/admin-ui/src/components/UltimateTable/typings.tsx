@@ -41,4 +41,3 @@ export type Column<T, R = BaseResolvers<T>> =
     }
 
 export type TableDensity = 'compact' | 'regular' | 'variable'
-export type TableDir = 'ltr' | 'rtl'
