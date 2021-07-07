@@ -10,7 +10,7 @@ import { Text } from '../../Text'
 import { motion } from 'framer-motion'
 import { toastErrorCsx, toastSuccessCsx, toastWarningCsx } from './consts'
 
-const ToastContent = jsx.div({
+const ToastContent = jsx(motion.div)({
   position: 'relative',
   display: 'flex',
   flexDirection: 'row',
@@ -81,7 +81,6 @@ export function Toast(props: ToastOptions) {
 
   return (
     <ToastContent
-      as={motion.div}
       layout
       type={type}
       csx={csx as StyleObject}
