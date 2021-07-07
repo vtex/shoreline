@@ -38,10 +38,11 @@ export const Avatar = jsx.div({
   },
 }, {
   options: ['label'],
-  useOptions: (options: AvatarOptions) => {
+  useOptions: (options: AvatarOptions, props) => {
     const { label } = options
     const content = label?.charAt(0)
     return {
+      ...props,
       children: (
         <tag.div csx={{ text: 'highlight' }}>
           {content}

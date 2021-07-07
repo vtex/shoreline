@@ -19,7 +19,9 @@ import { DOMElements, domElements } from './domElements'
  *
  * <Box as={Link} to="/">Gatsby Link</Box>
  */
-function _tag<T extends React.ElementType<any>, Props>(type: T): OndaElement<T, Props> {
+function _tag<T extends React.ElementType<any>, Props>(
+  type: T
+): OndaElement<T, Props> {
   function Element(props: ElementPropsWithAs<Props, T>, ref: React.Ref<T>) {
     const {
       as: ElementCall = type,
@@ -74,7 +76,10 @@ export type OndaElement<T extends React.ElementType<any>, Props> = {
   (props: ElementPropsWithAs<Props, T>): JSX.Element
 }
 
-export type ElementPropsWithAs<Props, T extends React.ElementType<any>> = Props &
+export type ElementPropsWithAs<
+  Props,
+  T extends React.ElementType<any>
+> = Props &
   Omit<React.ComponentPropsWithRef<T>, 'as' | keyof Props> & {
     csx?: StyleObject
     className?: string

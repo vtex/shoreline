@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSystem } from '@vtex/admin-core'
-import { merge, pick, omit, isFunction, capitalize, get } from '@vtex/onda-util'
+import { merge, pick, omit, isFunction } from '@vtex/onda-util'
 
 import { __element, __options, __stylesheet } from './symbols'
 import { VariantsCall, CsxCall } from './types'
@@ -39,6 +39,7 @@ import { DOMElements, domElements } from './domElements'
  * @todo inherit behavior
  * @todo inherit styles
  * @todo inherit types
+ * @todo handle generic components
  */
 export function _jsx<T extends React.ElementType<any> = 'div'>(type: T) {
   const parentStylesheet = getStylesheet(type) ?? {}
@@ -55,6 +56,7 @@ export function _jsx<T extends React.ElementType<any> = 'div'>(type: T) {
       sync: [],
       useOptions: useOptionsIdentity,
       options: [],
+      memoize: false,
     }
   ): TT extends string
     ? OndaJsxElement<TT, Options, Variants>
@@ -67,53 +69,54 @@ export function _jsx<T extends React.ElementType<any> = 'div'>(type: T) {
       sync = [],
       useOptions = useOptionsIdentity,
       options: jsxOptions = [],
+      memoize = false,
     } = configuration
-
-    console.log({ type })
 
     const stylesheet = merge(parentStylesheet, jsxStylesheet)
     const options = [...parentOptions, ...jsxOptions]
 
-    const ConcreteOndaComponent = (props: any, ref: React.Ref<any>) => {
+    let Component = (props: any, ref: React.Ref<any>) => {
       const { as: ComponentCall = type, ...unparsedProps } = props
       const system = useSystem()
-      const interceptedProps = useOptions(
+      const propsWithOptions = useOptions(
         pick(unparsedProps, options) as any,
         omit(unparsedProps, options) as any,
         system
       )
-      const mergedProps = merge(unparsedProps, interceptedProps)
 
       const propsWithCompiledStyle = useStylesheet({
         stylesheet,
         sync,
         options,
-        props: mergedProps,
+        props: propsWithOptions,
       })
 
       const { children, ...htmlProps } =
         typeof type === 'string'
           ? cleanProps(propsWithCompiledStyle)
-          : merge(propsWithCompiledStyle, pick(mergedProps, options))
+          : merge(propsWithCompiledStyle, pick(propsWithOptions, options))
 
       return (
         <ComponentCall ref={ref} {...htmlProps}>
-          {isFunction(children) ? children(htmlProps) : children}
+          {isFunction(children)
+            ? children(htmlProps)
+            : propsWithOptions.children}
         </ComponentCall>
       )
     }
 
-    ConcreteOndaComponent.displayName =
-      typeof type === 'string'
-        ? capitalize(String(type))
-        : get(type, 'type.render.displayName', get(type, 'type.render.name', 'OndaComponent'))
+    Component = forwardRef(Component)
 
-    const Forwarded = React.forwardRef(ConcreteOndaComponent)
+    if (memoize) {
+      Component = memo(Component)
+    }
 
-    return Object.assign(Forwarded as any, {
+    Component = Object.assign(Component as any, {
       [__options]: options,
       [__stylesheet]: stylesheet,
     })
+
+    return Component as any
   }
 }
 
@@ -162,6 +165,22 @@ domElements.forEach((domElement) => {
 
 export { jsx }
 
+function forwardRef<T extends React.ForwardRefRenderFunction<any, any>>(
+  component: T
+) {
+  return (React.forwardRef(component) as unknown) as T
+}
+
+function memo<T extends React.ComponentType<any>>(
+  component: T,
+  propsAreEqual?: (
+    prevProps: Readonly<React.ComponentProps<T>>,
+    nextProps: Readonly<React.ComponentProps<T>>
+  ) => boolean
+) {
+  return (React.memo(component, propsAreEqual) as unknown) as T
+}
+
 /**
  * Onda JSX Elements
  * @memberof types
@@ -177,7 +196,7 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
   extends React.ForwardRefExoticComponent<
     Omit<
       React.ComponentPropsWithRef<ComponentInfer<Type>>,
-      keyof Variants | 'as'
+      keyof Variants | keyof Options | 'as'
     > &
       VariantsCall<Variants>
   > {
@@ -197,7 +216,7 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
     props: Options &
       VariantsCall<Variants> & { as?: E } & Omit<
         React.ComponentPropsWithRef<E>,
-        keyof Variants | 'as'
+        keyof Variants | keyof Options | 'as'
       > &
       CsxCall
   ): JSX.Element
@@ -217,7 +236,7 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
     props: Options &
       VariantsCall<Variants> & { as: As } & Omit<
         React.ComponentPropsWithRef<As>,
-        keyof Variants | 'as'
+        keyof Variants | keyof Options | 'as'
       > &
       CsxCall
   ): JSX.Element
@@ -261,7 +280,7 @@ export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
   extends React.ForwardRefExoticComponent<
     Omit<
       React.ComponentPropsWithRef<ComponentInfer<Type>>,
-      keyof Variants | 'as'
+      keyof Variants | keyof Options | 'as'
     > &
       VariantsCall<Variants>
   > {
@@ -281,7 +300,7 @@ export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
     props: Options &
       VariantsCall<Variants> & { as?: As } & Omit<
         React.ComponentPropsWithRef<As>,
-        keyof Variants | 'as'
+        keyof Variants | keyof Options | 'as'
       > &
       CsxCall
   ): JSX.Element
@@ -301,7 +320,7 @@ export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
     props: Options &
       VariantsCall<Variants> & { as: E } & Omit<
         React.ComponentPropsWithRef<E>,
-        keyof Variants | 'as'
+        keyof Variants | keyof Options | 'as'
       > &
       CsxCall
   ): JSX.Element
@@ -342,6 +361,7 @@ export interface JsxConfiguration<
     system: ReturnType<typeof useSystem>
   ) => React.ComponentPropsWithoutRef<Type>
   sync?: Sync<Variants>[]
+  memoize?: boolean
 }
 
 export type IntrinsicElementsKeys = keyof JSX.IntrinsicElements

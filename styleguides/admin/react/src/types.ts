@@ -38,7 +38,7 @@ export type PropsWithAs<Props, T extends As> = Props &
 /**
  * Call for styles
  */
- export interface CsxCall {
+export interface CsxCall {
   /**
    * Csx property
    * @default {}
@@ -52,12 +52,18 @@ export type PropsWithAs<Props, T extends As> = Props &
   css?: any
 }
 
+export type InferVariant<T> = T extends 'true'
+  ? boolean
+  : T extends 'false'
+  ? boolean
+  : T
+
 /**
  * Prop call for variants
  * @template Variants Component/Element variants
  */
 export type VariantsCall<Variants extends {}> = {
-  [k in keyof Variants]?: keyof Variants[k]
+  [k in keyof Variants]?: InferVariant<keyof Variants[k]>
 }
 
 /**
