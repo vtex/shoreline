@@ -25,8 +25,9 @@ import {
 import { FilterBar, useFilterBarState } from '../../FilterBar'
 import { StatelessTable } from '../'
 import { SystemComponent } from '../../../types'
+import { StyleObject } from 'styleguides/admin/styles/dist'
 
-function PopoverDisclosure(props: PopoverDisclosure) {
+function PopoverDisclosure(props: PopoverDisclosureProps) {
   const { children, state } = props
 
   Children.only(children)
@@ -38,11 +39,14 @@ function PopoverDisclosure(props: PopoverDisclosure) {
   )
 }
 
-function FilterButton(props: FilterButton) {
-  const { children, state, filtersAmount, ...buttonProps } = props
+function FilterDisclosure(props: TableFilterDisclosureProps) {
+  const {
+    children,
+    state: { filtersAmount, popoverState, ...buttonProps },
+  } = props
 
   return (
-    <PopoverDisclosure state={state}>
+    <PopoverDisclosure state={popoverState}>
       <StatelessTable.Toolbar.Button {...buttonProps}>
         <Flex align="center">
           {children}
@@ -53,6 +57,7 @@ function FilterButton(props: FilterButton) {
                 paddingX: '0.375rem',
                 paddingY: '0.125rem',
                 borderRadius: '32px',
+                fontSize: '0.625rem',
                 bg: 'blue.default',
                 color: 'white',
               }}
@@ -81,6 +86,7 @@ function _TableFilterBar<T, V extends { value: T }>(
           state={filterBarState}
           csx={{
             position: 'absolute',
+            zIndex: 999,
             top: '42px',
             left: '50%',
             width: '70%',
@@ -104,7 +110,7 @@ export function useTableFilterBarState<T>(
 
   const filterBarState = useFilterBarState(filterBarParams)
 
-  const buttonProps = useMemo(
+  const disclosureState = useMemo(
     () => ({
       icon: (
         <IconFilter
@@ -120,25 +126,51 @@ export function useTableFilterBarState<T>(
             }
           : {},
       filtersAmount: filterBarState.statements.length,
-      state: popoverState,
+      popoverState,
     }),
     [filterBarState.statements, popoverState]
   )
 
-  return {
-    popoverState,
+  const tableFilterBarState = {
     filterBarState,
-    buttonProps,
+    popoverState,
+  }
+
+  return {
+    filterBarState: tableFilterBarState,
+    disclosureState,
   }
 }
 
 export const TableFilterBar = Object.assign(_TableFilterBar, {
-  Disclosure: FilterButton,
+  Disclosure: FilterDisclosure,
 })
 
 export interface TableFilterProps<T, V extends { value: T }>
   extends Omit<FilterBarProps<T, V>, 'state'> {
+  /**
+   * Object that manages the Table FilterBar state
+   */
   state: TableFilterBarState<V>
+}
+
+export interface TableFilterDisclosureProps extends SystemComponent {
+  /**
+   * Object that manages the Table Dis
+   */
+  state: TableFilterDisclosureState
+  children: ReactNode
+}
+
+export interface UseTableFilterBarStateParams<T> {
+  /**
+   * params that will be passed to the usePopoverState call
+   */
+  poopoverInitialState?: SealedInitialState<PopoverInitialState>
+  /**
+   * params that will be pass to the useFilterBarState
+   */
+  filterBarParams: UseFilterBarStateParams<T>
 }
 
 export interface TableFilterBarState<T> {
@@ -146,20 +178,15 @@ export interface TableFilterBarState<T> {
   popoverState: PopoverStateReturn
 }
 
-export interface UseTableFilterBarStateParams<T> {
-  poopoverInitialState?: SealedInitialState<PopoverInitialState>
-  filterBarParams: UseFilterBarStateParams<T>
-}
-
-interface PopoverDisclosure {
+interface PopoverDisclosureProps {
   state: PopoverStateReturn
   children: FunctionComponentElement<unknown>
 }
 
-export interface FilterButton
-  extends Pick<PopoverDisclosure, 'state'>,
-    SystemComponent {
-  children: ReactNode
+interface TableFilterDisclosureState {
   onClick?: MouseEventHandler<HTMLButtonElement>
   filtersAmount?: number
+  icon: ReactNode
+  csx: StyleObject
+  popoverState: PopoverStateReturn
 }

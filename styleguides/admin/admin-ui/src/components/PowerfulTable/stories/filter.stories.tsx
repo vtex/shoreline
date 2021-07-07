@@ -11,7 +11,7 @@ import { useTableFilterBarState } from '../components/FilterBar'
 
 export default {
   title: 'admin-ui/PowerfulTable/Filter',
-  component: StatefulTable,
+  component: StatelessTable,
 } as Meta
 
 interface Item {
@@ -139,7 +139,7 @@ function Teste() {
     setItems(filteredItems)
   }
 
-  const filterBarState = useTableFilterBarState({
+  const { disclosureState, filterBarState } = useTableFilterBarState({
     filterBarParams: {
       conjunction: { label: 'And', value: 'and' },
       filters: [
@@ -206,7 +206,7 @@ function Teste() {
     >
       <StatelessTable.Section>
         <StatelessTable.Toolbar>
-          <StatelessTable.FilterBar.Disclosure {...filterBarState.buttonProps}>
+          <StatelessTable.FilterBar.Disclosure state={disclosureState}>
             Filters
           </StatelessTable.FilterBar.Disclosure>
         </StatelessTable.Toolbar>
