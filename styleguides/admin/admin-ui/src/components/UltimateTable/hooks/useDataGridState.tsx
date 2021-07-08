@@ -25,6 +25,7 @@ import {
   UseTableSortParams,
 } from './useTableSort'
 import { TableViewState } from '../context'
+import { Status, SetStatus, StatusObject, useStatus } from './useStatus'
 
 export function useDataGridState<T>(
   params: UseDataGridStateParams<T>,
@@ -39,21 +40,24 @@ export function useDataGridState<T>(
       get((item as unknown) as Record<string, unknown>, 'id', ''),
     onRowClick,
     density = 'regular',
-    loading = false,
-    empty = false,
-    error = false,
-    itemsNotFound = false,
   } = params
 
+  const {
+    status,
+    statusObject,
+    setStatus,
+  } = useStatus()
+  
+  /**
+   * resolver's context
+   */
   const context: ResolverContext = useMemo(
     () => ({
       density,
-      loading,
-      empty,
-      error,
-      itemsNotFound,
+      status,
+      statusObject
     }),
-    [density, loading, empty, error, itemsNotFound]
+    [density, status, statusObject]
   )
 
   const sortState = useTableSort(sort)
@@ -92,7 +96,7 @@ export function useDataGridState<T>(
   )
 
   const data = useMemo(() => {
-    if (context.loading) {
+    if (context.status === 'loading') {
       return skeletonCollection
     }
 
@@ -115,7 +119,7 @@ export function useDataGridState<T>(
     return items
   }, [
     items,
-    context.loading,
+    context.status,
     skeletonCollection,
     sortState.by,
     sortState.order,
@@ -145,9 +149,11 @@ export function useDataGridState<T>(
     columns,
     Providers,
     sortState,
-    context,
     getRowKey,
     onRowClick,
+    status,
+    statusObject,
+    setStatus
   }
 }
 
@@ -200,10 +206,12 @@ export interface DataGridState<T> {
   columns: Array<Column<T>>
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
   sortState: UseSortReturn
-  context: ResolverContext
   getRowKey: (item: T) => string | unknown
   density?: TableDensity
   onRowClick?: (item: T) => void
+  status: Status
+  statusObject: StatusObject
+  setStatus: SetStatus
 }
 
 type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>

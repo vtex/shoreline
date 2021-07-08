@@ -7,6 +7,7 @@ import { get } from '@vtex/admin-core'
 
 import { Column, TableDensity } from '../typings'
 import { SortOrder, SortState } from '../hooks/useTableSort'
+import { Status, StatusObject } from '../hooks/useStatus'
 
 /**
  * Used to recursive define resolver
@@ -19,25 +20,17 @@ export type ResolverShorcut<I, T = unknown> = T & { type: I }
  */
 export type ResolverContext = {
   /**
-   * Table current density
+   * Grid current density
    */
   density: TableDensity
   /**
-   * If is loading or not
+   * Grid current status
    */
-  loading: boolean
+  status: Status
   /**
-   * If there's a error related to the table
+   * Grid current status-object
    */
-  error?: boolean
-  /**
-   * If a search in the table returned no items
-   */
-  itemsNotFound?: boolean
-  /**
-   * If the collection has no items
-   */
-  empty?: boolean
+  statusObject: StatusObject
 }
 
 /**
@@ -118,7 +111,7 @@ export function resolveHeader<T>(
   const { header } = resolvers[id]
 
   const isSortable =
-    (Boolean(column.compare) || Boolean(column.sortable)) && !context.loading
+    (Boolean(column.compare) || Boolean(column.sortable)) && !(context.status === 'loading')
 
   const sortDirection = sortState.by === column.id ? sortState.order : null
 

@@ -4,6 +4,7 @@ import faker from 'faker'
 
 import { DataGrid } from './index'
 import { useDataGridState } from './hooks/useDataGridState'
+import { Button } from '../Button'
 
 export default {
   title: 'admin-ui/DataGrid',
@@ -54,6 +55,66 @@ export function Wip() {
 
   return (
     <DataGrid state={state} csx={{ width: 560 }}>
+      <DataGrid.Section>
+        <Button
+          onClick={() =>
+            state.setStatus({
+              type: 'ready',
+            })
+          }
+        >
+          Ready
+        </Button>
+
+        <Button
+          onClick={() =>
+            state.setStatus({
+              type: 'loading',
+            })
+          }
+        >
+          Loading
+        </Button>
+
+        <Button
+          onClick={() =>
+            state.setStatus({
+              type: 'error',
+              message: 'Something went wrong'
+            })
+          }
+        >
+          Error
+        </Button>
+
+        <Button
+          onClick={() =>
+            state.setStatus({
+              type: 'not-found',
+              message: 'Your product was not found'
+            })
+          }
+        >
+          Not Found
+        </Button>
+
+        <Button
+          onClick={() =>
+            state.setStatus({
+              type: 'empty',
+              message: 'You need to create something'
+            })
+          }
+        >
+          Empty
+        </Button>
+      </DataGrid.Section>
+
+      <DataGrid.Toolbar>
+        <DataGrid.Toolbar.Button>Toolbar button</DataGrid.Toolbar.Button>
+        <DataGrid.Toolbar.Button>Toolbar button</DataGrid.Toolbar.Button>
+        <DataGrid.Toolbar.Button>Toolbar button</DataGrid.Toolbar.Button>
+      </DataGrid.Toolbar>
 
       <DataGrid.Table>
         <DataGrid.Table.Head>
@@ -65,10 +126,6 @@ export function Wip() {
           </DataGrid.Table.Row>
         </DataGrid.Table.Body>
       </DataGrid.Table>
-
-      <DataGrid.Empty>
-        This table is empty
-      </DataGrid.Empty>
     </DataGrid>
   )
 }

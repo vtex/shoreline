@@ -6,8 +6,11 @@ import { Body } from './components/Body'
 import { Row } from './components/Row'
 import { Cell } from './components/Cell'
 import { Empty } from './components/Empty'
+import { Section } from './components/Section'
+import { Toolbar } from './components/Toolbar'
 import { DataGridState } from './hooks/useDataGridState'
 import { StateContext } from './context'
+import { Status } from './components/Status'
 
 interface TableOptions {
   /**
@@ -40,6 +43,7 @@ const _DataGrid = jsx.div(
         children: (
           <StateContext.Provider value={state}>
             {children}
+            <Status />
           </StateContext.Provider>
         ),
       }
@@ -51,4 +55,6 @@ const _DataGrid = jsx.div(
 export const DataGrid = Object.assign(_DataGrid, {
   Table,
   Empty,
+  Section,
+  Toolbar
 })

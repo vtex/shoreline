@@ -24,7 +24,7 @@ const defaultPreview: ImagePreview = {
 export function imageResolver<T>() {
   return createResolver<T, 'image', ImageResolver<T>>({
     cell: function ImageResolver({ getData, item, column, context }) {
-      if (context.loading) {
+      if (context.status === 'loading') {
         return <Skeleton csx={{ height: 24 }} />
       }
       const { cn } = useSystem()

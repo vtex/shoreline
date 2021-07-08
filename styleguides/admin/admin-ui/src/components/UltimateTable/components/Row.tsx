@@ -14,7 +14,7 @@ export const Row = jsx.tr(
       const { children, onClick: _, ...rowProps } = props
       const state = useStateContext()
 
-      const clickableCsx = onClick
+      const clickableCsx = onClick && !(state.status === 'loading')
         ? {
             cursor: 'pointer',
             ':hover': {
@@ -24,7 +24,7 @@ export const Row = jsx.tr(
         : {}
 
       const handleClick = () => {
-        if (onClick && !state.context.loading) {
+        if (onClick && !(state.status === 'loading')) {
           onClick?.(item)
         }
       }
@@ -44,7 +44,7 @@ export const Row = jsx.tr(
                   {cloneElement(children as any, {
                     column,
                     children: <Fragment>{content}</Fragment>,
-                    density: state.context.density,
+                    density: state.density,
                   })}
                 </Fragment>
               )

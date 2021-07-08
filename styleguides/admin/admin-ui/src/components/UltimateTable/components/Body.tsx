@@ -11,10 +11,13 @@ export const Body = jsx.tbody(
     useOptions(_, { children, ...props }) {
       const state = useStateContext()
 
+      const shouldRender =
+        state.status === 'ready' || state.status === 'loading'
+
       return {
         ...props,
         role: 'rowgroup',
-        children: (
+        children: shouldRender && (
           <Fragment>
             {state.data.map((item) => (
               <Fragment key={item.id}>

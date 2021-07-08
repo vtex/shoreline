@@ -16,7 +16,7 @@ export function selectionResolver<T>() {
             return (
               <Checkbox
                 state={state?.root}
-                disabled={context.loading}
+                disabled={context.status === 'loading'}
                 onClick={(e) => e.stopPropagation()}
               />
             )
@@ -34,7 +34,7 @@ export function selectionResolver<T>() {
               <Checkbox
                 value={resolver?.mapId(item)}
                 state={state?.items}
-                disabled={context.loading}
+                disabled={context.status === 'loading'}
                 onClick={(e) => e.stopPropagation()}
               />
             )
