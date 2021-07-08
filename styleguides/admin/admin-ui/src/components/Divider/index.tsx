@@ -1,5 +1,4 @@
-import React from 'react'
-import { jsx, PropsWithAs } from '@vtex/onda-react'
+import { jsx } from '@vtex/onda-react'
 import { Separator as ReakitSeparator } from 'reakit'
 
 const styles = {
@@ -9,7 +8,10 @@ const styles = {
   margin: 0,
 }
 
-const _Divider = jsx.hr({
+/**
+ * It renders an hr element and grants accessibility as described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator).
+ */
+export const Divider = jsx(ReakitSeparator)({
   text: 'headline',
   variants: {
     orientation: {
@@ -26,27 +28,10 @@ const _Divider = jsx.hr({
   },
 })
 
-_Divider.defaultProps = {
-  orientation: 'horizontal',
-}
-
-/**
- * It renders an hr element and grants accessibility as described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator).
- */
-export function Divider(props: DividerProps) {
-  // This is done due to the current limitation of our API regarding parent variant inheritances.
-  // For more context on this, see https://github.com/vtex/onda/pull/667
-  const divider = () => <_Divider {...props} />
-
-  return <ReakitSeparator as={divider} />
-}
-
-interface _DividerProps {
+Divider.defaultProps = {
   /**
    * Divider orientation
    * @default 'horizontal'
    */
-  orientation?: 'horizontal' | 'vertical'
+  orientation: 'horizontal',
 }
-
-export type DividerProps = PropsWithAs<_DividerProps, 'hr'>
