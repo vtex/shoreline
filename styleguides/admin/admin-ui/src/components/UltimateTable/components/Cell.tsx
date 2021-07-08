@@ -49,6 +49,7 @@ export const Cell = jsx.td(
 
       return {
         ...cellProps,
+        onClick,
         csx: {
           minWidth: column?.width,
           maxWidth: column?.width,

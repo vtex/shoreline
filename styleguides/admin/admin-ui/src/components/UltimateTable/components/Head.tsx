@@ -1,8 +1,69 @@
 import React, { cloneElement, Fragment } from 'react'
-import { jsx } from '@vtex/onda-react'
+import { jsx, tag } from '@vtex/onda-react'
+import { IconTriangle } from '@vtex/admin-ui-icons'
 
 import { Row } from './Row'
 import { useStateContext } from '../context'
+
+interface SortIndicatorOptions {
+  direction?: 'ASC' | 'DSC' | null
+}
+
+const SortIndicator = jsx.div(
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    margin: 1,
+    minHeight: '0.75rem',
+  },
+  {
+    options: ['direction'],
+    useOptions(options: SortIndicatorOptions, props) {
+      const { direction } = options
+
+      const triangleCsx = {
+        width: '6px',
+        height: '5px',
+        minHeight: '5px',
+        minWidth: '6px',
+      }
+
+      return {
+        ...props,
+        children: (
+          <Fragment>
+            {direction !== 'DSC' && (
+              <IconTriangle
+                csx={{
+                  ...triangleCsx,
+                  marginBottom: 0.5,
+                  path: {
+                    fill:
+                      direction === 'ASC' ? 'dark.secondary' : 'mid.secondary',
+                  },
+                }}
+              />
+            )}
+            {direction !== 'ASC' && (
+              <IconTriangle
+                csx={{
+                  ...triangleCsx,
+                  marginTop: 0.5,
+                  path: {
+                    fill:
+                      direction === 'DSC' ? 'dark.secondary' : 'mid.secondary',
+                  },
+                }}
+                direction="down"
+              />
+            )}
+          </Fragment>
+        ),
+      }
+    },
+  }
+)
 
 export const Head = jsx.thead(
   {
@@ -19,7 +80,11 @@ export const Head = jsx.thead(
         children: (
           <Row>
             {state.columns.map((column) => {
-              const { content } = state.resolveHeader({
+              const {
+                content,
+                isSortable,
+                sortDirection,
+              } = state.resolveHeader({
                 column,
                 items: state.data,
               })
@@ -30,7 +95,17 @@ export const Head = jsx.thead(
                     column,
                     role: 'columnheader',
                     density: 'compact',
-                    children: <Fragment>{content}</Fragment>,
+                    onClick: isSortable
+                      ? () => state.sortState.sort(column.id)
+                      : undefined,
+                    children: isSortable ? (
+                      <tag.div csx={{ display: 'flex', alignItems: 'center' }}>
+                        {content}
+                        <SortIndicator direction={sortDirection} />
+                      </tag.div>
+                    ) : (
+                      content
+                    ),
                   })}
                 </Fragment>
               )

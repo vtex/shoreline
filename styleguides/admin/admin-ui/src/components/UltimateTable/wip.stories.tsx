@@ -80,7 +80,7 @@ export function Wip() {
           onClick={() =>
             state.setStatus({
               type: 'error',
-              message: 'Something went wrong'
+              message: 'Something went wrong',
             })
           }
         >
@@ -91,7 +91,7 @@ export function Wip() {
           onClick={() =>
             state.setStatus({
               type: 'not-found',
-              message: 'Your product was not found'
+              message: 'Your product was not found',
             })
           }
         >
@@ -102,7 +102,7 @@ export function Wip() {
           onClick={() =>
             state.setStatus({
               type: 'empty',
-              message: 'You need to create something'
+              message: 'You need to create something',
             })
           }
         >
@@ -116,6 +116,59 @@ export function Wip() {
         <DataGrid.Toolbar.Button>Toolbar button</DataGrid.Toolbar.Button>
       </DataGrid.Toolbar>
 
+      <DataGrid.Table>
+        <DataGrid.Table.Head>
+          <DataGrid.Table.Cell />
+        </DataGrid.Table.Head>
+        <DataGrid.Table.Body>
+          <DataGrid.Table.Row onClick={(item) => console.log(item)}>
+            <DataGrid.Table.Cell />
+          </DataGrid.Table.Row>
+        </DataGrid.Table.Body>
+      </DataGrid.Table>
+    </DataGrid>
+  )
+}
+
+export function Sortable() {
+  const items = useMemo(() => {
+    return [...Array(10).keys()].map((id) => {
+      return {
+        id: `${id}`,
+        name: faker.commerce.productName(),
+        lastSale: faker.date.past().toDateString(),
+        price: faker.commerce.price(),
+      }
+    })
+  }, [])
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+        compare: (a, b) => b.name.localeCompare(a.name),
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+        compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
+      },
+    ],
+    items,
+  })
+
+  return (
+    <DataGrid state={state} csx={{ width: 560 }}>
       <DataGrid.Table>
         <DataGrid.Table.Head>
           <DataGrid.Table.Cell />

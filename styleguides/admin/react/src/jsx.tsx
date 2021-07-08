@@ -91,8 +91,10 @@ export function _jsx<T extends React.ElementType<any> = 'div'>(type: T) {
         props: propsWithOptions,
       })
 
+      const shouldClean = typeof type === 'string' && options.length === 0
+
       const { children, ...htmlProps } =
-        typeof type === 'string'
+        shouldClean
           ? cleanProps(propsWithCompiledStyle)
           : merge(propsWithCompiledStyle, pick(propsWithOptions, options))
 
