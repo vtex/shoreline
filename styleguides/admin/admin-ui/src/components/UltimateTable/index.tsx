@@ -5,34 +5,38 @@ import { Head } from './components/Head'
 import { Body } from './components/Body'
 import { Row } from './components/Row'
 import { Cell } from './components/Cell'
-import { UseTableStateReturn } from './hooks/useTableState'
-import { TableDensity } from './typings'
+import { Empty } from './components/Empty'
+import { DataGridState } from './hooks/useDataGridState'
 import { StateContext } from './context'
 
 interface TableOptions {
   /**
-   * Density of rows
-   * @default regular
-   */
-  density?: TableDensity
-  /**
    * Table state
    */
-  state: UseTableStateReturn<any>
+  state: DataGridState<any>
 }
 
-const Table = jsx.table(
-  {
-    display: 'table',
-    width: 'full',
-  },
+const _Table = jsx.table({
+  display: 'table',
+  width: 'full',
+})
+
+const Table = Object.assign(_Table, {
+  Head,
+  Body,
+  Row,
+  Cell,
+})
+
+const _DataGrid = jsx.div(
+  {},
   {
     useOptions(options: TableOptions, props) {
       const { state } = options
-      const { children, ...tableProps } = props
+      const { children, ...dtgProps } = props
 
       return {
-        ...tableProps,
+        ...dtgProps,
         children: (
           <StateContext.Provider value={state}>
             {children}
@@ -40,13 +44,11 @@ const Table = jsx.table(
         ),
       }
     },
-    options: ['density', 'state'],
+    options: ['state'],
   }
 )
 
-export const UltimateTable = Object.assign(Table, {
-  Head,
-  Body,
-  Row,
-  Cell,
+export const DataGrid = Object.assign(_DataGrid, {
+  Table,
+  Empty,
 })

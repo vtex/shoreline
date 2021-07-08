@@ -21,7 +21,7 @@ describe('Resolvers tests', () => {
             },
           },
         },
-        context: { dir: 'ltr', density: 'regular', loading: false },
+        context: { density: 'regular', loading: false },
         getData: () => 'root',
       })
 
@@ -43,7 +43,7 @@ describe('Resolvers tests', () => {
             type: 'plain',
           },
         },
-        context: { dir: 'ltr', density: 'regular', loading: false },
+        context: { density: 'regular', loading: false },
         getData: () => 'data',
       })
 
@@ -66,7 +66,7 @@ describe('Resolvers tests', () => {
             },
           },
         },
-        context: { dir: 'ltr', density: 'regular', loading: false },
+        context: { density: 'regular', loading: false },
         getData: () => 'data',
       })
 

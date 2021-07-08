@@ -1,12 +1,12 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 
-import { UseTableStateReturn } from './hooks/useTableState'
+import { DataGridState } from './hooks/useDataGridState'
 
 /**
  * TODO: Still WIP
  */
-export const StateContext = createContext<UseTableStateReturn<any> | null>(null)
+export const StateContext = createContext<DataGridState<any> | null>(null)
 
 export function useStateContext() {
   const ctx = useContext(StateContext)

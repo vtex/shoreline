@@ -17,7 +17,7 @@ import {
   ResolveHeaderReturn,
 } from '../resolvers/core'
 import { baseResolvers } from '../resolvers/base'
-import { Column, TableDensity, TableDir } from '../typings'
+import { Column, TableDensity } from '../typings'
 import { SelectionProvider } from '../resolvers/selection'
 import {
   UseSortReturn,
@@ -26,10 +26,10 @@ import {
 } from './useTableSort'
 import { TableViewState } from '../context'
 
-export function useTableState<T>(
-  params: UseTableStateParams<T>,
+export function useDataGridState<T>(
+  params: UseDataGridStateParams<T>,
   resolvers: Record<string, Resolver<T>> | undefined = baseResolvers<T>()
-): UseTableStateReturn<T> {
+): DataGridState<T> {
   const {
     columns,
     length = 5,
@@ -39,7 +39,6 @@ export function useTableState<T>(
       get((item as unknown) as Record<string, unknown>, 'id', ''),
     onRowClick,
     density = 'regular',
-    dir = 'ltr',
     loading = false,
     empty = false,
     error = false,
@@ -50,12 +49,11 @@ export function useTableState<T>(
     () => ({
       density,
       loading,
-      dir,
       empty,
       error,
       itemsNotFound,
     }),
-    [density, loading, dir, empty, error, itemsNotFound]
+    [density, loading, empty, error, itemsNotFound]
   )
 
   const sortState = useTableSort(sort)
@@ -153,7 +151,7 @@ export function useTableState<T>(
   }
 }
 
-export interface UseTableStateParams<T> extends TableViewState {
+export interface UseDataGridStateParams<T> extends TableViewState {
   /**
    * Table column spec
    */
@@ -162,11 +160,6 @@ export interface UseTableStateParams<T> extends TableViewState {
    * Resolver context
    */
   context?: ResolverContext
-  /**
-   * HTML Dir
-   * @default 'ltr'
-   */
-  dir?: TableDir
   /**
    * Key extractor
    * @default (item)=>item.id
@@ -197,7 +190,7 @@ export interface UseTableStateParams<T> extends TableViewState {
   onRowClick?: (item: T) => void
 }
 
-export interface UseTableStateReturn<T> {
+export interface DataGridState<T> {
   skeletonCollection: T[]
   resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
   resolveHeader: (

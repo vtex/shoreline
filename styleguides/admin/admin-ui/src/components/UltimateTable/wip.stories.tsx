@@ -2,12 +2,12 @@ import React, { useMemo } from 'react'
 import { Meta } from '@storybook/react'
 import faker from 'faker'
 
-import { UltimateTable as Table } from './index'
-import { useTableState } from './hooks/useTableState'
+import { DataGrid } from './index'
+import { useDataGridState } from './hooks/useDataGridState'
 
 export default {
-  title: 'admin-ui/UltimateTable',
-  component: Table,
+  title: 'admin-ui/DataGrid',
+  component: DataGrid,
 } as Meta
 
 export function Wip() {
@@ -29,7 +29,7 @@ export function Wip() {
     })
   }, [])
 
-  const state = useTableState<Item>({
+  const state = useDataGridState<Item>({
     columns: [
       {
         id: 'name',
@@ -53,15 +53,22 @@ export function Wip() {
   })
 
   return (
-    <Table state={state} csx={{ width: 560 }}>
-      <Table.Head>
-        <Table.Cell />
-      </Table.Head>
-      <Table.Body>
-        <Table.Row onClick={item => console.log(item)}>
-          <Table.Cell />
-        </Table.Row>
-      </Table.Body>
-    </Table>
+    <DataGrid state={state} csx={{ width: 560 }}>
+
+      <DataGrid.Table>
+        <DataGrid.Table.Head>
+          <DataGrid.Table.Cell />
+        </DataGrid.Table.Head>
+        <DataGrid.Table.Body>
+          <DataGrid.Table.Row onClick={(item) => console.log(item)}>
+            <DataGrid.Table.Cell />
+          </DataGrid.Table.Row>
+        </DataGrid.Table.Body>
+      </DataGrid.Table>
+
+      <DataGrid.Empty>
+        This table is empty
+      </DataGrid.Empty>
+    </DataGrid>
   )
 }

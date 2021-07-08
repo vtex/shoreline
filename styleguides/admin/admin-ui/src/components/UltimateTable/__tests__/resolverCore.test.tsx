@@ -123,7 +123,6 @@ describe('table resolver core tests', () => {
         },
         items: [],
         context: {
-          dir: 'ltr',
           density: 'regular',
           loading: false,
         },
@@ -155,7 +154,6 @@ describe('table resolver core tests', () => {
           plain,
         },
         context: {
-          dir: 'ltr',
           density: 'regular',
           loading: false,
         },
@@ -186,7 +184,6 @@ describe('table resolver core tests', () => {
           plain,
         },
         context: {
-          dir: 'ltr',
           density: 'regular',
           loading: false,
         },
@@ -209,10 +206,6 @@ describe('table resolver core tests', () => {
           return 'variable density'
         }
 
-        if (context.dir === 'rtl') {
-          return 'rtl layout'
-        }
-
         if (context.loading) {
           return 'loading...'
         }
@@ -227,7 +220,7 @@ describe('table resolver core tests', () => {
     it('should be able to access data within a header function', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
-        context: { dir: 'ltr', density: 'regular', loading: false },
+        context: { density: 'regular', loading: false },
         column: {
           id: 'image',
           acessor: 'image',
@@ -241,7 +234,7 @@ describe('table resolver core tests', () => {
     it('should be able to handle loading within a header function', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
-        context: { dir: 'ltr', density: 'regular', loading: true },
+        context: { density: 'regular', loading: true },
         column: {
           id: 'image',
           acessor: 'image',
@@ -255,7 +248,7 @@ describe('table resolver core tests', () => {
     it('should be able to handle different densities within a header function', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
-        context: { dir: 'ltr', density: 'variable', loading: false },
+        context: { density: 'variable', loading: false },
         column: {
           id: 'image',
           acessor: 'image',
@@ -269,7 +262,7 @@ describe('table resolver core tests', () => {
     it('should be able to handle rtl layouts within a header function', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
-        context: { dir: 'rtl', density: 'regular', loading: false },
+        context: { density: 'regular', loading: false },
         column: {
           id: 'image',
           acessor: 'image',
@@ -286,10 +279,6 @@ describe('table resolver core tests', () => {
       cell: function cellResolver({ getData, context, item, column }) {
         if (context.density === 'variable') {
           return 'variable density'
-        }
-
-        if (context.dir === 'rtl') {
-          return 'rtl layout'
         }
 
         if (context.loading) {
@@ -312,7 +301,7 @@ describe('table resolver core tests', () => {
     it('should be able to access data within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: { dir: 'ltr', density: 'regular', loading: false },
+        context: { density: 'regular', loading: false },
         item: {
           name: 'Name',
         },
@@ -328,7 +317,7 @@ describe('table resolver core tests', () => {
     it('should be able to handle loading within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: { dir: 'ltr', density: 'regular', loading: true },
+        context: { density: 'regular', loading: true },
         item: {
           name: 'Name',
         },
@@ -344,7 +333,7 @@ describe('table resolver core tests', () => {
     it('should be able to handle different densities within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: { dir: 'ltr', density: 'variable', loading: false },
+        context: { density: 'variable', loading: false },
         item: {
           name: 'Name',
         },
@@ -360,7 +349,7 @@ describe('table resolver core tests', () => {
     it('should be able to handle rtl layouts within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: { dir: 'rtl', density: 'regular', loading: false },
+        context: { density: 'regular', loading: false },
         item: {
           name: 'Name',
         },
@@ -376,7 +365,7 @@ describe('table resolver core tests', () => {
     it('should be able to handle item values within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: { dir: 'ltr', density: 'regular', loading: false },
+        context: { density: 'regular', loading: false },
         item: {
           image: 'image',
         },
@@ -393,7 +382,7 @@ describe('table resolver core tests', () => {
       expect(() =>
         resolver.cell({
           getData: () => 'data',
-          context: { dir: 'ltr', density: 'regular', loading: false },
+          context: { density: 'regular', loading: false },
           item: {
             name: 'name',
           },
