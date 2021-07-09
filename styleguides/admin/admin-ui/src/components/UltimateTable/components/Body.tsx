@@ -9,18 +9,18 @@ export const Body = jsx.tbody(
   },
   {
     useOptions(_, { children, ...props }) {
-      const state = useStateContext()
+      const { status, data, getRowKey } = useStateContext()
 
       const shouldRender =
-        state.status === 'ready' || state.status === 'loading'
+        status === 'ready' || status === 'loading'
 
       return {
         ...props,
         role: 'rowgroup',
         children: shouldRender && (
           <Fragment>
-            {state.data.map((item) => (
-              <Fragment key={item.id}>
+            {data.map((item) => (
+              <Fragment key={String(getRowKey(item))}>
                 {cloneElement(children as any, {
                   item,
                 })}

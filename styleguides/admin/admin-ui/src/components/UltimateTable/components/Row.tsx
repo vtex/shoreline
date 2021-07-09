@@ -10,11 +10,19 @@ export const Row = jsx.tr(
   },
   {
     useOptions: (options: RowOptions, props) => {
-      const { item, onClick } = options
-      const { children, onClick: _, ...rowProps } = props
-      const state = useStateContext()
+      const { item } = options
+      const { children, ...rowProps } = props
+      const {
+        status,
+        onRowClick,
+        columns,
+        resolveCell,
+        density,
+      } = useStateContext()
 
-      const clickableCsx = onClick && !(state.status === 'loading')
+      const clickable = onRowClick && !(status === 'loading')
+
+      const clickableCsx = clickable
         ? {
             cursor: 'pointer',
             ':hover': {
@@ -24,12 +32,13 @@ export const Row = jsx.tr(
         : {}
 
       const handleClick = () => {
-        if (onClick && !(state.status === 'loading')) {
-          onClick?.(item)
+        if (clickable) {
+          onRowClick?.(item)
         }
       }
 
       return {
+        ...rowProps,
         role: 'row',
         csx: {
           textAlign: 'left',
@@ -37,14 +46,14 @@ export const Row = jsx.tr(
         },
         children: !!item ? (
           <Fragment>
-            {state.columns.map((column) => {
-              const content = state.resolveCell({ item, column })
+            {columns.map((column) => {
+              const content = resolveCell({ item, column })
               return (
                 <Fragment key={`${item.id}-${String(column.id)}`}>
                   {cloneElement(children as any, {
                     column,
                     children: <Fragment>{content}</Fragment>,
-                    density: state.density,
+                    density,
                   })}
                 </Fragment>
               )
@@ -54,14 +63,12 @@ export const Row = jsx.tr(
           children
         ),
         onClick: handleClick,
-        ...rowProps,
       }
     },
-    options: ['item', 'onClick'],
+    options: ['item'],
   }
 )
 
 interface RowOptions {
   item?: Record<string, any>
-  onClick?: (item?: Record<string, any>) => void
 }

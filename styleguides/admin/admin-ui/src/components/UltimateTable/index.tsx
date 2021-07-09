@@ -12,13 +12,6 @@ import { DataGridState } from './hooks/useDataGridState'
 import { StateContext } from './context'
 import { Status } from './components/Status'
 
-interface TableOptions {
-  /**
-   * Table state
-   */
-  state: DataGridState<any>
-}
-
 const _Table = jsx.table({
   display: 'table',
   width: 'full',
@@ -31,10 +24,17 @@ const Table = Object.assign(_Table, {
   Cell,
 })
 
+interface DataGridOptions {
+  /**
+   * DataGrid state
+   */
+  state: DataGridState<any>
+}
+
 const _DataGrid = jsx.div(
   {},
   {
-    useOptions(options: TableOptions, props) {
+    useOptions(options: DataGridOptions, props) {
       const { state } = options
       const { children, ...dtgProps } = props
 
@@ -52,6 +52,15 @@ const _DataGrid = jsx.div(
   }
 )
 
+/** 
+ * TODO: Search
+ * TODO: FilterBar
+ * TODO: Deep stories - dnd & windowing
+ * TODO: Strip complexity
+ * TODO: Style checkup
+ * TODO: Unit testing
+ * TODO: Documentation entries
+ */
 export const DataGrid = Object.assign(_DataGrid, {
   Table,
   Empty,
