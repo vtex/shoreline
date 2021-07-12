@@ -3,15 +3,15 @@
 exports[`Heading tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1.25rem;
   border: solid;
   border-width: 1px;
   border-color: #E0E2E7;
   margin: 0rem;
   border-bottom: 0;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.5;
-  font-variation-settings: 'wght' 92;
-  font-size: 1.25rem;
 }
 
 <hr
@@ -20,20 +20,20 @@ exports[`Heading tests should match snapshot 1`] = `
     role="separator"
   />
   .emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1.25rem;
   border: solid;
   border-width: 1px;
   border-color: #E0E2E7;
   margin: 0rem;
   border-left: 0;
   height: auto;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.5;
-  font-variation-settings: 'wght' 92;
-  font-size: 1.25rem;
 }
 
 <hr
-    aria-orientation="vertical"
+    aria-orientation="horizontal"
     class="emotion-0"
     role="separator"
   />
