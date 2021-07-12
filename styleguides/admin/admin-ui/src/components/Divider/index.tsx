@@ -13,14 +13,13 @@ const styles = {
  */
 export const Divider = jsx(ReakitSeparator)({
   text: 'headline',
+  ...styles,
   variants: {
     orientation: {
       horizontal: {
-        ...styles,
         borderBottom: 0,
       },
       vertical: {
-        ...styles,
         borderLeft: 0,
         height: 'auto',
       },
