@@ -1,26 +1,42 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { jsx } from '@vtex/onda-react'
 
 import { Head } from './components/Head'
 import { Body } from './components/Body'
-import { Row } from './components/Row'
 import { Cell } from './components/Cell'
 import { Empty } from './components/Empty'
 import { Section } from './components/Section'
 import { Toolbar } from './components/Toolbar'
+import { Search } from './components/Search'
+import { Filters } from './components/Filters'
 import { DataGridState } from './hooks/useDataGridState'
 import { StateContext } from './context'
 import { Status } from './components/Status'
 
-const _Table = jsx.table({
-  display: 'table',
-  width: 'full',
-})
+const _Table = jsx.table(
+  {
+    display: 'table',
+    width: 'full',
+  },
+  {
+    useOptions(_, props) {
+      const { children, ...tableProps } = props
+      return {
+        ...tableProps,
+        children: children ?? (
+          <Fragment>
+            <Head />
+            <Body />
+          </Fragment>
+        ),
+      }
+    },
+  }
+)
 
 const Table = Object.assign(_Table, {
   Head,
   Body,
-  Row,
   Cell,
 })
 
@@ -42,7 +58,12 @@ const _DataGrid = jsx.div(
         ...dtgProps,
         children: (
           <StateContext.Provider value={state}>
-            {children}
+            {children ?? (
+              <Table>
+                <Head />
+                <Body />
+              </Table>
+            )}
             <Status />
           </StateContext.Provider>
         ),
@@ -52,12 +73,10 @@ const _DataGrid = jsx.div(
   }
 )
 
-/** 
- * TODO: Search
- * TODO: FilterBar
+/**
  * TODO: Deep stories - dnd & windowing
  * TODO: Strip complexity
- * TODO: Style checkup
+ * TODO: Style checkup (resolvers)
  * TODO: Unit testing
  * TODO: Documentation entries
  */
@@ -65,5 +84,7 @@ export const DataGrid = Object.assign(_DataGrid, {
   Table,
   Empty,
   Section,
-  Toolbar
+  Toolbar,
+  Search,
+  Filters,
 })

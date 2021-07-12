@@ -2,8 +2,8 @@ import React, { cloneElement, Fragment } from 'react'
 import { jsx, tag } from '@vtex/onda-react'
 import { IconTriangle } from '@vtex/admin-ui-icons'
 
-import { Row } from './Row'
 import { useStateContext } from '../context'
+import { Cell } from './Cell'
 
 interface SortIndicatorOptions {
   direction?: 'ASC' | 'DSC' | null
@@ -65,6 +65,16 @@ const SortIndicator = jsx.div(
   }
 )
 
+const Row = jsx.tr({
+  display: 'table-row',
+  bg: 'light.primary',
+  textAlign: 'left',
+})
+
+Row.defaultProps = {
+  role: 'row'
+}
+
 export const Head = jsx.thead(
   {
     display: 'table-header-group',
@@ -89,24 +99,30 @@ export const Head = jsx.thead(
                 items: state.data,
               })
 
+              const cellProps = {
+                column,
+                role: 'columnheader',
+                density: 'compact',
+                onClick: isSortable
+                  ? () => state.sortState.sort(column.id)
+                  : undefined,
+                children: isSortable ? (
+                  <tag.div csx={{ display: 'flex', alignItems: 'center' }}>
+                    {content}
+                    <SortIndicator direction={sortDirection} />
+                  </tag.div>
+                ) : (
+                  content
+                ),
+              } as any
+
               return (
                 <Fragment key={String(column.id)}>
-                  {cloneElement(children as any, {
-                    column,
-                    role: 'columnheader',
-                    density: 'compact',
-                    onClick: isSortable
-                      ? () => state.sortState.sort(column.id)
-                      : undefined,
-                    children: isSortable ? (
-                      <tag.div csx={{ display: 'flex', alignItems: 'center' }}>
-                        {content}
-                        <SortIndicator direction={sortDirection} />
-                      </tag.div>
-                    ) : (
-                      content
-                    ),
-                  })}
+                  {!!children ? (
+                    cloneElement(children as any, cellProps)
+                  ) : (
+                    <Cell {...cellProps} />
+                  )}
                 </Fragment>
               )
             })}

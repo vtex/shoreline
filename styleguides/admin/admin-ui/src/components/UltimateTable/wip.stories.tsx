@@ -4,12 +4,56 @@ import faker from 'faker'
 
 import { DataGrid } from './index'
 import { useDataGridState } from './hooks/useDataGridState'
-import { Button } from '../Button'
 
 export default {
   title: 'admin-ui/DataGrid',
   component: DataGrid,
 } as Meta
+
+export function Basic() {
+  interface Item {
+    id: string
+    name: string
+    lastSale: string
+    price: string
+  }
+
+  const items = useMemo<Item[]>(() => {
+    return [...Array(10).keys()].map((id) => {
+      return {
+        id: `${id}`,
+        name: faker.commerce.productName(),
+        lastSale: faker.date.past().toDateString(),
+        price: faker.commerce.price(),
+      }
+    })
+  }, [])
+
+  const state = useDataGridState<Item>({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items,
+  })
+
+  return <DataGrid state={state} csx={{ width: 560 }} />
+}
 
 export function Wip() {
   interface Item {
@@ -55,8 +99,8 @@ export function Wip() {
 
   return (
     <DataGrid state={state} csx={{ width: 560 }}>
-      <DataGrid.Section>
-        <Button
+      <DataGrid.Toolbar>
+        <DataGrid.Toolbar.Button
           onClick={() =>
             state.setStatus({
               type: 'ready',
@@ -64,9 +108,9 @@ export function Wip() {
           }
         >
           Ready
-        </Button>
+        </DataGrid.Toolbar.Button>
 
-        <Button
+        <DataGrid.Toolbar.Button
           onClick={() =>
             state.setStatus({
               type: 'loading',
@@ -74,9 +118,9 @@ export function Wip() {
           }
         >
           Loading
-        </Button>
+        </DataGrid.Toolbar.Button>
 
-        <Button
+        <DataGrid.Toolbar.Button
           onClick={() =>
             state.setStatus({
               type: 'error',
@@ -85,9 +129,9 @@ export function Wip() {
           }
         >
           Error
-        </Button>
+        </DataGrid.Toolbar.Button>
 
-        <Button
+        <DataGrid.Toolbar.Button
           onClick={() =>
             state.setStatus({
               type: 'not-found',
@@ -96,9 +140,9 @@ export function Wip() {
           }
         >
           Not Found
-        </Button>
+        </DataGrid.Toolbar.Button>
 
-        <Button
+        <DataGrid.Toolbar.Button
           onClick={() =>
             state.setStatus({
               type: 'empty',
@@ -107,13 +151,7 @@ export function Wip() {
           }
         >
           Empty
-        </Button>
-      </DataGrid.Section>
-
-      <DataGrid.Toolbar>
-        <DataGrid.Toolbar.Button>Toolbar button</DataGrid.Toolbar.Button>
-        <DataGrid.Toolbar.Button>Toolbar button</DataGrid.Toolbar.Button>
-        <DataGrid.Toolbar.Button>Toolbar button</DataGrid.Toolbar.Button>
+        </DataGrid.Toolbar.Button>
       </DataGrid.Toolbar>
 
       <DataGrid.Table>
@@ -121,9 +159,9 @@ export function Wip() {
           <DataGrid.Table.Cell />
         </DataGrid.Table.Head>
         <DataGrid.Table.Body>
-          <DataGrid.Table.Row onClick={(item) => console.log(item)}>
+          <DataGrid.Table.Body.Row>
             <DataGrid.Table.Cell />
-          </DataGrid.Table.Row>
+          </DataGrid.Table.Body.Row>
         </DataGrid.Table.Body>
       </DataGrid.Table>
     </DataGrid>
@@ -169,15 +207,12 @@ export function Sortable() {
 
   return (
     <DataGrid state={state} csx={{ width: 560 }}>
+      <DataGrid.Section>
+        <DataGrid.Search id="search" placeholder="Search" />
+      </DataGrid.Section>
       <DataGrid.Table>
-        <DataGrid.Table.Head>
-          <DataGrid.Table.Cell />
-        </DataGrid.Table.Head>
-        <DataGrid.Table.Body>
-          <DataGrid.Table.Row onClick={(item) => console.log(item)}>
-            <DataGrid.Table.Cell />
-          </DataGrid.Table.Row>
-        </DataGrid.Table.Body>
+        <DataGrid.Table.Head />
+        <DataGrid.Table.Body />
       </DataGrid.Table>
     </DataGrid>
   )
