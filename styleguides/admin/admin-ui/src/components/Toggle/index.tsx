@@ -2,11 +2,41 @@ import {
   Checkbox as ReakitCheckbox,
   CheckboxProps as ReakitProps,
 } from 'reakit'
-import { jsx, ComponentProps, PropsWithAs } from '@vtex/onda-react'
+import { jsx, ComponentProps } from '@vtex/onda-react'
 import { useCheckboxState, CheckboxStateReturn } from '../Checkbox'
 
 export const Toggle = jsx(ReakitCheckbox)(
   {
+    variants: {
+      size: {
+        regular: {
+          height: 20,
+          width: 36,
+          '&:after': {
+            width: 18,
+            height: 18,
+          },
+          '&:checked': {
+            '&:after': {
+              transform: 'translateX(16px)',
+            },
+          },
+        },
+        small: {
+          height: 16,
+          width: 28,
+          '&:after': {
+            width: 14,
+            height: 14,
+          },
+          '&:checked': {
+            '&:after': {
+              transform: 'translateX(12px)',
+            },
+          },
+        },
+      },
+    },
     appearance: 'none',
     position: 'relative',
     cursor: 'pointer',
@@ -65,41 +95,12 @@ export const Toggle = jsx(ReakitCheckbox)(
       outline: 'none',
       boxShadow: 'focus',
     },
-    variants: {
-      size: {
-        regular: {
-          height: 20,
-          width: 36,
-          '&:after': {
-            width: 18,
-            height: 18,
-          },
-          '&:checked': {
-            '&:after': {
-              transform: 'translateX(16px)',
-            },
-          },
-        },
-        small: {
-          height: 16,
-          width: 28,
-          '&:after': {
-            width: 14,
-            height: 14,
-          },
-          '&:checked': {
-            '&:after': {
-              transform: 'translateX(12px)',
-            },
-          },
-        },
-      },
-    },
   },
   {
-    options: ['state', 'size'],
-    useOptions: (options: ToggleOptions) => {
-      return { ...options.state, role: 'switch', as: 'input' }
+    options: ['state'],
+    useOptions: (options: ToggleOptions, props) => {
+      const { state } = options
+      return { role: 'switch', ...props, ...state }
     },
   }
 )
@@ -112,10 +113,9 @@ type State = Pick<ReakitProps, 'state' | 'setState'>
 
 export interface ToggleOptions {
   state?: State
-  size?: 'regular' | 'small'
 }
 
-export type ToggleProps = PropsWithAs<ComponentProps<typeof Toggle>, 'input'>
+export type ToggleProps = ComponentProps<typeof Toggle>
 
 export type ToggleStateReturn = CheckboxStateReturn
 

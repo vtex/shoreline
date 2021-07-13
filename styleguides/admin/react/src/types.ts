@@ -35,6 +35,33 @@ export type PropsWithAs<Props, T extends As> = Props &
     children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
   }
 
+export type ComponentProps<T> = T extends React.ComponentType<infer Props>
+  ? Props extends object
+    ? Props &
+        Omit<React.ComponentPropsWithRef<T>, 'as' | keyof Props> & {
+          /**
+           * Render as other element or component
+           */
+          as?: T
+          /**
+           * Csx property
+           * @default {}
+           */
+          csx?: StyleObject
+          /**
+           * Fixup for emotion css
+           * !🚨 Dont use it
+           * @private
+           */
+          css?: any
+          /**
+           * children that accepts any valid ReactNode or a render function
+           */
+          children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
+        }
+    : never
+  : never
+
 /**
  * Call for styles
  */
