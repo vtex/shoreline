@@ -21,17 +21,15 @@ export function TableOfContents(props: TableOfContentsProps) {
               li: {
                 display: 'flex',
                 flexDirection: 'column',
-                
                 paddingLeft: 2,
                 lineHeight: 1.5,
-                
               },
               ul: {
                 listStyle: 'none',
                 borderLeft: '1px solid #2121',
                 ':first-child': {
                   borderLeft: 'none',
-                }
+                },
               },
             },
           }}
