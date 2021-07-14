@@ -70,5 +70,5 @@ export interface FormikCheckboxProps
   error?: boolean
   errorMessage?: string
   formatMessage?: (errorCode: string) => string
-  onChange: (value: boolean | 'indeterminate') => void
+  onChange?: (value: boolean | 'indeterminate') => void
 }

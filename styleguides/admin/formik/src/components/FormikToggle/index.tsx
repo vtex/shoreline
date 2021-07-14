@@ -70,5 +70,5 @@ export interface FormikToggleProps
   error?: boolean
   errorMessage?: string
   formatMessage?: (errorCode: string) => string
-  onChange: (value: boolean) => void
+  onChange?: (value: boolean) => void
 }
