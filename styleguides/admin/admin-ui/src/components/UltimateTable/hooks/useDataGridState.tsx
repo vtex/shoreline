@@ -198,22 +198,67 @@ export interface UseDataGridStateParams<T> {
 }
 
 export interface DataGridState<T> {
+  /**
+   * Collection rendered while loading
+   */
   skeletonCollection: T[]
+  /**
+   * Resolves the cell content
+   */
   resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
+  /**
+   * Resolvers the header content
+   */
   resolveHeader: (
     args: ResolverCallee<ResolveHeaderArgs<T>>
   ) => ResolveHeaderReturn
+  /**
+   * Items to render
+   */
   data: T[]
+  /**
+   * Grid columns
+   */
   columns: Array<Column<T>>
+  /**
+   * Providers from the resolvers
+   */
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
+  /**
+   * Current sorting state
+   */
   sortState: UseSortReturn
+  /**
+   * Key extractor
+   */
   getRowKey: (item: T) => string | unknown
+  /**
+   * Current grid density
+   */
   density: DataGridDensity
+  /**
+   * Set the current grid density
+   */
   setDensity: React.Dispatch<DataGridDensity>
+  /**
+   * Action to take on click a row
+   */
   onRowClick?: (item: T) => void
+  /**
+   * Current grid status
+   */
   status: Status
+  /**
+   * Current grid status object (important for resolvers)
+   */
   statusObject: StatusObject
+  /**
+   * set the current grid status
+   */
   setStatus: SetStatus
 }
 
+/**
+ * Caller of a resolver
+ */
 type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>

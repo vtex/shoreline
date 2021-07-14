@@ -29,6 +29,7 @@ export interface CodeProps {
 }
 
 const system = createSystem('code-preview')
+const maxCodeLength = 10
 
 export function Code(props: CodeProps) {
   const {
@@ -145,26 +146,62 @@ export function Code(props: CodeProps) {
               >
                 {copied ? 'Copied!' : 'Copy code'}
               </Button>
-              <code>
-                {tokens.map((line, index) => {
-                  const lineProps = getLineProps({ line, key: index })
-
-                  if (shouldHighlightLine(index)) {
-                    lineProps.className = `${lineProps.className} highlight-line`
-                  }
-
-                  return (
-                    <div {...lineProps}>
-                      {lineNumbers && (
-                        <tag.span csx={styles.lineNo}>{index + 1}</tag.span>
-                      )}
-                      {line.map((token, key) => (
-                        <span {...getTokenProps({ token, key })} />
-                      ))}
-                    </div>
+              <tag.code
+                csx={{
+                  position: 'relative',
+                }}
+              >
+                {tokens
+                  .slice(
+                    0,
+                    tokens.length > maxCodeLength && !codeVisible
+                      ? maxCodeLength
+                      : tokens.length
                   )
-                })}
-              </code>
+                  .map((line, index) => {
+                    const lineProps = getLineProps({ line, key: index })
+
+                    if (shouldHighlightLine(index)) {
+                      lineProps.className = `${lineProps.className} highlight-line`
+                    }
+
+                    return (
+                      <div {...lineProps}>
+                        {lineNumbers && (
+                          <tag.span csx={styles.lineNo}>{index + 1}</tag.span>
+                        )}
+                        {line.map((token, key) => (
+                          <span {...getTokenProps({ token, key })} />
+                        ))}
+                      </div>
+                    )
+                  })}
+                {tokens.length > maxCodeLength && (
+                  <Button
+                    variant="adaptative-dark"
+                    csx={{
+                      width: '100%',
+                      zIndex: 2,
+                    }}
+                    onClick={() => setCodeVisible((v) => !v)}
+                  >
+                    {codeVisible ? 'Hide' : 'Show'} Code
+                  </Button>
+                )}
+                {tokens.length > maxCodeLength && !codeVisible && (
+                  <tag.div
+                    csx={{
+                      height: '20rem',
+                      width: '100%',
+                      background:
+                        'linear-gradient(0deg, rgba(247,247,247,1) 0%, rgba(247,247,247,.1) 50%)',
+                      position: 'absolute',
+                      bottom: 0,
+                      zIndex: 1,
+                    }}
+                  />
+                )}
+              </tag.code>
             </tag.pre>
           )}
         </Highlight>

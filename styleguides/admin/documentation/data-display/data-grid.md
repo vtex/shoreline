@@ -4,9 +4,143 @@ path: /data-display/data-grid/
 
 # DataGrid
 
+DataGrid is designed to render tabular data consistently for any kind of data type. If you're coming from [VTEX Styleguide](https://styleguide.vtex.com/), you can see it as the next-gen of the [Table v2](https://styleguide.vtex.com/#/Components/%F0%9F%91%BB%20Experimental/Table%20V2) (and is strongly inspired by it).
+
 ## State
 
-The state hook story
+DataGrid is pretty much stateless. You need the help of `useDataGridState` state hook, like:
+
+```jsx
+function Example() {
+  /**
+   * The hook returns the DataGrid state
+   */
+  const state = useDataGridState({
+    /**
+     * Columns shape, read more about it on the rendering section
+     */
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+    ],
+    /**
+     * List of items to render
+     */
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 0,
+        price: 120,
+      },
+    ],
+  })
+  /**
+   * You must use the `state` prop so that your DataGrid comes to life
+   * This is the only prop that is required
+   */
+  return <DataGrid state={state} />
+}
+```
+
+### useDataGridState
+
+| Name       | Type                          | Description                                                                | Required | Default                       |
+| ---------- | ----------------------------- | -------------------------------------------------------------------------- | -------- | ----------------------------- |
+| columns    | `Column<T>[]`                 | Table column spec                                                          | ✅       | -                             |
+| context    | `ResolverContext`             | Resolver context                                                           | 🚫       | -                             |
+| resolvers  | `Record<string, Resolver<T>>` | Table field resolvers                                                      | 🚫       | Table's default resolvers     |
+| items      | `T[]`                         | Table items                                                                | 🚫       | `[]`                          |
+| length     | `number`                      | Expected items length, this will also control the number of skeleton items | 🚫       | `5`                           |
+| sort       | `UseTableSortParams<T>`       | useTableSort hook params                                                   | 🚫       | -                             |
+| getRowKey  | `(item: T) => string`         | Key extractor                                                              | 🚫       | Table's default key extractor |
+| density    | `TableDensity`                | Inital table row height                                                    | 🚫       | `regular`                     |
+| onRowClick | `(item: T) => void`           | Action to dispatch on a row click                                          | 🚫       | -                             |
+
+It returns an object with the following types
+
+```ts isStatic
+interface DataGridState<T> {
+  /**
+   * Collection rendered while loading
+   */
+  skeletonCollection: T[]
+  /**
+   * Resolves the cell content
+   */
+  resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
+  /**
+   * Resolvers the header content
+   */
+  resolveHeader: (
+    args: ResolverCallee<ResolveHeaderArgs<T>>
+  ) => ResolveHeaderReturn
+  /**
+   * Items to render
+   */
+  data: T[]
+  /**
+   * Grid columns
+   */
+  columns: Array<Column<T>>
+  /**
+   * Providers from the resolvers
+   */
+  Providers: (props: PropsWithChildren<unknown>) => JSX.Element
+  /**
+   * Current sorting state
+   */
+  sortState: UseSortReturn
+  /**
+   * Key extractor
+   */
+  getRowKey: (item: T) => string | unknown
+  /**
+   * Current grid density
+   */
+  density: DataGridDensity
+  /**
+   * Set the current grid density
+   */
+  setDensity: React.Dispatch<DataGridDensity>
+  /**
+   * Action to take on click a row
+   */
+  onRowClick?: (item: T) => void
+  /**
+   * Current grid status
+   */
+  status: Status
+  /**
+   * Current grid status object (important for resolvers)
+   */
+  statusObject: StatusObject
+  /**
+   * set the current grid status
+   */
+  setStatus: SetStatus
+}
+
+/**
+ * Caller of a resolver
+ */
+type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
+```
 
 ## Rendering
 
@@ -14,21 +148,103 @@ The state hook story
 
 What are columns ?
 
-| Attribute | Type                                | Description                                                                                                                                                                                         | Required                                                                                               |
-| --------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --- |
-| id        | `string`                            | String that defines the property name that the column represents.                                                                                                                                   | ✅                                                                                                     |
-| header    | `((column: Column<T>) => ReactNode) | string`                                                                                                                                                                                             | Controls the title which appears on the table Header.<br>It can receive either a string or an element. | 🚫  |
-| acessor   | `((item: T) => ReactNode)           | string`                                                                                                                                                                                             | Defines how to access a property                                                                       | 🚫  |
-| resolver  | `R`                                 | [Resolvers](/data-display/data-grid/#resolvers) api<br>Will select the [plain resolver](/data-display/data-grid/#plain) by default                                                                | 🚫                                                                                                     |
-| width     | `number`                            | Defines a fixed width for the specific column.<br>Receives either a string or number.<br>By default, the column's width is defined to fit the available space without breaking the content.         | 🚫                                                                                                     |
+| Attribute | Type                                | Description                                                                                                                                                                                                                                           | Required                                                                                               |
+| --------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --- |
+| id        | `string`                            | String that defines the property name that the column represents.                                                                                                                                                                                     | ✅                                                                                                     |
+| header    | `((column: Column<T>) => ReactNode) | string`                                                                                                                                                                                                                                               | Controls the title which appears on the table Header.<br>It can receive either a string or an element. | 🚫  |
+| acessor   | `((item: T) => ReactNode)           | string`                                                                                                                                                                                                                                               | Defines how to access a property                                                                       | 🚫  |
+| resolver  | `R`                                 | [Resolvers](/data-display/data-grid/#resolvers) api<br>Will select the [plain resolver](/data-display/data-grid/#plain) by default                                                                                                                    | 🚫                                                                                                     |
+| width     | `number`                            | Defines a fixed width for the specific column.<br>Receives either a string or number.<br>By default, the column's width is defined to fit the available space without breaking the content.                                                           | 🚫                                                                                                     |
 | sortable  | `(a: T, b: T) => number`            | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatelessTable sort prop. Check [Sorting](/data-display/data-grid/#sorting) | 🚫                                                                                                     |
-| compare   | `boolean`                           | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](/data-display/data-grid/#sorting)                                | 🚫                                                                                                     |
+| compare   | `boolean`                           | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](/data-display/data-grid/#sorting)                                 | 🚫                                                                                                     |
 
 ### Resolvers
 
 Resolvers are rendering functions that targets an specyfic data type. The main usage is to render the same data types consistently along admin applications.
 
-#### Plain
+#### Key concepts
+
+All you need to know about resolvers
+
+##### Render function
+
+All resolvers accept a render function, that returns a component. It servers to control the render of the data treated by the resolver. 
+
+```ts isStatic
+{
+  type: 'type of the resolver',
+  render: function 
+}
+``` 
+
+| prop name | type              | description                                                         |
+| --------- | ----------------- | ------------------------------------------------------------------- |
+| item      | `T`               | the item displayed for the row                                      |
+| data      | `unknown`         | extracted column data from the item, you need to cast it before use |
+| context   | `ResolverContext` | relevant global information about the table current state           |
+
+##### Root Resolver
+
+This is the most powerful resolver of them all, but it enhances the complexity of the rendering. It has no theatment to the data itself, and don handle the loading state of it. All the rendering is completly up to you.
+
+```jsx
+function Example() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'id',
+        header: 'Id'
+      },
+      {
+        id: 'description',
+        header: 'Description',
+        resolver: {
+          type: 'root',
+          /** 
+           * { data } here would be null, because the is no such prop in the item
+           */
+          render: function Description({ item, context }) {
+            if (context.loading) {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            return (
+              <Set orientation="vertical">
+                <Text variant="highlight">{item.productName}</Text>
+                <Text>{item.category}</Text>
+              </Set>
+            )
+          },
+        },
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        category: 'fruit',
+        inStock: 380,
+      },
+      {
+        id: 2,
+        productName: 'Lemon',
+        category: 'fruit',
+        inStock: 380,
+      },
+    ],
+  })
+
+  return <DataGrid state={state} />
+}
+```
+
+#### Resolver Options
+
+##### Plain
 
 The plain resolver is the default for all columns. It means that if you don't select a resolver, this is what you're rendering. It should be mainly used to render raw data like strings or numbers that don't need treatment.
 
@@ -77,6 +293,10 @@ function Example() {
         header: 'SKUs',
         resolver: {
           type: 'plain',
+          /** 
+           * remember the render function ?
+           * this is how to use it
+           */ 
           render: function Render({ data }) {
             return (
               <tag.p
@@ -100,85 +320,7 @@ function Example() {
 render(<Example />)
 ```
 
-##### Custom render
-
-You can also custom render the returned data form the plain resolver. In the following example we're choosing the color of the sku text.
-
-| prop name | type            | description                                                         |
-| --------- | --------------- | ------------------------------------------------------------------- |
-| item      | T               | the item displayed for the row                                      |
-| data      | unknown         | extracted column data from the item, you need to cast it before use |
-| context   | ResolverContext | relevant global information about the table current state           |
-
-```jsx noInline
-const items = [
-  {
-    id: 1,
-    productName: 'Orange',
-    inStock: 380,
-    skus: 0,
-    price: 120,
-  },
-  {
-    id: 2,
-    productName: 'Lemon',
-    inStock: 380,
-    skus: 26,
-    price: 120,
-  },
-  {
-    id: 3,
-    productName: 'Tomato',
-    inStock: 380,
-    skus: 26,
-    price: 120,
-  },
-]
-
-function Example() {
-  const state = useDataGridState({
-    columns: [
-      {
-        id: 'productName',
-        header: 'Product name',
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-        resolver: {
-          type: 'plain',
-          render: function Render({ data }) {
-            return (
-              <tag.p
-                csx={{
-                  color: Number(data) > 0 ? 'blue' : 'red',
-                }}
-              >
-                {data}
-              </tag.p>
-            )
-          },
-        },
-      },
-    ],
-    items,
-  })
-
-  return <DataGrid state={state} />
-}
-
-render(<Example />)
-```
-
-#### Currency
+##### Currency
 
 ```jsx
 function Example() {
@@ -228,7 +370,7 @@ function Example() {
 }
 ```
 
-#### Date
+##### Date
 
 ```jsx
 function Example() {
@@ -304,7 +446,7 @@ function Example() {
 }
 ```
 
-#### Image
+##### Image
 
 | Prop    | Type                      | Description                    | Required | Default |
 | ------- | ------------------------- | ------------------------------ | -------- | ------- |
@@ -374,67 +516,6 @@ function Example() {
       },
     ],
     items: fruits,
-  })
-
-  return <DataGrid state={state} />
-}
-```
-
-#### Root
-
-```jsx
-function Example() {
-  const state = useDataGridState({
-    columns: [
-      {
-        id: 'image',
-        header: 'Image',
-        resolver: {
-          type: 'image',
-        },
-      },
-      {
-        id: 'description',
-        header: 'Description',
-        resolver: {
-          type: 'root',
-          render: function Description({ item, context }) {
-            if (context.loading) {
-              return <Skeleton csx={{ height: 24 }} />
-            }
-
-            return (
-              <Set orientation="vertical">
-                <Text variant="highlight">{item.productName}</Text>
-                <Text>{item.category}</Text>
-              </Set>
-            )
-          },
-        },
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-    ],
-    items: [
-      {
-        id: 1,
-        image:
-          'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
-        productName: 'Orange',
-        category: 'fruit',
-        inStock: 380,
-      },
-      {
-        id: 2,
-        image:
-          'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
-        productName: 'Lemon',
-        category: 'fruit',
-        inStock: 380,
-      },
-    ],
   })
 
   return <DataGrid state={state} />
