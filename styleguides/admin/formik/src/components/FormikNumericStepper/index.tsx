@@ -33,7 +33,7 @@ export const FormikNumericStepper = forwardRef(
     }, [field.value]) // When forms is reset or the field is changed outside
 
     const handleChange = (event: { value: number }) => {
-      onChange && onChange(event)
+      onChange?.(event)
       helpers.setValue(event.value)
       setValue(event.value)
     }

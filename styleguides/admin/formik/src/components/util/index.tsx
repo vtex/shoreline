@@ -48,12 +48,12 @@ export function useSyncedState(
   useEffect(() => {
     if (value !== fieldValue) {
       setValue(fieldValue)
-      onChange && onChange(fieldValue)
+      onChange?.(fieldValue)
     }
   }, [fieldValue]) // When forms is reset or the field is changed outside
 
   useEffect(() => {
     setFieldValue(value)
-    onChange && onChange(value)
+    onChange?.(value)
   }, [value]) // When the user changes the value by the component
 }
