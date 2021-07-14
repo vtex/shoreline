@@ -12,7 +12,7 @@ export type Column<T, R = BaseResolvers<T>> =
   | {
       id: keyof T
       header?: ((column: Column<T>) => ReactNode) | string
-      acessor?: ((item: T) => ReactNode) | string
+      accessor?: ((item: T) => ReactNode) | string
       resolver?: R
       width?: any
       compare?: (a: T, b: T) => number
@@ -21,7 +21,7 @@ export type Column<T, R = BaseResolvers<T>> =
   | {
       id: Exclude<string, keyof T>
       header?: ((column: Column<T>) => ReactNode) | string
-      acessor: ((item: T) => ReactNode) | string
+      accessor: ((item: T) => ReactNode) | string
       resolver?: R
       width?: any
       compare?: (a: T, b: T) => number
@@ -30,7 +30,7 @@ export type Column<T, R = BaseResolvers<T>> =
   | {
       id: Exclude<string, keyof T>
       header?: ((column: Column<T>) => ReactNode) | string
-      acessor?: ((item: T) => ReactNode) | string
+      accessor?: ((item: T) => ReactNode) | string
       resolver: R
       width?: any
       compare?: (a: T, b: T) => number

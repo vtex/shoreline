@@ -144,48 +144,116 @@ type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
 
 ## Rendering
 
-### Columns
-
-What are columns ?
+The main objective of `DataGrid` is to provide a flexible render to support any kind of data type.
 
 | Attribute | Type                                | Description                                                                                                                                                                                                                                           | Required                                                                                               |
 | --------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --- |
 | id        | `string`                            | String that defines the property name that the column represents.                                                                                                                                                                                     | ✅                                                                                                     |
 | header    | `((column: Column<T>) => ReactNode) | string`                                                                                                                                                                                                                                               | Controls the title which appears on the table Header.<br>It can receive either a string or an element. | 🚫  |
-| acessor   | `((item: T) => ReactNode)           | string`                                                                                                                                                                                                                                               | Defines how to access a property                                                                       | 🚫  |
+| accessor  | `((item: T) => ReactNode)           | string`                                                                                                                                                                                                                                               | Defines how to access a property                                                                       | 🚫  |
 | resolver  | `R`                                 | [Resolvers](/data-display/data-grid/#resolvers) api<br>Will select the [plain resolver](/data-display/data-grid/#plain) by default                                                                                                                    | 🚫                                                                                                     |
 | width     | `number`                            | Defines a fixed width for the specific column.<br>Receives either a string or number.<br>By default, the column's width is defined to fit the available space without breaking the content.                                                           | 🚫                                                                                                     |
 | sortable  | `(a: T, b: T) => number`            | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatelessTable sort prop. Check [Sorting](/data-display/data-grid/#sorting) | 🚫                                                                                                     |
 | compare   | `boolean`                           | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](/data-display/data-grid/#sorting)                                 | 🚫                                                                                                     |
 
+### Accessor
+
+Some properties may be nested within objects and arrays. The `accessor` properties provide an easy way to access those.
+
+```jsx noInline
+const items = [
+  {
+    id: 1,
+    product: {
+      name: 'Orange',
+      type: 'Fruit',
+    },
+    qty: {
+      sold: 100,
+      total: 320,
+    },
+    skus: {
+      value: [0, 10, 20],
+    },
+    price: [120, 'usd'],
+  },
+]
+
+function Example() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'product.name',
+        header: 'Name',
+        accessor: 'product.name',
+      },
+      {
+        id: 'product.type',
+        header: 'Type',
+        accessor: 'product.type',
+      },
+      {
+        id: 'qty',
+        header: 'In Stock',
+        accessor: (item) => {
+          const {
+            qty: { total, sold },
+          } = item
+          return total - sold
+        },
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        accessor: 'price.0',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+        accessor: 'skus.value.2',
+      },
+    ],
+    items,
+  })
+
+  return <DataGrid state={state} />
+}
+
+render(<Example />)
+```
+
 ### Resolvers
 
-Resolvers are rendering functions that targets an specyfic data type. The main usage is to render the same data types consistently along admin applications.
+Resolvers are rendering functions that target a specific data type. The main usage is to render the same data types consistently along with admin applications.
 
 #### Key concepts
 
-All you need to know about resolvers
-
 ##### Render function
 
-All resolvers accept a render function, that returns a component. It servers to control the render of the data treated by the resolver. 
+All resolvers accept a render function, that returns a component. It controls the data rendering, which may be treated by the resolver or not.
 
 ```ts isStatic
 {
-  type: 'type of the resolver',
-  render: function 
+  type: 'resolver name',
+  /**
+   * You have 3 render props here:
+   * { item, data, context }
+   */
+  render: function Render({ item, data, context }) {
+    return <></>
+  }
 }
-``` 
+```
 
-| prop name | type              | description                                                         |
-| --------- | ----------------- | ------------------------------------------------------------------- |
-| item      | `T`               | the item displayed for the row                                      |
-| data      | `unknown`         | extracted column data from the item, you need to cast it before use |
-| context   | `ResolverContext` | relevant global information about the table current state           |
+| prop name | type                                             | description                                                         |
+| --------- | ------------------------------------------------ | ------------------------------------------------------------------- |
+| item      | `T`                                              | the item displayed for the row                                      |
+| data      | `unknown`                                        | extracted column data from the item, you need to cast it before use |
+| context   | `{ loading: boolean, density: DataGridDensity }` | relevant global information about the table current state           |
 
 ##### Root Resolver
 
-This is the most powerful resolver of them all, but it enhances the complexity of the rendering. It has no theatment to the data itself, and don handle the loading state of it. All the rendering is completly up to you.
+This is the parent of all other resolvers. It does not treat the data at all - even the loading state is completely up to you. Use it if you want complete control over what's being rendered on the cell, and don't mind the complexity that it brings.
 
 ```jsx
 function Example() {
@@ -193,17 +261,28 @@ function Example() {
     columns: [
       {
         id: 'id',
-        header: 'Id'
+        header: 'Id',
       },
+      /**
+       * The great thing about the root resolver is that you can infer new columns from 
+       * multiple properties of the item.
+       * 
+       * description is being created from productName and category
+       */ 
       {
         id: 'description',
         header: 'Description',
         resolver: {
           type: 'root',
-          /** 
+          /**
            * { data } here would be null, because the is no such prop in the item
            */
           render: function Description({ item, context }) {
+            /**
+             * You should declare the render while loading
+             * this is only required by the root resolver
+             * the other ones, take care of this for you
+             */ 
             if (context.loading) {
               return <Skeleton csx={{ height: 24 }} />
             }
@@ -293,10 +372,10 @@ function Example() {
         header: 'SKUs',
         resolver: {
           type: 'plain',
-          /** 
-           * remember the render function ?
+          /**
+           * remember the render function?
            * this is how to use it
-           */ 
+           */
           render: function Render({ data }) {
             return (
               <tag.p
@@ -452,7 +531,7 @@ function Example() {
 | ------- | ------------------------- | ------------------------------ | -------- | ------- |
 | display | boolean                   | if should preview on hover     | 🚫       | true    |
 | size    | `small, regular or large` | size of the preview            | 🚫       | regular |
-| delay   | number                    | delay of preview display in ms | 🚫       | 0       |
+| delay   | number                    | delay of a preview display in ms | 🚫       | 0       |
 
 ```jsx
 function Example() {
@@ -521,6 +600,94 @@ function Example() {
   return <DataGrid state={state} />
 }
 ```
+
+### Sorting
+
+To use the base sorting configuration, that matches the majority of use cases, you just need to pass the `compare` function to the columns that you want to sort by. Two params are accepted, representing two items - you must return a boolean that proves their equality.
+
+```ts isStatic
+type Compare = (a: T, b: T) => boolean
+```
+
+The following example allows ordering by `name`, `lastSale` and `price`.
+
+```jsx noInline
+const items = Array(3)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function CompareExample() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+        compare: (a, b) => b.name.localeCompare(a.name),
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+        compare: (a, b) => {
+          const aLastSale = new Date(a.lastSale).valueOf()
+          const bLastSale = new Date(b.lastSale).valueOf()
+
+          return bLastSale - aLastSale
+        },
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+        compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
+      },
+    ],
+    items,
+  })
+
+  return <DataGrid state={state} />
+}
+
+render(<CompareExample />)
+```
+
+#### Configuration
+
+By using the `sort` property within `useDataGridState` you can configure the sorting to match specific use cases.
+
+##### initialValue
+
+Defines the table initial sorting value. `{ order?: 'ASC' | 'DSC', by?: string }`
+
+The `order` prop is related to the sorting order and `by` indicates which column is being sorted, this value should be the id of the column.
+
+##### directions
+
+Defines the sorting order of the table.
+
+It accepts an array with `ASC` and `DSC` as possible values.
+You can pass an array with one or two sorting directions. If you pass an array with only one sorting direction the table will only sort in one direction.
+
+##### reducer
+
+Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it's not required and if not provided the default reducer function will be used.
+The reducer function is called with the current sort state `{ order?: SortOrder, by?: string }` and the sorting action `{ type: SortOrder | 'RESET', columnId?: string }`.
+
+##### callback
+
+Receives a function that will be fired when the user clicks the table header cell of a column.
+
+This function is called with an object containing the current sort state, the dispatch of the current `useReducer` that handles the sorting state, the column id of the column that was clicked, and the current sort directions being used.
 
 ## Composition
 
@@ -687,94 +854,6 @@ function DensityExample() {
 
 render(<DensityExample />)
 ```
-
-## Sorting
-
-To use the base sorting configuration, that matches the majority of use case, you just need to pass the `compare` function to the columns that you want to sort by. Two params are accepted, representing two items - you must return a boolean that prooves their equality.
-
-```ts isStatic
-type Compare = (a: T, b: T) => boolean
-```
-
-The following example allows ordering by `name`, `lastSale` and `price`.
-
-```jsx noInline
-const items = Array(3)
-  .fill()
-  .map((_, id) => {
-    return {
-      id: `${id}`,
-      name: faker.commerce.productName(),
-      lastSale: faker.date.past().toDateString(),
-      price: faker.commerce.price(),
-    }
-  })
-
-function CompareExample() {
-  const state = useDataGridState({
-    columns: [
-      {
-        id: 'name',
-        header: 'Product Name',
-        compare: (a, b) => b.name.localeCompare(a.name),
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-        compare: (a, b) => {
-          const aLastSale = new Date(a.lastSale).valueOf()
-          const bLastSale = new Date(b.lastSale).valueOf()
-
-          return bLastSale - aLastSale
-        },
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-        compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
-      },
-    ],
-    items,
-  })
-
-  return <DataGrid state={state} />
-}
-
-render(<CompareExample />)
-```
-
-### Configuration
-
-By using the `sort` property within `useDataGridState` you can configure the sorting to match specyfic use cases.
-
-#### initialValue
-
-Defines the table initial sorting value. `{ order?: 'ASC' | 'DSC', by?: string }`
-
-The `order` prop is related to the sorting order and `by` indicates which column is being sorted, this value should be the id of the column.
-
-#### directions
-
-Defines the sorting order of the table.
-
-It accepts an array with `ASC` and `DSC` as possible values.
-You can pass an array with one or two sorting directions. If you pass an array with only one sorting direction the table will only sort in one direction.
-
-#### reducer
-
-Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it's not required and if not provided the default reducer function will be used.
-The reducer function is called with the current sort state `{ order?: SortOrder, by?: string }` and the sorting action `{ type: SortOrder | 'RESET', columnId?: string }`.
-
-#### callback
-
-Receives a function that will be fired when the user clicks the table header cell of a column.
-
-This function is called with an object containing the current sort state, the dispatch of the current `useReducer` that handles the sorting state, the column id of the column that was clicked and the current sort directions being used.
 
 ## Examples
 

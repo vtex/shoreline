@@ -181,26 +181,26 @@ export function accessHeader<T>(column: Column<T>) {
  * @param item current item
  */
 export function accessCell<T>(column: Column<T>, item: T) {
-  const { acessor } = column
+  const { accessor } = column
 
-  switch (typeof acessor) {
+  switch (typeof accessor) {
     case 'string': {
       const resolved = get(
         (item as unknown) as Record<string, unknown>,
-        acessor,
+        accessor,
         undefined
       )
 
       warning(
         resolved,
-        `The data is undefined. Make sure that you are using the correct resolver/acessor for the cell: ${column.id}`
+        `The data is undefined. Make sure that you are using the correct resolver/accessor for the cell: ${column.id}`
       )
 
       return resolved
     }
 
     case 'function': {
-      return acessor(item)
+      return accessor(item)
     }
 
     default: {
