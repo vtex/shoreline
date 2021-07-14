@@ -693,7 +693,11 @@ This function is called with an object containing the current sort state, the di
 
 Section, Filters, Toolbar, Search and so on
 
-## Status
+## Features 
+
+### Status
+
+The state hook returns a `setStatus` function, that allows you to control the current status of the Grid.
 
 ```jsx noInline
 const items = Array(3)
@@ -794,7 +798,9 @@ function StatusExample() {
 render(<StatusExample />)
 ```
 
-## Density
+### Density
+
+The density can be either `regular` (default value), `compact` or `variable`.
 
 ```jsx noInline
 const items = Array(3)
@@ -862,6 +868,10 @@ This section presents a series of examples that may be useful.
 ### Data fetching
 
 ```jsx noInline
+/**
+ * Function to simulate a request
+ * You can configure the delay and numberOfItems here
+ */
 function request(delay = 3000, numberOfItems = 3) {
   return new Promise(function (resolve) {
     setTimeout(
@@ -883,6 +893,9 @@ function request(delay = 3000, numberOfItems = 3) {
 
 function DataFetchExample() {
   const [items, setItems] = React.useState([])
+  /**
+   * This is just for the example purposes so, nevermind
+   */ 
   const [update, setUpdate] = React.useState(false)
 
   const state = useDataGridState({
@@ -942,7 +955,7 @@ render(<DataFetchExample />)
 
 ### Drag and Drop
 
-Simple and accessible drag and drop reordering using [Atlassian's react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd). The idea here is to use the render complexity to access the DataGrid's table internals.
+Simple and accessible drag and drop reordering using [Atlassian's react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd). The idea here is to use the rendering complexity to access the DataGrid's table internals.
 
 ```jsx noInline
 const fakeData = Array(5)
