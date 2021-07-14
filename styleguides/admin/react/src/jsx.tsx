@@ -359,7 +359,7 @@ export interface JsxConfiguration<
   options?: string[]
   useOptions?: (
     options: Options,
-    props: React.ComponentPropsWithoutRef<Type>,
+    props: React.ComponentPropsWithoutRef<Type> & CsxCall,
     system: ReturnType<typeof useSystem>
   ) => React.ComponentPropsWithoutRef<Type>
   sync?: Sync<Variants>[]

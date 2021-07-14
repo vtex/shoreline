@@ -4,19 +4,18 @@ import { jsx } from '@vtex/onda-react'
 import { Head } from './components/Head'
 import { Body } from './components/Body'
 import { Cell } from './components/Cell'
-import { Empty } from './components/Empty'
 import { Section } from './components/Section'
 import { Toolbar } from './components/Toolbar'
 import { Search } from './components/Search'
 import { Filters } from './components/Filters'
-import { DataGridState } from './hooks/useDataGridState'
+import { DataGridState, useDataGridState } from './hooks/useDataGridState'
 import { StateContext } from './context'
 import { Status } from './components/Status'
 
 const _Table = jsx.table(
   {
     display: 'table',
-    width: 'full',
+    width: '100%',
   },
   {
     useOptions(_, props) {
@@ -74,17 +73,16 @@ const _DataGrid = jsx.div(
 )
 
 /**
- * TODO: Deep stories - dnd & windowing
- * TODO: Strip complexity
  * TODO: Style checkup (resolvers)
  * TODO: Unit testing
  * TODO: Documentation entries
  */
 export const DataGrid = Object.assign(_DataGrid, {
   Table,
-  Empty,
   Section,
   Toolbar,
   Search,
   Filters,
 })
+
+export { useDataGridState } 

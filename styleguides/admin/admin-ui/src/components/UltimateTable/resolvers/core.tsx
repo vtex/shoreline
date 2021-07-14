@@ -5,8 +5,8 @@ import React, { ReactNode, Fragment } from 'react'
 import warning from 'tiny-warning'
 import { get } from '@vtex/admin-core'
 
-import { Column, TableDensity } from '../typings'
-import { SortOrder, SortState } from '../hooks/useTableSort'
+import { Column, DataGridDensity } from '../typings'
+import { SortOrder, SortState } from '../hooks/useDataGridSort'
 import { Status, StatusObject } from '../hooks/useStatus'
 
 /**
@@ -22,7 +22,7 @@ export type ResolverContext = {
   /**
    * Grid current density
    */
-  density: TableDensity
+  density: DataGridDensity
   /**
    * Grid current status
    */

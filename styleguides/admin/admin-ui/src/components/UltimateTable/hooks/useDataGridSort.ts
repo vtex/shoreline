@@ -5,7 +5,7 @@ const clearState: SortState = {
   order: undefined,
 }
 
-export function useTableSort<T>(params: UseTableSortParams<T>) {
+export function useDataGridSort<T>(params: UseDataGridSortParams<T>) {
   const {
     initialValue,
     directions = ['ASC', 'DSC'],
@@ -98,7 +98,7 @@ export interface SortCallbackParams<T> {
   directions: SortDirections
 }
 
-export interface UseTableSortParams<T> {
+export interface UseDataGridSortParams<T> {
   initialValue?: Partial<SortState>
   directions?: SortDirections
   reducer?(state: SortState, action: SortAction): SortState

@@ -14,7 +14,7 @@ function Heading(props: HeadingProps) {
 
   const marginTop = {
     h1: 6,
-    h2: 5,
+    h2: 8,
     h3: 4,
     h4: 3,
     h5: 2,

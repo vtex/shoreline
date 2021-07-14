@@ -31,7 +31,7 @@ export const Cell = jsx.td(
   {
     useOptions: (options: CellOptions, props) => {
       const { column } = options
-      const { onClick, ...cellProps } = props
+      const { onClick, csx, ...cellProps } = props
 
       const clickableCsx = onClick
         ? {
@@ -53,7 +53,9 @@ export const Cell = jsx.td(
         csx: {
           minWidth: column?.width,
           maxWidth: column?.width,
+          width: column?.width,
           ...clickableCsx,
+          ...csx,
         },
       }
     },

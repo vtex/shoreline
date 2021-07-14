@@ -58,6 +58,7 @@
     "prism-react-renderer": "^1.1.1",
     "prop-types": "15.7.2",
     "qs": "6.9.4",
+    "react-beautiful-dnd": "^13.1.0",
     "react-helmet": "6.1.0",
     "react-icons": "3.11.0",
     "react-live": "^2.2.3",
@@ -75,6 +76,7 @@
     "unist-util-select": "3.0.1",
     "unist-util-visit": "2.0.3",
     "whatwg-fetch": "3.4.1",
-    "yup": "0.29.3"
+    "yup": "0.29.3",
+    "faker": "^5.5.3"
   }
 }

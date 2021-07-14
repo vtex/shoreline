@@ -1,10 +1,11 @@
-import React, { cloneElement, Fragment } from 'react'
+import React, { cloneElement, Fragment, ReactNode } from 'react'
 import { jsx } from '@vtex/onda-react'
+import { isFunction } from '@vtex/admin-core'
 
 import { useStateContext } from '../context'
 import { Cell } from './Cell'
 
-interface RowOptions {
+export interface RowOptions {
   item: Record<string, any>
 }
 
@@ -17,7 +18,7 @@ const Row = jsx.tr(
   {
     useOptions: (options: RowOptions, props) => {
       const { item } = options
-      const { children, ...rowProps } = props
+      const { children, csx, ...rowProps } = props
       const {
         status,
         onRowClick,
@@ -42,9 +43,10 @@ const Row = jsx.tr(
               cursor: 'pointer',
               ':hover': {
                 bg: 'light.secondary',
+                ...csx,
               },
             }
-          : {},
+          : csx,
         children: (
           <Fragment>
             {columns.map((column) => {
@@ -74,12 +76,27 @@ const Row = jsx.tr(
   }
 )
 
+type RenderParams = {
+  key: string
+  item: any
+  index: number
+}
+
+type RenderFunction = (params: RenderParams) => ReactNode
+
 const _Body = jsx.tbody(
   {
     display: 'table-row-group',
   },
   {
-    useOptions(_, { children, ...props }) {
+    useOptions(
+      _: {
+        children: (
+          render: (callbackFunction: RenderFunction) => void
+        ) => ReactNode | ReactNode
+      },
+      { children, ...props }
+    ) {
       const { status, data, getRowKey } = useStateContext()
 
       const shouldRender = status === 'ready' || status === 'loading'
@@ -89,17 +106,29 @@ const _Body = jsx.tbody(
         role: 'rowgroup',
         children: shouldRender && (
           <Fragment>
-            {data.map((item) => (
-              <Fragment key={String(getRowKey(item))}>
-                {!!children ? (
-                  cloneElement(children as any, {
-                    item,
+            {isFunction(children)
+              ? children(function render(callback: RenderFunction) {
+                  return data.map((item, index) => {
+                    const key = String(getRowKey(item))
+
+                    return (
+                      <Fragment key={key}>
+                        {callback({ item, key, index })}
+                      </Fragment>
+                    )
                   })
-                ) : (
-                  <Row item={item} />
-                )}
-              </Fragment>
-            ))}
+                })
+              : data.map((item) => (
+                  <Fragment key={String(getRowKey(item))}>
+                    {!!children ? (
+                      cloneElement(children as any, {
+                        item,
+                      })
+                    ) : (
+                      <Row item={item} />
+                    )}
+                  </Fragment>
+                ))}
           </Fragment>
         ),
       }
@@ -107,7 +136,6 @@ const _Body = jsx.tbody(
   }
 )
 
-
 export const Body = Object.assign(_Body, {
-  Row
+  Row,
 })

@@ -56,3 +56,4 @@ export {
 } from 'react-device-detect'
 export * from './components/Combobox'
 export * from './components/SearchBox'
+export * from './components/UltimateTable'

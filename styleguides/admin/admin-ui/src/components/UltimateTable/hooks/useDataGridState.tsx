@@ -4,6 +4,7 @@ import React, {
   ReactNode,
   PropsWithChildren,
   Fragment,
+  useState,
 } from 'react'
 import { get } from '@vtex/admin-core'
 
@@ -17,14 +18,13 @@ import {
   ResolveHeaderReturn,
 } from '../resolvers/core'
 import { baseResolvers } from '../resolvers/base'
-import { Column, TableDensity } from '../typings'
+import { Column, DataGridDensity } from '../typings'
 import { SelectionProvider } from '../resolvers/selection'
 import {
   UseSortReturn,
-  useTableSort,
-  UseTableSortParams,
-} from './useTableSort'
-import { TableViewState } from '../context'
+  useDataGridSort,
+  UseDataGridSortParams,
+} from './useDataGridSort'
 import { Status, SetStatus, StatusObject, useStatus } from './useStatus'
 
 export function useDataGridState<T>(
@@ -39,15 +39,12 @@ export function useDataGridState<T>(
     getRowKey = (item: T) =>
       get((item as unknown) as Record<string, unknown>, 'id', ''),
     onRowClick,
-    density = 'regular',
+    density: initialDensity = 'regular',
   } = params
 
-  const {
-    status,
-    statusObject,
-    setStatus,
-  } = useStatus()
-  
+  const [density, setDensity] = useState<DataGridDensity>(initialDensity)
+  const { status, statusObject, setStatus } = useStatus()
+
   /**
    * resolver's context
    */
@@ -55,21 +52,23 @@ export function useDataGridState<T>(
     () => ({
       density,
       status,
-      statusObject
+      statusObject,
     }),
     [density, status, statusObject]
   )
 
-  const sortState = useTableSort(sort)
+  const sortState = useDataGridSort(sort)
 
   const skeletonCollection = useMemo<T[]>(() => {
-    return [...Array(length).keys()].map((id) => {
-      const item = columns.reduce((acc, col) => {
-        return { ...acc, [col.id]: '__table_skeleton__' }
-      }, {})
+    return Array(length)
+      .fill(0)
+      .map((_, id) => {
+        const item = columns.reduce((acc, col) => {
+          return { ...acc, [col.id]: '__table_skeleton__' }
+        }, {})
 
-      return ({ id, ...item } as unknown) as T
-    })
+        return ({ id, ...item } as unknown) as T
+      })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length, columns])
 
@@ -153,11 +152,13 @@ export function useDataGridState<T>(
     onRowClick,
     status,
     statusObject,
-    setStatus
+    setStatus,
+    setDensity,
+    density,
   }
 }
 
-export interface UseDataGridStateParams<T> extends TableViewState {
+export interface UseDataGridStateParams<T> {
   /**
    * Table column spec
    */
@@ -184,12 +185,12 @@ export interface UseDataGridStateParams<T> extends TableViewState {
   /**
    * Object used in sort hook
    */
-  sort?: UseTableSortParams<T>
+  sort?: UseDataGridSortParams<T>
   /**
    * Table row height
    * @default regular
    */
-  density?: TableDensity
+  density?: DataGridDensity
   /**
    * Action to dispatch on a row click
    */
@@ -207,7 +208,8 @@ export interface DataGridState<T> {
   Providers: (props: PropsWithChildren<unknown>) => JSX.Element
   sortState: UseSortReturn
   getRowKey: (item: T) => string | unknown
-  density?: TableDensity
+  density: DataGridDensity
+  setDensity: React.Dispatch<DataGridDensity>
   onRowClick?: (item: T) => void
   status: Status
   statusObject: StatusObject

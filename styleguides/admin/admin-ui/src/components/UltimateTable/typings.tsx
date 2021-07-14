@@ -14,7 +14,6 @@ export type Column<T, R = BaseResolvers<T>> =
       header?: ((column: Column<T>) => ReactNode) | string
       acessor?: ((item: T) => ReactNode) | string
       resolver?: R
-      // TODO FIX
       width?: any
       compare?: (a: T, b: T) => number
       sortable?: boolean
@@ -24,7 +23,6 @@ export type Column<T, R = BaseResolvers<T>> =
       header?: ((column: Column<T>) => ReactNode) | string
       acessor: ((item: T) => ReactNode) | string
       resolver?: R
-      // TODO FIX
       width?: any
       compare?: (a: T, b: T) => number
       sortable?: boolean
@@ -34,10 +32,9 @@ export type Column<T, R = BaseResolvers<T>> =
       header?: ((column: Column<T>) => ReactNode) | string
       acessor?: ((item: T) => ReactNode) | string
       resolver: R
-      // TODO FIX
       width?: any
       compare?: (a: T, b: T) => number
       sortable?: boolean
     }
 
-export type TableDensity = 'compact' | 'regular' | 'variable'
+export type DataGridDensity = 'compact' | 'regular' | 'variable'

@@ -3,12 +3,12 @@ import { Meta } from '@storybook/react'
 import { useDebounce } from 'use-debounce'
 import faker from 'faker'
 
-import { DataGrid } from './index'
-import { useDataGridState } from './hooks/useDataGridState'
-import { Filters, Statement } from '../FilterBar/typings'
-import { ResolverRenderProps } from '../FilterBar/resolvers/core'
-import { AbstractInput } from '../AbstractInput'
-import { useTableFilterBarState } from './components/Filters'
+import { DataGrid } from '../index'
+import { useDataGridState } from '../hooks/useDataGridState'
+import { Filters, Statement } from '../../FilterBar/typings'
+import { ResolverRenderProps } from '../../FilterBar/resolvers/core'
+import { AbstractInput } from '../../AbstractInput'
+import { useTableFilterBarState } from '../components/Filters'
 
 export default {
   title: 'admin-ui/DataGrid',
