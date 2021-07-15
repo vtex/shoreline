@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.105.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.104.0...@vtex/admin-ui@0.105.0) (2021-07-15)
+
+
+### Bug Fixes
+
+* **datagrid:** rename acessor as accessor ([94ce5b0](https://github.com/vtex/onda/commit/94ce5b09eb95ed497ba15c7ba22d91e35fc5110d))
+
+
+### Features
+
+* **admin-ui/ultimate-table:** add component ([109dd08](https://github.com/vtex/onda/commit/109dd0856059f1522c5d53814659d5de77be8799))
+* **admin-ui/ultimate-table:** add search and filters ([02e58c6](https://github.com/vtex/onda/commit/02e58c6d39f16b448b820cdb6f4ade47561046c3))
+* **admin-ui/ultimate-table:** support multiple views ([ed5402a](https://github.com/vtex/onda/commit/ed5402a94a8245eb350984cd7e92ac36cf88b574))
+* **admin-ui/ultimate-table:** support sorting ([7453750](https://github.com/vtex/onda/commit/745375001bd28bb73e8a229f14c12e78bd0385da))
+* **datagrid:** add component (extended from ultimate-table) ([54583fd](https://github.com/vtex/onda/commit/54583fdabef9d83147e2b1e50c2b5e540aafa360))
+
+
+
+
+
 # [0.104.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.103.0...@vtex/admin-ui@0.104.0) (2021-07-15)
 
 

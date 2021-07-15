@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.35](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.12.34...admin-site@0.12.35) (2021-07-15)
+
+**Note:** Version bump only for package admin-site
+
+
+
+
+
 ## [0.12.34](https://github.com/vtex/onda/tree/master/styleguides/admin/site/compare/admin-site@0.12.33...admin-site@0.12.34) (2021-07-15)
 
 **Note:** Version bump only for package admin-site

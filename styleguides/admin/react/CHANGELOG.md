@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/onda/compare/@vtex/onda-react@0.3.0...@vtex/onda-react@0.4.0) (2021-07-15)
+
+
+### Features
+
+* **admin-ui/ultimate-table:** support sorting ([7453750](https://github.com/vtex/onda/commit/745375001bd28bb73e8a229f14c12e78bd0385da))
+
+
+
+
+
 # [0.3.0](https://github.com/vtex/onda/compare/@vtex/onda-react@0.2.2...@vtex/onda-react@0.3.0) (2021-07-15)
 
 
