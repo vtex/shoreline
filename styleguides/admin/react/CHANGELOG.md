@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/onda/compare/@vtex/onda-react@0.2.2...@vtex/onda-react@0.3.0) (2021-07-15)
+
+
+### Bug Fixes
+
+* **onda-react:** jsx refs type inference ([5a24609](https://github.com/vtex/onda/commit/5a2460960c419a272f16d76a43f9575247643f2a))
+* **onda-react:** jsx rendering issues ([6fbe2b5](https://github.com/vtex/onda/commit/6fbe2b585ab083a99a1aa806de3ed0e23ac2451f))
+* **onda-react:** typescript inference for jsx.elements ([fb9e365](https://github.com/vtex/onda/commit/fb9e365df6a877a274bc3ea26131a4015fbbcd33))
+
+
+### Features
+
+* **onda-react:** add ComponentProps type ([e13433c](https://github.com/vtex/onda/commit/e13433c2b9611de3cd6723541fe82064bd1f10cb))
+
+
+
+
+
 ## [0.2.2](https://github.com/vtex/onda/compare/@vtex/onda-react@0.2.1...@vtex/onda-react@0.2.2) (2021-07-05)
 
 **Note:** Version bump only for package @vtex/onda-react

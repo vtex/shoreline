@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.104.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.103.0...@vtex/admin-ui@0.104.0) (2021-07-15)
+
+
+### Bug Fixes
+
+* **onda-react:** jsx rendering issues ([6fbe2b5](https://github.com/vtex/onda/commit/6fbe2b585ab083a99a1aa806de3ed0e23ac2451f))
+* **table-filter:** remove unnecessary components from stories ([6987222](https://github.com/vtex/onda/commit/69872227a427ff07460ee3d0126e9a614f2823e5))
+* **table-filter:** separete table filter state and disclosure state ([d1e1d82](https://github.com/vtex/onda/commit/d1e1d82953eaf864cbaaba263aa473e862c5ce02))
+* **table-filter:** use admin-ui theme color in table filter button ([35a42c7](https://github.com/vtex/onda/commit/35a42c73125ab755233a15380a6d805f5768cd5b))
+* **table-filter:** use rem in FilterBar csx border-radius value ([5149ed6](https://github.com/vtex/onda/commit/5149ed6e02304f901f43fed142dee87cbd77eb6c))
+* **table-filter:** use rem in FilterBar csx top value ([debaf49](https://github.com/vtex/onda/commit/debaf49c2ad679a1addc59ee94e5c4d446be38c6))
+* **table-filter:** use table state hook in table filter stories ([0504eeb](https://github.com/vtex/onda/commit/0504eeb8fbf0d6a14f4aa7dfa88276684c2a1092))
+
+
+### Features
+
+* **onda-react:** add ComponentProps type ([e13433c](https://github.com/vtex/onda/commit/e13433c2b9611de3cd6723541fe82064bd1f10cb))
+* **table-filter:** create table filter component ([bf6d9e3](https://github.com/vtex/onda/commit/bf6d9e3d3d95b15fdb730cbedf9bab48afd9ab82))
+
+
+
+
+
 # [0.103.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.3...@vtex/admin-ui@0.103.0) (2021-07-06)
 
 
