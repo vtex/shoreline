@@ -270,9 +270,9 @@ export function BooleanVariants() {
     variants: {
       danger: {
         true: {
-          bg: 'red'
-        } 
-      }
+          bg: 'red',
+        },
+      },
     },
   })
 
@@ -547,7 +547,6 @@ export function WithReakit() {
 export function WithOptions() {
   const Divider = jsx(Separator)(
     {
-      appearance: 'none',
       border: 'solid',
       borderWidth: 1,
       borderColor: 'mid.tertiary',

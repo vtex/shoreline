@@ -7,36 +7,6 @@ import { useCheckboxState, CheckboxStateReturn } from '../Checkbox'
 
 export const Toggle = jsx(ReakitCheckbox)(
   {
-    variants: {
-      size: {
-        regular: {
-          height: 20,
-          width: 36,
-          '&:after': {
-            width: 18,
-            height: 18,
-          },
-          '&:checked': {
-            '&:after': {
-              transform: 'translateX(16px)',
-            },
-          },
-        },
-        small: {
-          height: 16,
-          width: 28,
-          '&:after': {
-            width: 14,
-            height: 14,
-          },
-          '&:checked': {
-            '&:after': {
-              transform: 'translateX(12px)',
-            },
-          },
-        },
-      },
-    },
     appearance: 'none',
     position: 'relative',
     cursor: 'pointer',
@@ -94,6 +64,36 @@ export const Toggle = jsx(ReakitCheckbox)(
     ':focus': {
       outline: 'none',
       boxShadow: 'focus',
+    },
+    variants: {
+      size: {
+        regular: {
+          height: 20,
+          width: 36,
+          '&:after': {
+            width: 18,
+            height: 18,
+          },
+          '&:checked': {
+            '&:after': {
+              transform: 'translateX(16px)',
+            },
+          },
+        },
+        small: {
+          height: 16,
+          width: 28,
+          '&:after': {
+            width: 14,
+            height: 14,
+          },
+          '&:checked': {
+            '&:after': {
+              transform: 'translateX(12px)',
+            },
+          },
+        },
+      },
     },
   },
   {

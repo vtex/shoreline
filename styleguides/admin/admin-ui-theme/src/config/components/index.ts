@@ -11,7 +11,6 @@ import abstractInput from './abstractInput'
 import controlGroup from './controlGroup'
 import radio from './radio'
 import checkbox from './checkbox'
-import toggle from './toggle'
 import input from './input'
 import textArea from './textArea'
 import dropdown from './dropdown'
@@ -30,7 +29,6 @@ export default {
   list,
   table,
   controlGroup,
-  toggle,
   checkbox,
   radio,
   abstractInput,
