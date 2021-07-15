@@ -21,7 +21,16 @@ describe('Resolvers tests', () => {
             },
           },
         },
-        context: { density: 'regular', loading: false },
+        context: {
+          density: 'regular',
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         getData: () => 'root',
       })
 
@@ -43,7 +52,16 @@ describe('Resolvers tests', () => {
             type: 'plain',
           },
         },
-        context: { density: 'regular', loading: false },
+        context: {
+          density: 'regular',
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         getData: () => 'data',
       })
 
@@ -66,7 +84,16 @@ describe('Resolvers tests', () => {
             },
           },
         },
-        context: { density: 'regular', loading: false },
+        context: {
+          density: 'regular',
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         getData: () => 'data',
       })
 

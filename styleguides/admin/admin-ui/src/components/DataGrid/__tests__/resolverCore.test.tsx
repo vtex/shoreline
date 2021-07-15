@@ -28,7 +28,7 @@ describe('table resolver core tests', () => {
   })
 
   describe('accessCell', () => {
-    it('should be able to access without an acessor', () => {
+    it('should be able to access without an accessor', () => {
       const result = accessCell(
         {
           id: 'name',
@@ -44,7 +44,7 @@ describe('table resolver core tests', () => {
         {
           id: 'location',
           header: 'City',
-          acessor: 'location.city',
+          accessor: 'location.city',
         },
         {
           id: 1,
@@ -62,7 +62,7 @@ describe('table resolver core tests', () => {
         {
           id: 'phones',
           header: 'Main phone area',
-          acessor: 'phones.0.area',
+          accessor: 'phones.0.area',
         },
         {
           id: 1,
@@ -87,7 +87,7 @@ describe('table resolver core tests', () => {
         {
           id: 'fullName',
           header: 'Full name',
-          acessor: (item) => `${item.name} ${item.lastName}`,
+          accessor: (item) => `${item.name} ${item.lastName}`,
         },
         {
           id: 1,
@@ -124,7 +124,13 @@ describe('table resolver core tests', () => {
         items: [],
         context: {
           density: 'regular',
-          loading: false,
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
         },
       })
 
@@ -155,7 +161,13 @@ describe('table resolver core tests', () => {
         },
         context: {
           density: 'regular',
-          loading: false,
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
         },
       })
 
@@ -175,7 +187,7 @@ describe('table resolver core tests', () => {
         column: {
           id: 'location',
           header: 'City',
-          acessor: 'location.city',
+          accessor: 'location.city',
           resolver: {
             type: 'plain',
           },
@@ -185,7 +197,13 @@ describe('table resolver core tests', () => {
         },
         context: {
           density: 'regular',
-          loading: false,
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
         },
         item: {
           id: 1,
@@ -206,7 +224,7 @@ describe('table resolver core tests', () => {
           return 'variable density'
         }
 
-        if (context.loading) {
+        if (context.status === 'loading') {
           return 'loading...'
         }
 
@@ -220,10 +238,19 @@ describe('table resolver core tests', () => {
     it('should be able to access data within a header function', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
-        context: { density: 'regular', loading: false },
+        context: {
+          density: 'regular',
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         column: {
           id: 'image',
-          acessor: 'image',
+          accessor: 'image',
         },
         items: [],
       })
@@ -234,10 +261,19 @@ describe('table resolver core tests', () => {
     it('should be able to handle loading within a header function', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
-        context: { density: 'regular', loading: true },
+        context: {
+          density: 'regular',
+          status: 'loading',
+          statusObject: {
+            loading: true,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         column: {
           id: 'image',
-          acessor: 'image',
+          accessor: 'image',
         },
         items: [],
       })
@@ -248,29 +284,24 @@ describe('table resolver core tests', () => {
     it('should be able to handle different densities within a header function', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
-        context: { density: 'variable', loading: false },
+        context: {
+          density: 'variable',
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         column: {
           id: 'image',
-          acessor: 'image',
+          accessor: 'image',
         },
         items: [],
       })
 
       expect(result).toBe('variable density')
-    })
-
-    it('should be able to handle rtl layouts within a header function', () => {
-      const result = resolver?.header?.({
-        getData: () => 'data',
-        context: { density: 'regular', loading: false },
-        column: {
-          id: 'image',
-          acessor: 'image',
-        },
-        items: [],
-      })
-
-      expect(result).toBe('rtl layout')
     })
   })
 
@@ -281,7 +312,7 @@ describe('table resolver core tests', () => {
           return 'variable density'
         }
 
-        if (context.loading) {
+        if (context.status === 'loading') {
           return 'loading...'
         }
 
@@ -301,13 +332,22 @@ describe('table resolver core tests', () => {
     it('should be able to access data within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: { density: 'regular', loading: false },
+        context: {
+          density: 'regular',
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         item: {
           name: 'Name',
         },
         column: {
           id: 'name',
-          acessor: 'name',
+          accessor: 'name',
         },
       })
 
@@ -317,13 +357,22 @@ describe('table resolver core tests', () => {
     it('should be able to handle loading within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: { density: 'regular', loading: true },
+        context: {
+          density: 'regular',
+          status: 'loading',
+          statusObject: {
+            loading: true,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         item: {
           name: 'Name',
         },
         column: {
           id: 'name',
-          acessor: 'name',
+          accessor: 'name',
         },
       })
 
@@ -333,45 +382,47 @@ describe('table resolver core tests', () => {
     it('should be able to handle different densities within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: { density: 'variable', loading: false },
+        context: {
+          density: 'variable',
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         item: {
           name: 'Name',
         },
         column: {
           id: 'name',
-          acessor: 'name',
+          accessor: 'name',
         },
       })
 
       expect(result).toBe('variable density')
     })
 
-    it('should be able to handle rtl layouts within a cell function', () => {
-      const result = resolver.cell({
-        getData: () => 'data',
-        context: { density: 'regular', loading: false },
-        item: {
-          name: 'Name',
-        },
-        column: {
-          id: 'name',
-          acessor: 'name',
-        },
-      })
-
-      expect(result).toBe('rtl layout')
-    })
-
     it('should be able to handle item values within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: { density: 'regular', loading: false },
+        context: {
+          density: 'regular',
+          status: 'ready',
+          statusObject: {
+            loading: false,
+            error: null,
+            empty: null,
+            notFound: null,
+          },
+        },
         item: {
           image: 'image',
         },
         column: {
           id: 'image',
-          acessor: 'image',
+          accessor: 'image',
         },
       })
 
@@ -382,13 +433,22 @@ describe('table resolver core tests', () => {
       expect(() =>
         resolver.cell({
           getData: () => 'data',
-          context: { density: 'regular', loading: false },
+          context: {
+            density: 'regular',
+            status: 'ready',
+            statusObject: {
+              loading: false,
+              error: null,
+              empty: null,
+              notFound: null,
+            },
+          },
           item: {
             name: 'name',
           },
           column: {
             id: 'name',
-            acessor: 'name',
+            accessor: 'name',
             width: 1001,
           },
         })

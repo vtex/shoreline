@@ -7,7 +7,6 @@ import { Cell } from './components/Cell'
 import { Section } from './components/Section'
 import { Toolbar } from './components/Toolbar'
 import { Search } from './components/Search'
-import { Filters } from './components/Filters'
 import { DataGridState, useDataGridState } from './hooks/useDataGridState'
 import { StateContext } from './context'
 import { Status } from './components/Status'
@@ -81,8 +80,7 @@ export const DataGrid = Object.assign(_DataGrid, {
   Table,
   Section,
   Toolbar,
-  Search,
-  Filters,
+  Search
 })
 
 export { useDataGridState } 

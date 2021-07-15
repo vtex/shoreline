@@ -264,11 +264,11 @@ function Example() {
         header: 'Id',
       },
       /**
-       * The great thing about the root resolver is that you can infer new columns from 
+       * The great thing about the root resolver is that you can infer new columns from
        * multiple properties of the item.
-       * 
+       *
        * description is being created from productName and category
-       */ 
+       */
       {
         id: 'description',
         header: 'Description',
@@ -282,7 +282,7 @@ function Example() {
              * You should declare the render while loading
              * this is only required by the root resolver
              * the other ones, take care of this for you
-             */ 
+             */
             if (context.loading) {
               return <Skeleton csx={{ height: 24 }} />
             }
@@ -527,10 +527,10 @@ function Example() {
 
 ##### Image
 
-| Prop    | Type                      | Description                    | Required | Default |
-| ------- | ------------------------- | ------------------------------ | -------- | ------- |
-| display | boolean                   | if should preview on hover     | 🚫       | true    |
-| size    | `small, regular or large` | size of the preview            | 🚫       | regular |
+| Prop    | Type                      | Description                      | Required | Default |
+| ------- | ------------------------- | -------------------------------- | -------- | ------- |
+| display | boolean                   | if should preview on hover       | 🚫       | true    |
+| size    | `small, regular or large` | size of the preview              | 🚫       | regular |
 | delay   | number                    | delay of a preview display in ms | 🚫       | 0       |
 
 ```jsx
@@ -691,9 +691,329 @@ This function is called with an object containing the current sort state, the di
 
 ## Composition
 
-Section, Filters, Toolbar, Search and so on
+The `DataGrid` is also a compound component. To use the composable mode, you just need to pass children for it. For example:
 
-## Features 
+```jsx
+function ComposableMode() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 0,
+        price: 120,
+      },
+    ],
+  })
+
+  /**
+   * You need to declare where the table is going to be
+   */
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+```
+
+### Anatomy
+
+```txt isStatic
+DataGrid
+|__ .Section
+|   |__ Search
+|   |__ Toolbar
+|       |__ ...Button
+|       |__ Filters
+|   |__ Pagination
+|__ .Table
+    |__ .Head
+    |   |__ .Cell
+    |__ .Body
+        |__ .Row
+            |__ .Cell
+```
+
+### Section
+
+The section is a way to compose the `DataGrid` with other components. You can use it to render buttons, inputs, filters, and so on.
+
+```jsx noInline
+function SectionExample() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 0,
+        price: 80,
+      },
+    ],
+    length: 5,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <Button>A custom button</Button>
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<SectionExample />)
+```
+
+### Search Input
+
+You can use the [Search](/form/search) component to filter the data.
+
+```jsx noInline
+const items = [
+  {
+    id: 1,
+    productName: 'Banana',
+    inStock: 380,
+    skus: 0,
+    price: 80,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    inStock: 380,
+    skus: 26,
+    price: 500,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    inStock: 380,
+    skus: 25,
+    price: 100,
+  },
+]
+
+function SearchExample() {
+  const [search, setSearch] = React.useState('')
+  const searchedItems = React.useMemo(() => {
+    return items.filter((product) => {
+      return (
+        product.productName.toLowerCase().indexOf(search.toLocaleLowerCase()) >
+        -1
+      )
+    })
+  }, [search])
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: searchedItems,
+    length: 5,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <DataGrid.Search
+          id="search"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value)
+          }}
+        />
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<SearchExample />)
+```
+
+### Toolbar
+
+The toolbar is an accessible component that follows the [WAI-ARIA Toolbar Pattern](https://www.w3.org/TR/wai-aria-practices/#toolbar). It's a container for grouping a set of controls, by using `Toolbar.Button` (it has the same props of [Button](/button)).
+
+```jsx noInline
+function ToolbarExample() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 0,
+        price: 80,
+      },
+    ],
+    length: 5,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <DataGrid.Toolbar>
+          <DataGrid.Toolbar.Button icon={<IconImport />}>
+            Import
+          </DataGrid.Toolbar.Button>
+          <DataGrid.Toolbar.Button icon={<IconExport />}>
+            Export
+          </DataGrid.Toolbar.Button>
+        </DataGrid.Toolbar>
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<ToolbarExample />)
+```
+
+### Pagination
+
+You can pass the [Pagination](/pagination) component within [Section](/data-grid/#section/) and use it to paginate the collection.
+
+```jsx noInline
+const NUMBER_OF_ITEMS = 100
+const ITEMS_PER_PAGE = 5
+
+const items = Array(NUMBER_OF_ITEMS)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function PaginationExample() {
+  const paginationState = usePaginationState({
+    size: ITEMS_PER_PAGE,
+  })
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items: items.slice(paginationState.range[0] - 1, paginationState.range[1]),
+    length: ITEMS_PER_PAGE,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <FlexSpacer />
+        <Pagination
+          state={paginationState}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+          total={NUMBER_OF_ITEMS}
+        />
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<PaginationExample />)
+```
+
+## Features
 
 ### Status
 
@@ -789,7 +1109,6 @@ function StatusExample() {
           Empty
         </DataGrid.Toolbar.Button>
       </DataGrid.Toolbar>
-
       <DataGrid.Table />
     </DataGrid>
   )
@@ -895,7 +1214,7 @@ function DataFetchExample() {
   const [items, setItems] = React.useState([])
   /**
    * This is just for the example purposes so, nevermind
-   */ 
+   */
   const [update, setUpdate] = React.useState(false)
 
   const state = useDataGridState({
@@ -951,6 +1270,136 @@ function DataFetchExample() {
 }
 
 render(<DataFetchExample />)
+```
+
+### Topbar
+
+Mixing the concepts of `Search`, `Toolbar` and `Pagination`
+
+```jsx noInline
+const items = [
+  {
+    id: 1,
+    productName: 'Orange',
+    inStock: 380,
+    skus: 0,
+    price: 80,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    inStock: 380,
+    skus: 26,
+    price: 500,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    inStock: 380,
+    skus: 25,
+    price: 100,
+  },
+  {
+    id: 4,
+    productName: 'Grape',
+    inStock: 380,
+    skus: 5,
+    price: 190,
+  },
+  {
+    id: 5,
+    productName: 'Apple',
+    inStock: 380,
+    skus: 32,
+    price: 30,
+  },
+  {
+    id: 6,
+    productName: 'Banana',
+    inStock: 380,
+    skus: 38,
+    price: 50,
+  },
+]
+
+function CompleteTopbar() {
+  const [search, setSearch] = React.useState('')
+  const paginationState = usePaginationState({
+    size: 5,
+  })
+
+  const paginatedProducts = React.useMemo(() => {
+    return items.filter((product) => {
+      paginationState.paginate('reset')
+
+      return (
+        product.productName.toLowerCase().indexOf(search.toLocaleLowerCase()) >
+        -1
+      )
+    })
+  }, [search])
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: [...paginatedProducts].slice(
+      paginationState.range[0] - 1,
+      paginationState.range[1]
+    ),
+    length: 5,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <DataGrid.Search
+          id="search"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value)
+          }}
+        />
+        <DataGrid.Toolbar>
+          <DataGrid.Toolbar.Button icon={<IconImport />}>
+            Import
+          </DataGrid.Toolbar.Button>
+          <DataGrid.Toolbar.Button icon={<IconExport />}>
+            Export
+          </DataGrid.Toolbar.Button>
+        </DataGrid.Toolbar>
+        <FlexSpacer />
+        <Pagination
+          state={paginationState}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+          total={items.length}
+        />
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<CompleteTopbar />)
 ```
 
 ### Drag and Drop
