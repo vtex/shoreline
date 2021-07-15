@@ -1,61 +1,130 @@
-import React, { ReactNode, Ref } from 'react'
-import { forwardRef } from '@vtex/admin-core'
+import React, { ReactNode } from 'react'
 import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
+import { jsx, PropsWithAs } from '@vtex/onda-react'
 
-import { Box } from '@vtex/admin-primitives'
-import { SystemComponent } from '../../types'
 import { Button } from '../Button'
 
-export const Tag = forwardRef((props: TagProps, ref: Ref<HTMLDivElement>) => {
-  const {
-    palette = 'blue',
-    size = 'regular',
-    label,
-    icon,
-    handleDelete,
-    csx,
-    ...boxProps
-  } = props
+/**
+ * Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
+ *
+ * @example
+ * <Tag
+ *   label="Here goes your label!"
+ *   icon={<Icon />}
+ *   handleDelete={() => ...}
+ *   palette="red"
+ *   size="small"
+ * />
+ */
+export const Tag = jsx.div(
+  {
+    display: 'inline-flex',
+    alignItems: 'center',
+    borderRadius: '100px',
+    color: 'dark.primary',
+    border: 'none',
+    '> svg:nth-of-type(1)': {
+      marginRight: 1,
+    },
+    variants: {
+      palette: {
+        blue: {
+          bg: 'blue.secondary',
+        },
+        green: {
+          bg: 'green.secondary',
+        },
+        red: {
+          bg: 'red.secondary',
+        },
+        black: {
+          bg: 'dark.primary',
+          color: 'light.primary',
+        },
+        yellow: {
+          bg: 'yellow.secondary',
+        },
+        purple: {
+          bg: '#E4E0F0',
+        },
+      },
+      size: {
+        small: {
+          height: 26,
+          paddingX: '2',
+          lineHeight: 'small',
+          fontSettings: "'wght' 80",
+          fontSize: 0,
+          svg: {
+            width: 16,
+            height: 16,
+            minWidth: 16,
+            minHeight: 16,
+          },
+          button: {
+            height: 16,
+            width: 16,
+          },
+        },
+        regular: {
+          height: 40,
+          paddingX: '4',
+          lineHeight: 'subtitle',
+          fontSettings: 'regular',
+          fontSize: 2,
+          svg: {
+            width: 20,
+            minWidth: 20,
+            height: 20,
+            minHeight: 20,
+          },
+          button: {
+            height: 20,
+            width: 20,
+          },
+        },
+      },
+    },
+  },
+  {
+    options: ['handleDelete', 'icon', 'label'],
+    useOptions: (options: TagOptions, props) => {
+      const { label, handleDelete, icon } = options
+      const { palette } = props
 
-  return (
-    <Box
-      csx={{ themeKey: `components.tag.${palette}-${size}`, ...csx }}
-      ref={ref}
-      {...boxProps}
-    >
-      <IconContainer space="small">
-        {icon}
-        {label}
-        {!!handleDelete && (
-          <Button
-            icon={<IconClose />}
-            aria-label={`${label}-tag-button-delete`}
-            onClick={handleDelete}
-            variant={
-              palette === 'black' ? 'adaptative-light' : 'adaptative-dark'
-            }
-            size="small"
-            csx={{
-              marginLeft: 1,
-            }}
-          />
-        )}
-      </IconContainer>
-    </Box>
-  )
-})
+      return {
+        ...props,
+        children: (
+          <IconContainer space="small">
+            {icon}
+            {label}
+            {!!handleDelete && (
+              <Button
+                icon={<IconClose />}
+                aria-label={label}
+                onClick={handleDelete}
+                variant={
+                  palette === 'black' ? 'adaptative-light' : 'adaptative-dark'
+                }
+                size="small"
+                csx={{
+                  marginLeft: 1,
+                }}
+              />
+            )}
+          </IconContainer>
+        ),
+      }
+    },
+  }
+)
 
-export interface TagProps extends SystemComponent {
-  /**
-   *  Tag Palette
-   *  @default blue
-   */
-  palette?: 'black' | 'green' | 'red' | 'blue' | 'yellow' | 'purple'
-  /**
-   *  Tag Size
-   *  @default regular
-   * */
-  size?: 'regular' | 'small'
+Tag.defaultProps = {
+  size: 'regular',
+  palette: 'blue',
+}
+
+interface TagOptions {
   /**
    * Tag Label
    */
@@ -69,3 +138,18 @@ export interface TagProps extends SystemComponent {
    */
   icon?: ReactNode
 }
+
+interface TagVariants {
+  /**
+   *  Tag Palette
+   *  @default blue
+   */
+  palette?: 'black' | 'green' | 'red' | 'blue' | 'yellow' | 'purple'
+  /**
+   *  Tag Size
+   *  @default regular
+   * */
+  size?: 'regular' | 'small'
+}
+
+export type TagProps = PropsWithAs<TagOptions & TagVariants, 'div'>

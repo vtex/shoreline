@@ -1,6 +1,5 @@
 // elements
 import button from './button'
-import tag from './tag'
 import alert from './alert'
 import { tab, tabList, tabContent } from './tabs'
 // data
@@ -32,7 +31,6 @@ export default {
   menu,
   modal,
   collapsible,
-  tag,
   dropdown,
   textArea,
   numericStepper,
