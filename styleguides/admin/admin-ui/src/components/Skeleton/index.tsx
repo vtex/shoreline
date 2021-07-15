@@ -43,10 +43,11 @@ export const Skeleton = jsx.div(
 
       const backgroundImage = `linear-gradient(
         90deg,
-        ${stylesOf('light.secondary')},
+        ${stylesOf('colors.light.secondary')},
         white,
-        ${stylesOf('light.secondary')}
+        ${stylesOf('colors.light.secondary')}
       )`
+
       const load = keyframes`
         0% {
           background-position: -200px 0;
