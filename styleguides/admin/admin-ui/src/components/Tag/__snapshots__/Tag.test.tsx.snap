@@ -1,0 +1,696 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #323845;
+  border: none;
+  background-color: #CEE8DE;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    tag-1
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #323845;
+  border: none;
+  background-color: #F6E0BA;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    tag-2
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #323845;
+  border: none;
+  background-color: #FEDADA;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    tag-3
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #FFFFFF;
+  border: none;
+  background-color: #323845;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    tag-4
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #323845;
+  border: none;
+  background-color: #E4E0F0;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    tag-5
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #323845;
+  border: none;
+  background-color: #DAE3F5;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    tag-6
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #323845;
+  border: none;
+  background-color: #DAE3F5;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    tag-7
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #323845;
+  border: none;
+  background-color: #DAE3F5;
+  height: 26px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  line-height: 1.125;
+  font-variation-settings: 'wght' 80;
+  font-size: 0.75rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+}
+
+.emotion-0 button {
+  height: 16px;
+  width: 16px;
+}
+
+<div
+    class="emotion-0"
+  >
+    tag-8
+  </div>
+  .emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #323845;
+  border: none;
+  background-color: #DAE3F5;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-4 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-4 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-4 button {
+  height: 20px;
+  width: 20px;
+}
+
+.emotion-3 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: currentColor;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  margin-left: 0.25rem;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-3:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-3:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-3:disabled {
+  color: #898F9E;
+}
+
+.emotion-3 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+<div
+    class="emotion-4"
+  >
+    tag-9
+    <button
+      aria-label="tag-9-tag-button-delete"
+      class="emotion-3"
+      type="button"
+    >
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-1"
+        >
+          <svg
+            class="emotion-0"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 6L18 18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+            />
+            <path
+              d="M18 6L6 18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+            />
+          </svg>
+           
+        </div>
+      </div>
+    </button>
+  </div>
+  .emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  color: #323845;
+  border: none;
+  background-color: #DAE3F5;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-5 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-5 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-5 button {
+  height: 20px;
+  width: 20px;
+}
+
+.emotion-4 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: currentColor;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  margin-left: 0.25rem;
+}
+
+.emotion-4:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-4:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-4:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-4:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-4:disabled {
+  color: #898F9E;
+}
+
+.emotion-4 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+<div
+    class="emotion-5"
+  >
+    <svg
+      class="emotion-0"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M12.0045 5.59557C12.4187 5.59557 12.7545 5.93136 12.7545 6.34557L12.7545 17.6593C12.7545 18.0735 12.4187 18.4093 12.0045 18.4093C11.5903 18.4093 11.2545 18.0735 11.2545 17.6593L11.2545 6.34557C11.2545 5.93136 11.5903 5.59557 12.0045 5.59557Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M18.4114 12.0024C18.4114 12.4166 18.0756 12.7524 17.6614 12.7524H6.34766C5.93345 12.7524 5.59766 12.4166 5.59766 12.0024C5.59766 11.5882 5.93345 11.2524 6.34766 11.2524H17.6614C18.0756 11.2524 18.4114 11.5882 18.4114 12.0024Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    tag-10
+    <button
+      aria-label="tag-10-tag-button-delete"
+      class="emotion-4"
+      type="button"
+    >
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="emotion-2"
+        >
+          <svg
+            class="emotion-0"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 6L18 18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+            />
+            <path
+              d="M18 6L6 18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+            />
+          </svg>
+           
+        </div>
+      </div>
+    </button>
+  </div>
+</DocumentFragment>
+`;
