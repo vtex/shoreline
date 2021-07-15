@@ -1,0 +1,1538 @@
+---
+path: /data-display/data-grid/
+---
+
+# DataGrid
+
+DataGrid is designed to render tabular data consistently for any kind of data type. If you're coming from [VTEX Styleguide](https://styleguide.vtex.com/), you can see it as the next-gen of the [Table v2](https://styleguide.vtex.com/#/Components/%F0%9F%91%BB%20Experimental/Table%20V2) (and is strongly inspired by it).
+
+## State
+
+DataGrid is pretty much stateless. You need the help of `useDataGridState` state hook, like:
+
+```jsx
+function Example() {
+  /**
+   * The hook returns the DataGrid state
+   */
+  const state = useDataGridState({
+    /**
+     * Columns shape, read more about it on the rendering section
+     */
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+    ],
+    /**
+     * List of items to render
+     */
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 0,
+        price: 120,
+      },
+    ],
+  })
+  /**
+   * You must use the `state` prop so that your DataGrid comes to life
+   * This is the only prop that is required
+   */
+  return <DataGrid state={state} />
+}
+```
+
+### useDataGridState
+
+| Name       | Type                          | Description                                                                | Required | Default                       |
+| ---------- | ----------------------------- | -------------------------------------------------------------------------- | -------- | ----------------------------- |
+| columns    | `Column<T>[]`                 | Table column spec                                                          | ✅       | -                             |
+| context    | `ResolverContext`             | Resolver context                                                           | 🚫       | -                             |
+| resolvers  | `Record<string, Resolver<T>>` | Table field resolvers                                                      | 🚫       | Table's default resolvers     |
+| items      | `T[]`                         | Table items                                                                | 🚫       | `[]`                          |
+| length     | `number`                      | Expected items length, this will also control the number of skeleton items | 🚫       | `5`                           |
+| sort       | `UseTableSortParams<T>`       | useTableSort hook params                                                   | 🚫       | -                             |
+| getRowKey  | `(item: T) => string`         | Key extractor                                                              | 🚫       | Table's default key extractor |
+| density    | `TableDensity`                | Inital table row height                                                    | 🚫       | `regular`                     |
+| onRowClick | `(item: T) => void`           | Action to dispatch on a row click                                          | 🚫       | -                             |
+
+It returns an object with the following types
+
+```ts isStatic
+interface DataGridState<T> {
+  /**
+   * Collection rendered while loading
+   */
+  skeletonCollection: T[]
+  /**
+   * Resolves the cell content
+   */
+  resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
+  /**
+   * Resolvers the header content
+   */
+  resolveHeader: (
+    args: ResolverCallee<ResolveHeaderArgs<T>>
+  ) => ResolveHeaderReturn
+  /**
+   * Items to render
+   */
+  data: T[]
+  /**
+   * Grid columns
+   */
+  columns: Array<Column<T>>
+  /**
+   * Providers from the resolvers
+   */
+  Providers: (props: PropsWithChildren<unknown>) => JSX.Element
+  /**
+   * Current sorting state
+   */
+  sortState: UseSortReturn
+  /**
+   * Key extractor
+   */
+  getRowKey: (item: T) => string | unknown
+  /**
+   * Current grid density
+   */
+  density: DataGridDensity
+  /**
+   * Set the current grid density
+   */
+  setDensity: React.Dispatch<DataGridDensity>
+  /**
+   * Action to take on click a row
+   */
+  onRowClick?: (item: T) => void
+  /**
+   * Current grid status
+   */
+  status: Status
+  /**
+   * Current grid status object (important for resolvers)
+   */
+  statusObject: StatusObject
+  /**
+   * set the current grid status
+   */
+  setStatus: SetStatus
+}
+
+/**
+ * Caller of a resolver
+ */
+type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
+```
+
+## Rendering
+
+The main objective of `DataGrid` is to provide a flexible render to support any kind of data type.
+
+| Attribute | Type                                | Description                                                                                                                                                                                                                                           | Required                                                                                               |
+| --------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --- |
+| id        | `string`                            | String that defines the property name that the column represents.                                                                                                                                                                                     | ✅                                                                                                     |
+| header    | `((column: Column<T>) => ReactNode) | string`                                                                                                                                                                                                                                               | Controls the title which appears on the table Header.<br>It can receive either a string or an element. | 🚫  |
+| accessor  | `((item: T) => ReactNode)           | string`                                                                                                                                                                                                                                               | Defines how to access a property                                                                       | 🚫  |
+| resolver  | `R`                                 | [Resolvers](/data-display/data-grid/#resolvers) api<br>Will select the [plain resolver](/data-display/data-grid/#plain) by default                                                                                                                    | 🚫                                                                                                     |
+| width     | `number`                            | Defines a fixed width for the specific column.<br>Receives either a string or number.<br>By default, the column's width is defined to fit the available space without breaking the content.                                                           | 🚫                                                                                                     |
+| sortable  | `(a: T, b: T) => number`            | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatelessTable sort prop. Check [Sorting](/data-display/data-grid/#sorting) | 🚫                                                                                                     |
+| compare   | `boolean`                           | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](/data-display/data-grid/#sorting)                                 | 🚫                                                                                                     |
+
+### Accessor
+
+Some properties may be nested within objects and arrays. The `accessor` properties provide an easy way to access those.
+
+```jsx noInline
+const items = [
+  {
+    id: 1,
+    product: {
+      name: 'Orange',
+      type: 'Fruit',
+    },
+    qty: {
+      sold: 100,
+      total: 320,
+    },
+    skus: {
+      value: [0, 10, 20],
+    },
+    price: [120, 'usd'],
+  },
+]
+
+function Example() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'product.name',
+        header: 'Name',
+        accessor: 'product.name',
+      },
+      {
+        id: 'product.type',
+        header: 'Type',
+        accessor: 'product.type',
+      },
+      {
+        id: 'qty',
+        header: 'In Stock',
+        accessor: (item) => {
+          const {
+            qty: { total, sold },
+          } = item
+          return total - sold
+        },
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        accessor: 'price.0',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+        accessor: 'skus.value.2',
+      },
+    ],
+    items,
+  })
+
+  return <DataGrid state={state} />
+}
+
+render(<Example />)
+```
+
+### Resolvers
+
+Resolvers are rendering functions that target a specific data type. The main usage is to render the same data types consistently along with admin applications.
+
+#### Key concepts
+
+##### Render function
+
+All resolvers accept a render function, that returns a component. It controls the data rendering, which may be treated by the resolver or not.
+
+```ts isStatic
+{
+  type: 'resolver name',
+  /**
+   * You have 3 render props here:
+   * { item, data, context }
+   */
+  render: function Render({ item, data, context }) {
+    return <></>
+  }
+}
+```
+
+| prop name | type                                             | description                                                         |
+| --------- | ------------------------------------------------ | ------------------------------------------------------------------- |
+| item      | `T`                                              | the item displayed for the row                                      |
+| data      | `unknown`                                        | extracted column data from the item, you need to cast it before use |
+| context   | `{ loading: boolean, density: DataGridDensity }` | relevant global information about the table current state           |
+
+##### Root Resolver
+
+This is the parent of all other resolvers. It does not treat the data at all - even the loading state is completely up to you. Use it if you want complete control over what's being rendered on the cell, and don't mind the complexity that it brings.
+
+```jsx
+function Example() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'id',
+        header: 'Id',
+      },
+      /**
+       * The great thing about the root resolver is that you can infer new columns from
+       * multiple properties of the item.
+       *
+       * description is being created from productName and category
+       */
+      {
+        id: 'description',
+        header: 'Description',
+        resolver: {
+          type: 'root',
+          /**
+           * { data } here would be null, because the is no such prop in the item
+           */
+          render: function Description({ item, context }) {
+            /**
+             * You should declare the render while loading
+             * this is only required by the root resolver
+             * the other ones, take care of this for you
+             */
+            if (context.loading) {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            return (
+              <Set orientation="vertical">
+                <Text variant="highlight">{item.productName}</Text>
+                <Text>{item.category}</Text>
+              </Set>
+            )
+          },
+        },
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        category: 'fruit',
+        inStock: 380,
+      },
+      {
+        id: 2,
+        productName: 'Lemon',
+        category: 'fruit',
+        inStock: 380,
+      },
+    ],
+  })
+
+  return <DataGrid state={state} />
+}
+```
+
+#### Resolver Options
+
+##### Plain
+
+The plain resolver is the default for all columns. It means that if you don't select a resolver, this is what you're rendering. It should be mainly used to render raw data like strings or numbers that don't need treatment.
+
+```jsx noInline
+const items = [
+  {
+    id: 1,
+    productName: 'Orange',
+    inStock: 380,
+    skus: 0,
+    price: 120,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    inStock: 380,
+    skus: 26,
+    price: 120,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    inStock: 380,
+    skus: 26,
+    price: 120,
+  },
+]
+
+function Example() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+        resolver: {
+          type: 'plain',
+          /**
+           * this is how to use render function
+           */
+          render: function Render({ data }) {
+            return (
+              <tag.p
+                csx={{
+                  color: Number(data) > 0 ? 'blue' : 'red',
+                }}
+              >
+                {data}
+              </tag.p>
+            )
+          },
+        },
+      },
+    ],
+    items,
+  })
+
+  return <DataGrid state={state} />
+}
+
+render(<Example />)
+```
+
+##### Currency
+
+```jsx
+function Example() {
+  const currencies = [
+    {
+      id: 1,
+      brl: 120,
+      usd: 24,
+      cny: 100,
+    },
+  ]
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'brl',
+        header: 'Preço',
+        resolver: {
+          type: 'currency',
+          locale: 'pt-BR',
+          currency: 'BRL',
+        },
+      },
+      {
+        id: 'usd',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+      {
+        id: 'cny',
+        header: '价格',
+        resolver: {
+          type: 'currency',
+          locale: 'zh-CN',
+          currency: 'CNY',
+        },
+      },
+    ],
+    items: currencies,
+  })
+
+  return <DataGrid state={state} />
+}
+```
+
+##### Date
+
+```jsx
+function Example() {
+  const dates = [
+    {
+      id: 1,
+      pt: '5/7/2020, 13:04',
+      ar: '5/7/2020, 13:04',
+      en: '5/7/2020, 13:04',
+      cn: '5/7/2020, 13:04',
+    },
+  ]
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'pt',
+        header: 'Data',
+        resolver: {
+          type: 'date',
+          locale: 'pt-BR',
+          options: {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          },
+        },
+      },
+      {
+        id: 'ar',
+        header: 'تاريخ',
+        resolver: {
+          type: 'date',
+          locale: 'ar-AE',
+          options: {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          },
+        },
+      },
+      {
+        id: 'en',
+        header: 'Date',
+        resolver: {
+          type: 'date',
+          locale: 'en-US',
+          options: {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          },
+        },
+      },
+      {
+        id: 'cn',
+        header: '日期',
+        resolver: {
+          type: 'date',
+          locale: 'zh-CN',
+          options: {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          },
+        },
+      },
+    ],
+    items: dates,
+  })
+
+  return <DataGrid state={state} />
+}
+```
+
+##### Image
+
+| Prop    | Type                      | Description                      | Required | Default |
+| ------- | ------------------------- | -------------------------------- | -------- | ------- |
+| display | boolean                   | if should preview on hover       | 🚫       | true    |
+| size    | `small, regular or large` | size of the preview              | 🚫       | regular |
+| delay   | number                    | delay of a preview display in ms | 🚫       | 0       |
+
+```jsx
+function Example() {
+  const fruits = [
+    {
+      id: 1,
+      image:
+        'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
+      productName: 'Orange',
+      stock: 26900,
+      price: 120,
+    },
+    {
+      id: 2,
+      image:
+        'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
+      productName: 'Lemon',
+      stock: 12905,
+      price: 120,
+    },
+    {
+      id: 3,
+      image:
+        'https://images.unsplash.com/photo-1587486938113-d6d38d424efa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
+      productName: 'Tomato',
+      stock: 199001,
+      price: 120,
+    },
+  ]
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'image',
+        header: 'Image',
+        resolver: {
+          type: 'image',
+          preview: {
+            display: true,
+            size: 'regular',
+            delay: 0,
+          },
+        },
+      },
+      {
+        id: 'productName',
+        header: 'Name',
+      },
+      {
+        id: 'stock',
+        header: 'Stock',
+      },
+      {
+        id: 'price',
+        header: 'Stock',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items: fruits,
+  })
+
+  return <DataGrid state={state} />
+}
+```
+
+### Sorting
+
+To use the base sorting configuration, that matches the majority of use cases, you just need to pass the `compare` function to the columns that you want to sort by. Two params are accepted, representing two items - you must return a boolean that proves their equality.
+
+```ts isStatic
+type Compare = (a: T, b: T) => boolean
+```
+
+The following example allows ordering by `name`, `lastSale` and `price`.
+
+```jsx noInline
+const items = Array(3)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function CompareExample() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+        compare: (a, b) => b.name.localeCompare(a.name),
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+        compare: (a, b) => {
+          const aLastSale = new Date(a.lastSale).valueOf()
+          const bLastSale = new Date(b.lastSale).valueOf()
+
+          return bLastSale - aLastSale
+        },
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+        compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
+      },
+    ],
+    items,
+  })
+
+  return <DataGrid state={state} />
+}
+
+render(<CompareExample />)
+```
+
+#### Configuration
+
+By using the `sort` property within `useDataGridState` you can configure the sorting to match specific use cases.
+
+##### initialValue
+
+Defines the table initial sorting value. `{ order?: 'ASC' | 'DSC', by?: string }`
+
+The `order` prop is related to the sorting order and `by` indicates which column is being sorted, this value should be the id of the column.
+
+##### directions
+
+Defines the sorting order of the table.
+
+It accepts an array with `ASC` and `DSC` as possible values.
+You can pass an array with one or two sorting directions. If you pass an array with only one sorting direction the table will only sort in one direction.
+
+##### reducer
+
+Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it's not required and if not provided the default reducer function will be used.
+The reducer function is called with the current sort state `{ order?: SortOrder, by?: string }` and the sorting action `{ type: SortOrder | 'RESET', columnId?: string }`.
+
+##### callback
+
+Receives a function that will be fired when the user clicks the table header cell of a column.
+
+This function is called with an object containing the current sort state, the dispatch of the current `useReducer` that handles the sorting state, the column id of the column that was clicked, and the current sort directions being used.
+
+## Composition
+
+The `DataGrid` is also a compound component. To use the composable mode, you just need to pass children for it. For example:
+
+```jsx
+function ComposableMode() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 0,
+        price: 120,
+      },
+    ],
+  })
+
+  /**
+   * You need to declare where the table is going to be
+   */
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+```
+
+### Anatomy
+
+```txt isStatic
+DataGrid
+|__ .Section
+|   |__ Search
+|   |__ Toolbar
+|       |__ ...Button
+|       |__ Filters
+|   |__ Pagination
+|__ .Table
+    |__ .Head
+    |   |__ .Cell
+    |__ .Body
+        |__ .Row
+            |__ .Cell
+```
+
+### Section
+
+The section is a way to compose the `DataGrid` with other components. You can use it to render buttons, inputs, filters, and so on.
+
+```jsx noInline
+function SectionExample() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 0,
+        price: 80,
+      },
+    ],
+    length: 5,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <Button>A custom button</Button>
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<SectionExample />)
+```
+
+### Search Input
+
+You can use the [Search](/form/search) component to filter the data.
+
+```jsx noInline
+const items = [
+  {
+    id: 1,
+    productName: 'Banana',
+    inStock: 380,
+    skus: 0,
+    price: 80,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    inStock: 380,
+    skus: 26,
+    price: 500,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    inStock: 380,
+    skus: 25,
+    price: 100,
+  },
+]
+
+function SearchExample() {
+  const [search, setSearch] = React.useState('')
+  const searchedItems = React.useMemo(() => {
+    return items.filter((product) => {
+      return (
+        product.productName.toLowerCase().indexOf(search.toLocaleLowerCase()) >
+        -1
+      )
+    })
+  }, [search])
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: searchedItems,
+    length: 5,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <DataGrid.Search
+          id="search"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value)
+          }}
+        />
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<SearchExample />)
+```
+
+### Toolbar
+
+The toolbar is an accessible component that follows the [WAI-ARIA Toolbar Pattern](https://www.w3.org/TR/wai-aria-practices/#toolbar). It's a container for grouping a set of controls, by using `Toolbar.Button` (it has the same props of [Button](/button)).
+
+```jsx noInline
+function ToolbarExample() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        productName: 'Orange',
+        inStock: 380,
+        skus: 0,
+        price: 80,
+      },
+    ],
+    length: 5,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <DataGrid.Toolbar>
+          <DataGrid.Toolbar.Button icon={<IconImport />}>
+            Import
+          </DataGrid.Toolbar.Button>
+          <DataGrid.Toolbar.Button icon={<IconExport />}>
+            Export
+          </DataGrid.Toolbar.Button>
+        </DataGrid.Toolbar>
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<ToolbarExample />)
+```
+
+### Pagination
+
+You can pass the [Pagination](/pagination) component within [Section](/data-grid/#section/) and use it to paginate the collection.
+
+```jsx noInline
+const NUMBER_OF_ITEMS = 100
+const ITEMS_PER_PAGE = 5
+
+const items = Array(NUMBER_OF_ITEMS)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function PaginationExample() {
+  const paginationState = usePaginationState({
+    size: ITEMS_PER_PAGE,
+  })
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items: items.slice(paginationState.range[0] - 1, paginationState.range[1]),
+    length: ITEMS_PER_PAGE,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <FlexSpacer />
+        <Pagination
+          state={paginationState}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+          total={NUMBER_OF_ITEMS}
+        />
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<PaginationExample />)
+```
+
+## Features
+
+### Status
+
+The state hook returns a `setStatus` function, that allows you to control the current status of the Grid.
+
+```jsx noInline
+const items = Array(3)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function StatusExample() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items,
+    length: 3,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Toolbar>
+        <DataGrid.Toolbar.Button
+          onClick={() =>
+            state.setStatus({
+              type: 'ready',
+            })
+          }
+        >
+          Ready
+        </DataGrid.Toolbar.Button>
+
+        <DataGrid.Toolbar.Button
+          onClick={() =>
+            state.setStatus({
+              type: 'loading',
+            })
+          }
+        >
+          Loading
+        </DataGrid.Toolbar.Button>
+        <DataGrid.Toolbar.Button
+          onClick={() =>
+            state.setStatus({
+              type: 'error',
+              message: 'Something went wrong',
+            })
+          }
+        >
+          Error
+        </DataGrid.Toolbar.Button>
+        <DataGrid.Toolbar.Button
+          onClick={() =>
+            state.setStatus({
+              type: 'not-found',
+              message: 'Your product was not found',
+            })
+          }
+        >
+          Not Found
+        </DataGrid.Toolbar.Button>
+        <DataGrid.Toolbar.Button
+          onClick={() =>
+            state.setStatus({
+              type: 'empty',
+              message: 'You need to create something',
+            })
+          }
+        >
+          Empty
+        </DataGrid.Toolbar.Button>
+      </DataGrid.Toolbar>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<StatusExample />)
+```
+
+### Density
+
+The density can be either `regular` (default value), `compact` or `variable`.
+
+```jsx noInline
+const items = Array(3)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function DensityExample() {
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Toolbar>
+        <DataGrid.Toolbar.Button onClick={() => state.setDensity('regular')}>
+          Regular
+        </DataGrid.Toolbar.Button>
+
+        <DataGrid.Toolbar.Button onClick={() => state.setDensity('compact')}>
+          Compact
+        </DataGrid.Toolbar.Button>
+        <DataGrid.Toolbar.Button onClick={() => state.setDensity('variable')}>
+          Variable
+        </DataGrid.Toolbar.Button>
+      </DataGrid.Toolbar>
+
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<DensityExample />)
+```
+
+## Examples
+
+This section presents a series of examples that may be useful.
+
+### Data fetching
+
+```jsx noInline
+/**
+ * Function to simulate a request
+ * You can configure the delay and numberOfItems here
+ */
+function request(delay = 3000, numberOfItems = 3) {
+  return new Promise(function (resolve) {
+    setTimeout(
+      resolve,
+      delay,
+      Array(numberOfItems)
+        .fill()
+        .map((_, id) => {
+          return {
+            id: `${id}`,
+            name: faker.commerce.productName(),
+            lastSale: faker.date.past().toDateString(),
+            price: faker.commerce.price(),
+          }
+        })
+    )
+  })
+}
+
+function DataFetchExample() {
+  const [items, setItems] = React.useState([])
+  /**
+   * This is just for the example purposes so, nevermind
+   */
+  const [update, setUpdate] = React.useState(false)
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    length: 3,
+    items,
+  })
+
+  React.useEffect(() => {
+    state.setStatus({
+      type: 'loading',
+    })
+    request().then((d) => {
+      setItems(d)
+      state.setStatus({
+        type: 'ready',
+      })
+    })
+  }, [update])
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Toolbar>
+        <DataGrid.Toolbar.Button
+          onClick={() => {
+            setUpdate((u) => !u)
+          }}
+        >
+          Simulate data fetching
+        </DataGrid.Toolbar.Button>
+      </DataGrid.Toolbar>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<DataFetchExample />)
+```
+
+### Topbar
+
+Mixing the concepts of `Search`, `Toolbar` and `Pagination`
+
+```jsx noInline
+const items = [
+  {
+    id: 1,
+    productName: 'Orange',
+    inStock: 380,
+    skus: 0,
+    price: 80,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    inStock: 380,
+    skus: 26,
+    price: 500,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    inStock: 380,
+    skus: 25,
+    price: 100,
+  },
+  {
+    id: 4,
+    productName: 'Grape',
+    inStock: 380,
+    skus: 5,
+    price: 190,
+  },
+  {
+    id: 5,
+    productName: 'Apple',
+    inStock: 380,
+    skus: 32,
+    price: 30,
+  },
+  {
+    id: 6,
+    productName: 'Banana',
+    inStock: 380,
+    skus: 38,
+    price: 50,
+  },
+]
+
+function CompleteTopbar() {
+  const [search, setSearch] = React.useState('')
+  const paginationState = usePaginationState({
+    size: 5,
+  })
+
+  const paginatedProducts = React.useMemo(() => {
+    return items.filter((product) => {
+      paginationState.paginate('reset')
+
+      return (
+        product.productName.toLowerCase().indexOf(search.toLocaleLowerCase()) >
+        -1
+      )
+    })
+  }, [search])
+
+  const state = useDataGridState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: [...paginatedProducts].slice(
+      paginationState.range[0] - 1,
+      paginationState.range[1]
+    ),
+    length: 5,
+  })
+
+  return (
+    <DataGrid state={state}>
+      <DataGrid.Section>
+        <DataGrid.Search
+          id="search"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value)
+          }}
+        />
+        <DataGrid.Toolbar>
+          <DataGrid.Toolbar.Button icon={<IconImport />}>
+            Import
+          </DataGrid.Toolbar.Button>
+          <DataGrid.Toolbar.Button icon={<IconExport />}>
+            Export
+          </DataGrid.Toolbar.Button>
+        </DataGrid.Toolbar>
+        <FlexSpacer />
+        <Pagination
+          state={paginationState}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+          total={items.length}
+        />
+      </DataGrid.Section>
+      <DataGrid.Table />
+    </DataGrid>
+  )
+}
+
+render(<CompleteTopbar />)
+```
+
+### Drag and Drop
+
+Simple and accessible drag and drop reordering using [Atlassian's react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd). The idea here is to use the rendering complexity to access the DataGrid's table internals.
+
+```jsx noInline
+const fakeData = Array(5)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+// simple reordering function
+function reorder(list, startIndex, endIndex) {
+  const result = Array.from(list)
+  const [removed] = result.splice(startIndex, 1)
+
+  result.splice(endIndex, 0, removed)
+
+  return result
+}
+
+function Example() {
+  // we need to keep our items within a state, since they're reordered
+  const [items, setItems] = React.useState(fakeData)
+  const datagrid = useDataGridState({
+    columns: [
+      // here we create a new column that does not exist on the collection
+      // this is one of the greatest things about the root resolver
+      // you can deal with a prop that does not exist without parsing the collection
+      {
+        id: 'draggable',
+        header: '',
+        width: 36,
+        resolver: {
+          type: 'root',
+          render: function RenderIcon() {
+            return <IconDrag />
+          },
+        },
+      },
+      // To drag-n-drop look good, each column must have a fixed width
+      // there is other approaches on this, see:
+      // https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/patterns/tables.md
+      {
+        id: 'name',
+        width: 200,
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        width: 200,
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        width: 100,
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items,
+  })
+
+  const onDragEnd = (result) => {
+    if (!result.destination) {
+      return
+    }
+
+    const orderedItems = reorder(
+      items,
+      result.source.index,
+      result.destination.index
+    )
+
+    setItems(orderedItems)
+  }
+
+  return (
+    <DataGrid state={datagrid}>
+      <DataGrid.Table
+        csx={{
+          // unset is here to avoid the table to have full width
+          // this will make the fixed columns work nicelly
+          width: 'unset',
+        }}
+      >
+        <DataGrid.Table.Head />
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="droppable">
+            {(droppableProvided) => (
+              <DataGrid.Table.Body ref={droppableProvided.innerRef}>
+                {(renderRow) => (
+                  <React.Fragment>
+                    {renderRow(({ key, item, index }) => (
+                      <Draggable draggableId={key} index={index}>
+                        {(draggableProvided, draggableSnapshot) => (
+                          <DataGrid.Table.Body.Row
+                            id={key}
+                            item={item}
+                            ref={draggableProvided.innerRef}
+                            {...draggableProvided.draggableProps}
+                            {...draggableProvided.dragHandleProps}
+                            csx={{
+                              ...draggableProvided.draggableProps.style,
+                              boxShadow: draggableSnapshot.isDragging
+                                ? 'menu'
+                                : 'none',
+                            }}
+                          />
+                        )}
+                      </Draggable>
+                    ))}
+                    {droppableProvided.placeholder}
+                  </React.Fragment>
+                )}
+              </DataGrid.Table.Body>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </DataGrid.Table>
+    </DataGrid>
+  )
+}
+
+render(<Example />)
+```

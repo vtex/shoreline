@@ -6,8 +6,8 @@ import { TableOfContents } from './TableOfContents'
 import Header from './Header'
 import { SearchProvider, useSearchState } from './Search'
 
-function StickyBlock(props: PropsWithChildren<{ top?: number }>) {
-  const { top =0 , children } = props
+function StickyBlock(props: PropsWithChildren<{ top?: number, pl?: number }>) {
+  const { top = 0 , pl = 0, children } = props
   return (
     <tag.div
       csx={{
@@ -29,12 +29,12 @@ function StickyBlock(props: PropsWithChildren<{ top?: number }>) {
       <tag.div
         csx={{
           top,
+          paddingLeft: pl,
           position: 'sticky',
           marginRight: 0,
           height: 'auto',
           display: 'block',
           overflowY: 'auto',
-          overflow: 'hidden',
         }}
       >
         {children}
@@ -88,7 +88,7 @@ export function PageLayout(props: Props) {
           </tag.div>
         </Flex>
         {title && props.pageContext.tableOfContentsAst && (
-          <StickyBlock top={160}>
+          <StickyBlock top={80} pl={48}>
             <TableOfContents
               sourceUrl={sourceUrl}
               readmeUrl={readmeUrl}

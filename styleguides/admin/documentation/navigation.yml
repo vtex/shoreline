@@ -28,6 +28,7 @@
     - /feedback/toast/
 - section: Data display
   paths:
+    - /data-display/data-grid/
     - /data-display/card/
     - /data-display/collapsible-group/
     - /data-display/collapsible/

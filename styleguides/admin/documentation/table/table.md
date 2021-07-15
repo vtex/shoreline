@@ -4,6 +4,8 @@ path: /table/basic/
 
 # Table
 
+> The table is depreacted, use the [DataGrid](/data-display/data-grid/) component.
+
 Tables display information in rows of data. It favors the display of data sets.
 
 ## Behavior

@@ -4,6 +4,8 @@ path: /table/column/
 
 # Column
 
+> The table is depreacted, use the [DataGrid](/data-display/data-grid/) component.
+
 ## Column API
 
 | Attribute | Type                                | Description                                                                                                                                                                                         | Required                                                                                               |

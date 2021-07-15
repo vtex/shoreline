@@ -1,6 +1,8 @@
 import * as AdminUI from '@vtex/admin-ui'
 import * as AdminUIIcons from '@vtex/admin-ui-icons'
 import * as AdminUICore from '@vtex/admin-core'
+import * as dnd from 'react-beautiful-dnd'
+import faker from 'faker'
 import {
   Button as ReakitButton,
   useMenuState as useReakitMenuState,
@@ -13,6 +15,8 @@ export default {
   ...AdminUI,
   ...AdminUIIcons,
   ...AdminUICore,
+  ...dnd,
+  faker,
   ReakitButton,
   useReakitMenuState,
   ReakitMenu,
