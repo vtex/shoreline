@@ -373,8 +373,7 @@ function Example() {
         resolver: {
           type: 'plain',
           /**
-           * remember the render function?
-           * this is how to use it
+           * this is how to use render function
            */
           render: function Render({ data }) {
             return (
