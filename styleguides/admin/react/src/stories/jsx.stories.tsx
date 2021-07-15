@@ -270,9 +270,9 @@ export function BooleanVariants() {
     variants: {
       danger: {
         true: {
-          bg: 'red'
-        } 
-      }
+          bg: 'red',
+        },
+      },
     },
   })
 
