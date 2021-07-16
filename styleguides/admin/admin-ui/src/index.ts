@@ -57,3 +57,4 @@ export {
 export * from './components/Combobox'
 export * from './components/SearchBox'
 export * from './components/DataGrid'
+export * from './components/PageHeader'
