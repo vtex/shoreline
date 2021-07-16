@@ -4,12 +4,7 @@ import { merge, pick, omit, isFunction } from '@vtex/onda-util'
 
 import { __element, __options, __stylesheet } from './symbols'
 import { VariantsCall, CsxCall } from './types'
-import {
-  cleanProps,
-  useOptionsIdentity,
-  getStylesheet,
-  getOptions,
-} from './util'
+import { useOptionsIdentity, getStylesheet, getOptions } from './util'
 import { useStylesheet, Stylesheet, Sync } from './useStylesheet'
 import { DOMElements, domElements } from './domElements'
 
@@ -84,19 +79,13 @@ export function _jsx<T extends React.ElementType<any> = 'div'>(type: T) {
         system
       )
 
-      const propsWithCompiledStyle = useStylesheet({
+      const styledProps = useStylesheet({
         stylesheet,
         sync,
-        options,
         props: propsWithOptions,
       })
 
-      const shouldClean = typeof type === 'string' && options.length === 0
-
-      const { children, ...htmlProps } =
-        shouldClean
-          ? cleanProps(propsWithCompiledStyle)
-          : merge(propsWithCompiledStyle, pick(propsWithOptions, options))
+      const { children, ...htmlProps } = styledProps
 
       return (
         <ComponentCall ref={ref} {...htmlProps}>
