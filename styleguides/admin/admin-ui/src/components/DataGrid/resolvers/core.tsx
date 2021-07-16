@@ -5,7 +5,7 @@ import React, { ReactNode, Fragment } from 'react'
 import warning from 'tiny-warning'
 import { get } from '@vtex/admin-core'
 
-import { Column, DataGridDensity } from '../typings'
+import { DataGridColumn, DataGridDensity } from '../typings'
 import { SortOrder, SortState } from '../hooks/useDataGridSort'
 import { Status, StatusObject } from '../hooks/useStatus'
 
@@ -57,7 +57,7 @@ export interface Resolver<T = any, I = any, S = any> {
     /** current item */
     item: T
     /** current column */
-    column: Column<T, ResolverShorcut<I, S>>
+    column: DataGridColumn<T, ResolverShorcut<I, S>>
     /** cell context */
     context: ResolverContext
   }) => ReactNode
@@ -65,7 +65,7 @@ export interface Resolver<T = any, I = any, S = any> {
     getData: CallableFunction
     context: ResolverContext
     items: T[]
-    column: Column<T, ResolverShorcut<I, S>>
+    column: DataGridColumn<T, ResolverShorcut<I, S>>
   }) => ReactNode
 }
 
@@ -83,7 +83,7 @@ export function createResolver<T, I, S = Record<string, unknown>>(
 }
 
 export type ResolveHeaderArgs<T> = {
-  column: Column<T>
+  column: DataGridColumn<T>
   resolvers: Record<string, Resolver<T>>
   context: ResolverContext
   items: T[]
@@ -128,7 +128,7 @@ export function resolveHeader<T>(
 }
 
 export type ResolveCellArgs<T> = {
-  column: Column<T>
+  column: DataGridColumn<T>
   item: T
   resolvers: Record<string, Resolver<T>>
   context: ResolverContext
@@ -157,7 +157,7 @@ export function resolveCell<T>(args: ResolveCellArgs<T>) {
  * Call the column header
  * @param column current column
  */
-export function accessHeader<T>(column: Column<T>) {
+export function accessHeader<T>(column: DataGridColumn<T>) {
   const { header } = column
 
   switch (typeof header) {
@@ -180,7 +180,7 @@ export function accessHeader<T>(column: Column<T>) {
  * @param column current column
  * @param item current item
  */
-export function accessCell<T>(column: Column<T>, item: T) {
+export function accessCell<T>(column: DataGridColumn<T>, item: T) {
   const { accessor } = column
 
   switch (typeof accessor) {

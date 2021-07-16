@@ -18,7 +18,7 @@ import {
   ResolveHeaderReturn,
 } from '../resolvers/core'
 import { baseResolvers } from '../resolvers/base'
-import { Column, DataGridDensity } from '../typings'
+import { DataGridColumn, DataGridDensity } from '../typings'
 import { SelectionProvider } from '../resolvers/selection'
 import {
   UseSortReturn,
@@ -162,7 +162,7 @@ export interface UseDataGridStateParams<T> {
   /**
    * Table column spec
    */
-  columns: Array<Column<T>>
+  columns: Array<DataGridColumn<T>>
   /**
    * Resolver context
    */
@@ -219,7 +219,7 @@ export interface DataGridState<T> {
   /**
    * Grid columns
    */
-  columns: Array<Column<T>>
+  columns: Array<DataGridColumn<T>>
   /**
    * Providers from the resolvers
    */

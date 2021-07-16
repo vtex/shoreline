@@ -2,10 +2,8 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import faker from 'faker'
 
-import { DataGrid } from '../index'
+import { DataGrid, createColumns } from '../index'
 import { useDataGridState } from '../hooks/useDataGridState'
-import { Column } from '../typings'
-import { BaseResolvers } from '../resolvers/base'
 
 export default {
   title: 'admin-ui/DataGrid/complexity',
@@ -28,7 +26,7 @@ const items = [...Array(10).keys()].map((id) => {
   }
 })
 
-const columns: Column<Item, BaseResolvers<Item>>[] = [
+const columns = createColumns<Item>([
   {
     id: 'name',
     header: 'Product Name',
@@ -46,7 +44,7 @@ const columns: Column<Item, BaseResolvers<Item>>[] = [
       currency: 'USD',
     },
   },
-]
+])
 
 export function Zero() {
   const state = useDataGridState<Item>({

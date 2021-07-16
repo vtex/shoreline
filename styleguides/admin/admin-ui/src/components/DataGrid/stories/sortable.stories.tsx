@@ -4,8 +4,7 @@ import faker from 'faker'
 
 import { DataGrid } from '../index'
 import { useDataGridState } from '../hooks/useDataGridState'
-import { Column } from '../typings'
-import { BaseResolvers } from '../resolvers/base'
+import { createColumns } from '../createColumns'
 
 export default {
   title: 'admin-ui/DataGrid/sortable',
@@ -28,7 +27,7 @@ const items = [...Array(10).keys()].map((id) => {
   }
 })
 
-const columns: Column<Item, BaseResolvers<Item>>[] = [
+const columns = createColumns<Item>([
   {
     id: 'name',
     header: 'Product Name',
@@ -48,7 +47,7 @@ const columns: Column<Item, BaseResolvers<Item>>[] = [
     },
     compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
   },
-]
+])
 
 export function CompareFunction() {
   const state = useDataGridState<Item>({

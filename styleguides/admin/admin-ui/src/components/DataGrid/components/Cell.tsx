@@ -1,6 +1,6 @@
 import { jsx } from '@vtex/onda-react'
 
-import { Column } from '../typings'
+import { DataGridColumn } from '../typings'
 
 export const Cell = jsx.td(
   {
@@ -69,5 +69,5 @@ Cell.defaultProps = {
 }
 
 export interface CellOptions {
-  column: Column<any>
+  column: DataGridColumn<any>
 }
