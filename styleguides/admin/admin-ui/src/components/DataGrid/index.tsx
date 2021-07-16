@@ -10,6 +10,8 @@ import { Search } from './components/Search'
 import { DataGridState, useDataGridState } from './hooks/useDataGridState'
 import { StateContext } from './context'
 import { Status } from './components/Status'
+import { createColumns } from './createColumns'
+import { DataGridColumn, DataGridDensity } from './typings'
 
 const _Table = jsx.table(
   {
@@ -80,7 +82,7 @@ export const DataGrid = Object.assign(_DataGrid, {
   Table,
   Section,
   Toolbar,
-  Search
+  Search,
 })
 
-export { useDataGridState } 
+export { useDataGridState, createColumns, DataGridColumn, DataGridDensity }

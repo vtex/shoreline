@@ -5,7 +5,7 @@ import { IconDevConsole } from '@vtex/admin-ui-icons'
 
 import { DataGrid } from '../index'
 import { useDataGridState } from '../hooks/useDataGridState'
-import { Column } from '../typings'
+import { DataGridColumn } from '../typings'
 import { BaseResolvers } from '../resolvers/base'
 
 export default {
@@ -29,7 +29,7 @@ const items = [...Array(10).keys()].map((id) => {
   }
 })
 
-const columns: Column<Item, BaseResolvers<Item>>[] = [
+const columns: DataGridColumn<Item, BaseResolvers<Item>>[] = [
   {
     id: 'name',
     header: 'Product Name',

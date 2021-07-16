@@ -8,10 +8,10 @@ import { BaseResolvers } from './resolvers/base'
  * @template T: Item
  * @template R: Resolver filed
  */
-export type Column<T, R = BaseResolvers<T>> =
+export type DataGridColumn<T, R = BaseResolvers<T>> =
   | {
       id: keyof T
-      header?: ((column: Column<T>) => ReactNode) | string
+      header?: ((column: DataGridColumn<T>) => ReactNode) | string
       accessor?: ((item: T) => ReactNode) | string
       resolver?: R
       width?: any
@@ -20,7 +20,7 @@ export type Column<T, R = BaseResolvers<T>> =
     }
   | {
       id: Exclude<string, keyof T>
-      header?: ((column: Column<T>) => ReactNode) | string
+      header?: ((column: DataGridColumn<T>) => ReactNode) | string
       accessor: ((item: T) => ReactNode) | string
       resolver?: R
       width?: any
@@ -29,7 +29,7 @@ export type Column<T, R = BaseResolvers<T>> =
     }
   | {
       id: Exclude<string, keyof T>
-      header?: ((column: Column<T>) => ReactNode) | string
+      header?: ((column: DataGridColumn<T>) => ReactNode) | string
       accessor?: ((item: T) => ReactNode) | string
       resolver: R
       width?: any
