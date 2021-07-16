@@ -60,21 +60,21 @@ export const Radio = jsx(ReakitRadio)(
     variants: {
       size: {
         regular: {
-          height: 20,
-          width: 20,
-          padding: '5px',
+          height: '1.25rem',
+          width: '1.25rem',
+          padding: '0.3rem',
           ':after': {
-            width: 8,
-            height: 8,
+            width: '0.5rem',
+            height: '0.5rem',
           },
         },
         small: {
-          height: 16,
-          width: 16,
+          height: '1rem',
+          width: '1rem',
           padding: 1,
           ':after': {
-            width: 6,
-            height: 6,
+            width: '0.375rem',
+            height: '0.375rem',
           },
         },
       },
