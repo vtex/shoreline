@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/vtex/onda/compare/@vtex/onda-react@0.4.0...@vtex/onda-react@0.4.1) (2021-07-16)
+
+
+### Bug Fixes
+
+* **onda-react:** remove the cleaning of options properties from jsx ([b8ec31c](https://github.com/vtex/onda/commit/b8ec31cf1e557996ea8eb7027edbcfcbe55845fb))
+
+
+
+
+
 # [0.4.0](https://github.com/vtex/onda/compare/@vtex/onda-react@0.3.0...@vtex/onda-react@0.4.0) (2021-07-15)
 
 
