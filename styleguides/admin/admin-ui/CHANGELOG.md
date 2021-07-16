@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.105.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.105.0...@vtex/admin-ui@0.105.1) (2021-07-16)
+
+
+### Bug Fixes
+
+* **admin-ui/data-grid:** export column type & added column creation util ([054b2fb](https://github.com/vtex/onda/commit/054b2fb7b0573bc40bf1d0654a3c6f49dab41bc6))
+
+
+
+
+
 # [0.105.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.104.0...@vtex/admin-ui@0.105.0) (2021-07-15)
 
 
