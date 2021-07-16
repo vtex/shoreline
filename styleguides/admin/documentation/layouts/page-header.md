@@ -20,7 +20,7 @@ This is the basic usage. Use the `PageHeader.Title` to render the page title.
 
 ### With Link
 
-The back-link is present if `onPopNavigation` property is passed.
+The back-link is present if the `onPopNavigation` property is passed.
 
 ```jsx
 <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
@@ -30,7 +30,7 @@ The back-link is present if `onPopNavigation` property is passed.
 
 ### With Actions
 
-Use the `PageHeader.Actions` composite to add actions that are releavant for the whole page.
+Use the `PageHeader.Actions` composite to add actions that are relevant for the whole page.
 
 ```jsx
 <PageHeader>
