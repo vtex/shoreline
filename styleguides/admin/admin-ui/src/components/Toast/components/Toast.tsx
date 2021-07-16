@@ -7,7 +7,6 @@ import { ToastIcon } from './Icon'
 import { Button, ButtonProps } from '../../Button'
 import { Text } from '../../Text'
 import { motion } from 'framer-motion'
-import { toastErrorCsx, toastSuccessCsx, toastWarningCsx } from './consts'
 
 const ToastContent = jsx(motion.div)({
   position: 'relative',
@@ -27,9 +26,20 @@ const ToastContent = jsx(motion.div)({
   border: 'default',
   variants: {
     type: {
-      error: toastErrorCsx,
-      success: toastSuccessCsx,
-      warning: toastWarningCsx,
+      // Important! Although these hexes below
+      // are "hardcoded" and don't correspond to
+      // any color defined on the Design System
+      // level, they were defined on the component
+      // level and share the same styles with the
+      // Alert component. We're actively discussing
+      // how we can include these colors on the Design
+      // System level.
+      error: {
+        backgroundColor: '#FFF8F8',
+        borderColor: '#EDB6B6',
+      },
+      success: { backgroundColor: '#F0F8F5', borderColor: '#8FC2B1' },
+      warning: { backgroundColor: '#FFF9EE', borderColor: '#E5C38E' },
       info: {},
     },
   },
