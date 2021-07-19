@@ -17,7 +17,9 @@ export function selectionResolver<T>() {
               <Checkbox
                 state={state?.root}
                 disabled={context.loading}
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) =>
+                  e.stopPropagation()
+                }
               />
             )
           }}
@@ -35,7 +37,9 @@ export function selectionResolver<T>() {
                 value={resolver?.mapId(item)}
                 state={state?.items}
                 disabled={context.loading}
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) =>
+                  e.stopPropagation()
+                }
               />
             )
           }}
