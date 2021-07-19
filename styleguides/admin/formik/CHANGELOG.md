@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.27](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.1.26...@vtex/admin-formik@0.1.27) (2021-07-19)
+
+
+### Bug Fixes
+
+* **formik:** fix onChange types ([40f00ca](https://github.com/vtex/onda/commit/40f00ca93c394c6c9b70235ddd6b1a1c89272c83))
+* **formik:** remove props that make state control externaly ([b4df890](https://github.com/vtex/onda/commit/b4df8901247184da36661057e8ff18e48a7d6e4d))
+* **onchange:** change onchange to optional in formik toggle and formik checkbox ([e13c0b4](https://github.com/vtex/onda/commit/e13c0b496ddfd6cad8a03966c3efcd7a82cd4cd5))
+* **onchange:** verify that onCahnge is a function in FormikInput and FormikInputPassword ([85a3e57](https://github.com/vtex/onda/commit/85a3e57688f7ce93a61ccd60dac801ca3f3991c4))
+
+
+
+
+
 ## [0.1.26](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.1.25...@vtex/admin-formik@0.1.26) (2021-07-16)
 
 **Note:** Version bump only for package @vtex/admin-formik
