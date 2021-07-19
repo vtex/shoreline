@@ -49,6 +49,7 @@
     - /layouts/introduction/
     - /layouts/columns/
     - /layouts/set/
+    - /layouts/page-header/
 - section: Typography
   paths:
     - /typography/introduction/

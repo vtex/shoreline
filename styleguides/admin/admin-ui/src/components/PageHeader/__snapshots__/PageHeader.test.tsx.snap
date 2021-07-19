@@ -1,0 +1,362 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageHeader should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background-color: #FFFFFF;
+  color: #323845;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #E0E2E7;
+  -webkit-position: sticky;
+  position: sticky;
+  top: 0rem;
+  height: 4.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+<header
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`PageHeader should match snapshot with actions 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 *+* {
+  margin-left: 1rem;
+}
+
+.emotion-1 {
+  background-color: #FFFFFF;
+  color: #323845;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #E0E2E7;
+  -webkit-position: sticky;
+  position: sticky;
+  top: 0rem;
+  height: 4.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+<header
+    class="emotion-1"
+  >
+    <div
+      class="emotion-0"
+    >
+      <button>
+        Action
+      </button>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`PageHeader should match snapshot with backlink 1`] = `
+<DocumentFragment>
+  .emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-5 *+* {
+  margin-left: 1rem;
+}
+
+.emotion-4 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1.25rem;
+}
+
+.emotion-6 {
+  background-color: #FFFFFF;
+  color: #323845;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #E0E2E7;
+  -webkit-position: sticky;
+  position: sticky;
+  top: 0rem;
+  height: 4.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.emotion-3 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  color: #2953B2;
+  font-size: 0.875rem;
+  height: 40px;
+  width: 40px;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-3:hover {
+  color: #214491;
+  background-color: rgba(202,215,241,0.24);
+}
+
+.emotion-3:active {
+  color: #1a3470;
+  background-color: rgba(186,203,236,0.32);
+}
+
+.emotion-3:disabled {
+  color: #898F9E;
+}
+
+.emotion-3 svg {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+<header
+    class="emotion-6"
+  >
+    <div
+      class="emotion-5"
+    >
+      <button
+        class="emotion-3"
+        type="button"
+      >
+        <div
+          class="emotion-2"
+        >
+          <div
+            class="emotion-1"
+          >
+            <svg
+              class="emotion-0"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12.01 4.51025V19.5003"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M6.02301 10.514L12 4.49805L17.977 10.514"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+        </div>
+      </button>
+      <h1
+        class="emotion-4"
+      >
+        test paragraph
+      </h1>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`PageHeader should match snapshot with title 1`] = `
+<DocumentFragment>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 *+* {
+  margin-left: 1rem;
+}
+
+.emotion-0 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1.25rem;
+}
+
+.emotion-2 {
+  background-color: #FFFFFF;
+  color: #323845;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #E0E2E7;
+  -webkit-position: sticky;
+  position: sticky;
+  top: 0rem;
+  height: 4.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+<header
+    class="emotion-2"
+  >
+    <div
+      class="emotion-1"
+    >
+      <h1
+        class="emotion-0"
+      >
+        test paragraph
+      </h1>
+    </div>
+  </header>
+</DocumentFragment>
+`;
