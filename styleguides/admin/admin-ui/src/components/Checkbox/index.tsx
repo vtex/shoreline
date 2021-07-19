@@ -10,9 +10,9 @@ export const Checkbox = jsx(ReakitCheckbox)(
   {
     appearance: 'none',
     borderStyle: 'solid',
-    borderWidth: 1,
+    borderWidth: '0.063rem',
     borderColor: 'mid.primary',
-    borderRadius: 3,
+    borderRadius: '0.188rem',
     cursor: 'pointer',
     display: 'flex',
     margin: 0,
@@ -42,13 +42,13 @@ export const Checkbox = jsx(ReakitCheckbox)(
       color: 'blue',
       '&:after': {
         content: '""',
-        width: 8,
+        width: '0.5rem',
         height: 0,
-        borderWidth: 1,
+        borderWidth: '0.063rem',
         borderStyle: 'solid',
         borderLeft: 0,
         borderRight: 0,
-        borderRadius: 3,
+        borderRadius: '0.188rem',
         borderColor: 'currentColor',
       },
       '&:disabled': {
