@@ -17,4 +17,5 @@ export const FormikCheckbox = forwardRef(
   }
 )
 
-export interface FormikCheckboxProps extends Omit<CheckboxProps, 'state'> {}
+export interface FormikCheckboxProps
+  extends Omit<CheckboxProps, 'state' | 'checked' | 'onChange'> {}

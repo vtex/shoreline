@@ -17,4 +17,5 @@ export const FormikRadio = forwardRef(
   }
 )
 
-export interface FormikRadioProps extends Omit<RadioProps, 'state'> {}
+export interface FormikRadioProps
+  extends Omit<RadioProps, 'state' | 'checked' | 'onChange'> {}

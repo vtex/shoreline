@@ -19,6 +19,7 @@ export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
     error: currentError,
     errorMessage: currentErrorMessage,
     formatMessage,
+    onChange,
     ...checkboxGroupProps
   } = props
 
@@ -29,7 +30,8 @@ export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
     checkboxState.state,
     checkboxState.setState,
     field.value,
-    helpers.setValue
+    helpers.setValue,
+    onChange
   )
 
   const errorMessage = handleErrorMessage(
@@ -65,4 +67,5 @@ export interface FormikCheckboxGroupProps
   error?: boolean
   errorMessage?: string
   formatMessage?: (errorCode: string) => string
+  onChange?: (value: string[] | number[]) => void
 }

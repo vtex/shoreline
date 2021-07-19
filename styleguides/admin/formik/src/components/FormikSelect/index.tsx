@@ -14,10 +14,11 @@ export const FormikSelect = <T extends unknown>(
     errorMessage: currentErrorMessage,
     formatMessage,
     itemToString,
+    onChange,
     ...selectProps
   } = props
 
-  const [field, meta, helpers] = useField({ name })
+  const [field, meta, helpers] = useField<T | null>({ name })
 
   const itemState = useSelectState({
     items,
@@ -34,7 +35,8 @@ export const FormikSelect = <T extends unknown>(
     itemState.selectedItem,
     itemState.selectItem,
     field.value,
-    helpers.setValue
+    helpers.setValue,
+    onChange
   )
 
   const errorMessage = handleErrorMessage(
@@ -62,4 +64,5 @@ export interface FormikSelectProps<T> extends Omit<SelectProps<T>, 'state'> {
   name: string
   formatMessage?: (errorCode: string) => string
   itemToString?: (item: T | null) => string
+  onChange?: (value: T | null) => void
 }

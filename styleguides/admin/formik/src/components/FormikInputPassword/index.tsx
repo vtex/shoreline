@@ -11,6 +11,7 @@ export const FormikInputPassword = forwardRef(
       error: currentError,
       errorMessage: currentErrorMessage,
       formatMessage,
+      onChange,
       ...inputProps
     } = props
 
@@ -23,12 +24,21 @@ export const FormikInputPassword = forwardRef(
       formatMessage
     )
 
+    const handleChange =
+      typeof onChange === 'function'
+        ? (event: React.ChangeEvent<HTMLInputElement>) => {
+            field.onChange(event)
+            onChange(event)
+          }
+        : field.onChange
+
     return (
       <InputPassword
         id={id}
         error={!!errorMessage}
         errorMessage={errorMessage ?? undefined}
         {...field}
+        onChange={handleChange}
         {...inputProps}
         ref={ref}
       />
@@ -37,7 +47,7 @@ export const FormikInputPassword = forwardRef(
 )
 
 export interface FormikInputPasswordProps
-  extends Omit<InputPasswordProps, 'id'> {
+  extends Omit<InputPasswordProps, 'id' | 'value'> {
   name: string
   id?: string
   formatMessage?: (errorCode: string) => string

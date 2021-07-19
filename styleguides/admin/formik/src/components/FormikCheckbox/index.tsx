@@ -19,6 +19,7 @@ export const FormikCheckbox = forwardRef(
       error: currentError,
       errorMessage: currentErrorMessage,
       formatMessage,
+      onChange,
       ...checkboxProps
     } = props
 
@@ -29,7 +30,8 @@ export const FormikCheckbox = forwardRef(
       checkboxState.state,
       checkboxState.setState,
       field.value,
-      helpers.setValue
+      helpers.setValue,
+      onChange
     )
 
     const errorMessage = handleErrorMessage(
@@ -61,10 +63,12 @@ export const FormikCheckbox = forwardRef(
   }
 )
 
-export interface FormikCheckboxProps extends CheckboxProps {
+export interface FormikCheckboxProps
+  extends Omit<CheckboxProps, 'state' | 'checked' | 'value' | 'onChange'> {
   name: string
   label: string | ReactNode
   error?: boolean
   errorMessage?: string
   formatMessage?: (errorCode: string) => string
+  onChange?: (value: boolean | 'indeterminate') => void
 }
