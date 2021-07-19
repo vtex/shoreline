@@ -1,16 +1,18 @@
 import React, { ReactElement } from 'react'
 import {
-  runtime as runtimeEmotion,
-  StyleProp,
-} from '@vtex/onda-runtime-emotion'
-import {
   buildRuntime,
   buildPlugins,
   Plugin,
   createTheme,
   ThemeOptions,
 } from '@vtex/onda-system'
-import { useCSSVariables } from './useCSSVariables'
+
+import { plugins } from './plugins'
+import {
+  runtime as runtimeEmotion,
+  StyleProp,
+} from './runtime'
+import { useCSSVariables } from './hooks/useCSSVariables'
 
 export interface SytemSpec<Theme extends Record<string, any>> {
   name: string
@@ -46,14 +48,14 @@ export type DesignSystem = [
 export function createOnda<Theme extends Record<string, any>>(
   spec: SytemSpec<Theme>
 ): DesignSystem {
-  const { name, description, theme: themeConfig, plugins = [], options } = spec
+  const { name, description, theme: themeConfig, options } = spec
 
   const [{ global, ...strictTheme }, cssVariables] = createTheme(
     themeConfig,
     options
   )
 
-  const steps = buildPlugins(strictTheme, plugins as any)
+  const steps = buildPlugins(strictTheme, plugins)
   const {
     exec: cn,
     parse,
