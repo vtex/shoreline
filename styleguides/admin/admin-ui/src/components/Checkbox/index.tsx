@@ -89,16 +89,14 @@ export const Checkbox = jsx(ReakitCheckbox)(
     variants: {
       size: {
         regular: {
-          height: 20,
-          width: 20,
-          minWidth: 20,
-          minHeight: 20,
+          size: '1.25rem',
+          minWidth: '1.25rem',
+          minHeight: '1.25rem',
         },
         small: {
-          height: 16,
-          width: 16,
-          minWidth: 16,
-          minHeight: 16,
+          size: '1rem',
+          minWidth: '1rem',
+          minHeight: '1rem',
         },
       },
     },
