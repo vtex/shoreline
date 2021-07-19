@@ -25,10 +25,10 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  min-height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
 }
 
 .emotion-0:checked {
@@ -145,10 +145,10 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 16px;
-  width: 16px;
-  min-width: 16px;
-  min-height: 16px;
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  min-height: 1rem;
 }
 
 .emotion-0:checked {
