@@ -1,8 +1,4 @@
-import { ElementType } from 'react'
-import { useSystem, createComponent } from '@vtex/admin-core'
-
-import { Primitive } from '@vtex/admin-primitives'
-import { SystemComponent } from '../../types'
+import { jsx, PropsWithAs } from '@vtex/onda-react'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -19,49 +15,66 @@ import { SystemComponent } from '../../types'
  * }
  *
  */
-export const Skeleton = createComponent(Primitive, useSkeleton)
+export const Skeleton = jsx.div(
+  {
+    display: 'inline-block',
+    width: 'full',
+    height: 'full',
+    backgroundColor: 'light.secondary',
+    backgroundSize: `200px 100%`,
+    backgroundRepeat: 'no-repeat',
+    lineHeight: 1,
+    borderRadius: 3,
 
-/**
- * Skeleton lower level api
- * @returns skeleton htmlProps
- */
-export function useSkeleton(props: SkeletonProps) {
-  const { shape = 'rect', csx = {}, element = 'div', ...htmlProps } = props
-  const { keyframes } = useSystem()
-
-  const load = keyframes`
-    0% {
-      background-position: -200px 0;
-    }
-    100% {
-      background-position: calc(200px + 100%) 0;
-    }
-  `
-
-  return {
-    element,
-    csx: {
-      themeKey: {
-        skeleton: { shape },
+    variants: {
+      shape: {
+        rect: {
+          borderRadius: 'default',
+        },
+        circle: {
+          borderRadius: 'circle',
+        },
       },
-      animation: `${load} 1.2s ease-in-out infinite`,
-      ...csx,
     },
-    ...htmlProps,
+  },
+  {
+    useOptions: (_, props, { keyframes, stylesOf }) => {
+      const { csx, ...restProps } = props
+
+      const backgroundImage = `linear-gradient(
+        90deg,
+        ${stylesOf('colors.light.secondary')},
+        white,
+        ${stylesOf('colors.light.secondary')}
+      )`
+
+      const load = keyframes`
+        0% {
+          background-position: -200px 0;
+        }
+        100% {
+          background-position: calc(200px + 100%) 0;
+        }
+      `
+
+      return {
+        ...restProps,
+        csx: {
+          animation: `${load} 1.2s ease-in-out infinite`,
+          backgroundImage,
+          ...csx,
+        },
+      }
+    },
   }
+)
+
+Skeleton.defaultProps = {
+  shape: 'rect',
 }
 
-export type SkeletonShape = 'rect' | 'circle'
-
-export interface SkeletonProps extends SystemComponent {
-  /**
-   * Shape of the skeleton
-   * @default 'rect'
-   */
-  shape?: SkeletonShape
-  /**
-   * Element type
-   * @default div
-   */
-  element?: ElementType
+export interface SkeletonVariants {
+  shape: 'rect' | 'circle'
 }
+
+export type SkeletonProps = PropsWithAs<SkeletonVariants, 'div'>

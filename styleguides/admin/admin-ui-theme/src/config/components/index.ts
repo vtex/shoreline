@@ -20,7 +20,6 @@ import tooltip from './tooltip'
 import menu from './menu'
 import modal from './modal'
 // layouts
-import skeleton from './skeleton'
 import collapsible from './collapsible'
 
 export default {
@@ -34,7 +33,6 @@ export default {
   tooltip,
   menu,
   modal,
-  skeleton,
   collapsible,
   tag,
   dropdown,

@@ -24,14 +24,14 @@ exports[`Skeleton tests should match snapshot 1`] = `
   background-repeat: no-repeat;
   line-height: 1;
   border-radius: 4px;
-  background-image: linear-gradient(
-      90deg,
-      #F4F6FB,
-      white,
-      #F4F6FB
-    );
   -webkit-animation: animation-0 1.2s ease-in-out infinite;
   animation: animation-0 1.2s ease-in-out infinite;
+  background-image: linear-gradient(
+        90deg,
+        #F4F6FB,
+        white,
+        #F4F6FB
+      );
 }
 
 <div
@@ -59,14 +59,14 @@ exports[`Skeleton tests should match snapshot 1`] = `
   background-repeat: no-repeat;
   line-height: 1;
   border-radius: 100%;
-  background-image: linear-gradient(
-      90deg,
-      #F4F6FB,
-      white,
-      #F4F6FB
-    );
   -webkit-animation: animation-0 1.2s ease-in-out infinite;
   animation: animation-0 1.2s ease-in-out infinite;
+  background-image: linear-gradient(
+        90deg,
+        #F4F6FB,
+        white,
+        #F4F6FB
+      );
 }
 
 <div
