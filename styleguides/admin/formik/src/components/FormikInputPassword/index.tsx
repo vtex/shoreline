@@ -24,12 +24,13 @@ export const FormikInputPassword = forwardRef(
       formatMessage
     )
 
-    const handleChange = onChange
-      ? (event: React.ChangeEvent<HTMLInputElement>) => {
-          field.onChange(event)
-          onChange(event)
-        }
-      : field.onChange
+    const handleChange =
+      typeof onChange === 'function'
+        ? (event: React.ChangeEvent<HTMLInputElement>) => {
+            field.onChange(event)
+            onChange(event)
+          }
+        : field.onChange
 
     return (
       <InputPassword
