@@ -3329,15 +3329,14 @@ exports[`Toast tests should match snapshot 1`] = `
 exports[`Toaster tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  min-height: 0rem;
   position: fixed;
   bottom: 3rem;
   z-index: 999;
-  left: 0rem;
   right: 2rem;
   text-align: center;
   margin-left: auto;
   max-width: 23.375rem;
-  min-height: 4.5rem;
   list-style: none;
 }
 
