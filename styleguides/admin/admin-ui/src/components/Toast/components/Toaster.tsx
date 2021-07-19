@@ -1,9 +1,9 @@
 import React from 'react'
-import { useSystem } from '@vtex/admin-core'
-import { Box } from '@vtex/admin-primitives'
+import { tag } from '@vtex/onda-react'
 import { Toast } from './Toast'
 import { ToasterProps } from './typings'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { StyleObject } from '@vtex/admin-core'
 
 /**
  * This component is responsible for rendering the toasts.
@@ -11,9 +11,8 @@ import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
  */
 export function Toaster(props: ToasterProps) {
   const { state } = props
-  const { cn } = useSystem()
 
-  const styles = cn({
+  const csx: StyleObject = {
     position: 'fixed',
     bottom: '3rem',
     zIndex: 'over',
@@ -27,10 +26,10 @@ export function Toaster(props: ToasterProps) {
     '> *:not(:last-child)': {
       marginBottom: '0.75rem',
     },
-  })
+  }
 
   return (
-    <Box data-testid="onda-toaster" element="ul" className={styles}>
+    <tag.ul data-testid="onda-toaster" csx={csx}>
       <AnimateSharedLayout>
         <AnimatePresence data-testid="onda-toaster-container">
           {state['bottom-right'].map((toast) => (
@@ -42,6 +41,6 @@ export function Toaster(props: ToasterProps) {
           ))}
         </AnimatePresence>
       </AnimateSharedLayout>
-    </Box>
+    </tag.ul>
   )
 }

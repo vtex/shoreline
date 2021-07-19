@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
-import { ButtonProps } from 'reakit/ts'
-import { IconProps } from 'styleguides/admin/admin-ui-icons/dist'
-import { SystemComponent } from '../../../types'
+import { ButtonProps } from '../../Button'
+import { IconProps } from '@vtex/admin-ui-icons'
+import { PropsWithAs } from '@vtex/onda-react'
 
 export interface ToastManagerProps {
   /**
@@ -43,7 +43,7 @@ export interface ToastOptions extends ToastProps {
   stack: string[]
 }
 
-export interface ToastProps extends SystemComponent {
+interface _ToastProps {
   /**
    * Message displayed to the end-user.
    */
@@ -78,6 +78,8 @@ export interface ToastProps extends SystemComponent {
    */
   iconProps?: ToastIconProps
 }
+
+export type ToastProps = PropsWithAs<_ToastProps, 'div'>
 
 /**
  * Type of the toast to be rendered

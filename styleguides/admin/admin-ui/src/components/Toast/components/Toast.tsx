@@ -1,13 +1,53 @@
 import React, { useEffect, useMemo } from 'react'
 import { Flex } from '@vtex/admin-primitives'
 import { IconClose } from '@vtex/admin-ui-icons'
-import { merge, StyleProp, useSystem } from '@vtex/admin-core'
-import { ToastIconProps, ToastOptions, ToastType } from './typings'
+import { jsx } from '@vtex/onda-react'
+import { ToastIconProps, ToastOptions } from './typings'
 import { ToastIcon } from './Icon'
 import { Button, ButtonProps } from '../../Button'
 import { Text } from '../../Text'
 import { motion } from 'framer-motion'
-import { errorStyles, styles, successStyles, warningStyles } from './consts'
+
+const ToastContent = jsx(motion.div)({
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  minWidth: '16.125rem',
+  width: 'auto',
+  minHeight: '4.5rem',
+  height: 'auto',
+  maxHeight: '4.5rem',
+  borderRadius: '0.25rem',
+  padding: '1rem',
+  boxShadow: 'subtle',
+  backgroundColor: 'white',
+  border: 'default',
+  variants: {
+    type: {
+      // Important! Although these hexes below
+      // are "hardcoded" and don't correspond to
+      // any color defined on the Design System
+      // level, they were defined on the component
+      // level and share the same styles with the
+      // Alert component. We're actively discussing
+      // how we can include these colors on the Design
+      // System level.
+      error: {
+        backgroundColor: '#FFF8F8',
+        borderColor: '#EDB6B6',
+      },
+      success: { backgroundColor: '#F0F8F5', borderColor: '#8FC2B1' },
+      warning: { backgroundColor: '#FFF9EE', borderColor: '#E5C38E' },
+      info: {},
+    },
+  },
+})
+
+ToastContent.defaultProps = {
+  type: 'info',
+}
 
 /**
  * The toast is a variation of an alert that provides immediate
@@ -19,17 +59,16 @@ export function Toast(props: ToastOptions) {
   const {
     message,
     duration,
-    csx = {},
     remove,
     id,
     iconProps,
     position = 'bottom-right',
     dismissible,
+    csx,
     stack,
     action,
+    type,
   } = useToast(props)
-  const { cn } = useSystem()
-
   useEffect(() => {
     const timeout = setTimeout(() => remove(id, position), duration)
 
@@ -50,10 +89,11 @@ export function Toast(props: ToastOptions) {
   }, [stack])
 
   return (
-    <motion.div
+    <ToastContent
       layout
+      type={type}
+      csx={csx}
       data-testid="onda-toast-component"
-      className={cn(csx)}
       initial={{ top: '7.5rem' }}
       animate={{ top: 0 }}
       exit={{
@@ -82,7 +122,7 @@ export function Toast(props: ToastOptions) {
           )}
         </Flex>
       )}
-    </motion.div>
+    </ToastContent>
   )
 }
 
@@ -90,7 +130,6 @@ function useToast(props: ToastOptions): ToastOptions {
   const {
     type = 'info',
     iconProps: maybeIconProps,
-    csx: customCsx,
     action: maybeAction,
   } = props
 
@@ -98,8 +137,6 @@ function useToast(props: ToastOptions): ToastOptions {
     ...maybeIconProps,
     type,
   }
-
-  const csx: StyleProp = merge(getCsx(type), customCsx)
 
   const action: ButtonProps | undefined = maybeAction
     ? {
@@ -115,31 +152,7 @@ function useToast(props: ToastOptions): ToastOptions {
   return {
     type,
     ...props,
-    csx,
     action,
     iconProps,
-  }
-}
-
-function getCsx(type: ToastType): StyleProp {
-  switch (type) {
-    case 'error':
-      return {
-        ...styles,
-        ...errorStyles,
-      } as StyleProp
-    case 'warning':
-      return {
-        ...styles,
-        ...warningStyles,
-      } as StyleProp
-    case 'success':
-      return {
-        ...styles,
-        ...successStyles,
-      } as StyleProp
-    case 'info':
-    default:
-      return styles
   }
 }
