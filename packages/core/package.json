@@ -1,7 +1,7 @@
 {
   "name": "@vtex/onda-core",
   "license": "MIT",
-  "version": "0.1.0-labs.4",
+  "version": "0.1.0-labs.5",
   "main": "dist/index.js",
   "module": "dist/onda-core.esm.js",
   "typings": "dist/index.d.ts",

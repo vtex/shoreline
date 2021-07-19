@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-labs.5](https://github.com/vtex/onda/compare/@vtex/onda-core@0.1.0-labs.4...@vtex/onda-core@0.1.0-labs.5) (2021-07-19)
+
+
+### Features
+
+* **onda-packages:** merge onda-runtime-emotion and onda-plugins into onda-core ([2272ea0](https://github.com/vtex/onda/commit/2272ea08a2673f81ee0e43bbd700eda2ff1690d0))
+
+
+
+
+
 # [0.1.0-labs.4](https://github.com/vtex/onda/compare/@vtex/onda-core@0.1.0-labs.3...@vtex/onda-core@0.1.0-labs.4) (2021-06-29)
 
 **Note:** Version bump only for package @vtex/onda-core
