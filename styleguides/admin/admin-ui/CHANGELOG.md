@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.106.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.1...@vtex/admin-ui@0.106.2) (2021-07-20)
+
+
+### Bug Fixes
+
+* **admin-ui/toast:** toast manager overflows other elements, even without any toast ([bd3ea9b](https://github.com/vtex/onda/commit/bd3ea9b7eee488e31f927855519eab1b4c469105))
+* **admin-ui/toast:** toast width ([796d3c2](https://github.com/vtex/onda/commit/796d3c26e8f9ba7668816200e70a15ecfa78dbcb))
+
+
+
+
+
 ## [0.106.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.0...@vtex/admin-ui@0.106.1) (2021-07-20)
 
 **Note:** Version bump only for package @vtex/admin-ui
