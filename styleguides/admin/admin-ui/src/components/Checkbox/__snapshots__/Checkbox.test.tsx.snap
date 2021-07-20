@@ -8,9 +8,9 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
   -ms-appearance: none;
   appearance: none;
   border-style: solid;
-  border-width: 1px;
+  border-width: 0.063rem;
   border-color: #898F9E;
-  border-radius: 3px;
+  border-radius: 0.188rem;
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -25,10 +25,10 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  min-height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
 }
 
 .emotion-0:checked {
@@ -62,13 +62,13 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:indeterminate:after {
   content: "";
-  width: 8px;
+  width: 0.5rem;
   height: 0;
-  border-width: 1px;
+  border-width: 0.063rem;
   border-style: solid;
   border-left: 0;
   border-right: 0;
-  border-radius: 3px;
+  border-radius: 0.188rem;
   border-color: currentColor;
 }
 
@@ -128,9 +128,9 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
   -ms-appearance: none;
   appearance: none;
   border-style: solid;
-  border-width: 1px;
+  border-width: 0.063rem;
   border-color: #898F9E;
-  border-radius: 3px;
+  border-radius: 0.188rem;
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -145,10 +145,10 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 16px;
-  width: 16px;
-  min-width: 16px;
-  min-height: 16px;
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  min-height: 1rem;
 }
 
 .emotion-0:checked {
@@ -182,13 +182,13 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:indeterminate:after {
   content: "";
-  width: 8px;
+  width: 0.5rem;
   height: 0;
-  border-width: 1px;
+  border-width: 0.063rem;
   border-style: solid;
   border-left: 0;
   border-right: 0;
-  border-radius: 3px;
+  border-radius: 0.188rem;
   border-color: currentColor;
 }
 

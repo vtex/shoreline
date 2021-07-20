@@ -9,7 +9,6 @@ import list from './list'
 // forms
 import abstractInput from './abstractInput'
 import controlGroup from './controlGroup'
-import checkbox from './checkbox'
 import input from './input'
 import textArea from './textArea'
 import dropdown from './dropdown'
@@ -27,7 +26,6 @@ export default {
   list,
   table,
   controlGroup,
-  checkbox,
   abstractInput,
   input,
   tooltip,
