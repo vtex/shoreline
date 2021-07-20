@@ -4,7 +4,7 @@
 
 ## Styleguides
 
-- [admin-ui](./styleguides/admin-ui)
+- [admin-ui](./styleguides/admin/admin-ui)
 - [brand-ui](./styleguides/brand-ui)
 
 ## Development
