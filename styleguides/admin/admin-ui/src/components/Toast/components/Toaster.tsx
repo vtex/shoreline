@@ -39,6 +39,7 @@ export function Toaster(props: ToasterProps) {
     right: '2rem',
     textAlign: 'center',
     marginLeft: 'auto',
+    minWidth: '23.375rem',
     maxWidth: '23.375rem',
     listStyle: 'none',
     '> *:not(:last-child)': {
