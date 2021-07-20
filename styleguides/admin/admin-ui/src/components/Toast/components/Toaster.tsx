@@ -5,7 +5,7 @@ import { ToasterProps } from './typings'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { StyleObject } from '@vtex/admin-core'
 
-const HEIGHT_DELAY = 250
+const STATE_CHANGE_DELAY = 250
 const MIN_HEIGHT_VISIBLE = '4.5rem'
 const MIN_HEIGHT_HIDDEN = '0rem'
 
@@ -27,7 +27,7 @@ export function Toaster(props: ToasterProps) {
       /**
        * This delay is needed due framer-motion's AnimateSharedLayout
        */
-      setTimeout(() => setMinHeight(MIN_HEIGHT_HIDDEN), HEIGHT_DELAY)
+      setTimeout(() => setMinHeight(MIN_HEIGHT_HIDDEN), STATE_CHANGE_DELAY)
     }
   }, [toastStack])
 
@@ -39,8 +39,7 @@ export function Toaster(props: ToasterProps) {
     right: '2rem',
     textAlign: 'center',
     marginLeft: 'auto',
-    minWidth: '23.375rem',
-    maxWidth: '23.375rem',
+    width: '23.375rem',
     listStyle: 'none',
     '> *:not(:last-child)': {
       marginBottom: '0.75rem',

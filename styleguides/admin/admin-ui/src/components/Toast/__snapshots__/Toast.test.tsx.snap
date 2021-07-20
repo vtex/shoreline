@@ -3336,8 +3336,7 @@ exports[`Toaster tests should match snapshot 1`] = `
   right: 2rem;
   text-align: center;
   margin-left: auto;
-  min-width: 23.375rem;
-  max-width: 23.375rem;
+  width: 23.375rem;
   list-style: none;
 }
 
