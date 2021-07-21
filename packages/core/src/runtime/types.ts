@@ -2,6 +2,8 @@ import * as CSS from 'csstype'
 
 type StandardCSSProperties = CSS.Properties<number | string>
 
+type ResponsiveStyleValue<T> = T | Array<T | null | undefined>
+
 /**
  * All non-vendor-prefixed CSS properties. (Allow `number` to support CSS-in-JS libs,
  * since they are converted to pixels)
@@ -234,8 +236,8 @@ export interface ExtendedCSSProps
     OverwriteCSSProperties {}
 
 export type StylePropertyValue<T> =
-  | Exclude<T, undefined>
-  | ((theme: Theme) => Exclude<T, undefined>)
+  | ResponsiveStyleValue<Exclude<T, undefined>>
+  | ((theme: Theme) => ResponsiveStyleValue<Exclude<T, undefined>>)
   | StyleProp
 
 export type CSSProps = {

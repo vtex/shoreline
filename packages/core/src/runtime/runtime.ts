@@ -4,6 +4,7 @@ import { CSSObject as EmotionCSSObject } from '@emotion/css'
 import { createRuntime } from '@vtex/onda-system'
 
 import { StyleObject, StyleProp } from './types'
+import { resposiveScale } from './experimental/responsiveScale'
 
 export const runtime = createRuntime({
   name: 'onda-runtime-emotion',
@@ -17,10 +18,11 @@ export const runtime = createRuntime({
   parser: (steps) => {
     return function css(csx: StyleProp = {}) {
       const cssObject: EmotionCSSObject = {}
+      const responsive = resposiveScale(csx as any)
 
-      for (const key in csx) {
+      for (const key in responsive) {
         const cssProperty = steps.aliases.exec(key)
-        const token = csx[key as keyof typeof csx]
+        const token = responsive[key as keyof typeof responsive]
 
         if (token && typeof token === 'object') {
           cssObject[cssProperty] = css(token as StyleObject)
@@ -31,7 +33,7 @@ export const runtime = createRuntime({
         const transform = steps.transforms(cssProperty)
         const value = transform.exec(rule, token)
 
-        if (typeof value === 'object') {
+        if (!!value && typeof value === 'object') {
           // handle default entries on rules
           if (value.default) {
             // handle object rules
