@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.106.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.2...@vtex/admin-ui@0.106.3) (2021-07-22)
+
+
+### Bug Fixes
+
+* **usepaginationstate:** fix initial state of pagination ([320b2b8](https://github.com/vtex/onda/commit/320b2b8ff1289bef093e77f43feef048d8367e25))
+
+
+
+
+
 ## [0.106.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.1...@vtex/admin-ui@0.106.2) (2021-07-20)
 
 

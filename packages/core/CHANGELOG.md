@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-labs.6](https://github.com/vtex/onda/compare/@vtex/onda-core@0.1.0-labs.5...@vtex/onda-core@0.1.0-labs.6) (2021-07-22)
+
+
+### Features
+
+* **onda-core:** allow responsive arrays ([8810846](https://github.com/vtex/onda/commit/88108466ea8ff23457d743c589bc850e1a8308f1))
+
+
+
+
+
 # [0.1.0-labs.5](https://github.com/vtex/onda/compare/@vtex/onda-core@0.1.0-labs.4...@vtex/onda-core@0.1.0-labs.5) (2021-07-19)
 
 
