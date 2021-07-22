@@ -23,3 +23,21 @@ export function Basic() {
     />
   )
 }
+
+export function InitialState() {
+  const state = usePaginationState({
+    size: 5,
+    paginationInitialState: { currentPage: 2, range: [6, 10] },
+  })
+
+  return (
+    <Pagination
+      state={state}
+      total={74}
+      preposition="of"
+      subject="results"
+      prevLabel="Previous"
+      nextLabel="Next"
+    />
+  )
+}

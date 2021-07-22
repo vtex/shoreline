@@ -11,9 +11,9 @@ export function usePaginationState(
   } = params
 
   const [state, dispatch] = useReducer(paginationReducer, {
-    ...paginationInitialState,
     currentPage: 1,
     range: [1, size],
+    ...paginationInitialState,
   })
 
   const paginate = useCallback(
