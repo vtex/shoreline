@@ -3,6 +3,7 @@ import { render } from '@testing-library/react'
 import { ThemeProvider } from '@vtex/admin-core'
 
 import { Pagination } from './index'
+import { usePaginationState } from './usePaginationState'
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
@@ -44,4 +45,34 @@ describe('Pagination tests', () => {
       'coral'
     )
   })
+})
+
+it('should starts in a specific page', () => {
+  const PaginationWithInitialValue = () => {
+    const state = usePaginationState({
+      size: 5,
+      paginationInitialState: { currentPage: 2, range: [6, 10] },
+    })
+
+    return (
+      <Pagination
+        state={state}
+        data-testid="pagination"
+        total={50}
+        preposition="of"
+        subject="results"
+        prevLabel="Previous"
+        nextLabel="Next"
+        csx={{ bg: 'coral' }}
+      />
+    )
+  }
+
+  const { getByTestId } = render(
+    <ThemeProvider>
+      <PaginationWithInitialValue />
+    </ThemeProvider>
+  )
+
+  expect(getByTestId('pagination')).toHaveTextContent('6 — 10 of 50 results')
 })
