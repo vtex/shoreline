@@ -24,6 +24,7 @@
   "scripts": {
     "lerna": "lerna",
     "build": "lerna run build",
+    "build:fast": "lerna run build:fast",
     "test": "lerna run test",
     "start": "lerna run start",
     "version": "lerna run version",

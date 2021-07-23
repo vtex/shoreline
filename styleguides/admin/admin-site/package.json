@@ -2,13 +2,13 @@
   "name": "admin-site",
   "version": "0.12.42",
   "private": true,
-  "description": "AdminUI site",
+  "description": "Admin UI site",
   "license": "MIT",
   "repository": "https://github.com/vtex/onda/tree/master/styleguides/admin/site",
   "scripts": {
     "clean": "gatsby clean",
     "prebuild-site": "yarn clean",
-    "build-site": "yarn --cwd ../../../ build && yarn gatsby build",
+    "build-site": "yarn --cwd ../../../ build:fast && yarn gatsby build",
     "predevelop": "yarn clean",
     "develop": "gatsby develop -H 0.0.0.0 -p 8000"
   },
