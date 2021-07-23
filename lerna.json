@@ -1,8 +1,6 @@
 {
   "packages": [
     "packages/*",
-    "components/*",
-    "styleguides/brand-ui",
     "styleguides/admin/*"
   ],
   "npmClient": "yarn",
