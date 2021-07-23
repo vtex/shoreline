@@ -1,5 +1,0 @@
-{
-  "buildCommand": "build",
-  "packages": ["styleguides/admin-ui"],
-  "sandboxes": ["admin-ui-template-3w0d6"]
-}

@@ -4,13 +4,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "components/*",
-      "styleguides/brand-ui",
       "styleguides/admin/*"
-    ],
-    "nohoist": [
-      "**/theme-ui",
-      "**/theme-ui/**"
     ]
   },
   "repository": {
@@ -41,8 +35,6 @@
     "site:admin": "yarn --cwd styleguides/admin/admin-site develop",
     "build-storybook:admin": "yarn workspace @vtex/admin-storybook build:storybook",
     "build-site:admin": "yarn --cwd styleguides/admin/admin-site build-site",
-    "storybook:brand": "yarn --cwd styleguides/brand-ui storybook",
-    "build-storybook:brand": "yarn --cwd styleguides/brand-ui build-storybook",
     "build:admin-ui": "yarn workspace @vtex/admin-ui build",
     "build:admin-theme": "yarn workspace @vtex/admin-ui-theme build",
     "build:admin-icons": "yarn workspace @vtex/admin-ui-icons build"
