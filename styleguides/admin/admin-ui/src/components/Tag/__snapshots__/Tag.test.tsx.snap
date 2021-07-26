@@ -471,7 +471,7 @@ exports[`Tag tests should match snapshot 1`] = `
   >
     tag-9
     <button
-      aria-label="tag-9-tag-button-delete"
+      aria-label="tag-9"
       class="emotion-3"
       type="button"
     >
@@ -657,7 +657,7 @@ exports[`Tag tests should match snapshot 1`] = `
     </svg>
     tag-10
     <button
-      aria-label="tag-10-tag-button-delete"
+      aria-label="tag-10"
       class="emotion-4"
       type="button"
     >
