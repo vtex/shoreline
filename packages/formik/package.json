@@ -1,0 +1,45 @@
+{
+  "name": "@vtex/admin-formik",
+  "version": "0.1.31",
+  "main": "dist/index.js",
+  "module": "dist/admin-formik.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/formik",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
+    "test": "tsdx test"
+  },
+  "peerDependencies": {
+    "@vtex/admin-ui": ">=0",
+    "formik": ">=2",
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "devDependencies": {
+    "@vtex/admin-ui": "^0.106.3",
+    "formik": "^2.2.6",
+    "jest-environment-jsdom-fourteen": "^1.0.1",
+    "react-intl": "^5.8.1",
+    "yup": "^0.32.8"
+  }
+}

@@ -3,7 +3,7 @@ import warning from 'tiny-warning'
 // @ts-expect-error: it is not typed correctly
 import Props, { PropsTable } from 'pretty-proptypes'
 
-import * as AdminUILib from '../../../../styleguides/admin/admin-ui'
+import * as AdminUILib from '../../../admin-ui'
 
 interface Props {
   /** target component */

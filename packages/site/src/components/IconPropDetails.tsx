@@ -4,7 +4,7 @@ import warning from 'tiny-warning'
 // @ts-expect-error: it is not typed correctly
 import Props, { PropsTable } from 'pretty-proptypes'
 
-import * as IconLib from '../../../../styleguides/admin/admin-ui-icons'
+import * as IconLib from '../../../icons'
 
 interface Props {
   heading: string

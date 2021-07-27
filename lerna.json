@@ -1,7 +1,6 @@
 {
   "packages": [
-    "packages/*",
-    "styleguides/admin/*"
+    "packages/*"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,
