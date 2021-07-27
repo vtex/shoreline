@@ -1,0 +1,38 @@
+{
+  "name": "@vtex/eslint-plugin-admin-ui",
+  "license": "MIT",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/eslint-plugin-admin-ui.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/eslint-plugin-admin-ui",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
+  "devDependencies": {
+    "@types/estree": "^0.0.47",
+    "eslint": "^7.30.0"
+  }
+}
