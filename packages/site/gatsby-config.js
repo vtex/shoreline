@@ -7,14 +7,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    // TODO: create /static folder
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'images',
-    //     path: `${__dirname}/src/images`,
-    //   },
-    // },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -25,16 +17,14 @@ module.exports = {
         start_url: '/',
         background_color: '#2953B2',
         theme_color: '#2953B2',
-        display: 'minimal-ui',
-        // TODO: add icon
-        // icon: 'src/images/icon.svg',
+        display: 'minimal-ui'
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'documentation',
-        path: `${__dirname}/../documentation`,
+        path: `${__dirname}/documentation`,
       },
     },
     {
@@ -77,7 +67,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'navigation',
-        path: `${__dirname}/../documentation`,
+        path: `${__dirname}/documentation`,
       },
     },
     'gatsby-plugin-meta-redirect',

@@ -32,6 +32,8 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
+    "@vtex/admin-ui": "^0.106.3",
+    "@types/eslint": "^7.28.0",
     "@types/estree": "^0.0.47",
     "eslint": "^7.30.0"
   }
