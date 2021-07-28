@@ -1,7 +1,7 @@
 import { Rule } from 'eslint'
-import * as ESTree from 'estree'
+import { Node } from 'estree'
 
-export const getFunctionNodeName = (node: ESTree.Function) => {
+export const getFunctionNodeName = (node: Node) => {
   if (node.type === 'FunctionDeclaration') {
     return node.id?.name ?? ''
   }

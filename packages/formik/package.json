@@ -1,8 +1,8 @@
 {
-  "name": "@vtex/admin-core",
-  "version": "0.10.16",
+  "name": "@vtex/admin-formik",
+  "version": "0.1.31",
   "main": "dist/index.js",
-  "module": "dist/admin-core.esm.js",
+  "module": "dist/admin-formik.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -16,7 +16,7 @@
     "node": ">=10"
   },
   "repository": {
-    "directory": "packages/core",
+    "directory": "packages/formik",
     "type": "git",
     "url": "git+https://github.com/vtex/onda.git"
   },
@@ -27,21 +27,19 @@
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
     "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
-    "test": "tsdx test --passWithNoTests"
+    "test": "tsdx test"
   },
   "peerDependencies": {
-    "@emotion/css": ">=11",
-    "@emotion/react": ">=11",
+    "@vtex/admin-ui": ">=0",
+    "formik": ">=2",
     "react": ">=16",
     "react-dom": ">=16"
   },
-  "dependencies": {
-    "@vtex/admin-ui-system": "^0.15.1",
-    "@vtex/admin-ui-theme": "^0.26.8",
-    "deepmerge": "^4.2.2",
-    "focus-visible": "^5.1.0",
-    "react-helmet": "6.1.0",
-    "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3"
+  "devDependencies": {
+    "@vtex/admin-ui": "^0.106.3",
+    "formik": "^2.2.6",
+    "jest-environment-jsdom-fourteen": "^1.0.1",
+    "react-intl": "^5.8.1",
+    "yup": "^0.32.8"
   }
 }

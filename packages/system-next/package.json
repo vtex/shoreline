@@ -1,8 +1,9 @@
 {
-  "name": "@vtex/admin-core",
-  "version": "0.10.16",
+  "name": "@vtex/onda-system",
+  "license": "MIT",
+  "version": "0.1.0-labs.2",
   "main": "dist/index.js",
-  "module": "dist/admin-core.esm.js",
+  "module": "dist/onda-system.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -16,7 +17,7 @@
     "node": ">=10"
   },
   "repository": {
-    "directory": "packages/core",
+    "directory": "packages/system-next",
     "type": "git",
     "url": "git+https://github.com/vtex/onda.git"
   },
@@ -27,21 +28,10 @@
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
     "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
-    "test": "tsdx test --passWithNoTests"
-  },
-  "peerDependencies": {
-    "@emotion/css": ">=11",
-    "@emotion/react": ">=11",
-    "react": ">=16",
-    "react-dom": ">=16"
+    "test": "tsdx test"
   },
   "dependencies": {
-    "@vtex/admin-ui-system": "^0.15.1",
-    "@vtex/admin-ui-theme": "^0.26.8",
-    "deepmerge": "^4.2.2",
-    "focus-visible": "^5.1.0",
-    "react-helmet": "6.1.0",
-    "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3"
+    "@vtex/onda-util": "^0.1.0-labs.2",
+    "tiny-invariant": "^1.1.0"
   }
 }

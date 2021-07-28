@@ -3,8 +3,7 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*",
-      "styleguides/admin/*"
+      "packages/*"
     ]
   },
   "repository": {
@@ -22,23 +21,17 @@
     "test": "lerna run test",
     "start": "lerna run start",
     "version": "lerna run version",
-    "build:onda": "lerna run --scope @vtex/onda-* build",
-    "test:onda": "lerna run --scope @vtex/onda-* test",
-    "build:onda:fast": "lerna run --scope @vtex/onda-* build:fast",
     "prepublish:main": "yarn && yarn build",
     "prepublish:experimental": "yarn && yarn build",
     "publish:main": "lerna publish",
     "publish:experimental": "lerna publish --preid experimental --dist-tag experimental",
     "clean": "lerna clean && lerna run clean",
-    "format": "prettier --write \"styleguides/**/*.{ts,js,tsx,jsx,json}\"",
-    "lint": "eslint styleguides/ --ext .js,.ts,.jsx,.tsx",
-    "storybook:admin": "yarn workspace @vtex/admin-storybook start",
-    "site:admin": "yarn --cwd styleguides/admin/admin-site develop",
-    "build-storybook:admin": "yarn workspace @vtex/admin-storybook build:storybook",
-    "build-site:admin": "yarn --cwd styleguides/admin/admin-site build-site",
-    "build:admin-ui": "yarn workspace @vtex/admin-ui build",
-    "build:admin-theme": "yarn workspace @vtex/admin-ui-theme build",
-    "build:admin-icons": "yarn workspace @vtex/admin-ui-icons build"
+    "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\"",
+    "lint": "eslint packages/ --ext .js,.ts,.jsx,.tsx",
+    "storybook": "start-storybook -p 6006",
+    "build:storybook": "yarn run build && yarn run build-storybook",
+    "site": "yarn --cwd packages/site develop",
+    "build:site": "yarn --cwd packages/site build-site"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
