@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.106.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.4...@vtex/admin-ui@0.106.5) (2021-07-28)
+
+### Bug Fixes
+
+- **data-grid:** wrap context providers around children ([9b97702](https://github.com/vtex/onda/commit/9b97702b21cf07761e3165b07fc9444f54a2ae9f))
+
 ## [0.106.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.3...@vtex/admin-ui@0.106.4) (2021-07-28)
 
 **Note:** Version bump only for package @vtex/admin-ui
