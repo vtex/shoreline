@@ -1,8 +1,9 @@
-import React, { ReactNode, forwardRef, Ref, PropsWithChildren } from 'react'
-
-import { StyleProp } from '@vtex/admin-core'
-import { SystemComponent } from '../../types'
+import type { ReactNode, Ref, PropsWithChildren } from 'react'
+import React, { forwardRef } from 'react'
+import type { StyleProp } from '@vtex/admin-core'
 import { Box } from '@vtex/admin-primitives'
+
+import type { SystemComponent } from '../../types'
 
 export const Paragraph = forwardRef(function Paragraph(
   props: PropsWithChildren<ParagraphProps>,

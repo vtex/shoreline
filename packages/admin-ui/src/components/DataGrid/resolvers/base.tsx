@@ -1,9 +1,15 @@
-import { plainResolver, PlainResolver } from './plain'
-import { dateResolver, DateResolver } from './date'
-import { currencyResolver, CurrencyResolver } from './currency'
-import { rootResolver, RootResolver } from './root'
-import { imageResolver, ImageResolver } from './image'
-import { SelectionResolver, selectionResolver } from './selection'
+import type { PlainResolver } from './plain'
+import { plainResolver } from './plain'
+import type { DateResolver } from './date'
+import { dateResolver } from './date'
+import type { CurrencyResolver } from './currency'
+import { currencyResolver } from './currency'
+import type { RootResolver } from './root'
+import { rootResolver } from './root'
+import type { ImageResolver } from './image'
+import { imageResolver } from './image'
+import type { SelectionResolver } from './selection'
+import { selectionResolver } from './selection'
 
 /**
  * Table base resolvers

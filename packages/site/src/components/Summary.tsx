@@ -1,5 +1,6 @@
 import { useSystem } from '@vtex/admin-ui'
-import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
+import type { BoxHTMLProps, BoxOptions } from 'reakit'
+import { useBox } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
 
 import { useAnchor } from './Anchor'

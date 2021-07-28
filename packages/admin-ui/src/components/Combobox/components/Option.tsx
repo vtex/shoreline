@@ -1,7 +1,8 @@
-import React, { ElementType, forwardRef, ReactElement } from 'react'
-import { StyleObject } from '@vtex/admin-core'
+import type { ElementType, ReactElement } from 'react'
+import React, { forwardRef } from 'react'
+import type { StyleObject } from '@vtex/admin-core'
 
-import { PolymorphicProps } from '../types'
+import type { PolymorphicProps } from '../types'
 import { useStateContext } from '../context'
 import { useElementProps } from '../hooks/useElementProps'
 
@@ -31,6 +32,7 @@ export const Option: <E extends ElementType = typeof defaultElement>(
       combobox: { getItemProps },
       source: { render },
     } = useStateContext()
+
     const elementProps = useElementProps(As, restProps)
 
     const liProps = getItemProps({ item, index })

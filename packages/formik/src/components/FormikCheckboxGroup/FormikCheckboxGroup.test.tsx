@@ -1,14 +1,13 @@
 import React from 'react'
-
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { axe } from 'jest-axe'
-
 import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
-import { FormikCheckboxGroup } from './index'
 import { Button, Label, Text } from '@vtex/admin-ui'
+
+import { FormikCheckboxGroup } from './index'
 
 describe('CheckboxGroup tests', () => {
   it('change value in formik by input component', async () => {
@@ -40,6 +39,7 @@ describe('CheckboxGroup tests', () => {
     )
 
     const option2 = screen.getByText(options[2])
+
     userEvent.click(option2)
     await waitFor(() =>
       expect(
@@ -48,6 +48,7 @@ describe('CheckboxGroup tests', () => {
     )
 
     const option1 = screen.getByText(options[1])
+
     userEvent.click(option1)
     await waitFor(() =>
       expect(
@@ -103,6 +104,7 @@ describe('CheckboxGroup tests', () => {
     )
 
     const option2 = screen.getByText(options[2])
+
     userEvent.click(option2)
     await waitFor(() =>
       expect(
@@ -170,6 +172,7 @@ describe('CheckboxGroup tests', () => {
     )
 
     const option2 = screen.getByText(options[2])
+
     userEvent.click(option2)
     await waitFor(() =>
       expect(
@@ -304,6 +307,7 @@ describe('CheckboxGroup tests', () => {
     )
 
     const error = screen.getByText(options[3])
+
     userEvent.click(error)
     await waitFor(() =>
       expect(
@@ -400,13 +404,14 @@ describe('CheckboxGroup tests', () => {
 
     const { rerender } = render(
       <ThemeProvider>
-        <IntlProvider locale={'en'} messages={messagesEN}>
+        <IntlProvider locale="en" messages={messagesEN}>
           <Content validate={validate} />
         </IntlProvider>
       </ThemeProvider>
     )
 
     const error = screen.getByText(options[3])
+
     userEvent.click(error)
     error.blur()
     userEvent.click(document.body)
@@ -422,7 +427,7 @@ describe('CheckboxGroup tests', () => {
 
     rerender(
       <ThemeProvider>
-        <IntlProvider locale={'en'} messages={messagesEN}>
+        <IntlProvider locale="en" messages={messagesEN}>
           <Content validate={validate2} />
         </IntlProvider>
       </ThemeProvider>
@@ -471,6 +476,7 @@ describe('CheckboxGroup tests', () => {
     )
 
     const option2 = screen.getByText(options[2])
+
     userEvent.click(option2)
     await waitFor(() =>
       expect(

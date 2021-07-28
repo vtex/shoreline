@@ -1,8 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-
-import { Checkbox, useCheckboxState, CheckboxStateReturn } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
+
+import type { CheckboxStateReturn } from './index'
+import { Checkbox, useCheckboxState } from './index'
 
 function CheckboxState({
   children,

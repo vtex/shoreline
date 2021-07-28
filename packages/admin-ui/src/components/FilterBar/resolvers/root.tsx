@@ -1,7 +1,8 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import invariant from 'tiny-invariant'
-import { ResolverRenderProps } from './core'
+
 import { createResolver } from './core'
+import type { ResolverRenderProps } from './core'
 
 /**
  * Resolver that renders a specific component.
@@ -28,7 +29,7 @@ export function rootResolver<T>() {
         'Resolver is required while using the root resolver on FilterBar'
       )
 
-      const render = resolver.render
+      const { render } = resolver
 
       return render({
         data: null,
@@ -43,5 +44,5 @@ export function rootResolver<T>() {
 export type RootResolver<T> = {
   type: 'root'
   defaultValue: T
-  render: (props: ResolverRenderProps<T, null>) => ReactNode
+  render: (props: ResolverRenderProps<T>) => ReactNode
 }

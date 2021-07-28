@@ -1,5 +1,6 @@
 import { useContext, createContext } from 'react'
-import { useSearchState } from '.'
+
+import type { useSearchState } from '.'
 
 const SearchContext = createContext<ReturnType<typeof useSearchState>>({
   current: '',
@@ -8,6 +9,7 @@ const SearchContext = createContext<ReturnType<typeof useSearchState>>({
 
 export function useSearchContext() {
   const ctx = useContext(SearchContext)
+
   return ctx
 }
 

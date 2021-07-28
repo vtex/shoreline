@@ -7,7 +7,8 @@ import { Cell } from './components/Cell'
 import { Section } from './components/Section'
 import { Toolbar } from './components/Toolbar'
 import { Search } from './components/Search'
-import { DataGridState, useDataGridState } from './hooks/useDataGridState'
+import type { DataGridState } from './hooks/useDataGridState'
+import { useDataGridState } from './hooks/useDataGridState'
 import { StateContext } from './context'
 import { Status } from './components/Status'
 import { createColumns } from './createColumns'
@@ -21,6 +22,7 @@ const _Table = jsx.table(
   {
     useOptions(_, props) {
       const { children, ...tableProps } = props
+
       return {
         ...tableProps,
         children: children ?? (

@@ -1,13 +1,14 @@
 // Any is allowed in this file. Its used to grant composability
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import React, { ReactNode, Fragment } from 'react'
+import type { ReactNode } from 'react'
+import React, { Fragment } from 'react'
 import warning from 'tiny-warning'
 import { get } from '@vtex/admin-core'
 
-import { DataGridColumn, DataGridDensity } from '../typings'
-import { SortOrder, SortState } from '../hooks/useDataGridSort'
-import { Status, StatusObject } from '../hooks/useStatus'
+import type { DataGridColumn, DataGridDensity } from '../typings'
+import type { SortOrder, SortState } from '../hooks/useDataGridSort'
+import type { Status, StatusObject } from '../hooks/useStatus'
 
 /**
  * Used to recursive define resolver
@@ -111,7 +112,8 @@ export function resolveHeader<T>(
   const { header } = resolvers[id]
 
   const isSortable =
-    (Boolean(column.compare) || Boolean(column.sortable)) && !(context.status === 'loading')
+    (Boolean(column.compare) || Boolean(column.sortable)) &&
+    !(context.status === 'loading')
 
   const sortDirection = sortState.by === column.id ? sortState.order : null
 
@@ -186,7 +188,7 @@ export function accessCell<T>(column: DataGridColumn<T>, item: T) {
   switch (typeof accessor) {
     case 'string': {
       const resolved = get(
-        (item as unknown) as Record<string, unknown>,
+        item as unknown as Record<string, unknown>,
         accessor,
         undefined
       )

@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleObject } from '@vtex/admin-core'
+import type React from 'react'
+import type { StyleObject } from '@vtex/admin-core'
 
 /**
  * "as" prop

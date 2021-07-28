@@ -1,10 +1,5 @@
-import React, {
-  cloneElement,
-  ComponentPropsWithoutRef,
-  Fragment,
-  ReactElement,
-  ReactNode,
-} from 'react'
+import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
+import React, { cloneElement, Fragment } from 'react'
 import { useSystem, merge } from '@vtex/admin-core'
 import {
   IconSearch,
@@ -12,15 +7,17 @@ import {
   IconHistory,
   IconContainer,
 } from '@vtex/admin-ui-icons'
-import { motion, AnimateSharedLayout, Variants } from 'framer-motion'
+import type { Variants } from 'framer-motion'
+import { motion, AnimateSharedLayout } from 'framer-motion'
 
 import { Button } from '../Button'
-import { SystemComponent } from '../../types'
+import type { SystemComponent } from '../../types'
 import { useStateContext, StateContext } from './context'
 import styles from './styles'
 import { Label } from '../Label'
 import { VisuallyHidden } from '../VisuallyHidden'
-import { Intl, Locale, useLocale, LocaleProvider } from './intl'
+import type { Locale } from './intl'
+import { Intl, useLocale, LocaleProvider } from './intl'
 import { Paragraph } from '../Paragraph'
 
 export { unstableUseSearchBoxState } from './hooks/useSearchBoxState'
@@ -94,6 +91,7 @@ function Input(props: InputProps) {
     if (onFocus) {
       onFocus(e)
     }
+
     openMenu()
   }
 
@@ -139,6 +137,7 @@ function Menu(props: MenuProps) {
     combobox: { getMenuProps, highlightedIndex, isOpen },
     collection: { items, type },
   } = useStateContext()
+
   const { cn } = useSystem()
 
   const menuProps = getMenuProps()
@@ -163,6 +162,7 @@ function Menu(props: MenuProps) {
         {displaySuggestions &&
           items.map((item: any, index: number) => {
             const highlighted = highlightedIndex === index
+
             return (
               <Fragment key={index}>
                 {cloneElement(children as any, {
@@ -180,6 +180,7 @@ function Menu(props: MenuProps) {
 
 function EmptyView() {
   const { cn } = useSystem()
+
   return (
     <motion.li
       layout
@@ -226,6 +227,7 @@ function Suggestion(props: SuggestionProps) {
     combobox: { getItemProps },
     collection: { type },
   } = useStateContext()
+
   const { cn } = useSystem()
   const className = cn(merge(styles.option(highlighted), csx))
   const liProps = getItemProps({ item, index })
@@ -270,6 +272,7 @@ type KbdProps = ComponentPropsWithoutRef<'kbd'>
  */
 function Kbd(props: KbdProps) {
   const { cn } = useSystem()
+
   return <motion.kbd className={cn(styles.kbd)} {...(props as any)} layout />
 }
 

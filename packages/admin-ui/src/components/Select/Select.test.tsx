@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { UseSelectProps } from 'downshift'
-
-import { Select, useSelectState, UseSelectReturnValue } from './index'
+import type { UseSelectProps } from 'downshift'
 import { ThemeProvider } from '@vtex/admin-core'
+
+import type { UseSelectReturnValue } from './index'
+import { Select, useSelectState } from './index'
 
 interface SelectStateProps<T> extends UseSelectProps<T> {
   children: (state: UseSelectReturnValue<T>) => JSX.Element

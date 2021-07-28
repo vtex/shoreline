@@ -1,12 +1,11 @@
-import { BaseResolvers } from './resolvers/base'
-import { DataGridColumn } from './typings'
+import type { DataGridColumn } from './typings'
 
 /**
  * Utility to create typesafe columns
- * @param columns 
+ * @param columns
  */
 export function createColumns<T>(
-  columns: DataGridColumn<T, BaseResolvers<T>>[]
-): DataGridColumn<T, BaseResolvers<T>>[] {
+  columns: Array<DataGridColumn<T>>
+): Array<DataGridColumn<T>> {
   return columns
 }

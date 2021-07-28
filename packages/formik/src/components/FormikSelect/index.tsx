@@ -1,11 +1,11 @@
 import React from 'react'
-import { Select, useSelectState, SelectProps } from '@vtex/admin-ui'
+import type { SelectProps } from '@vtex/admin-ui'
+import { Select, useSelectState } from '@vtex/admin-ui'
 import { useField } from 'formik'
+
 import { handleErrorMessage, useSyncedState } from '../util'
 
-export const FormikSelect = <T extends unknown>(
-  props: FormikSelectProps<T>
-) => {
+export const FormikSelect = <T,>(props: FormikSelectProps<T>) => {
   const {
     name,
     items,
@@ -23,12 +23,13 @@ export const FormikSelect = <T extends unknown>(
   const itemState = useSelectState({
     items,
     initialSelectedItem: meta.initialValue,
-    itemToString: itemToString
-      ? itemToString
-      : (item: T | null) => {
-          if (typeof item !== 'string') return ''
-          return item
-        },
+    itemToString:
+      itemToString ||
+      ((item: T | null) => {
+        if (typeof item !== 'string') return ''
+
+        return item
+      }),
   })
 
   useSyncedState(

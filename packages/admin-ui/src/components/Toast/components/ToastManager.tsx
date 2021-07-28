@@ -1,8 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { ThemeProvider } from '@vtex/admin-core'
+
 import { Toaster } from './Toaster'
-import {
+import type {
   ToastManagerProps,
   ToastManagerState,
   ToastOptions,
@@ -64,15 +65,16 @@ export class ToastManager {
     )
   }
 
-  public constructor(props: ToastManagerProps) {
+  constructor(props: ToastManagerProps) {
     if (!isBrowser) {
       console.warn('Toasts can only be rendered on the client-side.')
+
       return
     }
 
     const { subframe } = props
 
-    const documentRef = !!subframe ? window.top.document : document
+    const documentRef = subframe ? window.top.document : document
 
     const existingPortal = documentRef.getElementById(this.portalId)
 
@@ -80,6 +82,7 @@ export class ToastManager {
       this.portal = existingPortal
     } else {
       const div = documentRef.createElement('div')
+
       div.id = this.portalId
       documentRef.body.appendChild(div)
       this.portal = div

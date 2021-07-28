@@ -1,9 +1,11 @@
 import React from 'react'
-import { StyleObject, useSystem } from '@vtex/admin-core'
+import type { StyleObject } from '@vtex/admin-core'
+import { useSystem } from '@vtex/admin-core'
 import { isFunction, capitalize } from '@vtex/onda-util'
 
-import { ExtractHTMLAttributes, RenderProp } from './types'
-import { DOMElements, domElements } from './domElements'
+import type { ExtractHTMLAttributes, RenderProp } from './types'
+import type { DOMElements } from './domElements'
+import { domElements } from './domElements'
 
 /**
  * Creates onda jsx elements
@@ -19,7 +21,7 @@ import { DOMElements, domElements } from './domElements'
  *
  * <Box as={Link} to="/">Gatsby Link</Box>
  */
-function _tag<T extends React.ElementType<any>, Props>(
+function _tag<T extends React.ElementType, Props>(
   type: T
 ): OndaElement<T, Props> {
   function Element(props: ElementPropsWithAs<Props, T>, ref: React.Ref<T>) {
@@ -30,6 +32,7 @@ function _tag<T extends React.ElementType<any>, Props>(
       csx = {},
       ...forwardProps
     } = props
+
     const { cn, cx } = useSystem()
 
     return (
@@ -45,7 +48,7 @@ function _tag<T extends React.ElementType<any>, Props>(
 
   Element.displayName = capitalize(String(type) ?? 'Onda')
 
-  return (React.forwardRef(Element) as unknown) as OndaElement<T, Props>
+  return React.forwardRef(Element) as unknown as OndaElement<T, Props>
 }
 
 /**
@@ -69,17 +72,14 @@ domElements.forEach((t) => {
   tag[t] = _tag(t)
 })
 
-export type OndaElement<T extends React.ElementType<any>, Props> = {
-  <TT extends React.ElementType<any>>(
+export type OndaElement<T extends React.ElementType, Props> = {
+  <TT extends React.ElementType>(
     props: ElementPropsWithAs<Props, TT> & { as: TT }
   ): JSX.Element
   (props: ElementPropsWithAs<Props, T>): JSX.Element
 }
 
-export type ElementPropsWithAs<
-  Props,
-  T extends React.ElementType<any>
-> = Props &
+export type ElementPropsWithAs<Props, T extends React.ElementType> = Props &
   Omit<React.ComponentPropsWithRef<T>, 'as' | keyof Props> & {
     csx?: StyleObject
     className?: string

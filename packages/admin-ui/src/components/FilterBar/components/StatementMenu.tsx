@@ -1,8 +1,9 @@
 import React from 'react'
-
-import { Menu, MenuProps } from '../../Menu'
-import { Button } from '../../Button'
 import { IconAction } from '@vtex/admin-ui-icons'
+
+import type { MenuProps } from '../../Menu'
+import { Menu } from '../../Menu'
+import { Button } from '../../Button'
 
 export function StatementMenu(props: Omit<MenuProps, 'disclosure'>) {
   const { children, ...menuProps } = props

@@ -1,7 +1,8 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 
-import { Anchor, AnchorProps } from './index'
+import type { AnchorProps } from './index'
+import { Anchor } from './index'
 import { Paragraph } from '../Paragraph'
 import { List } from '../List'
 

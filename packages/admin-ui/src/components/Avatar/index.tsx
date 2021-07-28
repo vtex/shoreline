@@ -1,5 +1,6 @@
 import React from 'react'
-import { jsx, tag, PropsWithAs } from '@vtex/onda-react'
+import type { PropsWithAs } from '@vtex/onda-react'
+import { jsx, tag } from '@vtex/onda-react'
 
 /**
  * Component to create a user avatar from a passed label
@@ -11,49 +12,49 @@ import { jsx, tag, PropsWithAs } from '@vtex/onda-react'
  * <Avatar label="label" palette="danger" />
  * ```
  */
-export const Avatar = jsx.div({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: 24,
-  height: 24,
-  padding: 2,
-  borderRadius: 'circle',
-  textTransform: 'uppercase',
-  variants: {
-    palette: {
-      base: {
-        bg: 'dark.primary',
-        color: 'light.primary',
-      },
-      primary: {
-        bg: 'blue',
-        color: 'light.primary',
-      },
-      danger: {
-        bg: 'red',
-        color: 'light.primary',
+export const Avatar = jsx.div(
+  {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 24,
+    height: 24,
+    padding: 2,
+    borderRadius: 'circle',
+    textTransform: 'uppercase',
+    variants: {
+      palette: {
+        base: {
+          bg: 'dark.primary',
+          color: 'light.primary',
+        },
+        primary: {
+          bg: 'blue',
+          color: 'light.primary',
+        },
+        danger: {
+          bg: 'red',
+          color: 'light.primary',
+        },
       },
     },
   },
-}, {
-  options: ['label'],
-  useOptions: (options: AvatarOptions, props) => {
-    const { label } = options
-    const content = label?.charAt(0)
-    return {
-      ...props,
-      children: (
-        <tag.div csx={{ text: 'highlight' }}>
-          {content}
-        </tag.div>
-      )
-    }
+  {
+    options: ['label'],
+    useOptions: (options: AvatarOptions, props) => {
+      const { label } = options
+      const content = label?.charAt(0)
+
+      return {
+        ...props,
+        children: <tag.div csx={{ text: 'highlight' }}>{content}</tag.div>,
+      }
+    },
   }
-})
+)
 
 Avatar.defaultProps = {
-  palette: 'base'
+  palette: 'base',
 }
 
 interface AvatarOptions {

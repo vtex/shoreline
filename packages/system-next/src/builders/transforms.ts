@@ -1,5 +1,7 @@
 import { get, callOrReturn } from '@vtex/onda-util'
-import { Plugin, Rule, getTransforms } from '../plugin'
+
+import type { Plugin, Rule } from '../plugin'
+import { getTransforms } from '../plugin'
 
 /**
  * Builds transforms of all plugins
@@ -8,7 +10,7 @@ import { Plugin, Rule, getTransforms } from '../plugin'
  */
 export function buildTransforms<Theme extends Record<string, any>>(
   theme: Theme,
-  plugins: Plugin<Theme>[]
+  plugins: Array<Plugin<Theme>>
 ) {
   return function hydrateTransform(prop: string) {
     const transformations = plugins

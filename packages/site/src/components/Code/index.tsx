@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import Highlight, { defaultProps, Language } from 'prism-react-renderer'
+import type { Language } from 'prism-react-renderer'
+import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/github'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import {

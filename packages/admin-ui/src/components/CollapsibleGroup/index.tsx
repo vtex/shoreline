@@ -1,7 +1,8 @@
-import React, { Children, ReactNode, Fragment } from 'react'
+import type { ReactNode } from 'react'
+import React, { Children, Fragment } from 'react'
 import { isElement } from 'react-is'
 
-import { SystemComponent } from '../../types'
+import type { SystemComponent } from '../../types'
 import { Card } from '../Card'
 import { Divider } from '../Divider'
 import { Group } from '../Group'

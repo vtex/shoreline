@@ -1,9 +1,12 @@
-import React, { ReactNode, useEffect, useMemo } from 'react'
-import { HTMLAttributesWithRef } from 'reakit-utils/ts'
+import type { ReactNode } from 'react'
+import React, { useEffect, useMemo } from 'react'
+import type { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { Box } from '@vtex/admin-primitives'
+
 import { CompositeItem, useCompositeState } from '../Aria'
-import { SystemComponent } from '../../../../types'
-import { SidebarDisclosureProps, SidebarDisclosure } from './Disclosure'
+import type { SystemComponent } from '../../../../types'
+import type { SidebarDisclosureProps } from './Disclosure'
+import { SidebarDisclosure } from './Disclosure'
 import { SidebarSection } from './Section'
 import { ItemProvider, ArrowKeys } from './shared'
 import { useSidebarContext } from '../../context'
@@ -21,10 +24,11 @@ function _SidebarItem(props: SidebarItemProps) {
   } = props
 
   const state = useSidebarContext()
-  const selected = useMemo(() => state.isSelected(uniqueKey), [
-    uniqueKey,
-    state.isSelected,
-  ])
+  const selected = useMemo(
+    () => state.isSelected(uniqueKey),
+    [uniqueKey, state.isSelected]
+  )
+
   const compositeState = useCompositeState({
     baseId: 'item--',
     orientation: 'vertical',
@@ -46,6 +50,7 @@ function _SidebarItem(props: SidebarItemProps) {
       uniqueKey,
       expandable,
     }
+
     state.setSelectedItem(currItem)
   }
 

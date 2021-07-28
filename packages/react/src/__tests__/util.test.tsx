@@ -1,21 +1,23 @@
-import React, { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
+import React from 'react'
 
 import { jsx } from '../jsx'
 import { isOndaComponent, cleanProps, getStylesheet, getOptions } from '../util'
 
 describe('utils', () => {
-  test('isOndaComponent', () => {
+  it('isOndaComponent', () => {
     function FunctionComponent(props: ComponentPropsWithoutRef<'div'>) {
       return <div {...props} />
     }
-    
+
     const Plain = jsx('div')()
     const Aliased = jsx.div()
     const Themed = jsx('div')({
-      color: 'blue'
+      color: 'blue',
     })
+
     const Compound = jsx(FunctionComponent)({
-      bg: 'pink'
+      bg: 'pink',
     })
 
     expect(isOndaComponent(FunctionComponent)).toBe(false)
@@ -25,26 +27,25 @@ describe('utils', () => {
     expect(isOndaComponent(Compound)).toBe(true)
   })
 
-  test('getStylesheet', () => {
+  it('getStylesheet', () => {
     const stylesheet = {
       size: 10,
       variants: {
         theme: {
           primary: {
-            bg: 'blue'
+            bg: 'blue',
           },
           secondary: {
-            bg: 'purple'
-          }
-        }
-      }
+            bg: 'purple',
+          },
+        },
+      },
     }
 
     const Div = jsx.div(stylesheet)
     const Compound = jsx(Div)({
-      padding: 2
+      padding: 2,
     })
-
 
     expect(getStylesheet(Div)).toEqual(stylesheet)
     expect(getStylesheet(Compound)).toEqual({
@@ -53,7 +54,7 @@ describe('utils', () => {
     })
   })
 
-  test('getOptions', () => {
+  it('getOptions', () => {
     const Div = jsx.div({}, { options: ['a', 'b'] })
     const Compound = jsx(Div)({}, { options: ['c'] })
 
@@ -61,8 +62,7 @@ describe('utils', () => {
     expect(getOptions(Compound)).toEqual(['a', 'b', 'c'])
   })
 
-
-  test('cleanProps', () => {
+  it('cleanProps', () => {
     expect(cleanProps({})).toEqual({})
     expect(
       cleanProps({

@@ -1,12 +1,12 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import faker from 'faker'
 import { IconDevConsole } from '@vtex/admin-ui-icons'
 
 import { DataGrid } from '../index'
 import { useDataGridState } from '../hooks/useDataGridState'
-import { DataGridColumn } from '../typings'
-import { BaseResolvers } from '../resolvers/base'
+import type { DataGridColumn } from '../typings'
+import type { BaseResolvers } from '../resolvers/base'
 
 export default {
   title: 'admin-ui/DataGrid/toolbar',
@@ -29,7 +29,7 @@ const items = [...Array(10).keys()].map((id) => {
   }
 })
 
-const columns: DataGridColumn<Item, BaseResolvers<Item>>[] = [
+const columns: Array<DataGridColumn<Item, BaseResolvers<Item>>> = [
   {
     id: 'name',
     header: 'Product Name',
@@ -58,7 +58,9 @@ export function WithButtons() {
   return (
     <DataGrid state={state} csx={{ width: 560 }}>
       <DataGrid.Toolbar>
-        <DataGrid.Toolbar.Button icon={<IconDevConsole />}>Download Code</DataGrid.Toolbar.Button>
+        <DataGrid.Toolbar.Button icon={<IconDevConsole />}>
+          Download Code
+        </DataGrid.Toolbar.Button>
       </DataGrid.Toolbar>
       <DataGrid.Table />
     </DataGrid>

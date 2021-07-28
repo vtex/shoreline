@@ -1,10 +1,11 @@
+import type { CheckboxProps as ReakitProps } from 'reakit/Checkbox'
 import {
   Checkbox as ReakitCheckbox,
-  CheckboxProps as ReakitProps,
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit/Checkbox'
-import { jsx, ComponentProps } from '@vtex/onda-react'
+import type { ComponentProps } from '@vtex/onda-react'
+import { jsx } from '@vtex/onda-react'
 
 export const Checkbox = jsx(ReakitCheckbox)(
   {

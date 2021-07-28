@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-
-import { Tabs, useTabState, TabStateReturn } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
 import { axe } from 'jest-axe'
+
+import type { TabStateReturn } from './index'
+import { Tabs, useTabState } from './index'
 
 function TabsState({
   children,

@@ -1,31 +1,28 @@
-import React, {
-  Children,
-  cloneElement,
+import type {
   FunctionComponentElement,
   MouseEventHandler,
   ReactNode,
-  useMemo,
 } from 'react'
+import React, { Children, cloneElement, useMemo } from 'react'
+import type { PopoverStateReturn, PopoverInitialState } from 'reakit'
 import {
   Popover,
-  PopoverStateReturn,
-  PopoverInitialState,
   PopoverDisclosure as ReakitPopoverDisclosure,
   usePopoverState,
 } from 'reakit'
-import { SealedInitialState } from 'reakit-utils/ts'
+import type { SealedInitialState } from 'reakit-utils/ts'
 import { IconFilter } from '@vtex/admin-ui-icons'
 import { Flex, Box } from '@vtex/admin-primitives'
+import type { StyleObject } from '@vtex/admin-core'
 
-import {
+import type {
   FilterBarProps,
   UseFilterBarStateParams,
   UseFilterBarStateReturn,
 } from '../../FilterBar/typings'
 import { FilterBar, useFilterBarState } from '../../FilterBar'
-import { StatelessTable } from '../'
-import { SystemComponent } from '../../../types'
-import { StyleObject } from '@vtex/admin-core'
+import { StatelessTable } from '..'
+import type { SystemComponent } from '../../../types'
 
 function PopoverDisclosure(props: PopoverDisclosureProps) {
   const { children, state } = props

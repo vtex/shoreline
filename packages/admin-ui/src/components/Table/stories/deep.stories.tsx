@@ -1,14 +1,11 @@
 import React, { useMemo, useState } from 'react'
-import { Meta } from '@storybook/react'
-import { FixedSizeList, ListChildComponentProps } from 'react-window'
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  DropResult,
-} from 'react-beautiful-dnd'
+import type { Meta } from '@storybook/react'
+import type { ListChildComponentProps } from 'react-window'
+import { FixedSizeList } from 'react-window'
+import type { DropResult } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import faker from 'faker'
-import { StyleProp } from '@vtex/admin-core'
+import type { StyleProp } from '@vtex/admin-core'
 import { IconDrag } from '@vtex/admin-ui-icons'
 
 import { Table } from '../index'

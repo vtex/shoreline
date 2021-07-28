@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
-import { Pagination } from './'
+import { Pagination } from '.'
 import { usePaginationState } from './usePaginationState'
 
 export default {

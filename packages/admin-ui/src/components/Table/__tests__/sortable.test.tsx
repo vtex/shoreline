@@ -1,15 +1,15 @@
 import React from 'react'
+
 import { StatelessTable } from '../../PowerfulTable/Stateful'
+
 import { render, fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { ThemeProvider } from '@vtex/admin-core'
+
 import { StylesContext } from '../context'
 import { getStyles } from './testUtil'
-import {
-  UseTableStateParams,
-  UseTableStateReturn,
-  useTableState,
-} from '../useTableState'
+import type { UseTableStateParams, UseTableStateReturn } from '../useTableState'
+import { useTableState } from '../useTableState'
 
 interface TableStateProps<T> extends UseTableStateParams<T> {
   children: (state: UseTableStateReturn<T>) => JSX.Element

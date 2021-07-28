@@ -1,21 +1,22 @@
-import React, { ReactNode, useCallback } from 'react'
-import { StyleProp } from '@vtex/admin-core'
+import type { ReactNode } from 'react'
+import React, { useCallback } from 'react'
+import { useSystem } from '@vtex/admin-core'
+import type { StyleProp } from '@vtex/admin-core'
 
-import { ModalStateReturn } from './state'
+import type { ModalStateReturn } from './state'
 import { ModalProvider } from './context'
+import type { AbstractModalProps } from './components'
 import {
   AbstractModal,
   AbstractModalBackdrop,
-  AbstractModalProps,
   ModalHeader,
   ModalButton,
   ModalFooter,
   ModalContent,
 } from './components'
-import { ModalSize } from './types'
+import type { ModalSize } from './types'
 import { useComponentsExistence } from './util'
-import { SystemComponent } from '../../types'
-import { useSystem } from '@vtex/admin-core'
+import type { SystemComponent } from '../../types'
 
 /**
  * Stateless Modal
@@ -49,6 +50,7 @@ export function StatelessModal(props: StatelessModalProps) {
     onClose = () => null,
     ...baseProps
   } = props
+
   const { cn } = useSystem()
 
   const handleClose = useCallback(() => {

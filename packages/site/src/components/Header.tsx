@@ -4,7 +4,6 @@ import { VisuallyHidden } from 'reakit'
 import { FaGithub } from 'react-icons/fa'
 
 import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
-
 import Anchor from './Anchor'
 import { useSearchContext } from './Search'
 
@@ -14,11 +13,10 @@ export default function Header() {
   const [border, setBorder] = useState('none')
 
   useEffect(() => {
-
     function handleScroll() {
-      if(window.scrollY > 100) {
+      if (window.scrollY > 100) {
         setBorder('divider-bottom')
-      }else {
+      } else {
         setBorder('none')
       }
     }

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
+import { Box } from '@vtex/admin-primitives'
 
 import { Columns } from './index'
-import { Box } from '@vtex/admin-primitives'
 
 export default {
   title: 'admin-ui/Columns',

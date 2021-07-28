@@ -1,7 +1,7 @@
-import { SystemComponent } from '../../types'
-import { Action } from './reducer'
-import { BaseResolvers } from './resolvers/base'
-import { Resolver } from './resolvers/core'
+import type { SystemComponent } from '../../types'
+import type { Action } from './reducer'
+import type { BaseResolvers } from './resolvers/base'
+import type { Resolver } from './resolvers/core'
 
 export interface FilterBarProps<T, V extends { value: T }>
   extends SystemComponent {
@@ -23,9 +23,9 @@ export interface UseFilterBarStateParams<T> {
   /** FilterBar initial conjunction */
   conjunction: Conjunction
   /** FilterBar initial statements */
-  statements?: Statement<T>[]
+  statements?: Array<Statement<T>>
   /** Filters available */
-  filters: Filter<T>[]
+  filters: Array<Filter<T>>
   /** Handles the state of FilterBar statements */
   onApply: (filters: Filters<T>) => void
   /**
@@ -39,11 +39,11 @@ export interface UseFilterBarStateReturn<T> {
   /** Current filter Conjunction  */
   conjunction: Conjunction
   /** Current filter Statements */
-  statements: Statement<T>[]
+  statements: Array<Statement<T>>
   /** Defines if the filter is being applied */
   applied: boolean
   /** Possible filters */
-  filters: Filter<T>[]
+  filters: Array<Filter<T>>
   /** Function that will be called when the apply button is clicked */
   onApply: (filters: Filters<T>) => void
   /** Function that adds a new statement */
@@ -110,7 +110,7 @@ export interface InternalLabels {
 }
 export interface Filters<T> {
   /** FilterBar statements */
-  statements: Statement<T>[]
+  statements: Array<Statement<T>>
   /** FilterBar conjunction */
   conjunction: Conjunction
 }

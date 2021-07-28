@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 
-import { TableDir } from './typings'
+import type { TableDir } from './typings'
 
 /**
  * Context of table styles

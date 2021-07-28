@@ -1,8 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import { StatelessTable } from '../../PowerfulTable/index'
-
 import { useTableState } from '../useTableState'
 
 export default {

@@ -1,9 +1,11 @@
-import React, { Fragment, FunctionComponentElement } from 'react'
+import type { FunctionComponentElement } from 'react'
+import React, { Fragment } from 'react'
 
-import { StatelessMenu, StatelessMenuProps } from './Stateless'
+import type { StatelessMenuProps } from './Stateless'
+import { StatelessMenu } from './Stateless'
+import type { MenuState } from './components'
 import {
   MenuItem,
-  MenuState,
   useMenuState,
   ReakitMenuSeparator,
   MenuDisclosure,

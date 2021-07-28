@@ -1,4 +1,4 @@
-import { SystemPrimitive } from '@vtex/admin-primitives'
+import type { SystemPrimitive } from '@vtex/admin-primitives'
 
 export type SystemComponent = SystemPrimitive
 export type SystemComponentProps<T> = SystemPrimitive & OmitNotAllowedProps<T>

@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import { useSystem } from '@vtex/admin-core'
 
 import { Label } from '../Label'
-import { SystemComponent } from '../../types'
+import type { SystemComponent } from '../../types'
 
 export function CheckboxGroup(props: CheckboxGroupProps) {
   const {
@@ -14,6 +15,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
     children,
     ...htmlProps
   } = props
+
   const { cn } = useSystem()
 
   const className = cn({

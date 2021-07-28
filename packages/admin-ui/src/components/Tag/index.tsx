@@ -1,6 +1,8 @@
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
-import { jsx, PropsWithAs } from '@vtex/onda-react'
+import type { PropsWithAs } from '@vtex/onda-react'
+import { jsx } from '@vtex/onda-react'
 
 import { Button } from '../Button'
 

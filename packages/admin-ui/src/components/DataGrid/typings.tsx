@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-import { BaseResolvers } from './resolvers/base'
+import type { BaseResolvers } from './resolvers/base'
 
 /**
  * Column type

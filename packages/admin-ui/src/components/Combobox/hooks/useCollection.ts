@@ -1,4 +1,6 @@
-import { ReactNode, useState } from 'react'
+import type { ReactNode } from 'react'
+import { useState } from 'react'
+
 import { usePersistentState } from './usePersistentState'
 
 interface Params<C> {
@@ -22,6 +24,7 @@ export function useCollection<C>(params: Params<C>) {
     [],
     `@vtex/admin-ui-combobox-${id}`
   )
+
   const [currentCollection, setCurrentCollection] = useState(record)
   const [currentLabel, setCurrentLabel] = useState(recordLabel)
 

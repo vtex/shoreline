@@ -22,7 +22,7 @@ export function handleErrorMessage<T>(
 
     const errors = Array.isArray(meta.error)
       ? meta.error
-      : Object.values((meta.error as unknown) as Record<string, string>)
+      : Object.values(meta.error as unknown as Record<string, string>)
 
     return errors
       .filter(Boolean)
@@ -31,6 +31,7 @@ export function handleErrorMessage<T>(
       })
       .join(', ')
   }
+
   return null
 }
 

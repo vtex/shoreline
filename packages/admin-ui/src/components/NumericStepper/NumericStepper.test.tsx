@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
+import { ThemeProvider } from '@vtex/admin-core'
 
 import { NumericStepper } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
 
 describe('NumericStepper tests', () => {
   it('should have overridable styles', () => {
@@ -60,37 +60,37 @@ describe('NumericStepper tests', () => {
         />
       </ThemeProvider>
     )
+
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('change value externally', async () => {
-    const { rerender } = 
-    render(
+    const { rerender } = render(
       <ThemeProvider>
         <NumericStepper
-          value={1} 
+          value={1}
           onChange={() => {}}
-          label="stepper number" 
+          label="stepper number"
           data-testid="numeric-stepper"
         />
       </ThemeProvider>
     )
 
     const input = screen.getByTestId('numeric-stepper')
+
     expect(input).toHaveValue(1)
 
     rerender(
       <ThemeProvider>
         <NumericStepper
-          value={10} 
+          value={10}
           onChange={() => {}}
-          label="stepper number" 
+          label="stepper number"
           data-testid="numeric-stepper"
         />
       </ThemeProvider>
     )
 
-    
     expect(input).toHaveValue(10)
   })
 
@@ -107,6 +107,7 @@ describe('NumericStepper tests', () => {
         />
       </ThemeProvider>
     )
+
     const results = await axe(container)
 
     expect(results).toHaveNoViolations()

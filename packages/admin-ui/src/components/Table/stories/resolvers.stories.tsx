@@ -1,5 +1,5 @@
 import React, { Fragment, useMemo } from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import { Text } from '../../Text'
 import { StatelessTable } from '../../PowerfulTable/index'
@@ -267,6 +267,7 @@ export function SelectionWithRowClick() {
 
   return <StatelessTable state={tableState} />
 }
+
 export const Currency = () => {
   const currencies = [
     {

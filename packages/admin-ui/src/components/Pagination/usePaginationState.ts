@@ -1,4 +1,5 @@
-import { Dispatch, useCallback, useReducer } from 'react'
+import type { Dispatch } from 'react'
+import { useCallback, useReducer } from 'react'
 
 export function usePaginationState(
   params: UsePaginationParams
@@ -27,7 +28,7 @@ export function usePaginationState(
 }
 
 function defaultPaginationCallback({ type, size, dispatch }: PaginateParams) {
-  dispatch({ type: type, tableSize: size })
+  dispatch({ type, tableSize: size })
 }
 
 function reducer(
@@ -44,6 +45,7 @@ function reducer(
         range: [state.range[1] + 1, action.tableSize * newPage],
       }
     }
+
     case 'prev': {
       return {
         ...state,
@@ -51,6 +53,7 @@ function reducer(
         range: [state.range[0] - action.tableSize, state.range[0] - 1],
       }
     }
+
     case 'reset': {
       return {
         ...state,
@@ -58,6 +61,7 @@ function reducer(
         range: [1, action.tableSize],
       }
     }
+
     default:
       return state
   }

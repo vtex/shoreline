@@ -1,8 +1,9 @@
+import type { Theme } from '@vtex/admin-ui-system'
+
 import base from './base'
 import components from './components'
-import { Theme } from '@vtex/admin-ui-system'
 
-const makeTheme = (theme: any): Theme => (theme as unknown) as Theme
+const makeTheme = (theme: any): Theme => theme as unknown as Theme
 
 export const theme = makeTheme({
   ...base,

@@ -1,5 +1,8 @@
-import React, { PropsWithoutRef } from 'react'
-import { Set, SetProps } from '../../Set'
+import type { PropsWithoutRef } from 'react'
+import React from 'react'
+
+import type { SetProps } from '../../Set'
+import { Set } from '../../Set'
 
 export function TableSection(props: PropsWithoutRef<SetProps>) {
   const { spacing = 3, csx = {}, ...setProps } = props

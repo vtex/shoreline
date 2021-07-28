@@ -1,9 +1,9 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
+import { Box } from '@vtex/admin-primitives'
 
 import { Divider } from './index'
 import { Card } from '../Card'
-import { Box } from '@vtex/admin-primitives'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 

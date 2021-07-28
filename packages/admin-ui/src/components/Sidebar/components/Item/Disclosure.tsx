@@ -1,7 +1,9 @@
-import React, { forwardRef, ReactNode, Ref } from 'react'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-core'
 
-import { ButtonProps, Button } from '../../../Button'
+import type { ButtonProps } from '../../../Button'
+import { Button } from '../../../Button'
 import { Tooltip } from '../../../Tooltip'
 
 export const SidebarDisclosure = forwardRef(function SidebarDisclosure(

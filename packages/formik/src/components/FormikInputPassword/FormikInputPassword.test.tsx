@@ -1,16 +1,13 @@
 import React from 'react'
-
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-
 import { axe } from 'jest-axe'
-
 import { ThemeProvider } from '@vtex/admin-core'
 import { Form, Formik } from 'formik'
-import { FormikInputPassword } from './index'
 import { Button, Text } from '@vtex/admin-ui'
-
 import { useIntl, IntlProvider } from 'react-intl'
+
+import { FormikInputPassword } from './index'
 
 describe('Input password tests', () => {
   it('change value in formik by input component', async () => {
@@ -74,6 +71,7 @@ describe('Input password tests', () => {
     )
 
     const input = screen.getByLabelText(/TextField label/i)
+
     userEvent.type(input, 'value of test')
     userEvent.click(screen.getByRole('button', { name: 'Change Value' }))
 
@@ -115,6 +113,7 @@ describe('Input password tests', () => {
     )
 
     const input = screen.getByLabelText(/TextField label/i)
+
     expect(input).toHaveValue('')
 
     userEvent.type(input, 'value of test')
@@ -207,6 +206,7 @@ describe('Input password tests', () => {
     )
 
     const input = screen.getByLabelText(/TextField label/i)
+
     fireEvent.blur(input)
 
     expect(await screen.findByText('Error message')).not.toBeNull()
@@ -245,13 +245,14 @@ describe('Input password tests', () => {
 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'} messages={messagesEN}>
+        <IntlProvider locale="en" messages={messagesEN}>
           <Content />
         </IntlProvider>
       </ThemeProvider>
     )
 
     const input = screen.getByLabelText(/TextField label/i)
+
     fireEvent.blur(input)
 
     expect(await screen.findByText('Error message')).not.toBeNull()

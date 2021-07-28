@@ -2,7 +2,8 @@ import React from 'react'
 import { jsx } from '@vtex/onda-react'
 
 import { Toolbar as BaseToolbar, useToolbarState } from '../../Toolbar'
-import { Button as BaseButton, ButtonProps } from '../../Button'
+import type { ButtonProps } from '../../Button'
+import { Button as BaseButton } from '../../Button'
 
 const _Toolbar = jsx(BaseToolbar)(
   {

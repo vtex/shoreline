@@ -1,15 +1,17 @@
-import React, { PropsWithoutRef, ReactNode } from 'react'
+import type { PropsWithoutRef, ReactNode } from 'react'
+import React from 'react'
+import type { DisclosureProps } from 'reakit/Disclosure'
 import {
   useDisclosureState,
   Disclosure as ReakitDisclosure,
   DisclosureContent,
-  DisclosureProps,
   DisclosureStateReturn,
 } from 'reakit/Disclosure'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
-
 import { Box, Flex } from '@vtex/admin-primitives'
+import { useSystem } from '@vtex/admin-core'
+
 import {
   CollapsibleProvider,
   useCollapsibleContext,
@@ -17,9 +19,8 @@ import {
   useTree,
 } from './context'
 import { Button } from '../Button'
-import { SystemComponent, SystemComponentProps } from '../../types'
+import type { SystemComponent, SystemComponentProps } from '../../types'
 import { useGroup } from '../Group'
-import { useSystem } from '@vtex/admin-core'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
@@ -39,14 +40,9 @@ export function Collapsible(props: CollapsibleProps) {
   const { isRoot } = useTree()
   const { grouped } = useGroup()
 
-  const {
-    csx,
-    children,
-    disabled,
-    focusable,
-    state,
-    ...collapsibleProps
-  } = props
+  const { csx, children, disabled, focusable, state, ...collapsibleProps } =
+    props
+
   const { cn } = useSystem()
 
   const reakitProps = {

@@ -1,12 +1,13 @@
 // Any is allowed in this file. Its used to grant composability
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import React, { ReactNode, Fragment } from 'react'
+import type { ReactNode } from 'react'
+import React, { Fragment } from 'react'
 import warning from 'tiny-warning'
 import { get } from '@vtex/admin-core'
 
-import { Column, TableDensity, TableDir } from '../typings'
-import { SortOrder, SortState } from '../hooks/useTableSort'
+import type { Column, TableDensity, TableDir } from '../typings'
+import type { SortOrder, SortState } from '../hooks/useTableSort'
 
 /**
  * Used to recursive define resolver
@@ -197,7 +198,7 @@ export function accessCell<T>(column: Column<T>, item: T) {
   switch (typeof acessor) {
     case 'string': {
       const resolved = get(
-        (item as unknown) as Record<string, unknown>,
+        item as unknown as Record<string, unknown>,
         acessor,
         undefined
       )

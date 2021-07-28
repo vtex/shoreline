@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Meta, Story } from '@storybook/react'
-
-import { FormikInput, FormikInputProps } from './index'
+import type { Meta, Story } from '@storybook/react'
 import { Form, Formik } from 'formik'
 import { Box, Button, Flex, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
 import { useIntl, IntlProvider } from 'react-intl'
+
+import { FormikInput } from './index'
+import type { FormikInputProps } from './index'
 
 export default {
   title: 'admin-formik/FormikInput',
@@ -20,10 +21,8 @@ export const Playground: Story<FormikInputProps> = (args) => {
     [args.name]: Yup.string().required('This field is required.'),
   })
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     values: FormValuesInterface,
@@ -35,7 +34,8 @@ export const Playground: Story<FormikInputProps> = (args) => {
   }
 
   useEffect(() => {
-    let value = Object.values(currentInitialValues)[0]
+    const value = Object.values(currentInitialValues)[0]
+
     setCurrentInitialValues({ [args.name]: value })
   }, [args.name])
 
@@ -206,6 +206,7 @@ export const WithIntl = () => {
 
   const Content = () => {
     const { formatMessage } = useIntl()
+
     type FormValuesInterface = { value: string }
     const schemaValidationError = Yup.object({
       value: Yup.string()
@@ -250,7 +251,7 @@ export const WithIntl = () => {
   }
 
   return (
-    <IntlProvider locale={'en'} messages={messagesEN}>
+    <IntlProvider locale="en" messages={messagesEN}>
       <Content />
     </IntlProvider>
   )
@@ -278,7 +279,7 @@ export const ChangeValueOutside = () => {
                 onClick={() =>
                   setFieldValue(
                     'value',
-                    'Randow number ' + Math.trunc(Math.random() * 10)
+                    `Randow number ${Math.trunc(Math.random() * 10)}`
                   )
                 }
               >
@@ -302,10 +303,8 @@ export const ChangeInitialValue = () => {
   type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     _values: FormValuesInterface,
@@ -329,7 +328,7 @@ export const ChangeInitialValue = () => {
                 <Button
                   onClick={() =>
                     setCurrentInitialValues({
-                      value: 'Randow number ' + Math.trunc(Math.random() * 10),
+                      value: `Randow number ${Math.trunc(Math.random() * 10)}`,
                     })
                   }
                 >
@@ -388,7 +387,7 @@ export const OnChangeExample = () => {
           </Box>
           <Set orientation="vertical">
             <Text variant="subtitle">
-              Number of times the value has changed: {' ' + changes}
+              Number of times the value has changed: {` ${changes}`}
             </Text>
           </Set>
         </Flex>

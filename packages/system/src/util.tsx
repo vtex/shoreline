@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ForwardRefRenderFunction } from 'react'
+import type { ForwardRefRenderFunction } from 'react'
+import React from 'react'
 import pick from 'lodash.pick'
 import omit from 'lodash.omit'
 
@@ -18,7 +19,7 @@ export const isObjectEmpty = (obj: Record<string, unknown>) =>
 export function forwardRef<T extends ForwardRefRenderFunction<any, any>>(
   component: T
 ) {
-  return (React.forwardRef(component) as unknown) as T
+  return React.forwardRef(component) as unknown as T
 }
 
 /**

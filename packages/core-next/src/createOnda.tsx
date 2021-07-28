@@ -1,24 +1,18 @@
-import React, { ReactElement } from 'react'
-import {
-  buildRuntime,
-  buildPlugins,
-  Plugin,
-  createTheme,
-  ThemeOptions,
-} from '@vtex/onda-system'
+import type { ReactElement } from 'react'
+import React from 'react'
+import type { Plugin, ThemeOptions } from '@vtex/onda-system'
+import { buildRuntime, buildPlugins, createTheme } from '@vtex/onda-system'
 
 import { plugins } from './plugins'
-import {
-  runtime as runtimeEmotion,
-  StyleProp,
-} from './runtime'
+import type { StyleProp } from './runtime'
+import { runtime as runtimeEmotion } from './runtime'
 import { useCSSVariables } from './hooks/useCSSVariables'
 
 export interface SytemSpec<Theme extends Record<string, any>> {
   name: string
   description: string
   theme: Theme
-  plugins: Plugin<Theme>[]
+  plugins: Array<Plugin<Theme>>
   options?: ThemeOptions
 }
 
@@ -34,9 +28,11 @@ export const SystemContext = React.createContext<{
 
 export function useSystem() {
   const ctx = React.useContext(SystemContext)
+
   if (!ctx) {
     throw new Error('waaaait! something is wrong on the provider')
   }
+
   return ctx
 }
 
@@ -61,6 +57,7 @@ export function createOnda<Theme extends Record<string, any>>(
     parse,
     instance: { emotion, Global },
   } = buildRuntime({ id: name }, steps, runtimeEmotion)
+
   const globalStyles = parse.exec(global)
   const theme = steps.entries.exec(strictTheme)
 

@@ -1,13 +1,17 @@
-import React, { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
 import { Box, Flex } from '@vtex/admin-primitives'
-import { useViewContext, TableViewState } from '../../Table/context'
-import { Anchor, AnchorProps } from '../../Anchor'
-import { Text } from '../../Text'
 import {
   CollectionEmpty,
   CollectionError,
   CollectionNotFound,
 } from '@vtex/admin-illustrations'
+
+import type { TableViewState } from '../../Table/context'
+import { useViewContext } from '../../Table/context'
+import type { AnchorProps } from '../../Anchor'
+import { Anchor } from '../../Anchor'
+import { Text } from '../../Text'
 
 const illustrations = {
   itemsNotFound: <CollectionNotFound />,

@@ -1,13 +1,14 @@
-import React, { forwardRef, Ref, useEffect, useReducer } from 'react'
+import type { Ref } from 'react'
+import React, { forwardRef, useEffect, useReducer } from 'react'
 import { Input as ReakitInput } from 'reakit'
 import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
 import invariant from 'tiny-invariant'
-
 import { Box } from '@vtex/admin-primitives'
-import { SystemComponentProps } from '../../types'
+
+import type { SystemComponentProps } from '../../types'
 import { Button } from '../Button'
-import { AbstractInputOwnProps } from '../AbstractInput'
+import type { AbstractInputOwnProps } from '../AbstractInput'
 
 export const NumericStepper = forwardRef(
   (props: NumericStepperProps, ref: Ref<HTMLDivElement>) => {

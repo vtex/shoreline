@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Meta, Story } from '@storybook/react'
-
-import { FormikCheckbox, FormikCheckboxProps } from './index'
+import type { Meta, Story } from '@storybook/react'
 import { Form, Formik } from 'formik'
 import { Box, Button, Flex, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
 import { IntlProvider, useIntl } from 'react-intl'
+
+import { FormikCheckbox } from './index'
+import type { FormikCheckboxProps } from './index'
 
 export default {
   title: 'admin-formik/FormikCheckbox',
@@ -16,10 +17,8 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
   type FormValuesInterface = { [key: string]: boolean }
   const initialValues: FormValuesInterface = { [args.name]: false }
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     values: FormValuesInterface,
@@ -31,7 +30,8 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
   }
 
   useEffect(() => {
-    let value = Object.values(currentInitialValues)[0]
+    const value = Object.values(currentInitialValues)[0]
+
     setCurrentInitialValues({ [args.name]: value })
   }, [args.name])
 
@@ -93,7 +93,7 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
                 feedback="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
-                {'Set "' + !initialValues.value + '" as new initial value'}
+                {`Set "${!initialValues.value}" as new initial value`}
               </Text>
             </Flex>
             <Set orientation="vertical" spacing={4}>
@@ -202,6 +202,7 @@ export const WithIntl = () => {
 
   const Content = () => {
     const { formatMessage } = useIntl()
+
     type FormValuesInterface = { value: boolean }
     const schemaValidationError = Yup.object({
       value: Yup.bool().isFalse('admin/admin-formik.error.error'),
@@ -247,7 +248,7 @@ export const WithIntl = () => {
   }
 
   return (
-    <IntlProvider locale={'en'} messages={messagesEN}>
+    <IntlProvider locale="en" messages={messagesEN}>
       <Content />
     </IntlProvider>
   )
@@ -295,10 +296,8 @@ export const ChangeInitialValue = () => {
   type FormValuesInterface = { value: boolean }
   const initialValues: FormValuesInterface = { value: false }
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     _values: FormValuesInterface,
@@ -380,7 +379,7 @@ export const OnChangeExample = () => {
           </Box>
           <Set orientation="vertical">
             <Text variant="subtitle">
-              Number of times the value has changed: {' ' + changes}
+              Number of times the value has changed: {` ${changes}`}
             </Text>
           </Set>
         </Flex>

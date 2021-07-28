@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import { ThemeProvider } from '@vtex/admin-core'
 import { useMenuState, Menu, MenuItem, MenuButton } from 'reakit/Menu'
 
@@ -27,7 +27,7 @@ export function WithStyles() {
 
 export function Standalone() {
   const Div = tag('div')
-  
+
   return (
     <ThemeProvider>
       <Div

@@ -1,4 +1,5 @@
-import { useSystem, StyleObject } from '@vtex/admin-core'
+import type { StyleObject } from '@vtex/admin-core'
+import { useSystem } from '@vtex/admin-core'
 import { isObjectEmpty, merge, omit } from '@vtex/onda-util'
 
 export function useStylesheet<V>(params: UseStyleSheetParams<V>) {
@@ -66,7 +67,7 @@ export function useStylesheet<V>(params: UseStyleSheetParams<V>) {
  */
 export function extractVariantStyles(
   variants: Record<string, Record<string, any>>,
-  sync: Sync<any>[],
+  sync: Array<Sync<any>>,
   htmlProps: Record<string, any>
 ): [string[], Record<string, any>] {
   if (isObjectEmpty(variants)) return [[], {}]
@@ -74,6 +75,7 @@ export function extractVariantStyles(
   const list = Object.keys(variants)
   const styles = list.reduce((acc, $key) => {
     const current = (variants as any)?.[$key] ?? {}
+
     return merge(acc, current?.[htmlProps?.[$key]] ?? {})
   }, {})
 
@@ -101,7 +103,7 @@ export function extractVariantStyles(
  * returns [ { paddingLeft: 10 } ]
  */
 export function collectSyncStyles(
-  sync: Sync<any>[],
+  sync: Array<Sync<any>>,
   htmlProps: Record<string, any>
 ) {
   return sync.reduce((acc, currentSync) => {
@@ -133,6 +135,6 @@ export type Sync<Variants> = {
 
 export interface UseStyleSheetParams<Variants> {
   stylesheet: Stylesheet<Variants>
-  sync: Sync<any>[]
+  sync: Array<Sync<any>>
   props: any
 }

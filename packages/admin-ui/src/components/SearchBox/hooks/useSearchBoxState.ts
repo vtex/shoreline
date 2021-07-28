@@ -1,9 +1,7 @@
-import {
-  useCombobox,
-  UseComboboxProps,
-  UseComboboxReturnValue,
-} from 'downshift'
-import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
+import type { UseComboboxProps, UseComboboxReturnValue } from 'downshift'
+import { useCombobox } from 'downshift'
+import type { Dispatch, ReactNode, SetStateAction } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useInputValue } from './useInputValue'
 import { usePersistentState } from './usePersistentState'
@@ -56,6 +54,7 @@ export function unstableUseSearchBoxState<C>(
     initialState: '',
     timeoutMs: 480,
   })
+
   const [type, setType] = useState<CollectionType>('storage')
   const [items, setItems] = useState<any[]>([])
   const [history, setHistory] = usePersistentState<C[]>(
@@ -64,7 +63,7 @@ export function unstableUseSearchBoxState<C>(
   )
 
   const combobox = useCombobox({
-    items: items,
+    items,
     itemToString,
     onSelectedItemChange: (downshiftOnChangeCb) => {
       const { selectedItem } = downshiftOnChangeCb
@@ -89,6 +88,7 @@ export function unstableUseSearchBoxState<C>(
     },
     onInputValueChange: (downshiftInputCb) => {
       const { inputValue: downshiftInputValue } = downshiftInputCb
+
       if (
         downshiftInputValue === undefined &&
         typeof downshiftInputValue !== 'string'
@@ -149,6 +149,7 @@ export function unstableUseSearchBoxState<C>(
  */
 function defaultMatch<T>(params: MatchParams<T>) {
   const { inputValue, itemString } = params
+
   return String(itemString)
     .toLowerCase()
     .startsWith(String(inputValue).toLowerCase())

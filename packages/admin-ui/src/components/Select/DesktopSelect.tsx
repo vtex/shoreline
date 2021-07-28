@@ -1,10 +1,11 @@
-import React, { RefObject, useLayoutEffect, useRef, useState } from 'react'
+import type { RefObject } from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 import { IconCaret, IconCheck } from '@vtex/admin-ui-icons'
-
 import { Box } from '@vtex/admin-primitives'
-import { SelectProps } from './index'
-import { Label } from '../Label'
 import { useSystem } from '@vtex/admin-core'
+
+import type { SelectProps } from './index'
+import { Label } from '../Label'
 
 /**
  * The -20 its equals to line height of the label.
@@ -21,6 +22,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
     block,
     renderItem = (item) => item,
   } = props
+
   const { stylesOf } = useSystem()
 
   const [topDistanceOptions, setTopDistanceOptions] = useState(
@@ -70,9 +72,8 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
       }
 
       const buttonTop = containerRef.current.getBoundingClientRect().top
-      const selectedItemTop = liRefs.current[
-        selectedItemIndex
-      ].current!.getBoundingClientRect().top
+      const selectedItemTop =
+        liRefs.current[selectedItemIndex].current!.getBoundingClientRect().top
 
       const selectedItemHeight = getSelectedItemHeight(selectedItemTop)
       const scrollOffset = getScrollOffset(buttonTop, selectedItemHeight)

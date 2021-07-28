@@ -17,7 +17,7 @@ module.exports = {
         start_url: '/',
         background_color: '#2953B2',
         theme_color: '#2953B2',
-        display: 'minimal-ui'
+        display: 'minimal-ui',
       },
     },
     {

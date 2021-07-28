@@ -1,10 +1,11 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { UseSelectProps } from 'downshift'
+import type { UseSelectProps } from 'downshift'
 import { axe } from 'jest-axe'
-
-import { Dropdown, useDropdownState, UseDropdownReturnValue } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
+
+import type { UseDropdownReturnValue } from './index'
+import { Dropdown, useDropdownState } from './index'
 
 interface DropdownStateProps<T> extends UseSelectProps<T> {
   children: (state: UseDropdownReturnValue<T>) => JSX.Element

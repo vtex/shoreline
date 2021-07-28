@@ -72,7 +72,7 @@ const Row = jsx.tr({
 })
 
 Row.defaultProps = {
-  role: 'row'
+  role: 'row',
 }
 
 export const Head = jsx.thead(
@@ -90,14 +90,11 @@ export const Head = jsx.thead(
         children: (
           <Row>
             {state.columns.map((column) => {
-              const {
-                content,
-                isSortable,
-                sortDirection,
-              } = state.resolveHeader({
-                column,
-                items: state.data,
-              })
+              const { content, isSortable, sortDirection } =
+                state.resolveHeader({
+                  column,
+                  items: state.data,
+                })
 
               const cellProps = {
                 column,
@@ -118,7 +115,7 @@ export const Head = jsx.thead(
 
               return (
                 <Fragment key={String(column.id)}>
-                  {!!children ? (
+                  {children ? (
                     cloneElement(children as any, cellProps)
                   ) : (
                     <Cell {...cellProps} />

@@ -1,11 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import { Flex } from '@vtex/admin-primitives'
 import faker from 'faker'
 
 import { StatelessTable } from '../index'
-import { usePaginationState } from '../../Pagination'
-import { Pagination } from '../../Pagination'
+import { usePaginationState, Pagination } from '../../Pagination'
 import { useTableState } from '../../Table'
 
 export default {
@@ -109,6 +108,7 @@ export function CustomPagination() {
     total: 0,
     items: [],
   })
+
   const [loading, setLoading] = useState(false)
 
   const paginationState = usePaginationState({

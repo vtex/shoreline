@@ -1,6 +1,8 @@
 import React from 'react'
-import createEmotion, { Emotion } from '@emotion/css/create-instance'
-import { styles, StyleProp, get, Theme } from '@vtex/admin-styles'
+import type { Emotion } from '@emotion/css/create-instance'
+import createEmotion from '@emotion/css/create-instance'
+import type { StyleProp, Theme } from '@vtex/admin-styles'
+import { styles, get } from '@vtex/admin-styles'
 
 import { ThemeProvider as BaseProvider } from './core'
 
@@ -41,7 +43,7 @@ export function createThemeConsumers<T extends Theme>(
   return {
     stylesOf(themeKey: string) {
       const rawStyles = get(
-        (theme as unknown) as Record<string, unknown>,
+        theme as unknown as Record<string, unknown>,
         themeKey,
         {}
       )

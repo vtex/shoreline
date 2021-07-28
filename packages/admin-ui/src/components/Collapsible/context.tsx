@@ -1,5 +1,5 @@
 import React, { useContext, createContext } from 'react'
-import { DisclosureProps } from 'reakit'
+import type { DisclosureProps } from 'reakit'
 import invariant from 'tiny-invariant'
 
 interface CollapsibleContextProps extends DisclosureProps {

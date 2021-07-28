@@ -1,13 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { ThemeProvider } from '@vtex/admin-core'
 
 import { CollapsibleGroup } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
-import {
-  useCollapsible,
-  Collapsible,
-  DisclosureStateReturn,
-} from '../Collapsible'
+import type { DisclosureStateReturn } from '../Collapsible'
+import { useCollapsible, Collapsible } from '../Collapsible'
 
 function CollapsibleState({
   children,

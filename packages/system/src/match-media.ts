@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Theme, defaultBreakpoints } from '@vtex/admin-styles'
+import type { Theme } from '@vtex/admin-styles'
+import { defaultBreakpoints } from '@vtex/admin-styles'
 
 import { useTheme } from './hooks'
 

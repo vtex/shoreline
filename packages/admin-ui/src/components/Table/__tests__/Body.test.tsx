@@ -1,9 +1,10 @@
-import React, { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
 import { render } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
+import { ThemeProvider } from '@vtex/admin-core'
 
 import { TableBody } from '../components/Body'
-import { ThemeProvider } from '@vtex/admin-core'
 import { StylesContext, useCellRoleContext } from '../context'
 import { getStyles } from './testUtil'
 

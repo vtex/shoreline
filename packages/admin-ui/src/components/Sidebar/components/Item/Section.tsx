@@ -1,6 +1,9 @@
-import React, { forwardRef, ReactNode, Ref } from 'react'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+
 import { useComposite } from '../Aria'
-import { Set, SetProps } from '../../../Set'
+import type { SetProps } from '../../../Set'
+import { Set } from '../../../Set'
 import { Text } from '../../../Text'
 import { SidebarSectionItem } from './SectionItem'
 import { useItemContext } from './shared'

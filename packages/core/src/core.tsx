@@ -1,11 +1,12 @@
-import React from 'react'
-import { createContext, ReactNode, useContext } from 'react'
+import type { ReactNode } from 'react'
+import React, { createContext, useContext } from 'react'
 import { CacheProvider } from '@vtex/admin-ui-system'
 import invariant from 'tiny-invariant'
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
 
-import { createSystem, defaultSystem } from './system'
+import type { createSystem } from './system'
+import { defaultSystem } from './system'
 import { Styles, Imports, FontsPreload } from './global'
 
 const SystemContext = createContext<ReturnType<typeof createSystem> | null>(

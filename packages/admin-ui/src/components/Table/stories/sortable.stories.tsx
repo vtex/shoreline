@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
 import { StatelessTable } from '../../PowerfulTable'
-import { Column } from '../typings'
-import {
+import type { Column } from '../typings'
+import type {
   SortState,
   SortAction,
   SortOrder,
@@ -101,7 +101,7 @@ export function Sortable() {
     })
   }, [])
 
-  const columns: Column<Item>[] = [
+  const columns: Array<Column<Item>> = [
     {
       id: 'name',
       header: 'Product Name',
@@ -122,6 +122,7 @@ export function Sortable() {
       compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
     },
   ]
+
   const tableState = useTableState({ columns, items })
 
   return <StatelessTable state={tableState} />
@@ -139,7 +140,7 @@ export function SortDirections() {
     })
   }, [])
 
-  const columns: Column<Item>[] = [
+  const columns: Array<Column<Item>> = [
     {
       id: 'name',
       header: 'Product Name',
@@ -168,8 +169,8 @@ export function SortDirections() {
   ]
 
   const tableState = useTableState({
-    columns: columns,
-    items: items,
+    columns,
+    items,
     sort: { directions: ['ASC'] },
   })
 
@@ -188,7 +189,7 @@ export function SortInitialState() {
     })
   }, [])
 
-  const columns: Column<Item>[] = [
+  const columns: Array<Column<Item>> = [
     {
       id: 'name',
       header: 'Product Name',
@@ -253,18 +254,21 @@ export function CustomSort() {
           order: sortAction.type,
         }
       }
+
       case 'DSC': {
         return {
           by: sortAction.columnId,
           order: sortAction.type,
         }
       }
+
       case 'RESET': {
         return {
           by: undefined,
           order: undefined,
         }
       }
+
       default:
         return sortState
     }
@@ -286,7 +290,7 @@ export function CustomSort() {
     setLoading(false)
   }
 
-  const columns: Column<Item>[] = [
+  const columns: Array<Column<Item>> = [
     {
       id: 'name',
       header: 'Product Name',

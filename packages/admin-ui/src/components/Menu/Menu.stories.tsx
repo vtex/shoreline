@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import {
   IconFavorite,
   IconLink,
@@ -8,9 +8,9 @@ import {
   IconShippingTruck,
 } from '@vtex/admin-ui-icons'
 
+import type { MenuProps } from './index'
 import {
   Menu,
-  MenuProps,
   StatelessMenu,
   useMenuState,
   ActionButton,

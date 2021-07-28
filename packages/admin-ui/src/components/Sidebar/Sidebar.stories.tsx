@@ -1,9 +1,6 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
-
-import { Sidebar, useSidebarState } from './index'
+import type { Story, Meta } from '@storybook/react'
 import { Box } from '@vtex/admin-primitives'
-import { Paragraph } from '../Paragraph'
 import {
   IconAppStore,
   IconHome,
@@ -15,6 +12,9 @@ import {
   IconShipping,
   IconStorefront,
 } from '@vtex/admin-ui-icons'
+
+import { Sidebar, useSidebarState } from './index'
+import { Paragraph } from '../Paragraph'
 
 export default {
   title: 'shell/Sidebar',

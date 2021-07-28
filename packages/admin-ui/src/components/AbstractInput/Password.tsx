@@ -1,8 +1,10 @@
-import React, { forwardRef, Ref, useState } from 'react'
+import type { Ref } from 'react'
+import React, { forwardRef, useState } from 'react'
 import { IconHide, IconPreview } from '@vtex/admin-ui-icons'
 
 import { Button } from '../Button'
-import { AbstractInput, AbstractInputProps } from './Text'
+import type { AbstractInputProps } from './Text'
+import { AbstractInput } from './Text'
 
 export const AbstractInputPassword = forwardRef(function AbstractInputPassword(
   props: AbstractInputPasswordProps,

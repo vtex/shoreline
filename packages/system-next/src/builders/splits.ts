@@ -1,5 +1,7 @@
 import { callOrReturn } from '@vtex/onda-util'
-import { Plugin, getSplits } from '../plugin'
+
+import type { Plugin } from '../plugin'
+import { getSplits } from '../plugin'
 
 /**
  * Builds slipts of all plugins
@@ -8,7 +10,7 @@ import { Plugin, getSplits } from '../plugin'
  */
 export function buildSplits<Theme extends Record<string, any>>(
   theme: Theme,
-  plugins: Plugin<Theme>[]
+  plugins: Array<Plugin<Theme>>
 ) {
   const collection = plugins
     .map((plugin) => getSplits(plugin))

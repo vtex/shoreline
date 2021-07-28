@@ -3,7 +3,7 @@ import { IconCaretSmall } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
 
 import { Button } from '../../Button'
-import { SidebarState } from '../hooks'
+import type { SidebarState } from '../hooks'
 import { ItemSkeleton } from './Item/Skeleton'
 
 const width = {

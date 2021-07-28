@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react'
-import { ComboboxState } from './hooks/useComboboxState'
+import type { ReactNode } from 'react'
+import React from 'react'
 
+import type { ComboboxState } from './hooks/useComboboxState'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { Input } from './components/Input'
 import { Menu } from './components/Menu'

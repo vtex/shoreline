@@ -1,6 +1,8 @@
-import React, { forwardRef, Ref, MouseEvent } from 'react'
+import type { Ref, MouseEvent } from 'react'
+import React, { forwardRef } from 'react'
 
-import { Button, ButtonProps } from '../../Button'
+import type { ButtonProps } from '../../Button'
+import { Button } from '../../Button'
 import { useModalContext } from '../context'
 
 /**

@@ -1,11 +1,11 @@
 import '@testing-library/jest-dom/extend-expect'
 import { matchers } from 'jest-emotion'
-
-expect.extend(matchers)
-
 import { buildRuntime, buildPlugins } from '@vtex/onda-system'
+
 import { plugins } from '../../plugins'
 import { runtime } from '../runtime'
+
+expect.extend(matchers)
 
 const theme = {
   space: [0, 1, 2, 4, 8],

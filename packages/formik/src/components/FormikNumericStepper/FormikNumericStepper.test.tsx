@@ -1,16 +1,14 @@
 import React from 'react'
-
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-
 import { axe } from 'jest-axe'
-
 import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
-import { FormikNumericStepper } from './index'
 import { Button, Text } from '@vtex/admin-ui'
+
+import { FormikNumericStepper } from './index'
 
 describe('Numeric Stepper tests', () => {
   it('change value in formik by input component', async () => {
@@ -38,6 +36,7 @@ describe('Numeric Stepper tests', () => {
     )
 
     const input = screen.getByTestId('numeric-field')
+
     userEvent.type(input, '5')
     userEvent.click(screen.getByTestId('btn-submit'))
     await waitFor(() =>
@@ -52,6 +51,7 @@ describe('Numeric Stepper tests', () => {
     const btnIncrement = screen.getByLabelText(
       'NumericStepper label-increase-button}'
     )
+
     userEvent.click(btnIncrement)
     userEvent.click(screen.getByTestId('btn-submit'))
     await waitFor(() =>
@@ -66,6 +66,7 @@ describe('Numeric Stepper tests', () => {
     const btnDecrement = screen.getByLabelText(
       'NumericStepper label-decrease-button'
     )
+
     userEvent.click(btnDecrement)
     userEvent.click(screen.getByTestId('btn-submit'))
     await waitFor(() =>
@@ -105,6 +106,7 @@ describe('Numeric Stepper tests', () => {
     )
 
     const input = screen.getByTestId('numeric-field')
+
     userEvent.click(screen.getByRole('button', { name: 'Change Value' }))
     expect(input).toHaveValue(5)
 
@@ -144,6 +146,7 @@ describe('Numeric Stepper tests', () => {
     )
 
     const input = screen.getByTestId('numeric-field')
+
     expect(input).toHaveValue(0)
 
     userEvent.type(input, '5')
@@ -206,6 +209,7 @@ describe('Numeric Stepper tests', () => {
     const btnIncrement = screen.getByLabelText(
       'NumericStepper label-increase-button}'
     )
+
     userEvent.click(btnIncrement)
     expect(await screen.findByText('{"value":true}')).not.toBeNull()
 
@@ -215,6 +219,7 @@ describe('Numeric Stepper tests', () => {
     const btnDecrement = screen.getByLabelText(
       'NumericStepper label-decrease-button'
     )
+
     userEvent.click(btnDecrement)
     expect(await screen.findByText('{"value":true}')).not.toBeNull()
 
@@ -222,6 +227,7 @@ describe('Numeric Stepper tests', () => {
     expect(await screen.findByText('{}')).not.toBeNull()
 
     const input = screen.getByTestId('numeric-field')
+
     userEvent.type(input, '5')
     expect(await screen.findByText('{"value":true}')).not.toBeNull()
 
@@ -254,6 +260,7 @@ describe('Numeric Stepper tests', () => {
       </ThemeProvider>
     )
     const input = screen.getByTestId('numeric-field')
+
     userEvent.type(input, '5')
     await waitFor(() => expect(input).toHaveValue(5))
 
@@ -299,6 +306,7 @@ describe('Numeric Stepper tests', () => {
     )
 
     const input = screen.getByTestId('numeric-field')
+
     userEvent.click(screen.getByRole('button', { name: 'Change Value' }))
     expect(input).toHaveValue(maxValue)
 
@@ -337,13 +345,14 @@ describe('Numeric Stepper tests', () => {
 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'} messages={messagesEN}>
+        <IntlProvider locale="en" messages={messagesEN}>
           <Content />
         </IntlProvider>
       </ThemeProvider>
     )
 
     const input = screen.getByTestId('numeric-field')
+
     userEvent.type(input, '5')
     expect(input).toHaveValue(5)
 

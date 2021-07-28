@@ -1,8 +1,8 @@
 import React from 'react'
-
-import { createOnda, useSystem } from '../createOnda'
 import { render } from '@testing-library/react'
 import { createPlugin } from '@vtex/onda-system'
+
+import { createOnda, useSystem } from '../createOnda'
 
 describe('context', () => {
   it('should execute the system', () => {
@@ -28,6 +28,7 @@ describe('context', () => {
 
     function Div() {
       const { cn } = useSystem()
+
       return (
         <div
           className={cn({

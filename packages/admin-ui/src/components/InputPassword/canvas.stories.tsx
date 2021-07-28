@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import { IconLock } from '@vtex/admin-ui-icons'
-
-import { InputPassword, InputPasswordProps } from './index'
 import { Box } from '@vtex/admin-primitives'
+
+import type { InputPasswordProps } from './index'
+import { InputPassword } from './index'
 
 export default {
   title: 'admin-ui/InputPassword',

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Heading as BaseHeading, HeadingProps } from '@vtex/admin-ui'
+import type { HeadingProps } from '@vtex/admin-ui'
+import { Heading as BaseHeading } from '@vtex/admin-ui'
 
 function Heading(props: HeadingProps) {
   const { children, element = 'h1', ...headingProps } = props

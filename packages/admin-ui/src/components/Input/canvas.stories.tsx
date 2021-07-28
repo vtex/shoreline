@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import { IconAdd } from '@vtex/admin-ui-icons'
-
-import { Input, InputType, InputProps } from './index'
 import { Box } from '@vtex/admin-primitives'
+
+import type { InputType, InputProps } from './index'
+import { Input } from './index'
 
 export default {
   title: 'admin-ui/Input',

@@ -1,4 +1,4 @@
-import { StyleProp, ThemeDerivedStyles } from '../types'
+import type { StyleProp, ThemeDerivedStyles } from '../types'
 
 const breakpoints = ['40em', '48em', '64em', '75em']
 
@@ -19,7 +19,7 @@ export function resposiveScale(styles: Exclude<StyleProp, ThemeDerivedStyles>) {
 
   for (const k in styles) {
     const key = k as keyof typeof styles
-    let value = styles[key]
+    const value = styles[key]
 
     if (value == null) continue
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Story, Meta } from '@storybook/react'
+import type { Story, Meta } from '@storybook/react'
 import { IconAppStore, IconAdd } from '@vtex/admin-ui-icons'
-
 import { Box } from '@vtex/admin-primitives'
+
 import { Button } from './index'
 import { Set } from '../Set'
 

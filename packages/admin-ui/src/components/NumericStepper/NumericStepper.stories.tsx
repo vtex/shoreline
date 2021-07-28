@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 
-import { NumericStepper, NumericStepperProps } from './index'
+import type { NumericStepperProps } from './index'
+import { NumericStepper } from './index'
 import { Set } from '../Set'
 
 export default {

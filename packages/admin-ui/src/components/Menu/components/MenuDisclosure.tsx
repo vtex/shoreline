@@ -1,6 +1,8 @@
-import React, { FunctionComponentElement, Children, cloneElement } from 'react'
+import type { FunctionComponentElement } from 'react'
+import React, { Children, cloneElement } from 'react'
 
-import { ReakitMenuButton, MenuStateReturn } from './index'
+import type { MenuStateReturn } from './index'
+import { ReakitMenuButton } from './index'
 
 export function MenuDisclosure(props: MenuDisclosureProps) {
   const { children, state } = props

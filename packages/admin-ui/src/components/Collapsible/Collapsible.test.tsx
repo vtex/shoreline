@@ -1,8 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-
-import { Collapsible, useCollapsible, DisclosureStateReturn } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
+
+import type { DisclosureStateReturn } from './index'
+import { Collapsible, useCollapsible } from './index'
 
 function CollapsibleState({
   children,

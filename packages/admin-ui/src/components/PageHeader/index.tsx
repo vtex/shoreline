@@ -1,6 +1,7 @@
 import React, { createContext, Fragment, useContext } from 'react'
 import { jsx, tag } from '@vtex/onda-react'
 import { IconArrow } from '@vtex/admin-ui-icons'
+
 import { Button } from '../Button'
 
 const NavigationContext = createContext<NavigationContextType | null>(null)
@@ -32,6 +33,7 @@ const _PageHeader = jsx.header(
     useOptions(options: PageHeaderOptions, props) {
       const { onPopNavigation } = options
       const { children, ...headerProps } = props
+
       return {
         ...headerProps,
         children: (
@@ -108,5 +110,5 @@ interface PageHeaderOptions {
 
 export const PageHeader = Object.assign(_PageHeader, {
   Title,
-  Actions
+  Actions,
 })

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Story, Meta } from '@storybook/react'
+import type { Story, Meta } from '@storybook/react'
 import { IconAdd, IconLock } from '@vtex/admin-ui-icons'
+import { Box } from '@vtex/admin-primitives'
 
 import { AbstractInput, AbstractInputPassword } from './index'
-import { Box } from '@vtex/admin-primitives'
 
 export default {
   title: 'admin-ui/AbstractInput',

@@ -31,5 +31,6 @@ function useRoot(props) {
 
 export function wrapRootElement(args) {
   const { element } = args
+
   return jsxs(Root, {}, element)
 }

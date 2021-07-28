@@ -1,5 +1,7 @@
-import { RootResolver, rootResolver } from './root'
-import { simpleResolver, SimpleResolver } from './simple'
+import type { RootResolver } from './root'
+import { rootResolver } from './root'
+import type { SimpleResolver } from './simple'
+import { simpleResolver } from './simple'
 
 /**
  * Filter base resolvers

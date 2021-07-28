@@ -1,7 +1,8 @@
 import invariant from 'tiny-invariant'
 import { flatMap, hasDuplicates } from '@vtex/onda-util'
 
-import { getNamespaces, StepsInstance, Plugin } from '../plugin'
+import type { StepsInstance, Plugin } from '../plugin'
+import { getNamespaces } from '../plugin'
 import { buildAliases } from './aliases'
 import { buildEntries } from './entries'
 import { buildRules } from './rules'
@@ -15,7 +16,7 @@ import { buildTransforms } from './transforms'
  */
 export function buildPlugins<Theme extends Record<string, any>>(
   theme: Theme,
-  plugins: Plugin<Theme>[]
+  plugins: Array<Plugin<Theme>>
 ): StepsInstance {
   const themeBuilderInstance = buildEntries(theme, plugins)
   const themeAfterBuild = themeBuilderInstance.exec(theme)
@@ -35,7 +36,7 @@ export function buildPlugins<Theme extends Record<string, any>>(
  * Checks if namespaces are unique among plugins
  * @param plugins
  */
-function areNamespacesUnique(plugins: Plugin<any>[]) {
+function areNamespacesUnique(plugins: Array<Plugin<any>>) {
   const namespaces = flatMap(plugins, (plugin) => getNamespaces(plugin))
 
   return !hasDuplicates(namespaces)

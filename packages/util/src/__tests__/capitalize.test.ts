@@ -9,6 +9,7 @@ describe('capitalize', () => {
   it('should not cause side effects', () => {
     const value = 'text'
     const capitalized = capitalize(value)
+
     expect(value).toBe('text')
     expect(capitalized).toBe('Text')
   })

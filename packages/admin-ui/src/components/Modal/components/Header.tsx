@@ -1,12 +1,14 @@
-import React, { useMemo, ReactNode, forwardRef, Ref } from 'react'
-import { StyleProp } from '@vtex/admin-core'
+import type { ReactNode, Ref } from 'react'
+import React, { useMemo, forwardRef } from 'react'
+import { useSystem } from '@vtex/admin-core'
+import type { StyleProp } from '@vtex/admin-core'
 import { IconClose } from '@vtex/admin-ui-icons'
+import { Box } from '@vtex/admin-primitives'
 
 import { useModalContext } from '../context'
 import { ModalButton } from './Button'
-import { Box } from '@vtex/admin-primitives'
-import { SystemComponent } from '../../../types'
-import { useSystem } from '@vtex/admin-core'
+import type { SystemComponent } from '../../../types'
+
 /**
  * Header of the modal
  * Renders a header element

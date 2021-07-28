@@ -2,11 +2,14 @@ import React from 'react'
 import { useSystem } from '@vtex/admin-core'
 import { merge, pick, omit, isFunction } from '@vtex/onda-util'
 
-import { __element, __options, __stylesheet } from './symbols'
-import { VariantsCall, CsxCall } from './types'
+import type { __element } from './symbols'
+import { __options, __stylesheet } from './symbols'
+import type { VariantsCall, CsxCall } from './types'
 import { useOptionsIdentity, getStylesheet, getOptions } from './util'
-import { useStylesheet, Stylesheet, Sync } from './useStylesheet'
-import { DOMElements, domElements } from './domElements'
+import type { Stylesheet, Sync } from './useStylesheet'
+import { useStylesheet } from './useStylesheet'
+import type { DOMElements } from './domElements'
+import { domElements } from './domElements'
 
 /**
  * Base jsx function
@@ -36,7 +39,7 @@ import { DOMElements, domElements } from './domElements'
  * @todo inherit types
  * @todo handle generic components
  */
-export function _jsx<T extends React.ElementType<any> = 'div'>(type: T) {
+export function _jsx<T extends React.ElementType = 'div'>(type: T) {
   const parentStylesheet = getStylesheet(type) ?? {}
   const parentOptions = getOptions(type) ?? []
 
@@ -159,7 +162,7 @@ export { jsx }
 function forwardRef<T extends React.ForwardRefRenderFunction<any, any>>(
   component: T
 ) {
-  return (React.forwardRef(component) as unknown) as T
+  return React.forwardRef(component) as unknown as T
 }
 
 function memo<T extends React.ComponentType<any>>(
@@ -169,7 +172,7 @@ function memo<T extends React.ComponentType<any>>(
     nextProps: Readonly<React.ComponentProps<T>>
   ) => boolean
 ) {
-  return (React.memo(component, propsAreEqual) as unknown) as T
+  return React.memo(component, propsAreEqual) as unknown as T
 }
 
 /**
@@ -341,7 +344,7 @@ export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
 }
 
 export interface JsxConfiguration<
-  Type extends React.ElementType<any>,
+  Type extends React.ElementType,
   Options extends {},
   Variants extends {}
 > {
@@ -353,7 +356,7 @@ export interface JsxConfiguration<
       VariantsCall<Variants>,
     system: ReturnType<typeof useSystem>
   ) => React.ComponentPropsWithoutRef<Type>
-  sync?: Sync<Variants>[]
+  sync?: Array<Sync<Variants>>
   memoize?: boolean
 }
 

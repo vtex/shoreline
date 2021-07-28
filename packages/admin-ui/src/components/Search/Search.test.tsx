@@ -1,7 +1,7 @@
 import React from 'react'
-import { render } from '../../test-utils'
 import { axe } from 'jest-axe'
 
+import { render } from '../../test-utils'
 import { Search } from './index'
 
 describe('Search tests', () => {
@@ -24,6 +24,7 @@ describe('Search tests', () => {
     const { asFragment } = render(
       <Search id="search" placeholder="placeholder" />
     )
+
     expect(asFragment()).toMatchSnapshot()
   })
 
@@ -31,6 +32,7 @@ describe('Search tests', () => {
     const { asFragment } = render(
       <Search id="search" placeholder="placeholder" loading />
     )
+
     expect(asFragment()).toMatchSnapshot()
   })
 
@@ -38,7 +40,9 @@ describe('Search tests', () => {
     const { container } = render(
       <Search id="search" placeholder="placeholder" />
     )
+
     const results = await axe(container)
+
     expect(results).toHaveNoViolations()
   })
 
@@ -46,7 +50,9 @@ describe('Search tests', () => {
     const { container } = render(
       <Search id="search" placeholder="placeholder" loading />
     )
+
     const results = await axe(container)
+
     expect(results).toHaveNoViolations()
   })
 })

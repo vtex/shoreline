@@ -1,4 +1,5 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
+import { useState, useEffect } from 'react'
 
 /**
  * Use local storage to persist a state
@@ -12,6 +13,7 @@ export function usePersistentState<T>(
 ): [T, Dispatch<SetStateAction<T>>] {
   const [value, setValue] = useState<T>(() => {
     const persistedValue = window.localStorage.getItem(key)
+
     return persistedValue !== null ? JSON.parse(persistedValue) : defaultValue
   })
 

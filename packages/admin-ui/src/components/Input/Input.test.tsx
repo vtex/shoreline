@@ -2,9 +2,9 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import { IconAdd } from '@vtex/admin-ui-icons'
+import { ThemeProvider } from '@vtex/admin-core'
 
 import { Input } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
 
 describe('Input tests', () => {
   it('should have overridable styles', () => {

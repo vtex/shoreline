@@ -1,4 +1,4 @@
-import { StyleObject } from '@vtex/admin-core'
+import type { StyleObject } from '@vtex/admin-core'
 
 function styles(csx: StyleObject): StyleObject {
   return csx
@@ -13,8 +13,8 @@ const typography = {
   body: styles({
     fontFamily: 'sans',
     fontSize: '1rem',
-    fontSettings: "'wght' 80"
-  })
+    fontSettings: "'wght' 80",
+  }),
 }
 
 const scrollbar = styles({
@@ -39,17 +39,17 @@ const box = styles({
   boxShadow: '0px 20px 40px rgba(0,0,0,.24)',
 })
 
-const menu = (scrollable: boolean) => styles({
-  bg: 'light.primary',
-  listStyle: 'none',
-  width: '100%',
-  maxHeight: 400,
-  overflowY: scrollable ? 'auto' : 'hidden',
-  overflowX: 'hidden',
-  paddingX: 2,
-  ...scrollbar,
-})
-
+const menu = (scrollable: boolean) =>
+  styles({
+    bg: 'light.primary',
+    listStyle: 'none',
+    width: '100%',
+    maxHeight: 400,
+    overflowY: scrollable ? 'auto' : 'hidden',
+    overflowX: 'hidden',
+    paddingX: 2,
+    ...scrollbar,
+  })
 
 const option = (highlighted: boolean) =>
   styles({
@@ -72,7 +72,7 @@ const option = (highlighted: boolean) =>
     color: highlighted ? 'blue' : 'dark.primary',
     svg: {
       color: highlighted ? 'blue' : 'mid.primary',
-    }
+    },
   })
 
 const inputContainer = styles({
@@ -109,7 +109,7 @@ const inputButton = styles({
   position: 'absolute',
   right: 4,
   top: 3,
-  color: 'mid.primary'
+  color: 'mid.primary',
 })
 
 const label = styles({

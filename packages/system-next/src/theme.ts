@@ -1,6 +1,7 @@
 const toVarName = (key: string) => `--onda-${key}`
 const toVarValue = (key: string) => `var(${toVarName(key)})`
-const join = (...args: (string | undefined)[]) => args.filter(Boolean).join('-')
+const join = (...args: Array<string | undefined>) =>
+  args.filter(Boolean).join('-')
 
 export interface ThemeOptions {
   disableCSSVariables?: boolean
@@ -39,25 +40,28 @@ export function toCustomProperties(
 ) {
   const next: Record<string, any> = Array.isArray(obj) ? [] : {}
 
-  for (let key in obj) {
+  for (const key in obj) {
     const value = obj[key]
     const name = join(parent, key)
+
     if (value && typeof value === 'object') {
       next[key] = toCustomProperties(value, name)
       continue
     }
+
     next[key] = toVarValue(name)
   }
 
   return next
 }
 
-export function objectToVars(obj: Record<string, any>, parent: string = '') {
+export function objectToVars(obj: Record<string, any>, parent = '') {
   let vars: Record<string, object> = {}
 
-  for (let key in obj) {
+  for (const key in obj) {
     const name = join(parent, key)
     const value = obj[key]
+
     if (value && typeof value === 'object') {
       vars = {
         ...vars,

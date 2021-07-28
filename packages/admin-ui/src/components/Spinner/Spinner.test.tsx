@@ -1,7 +1,7 @@
 import React from 'react'
-import { render } from '../../test-utils'
 import { axe } from 'jest-axe'
 
+import { render } from '../../test-utils'
 import { Spinner } from './index'
 
 describe('Spinner tests', () => {
@@ -20,6 +20,7 @@ describe('Spinner tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(<Spinner />)
+
     expect(asFragment()).toMatchSnapshot()
   })
 

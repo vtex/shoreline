@@ -1,30 +1,24 @@
-import React, {
-  useMemo,
-  useCallback,
-  ReactNode,
-  PropsWithChildren,
-  Fragment,
-} from 'react'
+import type { ReactNode, PropsWithChildren } from 'react'
+import React, { useMemo, useCallback, Fragment } from 'react'
 import { get } from '@vtex/admin-core'
 
-import {
-  resolveCell as unstableResolveCell,
-  resolveHeader as unstableResolveHeader,
+import type {
   Resolver,
   ResolverContext,
   ResolveCellArgs,
   ResolveHeaderArgs,
   ResolveHeaderReturn,
 } from './resolvers/core'
-import { baseResolvers } from './resolvers/base'
-import { Column, TableDensity, TableDir } from './typings'
-import { SelectionProvider } from './resolvers/selection'
 import {
-  UseSortReturn,
-  useTableSort,
-  UseTableSortParams,
-} from './hooks/useTableSort'
-import { TableViewState } from './context'
+  resolveCell as unstableResolveCell,
+  resolveHeader as unstableResolveHeader,
+} from './resolvers/core'
+import { baseResolvers } from './resolvers/base'
+import type { Column, TableDensity, TableDir } from './typings'
+import { SelectionProvider } from './resolvers/selection'
+import type { UseSortReturn, UseTableSortParams } from './hooks/useTableSort'
+import { useTableSort } from './hooks/useTableSort'
+import type { TableViewState } from './context'
 
 export function useTableState<T>(
   params: UseTableStateParams<T>,
@@ -36,7 +30,7 @@ export function useTableState<T>(
     items = [],
     sort = {},
     getRowKey = (item: T) =>
-      get((item as unknown) as Record<string, unknown>, 'id', ''),
+      get(item as unknown as Record<string, unknown>, 'id', ''),
     onRowClick,
     density = 'regular',
     dir = 'ltr',
@@ -66,7 +60,7 @@ export function useTableState<T>(
         return { ...acc, [col.id]: '__table_skeleton__' }
       }, {})
 
-      return ({ id, ...item } as unknown) as T
+      return { id, ...item } as unknown as T
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length, columns])

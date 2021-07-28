@@ -1,4 +1,4 @@
-import { TableDensity, TableDir } from '../typings'
+import type { TableDensity, TableDir } from '../typings'
 
 export const getStyles = (density: TableDensity) => {
   const base = `components.table.${density}`

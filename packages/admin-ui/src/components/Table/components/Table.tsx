@@ -1,9 +1,10 @@
-import React, { ElementType, ReactNode, useMemo, forwardRef, Ref } from 'react'
-
+import type { ElementType, ReactNode, Ref } from 'react'
+import React, { useMemo, forwardRef } from 'react'
 import { Box } from '@vtex/admin-primitives'
-import { TableDensity, TableDir } from '../typings'
+
+import type { TableDensity, TableDir } from '../typings'
 import { StylesContext } from '../context'
-import { SystemComponent } from '../../../types'
+import type { SystemComponent } from '../../../types'
 import { TableHead } from './Head'
 import { TableBody } from './Body'
 import { TableRow } from './Row'

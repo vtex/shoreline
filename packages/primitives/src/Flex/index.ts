@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ElementType, ReactElement } from 'react'
-import * as CSS from 'csstype'
-import { ResponsiveValue, omit, pick, createComponent } from '@vtex/admin-core'
+import type { ElementType, ReactElement } from 'react'
+import type * as CSS from 'csstype'
+import type { ResponsiveValue } from '@vtex/admin-core'
+import { omit, pick, createComponent } from '@vtex/admin-core'
 
-import { Primitive, PrimitiveOwnProps, PrimitiveProps } from '../Primitive'
+import type { PrimitiveOwnProps, PrimitiveProps } from '../Primitive'
+import { Primitive } from '../Primitive'
 import { renameKeys } from '../util'
 
 /**

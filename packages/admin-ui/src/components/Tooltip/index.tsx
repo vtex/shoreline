@@ -1,13 +1,14 @@
-import React, { FunctionComponentElement, cloneElement, ReactNode } from 'react'
+import type { FunctionComponentElement, ReactNode } from 'react'
+import React, { cloneElement } from 'react'
 import {
   useTooltipState,
   Tooltip as ReakitTooltip,
   TooltipReference,
 } from 'reakit/Tooltip'
-import { PopoverState } from 'reakit/ts'
-
+import type { PopoverState } from 'reakit/ts'
 import { useSystem } from '@vtex/admin-core'
-import { SystemComponent } from '../../types'
+
+import type { SystemComponent } from '../../types'
 
 /**
  * Popup that displays information related to an element on :focus (by keyboard) or :hover (by mouse).
@@ -30,12 +31,12 @@ export function Tooltip(props: TooltipProps) {
     baseId,
     ...tooltipProps
   } = props
+
   const { cn } = useSystem()
 
   const tooltip = useTooltipState({
     placement,
     visible,
-    // eslint-disable-next-line @typescript-eslint/camelcase
     unstable_fixed: fixed,
     baseId,
   })

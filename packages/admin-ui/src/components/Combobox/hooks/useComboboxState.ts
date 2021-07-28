@@ -1,9 +1,8 @@
-import {
-  useCombobox,
-  UseComboboxProps,
-  UseComboboxReturnValue,
-} from 'downshift'
-import { Dispatch, ReactNode, SetStateAction, useMemo, useState } from 'react'
+import type { UseComboboxProps, UseComboboxReturnValue } from 'downshift'
+import { useCombobox } from 'downshift'
+import type { Dispatch, ReactNode, SetStateAction } from 'react'
+import { useMemo, useState } from 'react'
+
 import { useCollection } from './useCollection'
 
 type DownshiftRestProps<C> = Omit<
@@ -77,6 +76,7 @@ export function unstableUseComboboxState<C>(
     itemToString,
     onSelectedItemChange: (onChangeProps) => {
       const { selectedItem } = onChangeProps
+
       onSelect(selectedItem)
       onSelectedItemChange?.(onChangeProps)
     },
@@ -112,6 +112,7 @@ export function unstableUseComboboxState<C>(
  */
 function defaultMatch(params: MatchParams) {
   const { inputValue, itemString } = params
+
   return String(itemString)
     .toLowerCase()
     .startsWith(String(inputValue).toLowerCase())

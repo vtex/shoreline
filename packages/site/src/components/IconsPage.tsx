@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, get, Text, Heading } from '@vtex/admin-ui'
-import { IconProps } from '@vtex/admin-ui-icons'
+import type { IconProps } from '@vtex/admin-ui-icons'
 import * as AdminIcon from '@vtex/admin-ui-icons'
 
 import { Searchbar, useSearch } from './Searchbar'

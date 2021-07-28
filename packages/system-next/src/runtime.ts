@@ -1,5 +1,6 @@
 import invariant from 'tiny-invariant'
-import { StepsInstance } from './plugin'
+
+import type { StepsInstance } from './plugin'
 
 const RUNTIME_NAME = Symbol('runtime name')
 const RUNTIME_INSTANCE = Symbol('runtime instance')
@@ -30,6 +31,7 @@ export function createRuntime<
   >
 ): Runtime<InstanceParams, InstanceReturn, HumanReadableCSS, MetaCSS> {
   const invariants = getRuntimeInvariants(params)
+
   invariant(invariants.name.constraint, invariants.name.message)
 
   return {

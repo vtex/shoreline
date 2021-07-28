@@ -3,8 +3,9 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import 'mutationobserver-shim'
 
-import { Modal } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
+
+import { Modal } from './index'
 
 global.MutationObserver = window.MutationObserver
 

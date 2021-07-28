@@ -1,17 +1,14 @@
-import React, { ReactNode, forwardRef, Ref } from 'react'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { IconClose } from '@vtex/admin-ui-icons'
-import {
-  inlineVariant,
-  useResponsiveValue,
-  ResponsiveValue,
-} from '@vtex/admin-core'
+import type { ResponsiveValue } from '@vtex/admin-core'
+import { inlineVariant, useResponsiveValue } from '@vtex/admin-core'
+import { Box, Flex } from '@vtex/admin-primitives'
 
-import { SystemComponent } from '../../types'
-import { Box } from '@vtex/admin-primitives'
+import type { SystemComponent } from '../../types'
 import { Button } from '../Button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
-import { Flex } from '@vtex/admin-primitives'
 
 /**
  * Component to display relevant information within an admin page

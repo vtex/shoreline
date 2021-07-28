@@ -70,6 +70,7 @@ describe('onda elements', () => {
     const { getByTestId } = render(
       <tag.div data-testid="test">Testing</tag.div>
     )
+
     const result = getByTestId('test')
 
     expect(result).toBeInTheDocument()
@@ -88,6 +89,7 @@ describe('onda elements', () => {
         Testing
       </tag.div>
     )
+
     const result = getByTestId('test')
 
     expect(result).toHaveStyleRule('background-color', '#000')

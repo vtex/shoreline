@@ -1,9 +1,10 @@
 import React from 'react'
-import { UseSelectStateChange } from 'downshift'
+import type { UseSelectStateChange } from 'downshift'
 import { get } from '@vtex/admin-core'
 import { Box } from '@vtex/admin-primitives'
 
-import { Dropdown, DropdownProps, useDropdownState } from '../../Dropdown'
+import type { DropdownProps } from '../../Dropdown'
+import { Dropdown, useDropdownState } from '../../Dropdown'
 
 /**
  * FilterBar statement dropdown

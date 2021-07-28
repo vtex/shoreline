@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 
-import { DataGridState } from './hooks/useDataGridState'
+import type { DataGridState } from './hooks/useDataGridState'
 
 export const StateContext = createContext<DataGridState<any> | null>(null)
 

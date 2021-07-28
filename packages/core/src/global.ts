@@ -1,6 +1,7 @@
 import { theme } from '@vtex/admin-ui-theme'
 import { Global, css } from '@emotion/react'
 import { Helmet } from 'react-helmet'
+
 import { jsxs, styles } from './system'
 
 const imports =
@@ -24,8 +25,7 @@ export function FontsPreload() {
     ...[
       jsxs('link', {
         rel: 'preload',
-        href:
-          'https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2',
+        href: 'https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2',
         as: 'font',
         type: 'font/woff2',
         crossorigin: 'anonymous',

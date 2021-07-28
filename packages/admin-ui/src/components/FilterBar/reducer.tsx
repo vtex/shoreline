@@ -1,4 +1,4 @@
-import {
+import type {
   Condition,
   Conjunction,
   Filter,
@@ -19,10 +19,12 @@ export function defaultReducer<T>(
 
       return nextState
     }
+
     case 'filter': {
       const { filter, index } = action
 
       const { conjunction, statements } = state
+
       statements[index] = {
         condition: filter.conditions[0],
         filter,
@@ -33,6 +35,7 @@ export function defaultReducer<T>(
 
       return nextState
     }
+
     case 'condition': {
       const { condition, index } = action
       const { conjunction, statements } = state
@@ -43,6 +46,7 @@ export function defaultReducer<T>(
 
       return nextState
     }
+
     case 'value': {
       const { value, index } = action
       const { conjunction, statements } = state
@@ -53,12 +57,13 @@ export function defaultReducer<T>(
 
       return nextState
     }
+
     case 'newStatement': {
       const { filter } = action
       const { conjunction, statements } = state
 
       const emptyStatement: Statement<T> = {
-        filter: filter,
+        filter,
         condition: filter.conditions[0],
         target: filter.resolver.defaultValue,
       }
@@ -71,6 +76,7 @@ export function defaultReducer<T>(
 
       return nextState
     }
+
     case 'filtersReset': {
       const { conjunction } = action
       const nextState: ReducerFilters<T> = {
@@ -81,6 +87,7 @@ export function defaultReducer<T>(
 
       return nextState
     }
+
     case 'duplicateStatement': {
       const { index } = action
       const { conjunction, statements } = state
@@ -95,15 +102,18 @@ export function defaultReducer<T>(
 
       return nextState
     }
+
     case 'deleteStatement': {
       const { index } = action
       const { conjunction, statements } = state
+
       statements.splice(index, 1)
 
       const nextState = { conjunction, statements, applied: false }
 
       return nextState
     }
+
     case 'apply': {
       return { ...state, applied: true }
     }

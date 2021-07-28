@@ -1,4 +1,5 @@
-import React, { PropsWithChildren, ReactNode } from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
+import React from 'react'
 import { Flex, tag } from '@vtex/admin-ui'
 
 import { Sidebar } from './Sidebar'
@@ -6,8 +7,9 @@ import { TableOfContents } from './TableOfContents'
 import Header from './Header'
 import { SearchProvider, useSearchState } from './Search'
 
-function StickyBlock(props: PropsWithChildren<{ top?: number, pl?: number }>) {
-  const { top = 0 , pl = 0, children } = props
+function StickyBlock(props: PropsWithChildren<{ top?: number; pl?: number }>) {
+  const { top = 0, pl = 0, children } = props
+
   return (
     <tag.div
       csx={{
@@ -79,12 +81,14 @@ export function PageLayout(props: Props) {
           }}
         >
           <Header />
-          <tag.div csx={{
-            padding: 4,
-            marginTop: 64,
-            width: '100%'
-          }}> 
-          {children}
+          <tag.div
+            csx={{
+              padding: 4,
+              marginTop: 64,
+              width: '100%',
+            }}
+          >
+            {children}
           </tag.div>
         </Flex>
         {title && props.pageContext.tableOfContentsAst && (

@@ -1,8 +1,10 @@
-import React, { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
 import { render } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
 import { Box as ReakitBox } from 'reakit/Box'
-import { StyleProp, get } from '@vtex/admin-styles'
+import type { StyleProp } from '@vtex/admin-styles'
+import { get } from '@vtex/admin-styles'
 import { jsxs } from '@vtex/admin-jsxs'
 import '@testing-library/jest-dom/extend-expect'
 

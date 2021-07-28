@@ -1,12 +1,11 @@
-import React, { Fragment, ReactNode } from 'react'
-import {
-  RadioGroup as ReakitRadioGroup,
-  RadioGroupProps as ReakitRadioGroupProps,
-} from 'reakit/Radio'
-
-import { SystemComponent } from '../../types'
-import { Label } from '../Label'
+import type { ReactNode } from 'react'
+import React, { Fragment } from 'react'
+import type { RadioGroupProps as ReakitRadioGroupProps } from 'reakit/Radio'
+import { RadioGroup as ReakitRadioGroup } from 'reakit/Radio'
 import { useSystem } from '@vtex/admin-core'
+
+import type { SystemComponent } from '../../types'
+import { Label } from '../Label'
 
 export function RadioGroup(props: RadioGroupProps) {
   const {

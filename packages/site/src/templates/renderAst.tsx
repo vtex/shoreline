@@ -7,7 +7,6 @@ import List from '../components/List'
 import Kbd from '../components/Kbd'
 import Blockquote from '../components/Blockquote'
 import Heading from '../components/Heading'
-
 import Summary from '../components/Summary'
 import { Proptypes } from '../components/Proptypes'
 import {

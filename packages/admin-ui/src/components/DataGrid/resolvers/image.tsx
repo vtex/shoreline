@@ -1,15 +1,12 @@
-import React, { ReactNode, Fragment } from 'react'
+import type { ReactNode } from 'react'
+import React, { Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
-
-import {
-  createResolver,
-  defaultRender,
-  ResolverContext,
-  ResolverRenderProps,
-} from './core'
-import { Skeleton } from '../../Skeleton'
 import { useSystem } from '@vtex/admin-core'
+
+import type { ResolverContext, ResolverRenderProps } from './core'
+import { createResolver, defaultRender } from './core'
+import { Skeleton } from '../../Skeleton'
 
 const defaultPreview: ImagePreview = {
   display: true,
@@ -27,6 +24,7 @@ export function imageResolver<T>() {
       if (context.status === 'loading') {
         return <Skeleton csx={{ height: 24 }} />
       }
+
       const { cn } = useSystem()
       const url = getData()
       const { resolver } = column
@@ -83,6 +81,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
     context: { density },
     alt,
   } = props
+
   const { cn } = useSystem()
 
   const tooltip = useTooltipState({

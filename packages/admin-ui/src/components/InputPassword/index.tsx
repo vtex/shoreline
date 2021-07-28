@@ -1,14 +1,13 @@
-import React, { forwardRef, Ref } from 'react'
-
-import {
-  AbstractInputPassword,
-  AbstractInputPasswordProps,
-} from '../AbstractInput'
-import { Text } from '../Text'
-import { Label } from '../Label'
-import { SystemComponentProps } from '../../types'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { Box } from '@vtex/admin-primitives'
 import { useSystem } from '@vtex/admin-core'
+
+import type { AbstractInputPasswordProps } from '../AbstractInput'
+import { AbstractInputPassword } from '../AbstractInput'
+import { Text } from '../Text'
+import { Label } from '../Label'
+import type { SystemComponentProps } from '../../types'
 
 export const InputPassword = forwardRef(function InputPassword(
   props: InputPasswordProps,
@@ -25,6 +24,7 @@ export const InputPassword = forwardRef(function InputPassword(
     errorMessage,
     ...inputProps
   } = props
+
   const { stylesOf } = useSystem()
 
   const message = error ? errorMessage : helperText

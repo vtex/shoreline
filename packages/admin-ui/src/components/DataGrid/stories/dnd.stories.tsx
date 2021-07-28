@@ -1,11 +1,7 @@
 import React, { Fragment, useState } from 'react'
-import { Meta } from '@storybook/react'
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  DropResult,
-} from 'react-beautiful-dnd'
+import type { Meta } from '@storybook/react'
+import type { DropResult } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import faker from 'faker'
 import { IconDrag } from '@vtex/admin-ui-icons'
 

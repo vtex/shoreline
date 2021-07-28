@@ -4,9 +4,11 @@ import { ThemeProvider } from '@vtex/admin-core'
 import { axe } from 'jest-axe'
 
 import { FilterBar } from '../index'
-
 import { useFilterBarState } from '../useFilterBarState'
-import { UseFilterBarStateParams, UseFilterBarStateReturn } from '../typings'
+import type {
+  UseFilterBarStateParams,
+  UseFilterBarStateReturn,
+} from '../typings'
 
 interface FilterStateProps<T> extends UseFilterBarStateParams<T> {
   children: (state: UseFilterBarStateReturn<T>) => JSX.Element
