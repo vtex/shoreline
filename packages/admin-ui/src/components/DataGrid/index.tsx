@@ -54,18 +54,21 @@ const _DataGrid = jsx.div(
   {
     useOptions(options: DataGridOptions, props) {
       const { state } = options
+      const { Providers } = state
       const { children, ...dtgProps } = props
 
       return {
         ...dtgProps,
         children: (
           <StateContext.Provider value={state}>
-            {children ?? (
-              <Table>
-                <Head />
-                <Body />
-              </Table>
-            )}
+            <Providers>
+              {children ?? (
+                <Table>
+                  <Head />
+                  <Body />
+                </Table>
+              )}
+            </Providers>
             <Status />
           </StateContext.Provider>
         ),
