@@ -1,10 +1,10 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import { DataGrid } from '../index'
 import { useDataGridState } from '../hooks/useDataGridState'
-import { DataGridColumn } from '../typings'
-import { BaseResolvers } from '../resolvers/base'
+import type { DataGridColumn } from '../typings'
+import type { BaseResolvers } from '../resolvers/base'
 
 export default {
   title: 'admin-ui/DataGrid/selectable',
@@ -65,7 +65,7 @@ export function Selectable() {
           id: 'price',
           header: 'Price',
         },
-      ] as DataGridColumn<Item, BaseResolvers<Item>>[],
+      ] as Array<DataGridColumn<Item, BaseResolvers<Item>>>,
     []
   )
 
