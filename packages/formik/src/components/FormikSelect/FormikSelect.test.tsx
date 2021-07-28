@@ -280,6 +280,8 @@ describe('Select tests', () => {
         return { value: { id: 'This field is required.' } }
       if (values.value.id === 'option-error')
         return { value: { id: 'Error message' } }
+
+      return {}
     }
 
     render(
