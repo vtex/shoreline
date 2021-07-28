@@ -1,5 +1,5 @@
-import { Rule } from 'eslint'
-import { Node } from 'estree'
+import type { Rule } from 'eslint'
+import type { Node } from 'estree'
 
 export const getFunctionNodeName = (node: Node) => {
   if (node.type === 'FunctionDeclaration') {

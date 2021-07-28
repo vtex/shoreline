@@ -1,14 +1,13 @@
 import React from 'react'
-
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { axe } from 'jest-axe'
-
 import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
-import { FormikRadio, FormikRadioGroup } from './index'
 import { Button, Label, Text } from '@vtex/admin-ui'
+
+import { FormikRadio, FormikRadioGroup } from './index'
 
 describe('Radio and RadioGroup tests', () => {
   it('change value in formik by input component', async () => {
@@ -88,6 +87,7 @@ describe('Radio and RadioGroup tests', () => {
     )
 
     const option2 = screen.getByDisplayValue(options[2])
+
     userEvent.click(option2)
     await waitFor(() =>
       expect(option2.getAttribute('aria-checked')).toBe('true')
@@ -148,6 +148,7 @@ describe('Radio and RadioGroup tests', () => {
     )
 
     const option2 = screen.getByDisplayValue(options[2])
+
     userEvent.click(option2)
     await waitFor(() =>
       expect(option2.getAttribute('aria-checked')).toBe('true')
@@ -275,6 +276,7 @@ describe('Radio and RadioGroup tests', () => {
     )
 
     const error = screen.getByDisplayValue(options[3])
+
     userEvent.click(error)
     userEvent.click(document.body)
     await waitFor(() => expect(error.getAttribute('aria-checked')).toBe('true'))
@@ -286,6 +288,7 @@ describe('Radio and RadioGroup tests', () => {
     const messagesEN = {
       'admin/admin-formik.error.message': 'Error message',
     }
+
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     const Content = () => {
@@ -324,13 +327,14 @@ describe('Radio and RadioGroup tests', () => {
 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'} messages={messagesEN}>
+        <IntlProvider locale="en" messages={messagesEN}>
           <Content />
         </IntlProvider>
       </ThemeProvider>
     )
 
     const error = screen.getByDisplayValue(options[3])
+
     userEvent.click(error)
     userEvent.click(document.body)
     await waitFor(() => expect(error.getAttribute('aria-checked')).toBe('true'))
@@ -366,6 +370,7 @@ describe('Radio and RadioGroup tests', () => {
     )
 
     const option2 = screen.getByText(options[2])
+
     userEvent.click(option2)
     await waitFor(() =>
       expect(

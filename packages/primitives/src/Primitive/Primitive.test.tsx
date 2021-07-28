@@ -1,6 +1,6 @@
 import React from 'react'
-import { render } from '../test-utils'
 
+import { render } from '../test-utils'
 import { Primitive } from './index'
 
 describe('Primitive tests', () => {

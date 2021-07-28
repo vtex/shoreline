@@ -82,8 +82,10 @@ describe('createComponent', () => {
         bg: '#000',
         color: '#fff',
       })
+
       const { getByRole } = render(<Box as="button">Testing</Box>)
       const result = getByRole('button')
+
       expect(result).toBeDefined()
     })
 

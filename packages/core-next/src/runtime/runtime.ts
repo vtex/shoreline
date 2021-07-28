@@ -1,9 +1,9 @@
 import createEmotion from '@emotion/css/create-instance'
 import { Global } from '@emotion/react'
-import { CSSObject as EmotionCSSObject } from '@emotion/css'
+import type { CSSObject as EmotionCSSObject } from '@emotion/css'
 import { createRuntime } from '@vtex/onda-system'
 
-import { StyleObject, StyleProp } from './types'
+import type { StyleObject, StyleProp } from './types'
 import { resposiveScale } from './experimental/responsiveScale'
 
 export const runtime = createRuntime({
@@ -48,6 +48,7 @@ export const runtime = createRuntime({
           }
         } else if (cssProperty in steps.splits.value) {
           const splitValue = steps.splits.exec(cssProperty, value)
+
           Object.assign(cssObject, splitValue)
         } else {
           cssObject[cssProperty] = value
@@ -60,6 +61,7 @@ export const runtime = createRuntime({
   compiler: ({ emotion }) => {
     return function compile(meta) {
       const className = emotion.css(meta)
+
       return className
     }
   },

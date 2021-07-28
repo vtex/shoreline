@@ -1,14 +1,16 @@
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import { Box, Flex } from '@vtex/admin-primitives'
 
-import { UseTableStateReturn } from '../Table/useTableState'
+import type { UseTableStateReturn } from '../Table/useTableState'
 import { Table } from '../Table/components'
-import { SystemComponent } from '../../types'
+import type { SystemComponent } from '../../types'
 import { TableToolbar } from './components/Toolbar'
 import { TableSection } from './components/Section'
 import { TableSearch } from './components/Search'
 import { SortIndicator } from '../Table/components/SortIndicator'
-import { TableViewResolver, TableViewsType } from './components/Views'
+import type { TableViewsType } from './components/Views'
+import { TableViewResolver } from './components/Views'
 import { ViewContext } from '../Table/context'
 import { TableFilterBar } from './components/FilterBar'
 
@@ -74,14 +76,11 @@ function _StatelessTable<T>(props: StatelessTableProps<T>) {
                 <Table.Head>
                   <Table.Row>
                     {columns.map((column) => {
-                      const {
-                        content,
-                        isSortable,
-                        sortDirection,
-                      } = resolveHeader({
-                        column,
-                        items: data,
-                      })
+                      const { content, isSortable, sortDirection } =
+                        resolveHeader({
+                          column,
+                          items: data,
+                        })
 
                       return (
                         <Table.Cell

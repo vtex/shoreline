@@ -5,3 +5,8 @@ packages/icons/native
 **/.cache
 **/coverage
 storybook-static
+
+# Resolve: Parsing error: Unexpected token <
+**/gatsby-browser.js
+**/gatsby-ssr.js
+**/404.js

@@ -1,7 +1,8 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 
-import { CollapsibleGroup, CollapsibleGroupProps } from './index'
+import type { CollapsibleGroupProps } from './index'
+import { CollapsibleGroup } from './index'
 import { Collapsible, useCollapsible } from '../Collapsible'
 import { Text } from '../Text'
 import { Set } from '../Set'

@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { ThemeProvider } from '@vtex/admin-core'
 
 import { TableCell } from '../components/Cell'
 import { TableHead } from '../components/Head'
 import { TableBody } from '../components/Body'
-import { ThemeProvider } from '@vtex/admin-core'
 import { StylesContext } from '../context'
 import { getStyles } from './testUtil'
 

@@ -1,18 +1,19 @@
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
+import type { TabProps as ReakitTabProps, TabStateReturn } from 'reakit'
 import {
   TabList as ReakitTabList,
   TabPanel as ReakitTabPanel,
   Tab as ReakitTab,
-  TabProps as ReakitTabProps,
-  TabStateReturn,
 } from 'reakit'
 import { useSystem } from '@vtex/admin-core'
 
 import { TabsProvider, useTabsContext } from './context'
-import { SystemComponent, SystemComponentProps } from '../../types'
+import type { SystemComponent, SystemComponentProps } from '../../types'
 
 export function Tabs(props: TabsProps) {
   const { state, children, ...restProps } = props
+
   return (
     <TabsProvider state={state} {...restProps}>
       {children}

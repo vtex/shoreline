@@ -1,5 +1,7 @@
-import { Plugin, getEntries, getNamespaces } from '../plugin'
 import { merge, pick, callOrReturn } from '@vtex/onda-util'
+
+import type { Plugin } from '../plugin'
+import { getEntries, getNamespaces } from '../plugin'
 
 /**
  * Builds entries of all plugins
@@ -8,7 +10,7 @@ import { merge, pick, callOrReturn } from '@vtex/onda-util'
  */
 export function buildEntries<Theme extends Record<string, any>>(
   theme: Theme,
-  plugins: Plugin<Theme>[]
+  plugins: Array<Plugin<Theme>>
 ) {
   const collection = plugins
     .map((plugin) => ({
@@ -21,7 +23,7 @@ export function buildEntries<Theme extends Record<string, any>>(
         ...callOrReturn(callback, pick(theme, namespaces) as Partial<Theme>),
       }),
       []
-    ) as Record<string, any>[]
+    ) as Array<Record<string, any>>
 
   function exec(theme: Theme) {
     return merge(theme, collection)

@@ -1,7 +1,8 @@
-import { ReactNode } from 'react'
-import { ButtonProps } from '../../Button'
-import { IconProps } from '@vtex/admin-ui-icons'
-import { PropsWithAs } from '@vtex/onda-react'
+import type { ReactNode } from 'react'
+import type { IconProps } from '@vtex/admin-ui-icons'
+import type { PropsWithAs } from '@vtex/onda-react'
+
+import type { ButtonProps } from '../../Button'
 
 export interface ToastManagerProps {
   /**

@@ -1,6 +1,8 @@
 import { useCallback, useReducer } from 'react'
-import { Action, defaultReducer } from './reducer'
-import {
+
+import type { Action } from './reducer'
+import { defaultReducer } from './reducer'
+import type {
   Condition,
   Conjunction,
   Filter,
@@ -36,9 +38,10 @@ export function useFilterBarState<T>(
     initialState
   )
 
-  const memoizedDispatch = useCallback((value: Action<T>) => dispatch(value), [
-    dispatch,
-  ])
+  const memoizedDispatch = useCallback(
+    (value: Action<T>) => dispatch(value),
+    [dispatch]
+  )
 
   const addStatement = useCallback(
     () =>
@@ -92,7 +95,7 @@ export function useFilterBarState<T>(
   const changeCondition = (condition: Condition, index: number) =>
     memoizedDispatch({
       type: 'condition',
-      condition: condition,
+      condition,
       index,
     })
 

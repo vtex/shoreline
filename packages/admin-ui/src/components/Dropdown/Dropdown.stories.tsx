@@ -1,8 +1,9 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 
 import { Set } from '../Set'
-import { Dropdown, DropdownProps, useDropdownState } from './index'
+import type { DropdownProps } from './index'
+import { Dropdown, useDropdownState } from './index'
 import { Card } from '../Card'
 
 export default {

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Meta, Story } from '@storybook/react'
-
-import { FormikNumericStepper, FormikNumericStepperProps } from './index'
+import type { Meta, Story } from '@storybook/react'
 import { Form, Formik } from 'formik'
 import { Box, Button, Flex, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
 import { useIntl, IntlProvider } from 'react-intl'
+
+import { FormikNumericStepper } from './index'
+import type { FormikNumericStepperProps } from './index'
 
 export default {
   title: 'admin-formik/FormikNumericStepper',
@@ -22,10 +23,8 @@ export const Playground: Story<FormikNumericStepperProps> = (args) => {
       .required('This field is required.'),
   })
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     values: FormValuesInterface,
@@ -37,7 +36,8 @@ export const Playground: Story<FormikNumericStepperProps> = (args) => {
   }
 
   useEffect(() => {
-    let value = Object.values(currentInitialValues)[0]
+    const value = Object.values(currentInitialValues)[0]
+
     setCurrentInitialValues({ [args.name]: value })
   }, [args.name])
 
@@ -206,11 +206,12 @@ export const ErrorMessage = () => {
 
 export const ErrorLimit = () => {
   const maxValue = 4
+
   type FormValuesInterface = { value: number }
 
   const schemaValidationError = Yup.object({
     value: Yup.number()
-      .max(maxValue, 'This field cannot have a value greater than ' + maxValue)
+      .max(maxValue, `This field cannot have a value greater than ${maxValue}`)
       .required('This field is required.'),
   })
 
@@ -236,7 +237,7 @@ export const ErrorLimit = () => {
                 name="value"
                 label="Label"
                 maxValue={maxValue}
-                helperText={'Max value is ' + maxValue}
+                helperText={`Max value is ${maxValue}`}
               />
             </Box>
             <Set orientation="vertical" spacing={1}>
@@ -272,6 +273,7 @@ export const WithIntl = () => {
 
   const Content = () => {
     const { formatMessage } = useIntl()
+
     type FormValuesInterface = { value: number }
 
     const schemaValidationError = Yup.object({
@@ -315,7 +317,7 @@ export const WithIntl = () => {
   }
 
   return (
-    <IntlProvider locale={'en'} messages={messagesEN}>
+    <IntlProvider locale="en" messages={messagesEN}>
       <Content />
     </IntlProvider>
   )
@@ -366,10 +368,8 @@ export const ChangeInitialValue = () => {
   type FormValuesInterface = { value: number }
   const initialValues: FormValuesInterface = { value: 0 }
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     _values: FormValuesInterface,
@@ -454,7 +454,7 @@ export const OnChangeExample = () => {
           </Box>
           <Set orientation="vertical">
             <Text variant="subtitle">
-              Number of times the value has changed: {' ' + changes}
+              Number of times the value has changed: {` ${changes}`}
             </Text>
           </Set>
         </Flex>

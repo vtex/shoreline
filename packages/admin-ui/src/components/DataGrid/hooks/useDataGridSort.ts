@@ -1,4 +1,5 @@
-import { useReducer, useCallback, Dispatch } from 'react'
+import type { Dispatch } from 'react'
+import { useReducer, useCallback } from 'react'
 
 const clearState: SortState = {
   by: undefined,
@@ -47,15 +48,18 @@ export function useDataGridSort<T>(params: UseDataGridSortParams<T>) {
 function sortReducer(state: SortState, action: SortAction) {
   switch (action.type) {
     case 'ASC':
+
     case 'DSC': {
       return {
         by: action.columnId,
         order: action.type,
       }
     }
+
     case 'RESET': {
       return clearState
     }
+
     default:
       return state
   }
@@ -68,10 +72,11 @@ function sortCallback<T>({
   directions,
 }: SortCallbackParams<T>) {
   const { by, order } = currentSortState
+
   if (!by || by !== columnId) {
-    dispatch({ type: directions[0], columnId: columnId })
+    dispatch({ type: directions[0], columnId })
   } else if (order === directions[0] && directions[1]) {
-    dispatch({ type: directions[1], columnId: columnId })
+    dispatch({ type: directions[1], columnId })
   } else {
     dispatch({ type: 'RESET' })
   }

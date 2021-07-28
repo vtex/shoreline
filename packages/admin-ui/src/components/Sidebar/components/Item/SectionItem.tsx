@@ -1,7 +1,10 @@
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import { merge } from '@vtex/admin-core'
+
 import { useCompositeItem } from '../Aria'
-import { ButtonProps, Button } from '../../../Button'
+import type { ButtonProps } from '../../../Button'
+import { Button } from '../../../Button'
 import { useSidebarContext } from '../../context'
 import { useItemContext, ArrowKeys } from './shared'
 
@@ -14,6 +17,7 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
     ...state,
     baseId: 'section-item--',
   })
+
   const selected = parentSelected && currentSelected
 
   const handleOnKeyDown = (event: React.KeyboardEvent<any>) => {

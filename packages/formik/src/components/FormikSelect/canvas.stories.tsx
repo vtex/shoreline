@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Meta, Story } from '@storybook/react'
-
-import { FormikSelect, FormikSelectProps } from './index'
+import type { Meta, Story } from '@storybook/react'
 import { Form, Formik } from 'formik'
 import { Box, Button, Flex, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
 import { useIntl, IntlProvider } from 'react-intl'
+
+import { FormikSelect } from './index'
+import type { FormikSelectProps } from './index'
 
 export default {
   title: 'admin-formik/FormikSelect',
@@ -22,10 +23,8 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
       .required('This field is required.'),
   })
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     values: FormValuesInterface,
@@ -37,7 +36,8 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
   }
 
   useEffect(() => {
-    let value = Object.values(currentInitialValues)[0]
+    const value = Object.values(currentInitialValues)[0]
+
     setCurrentInitialValues({ [args.name]: value })
   }, [args.name])
 
@@ -127,6 +127,7 @@ Playground.args = {
 
 export const Basic = () => {
   const options = ['option 1', 'option 2', 'option 3']
+
   type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
@@ -215,6 +216,7 @@ export const WithObjectList = () => {
 
 export const Error = () => {
   const options = ['error 1', 'error 2', 'error 3', 'error']
+
   type FormValuesInterface = { value: string }
 
   const schemaValidationError = Yup.object({
@@ -268,6 +270,7 @@ export const WithIntl = () => {
 
   const Content = () => {
     const { formatMessage } = useIntl()
+
     type FormValuesInterface = { value: string }
     const schemaValidationError = Yup.object({
       value: Yup.string()
@@ -313,7 +316,7 @@ export const WithIntl = () => {
   }
 
   return (
-    <IntlProvider locale={'en'} messages={messagesEN}>
+    <IntlProvider locale="en" messages={messagesEN}>
       <Content />
     </IntlProvider>
   )
@@ -329,6 +332,7 @@ export const ChangeValueOutside = () => {
     'option 6',
     'option 7',
   ]
+
   type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
@@ -381,13 +385,12 @@ export const ChangeInitialValue = () => {
     'option 6',
     'option 7',
   ]
+
   type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     _values: FormValuesInterface,
@@ -449,6 +452,7 @@ export const ChangeInitialValue = () => {
 
 export const OnChangeExample = () => {
   const options = ['option 1', 'option 2', 'option 3']
+
   type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
   const [changes, setChanges] = useState(0)
@@ -474,7 +478,7 @@ export const OnChangeExample = () => {
           </Box>
           <Set orientation="vertical">
             <Text variant="subtitle">
-              Number of times the value has changed: {' ' + changes}
+              Number of times the value has changed: {` ${changes}`}
             </Text>
           </Set>
         </Flex>

@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
-import { CompositeStateReturn } from '../Aria'
+
+import type { CompositeStateReturn } from '../Aria'
 
 const ItemContext = createContext<{
   id: string

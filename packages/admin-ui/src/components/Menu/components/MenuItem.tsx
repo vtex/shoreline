@@ -1,6 +1,7 @@
 import { useSystem, merge, createComponent } from '@vtex/admin-core'
 
-import { Button, ButtonProps } from '../../Button'
+import type { ButtonProps } from '../../Button'
+import { Button } from '../../Button'
 
 /**
  * Accessible menu item component
@@ -25,6 +26,7 @@ function useMenuItem(props: MenuItemProps): ButtonProps {
   const styles = stylesOf(
     dangerous ? 'components.menu.item-dangerous' : 'components.menu.item'
   )
+
   const csx = merge(styles, overrides)
 
   return {

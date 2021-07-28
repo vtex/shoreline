@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import { Select, useSelectState } from './index'
 import { Set } from '../Set'

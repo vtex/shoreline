@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
+import { tag } from '@vtex/onda-react'
 
 import { PageHeader } from './index'
-import { tag } from '@vtex/onda-react'
 import { Button } from '../Button'
 
 export default {

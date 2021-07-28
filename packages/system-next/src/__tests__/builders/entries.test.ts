@@ -14,6 +14,7 @@ describe('entries builder', () => {
     namespaces: ['test'],
     entries: (theme) => {
       const { test } = theme
+
       return {
         test: test.map((t: number) => t * 2),
       }

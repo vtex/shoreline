@@ -1,11 +1,13 @@
-import React, { forwardRef, Ref } from 'react'
-
-import { AbstractInput, AbstractInputProps } from '../AbstractInput'
-import { Text } from '../Text'
-import { Label } from '../Label'
-import { SystemComponentProps } from '../../types'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { Box } from '@vtex/admin-primitives'
 import { useSystem } from '@vtex/admin-core'
+
+import type { AbstractInputProps } from '../AbstractInput'
+import { AbstractInput } from '../AbstractInput'
+import { Text } from '../Text'
+import { Label } from '../Label'
+import type { SystemComponentProps } from '../../types'
 
 export const Input = forwardRef(function Input(
   props: InputProps,
@@ -22,6 +24,7 @@ export const Input = forwardRef(function Input(
     errorMessage,
     ...inputProps
   } = props
+
   const { stylesOf } = useSystem()
 
   const message = error ? errorMessage : helperText

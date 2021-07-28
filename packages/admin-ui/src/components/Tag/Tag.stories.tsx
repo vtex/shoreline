@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import { IconFavorite } from '@vtex/admin-ui-icons'
 
-import { Tag, TagProps } from './index'
+import type { TagProps } from './index'
+import { Tag } from './index'
 import { Set } from '../Set'
 
 export default {

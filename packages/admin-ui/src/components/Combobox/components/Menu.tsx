@@ -1,13 +1,8 @@
-import React, {
-  ElementType,
-  forwardRef,
-  Fragment,
-  ReactElement,
-  ReactNode,
-} from 'react'
-import { StyleObject } from '@vtex/admin-core'
+import type { ElementType, ReactElement, ReactNode } from 'react'
+import React, { forwardRef, Fragment } from 'react'
+import type { StyleObject } from '@vtex/admin-core'
 
-import { PolymorphicProps } from '../types'
+import type { PolymorphicProps } from '../types'
 import { useStateContext } from '../context'
 import { useElementProps } from '../hooks/useElementProps'
 import { Label } from '../../Label'
@@ -41,6 +36,7 @@ export const Menu: <E extends ElementType = typeof defaultElement>(
       combobox: { getMenuProps, isOpen, highlightedIndex },
       collection: { value, label },
     } = useStateContext()
+
     const elementProps = useElementProps(As, restProps)
 
     const menuProps = getMenuProps()
@@ -55,6 +51,7 @@ export const Menu: <E extends ElementType = typeof defaultElement>(
               ? emptyView
               : value.map((item, index) => {
                   const highlighted = highlightedIndex === index
+
                   return (
                     <Fragment key={index}>
                       {children?.(item, index, highlighted)}

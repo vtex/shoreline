@@ -1,13 +1,16 @@
-import { createComponent, jsxs, StyleObject } from '@vtex/admin-core'
+import type { StyleObject } from '@vtex/admin-core'
+import { createComponent, jsxs } from '@vtex/admin-core'
 import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
+import type { PrimitiveProps } from '@vtex/admin-primitives'
+import { Primitive } from '@vtex/admin-primitives'
+import type { FormEvent } from 'react'
 
-import { Primitive, PrimitiveProps } from '@vtex/admin-primitives'
-import { AbstractInput, AbstractInputProps } from '../AbstractInput'
+import type { AbstractInputProps } from '../AbstractInput'
+import { AbstractInput } from '../AbstractInput'
 import { Button } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { Label } from '../Label'
-import { SystemComponentProps } from '../../types'
-import { FormEvent } from 'react'
+import type { SystemComponentProps } from '../../types'
 import { Spinner } from '../Spinner'
 
 export const Search = createComponent(Primitive, useSearch)

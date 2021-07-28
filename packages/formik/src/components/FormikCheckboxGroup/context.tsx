@@ -1,5 +1,5 @@
 import React from 'react'
-import { CheckboxStateReturn } from '@vtex/admin-ui'
+import type { CheckboxStateReturn } from '@vtex/admin-ui'
 import invariant from 'tiny-invariant'
 
 export interface CheckboxContextProps {
@@ -7,9 +7,8 @@ export interface CheckboxContextProps {
   setTouched: (value: boolean) => void
 }
 
-export const FormikCheckboxGroupContext = React.createContext<CheckboxContextProps | null>(
-  null
-)
+export const FormikCheckboxGroupContext =
+  React.createContext<CheckboxContextProps | null>(null)
 
 export function useCheckboxGroupContext() {
   const context = React.useContext(FormikCheckboxGroupContext)

@@ -85,5 +85,6 @@ export function Intl(props: IntlProps) {
   const { id } = props
   const { intl } = useLocale()
   const content = intl(id)
+
   return <Fragment>{content}</Fragment>
 }

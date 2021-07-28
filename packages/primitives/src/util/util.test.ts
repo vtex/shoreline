@@ -1,10 +1,11 @@
-import { renameKeys } from './'
+import { renameKeys } from '.'
 
 describe('renameKeys', () => {
   it('should return the same object', () => {
     const obj = {
       style: 'a',
     }
+
     expect(renameKeys({ style: 'style' }, obj)).toStrictEqual(obj)
     expect(renameKeys({}, obj)).toStrictEqual(obj)
   })
@@ -13,6 +14,7 @@ describe('renameKeys', () => {
     const obj = {
       style: 'a',
     }
+
     expect(renameKeys({ style: 'styleOverrides' }, obj)).toStrictEqual({
       styleOverrides: 'a',
     })

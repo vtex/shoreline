@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-
-import { Box, BoxProps } from '@vtex/admin-primitives'
-import { Group, useGroup } from '.'
+import type { BoxProps } from '@vtex/admin-primitives'
+import { Box } from '@vtex/admin-primitives'
 import { ThemeProvider } from '@vtex/admin-core'
+
+import { Group, useGroup } from '.'
 
 describe('Group tests', () => {
   function GroupAwareBox(props: BoxProps<'div'>) {

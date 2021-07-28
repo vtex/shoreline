@@ -1,7 +1,10 @@
-import { useSystem, createComponent, jsxs, Colors } from '@vtex/admin-core'
-import { Icon, IconProps } from '@vtex/admin-ui-icons'
-import { SystemComponent } from '../../types'
+import type { Colors } from '@vtex/admin-core'
+import { useSystem, createComponent, jsxs } from '@vtex/admin-core'
+import type { IconProps } from '@vtex/admin-ui-icons'
+import { Icon } from '@vtex/admin-ui-icons'
 import { Primitive } from '@vtex/admin-primitives'
+
+import type { SystemComponent } from '../../types'
 
 export const Spinner = createComponent(Icon, useSpinner)
 
@@ -23,6 +26,7 @@ export function useSpinner(props: SpinnerProps): IconProps {
       stroke-dashoffset: -124;
     }
   `
+
   const rotate = keyframes`
     100% {
       transform: rotate(360deg)

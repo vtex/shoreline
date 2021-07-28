@@ -1,4 +1,5 @@
-import { Runtime, getCompiler } from '../runtime'
+import type { Runtime } from '../runtime'
+import { getCompiler } from '../runtime'
 
 /**
  * Builds the runtime compiler

@@ -1,6 +1,6 @@
 import { jsx } from '@vtex/onda-react'
 
-import { DataGridColumn } from '../typings'
+import type { DataGridColumn } from '../typings'
 
 export const Cell = jsx.td(
   {

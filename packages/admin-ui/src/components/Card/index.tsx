@@ -1,7 +1,9 @@
-import React, { Ref, forwardRef } from 'react'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { BoxProps } from '@vtex/admin-primitives'
+import { Box } from '@vtex/admin-primitives'
 
-import { SystemComponentProps } from '../../types'
-import { Box, BoxProps } from '@vtex/admin-primitives'
+import type { SystemComponentProps } from '../../types'
 
 export const Card = forwardRef(function Card(
   props: CardProps,

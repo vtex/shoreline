@@ -1,11 +1,12 @@
-import React, { ElementType, ReactNode, Ref } from 'react'
+import type { ElementType, ReactNode, Ref } from 'react'
+import React from 'react'
 import { forwardRef, useSystem } from '@vtex/admin-core'
-
 import { Box } from '@vtex/admin-primitives'
-import { Column } from '../typings'
-import { useStylesContext, useCellRoleContext } from '../context'
-import { SystemComponent } from '../../../types'
 import { Clickable } from 'reakit/Clickable'
+
+import type { Column } from '../typings'
+import { useStylesContext, useCellRoleContext } from '../context'
+import type { SystemComponent } from '../../../types'
 
 export const TableCell = forwardRef(function Td<T>(
   props: TableCellProps<T>,

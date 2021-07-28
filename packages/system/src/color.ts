@@ -1,5 +1,6 @@
 import * as polished from 'polished'
-import { Colors, Theme, get } from '@vtex/admin-styles'
+import type { Colors, Theme } from '@vtex/admin-styles'
+import { get } from '@vtex/admin-styles'
 
 /**
  * Get color from theme.colors
@@ -77,8 +78,10 @@ export const alpha = (c: Colors, n: number) => (t: Theme) =>
 /**
  * Mix two colors by a specific ratio
  */
-export const mix = (a: Colors, b: Colors, n = 0.5) => (t: Theme) =>
-  polished.mix(n, getColor(t, a), getColor(t, b))
+export const mix =
+  (a: Colors, b: Colors, n = 0.5) =>
+  (t: Theme) =>
+    polished.mix(n, getColor(t, a), getColor(t, b))
 
 /**
  * Get the complement of a color

@@ -1,16 +1,18 @@
-import React, { ReactNode, Ref } from 'react'
+import type { ReactNode, Ref } from 'react'
+import React from 'react'
 import { useSelect, UseSelectReturnValue } from 'downshift'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { forwardRef } from '@vtex/admin-core'
+import { Box } from '@vtex/admin-primitives'
 
-import { Button, ButtonProps } from '../Button'
+import type { ButtonProps } from '../Button'
+import { Button } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { Set } from '../Set'
-import { Box } from '@vtex/admin-primitives'
-import { SystemComponent } from '../../types'
+import type { SystemComponent } from '../../types'
 
 export const Dropdown = forwardRef(
-  <T extends unknown>(props: DropdownProps<T>, ref: Ref<HTMLDivElement>) => {
+  <T,>(props: DropdownProps<T>, ref: Ref<HTMLDivElement>) => {
     const {
       items,
       label,

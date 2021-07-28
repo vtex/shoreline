@@ -21,8 +21,10 @@ describe('runtime tests', () => {
   const runtimeBody = {
     name: 'onda-runtime-tst',
     instance: () => {},
-    parser: () => (csx: Csx = {}) =>
-      ({ backgroundColor: csx?.bg ?? '', color: csx?.c ?? '' } as Style),
+    parser:
+      () =>
+      (csx: Csx = {}) =>
+        ({ backgroundColor: csx?.bg ?? '', color: csx?.c ?? '' } as Style),
     compiler: () => (style: Style) =>
       `${style?.backgroundColor}${style?.color}`,
   }
@@ -34,8 +36,10 @@ describe('runtime tests', () => {
       createRuntime({
         name: 'test',
         instance: () => {},
-        parser: () => (csx: Csx = {}) =>
-          ({ backgroundColor: csx?.bg ?? '', color: csx?.c ?? '' } as Style),
+        parser:
+          () =>
+          (csx: Csx = {}) =>
+            ({ backgroundColor: csx?.bg ?? '', color: csx?.c ?? '' } as Style),
         compiler: () => (style: Style) =>
           `${style?.backgroundColor}${style?.color}`,
       })

@@ -1,4 +1,5 @@
-import { Runtime, getInstance } from '../runtime'
+import type { Runtime } from '../runtime'
+import { getInstance } from '../runtime'
 
 /**
  * Builds the runtime instance

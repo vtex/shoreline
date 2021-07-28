@@ -1,8 +1,9 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
-
-import { Skeleton, SkeletonProps } from './index'
+import type { Story, Meta } from '@storybook/react'
 import { Box } from '@vtex/admin-primitives'
+
+import type { SkeletonProps } from './index'
+import { Skeleton } from './index'
 import { Button } from '../Button'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'

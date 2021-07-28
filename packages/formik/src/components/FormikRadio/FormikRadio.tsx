@@ -1,5 +1,7 @@
-import React, { forwardRef, Ref } from 'react'
-import { Radio, RadioProps } from '@vtex/admin-ui'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { Radio } from '@vtex/admin-ui'
+
 import { useRadioGroupContext } from './context'
 
 export const FormikRadio = forwardRef(
@@ -9,7 +11,7 @@ export const FormikRadio = forwardRef(
     return (
       <Radio
         state={state}
-        {...props}
+        {...(props as any)}
         ref={ref}
         onBlur={() => setTouched(true)}
       />
@@ -17,5 +19,5 @@ export const FormikRadio = forwardRef(
   }
 )
 
-export interface FormikRadioProps
-  extends Omit<RadioProps, 'state' | 'checked' | 'onChange'> {}
+// TODO Fix the type once the @vtex/onda-core has it
+export type FormikRadioProps = ComponentPropsWithoutRef<'input'>

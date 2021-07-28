@@ -1,8 +1,10 @@
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import { get } from '@vtex/admin-core'
-import { Statement } from '../typings'
 import invariant from 'tiny-invariant'
-import { BaseResolvers } from './base'
+
+import type { Statement } from '../typings'
+import type { BaseResolvers } from './base'
 
 /**
  * Used to define resolver recursively

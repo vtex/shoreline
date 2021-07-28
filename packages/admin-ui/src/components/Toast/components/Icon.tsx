@@ -5,9 +5,10 @@ import {
   IconSuccessColorful,
   IconWarningColorful,
 } from '@vtex/admin-ui-icons'
-import { StyleProp } from '@vtex/admin-core'
-import { ToastIconProps } from './typings'
+import type { StyleProp } from '@vtex/admin-core'
 import { isElement } from 'react-is'
+
+import type { ToastIconProps } from './typings'
 
 /**
  * Toast icon renders an icon that corresponds
@@ -27,11 +28,15 @@ export function ToastIcon(props: ToastIconProps) {
   switch (type) {
     case 'success':
       return <IconSuccessColorful csx={csx} {...rest} />
+
     case 'warning':
       return <IconWarningColorful csx={csx} {...rest} />
+
     case 'error':
       return <IconErrorColorful csx={csx} {...rest} />
+
     case 'info':
+
     default:
       return <IconNotifications csx={csx} {...rest} />
   }

@@ -1,13 +1,13 @@
-import React, { ReactNode } from 'react'
-import {
-  Button as ReakitButton,
-  ButtonProps as ReakitButtonProps,
-} from 'reakit/Button'
-
-import { StyleProp, useSystem, jsxs, createComponent } from '@vtex/admin-core'
-import { Variant, Size } from './types'
-import { SystemComponentProps } from '../../types'
+import type { ReactNode } from 'react'
+import React from 'react'
+import type { ButtonProps as ReakitButtonProps } from 'reakit/Button'
+import { Button as ReakitButton } from 'reakit/Button'
+import type { StyleProp } from '@vtex/admin-core'
+import { useSystem, jsxs, createComponent } from '@vtex/admin-core'
 import { Primitive, Box, Flex } from '@vtex/admin-primitives'
+
+import type { Variant, Size } from './types'
+import type { SystemComponentProps } from '../../types'
 import { Spinner } from '../Spinner'
 
 /**
@@ -39,6 +39,7 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
     iconPosition,
     children: prevChildren,
   })
+
   const { cn } = useSystem()
   const className = cn({
     themeKey: `components.button.${variant}-${resolvedSize}`,

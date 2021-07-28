@@ -1,5 +1,7 @@
 import { get, callOrReturn } from '@vtex/onda-util'
-import { Plugin, getRules } from '../plugin'
+
+import type { Plugin } from '../plugin'
+import { getRules } from '../plugin'
 
 /**
  * Builds rules of all plugins
@@ -8,7 +10,7 @@ import { Plugin, getRules } from '../plugin'
  */
 export function buildRules<Theme extends Record<string, any>>(
   theme: Theme,
-  plugins: Plugin<Theme>[]
+  plugins: Array<Plugin<Theme>>
 ) {
   const rules = plugins
     .map((plugin) => getRules(plugin))
@@ -22,6 +24,7 @@ export function buildRules<Theme extends Record<string, any>>(
 
   function findRule(prop: string) {
     const ruleId = prop in rules ? rules[prop] : undefined
+
     return ruleId ? theme?.[ruleId] : get(theme, prop, {})
   }
 

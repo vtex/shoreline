@@ -1,20 +1,24 @@
 import React, { createElement } from 'react'
 import { tag } from '@vtex/admin-ui'
 import RehypeReact from 'rehype-react'
-import useLocation from '../../hooks/useLocation'
 import constate from 'constate'
+
+import useLocation from '../../hooks/useLocation'
 
 function useCollection() {
   const [items, setItems] = React.useState<string[]>([])
   const add = React.useCallback((item: string) => {
     setItems((prevItems) => [...prevItems, item])
   }, [])
+
   const remove = React.useCallback((item: string) => {
     setItems((prevItems) => {
       const idx = prevItems.indexOf(item)
+
       return [...prevItems.slice(0, idx), ...prevItems.slice(idx + 1)]
     })
   }, [])
+
   return {
     items,
     add,
@@ -24,6 +28,7 @@ function useCollection() {
 
 const [CollectionProvider, useCollectionContext] = constate(() => {
   const value = useCollection()
+
   return React.useMemo(() => value, Object.values(value))
 })
 
@@ -40,6 +45,7 @@ function useScrollSpy() {
     const elements = document.querySelectorAll<HTMLElement>(
       items.map((item) => `[id="${item}"]`).join(',')
     )
+
     const elementsArray = Array.from(elements)
 
     const handleScroll = () => {
@@ -49,7 +55,9 @@ function useScrollSpy() {
         }
       })
     }
+
     window.addEventListener('scroll', handleScroll)
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
@@ -70,6 +78,7 @@ const { Compiler: renderAst } = new RehypeReact({
       const [href] = React.useState(
         () => props.href && props.href.replace(/^.*(#.+)$/, '$1')
       )
+
       const id = href && href.substr(1)
       const { add, remove } = useCollectionContext()
       const currentId = useScrollSpyContext()
@@ -77,6 +86,7 @@ const { Compiler: renderAst } = new RehypeReact({
       React.useEffect(() => {
         if (!id) return undefined
         add(id)
+
         return () => remove(id)
       }, [id, add, remove])
 

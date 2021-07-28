@@ -1,14 +1,13 @@
 import React from 'react'
-
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-
 import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
-import { FormikToggle } from './index'
 import { Button, Text } from '@vtex/admin-ui'
 import { axe } from 'jest-axe'
+
+import { FormikToggle } from './index'
 
 describe('Toggle tests', () => {
   beforeEach(() => {
@@ -281,7 +280,7 @@ describe('Toggle tests', () => {
 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'} messages={messagesEN}>
+        <IntlProvider locale="en" messages={messagesEN}>
           <Content />
         </IntlProvider>
       </ThemeProvider>
@@ -312,7 +311,9 @@ describe('Toggle tests', () => {
         </Formik>
       </ThemeProvider>
     )
+
     const toggle = screen.getByRole('switch')
+
     userEvent.click(toggle)
     await waitFor(() =>
       expect(toggle.getAttribute('aria-checked')).toBe('true')

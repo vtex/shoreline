@@ -1,4 +1,5 @@
-import { useState, ChangeEvent, useRef } from 'react'
+import type { ChangeEvent } from 'react'
+import { useState, useRef } from 'react'
 import { debounce } from 'lodash'
 
 export function useSearchState() {

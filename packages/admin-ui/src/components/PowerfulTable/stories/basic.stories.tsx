@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
-import { StatelessTable } from '../'
+import { StatelessTable } from '..'
 import { useTableState } from '../../Table'
 
 export default {

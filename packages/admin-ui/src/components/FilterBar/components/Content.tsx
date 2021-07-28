@@ -1,5 +1,7 @@
 import React from 'react'
-import { Box, BoxProps } from '@vtex/admin-primitives'
+import type { BoxProps } from '@vtex/admin-primitives'
+import { Box } from '@vtex/admin-primitives'
+
 import { Set } from '../../Set'
 import { Paragraph } from '../../Paragraph'
 

@@ -1,9 +1,9 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
-
-import { SystemComponent } from '../../types'
-import { ListItem } from './ListItem'
 import { Primitive } from '@vtex/admin-primitives'
+
+import type { SystemComponent } from '../../types'
+import { ListItem } from './ListItem'
 
 const _List = createComponent(Primitive, useList)
 

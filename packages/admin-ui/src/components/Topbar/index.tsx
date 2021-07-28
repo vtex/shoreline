@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
-import { Flex, FlexProps, Grid, GridProps } from '@vtex/admin-primitives'
-import { SystemComponent } from '../../types'
+import type { FlexProps, GridProps } from '@vtex/admin-primitives'
+import { Flex, Grid } from '@vtex/admin-primitives'
+
+import type { SystemComponent } from '../../types'
 import { Skeleton } from '../Skeleton'
 
 /**
@@ -62,6 +64,7 @@ function TopbarSkeleton() {
 
 export function TopbarStart(props: FlexProps) {
   const { children, csx, ...restProps } = props
+
   return (
     <Flex
       align="center"
@@ -76,6 +79,7 @@ export function TopbarStart(props: FlexProps) {
 
 export function TopbarCenter(props: FlexProps) {
   const { children, csx, ...restProps } = props
+
   return (
     <Flex
       align="center"
@@ -89,6 +93,7 @@ export function TopbarCenter(props: FlexProps) {
 
 export function TopbarEnd(props: FlexProps) {
   const { children, csx, ...restProps } = props
+
   return (
     <Flex
       align="center"

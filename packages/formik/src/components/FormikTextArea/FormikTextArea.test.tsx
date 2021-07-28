@@ -1,15 +1,13 @@
 import React from 'react'
-
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-
 import { axe } from 'jest-axe'
-
 import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
-import { FormikTextArea } from './index'
 import { Button, Text } from '@vtex/admin-ui'
+
+import { FormikTextArea } from './index'
 
 describe('TextArea tests', () => {
   it('change value in formik by input component', async () => {
@@ -74,6 +72,7 @@ describe('TextArea tests', () => {
     )
 
     const input = screen.getByLabelText(/TextField label/i)
+
     userEvent.type(input, 'value of test')
     userEvent.click(screen.getByRole('button', { name: 'Change Value' }))
 
@@ -115,6 +114,7 @@ describe('TextArea tests', () => {
     )
 
     const input = screen.getByLabelText(/TextField label/i)
+
     expect(screen.getByLabelText(/TextField label/i).innerHTML).toEqual('')
     userEvent.type(screen.getByLabelText(/TextField label/i), 'v')
     expect(screen.getByLabelText(/TextField label/i).innerHTML).toEqual('v')
@@ -214,6 +214,7 @@ describe('TextArea tests', () => {
     )
 
     const input = screen.getByLabelText(/TextField label/i)
+
     fireEvent.blur(input)
 
     expect(await screen.findByText('Error message')).not.toBeNull()
@@ -251,13 +252,14 @@ describe('TextArea tests', () => {
 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'} messages={messagesEN}>
+        <IntlProvider locale="en" messages={messagesEN}>
           <Content />
         </IntlProvider>
       </ThemeProvider>
     )
 
     const input = screen.getByLabelText(/TextField label/i)
+
     fireEvent.blur(input)
 
     expect(await screen.findByText('Error message')).not.toBeNull()

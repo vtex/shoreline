@@ -1,10 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Meta } from '@storybook/react'
-
-import { Topbar } from './index'
-import { Set } from '../Set'
-import { Button } from '../Button'
-
+import type { Meta } from '@storybook/react'
 import {
   IconArrow,
   IconHelp,
@@ -12,6 +7,10 @@ import {
   IconNotifications,
   IconUndo,
 } from '@vtex/admin-ui-icons'
+
+import { Topbar } from './index'
+import { Set } from '../Set'
+import { Button } from '../Button'
 import { Text } from '../Text'
 
 export default {

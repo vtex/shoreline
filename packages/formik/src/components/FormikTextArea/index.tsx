@@ -1,6 +1,9 @@
-import React, { forwardRef, Ref } from 'react'
-import { TextArea, TextAreaProps } from '@vtex/admin-ui'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { TextAreaProps } from '@vtex/admin-ui'
+import { TextArea } from '@vtex/admin-ui'
 import { useField } from 'formik'
+
 import { handleErrorMessage } from '../util'
 
 export const FormikTextArea = forwardRef(

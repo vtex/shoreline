@@ -1,9 +1,10 @@
 import React from 'react'
-import { Flex, Box, FlexProps } from '@vtex/admin-primitives'
+import type { FlexProps } from '@vtex/admin-primitives'
+import { Flex, Box } from '@vtex/admin-primitives'
 
-import { Conjunction } from '../typings'
-
-import { StatementDropdown, StatementDropdownProps } from './StatementDropdown'
+import type { Conjunction } from '../typings'
+import type { StatementDropdownProps } from './StatementDropdown'
+import { StatementDropdown } from './StatementDropdown'
 import { ResolvedValue } from '../resolvers/core'
 import { StatementMenu } from './StatementMenu'
 
@@ -26,14 +27,8 @@ export function Statement(props: StatementProps) {
 Statement.Conjunction = function StatementConjunction(
   props: StatementConjunctionProps
 ) {
-  const {
-    index,
-    whereLabel,
-    selectedItem,
-    handleItemChange,
-    items,
-    label,
-  } = props
+  const { index, whereLabel, selectedItem, handleItemChange, items, label } =
+    props
 
   return index === 1 ? (
     <StatementDropdown
@@ -49,6 +44,7 @@ Statement.Conjunction = function StatementConjunction(
     </Box>
   )
 }
+
 /**
  * It renders a Dropdown to select the statement filter.
  */

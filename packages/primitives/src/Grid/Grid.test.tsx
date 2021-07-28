@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { render } from '../test-utils'
 
+import { render } from '../test-utils'
 import { Grid } from './index'
 
 describe('Grid tests', () => {

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Meta, Story } from '@storybook/react'
-
-import { TextArea, TextAreaProps } from './index'
+import type { Meta, Story } from '@storybook/react'
 import { Box } from '@vtex/admin-primitives'
+
+import type { TextAreaProps } from './index'
+import { TextArea } from './index'
 
 export default {
   title: 'admin-ui/TextArea',

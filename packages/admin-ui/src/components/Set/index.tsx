@@ -1,12 +1,10 @@
-import { ReactNode } from 'react'
-import {
-  useResponsiveValue,
-  ResponsiveValue,
-  createComponent,
-} from '@vtex/admin-core'
+import type { ReactNode } from 'react'
+import type { ResponsiveValue } from '@vtex/admin-core'
+import { useResponsiveValue, createComponent } from '@vtex/admin-core'
+import type { FlexProps } from '@vtex/admin-primitives'
+import { Flex } from '@vtex/admin-primitives'
 
-import { SystemComponent } from '../../types'
-import { Flex, FlexProps } from '@vtex/admin-primitives'
+import type { SystemComponent } from '../../types'
 
 /**
  * Component used to display a set of components that are spaced evenly.

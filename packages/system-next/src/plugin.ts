@@ -24,17 +24,11 @@ const PLUGIN_SPLITS = Symbol('plugin splits')
 export function createPlugin<Theme extends Record<string, any>>(
   params: PluginParams<Theme>
 ): Plugin<Theme> {
-  const {
-    name,
-    namespaces,
-    entries,
-    aliases,
-    rules,
-    transforms,
-    splits,
-  } = params
+  const { name, namespaces, entries, aliases, rules, transforms, splits } =
+    params
 
   const invariants = getPluginInvariants(params)
+
   invariant(invariants.name.constraint, invariants.name.message)
   invariant(invariants.rules.constraint, invariants.rules.message)
 
@@ -209,9 +203,7 @@ export interface StepsInstance {
     value: Record<string, string[]>
     exec: (prop: string, value: any) => Record<string, any>
   }
-  transforms: (
-    prop: string
-  ) => {
+  transforms: (prop: string) => {
     value: Record<string, string>
     exec: (rule: Rule, value: any) => any
   }

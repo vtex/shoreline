@@ -1,9 +1,5 @@
-import {
-  Dialog,
-  DialogBackdrop,
-  DialogOptions,
-  DialogDisclosure,
-} from 'reakit/Dialog'
+import type { DialogOptions } from 'reakit/Dialog'
+import { Dialog, DialogBackdrop, DialogDisclosure } from 'reakit/Dialog'
 
 type AbstractModalProps = Pick<
   DialogOptions,

@@ -9,7 +9,7 @@ export function PageHeader(props: React.PropsWithChildren<{}>) {
       csx={{
         paddingY: 6,
         marginBottom: 4,
-        border: 'divider-bottom'
+        border: 'divider-bottom',
       }}
     >
       <tag.h1
@@ -32,4 +32,3 @@ export function PageHeader(props: React.PropsWithChildren<{}>) {
     </tag.div>
   )
 }
-

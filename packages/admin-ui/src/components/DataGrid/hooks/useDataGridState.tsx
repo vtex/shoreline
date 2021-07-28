@@ -1,31 +1,25 @@
-import React, {
-  useMemo,
-  useCallback,
-  ReactNode,
-  PropsWithChildren,
-  Fragment,
-  useState,
-} from 'react'
+import type { ReactNode, PropsWithChildren } from 'react'
+import React, { useMemo, useCallback, Fragment, useState } from 'react'
 import { get } from '@vtex/admin-core'
 
-import {
-  resolveCell as unstableResolveCell,
-  resolveHeader as unstableResolveHeader,
+import type {
   Resolver,
   ResolverContext,
   ResolveCellArgs,
   ResolveHeaderArgs,
   ResolveHeaderReturn,
 } from '../resolvers/core'
-import { baseResolvers } from '../resolvers/base'
-import { DataGridColumn, DataGridDensity } from '../typings'
-import { SelectionProvider } from '../resolvers/selection'
 import {
-  UseSortReturn,
-  useDataGridSort,
-  UseDataGridSortParams,
-} from './useDataGridSort'
-import { Status, SetStatus, StatusObject, useStatus } from './useStatus'
+  resolveCell as unstableResolveCell,
+  resolveHeader as unstableResolveHeader,
+} from '../resolvers/core'
+import { baseResolvers } from '../resolvers/base'
+import type { DataGridColumn, DataGridDensity } from '../typings'
+import { SelectionProvider } from '../resolvers/selection'
+import type { UseSortReturn, UseDataGridSortParams } from './useDataGridSort'
+import { useDataGridSort } from './useDataGridSort'
+import type { Status, SetStatus, StatusObject } from './useStatus'
+import { useStatus } from './useStatus'
 
 export function useDataGridState<T>(
   params: UseDataGridStateParams<T>,
@@ -37,7 +31,7 @@ export function useDataGridState<T>(
     items = [],
     sort = {},
     getRowKey = (item: T) =>
-      get((item as unknown) as Record<string, unknown>, 'id', ''),
+      get(item as unknown as Record<string, unknown>, 'id', ''),
     onRowClick,
     density: initialDensity = 'regular',
   } = params
@@ -67,7 +61,7 @@ export function useDataGridState<T>(
           return { ...acc, [col.id]: '__table_skeleton__' }
         }, {})
 
-        return ({ id, ...item } as unknown) as T
+        return { id, ...item } as unknown as T
       })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length, columns])

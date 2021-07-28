@@ -1,5 +1,7 @@
 import React from 'react'
-import { Set, SetProps } from '../../Set'
+
+import type { SetProps } from '../../Set'
+import { Set } from '../../Set'
 
 /**
  * Component used to organize the sidebar items on the top,

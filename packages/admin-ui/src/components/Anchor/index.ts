@@ -1,4 +1,5 @@
-import { jsx, PropsWithAs } from '@vtex/onda-react'
+import type { PropsWithAs } from '@vtex/onda-react'
+import { jsx } from '@vtex/onda-react'
 
 /**
  * Anchor component

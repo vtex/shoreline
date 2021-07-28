@@ -1,5 +1,6 @@
-import React, { Fragment, ReactNode, useState } from 'react'
-import { Meta } from '@storybook/react'
+import type { ReactNode } from 'react'
+import React, { Fragment, useState } from 'react'
+import type { Meta } from '@storybook/react'
 import {
   Dialog,
   DialogDisclosure,
@@ -7,16 +8,16 @@ import {
   useDialogState,
 } from 'reakit/Dialog'
 import { Box } from '@vtex/admin-primitives'
-import { Button } from '../Button'
+import { IconSearch } from '@vtex/admin-ui-icons'
+import { useSystem, darken } from '@vtex/admin-core'
 
+import { Button } from '../Button'
 import {
   unstableSearchBox as SearchBox,
   unstableUseSearchBoxState as useSearchBoxState,
 } from './index'
-import { IconSearch } from '@vtex/admin-ui-icons'
 import { Paragraph } from '../Paragraph'
-import { useSystem, darken } from '@vtex/admin-core'
-import { Locale } from './intl'
+import type { Locale } from './intl'
 
 export default {
   title: 'admin-ui/SearchBox',
@@ -56,6 +57,7 @@ export function Basic() {
     </Box>
   )
 }
+
 export function HistorySize() {
   const state = useSearchBoxState({
     id: 'history',

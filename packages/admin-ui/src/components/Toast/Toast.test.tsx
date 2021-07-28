@@ -9,11 +9,12 @@ import {
   waitFor,
 } from '@testing-library/react'
 import { axe } from 'jest-axe'
+import { act } from 'react-dom/test-utils'
+
 import { Toast } from './components/Toast'
-import { ToasterProps, ToastOptions } from './components/typings'
+import type { ToasterProps, ToastOptions } from './components/typings'
 import { message, types } from './testUtils'
 import { Toaster } from './components/Toaster'
-import { act } from 'react-dom/test-utils'
 import { toast } from './index'
 
 const mockedToastProps: ToastOptions = {

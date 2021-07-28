@@ -1,10 +1,6 @@
 import { theme } from '@vtex/admin-ui-theme'
-import {
-  createSystem as baseCreateSystem,
-  merge,
-  StyleObject,
-  Theme
-} from '@vtex/admin-ui-system'
+import type { StyleObject, Theme } from '@vtex/admin-ui-system'
+import { createSystem as baseCreateSystem, merge } from '@vtex/admin-ui-system'
 
 interface ThemeOptions {
   overrides?: Partial<Theme>

@@ -47,7 +47,7 @@ describe('Pagination tests', () => {
   })
 })
 
-it('should starts in a specific page', () => {
+test('should starts in a specific page', () => {
   const PaginationWithInitialValue = () => {
     const state = usePaginationState({
       size: 5,

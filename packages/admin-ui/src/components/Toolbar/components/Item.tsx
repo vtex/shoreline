@@ -1,5 +1,7 @@
-import React, { ReactNode } from 'react'
-import { ExtractHTMLAttributes } from 'reakit-utils/ts'
+import type { ReactNode } from 'react'
+import React from 'react'
+import type { ExtractHTMLAttributes } from 'reakit-utils/ts'
+
 import { useToolbarContext } from '../context'
 import { ReakitToolbarItem } from './Aria'
 

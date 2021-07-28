@@ -1,8 +1,9 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import type { Story, Meta } from '@storybook/react'
 
 import { Text } from '../Text'
-import { Toggle, useToggleState, ToggleProps } from './index'
+import type { ToggleProps } from './index'
+import { Toggle, useToggleState } from './index'
 
 export default {
   title: 'admin-ui/Toggle',

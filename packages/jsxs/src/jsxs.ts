@@ -1,5 +1,5 @@
 import { jsx } from '@emotion/react'
-import {
+import type {
   ElementType,
   ReactNode,
   Attributes,
@@ -23,9 +23,5 @@ export function jsxs<P extends {}>(
     return children(props)
   }
 
-  return jsx(
-    type,
-    props,
-    ...children
-  )
+  return jsx(type, props, ...children)
 }

@@ -18,10 +18,8 @@ export default {
     callout: 'all 240ms cubic-bezier(0.4, 0.14, 0.3, 1)',
   },
   fonts: {
-    sans:
-      'VTEXTrustVF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
-    mono:
-      '"Dank Mono", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Consolas", "Monaco", "Menlo", monospace',
+    sans: 'VTEXTrustVF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
+    mono: '"Dank Mono", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Consolas", "Monaco", "Menlo", monospace',
   },
   fontSizes: {
     '0': '0.75rem',

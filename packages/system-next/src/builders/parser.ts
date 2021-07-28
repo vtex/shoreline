@@ -1,5 +1,6 @@
-import { Runtime, getParser } from '../runtime'
-import { StepsInstance } from '../plugin'
+import type { Runtime } from '../runtime'
+import { getParser } from '../runtime'
+import type { StepsInstance } from '../plugin'
 
 /**
  * Builds the runtime parser

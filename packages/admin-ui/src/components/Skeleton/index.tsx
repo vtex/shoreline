@@ -1,4 +1,5 @@
-import { jsx, PropsWithAs } from '@vtex/onda-react'
+import type { PropsWithAs } from '@vtex/onda-react'
+import { jsx } from '@vtex/onda-react'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.

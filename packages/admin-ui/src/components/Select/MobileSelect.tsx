@@ -1,10 +1,11 @@
-import React, { ChangeEvent } from 'react'
+import type { ChangeEvent } from 'react'
+import React from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
-
 import { Box } from '@vtex/admin-primitives'
-import { Label } from '../Label'
 import { useSystem } from '@vtex/admin-core'
-import { SelectProps } from './index'
+
+import { Label } from '../Label'
+import type { SelectProps } from './index'
 
 export function MobileSelect<T>(props: SelectProps<T>) {
   const {
@@ -14,8 +15,9 @@ export function MobileSelect<T>(props: SelectProps<T>) {
     error,
     disabled,
     block,
-    renderItem = (item) => (item as unknown) as string,
+    renderItem = (item) => item as unknown as string,
   } = props
+
   const { cn, stylesOf } = useSystem()
 
   const handleOption = (event: ChangeEvent<HTMLSelectElement>) => {

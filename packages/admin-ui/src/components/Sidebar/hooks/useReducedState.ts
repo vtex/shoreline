@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 
-export function useReducedState(initialState: boolean = false): ReducedState {
+export function useReducedState(initialState = false): ReducedState {
   const initiallyReduced = useInitalState(initialState)
   /** keeps track of leftnav's reduced state */
   const [reduced, setReduced] = useState<boolean>(initiallyReduced)
@@ -46,6 +46,7 @@ type InitialState<T> = T | (() => T)
  */
 export function useInitalState<T>(initialState: InitialState<T>) {
   const [init] = useState(initialState)
+
   return init
 }
 

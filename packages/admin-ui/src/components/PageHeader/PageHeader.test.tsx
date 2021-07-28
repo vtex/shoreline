@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { ThemeProvider } from '@vtex/admin-core'
 
 import { PageHeader } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
 
 describe('PageHeader', () => {
   it('should have overridable styles', () => {

@@ -1,7 +1,9 @@
-import React, { ReactNode, useMemo } from 'react'
+import type { ReactNode } from 'react'
+import React, { useMemo } from 'react'
 
 import { Checkbox, useCheckboxState } from '../../Checkbox'
-import { createResolver, ResolverRenderProps } from './core'
+import type { ResolverRenderProps } from './core'
+import { createResolver } from './core'
 
 export const SelectionContext = React.createContext<ReturnType<
   typeof useSelectionState

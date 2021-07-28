@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
-import { SidebarState } from './hooks'
+
+import type { SidebarState } from './hooks'
 
 export const SidebarContext = createContext<SidebarState | null>(null)
 

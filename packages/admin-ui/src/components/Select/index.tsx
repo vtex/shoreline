@@ -1,16 +1,17 @@
 import { useSelect, UseSelectReturnValue } from 'downshift'
-import React, { Ref } from 'react'
+import type { Ref } from 'react'
+import React from 'react'
 import { forwardRef } from '@vtex/admin-core'
 import { BrowserView, MobileView } from 'react-device-detect'
-
-import { SystemComponent } from '../../types'
 import { Box } from '@vtex/admin-primitives'
+
+import type { SystemComponent } from '../../types'
 import { Text } from '../Text'
 import { DesktopSelect } from './DesktopSelect'
 import { MobileSelect } from './MobileSelect'
 
 export const Select = forwardRef(
-  <T extends unknown>(props: SelectProps<T>, ref: Ref<HTMLDivElement>) => {
+  <T,>(props: SelectProps<T>, ref: Ref<HTMLDivElement>) => {
     const {
       csx,
       label,

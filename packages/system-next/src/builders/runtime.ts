@@ -1,5 +1,5 @@
-import { Runtime } from '../runtime'
-import { StepsInstance } from '../plugin'
+import type { Runtime } from '../runtime'
+import type { StepsInstance } from '../plugin'
 import { buildCompiler } from './compiler'
 import { buildInstance } from './instance'
 import { buildParser } from './parser'
@@ -23,6 +23,7 @@ export function buildRuntime<
   const instance = buildInstance(params, runtime)
   const parse = buildParser(steps, runtime)
   const compile = buildCompiler(instance, runtime)
+
   return {
     instance,
     parse,

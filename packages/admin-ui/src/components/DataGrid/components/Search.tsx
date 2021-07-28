@@ -1,8 +1,10 @@
 import React from 'react'
-import { Search as BaseSearch, SearchProps } from '../../Search'
+
+import type { SearchProps } from '../../Search'
+import { Search as BaseSearch } from '../../Search'
 
 export function Search(props: SearchProps) {
-  const {  containerCsx, ...searchProps } = props
+  const { containerCsx, ...searchProps } = props
 
   return (
     <BaseSearch

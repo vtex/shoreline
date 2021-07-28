@@ -1,5 +1,6 @@
 import React from 'react'
-import { Set, Text, Flex, useTheme, get, SetProps } from '@vtex/admin-ui'
+import type { SetProps } from '@vtex/admin-ui'
+import { Set, Text, Flex, useTheme, get } from '@vtex/admin-ui'
 
 interface CardProps extends SetProps {
   /** Color Value */

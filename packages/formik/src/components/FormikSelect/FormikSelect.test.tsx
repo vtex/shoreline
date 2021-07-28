@@ -1,13 +1,12 @@
 import React from 'react'
-
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-
 import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
-import { FormikSelect } from './index'
 import { Button, Text } from '@vtex/admin-ui'
+
+import { FormikSelect } from './index'
 
 describe('Select tests', () => {
   it('change value in formik by input component', async () => {
@@ -73,6 +72,7 @@ describe('Select tests', () => {
     )
 
     const select = screen.getByRole('button', { name: /TextField label/i })
+
     userEvent.click(select)
     userEvent.click(screen.getByText(options[2]))
     expect(select).toHaveTextContent(options[2])
@@ -212,6 +212,7 @@ describe('Select tests', () => {
     )
 
     const select = screen.getByRole('button', { name: /TextField label/i })
+
     userEvent.click(select)
     userEvent.click(screen.getByText(options[2]))
 
@@ -251,13 +252,14 @@ describe('Select tests', () => {
 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'} messages={messagesEN}>
+        <IntlProvider locale="en" messages={messagesEN}>
           <Content />
         </IntlProvider>
       </ThemeProvider>
     )
 
     const select = screen.getByRole('button', { name: /TextField label/i })
+
     userEvent.click(select)
     userEvent.click(screen.getByText(options[2]))
 
@@ -276,9 +278,8 @@ describe('Select tests', () => {
     const validate = (values: { value: { id: string; label: string } }) => {
       if (values.value.id === '')
         return { value: { id: 'This field is required.' } }
-      else if (values.value.id === 'option-error')
+      if (values.value.id === 'option-error')
         return { value: { id: 'Error message' } }
-      else return
     }
 
     render(

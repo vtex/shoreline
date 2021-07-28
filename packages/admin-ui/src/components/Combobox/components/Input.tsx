@@ -1,7 +1,8 @@
-import React, { ElementType, forwardRef, ReactElement } from 'react'
-import { StyleObject } from '@vtex/admin-core'
+import type { ElementType, ReactElement } from 'react'
+import React, { forwardRef } from 'react'
+import type { StyleObject } from '@vtex/admin-core'
 
-import { PolymorphicProps } from '../types'
+import type { PolymorphicProps } from '../types'
 import { useStateContext } from '../context'
 import { useElementProps } from '../hooks/useElementProps'
 
@@ -29,6 +30,7 @@ export const Input: <E extends ElementType = typeof defaultElement>(
     const {
       combobox: { getComboboxProps, getInputProps, openMenu },
     } = useStateContext()
+
     const elementProps = useElementProps(As, restProps)
 
     const comboboxProps = getComboboxProps()
@@ -37,6 +39,7 @@ export const Input: <E extends ElementType = typeof defaultElement>(
       if (onFocus) {
         onFocus(e)
       }
+
       openMenu()
     }
 

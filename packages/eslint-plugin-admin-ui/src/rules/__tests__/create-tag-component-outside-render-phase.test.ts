@@ -1,5 +1,6 @@
-import { createTagComponentOutsideRenderPhase } from '../create-tag-component-outside-render-phase'
 import { RuleTester } from 'eslint'
+
+import { createTagComponentOutsideRenderPhase } from '../create-tag-component-outside-render-phase'
 
 const ruleTester = new RuleTester({
   parserOptions: {

@@ -1,6 +1,8 @@
-import React, { Fragment, FunctionComponentElement } from 'react'
+import type { FunctionComponentElement } from 'react'
+import React, { Fragment } from 'react'
 
-import { StatelessModal, StatelessModalProps } from './Stateless'
+import type { StatelessModalProps } from './Stateless'
+import { StatelessModal } from './Stateless'
 import {
   ModalContent,
   ModalFooter,
@@ -8,7 +10,8 @@ import {
   ModalButton,
   ModalDisclosure,
 } from './components'
-import { ModalState, ModalInitialState } from './state'
+import type { ModalInitialState } from './state'
+import { ModalState } from './state'
 
 /**
  * Stateful Modal

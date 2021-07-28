@@ -1,12 +1,12 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
+import { Box } from '@vtex/admin-primitives'
 
 import { StatelessTable } from '../../PowerfulTable'
 import { baseResolvers } from '../resolvers/base'
-import { Box } from '@vtex/admin-primitives'
 import { Button } from '../../Button'
 import { useTableState } from '../useTableState'
-import { Resolver } from '../resolvers/core'
+import type { Resolver } from '../resolvers/core'
 
 export default {
   title: 'admin-ui/Table/States',

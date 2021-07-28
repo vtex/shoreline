@@ -1,5 +1,7 @@
-import { Radio as ReakitRadio, RadioStateReturn } from 'reakit/Radio'
-import { jsx, ComponentProps } from '@vtex/onda-react'
+import type { RadioStateReturn } from 'reakit/Radio'
+import { Radio as ReakitRadio } from 'reakit/Radio'
+import type { ComponentProps } from '@vtex/onda-react'
+import { jsx } from '@vtex/onda-react'
 
 export const Radio = jsx(ReakitRadio)(
   {

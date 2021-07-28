@@ -1,11 +1,10 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import {
   unstableCombobox as Combobox,
   unstableUseComboboxState as useComboboxState,
 } from './index'
-
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 import { Input } from '../Input'

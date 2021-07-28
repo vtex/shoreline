@@ -1,5 +1,6 @@
 import React from 'react'
-import { Box, BoxProps } from '@vtex/admin-ui'
+import type { BoxProps } from '@vtex/admin-ui'
+import { Box } from '@vtex/admin-ui'
 
 export default function List(props: ListProps) {
   return (

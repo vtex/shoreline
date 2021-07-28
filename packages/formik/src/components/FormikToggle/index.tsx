@@ -1,13 +1,9 @@
-import React, { forwardRef, ReactNode, Ref } from 'react'
-import {
-  Label,
-  Set,
-  Text,
-  Toggle,
-  ToggleProps,
-  useToggleState,
-} from '@vtex/admin-ui'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { ToggleProps } from '@vtex/admin-ui'
+import { Label, Set, Text, Toggle, useToggleState } from '@vtex/admin-ui'
 import { useField } from 'formik'
+
 import { handleErrorMessage, useSyncedState } from '../util'
 
 export const FormikToggle = forwardRef(

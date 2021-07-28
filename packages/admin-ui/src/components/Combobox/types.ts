@@ -1,4 +1,4 @@
-import { ElementType, ComponentProps } from 'react'
+import type { ElementType, ComponentProps } from 'react'
 
 export type WithAs<E extends ElementType = ElementType> = {
   as?: E

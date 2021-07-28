@@ -145,7 +145,7 @@ describe('plugin tests', () => {
 
     expect(isValidPlugin(plugin)).toBe(true)
     expect(typeof getTransforms(plugin)).toBe('object')
-    expect((getTransforms(plugin) as any)['margin']({}, 2)).toEqual(4)
+    expect((getTransforms(plugin) as any).margin({}, 2)).toEqual(4)
   })
 
   it('should be able to create a plugin to split rules', () => {

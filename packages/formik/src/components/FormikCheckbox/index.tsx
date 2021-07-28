@@ -1,13 +1,9 @@
-import React, { forwardRef, ReactNode, Ref } from 'react'
-import {
-  Checkbox,
-  CheckboxProps,
-  Label,
-  Set,
-  Text,
-  useCheckboxState,
-} from '@vtex/admin-ui'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { CheckboxProps } from '@vtex/admin-ui'
+import { Checkbox, Label, Set, Text, useCheckboxState } from '@vtex/admin-ui'
 import { useField } from 'formik'
+
 import { handleErrorMessage, useSyncedState } from '../util'
 
 export const FormikCheckbox = forwardRef(

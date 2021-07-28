@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
-
 import { ThemeProvider } from '@vtex/admin-core'
+
 import { Table } from '../components'
 
 describe('Table tests', () => {

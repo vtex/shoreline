@@ -1,5 +1,6 @@
-import React from 'react'
-import { useBox, BoxHTMLProps, BoxOptions } from 'reakit'
+import type React from 'react'
+import type { BoxHTMLProps, BoxOptions } from 'reakit'
+import { useBox } from 'reakit'
 import { createHook, createComponent } from 'reakit-system'
 import { useSystem } from '@vtex/admin-ui'
 

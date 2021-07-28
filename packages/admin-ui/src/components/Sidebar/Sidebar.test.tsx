@@ -1,10 +1,12 @@
-import React, { Fragment, ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React, { Fragment } from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
+import { ThemeProvider } from '@vtex/admin-core'
 
 import { Sidebar } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
-import { SidebarState, useSidebarState } from './hooks'
+import type { SidebarState } from './hooks'
+import { useSidebarState } from './hooks'
 
 function StateHandler(props: { children: (state: SidebarState) => ReactNode }) {
   const state = useSidebarState()

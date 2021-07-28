@@ -1,8 +1,5 @@
-import {
-  useModalState,
-  ModalStateReturn,
-  ModalInitialState,
-} from './useModalState'
+import type { ModalStateReturn, ModalInitialState } from './useModalState'
+import { useModalState } from './useModalState'
 
 export function ModalState(props: ModalStateProps) {
   const { initialState, children } = props

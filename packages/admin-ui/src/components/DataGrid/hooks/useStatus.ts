@@ -1,4 +1,5 @@
-import { useCallback, useMemo, useReducer, Dispatch } from 'react'
+import type { Dispatch } from 'react'
+import { useCallback, useMemo, useReducer } from 'react'
 
 /**
  * Keeps track of the grid status
@@ -44,6 +45,7 @@ function reducer(_: StatusObject, action: Action) {
         notFound: null,
       }
     }
+
     case 'ready': {
       return {
         loading: false,
@@ -52,6 +54,7 @@ function reducer(_: StatusObject, action: Action) {
         notFound: null,
       }
     }
+
     case 'error': {
       return {
         loading: false,
@@ -63,6 +66,7 @@ function reducer(_: StatusObject, action: Action) {
         notFound: null,
       }
     }
+
     case 'empty': {
       return {
         loading: false,
@@ -75,6 +79,7 @@ function reducer(_: StatusObject, action: Action) {
         notFound: null,
       }
     }
+
     case 'not-found': {
       return {
         loading: false,
@@ -86,6 +91,7 @@ function reducer(_: StatusObject, action: Action) {
         },
       }
     }
+
     default: {
       throw new Error(
         'Pass one of the valid types: ready | loading | empty | error | not-found'

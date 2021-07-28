@@ -1,9 +1,10 @@
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import { get } from '@vtex/admin-core'
 import invariant from 'tiny-invariant'
 
-import { ResolverRenderProps } from './core'
 import { createResolver, defaultRender } from './core'
+import type { ResolverRenderProps } from './core'
 import { StatementDropdown } from '../components'
 
 /**

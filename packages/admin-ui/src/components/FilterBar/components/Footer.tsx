@@ -1,5 +1,6 @@
 import React from 'react'
-import { Flex, FlexProps } from '@vtex/admin-primitives'
+import type { FlexProps } from '@vtex/admin-primitives'
+import { Flex } from '@vtex/admin-primitives'
 
 export function Footer(props: FlexProps) {
   const { csx, ...restProps } = props

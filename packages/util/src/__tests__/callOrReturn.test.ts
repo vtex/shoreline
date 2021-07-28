@@ -2,10 +2,10 @@ import { callOrReturn } from '../index'
 
 describe('callOrReturn', () => {
   it('should work with null and undefined', () => {
-    expect(callOrReturn(null, null)).toBe(null)
-    expect(callOrReturn(null, undefined)).toBe(null)
-    expect(callOrReturn(undefined, null)).toBe(undefined)
-    expect(callOrReturn(undefined, undefined)).toBe(undefined)
+    expect(callOrReturn(null, null)).toBeNull()
+    expect(callOrReturn(null, undefined)).toBeNull()
+    expect(callOrReturn(undefined, null)).toBeUndefined()
+    expect(callOrReturn(undefined, undefined)).toBeUndefined()
   })
 
   it('should call if function', () => {

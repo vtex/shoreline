@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react'
+import type { StyleProp } from '@vtex/admin-ui'
 import {
   VisuallyHidden,
   Box,
   Label,
   AbstractInput,
-  StyleProp,
   useSystem,
 } from '@vtex/admin-ui'
 import { IconSearch } from '@vtex/admin-ui-icons'

@@ -1,7 +1,8 @@
-import React, { Children, cloneElement, FunctionComponentElement } from 'react'
+import type { FunctionComponentElement } from 'react'
+import React, { Children, cloneElement } from 'react'
 
 import { AbstractModalDisclosure } from './Abstract'
-import { ModalStateReturn } from '../state'
+import type { ModalStateReturn } from '../state'
 
 /**
  * Toggle StatelessModal visibility

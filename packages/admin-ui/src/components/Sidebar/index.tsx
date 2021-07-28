@@ -1,13 +1,8 @@
-import React, {
-  Children,
-  cloneElement,
-  Fragment,
-  ReactElement,
-  ReactNode,
-  forwardRef,
-  Ref,
-} from 'react'
-import { Box, BoxProps } from '@vtex/admin-primitives'
+import type { ReactElement, ReactNode, Ref } from 'react'
+import React, { Children, cloneElement, Fragment, forwardRef } from 'react'
+import type { BoxProps } from '@vtex/admin-primitives'
+import { Box } from '@vtex/admin-primitives'
+
 import {
   SidebarCorner,
   SidebarItem,
@@ -15,7 +10,7 @@ import {
   SidebarBackdrop,
   SidebarSkeleton,
 } from './components'
-import { SidebarState } from './hooks'
+import type { SidebarState } from './hooks'
 import { SidebarContext } from './context'
 import { SCALES } from './consts'
 
@@ -76,7 +71,7 @@ const _Sidebar = forwardRef(function Sidebar(
             {!loading && (
               <CompositeGroup
                 {...state.composite}
-                aria-label={'Sidebar'}
+                aria-label="Sidebar"
                 role="menu"
               >
                 {(itemProps) =>

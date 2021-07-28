@@ -1,10 +1,11 @@
 import React, { useMemo, useState } from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import faker from 'faker'
-import { StatelessTable } from '../Stateful'
 import { IconExport, IconImport, IconFilter } from '@vtex/admin-ui-icons'
-import { Pagination, usePaginationState } from '../../Pagination'
 import { FlexSpacer } from '@vtex/admin-primitives'
+
+import { StatelessTable } from '../Stateful'
+import { Pagination, usePaginationState } from '../../Pagination'
 import { useTableState } from '../../Table'
 
 export default {

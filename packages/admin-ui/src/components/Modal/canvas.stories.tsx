@@ -1,13 +1,13 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
+import { Box } from '@vtex/admin-primitives'
 
 import { Checkbox, useCheckboxState } from '../Checkbox'
-import { Box } from '@vtex/admin-primitives'
 import { Label } from '../Label'
 import { Button } from '../Button'
 import { Modal, ModalDisclosure, StatelessModal, useModalState } from './index'
 import { Text } from '../Text'
-import { ModalProps } from './Stateful'
+import type { ModalProps } from './Stateful'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 

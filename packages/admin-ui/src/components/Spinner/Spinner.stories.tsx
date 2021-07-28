@@ -1,7 +1,8 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import type { Story, Meta } from '@storybook/react'
 
-import { Spinner, SpinnerProps } from './index'
+import type { SpinnerProps } from './index'
+import { Spinner } from './index'
 
 export default {
   title: 'admin-ui/Spinner',

@@ -1,17 +1,18 @@
-import React, { cloneElement, Children, MouseEvent, ReactNode } from 'react'
+import type { MouseEvent, ReactNode } from 'react'
+import React, { cloneElement, Children } from 'react'
 import { isElement } from 'react-is'
 import { IconContainer } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-core'
+import { Box } from '@vtex/admin-primitives'
 
+import type { MenuStateReturn } from './components'
 import {
   ReakitMenu,
   ReakitMenuSeparator,
-  MenuStateReturn,
   ReakitMenuItem,
   MenuItem,
 } from './components'
-import { SystemComponent } from '../../types'
-import { Box } from '@vtex/admin-primitives'
+import type { SystemComponent } from '../../types'
 
 /**
  * Stateless accessible menu component

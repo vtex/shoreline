@@ -1,8 +1,10 @@
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import invariant from 'tiny-invariant'
 
 import { Skeleton } from '../../Skeleton'
-import { createResolver, defaultRender, ResolverRenderProps } from './core'
+import type { ResolverRenderProps } from './core'
+import { createResolver, defaultRender } from './core'
 
 export function currencyResolver<T>() {
   return createResolver<T, 'currency', CurrencyResolver<T>>({

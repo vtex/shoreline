@@ -1,4 +1,5 @@
-import React, { cloneElement, Fragment, ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React, { cloneElement, Fragment } from 'react'
 import { jsx } from '@vtex/onda-react'
 import { isFunction } from '@vtex/admin-core'
 
@@ -19,13 +20,8 @@ const Row = jsx.tr(
     useOptions: (options: RowOptions, props) => {
       const { item } = options
       const { children, csx, ...rowProps } = props
-      const {
-        status,
-        onRowClick,
-        columns,
-        resolveCell,
-        density,
-      } = useStateContext()
+      const { status, onRowClick, columns, resolveCell, density } =
+        useStateContext()
 
       const clickable = onRowClick && !(status === 'loading')
 
@@ -51,6 +47,7 @@ const Row = jsx.tr(
           <Fragment>
             {columns.map((column) => {
               const content = resolveCell({ item, column })
+
               return (
                 <Fragment key={`${item.id}-${String(column.id)}`}>
                   {children ? (
@@ -120,7 +117,7 @@ const _Body = jsx.tbody(
                 })
               : data.map((item) => (
                   <Fragment key={String(getRowKey(item))}>
-                    {!!children ? (
+                    {children ? (
                       cloneElement(children as any, {
                         item,
                       })

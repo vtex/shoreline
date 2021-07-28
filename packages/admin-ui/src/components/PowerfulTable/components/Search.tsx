@@ -1,8 +1,10 @@
 import React from 'react'
-import { Search, SearchProps } from '../../Search'
+
+import type { SearchProps } from '../../Search'
+import { Search } from '../../Search'
 
 export function TableSearch(props: SearchProps) {
-  const {  containerCsx, ...searchProps } = props
+  const { containerCsx, ...searchProps } = props
 
   return (
     <Search

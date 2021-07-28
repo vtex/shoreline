@@ -1,7 +1,8 @@
-import { ReactElement, ElementType, ComponentProps } from 'react'
+import type { ReactElement, ElementType, ComponentProps } from 'react'
 import { Box as ReakitBox } from 'reakit'
 import { useSystem, createComponent } from '@vtex/admin-core'
-import { SystemPrimitive } from '../types'
+
+import type { SystemPrimitive } from '../types'
 
 /**
  * primitive default element

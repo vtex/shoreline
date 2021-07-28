@@ -1,12 +1,8 @@
 import React from 'react'
-import {
-  Box,
-  CheckboxGroup,
-  CheckboxGroupProps,
-  Text,
-  useCheckboxState,
-} from '@vtex/admin-ui'
+import type { CheckboxGroupProps } from '@vtex/admin-ui'
+import { Box, CheckboxGroup, Text, useCheckboxState } from '@vtex/admin-ui'
 import { useField } from 'formik'
+
 import { FormikCheckboxGroupContext } from './context'
 import { FormikCheckbox } from './FormikCheckbox'
 import { handleErrorMessage, useSyncedState } from '../util'

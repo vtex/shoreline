@@ -1,11 +1,11 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import { StatelessTable } from '../../PowerfulTable/index'
 import { baseResolvers } from '../resolvers/base'
 import { useTableState } from '../useTableState'
-import { TableDensity } from '../typings'
-import { Resolver } from '../resolvers/core'
+import type { TableDensity } from '../typings'
+import type { Resolver } from '../resolvers/core'
 
 export default {
   title: 'admin-ui/Table/Densities',

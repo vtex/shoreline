@@ -1,10 +1,11 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
+import { ThemeProvider } from '@vtex/admin-core'
 
 import { RadioGroup } from './index'
-import { Radio, useRadioState, RadioStateReturn } from '../Radio'
-import { ThemeProvider } from '@vtex/admin-core'
+import type { RadioStateReturn } from '../Radio'
+import { Radio, useRadioState } from '../Radio'
 
 function RadioState({
   children,

@@ -1,4 +1,4 @@
-import { StyleObject } from '@vtex/admin-ui'
+import type { StyleObject } from '@vtex/admin-ui'
 
 export default {
   wrapper: {

@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { createComponent } from '@vtex/admin-core'
-
-import { SystemComponent } from '../../types'
 import { Primitive } from '@vtex/admin-primitives'
+
+import type { SystemComponent } from '../../types'
 
 export const Text = createComponent(Primitive, useText)
 

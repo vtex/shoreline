@@ -1,5 +1,6 @@
-import { Rule } from 'eslint'
-import * as ESTree from 'estree'
+import type { Rule } from 'eslint'
+import type * as ESTree from 'estree'
+
 import { isPresent } from '../utils/logic/isPresent'
 import { isImportSpecifierNode } from '../utils/estree/isImportSpecifierNode'
 import { isComponentName } from '../utils/react/isComponentName'
@@ -32,7 +33,9 @@ export const createTagComponentOutsideRenderPhase: Rule.RuleModule = {
         }
       },
 
-      [':function CallExpression'](node: ESTree.CallExpression & Rule.Node) {
+      ':function CallExpression': function (
+        node: ESTree.CallExpression & Rule.Node
+      ) {
         if (!tagImportNode) return
 
         const ancestors = context.getAncestors()

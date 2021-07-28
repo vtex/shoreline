@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+
 import { parse, compile } from './setup'
 
 describe('compile', () => {
@@ -17,6 +18,7 @@ describe('compile', () => {
     )
 
     const node = getByTestId('test')
+
     expect(node).toHaveStyleRule('padding', '8px')
     expect(node).toHaveStyleRule('margin', '4px')
   })

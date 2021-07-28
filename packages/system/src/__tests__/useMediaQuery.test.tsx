@@ -4,17 +4,16 @@ import { useMediaQuery } from '../hooks'
 
 type Matches = boolean | Record<string, boolean>
 
-const createMockMediaMatcher = (matchesOrMapOfMatches: Matches) => (
-  qs: string
-) =>
-  (({
-    matches:
-      typeof matchesOrMapOfMatches === 'object'
-        ? matchesOrMapOfMatches[qs]
-        : matchesOrMapOfMatches,
-    addEventListener: () => {},
-    removeEventListener: () => {},
-  } as unknown) as MediaQueryList)
+const createMockMediaMatcher =
+  (matchesOrMapOfMatches: Matches) => (qs: string) =>
+    ({
+      matches:
+        typeof matchesOrMapOfMatches === 'object'
+          ? matchesOrMapOfMatches[qs]
+          : matchesOrMapOfMatches,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+    } as unknown as MediaQueryList)
 
 describe('useMediaQuery test', () => {
   describe('Desktop only environment', () => {
@@ -48,6 +47,7 @@ describe('useMediaQuery test', () => {
       )
 
       const result = mobile && tablet
+
       expect(result).toBe(false)
     })
   })
@@ -73,6 +73,7 @@ describe('useMediaQuery test', () => {
       )
 
       const result = desktop && tablet
+
       expect(result).toBe(true)
     })
 

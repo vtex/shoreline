@@ -1,14 +1,13 @@
 import React from 'react'
-
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { axe } from 'jest-axe'
-
 import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
-import { FormikCheckbox } from './index'
 import { Button, Text } from '@vtex/admin-ui'
+
+import { FormikCheckbox } from './index'
 
 describe('Checkbox tests', () => {
   beforeEach(() => {
@@ -281,7 +280,7 @@ describe('Checkbox tests', () => {
 
     render(
       <ThemeProvider>
-        <IntlProvider locale={'en'} messages={messagesEN}>
+        <IntlProvider locale="en" messages={messagesEN}>
           <Content />
         </IntlProvider>
       </ThemeProvider>
@@ -318,7 +317,9 @@ describe('Checkbox tests', () => {
         </Formik>
       </ThemeProvider>
     )
+
     const checkbox = screen.getByRole('checkbox')
+
     userEvent.click(checkbox)
     await waitFor(() =>
       expect(checkbox.getAttribute('aria-checked')).toBe('true')

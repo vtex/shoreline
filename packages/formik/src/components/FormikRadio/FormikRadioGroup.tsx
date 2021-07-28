@@ -1,12 +1,8 @@
 import React from 'react'
-import {
-  Box,
-  RadioGroup,
-  RadioGroupProps,
-  Text,
-  useRadioState,
-} from '@vtex/admin-ui'
+import type { RadioGroupProps } from '@vtex/admin-ui'
+import { Box, RadioGroup, Text, useRadioState } from '@vtex/admin-ui'
 import { useField } from 'formik'
+
 import { FormikRadioGroupContext } from './context'
 import { handleErrorMessage, useSyncedState } from '../util'
 

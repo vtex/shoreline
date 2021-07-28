@@ -1,5 +1,8 @@
-import React, { ReactNode, forwardRef, Ref } from 'react'
-import { Set, SetProps } from '../Set'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+
+import type { SetProps } from '../Set'
+import { Set } from '../Set'
 import {
   ReakitToolbar,
   ToolbarItem,

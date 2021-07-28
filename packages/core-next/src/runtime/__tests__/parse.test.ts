@@ -4,11 +4,13 @@ describe('parse', () => {
   describe('resilience', () => {
     it('returns a object', () => {
       const result = parse()
+
       expect(typeof result).toBe('object')
     })
 
     it('returns an object', () => {
       const result = parse()
+
       expect(typeof result).toBe('object')
     })
 

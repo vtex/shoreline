@@ -1,7 +1,8 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 
-import { Avatar, AvatarProps } from './index'
+import type { AvatarProps } from './index'
+import { Avatar } from './index'
 import { Set } from '../Set'
 
 export default {

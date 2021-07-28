@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import { Button } from '../../Button'
 import { Text } from '../../Text'

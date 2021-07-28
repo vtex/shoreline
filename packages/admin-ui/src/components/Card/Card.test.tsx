@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
+import { ThemeProvider } from '@vtex/admin-core'
 
 import { Card } from './index'
-import { ThemeProvider } from '@vtex/admin-core'
 
 describe('Card tests', () => {
   it('should have overridable styles', () => {

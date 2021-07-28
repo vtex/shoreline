@@ -1,12 +1,13 @@
-import React, { forwardRef, ReactNode, Ref } from 'react'
-import { Input as ReakitInput, InputProps as ReakitInputProps } from 'reakit'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { InputProps as ReakitInputProps } from 'reakit'
+import { Input as ReakitInput } from 'reakit'
 import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
-import { inlineVariant } from '@vtex/admin-core'
-import { useSystem } from '@vtex/admin-core'
+import { inlineVariant, useSystem } from '@vtex/admin-core'
+import { Box } from '@vtex/admin-primitives'
 
 import { Button } from '../Button'
-import { SystemComponentProps } from '../../types'
-import { Box } from '@vtex/admin-primitives'
+import type { SystemComponentProps } from '../../types'
 
 export const AbstractInput = forwardRef(function AbstractInput(
   props: AbstractInputProps,
@@ -23,6 +24,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
     buttonElements,
     ...inputProps
   } = props
+
   const { cn, stylesOf } = useSystem()
 
   const showClear = !!onClear && value.toString().length > 0

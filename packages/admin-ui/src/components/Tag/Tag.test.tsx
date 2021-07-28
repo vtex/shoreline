@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
-
-import { Tag } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
 import { IconAdd } from '@vtex/admin-ui-icons'
+
+import { Tag } from './index'
 
 describe('Tag tests', () => {
   it('should have overridable styles', () => {

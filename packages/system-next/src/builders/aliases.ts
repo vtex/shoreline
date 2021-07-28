@@ -1,5 +1,7 @@
 import { callOrReturn } from '@vtex/onda-util'
-import { Plugin, getAliases } from '../plugin'
+
+import type { Plugin } from '../plugin'
+import { getAliases } from '../plugin'
 
 /**
  * Builds aliases of all plugins
@@ -8,7 +10,7 @@ import { Plugin, getAliases } from '../plugin'
  */
 export function buildAliases<Theme extends Record<string, any>>(
   theme: Theme,
-  plugins: Plugin<Theme>[]
+  plugins: Array<Plugin<Theme>>
 ) {
   const collection = plugins
     .map((plugin) => getAliases(plugin))

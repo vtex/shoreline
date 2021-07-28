@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { tag } from '@vtex/onda-react'
-import { Toast } from './Toast'
-import { ToasterProps } from './typings'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-import { StyleObject } from '@vtex/admin-core'
+import type { StyleObject } from '@vtex/admin-core'
+
+import { Toast } from './Toast'
+import type { ToasterProps } from './typings'
 
 const STATE_CHANGE_DELAY = 250
 const MIN_HEIGHT_VISIBLE = '4.5rem'
@@ -20,7 +21,7 @@ export function Toaster(props: ToasterProps) {
 
   useEffect(() => {
     const visible = toastStack && toastStack.length > 0
-    
+
     if (visible) {
       setMinHeight(MIN_HEIGHT_VISIBLE)
     } else {

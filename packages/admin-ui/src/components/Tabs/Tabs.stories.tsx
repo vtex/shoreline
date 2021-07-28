@@ -1,9 +1,9 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
+import { Box } from '@vtex/admin-primitives'
 
 import { Tabs, useTabState } from './index'
 import { Card } from '../Card'
-import { Box } from '@vtex/admin-primitives'
 import { Heading } from '../Heading'
 import { Set } from '../Set'
 

@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import {
   IconWarningColorful,
   IconSuccessColorful,
   IconErrorColorful,
   IconHelp,
+  IconWarningCircle,
 } from '@vtex/admin-ui-icons'
-
-import { Alert, AlertProps } from './index'
-import { Set } from '../Set'
 import { Box } from '@vtex/admin-primitives'
+
+import type { AlertProps } from './index'
+import { Alert } from './index'
+import { Set } from '../Set'
 import { Button } from '../Button'
-import { IconWarningCircle } from '@vtex/admin-ui-icons'
 import { Anchor } from '../Anchor'
 
 export default {

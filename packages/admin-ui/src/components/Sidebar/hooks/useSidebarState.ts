@@ -1,7 +1,9 @@
-import { ReactNode, useCallback, useState } from 'react'
+import type { ReactNode } from 'react'
+import { useCallback, useState } from 'react'
 import { isElement } from 'react-is'
 
-import { useCompositeState, CompositeStateReturn } from '../components/Aria'
+import type { CompositeStateReturn } from '../components/Aria'
+import { useCompositeState } from '../components/Aria'
 import { useReducedState } from './useReducedState'
 
 export function useSidebarState(): SidebarState {

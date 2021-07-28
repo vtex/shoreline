@@ -1,6 +1,7 @@
 import get from 'lodash.get'
+
 import { styles } from '../styles'
-import { Theme } from '../types'
+import type { Theme } from '../types'
 
 describe('component tests', () => {
   it('should allow object themeKey', () => {

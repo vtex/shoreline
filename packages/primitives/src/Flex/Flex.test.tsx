@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { render } from '../test-utils'
 
+import { render } from '../test-utils'
 import { Flex } from './index'
 
 describe('Flex tests', () => {

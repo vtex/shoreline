@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import { useDebounce } from 'use-debounce'
 import { Flex } from '@vtex/admin-primitives'
+import faker from 'faker'
 
 import { FilterBar } from '../index'
 import { StatelessTable } from '../../PowerfulTable'
-import { Statement, Filters } from '../typings'
+import type { Statement, Filters } from '../typings'
 import { AbstractInput } from '../../AbstractInput'
-import { ResolverRenderProps } from '../resolvers/core'
-import faker from 'faker'
+import type { ResolverRenderProps } from '../resolvers/core'
 import { useFilterBarState } from '../useFilterBarState'
 import { useTableState } from '../../Table'
 
@@ -126,14 +126,17 @@ export const Table: Story = () => {
       case 'is equal': {
         return item.productName.toLowerCase() === value.toLowerCase()
       }
+
       case 'is not equal': {
         return item.productName.toLowerCase() !== value.toLowerCase()
       }
+
       case 'contains': {
         return item.productName.toLowerCase().includes(value.toLowerCase())
       }
     }
   }
+
   function filterByPrice(statement: Statement<FiltersType>, item: any) {
     const { condition, target } = statement
 
@@ -141,9 +144,11 @@ export const Table: Story = () => {
       case 'is smaller than': {
         return target && item.price < target.value
       }
+
       case 'is bigger than': {
         return target && item.price > target.value
       }
+
       default:
         return true
     }
@@ -161,9 +166,11 @@ export const Table: Story = () => {
           case 'productName': {
             return filterByProduct(statement, item)
           }
+
           case 'price': {
             return filterByPrice(statement, item)
           }
+
           default:
             return true
         }

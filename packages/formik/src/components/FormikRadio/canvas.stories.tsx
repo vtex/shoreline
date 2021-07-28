@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Meta, Story } from '@storybook/react'
-
-import { FormikRadio, FormikRadioGroupProps, FormikRadioGroup } from './index'
+import type { Meta, Story } from '@storybook/react'
 import { Form, Formik } from 'formik'
 import { Box, Button, Flex, Label, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
 import { useIntl, IntlProvider } from 'react-intl'
+
+import { FormikRadio, FormikRadioGroup } from './index'
+import type { FormikRadioGroupProps } from './index'
 
 export default {
   title: 'admin-formik/FormikRadioGroup',
@@ -24,10 +25,8 @@ export const Playground: Story<FormikRadioGroupProps> = (args) => {
       .required('This field is required.'),
   })
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     values: FormValuesInterface,
@@ -39,7 +38,8 @@ export const Playground: Story<FormikRadioGroupProps> = (args) => {
   }
 
   useEffect(() => {
-    let value = Object.values(currentInitialValues)[0]
+    const value = Object.values(currentInitialValues)[0]
+
     setCurrentInitialValues({ [args.name]: value })
   }, [args.name])
 
@@ -180,6 +180,7 @@ Playground.args = {
 
 export const Basic = () => {
   const options = ['option 1', 'option 2', 'option 3', 'Disabled']
+
   type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
@@ -229,6 +230,7 @@ export const Basic = () => {
 
 export const Error = () => {
   const options = ['error 1', 'error 2', 'error 3', 'error 4']
+
   type FormValuesInterface = { value: string }
 
   const schemaValidationError = Yup.object({
@@ -289,6 +291,7 @@ export const WithIntl = () => {
   const Content = () => {
     const { formatMessage } = useIntl()
     const options = ['error 1', 'error 2', 'error 3', 'error 4']
+
     type FormValuesInterface = { value: string }
     const schemaValidationError = Yup.object({
       value: Yup.string()
@@ -304,7 +307,7 @@ export const WithIntl = () => {
     }
 
     return (
-      <IntlProvider locale={'en'} messages={messagesEN}>
+      <IntlProvider locale="en" messages={messagesEN}>
         <Formik
           enableReinitialize
           initialValues={{ value: 'error' }}
@@ -348,7 +351,7 @@ export const WithIntl = () => {
   }
 
   return (
-    <IntlProvider locale={'en'} messages={messagesEN}>
+    <IntlProvider locale="en" messages={messagesEN}>
       <Content />
     </IntlProvider>
   )
@@ -356,6 +359,7 @@ export const WithIntl = () => {
 
 export const ChangeValueOutside = () => {
   const options = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5']
+
   type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
@@ -416,13 +420,12 @@ export const ChangeValueOutside = () => {
 
 export const ChangeInitialValue = () => {
   const options = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5']
+
   type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     _values: FormValuesInterface,
@@ -499,6 +502,7 @@ export const ChangeInitialValue = () => {
 
 export const OnChangeExample = () => {
   const options = ['option 1', 'option 2', 'option 3', 'Disabled']
+
   type FormValuesInterface = { value: string }
   const initialValues: FormValuesInterface = { value: '' }
   const [changes, setChanges] = useState(0)
@@ -536,7 +540,7 @@ export const OnChangeExample = () => {
           </Box>
           <Set orientation="vertical">
             <Text variant="subtitle">
-              Number of times the value has changed: {' ' + changes}
+              Number of times the value has changed: {` ${changes}`}
             </Text>
           </Set>
         </Flex>

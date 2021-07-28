@@ -1,10 +1,11 @@
-import React, { forwardRef, Ref } from 'react'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { Box } from '@vtex/admin-primitives'
+import { useSystem } from '@vtex/admin-core'
 
 import { Text } from '../Text'
 import { Label } from '../Label'
-import { SystemComponentProps } from '../../types'
-import { Box } from '@vtex/admin-primitives'
-import { useSystem } from '@vtex/admin-core'
+import type { SystemComponentProps } from '../../types'
 
 export const TextArea = forwardRef(function Textarea(
   props: TextAreaProps,
@@ -22,6 +23,7 @@ export const TextArea = forwardRef(function Textarea(
     errorMessage,
     ...textareaProps
   } = props
+
   const { cn, stylesOf } = useSystem()
 
   const message = error ? errorMessage : helperText

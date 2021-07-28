@@ -1,6 +1,7 @@
 import isPropValid from '@emotion/is-prop-valid'
 import { get, pick } from '@vtex/onda-util'
-import { StyleObject } from '@vtex/onda-core'
+import type { StyleObject } from '@vtex/onda-core'
+
 import { __options, __stylesheet } from './symbols'
 
 export function useOptionsIdentity<Options, Props>(_: Options, props: Props) {
@@ -14,6 +15,7 @@ export function useOptionsIdentity<Options, Props>(_: Options, props: Props) {
 export function cleanProps<P extends {}>(props: P) {
   const validKeys = Object.keys(props).filter(isPropValid)
   const htmlProps = pick(props, validKeys)
+
   return htmlProps
 }
 

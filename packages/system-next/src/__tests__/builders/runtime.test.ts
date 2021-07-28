@@ -33,22 +33,24 @@ describe('runtime builder', () => {
     instance: (params: InstanceParams) => {
       return params
     },
-    parser: (steps) => (csx: Csx = {}) => {
-      const style: Style = {}
+    parser:
+      (steps) =>
+      (csx: Csx = {}) => {
+        const style: Style = {}
 
-      for (const key in csx) {
-        const cssProperty = steps.aliases.exec(key)
-        const token = csx[key as keyof typeof csx]
+        for (const key in csx) {
+          const cssProperty = steps.aliases.exec(key)
+          const token = csx[key as keyof typeof csx]
 
-        const rule = steps.rules.exec(cssProperty)
-        const transform = steps.transforms(cssProperty)
-        const value = transform.exec(rule, token)
+          const rule = steps.rules.exec(cssProperty)
+          const transform = steps.transforms(cssProperty)
+          const value = transform.exec(rule, token)
 
-        style[cssProperty] = value
-      }
+          style[cssProperty] = value
+        }
 
-      return style
-    },
+        return style
+      },
     compiler: () => (style: Style) =>
       `${style?.backgroundColor}-${style?.color}`,
   })

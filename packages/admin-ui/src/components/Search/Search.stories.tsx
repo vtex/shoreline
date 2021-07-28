@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Story, Meta } from '@storybook/react'
+import type { Story, Meta } from '@storybook/react'
 
-import { Search, SearchProps } from './index'
+import type { SearchProps } from './index'
+import { Search } from './index'
 
 export default {
   title: 'admin-ui/Search',
@@ -10,6 +11,7 @@ export default {
 
 export const Playground: Story<SearchProps> = (args) => {
   const [value, setValue] = useState('')
+
   return (
     <Search
       value={value}

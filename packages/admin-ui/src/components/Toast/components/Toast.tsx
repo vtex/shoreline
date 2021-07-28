@@ -2,11 +2,13 @@ import React, { useEffect, useMemo } from 'react'
 import { Flex } from '@vtex/admin-primitives'
 import { IconClose } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/onda-react'
-import { ToastIconProps, ToastOptions } from './typings'
-import { ToastIcon } from './Icon'
-import { Button, ButtonProps } from '../../Button'
-import { Text } from '../../Text'
 import { motion } from 'framer-motion'
+
+import type { ToastIconProps, ToastOptions } from './typings'
+import { ToastIcon } from './Icon'
+import type { ButtonProps } from '../../Button'
+import { Button } from '../../Button'
+import { Text } from '../../Text'
 
 const ToastContent = jsx(motion.div)({
   position: 'relative',
@@ -69,6 +71,7 @@ export function Toast(props: ToastOptions) {
     action,
     type,
   } = useToast(props)
+
   useEffect(() => {
     const timeout = setTimeout(() => remove(id, position), duration)
 

@@ -1,5 +1,7 @@
 import warning from 'tiny-warning'
-import { defaultBreakpoints, Theme } from './index'
+
+import type { Theme } from './index'
+import { defaultBreakpoints } from './index'
 
 export const alias = (key: string, theme: Theme) => {
   const breakpoints =

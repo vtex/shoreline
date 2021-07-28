@@ -1,8 +1,10 @@
-import React, { Ref } from 'react'
+import type { Ref } from 'react'
+import React from 'react'
 import { forwardRef } from '@vtex/admin-core'
 import { IconAction, IconCaret } from '@vtex/admin-ui-icons'
 
-import { Button, ButtonProps } from '../../Button'
+import type { ButtonProps } from '../../Button'
+import { Button } from '../../Button'
 
 /**
  * Button used inside of menu's disclosure

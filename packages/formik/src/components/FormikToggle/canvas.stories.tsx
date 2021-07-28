@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Meta, Story } from '@storybook/react'
-
-import { FormikToggle, FormikToggleProps } from './index'
+import type { Meta, Story } from '@storybook/react'
 import { Form, Formik } from 'formik'
 import { Box, Button, Flex, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
 import { IntlProvider, useIntl } from 'react-intl'
+
+import { FormikToggle } from './index'
+import type { FormikToggleProps } from './index'
 
 export default {
   title: 'admin-formik/FormikToggle',
@@ -20,10 +21,8 @@ export const Playground: Story<FormikToggleProps> = (args) => {
     [args.name]: Yup.bool().isTrue('Error message'),
   })
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     values: FormValuesInterface,
@@ -35,7 +34,8 @@ export const Playground: Story<FormikToggleProps> = (args) => {
   }
 
   useEffect(() => {
-    let value = Object.values(currentInitialValues)[0]
+    const value = Object.values(currentInitialValues)[0]
+
     setCurrentInitialValues({ [args.name]: value })
   }, [args.name])
 
@@ -93,7 +93,7 @@ export const Playground: Story<FormikToggleProps> = (args) => {
                 feedback="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
-                {'Set "' + !values.value + '" as new initial value'}
+                {`Set "${!values.value}" as new initial value`}
               </Text>
             </Flex>
             <Set orientation="vertical" spacing={4}>
@@ -203,6 +203,7 @@ export const WithIntl = () => {
 
   const Content = () => {
     const { formatMessage } = useIntl()
+
     type FormValuesInterface = { value: boolean }
     const schemaValidationError = Yup.object({
       value: Yup.bool().isFalse('admin/admin-formik.error.message'),
@@ -248,7 +249,7 @@ export const WithIntl = () => {
   }
 
   return (
-    <IntlProvider locale={'en'} messages={messagesEN}>
+    <IntlProvider locale="en" messages={messagesEN}>
       <Content />
     </IntlProvider>
   )
@@ -296,10 +297,8 @@ export const ChangeInitialValue = () => {
   type FormValuesInterface = { value: boolean }
   const initialValues: FormValuesInterface = { value: false }
 
-  const [
-    currentInitialValues,
-    setCurrentInitialValues,
-  ] = useState<FormValuesInterface>(initialValues)
+  const [currentInitialValues, setCurrentInitialValues] =
+    useState<FormValuesInterface>(initialValues)
 
   const handleSubmit = (
     _values: FormValuesInterface,
@@ -381,7 +380,7 @@ export const OnChangeExample = () => {
           </Box>
           <Set orientation="vertical">
             <Text variant="subtitle">
-              Number of times the value has changed: {' ' + changes}
+              Number of times the value has changed: {` ${changes}`}
             </Text>
           </Set>
         </Flex>

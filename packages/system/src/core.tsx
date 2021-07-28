@@ -1,9 +1,9 @@
-import { createContext, ReactNode, useContext } from 'react'
+import type { ReactNode } from 'react'
+import { createContext, useContext } from 'react'
 import deepmerge from 'deepmerge'
 import { jsxs, EmotionContext } from '@vtex/admin-jsxs'
 import packageInfo from '@emotion/react/package.json'
-
-import { Theme } from '@vtex/admin-styles'
+import type { Theme } from '@vtex/admin-styles'
 
 const EMOTION_VERSION = packageInfo.version
 

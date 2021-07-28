@@ -1,7 +1,8 @@
-import { StyleProp } from '@vtex/admin-core'
-import { ReactNode, ReactElement, useRef, Children } from 'react'
+import type { StyleProp } from '@vtex/admin-core'
+import type { ReactNode, ReactElement } from 'react'
+import { useRef, Children } from 'react'
 
-import { ModalSize } from './types'
+import type { ModalSize } from './types'
 
 export function isReactElement(
   child: ReactNode

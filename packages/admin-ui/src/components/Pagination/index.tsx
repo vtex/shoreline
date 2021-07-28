@@ -1,11 +1,13 @@
 import React from 'react'
-import { BoxProps, Flex } from '@vtex/admin-primitives'
-import { Set } from '../Set'
+import type { BoxProps } from '@vtex/admin-primitives'
+import { Flex } from '@vtex/admin-primitives'
 import { IconCaret } from '@vtex/admin-ui-icons'
+
+import { Set } from '../Set'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
-import { UsePaginationReturn } from './usePaginationState'
+import type { UsePaginationReturn } from './usePaginationState'
 
 export function Pagination(props: PaginationProps) {
   const {

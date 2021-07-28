@@ -1,7 +1,10 @@
-import React, { forwardRef, ReactNode, Ref } from 'react'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { StyleObject } from '@vtex/admin-core'
+
 import { Toolbar, useToolbarState } from '../../Toolbar'
-import { Button, ButtonProps } from '../../Button'
-import { StyleObject } from '@vtex/admin-core'
+import type { ButtonProps } from '../../Button'
+import { Button } from '../../Button'
 
 function TableToolbarButton(props: ButtonProps) {
   const { variant = 'adaptative-dark', size = 'small', ...buttonProps } = props

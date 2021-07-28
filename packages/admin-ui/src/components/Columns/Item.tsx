@@ -1,13 +1,10 @@
-import React, { ReactNode } from 'react'
-import {
-  StyleProp,
-  ResponsiveValue,
-  useResponsiveValue,
-} from '@vtex/admin-core'
+import type { ReactNode } from 'react'
+import React from 'react'
+import type { StyleProp, ResponsiveValue } from '@vtex/admin-core'
+import { useResponsiveValue, useSystem } from '@vtex/admin-core'
 
-import { SystemComponent } from '../../types'
+import type { SystemComponent } from '../../types'
 import { useColumnsContext } from './context'
-import { useSystem } from '@vtex/admin-core'
 
 export function ColumnsItem(props: ColumnsItemProps) {
   const { units, offset = 'none', csx, ...layoutProps } = props

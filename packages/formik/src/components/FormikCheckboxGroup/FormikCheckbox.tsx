@@ -1,5 +1,7 @@
-import React, { forwardRef, Ref } from 'react'
-import { Checkbox, CheckboxProps } from '@vtex/admin-ui'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { Checkbox } from '@vtex/admin-ui'
+
 import { useCheckboxGroupContext } from './context'
 
 export const FormikCheckbox = forwardRef(
@@ -9,7 +11,7 @@ export const FormikCheckbox = forwardRef(
     return (
       <Checkbox
         state={state}
-        {...props}
+        {...(props as any)}
         ref={ref}
         onBlur={() => setTouched(true)}
       />
@@ -17,5 +19,5 @@ export const FormikCheckbox = forwardRef(
   }
 )
 
-export interface FormikCheckboxProps
-  extends Omit<CheckboxProps, 'state' | 'checked' | 'onChange'> {}
+// TODO Fix the type once the @vtex/onda-core has it
+export type FormikCheckboxProps = ComponentPropsWithoutRef<'input'>

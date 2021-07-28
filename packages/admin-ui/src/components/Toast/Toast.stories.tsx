@@ -1,10 +1,11 @@
 import React from 'react'
-import { Meta, Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import { Box } from '@vtex/admin-primitives'
+
 import { Button } from '../Button'
 import { Set } from '../Set'
 import { toast } from './index'
-import { ToastProps } from './components/typings'
+import type { ToastProps } from './components/typings'
 import { message } from './testUtils'
 
 export default {

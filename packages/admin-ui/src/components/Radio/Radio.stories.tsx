@@ -1,7 +1,8 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import type { Story, Meta } from '@storybook/react'
 
-import { Radio, RadioProps, useRadioState } from './index'
+import type { RadioProps } from './index'
+import { Radio, useRadioState } from './index'
 import { RadioGroup } from '../RadioGroup'
 import { Label } from '../Label'
 import { Heading } from '../Heading'

@@ -7,8 +7,10 @@ describe('instance builder', () => {
     instance: (params: InstanceParams) => {
       return params
     },
-    parser: () => (csx: Csx = {}) =>
-      ({ backgroundColor: csx?.bg ?? '', color: csx?.c ?? '' } as Style),
+    parser:
+      () =>
+      (csx: Csx = {}) =>
+        ({ backgroundColor: csx?.bg ?? '', color: csx?.c ?? '' } as Style),
     compiler: () => (style: Style) =>
       `${style?.backgroundColor}${style?.color}`,
   })

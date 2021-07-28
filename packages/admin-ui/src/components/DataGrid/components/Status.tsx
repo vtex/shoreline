@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react'
 import { Flex } from '@vtex/admin-primitives'
 import { tag, jsx } from '@vtex/onda-react'
-import { Anchor } from '../../Anchor'
-import { Text } from '../../Text'
 import {
   CollectionEmpty,
   CollectionError,
   CollectionNotFound,
 } from '@vtex/admin-illustrations'
+
+import { Anchor } from '../../Anchor'
+import { Text } from '../../Text'
 import { useStateContext } from '../context'
 
 const View = jsx.div(

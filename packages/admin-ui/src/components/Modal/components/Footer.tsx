@@ -1,9 +1,9 @@
-import React, { ReactNode, Ref } from 'react'
-import { forwardRef } from '@vtex/admin-core'
+import type { ReactNode, Ref } from 'react'
+import React from 'react'
+import { forwardRef, useSystem } from '@vtex/admin-core'
 
 import { useModalContext } from '../context'
-import { SystemComponent } from '../../../types'
-import { useSystem } from '@vtex/admin-core'
+import type { SystemComponent } from '../../../types'
 
 /**
  * Footer of the modal

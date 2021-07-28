@@ -1,4 +1,5 @@
-import React, { createContext, ReactNode, useMemo } from 'react'
+import type { ReactNode } from 'react'
+import React, { createContext, useMemo } from 'react'
 import {
   Flex,
   IconCaret,
@@ -60,6 +61,7 @@ export function Sidebar() {
   const getId = (section: string) => `${baseId}-${kebabCase(section)}`
   const findMeta = (path: string) =>
     data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)
+
   const getTitle = (path: string) => findMeta(path)?.title ?? ''
   const { current } = useSearchContext()
   const [bulkVisible, setBulkVisile] = React.useState(false)

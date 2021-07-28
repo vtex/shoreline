@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import { useDebounce } from 'use-debounce'
 import faker from 'faker'
 
-import { StatelessTable } from '../'
-import { Filters, Statement } from '../../FilterBar/typings'
-import { ResolverRenderProps } from '../../FilterBar/resolvers/core'
+import { StatelessTable } from '..'
+import type { Filters, Statement } from '../../FilterBar/typings'
+import type { ResolverRenderProps } from '../../FilterBar/resolvers/core'
 import { AbstractInput } from '../../AbstractInput'
 import { useTableFilterBarState } from '../components/FilterBar'
 import { useTableState } from '../../Table'
@@ -24,7 +24,7 @@ interface Item {
 
 type FiltersType = { value: number } | { value: string }
 
-function FilterInput(statement: ResolverRenderProps<FiltersType, null>) {
+function FilterInput(statement: ResolverRenderProps<FiltersType>) {
   const {
     statement: { target = { value: '' } },
     handleValueChange,
@@ -81,14 +81,17 @@ export function TableFilter() {
       case 'is equal': {
         return item.productName.toLowerCase() === value.toLowerCase()
       }
+
       case 'is not equal': {
         return item.productName.toLowerCase() !== value.toLowerCase()
       }
+
       case 'contains': {
         return item.productName.toLowerCase().includes(value.toLowerCase())
       }
     }
   }
+
   function filterByPrice(statement: Statement<FiltersType>, item: any) {
     const { condition, target } = statement
 
@@ -96,9 +99,11 @@ export function TableFilter() {
       case 'is smaller than': {
         return target && item.price < target.value
       }
+
       case 'is bigger than': {
         return target && item.price > target.value
       }
+
       default:
         return true
     }
@@ -116,9 +121,11 @@ export function TableFilter() {
           case 'productName': {
             return filterByProduct(statement, item)
           }
+
           case 'price': {
             return filterByPrice(statement, item)
           }
+
           default:
             return true
         }

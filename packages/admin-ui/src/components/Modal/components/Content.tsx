@@ -1,9 +1,10 @@
-import React, { ReactNode, useMemo, forwardRef, Ref } from 'react'
+import type { ReactNode, Ref } from 'react'
+import React, { useMemo, forwardRef } from 'react'
+import { useSystem } from '@vtex/admin-core'
 
 import { useModalContext } from '../context'
 import { getScrollAreaSize } from '../util'
-import { SystemComponent } from '../../../types'
-import { useSystem } from '@vtex/admin-core'
+import type { SystemComponent } from '../../../types'
 
 export const ModalContent = forwardRef(function ModalContent(
   props: ModalContentProps,

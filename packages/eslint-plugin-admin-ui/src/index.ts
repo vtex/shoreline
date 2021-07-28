@@ -13,6 +13,7 @@ module.exports = {
   // but tsdx doesn't works well with dynamic imports,
   // so we need to change our build system first
   rules: {
-    'create-tag-component-outside-render-phase': createTagComponentOutsideRenderPhase,
+    'create-tag-component-outside-render-phase':
+      createTagComponentOutsideRenderPhase,
   },
 }

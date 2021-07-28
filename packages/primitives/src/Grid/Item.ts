@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ElementType, ReactElement } from 'react'
-import * as CSS from 'csstype'
-import { createComponent, omit, pick, ResponsiveValue } from '@vtex/admin-core'
+import type { ElementType, ReactElement } from 'react'
+import type * as CSS from 'csstype'
+import type { ResponsiveValue } from '@vtex/admin-core'
+import { createComponent, omit, pick } from '@vtex/admin-core'
 
-import { Primitive, PrimitiveProps } from '../Primitive'
+import type { PrimitiveProps } from '../Primitive'
+import { Primitive } from '../Primitive'
 import { renameKeys } from '../util'
 
 /**
@@ -38,6 +40,5 @@ export interface GridItemOwnProps {
   area?: ResponsiveValue<CSS.Property.GridArea>
 }
 
-export type GridItemProps<
-  E extends ElementType = ElementType
-> = GridItemOwnProps & PrimitiveProps<E>
+export type GridItemProps<E extends ElementType = ElementType> =
+  GridItemOwnProps & PrimitiveProps<E>

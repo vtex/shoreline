@@ -1,7 +1,8 @@
 import { useSystem } from '@vtex/admin-ui'
 import { createHook, createComponent } from 'reakit-system'
 
-import { useAnchor, AnchorOptions, AnchorProps } from './Anchor'
+import type { AnchorOptions, AnchorProps } from './Anchor'
+import { useAnchor } from './Anchor'
 
 export type SkipToContentOptions = AnchorOptions
 export type SkipToContentHTMLProps = AnchorProps

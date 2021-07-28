@@ -1,8 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
-
-import { Alert } from './index'
 import { ThemeProvider } from '@vtex/admin-core'
 import {
   IconErrorColorful,
@@ -10,6 +8,8 @@ import {
   IconSuccessColorful,
   IconWarningColorful,
 } from '@vtex/admin-ui-icons'
+
+import { Alert } from './index'
 
 describe('Alert tests', () => {
   beforeEach(() => {

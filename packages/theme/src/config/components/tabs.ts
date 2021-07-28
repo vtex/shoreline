@@ -52,8 +52,8 @@ export const tabList = {
       display: 'flex',
       justifyContent: 'space-evenly',
       '> button': { width: 'full' },
-    }
-  }
+    },
+  },
 }
 
 export const tabContent = {

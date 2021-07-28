@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-
+import type { Meta } from '@storybook/react'
 import { Flex } from '@vtex/admin-primitives'
+
 import { Text } from '../Text'
 import { VisuallyHidden } from './index'
 

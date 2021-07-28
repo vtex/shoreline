@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from 'react'
-import { Meta } from '@storybook/react'
-
-import { StatelessTable } from '../../PowerfulTable'
+import type { Meta } from '@storybook/react'
 import { Box } from '@vtex/admin-primitives'
-import { TableViewState } from '../../Table/context'
+
+import { StatelessTable } from '..'
+import type { TableViewState } from '../../Table/context'
 import { Input } from '../../Input'
 import { useTableState } from '../../Table'
 
@@ -114,9 +114,9 @@ export function Views() {
 export function CustomizeView() {
   const [title, setTitle] = useState('View Title')
   const [text, setText] = useState('View Text')
-  const [tableViewState, setTableViewState] = useState<keyof TableViewState>(
-    'empty'
-  )
+  const [tableViewState, setTableViewState] =
+    useState<keyof TableViewState>('empty')
+
   const [anchor, setAnchor] = useState<'anchor' | 'text'>('anchor')
 
   const viewObj = useMemo(() => {
