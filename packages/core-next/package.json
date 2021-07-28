@@ -1,7 +1,7 @@
 {
   "name": "@vtex/onda-core",
   "license": "MIT",
-  "version": "0.1.0-labs.6",
+  "version": "0.1.0-labs.7",
   "main": "dist/index.js",
   "module": "dist/onda-core.esm.js",
   "typings": "dist/index.d.ts",
@@ -41,7 +41,7 @@
     "@emotion/react": "^11.4.0"
   },
   "dependencies": {
-    "@vtex/onda-system": "^0.1.0-labs.2",
+    "@vtex/onda-system": "^0.1.0-labs.3",
     "@vtex/onda-util": "^0.1.0-labs.2",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",

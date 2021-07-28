@@ -1,7 +1,7 @@
 {
   "name": "@vtex/onda-react",
   "license": "MIT",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "main": "dist/index.js",
   "module": "dist/onda-react.esm.js",
   "typings": "dist/index.d.ts",
@@ -39,7 +39,7 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@vtex/admin-core": "^0.10.16",
+    "@vtex/admin-core": "^0.11.0",
     "polished": "^4.1.2"
   },
   "dependencies": {

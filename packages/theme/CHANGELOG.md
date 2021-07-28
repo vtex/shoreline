@@ -3,205 +3,117 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.26.8](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.7...@vtex/admin-ui-theme@0.26.8) (2021-07-20)
+## [0.26.9](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.8...@vtex/admin-ui-theme@0.26.9) (2021-07-28)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
+## [0.26.8](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.7...@vtex/admin-ui-theme@0.26.8) (2021-07-20)
 
-
-
+**Note:** Version bump only for package @vtex/admin-ui-theme
 
 ## [0.26.7](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.6...@vtex/admin-ui-theme@0.26.7) (2021-07-19)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.26.6](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.5...@vtex/admin-ui-theme@0.26.6) (2021-07-16)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
-
-
-
-
 
 ## [0.26.5](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.4...@vtex/admin-ui-theme@0.26.5) (2021-07-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.26.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.3...@vtex/admin-ui-theme@0.26.4) (2021-07-05)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
-
-
-
-
 
 ## [0.26.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.2...@vtex/admin-ui-theme@0.26.3) (2021-06-29)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.26.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.1...@vtex/admin-ui-theme@0.26.2) (2021-05-25)
-
 
 ### Bug Fixes
 
-* **tooltip-align-center:** remove tooltip min-height and add 1px to padding ([1952a69](https://github.com/vtex/onda/commit/1952a69b319d02b1a4f02c8684d1186bf996a518))
-
-
-
-
+- **tooltip-align-center:** remove tooltip min-height and add 1px to padding ([1952a69](https://github.com/vtex/onda/commit/1952a69b319d02b1a4f02c8684d1186bf996a518))
 
 ## [0.26.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.26.0...@vtex/admin-ui-theme@0.26.1) (2021-05-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 # [0.26.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.25.1...@vtex/admin-ui-theme@0.26.0) (2021-05-11)
-
 
 ### Features
 
-* **filter-bar:** add FilterBar component draft ([c98ffae](https://github.com/vtex/onda/commit/c98ffaebde8ba9a8db8676bdb457aa89474098f6))
-* **filter-bar:** add first stable version ([81def4c](https://github.com/vtex/onda/commit/81def4c1be626eab4820661ef73363dfebce0f7d))
-
-
-
-
+- **filter-bar:** add FilterBar component draft ([c98ffae](https://github.com/vtex/onda/commit/c98ffaebde8ba9a8db8676bdb457aa89474098f6))
+- **filter-bar:** add first stable version ([81def4c](https://github.com/vtex/onda/commit/81def4c1be626eab4820661ef73363dfebce0f7d))
 
 ## [0.25.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.25.0...@vtex/admin-ui-theme@0.25.1) (2021-04-21)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 # [0.25.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.24.3...@vtex/admin-ui-theme@0.25.0) (2021-04-19)
-
 
 ### Bug Fixes
 
-* **table-toolbar:** remove table variant button ([2ff2bfc](https://github.com/vtex/onda/commit/2ff2bfc0a0df5ec2546652c5a52c3c34e5feac15))
-* **table-toolbar-improvements:** table cell font size ([2fe7766](https://github.com/vtex/onda/commit/2fe77668fc8a90e7472fb2220596e4bd58801f96))
-
+- **table-toolbar:** remove table variant button ([2ff2bfc](https://github.com/vtex/onda/commit/2ff2bfc0a0df5ec2546652c5a52c3c34e5feac15))
+- **table-toolbar-improvements:** table cell font size ([2fe7766](https://github.com/vtex/onda/commit/2fe77668fc8a90e7472fb2220596e4bd58801f96))
 
 ### Features
 
-* **table-toolbar:** add table variant to button ([4c874c5](https://github.com/vtex/onda/commit/4c874c57974ed91c387c39f481f5f3abc6d475ca))
-
-
-
-
+- **table-toolbar:** add table variant to button ([4c874c5](https://github.com/vtex/onda/commit/4c874c57974ed91c387c39f481f5f3abc6d475ca))
 
 ## [0.24.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.24.2...@vtex/admin-ui-theme@0.24.3) (2021-04-08)
 
-
 ### Bug Fixes
 
-* **responsive-aliases:** change media queries to have a max and min widths range ([f15efb0](https://github.com/vtex/onda/commit/f15efb04c416ff8cc7bd569ddeb9e76864d382bd))
-
-
-
-
+- **responsive-aliases:** change media queries to have a max and min widths range ([f15efb0](https://github.com/vtex/onda/commit/f15efb04c416ff8cc7bd569ddeb9e76864d382bd))
 
 ## [0.24.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.24.0...@vtex/admin-ui-theme@0.24.2) (2021-04-06)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.24.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.24.0...@vtex/admin-ui-theme@0.24.1) (2021-04-05)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 # [0.24.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.23.0...@vtex/admin-ui-theme@0.24.0) (2021-04-01)
-
 
 ### Features
 
-* **admin-ui:** sync sidebar animation & remove buttons text-transform ([9b91ce2](https://github.com/vtex/onda/commit/9b91ce2b182b5609b38058a719a886dccd9d7faf))
-
-
-
-
+- **admin-ui:** sync sidebar animation & remove buttons text-transform ([9b91ce2](https://github.com/vtex/onda/commit/9b91ce2b182b5609b38058a719a886dccd9d7faf))
 
 # [0.23.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.22.0...@vtex/admin-ui-theme@0.23.0) (2021-03-29)
 
-
 ### Features
 
-* **admin:** sidebar animations ([5dc035e](https://github.com/vtex/onda/commit/5dc035e99bcf7ce6686f7e7be8dfcc459d00a48e))
-
-
-
-
+- **admin:** sidebar animations ([5dc035e](https://github.com/vtex/onda/commit/5dc035e99bcf7ce6686f7e7be8dfcc459d00a48e))
 
 # [0.22.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.21.1-experimental.1...@vtex/admin-ui-theme@0.22.0) (2021-03-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.21.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.21.1-experimental.0...@vtex/admin-ui-theme@0.21.1-experimental.1) (2021-03-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
 
-
-
-
-
 ## [0.21.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.21.0...@vtex/admin-ui-theme@0.21.1-experimental.0) (2021-03-25)
 
-
 ### Features
 
-* **admin-sidebar:** stateless approach ([cd95e26](https://github.com/vtex/onda/commit/cd95e26b89a13fcec2a755ffd82098111ef60847))
-
-
-
-
+- **admin-sidebar:** stateless approach ([cd95e26](https://github.com/vtex/onda/commit/cd95e26b89a13fcec2a755ffd82098111ef60847))
 
 # [0.21.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.2...@vtex/admin-ui-theme@0.21.0) (2021-03-22)
-# [0.21.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.2-experimental.5...@vtex/admin-ui-theme@0.21.0-experimental.0) (2021-03-23)
 
+# [0.21.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.2-experimental.5...@vtex/admin-ui-theme@0.21.0-experimental.0) (2021-03-23)
 
 ### Features
 
-* **admin-sidebar:** stateless approach ([5eacb34](https://github.com/vtex/onda/commit/5eacb347f748b466d23c1a1c287abc4255d306bb))
-
-
-
-
+- **admin-sidebar:** stateless approach ([5eacb34](https://github.com/vtex/onda/commit/5eacb347f748b466d23c1a1c287abc4255d306bb))
 
 ## [0.20.2-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.2-experimental.4...@vtex/admin-ui-theme@0.20.2-experimental.5) (2021-03-19)
 
 **Note:** Version bump only for package @vtex/admin-ui-theme
-
-
-
-
 
 ## [0.20.2-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-theme@0.20.1...@vtex/admin-ui-theme@0.20.2-experimental.4) (2021-03-17)
 

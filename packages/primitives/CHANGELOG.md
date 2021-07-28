@@ -3,177 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.4.11](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.10...@vtex/admin-primitives@0.4.11) (2021-07-20)
+## [0.4.12](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.11...@vtex/admin-primitives@0.4.12) (2021-07-28)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
+## [0.4.11](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.10...@vtex/admin-primitives@0.4.11) (2021-07-20)
 
-
-
+**Note:** Version bump only for package @vtex/admin-primitives
 
 ## [0.4.10](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.9...@vtex/admin-primitives@0.4.10) (2021-07-19)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.4.9](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.8...@vtex/admin-primitives@0.4.9) (2021-07-16)
 
 **Note:** Version bump only for package @vtex/admin-primitives
-
-
-
-
 
 ## [0.4.8](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.7...@vtex/admin-primitives@0.4.8) (2021-07-15)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.4.7](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.6...@vtex/admin-primitives@0.4.7) (2021-07-05)
 
 **Note:** Version bump only for package @vtex/admin-primitives
-
-
-
-
 
 ## [0.4.6](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.5...@vtex/admin-primitives@0.4.6) (2021-06-29)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.4.5](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.4...@vtex/admin-primitives@0.4.5) (2021-05-25)
 
 **Note:** Version bump only for package @vtex/admin-primitives
-
-
-
-
 
 ## [0.4.4](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.3...@vtex/admin-primitives@0.4.4) (2021-05-14)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.4.3](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.2...@vtex/admin-primitives@0.4.3) (2021-05-11)
 
 **Note:** Version bump only for package @vtex/admin-primitives
-
-
-
-
 
 ## [0.4.2](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.1...@vtex/admin-primitives@0.4.2) (2021-04-21)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.4.1](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.4.0...@vtex/admin-primitives@0.4.1) (2021-04-19)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 # [0.4.0](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.3.4...@vtex/admin-primitives@0.4.0) (2021-04-08)
-
 
 ### Features
 
-* **responsive-value:** add responsive aliases on styleObject ([2019d0f](https://github.com/vtex/onda/commit/2019d0f1678478c02857ff3b6ad25e47075d8909))
-
-
-
-
+- **responsive-value:** add responsive aliases on styleObject ([2019d0f](https://github.com/vtex/onda/commit/2019d0f1678478c02857ff3b6ad25e47075d8909))
 
 ## [0.3.4](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.3.2...@vtex/admin-primitives@0.3.4) (2021-04-06)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.3.3](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.3.2...@vtex/admin-primitives@0.3.3) (2021-04-05)
 
 **Note:** Version bump only for package @vtex/admin-primitives
-
-
-
-
 
 ## [0.3.2](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.3.1...@vtex/admin-primitives@0.3.2) (2021-04-01)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.3.1](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.3.0...@vtex/admin-primitives@0.3.1) (2021-03-29)
 
 **Note:** Version bump only for package @vtex/admin-primitives
-
-
-
-
 
 # [0.3.0](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.6-experimental.1...@vtex/admin-primitives@0.3.0) (2021-03-26)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.2.6-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.6-experimental.0...@vtex/admin-primitives@0.2.6-experimental.1) (2021-03-26)
 
 **Note:** Version bump only for package @vtex/admin-primitives
-
-
-
-
 
 ## [0.2.6-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.5...@vtex/admin-primitives@0.2.6-experimental.0) (2021-03-25)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.2.5](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.4...@vtex/admin-primitives@0.2.5) (2021-03-22)
+
 ## [0.2.3-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.3-experimental.5...@vtex/admin-primitives@0.2.3-experimental.6) (2021-03-23)
 
 **Note:** Version bump only for package @vtex/admin-primitives
 
-
-
-
-
 ## [0.2.3-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.3-experimental.4...@vtex/admin-primitives@0.2.3-experimental.5) (2021-03-19)
 
 **Note:** Version bump only for package @vtex/admin-primitives
-
-
-
-
 
 ## [0.2.3-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-primitives@0.2.2...@vtex/admin-primitives@0.2.3-experimental.4) (2021-03-17)
 

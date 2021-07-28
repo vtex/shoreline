@@ -3,241 +3,144 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.15.1...@vtex/admin-ui-system@0.16.0) (2021-07-28)
+
+### Features
+
+- **onda-packages:** add onda packages ([b619064](https://github.com/vtex/onda/commit/b619064d04d190d5615a2832dbcb86d96efd16ee))
+
 ## [0.15.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.15.0...@vtex/admin-ui-system@0.15.1) (2021-04-08)
 
 **Note:** Version bump only for package @vtex/admin-ui-system
 
-
-
-
-
 # [0.15.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.14.0...@vtex/admin-ui-system@0.15.0) (2021-03-10)
-
 
 ### Features
 
-* **system:** add useMediaQuery hook ([78934f5](https://github.com/vtex/onda/commit/78934f58ad736946a03de7d27b6e4b0d32273231))
-
-
-
-
+- **system:** add useMediaQuery hook ([78934f5](https://github.com/vtex/onda/commit/78934f58ad736946a03de7d27b6e4b0d32273231))
 
 # [0.14.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.13.1...@vtex/admin-ui-system@0.14.0) (2021-02-25)
 
-
 ### Features
 
-* **theme:** move global styles from core to theme ([416c04b](https://github.com/vtex/onda/commit/416c04bd46e98cb65e428ac017577ac2ec6702ae))
-
-
-
-
+- **theme:** move global styles from core to theme ([416c04b](https://github.com/vtex/onda/commit/416c04bd46e98cb65e428ac017577ac2ec6702ae))
 
 ## [0.13.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.13.0...@vtex/admin-ui-system@0.13.1) (2021-02-11)
 
-
 ### Bug Fixes
 
-* **admin:** emotion deps on all /admin packages ([3562180](https://github.com/vtex/onda/commit/35621800491ffc5132235e83edcf6c086d0b3ce4))
-
-
-
-
+- **admin:** emotion deps on all /admin packages ([3562180](https://github.com/vtex/onda/commit/35621800491ffc5132235e83edcf6c086d0b3ce4))
 
 # [0.13.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.12.0...@vtex/admin-ui-system@0.13.0) (2021-02-02)
 
-
 ### Features
 
-* **jsxs:** create package to standarize component creation ([8af7695](https://github.com/vtex/onda/commit/8af7695c761d60f9cedb9f18086e414cd7ceb25e))
-
-
-
-
+- **jsxs:** create package to standarize component creation ([8af7695](https://github.com/vtex/onda/commit/8af7695c761d60f9cedb9f18086e414cd7ceb25e))
 
 # [0.12.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.11.0...@vtex/admin-ui-system@0.12.0) (2021-02-01)
 
-
 ### Features
 
-* **tabs:** add tabs draft component ([f8e7403](https://github.com/vtex/onda/commit/f8e7403a14f903374ef136d1c5271fdf138ebd3a))
-
-
-
-
+- **tabs:** add tabs draft component ([f8e7403](https://github.com/vtex/onda/commit/f8e7403a14f903374ef136d1c5271fdf138ebd3a))
 
 # [0.11.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.10.1...@vtex/admin-ui-system@0.11.0) (2021-02-01)
 
-
 ### Features
 
-* **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
-
-
-
-
+- **admin-styles:** add package to parse styles from theme ([45e918b](https://github.com/vtex/onda/commit/45e918ba9f68cc83514bab0b4dcb5f23139acce6))
 
 ## [0.10.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.10.0...@vtex/admin-ui-system@0.10.1) (2021-01-26)
 
-
 ### Bug Fixes
 
-* **create-system:** remove redudant appKey prefix ([8d41399](https://github.com/vtex/onda/commit/8d41399c6bb7fec5b887f9ea649421d03d52eda7))
-
-
-
-
+- **create-system:** remove redudant appKey prefix ([8d41399](https://github.com/vtex/onda/commit/8d41399c6bb7fec5b887f9ea649421d03d52eda7))
 
 # [0.10.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.9.0...@vtex/admin-ui-system@0.10.0) (2021-01-26)
 
-
 ### Features
 
-* **alert:** update alert according to the design specifications ([3b44b3d](https://github.com/vtex/onda/commit/3b44b3d619cb339c1919586dffd23a99aaca2dd3))
-
-
-
-
+- **alert:** update alert according to the design specifications ([3b44b3d](https://github.com/vtex/onda/commit/3b44b3d619cb339c1919586dffd23a99aaca2dd3))
 
 # [0.9.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.0...@vtex/admin-ui-system@0.9.0) (2021-01-21)
 
-
 ### Bug Fixes
 
-* **emotion:** remove emotion-instance ([ded87a3](https://github.com/vtex/onda/commit/ded87a3ee813103737ab29c6fc028554857f863c))
-* **emotion:** use css function from emotion-instance instead of emotion package ([5af42f7](https://github.com/vtex/onda/commit/5af42f7cfdfb45361a7774240ea82e39fd0a60ae))
-
+- **emotion:** remove emotion-instance ([ded87a3](https://github.com/vtex/onda/commit/ded87a3ee813103737ab29c6fc028554857f863c))
+- **emotion:** use css function from emotion-instance instead of emotion package ([5af42f7](https://github.com/vtex/onda/commit/5af42f7cfdfb45361a7774240ea82e39fd0a60ae))
 
 ### Features
 
-* **admin-core:** add admin-core package ([6f5b56b](https://github.com/vtex/onda/commit/6f5b56bd92b2fcd9af93160ece3c44e7260a887d))
-* **admin-system:** create a unique emotion instance along with the createSystem function ([074e0fc](https://github.com/vtex/onda/commit/074e0fca868c127d55e2e1d9694668f3af7b87e9))
-* **emotion:** add emotion CacheProvider ([f970270](https://github.com/vtex/onda/commit/f970270d14865baad8971e11533e2d340363e2d0))
-
-
-
-
+- **admin-core:** add admin-core package ([6f5b56b](https://github.com/vtex/onda/commit/6f5b56bd92b2fcd9af93160ece3c44e7260a887d))
+- **admin-system:** create a unique emotion instance along with the createSystem function ([074e0fc](https://github.com/vtex/onda/commit/074e0fca868c127d55e2e1d9694668f3af7b87e9))
+- **emotion:** add emotion CacheProvider ([f970270](https://github.com/vtex/onda/commit/f970270d14865baad8971e11533e2d340363e2d0))
 
 ## [0.8.1-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.3...@vtex/admin-ui-system@0.8.1-experimental.4) (2021-01-21)
 
-
 ### Features
 
-* **admin-core:** add admin-core package ([325dbae](https://github.com/vtex/onda/commit/325dbae14c2d43a3517a74899dc5d44bbb92ddf9))
-
-
-
-
+- **admin-core:** add admin-core package ([325dbae](https://github.com/vtex/onda/commit/325dbae14c2d43a3517a74899dc5d44bbb92ddf9))
 
 ## [0.8.1-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.2...@vtex/admin-ui-system@0.8.1-experimental.3) (2021-01-19)
 
-
 ### Features
 
-* **admin-system:** create a unique emotion instance along with the createSystem function ([f9dfb6c](https://github.com/vtex/onda/commit/f9dfb6cd04df69d10f271c42d01d605b16732fbf))
-
-
-
-
+- **admin-system:** create a unique emotion instance along with the createSystem function ([f9dfb6c](https://github.com/vtex/onda/commit/f9dfb6cd04df69d10f271c42d01d605b16732fbf))
 
 ## [0.8.1-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.1...@vtex/admin-ui-system@0.8.1-experimental.2) (2021-01-15)
 
-
 ### Bug Fixes
 
-* **emotion:** remove emotion-instance ([e5da155](https://github.com/vtex/onda/commit/e5da155c095563d929fd3cf0a2c06dd28d71a2a7))
-
-
-
-
+- **emotion:** remove emotion-instance ([e5da155](https://github.com/vtex/onda/commit/e5da155c095563d929fd3cf0a2c06dd28d71a2a7))
 
 ## [0.8.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.1-experimental.0...@vtex/admin-ui-system@0.8.1-experimental.1) (2021-01-15)
 
-
 ### Bug Fixes
 
-* **emotion:** use css function from emotion-instance instead of emotion package ([6768b57](https://github.com/vtex/onda/commit/6768b5732882f295ae5cc83e5bf81fde33354484))
-
-
-
-
+- **emotion:** use css function from emotion-instance instead of emotion package ([6768b57](https://github.com/vtex/onda/commit/6768b5732882f295ae5cc83e5bf81fde33354484))
 
 ## [0.8.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.8.0...@vtex/admin-ui-system@0.8.1-experimental.0) (2021-01-14)
 
-
 ### Features
 
-* **emotion:** add emotion CacheProvider ([1352986](https://github.com/vtex/onda/commit/1352986399e595cc13520d7710d7d3546223a12d))
-
-
-
-
+- **emotion:** add emotion CacheProvider ([1352986](https://github.com/vtex/onda/commit/1352986399e595cc13520d7710d7d3546223a12d))
 
 # [0.8.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.7.0...@vtex/admin-ui-system@0.8.0) (2021-01-12)
 
-
 ### Features
 
-* **admin-ui-system:** add color types ([42a73e3](https://github.com/vtex/onda/commit/42a73e34d9b097b3e29681c7abe03ef0b6dda02b))
-
-
-
-
+- **admin-ui-system:** add color types ([42a73e3](https://github.com/vtex/onda/commit/42a73e34d9b097b3e29681c7abe03ef0b6dda02b))
 
 # [0.7.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.7.0-experimental.3...@vtex/admin-ui-system@0.7.0) (2021-01-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-system
 
-
-
-
-
 # [0.7.0-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.3-experimental.0...@vtex/admin-ui-system@0.7.0-experimental.3) (2021-01-08)
 
 **Note:** Version bump only for package @vtex/admin-ui-system
 
-
-
-
-
 ## [0.6.3-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.2...@vtex/admin-ui-system@0.6.3-experimental.0) (2021-01-07)
 
-
 ### Features
 
-* **system-styles:** add logic to recognize default values from styles properties ([90cbe02](https://github.com/vtex/onda/commit/90cbe02a2a2fa172e81d26e04c232c0ee08aa55d))
-
-
-
-
-
+- **system-styles:** add logic to recognize default values from styles properties ([90cbe02](https://github.com/vtex/onda/commit/90cbe02a2a2fa172e81d26e04c232c0ee08aa55d))
 
 ## [0.6.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.1...@vtex/admin-ui-system@0.6.2) (2021-01-04)
-# [0.7.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.0...@vtex/admin-ui-system@0.7.0-experimental.1) (2020-12-29)
 
+# [0.7.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.0...@vtex/admin-ui-system@0.7.0-experimental.1) (2020-12-29)
 
 ### Features
 
-* **system-styles:** add logic to recognize default values from styles properties ([8bc862f](https://github.com/vtex/onda/commit/8bc862f689bf1d113849cbac4128763a04894cb4))
-
-
-
-
+- **system-styles:** add logic to recognize default values from styles properties ([8bc862f](https://github.com/vtex/onda/commit/8bc862f689bf1d113849cbac4128763a04894cb4))
 
 # [0.7.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.6.0...@vtex/admin-ui-system@0.7.0-experimental.0) (2020-12-28)
 
-
 ### Features
 
-* **system-styles:** add logic to recognize default values from styles properties ([9394420](https://github.com/vtex/onda/commit/9394420ff73a18aa36b03cd162520e5422f422d1))
-
-
-
-
+- **system-styles:** add logic to recognize default values from styles properties ([9394420](https://github.com/vtex/onda/commit/9394420ff73a18aa36b03cd162520e5422f422d1))
 
 # [0.6.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.5.1...@vtex/admin-ui-system@0.6.0) (2020-12-28)
-## [0.5.2-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.5.1...@vtex/admin-ui-system@0.5.2-experimental.0) (2020-12-23)
 
+## [0.5.2-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-system@0.5.1...@vtex/admin-ui-system@0.5.2-experimental.0) (2020-12-23)
 
 ### Bug Fixes
 

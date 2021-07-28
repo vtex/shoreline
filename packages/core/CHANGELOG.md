@@ -3,174 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.16...@vtex/admin-core@0.11.0) (2021-07-28)
+
+### Features
+
+- **onda-core:** allow responsive arrays ([8810846](https://github.com/vtex/onda/commit/88108466ea8ff23457d743c589bc850e1a8308f1))
+
 ## [0.10.16](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.15...@vtex/admin-core@0.10.16) (2021-07-20)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.10.15](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.14...@vtex/admin-core@0.10.15) (2021-07-19)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.10.14](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.13...@vtex/admin-core@0.10.14) (2021-07-16)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.10.13](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.12...@vtex/admin-core@0.10.13) (2021-07-15)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.10.12](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.11...@vtex/admin-core@0.10.12) (2021-07-05)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.10.11](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.10...@vtex/admin-core@0.10.11) (2021-06-29)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.10.10](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.9...@vtex/admin-core@0.10.10) (2021-05-25)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.10.9](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.8...@vtex/admin-core@0.10.9) (2021-05-14)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.10.8](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.7...@vtex/admin-core@0.10.8) (2021-05-11)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.10.7](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.6...@vtex/admin-core@0.10.7) (2021-04-21)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.10.6](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.5...@vtex/admin-core@0.10.6) (2021-04-19)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.10.5](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.4...@vtex/admin-core@0.10.5) (2021-04-08)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.10.4](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.2...@vtex/admin-core@0.10.4) (2021-04-06)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.10.3](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.2...@vtex/admin-core@0.10.3) (2021-04-05)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.10.2](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.1...@vtex/admin-core@0.10.2) (2021-04-01)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.10.1](https://github.com/vtex/onda/compare/@vtex/admin-core@0.10.0...@vtex/admin-core@0.10.1) (2021-03-29)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 # [0.10.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.5-experimental.1...@vtex/admin-core@0.10.0) (2021-03-26)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.9.5-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.5-experimental.0...@vtex/admin-core@0.9.5-experimental.1) (2021-03-26)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.9.5-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.4...@vtex/admin-core@0.9.5-experimental.0) (2021-03-25)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.9.4](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.3...@vtex/admin-core@0.9.4) (2021-03-22)
+
 ## [0.9.2-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.2-experimental.5...@vtex/admin-core@0.9.2-experimental.6) (2021-03-23)
 
 **Note:** Version bump only for package @vtex/admin-core
 
-
-
-
-
 ## [0.9.2-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.2-experimental.4...@vtex/admin-core@0.9.2-experimental.5) (2021-03-19)
 
 **Note:** Version bump only for package @vtex/admin-core
-
-
-
-
 
 ## [0.9.2-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-core@0.9.1...@vtex/admin-core@0.9.2-experimental.4) (2021-03-17)
 

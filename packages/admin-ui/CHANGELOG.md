@@ -3,811 +3,517 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.106.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.2...@vtex/admin-ui@0.106.3) (2021-07-22)
+## [0.106.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.3...@vtex/admin-ui@0.106.4) (2021-07-28)
 
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.106.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.2...@vtex/admin-ui@0.106.3) (2021-07-22)
 
 ### Bug Fixes
 
-* **usepaginationstate:** fix initial state of pagination ([320b2b8](https://github.com/vtex/onda/commit/320b2b8ff1289bef093e77f43feef048d8367e25))
-
-
-
-
+- **usepaginationstate:** fix initial state of pagination ([320b2b8](https://github.com/vtex/onda/commit/320b2b8ff1289bef093e77f43feef048d8367e25))
 
 ## [0.106.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.1...@vtex/admin-ui@0.106.2) (2021-07-20)
 
-
 ### Bug Fixes
 
-* **admin-ui/toast:** toast manager overflows other elements, even without any toast ([bd3ea9b](https://github.com/vtex/onda/commit/bd3ea9b7eee488e31f927855519eab1b4c469105))
-* **admin-ui/toast:** toast width ([796d3c2](https://github.com/vtex/onda/commit/796d3c26e8f9ba7668816200e70a15ecfa78dbcb))
-
-
-
-
+- **admin-ui/toast:** toast manager overflows other elements, even without any toast ([bd3ea9b](https://github.com/vtex/onda/commit/bd3ea9b7eee488e31f927855519eab1b4c469105))
+- **admin-ui/toast:** toast width ([796d3c2](https://github.com/vtex/onda/commit/796d3c26e8f9ba7668816200e70a15ecfa78dbcb))
 
 ## [0.106.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.0...@vtex/admin-ui@0.106.1) (2021-07-20)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 # [0.106.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.105.3...@vtex/admin-ui@0.106.0) (2021-07-19)
-
 
 ### Features
 
-* **admin-ui/page-header:** created component ([d5b23e5](https://github.com/vtex/onda/commit/d5b23e53cfd7e094f591f98d1c40238d6147d6a2))
-
-
-
-
+- **admin-ui/page-header:** created component ([d5b23e5](https://github.com/vtex/onda/commit/d5b23e53cfd7e094f591f98d1c40238d6147d6a2))
 
 ## [0.105.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.105.2...@vtex/admin-ui@0.105.3) (2021-07-19)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.105.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.105.1...@vtex/admin-ui@0.105.2) (2021-07-16)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.105.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.105.0...@vtex/admin-ui@0.105.1) (2021-07-16)
-
 
 ### Bug Fixes
 
-* **admin-ui/data-grid:** export column type & added column creation util ([054b2fb](https://github.com/vtex/onda/commit/054b2fb7b0573bc40bf1d0654a3c6f49dab41bc6))
-
-
-
-
+- **admin-ui/data-grid:** export column type & added column creation util ([054b2fb](https://github.com/vtex/onda/commit/054b2fb7b0573bc40bf1d0654a3c6f49dab41bc6))
 
 # [0.105.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.104.0...@vtex/admin-ui@0.105.0) (2021-07-15)
 
-
 ### Bug Fixes
 
-* **datagrid:** rename acessor as accessor ([94ce5b0](https://github.com/vtex/onda/commit/94ce5b09eb95ed497ba15c7ba22d91e35fc5110d))
-
+- **datagrid:** rename acessor as accessor ([94ce5b0](https://github.com/vtex/onda/commit/94ce5b09eb95ed497ba15c7ba22d91e35fc5110d))
 
 ### Features
 
-* **admin-ui/ultimate-table:** add component ([109dd08](https://github.com/vtex/onda/commit/109dd0856059f1522c5d53814659d5de77be8799))
-* **admin-ui/ultimate-table:** add search and filters ([02e58c6](https://github.com/vtex/onda/commit/02e58c6d39f16b448b820cdb6f4ade47561046c3))
-* **admin-ui/ultimate-table:** support multiple views ([ed5402a](https://github.com/vtex/onda/commit/ed5402a94a8245eb350984cd7e92ac36cf88b574))
-* **admin-ui/ultimate-table:** support sorting ([7453750](https://github.com/vtex/onda/commit/745375001bd28bb73e8a229f14c12e78bd0385da))
-* **datagrid:** add component (extended from ultimate-table) ([54583fd](https://github.com/vtex/onda/commit/54583fdabef9d83147e2b1e50c2b5e540aafa360))
-
-
-
-
+- **admin-ui/ultimate-table:** add component ([109dd08](https://github.com/vtex/onda/commit/109dd0856059f1522c5d53814659d5de77be8799))
+- **admin-ui/ultimate-table:** add search and filters ([02e58c6](https://github.com/vtex/onda/commit/02e58c6d39f16b448b820cdb6f4ade47561046c3))
+- **admin-ui/ultimate-table:** support multiple views ([ed5402a](https://github.com/vtex/onda/commit/ed5402a94a8245eb350984cd7e92ac36cf88b574))
+- **admin-ui/ultimate-table:** support sorting ([7453750](https://github.com/vtex/onda/commit/745375001bd28bb73e8a229f14c12e78bd0385da))
+- **datagrid:** add component (extended from ultimate-table) ([54583fd](https://github.com/vtex/onda/commit/54583fdabef9d83147e2b1e50c2b5e540aafa360))
 
 # [0.104.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.103.0...@vtex/admin-ui@0.104.0) (2021-07-15)
 
-
 ### Bug Fixes
 
-* **onda-react:** jsx rendering issues ([6fbe2b5](https://github.com/vtex/onda/commit/6fbe2b585ab083a99a1aa806de3ed0e23ac2451f))
-* **table-filter:** remove unnecessary components from stories ([6987222](https://github.com/vtex/onda/commit/69872227a427ff07460ee3d0126e9a614f2823e5))
-* **table-filter:** separete table filter state and disclosure state ([d1e1d82](https://github.com/vtex/onda/commit/d1e1d82953eaf864cbaaba263aa473e862c5ce02))
-* **table-filter:** use admin-ui theme color in table filter button ([35a42c7](https://github.com/vtex/onda/commit/35a42c73125ab755233a15380a6d805f5768cd5b))
-* **table-filter:** use rem in FilterBar csx border-radius value ([5149ed6](https://github.com/vtex/onda/commit/5149ed6e02304f901f43fed142dee87cbd77eb6c))
-* **table-filter:** use rem in FilterBar csx top value ([debaf49](https://github.com/vtex/onda/commit/debaf49c2ad679a1addc59ee94e5c4d446be38c6))
-* **table-filter:** use table state hook in table filter stories ([0504eeb](https://github.com/vtex/onda/commit/0504eeb8fbf0d6a14f4aa7dfa88276684c2a1092))
-
+- **onda-react:** jsx rendering issues ([6fbe2b5](https://github.com/vtex/onda/commit/6fbe2b585ab083a99a1aa806de3ed0e23ac2451f))
+- **table-filter:** remove unnecessary components from stories ([6987222](https://github.com/vtex/onda/commit/69872227a427ff07460ee3d0126e9a614f2823e5))
+- **table-filter:** separete table filter state and disclosure state ([d1e1d82](https://github.com/vtex/onda/commit/d1e1d82953eaf864cbaaba263aa473e862c5ce02))
+- **table-filter:** use admin-ui theme color in table filter button ([35a42c7](https://github.com/vtex/onda/commit/35a42c73125ab755233a15380a6d805f5768cd5b))
+- **table-filter:** use rem in FilterBar csx border-radius value ([5149ed6](https://github.com/vtex/onda/commit/5149ed6e02304f901f43fed142dee87cbd77eb6c))
+- **table-filter:** use rem in FilterBar csx top value ([debaf49](https://github.com/vtex/onda/commit/debaf49c2ad679a1addc59ee94e5c4d446be38c6))
+- **table-filter:** use table state hook in table filter stories ([0504eeb](https://github.com/vtex/onda/commit/0504eeb8fbf0d6a14f4aa7dfa88276684c2a1092))
 
 ### Features
 
-* **onda-react:** add ComponentProps type ([e13433c](https://github.com/vtex/onda/commit/e13433c2b9611de3cd6723541fe82064bd1f10cb))
-* **table-filter:** create table filter component ([bf6d9e3](https://github.com/vtex/onda/commit/bf6d9e3d3d95b15fdb730cbedf9bab48afd9ab82))
-
-
-
-
+- **onda-react:** add ComponentProps type ([e13433c](https://github.com/vtex/onda/commit/e13433c2b9611de3cd6723541fe82064bd1f10cb))
+- **table-filter:** create table filter component ([bf6d9e3](https://github.com/vtex/onda/commit/bf6d9e3d3d95b15fdb730cbedf9bab48afd9ab82))
 
 # [0.103.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.3...@vtex/admin-ui@0.103.0) (2021-07-06)
 
-
 ### Bug Fixes
 
-* **button-loading:** button's icon positioning ([b99a832](https://github.com/vtex/onda/commit/b99a832d384a35491e758cb569cd6f7f80e643fb))
-* **button-loading:** use visible in button spinner visibility ([48e5881](https://github.com/vtex/onda/commit/48e588121e5289ac6f43c98c2adee0deb0cd589a))
-
+- **button-loading:** button's icon positioning ([b99a832](https://github.com/vtex/onda/commit/b99a832d384a35491e758cb569cd6f7f80e643fb))
+- **button-loading:** use visible in button spinner visibility ([48e5881](https://github.com/vtex/onda/commit/48e588121e5289ac6f43c98c2adee0deb0cd589a))
 
 ### Features
 
-* **button-loading:** add button loading variations to stories ([8b9206f](https://github.com/vtex/onda/commit/8b9206f348e672144bdc0b8e82b20786947d4a75))
-* **button-loading:** add loading state to button ([6ab4514](https://github.com/vtex/onda/commit/6ab4514b5ef02a045c8c2414159f54d243aaf173))
-
-
-
-
+- **button-loading:** add button loading variations to stories ([8b9206f](https://github.com/vtex/onda/commit/8b9206f348e672144bdc0b8e82b20786947d4a75))
+- **button-loading:** add loading state to button ([6ab4514](https://github.com/vtex/onda/commit/6ab4514b5ef02a045c8c2414159f54d243aaf173))
 
 ## [0.102.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.2...@vtex/admin-ui@0.102.3) (2021-07-05)
 
-
 ### Bug Fixes
 
-* **toast:** style resetting ([ecd57aa](https://github.com/vtex/onda/commit/ecd57aa56db625b014dd1cce12277f95b4d01bd9))
-* **toast:** unstable rendering ([6b40095](https://github.com/vtex/onda/commit/6b40095e2f4dfdeacdd69322e1d2f09840d405f1))
-
-
-
-
+- **toast:** style resetting ([ecd57aa](https://github.com/vtex/onda/commit/ecd57aa56db625b014dd1cce12277f95b4d01bd9))
+- **toast:** unstable rendering ([6b40095](https://github.com/vtex/onda/commit/6b40095e2f4dfdeacdd69322e1d2f09840d405f1))
 
 ## [0.102.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.1...@vtex/admin-ui@0.102.2) (2021-07-01)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.102.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.102.0...@vtex/admin-ui@0.102.1) (2021-07-01)
-
 
 ### Bug Fixes
 
-* **admin-ui:** call jsx instead of createComponent on anchor component ([086d894](https://github.com/vtex/onda/commit/086d894031f8fba6d907f00f1bb039d5912187c1))
-
-
-
-
+- **admin-ui:** call jsx instead of createComponent on anchor component ([086d894](https://github.com/vtex/onda/commit/086d894031f8fba6d907f00f1bb039d5912187c1))
 
 # [0.102.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.4...@vtex/admin-ui@0.102.0) (2021-06-29)
 
-
 ### Bug Fixes
 
-* **filterbar-state-hook:** add missing onApply to hooks ([21462ed](https://github.com/vtex/onda/commit/21462ed3cba53bd3dc396b081adf5cd1dc718dc8))
-* **filterbar-state-hook:** remove unnecessary generic from type documentation ([24a062b](https://github.com/vtex/onda/commit/24a062b32e8de263c1317d698389b4b4fa96f09b))
-
+- **filterbar-state-hook:** add missing onApply to hooks ([21462ed](https://github.com/vtex/onda/commit/21462ed3cba53bd3dc396b081adf5cd1dc718dc8))
+- **filterbar-state-hook:** remove unnecessary generic from type documentation ([24a062b](https://github.com/vtex/onda/commit/24a062b32e8de263c1317d698389b4b4fa96f09b))
 
 ### Features
 
-* **filterbar-state-hook:** export filterbar hook and types ([5d0532b](https://github.com/vtex/onda/commit/5d0532b1f4efdef67f760bdbb6696ec9d04120d0))
-
-
-
-
+- **filterbar-state-hook:** export filterbar hook and types ([5d0532b](https://github.com/vtex/onda/commit/5d0532b1f4efdef67f760bdbb6696ec9d04120d0))
 
 ## [0.101.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.3...@vtex/admin-ui@0.101.4) (2021-06-28)
 
-
 ### Bug Fixes
 
-* **admin-ui/searchbox:** match function without the complete item ([a5ebf88](https://github.com/vtex/onda/commit/a5ebf880119ae7e3773ad041beea7701ea6ddd9e))
-
-
-
-
+- **admin-ui/searchbox:** match function without the complete item ([a5ebf88](https://github.com/vtex/onda/commit/a5ebf880119ae7e3773ad041beea7701ea6ddd9e))
 
 ## [0.101.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.2...@vtex/admin-ui@0.101.3) (2021-06-25)
 
-
 ### Bug Fixes
 
-* **admin-ui/searchbox:** history growing without limit ([dadad7b](https://github.com/vtex/onda/commit/dadad7b126026407f11c4147b0ae90fc5018c4e5))
-
-
-
-
+- **admin-ui/searchbox:** history growing without limit ([dadad7b](https://github.com/vtex/onda/commit/dadad7b126026407f11c4147b0ae90fc5018c4e5))
 
 ## [0.101.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.1...@vtex/admin-ui@0.101.2) (2021-06-24)
 
-
 ### Bug Fixes
 
-* **admin-ui/searchbox:** intl behavior and pt translation ([4d27f8b](https://github.com/vtex/onda/commit/4d27f8b4a358a6cbf31a517b181a9b4fd02420ad))
-
-
-
-
+- **admin-ui/searchbox:** intl behavior and pt translation ([4d27f8b](https://github.com/vtex/onda/commit/4d27f8b4a358a6cbf31a517b181a9b4fd02420ad))
 
 ## [0.101.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.101.0...@vtex/admin-ui@0.101.1) (2021-06-24)
 
-
 ### Bug Fixes
 
-* **admin-ui/searchbox:** suggestion render-props interaction ([38f356f](https://github.com/vtex/onda/commit/38f356f904b21f143b83cbe220adfa81384e14d9))
-* **admin-ui/searchbox:** transform origin on enter ([177c464](https://github.com/vtex/onda/commit/177c46484f739a26f4a6079f33692e601d13550c))
-
-
-
-
+- **admin-ui/searchbox:** suggestion render-props interaction ([38f356f](https://github.com/vtex/onda/commit/38f356f904b21f143b83cbe220adfa81384e14d9))
+- **admin-ui/searchbox:** transform origin on enter ([177c464](https://github.com/vtex/onda/commit/177c46484f739a26f4a6079f33692e601d13550c))
 
 # [0.101.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.100.0...@vtex/admin-ui@0.101.0) (2021-06-23)
 
-
 ### Features
 
-* **admin-ui:** add searchbox component ([a9b6f76](https://github.com/vtex/onda/commit/a9b6f7656222001522d1edd435922ba215537896))
-* **admin-ui/icons:** add icon history ([967e233](https://github.com/vtex/onda/commit/967e2332d014dab114a1bba083c1ba2dfbde6901))
-* **admin-ui/searchbox:** add animations with framer-motion ([ca55b92](https://github.com/vtex/onda/commit/ca55b920e7224b2adcd2bef3ac986a4f9448e641))
-
-
-
-
+- **admin-ui:** add searchbox component ([a9b6f76](https://github.com/vtex/onda/commit/a9b6f7656222001522d1edd435922ba215537896))
+- **admin-ui/icons:** add icon history ([967e233](https://github.com/vtex/onda/commit/967e2332d014dab114a1bba083c1ba2dfbde6901))
+- **admin-ui/searchbox:** add animations with framer-motion ([ca55b92](https://github.com/vtex/onda/commit/ca55b920e7224b2adcd2bef3ac986a4f9448e641))
 
 # [0.100.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.99.1...@vtex/admin-ui@0.100.0) (2021-06-16)
 
-
 ### Bug Fixes
 
-* **search-container-csx:** destruct containerCsx object ([ea2dac9](https://github.com/vtex/onda/commit/ea2dac9b7c3cf6075478c26f7af430240e2c7ec0))
-* **search-container-csx:** remove unecessary height prop ([ac067aa](https://github.com/vtex/onda/commit/ac067aab11d8d1b70eba7d7c5699d9bd60df07ff))
-
+- **search-container-csx:** destruct containerCsx object ([ea2dac9](https://github.com/vtex/onda/commit/ea2dac9b7c3cf6075478c26f7af430240e2c7ec0))
+- **search-container-csx:** remove unecessary height prop ([ac067aa](https://github.com/vtex/onda/commit/ac067aab11d8d1b70eba7d7c5699d9bd60df07ff))
 
 ### Features
 
-* **filter-bar:** add intl to the internal labels ([bd15283](https://github.com/vtex/onda/commit/bd15283cc9e1c5f21299f32fe830768e13c771b3))
-
-
-
-
+- **filter-bar:** add intl to the internal labels ([bd15283](https://github.com/vtex/onda/commit/bd15283cc9e1c5f21299f32fe830768e13c771b3))
 
 ## [0.99.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.99.0...@vtex/admin-ui@0.99.1) (2021-06-14)
 
-
 ### Bug Fixes
 
-* **admin-ui/combobox:** export component ([1353e66](https://github.com/vtex/onda/commit/1353e66875bab6ffc54f52976b11b57eb3fd3430))
-
-
-
-
+- **admin-ui/combobox:** export component ([1353e66](https://github.com/vtex/onda/commit/1353e66875bab6ffc54f52976b11b57eb3fd3430))
 
 # [0.99.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.98.1...@vtex/admin-ui@0.99.0) (2021-06-11)
 
-
 ### Features
 
-* **filter-bar:** add apply filters button ([40201f7](https://github.com/vtex/onda/commit/40201f7e7c3eec0127da6518bf407366b0720182))
-
-
-
-
+- **filter-bar:** add apply filters button ([40201f7](https://github.com/vtex/onda/commit/40201f7e7c3eec0127da6518bf407366b0720182))
 
 ## [0.98.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.98.0...@vtex/admin-ui@0.98.1) (2021-06-11)
 
-
 ### Bug Fixes
 
-* **admin-ui/modal:** useModalState not working without { animated: true } ([1bba98c](https://github.com/vtex/onda/commit/1bba98ce77bdbff67ac12f1edea04c1cd7e125b2)), closes [#617](https://github.com/vtex/onda/issues/617)
-
-
-
-
+- **admin-ui/modal:** useModalState not working without { animated: true } ([1bba98c](https://github.com/vtex/onda/commit/1bba98ce77bdbff67ac12f1edea04c1cd7e125b2)), closes [#617](https://github.com/vtex/onda/issues/617)
 
 # [0.98.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.97.1...@vtex/admin-ui@0.98.0) (2021-06-10)
 
-
 ### Features
 
-* **admin-ui:** add combobox component ([d39dc62](https://github.com/vtex/onda/commit/d39dc62a86173aa38ae597e6c643b337e3b22a21))
-* **admin-ui/combobox:** allow local storage save ([8c66ce2](https://github.com/vtex/onda/commit/8c66ce23a8d083d5292be7f42bfd2c5f2820772c))
-* **admin-ui/combobox:** allow multiple render strategies ([98eec66](https://github.com/vtex/onda/commit/98eec6694223c08d7017f83392c79fe73cc1917d))
-* **admin-ui/combobox:** support labeling ([c4c73b8](https://github.com/vtex/onda/commit/c4c73b8f95dcb020a64a09578dd26a1405bc979d))
-
-
-
-
+- **admin-ui:** add combobox component ([d39dc62](https://github.com/vtex/onda/commit/d39dc62a86173aa38ae597e6c643b337e3b22a21))
+- **admin-ui/combobox:** allow local storage save ([8c66ce2](https://github.com/vtex/onda/commit/8c66ce23a8d083d5292be7f42bfd2c5f2820772c))
+- **admin-ui/combobox:** allow multiple render strategies ([98eec66](https://github.com/vtex/onda/commit/98eec6694223c08d7017f83392c79fe73cc1917d))
+- **admin-ui/combobox:** support labeling ([c4c73b8](https://github.com/vtex/onda/commit/c4c73b8f95dcb020a64a09578dd26a1405bc979d))
 
 ## [0.97.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.97.0...@vtex/admin-ui@0.97.1) (2021-06-09)
 
-
 ### Bug Fixes
 
-* **numericstepper:** fix helptertext display ([d10a8da](https://github.com/vtex/onda/commit/d10a8da0c20b7089576ed63034b04f491545bb0a))
-* **numericstepper:** fix helptertext display to display text when error is false not only undefined ([2b6dcf8](https://github.com/vtex/onda/commit/2b6dcf89026e37e3f79ddb371632877c33fcc7ac))
-
-
-
-
+- **numericstepper:** fix helptertext display ([d10a8da](https://github.com/vtex/onda/commit/d10a8da0c20b7089576ed63034b04f491545bb0a))
+- **numericstepper:** fix helptertext display to display text when error is false not only undefined ([2b6dcf8](https://github.com/vtex/onda/commit/2b6dcf89026e37e3f79ddb371632877c33fcc7ac))
 
 # [0.97.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.96.0...@vtex/admin-ui@0.97.0) (2021-05-27)
 
-
 ### Bug Fixes
 
-* **filter-bar:** export filter-bar components ([8ba5e6e](https://github.com/vtex/onda/commit/8ba5e6edaf4e1319c66d16fa799a5710b2fd2155))
-* **filter-bar:** fix conflicting export ([02b6564](https://github.com/vtex/onda/commit/02b6564233591d053abf9e6ddde31fdee98696bd))
-* **search-onclear:** use buttonElements to display onClear ([2b012af](https://github.com/vtex/onda/commit/2b012af5e5973ec885c4b94cff7fc984f96aa7db))
-* **table-view-sate:** add text with variant body to table view anchor ([ecb9641](https://github.com/vtex/onda/commit/ecb9641eeb094e6356e7f25e66e94d3761f66a13))
-* **table-view-state:** table view state layout responsivity issues ([b04c315](https://github.com/vtex/onda/commit/b04c3152224be3dbbc56adfcbf5702e57b4104b8))
-
+- **filter-bar:** export filter-bar components ([8ba5e6e](https://github.com/vtex/onda/commit/8ba5e6edaf4e1319c66d16fa799a5710b2fd2155))
+- **filter-bar:** fix conflicting export ([02b6564](https://github.com/vtex/onda/commit/02b6564233591d053abf9e6ddde31fdee98696bd))
+- **search-onclear:** use buttonElements to display onClear ([2b012af](https://github.com/vtex/onda/commit/2b012af5e5973ec885c4b94cff7fc984f96aa7db))
+- **table-view-sate:** add text with variant body to table view anchor ([ecb9641](https://github.com/vtex/onda/commit/ecb9641eeb094e6356e7f25e66e94d3761f66a13))
+- **table-view-state:** table view state layout responsivity issues ([b04c315](https://github.com/vtex/onda/commit/b04c3152224be3dbbc56adfcbf5702e57b4104b8))
 
 ### Features
 
-* **search-onclear:** add onClear to Search stories ([0a9c7ed](https://github.com/vtex/onda/commit/0a9c7ed7fbfd5aff41b328af6b7fd70014e7845c))
-* **table-view-state:** add customizable table view story ([2f9098c](https://github.com/vtex/onda/commit/2f9098cc6b98897a753dec358fa224b2189a4fb4))
-
-
-
-
+- **search-onclear:** add onClear to Search stories ([0a9c7ed](https://github.com/vtex/onda/commit/0a9c7ed7fbfd5aff41b328af6b7fd70014e7845c))
+- **table-view-state:** add customizable table view story ([2f9098c](https://github.com/vtex/onda/commit/2f9098cc6b98897a753dec358fa224b2189a4fb4))
 
 # [0.96.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.95.0...@vtex/admin-ui@0.96.0) (2021-05-25)
 
-
 ### Bug Fixes
 
-* **checkbox-propagation:** use call event stop propagation in checkbox on click ([09a6fbf](https://github.com/vtex/onda/commit/09a6fbf158a116aa05b1f43ac9b280ef98c473d1))
-* **improve-table-doc:** move table sort stories to admin-ui ([d9c274d](https://github.com/vtex/onda/commit/d9c274d664ab00241f2de14f543a85b78c5d1ffc))
-* **table-loading-row-click:** verify if table is not loading onRowClick ([bca0da9](https://github.com/vtex/onda/commit/bca0da9d725c43e9f99383e92c516feed0bdbb85))
-
+- **checkbox-propagation:** use call event stop propagation in checkbox on click ([09a6fbf](https://github.com/vtex/onda/commit/09a6fbf158a116aa05b1f43ac9b280ef98c473d1))
+- **improve-table-doc:** move table sort stories to admin-ui ([d9c274d](https://github.com/vtex/onda/commit/d9c274d664ab00241f2de14f543a85b78c5d1ffc))
+- **table-loading-row-click:** verify if table is not loading onRowClick ([bca0da9](https://github.com/vtex/onda/commit/bca0da9d725c43e9f99383e92c516feed0bdbb85))
 
 ### Features
 
-* **checkbox-propagation:** add table stories with checkbox and rowclick ([ac42b2e](https://github.com/vtex/onda/commit/ac42b2e22868d4b2eaa26bc12f3e4143fde05d7e))
-* **table-loading-row-click:** add stories with table loading and row click ([10bfb94](https://github.com/vtex/onda/commit/10bfb94eed6cb11cb538d924619c6810fea91242))
-
-
-
-
+- **checkbox-propagation:** add table stories with checkbox and rowclick ([ac42b2e](https://github.com/vtex/onda/commit/ac42b2e22868d4b2eaa26bc12f3e4143fde05d7e))
+- **table-loading-row-click:** add stories with table loading and row click ([10bfb94](https://github.com/vtex/onda/commit/10bfb94eed6cb11cb538d924619c6810fea91242))
 
 # [0.95.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.94.0...@vtex/admin-ui@0.95.0) (2021-05-14)
 
-
 ### Bug Fixes
 
-* **toast:** don't destruct toaster's toast method ([dd875d7](https://github.com/vtex/onda/commit/dd875d7dd66a2df31896402e1fbf81fa0b7bba6c))
-
+- **toast:** don't destruct toaster's toast method ([dd875d7](https://github.com/vtex/onda/commit/dd875d7dd66a2df31896402e1fbf81fa0b7bba6c))
 
 ### Features
 
-* **toast:** action prop ([c4ac5bd](https://github.com/vtex/onda/commit/c4ac5bd90ce067d861924f2aec7b572ce3687736))
-* **toast:** add parent frame rendering logic ([df9791a](https://github.com/vtex/onda/commit/df9791a96db66c0ccb5a8baf13c0e76f30c39603))
-* **toast:** animate entire toast stack when new toast is added ([8386f19](https://github.com/vtex/onda/commit/8386f197e14ba7fde50086ce9cbeead26de9e50a))
-* **toast:** basic toast styling ([5e5f525](https://github.com/vtex/onda/commit/5e5f5253528edd7c0963d228beff3dbadf2ab7b2))
-* **toast:** first and rest of stack toast's exit animation ([34c00bd](https://github.com/vtex/onda/commit/34c00bded8c1ec32a0a5f894094c9919c3303a20))
-* **toast:** make toast customizable ([f8ced91](https://github.com/vtex/onda/commit/f8ced91b82258b8bd0a196f15643aff22cdd1307))
-* **toast:** toast stacking logic ([86d1ec6](https://github.com/vtex/onda/commit/86d1ec68dee7a581315908586b2c6fb4ab793110))
-
-
-
-
+- **toast:** action prop ([c4ac5bd](https://github.com/vtex/onda/commit/c4ac5bd90ce067d861924f2aec7b572ce3687736))
+- **toast:** add parent frame rendering logic ([df9791a](https://github.com/vtex/onda/commit/df9791a96db66c0ccb5a8baf13c0e76f30c39603))
+- **toast:** animate entire toast stack when new toast is added ([8386f19](https://github.com/vtex/onda/commit/8386f197e14ba7fde50086ce9cbeead26de9e50a))
+- **toast:** basic toast styling ([5e5f525](https://github.com/vtex/onda/commit/5e5f5253528edd7c0963d228beff3dbadf2ab7b2))
+- **toast:** first and rest of stack toast's exit animation ([34c00bd](https://github.com/vtex/onda/commit/34c00bded8c1ec32a0a5f894094c9919c3303a20))
+- **toast:** make toast customizable ([f8ced91](https://github.com/vtex/onda/commit/f8ced91b82258b8bd0a196f15643aff22cdd1307))
+- **toast:** toast stacking logic ([86d1ec6](https://github.com/vtex/onda/commit/86d1ec68dee7a581315908586b2c6fb4ab793110))
 
 # [0.94.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.93.0...@vtex/admin-ui@0.94.0) (2021-05-11)
 
-
 ### Bug Fixes
 
-* **split-table:** stateful table and components to powerful table missing changes ([df53442](https://github.com/vtex/onda/commit/df534422c42f5ec20420fb890d9c8b1b3704dcb4))
-* **table-documentation:** change all pagination prevLabel prop value to Previous ([78b06b2](https://github.com/vtex/onda/commit/78b06b23dedb1491616d80806eba4ba1230f455b))
-* **table-documentation:** change all pagination prevLabel prop value to Previous ([f32d66f](https://github.com/vtex/onda/commit/f32d66f44e8be2262051df42e6c4bc18ad275c39))
-* **table-layout:** table layout responsivity ([a7a3788](https://github.com/vtex/onda/commit/a7a3788954f9f214a383464f8a896c4783b5b33f))
-* **table-layout:** table views height ([d50d52a](https://github.com/vtex/onda/commit/d50d52a84f1f657b2d724c4185e754a7f6bb6ff4))
-
+- **split-table:** stateful table and components to powerful table missing changes ([df53442](https://github.com/vtex/onda/commit/df534422c42f5ec20420fb890d9c8b1b3704dcb4))
+- **table-documentation:** change all pagination prevLabel prop value to Previous ([78b06b2](https://github.com/vtex/onda/commit/78b06b23dedb1491616d80806eba4ba1230f455b))
+- **table-documentation:** change all pagination prevLabel prop value to Previous ([f32d66f](https://github.com/vtex/onda/commit/f32d66f44e8be2262051df42e6c4bc18ad275c39))
+- **table-layout:** table layout responsivity ([a7a3788](https://github.com/vtex/onda/commit/a7a3788954f9f214a383464f8a896c4783b5b33f))
+- **table-layout:** table views height ([d50d52a](https://github.com/vtex/onda/commit/d50d52a84f1f657b2d724c4185e754a7f6bb6ff4))
 
 ### Features
 
-* **filter-bar:** add FilterBar component draft ([c98ffae](https://github.com/vtex/onda/commit/c98ffaebde8ba9a8db8676bdb457aa89474098f6))
-* **filter-bar:** add first stable version ([81def4c](https://github.com/vtex/onda/commit/81def4c1be626eab4820661ef73363dfebce0f7d))
-* **table-documentation:** export pagination component in admin-ui ([1190de4](https://github.com/vtex/onda/commit/1190de4071f33265e2566520559e8a8dedb7b756))
-
-
-
-
+- **filter-bar:** add FilterBar component draft ([c98ffae](https://github.com/vtex/onda/commit/c98ffaebde8ba9a8db8676bdb457aa89474098f6))
+- **filter-bar:** add first stable version ([81def4c](https://github.com/vtex/onda/commit/81def4c1be626eab4820661ef73363dfebce0f7d))
+- **table-documentation:** export pagination component in admin-ui ([1190de4](https://github.com/vtex/onda/commit/1190de4071f33265e2566520559e8a8dedb7b756))
 
 # [0.93.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.92.1...@vtex/admin-ui@0.93.0) (2021-04-27)
 
-
 ### Bug Fixes
 
-* **table-empty-state:** add table views prop comment ([1506953](https://github.com/vtex/onda/commit/15069532d7906de81c6ddac5499105f1d94581f2))
-* **table-empty-state:** align center ([fa2855f](https://github.com/vtex/onda/commit/fa2855f9f8a01822e3f30411cdde4ef4980775d6))
-* **table-empty-state:** improve table view empty title fallback ([b59500e](https://github.com/vtex/onda/commit/b59500ed9b891284d663cdf0e032e3a2f06d3064))
-* **table-empty-state:** improve table view empty title fallback ([c41ab01](https://github.com/vtex/onda/commit/c41ab0177f3390b7930b8d451cf759f3e407d24f))
-* **table-empty-state:** justify table views illustration and tex ([1ce4827](https://github.com/vtex/onda/commit/1ce4827b07326c0287b21f2845fa71b24c87acfb))
-* **table-empty-state:** remove align center ([27564db](https://github.com/vtex/onda/commit/27564db20ff0230c2eb3e3500eacb4fe604306e2))
-* **table-empty-state:** replace old variable name with titleFallback ([f124b55](https://github.com/vtex/onda/commit/f124b55648de647d19d521457c482039a3dc0e75))
-* **table-empty-state:** table views layout styles ([ee7d2f2](https://github.com/vtex/onda/commit/ee7d2f220ed1a0fbd6313ab180abe20427da6212))
-* **table-empty-state:** use admin-ui colors in table views component bg ([53e699d](https://github.com/vtex/onda/commit/53e699d70ec547be23ed8b8e73bf872b94500197))
-
+- **table-empty-state:** add table views prop comment ([1506953](https://github.com/vtex/onda/commit/15069532d7906de81c6ddac5499105f1d94581f2))
+- **table-empty-state:** align center ([fa2855f](https://github.com/vtex/onda/commit/fa2855f9f8a01822e3f30411cdde4ef4980775d6))
+- **table-empty-state:** improve table view empty title fallback ([b59500e](https://github.com/vtex/onda/commit/b59500ed9b891284d663cdf0e032e3a2f06d3064))
+- **table-empty-state:** improve table view empty title fallback ([c41ab01](https://github.com/vtex/onda/commit/c41ab0177f3390b7930b8d451cf759f3e407d24f))
+- **table-empty-state:** justify table views illustration and tex ([1ce4827](https://github.com/vtex/onda/commit/1ce4827b07326c0287b21f2845fa71b24c87acfb))
+- **table-empty-state:** remove align center ([27564db](https://github.com/vtex/onda/commit/27564db20ff0230c2eb3e3500eacb4fe604306e2))
+- **table-empty-state:** replace old variable name with titleFallback ([f124b55](https://github.com/vtex/onda/commit/f124b55648de647d19d521457c482039a3dc0e75))
+- **table-empty-state:** table views layout styles ([ee7d2f2](https://github.com/vtex/onda/commit/ee7d2f220ed1a0fbd6313ab180abe20427da6212))
+- **table-empty-state:** use admin-ui colors in table views component bg ([53e699d](https://github.com/vtex/onda/commit/53e699d70ec547be23ed8b8e73bf872b94500197))
 
 ### Features
 
-* **table-empty-state:** add state to table views ([2bd0c4c](https://github.com/vtex/onda/commit/2bd0c4cca5adde7ffa5e19aeaa100d6c5fe617db))
-* **table-empty-state:** add table state to stories ([1f31c45](https://github.com/vtex/onda/commit/1f31c45933a376124b067e28b8ada74451e1267e))
-* **table-empty-state:** create table state component ([e1e348a](https://github.com/vtex/onda/commit/e1e348a955f86be1bff56292c5feb8b8e7b5ff48))
-* **table-empty-state:** up empty state illustration ([f30b1f4](https://github.com/vtex/onda/commit/f30b1f42b5e4553b5de4d4f3b67d55d711915d60))
-* export Pagination and usePaginationState ([33f53db](https://github.com/vtex/onda/commit/33f53db21dbda5b1f0940abaf3ee7e342dd4da83))
-
-
-
-
+- **table-empty-state:** add state to table views ([2bd0c4c](https://github.com/vtex/onda/commit/2bd0c4cca5adde7ffa5e19aeaa100d6c5fe617db))
+- **table-empty-state:** add table state to stories ([1f31c45](https://github.com/vtex/onda/commit/1f31c45933a376124b067e28b8ada74451e1267e))
+- **table-empty-state:** create table state component ([e1e348a](https://github.com/vtex/onda/commit/e1e348a955f86be1bff56292c5feb8b8e7b5ff48))
+- **table-empty-state:** up empty state illustration ([f30b1f4](https://github.com/vtex/onda/commit/f30b1f42b5e4553b5de4d4f3b67d55d711915d60))
+- export Pagination and usePaginationState ([33f53db](https://github.com/vtex/onda/commit/33f53db21dbda5b1f0940abaf3ee7e342dd4da83))
 
 ## [0.92.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.92.0...@vtex/admin-ui@0.92.1) (2021-04-21)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 # [0.92.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.91.1...@vtex/admin-ui@0.92.0) (2021-04-20)
-
 
 ### Bug Fixes
 
-* **sortable-table:** accept sortState with value undefined in resolveHeader ([99b8a97](https://github.com/vtex/onda/commit/99b8a977f554976e653ab1264f75035a910bf49b))
-* **sortable-table:** add sort directions to prop ([e4d62e8](https://github.com/vtex/onda/commit/e4d62e87c8cedac61772e08dca8595f65d9ac4b4))
-* **sortable-table:** change styles and styleOverrides props to csx ([34850c0](https://github.com/vtex/onda/commit/34850c08caf78a0da690f02a85914fa12f6e5e20))
-* **sortable-table:** create items copy to apply sort to not mutate original items in Table ([b613a2d](https://github.com/vtex/onda/commit/b613a2df677a7df59463286a71a9840f7c710bda))
-* **sortable-table:** fix sortable stories compare function ([cc706ae](https://github.com/vtex/onda/commit/cc706aefabe39512cd03d253b6d4673461c65e90))
-* **sortable-table:** null in sortindicator order ([987aa7b](https://github.com/vtex/onda/commit/987aa7b721a810dec7d9d35c405084992bfb8865))
-* **sortable-table:** use object in hook params instead of destructuring ([67941c2](https://github.com/vtex/onda/commit/67941c282b8509569d64312bfdf354204909d529))
-* **sortable-table:** usetableparams prop typo ([0cb406f](https://github.com/vtex/onda/commit/0cb406f20b34d940bec5914d852913609a5e42d9))
-* **table-sort:** fix header table cell clickable ([f5f5f7b](https://github.com/vtex/onda/commit/f5f5f7b3aababec45eb9f496cfe85467e08b04a7))
-
+- **sortable-table:** accept sortState with value undefined in resolveHeader ([99b8a97](https://github.com/vtex/onda/commit/99b8a977f554976e653ab1264f75035a910bf49b))
+- **sortable-table:** add sort directions to prop ([e4d62e8](https://github.com/vtex/onda/commit/e4d62e87c8cedac61772e08dca8595f65d9ac4b4))
+- **sortable-table:** change styles and styleOverrides props to csx ([34850c0](https://github.com/vtex/onda/commit/34850c08caf78a0da690f02a85914fa12f6e5e20))
+- **sortable-table:** create items copy to apply sort to not mutate original items in Table ([b613a2d](https://github.com/vtex/onda/commit/b613a2df677a7df59463286a71a9840f7c710bda))
+- **sortable-table:** fix sortable stories compare function ([cc706ae](https://github.com/vtex/onda/commit/cc706aefabe39512cd03d253b6d4673461c65e90))
+- **sortable-table:** null in sortindicator order ([987aa7b](https://github.com/vtex/onda/commit/987aa7b721a810dec7d9d35c405084992bfb8865))
+- **sortable-table:** use object in hook params instead of destructuring ([67941c2](https://github.com/vtex/onda/commit/67941c282b8509569d64312bfdf354204909d529))
+- **sortable-table:** usetableparams prop typo ([0cb406f](https://github.com/vtex/onda/commit/0cb406f20b34d940bec5914d852913609a5e42d9))
+- **table-sort:** fix header table cell clickable ([f5f5f7b](https://github.com/vtex/onda/commit/f5f5f7b3aababec45eb9f496cfe85467e08b04a7))
 
 ### Features
 
-* **admin-illustrations:** new package to store illustrations ([27db803](https://github.com/vtex/onda/commit/27db803604190bf5aff5a999e7c26e4166abd397))
-* **sortable-table:** add cursor type pointer to table cell div ([7578248](https://github.com/vtex/onda/commit/7578248843da504bc9791876f61f2eccb84f9b1a))
-* **sortable-table:** add inversion of control to table sort ([ce27b67](https://github.com/vtex/onda/commit/ce27b67fb006cc03b03817dfcbd17b2a091fd27c))
-* **sortable-table:** add sort  directions and sort initial value ([fe8e1a0](https://github.com/vtex/onda/commit/fe8e1a0645a440067b3a1ed37ce3247df8d99a86))
-* **sortable-table:** add SortIndicator to StatefulTable component ([f319ab2](https://github.com/vtex/onda/commit/f319ab292117412a49a538446baa60a6a007de26))
-* **sortable-table:** clear table sort after DSC sorting ([87df93a](https://github.com/vtex/onda/commit/87df93a487753cc3564f0c7ed60a002842117328))
-* **sortable-table:** create SortIndicator component ([e26f49e](https://github.com/vtex/onda/commit/e26f49e86dd0033647535cd12c475c4c683e8216))
-* **sortable-table:** create useTableSort hook ([41fe1d1](https://github.com/vtex/onda/commit/41fe1d1626c2bff16cb605b35c1a8018c79b3b17))
-* **sortable-table:** use useTableSort hook in table ([2e0e7d8](https://github.com/vtex/onda/commit/2e0e7d83eae28b0e2eb9988bd7f635f1547a7f59))
-
+- **admin-illustrations:** new package to store illustrations ([27db803](https://github.com/vtex/onda/commit/27db803604190bf5aff5a999e7c26e4166abd397))
+- **sortable-table:** add cursor type pointer to table cell div ([7578248](https://github.com/vtex/onda/commit/7578248843da504bc9791876f61f2eccb84f9b1a))
+- **sortable-table:** add inversion of control to table sort ([ce27b67](https://github.com/vtex/onda/commit/ce27b67fb006cc03b03817dfcbd17b2a091fd27c))
+- **sortable-table:** add sort directions and sort initial value ([fe8e1a0](https://github.com/vtex/onda/commit/fe8e1a0645a440067b3a1ed37ce3247df8d99a86))
+- **sortable-table:** add SortIndicator to StatefulTable component ([f319ab2](https://github.com/vtex/onda/commit/f319ab292117412a49a538446baa60a6a007de26))
+- **sortable-table:** clear table sort after DSC sorting ([87df93a](https://github.com/vtex/onda/commit/87df93a487753cc3564f0c7ed60a002842117328))
+- **sortable-table:** create SortIndicator component ([e26f49e](https://github.com/vtex/onda/commit/e26f49e86dd0033647535cd12c475c4c683e8216))
+- **sortable-table:** create useTableSort hook ([41fe1d1](https://github.com/vtex/onda/commit/41fe1d1626c2bff16cb605b35c1a8018c79b3b17))
+- **sortable-table:** use useTableSort hook in table ([2e0e7d8](https://github.com/vtex/onda/commit/2e0e7d83eae28b0e2eb9988bd7f635f1547a7f59))
 
 ### BREAKING CHANGES
 
-* **sortable-table:** 🧨 \
-
-
-
-
+- **sortable-table:** 🧨 \
 
 ## [0.91.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.91.0...@vtex/admin-ui@0.91.1) (2021-04-19)
 
-
 ### Bug Fixes
 
-* **table-toolbar-improvement:** table search component height and width ([8acf2ee](https://github.com/vtex/onda/commit/8acf2ee2157dcf2bc38cab7de9c5a37df62afd63))
-* **table-toolbar-improvements:** table toolbar spacing ([099b6b9](https://github.com/vtex/onda/commit/099b6b96c604f42db03822d6c28388b07875d2c6))
-
-
-
-
+- **table-toolbar-improvement:** table search component height and width ([8acf2ee](https://github.com/vtex/onda/commit/8acf2ee2157dcf2bc38cab7de9c5a37df62afd63))
+- **table-toolbar-improvements:** table toolbar spacing ([099b6b9](https://github.com/vtex/onda/commit/099b6b96c604f42db03822d6c28388b07875d2c6))
 
 # [0.91.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.90.1...@vtex/admin-ui@0.91.0) (2021-04-13)
 
-
 ### Bug Fixes
 
-* **table-toolbar:** change searchbar height value to rem ([5fdcd34](https://github.com/vtex/onda/commit/5fdcd345a37c7dc06a93380cefea257f8130406d))
-* **table-toolbar:** check onrowclick type ([cc78cae](https://github.com/vtex/onda/commit/cc78cae357b8698033bfbc895f5201c67fc74810))
-* **table-toolbar:** powerfultable prop coment typo ([19aa28c](https://github.com/vtex/onda/commit/19aa28cb766e80133fad8a86f04afbcb1581e2ec))
-* **table-toolbar:** remove console.log ([abf1293](https://github.com/vtex/onda/commit/abf129347df36d81eec9c05888699103c03989dc))
-* **table-toolbar:** remove table variant button ([2ff2bfc](https://github.com/vtex/onda/commit/2ff2bfc0a0df5ec2546652c5a52c3c34e5feac15))
-* **table-toolbar:** remove unused imports ([0c996d5](https://github.com/vtex/onda/commit/0c996d5eb8e6c6d7a27a68f92701b01f99c8d240))
-* **table-toolbar:** revert input id prop type ([a58af9c](https://github.com/vtex/onda/commit/a58af9c986d47a0a2d89f118eee05b67be082d9c))
-* **table-toolbar:** show filter button ([7692204](https://github.com/vtex/onda/commit/76922048562f5400b7302944eadf3e2a47dbdf7e))
-* **table-toolbar:** use adaptative-dark variant in pagination button ([d81cfec](https://github.com/vtex/onda/commit/d81cfecc326a523c4979ebdaeb93a1afc7698418))
-* **table-toolbar:** use rem value in search height ([a14ebe2](https://github.com/vtex/onda/commit/a14ebe2a0be421ebbbea6d188b095ba1ae36d602))
-* **talbe-toolbar:** remove unused types ([470e176](https://github.com/vtex/onda/commit/470e17668602848e9287e7e71da5b2cb035cf07a))
-
+- **table-toolbar:** change searchbar height value to rem ([5fdcd34](https://github.com/vtex/onda/commit/5fdcd345a37c7dc06a93380cefea257f8130406d))
+- **table-toolbar:** check onrowclick type ([cc78cae](https://github.com/vtex/onda/commit/cc78cae357b8698033bfbc895f5201c67fc74810))
+- **table-toolbar:** powerfultable prop coment typo ([19aa28c](https://github.com/vtex/onda/commit/19aa28cb766e80133fad8a86f04afbcb1581e2ec))
+- **table-toolbar:** remove console.log ([abf1293](https://github.com/vtex/onda/commit/abf129347df36d81eec9c05888699103c03989dc))
+- **table-toolbar:** remove table variant button ([2ff2bfc](https://github.com/vtex/onda/commit/2ff2bfc0a0df5ec2546652c5a52c3c34e5feac15))
+- **table-toolbar:** remove unused imports ([0c996d5](https://github.com/vtex/onda/commit/0c996d5eb8e6c6d7a27a68f92701b01f99c8d240))
+- **table-toolbar:** revert input id prop type ([a58af9c](https://github.com/vtex/onda/commit/a58af9c986d47a0a2d89f118eee05b67be082d9c))
+- **table-toolbar:** show filter button ([7692204](https://github.com/vtex/onda/commit/76922048562f5400b7302944eadf3e2a47dbdf7e))
+- **table-toolbar:** use adaptative-dark variant in pagination button ([d81cfec](https://github.com/vtex/onda/commit/d81cfecc326a523c4979ebdaeb93a1afc7698418))
+- **table-toolbar:** use rem value in search height ([a14ebe2](https://github.com/vtex/onda/commit/a14ebe2a0be421ebbbea6d188b095ba1ae36d602))
+- **talbe-toolbar:** remove unused types ([470e176](https://github.com/vtex/onda/commit/470e17668602848e9287e7e71da5b2cb035cf07a))
 
 ### Features
 
-* **table-toolbar:** add clear to pagination action type ([beb2917](https://github.com/vtex/onda/commit/beb2917618f83992c658d798cf18882b5ed11500))
-* **table-toolbar:** add csx prop to Toolbar component ([68cced1](https://github.com/vtex/onda/commit/68cced17de8844c41fef538c0e3ce9ac7da4f5c2))
-* **table-toolbar:** add PowerfulTable story ([f44738d](https://github.com/vtex/onda/commit/f44738d35288c7c33c0c411147a9951324ceb658))
-* **table-toolbar:** add searchbar and buttons to table toolbar ([687fd44](https://github.com/vtex/onda/commit/687fd44c91a77e9bd18082081cb6d29824455cd1))
-* **table-toolbar:** add table functionalities to stories ([5b5945f](https://github.com/vtex/onda/commit/5b5945fb4b5f8b19c4af0d150c81a98241250d4b))
-* **table-toolbar:** add table variant to button ([4c874c5](https://github.com/vtex/onda/commit/4c874c57974ed91c387c39f481f5f3abc6d475ca))
-* **table-toolbar:** assign table toolbar button to table toolbar ([db30f32](https://github.com/vtex/onda/commit/db30f32f41272ea77eea05f8c8b490922d746bc2))
-* **table-toolbar:** create PowerfulTable component ([c5b54db](https://github.com/vtex/onda/commit/c5b54db2b7082c44c97c71555e2a70c997de1b54))
-
-
-
-
+- **table-toolbar:** add clear to pagination action type ([beb2917](https://github.com/vtex/onda/commit/beb2917618f83992c658d798cf18882b5ed11500))
+- **table-toolbar:** add csx prop to Toolbar component ([68cced1](https://github.com/vtex/onda/commit/68cced17de8844c41fef538c0e3ce9ac7da4f5c2))
+- **table-toolbar:** add PowerfulTable story ([f44738d](https://github.com/vtex/onda/commit/f44738d35288c7c33c0c411147a9951324ceb658))
+- **table-toolbar:** add searchbar and buttons to table toolbar ([687fd44](https://github.com/vtex/onda/commit/687fd44c91a77e9bd18082081cb6d29824455cd1))
+- **table-toolbar:** add table functionalities to stories ([5b5945f](https://github.com/vtex/onda/commit/5b5945fb4b5f8b19c4af0d150c81a98241250d4b))
+- **table-toolbar:** add table variant to button ([4c874c5](https://github.com/vtex/onda/commit/4c874c57974ed91c387c39f481f5f3abc6d475ca))
+- **table-toolbar:** assign table toolbar button to table toolbar ([db30f32](https://github.com/vtex/onda/commit/db30f32f41272ea77eea05f8c8b490922d746bc2))
+- **table-toolbar:** create PowerfulTable component ([c5b54db](https://github.com/vtex/onda/commit/c5b54db2b7082c44c97c71555e2a70c997de1b54))
 
 ## [0.90.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.90.0...@vtex/admin-ui@0.90.1) (2021-04-08)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 # [0.90.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.89.1...@vtex/admin-ui@0.90.0) (2021-04-08)
-
 
 ### Features
 
-* **admin-ui:** export safari, chrome, firefox & edge detection ([b85afdb](https://github.com/vtex/onda/commit/b85afdb395ed2ddbfdda67cd28bd6e60405f249c))
-
-
-
-
+- **admin-ui:** export safari, chrome, firefox & edge detection ([b85afdb](https://github.com/vtex/onda/commit/b85afdb395ed2ddbfdda67cd28bd6e60405f249c))
 
 ## [0.89.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.89.0...@vtex/admin-ui@0.89.1) (2021-04-08)
 
-
 ### Bug Fixes
 
-* **sidebar:** prevent not expandable sidebar item from having x translated backdrop ([aed45fa](https://github.com/vtex/onda/commit/aed45fa269c6d544323482956a890ea98500f7ad))
-
-
-
-
+- **sidebar:** prevent not expandable sidebar item from having x translated backdrop ([aed45fa](https://github.com/vtex/onda/commit/aed45fa269c6d544323482956a890ea98500f7ad))
 
 # [0.89.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.2...@vtex/admin-ui@0.89.0) (2021-04-07)
 
-
 ### Bug Fixes
 
-* **table-pagination:** add boxProps to Pagination component ([1f81f78](https://github.com/vtex/onda/commit/1f81f78d5e8fb6651b98e80be4b6226fa86eac13))
-* **table-pagination:** grammar error in Pagination component prop coments ([0c43383](https://github.com/vtex/onda/commit/0c43383d475f083e443f867f371a75587c3f7e2c))
-* **table-pagination:** missing imports in table pagination ([9a26a1d](https://github.com/vtex/onda/commit/9a26a1d54a3b5832d58711cf12115ddca33d9ebe))
-* **table-pagination:** remove pagination logic from useTable hook ([a231e1f](https://github.com/vtex/onda/commit/a231e1fdb28dd06bb34da03a217f3271134f68f8))
-* **table-pagination:** verify total numbersOfItemsTo ([33651a8](https://github.com/vtex/onda/commit/33651a85dc7e0f96ae1b1272a3cc8a792614a0c9))
-
+- **table-pagination:** add boxProps to Pagination component ([1f81f78](https://github.com/vtex/onda/commit/1f81f78d5e8fb6651b98e80be4b6226fa86eac13))
+- **table-pagination:** grammar error in Pagination component prop coments ([0c43383](https://github.com/vtex/onda/commit/0c43383d475f083e443f867f371a75587c3f7e2c))
+- **table-pagination:** missing imports in table pagination ([9a26a1d](https://github.com/vtex/onda/commit/9a26a1d54a3b5832d58711cf12115ddca33d9ebe))
+- **table-pagination:** remove pagination logic from useTable hook ([a231e1f](https://github.com/vtex/onda/commit/a231e1fdb28dd06bb34da03a217f3271134f68f8))
+- **table-pagination:** verify total numbersOfItemsTo ([33651a8](https://github.com/vtex/onda/commit/33651a85dc7e0f96ae1b1272a3cc8a792614a0c9))
 
 ### Features
 
-* **table-pagination:** add inversion of control to Pagination ([839d92e](https://github.com/vtex/onda/commit/839d92e70d883a08ce3874d468c67801b6720b3a))
-* **table-pagination:** add manual pagination to table pagination ([9812d33](https://github.com/vtex/onda/commit/9812d335f65b937c317812979fb10a59401c970d))
-* **table-pagination:** add pagination to table ([4fbc0c4](https://github.com/vtex/onda/commit/4fbc0c4088a919e171f0f129a0e906b17fc8f0d3))
-* **table-pagination:** create Pagination component ([e8bc5d2](https://github.com/vtex/onda/commit/e8bc5d2697a1fa1680bac8fc0335a495d4093c22))
-* **table-pagination:** create Pagination stories ([607e0ea](https://github.com/vtex/onda/commit/607e0ea9d72b6681f00ba5f8fad74f18dd5878fa))
-* **table-pagination:** create table pagination story ([2dbe661](https://github.com/vtex/onda/commit/2dbe661f6cc310e488b542ffffcb3b81b3c9ed4d))
-* **table-pagination:** create usePagination hook ([8d86464](https://github.com/vtex/onda/commit/8d8646438d2af162cdb5d0033a15fae26552d80d))
-* **table-pagination:** remove pagination component prop and use children ([d0ad42f](https://github.com/vtex/onda/commit/d0ad42f58a3b9d1f75f7d45014b1eb486e38d152))
-
-
-
-
+- **table-pagination:** add inversion of control to Pagination ([839d92e](https://github.com/vtex/onda/commit/839d92e70d883a08ce3874d468c67801b6720b3a))
+- **table-pagination:** add manual pagination to table pagination ([9812d33](https://github.com/vtex/onda/commit/9812d335f65b937c317812979fb10a59401c970d))
+- **table-pagination:** add pagination to table ([4fbc0c4](https://github.com/vtex/onda/commit/4fbc0c4088a919e171f0f129a0e906b17fc8f0d3))
+- **table-pagination:** create Pagination component ([e8bc5d2](https://github.com/vtex/onda/commit/e8bc5d2697a1fa1680bac8fc0335a495d4093c22))
+- **table-pagination:** create Pagination stories ([607e0ea](https://github.com/vtex/onda/commit/607e0ea9d72b6681f00ba5f8fad74f18dd5878fa))
+- **table-pagination:** create table pagination story ([2dbe661](https://github.com/vtex/onda/commit/2dbe661f6cc310e488b542ffffcb3b81b3c9ed4d))
+- **table-pagination:** create usePagination hook ([8d86464](https://github.com/vtex/onda/commit/8d8646438d2af162cdb5d0033a15fae26552d80d))
+- **table-pagination:** remove pagination component prop and use children ([d0ad42f](https://github.com/vtex/onda/commit/d0ad42f58a3b9d1f75f7d45014b1eb486e38d152))
 
 ## [0.88.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.1...@vtex/admin-ui@0.88.2) (2021-04-06)
 
-
 ### Bug Fixes
 
-* **admin-ui-sidebar:** remove delay completly & add tests ([264073b](https://github.com/vtex/onda/commit/264073bcd75e96ae49eed27c18b1ee5832243365))
-
-
-
-
+- **admin-ui-sidebar:** remove delay completly & add tests ([264073b](https://github.com/vtex/onda/commit/264073bcd75e96ae49eed27c18b1ee5832243365))
 
 ## [0.88.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.6...@vtex/admin-ui@0.88.1) (2021-04-06)
 
-
 ### Bug Fixes
 
-* **admin-ui/sidebar:** reduced laziness by 100ms ([ca29fd8](https://github.com/vtex/onda/commit/ca29fd876f6d3529093160c194b511dec4ebb6b8))
-
-
-
-
+- **admin-ui/sidebar:** reduced laziness by 100ms ([ca29fd8](https://github.com/vtex/onda/commit/ca29fd876f6d3529093160c194b511dec4ebb6b8))
 
 # [0.88.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.6...@vtex/admin-ui@0.88.0) (2021-04-05)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 # [0.88.0-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.5...@vtex/admin-ui@0.88.0-experimental.6) (2021-04-01)
-
 
 ### Bug Fixes
 
-* **admin-ui:** sidebar missing transitions ([ac90a95](https://github.com/vtex/onda/commit/ac90a95f120f7a0505f2e85282515b8f64f6e0eb))
-
-
-
-
+- **admin-ui:** sidebar missing transitions ([ac90a95](https://github.com/vtex/onda/commit/ac90a95f120f7a0505f2e85282515b8f64f6e0eb))
 
 # [0.88.0-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.4...@vtex/admin-ui@0.88.0-experimental.5) (2021-04-01)
 
-
 ### Features
 
-* **admin-ui:** sync sidebar animation & remove buttons text-transform ([9b91ce2](https://github.com/vtex/onda/commit/9b91ce2b182b5609b38058a719a886dccd9d7faf))
-
-
-
-
+- **admin-ui:** sync sidebar animation & remove buttons text-transform ([9b91ce2](https://github.com/vtex/onda/commit/9b91ce2b182b5609b38058a719a886dccd9d7faf))
 
 # [0.88.0-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.3...@vtex/admin-ui@0.88.0-experimental.4) (2021-04-01)
 
-
 ### Bug Fixes
 
-* **admin-ui:** sidebar buttons distance ([e298472](https://github.com/vtex/onda/commit/e298472e1eeeca9387fd047fd8027879ba43102f))
-
-
-
-
+- **admin-ui:** sidebar buttons distance ([e298472](https://github.com/vtex/onda/commit/e298472e1eeeca9387fd047fd8027879ba43102f))
 
 # [0.88.0-experimental.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.2...@vtex/admin-ui@0.88.0-experimental.3) (2021-04-01)
 
-
 ### Bug Fixes
 
-* **admin-ui:** sidebar padding & skeleton ([c4ba49d](https://github.com/vtex/onda/commit/c4ba49dfe27a4ca8339d3032c690391c71b85d0e))
-
-
-
-
+- **admin-ui:** sidebar padding & skeleton ([c4ba49d](https://github.com/vtex/onda/commit/c4ba49dfe27a4ca8339d3032c690391c71b85d0e))
 
 # [0.88.0-experimental.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.1...@vtex/admin-ui@0.88.0-experimental.2) (2021-03-31)
 
-
 ### Features
 
-* **admin-ui:** bring sidebar width & reduce tooltips ([ed79240](https://github.com/vtex/onda/commit/ed792405e102b7ebb948d983fabf3cba87501cd1))
-
-
-
-
+- **admin-ui:** bring sidebar width & reduce tooltips ([ed79240](https://github.com/vtex/onda/commit/ed792405e102b7ebb948d983fabf3cba87501cd1))
 
 # [0.88.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.88.0-experimental.0...@vtex/admin-ui@0.88.0-experimental.1) (2021-03-30)
 
-
 ### Features
 
-* **admin-ui:** sidebar border ([cae65e6](https://github.com/vtex/onda/commit/cae65e6c1f36c04ad563ba3a676f43854fd0e94e))
-
-
-
-
+- **admin-ui:** sidebar border ([cae65e6](https://github.com/vtex/onda/commit/cae65e6c1f36c04ad563ba3a676f43854fd0e94e))
 
 # [0.88.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.87.1-experimental.0...@vtex/admin-ui@0.88.0-experimental.0) (2021-03-30)
 
-
 ### Features
 
-* **admin-ui:** animate sidebar scale instead of width ([3d6d67d](https://github.com/vtex/onda/commit/3d6d67dce1d41c42fba098ed36ec5ab7c8714b0a))
-
-
-
-
+- **admin-ui:** animate sidebar scale instead of width ([3d6d67d](https://github.com/vtex/onda/commit/3d6d67dce1d41c42fba098ed36ec5ab7c8714b0a))
 
 ## [0.87.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.87.0...@vtex/admin-ui@0.87.1-experimental.0) (2021-03-30)
 
-
 ### Features
 
-* **admin-ui:** use motion values on sidebar to avoid rerenders ([0b5963c](https://github.com/vtex/onda/commit/0b5963ce0bea4aff5ffcc1e1fa3a951660a5559b))
-
-
-
-
+- **admin-ui:** use motion values on sidebar to avoid rerenders ([0b5963c](https://github.com/vtex/onda/commit/0b5963ce0bea4aff5ffcc1e1fa3a951660a5559b))
 
 # [0.87.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.86.0...@vtex/admin-ui@0.87.0) (2021-03-29)
 
-
 ### Features
 
-* **admin:** sidebar animations ([5dc035e](https://github.com/vtex/onda/commit/5dc035e99bcf7ce6686f7e7be8dfcc459d00a48e))
-
-
-
-
+- **admin:** sidebar animations ([5dc035e](https://github.com/vtex/onda/commit/5dc035e99bcf7ce6686f7e7be8dfcc459d00a48e))
 
 # [0.86.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.85.1-experimental.1...@vtex/admin-ui@0.86.0) (2021-03-26)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.85.1-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.85.1-experimental.0...@vtex/admin-ui@0.85.1-experimental.1) (2021-03-26)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.85.1-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.85.0...@vtex/admin-ui@0.85.1-experimental.0) (2021-03-25)
-
 
 ### Bug Fixes
 
-* **admin-sidebar:** style on reduced states ([b01ef3b](https://github.com/vtex/onda/commit/b01ef3b663303e0237d0cfb40d7b3aae939cccad))
-* **set:** omit styles prop from FlexProps ([86e422e](https://github.com/vtex/onda/commit/86e422ef45b77a8be898ca85cf57d95068594be2))
-* **sidebar:** backdrop spacing and border ([c9070cd](https://github.com/vtex/onda/commit/c9070cd031394054927d083188e4a64f5c426880))
-* **sidebar:** clean transition side effect ([c60dcee](https://github.com/vtex/onda/commit/c60dcee6fbe7f6f3a0d5b7dfa0e5e746e42cfa8a))
-* **sidebar:** click issues ([fdc9982](https://github.com/vtex/onda/commit/fdc9982613469f24d4f61cd3aa310638fe80496c))
-* **sidebar:** collapsed style ([88a4ae9](https://github.com/vtex/onda/commit/88a4ae9c03366edb9627dde3070763480fa946ed))
-* **sidebar:** get rid of circular deps ([4011a0c](https://github.com/vtex/onda/commit/4011a0c78fa89fdc8a74ad5ddc799da1bb364ab0))
-* **sidebar:** move menu state level to sidebar item ([4b0f5fa](https://github.com/vtex/onda/commit/4b0f5fa8d97c37bbcf4dc62139ec0a937c648d6a))
-* **sidebar:** remove setShowCollapseButton prop override from Sidebar.Item ([54fa157](https://github.com/vtex/onda/commit/54fa157746441443b88390fff242be34ec51a686))
-* sidebar secret props contract ([0ef5dc2](https://github.com/vtex/onda/commit/0ef5dc25194b3969a55465306214324aa340d83d))
-
+- **admin-sidebar:** style on reduced states ([b01ef3b](https://github.com/vtex/onda/commit/b01ef3b663303e0237d0cfb40d7b3aae939cccad))
+- **set:** omit styles prop from FlexProps ([86e422e](https://github.com/vtex/onda/commit/86e422ef45b77a8be898ca85cf57d95068594be2))
+- **sidebar:** backdrop spacing and border ([c9070cd](https://github.com/vtex/onda/commit/c9070cd031394054927d083188e4a64f5c426880))
+- **sidebar:** clean transition side effect ([c60dcee](https://github.com/vtex/onda/commit/c60dcee6fbe7f6f3a0d5b7dfa0e5e746e42cfa8a))
+- **sidebar:** click issues ([fdc9982](https://github.com/vtex/onda/commit/fdc9982613469f24d4f61cd3aa310638fe80496c))
+- **sidebar:** collapsed style ([88a4ae9](https://github.com/vtex/onda/commit/88a4ae9c03366edb9627dde3070763480fa946ed))
+- **sidebar:** get rid of circular deps ([4011a0c](https://github.com/vtex/onda/commit/4011a0c78fa89fdc8a74ad5ddc799da1bb364ab0))
+- **sidebar:** move menu state level to sidebar item ([4b0f5fa](https://github.com/vtex/onda/commit/4b0f5fa8d97c37bbcf4dc62139ec0a937c648d6a))
+- **sidebar:** remove setShowCollapseButton prop override from Sidebar.Item ([54fa157](https://github.com/vtex/onda/commit/54fa157746441443b88390fff242be34ec51a686))
+- sidebar secret props contract ([0ef5dc2](https://github.com/vtex/onda/commit/0ef5dc25194b3969a55465306214324aa340d83d))
 
 ### Features
 
-* **admin-sidebar:** stateless approach ([cd95e26](https://github.com/vtex/onda/commit/cd95e26b89a13fcec2a755ffd82098111ef60847))
-* **sidebar:** arrow keys navigation ([b5913bc](https://github.com/vtex/onda/commit/b5913bc8cb1eefcc3ee09cd36d34de5ddc01b4a0))
-* **toolbar:** add toolbar ([5f504ea](https://github.com/vtex/onda/commit/5f504ea71f375e28a4338892bd48993b0fee0a76))
-* **topbar:** add Topbar component ([925d16b](https://github.com/vtex/onda/commit/925d16b588fe7bc550fbd896854c3533c8f4057e))
-
-
-
-
+- **admin-sidebar:** stateless approach ([cd95e26](https://github.com/vtex/onda/commit/cd95e26b89a13fcec2a755ffd82098111ef60847))
+- **sidebar:** arrow keys navigation ([b5913bc](https://github.com/vtex/onda/commit/b5913bc8cb1eefcc3ee09cd36d34de5ddc01b4a0))
+- **toolbar:** add toolbar ([5f504ea](https://github.com/vtex/onda/commit/5f504ea71f375e28a4338892bd48993b0fee0a76))
+- **topbar:** add Topbar component ([925d16b](https://github.com/vtex/onda/commit/925d16b588fe7bc550fbd896854c3533c8f4057e))
 
 # [0.85.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.5...@vtex/admin-ui@0.85.0) (2021-03-22)
-# [0.85.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.85.0-experimental.0...@vtex/admin-ui@0.85.0-experimental.1) (2021-03-24)
 
+# [0.85.0-experimental.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.85.0-experimental.0...@vtex/admin-ui@0.85.0-experimental.1) (2021-03-24)
 
 ### Features
 
-* **toolbar:** add toolbar ([229d619](https://github.com/vtex/onda/commit/229d6192011fcfaa1f9698277b5b31d1e890ca62))
-* **topbar:** add Topbar component ([d20aaa3](https://github.com/vtex/onda/commit/d20aaa339233aed26d666b45e5c42b39b5ad50c7))
-
-
-
-
+- **toolbar:** add toolbar ([229d619](https://github.com/vtex/onda/commit/229d6192011fcfaa1f9698277b5b31d1e890ca62))
+- **topbar:** add Topbar component ([d20aaa3](https://github.com/vtex/onda/commit/d20aaa339233aed26d666b45e5c42b39b5ad50c7))
 
 # [0.85.0-experimental.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3-experimental.8...@vtex/admin-ui@0.85.0-experimental.0) (2021-03-23)
 
-
 ### Features
 
-* **admin-sidebar:** stateless approach ([5eacb34](https://github.com/vtex/onda/commit/5eacb347f748b466d23c1a1c287abc4255d306bb))
-
-
-
-
+- **admin-sidebar:** stateless approach ([5eacb34](https://github.com/vtex/onda/commit/5eacb347f748b466d23c1a1c287abc4255d306bb))
 
 ## [0.84.3-experimental.8](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3-experimental.7...@vtex/admin-ui@0.84.3-experimental.8) (2021-03-19)
 
-
 ### Bug Fixes
 
-* **sidebar:** remove setShowCollapseButton prop override from Sidebar.Item ([375cac6](https://github.com/vtex/onda/commit/375cac62bd75031a461b70128db789b0462f8f09))
-
-
-
-
+- **sidebar:** remove setShowCollapseButton prop override from Sidebar.Item ([375cac6](https://github.com/vtex/onda/commit/375cac62bd75031a461b70128db789b0462f8f09))
 
 ## [0.84.3-experimental.7](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3-experimental.6...@vtex/admin-ui@0.84.3-experimental.7) (2021-03-19)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.84.3-experimental.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3-experimental.5...@vtex/admin-ui@0.84.3-experimental.6) (2021-03-18)
-
 
 ### Bug Fixes
 
-* **sidebar:** click issues ([44af9fa](https://github.com/vtex/onda/commit/44af9fa15dda36a67402187da1821fd77f3b9d01))
-
-
-
-
+- **sidebar:** click issues ([44af9fa](https://github.com/vtex/onda/commit/44af9fa15dda36a67402187da1821fd77f3b9d01))
 
 ## [0.84.3-experimental.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.3-experimental.4...@vtex/admin-ui@0.84.3-experimental.5) (2021-03-18)
 
 **Note:** Version bump only for package @vtex/admin-ui
-
-
-
-
 
 ## [0.84.3-experimental.4](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.84.2...@vtex/admin-ui@0.84.3-experimental.4) (2021-03-17)
 

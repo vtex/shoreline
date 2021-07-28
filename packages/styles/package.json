@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-styles",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "dist/index.js",
   "module": "dist/admin-styles.esm.js",
   "typings": "dist/index.d.ts",
