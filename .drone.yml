@@ -1,0 +1,19 @@
+kind: pipeline
+type: kubernetes
+name: Pullrequest
+steps:
+  - name: Build
+    image: node:14.17.0
+    pull: if-not-exists
+    commands:
+      - yarn && yarn build:fast
+  - name: Unit Tests
+    image: node:14.17.0
+    pull: if-not-exists
+    commands:
+      - yarn ci:test
+    depends_on:
+      - Build
+trigger:
+  event:
+    - pull_request

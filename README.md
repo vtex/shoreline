@@ -1,5 +1,7 @@
 # 🌊 Onda
 
+[![Build Status](https://drone-robots.vtex.com/api/badges/vtex/onda/status.svg)](https://drone-robots.vtex.com/vtex/onda)
+
 > VTEX Admin Design System
 
 ## Development
