@@ -6,7 +6,7 @@ steps:
     image: node:14.17.0
     pull: if-not-exists
     commands:
-      - yarn && yarn build
+      - yarn && yarn build:fast
   - name: Eslint
     image: node:14.17.0
     pull: if-not-exists
