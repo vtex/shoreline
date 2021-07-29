@@ -1,5 +1,5 @@
 ---
-path: /getting-started/contributing/
+path: /engineering/contributing/
 ---
 
 # Contributing
@@ -39,18 +39,19 @@ Follow the instructions below to get started on development.
 - yarn build: builds the entire repository and its packages
 - yarn test: runs the complete test suite
 - yarn lint: checks the code style
-- yarn admin:site: runs the documentation site locally
-- yarn build-site:admin: builds the documentation site
-- yarn storybook:admin: runs the storybook locally
-- yarn build-storybook:admin: builds storybook
+- yarn site: runs the documentation site locally
+- yarn build:site: builds the documentation site
+- yarn storybook: runs the storybook locally
+- yarn buid:storybook: builds storybook
+- yarn commit: runs the git-cz cli
 
-### 2. Your First Pull Request
+### Your First Pull Request
 
 To help you get your feet wet and get you familiar with our contribution process, we have a list of good first issues that contain bugs that have a relatively limited scope. This is a great place to get started.
 
 If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment, and assign yourself in the issue, stating that you intend to work on it so other people don’t accidentally duplicate your effort.
 
-### 3. Sending a Pull Request
+### Sending a Pull Request
 
 The core team is monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. We’ll do our best to provide updates and feedback throughout the process.
 
@@ -65,7 +66,7 @@ Before submitting a pull request:, please make sure the following is done:
 7.  Make sure your code lints (yarn lint).
 8.  Run yarn build:, yarn build-storybook:admin: or yarn build-site:admin: to ensure that the builds are still working.
 
-### 4. Publishing Packages
+### Publishing Packages
 
 We use Lerna combined with the Conventional Commits to publish our packages.
 
@@ -75,9 +76,3 @@ We use Lerna combined with the Conventional Commits to publish our packages.
 **Publish commands**
 
 - yarn publish:packages: runs the lerna publish: command, and if it has a fix or a feat commit it will release a new version of the package changed.
-
-### 5. Request for Comments (RFC)
-
-Many changes, including bug fixes and documentation improvements, can be implemented and reviewed via the normal GitHub pull request workflow.
-However, in case of substantial changes, they should follow a design process and there must be a consensus about the topic in the onda-core-team:.
-The "RFC" (request for comments) process is intended to provide a consistent and controlled path for new features to enter the project.

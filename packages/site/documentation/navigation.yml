@@ -3,7 +3,6 @@
     - /getting-started/installation/
     - /getting-started/can-i-use/
     - /getting-started/comparison/
-    - /getting-started/contributing/
 - section: Core concepts
   paths:
     - /core-concepts/icons/
@@ -93,3 +92,7 @@
     - /packages/admin-styles/
     - /packages/admin-ui-icons/
     - /packages/gatsby-plugin-admin-ui/
+- section: Engineering
+  paths:
+    - /engineering/contributing/
+    - /engineering/code-styleguide/
