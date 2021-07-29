@@ -1,4 +1,3 @@
----
 kind: pipeline
 type: kubernetes
 name: Pullrequest
@@ -25,5 +24,3 @@ steps:
 trigger:
   event:
     - pull_request
----
-
