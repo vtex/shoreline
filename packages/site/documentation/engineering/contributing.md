@@ -30,20 +30,20 @@ Follow the instructions below to get started on development.
 ### 1. Getting started
 
 1.  Clone the repository `vtex/onda`.
-2.  Run yarn to fetch its dependencies.
+2.  Run `yarn` to fetch its dependencies.
 3.  Run commands of your choosing.
-4.  Run yarn test.
+4.  Run `yarn test`.
 
 **Available Commands:**
 
-- yarn build: builds the entire repository and its packages
-- yarn test: runs the complete test suite
-- yarn lint: checks the code style
-- yarn site: runs the documentation site locally
-- yarn build:site: builds the documentation site
-- yarn storybook: runs the storybook locally
-- yarn buid:storybook: builds storybook
-- yarn commit: runs the git-cz cli
+- `yarn build`: builds the entire repository and its packages
+- `yarn test`: runs the complete test suite
+- `yarn lint`: checks the code style
+- `yarn site`: runs the documentation site locally
+- `yarn build:site`: builds the documentation site
+- `yarn storybook`: runs the storybook locally
+- `yarn buid:storybook`: builds storybook
+- `yarn commit`: runs the git-cz cli
 
 ### Your First Pull Request
 
@@ -64,14 +64,14 @@ Before submitting a pull request:, please make sure the following is done:
 5.  Ensure the test suite passes (yarn test).
 6.  Format your code with prettier (yarn prettier).
 7.  Make sure your code lints (yarn lint).
-8.  Run yarn build:, yarn build-storybook:admin: or yarn build-site:admin: to ensure that the builds are still working.
+8.  Run `yarn build`, yarn `build:storybook` or `yarn build:site` to ensure that the builds are still working.
 
 ### Publishing Packages
 
 We use Lerna combined with the Conventional Commits to publish our packages.
 
-- fix:: a commit of the type fix patches a bug in your codebase. It will relase a `PATCH` version.
-- feat:: a commit of the type feat introduces a new feature to the codebase. It will release a `MINOR` version.
+- `fix::` a commit of the type fix patches a bug in your codebase. It will relase a `PATCH` version.
+- `feat::` a commit of the type feat introduces a new feature to the codebase. It will release a `MINOR` version.
 
 **Publish commands**
 

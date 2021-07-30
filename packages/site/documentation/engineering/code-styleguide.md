@@ -6,9 +6,9 @@ path: /engineering/code-styleguide/
 
 > This is a draft page
 
-## No React.FC
+## Prevent the use of React.FC
 
-The use of `React.FunctionComponent` (or the `React.FC` shorthand) is dicouraged to type the component props. If you need to type children explicitly, use `React.ReactNode`. [Some good reasons why](https://github.com/facebook/create-react-app/pull/8177).
+The use of `React.FunctionComponent` (or the `React.FC` shorthand) is discouraged to type the component props. If you need to type children explicitly, use `React.ReactNode`. [Some good reasons why](https://github.com/facebook/create-react-app/pull/8177).
 
 ```tsx isStatic
 // ✅ Good
@@ -62,7 +62,7 @@ function Component({ title }: Props) {
 }
 ```
 
-## No inline types
+## Avoid inline types
 
 Always prefer creating an interface or type for the component props.
 
@@ -82,7 +82,7 @@ function Component({ title }: { title: string }) {
 }
 ```
 
-## No inline extension
+## Avoid inline extension
 
 Avoid extending other types within the function param directly. Prefer extending or compose a new type for a cleaner code.
 
