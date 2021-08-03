@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.106.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.5...@vtex/admin-ui@0.106.6) (2021-08-03)
+
+### Bug Fixes
+
+- **datagrid:** status object signature ([0a29b74](https://github.com/vtex/onda/commit/0a29b749c8e8645ffe8d636ab5393f307a79f566))
+
 ## [0.106.5](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.4...@vtex/admin-ui@0.106.5) (2021-07-28)
 
 ### Bug Fixes
