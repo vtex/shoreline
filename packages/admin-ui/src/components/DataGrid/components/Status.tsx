@@ -87,22 +87,29 @@ export function Status() {
         {status === 'empty' && (
           <Fragment>
             <Text variant="subtitle">{statusObject.empty?.message}</Text>
+            {statusObject.empty?.action && (
+              <Anchor
+                csx={{ fontSize: 1, text: 'body' }}
+                onClick={statusObject.empty?.action?.onClick}
+                href={statusObject.empty?.action?.href}
+              >
+                {statusObject.empty.action.text}
+              </Anchor>
+            )}
           </Fragment>
         )}
 
         {status === 'error' && (
           <Fragment>
             <Text variant="subtitle">{statusObject.error?.message}</Text>
-            {statusObject.error?.onRetry && (
-              <Text variant="body">
-                <Anchor
-                  csx={{ fontSize: 1 }}
-                  // href={views[state].anchor?.href}
-                  onClick={statusObject.error?.onRetry}
-                >
-                  Retry
-                </Anchor>
-              </Text>
+            {statusObject.error?.action && (
+              <Anchor
+                csx={{ fontSize: 1, text: 'body' }}
+                onClick={statusObject.error?.action?.onClick}
+                href={statusObject.error?.action?.href}
+              >
+                {statusObject.error.action.text}
+              </Anchor>
             )}
           </Fragment>
         )}
