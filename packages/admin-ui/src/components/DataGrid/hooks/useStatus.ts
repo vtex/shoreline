@@ -60,7 +60,7 @@ function reducer(_: StatusObject, action: Action) {
         loading: false,
         error: {
           message: action.message,
-          onRetry: action.onRetry,
+          action: action.action,
         },
         empty: null,
         notFound: null,
@@ -73,8 +73,7 @@ function reducer(_: StatusObject, action: Action) {
         error: null,
         empty: {
           message: action.message,
-          href: action.href,
-          onClick: action.onClick,
+          action: action.action,
         },
         notFound: null,
       }
@@ -124,13 +123,32 @@ interface NotFoundState {
 
 interface ErrorState {
   message: string
-  onRetry?: () => void
+  action?:
+    | {
+        text: string
+        onClick: () => void
+        href?: string
+      }
+    | {
+        text: string
+        href: string
+        onClick?: () => void
+      }
 }
 
 interface EmptyState {
   message: string
-  href?: string
-  onClick?: () => void
+  action?:
+    | {
+        text: string
+        onClick: () => void
+        href?: string
+      }
+    | {
+        text: string
+        href: string
+        onClick?: () => void
+      }
 }
 
 type AliasedState<T, S> = { type: T } & S
