@@ -29,5 +29,5 @@ Once you merge the changes within the `master` branch, you should update your lo
 We defined this command to make it easier to release a package, but under the hood, it will run the following commands:
 
 1. `yarn`
-2. `yarn build` - It builds all the packages from the repository, and without this command, the npm package won't have the current changes when published.
-3. `yarn publish:main` - It will look for all the packages and publish only the ones that have been changed.
+2. `yarn lerna run build` - It builds all the packages from the repository, and without this command, the npm package won't have the current changes when published.
+3. `yarn lerna publish` - It will look for all the packages and publish only the ones that have been changed.
