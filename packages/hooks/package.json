@@ -1,0 +1,41 @@
+{
+  "name": "@vtex/onda-hooks",
+  "description": "VTEX/onda shared hooks",
+  "license": "MIT",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/onda-hooks.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/hooks",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
+    "test": "tsdx test"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-dom": ">=16.8"
+  },
+  "dependencies": {
+    "use-debounce": "^7.0.0"
+  }
+}
