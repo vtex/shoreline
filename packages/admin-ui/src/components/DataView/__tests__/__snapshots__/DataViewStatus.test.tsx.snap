@@ -1,0 +1,1189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataViewStatus should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: auto;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`DataViewStatus should match snapshot empty 1`] = `
+<DocumentFragment>
+  .emotion-12 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: auto;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background-color: #F4F6FB;
+  border-radius: 4px;
+  padding-top: 3.375rem;
+  padding-bottom: 3.375rem;
+  overflow: auto;
+  width: 100%;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 1rem;
+  max-width: 38.75rem;
+  min-height: 11.375rem;
+  word-break: break-word;
+}
+
+.emotion-0 {
+  margin-left: -1.7rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 {
+  color: #323845;
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-2 {
+  font: inherit;
+  color: #2953B2;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+}
+
+.emotion-2:active {
+  color: #1a3470;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-2:hover {
+  color: #214491;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<div
+    class="emotion-12"
+  >
+    <div
+      class="emotion-5"
+    >
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-0"
+        >
+          <svg
+            fill="none"
+            height="97"
+            viewBox="0 0 193 97"
+            width="193"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.8"
+              rx="2"
+              width="142.769"
+              x="29"
+              y="41"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.6"
+              rx="2"
+              width="150.154"
+              x="29"
+              y="61"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.4"
+              rx="2"
+              width="135.385"
+              x="29"
+              y="81"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              rx="2"
+              width="163.692"
+              x="29"
+              y="21"
+            />
+            <g
+              filter="url(#filter0_d)"
+            >
+              <circle
+                cx="35.8182"
+                cy="27.8182"
+                fill="white"
+                r="19.6364"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M49.6702 44.35C41.1389 51.5231 28.3882 51.0955 20.3599 43.0674C11.88 34.5877 11.88 20.8394 20.3599 12.3598C28.8397 3.88008 42.5883 3.88008 51.0681 12.3598C59.0967 20.3882 59.524 33.1394 52.3499 41.6705L61.445 50.7655C62.185 51.5054 62.185 52.7051 61.445 53.445C60.7051 54.185 59.5054 54.185 58.7654 53.445L49.6702 44.35ZM23.0395 15.0393C30.0394 8.03951 41.3886 8.03951 48.3885 15.0393C55.3307 21.9814 55.388 33.2012 48.5603 40.2138C48.4962 40.2632 48.4345 40.3173 48.3758 40.3761C48.3171 40.4348 48.263 40.4964 48.2136 40.5604C41.2008 47.3872 29.9814 47.3297 23.0395 40.3879C16.0395 33.3881 16.0395 22.0391 23.0395 15.0393Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+            </g>
+            <path
+              clip-rule="evenodd"
+              d="M35.4985 20.8468C35.9609 20.8468 36.3357 21.2216 36.3357 21.684L36.3357 34.3132C36.3357 34.7756 35.9609 35.1505 35.4985 35.1505C35.0362 35.1505 34.6613 34.7756 34.6613 34.3132L34.6613 21.684C34.6613 21.2216 35.0362 20.8468 35.4985 20.8468Z"
+              fill="#B6C3E1"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M42.6504 27.9986C42.6504 28.461 42.2755 28.8358 41.8132 28.8358H29.1839C28.7215 28.8358 28.3467 28.461 28.3467 27.9986C28.3467 27.5362 28.7215 27.1614 29.1839 27.1614H41.8132C42.2755 27.1614 42.6504 27.5362 42.6504 27.9986Z"
+              fill="#B6C3E1"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M35.4985 20.8468C35.9609 20.8468 36.3357 21.2216 36.3357 21.684L36.3357 34.3132C36.3357 34.7756 35.9609 35.1505 35.4985 35.1505C35.0362 35.1505 34.6613 34.7756 34.6613 34.3132L34.6613 21.684C34.6613 21.2216 35.0362 20.8468 35.4985 20.8468Z"
+              fill-rule="evenodd"
+              stroke="#B6C3E1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M42.6504 27.9986C42.6504 28.461 42.2755 28.8358 41.8132 28.8358H29.1839C28.7215 28.8358 28.3467 28.461 28.3467 27.9986C28.3467 27.5362 28.7215 27.1614 29.1839 27.1614H41.8132C42.2755 27.1614 42.6504 27.5362 42.6504 27.9986Z"
+              fill-rule="evenodd"
+              stroke="#B6C3E1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <defs>
+              <filter
+                color-interpolation-filters="sRGB"
+                filterUnits="userSpaceOnUse"
+                height="76"
+                id="filter0_d"
+                width="76"
+                x="0"
+                y="0"
+              >
+                <feflood
+                  flood-opacity="0"
+                  result="BackgroundImageFix"
+                />
+                <fecolormatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                />
+                <feoffset
+                  dy="8"
+                />
+                <fegaussianblur
+                  stdDeviation="7"
+                />
+                <fecolormatrix
+                  type="matrix"
+                  values="0 0 0 0 0.714028 0 0 0 0 0.765932 0 0 0 0 0.883333 0 0 0 0.6 0"
+                />
+                <feblend
+                  in2="BackgroundImageFix"
+                  mode="normal"
+                  result="effect1_dropShadow"
+                />
+                <feblend
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow"
+                  mode="normal"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-1"
+          >
+            empty
+          </span>
+          <a
+            class="emotion-2"
+          >
+            empty
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-5"
+    >
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-0"
+        >
+          <svg
+            fill="none"
+            height="97"
+            viewBox="0 0 193 97"
+            width="193"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.8"
+              rx="2"
+              width="142.769"
+              x="29"
+              y="41"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.6"
+              rx="2"
+              width="150.154"
+              x="29"
+              y="61"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.4"
+              rx="2"
+              width="135.385"
+              x="29"
+              y="81"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              rx="2"
+              width="163.692"
+              x="29"
+              y="21"
+            />
+            <g
+              filter="url(#filter0_d)"
+            >
+              <circle
+                cx="35.8182"
+                cy="27.8182"
+                fill="white"
+                r="19.6364"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M49.6702 44.35C41.1389 51.5231 28.3882 51.0955 20.3599 43.0674C11.88 34.5877 11.88 20.8394 20.3599 12.3598C28.8397 3.88008 42.5883 3.88008 51.0681 12.3598C59.0967 20.3882 59.524 33.1394 52.3499 41.6705L61.445 50.7655C62.185 51.5054 62.185 52.7051 61.445 53.445C60.7051 54.185 59.5054 54.185 58.7654 53.445L49.6702 44.35ZM23.0395 15.0393C30.0394 8.03951 41.3886 8.03951 48.3885 15.0393C55.3307 21.9814 55.388 33.2012 48.5603 40.2138C48.4962 40.2632 48.4345 40.3173 48.3758 40.3761C48.3171 40.4348 48.263 40.4964 48.2136 40.5604C41.2008 47.3872 29.9814 47.3297 23.0395 40.3879C16.0395 33.3881 16.0395 22.0391 23.0395 15.0393Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+            </g>
+            <path
+              clip-rule="evenodd"
+              d="M35.4985 20.8468C35.9609 20.8468 36.3357 21.2216 36.3357 21.684L36.3357 34.3132C36.3357 34.7756 35.9609 35.1505 35.4985 35.1505C35.0362 35.1505 34.6613 34.7756 34.6613 34.3132L34.6613 21.684C34.6613 21.2216 35.0362 20.8468 35.4985 20.8468Z"
+              fill="#B6C3E1"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M42.6504 27.9986C42.6504 28.461 42.2755 28.8358 41.8132 28.8358H29.1839C28.7215 28.8358 28.3467 28.461 28.3467 27.9986C28.3467 27.5362 28.7215 27.1614 29.1839 27.1614H41.8132C42.2755 27.1614 42.6504 27.5362 42.6504 27.9986Z"
+              fill="#B6C3E1"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M35.4985 20.8468C35.9609 20.8468 36.3357 21.2216 36.3357 21.684L36.3357 34.3132C36.3357 34.7756 35.9609 35.1505 35.4985 35.1505C35.0362 35.1505 34.6613 34.7756 34.6613 34.3132L34.6613 21.684C34.6613 21.2216 35.0362 20.8468 35.4985 20.8468Z"
+              fill-rule="evenodd"
+              stroke="#B6C3E1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M42.6504 27.9986C42.6504 28.461 42.2755 28.8358 41.8132 28.8358H29.1839C28.7215 28.8358 28.3467 28.461 28.3467 27.9986C28.3467 27.5362 28.7215 27.1614 29.1839 27.1614H41.8132C42.2755 27.1614 42.6504 27.5362 42.6504 27.9986Z"
+              fill-rule="evenodd"
+              stroke="#B6C3E1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <defs>
+              <filter
+                color-interpolation-filters="sRGB"
+                filterUnits="userSpaceOnUse"
+                height="76"
+                id="filter0_d"
+                width="76"
+                x="0"
+                y="0"
+              >
+                <feflood
+                  flood-opacity="0"
+                  result="BackgroundImageFix"
+                />
+                <fecolormatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                />
+                <feoffset
+                  dy="8"
+                />
+                <fegaussianblur
+                  stdDeviation="7"
+                />
+                <fecolormatrix
+                  type="matrix"
+                  values="0 0 0 0 0.714028 0 0 0 0 0.765932 0 0 0 0 0.883333 0 0 0 0.6 0"
+                />
+                <feblend
+                  in2="BackgroundImageFix"
+                  mode="normal"
+                  result="effect1_dropShadow"
+                />
+                <feblend
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow"
+                  mode="normal"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-1"
+          >
+            empty
+          </span>
+          <a
+            class="emotion-2"
+          >
+            empty
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DataViewStatus should match snapshot error 1`] = `
+<DocumentFragment>
+  .emotion-12 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: auto;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background-color: #F4F6FB;
+  border-radius: 4px;
+  padding-top: 3.375rem;
+  padding-bottom: 3.375rem;
+  overflow: auto;
+  width: 100%;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 1rem;
+  max-width: 38.75rem;
+  min-height: 11.375rem;
+  word-break: break-word;
+}
+
+.emotion-0 {
+  margin-left: -1.7rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 {
+  color: #323845;
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-2 {
+  font: inherit;
+  color: #2953B2;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+}
+
+.emotion-2:active {
+  color: #1a3470;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-2:hover {
+  color: #214491;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<div
+    class="emotion-12"
+  >
+    <div
+      class="emotion-5"
+    >
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-0"
+        >
+          <svg
+            fill="none"
+            height="97"
+            viewBox="0 0 193 97"
+            width="193"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.8"
+              rx="2"
+              width="142.769"
+              x="29"
+              y="41"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.6"
+              rx="2"
+              width="150.154"
+              x="29"
+              y="61"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.4"
+              rx="2"
+              width="135.385"
+              x="29"
+              y="81"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              rx="2"
+              width="163.692"
+              x="29"
+              y="21"
+            />
+            <g
+              filter="url(#filter0_d)"
+            >
+              <circle
+                cx="35.6364"
+                cy="27.8182"
+                fill="white"
+                r="19.6364"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M49.6702 44.35C41.1389 51.5231 28.3882 51.0955 20.3599 43.0674C11.88 34.5877 11.88 20.8394 20.3599 12.3598C28.8397 3.88008 42.5883 3.88008 51.0681 12.3598C59.0967 20.3882 59.524 33.1394 52.3499 41.6705L61.445 50.7655C62.185 51.5054 62.185 52.7051 61.445 53.445C60.7051 54.185 59.5054 54.185 58.7654 53.445L49.6702 44.35ZM23.0395 15.0393C30.0394 8.03951 41.3886 8.03951 48.3885 15.0393C55.3307 21.9814 55.388 33.2012 48.5603 40.2138C48.4962 40.2632 48.4345 40.3173 48.3758 40.3761C48.3171 40.4348 48.263 40.4964 48.2136 40.5604C41.2008 47.3872 29.9814 47.3297 23.0395 40.3879C16.0395 33.3881 16.0395 22.0391 23.0395 15.0393Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+              <path
+                d="M37.5156 27.7273V20.4578C37.5156 19.6531 36.8436 19 36.0156 19C35.1876 19 34.5156 19.6531 34.5156 20.4578V27.7273C34.5156 28.532 35.1876 29.1851 36.0156 29.1851C36.8436 29.1851 37.5156 28.532 37.5156 27.7273Z"
+                fill="#B6C3E1"
+              />
+              <path
+                d="M34 34.0621C33.994 32.9814 34.898 32.1126 35.998 32.1126C37.1 32.1126 38 32.9795 38 34.0563C38 35.1292 37.104 36 36 36C34.898 36 34.004 35.1331 34 34.0621Z"
+                fill="#B6C3E1"
+              />
+            </g>
+            <defs>
+              <filter
+                color-interpolation-filters="sRGB"
+                filterUnits="userSpaceOnUse"
+                height="76"
+                id="filter0_d"
+                width="76"
+                x="0"
+                y="0"
+              >
+                <feflood
+                  flood-opacity="0"
+                  result="BackgroundImageFix"
+                />
+                <fecolormatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                />
+                <feoffset
+                  dy="8"
+                />
+                <fegaussianblur
+                  stdDeviation="7"
+                />
+                <fecolormatrix
+                  type="matrix"
+                  values="0 0 0 0 0.714028 0 0 0 0 0.765932 0 0 0 0 0.883333 0 0 0 0.6 0"
+                />
+                <feblend
+                  in2="BackgroundImageFix"
+                  mode="normal"
+                  result="effect1_dropShadow"
+                />
+                <feblend
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow"
+                  mode="normal"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-1"
+          >
+            error
+          </span>
+          <a
+            class="emotion-2"
+          >
+            error
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-5"
+    >
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-0"
+        >
+          <svg
+            fill="none"
+            height="97"
+            viewBox="0 0 193 97"
+            width="193"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.8"
+              rx="2"
+              width="142.769"
+              x="29"
+              y="41"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.6"
+              rx="2"
+              width="150.154"
+              x="29"
+              y="61"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.4"
+              rx="2"
+              width="135.385"
+              x="29"
+              y="81"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              rx="2"
+              width="163.692"
+              x="29"
+              y="21"
+            />
+            <g
+              filter="url(#filter0_d)"
+            >
+              <circle
+                cx="35.6364"
+                cy="27.8182"
+                fill="white"
+                r="19.6364"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M49.6702 44.35C41.1389 51.5231 28.3882 51.0955 20.3599 43.0674C11.88 34.5877 11.88 20.8394 20.3599 12.3598C28.8397 3.88008 42.5883 3.88008 51.0681 12.3598C59.0967 20.3882 59.524 33.1394 52.3499 41.6705L61.445 50.7655C62.185 51.5054 62.185 52.7051 61.445 53.445C60.7051 54.185 59.5054 54.185 58.7654 53.445L49.6702 44.35ZM23.0395 15.0393C30.0394 8.03951 41.3886 8.03951 48.3885 15.0393C55.3307 21.9814 55.388 33.2012 48.5603 40.2138C48.4962 40.2632 48.4345 40.3173 48.3758 40.3761C48.3171 40.4348 48.263 40.4964 48.2136 40.5604C41.2008 47.3872 29.9814 47.3297 23.0395 40.3879C16.0395 33.3881 16.0395 22.0391 23.0395 15.0393Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+              <path
+                d="M37.5156 27.7273V20.4578C37.5156 19.6531 36.8436 19 36.0156 19C35.1876 19 34.5156 19.6531 34.5156 20.4578V27.7273C34.5156 28.532 35.1876 29.1851 36.0156 29.1851C36.8436 29.1851 37.5156 28.532 37.5156 27.7273Z"
+                fill="#B6C3E1"
+              />
+              <path
+                d="M34 34.0621C33.994 32.9814 34.898 32.1126 35.998 32.1126C37.1 32.1126 38 32.9795 38 34.0563C38 35.1292 37.104 36 36 36C34.898 36 34.004 35.1331 34 34.0621Z"
+                fill="#B6C3E1"
+              />
+            </g>
+            <defs>
+              <filter
+                color-interpolation-filters="sRGB"
+                filterUnits="userSpaceOnUse"
+                height="76"
+                id="filter0_d"
+                width="76"
+                x="0"
+                y="0"
+              >
+                <feflood
+                  flood-opacity="0"
+                  result="BackgroundImageFix"
+                />
+                <fecolormatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                />
+                <feoffset
+                  dy="8"
+                />
+                <fegaussianblur
+                  stdDeviation="7"
+                />
+                <fecolormatrix
+                  type="matrix"
+                  values="0 0 0 0 0.714028 0 0 0 0 0.765932 0 0 0 0 0.883333 0 0 0 0.6 0"
+                />
+                <feblend
+                  in2="BackgroundImageFix"
+                  mode="normal"
+                  result="effect1_dropShadow"
+                />
+                <feblend
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow"
+                  mode="normal"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-1"
+          >
+            error
+          </span>
+          <a
+            class="emotion-2"
+          >
+            error
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DataViewStatus should match snapshot loading 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: auto;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`DataViewStatus should match snapshot not-found 1`] = `
+<DocumentFragment>
+  .emotion-12 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: auto;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background-color: #F4F6FB;
+  border-radius: 4px;
+  padding-top: 3.375rem;
+  padding-bottom: 3.375rem;
+  overflow: auto;
+  width: 100%;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 1rem;
+  max-width: 38.75rem;
+  min-height: 11.375rem;
+  word-break: break-word;
+}
+
+.emotion-0 {
+  margin-left: -1.7rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 {
+  color: #323845;
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.5;
+  font-variation-settings: 'wght' 92;
+  font-size: 1rem;
+}
+
+.emotion-2 {
+  color: #707685;
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.25;
+  font-variation-settings: 'wght' 92;
+  font-size: 0.875rem;
+}
+
+<div
+    class="emotion-12"
+  >
+    <div
+      class="emotion-5"
+    >
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-0"
+        >
+          <svg
+            fill="none"
+            height="97"
+            viewBox="0 0 193 97"
+            width="193"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.8"
+              rx="2"
+              width="142.769"
+              x="29"
+              y="41"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.6"
+              rx="2"
+              width="150.154"
+              x="29"
+              y="61"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.4"
+              rx="2"
+              width="135.385"
+              x="29"
+              y="81"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              rx="2"
+              width="163.692"
+              x="29"
+              y="21"
+            />
+            <g
+              filter="url(#filter0_d)"
+            >
+              <circle
+                cx="35.8182"
+                cy="27.8182"
+                fill="white"
+                r="19.6364"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M49.6702 44.35C41.1389 51.5231 28.3882 51.0955 20.3599 43.0674C11.88 34.5877 11.88 20.8394 20.3599 12.3598C28.8397 3.88008 42.5883 3.88008 51.0681 12.3598C59.0967 20.3882 59.524 33.1394 52.3499 41.6705L61.445 50.7655C62.185 51.5054 62.185 52.7051 61.445 53.445C60.7051 54.185 59.5054 54.185 58.7654 53.445L49.6702 44.35ZM23.0395 15.0393C30.0394 8.03951 41.3886 8.03951 48.3885 15.0393C55.3307 21.9814 55.388 33.2012 48.5603 40.2138C48.4962 40.2632 48.4345 40.3173 48.3758 40.3761C48.3171 40.4348 48.263 40.4964 48.2136 40.5604C41.2008 47.3872 29.9814 47.3297 23.0395 40.3879C16.0395 33.3881 16.0395 22.0391 23.0395 15.0393Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M35.9339 32.7129C36.7353 32.75 37.3653 33.3423 37.3653 34.083C37.3653 34.8401 36.6896 35.4546 35.8572 35.4546C35.0249 35.4546 34.3492 34.8401 34.3492 34.0949C34.341 33.3512 34.9841 32.7426 35.7919 32.7129L35.8556 32.7114L35.9339 32.7129ZM35.8066 34.9366C35.8229 34.938 35.8393 34.938 35.8556 34.938L35.8066 34.9366Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M31.4546 24.1469C31.4546 21.9527 33.4115 20.1819 35.819 20.1819C38.2291 20.1819 40.1819 21.958 40.1819 24.1498C40.1819 25.8778 38.9421 26.7878 38.0876 27.3103L38.086 27.3112C37.3703 27.7474 37.0402 28.0889 37.0402 28.6709V29.0267C37.0402 29.6409 36.4927 30.1388 35.8174 30.1388C35.1421 30.1388 34.5946 29.6409 34.5946 29.0267V28.6709C34.5946 26.9195 35.8484 25.9977 36.7239 25.464C37.076 25.2486 37.3256 25.0598 37.4913 24.8567C37.6369 24.6783 37.7363 24.4672 37.7363 24.1498C37.7363 23.1863 36.8784 22.4061 35.819 22.4061C34.7572 22.4061 33.9001 23.1856 33.9001 24.1469C33.9001 24.7611 33.3527 25.259 32.6774 25.259C32.002 25.259 31.4546 24.7611 31.4546 24.1469Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+            </g>
+            <defs>
+              <filter
+                color-interpolation-filters="sRGB"
+                filterUnits="userSpaceOnUse"
+                height="76"
+                id="filter0_d"
+                width="76"
+                x="0"
+                y="0"
+              >
+                <feflood
+                  flood-opacity="0"
+                  result="BackgroundImageFix"
+                />
+                <fecolormatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                />
+                <feoffset
+                  dy="8"
+                />
+                <fegaussianblur
+                  stdDeviation="7"
+                />
+                <fecolormatrix
+                  type="matrix"
+                  values="0 0 0 0 0.714028 0 0 0 0 0.765932 0 0 0 0 0.883333 0 0 0 0.6 0"
+                />
+                <feblend
+                  in2="BackgroundImageFix"
+                  mode="normal"
+                  result="effect1_dropShadow"
+                />
+                <feblend
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow"
+                  mode="normal"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-1"
+          >
+            not found
+          </span>
+          <span
+            class="emotion-2"
+          >
+            not found
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-5"
+    >
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-0"
+        >
+          <svg
+            fill="none"
+            height="97"
+            viewBox="0 0 193 97"
+            width="193"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.8"
+              rx="2"
+              width="142.769"
+              x="29"
+              y="41"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.6"
+              rx="2"
+              width="150.154"
+              x="29"
+              y="61"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              opacity="0.4"
+              rx="2"
+              width="135.385"
+              x="29"
+              y="81"
+            />
+            <rect
+              fill="#DAE3F5"
+              height="16"
+              rx="2"
+              width="163.692"
+              x="29"
+              y="21"
+            />
+            <g
+              filter="url(#filter0_d)"
+            >
+              <circle
+                cx="35.8182"
+                cy="27.8182"
+                fill="white"
+                r="19.6364"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M49.6702 44.35C41.1389 51.5231 28.3882 51.0955 20.3599 43.0674C11.88 34.5877 11.88 20.8394 20.3599 12.3598C28.8397 3.88008 42.5883 3.88008 51.0681 12.3598C59.0967 20.3882 59.524 33.1394 52.3499 41.6705L61.445 50.7655C62.185 51.5054 62.185 52.7051 61.445 53.445C60.7051 54.185 59.5054 54.185 58.7654 53.445L49.6702 44.35ZM23.0395 15.0393C30.0394 8.03951 41.3886 8.03951 48.3885 15.0393C55.3307 21.9814 55.388 33.2012 48.5603 40.2138C48.4962 40.2632 48.4345 40.3173 48.3758 40.3761C48.3171 40.4348 48.263 40.4964 48.2136 40.5604C41.2008 47.3872 29.9814 47.3297 23.0395 40.3879C16.0395 33.3881 16.0395 22.0391 23.0395 15.0393Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M35.9339 32.7129C36.7353 32.75 37.3653 33.3423 37.3653 34.083C37.3653 34.8401 36.6896 35.4546 35.8572 35.4546C35.0249 35.4546 34.3492 34.8401 34.3492 34.0949C34.341 33.3512 34.9841 32.7426 35.7919 32.7129L35.8556 32.7114L35.9339 32.7129ZM35.8066 34.9366C35.8229 34.938 35.8393 34.938 35.8556 34.938L35.8066 34.9366Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M31.4546 24.1469C31.4546 21.9527 33.4115 20.1819 35.819 20.1819C38.2291 20.1819 40.1819 21.958 40.1819 24.1498C40.1819 25.8778 38.9421 26.7878 38.0876 27.3103L38.086 27.3112C37.3703 27.7474 37.0402 28.0889 37.0402 28.6709V29.0267C37.0402 29.6409 36.4927 30.1388 35.8174 30.1388C35.1421 30.1388 34.5946 29.6409 34.5946 29.0267V28.6709C34.5946 26.9195 35.8484 25.9977 36.7239 25.464C37.076 25.2486 37.3256 25.0598 37.4913 24.8567C37.6369 24.6783 37.7363 24.4672 37.7363 24.1498C37.7363 23.1863 36.8784 22.4061 35.819 22.4061C34.7572 22.4061 33.9001 23.1856 33.9001 24.1469C33.9001 24.7611 33.3527 25.259 32.6774 25.259C32.002 25.259 31.4546 24.7611 31.4546 24.1469Z"
+                fill="#B6C3E1"
+                fill-rule="evenodd"
+              />
+            </g>
+            <defs>
+              <filter
+                color-interpolation-filters="sRGB"
+                filterUnits="userSpaceOnUse"
+                height="76"
+                id="filter0_d"
+                width="76"
+                x="0"
+                y="0"
+              >
+                <feflood
+                  flood-opacity="0"
+                  result="BackgroundImageFix"
+                />
+                <fecolormatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                />
+                <feoffset
+                  dy="8"
+                />
+                <fegaussianblur
+                  stdDeviation="7"
+                />
+                <fecolormatrix
+                  type="matrix"
+                  values="0 0 0 0 0.714028 0 0 0 0 0.765932 0 0 0 0 0.883333 0 0 0 0.6 0"
+                />
+                <feblend
+                  in2="BackgroundImageFix"
+                  mode="normal"
+                  result="effect1_dropShadow"
+                />
+                <feblend
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow"
+                  mode="normal"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-1"
+          >
+            not found
+          </span>
+          <span
+            class="emotion-2"
+          >
+            not found
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

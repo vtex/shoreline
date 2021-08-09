@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataView should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: auto;
+}
+
+<div
+    class="emotion-0"
+  >
+    DataView
+  </div>
+</DocumentFragment>
+`;
