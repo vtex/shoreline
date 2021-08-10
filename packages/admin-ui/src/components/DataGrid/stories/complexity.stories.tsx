@@ -4,6 +4,7 @@ import faker from 'faker'
 
 import { DataGrid, createColumns } from '../index'
 import { useDataGridState } from '../hooks/useDataGridState'
+import { DataView, useDataViewState } from '../../DataView'
 
 export default {
   title: 'admin-ui/DataGrid/complexity',
@@ -56,15 +57,17 @@ export function Zero() {
 }
 
 export function LevelOne() {
-  const state = useDataGridState<Item>({
+  const view = useDataViewState()
+  const grid = useDataGridState<Item>({
     columns,
     items,
+    view,
   })
 
   return (
-    <DataGrid state={state} csx={{ width: 560 }}>
-      <DataGrid.Table />
-    </DataGrid>
+    <DataView state={view}>
+      <DataGrid state={grid} csx={{ width: 560 }} />
+    </DataView>
   )
 }
 
@@ -76,10 +79,8 @@ export function LevelTwo() {
 
   return (
     <DataGrid state={state} csx={{ width: 560 }}>
-      <DataGrid.Table>
-        <DataGrid.Table.Head />
-        <DataGrid.Table.Body />
-      </DataGrid.Table>
+      <DataGrid.Head />
+      <DataGrid.Body />
     </DataGrid>
   )
 }
@@ -92,16 +93,14 @@ export function Full() {
 
   return (
     <DataGrid state={state} csx={{ width: 560 }}>
-      <DataGrid.Table>
-        <DataGrid.Table.Head>
-          <DataGrid.Table.Cell />
-        </DataGrid.Table.Head>
-        <DataGrid.Table.Body>
-          <DataGrid.Table.Body.Row>
-            <DataGrid.Table.Cell />
-          </DataGrid.Table.Body.Row>
-        </DataGrid.Table.Body>
-      </DataGrid.Table>
+      <DataGrid.Head>
+        <DataGrid.Cell />
+      </DataGrid.Head>
+      <DataGrid.Body>
+        <DataGrid.Body.Row>
+          <DataGrid.Cell />
+        </DataGrid.Body.Row>
+      </DataGrid.Body>
     </DataGrid>
   )
 }

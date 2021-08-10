@@ -4,7 +4,8 @@ import { jsx } from '@vtex/onda-react'
 import { isFunction } from '@vtex/admin-core'
 
 import { useStateContext } from '../context'
-import { Cell } from './Cell'
+import { Cell } from './DataGridCell'
+import { useDataViewContext } from '../../DataView'
 
 export interface RowOptions {
   item: Record<string, any>
@@ -20,8 +21,8 @@ const Row = jsx.tr(
     useOptions: (options: RowOptions, props) => {
       const { item } = options
       const { children, csx, ...rowProps } = props
-      const { status, onRowClick, columns, resolveCell, density } =
-        useStateContext()
+      const { status } = useDataViewContext()
+      const { onRowClick, columns, resolveCell, density } = useStateContext()
 
       const clickable = onRowClick && !(status === 'loading')
 
@@ -94,7 +95,8 @@ const _Body = jsx.tbody(
       },
       { children, ...props }
     ) {
-      const { status, data, getRowKey } = useStateContext()
+      const { status } = useDataViewContext()
+      const { data, getRowKey } = useStateContext()
 
       const shouldRender = status === 'ready' || status === 'loading'
 

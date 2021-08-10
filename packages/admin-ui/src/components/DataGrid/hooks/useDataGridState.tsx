@@ -18,8 +18,7 @@ import type { DataGridColumn, DataGridDensity } from '../typings'
 import { SelectionProvider } from '../resolvers/selection'
 import type { UseSortReturn, UseDataGridSortParams } from './useDataGridSort'
 import { useDataGridSort } from './useDataGridSort'
-import type { Status, SetStatus, StatusObject } from './useStatus'
-import { useStatus } from './useStatus'
+import type { DataViewState } from '../../DataView'
 
 export function useDataGridState<T>(
   params: UseDataGridStateParams<T>,
@@ -34,10 +33,19 @@ export function useDataGridState<T>(
       get(item as unknown as Record<string, unknown>, 'id', ''),
     onRowClick,
     density: initialDensity = 'regular',
+    view = {
+      status: 'ready',
+      statusObject: {
+        loading: false,
+        empty: null,
+        error: null,
+        notFound: null,
+      },
+    },
   } = params
 
   const [density, setDensity] = useState<DataGridDensity>(initialDensity)
-  const { status, statusObject, setStatus } = useStatus()
+  const { status, statusObject } = view
 
   /**
    * resolver's context
@@ -144,9 +152,6 @@ export function useDataGridState<T>(
     sortState,
     getRowKey,
     onRowClick,
-    status,
-    statusObject,
-    setStatus,
     setDensity,
     density,
   }
@@ -157,6 +162,10 @@ export interface UseDataGridStateParams<T> {
    * Table column spec
    */
   columns: Array<DataGridColumn<T>>
+  /**
+   * data-view state
+   */
+  view?: DataViewState
   /**
    * Resolver context
    */
@@ -238,18 +247,6 @@ export interface DataGridState<T> {
    * Action to take on click a row
    */
   onRowClick?: (item: T) => void
-  /**
-   * Current grid status
-   */
-  status: Status
-  /**
-   * Current grid status object (important for resolvers)
-   */
-  statusObject: StatusObject
-  /**
-   * set the current grid status
-   */
-  setStatus: SetStatus
 }
 
 /**

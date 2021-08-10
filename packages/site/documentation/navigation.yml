@@ -35,14 +35,6 @@
     - /data-display/tag/
     - /data-display/visually-hidden/
     - /data-display/filter-bar/
-- section: Table
-  paths:
-    - /table/basic/
-    - /table/column/
-    - /table/section/
-    - /table/filter-bar/
-    - /table/sortable/
-    - /table/views/
 - section: Layouts
   paths:
     - /layouts/introduction/

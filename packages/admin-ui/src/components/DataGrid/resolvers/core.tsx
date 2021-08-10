@@ -8,7 +8,7 @@ import { get } from '@vtex/admin-core'
 
 import type { DataGridColumn, DataGridDensity } from '../typings'
 import type { SortOrder, SortState } from '../hooks/useDataGridSort'
-import type { Status, StatusObject } from '../hooks/useStatus'
+import type { DataViewStatus, DataViewStatusObject } from '../../DataView'
 
 /**
  * Used to recursive define resolver
@@ -27,11 +27,11 @@ export type ResolverContext = {
   /**
    * Grid current status
    */
-  status: Status
+  status: DataViewStatus
   /**
    * Grid current status-object
    */
-  statusObject: StatusObject
+  statusObject: DataViewStatusObject
 }
 
 /**

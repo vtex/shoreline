@@ -3,7 +3,7 @@ import { jsx, tag } from '@vtex/onda-react'
 import { IconTriangle } from '@vtex/admin-ui-icons'
 
 import { useStateContext } from '../context'
-import { Cell } from './Cell'
+import { Cell } from './DataGridCell'
 
 interface SortIndicatorOptions {
   direction?: 'ASC' | 'DSC' | null
