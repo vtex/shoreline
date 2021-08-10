@@ -1,8 +1,8 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Pagination } from '.'
-import { usePaginationState } from './usePaginationState'
+import { Pagination } from '../Pagination'
+import { usePaginationState } from '../usePaginationState'
 
 export default {
   title: 'admin-ui/Pagination',
@@ -10,12 +10,11 @@ export default {
 } as Meta
 
 export function Basic() {
-  const state = usePaginationState({ size: 5 })
+  const state = usePaginationState({ pageSize: 5, total: 74 })
 
   return (
     <Pagination
       state={state}
-      total={74}
       preposition="of"
       subject="results"
       prevLabel="Previous"
@@ -26,14 +25,14 @@ export function Basic() {
 
 export function InitialState() {
   const state = usePaginationState({
-    size: 5,
-    paginationInitialState: { currentPage: 2, range: [6, 10] },
+    pageSize: 5,
+    initialPage: 2,
+    total: 74,
   })
 
   return (
     <Pagination
       state={state}
-      total={74}
       preposition="of"
       subject="results"
       prevLabel="Previous"

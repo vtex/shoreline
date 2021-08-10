@@ -1,37 +1,60 @@
-import type { Dispatch } from 'react'
 import { useCallback, useReducer } from 'react'
 
 export function usePaginationState(
   params: UsePaginationParams
 ): UsePaginationReturn {
   const {
-    size,
-    paginationCallback = defaultPaginationCallback,
-    paginationReducer = reducer,
-    paginationInitialState,
+    pageSize,
+    initialPage = 1,
+    total,
+    stateReducer = defaultReducer,
   } = params
 
-  const [state, dispatch] = useReducer(paginationReducer, {
-    currentPage: 1,
-    range: [1, size],
-    ...paginationInitialState,
-  })
+  const [state, dispatch] = useReducer(
+    stateReducer,
+    getInitialState(initialPage, pageSize, total)
+  )
 
   const paginate = useCallback(
     (type: PaginationActionType) => {
-      paginationCallback({ type, dispatch, size, state })
+      dispatch({ type, pageSize })
     },
-    [size, dispatch, paginationCallback]
+    [pageSize, dispatch]
   )
 
   return { ...state, paginate }
 }
 
-function defaultPaginationCallback({ type, size, dispatch }: PaginateParams) {
-  dispatch({ type, tableSize: size })
+function checkDisabled(range: [number, number], total: number) {
+  return {
+    prevDisabled: range[0] <= 1,
+    nextDisabled: range[1] >= total,
+  }
 }
 
-function reducer(
+function setMax(value: number, max: number) {
+  return value <= max ? value : max
+}
+
+function getInitialState(
+  initialPage: number,
+  pageSize: number,
+  total: number
+): PaginationState {
+  const range: [number, number] = [
+    setMax((initialPage - 1) * pageSize + 1, total),
+    setMax(initialPage * pageSize, total),
+  ]
+
+  return {
+    currentPage: initialPage,
+    range,
+    total,
+    ...checkDisabled(range, total),
+  }
+}
+
+function defaultReducer(
   state: PaginationState,
   action: PaginationAction
 ): PaginationState {
@@ -39,26 +62,47 @@ function reducer(
     case 'next': {
       const newPage = state.currentPage + 1
 
-      return {
+      const draft: PaginationState = {
         ...state,
         currentPage: state.currentPage + 1,
-        range: [state.range[1] + 1, action.tableSize * newPage],
+        range: [
+          setMax(state.range[1] + 1, state.total),
+          setMax(action.pageSize * newPage, state.total),
+        ],
+      }
+
+      return {
+        ...draft,
+        ...checkDisabled(draft.range, draft.total),
       }
     }
 
     case 'prev': {
-      return {
+      const draft: PaginationState = {
         ...state,
         currentPage: state.currentPage - 1,
-        range: [state.range[0] - action.tableSize, state.range[0] - 1],
+        range: [
+          setMax(state.range[0] - action.pageSize, state.total),
+          setMax(state.range[0] - 1, state.total),
+        ],
+      }
+
+      return {
+        ...draft,
+        ...checkDisabled(draft.range, draft.total),
       }
     }
 
     case 'reset': {
-      return {
+      const draft: PaginationState = {
         ...state,
         currentPage: 1,
-        range: [1, action.tableSize],
+        range: [setMax(1, state.total), setMax(action.pageSize, state.total)],
+      }
+
+      return {
+        ...draft,
+        ...checkDisabled(draft.range, draft.total),
       }
     }
 
@@ -69,43 +113,40 @@ function reducer(
 
 export type PaginationActionType = 'next' | 'prev' | 'reset'
 
-export interface PaginateParams {
-  type: PaginationActionType
-  dispatch: Dispatch<PaginationAction>
-  size: number
-  state: PaginationState
-}
-
 export interface UsePaginationParams {
   /**
    * Amount of itens that will be displayed in a page
    */
-  size: number
+  pageSize: number
+  /**
+   * Total of items that are being paginated
+   */
+  total: number
+  /**
+   * Inital page
+   * @default 1
+   */
+  initialPage?: number
   /**
    * Reducer used to handle state in usePagination hook
    */
-  paginationReducer?: (
+  stateReducer?: (
     state: PaginationState,
     action: PaginationAction
   ) => PaginationState
-  /**
-   * Callback triggered by pagination component
-   */
-  paginationCallback?: (params: PaginateParams) => void
-  /**
-   * Table pagination initial state
-   */
-  paginationInitialState?: PaginationState
 }
 
 export interface PaginationState {
   currentPage: number
   range: [number, number]
+  total: number
+  prevDisabled: boolean
+  nextDisabled: boolean
 }
 
 export interface PaginationAction {
   type: PaginationActionType
-  tableSize: number
+  pageSize: number
 }
 
 export interface UsePaginationReturn extends PaginationState {
