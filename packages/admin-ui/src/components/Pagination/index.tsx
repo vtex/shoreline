@@ -7,4 +7,4 @@ export {
   PaginationAction,
   UsePaginationReturn,
 } from './hooks/usePaginationState'
-export * from './hooks/usePersistedPaginationState'
+export * from './hooks/useQueryPaginationState'

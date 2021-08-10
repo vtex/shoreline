@@ -2,10 +2,7 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { Pagination } from '../Pagination'
-import { usePaginationState } from '../hooks/usePaginationState'
-import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
-import { Set } from '../../Set'
-import { Input } from '../../Input'
+import { usePaginationState } from '../usePaginationState'
 
 export default {
   title: 'admin-ui/Pagination',
@@ -41,33 +38,5 @@ export function InitialState() {
       prevLabel="Previous"
       nextLabel="Next"
     />
-  )
-}
-
-export function PersistedPaginationWithQuery() {
-  const state = useQueryPaginationState({
-    pageSize: 20,
-    total: 150,
-  })
-
-  return (
-    <Set orientation="vertical" spacing={6}>
-      <Input
-        label="Current URL:"
-        id="current-url-input"
-        value={window.location.href}
-        disabled
-        csx={{ width: 'lg' }}
-        helperText="You can copy the part with page and pageSize in your URL to see the page
-        load directly on choosed page"
-      />
-      <Pagination
-        state={state}
-        preposition="of"
-        subject="results"
-        prevLabel="Previous"
-        nextLabel="Next"
-      />
-    </Set>
   )
 }
