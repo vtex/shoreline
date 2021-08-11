@@ -58,6 +58,7 @@
     - /tabs/
     - /tooltip/
     - /pagination/
+    - /toolbar/
 - section: Forms
   paths:
     - /form/checkbox-group/

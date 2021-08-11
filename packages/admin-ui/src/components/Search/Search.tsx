@@ -29,6 +29,7 @@ interface SearchOptions {
 export const Search = jsx.form(
   {
     position: 'relative',
+    marginX: '1px',
   },
   {
     options: ['state'],

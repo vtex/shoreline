@@ -1,18 +1,18 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 import {
+  IconAction,
   IconDelete,
   IconFavorite,
   IconImport,
   IconLink,
 } from '@vtex/admin-ui-icons'
 
-import { Toolbar } from './index'
-import { useToolbarState } from './components'
-import { Button } from '../Button'
-import { MenuDisclosure, useMenuState, StatelessMenu } from '../Menu'
-import { ModalDisclosure, StatelessModal, useModalState } from '../Modal'
-import { Text } from '../Text'
+import { Toolbar, ToolbarItem, useToolbarState } from '../index'
+import { Button } from '../../Button'
+import { MenuDisclosure, useMenuState, StatelessMenu } from '../../Menu'
+import { ModalDisclosure, StatelessModal, useModalState } from '../../Modal'
+import { Text } from '../../Text'
 
 export default {
   title: 'admin-ui/Toolbar',
@@ -25,15 +25,11 @@ export const Basic = () => {
   const state = useToolbarState({ loop: true })
 
   return (
-    <Toolbar state={state}>
+    <Toolbar state={state} aria-label="basic-toolbar">
       {labels.map((label) => (
-        <Toolbar.Item>
-          {(itemProps) => (
-            <Button variant="adaptative-dark" {...itemProps} key={label}>
-              {label}
-            </Button>
-          )}
-        </Toolbar.Item>
+        <ToolbarItem key={label}>
+          <Button variant="adaptative-dark">{label}</Button>
+        </ToolbarItem>
       ))}
     </Toolbar>
   )
@@ -45,25 +41,25 @@ export const WithMenu = () => {
 
   return (
     <>
-      <Toolbar state={state}>
+      <Toolbar state={state} aria-label="Toolbar with menu">
         {labels.map((label) => (
-          <Toolbar.Item>
-            {(itemProps) => (
-              <Button variant="adaptative-dark" {...itemProps} key={label}>
-                {label}
-              </Button>
-            )}
-          </Toolbar.Item>
+          <ToolbarItem key={label}>
+            <Button variant="adaptative-dark">{label}</Button>
+          </ToolbarItem>
         ))}
-        <Toolbar.Item>
+        <ToolbarItem>
           {(itemProps) => (
             <MenuDisclosure state={menuState}>
-              <Button variant="adaptative-dark" {...itemProps}>
-                Item 3
+              <Button
+                icon={<IconAction />}
+                variant="adaptative-dark"
+                {...itemProps}
+              >
+                More
               </Button>
             </MenuDisclosure>
           )}
-        </Toolbar.Item>
+        </ToolbarItem>
       </Toolbar>
       <StatelessMenu aria-label="actions" state={menuState}>
         <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
@@ -85,34 +81,30 @@ export const WithModal = () => {
 
   return (
     <>
-      <Toolbar state={state}>
+      <Toolbar state={state} aria-label="Toolbar with modal">
         {labels.map((label) => (
-          <Toolbar.Item>
-            {(itemProps) => (
-              <Button variant="adaptative-dark" {...itemProps} key={label}>
-                {label}
-              </Button>
-            )}
-          </Toolbar.Item>
+          <ToolbarItem key={label}>
+            <Button variant="adaptative-dark">{label}</Button>
+          </ToolbarItem>
         ))}
-        <Toolbar.Item>
+        <ToolbarItem>
           {(itemProps) => (
             <MenuDisclosure state={menuState}>
               <Button variant="adaptative-dark" {...itemProps}>
-                Item 3
+                Open menu
               </Button>
             </MenuDisclosure>
           )}
-        </Toolbar.Item>
-        <Toolbar.Item>
+        </ToolbarItem>
+        <ToolbarItem>
           {(itemProps) => (
             <ModalDisclosure state={modalState}>
               <Button {...itemProps} variant="adaptative-dark">
-                Item 4
+                Open modal
               </Button>
             </ModalDisclosure>
           )}
-        </Toolbar.Item>
+        </ToolbarItem>
       </Toolbar>
       <StatelessMenu aria-label="actions" state={menuState}>
         <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>

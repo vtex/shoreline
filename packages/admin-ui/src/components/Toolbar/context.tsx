@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 
-import type { ToolbarState } from './components'
+import type { ToolbarState } from './state'
 
 export const ToolbarContext = createContext<ToolbarState | null>(null)
 

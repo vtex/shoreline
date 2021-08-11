@@ -1,10 +1,19 @@
 import React, { useMemo } from 'react'
 import type { Meta } from '@storybook/react'
+import {
+  IconAction,
+  IconDelete,
+  IconFavorite,
+  IconImport,
+  IconLink,
+} from '@vtex/admin-ui-icons'
 
 import { DataView, useDataViewState } from '../index'
 import { DataViewControls } from '../components/DataViewControls'
 import { Button } from '../../Button'
 import { Spinner } from '../../Spinner'
+import { Toolbar, ToolbarItem, useToolbarState } from '../../Toolbar'
+import { MenuDisclosure, useMenuState, StatelessMenu as Menu } from '../../Menu'
 
 export default {
   title: 'admin-ui/DataView',
@@ -35,6 +44,55 @@ export function Controls() {
         </Button>
       </DataViewControls>
       <p>Data View content</p>
+    </DataView>
+  )
+}
+
+export function ToolbarControls() {
+  const view = useDataViewState()
+  const toolbar = useToolbarState()
+  const menu = useMenuState()
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <Toolbar state={toolbar} aria-label="DataView Toolbar">
+          <ToolbarItem>
+            <Button size="small" variant="adaptative-dark">
+              Export
+            </Button>
+          </ToolbarItem>
+          <ToolbarItem>
+            <Button size="small" variant="adaptative-dark">
+              Import
+            </Button>
+          </ToolbarItem>
+          <ToolbarItem>
+            {(itemProps) => (
+              <MenuDisclosure state={menu}>
+                <Button
+                  icon={<IconAction />}
+                  variant="adaptative-dark"
+                  size="small"
+                  {...itemProps}
+                >
+                  More
+                </Button>
+              </MenuDisclosure>
+            )}
+          </ToolbarItem>
+        </Toolbar>
+      </DataViewControls>
+
+      <p>Data View content</p>
+
+      <Menu aria-label="more actions" state={menu}>
+        <Menu.Item icon={<IconImport />}>Download</Menu.Item>
+        <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
+        <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
+        <Menu.Separator />
+        <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
+      </Menu>
     </DataView>
   )
 }
