@@ -108,3 +108,45 @@ const [double, setDouble] = useDebouncedState({
 
 setDouble(20) // the state will be 40
 ```
+
+
+### useDebouncedCache
+
+Same as `useDebouncedState` but it keeps the state, debounced state and setState
+
+```jsx
+function Input() {
+  const [state, debouncedState, setState] = useDebouncedCache({
+    initialState: '',
+    timeoutMs: 250,
+  })
+
+  return (
+    <div>
+      <input
+        style={{
+          border: '1px solid #333',
+        }}
+        value={state}
+        onChange={(e) => setState(e.target.value)}
+      />
+      <p>State: {state}</p>
+      <p>Debouced state: {debouncedState}</p>
+    </div>
+  )
+}
+```
+
+Like `useDebouncedState`, you can use `produce` to apply state changes.
+
+```jsx isStatic
+const [double, debouncedDouble setDouble] = useDebouncedState({
+  initialState: 1,
+  timeoutMs: 250,
+  // the state will always be multiplied by two
+  produce: (s) => s * 2,
+})
+
+setDouble(20) // the state will be 40
+// after 250ms, the debouncedDouble will be 40
+```

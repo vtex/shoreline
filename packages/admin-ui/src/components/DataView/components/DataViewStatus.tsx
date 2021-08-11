@@ -23,11 +23,10 @@ const View = jsx.div(
   {
     display: 'flex',
     justifyContent: 'center',
-    bg: 'light.secondary',
-    borderRadius: '4px',
     paddingY: '3.375rem',
     overflow: 'auto',
-    width: 'full',
+    width: '100%',
+    height: '100%',
   },
   {
     options: ['illustration'],

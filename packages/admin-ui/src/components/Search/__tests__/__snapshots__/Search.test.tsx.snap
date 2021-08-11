@@ -2,114 +2,11 @@
 
 exports[`Search tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-7 {
-  position: relative;
-}
-
-.emotion-0 {
+  .emotion-0 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-}
-
-.emotion-3 {
-  position: relative;
-}
-
-.emotion-3 label {
-  left: 44px;
-}
-
-.emotion-1 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #323845;
-  top: 0rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
-  margin: 0.625rem 0.25rem 0 0.5rem;
-}
-
-.emotion-6 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  color: #FFFFFF;
-  background-color: #2953B2;
-  font-size: 0.875rem;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.emotion-6:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-6:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-6:hover {
-  background-color: #214491;
-}
-
-.emotion-6:active {
-  background-color: #1a3470;
-}
-
-.emotion-6:disabled {
-  color: #323845;
-  background-color: #C4C5CA;
-}
-
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  visibility: visible;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
 }
 
 .emotion-2 {
@@ -168,8 +65,36 @@ exports[`Search tests should match snapshot 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
+.emotion-3 {
+  position: relative;
+}
+
+.emotion-3 label {
+  left: 44px;
+}
+
+.emotion-1 {
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  color: #323845;
+  top: 0rem;
+  left: 0rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 14px;
+  position: absolute;
+  margin: 0.625rem 0.25rem 0 0.5rem;
+}
+
+.emotion-4 {
+  position: relative;
+}
+
 <form
-    class="emotion-7"
+    aria-label=" Form"
+    class="emotion-4"
     role="search"
   >
     <span
@@ -177,9 +102,8 @@ exports[`Search tests should match snapshot 1`] = `
     >
       <label
         class="emotion-0"
-        for="search"
       >
-        placeholder
+         Input
       </label>
     </span>
     <div
@@ -199,8 +123,6 @@ exports[`Search tests should match snapshot 1`] = `
       </svg>
       <input
         class="emotion-2"
-        id="search"
-        placeholder="placeholder"
         value=""
       />
     </div>
@@ -208,18 +130,9 @@ exports[`Search tests should match snapshot 1`] = `
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
     >
       <button
-        class="emotion-6"
         type="submit"
       >
-        <div
-          class="emotion-5"
-        >
-          <div
-            class="emotion-4"
-          >
-             Search
-          </div>
-        </div>
+        Search
       </button>
     </span>
   </form>
@@ -254,99 +167,11 @@ exports[`Search tests should match snapshot on loading 1`] = `
   }
 }
 
-.emotion-8 {
-  position: relative;
-}
-
 .emotion-0 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
   font-variation-settings: 'wght' 92;
   font-size: 0.875rem;
-}
-
-.emotion-4 {
-  position: relative;
-}
-
-.emotion-4 label {
-  left: 44px;
-}
-
-.emotion-7 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  color: #FFFFFF;
-  background-color: #2953B2;
-  font-size: 0.875rem;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.emotion-7:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-7:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-7:hover {
-  background-color: #214491;
-}
-
-.emotion-7:active {
-  background-color: #1a3470;
-}
-
-.emotion-7:disabled {
-  color: #323845;
-  background-color: #C4C5CA;
-}
-
-.emotion-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  visibility: visible;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
 }
 
 .emotion-3 {
@@ -405,6 +230,18 @@ exports[`Search tests should match snapshot on loading 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
+.emotion-4 {
+  position: relative;
+}
+
+.emotion-4 label {
+  left: 44px;
+}
+
+.emotion-5 {
+  position: relative;
+}
+
 .emotion-2 {
   min-width: 20px;
   min-height: 20px;
@@ -432,7 +269,8 @@ exports[`Search tests should match snapshot on loading 1`] = `
 }
 
 <form
-    class="emotion-8"
+    aria-label=" Form"
+    class="emotion-5"
     role="search"
   >
     <span
@@ -440,9 +278,8 @@ exports[`Search tests should match snapshot on loading 1`] = `
     >
       <label
         class="emotion-0"
-        for="search"
       >
-        placeholder
+         Input
       </label>
     </span>
     <div
@@ -463,8 +300,6 @@ exports[`Search tests should match snapshot on loading 1`] = `
       </svg>
       <input
         class="emotion-3"
-        id="search"
-        placeholder="placeholder"
         value=""
       />
     </div>
@@ -472,18 +307,9 @@ exports[`Search tests should match snapshot on loading 1`] = `
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
     >
       <button
-        class="emotion-7"
         type="submit"
       >
-        <div
-          class="emotion-6"
-        >
-          <div
-            class="emotion-5"
-          >
-             Search
-          </div>
-        </div>
+        Search
       </button>
     </span>
   </form>

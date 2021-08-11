@@ -92,42 +92,40 @@ export function Dnd() {
   }
 
   return (
-    <DataGrid state={datagrid}>
-      <DataGrid.Table csx={{ width: 'unset' }}>
-        <DataGrid.Table.Head />
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="droppable">
-            {(droppableProvided) => (
-              <DataGrid.Table.Body ref={droppableProvided.innerRef}>
-                {(render) => (
-                  <Fragment>
-                    {render(({ key, item, index }) => (
-                      <Draggable draggableId={key} index={index}>
-                        {(draggableProvided, draggableSnapshot) => (
-                          <DataGrid.Table.Body.Row
-                            id={key}
-                            item={item}
-                            ref={draggableProvided.innerRef}
-                            {...draggableProvided.draggableProps}
-                            {...draggableProvided.dragHandleProps}
-                            csx={{
-                              ...draggableProvided.draggableProps.style,
-                              boxShadow: draggableSnapshot.isDragging
-                                ? 'menu'
-                                : 'none',
-                            }}
-                          />
-                        )}
-                      </Draggable>
-                    ))}
-                    {droppableProvided.placeholder}
-                  </Fragment>
-                )}
-              </DataGrid.Table.Body>
-            )}
-          </Droppable>
-        </DragDropContext>
-      </DataGrid.Table>
+    <DataGrid state={datagrid} csx={{ width: 'unset' }}>
+      <DataGrid.Head />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="droppable">
+          {(droppableProvided) => (
+            <DataGrid.Body ref={droppableProvided.innerRef}>
+              {(render) => (
+                <Fragment>
+                  {render(({ key, item, index }) => (
+                    <Draggable draggableId={key} index={index}>
+                      {(draggableProvided, draggableSnapshot) => (
+                        <DataGrid.Body.Row
+                          id={key}
+                          item={item}
+                          ref={draggableProvided.innerRef}
+                          {...draggableProvided.draggableProps}
+                          {...draggableProvided.dragHandleProps}
+                          csx={{
+                            ...draggableProvided.draggableProps.style,
+                            boxShadow: draggableSnapshot.isDragging
+                              ? 'menu'
+                              : 'none',
+                          }}
+                        />
+                      )}
+                    </Draggable>
+                  ))}
+                  {droppableProvided.placeholder}
+                </Fragment>
+              )}
+            </DataGrid.Body>
+          )}
+        </Droppable>
+      </DragDropContext>
     </DataGrid>
   )
 }

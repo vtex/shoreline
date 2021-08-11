@@ -63,7 +63,7 @@ export function Sidebar() {
     data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)
 
   const getTitle = (path: string) => findMeta(path)?.title ?? ''
-  const { current } = useSearchContext()
+  const search = useSearchContext()
   const [bulkVisible, setBulkVisile] = React.useState(false)
   const { pathname } = useLocation()
 
@@ -116,10 +116,10 @@ export function Sidebar() {
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
           const paths = node.paths
             .filter((path) =>
-              current !== ''
+              search.debouncedValue !== ''
                 ? getTitle(path)
                     .toLocaleLowerCase()
-                    .includes(current.toLowerCase())
+                    .includes(search.debouncedValue.toLowerCase())
                 : path
             )
             .map((path) => (

@@ -1,14 +1,14 @@
 import { useContext, createContext } from 'react'
+import type { SearchFormState } from '@vtex/admin-ui'
 
-import type { useSearchState } from '.'
-
-const SearchContext = createContext<ReturnType<typeof useSearchState>>({
-  current: '',
-  searchState: { value: '', onChange: () => null },
-})
+const SearchContext = createContext<SearchFormState | null>(null)
 
 export function useSearchContext() {
   const ctx = useContext(SearchContext)
+
+  if (!ctx) {
+    throw Error('Called search form outside of context')
+  }
 
   return ctx
 }

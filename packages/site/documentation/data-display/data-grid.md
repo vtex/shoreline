@@ -8,7 +8,7 @@ DataGrid is designed to render tabular data consistently for any kind of data ty
 
 ## State
 
-DataGrid is pretty much stateless. You need the help of `useDataGridState` state hook, like:
+DataGrid is pretty much stateless. The state hook `useDataGridState` contains all business logic needed for the component.
 
 ```jsx
 function Example() {
@@ -122,18 +122,6 @@ interface DataGridState<T> {
    * Action to take on click a row
    */
   onRowClick?: (item: T) => void
-  /**
-   * Current grid status
-   */
-  status: Status
-  /**
-   * Current grid status object (important for resolvers)
-   */
-  statusObject: StatusObject
-  /**
-   * set the current grid status
-   */
-  setStatus: SetStatus
 }
 
 /**
@@ -729,7 +717,8 @@ function ComposableMode() {
    */
   return (
     <DataGrid state={state}>
-      <DataGrid.Table />
+      <DataGrid.Head />
+      <DataGrid.Body />
     </DataGrid>
   )
 }
@@ -1216,7 +1205,9 @@ function DataFetchExample() {
    */
   const [update, setUpdate] = React.useState(false)
 
-  const state = useDataGridState({
+  const view = useDataViewState()
+  const grid = useDataGridState({
+    view,
     columns: [
       {
         id: 'name',
@@ -1241,30 +1232,30 @@ function DataFetchExample() {
   })
 
   React.useEffect(() => {
-    state.setStatus({
+    view.setStatus({
       type: 'loading',
     })
     request().then((d) => {
       setItems(d)
-      state.setStatus({
+      view.setStatus({
         type: 'ready',
       })
     })
   }, [update])
 
   return (
-    <DataGrid state={state}>
-      <DataGrid.Toolbar>
-        <DataGrid.Toolbar.Button
+    <DataView>
+      <DataViewControls>
+        <Button
           onClick={() => {
             setUpdate((u) => !u)
           }}
         >
           Simulate data fetching
-        </DataGrid.Toolbar.Button>
-      </DataGrid.Toolbar>
-      <DataGrid.Table />
-    </DataGrid>
+        </Button>
+      </DataViewControls>
+      <DataGrid state={grid} />
+    </DataView>
   )
 }
 

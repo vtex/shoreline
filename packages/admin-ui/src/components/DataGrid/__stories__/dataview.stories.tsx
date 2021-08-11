@@ -1,12 +1,12 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { DataGrid } from '../index'
-import { useDataGridState } from '../hooks/useDataGridState'
+import { DataView, DataViewControls, useDataViewState } from '../../DataView'
+import { DataGrid, useDataGridState } from '../index'
 import { Button } from '../../Button'
 
 export default {
-  title: 'admin-ui/DataGrid/status',
+  title: 'admin-ui/DataGrid/WithDataView',
   component: DataGrid,
 } as Meta
 
@@ -17,8 +17,10 @@ interface Item {
   price: number
 }
 
-export function Status() {
-  const state = useDataGridState<Item>({
+export function WithDataView() {
+  const view = useDataViewState()
+  const grid = useDataGridState<Item>({
+    view,
     columns: [
       {
         id: 'id',
@@ -60,22 +62,15 @@ export function Status() {
   })
 
   return (
-    <DataGrid
-      state={state}
-      csx={{
-        width: 500,
-      }}
-    >
-      <DataGrid.Section>
-        <Button onClick={() => state.setStatus({ type: 'ready' })}>
-          Ready
-        </Button>
-        <Button onClick={() => state.setStatus({ type: 'loading' })}>
+    <DataView csx={{ width: 500 }} state={view}>
+      <DataViewControls>
+        <Button onClick={() => view.setStatus({ type: 'ready' })}>Ready</Button>
+        <Button onClick={() => view.setStatus({ type: 'loading' })}>
           Loading
         </Button>
         <Button
           onClick={() =>
-            state.setStatus({
+            view.setStatus({
               type: 'error',
               message: 'Something went wrong',
               action: {
@@ -89,7 +84,7 @@ export function Status() {
         </Button>
         <Button
           onClick={() =>
-            state.setStatus({
+            view.setStatus({
               type: 'not-found',
               message: 'The params do not match',
               suggestion: 'Try a different text',
@@ -100,7 +95,7 @@ export function Status() {
         </Button>
         <Button
           onClick={() =>
-            state.setStatus({
+            view.setStatus({
               type: 'empty',
               message: 'You do not have any product yet',
               action: {
@@ -112,8 +107,8 @@ export function Status() {
         >
           Empty
         </Button>
-      </DataGrid.Section>
-      <DataGrid.Table />
-    </DataGrid>
+      </DataViewControls>
+      <DataGrid state={grid} />
+    </DataView>
   )
 }

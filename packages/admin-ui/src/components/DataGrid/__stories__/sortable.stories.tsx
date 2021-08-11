@@ -1,15 +1,13 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 import faker from 'faker'
-import { IconDevConsole } from '@vtex/admin-ui-icons'
 
 import { DataGrid } from '../index'
 import { useDataGridState } from '../hooks/useDataGridState'
-import type { DataGridColumn } from '../typings'
-import type { BaseResolvers } from '../resolvers/base'
+import { createColumns } from '../createColumns'
 
 export default {
-  title: 'admin-ui/DataGrid/toolbar',
+  title: 'admin-ui/DataGrid/sortable',
   component: DataGrid,
 } as Meta
 
@@ -29,10 +27,11 @@ const items = [...Array(10).keys()].map((id) => {
   }
 })
 
-const columns: Array<DataGridColumn<Item, BaseResolvers<Item>>> = [
+const columns = createColumns<Item>([
   {
     id: 'name',
     header: 'Product Name',
+    compare: (a, b) => b.name.localeCompare(a.name),
   },
   {
     id: 'lastSale',
@@ -46,23 +45,15 @@ const columns: Array<DataGridColumn<Item, BaseResolvers<Item>>> = [
       locale: 'en-US',
       currency: 'USD',
     },
+    compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
   },
-]
+])
 
-export function WithButtons() {
-  const state = useDataGridState<Item>({
+export function CompareFunction() {
+  const grid = useDataGridState<Item>({
     columns,
     items,
   })
 
-  return (
-    <DataGrid state={state} csx={{ width: 560 }}>
-      <DataGrid.Toolbar>
-        <DataGrid.Toolbar.Button icon={<IconDevConsole />}>
-          Download Code
-        </DataGrid.Toolbar.Button>
-      </DataGrid.Toolbar>
-      <DataGrid.Table />
-    </DataGrid>
-  )
+  return <DataGrid state={grid} csx={{ width: 560 }} />
 }
