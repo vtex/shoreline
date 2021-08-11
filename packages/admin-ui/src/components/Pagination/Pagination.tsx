@@ -36,7 +36,7 @@ export function Pagination(props: PaginationProps) {
         <Tooltip label={prevLabel}>
           <Button
             disabled={loading || prevDisabled}
-            onClick={() => paginate('prev')}
+            onClick={() => paginate({ type: 'prev' })}
             variant="adaptative-dark"
             size="small"
             icon={<IconCaret direction="left" />}
@@ -46,7 +46,7 @@ export function Pagination(props: PaginationProps) {
         <Tooltip label={nextLabel}>
           <Button
             disabled={loading || nextDisabled}
-            onClick={() => paginate('next')}
+            onClick={() => paginate({ type: 'next' })}
             variant="adaptative-dark"
             size="small"
             icon={<IconCaret direction="right" />}

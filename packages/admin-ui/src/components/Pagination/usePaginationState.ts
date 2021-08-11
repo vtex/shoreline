@@ -6,18 +6,18 @@ export function usePaginationState(
   const {
     pageSize,
     initialPage = 1,
-    total,
+    total = pageSize,
     stateReducer = defaultReducer,
   } = params
 
   const [state, dispatch] = useReducer(
     stateReducer,
-    getInitialState(initialPage, pageSize, total)
+    getState(initialPage, pageSize, total)
   )
 
   const paginate = useCallback(
-    (type: PaginationActionType) => {
-      dispatch({ type, pageSize })
+    (args: PaginationActionType) => {
+      dispatch({ ...args, pageSize })
     },
     [pageSize, dispatch]
   )
@@ -36,18 +36,18 @@ function setMax(value: number, max: number) {
   return value <= max ? value : max
 }
 
-function getInitialState(
-  initialPage: number,
+function getState(
+  page: number,
   pageSize: number,
   total: number
 ): PaginationState {
   const range: [number, number] = [
-    setMax((initialPage - 1) * pageSize + 1, total),
-    setMax(initialPage * pageSize, total),
+    setMax((page - 1) * pageSize + 1, total),
+    setMax(page * pageSize, total),
   ]
 
   return {
-    currentPage: initialPage,
+    currentPage: page,
     range,
     total,
     ...checkDisabled(range, total),
@@ -60,50 +60,23 @@ function defaultReducer(
 ): PaginationState {
   switch (action.type) {
     case 'next': {
-      const newPage = state.currentPage + 1
+      if (state.nextDisabled) return state
 
-      const draft: PaginationState = {
-        ...state,
-        currentPage: state.currentPage + 1,
-        range: [
-          setMax(state.range[1] + 1, state.total),
-          setMax(action.pageSize * newPage, state.total),
-        ],
-      }
-
-      return {
-        ...draft,
-        ...checkDisabled(draft.range, draft.total),
-      }
+      return getState(state.currentPage + 1, action.pageSize, state.total)
     }
 
     case 'prev': {
-      const draft: PaginationState = {
-        ...state,
-        currentPage: state.currentPage - 1,
-        range: [
-          setMax(state.range[0] - action.pageSize, state.total),
-          setMax(state.range[0] - 1, state.total),
-        ],
-      }
+      if (state.prevDisabled) return state
 
-      return {
-        ...draft,
-        ...checkDisabled(draft.range, draft.total),
-      }
+      return getState(state.currentPage - 1, action.pageSize, state.total)
     }
 
     case 'reset': {
-      const draft: PaginationState = {
-        ...state,
-        currentPage: 1,
-        range: [setMax(1, state.total), setMax(action.pageSize, state.total)],
-      }
+      return getState(1, action.pageSize, state.total)
+    }
 
-      return {
-        ...draft,
-        ...checkDisabled(draft.range, draft.total),
-      }
+    case 'setTotal': {
+      return getState(state.currentPage, action.pageSize, action.total)
     }
 
     default:
@@ -111,7 +84,14 @@ function defaultReducer(
   }
 }
 
-export type PaginationActionType = 'next' | 'prev' | 'reset'
+export type PaginationActionType =
+  | {
+      type: 'next' | 'prev' | 'reset'
+    }
+  | {
+      type: 'setTotal'
+      total: number
+    }
 
 export interface UsePaginationParams {
   /**
@@ -120,8 +100,9 @@ export interface UsePaginationParams {
   pageSize: number
   /**
    * Total of items that are being paginated
+   * @default pageSize
    */
-  total: number
+  total?: number
   /**
    * Inital page
    * @default 1
@@ -144,11 +125,10 @@ export interface PaginationState {
   nextDisabled: boolean
 }
 
-export interface PaginationAction {
-  type: PaginationActionType
+export type PaginationAction = PaginationActionType & {
   pageSize: number
 }
 
 export interface UsePaginationReturn extends PaginationState {
-  paginate: (type: PaginationActionType) => void
+  paginate: (args: PaginationActionType) => void
 }
