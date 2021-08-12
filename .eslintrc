@@ -48,7 +48,8 @@
         "jest/no-identical-title": "off",
         "jsx-a11y/click-events-have-key-events": "off",
         "default-case": "off",
-        "no-restricted-syntax": "off"
+        "no-restricted-syntax": "off",
+        "react/jsx-handler-names": "off"
       }
     }
   ],
@@ -85,6 +86,7 @@
     "jest/no-identical-title": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "default-case": "off",
-    "no-restricted-syntax": "off"
+    "no-restricted-syntax": "off",
+    "react/jsx-handler-names": "off"
   }
 }

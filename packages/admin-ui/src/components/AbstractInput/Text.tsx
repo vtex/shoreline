@@ -14,7 +14,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
   ref: Ref<HTMLInputElement>
 ) {
   const {
-    value = '',
+    value,
     csx = {},
     error = false,
     icon,
@@ -27,7 +27,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
 
   const { cn, stylesOf } = useSystem()
 
-  const showClear = !!onClear && value.toString().length > 0
+  const showClear = !!onClear && String(value).toString().length > 0
   const showButtons = !!suffix || !!buttonElements || onClear
 
   const inputClassName = cn({

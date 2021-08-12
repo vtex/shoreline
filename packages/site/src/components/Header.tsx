@@ -9,7 +9,7 @@ import { useSearchContext } from './Search'
 
 export default function Header() {
   const isLarge = useViewportWidthGreaterThan(768)
-  const { searchState } = useSearchContext()
+  const search = useSearchContext()
   const [border, setBorder] = useState('none')
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export default function Header() {
         csx={{
           width: 500,
         }}
-        {...searchState}
+        state={search}
       />
       <Anchor
         href="https://github.com/vtex/onda/tree/master/styleguides/admin/admin-ui"

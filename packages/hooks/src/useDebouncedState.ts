@@ -3,9 +3,9 @@ import { useState } from 'react'
 import { useDebouncedCallback } from './useDebounce'
 
 /**
- * React.useState with a debounced value
+ * React.useState with a debounced callback
  * @example
- * const [state, debouncedState, setState] = useDebouncedState({
+ * const [state, setState] = useDebouncedState({
  *  initalState: '',
  *  timeoutMs: 250
  * })

@@ -1,11 +1,11 @@
 import type { PropsWithChildren, ReactNode } from 'react'
 import React from 'react'
-import { Flex, tag } from '@vtex/admin-ui'
+import { Flex, tag, useSearchState } from '@vtex/admin-ui'
 
 import { Sidebar } from './Sidebar'
 import { TableOfContents } from './TableOfContents'
 import Header from './Header'
-import { SearchProvider, useSearchState } from './Search'
+import { SearchProvider } from './Search'
 
 function StickyBlock(props: PropsWithChildren<{ top?: number; pl?: number }>) {
   const { top = 0, pl = 0, children } = props

@@ -527,7 +527,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       value="Test1"
     />
   </div>
-  .emotion-2 {
+  .emotion-6 {
   position: relative;
 }
 
@@ -584,7 +584,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
-.emotion-1 {
+.emotion-5 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -597,16 +597,152 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   color: #707685;
 }
 
+.emotion-4 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: currentColor;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.emotion-4:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-4:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-4:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-4:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-4:disabled {
+  color: #898F9E;
+}
+
+.emotion-4 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
 <div
-    class="emotion-2"
+    class="emotion-6"
   >
     <input
       class="emotion-0"
-      value=""
     />
     <div
-      class="emotion-1"
-    />
+      class="emotion-5"
+    >
+      <button
+        aria-label="clear undefined text"
+        class="emotion-4"
+        type="button"
+      >
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="emotion-2"
+          >
+            <svg
+              class="emotion-1"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+        </div>
+      </button>
+    </div>
   </div>
   .emotion-6 {
   position: relative;
@@ -925,7 +1061,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
     </svg>
     <input
       class="emotion-1"
-      value=""
     />
   </div>
   .emotion-1 {
@@ -1030,7 +1165,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       value="Test3"
     />
   </div>
-  .emotion-2 {
+  .emotion-6 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1043,11 +1178,103 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   color: #707685;
 }
 
+.emotion-5 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: currentColor;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.emotion-5:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-5:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-5:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-5:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-5:disabled {
+  color: #898F9E;
+}
+
+.emotion-5 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
 .emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-2 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-7 {
   position: relative;
 }
 
-.emotion-3 label {
+.emotion-7 label {
   left: 44px;
 }
 
@@ -1119,7 +1346,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-3"
+    class="emotion-7"
   >
     <svg
       class="emotion-0"
@@ -1141,11 +1368,55 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
     </svg>
     <input
       class="emotion-1"
-      value=""
     />
     <div
-      class="emotion-2"
-    />
+      class="emotion-6"
+    >
+      <button
+        aria-label="clear undefined text"
+        class="emotion-5"
+        type="button"
+      >
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-3"
+          >
+            <svg
+              class="emotion-2"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+        </div>
+      </button>
+    </div>
   </div>
   .emotion-6 {
   right: 0rem;
@@ -1491,7 +1762,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   >
     <input
       class="emotion-0"
-      value=""
     />
     <div
       class="emotion-2"
@@ -1605,11 +1875,11 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       </span>
     </div>
   </div>
-  .emotion-3 {
+  .emotion-7 {
   position: relative;
 }
 
-.emotion-2 {
+.emotion-6 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1622,7 +1892,99 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   color: #707685;
 }
 
+.emotion-4 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: currentColor;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.emotion-4:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-4:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-4:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-4:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-4:disabled {
+  color: #898F9E;
+}
+
+.emotion-4 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
 .emotion-1 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-5 {
   color: #898F9E;
   border-left-style: solid;
   border-left-width: 1px;
@@ -1690,17 +2052,60 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-3"
+    class="emotion-7"
   >
     <input
       class="emotion-0"
-      value=""
     />
     <div
-      class="emotion-2"
+      class="emotion-6"
     >
+      <button
+        aria-label="clear undefined text"
+        class="emotion-4"
+        type="button"
+      >
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="emotion-2"
+          >
+            <svg
+              class="emotion-1"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+        </div>
+      </button>
       <span
-        class="emotion-1"
+        class="emotion-5"
       >
         Kg
       </span>
@@ -1831,7 +2236,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
     </svg>
     <input
       class="emotion-1"
-      value=""
     />
     <div
       class="emotion-3"
@@ -1843,7 +2247,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
       </span>
     </div>
   </div>
-  .emotion-3 {
+  .emotion-7 {
   right: 0rem;
   top: 0.25rem;
   height: 46px;
@@ -1856,11 +2260,103 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   color: #707685;
 }
 
+.emotion-5 {
+  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'wght' 92;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: currentColor;
+  background-color: transparent;
+  font-size: 0.75rem;
+  height: 32px;
+  width: 32px;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.emotion-5:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-5:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-5:hover {
+  background-color: rgba(50,56,69,0.04);
+}
+
+.emotion-5:active {
+  background-color: rgba(50,56,69,0.08);
+}
+
+.emotion-5:disabled {
+  color: #898F9E;
+}
+
+.emotion-5 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.25rem;
+}
+
 .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-2 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-8 {
   position: relative;
 }
 
-.emotion-4 label {
+.emotion-8 label {
   left: 44px;
 }
 
@@ -1878,7 +2374,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   position: absolute;
 }
 
-.emotion-2 {
+.emotion-6 {
   color: #898F9E;
   border-left-style: solid;
   border-left-width: 1px;
@@ -1946,7 +2442,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-4"
+    class="emotion-8"
   >
     <svg
       class="emotion-0"
@@ -1968,13 +2464,56 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
     </svg>
     <input
       class="emotion-1"
-      value=""
     />
     <div
-      class="emotion-3"
+      class="emotion-7"
     >
+      <button
+        aria-label="clear undefined text"
+        class="emotion-5"
+        type="button"
+      >
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-3"
+          >
+            <svg
+              class="emotion-2"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 9.16992L9.16998 14.8299"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M14.83 14.8299L9.16998 9.16992"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+             
+          </div>
+        </div>
+      </button>
       <span
-        class="emotion-2"
+        class="emotion-6"
       >
         Kg
       </span>

@@ -27,6 +27,7 @@
     - /feedback/toast/
 - section: Data display
   paths:
+    - /data-display/data-view/
     - /data-display/data-grid/
     - /data-display/card/
     - /data-display/collapsible-group/
@@ -35,14 +36,6 @@
     - /data-display/tag/
     - /data-display/visually-hidden/
     - /data-display/filter-bar/
-- section: Table
-  paths:
-    - /table/basic/
-    - /table/column/
-    - /table/section/
-    - /table/filter-bar/
-    - /table/sortable/
-    - /table/views/
 - section: Layouts
   paths:
     - /layouts/introduction/
@@ -66,6 +59,7 @@
     - /tabs/
     - /tooltip/
     - /pagination/
+    - /toolbar/
 - section: Forms
   paths:
     - /form/checkbox-group/

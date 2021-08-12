@@ -31,12 +31,11 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background-color: #F4F6FB;
-  border-radius: 4px;
   padding-top: 3.375rem;
   padding-bottom: 3.375rem;
   overflow: auto;
   width: 100%;
+  height: 100%;
 }
 
 .emotion-4 {
@@ -447,12 +446,11 @@ exports[`DataViewStatus should match snapshot error 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background-color: #F4F6FB;
-  border-radius: 4px;
   padding-top: 3.375rem;
   padding-bottom: 3.375rem;
   overflow: auto;
   width: 100%;
+  height: 100%;
 }
 
 .emotion-4 {
@@ -837,12 +835,11 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background-color: #F4F6FB;
-  border-radius: 4px;
   padding-top: 3.375rem;
   padding-bottom: 3.375rem;
   overflow: auto;
   width: 100%;
+  height: 100%;
 }
 
 .emotion-4 {
