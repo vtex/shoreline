@@ -16,6 +16,7 @@ export function useQueryState(
   )
 
   useEffect(() => {
+    if (!window) return
     window.onpopstate = function onPopstateChange() {
       setQueryParams(new URLSearchParams(window.location.search))
     }

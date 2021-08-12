@@ -91,6 +91,7 @@ describe('Pagination', () => {
     expect(getByTestId('pagination')).toHaveTextContent('6 — 10 of 50 results')
   })
 
+  // window.history.back() not work (test pass because there is not await before waitFor)
   it('should starts in a specific page and persisted state', async () => {
     setQuery({ page: 3 })
 
