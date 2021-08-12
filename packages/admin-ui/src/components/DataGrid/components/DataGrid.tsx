@@ -19,21 +19,18 @@ const _DataGrid = jsx.table(
   {
     useOptions(options: DataGridOptions, props) {
       const { state } = options
-      const { Providers } = state
       const { children, ...dtgProps } = props
 
       return {
         ...dtgProps,
         children: (
           <StateContext.Provider value={state}>
-            <Providers>
-              {children ?? (
-                <Fragment>
-                  <Head />
-                  <Body />
-                </Fragment>
-              )}
-            </Providers>
+            {children ?? (
+              <Fragment>
+                <Head />
+                <Body />
+              </Fragment>
+            )}
           </StateContext.Provider>
         ),
       }
