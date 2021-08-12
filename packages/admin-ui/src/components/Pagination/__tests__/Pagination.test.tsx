@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Pagination } from '../index'
-import { usePaginationState } from '../usePaginationState'
+import { usePaginationState } from '../hooks/usePaginationState'
 import { jestMatchMedia, withState, render } from '../../../test-utils'
 
 const StatefulPagination = withState(Pagination, () =>

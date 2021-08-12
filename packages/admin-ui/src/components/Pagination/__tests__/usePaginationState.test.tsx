@@ -1,7 +1,7 @@
-import { usePaginationState } from '../usePaginationState'
+import { usePaginationState } from '../hooks/usePaginationState'
 import { renderHook, act } from '@testing-library/react-hooks'
 
-describe('usePersistedState tests', () => {
+describe('usePaginationState tests', () => {
   it('paginate next', async () => {
     const { result, waitFor } = renderHook(() =>
       usePaginationState({

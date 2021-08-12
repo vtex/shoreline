@@ -1,2 +1,10 @@
 export * from './Pagination'
-export * from './usePaginationState'
+export {
+  usePaginationState,
+  PaginationActionType,
+  UsePaginationParams,
+  PaginationState,
+  PaginationAction,
+  UsePaginationReturn,
+} from './hooks/usePaginationState'
+export * from './hooks/usePersistedPaginationState'

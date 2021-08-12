@@ -54,7 +54,7 @@ function getState(
   }
 }
 
-function defaultReducer(
+export function defaultReducer(
   state: PaginationState,
   action: PaginationAction
 ): PaginationState {
@@ -75,6 +75,10 @@ function defaultReducer(
       return getState(1, action.pageSize, state.total)
     }
 
+    case 'navigate': {
+      return getState(action.page, action.pageSize, state.total)
+    }
+
     case 'setTotal': {
       return getState(state.currentPage, action.pageSize, action.total)
     }
@@ -91,6 +95,10 @@ export type PaginationActionType =
   | {
       type: 'setTotal'
       total: number
+    }
+  | {
+      type: 'navigate'
+      page: number
     }
 
 export interface UsePaginationParams {

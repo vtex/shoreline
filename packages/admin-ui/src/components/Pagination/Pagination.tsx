@@ -7,7 +7,7 @@ import { Set } from '../Set'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
-import type { UsePaginationReturn } from './usePaginationState'
+import type { UsePaginationReturn } from './hooks/usePaginationState'
 
 export function Pagination(props: PaginationProps) {
   const {
