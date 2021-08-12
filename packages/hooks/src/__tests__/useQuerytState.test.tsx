@@ -21,7 +21,15 @@ const setQuery = (query: Record<string, any> = {}): boolean => {
   return true
 }
 
+const cleanQuery = () => {
+  const newurl = `${window.location.protocol}//${window.location.host}${window.location.pathname}`
+
+  window.history.pushState({ path: newurl }, '', newurl)
+}
+
 describe('usePersistedState tests', () => {
+  beforeEach(cleanQuery)
+
   it('query is update when calls setState', async () => {
     const { result, waitFor } = renderHook(() =>
       useQueryState({
@@ -70,5 +78,57 @@ describe('usePersistedState tests', () => {
     expect(result.current[0]).toStrictEqual(initialValue)
     expect(typeof result.current[1]).toBe('function')
     expect(result.current[2]).toStrictEqual(initialValue)
+  })
+
+  it('query is update on popstate called', async () => {
+    const { result, waitFor } = renderHook(() =>
+      useQueryState({
+        keys: ['myParam'],
+      })
+    )
+
+    expect(result.current[2]).toStrictEqual({})
+
+    const param1: Record<string, any> = { myParam: 10 }
+
+    act(() => {
+      result.current[1](param1)
+    })
+
+    waitFor(() => expect(result.current[2]).toStrictEqual(param1))
+
+    const param2: Record<string, any> = { myParam: 100 }
+
+    act(() => {
+      result.current[1](param2)
+    })
+
+    waitFor(() => expect(result.current[2]).toStrictEqual(param2))
+
+    const param3: Record<string, any> = { myParam: 1000 }
+
+    act(() => {
+      result.current[1](param3)
+    })
+
+    waitFor(() => expect(result.current[2]).toStrictEqual(param3))
+
+    act(() => {
+      window.history.back()
+    })
+
+    waitFor(() => expect(result.current[2]).toStrictEqual(param2))
+
+    act(() => {
+      window.history.back()
+    })
+
+    waitFor(() => expect(result.current[2]).toStrictEqual(param1))
+
+    act(() => {
+      window.history.forward()
+    })
+
+    waitFor(() => expect(result.current[2]).toStrictEqual(param2))
   })
 })
