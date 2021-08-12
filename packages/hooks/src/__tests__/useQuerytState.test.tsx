@@ -80,6 +80,7 @@ describe('usePersistedState tests', () => {
     expect(result.current[2]).toStrictEqual(initialValue)
   })
 
+  // window.history.back() not work (test pass because there is not await before waitFor)
   it('query is update on popstate called', async () => {
     const { result, waitFor } = renderHook(() =>
       useQueryState({

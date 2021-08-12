@@ -73,6 +73,7 @@ describe('usePersistedPaginationState tests', () => {
     expect(window.location.href).toContain(`page=3`)
   })
 
+  // window.history.back() not work (test pass because there is not await before waitFor)
   it('query is update on popstate called', async () => {
     const { result, waitFor } = renderHook(() =>
       usePersistedPaginationState({
