@@ -72,10 +72,8 @@ The pagination state object is composed of the `currentPage` prop and the `range
 
 For convenience, we also provide a hook that already implements the state logic for you. You should pass the hook return to the `state` property.
 
-### Parameter
+#### Parameter
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 | Name         | Type                                                                    | Description                                                                        | Required | Default                            |
 | ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ---------------------------------- |
 | pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                  |
@@ -114,19 +112,4 @@ function Example() {
   )
 }
 ```
-=======
-| Name                   | Type                                                                    | Description                                                                                                    | Required | Default                                |
-| ---------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------- |
-| pageSize                   | `number`                                                                | Amount of items that will be displayed in a page                                                               | ✅       | -                                      |
-| stateReducer      | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer                             | 🚫       | usePagination hook default reducer     |
-| total       | `number`              | Total amount of items in a collection                                          | ✅       | -       |
-| initialPage | `number` | The initial state of pagination | 🚫  | 1 |
->>>>>>> feat(pagination): change pagination state hook resposability
-=======
-| Name         | Type                                                                    | Description                                                                        | Required | Default                            |
-| ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ---------------------------------- |
-| pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                  |
-| stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | usePagination hook default reducer |
-| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | pageSize                           |
-| initialPage  | `number`                                                                | The initial state of pagination                                                    | 🚫       | 1                                  |
->>>>>>> fix(usepaginationstate): add setTotal action in paginate to make possible update total
+
