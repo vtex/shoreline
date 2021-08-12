@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useMemo, useRef, useEffect, useState } from 'react'
 
 /**
  * @example
@@ -11,7 +11,19 @@ export function useQueryState(
   (v: Record<string, any>) => void,
   Record<string, any>
 ] {
-  const queryParams = new URLSearchParams(window.location.search)
+  const [queryParams, setQueryParams] = useState(
+    new URLSearchParams(window.location.search)
+  )
+
+  useEffect(() => {
+    window.onpopstate = function onPopstateChange() {
+      setQueryParams(new URLSearchParams(window.location.search))
+    }
+
+    return () => {
+      window.onpopstate = () => {}
+    }
+  }, [])
 
   const query: Record<string, string> = useMemo(() => {
     return params.keys.reduce(function (acc, curr) {
