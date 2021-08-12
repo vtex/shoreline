@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.107.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.6...@vtex/admin-ui@0.107.0) (2021-08-12)
+
+### Bug Fixes
+
+- **toolbar:** behavior of item ([c80a5f0](https://github.com/vtex/onda/commit/c80a5f0d836556c86cf3b6996572da52e7a6bade))
+
+### Features
+
+- **dataview:** add component ([16e0581](https://github.com/vtex/onda/commit/16e05811de881c284e63ea4fe6af5873724161de))
+- **search:** create state hook ([8248c5c](https://github.com/vtex/onda/commit/8248c5c53fd24fa06d75c91103a1125a70cae94c))
+- **table:** deprecate Table and PowerfulTable ([c83b9b0](https://github.com/vtex/onda/commit/c83b9b034dc3dbedd0d439a2bc5516a89c94ad76))
+- **toolbar:** create component ([cefd22d](https://github.com/vtex/onda/commit/cefd22d9f5dcdbcba3b73107dd1958417b7eb808))
+
 ## [0.106.6](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.5...@vtex/admin-ui@0.106.6) (2021-08-03)
 
 ### Bug Fixes

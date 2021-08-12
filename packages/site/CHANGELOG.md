@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.12.45...admin-site@0.13.0) (2021-08-12)
+
+### Bug Fixes
+
+- **toolbar:** behavior of item ([c80a5f0](https://github.com/vtex/onda/tree/master/packages/site/commit/c80a5f0d836556c86cf3b6996572da52e7a6bade))
+
+### Features
+
+- **search:** create state hook ([8248c5c](https://github.com/vtex/onda/tree/master/packages/site/commit/8248c5c53fd24fa06d75c91103a1125a70cae94c))
+- **table:** deprecate Table and PowerfulTable ([c83b9b0](https://github.com/vtex/onda/tree/master/packages/site/commit/c83b9b034dc3dbedd0d439a2bc5516a89c94ad76))
+- **toolbar:** create component ([cefd22d](https://github.com/vtex/onda/tree/master/packages/site/commit/cefd22d9f5dcdbcba3b73107dd1958417b7eb808))
+
 ## [0.12.45](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.12.44...admin-site@0.12.45) (2021-08-03)
 
 **Note:** Version bump only for package admin-site

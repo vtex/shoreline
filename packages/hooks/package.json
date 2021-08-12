@@ -2,7 +2,7 @@
   "name": "@vtex/onda-hooks",
   "description": "VTEX/onda shared hooks",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/onda-hooks.esm.js",
   "typings": "dist/index.d.ts",
