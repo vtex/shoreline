@@ -90,6 +90,8 @@ exports[`Search tests should match snapshot 1`] = `
 
 .emotion-4 {
   position: relative;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 <form
@@ -240,6 +242,8 @@ exports[`Search tests should match snapshot on loading 1`] = `
 
 .emotion-5 {
   position: relative;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 .emotion-2 {
