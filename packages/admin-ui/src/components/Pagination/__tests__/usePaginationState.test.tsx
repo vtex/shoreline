@@ -67,6 +67,27 @@ describe('usePaginationState tests', () => {
     expect(result.current.range[1]).toEqual(10)
   })
 
+  it('paginate navigate', async () => {
+    const { result, waitFor } = renderHook(() =>
+      usePaginationState({
+        pageSize: 10,
+        total: 100,
+      })
+    )
+
+    expect(result.current.currentPage).toEqual(1)
+    expect(result.current.range[0]).toEqual(1)
+    expect(result.current.range[1]).toEqual(10)
+
+    act(() => {
+      result.current.paginate({ type: 'navigate', page: 4 })
+    })
+
+    waitFor(() => expect(result.current.currentPage).toEqual(4))
+    expect(result.current.range[0]).toEqual(31)
+    expect(result.current.range[1]).toEqual(40)
+  })
+
   it('pagination limits', async () => {
     const { result, waitFor } = renderHook(() =>
       usePaginationState({
