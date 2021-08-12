@@ -12,7 +12,12 @@ import { DataView, useDataViewState } from '../index'
 import { DataViewControls } from '../components/DataViewControls'
 import { Button } from '../../Button'
 import { Spinner } from '../../Spinner'
-import { Toolbar, ToolbarItem, useToolbarState } from '../../Toolbar'
+import {
+  Toolbar,
+  ToolbarButton,
+  ToolbarItem,
+  useToolbarState,
+} from '../../Toolbar'
 import { MenuDisclosure, useMenuState, StatelessMenu as Menu } from '../../Menu'
 
 export default {
@@ -57,16 +62,12 @@ export function ToolbarControls() {
     <DataView state={view}>
       <DataViewControls>
         <Toolbar state={toolbar} aria-label="DataView Toolbar">
-          <ToolbarItem>
-            <Button size="small" variant="adaptative-dark">
-              Export
-            </Button>
-          </ToolbarItem>
-          <ToolbarItem>
-            <Button size="small" variant="adaptative-dark">
-              Import
-            </Button>
-          </ToolbarItem>
+          <ToolbarButton size="small" variant="adaptative-dark">
+            Export
+          </ToolbarButton>
+          <ToolbarButton size="small" variant="adaptative-dark">
+            Import
+          </ToolbarButton>
           <ToolbarItem>
             {(itemProps) => (
               <MenuDisclosure state={menu}>

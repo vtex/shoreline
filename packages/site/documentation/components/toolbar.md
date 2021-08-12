@@ -9,7 +9,12 @@ Accessible Toolbar component that follows the [WAI-ARIA Toolbar Pattern](https:/
 ## Import
 
 ```jsx isStatic
-import { Toolbar, ToolbarItem, useToolbarState } from '@vtex/admin-ui'
+import {
+  Toolbar,
+  ToolbarItem,
+  ToolbarButton,
+  useToolbarState,
+} from '@vtex/admin-ui'
 ```
 
 ## Behavior
@@ -22,23 +27,17 @@ function Example() {
 
   return (
     <Toolbar state={toolbar} aria-label="Example Toolbar">
-      <ToolbarItem>
-        <Button>Item 1</Button>
-      </ToolbarItem>
-      <ToolbarItem>
-        <Button>Item 2</Button>
-      </ToolbarItem>
-      <ToolbarItem>
-        <Button>Item 3</Button>
-      </ToolbarItem>
+      <ToolbarButton>Item 1</ToolbarButton>
+      <ToolbarButton>Item 2</ToolbarButton>
+      <ToolbarButton>Item 3</ToolbarButton>
     </Toolbar>
   )
 }
 ```
 
-## ToolbarItem
+## ToolbarButton
 
-You can pass any focusable element as `ToolbarItem` children.
+A [Button](/button/) ready for the `Toolbar`
 
 ```jsx
 function Example() {
@@ -46,29 +45,17 @@ function Example() {
 
   return (
     <Toolbar state={toolbar} aria-label="Example Toolbar">
-      <ToolbarItem>
-        <Button>Item 1</Button>
-      </ToolbarItem>
-      <ToolbarItem>
-        <button>Item 2</button>
-      </ToolbarItem>
-      <ToolbarItem>
-        <tag.button 
-          csx={{
-            bg: 'blue.secondary'
-          }}
-        >
-          Item 3
-        </tag.button>
-      </ToolbarItem>
+      <ToolbarButton>Item 1</ToolbarButton>
+      <ToolbarButton variant="secondary">Item 2</ToolbarButton>
+      <ToolbarButton variant="tertiary">Item 3</ToolbarButton>
     </Toolbar>
   )
 }
 ```
 
-### Render Props
+## ToolbarItem
 
-For better composition, you can also pass a function as `ToolbarItem` children. It has the item props as callback so that the render can be customized. This is useful to trigger Menus and Modals.
+For composition, you can use `ToolbarItem`. It has the item props as callback so that the render can be customized. This is useful to trigger Menus, Modals and so on.
 
 ```jsx
 function Example() {
@@ -98,7 +85,7 @@ function Example() {
           )}
         </ToolbarItem>
       </Toolbar>
-      
+
       <StatelessMenu aria-label="actions" state={menuState}>
         <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
         <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
@@ -129,7 +116,6 @@ function Example() {
     </tag.div>
   )
 }
-
 ```
 
 ## Accessibility
@@ -149,17 +135,22 @@ const state = useToolbarState()
 ```jsx isStatic
 // ✅ Good
 <ToolbarItem>
-  <button>action</button>
+  (props => <button {...props}>action</button>)
+</ToolbarItem>
+
+// ✅ Good
+<ToolbarItem>
+  (props => <Clickable {...props}>clickable surface</Clickable>)
 </ToolbarItem>
 
 // 🚨 Bad
 <ToolbarItem>
-  <div>action</div>
+  (props => <div {...props}>action</div>)
 </ToolbarItem>
 
 // 🚨 Bad
 <ToolbarItem>
-  <div role="button">action</div>
+  (props => <div role="button" {...props}>action</div>)
 </ToolbarItem>
 ```
 
@@ -174,8 +165,8 @@ const state = useToolbarState()
 
 ### Toolbar props
 
-| Name | Type | Description | Required | Default |
-| --- | --- | --- | --- | --- |
-| state | `ToolbarState` | Toolbar state | ✅ | - |
-| disabled | `boolean` | Same as the HTML attribute | 🚫 | - |
-| focusable | `boolean` | When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set | 🚫 | - |
+| Name      | Type           | Description                                                                                                                                           | Required | Default |
+| --------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| state     | `ToolbarState` | Toolbar state                                                                                                                                         | ✅       | -       |
+| disabled  | `boolean`      | Same as the HTML attribute                                                                                                                            | 🚫       | -       |
+| focusable | `boolean`      | When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set | 🚫       | -       |

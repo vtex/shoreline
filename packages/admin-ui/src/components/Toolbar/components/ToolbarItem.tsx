@@ -1,8 +1,7 @@
-import type { ReactElement, ReactNode } from 'react'
-import React, { cloneElement } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import { ToolbarItem as BaseToolbarItem } from 'reakit/Toolbar'
 import type { ExtractHTMLAttributes } from 'reakit-utils/ts'
-import { isFunction } from '@vtex/onda-util'
 
 import { useToolbarContext } from '../context'
 
@@ -14,12 +13,9 @@ import { useToolbarContext } from '../context'
  * const state = useToolbarState()
  *
  * <Toolbar state={state}>
- *  <Toolbar.Item>
- *   <Button>Item</Button>
- *  </Toolbar.Item>
- *  <Toolbar.Item>
+ *  <ToolbarItem>
  *   {(itemProps) => <Button {...itemProps}>Render props item</Button>}
- *  </Toolbar.Item>
+ *  </ToolbarItem>
  * </Toolbar>
  */
 export function ToolbarItem(props: ToolbarItemProps) {
@@ -28,17 +24,11 @@ export function ToolbarItem(props: ToolbarItemProps) {
 
   return (
     <BaseToolbarItem {...state}>
-      {(itemProps) =>
-        isFunction(children)
-          ? (children as CallableFunction)(itemProps)
-          : cloneElement(children as ReactElement, itemProps)
-      }
+      {(itemProps) => children(itemProps)}
     </BaseToolbarItem>
   )
 }
 
 interface ToolbarItemProps {
-  children:
-    | ReactElement
-    | ((itemProps: ExtractHTMLAttributes<any>) => ReactNode)
+  children: (itemProps: ExtractHTMLAttributes<any>) => ReactNode
 }

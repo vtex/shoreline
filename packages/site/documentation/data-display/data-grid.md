@@ -63,6 +63,7 @@ function Example() {
 | Name       | Type                          | Description                                                                | Required | Default                       |
 | ---------- | ----------------------------- | -------------------------------------------------------------------------- | -------- | ----------------------------- |
 | columns    | `Column<T>[]`                 | Table column spec                                                          | ✅       | -                             |
+| view       | `DataViewState`               | Related DataView state                                                     | 🚫       | -                             |
 | context    | `ResolverContext`             | Resolver context                                                           | 🚫       | -                             |
 | resolvers  | `Record<string, Resolver<T>>` | Table field resolvers                                                      | 🚫       | Table's default resolvers     |
 | items      | `T[]`                         | Table items                                                                | 🚫       | `[]`                          |
@@ -271,7 +272,7 @@ function Example() {
              * this is only required by the root resolver
              * the other ones, take care of this for you
              */
-            if (context.loading) {
+            if (context.status === 'loading') {
               return <Skeleton csx={{ height: 24 }} />
             }
 
@@ -361,7 +362,7 @@ function Example() {
         resolver: {
           type: 'plain',
           /**
-           * this is how to use render function
+           * this is how to use the render function
            */
           render: function Render({ data }) {
             return (
@@ -678,12 +679,38 @@ This function is called with an object containing the current sort state, the di
 
 ## Composition
 
-The `DataGrid` is also a compound component. To use the composable mode, you just need to pass children for it. For example:
+The `DataGrid` is designed to easily integrate with other components to create the view. You must understand the concept of the [DataView Pattern](/data-display/data-view/) before reading this section.
+
+### Anatomy
+
+Normally you will encounter DataGrid as the data-rendering part of the data-view, for example:
+
+```txt isStatic
+DataView
+|__ DataViewControls
+|   |__ Search
+|   |__ Toolbar
+|   |   |__ Button
+|   |__ Pagination
+|
+|__ DataGrid
+    |__ .Head
+    |   |__ .Cell
+    |__ .Body
+        |__ .Row
+            |__ .Cell
+```
 
 ```jsx
-function ComposableMode() {
-  const state = useDataGridState({
+function WithinDataView() {
+  const view = useDataViewState()
+  const grid = useDataGridState({
     columns: [
+      /**
+       * For easier usage, you can define the related view
+       * within inside of the DataGrid state hook
+       */
+      view,
       {
         id: 'productName',
         header: 'Product name',
@@ -712,89 +739,17 @@ function ComposableMode() {
     ],
   })
 
-  /**
-   * You need to declare where the table is going to be
-   */
   return (
-    <DataGrid state={state}>
-      <DataGrid.Head />
-      <DataGrid.Body />
-    </DataGrid>
+    <DataView state={view}>
+      <DataGrid state={grid} />
+    </DataView>
   )
 }
 ```
 
-### Anatomy
+### Search Form
 
-```txt isStatic
-DataGrid
-|__ .Section
-|   |__ Search
-|   |__ Toolbar
-|       |__ ...Button
-|       |__ Filters
-|   |__ Pagination
-|__ .Table
-    |__ .Head
-    |   |__ .Cell
-    |__ .Body
-        |__ .Row
-            |__ .Cell
-```
-
-### Section
-
-The section is a way to compose the `DataGrid` with other components. You can use it to render buttons, inputs, filters, and so on.
-
-```jsx noInline
-function SectionExample() {
-  const state = useDataGridState({
-    columns: [
-      {
-        id: 'productName',
-        header: 'Product Name',
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-    ],
-    items: [
-      {
-        id: 1,
-        productName: 'Orange',
-        inStock: 380,
-        skus: 0,
-        price: 80,
-      },
-    ],
-    length: 5,
-  })
-
-  return (
-    <DataGrid state={state}>
-      <DataGrid.Section>
-        <Button>A custom button</Button>
-      </DataGrid.Section>
-      <DataGrid.Table />
-    </DataGrid>
-  )
-}
-
-render(<SectionExample />)
-```
-
-### Search Input
-
-You can use the [Search](/form/search) component to filter the data.
+Example using the [Search](/form/search) component to filter the data.
 
 ```jsx noInline
 const items = [
@@ -821,18 +776,22 @@ const items = [
   },
 ]
 
-function SearchExample() {
-  const [search, setSearch] = React.useState('')
+function WithSearch() {
+  const view = useDataViewState()
+  const search = useSearchState()
+
   const searchedItems = React.useMemo(() => {
-    return items.filter((product) => {
-      return (
-        product.productName.toLowerCase().indexOf(search.toLocaleLowerCase()) >
-        -1
+    return items.filter((item) =>
+      item.productName.toLowerCase().startsWith(
+        // use the search debounced value to
+        // filter the collection
+        search.debouncedValue.toLocaleLowerCase()
       )
-    })
+    )
   }, [search])
 
-  const state = useDataGridState({
+  const grid = useDataGridState({
+    view,
     columns: [
       {
         id: 'productName',
@@ -856,48 +815,44 @@ function SearchExample() {
   })
 
   return (
-    <DataGrid state={state}>
-      <DataGrid.Section>
-        <DataGrid.Search
-          id="search"
-          placeholder="Search"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value)
-          }}
-        />
-      </DataGrid.Section>
-      <DataGrid.Table />
-    </DataGrid>
+    <DataView state={view}>
+      <DataViewControls>
+        <Search id="search" placeholder="Search" state={search} />
+      </DataViewControls>
+      <DataGrid state={grid} />
+    </DataView>
   )
 }
 
-render(<SearchExample />)
+render(<WithSearch />)
 ```
 
 ### Toolbar
 
-The toolbar is an accessible component that follows the [WAI-ARIA Toolbar Pattern](https://www.w3.org/TR/wai-aria-practices/#toolbar). It's a container for grouping a set of controls, by using `Toolbar.Button` (it has the same props of [Button](/button)).
+Example using the [Toolbar](/toolbar/) component.
 
-```jsx noInline
-function ToolbarExample() {
-  const state = useDataGridState({
+```jsx
+function WithToolbar() {
+  const toolbar = useToolbarState()
+  const view = useDataViewState()
+  const grid = useDataGridState({
     columns: [
+      view,
       {
         id: 'productName',
-        header: 'Product Name',
+        header: 'Product name',
       },
       {
         id: 'inStock',
         header: 'In Stock',
       },
       {
-        id: 'skus',
-        header: 'SKUs',
-      },
-      {
         id: 'price',
         header: 'Price',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
       },
     ],
     items: [
@@ -906,35 +861,40 @@ function ToolbarExample() {
         productName: 'Orange',
         inStock: 380,
         skus: 0,
-        price: 80,
+        price: 120,
       },
     ],
-    length: 5,
   })
 
   return (
-    <DataGrid state={state}>
-      <DataGrid.Section>
-        <DataGrid.Toolbar>
-          <DataGrid.Toolbar.Button icon={<IconImport />}>
+    <DataView state={view}>
+      <DataViewControls>
+        <Toolbar state={toolbar}>
+          <ToolbarButton
+            size="small"
+            variant="adaptative-dark"
+            icon={<IconImport />}
+          >
             Import
-          </DataGrid.Toolbar.Button>
-          <DataGrid.Toolbar.Button icon={<IconExport />}>
+          </ToolbarButton>
+          <ToolbarButton
+            size="small"
+            variant="adaptative-dark"
+            icon={<IconExport />}
+          >
             Export
-          </DataGrid.Toolbar.Button>
-        </DataGrid.Toolbar>
-      </DataGrid.Section>
-      <DataGrid.Table />
-    </DataGrid>
+          </ToolbarButton>
+        </Toolbar>
+      </DataViewControls>
+      <DataGrid state={grid} />
+    </DataView>
   )
 }
-
-render(<ToolbarExample />)
 ```
 
 ### Pagination
 
-You can pass the [Pagination](/pagination) component within [Section](/data-grid/#section/) and use it to paginate the collection.
+Example using the [Pagination](/pagination) component.
 
 ```jsx noInline
 const NUMBER_OF_ITEMS = 100
@@ -951,12 +911,13 @@ const items = Array(NUMBER_OF_ITEMS)
     }
   })
 
-function PaginationExample() {
-  const paginationState = usePaginationState({
+function WithPagination() {
+  const view = useDataViewState()
+  const pagination = usePaginationState({
     size: ITEMS_PER_PAGE,
   })
-
-  const state = useDataGridState({
+  const grid = useDataGridState({
+    view,
     columns: [
       {
         id: 'name',
@@ -976,36 +937,34 @@ function PaginationExample() {
         },
       },
     ],
-    items: items.slice(paginationState.range[0] - 1, paginationState.range[1]),
+    items: items.slice(pagination.range[0] - 1, pagination.range[1]),
     length: ITEMS_PER_PAGE,
   })
 
   return (
-    <DataGrid state={state}>
-      <DataGrid.Section>
+    <DataView state={view}>
+      <DataViewControls>
         <FlexSpacer />
         <Pagination
-          state={paginationState}
+          state={pagination}
           preposition="of"
           subject="results"
           prevLabel="Previous"
           nextLabel="Next"
           total={NUMBER_OF_ITEMS}
         />
-      </DataGrid.Section>
-      <DataGrid.Table />
-    </DataGrid>
+      </DataViewControls>
+      <DataGrid state={grid} />
+    </DataView>
   )
 }
 
-render(<PaginationExample />)
+render(<WithPagination />)
 ```
 
-## Features
+### Reacting to DataView status
 
-### Status
-
-The state hook returns a `setStatus` function, that allows you to control the current status of the Grid.
+By dispatch the `setStatus` function of the `DataView`, the `DataGrid` reacts to it.
 
 ```jsx noInline
 const items = Array(3)
@@ -1020,7 +979,10 @@ const items = Array(3)
   })
 
 function StatusExample() {
-  const state = useDataGridState({
+  const view = useDataViewState()
+  const grid = useDataGridState({
+    view,
+    items,
     columns: [
       {
         id: 'name',
@@ -1040,77 +1002,82 @@ function StatusExample() {
         },
       },
     ],
-    items,
     length: 3,
   })
 
   return (
-    <DataGrid state={state}>
-      <DataGrid.Toolbar>
-        <DataGrid.Toolbar.Button
+    <DataView state={view}>
+      <DataViewControls>
+        <Button
           onClick={() =>
-            state.setStatus({
+            view.setStatus({
               type: 'ready',
             })
           }
         >
           Ready
-        </DataGrid.Toolbar.Button>
-
-        <DataGrid.Toolbar.Button
+        </Button>
+        <Button
           onClick={() =>
-            state.setStatus({
+            view.setStatus({
               type: 'loading',
             })
           }
         >
           Loading
-        </DataGrid.Toolbar.Button>
-        <DataGrid.Toolbar.Button
+        </Button>
+        <Button
           onClick={() =>
-            state.setStatus({
+            view.setStatus({
               type: 'error',
               message: 'Something went wrong',
             })
           }
         >
           Error
-        </DataGrid.Toolbar.Button>
-        <DataGrid.Toolbar.Button
+        </Button>
+        <Button
           onClick={() =>
-            state.setStatus({
+            view.setStatus({
               type: 'not-found',
               message: 'Your product was not found',
             })
           }
         >
           Not Found
-        </DataGrid.Toolbar.Button>
-        <DataGrid.Toolbar.Button
+        </Button>
+        <Button
           onClick={() =>
-            state.setStatus({
+            view.setStatus({
               type: 'empty',
               message: 'You need to create something',
             })
           }
         >
           Empty
-        </DataGrid.Toolbar.Button>
-      </DataGrid.Toolbar>
-      <DataGrid.Table />
-    </DataGrid>
+        </Button>
+      </DataViewControls>
+      <DataGrid state={grid} />
+    </DataView>
   )
 }
 
 render(<StatusExample />)
 ```
 
-### Density
+## Examples
 
-The density can be either `regular` (default value), `compact` or `variable`.
+This section presents a series of examples that may be useful.
+
+### Topbar
+
+Mixing the concepts of `Search`, `Toolbar` and `Pagination`
 
 ```jsx noInline
-const items = Array(3)
+const NUMBER_OF_ITEMS = 100
+const ITEMS_PER_PAGE = 5
+
+const items = Array(NUMBER_OF_ITEMS)
   .fill()
   .map((_, id) => {
     return {
@@ -1121,8 +1088,27 @@ const items = Array(3)
     }
   })
 
-function DensityExample() {
-  const state = useDataGridState({
+function WithFullTopbar() {
+  const toolbar = useToolbarState()
+  const view = useDataViewState()
+  const search = useSearchState()
+  const pagination = usePaginationState({
+    size: ITEMS_PER_PAGE,
+  })
+
+  const paginatedItems = React.useMemo(() => {
+    pagination.paginate('reset')
+    return items.filter((item) =>
+      item.name.toLowerCase().startsWith(
+        // use the search debounced value to
+        // filter the collection
+        search.debouncedValue.toLocaleLowerCase()
+      )
+    )
+  }, [search.debouncedValue])
+
+  const grid = useDataGridState({
+    view,
     columns: [
       {
         id: 'name',
@@ -1142,37 +1128,54 @@ function DensityExample() {
         },
       },
     ],
-    items,
+    items: [...paginatedItems].slice(
+      pagination.range[0] - 1,
+      pagination.range[1]
+    ),
+    length: ITEMS_PER_PAGE,
   })
 
   return (
-    <DataGrid state={state}>
-      <DataGrid.Toolbar>
-        <DataGrid.Toolbar.Button onClick={() => state.setDensity('regular')}>
-          Regular
-        </DataGrid.Toolbar.Button>
-
-        <DataGrid.Toolbar.Button onClick={() => state.setDensity('compact')}>
-          Compact
-        </DataGrid.Toolbar.Button>
-        <DataGrid.Toolbar.Button onClick={() => state.setDensity('variable')}>
-          Variable
-        </DataGrid.Toolbar.Button>
-      </DataGrid.Toolbar>
-
-      <DataGrid.Table />
-    </DataGrid>
+    <DataView state={view}>
+      <DataViewControls>
+        <Search id="search" placeholder="Search" state={search} />
+        <Toolbar state={toolbar} aria-label="Toolbar">
+          <ToolbarButton
+            size="small"
+            variant="adaptative-dark"
+            icon={<IconImport />}
+          >
+            Import
+          </ToolbarButton>
+          <ToolbarButton
+            size="small"
+            variant="adaptative-dark"
+            icon={<IconExport />}
+          >
+            Export
+          </ToolbarButton>
+        </Toolbar>
+        <FlexSpacer />
+        <Pagination
+          state={pagination}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+          total={items.length}
+        />
+      </DataViewControls>
+      <DataGrid state={grid} />
+    </DataView>
   )
 }
 
-render(<DensityExample />)
+render(<WithFullTopbar />)
 ```
 
-## Examples
-
-This section presents a series of examples that may be useful.
-
 ### Data fetching
+
+Example with a simulated data fetching
 
 ```jsx noInline
 /**
@@ -1244,7 +1247,7 @@ function DataFetchExample() {
   }, [update])
 
   return (
-    <DataView>
+    <DataView state={view}>
       <DataViewControls>
         <Button
           onClick={() => {
@@ -1260,136 +1263,6 @@ function DataFetchExample() {
 }
 
 render(<DataFetchExample />)
-```
-
-### Topbar
-
-Mixing the concepts of `Search`, `Toolbar` and `Pagination`
-
-```jsx noInline
-const items = [
-  {
-    id: 1,
-    productName: 'Orange',
-    inStock: 380,
-    skus: 0,
-    price: 80,
-  },
-  {
-    id: 2,
-    productName: 'Lemon',
-    inStock: 380,
-    skus: 26,
-    price: 500,
-  },
-  {
-    id: 3,
-    productName: 'Tomato',
-    inStock: 380,
-    skus: 25,
-    price: 100,
-  },
-  {
-    id: 4,
-    productName: 'Grape',
-    inStock: 380,
-    skus: 5,
-    price: 190,
-  },
-  {
-    id: 5,
-    productName: 'Apple',
-    inStock: 380,
-    skus: 32,
-    price: 30,
-  },
-  {
-    id: 6,
-    productName: 'Banana',
-    inStock: 380,
-    skus: 38,
-    price: 50,
-  },
-]
-
-function CompleteTopbar() {
-  const [search, setSearch] = React.useState('')
-  const paginationState = usePaginationState({
-    size: 5,
-  })
-
-  const paginatedProducts = React.useMemo(() => {
-    return items.filter((product) => {
-      paginationState.paginate('reset')
-
-      return (
-        product.productName.toLowerCase().indexOf(search.toLocaleLowerCase()) >
-        -1
-      )
-    })
-  }, [search])
-
-  const state = useDataGridState({
-    columns: [
-      {
-        id: 'productName',
-        header: 'Product Name',
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-    ],
-    items: [...paginatedProducts].slice(
-      paginationState.range[0] - 1,
-      paginationState.range[1]
-    ),
-    length: 5,
-  })
-
-  return (
-    <DataGrid state={state}>
-      <DataGrid.Section>
-        <DataGrid.Search
-          id="search"
-          placeholder="Search"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value)
-          }}
-        />
-        <DataGrid.Toolbar>
-          <DataGrid.Toolbar.Button icon={<IconImport />}>
-            Import
-          </DataGrid.Toolbar.Button>
-          <DataGrid.Toolbar.Button icon={<IconExport />}>
-            Export
-          </DataGrid.Toolbar.Button>
-        </DataGrid.Toolbar>
-        <FlexSpacer />
-        <Pagination
-          state={paginationState}
-          preposition="of"
-          subject="results"
-          prevLabel="Previous"
-          nextLabel="Next"
-          total={items.length}
-        />
-      </DataGrid.Section>
-      <DataGrid.Table />
-    </DataGrid>
-  )
-}
-
-render(<CompleteTopbar />)
 ```
 
 ### Drag and Drop
@@ -1479,48 +1352,40 @@ function Example() {
   }
 
   return (
-    <DataGrid state={datagrid}>
-      <DataGrid.Table
-        csx={{
-          // unset is here to avoid the table to have full width
-          // this will make the fixed columns work nicelly
-          width: 'unset',
-        }}
-      >
-        <DataGrid.Table.Head />
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="droppable">
-            {(droppableProvided) => (
-              <DataGrid.Table.Body ref={droppableProvided.innerRef}>
-                {(renderRow) => (
-                  <React.Fragment>
-                    {renderRow(({ key, item, index }) => (
-                      <Draggable draggableId={key} index={index}>
-                        {(draggableProvided, draggableSnapshot) => (
-                          <DataGrid.Table.Body.Row
-                            id={key}
-                            item={item}
-                            ref={draggableProvided.innerRef}
-                            {...draggableProvided.draggableProps}
-                            {...draggableProvided.dragHandleProps}
-                            csx={{
-                              ...draggableProvided.draggableProps.style,
-                              boxShadow: draggableSnapshot.isDragging
-                                ? 'menu'
-                                : 'none',
-                            }}
-                          />
-                        )}
-                      </Draggable>
-                    ))}
-                    {droppableProvided.placeholder}
-                  </React.Fragment>
-                )}
-              </DataGrid.Table.Body>
-            )}
-          </Droppable>
-        </DragDropContext>
-      </DataGrid.Table>
+    <DataGrid state={datagrid} csx={{ width: 'unset' }}>
+      <DataGrid.Head />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="droppable">
+          {(droppableProvided) => (
+            <DataGrid.Body ref={droppableProvided.innerRef}>
+              {(renderRow) => (
+                <React.Fragment>
+                  {renderRow(({ key, item, index }) => (
+                    <Draggable draggableId={key} index={index}>
+                      {(draggableProvided, draggableSnapshot) => (
+                        <DataGrid.Body.Row
+                          id={key}
+                          item={item}
+                          ref={draggableProvided.innerRef}
+                          {...draggableProvided.draggableProps}
+                          {...draggableProvided.dragHandleProps}
+                          csx={{
+                            ...draggableProvided.draggableProps.style,
+                            boxShadow: draggableSnapshot.isDragging
+                              ? 'menu'
+                              : 'none',
+                          }}
+                        />
+                      )}
+                    </Draggable>
+                  ))}
+                  {droppableProvided.placeholder}
+                </React.Fragment>
+              )}
+            </DataGrid.Body>
+          )}
+        </Droppable>
+      </DragDropContext>
     </DataGrid>
   )
 }

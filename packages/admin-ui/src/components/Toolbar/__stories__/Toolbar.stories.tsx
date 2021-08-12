@@ -13,6 +13,7 @@ import { Button } from '../../Button'
 import { MenuDisclosure, useMenuState, StatelessMenu } from '../../Menu'
 import { ModalDisclosure, StatelessModal, useModalState } from '../../Modal'
 import { Text } from '../../Text'
+import { ToolbarButton } from '../components/ToolbarButton'
 
 export default {
   title: 'admin-ui/Toolbar',
@@ -27,9 +28,13 @@ export const Basic = () => {
   return (
     <Toolbar state={state} aria-label="basic-toolbar">
       {labels.map((label) => (
-        <ToolbarItem key={label}>
-          <Button variant="adaptative-dark">{label}</Button>
-        </ToolbarItem>
+        <ToolbarButton
+          key={label}
+          onClick={() => console.log('clicked')}
+          variant="adaptative-dark"
+        >
+          {label}
+        </ToolbarButton>
       ))}
     </Toolbar>
   )
@@ -42,11 +47,6 @@ export const WithMenu = () => {
   return (
     <>
       <Toolbar state={state} aria-label="Toolbar with menu">
-        {labels.map((label) => (
-          <ToolbarItem key={label}>
-            <Button variant="adaptative-dark">{label}</Button>
-          </ToolbarItem>
-        ))}
         <ToolbarItem>
           {(itemProps) => (
             <MenuDisclosure state={menuState}>
@@ -82,11 +82,6 @@ export const WithModal = () => {
   return (
     <>
       <Toolbar state={state} aria-label="Toolbar with modal">
-        {labels.map((label) => (
-          <ToolbarItem key={label}>
-            <Button variant="adaptative-dark">{label}</Button>
-          </ToolbarItem>
-        ))}
         <ToolbarItem>
           {(itemProps) => (
             <MenuDisclosure state={menuState}>
