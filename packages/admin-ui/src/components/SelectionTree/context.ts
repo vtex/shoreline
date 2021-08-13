@@ -9,7 +9,10 @@ export const SelectionTreeContext =
 export function useSelectionTreeContext() {
   const ctx = useContext(SelectionTreeContext)
 
-  invariant(ctx, 'SelectionTree composites shaw not be used outside of context')
+  invariant(
+    ctx,
+    'SelectionTree composites shall not be used outside of context'
+  )
 
   return ctx
 }

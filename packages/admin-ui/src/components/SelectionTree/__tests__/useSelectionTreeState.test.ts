@@ -9,7 +9,7 @@ const items = [
 ]
 
 describe('useSelectionTreeState', () => {
-  it('should be select the correct item', () => {
+  it('should select the correct item', () => {
     const { result } = renderHook(() =>
       useSelectionTreeState({
         items,
