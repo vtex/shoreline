@@ -81,9 +81,9 @@ For convenience, we also provide a hook that already implements the state logic 
 | stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | usePagination hook default reducer |
 | initialPage  | `number`                                                                | The initial state of pagination                                                    | 🚫       | 1                                  |
 
-### usePesistedPaginationState
+### useQueryPaginationState
 
-Instead of `usePaginationState` it is also possible to use the `usePesistedPaginationState` hook. It makes it possible to persist the pagination state in the query string parameters of the url. To do this is similarly to `usePaginationState`, you should pass the hook return to the `state` property in pagination component.
+Instead of `usePaginationState` it is also possible to use the `useQueryPaginationState` hook. It makes it possible to persist the pagination state in the query string parameters of the url. To do this is similarly to `usePaginationState`, you should pass the hook return to the `state` property in pagination component.
 
 #### Parameter
 
@@ -99,7 +99,7 @@ _watch how your url changes_
 
 ```jsx
 function Example() {
-  const state = usePersistedPaginationState({ pageSize: 5, total: 35 })
+  const state = useQueryPaginationState({ pageSize: 5, total: 35 })
 
   return (
     <Pagination
