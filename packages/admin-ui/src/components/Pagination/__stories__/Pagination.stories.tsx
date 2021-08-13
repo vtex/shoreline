@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 
 import { Pagination } from '../Pagination'
 import { usePaginationState } from '../hooks/usePaginationState'
-import { usePersistedPaginationState } from '../hooks/usePersistedPaginationState'
+import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
 import { Set } from '../../Set'
 import { Input } from '../../Input'
 
@@ -45,7 +45,7 @@ export function InitialState() {
 }
 
 export function PersistedPaginationWithQuery() {
-  const state = usePersistedPaginationState({
+  const state = useQueryPaginationState({
     pageSize: 20,
     total: 150,
   })

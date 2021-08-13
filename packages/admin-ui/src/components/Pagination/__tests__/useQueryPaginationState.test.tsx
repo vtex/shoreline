@@ -1,4 +1,4 @@
-import { usePersistedPaginationState } from '../hooks/usePersistedPaginationState'
+import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 const setQuery = (query: Record<string, any> = {}): boolean => {
@@ -23,12 +23,12 @@ const cleanQuery = () => {
   window.history.pushState({ path: newurl }, '', newurl)
 }
 
-describe('usePersistedPaginationState tests', () => {
+describe('useQueryPaginationState tests', () => {
   beforeEach(cleanQuery)
 
   it('query is update when page changes', () => {
     const { result, waitFor } = renderHook(() =>
-      usePersistedPaginationState({
+      useQueryPaginationState({
         pageSize: 20,
         total: 50,
       })
@@ -63,7 +63,7 @@ describe('usePersistedPaginationState tests', () => {
     setQuery({ page: 3 })
 
     const { result, waitFor } = renderHook(() =>
-      usePersistedPaginationState({
+      useQueryPaginationState({
         pageSize: 20,
         total: 100,
       })
@@ -76,7 +76,7 @@ describe('usePersistedPaginationState tests', () => {
   // window.history.back() not work (test pass because there is not await before waitFor)
   it('query is update on popstate called', async () => {
     const { result, waitFor } = renderHook(() =>
-      usePersistedPaginationState({
+      useQueryPaginationState({
         pageSize: 20,
         total: 100,
       })

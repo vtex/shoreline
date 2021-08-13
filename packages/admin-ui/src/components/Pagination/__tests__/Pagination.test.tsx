@@ -3,7 +3,7 @@ import React from 'react'
 import { Pagination } from '../index'
 import { usePaginationState } from '../hooks/usePaginationState'
 import { jestMatchMedia, withState, render } from '../../../test-utils'
-import { usePersistedPaginationState } from '../hooks/usePersistedPaginationState'
+import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -39,7 +39,7 @@ const PaginationWithInitialValue = withState(Pagination, () =>
 )
 
 const PersistedPaginationWithInitialValue = () => {
-  const state = usePersistedPaginationState({
+  const state = useQueryPaginationState({
     pageSize: 5,
     total: 50,
   })

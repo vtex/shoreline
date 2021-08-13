@@ -8,7 +8,7 @@ import type {
 } from './usePaginationState'
 import { defaultReducer, usePaginationState } from './usePaginationState'
 
-export function usePersistedPaginationState(
+export function useQueryPaginationState(
   props: UsePersistedPaginationStateProps
 ): UsePaginationReturn {
   const { stateReducer, ...usePaginationProps } = props
