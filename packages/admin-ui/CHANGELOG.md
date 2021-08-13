@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.108.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.107.0...@vtex/admin-ui@0.108.0) (2021-08-13)
+
+### Features
+
+- **selectiontree:** create component ([54acba8](https://github.com/vtex/onda/commit/54acba898cf73a0b6efc38573cad9af1fc417a5e))
+
 # [0.107.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.106.6...@vtex/admin-ui@0.107.0) (2021-08-12)
 
 ### Bug Fixes
