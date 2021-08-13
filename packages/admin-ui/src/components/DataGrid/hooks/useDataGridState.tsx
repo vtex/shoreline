@@ -1,5 +1,5 @@
-import type { ReactNode, PropsWithChildren } from 'react'
-import React, { useMemo, useCallback, Fragment, useState } from 'react'
+import type { ReactNode } from 'react'
+import { useMemo, useCallback, useState } from 'react'
 import { get } from '@vtex/admin-core'
 
 import type {
@@ -15,7 +15,6 @@ import {
 } from '../resolvers/core'
 import { baseResolvers } from '../resolvers/base'
 import type { DataGridColumn, DataGridDensity } from '../typings'
-import { SelectionProvider } from '../resolvers/selection'
 import type { UseSortReturn, UseDataGridSortParams } from './useDataGridSort'
 import { useDataGridSort } from './useDataGridSort'
 import type { DataViewState } from '../../DataView'
@@ -74,11 +73,6 @@ export function useDataGridState<T>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length, columns])
 
-  const selectionColumn = useMemo(
-    () => columns.find((col) => col.resolver?.type === 'selection'),
-    [columns]
-  )
-
   const resolveCell = useCallback(
     (args: ResolverCallee<ResolveCellArgs<T>>) =>
       unstableResolveCell<T>({ ...args, resolvers, context }),
@@ -127,28 +121,12 @@ export function useDataGridState<T>(
     columns,
   ])
 
-  function Providers(props: PropsWithChildren<unknown>) {
-    return selectionColumn ? (
-      <SelectionProvider
-        items={data}
-        mapId={get(selectionColumn, 'resolver.mapId', () => '')}
-        isSelected={get(selectionColumn, 'resolver.isSelected', () => false)}
-        onSelect={get(selectionColumn, 'resolver.onSelect', () => null)}
-      >
-        {props.children}
-      </SelectionProvider>
-    ) : (
-      <Fragment>{props.children}</Fragment>
-    )
-  }
-
   return {
     skeletonCollection,
     resolveCell,
     resolveHeader,
     data,
     columns,
-    Providers,
     sortState,
     getRowKey,
     onRowClick,
@@ -223,10 +201,6 @@ export interface DataGridState<T> {
    * Grid columns
    */
   columns: Array<DataGridColumn<T>>
-  /**
-   * Providers from the resolvers
-   */
-  Providers: (props: PropsWithChildren<unknown>) => JSX.Element
   /**
    * Current sorting state
    */

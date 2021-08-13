@@ -5,6 +5,7 @@ import { DataGrid } from '../index'
 import { useDataGridState } from '../hooks/useDataGridState'
 import type { DataGridColumn } from '../typings'
 import type { BaseResolvers } from '../resolvers/base'
+import { SelectionTree, useSelectionTreeState } from '../../SelectionTree'
 
 export default {
   title: 'admin-ui/DataGrid/selectable',
@@ -50,7 +51,7 @@ export function Selectable() {
           id: 'id',
           resolver: {
             type: 'selection',
-            mapId: (item: Item) => item.id,
+            mapId: (item) => item.id,
           },
         },
         {
@@ -74,5 +75,14 @@ export function Selectable() {
     items,
   })
 
-  return <DataGrid state={state} csx={{ width: 'full' }} />
+  const selection = useSelectionTreeState({
+    items: state.data,
+    mapId: (item) => item.id,
+  })
+
+  return (
+    <SelectionTree state={selection}>
+      <DataGrid state={state} csx={{ width: 800 }} />
+    </SelectionTree>
+  )
 }
