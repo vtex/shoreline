@@ -1,16 +1,27 @@
 import React from 'react'
 import { useSelectionTreeContext } from '../context'
+import type { CheckboxProps } from '../../Checkbox'
 import { Checkbox } from '../../Checkbox'
 
+/**
+ * SelectionTree item
+ * @example
+ * const items = []
+ *
+ * const state = useSelectionTreeState({
+ *  items,
+ * })
+ *
+ * <SelectionTree state={state}>
+ *  {items.map(item => (
+ *    <SelectionTreeItem value={item.id} />
+ *  ))}
+ * </SelectionTree>
+ */
 export function SelectionTreeItem(props: Props) {
-  const { value, ...rest } = props
   const state = useSelectionTreeContext()
 
-  return <Checkbox value={value} state={state.items} {...rest} />
+  return <Checkbox state={state.items} {...props} />
 }
 
-interface Props {
-  value: any
-  disabled?: any
-  onClick?: any
-}
+type Props = Omit<CheckboxProps, 'state'>

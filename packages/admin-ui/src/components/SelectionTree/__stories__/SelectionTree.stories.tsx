@@ -30,8 +30,8 @@ export const Basic = () => {
   })
 
   return (
-    <tag.div>
-      <Checkbox state={state.root} />
+    <SelectionTree state={state}>
+      <SelectionTreeRoot />
 
       {items.map((item) => (
         <Label
@@ -48,17 +48,18 @@ export const Basic = () => {
           }}
           key={item.id}
         >
-          <Checkbox value={item.id} state={state.items} />
+          <SelectionTreeItem value={item.id} />
           <tag.p csx={{ paddingLeft: 2 }}>{item.name}</tag.p>
         </Label>
       ))}
-    </tag.div>
+    </SelectionTree>
   )
 }
 
-export const WithContext = () => {
+export const InitiallySelected = () => {
   const state = useSelectionTreeState({
     items,
+    isInitiallySelected: (item) => item.id === 1 || item.id === 2,
   })
 
   return (
@@ -85,5 +86,36 @@ export const WithContext = () => {
         </Label>
       ))}
     </SelectionTree>
+  )
+}
+
+export const BareStateHook = () => {
+  const state = useSelectionTreeState({
+    items,
+  })
+
+  return (
+    <tag.div>
+      <Checkbox state={state.root} />
+      {items.map((item) => (
+        <Label
+          csx={{
+            display: 'flex',
+            alignItems: 'center',
+            width: 250,
+            height: 48,
+            border: 'divider-bottom',
+            cursor: 'pointer',
+            ':hover': {
+              bg: 'light.secondary',
+            },
+          }}
+          key={item.id}
+        >
+          <Checkbox value={item.id} state={state.items} />
+          <tag.p csx={{ paddingLeft: 2 }}>{item.name}</tag.p>
+        </Label>
+      ))}
+    </tag.div>
   )
 }

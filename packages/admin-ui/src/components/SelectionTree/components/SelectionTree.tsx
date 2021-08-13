@@ -3,7 +3,16 @@ import React from 'react'
 import type { SelectionTreeState } from '../state'
 import { SelectionTreeContext } from '../context'
 
-export function SelectionTree(props: Props) {
+/**
+ * SelectionTree context
+ * @example
+ * const state = useSelectionTreeState({
+ *  items: []
+ * })
+ *
+ * <SelectionTree state={state} />
+ */
+export function SelectionTree<T>(props: Props<T>) {
   const { state, children } = props
 
   return (
@@ -13,7 +22,7 @@ export function SelectionTree(props: Props) {
   )
 }
 
-interface Props {
-  state: SelectionTreeState
+interface Props<T> {
+  state: SelectionTreeState<T>
   children?: ReactNode
 }

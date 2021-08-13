@@ -3,9 +3,8 @@ import invariant from 'tiny-invariant'
 
 import type { SelectionTreeState } from './state'
 
-export const SelectionTreeContext = createContext<SelectionTreeState | null>(
-  null
-)
+export const SelectionTreeContext =
+  createContext<SelectionTreeState<any> | null>(null)
 
 export function useSelectionTreeContext() {
   const ctx = useContext(SelectionTreeContext)

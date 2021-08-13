@@ -2,14 +2,22 @@ import { useEffect, useMemo } from 'react'
 
 import { useCheckboxState } from '../Checkbox'
 
+/**
+ * SelectionTree state
+ * @example
+ * const state = useSelectionTreeState({
+ *  items: []
+ * })
+ *
+ * console.log(state.selectedItems) // to display the currently selected items
+ */
 export function useSelectionTreeState<T>(
   params: UseSelectionTreeStateParams<T>
-): SelectionTreeState {
+): SelectionTreeState<T> {
   const {
     items,
     mapId = (item) => (item as any)?.id ?? '',
-    isSelected = () => false,
-    onSelect = () => null,
+    isInitiallySelected = () => false,
   } = params
 
   const { ids, selected, dict } = useMemo(
@@ -28,7 +36,9 @@ export function useSelectionTreeState<T>(
               [id]: curr,
               ...acc.dict,
             },
-            selected: isSelected(curr) ? [...acc.selected, id] : acc.selected,
+            selected: isInitiallySelected(curr)
+              ? [...acc.selected, id]
+              : acc.selected,
           }
         },
         {
@@ -50,16 +60,12 @@ export function useSelectionTreeState<T>(
     }
   )
 
-  useEffect(
-    function handleSelectItem() {
-      const currentSelected =
-        selectedItems instanceof Array
-          ? selectedItems.map((item) => dict[item])
-          : []
-
-      onSelect(currentSelected)
-    },
-    [selectedItems, onSelect, dict]
+  const currentSelected = useMemo(
+    () =>
+      selectedItems instanceof Array
+        ? selectedItems.map((item) => dict[item])
+        : [],
+    [selectedItems, dict]
   )
 
   useEffect(
@@ -90,6 +96,7 @@ export function useSelectionTreeState<T>(
   )
 
   return {
+    selectedItems: currentSelected,
     root: {
       state: rootState,
       setState: setRootState,
@@ -101,14 +108,34 @@ export function useSelectionTreeState<T>(
   }
 }
 
-export interface SelectionTreeState {
+export interface SelectionTreeState<T> {
+  /**
+   * currently selected items
+   */
+  selectedItems: T[]
+  /**
+   * Root state
+   */
   root: ReturnType<typeof useCheckboxState>
+  /**
+   * Items state
+   */
   items: ReturnType<typeof useCheckboxState>
 }
 
 export interface UseSelectionTreeStateParams<T> {
+  /**
+   * Collection of items
+   */
   items: T[]
+  /**
+   * Maps the unique key (id) for the collection
+   * @default (item) => item.id
+   */
   mapId?: (item: T) => string | number
-  isSelected?: (item: T) => boolean
-  onSelect?: (items: T[]) => void
+  /**
+   * Condition that makes an item initially selected
+   * @default () => false
+   */
+  isInitiallySelected?: (item: T) => boolean
 }
