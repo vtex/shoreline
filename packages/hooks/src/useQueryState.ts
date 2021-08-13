@@ -1,8 +1,10 @@
 import { useMemo, useRef, useEffect, useState } from 'react'
 
 /**
+ * Persisted the keys states in the querry params (url)
+ *
  * @example
- * const [initialState, setState, state] = usePersistedState({ type: 'query', keys: ['page', 'pageSize']})
+ * const [initialState, setState, state] = usePersistedState({ keys: ['page', 'pageSize'] })
  */
 export function useQueryState(
   params: UsePersistedStateParams
