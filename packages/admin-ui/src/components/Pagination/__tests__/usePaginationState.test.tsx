@@ -1,7 +1,88 @@
-import { usePaginationState } from '../hooks/usePaginationState'
+import {
+  checkDisabled,
+  getState,
+  setMax,
+  usePaginationState,
+} from '../hooks/usePaginationState'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 describe('usePaginationState tests', () => {
+  it('checkDisabled', () => {
+    expect(checkDisabled([-1, 0], 0)).toStrictEqual({
+      prevDisabled: true,
+      nextDisabled: true,
+    })
+
+    expect(checkDisabled([0, 10], 5)).toStrictEqual({
+      prevDisabled: true,
+      nextDisabled: true,
+    })
+
+    expect(checkDisabled([0, 10], 50)).toStrictEqual({
+      prevDisabled: true,
+      nextDisabled: false,
+    })
+
+    expect(checkDisabled([11, 20], 50)).toStrictEqual({
+      prevDisabled: false,
+      nextDisabled: false,
+    })
+
+    expect(checkDisabled([41, 50], 50)).toStrictEqual({
+      prevDisabled: false,
+      nextDisabled: true,
+    })
+  })
+
+  it('setMax', () => {
+    expect(setMax(0, 0)).toBe(0)
+    expect(setMax(10, 0)).toBe(0)
+    expect(setMax(10, 50)).toBe(10)
+    expect(setMax(50, 45)).toBe(45)
+  })
+
+  it('getState', () => {
+    expect(getState(1, 10, 0)).toStrictEqual({
+      currentPage: 1,
+      range: [0, 0],
+      total: 0,
+      prevDisabled: true,
+      nextDisabled: true,
+    })
+
+    expect(getState(1, 10, 45)).toStrictEqual({
+      currentPage: 1,
+      range: [1, 10],
+      total: 45,
+      prevDisabled: true,
+      nextDisabled: false,
+    })
+
+    expect(getState(3, 10, 45)).toStrictEqual({
+      currentPage: 3,
+      range: [21, 30],
+      total: 45,
+      prevDisabled: false,
+      nextDisabled: false,
+    })
+
+    expect(getState(5, 10, 45)).toStrictEqual({
+      currentPage: 5,
+      range: [41, 45],
+      total: 45,
+      prevDisabled: false,
+      nextDisabled: true,
+    })
+
+    expect(getState(8, 10, 45)).toStrictEqual({
+      currentPage: 8,
+      range: [45, 45],
+      total: 45,
+      prevDisabled: false,
+      nextDisabled: true,
+    })
+  })
+
   it('paginate next', async () => {
     const { result, waitFor } = renderHook(() =>
       usePaginationState({

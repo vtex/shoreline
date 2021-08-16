@@ -25,18 +25,18 @@ export function usePaginationState(
   return { ...state, paginate }
 }
 
-function checkDisabled(range: [number, number], total: number) {
+export function checkDisabled(range: [number, number], total: number) {
   return {
     prevDisabled: range[0] <= 1,
     nextDisabled: range[1] >= total,
   }
 }
 
-function setMax(value: number, max: number) {
+export function setMax(value: number, max: number) {
   return value <= max ? value : max
 }
 
-function getState(
+export function getState(
   page: number,
   pageSize: number,
   total: number
