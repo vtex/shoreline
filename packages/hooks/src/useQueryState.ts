@@ -1,4 +1,5 @@
 import { useMemo, useRef, useEffect, useState, useCallback } from 'react'
+import { isBrowser } from '@vtex/onda-util'
 
 /**
  * Persisted the keys states in the querry params (url)
@@ -14,11 +15,11 @@ export function useQueryState(
   Record<string, any>
 ] {
   const [queryParams, setQueryParams] = useState(
-    new URLSearchParams(window.location.search)
+    new URLSearchParams(isBrowser ? window.location.search : '')
   )
 
   useEffect(() => {
-    if (!window) return
+    if (!isBrowser) return
     window.onpopstate = function onPopstateChange() {
       setQueryParams(new URLSearchParams(window.location.search))
     }
@@ -51,7 +52,7 @@ export function useQueryState(
   )
 
   const setQuery = useCallback((query: Record<string, any> = {}): void => {
-    if (!window) return
+    if (!isBrowser) return
 
     Object.entries(query).forEach((element: [string, any]) => {
       queryParams.set(element[0], element[1])

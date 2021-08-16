@@ -36,6 +36,7 @@
     "react-dom": ">=16.8"
   },
   "dependencies": {
-    "use-debounce": "^7.0.0"
+    "use-debounce": "^7.0.0",
+    "@vtex/onda-util": "^0.1.0-labs.2"
   }
 }
