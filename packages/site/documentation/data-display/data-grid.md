@@ -914,7 +914,8 @@ const items = Array(NUMBER_OF_ITEMS)
 function WithPagination() {
   const view = useDataViewState()
   const pagination = usePaginationState({
-    size: ITEMS_PER_PAGE,
+    pageSize: ITEMS_PER_PAGE,
+    total: NUMBER_OF_ITEMS,
   })
   const grid = useDataGridState({
     view,
@@ -951,7 +952,6 @@ function WithPagination() {
           subject="results"
           prevLabel="Previous"
           nextLabel="Next"
-          total={NUMBER_OF_ITEMS}
         />
       </DataViewControls>
       <DataGrid state={grid} />
@@ -1093,7 +1093,8 @@ function WithFullTopbar() {
   const view = useDataViewState()
   const search = useSearchState()
   const pagination = usePaginationState({
-    size: ITEMS_PER_PAGE,
+    pageSize: ITEMS_PER_PAGE,
+    total: NUMBER_OF_ITEMS,
   })
 
   const paginatedItems = React.useMemo(() => {
@@ -1162,7 +1163,6 @@ function WithFullTopbar() {
           subject="results"
           prevLabel="Previous"
           nextLabel="Next"
-          total={items.length}
         />
       </DataViewControls>
       <DataGrid state={grid} />
