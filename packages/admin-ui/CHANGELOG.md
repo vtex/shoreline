@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.108.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.108.0...@vtex/admin-ui@0.108.1) (2021-08-16)
+
+### Bug Fixes
+
+- **onda-hooks:** export from admin-ui ([1d8f686](https://github.com/vtex/onda/commit/1d8f6863f353ec1dbf7efff9a85cedd5405f28a2))
+
 # [0.108.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.107.0...@vtex/admin-ui@0.108.0) (2021-08-13)
 
 ### Features
