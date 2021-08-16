@@ -1,4 +1,4 @@
-import { useMemo, useRef, useEffect, useState } from 'react'
+import { useMemo, useRef, useEffect, useState, useCallback } from 'react'
 
 /**
  * Persisted the keys states in the querry params (url)
@@ -50,7 +50,9 @@ export function useQueryState(
     }, {})
   )
 
-  const setQuery = (query: Record<string, any> = {}): boolean => {
+  const setQuery = useCallback((query: Record<string, any> = {}): void => {
+    if (!window) return
+
     Object.entries(query).forEach((element: [string, any]) => {
       queryParams.set(element[0], element[1])
     })
@@ -59,9 +61,7 @@ export function useQueryState(
     }?${queryParams.toString()}`
 
     window.history.pushState({ path: newurl }, '', newurl)
-
-    return true
-  }
+  }, [])
 
   return [initialQuery.current, setQuery, query]
 }
