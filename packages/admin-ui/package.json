@@ -52,6 +52,7 @@
     "@vtex/admin-illustrations": "^0.1.2",
     "@vtex/admin-primitives": "^0.4.12",
     "@vtex/admin-ui-icons": "^0.12.7",
+    "@vtex/onda-hooks": "^0.1.0",
     "@vtex/onda-react": "^0.4.4",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
