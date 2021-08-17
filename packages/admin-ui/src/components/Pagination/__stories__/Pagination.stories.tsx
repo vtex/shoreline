@@ -58,7 +58,7 @@ export function PersistedPaginationWithQuery() {
         value={window.location.href}
         disabled
         csx={{ width: 'lg' }}
-        helperText="You can copy the part with page and pageSize in your URL to see the page
+        helperText="You can copy the part with page in your URL to see the page
         load directly on choosed page"
       />
       <Pagination

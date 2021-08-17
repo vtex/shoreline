@@ -4,6 +4,9 @@ import type { Meta } from '@storybook/react'
 import { useSearchState, Search } from '../index'
 import { tag } from '@vtex/onda-react'
 import { Button } from '../../Button'
+import { useQuerySearchState } from '../hooks/useQuerySearchState'
+import { Set } from '../../Set'
+import { Input } from '../../Input'
 
 export default {
   title: 'admin-ui/Search',
@@ -87,5 +90,36 @@ export const InitiallyLoading = () => {
         Toggle loading
       </Button>
     </tag.div>
+  )
+}
+
+export const QueryState = () => {
+  const state = useQuerySearchState({
+    timeoutMs: 500,
+  })
+
+  return (
+    <Set orientation="vertical" spacing={6}>
+      <Input
+        label="Current URL:"
+        id="current-url-input"
+        value={window.location.href}
+        disabled
+        csx={{ width: 'lg' }}
+        helperText="You can copy the part with search in your URL to see the page
+        load directly on choosed page"
+      />
+      <tag.div csx={{ width: 500 }}>
+        <Search
+          id="search"
+          state={state}
+          placeholder="Search for a product, category or brand"
+        />
+        <tag.div csx={{ marginTop: 4 }}>
+          <tag.p>Value: {state.value}</tag.p>
+          <tag.p>DebouncedValue: {state.debouncedValue}</tag.p>
+        </tag.div>
+      </tag.div>
+    </Set>
   )
 }

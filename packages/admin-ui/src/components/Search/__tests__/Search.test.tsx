@@ -2,7 +2,7 @@ import React from 'react'
 import { axe } from 'jest-axe'
 
 import { Search } from '../Search'
-import { useSearchState } from '../state'
+import { useSearchState } from '../hooks/useSearchState'
 import { render, withState } from '../../../test-utils'
 
 const StatefulSearch = withState(Search, () => useSearchState())
