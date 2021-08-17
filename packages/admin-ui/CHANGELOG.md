@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.110.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.109.0...@vtex/admin-ui@0.110.0) (2021-08-17)
+
+### Bug Fixes
+
+- **usequerysearchstate:** add export of useQuerySearchState ([faa8bf2](https://github.com/vtex/onda/commit/faa8bf25b159e1a6bdb6f5c1a115bba9924fac63))
+
+### Features
+
+- **usequerysearchstate:** add useQuerySearchState to make search persisted in query params ([d6914d1](https://github.com/vtex/onda/commit/d6914d12ca3814309c3fff12f2c658ec9e54c853))
+
 # [0.109.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.108.1...@vtex/admin-ui@0.109.0) (2021-08-17)
 
 ### Bug Fixes
