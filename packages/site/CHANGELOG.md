@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.13.2...admin-site@0.14.0) (2021-08-17)
+
+### Bug Fixes
+
+- **usepaginationstate:** add setTotal action in paginate to make possible update total ([e9418b6](https://github.com/vtex/onda/tree/master/packages/site/commit/e9418b615b82cdf96c78f0568fcbf5b68194e43e))
+- **usepaginationstate:** add setTotal action in paginate to make possible update total ([2f5df35](https://github.com/vtex/onda/tree/master/packages/site/commit/2f5df35bac4cdada608bb7dd9427058990a8e4d1))
+
+### Features
+
+- **pagination:** change pagination state hook resposability ([788e71a](https://github.com/vtex/onda/tree/master/packages/site/commit/788e71ad2714d7dd75eedc38f08eb9eb31fa0964))
+- **pagination:** change pagination state hook resposability ([eeef2d8](https://github.com/vtex/onda/tree/master/packages/site/commit/eeef2d8458f19fdf26cfaec802dae05e6e784a41))
+
 ## [0.13.2](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.13.1...admin-site@0.13.2) (2021-08-16)
 
 **Note:** Version bump only for package admin-site

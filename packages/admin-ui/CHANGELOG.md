@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.109.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.108.1...@vtex/admin-ui@0.109.0) (2021-08-17)
+
+### Bug Fixes
+
+- **usepaginationstate:** add setTotal action in paginate to make possible update total ([2f5df35](https://github.com/vtex/onda/commit/2f5df35bac4cdada608bb7dd9427058990a8e4d1))
+
+### Features
+
+- **pagination:** change pagination state hook resposability ([788e71a](https://github.com/vtex/onda/commit/788e71ad2714d7dd75eedc38f08eb9eb31fa0964))
+- **pagination:** change pagination state hook resposability ([eeef2d8](https://github.com/vtex/onda/commit/eeef2d8458f19fdf26cfaec802dae05e6e784a41))
+- **usepersistedpaginationstate:** add hook to make persisted pagination with query params ([6c6f4ee](https://github.com/vtex/onda/commit/6c6f4ee2acc10248302fec884526130282963322)), closes [#695](https://github.com/vtex/onda/issues/695)
+- **usepersistedpaginationstate:** add hook to make persisted pagination with query params ([6229c02](https://github.com/vtex/onda/commit/6229c0257a515351c280a9330e3340f97f466776)), closes [#695](https://github.com/vtex/onda/issues/695)
+
 ## [0.108.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.108.0...@vtex/admin-ui@0.108.1) (2021-08-16)
 
 ### Bug Fixes
