@@ -1,2 +1,2 @@
 export * from './Search'
-export * from './state'
+export * from './hooks/useSearchState'

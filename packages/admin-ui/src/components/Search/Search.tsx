@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { jsx } from '@vtex/onda-react'
 import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
 
-import type { SearchFormState } from './state'
+import type { SearchFormState } from './hooks/useSearchState'
 import { AbstractInput } from '../AbstractInput'
 import { Button } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
