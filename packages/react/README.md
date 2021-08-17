@@ -182,7 +182,7 @@ const Display = jsx.div({}, {
    * options: component options
    * props: other props
    * system: return of admin-core/useSystem
-   */ 
+   */
   useOptions(options: DisplayOptions, props, system) {
     const { children, ...divProps } = props
     const { visible } options
@@ -226,4 +226,36 @@ render(
     </Button>
   </Set>
 )
+```
+
+### Typescript Props
+
+You can obtain the type of any component created with `jsx` using:
+
+- `React.ComponentPropsWithRef`: When refs are supported
+- `React.ComponentPropsWithoutRef`: When refs are not supported
+
+Example without options:
+
+```ts isStatic
+const Button = jsx.button({})
+
+type ButtonProps = React.ComponentPropsWithRef<typeof Button>
+```
+
+Example with options:
+
+```ts isStatic
+const Button = jsx.button(
+  {},
+  {
+    useOptions(options: ButtonOptions, props) {
+      /** ... */
+    },
+  }
+)
+
+interface ButtonOptions {}
+
+type ButtonProps = React.ComponentPropsWithRef<typeof Button> & ButtonOptions
 ```

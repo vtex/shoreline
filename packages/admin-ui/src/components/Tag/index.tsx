@@ -1,7 +1,6 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
 import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
-import type { PropsWithAs } from '@vtex/onda-react'
 import { jsx } from '@vtex/onda-react'
 
 import { Button } from '../Button'
@@ -126,7 +125,7 @@ Tag.defaultProps = {
   palette: 'blue',
 }
 
-interface TagOptions {
+export interface TagOptions {
   /**
    * Tag Label
    */
@@ -141,17 +140,4 @@ interface TagOptions {
   icon?: ReactNode
 }
 
-interface TagVariants {
-  /**
-   *  Tag Palette
-   *  @default blue
-   */
-  palette?: 'black' | 'green' | 'red' | 'blue' | 'yellow' | 'purple'
-  /**
-   *  Tag Size
-   *  @default regular
-   * */
-  size?: 'regular' | 'small'
-}
-
-export type TagProps = PropsWithAs<TagOptions & TagVariants, 'div'>
+export type TagProps = ComponentPropsWithRef<typeof Tag> & TagOptions

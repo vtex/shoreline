@@ -4,7 +4,6 @@ import {
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit/Checkbox'
-import type { ComponentProps } from '@vtex/onda-react'
 import { jsx } from '@vtex/onda-react'
 
 export const Checkbox = jsx(ReakitCheckbox)(
@@ -122,7 +121,8 @@ export interface CheckboxOptions {
   state?: State
 }
 
-export type CheckboxProps = ComponentProps<typeof Checkbox>
+export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox> &
+  CheckboxOptions
 
 export { useCheckboxState }
 export { CheckboxStateReturn }

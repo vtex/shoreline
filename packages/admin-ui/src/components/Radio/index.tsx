@@ -1,7 +1,7 @@
 import type { RadioStateReturn } from 'reakit/Radio'
 import { Radio as ReakitRadio } from 'reakit/Radio'
-import type { ComponentProps } from '@vtex/onda-react'
 import { jsx } from '@vtex/onda-react'
+import type { ComponentPropsWithRef } from 'react'
 
 export const Radio = jsx(ReakitRadio)(
   {
@@ -92,10 +92,10 @@ Radio.defaultProps = {
   size: 'regular',
 }
 
-interface RadioOptions {
+export interface RadioOptions {
   state: RadioStateReturn
 }
 
-export type RadioProps = ComponentProps<typeof Radio>
+export type RadioProps = ComponentPropsWithRef<typeof Radio> & RadioOptions
 
 export { useRadioState, RadioStateReturn } from 'reakit/Radio'

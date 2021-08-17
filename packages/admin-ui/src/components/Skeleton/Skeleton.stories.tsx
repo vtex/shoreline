@@ -14,12 +14,19 @@ export default {
 } as Meta
 
 export const Playground: Story<SkeletonProps> = (args) => {
-  return <Skeleton {...args} />
+  return (
+    <Skeleton
+      csx={{
+        width: 128,
+        height: 128,
+      }}
+      {...args}
+    />
+  )
 }
 
-Playground.args = {
-  csx: { height: 128, width: 128 },
-}
+Playground.args = {}
+
 export const Rect = () => {
   return <Skeleton csx={{ height: 128, width: 128 }} />
 }

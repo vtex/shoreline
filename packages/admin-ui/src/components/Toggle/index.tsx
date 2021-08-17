@@ -1,10 +1,10 @@
 import type { CheckboxProps as ReakitProps } from 'reakit'
 import { Checkbox as ReakitCheckbox } from 'reakit'
-import type { ComponentProps } from '@vtex/onda-react'
 import { jsx } from '@vtex/onda-react'
 
 import type { CheckboxStateReturn } from '../Checkbox'
 import { useCheckboxState } from '../Checkbox'
+import type { ComponentPropsWithRef } from 'react'
 
 export const Toggle = jsx(ReakitCheckbox)(
   {
@@ -117,7 +117,7 @@ export interface ToggleOptions {
   state?: State
 }
 
-export type ToggleProps = ComponentProps<typeof Toggle>
+export type ToggleProps = ComponentPropsWithRef<typeof Toggle> & ToggleOptions
 
 export type ToggleStateReturn = CheckboxStateReturn
 
