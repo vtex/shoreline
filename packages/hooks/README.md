@@ -109,7 +109,6 @@ const [double, setDouble] = useDebouncedState({
 setDouble(20) // the state will be 40
 ```
 
-
 ### useDebouncedCache
 
 Same as `useDebouncedState` but it keeps the state, debounced state and setState
@@ -149,4 +148,31 @@ const [double, debouncedDouble setDouble] = useDebouncedState({
 
 setDouble(20) // the state will be 40
 // after 250ms, the debouncedDouble will be 40
+```
+
+### useQueryState
+
+Persisted keys states in query string params (URL).
+Use setState to update the query string params. The state will also reflect the changes.
+initial state will keep the value in the amount of component (page load)
+
+```jsx
+function Input() {
+  const [initialState, setState, state] = useQueryState({
+    keys: ['search'],
+  })
+
+  return (
+    <div>
+      <input
+        defaultValue={initialSate}
+        onChange={(e) => {
+          setState({ serach: e.target.value })
+        }}
+      />
+      <p>Actual value: {state.search}</p>
+      <p>Initial value: {initialState.search}</p>
+    </div>
+  )
+}
 ```
