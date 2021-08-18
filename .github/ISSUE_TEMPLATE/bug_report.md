@@ -1,37 +1,39 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: 🐞 Bug Report
+about: If something isn't working as expected
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+# Bug Report
 
-**To Reproduce**
-Steps to reproduce the behavior:
+- [ ] I've read and understood the [Contributing guidelines](https://admin-ui-docs.vercel.app/engineering/contributing/) and have done my best effort to follow them.
+- [ ] I've searched for any related issues and avoided creating a duplicate issue.
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## What happened
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+<!--
+	Describe the behavior you encountered. What happened that makes you think this is a bug or missing feature?
+-->
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## What I expected to happen
 
-**Desktop (please complete the following information):**
+<!--
+	What did you expect to happen? You can skip this section if this is a feature request.
+-->
 
-- OS: [e.g. iOS]
-- Browser [e.g. chrome, safari]
-- Version [e.g. 22]
+## Reproducing
 
-**Smartphone (please complete the following information):**
+- Admin-ui version in your `package.json`:
+- Live link with error:
 
-- Device: [e.g. iPhone6]
-- OS: [e.g. iOS8.1]
-- Browser [e.g. stock browser, safari]
-- Version [e.g. 22]
+Steps to reproduce:
 
-**Additional context**
-Add any other context about the problem here.
+1.
+2.
+3.
+4.
+
+## Attachments
+
+<!--
+	Screenshots, logs, repo link, CodePen etc.
+-->
