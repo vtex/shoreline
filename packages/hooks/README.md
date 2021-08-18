@@ -154,7 +154,9 @@ setDouble(20) // the state will be 40
 
 Persisted keys states in query string params (URL).
 Use setState to update the query string params. The state will also reflect the changes.
-initial state will keep the value in the amount of component (page load)
+initial state will keep the value in the amount of component (page load).
+
+**_useQueryState should be used inside of QueryStateProvider_**
 
 ```jsx
 function Input() {
@@ -163,7 +165,7 @@ function Input() {
   })
 
   return (
-    <div>
+    <QueryStateProvider>
       <input
         defaultValue={initialSate}
         onChange={(e) => {
@@ -172,7 +174,7 @@ function Input() {
       />
       <p>Actual value: {state.search}</p>
       <p>Initial value: {initialState.search}</p>
-    </div>
+    </QueryStateProvider>
   )
 }
 ```

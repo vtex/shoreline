@@ -1,5 +1,6 @@
-import { useMemo, useRef, useEffect, useState, useCallback } from 'react'
+import { useMemo, useRef, useCallback } from 'react'
 import { isBrowser } from '@vtex/admin-ui-util'
+import { useQueryStateContext } from './useQueryStateContext'
 
 /**
  * Persisted the keys states in the querry params (url)
@@ -14,20 +15,7 @@ export function useQueryState(
   (v: Record<string, any>) => void,
   Record<string, any>
 ] {
-  const [queryParams, setQueryParams] = useState(
-    new URLSearchParams(isBrowser ? window.location.search : '')
-  )
-
-  useEffect(() => {
-    if (!isBrowser) return
-    window.onpopstate = function onPopstateChange() {
-      setQueryParams(new URLSearchParams(window.location.search))
-    }
-
-    return () => {
-      window.onpopstate = () => {}
-    }
-  }, [])
+  const { queryParams } = useQueryStateContext()
 
   const query: Record<string, string> = useMemo(() => {
     return params.keys.reduce(function (acc, curr) {
