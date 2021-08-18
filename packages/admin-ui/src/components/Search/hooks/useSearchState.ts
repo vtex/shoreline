@@ -12,6 +12,7 @@ export function useSearchState(
 ): SearchFormState {
   const {
     initalValue = '',
+    defaultValue = '',
     initiallyLoading = false,
     onSubmit: baseSubmit,
     timeoutMs = DEFAULT_TIMEOUT_MS,
@@ -32,7 +33,7 @@ export function useSearchState(
   }, [])
 
   const clear = useCallback(() => {
-    setValue(initalValue)
+    setValue(defaultValue)
   }, [value])
 
   return {
@@ -49,6 +50,7 @@ export function useSearchState(
 
 export interface UseSearchStateParams {
   initalValue?: string
+  defaultValue?: string
   initiallyLoading?: boolean
   onSubmit?: () => void
   timeoutMs?: number
