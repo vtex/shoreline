@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import type { Meta } from '@storybook/react'
 import faker from 'faker'
+import { FlexSpacer } from '@vtex/admin-primitives'
+import { QueryStateProvider } from '@vtex/onda-hooks'
 
 import { DataView, DataViewControls, useDataViewState } from '../../DataView'
 import { DataGrid, useDataGridState } from '../index'
 import { Button } from '../../Button'
-import { useSearchState, Search } from '../../Search'
+import { useSearchState, Search, useQuerySearchState } from '../../Search'
 import { createColumns } from '../createColumns'
+import { Pagination, useQueryPaginationState } from '../../Pagination'
+import { Set } from '../../Set'
+import { Input } from '../../Input'
 
 export default {
   title: 'admin-ui/DataGrid/WithDataView',
@@ -148,5 +153,73 @@ export function Status() {
       </DataViewControls>
       <DataGrid state={grid} />
     </DataView>
+  )
+}
+
+const items2: Item[] = [...Array(50).keys()].map((id) => {
+  return {
+    id: `${id}`,
+    name: faker.commerce.productName(),
+    lastSale: faker.date.past().toDateString(),
+    price: faker.commerce.price(),
+  }
+})
+
+export function QueryState() {
+  const [data, setData] = useState(items2)
+  const view = useDataViewState()
+  const pagination = useQueryPaginationState({
+    pageSize: 5,
+    total: items2.length,
+  })
+
+  const search = useQuerySearchState({})
+  const grid = useDataGridState<Item>({
+    view,
+    columns,
+    items: data.slice(pagination.range[0] - 1, pagination.range[1]),
+  })
+
+  useEffect(() => {
+    if (search.debouncedValue !== '') {
+      const filtredItems = items2.filter((item) =>
+        item.name.toLowerCase().startsWith(search.debouncedValue.toLowerCase())
+      )
+
+      setData(filtredItems)
+      pagination.paginate({ type: 'setTotal', total: filtredItems.length })
+      pagination.paginate({ type: 'reset' })
+    } else {
+      setData(items2)
+      pagination.paginate({ type: 'setTotal', total: items2.length })
+      pagination.paginate({ type: 'reset' })
+    }
+  }, [search.debouncedValue])
+
+  return (
+    <Set orientation="vertical" spacing={6}>
+      <Input
+        label="Current URL:"
+        id="current-url-input"
+        value={window.location.href}
+        disabled
+        csx={{ width: 'lg' }}
+        helperText="You can copy the part with page and search in your URL to see the page load directly with persisted states"
+      />
+      <DataView csx={{ width: 500 }} state={view}>
+        <DataViewControls>
+          <Search id="search" placeholder="search" state={search} />
+          <FlexSpacer />
+          <Pagination
+            state={pagination}
+            preposition="of"
+            subject="results"
+            prevLabel="Previous"
+            nextLabel="Next"
+          />
+        </DataViewControls>
+        <DataGrid state={grid} />
+      </DataView>
+    </Set>
   )
 }
