@@ -2,7 +2,8 @@ import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { IconClose } from '@vtex/admin-ui-icons'
 import type { ResponsiveValue } from '@vtex/admin-core'
-import { inlineVariant, useResponsiveValue } from '@vtex/admin-core'
+import { lightness, inlineVariant, useResponsiveValue } from '@vtex/admin-core'
+
 import { Box, Flex } from '@vtex/admin-primitives'
 
 import type { SystemComponent } from '../../types'
@@ -16,18 +17,90 @@ import { Paragraph } from '../Paragraph'
 export const Alert = forwardRef(
   (props: AlertProps, ref: Ref<HTMLDivElement>) => {
     const {
+      type = 'info',
+      fluid = [true, true, false],
+      visible = false,
+      sticky = false,
       children,
       onDismiss,
-      csx,
-      iconContainerStyles,
-      responsiveFluid,
-      themeKey,
+      csx = {},
       icon,
       ...htmlProps
-    } = useAlert(props)
+    } = props
+
+    const responsiveFluid = useResponsiveValue(fluid)
+
+    const themeKey = inlineVariant(`components.alert.${type}`, [
+      [visible, '-visible'],
+      [responsiveFluid, '-fluid'],
+      [sticky, '-sticky'],
+    ])
+
+    const colorVariant = {
+      error: {
+        bg: lightness('red.secondary.default', 0.94),
+        borderColor: 'red.secondary',
+      },
+      success: {
+        bg: lightness('green.secondary.default', 0.94),
+        borderColor: 'green.secondary',
+      },
+      warning: {
+        bg: lightness('yellow.secondary.default', 0.94),
+        borderColor: 'yellow.secondary',
+      },
+      info: {
+        bg: 'light.secondary',
+        borderColor: 'blue.secondary',
+      },
+    }[type]
+
+    const iconContainerStyles = {
+      warning: {
+        color: 'yellow',
+      },
+      success: {
+        color: 'green',
+      },
+      error: {
+        color: 'red',
+      },
+      info: {
+        color: 'blue',
+      },
+    }[type]
 
     return (
-      <Box ref={ref} csx={{ themeKey, ...csx }} {...htmlProps}>
+      <Box
+        ref={ref}
+        csx={{
+          themeKey,
+          // styles
+          display: 'flex',
+          alignItems: fluid ? 'flex-start' : 'center',
+          justifyContent: 'space-between',
+          height: fluid ? '100%' : 48,
+          paddingY: 3,
+          paddingLeft: 4,
+          paddingRight: sticky ? 4 : 3,
+          borderRadius: sticky ? 'flat' : 'default',
+          opacity: visible ? 1 : 0,
+          zIndex: 999,
+          transform: visible
+            ? 'translate3d(0, 0, 0)'
+            : 'translate3d(0, -10px, 0)',
+          visibility: visible ? 'visible' : 'hidden',
+          transition: 'pop',
+          borderStyle: 'solid',
+          borderWidth: 1,
+          a: {
+            fontSettings: 'medium',
+          },
+          ...colorVariant,
+          ...csx,
+        }}
+        {...htmlProps}
+      >
         <Set
           spacing={2}
           csx={{
@@ -56,54 +129,6 @@ export const Alert = forwardRef(
     )
   }
 )
-
-export function useAlert(props: AlertProps) {
-  const {
-    type = 'info',
-    fluid = [true, true, false],
-    visible = false,
-    sticky = false,
-    children,
-    onDismiss,
-    csx = {},
-    icon,
-    ...htmlProps
-  } = props
-
-  const responsiveFluid = useResponsiveValue(fluid)
-
-  const themeKey = inlineVariant(`components.alert.${type}`, [
-    [visible, '-visible'],
-    [responsiveFluid, '-fluid'],
-    [sticky, '-sticky'],
-  ])
-
-  const iconContainerStyles = {
-    warning: {
-      color: 'yellow',
-    },
-    success: {
-      color: 'green',
-    },
-    error: {
-      color: 'red',
-    },
-    info: {
-      color: 'blue',
-    },
-  }[type]
-
-  return {
-    iconContainerStyles,
-    responsiveFluid,
-    themeKey,
-    children,
-    onDismiss,
-    icon,
-    csx,
-    ...htmlProps,
-  }
-}
 
 export interface AlertProps extends SystemComponent {
   /**

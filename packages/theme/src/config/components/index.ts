@@ -1,6 +1,5 @@
 // elements
 import button from './button'
-import alert from './alert'
 import { tab, tabList, tabContent } from './tabs'
 // forms
 import textArea from './textArea'
@@ -20,7 +19,6 @@ export default {
   textArea,
   numericStepper,
   select,
-  alert,
   tab,
   tabList,
   tabContent,
