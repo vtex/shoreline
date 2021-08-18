@@ -1,4 +1,5 @@
 import { useQueryState } from '../useQueryState'
+import { QueryStateProvider } from '../useQueryStateContext'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 const setQuery = (query: Record<string, any> = {}): boolean => {
@@ -23,14 +24,16 @@ const cleanQuery = () => {
   window.history.pushState({ path: newurl }, '', newurl)
 }
 
-describe('usePersistedState tests', () => {
+describe('useQueryState tests', () => {
   beforeEach(cleanQuery)
 
   it('query is update when calls setState', async () => {
-    const { result, waitFor } = renderHook(() =>
-      useQueryState({
-        keys: ['myParam'],
-      })
+    const { result, waitFor } = renderHook(
+      () =>
+        useQueryState({
+          keys: ['myParam'],
+        }),
+      { wrapper: QueryStateProvider }
     )
 
     expect(result.current[0]).toStrictEqual({})
@@ -64,10 +67,12 @@ describe('usePersistedState tests', () => {
 
     setQuery(initialValue)
 
-    const { result } = renderHook(() =>
-      useQueryState({
-        keys: ['myParam'],
-      })
+    const { result } = renderHook(
+      () =>
+        useQueryState({
+          keys: ['myParam'],
+        }),
+      { wrapper: QueryStateProvider }
     )
 
     expect(window.location.href).toContain(`?myParam=${initialValue.myParam}`)
@@ -78,10 +83,12 @@ describe('usePersistedState tests', () => {
 
   // window.history.back() not work (test pass because there is not await before waitFor)
   it('query is update on popstate called', async () => {
-    const { result, waitFor } = renderHook(() =>
-      useQueryState({
-        keys: ['myParam'],
-      })
+    const { result, waitFor } = renderHook(
+      () =>
+        useQueryState({
+          keys: ['myParam'],
+        }),
+      { wrapper: QueryStateProvider }
     )
 
     expect(result.current[2]).toStrictEqual({})
