@@ -55,6 +55,21 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: unset;
+  -webkit-box-align: unset;
+  -ms-flex-align: unset;
+  align-items: unset;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -73,21 +88,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
   width: max-content;
   position: absolute;
   z-index: 999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: unset;
-  -webkit-box-align: unset;
-  -ms-flex-align: unset;
-  align-items: unset;
-  -webkit-box-pack: unset;
-  -ms-flex-pack: unset;
-  -webkit-justify-content: unset;
-  justify-content: unset;
 }
 
 .emotion-4 >*:not(:last-child) {
@@ -246,6 +246,21 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: unset;
+  -webkit-box-align: unset;
+  -ms-flex-align: unset;
+  align-items: unset;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -264,21 +279,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
   width: max-content;
   position: absolute;
   z-index: 999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: unset;
-  -webkit-box-align: unset;
-  -ms-flex-align: unset;
-  align-items: unset;
-  -webkit-box-pack: unset;
-  -ms-flex-pack: unset;
-  -webkit-justify-content: unset;
-  justify-content: unset;
 }
 
 .emotion-4 >*:not(:last-child) {
@@ -437,6 +437,21 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: unset;
+  -webkit-box-align: unset;
+  -ms-flex-align: unset;
+  align-items: unset;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -455,21 +470,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
   width: max-content;
   position: absolute;
   z-index: 999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: unset;
-  -webkit-box-align: unset;
-  -ms-flex-align: unset;
-  align-items: unset;
-  -webkit-box-pack: unset;
-  -ms-flex-pack: unset;
-  -webkit-justify-content: unset;
-  justify-content: unset;
 }
 
 .emotion-4 >*:not(:last-child) {
@@ -634,6 +634,21 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: unset;
+  -webkit-box-align: unset;
+  -ms-flex-align: unset;
+  align-items: unset;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -652,21 +667,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   width: max-content;
   position: absolute;
   z-index: 999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: unset;
-  -webkit-box-align: unset;
-  -ms-flex-align: unset;
-  align-items: unset;
-  -webkit-box-pack: unset;
-  -ms-flex-pack: unset;
-  -webkit-justify-content: unset;
-  justify-content: unset;
 }
 
 .emotion-4 >*:not(:last-child) {
@@ -825,6 +825,21 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: unset;
+  -webkit-box-align: unset;
+  -ms-flex-align: unset;
+  align-items: unset;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
   visibility: hidden;
   cursor: pointer;
   background-color: #FFFFFF;
@@ -843,21 +858,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   width: max-content;
   position: absolute;
   z-index: 999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: unset;
-  -webkit-box-align: unset;
-  -ms-flex-align: unset;
-  align-items: unset;
-  -webkit-box-pack: unset;
-  -ms-flex-pack: unset;
-  -webkit-justify-content: unset;
-  justify-content: unset;
 }
 
 .emotion-4 >*:not(:last-child) {

@@ -1,6 +1,6 @@
 import { rgba } from 'polished'
 
-import { colors } from '../base'
+import { vars } from '../vars'
 
 const surface = {
   outline: 'none',
@@ -108,7 +108,7 @@ export default {
     flexDirection: 'column',
     justifyContent: ['flex-end', 'flex-end', 'center'],
     alignItems: 'center',
-    backgroundColor: rgba(colors.dark.primary, 0.5),
+    backgroundColor: rgba(vars.colors.dark.primary, 0.5),
     position: 'fixed',
     top: 0,
     left: 0,

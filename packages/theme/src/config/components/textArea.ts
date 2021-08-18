@@ -1,4 +1,4 @@
-import { colors } from '../base'
+import { vars } from '../vars'
 
 const textAreaInputStyle = {
   fontFamily: 'sans',
@@ -24,7 +24,7 @@ const textAreaInputStyle = {
   },
   ':focus': {
     borderColor: 'blue',
-    boxShadow: `0 0 0 1px  ${colors.blue.default}`,
+    boxShadow: `0 0 0 1px  ${vars.colors.blue.default}`,
   },
   ':disabled': {
     bg: 'light.secondary',
@@ -55,7 +55,7 @@ const error = {
     borderColor: 'red',
     ':focus': {
       borderColor: 'red',
-      boxShadow: `0 0 0 1px  ${colors.red.default}`,
+      boxShadow: `0 0 0 1px  ${vars.colors.red.default}`,
     },
     ':hover': {
       borderColor: 'red.hover',

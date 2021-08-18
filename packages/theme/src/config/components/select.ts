@@ -1,4 +1,4 @@
-import { colors } from '../base'
+import { vars } from '../vars'
 
 const container = {
   width: 288,
@@ -74,8 +74,8 @@ const button = {
     color: 'dark.primary',
   },
   ':focus': {
-    borderColor: colors.blue.default,
-    boxShadow: `0 0 0 1px ${colors.blue.default}`,
+    borderColor: vars.colors.blue.default,
+    boxShadow: `0 0 0 1px ${vars.colors.blue.default}`,
   },
   ':disabled': {
     bg: 'light.secondary',
@@ -93,7 +93,7 @@ const buttonError = {
   borderColor: 'red',
   ':focus': {
     borderColor: 'red',
-    boxShadow: `0 0 0 1px ${colors.red.default}`,
+    boxShadow: `0 0 0 1px ${vars.colors.red.default}`,
   },
   ':hover': {
     borderColor: 'red',
@@ -154,7 +154,7 @@ const mobileSelect = {
   height: '100%',
   ':focus': {
     borderColor: 'blue',
-    boxShadow: `0 0 0 1px ${colors.blue.default}`,
+    boxShadow: `0 0 0 1px ${vars.colors.blue.default}`,
   },
   ':disabled': {
     bg: 'light.secondary',
@@ -172,7 +172,7 @@ const mobileSelectError = {
   borderColor: 'red',
   ':focus': {
     borderColor: 'red',
-    boxShadow: `0 0 0 1px ${colors.red.default}`,
+    boxShadow: `0 0 0 1px ${vars.colors.red.default}`,
   },
 }
 
