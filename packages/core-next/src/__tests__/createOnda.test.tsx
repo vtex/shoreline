@@ -6,9 +6,8 @@ import { createOnda, useSystem } from '../createOnda'
 
 describe('context', () => {
   it('should execute the system', () => {
-    const [Provider] = createOnda({
+    const Provider = createOnda({
       name: 'onda-design-system-tst',
-      description: 'test of createOnda()',
       theme: {
         space: [0, 1, 2, 4, 8],
       },
