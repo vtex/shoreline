@@ -1,5 +1,5 @@
 import createEmotion from '@emotion/css/create-instance'
-import { Global } from '@emotion/react'
+import { Global, CacheProvider } from '@emotion/react'
 import type { CSSObject as EmotionCSSObject } from '@emotion/css'
 import { createRuntime } from '@vtex/onda-system'
 
@@ -9,11 +9,13 @@ import { resposiveScale } from './experimental/responsiveScale'
 export const runtime = createRuntime({
   name: 'onda-runtime-emotion',
   instance: ({ id }: { id: string }) => {
+    const key = !id.includes('vtex') ? `vtex-${id}` : id
+
     const emotion = createEmotion({
-      key: id,
+      key,
     })
 
-    return { Global, emotion }
+    return { Global, CacheProvider, emotion }
   },
   parser: (steps) => {
     return function css(csx: StyleProp = {}) {
