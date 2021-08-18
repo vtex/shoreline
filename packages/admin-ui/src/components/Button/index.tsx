@@ -9,6 +9,7 @@ import { Primitive, Box, Flex } from '@vtex/admin-primitives'
 import type { Variant, Size } from './types'
 import type { SystemComponentProps } from '../../types'
 import { Spinner } from '../Spinner'
+import { styles } from './styles'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -42,7 +43,7 @@ export function useButton(props: ButtonProps): ReakitButtonProps {
 
   const { cn } = useSystem()
   const className = cn({
-    themeKey: `components.button.${variant}-${resolvedSize}`,
+    ...styles(`${variant}-${resolvedSize}`),
     ...csx,
   })
 
