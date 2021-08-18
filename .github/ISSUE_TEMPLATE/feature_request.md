@@ -1,6 +1,6 @@
 ---
-name: '💡 Feature request'
-about: 'Suggest an idea for the product'
+name: 💡 Feature request
+about: Suggest an idea for the product
 ---
 
 # Feature Request
@@ -9,8 +9,6 @@ about: 'Suggest an idea for the product'
 - [ ] I've searched for any related issues and avoided creating a duplicate issue.
 
 ## Is this feature request related to an existing component? Please describe.
-
-- Component name:
 
 <!--
         Describe the feature. E.g. I would like to have the option to do XYZ on component ABC.

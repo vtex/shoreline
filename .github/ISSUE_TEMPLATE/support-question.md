@@ -1,6 +1,6 @@
 ---
-name: '💬 Support or Feedback'
-about: 'If you need support or need to give us some feedback.'
+name: 💬 Support or Feedback
+about: If you need support or need to give us some feedback.
 ---
 
 # Support or Feedback

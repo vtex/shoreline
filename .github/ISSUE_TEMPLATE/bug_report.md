@@ -1,18 +1,12 @@
 ---
-name: ':🐞 Bug Report'
-about: " If something isn't working as expected"
+name: :🐞 Bug Report
+about: If something isn't working as expected
 ---
 
 # Bug Report
 
 - [ ] I've read and understood the [Contributing guidelines](https://admin-ui-docs.vercel.app/engineering/contributing/) and have done my best effort to follow them.
 - [ ] I've searched for any related issues and avoided creating a duplicate issue.
-
-## Component name
-
-<!--
-	What is the component name?
--->
 
 ## What happened
 
@@ -29,7 +23,6 @@ about: " If something isn't working as expected"
 ## Reproducing
 
 - Admin-ui version in your `package.json`:
-- Component name:
 - Live link with error:
 
 Steps to reproduce:
