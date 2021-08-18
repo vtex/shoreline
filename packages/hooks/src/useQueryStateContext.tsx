@@ -20,7 +20,7 @@ export function useQueryStateContext() {
   return context
 }
 
-export function QueryStateProvider({ children }: { children: ReactNode }) {
+export function QueryStateProvider({ children }: { children?: ReactNode }) {
   const [queryParams, setQueryParams] = useState(
     new URLSearchParams(isBrowser ? window.location.search : '')
   )
