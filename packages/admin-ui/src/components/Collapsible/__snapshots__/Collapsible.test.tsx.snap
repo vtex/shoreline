@@ -124,12 +124,12 @@ exports[`Collapsible tests should match snapshot 1`] = `
   border-radius: 4px;
 }
 
-.emotion-7 .__admin-ui-collapsbile--header {
+.emotion-7 .__admin-ui-collapsible--header {
   padding: 1.5rem;
   padding-left: 0.5rem;
 }
 
-.emotion-7 .__admin-ui-collapsbile--content {
+.emotion-7 .__admin-ui-collapsible--content {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
@@ -159,7 +159,7 @@ exports[`Collapsible tests should match snapshot 1`] = `
     class="emotion-7"
   >
     <header
-      class="__admin-ui-collapsbile--header emotion-5"
+      class="__admin-ui-collapsible--header emotion-5"
     >
       <button
         aria-controls="mocked-id"
@@ -199,7 +199,7 @@ exports[`Collapsible tests should match snapshot 1`] = `
       style="height: 0px; opacity: 0;"
     >
       <div
-        class="__admin-ui-collapsbile--content emotion-6"
+        class="__admin-ui-collapsible--content emotion-6"
       >
         Collapsible Content
       </div>
@@ -332,12 +332,12 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   border-radius: 4px;
 }
 
-.emotion-15 .__admin-ui-collapsbile--header {
+.emotion-15 .__admin-ui-collapsible--header {
   padding: 1.5rem;
   padding-left: 0.5rem;
 }
 
-.emotion-15 .__admin-ui-collapsbile--content {
+.emotion-15 .__admin-ui-collapsible--content {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
@@ -371,12 +371,12 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   border-radius: 4px;
 }
 
-.emotion-13 .__admin-ui-collapsbile--header {
+.emotion-13 .__admin-ui-collapsible--header {
   padding: 1rem;
   padding-left: 0rem;
 }
 
-.emotion-13 .__admin-ui-collapsbile--content {
+.emotion-13 .__admin-ui-collapsible--content {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
@@ -386,7 +386,7 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
     class="emotion-15"
   >
     <header
-      class="__admin-ui-collapsbile--header emotion-5"
+      class="__admin-ui-collapsible--header emotion-5"
     >
       <button
         aria-controls="mocked-id"
@@ -426,13 +426,13 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
       style="height: 0px; opacity: 0;"
     >
       <div
-        class="__admin-ui-collapsbile--content emotion-12"
+        class="__admin-ui-collapsible--content emotion-12"
       >
         <div
           class="emotion-13"
         >
           <header
-            class="__admin-ui-collapsbile--header emotion-5"
+            class="__admin-ui-collapsible--header emotion-5"
           >
             <button
               aria-controls="mocked-id"
@@ -472,7 +472,7 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
             style="height: 0px; opacity: 0;"
           >
             <div
-              class="__admin-ui-collapsbile--content emotion-12"
+              class="__admin-ui-collapsible--content emotion-12"
             >
               Collapsible Content
             </div>

@@ -10,12 +10,12 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   border-radius: 4px;
 }
 
-.emotion-6 .__admin-ui-collapsbile--header {
+.emotion-6 .__admin-ui-collapsible--header {
   padding: 1.5rem;
   padding-left: 0.5rem;
 }
 
-.emotion-6 .__admin-ui-collapsbile--content {
+.emotion-6 .__admin-ui-collapsible--content {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
@@ -170,7 +170,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
       class="emotion-6"
     >
       <header
-        class="__admin-ui-collapsbile--header emotion-5"
+        class="__admin-ui-collapsible--header emotion-5"
       >
         <button
           aria-controls="mocked-id"
@@ -220,12 +220,12 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   border-radius: 4px;
 }
 
-.emotion-6 .__admin-ui-collapsbile--header {
+.emotion-6 .__admin-ui-collapsible--header {
   padding: 1.5rem;
   padding-left: 0.5rem;
 }
 
-.emotion-6 .__admin-ui-collapsbile--content {
+.emotion-6 .__admin-ui-collapsible--content {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
@@ -380,7 +380,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
       class="emotion-6"
     >
       <header
-        class="__admin-ui-collapsbile--header emotion-5"
+        class="__admin-ui-collapsible--header emotion-5"
       >
         <button
           aria-controls="mocked-id"

@@ -60,11 +60,11 @@ export function Collapsible(props: CollapsibleProps) {
           borderStyle: 'solid',
           borderWidth: grouped ? 0 : 1,
           borderRadius: 'default',
-          '.__admin-ui-collapsbile--header': {
+          '.__admin-ui-collapsible--header': {
             padding: !isRoot ? 4 : 6,
             paddingLeft: !isRoot ? 0 : 2,
           },
-          '.__admin-ui-collapsbile--content': {
+          '.__admin-ui-collapsible--content': {
             paddingX: !isRoot ? 4 : 6,
             paddingBottom: !isRoot ? 4 : 6,
           },
@@ -87,7 +87,7 @@ export function Header(props: CollapsibleHeaderProps) {
     <tag.header
       as={motion.header}
       layout
-      className="__admin-ui-collapsbile--header"
+      className="__admin-ui-collapsible--header"
       csx={{
         display: 'flex',
         alignItems: 'center',
@@ -173,7 +173,7 @@ export function Content(props: CollapsibleContentProps) {
                 {...(enhancedProps as PropsWithoutRef<'section'>)}
               >
                 <tag.div
-                  className="__admin-ui-collapsbile--content"
+                  className="__admin-ui-collapsible--content"
                   csx={{ ...csx }}
                   {...contentProps}
                 >

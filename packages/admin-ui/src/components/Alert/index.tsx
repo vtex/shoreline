@@ -2,7 +2,7 @@ import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { IconClose } from '@vtex/admin-ui-icons'
 import type { ResponsiveValue } from '@vtex/admin-core'
-import { lightness, inlineVariant, useResponsiveValue } from '@vtex/admin-core'
+import { lightness, useResponsiveValue } from '@vtex/admin-core'
 
 import { Box, Flex } from '@vtex/admin-primitives'
 
@@ -29,12 +29,6 @@ export const Alert = forwardRef(
     } = props
 
     const responsiveFluid = useResponsiveValue(fluid)
-
-    const themeKey = inlineVariant(`components.alert.${type}`, [
-      [visible, '-visible'],
-      [responsiveFluid, '-fluid'],
-      [sticky, '-sticky'],
-    ])
 
     const colorVariant = {
       error: {
@@ -74,10 +68,8 @@ export const Alert = forwardRef(
       <Box
         ref={ref}
         csx={{
-          themeKey,
-          // styles
           display: 'flex',
-          alignItems: fluid ? 'flex-start' : 'center',
+          alignItems: responsiveFluid ? 'flex-start' : 'center',
           justifyContent: 'space-between',
           height: fluid ? '100%' : 48,
           paddingY: 3,
