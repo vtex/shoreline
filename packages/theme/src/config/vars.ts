@@ -294,6 +294,8 @@ export const vars = {
     menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
     subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
     focus: `0rem 0rem 0rem 0.125rem ${colors.focus}`,
+    inputFocus: `0 0 0 1px  ${colors.blue.default}`,
+    inputFocusError: `0 0 0 1px  ${colors.red.default}`,
   },
   borderRadius: {
     default: '4px',

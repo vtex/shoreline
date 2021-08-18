@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { alpha } from '@vtex/admin-ui-system'
+import { get } from '@vtex/onda-util'
 
 const size = {
   regular: {
@@ -219,7 +219,7 @@ const variant = {
   },
 }
 
-const styles = {
+const base = {
   fontFamily: 'sans',
   fontSettings: 'regular',
   border: 'none',
@@ -236,7 +236,7 @@ const styles = {
   },
 }
 
-export default {
+const styleMap = {
   ...Object.keys(variant).reduce(function mergeV(acc, v) {
     return {
       ...acc,
@@ -244,7 +244,7 @@ export default {
         return {
           ...bcc,
           [`${v}-${s}`]: {
-            ...styles,
+            ...base,
             ...(variant as any)[v],
             ...(size as any)[s],
           },
@@ -252,4 +252,8 @@ export default {
       }, []),
     }
   }, {}),
+}
+
+export function styles(id: string) {
+  return get(styleMap, id, {})
 }
