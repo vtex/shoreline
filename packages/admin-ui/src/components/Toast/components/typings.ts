@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import type { IconProps } from '@vtex/admin-ui-icons'
-import type { PropsWithAs } from '@vtex/onda-react'
+import type { CsxCall } from '@vtex/onda-react'
 
 import type { ButtonProps } from '../../Button'
 
@@ -44,7 +44,7 @@ export interface ToastOptions extends ToastProps {
   stack: string[]
 }
 
-interface _ToastProps {
+export interface ToastProps extends CsxCall {
   /**
    * Message displayed to the end-user.
    */
@@ -79,8 +79,6 @@ interface _ToastProps {
    */
   iconProps?: ToastIconProps
 }
-
-export type ToastProps = PropsWithAs<_ToastProps, 'div'>
 
 /**
  * Type of the toast to be rendered

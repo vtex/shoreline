@@ -1,5 +1,5 @@
+import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
-import type { PropsWithAs } from '@vtex/onda-react'
 import { jsx, tag } from '@vtex/onda-react'
 
 /**
@@ -57,8 +57,8 @@ Avatar.defaultProps = {
   palette: 'base',
 }
 
-interface AvatarOptions {
+export interface AvatarOptions {
   label: string
 }
 
-export type AvatarProps = PropsWithAs<AvatarOptions, 'div'>
+export type AvatarProps = ComponentPropsWithRef<typeof Avatar> & AvatarOptions

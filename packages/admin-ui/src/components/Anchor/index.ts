@@ -1,5 +1,5 @@
-import type { PropsWithAs } from '@vtex/onda-react'
 import { jsx } from '@vtex/onda-react'
+import type { ComponentPropsWithRef } from 'react'
 
 /**
  * Anchor component
@@ -21,4 +21,4 @@ export const Anchor = jsx.a({
   },
 })
 
-export type AnchorProps = PropsWithAs<{}, 'a'>
+export type AnchorProps = ComponentPropsWithRef<typeof Anchor>

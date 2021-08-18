@@ -1,5 +1,5 @@
-import type { PropsWithAs } from '@vtex/onda-react'
 import { jsx } from '@vtex/onda-react'
+import type { ComponentPropsWithRef } from 'react'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -74,8 +74,4 @@ Skeleton.defaultProps = {
   shape: 'rect',
 }
 
-export interface SkeletonVariants {
-  shape: 'rect' | 'circle'
-}
-
-export type SkeletonProps = PropsWithAs<SkeletonVariants, 'div'>
+export type SkeletonProps = ComponentPropsWithRef<typeof Skeleton>

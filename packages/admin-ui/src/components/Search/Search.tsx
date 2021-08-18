@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { jsx } from '@vtex/onda-react'
 import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
@@ -8,10 +9,6 @@ import { Button } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { Label } from '../Label'
 import { Spinner } from '../Spinner'
-
-interface SearchOptions {
-  state: SearchFormState
-}
 
 /**
  * Search form
@@ -104,3 +101,9 @@ export const Search = jsx.form(
     },
   }
 )
+
+export interface SearchOptions {
+  state: SearchFormState
+}
+
+export type SearchProps = ComponentPropsWithRef<typeof Search> & SearchOptions

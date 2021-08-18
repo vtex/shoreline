@@ -8,61 +8,6 @@ import type { StyleObject } from '@vtex/admin-core'
 export type As<Props = any> = React.ElementType<Props>
 
 /**
- * Generic component props with "as" prop
- * @template Props Additional props
- * @template T React component or string element
- */
-export type PropsWithAs<Props, T extends As> = Props &
-  Omit<React.ComponentPropsWithoutRef<T>, 'as' | keyof Props> & {
-    /**
-     * Render as other element or component
-     */
-    as?: T
-    /**
-     * Csx property
-     * @default {}
-     */
-    csx?: StyleObject
-    /**
-     * Fixup for emotion css
-     * !🚨 Dont use it
-     * @private
-     */
-    css?: any
-    /**
-     * children that accepts any valid ReactNode or a render function
-     */
-    children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
-  }
-
-export type ComponentProps<T> = T extends React.ComponentType<infer Props>
-  ? Props extends object
-    ? Props &
-        Omit<React.ComponentPropsWithRef<T>, 'as' | keyof Props> & {
-          /**
-           * Render as other element or component
-           */
-          as?: T
-          /**
-           * Csx property
-           * @default {}
-           */
-          csx?: StyleObject
-          /**
-           * Fixup for emotion css
-           * !🚨 Dont use it
-           * @private
-           */
-          css?: any
-          /**
-           * children that accepts any valid ReactNode or a render function
-           */
-          children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
-        }
-    : never
-  : never
-
-/**
  * Call for styles
  */
 export interface CsxCall {

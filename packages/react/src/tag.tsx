@@ -1,9 +1,8 @@
 import React from 'react'
-import type { StyleObject } from '@vtex/admin-core'
 import { useSystem } from '@vtex/admin-core'
 import { isFunction, capitalize } from '@vtex/onda-util'
 
-import type { ExtractHTMLAttributes, RenderProp } from './types'
+import type { CsxCall, ExtractHTMLAttributes, RenderProp } from './types'
 import type { DOMElements } from './domElements'
 import { domElements } from './domElements'
 
@@ -80,10 +79,9 @@ export type OndaElement<T extends React.ElementType, Props> = {
 }
 
 export type ElementPropsWithAs<Props, T extends React.ElementType> = Props &
-  Omit<React.ComponentPropsWithRef<T>, 'as' | keyof Props> & {
-    csx?: StyleObject
+  Omit<React.ComponentPropsWithRef<T>, 'as' | keyof Props> &
+  CsxCall & {
     className?: string
-    css?: any
     as?: T
     children?: React.ReactNode | RenderProp<ExtractHTMLAttributes<any>>
   }
