@@ -61,7 +61,7 @@ describe('Modal tests', () => {
     )
   })
 
-  it('should match snapshot visible', () => {
+  it('should match snapshot visible with small size', () => {
     const { asFragment } = render(
       <ThemeProvider>
         <Modal
@@ -69,6 +69,92 @@ describe('Modal tests', () => {
           aria-label="modal"
           disclosure={<button>disclosure</button>}
           baseId="id"
+          size="small"
+        >
+          <Modal.Header title="Header" />
+          <Modal.Content>
+            <div>modal content</div>
+          </Modal.Content>
+        </Modal>
+      </ThemeProvider>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should match snapshot visible with regular size', () => {
+    const { asFragment } = render(
+      <ThemeProvider>
+        <Modal
+          visible
+          aria-label="modal"
+          disclosure={<button>disclosure</button>}
+          baseId="id"
+        >
+          <Modal.Header title="Header" />
+          <Modal.Content>
+            <div>modal content</div>
+          </Modal.Content>
+        </Modal>
+      </ThemeProvider>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should match snapshot visible with large size', () => {
+    const { asFragment } = render(
+      <ThemeProvider>
+        <Modal
+          visible
+          aria-label="modal"
+          disclosure={<button>disclosure</button>}
+          baseId="id"
+          size="large"
+        >
+          <Modal.Header title="Header" />
+          <Modal.Content>
+            <div>modal content</div>
+          </Modal.Content>
+        </Modal>
+      </ThemeProvider>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should match snapshot visible with larger scroll area', () => {
+    const { asFragment } = render(
+      <ThemeProvider>
+        <Modal
+          visible
+          aria-label="modal"
+          disclosure={<button>disclosure</button>}
+          baseId="id"
+        >
+          <Modal.Header title="Header" />
+          <Modal.Content>
+            <div>modal content</div>
+          </Modal.Content>
+          <Modal.Footer>
+            <button>footer button</button>
+          </Modal.Footer>
+        </Modal>
+      </ThemeProvider>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should match snapshot visible with extra large scroll area', () => {
+    const { asFragment } = render(
+      <ThemeProvider>
+        <Modal
+          visible
+          aria-label="modal"
+          disclosure={<button>disclosure</button>}
+          baseId="id"
+          size="large"
         >
           <Modal.Header title="Header" />
           <Modal.Content>

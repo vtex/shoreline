@@ -13,7 +13,59 @@ exports[`Modal tests should match snapshot hidden 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Modal tests should match snapshot visible 1`] = `
+exports[`Modal tests should match snapshot visible with extra large scroll area 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="id"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    type="button"
+  >
+    disclosure
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Modal tests should match snapshot visible with large size 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="id"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    type="button"
+  >
+    disclosure
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Modal tests should match snapshot visible with larger scroll area 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="id"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    type="button"
+  >
+    disclosure
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Modal tests should match snapshot visible with regular size 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="id"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    type="button"
+  >
+    disclosure
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Modal tests should match snapshot visible with small size 1`] = `
 <DocumentFragment>
   <button
     aria-controls="id"
