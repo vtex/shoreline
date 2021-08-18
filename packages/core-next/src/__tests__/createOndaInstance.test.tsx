@@ -7,7 +7,6 @@ describe('admin ui design system provider', () => {
   it('should execute the onda instance', () => {
     const OndaProvider = createOndaInstance({
       name: 'onda-design-system-tst',
-      description: 'test of createSystem()',
       options: { disableCSSVariables: true },
     })
 

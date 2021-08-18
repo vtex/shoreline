@@ -14,7 +14,6 @@ import { useCSSVariables } from './hooks/useCSSVariables'
 
 export interface OndaSpec<Theme extends Record<string, any>> {
   name: string
-  description: string
   theme: Theme
   plugins: Array<Plugin<Theme>>
   options?: ThemeOptions
@@ -22,7 +21,6 @@ export interface OndaSpec<Theme extends Record<string, any>> {
 
 export interface OndaInstanceSpec {
   name: string
-  description: string
   options?: ThemeOptions
 }
 
@@ -30,17 +28,17 @@ export interface OndaInstanceSpec {
  * It creates the Admin UI Design System instance
  *
  * @Example
- * const OndaProvider = createOndaInstance({ name: 'admin-app-name', description: 'Admin app description' })
+ * const OndaProvider = createOndaInstance({ name: 'admin-app-name' })
  */
 export function createOndaInstance(spec: OndaInstanceSpec) {
-  const { name, description, options } = spec
+  const { name, options } = spec
 
   invariant(
     isKebab(name),
     '"name" property must be in kebab-case format on createOndaInstance function'
   )
 
-  return createOnda({ name, description, plugins, theme, options })
+  return createOnda({ name, plugins, theme, options })
 }
 
 export const SystemContext = React.createContext<{
@@ -49,7 +47,6 @@ export const SystemContext = React.createContext<{
   instance: any
   about: {
     name: string
-    description: string
   }
 } | null>(null)
 
@@ -71,7 +68,7 @@ export type DesignSystem = (props: {
 export function createOnda<Theme extends Record<string, any>>(
   spec: OndaSpec<Theme>
 ): DesignSystem {
-  const { name, description, theme: themeConfig, options } = spec
+  const { name, theme: themeConfig, options } = spec
 
   const [{ global, ...strictTheme }, cssVariables] = createTheme(
     themeConfig,
@@ -107,7 +104,6 @@ export function createOnda<Theme extends Record<string, any>>(
             instance: emotion,
             about: {
               name,
-              description,
             },
           }}
         >
