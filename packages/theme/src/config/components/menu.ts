@@ -1,6 +1,6 @@
 import { alpha } from '@vtex/admin-ui-system'
 
-import { space } from '../base'
+import { vars } from '../vars'
 
 const itemStyles = {
   marginY: '2px',
@@ -38,8 +38,8 @@ export default {
     borderLeft: 'none',
     borderRight: 'none',
     borderColor: 'mid.secondary',
-    width: `calc(100% -${space[3]})`,
-    marginX: `-${space[3]}`,
+    width: `calc(100% -${vars.space[3]})`,
+    marginX: `-${vars.space[3]}`,
     outline: 'none',
   },
   item: {
