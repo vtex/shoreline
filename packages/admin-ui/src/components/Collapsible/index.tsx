@@ -9,18 +9,18 @@ import {
 } from 'reakit/Disclosure'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
-import { Box, Flex } from '@vtex/admin-primitives'
-import { useSystem } from '@vtex/admin-core'
+import { Flex } from '@vtex/admin-primitives'
 
 import {
   CollapsibleProvider,
   useCollapsibleContext,
-  TreeProvider,
-  useTree,
+  useRootContext,
+  RootContext,
 } from './context'
 import { Button } from '../Button'
 import type { SystemComponent, SystemComponentProps } from '../../types'
 import { useGroup } from '../Group'
+import { tag } from '@vtex/onda-react'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.
@@ -37,13 +37,11 @@ import { useGroup } from '../Group'
  * ```
  */
 export function Collapsible(props: CollapsibleProps) {
-  const { isRoot } = useTree()
+  const isRoot = useRootContext()
   const { grouped } = useGroup()
 
   const { csx, children, disabled, focusable, state, ...collapsibleProps } =
     props
-
-  const { cn } = useSystem()
 
   const reakitProps = {
     focusable,
@@ -51,43 +49,59 @@ export function Collapsible(props: CollapsibleProps) {
     ...state,
   }
 
-  const variant = {
-    container: `components.collapsible.container${grouped ? '-grouped' : ''}`,
-    header: `components.collapsible.header${!isRoot ? '-nested' : ''}`,
-    content: `components.collapsible.section${!isRoot ? '-nested' : ''}`,
-  }
-
-  const className = cn({
-    themeKey: variant.container,
-    ...csx,
-  })
-
   return (
     <AnimateSharedLayout>
-      <motion.div layout className={className} {...collapsibleProps}>
-        <CollapsibleProvider variant={variant} {...reakitProps}>
-          <TreeProvider isRoot={false}>{children}</TreeProvider>
+      <tag.div
+        as={motion.div}
+        layout
+        csx={{
+          bg: 'light.primary',
+          borderColor: 'mid.tertiary',
+          borderStyle: 'solid',
+          borderWidth: grouped ? 0 : 1,
+          borderRadius: 'default',
+          '.__admin-ui-collapsbile--header': {
+            padding: !isRoot ? 4 : 6,
+            paddingLeft: !isRoot ? 0 : 2,
+          },
+          '.__admin-ui-collapsbile--content': {
+            paddingX: !isRoot ? 4 : 6,
+            paddingBottom: !isRoot ? 4 : 6,
+          },
+          ...csx,
+        }}
+        {...collapsibleProps}
+      >
+        <CollapsibleProvider {...reakitProps}>
+          <RootContext.Provider value={false}>{children}</RootContext.Provider>
         </CollapsibleProvider>
-      </motion.div>
+      </tag.div>
     </AnimateSharedLayout>
   )
 }
 
 export function Header(props: CollapsibleHeaderProps) {
   const { children, label, csx, ...headerProps } = props
-  const { variant } = useCollapsibleContext()
-  const { cn } = useSystem()
-
-  const className = cn({
-    ...csx,
-    themeKey: variant.header,
-  })
 
   return (
-    <motion.header layout className={className} {...headerProps}>
+    <tag.header
+      as={motion.header}
+      layout
+      className="__admin-ui-collapsbile--header"
+      csx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        'div > button:nth-of-type(n+2)': {
+          marginLeft: 1,
+        },
+        ...csx,
+      }}
+      {...headerProps}
+    >
       <Disclosure>{label}</Disclosure>
       <Flex>{children}</Flex>
-    </motion.header>
+    </tag.header>
   )
 }
 
@@ -127,7 +141,7 @@ function Disclosure({ children }: { children: ReactNode }) {
 
 export function Content(props: CollapsibleContentProps) {
   const { children, csx, ...contentProps } = props
-  const { variant, ...disclosureProps } = useCollapsibleContext()
+  const disclosureProps = useCollapsibleContext()
 
   return (
     <DisclosureContent {...disclosureProps}>
@@ -158,12 +172,13 @@ export function Content(props: CollapsibleContentProps) {
                 }}
                 {...(enhancedProps as PropsWithoutRef<'section'>)}
               >
-                <Box
-                  csx={{ themeKey: variant.content, ...csx }}
+                <tag.div
+                  className="__admin-ui-collapsbile--content"
+                  csx={{ ...csx }}
                   {...contentProps}
                 >
                   {children}
-                </Box>
+                </tag.div>
               </motion.section>
             )}
           </AnimatePresence>

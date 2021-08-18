@@ -8,14 +8,11 @@ import select from './select'
 // overlay
 import menu from './menu'
 import modal from './modal'
-// layouts
-import collapsible from './collapsible'
 
 export default {
   button,
   menu,
   modal,
-  collapsible,
   textArea,
   numericStepper,
   select,

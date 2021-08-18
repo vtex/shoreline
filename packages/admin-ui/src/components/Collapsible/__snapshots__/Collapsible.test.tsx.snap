@@ -124,6 +124,17 @@ exports[`Collapsible tests should match snapshot 1`] = `
   border-radius: 4px;
 }
 
+.emotion-7 .__admin-ui-collapsbile--header {
+  padding: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.emotion-7 .__admin-ui-collapsbile--content {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 .emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -136,25 +147,19 @@ exports[`Collapsible tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  padding: 1.5rem;
-  padding-left: 0.5rem;
 }
 
 .emotion-5 div>button:nth-of-type(n+2) {
   margin-left: 0.25rem;
 }
 
-.emotion-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
-}
+
 
 <div
     class="emotion-7"
   >
     <header
-      class="emotion-5"
+      class="__admin-ui-collapsbile--header emotion-5"
     >
       <button
         aria-controls="mocked-id"
@@ -194,7 +199,7 @@ exports[`Collapsible tests should match snapshot 1`] = `
       style="height: 0px; opacity: 0;"
     >
       <div
-        class="emotion-6"
+        class="__admin-ui-collapsbile--content emotion-6"
       >
         Collapsible Content
       </div>
@@ -319,12 +324,23 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   display: flex;
 }
 
-.emotion-13 {
+.emotion-15 {
   background-color: #FFFFFF;
   border-color: #E0E2E7;
   border-style: solid;
   border-width: 1px;
   border-radius: 4px;
+}
+
+.emotion-15 .__admin-ui-collapsbile--header {
+  padding: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.emotion-15 .__admin-ui-collapsbile--content {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .emotion-5 {
@@ -339,51 +355,38 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  padding: 1.5rem;
-  padding-left: 0.5rem;
 }
 
 .emotion-5 div>button:nth-of-type(n+2) {
   margin-left: 0.25rem;
 }
 
-.emotion-14 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
+
+
+.emotion-13 {
+  background-color: #FFFFFF;
+  border-color: #E0E2E7;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
 }
 
-.emotion-11 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+.emotion-13 .__admin-ui-collapsbile--header {
   padding: 1rem;
   padding-left: 0rem;
 }
 
-.emotion-11 div>button:nth-of-type(n+2) {
-  margin-left: 0.25rem;
-}
-
-.emotion-12 {
+.emotion-13 .__admin-ui-collapsbile--content {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
 }
 
 <div
-    class="emotion-13"
+    class="emotion-15"
   >
     <header
-      class="emotion-5"
+      class="__admin-ui-collapsbile--header emotion-5"
     >
       <button
         aria-controls="mocked-id"
@@ -423,13 +426,13 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
       style="height: 0px; opacity: 0;"
     >
       <div
-        class="emotion-14"
+        class="__admin-ui-collapsbile--content emotion-12"
       >
         <div
           class="emotion-13"
         >
           <header
-            class="emotion-11"
+            class="__admin-ui-collapsbile--header emotion-5"
           >
             <button
               aria-controls="mocked-id"
@@ -469,7 +472,7 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
             style="height: 0px; opacity: 0;"
           >
             <div
-              class="emotion-12"
+              class="__admin-ui-collapsbile--content emotion-12"
             >
               Collapsible Content
             </div>

@@ -2,11 +2,7 @@ import React, { useContext, createContext } from 'react'
 import type { DisclosureProps } from 'reakit'
 import invariant from 'tiny-invariant'
 
-interface CollapsibleContextProps extends DisclosureProps {
-  variant: { container: string; header: string; content: string }
-}
-
-const CollapsibleContext = createContext<CollapsibleContextProps | null>(null)
+const CollapsibleContext = createContext<DisclosureProps | null>(null)
 
 export function useCollapsibleContext() {
   const context = useContext(CollapsibleContext)
@@ -22,7 +18,7 @@ export function useCollapsibleContext() {
 export function CollapsibleProvider({
   children,
   ...restProps
-}: CollapsibleContextProps) {
+}: DisclosureProps) {
   return (
     <CollapsibleContext.Provider value={{ ...restProps }}>
       {children}
@@ -30,24 +26,10 @@ export function CollapsibleProvider({
   )
 }
 
-interface TreeContextProps {
-  isRoot: boolean
-}
+export const RootContext = createContext<boolean>(true)
 
-const TreeContext = createContext<TreeContextProps>({ isRoot: true })
+export function useRootContext() {
+  const ctx = useContext(RootContext)
 
-export function useTree() {
-  const { isRoot } = useContext(TreeContext)
-
-  return { isRoot }
-}
-
-export function TreeProvider(props: React.PropsWithChildren<TreeContextProps>) {
-  const { children, ...restProps } = props
-
-  return (
-    <TreeContext.Provider value={{ ...restProps }}>
-      {children}
-    </TreeContext.Provider>
-  )
+  return ctx
 }
