@@ -3,7 +3,6 @@ import button from './button'
 import alert from './alert'
 import { tab, tabList, tabContent } from './tabs'
 // forms
-import controlGroup from './controlGroup'
 import textArea from './textArea'
 import numericStepper from './numericStepper'
 import select from './select'
@@ -15,7 +14,6 @@ import collapsible from './collapsible'
 
 export default {
   button,
-  controlGroup,
   menu,
   modal,
   collapsible,
