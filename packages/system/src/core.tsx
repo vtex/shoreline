@@ -4,6 +4,7 @@ import deepmerge from 'deepmerge'
 import { jsxs, EmotionContext } from '@vtex/admin-jsxs'
 import packageInfo from '@emotion/react/package.json'
 import type { Theme } from '@vtex/admin-styles'
+import { QueryStateProvider } from '@vtex/onda-hooks'
 
 const EMOTION_VERSION = packageInfo.version
 
@@ -89,5 +90,9 @@ export function ThemeProvider({ theme, children }: ThemeProviderProps) {
       ? { ...outer, theme: theme(outer.theme) }
       : mergeThemes.all({}, outer, { theme })
 
-  return jsxs(BaseProvider, { context }, children)
+  return jsxs(
+    BaseProvider,
+    { context },
+    jsxs<{}>(QueryStateProvider, {}, children)
+  )
 }
