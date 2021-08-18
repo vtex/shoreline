@@ -71,7 +71,7 @@ export const Alert = forwardRef(
           display: 'flex',
           alignItems: responsiveFluid ? 'flex-start' : 'center',
           justifyContent: 'space-between',
-          height: fluid ? '100%' : 48,
+          height: responsiveFluid ? '100%' : 48,
           paddingY: 3,
           paddingLeft: 4,
           paddingRight: sticky ? 4 : 3,
