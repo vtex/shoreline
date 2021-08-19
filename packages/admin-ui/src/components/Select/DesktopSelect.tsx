@@ -2,7 +2,6 @@ import type { RefObject } from 'react'
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import { IconCaret, IconCheck } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
-import { get } from '@vtex/admin-core'
 
 import type { SelectProps } from './index'
 import { Label } from '../Label'
@@ -138,9 +137,8 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
             color: 'dark.primary',
           },
           ':focus': {
-            borderColor: (theme) => get(theme, 'colors.blue.default'),
-            boxShadow: (theme) =>
-              `0 0 0 1px ${get(theme, 'colors.blue.default')}`,
+            borderColor: 'blue',
+            boxShadow: 'inputFocus',
           },
           ':disabled': {
             bg: 'light.secondary',
@@ -156,8 +154,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
                 borderColor: 'red',
                 ':focus': {
                   borderColor: 'red',
-                  boxShadow: (theme) =>
-                    `0 0 0 1px ${get(theme, 'colors.red.default')}`,
+                  boxShadow: 'inputFocusError',
                 },
                 ':hover': {
                   borderColor: 'red',

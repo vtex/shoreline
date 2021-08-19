@@ -2,7 +2,6 @@ import type { ChangeEvent } from 'react'
 import React from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
-import { get } from '@vtex/admin-core'
 import { tag } from '@vtex/onda-react'
 
 import { Label } from '../Label'
@@ -77,8 +76,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
           height: '100%',
           ':focus': {
             borderColor: 'blue',
-            boxShadow: (theme) =>
-              `0 0 0 1px ${get(theme, 'colors.blue.default')}`,
+            boxShadow: 'inputFocus',
           },
           ':disabled': {
             bg: 'light.secondary',
@@ -94,8 +92,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
                 borderColor: 'red',
                 ':focus': {
                   borderColor: 'red',
-                  boxShadow: (theme) =>
-                    `0 0 0 1px ${get(theme, 'colors.red.default')}`,
+                  boxShadow: 'inputFocusError',
                 },
               }
             : {}),

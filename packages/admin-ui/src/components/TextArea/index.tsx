@@ -1,7 +1,6 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { Box } from '@vtex/admin-primitives'
-import { get } from '@vtex/admin-core'
 import { tag } from '@vtex/onda-react'
 
 import { Text } from '../Text'
@@ -40,8 +39,7 @@ export const TextArea = forwardRef(function Textarea(
               borderColor: 'red',
               ':focus': {
                 borderColor: 'red',
-                boxShadow: (theme) =>
-                  `0 0 0 1px  ${get(theme, 'colors.red.default')}`,
+                boxShadow: 'inputFocusError',
               },
               ':hover': {
                 borderColor: 'red.hover',
@@ -75,8 +73,7 @@ export const TextArea = forwardRef(function Textarea(
           },
           ':focus': {
             borderColor: 'blue',
-            boxShadow: (theme) =>
-              `0 0 0 1px  ${get(theme, 'colors.blue.default')}`,
+            boxShadow: 'inputFocus',
           },
           ':disabled': {
             bg: 'light.secondary',
