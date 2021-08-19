@@ -1,41 +1,28 @@
-- section: Guide
+- section: Introduction
   paths:
-    - /getting-started/installation/
-    - /getting-started/can-i-use/
-    - /getting-started/comparison/
-- section: Core concepts
+    - /introduction/about/
+    - /introduction/can-i-use/
+    - /introduction/comparison/
+- section: Getting started
   paths:
-    - /core-concepts/icons/
-    - /core-concepts/csx-prop/
-    - /core-concepts/tag/
-- section: Theming
+    - /getting-started/developers/
+- section: Contributing
   paths:
-    - /theming/default-theme/
-    - /theming/theme-provider/
-    - /theming/responsive-design/
+    - /contributing/overview/
+    - /contributing/code-styleguide/
+    - /contributing/publishing/
+- section: Guidelines
+  paths:
+    - /guidelines/theming/
+    - /guidelines/responsive-design/
+    - /guidelines/styling/
+    - /guidelines/tag/
 - section: Primitives
   paths:
     - /primitives/introduction/
     - /primitives/box/
     - /primitives/flex/
     - /primitives/grid/
-- section: Feedback
-  paths:
-    - /feedback/alert/
-    - /feedback/spinner/
-    - /feedback/skeleton/
-    - /feedback/toast/
-- section: Data display
-  paths:
-    - /data-display/data-view/
-    - /data-display/data-grid/
-    - /data-display/card/
-    - /data-display/collapsible-group/
-    - /data-display/collapsible/
-    - /data-display/divider/
-    - /data-display/tag/
-    - /data-display/visually-hidden/
-    - /data-display/filter-bar/
 - section: Layouts
   paths:
     - /layouts/introduction/
@@ -52,42 +39,47 @@
     - /typography/text/
 - section: Components
   paths:
+    - /alert/
     - /avatar/
     - /button/
+    - /card/
+    - /checkbox/
+    - /checkbox-group/
+    - /collapsible/
+    - /collapsible-group/
+    - /data-grid/
+    - /data-view/
+    - /divider/
+    - /dropdown/
+    - /filter-bar/
+    - /icons/
+    - /input/
+    - /input-password/
+    - /label/
     - /menu/
     - /modal/
-    - /tabs/
-    - /tooltip/
+    - /numeric-stepper/
     - /pagination/
+    - /radio/
+    - /radio-group/
+    - /search/
+    - /skeleton/
+    - /select/
+    - /spinner/
+    - /tabs/
+    - /tag/
+    - /text-area/
+    - /toast/
     - /toolbar/
-- section: Forms
-  paths:
-    - /form/checkbox-group/
-    - /form/checkbox/
-    - /form/dropdown/
-    - /form/label/
-    - /form/numeric-stepper/
-    - /form/radio-group/
-    - /form/radio/
-    - /form/input/
-    - /form/input-password/
-    - /form/select/
-    - /form/text-area/
-    - /form/toggle/
-    - /form/search/
+    - /tooltip/
+    - /toggle/
+    - /visually-hidden/
 - section: Hooks
   paths:
     - /hooks/use-media-query/
     - /hooks/use-theme/
     - /hooks/use-responsive-value/
     - /hooks/use-system/
-- section: Packages
+- section: Help
   paths:
-    - /packages/admin-styles/
-    - /packages/admin-ui-icons/
-    - /packages/gatsby-plugin-admin-ui/
-- section: Engineering
-  paths:
-    - /engineering/contributing/
-    - /engineering/code-styleguide/
-    - /engineering/publishing/
+    - /help/support/
