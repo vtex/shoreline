@@ -83,7 +83,7 @@ For convenience, we also provide a hook that already implements the state logic 
 
 ### useQueryPaginationState
 
-Instead of `usePaginationState` it is also possible to use the `useQueryPaginationState` hook. It makes it possible to persist the pagination state in the query string parameters of the url. To do this is similarly to `usePaginationState`, you should pass the hook return to the `state` property in pagination component.
+Instead of `usePaginationState` it is also possible to use the `useQueryPaginationState` hook. It makes it possible to persist the pagination state in the query string parameters of the url. To do this is similarly to `usePaginationState`, you should pass the hook return to the `state` property in pagination component. For this hook to work correctly, you need to setup the `QueryStateProvider` at the root of your application.
 
 #### Parameter
 
@@ -102,14 +102,15 @@ function Example() {
   const state = useQueryPaginationState({ pageSize: 5, total: 35 })
 
   return (
-    <Pagination
-      state={state}
-      preposition="of"
-      subject="results"
-      prevLabel="Previous"
-      nextLabel="Next"
-    />
+    <QueryStateProvider>
+      <Pagination
+        state={state}
+        preposition="of"
+        subject="results"
+        prevLabel="Previous"
+        nextLabel="Next"
+      />
+    </QueryStateProvider>
   )
 }
 ```
-
