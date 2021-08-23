@@ -57,7 +57,6 @@ export const ModalContent = forwardRef(function ModalContent(
       ...scrollbarStyles,
       height: 'calc(100% - 10rem)',
     },
-    content: {},
   }
 
   return (
