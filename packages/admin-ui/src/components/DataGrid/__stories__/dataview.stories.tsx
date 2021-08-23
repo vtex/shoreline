@@ -197,29 +197,31 @@ export function QueryState() {
   }, [search.debouncedValue])
 
   return (
-    <Set orientation="vertical" spacing={6}>
-      <Input
-        label="Current URL:"
-        id="current-url-input"
-        value={window.location.href}
-        disabled
-        csx={{ width: 'lg' }}
-        helperText="You can copy the part with page and search in your URL to see the page load directly with persisted states"
-      />
-      <DataView csx={{ width: 500 }} state={view}>
-        <DataViewControls>
-          <Search id="search" placeholder="search" state={search} />
-          <FlexSpacer />
-          <Pagination
-            state={pagination}
-            preposition="of"
-            subject="results"
-            prevLabel="Previous"
-            nextLabel="Next"
-          />
-        </DataViewControls>
-        <DataGrid state={grid} />
-      </DataView>
-    </Set>
+    <QueryStateProvider>
+      <Set orientation="vertical" spacing={6}>
+        <Input
+          label="Current URL:"
+          id="current-url-input"
+          value={window.location.href}
+          disabled
+          csx={{ width: 'lg' }}
+          helperText="You can copy the part with page and search in your URL to see the page load directly with persisted states"
+        />
+        <DataView csx={{ width: 500 }} state={view}>
+          <DataViewControls>
+            <Search id="search" placeholder="search" state={search} />
+            <FlexSpacer />
+            <Pagination
+              state={pagination}
+              preposition="of"
+              subject="results"
+              prevLabel="Previous"
+              nextLabel="Next"
+            />
+          </DataViewControls>
+          <DataGrid state={grid} />
+        </DataView>
+      </Set>
+    </QueryStateProvider>
   )
 }

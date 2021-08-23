@@ -1,6 +1,6 @@
 import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
 import { renderHook, act } from '@testing-library/react-hooks'
-import { ThemeProvider } from '@vtex/admin-core'
+import { QueryStateProvider } from '@vtex/onda-hooks'
 
 const setQuery = (query: Record<string, any> = {}): boolean => {
   const params = new URLSearchParams(window.location.search)
@@ -34,7 +34,7 @@ describe('useQueryPaginationState tests', () => {
           pageSize: 20,
           total: 50,
         }),
-      { wrapper: ThemeProvider }
+      { wrapper: QueryStateProvider }
     )
 
     expect(result.current.currentPage).toBe(1)
@@ -71,7 +71,7 @@ describe('useQueryPaginationState tests', () => {
           pageSize: 20,
           total: 100,
         }),
-      { wrapper: ThemeProvider }
+      { wrapper: QueryStateProvider }
     )
 
     waitFor(() => expect(result.current.currentPage).toBe(3))
@@ -86,7 +86,7 @@ describe('useQueryPaginationState tests', () => {
           pageSize: 20,
           total: 100,
         }),
-      { wrapper: ThemeProvider }
+      { wrapper: QueryStateProvider }
     )
 
     expect(result.current.currentPage).toBe(1)
