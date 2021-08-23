@@ -88,7 +88,7 @@ function Example() {
 
 ### Persisted state in query params
 
-It is very common to need to persist the state of a search in the url in cases where you want the user to be able to return to the page with the last search state. For that there is the useQuerySearchState hook, which handles this behavior for you.
+It is very common to need to persist the state of a search in the url in cases where you want the user to be able to return to the page with the last search state. For that there is the `useQuerySearchState` hook, which handles this behavior for you. For this hook to work correctly, you need to setup the `QueryStateProvider` at the root of your application.
 
 _watch how your url changes (Note that the persisted value is the debounce value)_
 
@@ -97,17 +97,19 @@ function Example() {
   const state = useQuerySearchState()
 
   return (
-    <tag.div csx={{ width: 500 }}>
-      <Search
-        id="search"
-        state={state}
-        placeholder="Search for a product, category or brand"
-      />
-      <tag.div csx={{ marginTop: 4 }}>
-        <tag.p>Value: {state.value}</tag.p>
-        <tag.p>DebouncedValue: {state.debouncedValue}</tag.p>
+    <QueryStateProvider>
+      <tag.div csx={{ width: 500 }}>
+        <Search
+          id="search"
+          state={state}
+          placeholder="Search for a product, category or brand"
+        />
+        <tag.div csx={{ marginTop: 4 }}>
+          <tag.p>Value: {state.value}</tag.p>
+          <tag.p>DebouncedValue: {state.debouncedValue}</tag.p>
+        </tag.div>
       </tag.div>
-    </tag.div>
+    </QueryStateProvider>
   )
 }
 ```
