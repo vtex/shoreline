@@ -1,9 +1,9 @@
 import type { ReactNode, Ref } from 'react'
 import React, { useMemo, forwardRef } from 'react'
-import { useSystem } from '@vtex/admin-core'
 import type { StyleProp } from '@vtex/admin-core'
 import { IconClose } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
+import { tag } from '@vtex/onda-react'
 
 import { useModalContext } from '../context'
 import { ModalButton } from './Button'
@@ -34,18 +34,7 @@ export const ModalHeader = forwardRef(function ModalHeader(
     ...headerProps
   } = props
 
-  const { cn } = useSystem()
   const { omitCloseButton, size } = useModalContext()
-  const className = cn({
-    ...csx,
-    themeKey: `components.modal.header-${size}`,
-  })
-
-  const containerCn = cn({
-    display: 'flex',
-    alignItems: 'center',
-    ...containerCsx,
-  })
 
   const renderTitle = useMemo(() => {
     if (typeof title === 'string') {
@@ -56,9 +45,46 @@ export const ModalHeader = forwardRef(function ModalHeader(
   }, [title])
 
   return (
-    <header {...headerProps} ref={ref} className={className}>
+    <tag.header
+      {...headerProps}
+      ref={ref}
+      csx={{
+        height: size === 'large' ? 80 : 56,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderColor: 'mid.tertiary',
+        borderStyle: 'solid',
+        'button + button': {
+          marginLeft: 4,
+        },
+        paddingY: 4,
+        paddingX: 6,
+        borderTopWidth: '0px',
+        borderLeftWidth: 0,
+        borderRightWidth: 0,
+        borderBottomWidth: 1,
+        h1: {
+          variant: 'text.subtitle',
+          lineHeight: 0,
+        },
+        position: 'sticky',
+        top: 0,
+        left: 0,
+        right: 0,
+        bg: 'light.primary',
+        zIndex: 999,
+        ...csx,
+      }}
+    >
       {renderTitle}
-      <div className={containerCn}>
+      <tag.div
+        csx={{
+          display: 'flex',
+          alignItems: 'center',
+          ...containerCsx,
+        }}
+      >
         {children}
         {!omitCloseButton && (
           <ModalButton
@@ -67,8 +93,8 @@ export const ModalHeader = forwardRef(function ModalHeader(
             icon={<IconClose />}
           />
         )}
-      </div>
-    </header>
+      </tag.div>
+    </tag.header>
   )
 })
 
