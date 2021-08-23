@@ -2,6 +2,8 @@ import type { ReactNode } from 'react'
 import React, { useCallback } from 'react'
 import { useSystem } from '@vtex/admin-core'
 import type { StyleProp } from '@vtex/admin-core'
+import { rgba } from 'polished'
+import { get } from '@vtex/onda-util'
 
 import type { ModalStateReturn } from './state'
 import { ModalProvider } from './context'
@@ -17,7 +19,6 @@ import {
 import type { ModalSize } from './types'
 import { useComponentsExistence } from './util'
 import type { SystemComponent } from '../../types'
-
 /**
  * Stateless Modal
  * Must be used with ModalDisclosure and useModalState.
@@ -60,15 +61,60 @@ export function StatelessModal(props: StatelessModalProps) {
 
   const backdropCn = cn({
     ...backdropCsx,
-    themeKey: 'components.modal.backdrop',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: ['flex-end', 'flex-end', 'center'],
+    alignItems: 'center',
+    backgroundColor: (theme) => rgba(get(theme, 'colors.dark.primary'), 0.5),
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 9999,
+    opacity: 0,
+    transition: 'fade',
+    '&[data-enter]': {
+      opacity: 1,
+    },
   })
 
   const { hasHeader, hasFooter, scrollStyle } = useComponentsExistence(children)
 
+  const surfaceSizeStyle = {
+    'surface-small': {
+      width: ['calc(100% - 16px)', 'calc(100% - 16px)', 320],
+    },
+    'surface-regular': {
+      width: ['calc(100% - 16px)', 'calc(100% - 16px)', 560],
+    },
+    'surface-large': {
+      width: ['calc(100% - 16px)', 'calc(100% - 16px)', 800],
+    },
+  }
+
   const modalCn = cn({
+    outline: 'none',
+    bg: 'light.primary',
+    borderRadius: 3,
+    borderColor: 'mid.tertiary',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    position: 'relative',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    maxHeight: '3/4',
+    margin: 2,
+    opacity: 0,
+    transform: 'translate3d(0, 48px, 0)',
+    transition: 'pop',
+    '&[data-enter]': {
+      opacity: 1,
+      transform: 'translate3d(0, 0, 0)',
+    },
+    ...get(surfaceSizeStyle, `surface-${size}`, {}),
     ...scrollStyle,
     ...csx,
-    themeKey: `components.modal.surface-${size}`,
   })
 
   return (
