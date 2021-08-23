@@ -52,13 +52,14 @@ const { Compiler: renderAst } = new RehypeReact({
         <Paragraph
           csx={{
             marginY: 2,
-            text: 'body',
+            fontFamily: 'VTEX Trust',
+            fontSettings: '"WGHT" 500',
             textAlign: 'justify',
             color: 'dark.primary',
             fontSize: 2,
             code: {
               fontFamily:
-                'VTEXTrustVF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif !important',
+                'VTEX Trust, -apple-system, system-ui, BlinkMacSystemFont, sans-serif !important',
               bg: 'light.secondary',
               color: 'dark.primary',
             },

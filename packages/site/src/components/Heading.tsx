@@ -25,6 +25,7 @@ function Heading(props: HeadingProps) {
   return (
     <BaseHeading
       csx={{
+        fontFamily: 'VTEX Trust',
         fontSize,
         position: 'relative',
         color: 'dark.primary',
