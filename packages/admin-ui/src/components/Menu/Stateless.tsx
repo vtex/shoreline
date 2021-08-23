@@ -57,7 +57,32 @@ export function StatelessMenu(props: StatelessMenuProps) {
       disabled={disabled}
     >
       <Box
-        csx={{ themeKey: 'components.menu', ...csx }}
+        csx={{
+          display: 'flex',
+          flexDirection: 'column',
+          bg: 'light.primary',
+          marginTop: 1,
+          padding: 3,
+          minWidth: 18,
+          borderRadius: 3,
+          borderWidth: 1,
+          borderStyle: 'solid',
+          borderColor: 'mid.secondary',
+          boxShadow: 'menu',
+          hr: {
+            marginY: 2,
+            borderStyle: 'solid',
+            borderBottomWidth: 1,
+            borderTop: 'none',
+            borderLeft: 'none',
+            borderRight: 'none',
+            borderColor: 'mid.secondary',
+            width: (theme) => `calc(100% -${theme.space?.[3]})`,
+            marginX: (theme) => `-${theme.space?.[3]}`,
+            outline: 'none',
+          },
+          ...csx,
+        }}
         data-testid={boxTestId}
       >
         <IconContainer space="small">

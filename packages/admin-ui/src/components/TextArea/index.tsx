@@ -1,7 +1,7 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { Box } from '@vtex/admin-primitives'
-import { useSystem } from '@vtex/admin-core'
+import { tag } from '@vtex/onda-react'
 
 import { Text } from '../Text'
 import { Label } from '../Label'
@@ -24,23 +24,73 @@ export const TextArea = forwardRef(function Textarea(
     ...textareaProps
   } = props
 
-  const { cn, stylesOf } = useSystem()
-
   const message = error ? errorMessage : helperText
-
-  const className = cn({
-    ...csx,
-    themeKey: 'components.textArea.default',
-  })
 
   return (
     <Box
       csx={{
-        themeKey: `components.textArea.container${error ? '-error' : ''}`,
+        display: 'flex',
+        position: 'relative',
+        justifyContent: 'flex-start',
+        flexDirection: 'column',
+        width: 'full',
+        textarea: error
+          ? {
+              borderColor: 'red',
+              ':focus': {
+                borderColor: 'red',
+                boxShadow: 'inputFocusError',
+              },
+              ':hover': {
+                borderColor: 'red.hover',
+              },
+            }
+          : {},
       }}
     >
-      <textarea
-        className={className}
+      <tag.textarea
+        csx={{
+          fontFamily: 'sans',
+          paddingTop: 24,
+          height: 100,
+          resize: 'none',
+          fontSettings: 'regular',
+          width: 'full',
+          borderStyle: 'solid',
+          borderWidth: 1,
+          paddingLeft: 3,
+          paddingRight: 4,
+          borderColor: 'mid.secondary',
+          borderRadius: 'default',
+          bg: 'inherit',
+          marginY: 1,
+          fontSize: 1,
+          color: 'dark.primary',
+          outline: 0,
+          transition: 'snap',
+          ':hover': {
+            borderColor: 'dark.primary',
+          },
+          ':focus': {
+            borderColor: 'blue',
+            boxShadow: 'inputFocus',
+          },
+          ':disabled': {
+            bg: 'light.secondary',
+            color: 'mid.primary',
+          },
+          // Label styles
+          ':focus + label': {
+            transform: 'translate(1px, 4px) scale(0.875)',
+          },
+          ':placeholder-shown:not(:focus) + label': {
+            paddingTop: 1,
+          },
+          ':not(:placeholder-shown) + label': {
+            transform: 'translate(1px, 4px) scale(0.875)',
+          },
+          ...csx,
+        }}
         id={id}
         ref={ref}
         placeholder=" "
@@ -49,11 +99,30 @@ export const TextArea = forwardRef(function Textarea(
         onChange={onChange}
         {...textareaProps}
       />
-      <Label htmlFor={id} csx={stylesOf('components.textArea.floating-label')}>
+      <Label
+        htmlFor={id}
+        csx={{
+          fontSize: 1,
+          left: 12,
+          paddingTop: 2,
+          color: 'mid.primary',
+          marginBottom: 3,
+          position: 'absolute',
+          transform: 'translate(0, 16px) scale(1)',
+          transformOrigin: 'top left',
+          transition: 'all 0.2s ease-out;',
+        }}
+      >
         {label}
       </Label>
       {(message || !!charLimit) && (
-        <Box csx={{ themeKey: 'components.textArea.text-container' }}>
+        <Box
+          csx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            paddingTop: 1,
+          }}
+        >
           {message ? (
             <Text variant="small" feedback={error ? 'danger' : 'secondary'}>
               {message}

@@ -18,6 +18,8 @@ exports[`TextArea tests should match snapshot 1`] = `
   width: 100%;
 }
 
+
+
 .emotion-1 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
@@ -150,6 +152,8 @@ exports[`TextArea tests should match snapshot 1`] = `
   flex-direction: column;
   width: 100%;
 }
+
+
 
 .emotion-1 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -431,6 +435,8 @@ exports[`TextArea tests should match snapshot 1`] = `
   flex-direction: column;
   width: 100%;
 }
+
+
 
 .emotion-1 {
   font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;

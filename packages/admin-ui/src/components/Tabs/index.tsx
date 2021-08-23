@@ -31,11 +31,15 @@ export function TabList(props: TabListProps) {
       {...restProps}
       {...state}
       className={cn({
-        themeKey: {
-          tabList: {
-            variant: fluid ? 'fluid' : 'block',
-          },
-        },
+        paddingX: 4,
+        width: 'full',
+        ...(fluid
+          ? {
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              '> button': { width: 'full' },
+            }
+          : { display: 'inline-block' }),
         ...csx,
       })}
     >
@@ -52,11 +56,41 @@ export function Tab(props: TabProps) {
   return (
     <ReakitTab
       className={cn({
-        themeKey: {
-          tab: {
-            variant: state.selectedId === id ? 'active' : 'default',
-          },
+        fontFamily: 'sans',
+        fontSettings: 'regular',
+        border: 'none',
+        borderRadius: 'default',
+        borderBottomLeftRadius: '0px',
+        borderBottomRightRadius: '0px',
+        borderBottomStyle: 'solid',
+        borderBottomColor: 'transparent',
+        borderBottomWidth: 2,
+        borderTopStyle: 'solid',
+        borderTopColor: 'transparent',
+        borderTopWidth: '2px',
+        height: 44,
+        minWidth: 110,
+        cursor: 'pointer',
+        position: 'relative',
+        ':focus:not([data-focus-visible-added])': {
+          outline: 'none',
+          boxShadow: 'none',
         },
+        ':focus': {
+          outline: 'none',
+          boxShadow: 'focus',
+        },
+        paddingX: 6,
+        textTransform: 'uppercase',
+        backgroundColor: 'transparent',
+        color: 'dark.secondary',
+        ...(state.selectedId === id
+          ? { borderBottomColor: 'blue', color: 'blue' }
+          : {
+              ':hover': {
+                color: 'blue.hover',
+              },
+            }),
         ...csx,
       })}
       id={id}
@@ -80,7 +114,14 @@ export function TabContent(props: TabContentProps) {
       {...state}
       tabId={id}
       className={cn({
-        themeKey: 'components.tabContent',
+        ':focus:not([data-focus-visible-added])': {
+          outline: 'none',
+          boxShadow: 'none',
+        },
+        ':focus': {
+          outline: 'none',
+          boxShadow: 'focus',
+        },
         ...csx,
       })}
     >

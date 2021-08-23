@@ -2,7 +2,6 @@ import type { RefObject } from 'react'
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import { IconCaret, IconCheck } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
-import { useSystem } from '@vtex/admin-core'
 
 import type { SelectProps } from './index'
 import { Label } from '../Label'
@@ -22,8 +21,6 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
     block,
     renderItem = (item) => item,
   } = props
-
-  const { stylesOf } = useSystem()
 
   const [topDistanceOptions, setTopDistanceOptions] = useState(
     DEFAULT_PORTAL_OFFSET
@@ -104,16 +101,11 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
     <Box
       ref={containerRef}
       role="listbox"
-      csx={
-        block
-          ? {
-              themeKey: 'components.select.container',
-              display: 'block',
-              minWidth: 288,
-              width: 'full',
-            }
-          : { themeKey: 'components.select.container' }
-      }
+      csx={{
+        width: 288,
+        position: 'relative',
+        ...(block ? { display: 'block', minWidth: 288, width: 'full' } : {}),
+      }}
     >
       <Box
         element="button"
@@ -121,18 +113,74 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
         {...state.getToggleButtonProps()}
         disabled={disabled}
         csx={{
-          themeKey: `components.select.button${error ? 'Error' : ''}`,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          cursor: 'pointer',
+          height: 48,
+          width: 'inherit',
+          boxShadow: `0 0 0 0 transparent`,
+          borderStyle: 'solid',
+          borderWidth: 1,
+          paddingLeft: 3,
+          paddingRight: 4,
+          borderColor: 'mid.secondary',
+          borderRadius: 'default',
+          bg: 'inherit',
+          fontSize: 1,
+          color: 'dark.secondary',
+          outline: 0,
+          ':hover': {
+            borderColor: 'mid.primary',
+          },
+          ':hover > svg': {
+            color: 'dark.primary',
+          },
+          ':focus': {
+            borderColor: 'blue',
+            boxShadow: 'inputFocus',
+          },
+          ':disabled': {
+            bg: 'light.secondary',
+            borderColor: 'mid.primary',
+            color: 'dark.secondary',
+            cursor: 'initial',
+          },
+          ':disabled > svg': {
+            color: 'dark.secondary',
+          },
+          ...(error
+            ? {
+                borderColor: 'red',
+                ':focus': {
+                  borderColor: 'red',
+                  boxShadow: 'inputFocusError',
+                },
+                ':hover': {
+                  borderColor: 'red',
+                },
+              }
+            : {}),
         }}
       >
         <Box>
           <Box
             element="span"
-            csx={{ themeKey: 'components.select.selectedItem' }}
+            csx={{
+              lineHeight: 1.43,
+              color: 'dark.primary',
+              float: 'left',
+              marginTop: '1.125rem',
+              ':not(:empty) + label': {
+                fontSize: 0,
+                lineHeight: 1.5,
+              },
+            }}
           >
             {renderItem(state.selectedItem)}
           </Box>
           <Label
-            csx={stylesOf('components.select.label')}
+            csx={{ lineHeight: 1.43, position: 'absolute', left: 12 }}
             {...state.getLabelProps()}
           >
             {label}
@@ -151,26 +199,59 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
         csx={{
           top: `${topDistanceOptions}px`,
           borderRadius: 'default',
-          themeKey: 'components.select.optionsPortal',
+          position: 'absolute',
+          zIndex: 999,
+          width: 'inherit',
+          backgroundColor: 'light.primary',
+          outline: 'none',
         }}
       >
         {state.isOpen && (
           <Box
             csx={{
-              themeKey: 'components.select.optionsContainer',
+              display: 'flex',
+              flexDirection: 'column',
+              borderWidth: 1,
+              borderStyle: 'solid',
+              borderColor: 'mid.primary',
+              borderRadius: 'default',
             }}
           >
-            <Label csx={stylesOf('components.select.optionsLabel')}>
+            <Label
+              csx={{
+                text: 'small',
+                lineHeight: 1.5,
+                paddingTop: 2,
+                paddingBottom: 1,
+                paddingLeft: 3,
+                color: 'mid.primary',
+              }}
+            >
               {label}
             </Label>
-            <Box element="ul" csx={{ themeKey: 'components.select.optionsUl' }}>
+            <Box
+              element="ul"
+              csx={{
+                paddingBottom: 1,
+                maxHeight: 150,
+                width: 'inherit',
+                overflowY: 'auto',
+                borderBottomLeftRadius: 4,
+                borderBottomRightRadius: 4,
+              }}
+            >
               {items.map((item, index) => (
                 <Box
                   key={`${item}${index}`}
                   element="li"
                   {...state.getItemProps({ item, index })}
                   csx={{
-                    themeKey: 'components.select.item',
+                    color: 'dark.primary',
+                    verticalAlign: 'middle',
+                    listStyleType: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer',
                     paddingY: 1,
                     paddingLeft: state.selectedItem ? 9 : 12,
                     backgroundColor:

@@ -1,4 +1,4 @@
-import { useSystem, merge, createComponent } from '@vtex/admin-core'
+import { merge, createComponent, alpha } from '@vtex/admin-core'
 
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'
@@ -20,14 +20,50 @@ export const MenuItem = createComponent(Button, useMenuItem)
 
 function useMenuItem(props: MenuItemProps): ButtonProps {
   const { dangerous = false, csx: overrides = {}, ...buttonProps } = props
-  const { stylesOf } = useSystem()
 
   const variant = dangerous ? 'danger-tertiary' : 'tertiary'
-  const styles = stylesOf(
-    dangerous ? 'components.menu.item-dangerous' : 'components.menu.item'
-  )
 
-  const csx = merge(styles, overrides)
+  const csx = merge(
+    {
+      marginY: '2px',
+      paddingX: 1,
+      fontSize: 1,
+      border: 'none',
+      textTransform: 'initial',
+      width: 'full',
+      div: {
+        justifyContent: 'flex-start',
+      },
+      svg: {
+        marginLeft: 0,
+        marginRight: 2,
+      },
+      ...(dangerous
+        ? {
+            color: 'red',
+            ':focus': {
+              bg: alpha('red.secondary.default', 0.32),
+              outline: 'none',
+              boxShadow: 'none',
+            },
+            ':hover': {
+              color: 'red',
+            },
+          }
+        : {
+            color: 'dark.primary',
+            ':focus': {
+              bg: alpha('blue.secondary.default', 0.32),
+              outline: 'none',
+              boxShadow: 'none',
+            },
+            ':hover': {
+              color: 'dark.primary',
+            },
+          }),
+    },
+    overrides
+  )
 
   return {
     size: 'small',
