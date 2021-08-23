@@ -45,7 +45,6 @@
   "dependencies": {
     "@vtex/admin-jsxs": "^0.1.2",
     "@vtex/admin-styles": "^0.3.1",
-    "@vtex/onda-hooks": "^0.2.0",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",
