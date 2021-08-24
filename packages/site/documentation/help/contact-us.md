@@ -1,8 +1,8 @@
 ---
-path: /help/support/
+path: /help/contact-us/
 ---
 
-# Support
+# Contact us
 
 Have a question about our design system? The Admin UI team is here to help you. Before you start, be sure to check out the following resources to see if we’ve already got your topic covered.
 

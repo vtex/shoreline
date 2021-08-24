@@ -4,4 +4,12 @@ path: /introduction/about/
 
 # About Admin UI
 
-Wip
+Admin UI is a design system created by VTEX to help teams build a high-quality and consistent experience for Admin product.
+
+## What's deisign system?
+
+Design system is a collection of solutions established to resolve common problems. By using the components, patterns, and assets of Admin UI minimizes the time teams spend designing and building. Instead of building and re-building basic elements, they can focus their efforts on customizing their products to address specific client use cases.
+
+## Contact us
+
+Have questions? Found a bug? Learn where to go and what to do by visiting the [Contact us](/help/contact-us) page.
