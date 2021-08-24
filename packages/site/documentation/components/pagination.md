@@ -99,10 +99,10 @@ _watch how your url changes_
 
 ```jsx
 function Example() {
-  const state = useQueryPaginationState({ pageSize: 5, total: 35 })
+  const Content = () => {
+    const state = useQueryPaginationState({ pageSize: 5, total: 35 })
 
-  return (
-    <QueryStateProvider>
+    return (
       <Pagination
         state={state}
         preposition="of"
@@ -110,6 +110,12 @@ function Example() {
         prevLabel="Previous"
         nextLabel="Next"
       />
+    )
+  }
+
+  return (
+    <QueryStateProvider>
+      <Content />
     </QueryStateProvider>
   )
 }
