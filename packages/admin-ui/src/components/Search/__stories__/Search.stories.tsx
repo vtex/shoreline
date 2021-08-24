@@ -95,12 +95,12 @@ export const InitiallyLoading = () => {
 }
 
 export const QueryState = () => {
-  const state = useQuerySearchState({
-    timeoutMs: 500,
-  })
+  const Content = () => {
+    const state = useQuerySearchState({
+      timeoutMs: 500,
+    })
 
-  return (
-    <QueryStateProvider>
+    return (
       <Set orientation="vertical" spacing={6}>
         <Input
           label="Current URL:"
@@ -123,6 +123,12 @@ export const QueryState = () => {
           </tag.div>
         </tag.div>
       </Set>
+    )
+  }
+
+  return (
+    <QueryStateProvider>
+      <Content />
     </QueryStateProvider>
   )
 }

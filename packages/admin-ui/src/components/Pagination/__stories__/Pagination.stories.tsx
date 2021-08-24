@@ -46,13 +46,13 @@ export function InitialState() {
 }
 
 export function PersistedPaginationWithQuery() {
-  const state = useQueryPaginationState({
-    pageSize: 20,
-    total: 150,
-  })
+  const Content = () => {
+    const state = useQueryPaginationState({
+      pageSize: 20,
+      total: 150,
+    })
 
-  return (
-    <QueryStateProvider>
+    return (
       <Set orientation="vertical" spacing={6}>
         <Input
           label="Current URL:"
@@ -61,7 +61,7 @@ export function PersistedPaginationWithQuery() {
           disabled
           csx={{ width: 'lg' }}
           helperText="You can copy the part with page in your URL to see the page
-        load directly on choosed page"
+            load directly on choosed page"
         />
         <Pagination
           state={state}
@@ -71,6 +71,12 @@ export function PersistedPaginationWithQuery() {
           nextLabel="Next"
         />
       </Set>
+    )
+  }
+
+  return (
+    <QueryStateProvider>
+      <Content />
     </QueryStateProvider>
   )
 }
