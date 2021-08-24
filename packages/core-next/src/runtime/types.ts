@@ -2,7 +2,7 @@ import type * as CSS from 'csstype'
 
 type StandardCSSProperties = CSS.Properties<number | string>
 
-type ResponsiveStyleValue<T> = T | Array<T | null | undefined>
+export type ResponsiveStyleValue<T> = T | Array<T | null | undefined>
 
 /**
  * All non-vendor-prefixed CSS properties. (Allow `number` to support CSS-in-JS libs,

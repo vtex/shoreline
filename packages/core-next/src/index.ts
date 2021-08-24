@@ -1,2 +1,4 @@
 export * from './createOnda'
-export { StyleObject } from './runtime'
+export * from './runtime'
+export * from './theme'
+export * from './features'

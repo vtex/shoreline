@@ -63,7 +63,6 @@ function experimentalResponsiveScale(
 
 /**
  * Parses a style object
- * TODO: Add StepsInstance as Types
  * @param steps
  * @returns
  */
