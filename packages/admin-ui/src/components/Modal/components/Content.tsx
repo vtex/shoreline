@@ -37,23 +37,23 @@ export const ModalContent = forwardRef(function ModalContent(
   }
 
   const scrollbarSizeStyles = {
-    'with-small-scroll-area': {
+    '-with-small-scroll-area': {
       ...scrollbarStyles,
       height: 'calc(100% - 3.5rem)',
     },
-    'with-regular-scroll-area': {
+    '-with-regular-scroll-area': {
       ...scrollbarStyles,
       height: 'calc(100% - 3.5rem)',
     },
-    'with-large-scroll-area': {
+    '-with-large-scroll-area': {
       ...scrollbarStyles,
       height: 'calc(100% - 5rem)',
     },
-    'with-larger-scroll-area': {
+    '-with-larger-scroll-area': {
       ...scrollbarStyles,
       height: 'calc(100% - 7rem)',
     },
-    'with-extra-large-scroll-area': {
+    '-with-extra-large-scroll-area': {
       ...scrollbarStyles,
       height: 'calc(100% - 10rem)',
     },
