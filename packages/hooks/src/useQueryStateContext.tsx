@@ -8,9 +8,7 @@ export interface QueryStateContextProps {
   queryParams: URLSearchParams
 }
 
-const QueryStateContext = createContext<QueryStateContextProps>({
-  queryParams: new URLSearchParams(isBrowser ? window.location.search : ''),
-})
+const QueryStateContext = createContext<QueryStateContextProps | null>(null)
 
 export function useQueryStateContext() {
   const context = useContext(QueryStateContext)
@@ -21,12 +19,15 @@ export function useQueryStateContext() {
 }
 
 export function QueryStateProvider({ children }: { children?: ReactNode }) {
+  const context = useContext(QueryStateContext)
   const [queryParams, setQueryParams] = useState(
     new URLSearchParams(isBrowser ? window.location.search : '')
   )
 
   useEffect(() => {
     if (!isBrowser) return
+    if (context) return
+
     window.onpopstate = function onPopstateChange() {
       setQueryParams(new URLSearchParams(window.location.search))
     }
@@ -37,7 +38,9 @@ export function QueryStateProvider({ children }: { children?: ReactNode }) {
   }, [])
 
   return (
-    <QueryStateContext.Provider value={{ queryParams }}>
+    <QueryStateContext.Provider
+      value={{ queryParams: context ? context.queryParams : queryParams }}
+    >
       {children}
     </QueryStateContext.Provider>
   )
