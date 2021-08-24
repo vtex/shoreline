@@ -94,10 +94,10 @@ _watch how your url changes (Note that the persisted value is the debounce value
 
 ```jsx
 function Example() {
-  const state = useQuerySearchState()
+  const Content = () => {
+    const state = useQuerySearchState()
 
-  return (
-    <QueryStateProvider>
+    return (
       <tag.div csx={{ width: 500 }}>
         <Search
           id="search"
@@ -109,6 +109,12 @@ function Example() {
           <tag.p>DebouncedValue: {state.debouncedValue}</tag.p>
         </tag.div>
       </tag.div>
+    )
+  }
+
+  return (
+    <QueryStateProvider>
+      <Content />
     </QueryStateProvider>
   )
 }
