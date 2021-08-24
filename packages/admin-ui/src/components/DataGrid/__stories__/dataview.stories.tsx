@@ -166,38 +166,40 @@ const items2: Item[] = [...Array(50).keys()].map((id) => {
 })
 
 export function QueryState() {
-  const [data, setData] = useState(items2)
-  const view = useDataViewState()
-  const pagination = useQueryPaginationState({
-    pageSize: 5,
-    total: items2.length,
-  })
+  const Content = () => {
+    const [data, setData] = useState(items2)
+    const view = useDataViewState()
+    const pagination = useQueryPaginationState({
+      pageSize: 5,
+      total: items2.length,
+    })
 
-  const search = useQuerySearchState({})
-  const grid = useDataGridState<Item>({
-    view,
-    columns,
-    items: data.slice(pagination.range[0] - 1, pagination.range[1]),
-  })
+    const search = useQuerySearchState({})
+    const grid = useDataGridState<Item>({
+      view,
+      columns,
+      items: data.slice(pagination.range[0] - 1, pagination.range[1]),
+    })
 
-  useEffect(() => {
-    if (search.debouncedValue !== '') {
-      const filtredItems = items2.filter((item) =>
-        item.name.toLowerCase().startsWith(search.debouncedValue.toLowerCase())
-      )
+    useEffect(() => {
+      if (search.debouncedValue !== '') {
+        const filtredItems = items2.filter((item) =>
+          item.name
+            .toLowerCase()
+            .startsWith(search.debouncedValue.toLowerCase())
+        )
 
-      setData(filtredItems)
-      pagination.paginate({ type: 'setTotal', total: filtredItems.length })
-      pagination.paginate({ type: 'reset' })
-    } else {
-      setData(items2)
-      pagination.paginate({ type: 'setTotal', total: items2.length })
-      pagination.paginate({ type: 'reset' })
-    }
-  }, [search.debouncedValue])
+        setData(filtredItems)
+        pagination.paginate({ type: 'setTotal', total: filtredItems.length })
+        pagination.paginate({ type: 'reset' })
+      } else {
+        setData(items2)
+        pagination.paginate({ type: 'setTotal', total: items2.length })
+        pagination.paginate({ type: 'reset' })
+      }
+    }, [search.debouncedValue])
 
-  return (
-    <QueryStateProvider>
+    return (
       <Set orientation="vertical" spacing={6}>
         <Input
           label="Current URL:"
@@ -222,6 +224,12 @@ export function QueryState() {
           <DataGrid state={grid} />
         </DataView>
       </Set>
+    )
+  }
+
+  return (
+    <QueryStateProvider>
+      <Content />
     </QueryStateProvider>
   )
 }

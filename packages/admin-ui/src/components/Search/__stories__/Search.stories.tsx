@@ -95,12 +95,12 @@ export const InitiallyLoading = () => {
 }
 
 export const QueryState = () => {
-  const state = useQuerySearchState({
-    timeoutMs: 500,
-  })
+  const Content = () => {
+    const state = useQuerySearchState({
+      timeoutMs: 500,
+    })
 
-  return (
-    <QueryStateProvider>
+    return (
       <Set orientation="vertical" spacing={6}>
         <Input
           label="Current URL:"
@@ -109,7 +109,7 @@ export const QueryState = () => {
           disabled
           csx={{ width: 'lg' }}
           helperText="You can copy the part with search in your URL to see the page
-        load directly on choosed page"
+          load directly on choosed page"
         />
         <tag.div csx={{ width: 500 }}>
           <Search
@@ -123,6 +123,12 @@ export const QueryState = () => {
           </tag.div>
         </tag.div>
       </Set>
+    )
+  }
+
+  return (
+    <QueryStateProvider>
+      <Content />
     </QueryStateProvider>
   )
 }
