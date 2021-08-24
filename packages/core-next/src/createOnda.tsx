@@ -1,18 +1,20 @@
-import type { ReactElement } from 'react'
 import React from 'react'
-import type { Plugin, ThemeOptions } from './system'
-import { buildPlugins, createTheme } from './system'
-import { theme } from '@vtex/admin-ui-theme'
+import type { ReactElement } from 'react'
+import { theme as adminTheme } from '@vtex/admin-ui-theme'
 import { isKebab } from '@vtex/onda-util'
 import invariant from 'tiny-invariant'
 import { Helmet } from 'react-helmet'
+import type { Emotion } from '@emotion/css/create-instance'
+import createEmotion from '@emotion/css/create-instance'
+import { CacheProvider, Global } from '@emotion/react'
 
+import type { Plugin } from './system'
+import { buildPlugins } from './system'
 import { plugins } from './plugins'
 import type { StyleProp } from './runtime'
-import { useCSSVariables } from './hooks/useCSSVariables'
-import createEmotion from '@emotion/css/create-instance'
-import { createAtoms, createClsx, createParser } from './runtime/emotion'
-import { CacheProvider, Global } from '@emotion/react'
+import type { ThemeOptions } from './theme'
+import { createTheme, useCSSVariables } from './theme'
+import { createAtoms, createClsx, createParser } from './runtime'
 
 export interface OndaSpec<Theme extends Record<string, any>> {
   name: string
@@ -40,17 +42,16 @@ export function createOndaInstance(spec: OndaInstanceSpec) {
     '"name" property must be in kebab-case format on createOndaInstance function'
   )
 
-  return createOnda({ name, plugins, theme, options })
+  return createOnda({ name, plugins, theme: adminTheme, options })
 }
 
-export const SystemContext = React.createContext<{
-  theme: any
-  cn: (styleProp: StyleProp) => string
-  instance: any
-  about: {
-    name: string
-  }
-} | null>(null)
+export const SystemContext = React.createContext<
+  | ({
+      theme: any
+      cn: (styleProp: StyleProp) => string
+    } & Pick<Emotion, 'cx' | 'keyframes'>)
+  | null
+>(null)
 
 export function useSystem() {
   const ctx = React.useContext(SystemContext)
@@ -81,23 +82,15 @@ export function createOnda<Theme extends Record<string, any>>(
     key: name,
   })
 
-  const [{ global, ...strictTheme }, cssVariables] = createTheme(
-    themeConfig,
-    options
-  )
-
-  const steps = buildPlugins(strictTheme, plugins)
-  const parse = createParser(steps)
+  const [theme, cssVariables] = createTheme(themeConfig, options)
+  const steps = buildPlugins(theme, plugins)
+  const parse = createParser(steps, theme)
   const clsx = createClsx(emotion)
   const atoms = createAtoms(parse, clsx)
-
-  const globalStyles = parse(global)
-  const theme = steps.entries.exec(strictTheme)
+  const globalStyles = parse(theme.global)
 
   function SystemProvider(props: { children?: React.ReactNode }) {
     const { children } = props
-
-    console.log(cssVariables)
 
     useCSSVariables(cssVariables)
 
@@ -107,10 +100,8 @@ export function createOnda<Theme extends Record<string, any>>(
           value={{
             theme,
             cn: atoms,
-            instance: emotion,
-            about: {
-              name,
-            },
+            cx: emotion.cx,
+            keyframes: emotion.keyframes,
           }}
         >
           <Helmet>

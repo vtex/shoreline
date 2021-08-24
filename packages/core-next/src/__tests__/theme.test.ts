@@ -1,4 +1,4 @@
-import { createTheme, objectToVars, toCustomProperties } from '../../system'
+import { createTheme, objectToVars, toCustomProperties } from '../theme'
 
 describe('theme', () => {
   it('should return a array of objects', () => {

@@ -31,6 +31,6 @@ const theme = {
 const emotion = createEmotion({ key: 'test' })
 const steps = buildPlugins(theme, plugins)
 const clsx = createClsx(emotion)
-const parse = createParser(steps)
+const parse = createParser(steps, theme)
 
 export { clsx, parse }

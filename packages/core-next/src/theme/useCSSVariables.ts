@@ -1,8 +1,7 @@
 import { useRef, useLayoutEffect, useEffect } from 'react'
-import { applyCSSVariables } from '../system'
+import { isBrowser } from '@vtex/onda-util'
 
-const useSafeEffect =
-  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+const useSafeEffect = isBrowser ? useLayoutEffect : useEffect
 
 /**
  * Apply css variables
@@ -17,4 +16,12 @@ export function useCSSVariables(variables: Record<string, any>) {
       ref.current.mounted = true
     }
   }, [variables])
+}
+
+function applyCSSVariables(props: Record<string, any>) {
+  const root = document.documentElement
+
+  Object.keys(props).map((prop) => {
+    root.style.setProperty(prop, props[prop])
+  })
 }

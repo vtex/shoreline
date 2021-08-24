@@ -1,4 +1,4 @@
-import { createPlugin, buildRules } from '../../../system'
+import { createPlugin, buildRules } from '../../system'
 
 describe('rules builder', () => {
   const theme = {

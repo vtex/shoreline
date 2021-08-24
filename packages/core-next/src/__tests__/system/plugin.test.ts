@@ -1,6 +1,5 @@
 import {
   createPlugin,
-  getEntries,
   getSplits,
   getTransforms,
   getRules,
@@ -8,7 +7,7 @@ import {
   isValidPlugin,
 } from '../../system'
 
-describe('plugin tests', () => {
+describe('plugin', () => {
   it('should be able to create a minimal plugin', () => {
     const plugin = createPlugin({
       name: 'onda-plugin-test',
@@ -71,29 +70,6 @@ describe('plugin tests', () => {
         })
       )
     ).toBe(true)
-  })
-
-  it('should be able to create a plugin to manage theme entries', () => {
-    const plugin = createPlugin({
-      name: 'onda-plugin-test',
-      namespaces: ['test'],
-      entries: ({ test }) => {
-        return {
-          test: test * 2,
-        }
-      },
-    })
-
-    expect(isValidPlugin(plugin)).toBe(true)
-    expect(typeof getEntries(plugin)).toBe('function')
-    expect(
-      (getEntries(plugin) as Function)({
-        test: 2,
-        otherProp: null,
-      })
-    ).toEqual({
-      test: 4,
-    })
   })
 
   it('should be able to create a plugin to manage aliases', () => {

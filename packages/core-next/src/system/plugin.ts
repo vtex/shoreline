@@ -2,7 +2,6 @@ import invariant from 'tiny-invariant'
 
 const PLUGIN_NAME = Symbol('plugin name')
 const PLUGIN_NAMESPACES = Symbol('plugin namespaces')
-const PLUGIN_ENTRIES = Symbol('plugin entries')
 const PLUGIN_ALIASES = Symbol('plugin aliases')
 const PLUGIN_RULES = Symbol('plugin rules')
 const PLUGIN_TRANSFORMS = Symbol('plugin transforms')
@@ -24,8 +23,7 @@ const PLUGIN_SPLITS = Symbol('plugin splits')
 export function createPlugin<Theme extends Record<string, any>>(
   params: PluginParams<Theme>
 ): Plugin<Theme> {
-  const { name, namespaces, entries, aliases, rules, transforms, splits } =
-    params
+  const { name, namespaces, aliases, rules, transforms, splits } = params
 
   const invariants = getPluginInvariants(params)
 
@@ -35,7 +33,6 @@ export function createPlugin<Theme extends Record<string, any>>(
   return {
     [PLUGIN_NAME]: name,
     [PLUGIN_NAMESPACES]: namespaces,
-    [PLUGIN_ENTRIES]: entries ?? {},
     [PLUGIN_ALIASES]: aliases ?? {},
     [PLUGIN_RULES]: rules ?? {},
     [PLUGIN_TRANSFORMS]: transforms ?? {},
@@ -84,16 +81,6 @@ export function getNamespaces<Theme extends Record<string, any>>(
   plugin: Plugin<Theme>
 ) {
   return plugin[PLUGIN_NAMESPACES]
-}
-
-/**
- * Gets the plugin entries
- * @param plugin
- */
-export function getEntries<Theme extends Record<string, any>>(
-  plugin: Plugin<Theme>
-) {
-  return plugin[PLUGIN_ENTRIES]
 }
 
 /**
@@ -146,7 +133,6 @@ export function isValidPlugin<Theme extends Record<string, any>>(
   return (
     !!getPluginName(plugin) &&
     !!getNamespaces(plugin) &&
-    !!getEntries(plugin) &&
     !!getAliases(plugin) &&
     !!getRules(plugin) &&
     !!getTransforms(plugin) &&
@@ -157,7 +143,6 @@ export function isValidPlugin<Theme extends Record<string, any>>(
 export interface Plugin<Theme extends Record<string, any>> {
   [PLUGIN_NAME]: string
   [PLUGIN_NAMESPACES]: string[]
-  [PLUGIN_ENTRIES]: PluginOption<Theme, Partial<Theme>>
   [PLUGIN_ALIASES]: PluginOption<Theme, Record<string, string>>
   [PLUGIN_RULES]: PluginOption<Theme, Record<string, string>>
   [PLUGIN_TRANSFORMS]: PluginOption<
@@ -172,7 +157,6 @@ export type Rule = number[] | string[] | Record<string, any>
 export interface PluginParams<Theme extends Record<string, any>> {
   name: string
   namespaces: string[]
-  entries?: PluginOption<Theme, Partial<Theme>>
   aliases?: PluginOption<Theme, Record<string, string>>
   rules?: PluginOption<Theme, Record<string, string>>
   transforms?: PluginOption<
@@ -187,10 +171,6 @@ export type PluginOption<Theme, ReturnType> =
   | ((t: Partial<Theme>) => ReturnType)
 
 export interface StepsInstance {
-  entries: {
-    value: Record<string, any>
-    exec: (theme: any) => any
-  }
   aliases: {
     value: Record<string, string>
     exec: (prop: string) => string

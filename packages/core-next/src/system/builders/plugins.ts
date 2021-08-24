@@ -4,7 +4,6 @@ import { flatMap, hasDuplicates } from '@vtex/onda-util'
 import type { StepsInstance, Plugin } from '../plugin'
 import { getNamespaces } from '../plugin'
 import { buildAliases } from './aliases'
-import { buildEntries } from './entries'
 import { buildRules } from './rules'
 import { buildSplits } from './splits'
 import { buildTransforms } from './transforms'
@@ -18,17 +17,13 @@ export function buildPlugins<Theme extends Record<string, any>>(
   theme: Theme,
   plugins: Array<Plugin<Theme>>
 ): StepsInstance {
-  const themeBuilderInstance = buildEntries(theme, plugins)
-  const themeAfterBuild = themeBuilderInstance.exec(theme)
-
   invariant(areNamespacesUnique(plugins), 'Plugins cannot share namespaces.')
 
   return {
-    entries: themeBuilderInstance,
-    aliases: buildAliases(themeAfterBuild, plugins),
-    rules: buildRules(themeAfterBuild, plugins),
-    splits: buildSplits(themeAfterBuild, plugins),
-    transforms: buildTransforms(themeAfterBuild, plugins),
+    aliases: buildAliases(theme, plugins),
+    rules: buildRules(theme, plugins),
+    splits: buildSplits(theme, plugins),
+    transforms: buildTransforms(theme, plugins),
   }
 }
 

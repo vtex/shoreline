@@ -23,15 +23,15 @@ export function createTheme<Theme extends Record<string, any>>(
       {},
     ]
 
-  const { global = {}, materials = {}, ...strictTheme } = config
+  const { global = {}, ...strictTheme } = config
 
   if (options?.disableCSSVariables)
-    return [{ global, ...strictTheme, ...materials } as BaseTheme<Theme>, {}]
+    return [{ global, ...strictTheme } as BaseTheme<Theme>, {}]
 
   const theme = toCustomProperties(strictTheme)
   const cssVariables = objectToVars(strictTheme)
 
-  return [{ global, ...theme, ...materials } as BaseTheme<Theme>, cssVariables]
+  return [{ global, ...theme } as BaseTheme<Theme>, cssVariables]
 }
 
 export function toCustomProperties(
@@ -73,12 +73,4 @@ export function objectToVars(obj: Record<string, any>, parent = '') {
   }
 
   return vars
-}
-
-export function applyCSSVariables(props: Record<string, any>) {
-  const root = document.documentElement
-
-  Object.keys(props).map((prop) => {
-    root.style.setProperty(prop, props[prop])
-  })
 }

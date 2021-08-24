@@ -24,8 +24,9 @@ export function buildRules<Theme extends Record<string, any>>(
 
   function findRule(prop: string) {
     const ruleId = prop in rules ? rules[prop] : undefined
+    const value = ruleId ? theme?.[ruleId] : get(theme, prop, {})
 
-    return ruleId ? theme?.[ruleId] : get(theme, prop, {})
+    return value
   }
 
   return {
