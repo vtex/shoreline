@@ -48,16 +48,14 @@ const PersistedPaginationWithInitialValue = () => {
   })
 
   return (
-    <QueryStateProvider>
-      <Pagination
-        state={state}
-        data-testid="pagination"
-        preposition="of"
-        subject="results"
-        prevLabel="Previous"
-        nextLabel="Next"
-      />
-    </QueryStateProvider>
+    <Pagination
+      state={state}
+      data-testid="pagination"
+      preposition="of"
+      subject="results"
+      prevLabel="Previous"
+      nextLabel="Next"
+    />
   )
 }
 
@@ -99,7 +97,9 @@ describe('Pagination', () => {
   // window.history.back() not work (test pass because there is not await before waitFor)
   it('should starts in a specific page and persisted state', async () => {
     const { getByTestId, rerender } = render(
-      <PersistedPaginationWithInitialValue />
+      <QueryStateProvider>
+        <PersistedPaginationWithInitialValue />
+      </QueryStateProvider>
     )
 
     expect(getByTestId('pagination')).toHaveTextContent('11 — 15 of 50 results')
@@ -111,7 +111,11 @@ describe('Pagination', () => {
 
     userEvent.click(nextButton)
 
-    rerender(<PersistedPaginationWithInitialValue />)
+    rerender(
+      <QueryStateProvider>
+        <PersistedPaginationWithInitialValue />
+      </QueryStateProvider>
+    )
 
     await waitFor(() =>
       expect(getByTestId('pagination')).toHaveTextContent(
