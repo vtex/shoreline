@@ -8,7 +8,7 @@ Admin UI is a design system created by VTEX to help teams build a high-quality a
 
 ## What's a design system?
 
-Design system is a collection of solutions established to resolve common problems. By using the components, patterns, and assets of Admin UI minimizes the time teams spend designing and building. Instead of building and re-building basic elements, they can focus their efforts on customizing their products to address specific client use cases.
+A design system is a collection of solutions established to resolve common problems. By using the components, patterns, and assets of Admin UI minimizes the time teams spend designing and building. Instead of building and re-building basic elements, they can focus their efforts on customizing their products to address specific client use cases.
 
 ## Contact us
 
