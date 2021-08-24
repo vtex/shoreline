@@ -1,5 +1,6 @@
-import { createPlugin } from '@vtex/onda-system'
 import { get } from '@vtex/onda-util'
+
+import { createPlugin } from '../system'
 
 export const space = createPlugin({
   name: 'onda-plugin-space',

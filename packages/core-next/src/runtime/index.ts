@@ -1,2 +1,2 @@
-export * from './runtime'
+export * from './emotion'
 export * from './types'

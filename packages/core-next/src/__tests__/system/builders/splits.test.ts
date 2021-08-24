@@ -1,5 +1,4 @@
-import { buildSplits } from '../../builders'
-import { createPlugin } from '../../plugin'
+import { createPlugin, buildSplits } from '../../../system'
 
 describe('splits builder', () => {
   const theme = {

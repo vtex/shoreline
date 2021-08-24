@@ -1,14 +1,14 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import { parse, compile } from './setup'
+import { parse, clsx } from './setup'
 
 describe('compile', () => {
   it('should compile', () => {
     const { getByTestId } = render(
       <div
         data-testid="test"
-        className={compile(
+        className={clsx(
           parse({
             padding: 4,
             margin: 3,

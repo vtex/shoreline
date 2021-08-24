@@ -1,5 +1,5 @@
 import { useRef, useLayoutEffect, useEffect } from 'react'
-import { applyCSSVariables } from '@vtex/onda-system'
+import { applyCSSVariables } from '../system'
 
 const useSafeEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect

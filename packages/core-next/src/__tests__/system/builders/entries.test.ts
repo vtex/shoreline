@@ -1,5 +1,4 @@
-import { buildEntries } from '../../builders'
-import { createPlugin } from '../../plugin'
+import { createPlugin, buildEntries } from '../../../system'
 
 describe('entries builder', () => {
   const theme = {

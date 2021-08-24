@@ -1,5 +1,4 @@
-import { buildPlugins } from '../../builders'
-import { createPlugin } from '../../plugin'
+import { buildPlugins, createPlugin } from '../../../system'
 
 describe('plugins builder', () => {
   const theme = {

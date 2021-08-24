@@ -1,4 +1,4 @@
-import { createPlugin } from '@vtex/onda-system'
+import { createPlugin } from '../system'
 
 export const flex = createPlugin({
   name: 'onda-plugin-flex',

@@ -1,9 +1,10 @@
 import '@testing-library/jest-dom/extend-expect'
 import { matchers } from 'jest-emotion'
-import { buildRuntime, buildPlugins } from '@vtex/onda-system'
+import { buildPlugins } from '../../system'
 
 import { plugins } from '../../plugins'
-import { runtime } from '../runtime'
+import { createClsx, createParser } from '../../runtime'
+import createEmotion from '@emotion/css/create-instance'
 
 expect.extend(matchers)
 
@@ -27,10 +28,9 @@ const theme = {
   },
 }
 
+const emotion = createEmotion({ key: 'test' })
 const steps = buildPlugins(theme, plugins)
-const {
-  parse: { exec: parse },
-  compile: { exec: compile },
-} = buildRuntime({ id: 'test' }, steps, runtime)
+const clsx = createClsx(emotion)
+const parse = createParser(steps)
 
-export { parse, compile }
+export { clsx, parse }

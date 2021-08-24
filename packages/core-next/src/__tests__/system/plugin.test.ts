@@ -6,7 +6,7 @@ import {
   getRules,
   getAliases,
   isValidPlugin,
-} from '../plugin'
+} from '../../system'
 
 describe('plugin tests', () => {
   it('should be able to create a minimal plugin', () => {

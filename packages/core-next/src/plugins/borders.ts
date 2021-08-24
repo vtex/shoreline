@@ -1,4 +1,4 @@
-import { createPlugin } from '@vtex/onda-system'
+import { createPlugin } from '../system'
 
 export const borders = createPlugin({
   name: 'onda-plugin-borders',

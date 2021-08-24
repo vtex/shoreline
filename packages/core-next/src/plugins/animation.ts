@@ -1,4 +1,4 @@
-import { createPlugin } from '@vtex/onda-system'
+import { createPlugin } from '../system'
 
 export const animation = createPlugin({
   name: 'onda-plugin-animation',

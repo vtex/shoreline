@@ -1,7 +1,6 @@
 import { get } from '@vtex/onda-util'
 
-import { buildTransforms } from '../../builders'
-import { createPlugin } from '../../plugin'
+import { createPlugin, buildTransforms } from '../../../system'
 
 describe('transforms builder', () => {
   const theme = {

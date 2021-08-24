@@ -102,6 +102,19 @@ describe('parse', () => {
         fontFamily: 'sans-serif',
       })
     })
+
+    it('parses functional rules', () => {
+      const result = parse({
+        padding: 4,
+        text: 'small',
+      })
+
+      expect(result).toEqual({
+        padding: 8,
+        fontSize: 14,
+        fontFamily: 'sans-serif',
+      })
+    })
   })
 
   describe('__EXPERIMENTAL__ responsive scales', () => {

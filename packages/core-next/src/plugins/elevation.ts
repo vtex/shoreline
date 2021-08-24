@@ -1,4 +1,4 @@
-import { createPlugin } from '@vtex/onda-system'
+import { createPlugin } from '../system'
 
 export const elevation = createPlugin({
   name: 'onda-plugin-elevation',

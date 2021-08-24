@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { createPlugin } from '@vtex/onda-system'
+import { createPlugin } from '../system'
 
 import { createOnda, useSystem } from '../createOnda'
 

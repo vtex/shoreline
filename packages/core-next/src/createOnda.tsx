@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react'
 import React from 'react'
-import type { Plugin, ThemeOptions } from '@vtex/onda-system'
-import { buildRuntime, buildPlugins, createTheme } from '@vtex/onda-system'
+import type { Plugin, ThemeOptions } from './system'
+import { buildPlugins, createTheme } from './system'
 import { theme } from '@vtex/admin-ui-theme'
 import { isKebab } from '@vtex/onda-util'
 import invariant from 'tiny-invariant'
@@ -9,8 +9,10 @@ import { Helmet } from 'react-helmet'
 
 import { plugins } from './plugins'
 import type { StyleProp } from './runtime'
-import { runtime as runtimeEmotion } from './runtime'
 import { useCSSVariables } from './hooks/useCSSVariables'
+import createEmotion from '@emotion/css/create-instance'
+import { createAtoms, createClsx, createParser } from './runtime/emotion'
+import { CacheProvider, Global } from '@emotion/react'
 
 export interface OndaSpec<Theme extends Record<string, any>> {
   name: string
@@ -70,28 +72,32 @@ export function createOnda<Theme extends Record<string, any>>(
 ): DesignSystem {
   const { name, theme: themeConfig, options } = spec
 
-  const [{ global, ...strictTheme }, cssVariables] = createTheme(
-    themeConfig,
-    options
-  )
-
   invariant(
     isKebab(name),
     '"name" property must be in kebab-case format on createOnda function'
   )
 
-  const steps = buildPlugins(strictTheme, plugins)
-  const {
-    exec: cn,
-    parse,
-    instance: { emotion, Global, CacheProvider },
-  } = buildRuntime({ id: name }, steps, runtimeEmotion)
+  const emotion = createEmotion({
+    key: name,
+  })
 
-  const globalStyles = parse.exec(global)
+  const [{ global, ...strictTheme }, cssVariables] = createTheme(
+    themeConfig,
+    options
+  )
+
+  const steps = buildPlugins(strictTheme, plugins)
+  const parse = createParser(steps)
+  const clsx = createClsx(emotion)
+  const atoms = createAtoms(parse, clsx)
+
+  const globalStyles = parse(global)
   const theme = steps.entries.exec(strictTheme)
 
   function SystemProvider(props: { children?: React.ReactNode }) {
     const { children } = props
+
+    console.log(cssVariables)
 
     useCSSVariables(cssVariables)
 
@@ -100,7 +106,7 @@ export function createOnda<Theme extends Record<string, any>>(
         <SystemContext.Provider
           value={{
             theme,
-            cn,
+            cn: atoms,
             instance: emotion,
             about: {
               name,

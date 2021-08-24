@@ -1,4 +1,4 @@
-import { createPlugin, buildAliases } from '../../index'
+import { createPlugin, buildAliases } from '../../../system'
 
 describe('aliases builder', () => {
   const theme = {

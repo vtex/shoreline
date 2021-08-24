@@ -41,7 +41,6 @@
     "@emotion/react": "^11.4.0"
   },
   "dependencies": {
-    "@vtex/onda-system": "^0.1.0-labs.4",
     "@vtex/onda-util": "^0.1.0-labs.3",
     "@vtex/admin-ui-theme": "^0.26.9",
     "react-helmet": "6.1.0",
