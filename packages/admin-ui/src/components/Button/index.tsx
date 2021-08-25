@@ -5,7 +5,6 @@ import type { StyleObject } from '@vtex/onda-core'
 import { alpha } from '@vtex/onda-core'
 import { get } from '@vtex/onda-util'
 import { jsx, tag } from '@vtex/onda-react'
-import { Flex } from '@vtex/admin-primitives'
 
 import { Spinner } from '../Spinner'
 
@@ -196,16 +195,17 @@ export const Button = jsx(ReakitButton)(
               justifyContent: 'center',
             }}
           >
-            <Flex
-              align="center"
-              justify="center"
+            <tag.div
               csx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 visibility: loading ? 'hidden' : 'visible',
                 ...containerStyles,
               }}
             >
               {icon} {children}
-            </Flex>
+            </tag.div>
             {loading ? (
               <tag.div
                 csx={{
@@ -243,53 +243,49 @@ function useButtonIcon({
   const iconEnd = !!icon && iconPosition === 'end'
   const iconOnly = !!icon && !children
 
-  const resolvedSize = iconOnly ? `${size}-icon` : ''
-  const resolvedIconPos = !iconOnly ? `icon-${iconPosition}` : ''
+  const resolvedSize = iconOnly ? `${size}-icon-only` : ''
+  const resolvedPosition = !iconOnly ? iconPosition : ''
   const svgSize = size === 'regular' ? 24 : 20
 
-  const resolvedStyles = icon
-    ? {
-        svg: {
-          size: svgSize,
-          minWidth: svgSize,
-          minHeight: svgSize,
-          margin: 1,
+  const resolvedStyles = {
+    svg: {
+      size: svgSize,
+      minWidth: svgSize,
+      minHeight: svgSize,
+      margin: 1,
+    },
+    ...get(
+      {
+        start: {
+          paddingLeft: 2,
+          paddingRight: 3,
         },
-        ...get(
-          {
-            'icon-start': {
-              paddingLeft: 2,
-              paddingRight: 3,
-            },
-            'icon-end': {
-              paddingLeft: 3,
-              paddingRight: 2,
-            },
-          },
-          resolvedIconPos,
-          {}
-        ),
-        ...get(
-          {
-            'regular-icon': {
-              width: 40,
-              paddingX: 1,
-            },
-            'small-icon': {
-              width: 32,
-              paddingX: '2px',
-            },
-          },
-          resolvedSize,
-          {}
-        ),
-      }
-    : {}
-
-  console.log({ resolvedSize, resolvedIconPos, resolvedStyles })
+        end: {
+          paddingLeft: 3,
+          paddingRight: 2,
+        },
+      },
+      resolvedPosition,
+      {}
+    ),
+    ...get(
+      {
+        'regular-icon-only': {
+          width: 40,
+          paddingX: 1,
+        },
+        'small-icon-only': {
+          width: 32,
+          paddingX: '2px',
+        },
+      },
+      resolvedSize,
+      {}
+    ),
+  }
 
   return {
-    resolvedStyles,
+    resolvedStyles: icon ? resolvedStyles : {},
     containerStyles: {
       flexDirection: iconEnd ? 'row-reverse' : 'row',
     },

@@ -117,7 +117,6 @@ function _SidebarItem(props: SidebarItemProps) {
             label={label}
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
-            {...baseProps}
           />
           <Box
             element="ul"
@@ -137,6 +136,7 @@ function _SidebarItem(props: SidebarItemProps) {
                 'transform 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
             }}
             data-testid={`${label}-ul`}
+            {...(baseProps as any)}
             onMouseEnter={handleShowToggle}
             onMouseLeave={handleHideToggle}
           >
