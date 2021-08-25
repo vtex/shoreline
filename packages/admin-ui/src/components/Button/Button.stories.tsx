@@ -3,6 +3,7 @@ import type { Story, Meta } from '@storybook/react'
 import { IconAppStore, IconAdd } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
 
+import type { ButtonProps } from './index'
 import { Button } from './index'
 import { Set } from '../Set'
 
@@ -11,7 +12,7 @@ export default {
   component: Button,
 } as Meta
 
-export const Playground: Story = (args) => {
+export const Playground: Story<ButtonProps> = (args) => {
   return <Button {...args} />
 }
 

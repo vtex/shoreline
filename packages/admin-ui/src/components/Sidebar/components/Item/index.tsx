@@ -4,7 +4,6 @@ import type { HTMLAttributesWithRef } from 'reakit-utils/ts'
 import { Box } from '@vtex/admin-primitives'
 
 import { CompositeItem, useCompositeState } from '../Aria'
-import type { SystemComponent } from '../../../../types'
 import type { SidebarDisclosureProps } from './Disclosure'
 import { SidebarDisclosure } from './Disclosure'
 import { SidebarSection } from './Section'
@@ -118,6 +117,7 @@ function _SidebarItem(props: SidebarItemProps) {
             label={label}
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
+            {...baseProps}
           />
           <Box
             element="ul"
@@ -137,7 +137,6 @@ function _SidebarItem(props: SidebarItemProps) {
                 'transform 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
             }}
             data-testid={`${label}-ul`}
-            {...baseProps}
             onMouseEnter={handleShowToggle}
             onMouseLeave={handleHideToggle}
           >
@@ -208,9 +207,7 @@ export const SidebarItem = Object.assign(_SidebarItem, {
   Section: SidebarSection,
 })
 
-export interface SidebarItemProps
-  extends SidebarDisclosureProps,
-    SystemComponent {
+export interface SidebarItemProps extends SidebarDisclosureProps {
   children?: ReactNode
   /**
    * `label` is set as the components` composite ID and
