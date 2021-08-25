@@ -1,4 +1,6 @@
-import { merge, createComponent, alpha } from '@vtex/admin-core'
+import { alpha } from '@vtex/onda-core'
+import { merge } from '@vtex/onda-util'
+import { createComponent } from '@vtex/admin-jsxs'
 
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'

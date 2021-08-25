@@ -6,7 +6,7 @@ import {
   TooltipReference,
 } from 'reakit/Tooltip'
 import type { PopoverState } from 'reakit/ts'
-import { useSystem } from '@vtex/admin-core'
+import { useSystem } from '@vtex/onda-core'
 
 import type { SystemComponent } from '../../types'
 

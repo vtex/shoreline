@@ -9,7 +9,7 @@ import {
 } from 'reakit/Dialog'
 import { Box } from '@vtex/admin-primitives'
 import { IconSearch } from '@vtex/admin-ui-icons'
-import { useSystem, darken } from '@vtex/admin-core'
+import { useSystem, darken } from '@vtex/onda-core'
 
 import { Button } from '../Button'
 import {

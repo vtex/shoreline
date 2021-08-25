@@ -1,8 +1,6 @@
 import React from 'react'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, axe } from '../../test-utils'
 import userEvent from '@testing-library/user-event'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 import { Button, Text } from '@vtex/admin-ui'
@@ -14,19 +12,17 @@ describe('TextArea tests', () => {
     const handleSubmit = jest.fn()
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
-          <Form id="form-admin-formik-input">
-            <FormikTextArea
-              name="value"
-              data-testid="text-field"
-              label="TextField label"
-              id="text-field-1"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
+        <Form id="form-admin-formik-input">
+          <FormikTextArea
+            name="value"
+            data-testid="text-field"
+            label="TextField label"
+            id="text-field-1"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     userEvent.type(screen.getByLabelText(/TextField label/i), 'v')
@@ -47,28 +43,26 @@ describe('TextArea tests', () => {
     const handleSubmit = jest.fn()
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
-          {({ setFieldValue }) => (
-            <Form id="form-admin-formik-input">
-              <FormikTextArea
-                name="value"
-                data-testid="text-field"
-                label="TextField label"
-                id="text-field-1"
-              />
-              <Button
-                size="small"
-                children="Change Value"
-                onClick={() =>
-                  setFieldValue('value', 'value changed by setFieldValue')
-                }
-              />
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
+        {({ setFieldValue }) => (
+          <Form id="form-admin-formik-input">
+            <FormikTextArea
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              id="text-field-1"
+            />
+            <Button
+              size="small"
+              children="Change Value"
+              onClick={() =>
+                setFieldValue('value', 'value changed by setFieldValue')
+              }
+            />
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     const input = screen.getByLabelText(/TextField label/i)
@@ -94,23 +88,21 @@ describe('TextArea tests', () => {
     const handleSubmit = jest.fn()
 
     const { rerender } = render(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: '' }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikTextArea
-              name="value"
-              data-testid="text-field"
-              label="TextField label"
-              id="text-field-1"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: '' }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikTextArea
+            name="value"
+            data-testid="text-field"
+            label="TextField label"
+            id="text-field-1"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const input = screen.getByLabelText(/TextField label/i)
@@ -127,23 +119,21 @@ describe('TextArea tests', () => {
     )
 
     rerender(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: 'new initial value' }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikTextArea
-              name="value"
-              data-testid="text-field"
-              label="TextField label"
-              id="text-field-1"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: 'new initial value' }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikTextArea
+            name="value"
+            data-testid="text-field"
+            label="TextField label"
+            id="text-field-1"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     await waitFor(() => expect(input).toHaveValue('new initial value'))
@@ -153,29 +143,27 @@ describe('TextArea tests', () => {
     const handleSubmit = jest.fn()
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
-          {({ touched, resetForm }) => (
-            <Form id="form-admin-formik-input">
-              <FormikTextArea
-                name="value"
-                data-testid="text-field"
-                label="TextField label"
-                id="text-field-1"
-              />
-              <Button
-                size="small"
-                children="Reset Form"
-                onClick={() => resetForm()}
-              />
-              <Text feedback="secondary">
-                <pre>{JSON.stringify(touched)}</pre>
-              </Text>
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
+        {({ touched, resetForm }) => (
+          <Form id="form-admin-formik-input">
+            <FormikTextArea
+              name="value"
+              data-testid="text-field"
+              label="TextField label"
+              id="text-field-1"
+            />
+            <Button
+              size="small"
+              children="Reset Form"
+              onClick={() => resetForm()}
+            />
+            <Text feedback="secondary">
+              <pre>{JSON.stringify(touched)}</pre>
+            </Text>
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     expect(await screen.findByText('{}')).not.toBeNull()
@@ -194,23 +182,21 @@ describe('TextArea tests', () => {
     const validate = () => ({ value: 'Error message' })
 
     render(
-      <ThemeProvider>
-        <Formik
-          initialValues={{ value: '' }}
-          validate={validate}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikTextArea
-              name="value"
-              data-testid="text-field"
-              label="TextField label"
-              id="text-field-1"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        initialValues={{ value: '' }}
+        validate={validate}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikTextArea
+            name="value"
+            data-testid="text-field"
+            label="TextField label"
+            id="text-field-1"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const input = screen.getByLabelText(/TextField label/i)
@@ -251,11 +237,9 @@ describe('TextArea tests', () => {
     }
 
     render(
-      <ThemeProvider>
-        <IntlProvider locale="en" messages={messagesEN}>
-          <Content />
-        </IntlProvider>
-      </ThemeProvider>
+      <IntlProvider locale="en" messages={messagesEN}>
+        <Content />
+      </IntlProvider>
     )
 
     const input = screen.getByLabelText(/TextField label/i)
@@ -267,22 +251,20 @@ describe('TextArea tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: '' }}
-          onSubmit={() => {}}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikTextArea
-              name="value"
-              data-testid="text-field"
-              label="TextField label"
-              id="text-field-1"
-            />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: '' }}
+        onSubmit={() => {}}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikTextArea
+            name="value"
+            data-testid="text-field"
+            label="TextField label"
+            id="text-field-1"
+          />
+        </Form>
+      </Formik>
     )
 
     const results = await axe(container)

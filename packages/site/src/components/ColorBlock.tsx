@@ -1,6 +1,6 @@
 import React from 'react'
 import type { SetProps } from '@vtex/admin-ui'
-import { Set, Text, Flex, useTheme, get } from '@vtex/admin-ui'
+import { Set, Text, Flex, useSystem, get } from '@vtex/admin-ui'
 
 interface CardProps extends SetProps {
   /** Color Value */
@@ -11,7 +11,7 @@ interface CardProps extends SetProps {
   contrast?: string
 }
 
-function ColorCard(props: CardProps) {
+function ColorCard(props: Omit<CardProps, 'ref'>) {
   const { color, name, contrast, ...restProps } = props
 
   return (
@@ -62,7 +62,7 @@ function ColorCard(props: CardProps) {
 }
 
 export function MidColors() {
-  const theme = useTheme()
+  const { theme } = useSystem()
 
   const getColor = (color: string) => get(theme, `colors.${color}`)
 
@@ -88,7 +88,7 @@ export function MidColors() {
 }
 
 export function LightColors() {
-  const theme = useTheme()
+  const { theme } = useSystem()
 
   const getColor = (color: string) => get(theme, `colors.${color}`)
 
@@ -109,7 +109,7 @@ export function LightColors() {
 }
 
 export function DarkColors() {
-  const theme = useTheme()
+  const { theme } = useSystem()
 
   const getColor = (color: string) => get(theme, `colors.${color}`)
 
@@ -130,7 +130,7 @@ export function DarkColors() {
 }
 
 export function ComplementaryColors() {
-  const theme = useTheme()
+  const { theme } = useSystem()
 
   const getColor = (color: string) => get(theme, `colors.${color}`)
 
@@ -144,7 +144,7 @@ export function ComplementaryColors() {
 export function SemanticColor(props: { color: string }) {
   const { color } = props
 
-  const theme = useTheme()
+  const { theme } = useSystem()
 
   const getColor = (c: string) => get(theme, `colors.${c}`)
 

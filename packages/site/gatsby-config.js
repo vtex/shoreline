@@ -56,12 +56,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-typescript',
-    {
-      resolve: '@vtex/gatsby-plugin-admin-ui',
-      options: {
-        appName: 'admin-ui-docs',
-      },
-    },
+    '@vtex/gatsby-plugin-admin-ui',
     'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-source-filesystem',

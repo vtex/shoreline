@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { createComponent } from '@vtex/admin-core'
+import { createComponent } from '@vtex/admin-jsxs'
 import { Primitive } from '@vtex/admin-primitives'
 
 import type { SystemComponent } from '../../types'

@@ -1,39 +1,30 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
 import { Card } from './index'
 
 describe('Card tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Card data-testid="card" csx={{ bg: 'coral' }}>
-          Card text
-        </Card>
-      </ThemeProvider>
+      <Card data-testid="card" csx={{ bg: 'coral' }}>
+        Card text
+      </Card>
     )
 
+    // TODO: Check why types are not working
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(getByTestId('card')).toHaveStyleRule('background-color', 'coral')
   })
 
   it('should match snapshot', () => {
-    const { asFragment } = render(
-      <ThemeProvider>
-        <Card>Card text</Card>
-      </ThemeProvider>
-    )
+    const { asFragment } = render(<Card>Card text</Card>)
 
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('should not have a11y violations', async () => {
-    const { container } = render(
-      <ThemeProvider>
-        <Card>Card text</Card>
-      </ThemeProvider>
-    )
+    const { container } = render(<Card>Card text</Card>)
 
     const results = await axe(container)
 

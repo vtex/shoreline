@@ -1,8 +1,7 @@
-import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import React, { Fragment } from 'react'
 import { axe } from 'jest-axe'
 import { IconAdd } from '@vtex/admin-ui-icons'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, fireEvent } from '../../test-utils'
 
 import { AbstractInput, AbstractInputPassword } from './index'
 
@@ -10,14 +9,12 @@ describe('AbstractInput tests', () => {
   describe('Text', () => {
     it('should have overridable styles', () => {
       const { getByTestId } = render(
-        <ThemeProvider>
-          <AbstractInput
-            data-testid="input"
-            csx={{ color: 'coral' }}
-            value="Test1"
-            readOnly
-          />
-        </ThemeProvider>
+        <AbstractInput
+          data-testid="input"
+          csx={{ color: 'coral' }}
+          value="Test1"
+          readOnly
+        />
       )
 
       expect(getByTestId('input')).toHaveStyleRule('color', 'coral')
@@ -25,7 +22,7 @@ describe('AbstractInput tests', () => {
 
     it('should match snapshot', () => {
       const { asFragment } = render(
-        <ThemeProvider>
+        <Fragment>
           <AbstractInput value="Test1" readOnly />
           <AbstractInput onClear={() => {}} />
           <AbstractInput onClear={() => {}} value="Test2" readOnly />
@@ -50,7 +47,7 @@ describe('AbstractInput tests', () => {
             value="Test6"
             readOnly
           />
-        </ThemeProvider>
+        </Fragment>
       )
 
       expect(asFragment()).toMatchSnapshot()
@@ -58,7 +55,7 @@ describe('AbstractInput tests', () => {
 
     it('should not have a11y violations', async () => {
       const { container } = render(
-        <ThemeProvider>
+        <Fragment>
           <AbstractInput aria-label="raw-input" />
           <AbstractInput value="Test1" aria-label="input-value" readOnly />
           <AbstractInput onClear={() => {}} aria-label="input-clear" />
@@ -118,7 +115,7 @@ describe('AbstractInput tests', () => {
             aria-label="input-suffix-icon-clear-value"
             readOnly
           />
-        </ThemeProvider>
+        </Fragment>
       )
 
       const results = await axe(container)
@@ -129,14 +126,12 @@ describe('AbstractInput tests', () => {
   describe('Password', () => {
     it('should be able to show & hide the password', () => {
       const { getByRole, getByTestId } = render(
-        <ThemeProvider>
-          <AbstractInputPassword
-            data-testid="input-password"
-            csx={{ color: 'coral' }}
-            value="Test1"
-            readOnly
-          />
-        </ThemeProvider>
+        <AbstractInputPassword
+          data-testid="input-password"
+          csx={{ color: 'coral' }}
+          value="Test1"
+          readOnly
+        />
       )
 
       const input = () => getByTestId('input-password')
@@ -160,7 +155,7 @@ describe('AbstractInput tests', () => {
 
     it('should match snaphost', () => {
       const { asFragment } = render(
-        <ThemeProvider>
+        <Fragment>
           <AbstractInputPassword value="" id="password" readOnly />
           <AbstractInputPassword
             value=""
@@ -168,7 +163,7 @@ describe('AbstractInput tests', () => {
             readOnly
             icon={<IconAdd />}
           />
-        </ThemeProvider>
+        </Fragment>
       )
 
       expect(asFragment()).toMatchSnapshot()

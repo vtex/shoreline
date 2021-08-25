@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { createComponent } from '@vtex/admin-core'
+import { createComponent } from '@vtex/admin-jsxs'
 import type { PrimitiveProps } from '@vtex/admin-primitives'
 import { Primitive } from '@vtex/admin-primitives'
 

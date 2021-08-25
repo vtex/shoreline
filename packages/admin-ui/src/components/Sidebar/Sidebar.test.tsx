@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
 import { Sidebar } from './index'
 import type { SidebarState } from './hooks'
@@ -37,26 +35,24 @@ describe('Sidebar tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <StateHandler>
-          {(state) => (
-            <Sidebar state={state}>
-              <Sidebar.Top>
-                <Sidebar.Item label="label 1" uniqueKey="label 1" icon="Icon">
-                  <Sidebar.Item.Section title="title 1">
-                    <Sidebar.Item.Section.Item onClick={() => null}>
-                      Item
-                    </Sidebar.Item.Section.Item>
-                  </Sidebar.Item.Section>
-                </Sidebar.Item>
-              </Sidebar.Top>
-              <Sidebar.Bottom>
-                <Sidebar.Item icon="icon" label="label 2" uniqueKey="label 2" />
-              </Sidebar.Bottom>
-            </Sidebar>
-          )}
-        </StateHandler>
-      </ThemeProvider>
+      <StateHandler>
+        {(state) => (
+          <Sidebar state={state}>
+            <Sidebar.Top>
+              <Sidebar.Item label="label 1" uniqueKey="label 1" icon="Icon">
+                <Sidebar.Item.Section title="title 1">
+                  <Sidebar.Item.Section.Item onClick={() => null}>
+                    Item
+                  </Sidebar.Item.Section.Item>
+                </Sidebar.Item.Section>
+              </Sidebar.Item>
+            </Sidebar.Top>
+            <Sidebar.Bottom>
+              <Sidebar.Item icon="icon" label="label 2" uniqueKey="label 2" />
+            </Sidebar.Bottom>
+          </Sidebar>
+        )}
+      </StateHandler>
     )
 
     const results = await axe(container)

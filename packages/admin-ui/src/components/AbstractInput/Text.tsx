@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import type { InputProps as ReakitInputProps } from 'reakit'
 import { Input as ReakitInput } from 'reakit'
 import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
-import { useSystem } from '@vtex/admin-core'
+import { useSystem } from '@vtex/onda-core'
 import { Box } from '@vtex/admin-primitives'
 
 import { Button } from '../Button'

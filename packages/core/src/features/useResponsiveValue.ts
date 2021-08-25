@@ -1,18 +1,23 @@
 import { useState, useEffect } from 'react'
-import type { Theme } from '@vtex/admin-styles'
-import { defaultBreakpoints } from '@vtex/admin-styles'
+import type { Theme } from '../runtime'
 
-import { useTheme } from './hooks'
+import { useSystem } from '../createOnda'
 
 type DefaultOptions = {
   defaultIndex?: number
 }
 
-export const useBreakpointIndex = (options: DefaultOptions = {}) => {
-  const context = useTheme()
+export type ResponsiveValue<T> = T | T[]
+
+const useBreakpointIndex = (options: DefaultOptions = {}) => {
+  const { theme } = useSystem()
   const { defaultIndex = 0 } = options
-  const breakpoints =
-    (context.theme && context.theme.breakpoints) || defaultBreakpoints
+  const breakpoints = (theme && theme.breakpoints) || [
+    '40em',
+    '48em',
+    '64em',
+    '75em',
+  ]
 
   if (typeof defaultIndex !== 'number') {
     throw new TypeError(
@@ -52,13 +57,17 @@ export const useBreakpointIndex = (options: DefaultOptions = {}) => {
 
 type Values<T> = ((theme: Theme | null) => T[]) | T[]
 
-export function useResponsiveValue<T>(
-  values: Values<T>,
-  options: DefaultOptions = {}
-): T {
-  const { theme } = useTheme()
+function useValue<T>(values: Values<T>, options: DefaultOptions = {}): T {
+  const { theme } = useSystem()
   const array = typeof values === 'function' ? values(theme) : values
   const index = useBreakpointIndex(options)
 
   return array[index >= array.length ? array.length - 1 : index]
+}
+
+export function useResponsiveValue<T>(value: ResponsiveValue<T>): T {
+  const baseValue = Array.isArray(value) ? value : [value]
+  const responsiveValue = useValue<T>(baseValue)
+
+  return responsiveValue
 }

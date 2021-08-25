@@ -2,7 +2,7 @@ import type { MouseEvent, ReactNode } from 'react'
 import React, { cloneElement, Children } from 'react'
 import { isElement } from 'react-is'
 import { IconContainer } from '@vtex/admin-ui-icons'
-import { useSystem } from '@vtex/admin-core'
+import { useSystem } from '@vtex/onda-core'
 import { Box } from '@vtex/admin-primitives'
 
 import type { MenuStateReturn } from './components'

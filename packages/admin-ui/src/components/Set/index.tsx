@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
-import type { ResponsiveValue } from '@vtex/admin-core'
-import { useResponsiveValue, createComponent } from '@vtex/admin-core'
+import type { ResponsiveValue } from '@vtex/onda-core'
+import { useResponsiveValue } from '@vtex/onda-core'
+import { createComponent } from '@vtex/admin-jsxs'
 import type { FlexProps } from '@vtex/admin-primitives'
 import { Flex } from '@vtex/admin-primitives'
 
@@ -75,8 +76,4 @@ export interface SetProps
    * @default start
    */
   align?: ResponsiveValue<'start' | 'end'>
-  /**
-   * optional themeKey
-   */
-  themeKey?: string
 }

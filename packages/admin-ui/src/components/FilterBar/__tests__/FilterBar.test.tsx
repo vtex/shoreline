@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { ThemeProvider } from '@vtex/admin-core'
-import { axe } from 'jest-axe'
+import { render, axe } from '../../../test-utils'
 
 import { FilterBar } from '../index'
 import { useFilterBarState } from '../useFilterBarState'
@@ -53,7 +51,7 @@ describe('FilterBar tests', () => {
 
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
+      <>
         <StatefulFilterBar
           onApply={() => {}}
           conjunction={{ label: 'And', value: 'and' }}
@@ -88,7 +86,7 @@ describe('FilterBar tests', () => {
             />
           )}
         </StatefulFilterBar>
-      </ThemeProvider>
+      </>
     )
 
     expect(getByTestId('filter-bar')).toHaveStyleRule(
@@ -99,7 +97,7 @@ describe('FilterBar tests', () => {
 
   it('should match snapshot', async () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <StatefulFilterBar
           onApply={() => {}}
           statements={[
@@ -154,7 +152,7 @@ describe('FilterBar tests', () => {
             />
           )}
         </StatefulFilterBar>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -162,7 +160,7 @@ describe('FilterBar tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <>
         <StatefulFilterBar
           filters={[
             {
@@ -217,7 +215,7 @@ describe('FilterBar tests', () => {
             />
           )}
         </StatefulFilterBar>
-      </ThemeProvider>
+      </>
     )
 
     const results = await axe(container)

@@ -1,22 +1,18 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, screen, axe } from '../../test-utils'
 
 import { NumericStepper } from './index'
 
 describe('NumericStepper tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <NumericStepper
-          value={1}
-          onChange={() => {}}
-          label="numeric-stepper"
-          data-testid="numeric-stepper"
-          csx={{ bg: 'azure' }}
-        />
-      </ThemeProvider>
+      <NumericStepper
+        value={1}
+        onChange={() => {}}
+        label="numeric-stepper"
+        data-testid="numeric-stepper"
+        csx={{ bg: 'azure' }}
+      />
     )
 
     expect(getByTestId('numeric-stepper')).toHaveStyleRule(
@@ -27,7 +23,7 @@ describe('NumericStepper tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <NumericStepper value={1} onChange={() => {}} label="stepper number" />
         <NumericStepper
           value={1}
@@ -58,7 +54,7 @@ describe('NumericStepper tests', () => {
           }}
           label="numeric-stepper-4"
         />
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -66,14 +62,12 @@ describe('NumericStepper tests', () => {
 
   it('change value externally', async () => {
     const { rerender } = render(
-      <ThemeProvider>
-        <NumericStepper
-          value={1}
-          onChange={() => {}}
-          label="stepper number"
-          data-testid="numeric-stepper"
-        />
-      </ThemeProvider>
+      <NumericStepper
+        value={1}
+        onChange={() => {}}
+        label="stepper number"
+        data-testid="numeric-stepper"
+      />
     )
 
     const input = screen.getByTestId('numeric-stepper')
@@ -81,14 +75,12 @@ describe('NumericStepper tests', () => {
     expect(input).toHaveValue(1)
 
     rerender(
-      <ThemeProvider>
-        <NumericStepper
-          value={10}
-          onChange={() => {}}
-          label="stepper number"
-          data-testid="numeric-stepper"
-        />
-      </ThemeProvider>
+      <NumericStepper
+        value={10}
+        onChange={() => {}}
+        label="stepper number"
+        data-testid="numeric-stepper"
+      />
     )
 
     expect(input).toHaveValue(10)
@@ -96,16 +88,14 @@ describe('NumericStepper tests', () => {
 
   it('should not have any violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <NumericStepper
-          value={1}
-          onChange={() => {}}
-          maxValue={3}
-          minValue={-3}
-          helperText="Helper Text"
-          label="numeric-stepper"
-        />
-      </ThemeProvider>
+      <NumericStepper
+        value={1}
+        onChange={() => {}}
+        maxValue={3}
+        minValue={-3}
+        helperText="Helper Text"
+        label="numeric-stepper"
+      />
     )
 
     const results = await axe(container)

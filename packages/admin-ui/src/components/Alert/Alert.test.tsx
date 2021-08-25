@@ -1,7 +1,5 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import React, { Fragment } from 'react'
+import { render, axe } from '../../test-utils'
 import {
   IconErrorColorful,
   IconInfo,
@@ -34,14 +32,12 @@ describe('Alert tests', () => {
 
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Alert
-          data-testid="alert"
-          icon={<IconInfo />}
-          visible
-          csx={{ bg: 'coral' }}
-        />
-      </ThemeProvider>
+      <Alert
+        data-testid="alert"
+        icon={<IconInfo />}
+        visible
+        csx={{ bg: 'coral' }}
+      />
     )
 
     expect(getByTestId('alert')).toHaveStyleRule('background-color', 'coral')
@@ -49,7 +45,7 @@ describe('Alert tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <Alert type="success" icon={<IconSuccessColorful />} visible>
           Order successfully placed
         </Alert>
@@ -59,7 +55,7 @@ describe('Alert tests', () => {
         <Alert type="error" icon={<IconErrorColorful />} visible>
           Somenthing went wrong. Please, try again.
         </Alert>
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -67,7 +63,7 @@ describe('Alert tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <Fragment>
         <Alert type="success" icon={<IconSuccessColorful />} visible>
           Order successfully placed
         </Alert>
@@ -77,7 +73,7 @@ describe('Alert tests', () => {
         <Alert type="error" icon={<IconErrorColorful />} visible>
           Somenthing went wrong. Please, try again.
         </Alert>
-      </ThemeProvider>
+      </Fragment>
     )
 
     const results = await axe(container)

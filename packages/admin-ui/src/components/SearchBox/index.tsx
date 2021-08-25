@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
 import React, { cloneElement, Fragment } from 'react'
-import { useSystem, merge } from '@vtex/admin-core'
+import { useSystem } from '@vtex/onda-core'
+import { merge } from '@vtex/onda-util'
 import {
   IconSearch,
   IconCancel,

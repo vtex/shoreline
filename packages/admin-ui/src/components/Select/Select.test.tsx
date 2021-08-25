@@ -1,7 +1,6 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render } from '../../test-utils'
 import type { UseSelectProps } from 'downshift'
-import { ThemeProvider } from '@vtex/admin-core'
 
 import type { UseSelectReturnValue } from './index'
 import { Select, useSelectState } from './index'
@@ -19,22 +18,20 @@ function SelectState<T>({ children, ...hookProps }: SelectStateProps<T>) {
 describe('Select tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <SelectState
-          items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-          initialSelectedItem="7 days ago"
-        >
-          {(state) => (
-            <Select
-              data-testid="select"
-              csx={{ backgroundColor: 'azure' }}
-              label="Date"
-              items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-              state={state}
-            />
-          )}
-        </SelectState>
-      </ThemeProvider>
+      <SelectState
+        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+        initialSelectedItem="7 days ago"
+      >
+        {(state) => (
+          <Select
+            data-testid="select"
+            csx={{ backgroundColor: 'azure' }}
+            label="Date"
+            items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+            state={state}
+          />
+        )}
+      </SelectState>
     )
 
     expect(getByTestId('select')).toHaveStyleRule('background-color', 'azure')
@@ -50,7 +47,7 @@ describe('Select tests', () => {
     ]
 
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <SelectState items={listItems} initialSelectedItem="7 days ago">
           {(state) => <Select label="Date" items={listItems} state={state} />}
         </SelectState>
@@ -68,7 +65,7 @@ describe('Select tests', () => {
             />
           )}
         </SelectState>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()

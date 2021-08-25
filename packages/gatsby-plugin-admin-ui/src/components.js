@@ -1,2 +1,0 @@
-/** custom components */
-export default {}

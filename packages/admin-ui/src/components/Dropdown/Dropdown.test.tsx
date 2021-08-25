@@ -1,8 +1,6 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, axe } from '../../test-utils'
 import type { UseSelectProps } from 'downshift'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
 
 import type { UseDropdownReturnValue } from './index'
 import { Dropdown, useDropdownState } from './index'
@@ -36,22 +34,20 @@ describe('Dropdown tests', () => {
 
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <DropdownState
-          items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-          initialSelectedItem="7 days ago"
-        >
-          {(state) => (
-            <Dropdown
-              data-testid="dropdown"
-              csx={{ bg: 'azure' }}
-              label="Date"
-              items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-              state={state}
-            />
-          )}
-        </DropdownState>
-      </ThemeProvider>
+      <DropdownState
+        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+        initialSelectedItem="7 days ago"
+      >
+        {(state) => (
+          <Dropdown
+            data-testid="dropdown"
+            csx={{ bg: 'azure' }}
+            label="Date"
+            items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+            state={state}
+          />
+        )}
+      </DropdownState>
     )
 
     expect(getByTestId('dropdown')).toHaveStyleRule('background-color', 'azure')
@@ -67,7 +63,7 @@ describe('Dropdown tests', () => {
     ]
 
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <DropdownState items={listItems} initialSelectedItem="7 days ago">
           {(state) => <Dropdown label="Date" items={listItems} state={state} />}
         </DropdownState>
@@ -85,7 +81,7 @@ describe('Dropdown tests', () => {
             />
           )}
         </DropdownState>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -97,7 +93,7 @@ describe('Dropdown tests', () => {
     const recipes = ['Latte', 'Espresso', 'Irish Coffee']
 
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <DropdownState items={species} initialSelectedItem={species[0]}>
           {(state) => (
             <Dropdown label="Species" items={species} state={state} />
@@ -123,7 +119,7 @@ describe('Dropdown tests', () => {
             />
           )}
         </DropdownState>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -131,20 +127,18 @@ describe('Dropdown tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <DropdownState
-          items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-          initialSelectedItem="7 days ago"
-        >
-          {(state) => (
-            <Dropdown
-              label="Date"
-              items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-              state={state}
-            />
-          )}
-        </DropdownState>
-      </ThemeProvider>
+      <DropdownState
+        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+        initialSelectedItem="7 days ago"
+      >
+        {(state) => (
+          <Dropdown
+            label="Date"
+            items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+            state={state}
+          />
+        )}
+      </DropdownState>
     )
 
     const results = await axe(container)

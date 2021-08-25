@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { ThemeProvider } from '@vtex/admin-core'
-import { axe } from 'jest-axe'
+import { render, axe } from '../../test-utils'
 
 import type { TabStateReturn } from './index'
 import { Tabs, useTabState } from './index'
@@ -19,33 +17,31 @@ function TabsState({
 describe('Tabs tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <TabsState>
-          {(state) => (
-            <Tabs state={state}>
-              <Tabs.List
-                aria-label="overridable-tabs"
-                data-testid="tabs-list"
+      <TabsState>
+        {(state) => (
+          <Tabs state={state}>
+            <Tabs.List
+              aria-label="overridable-tabs"
+              data-testid="tabs-list"
+              csx={{ bg: 'azure' }}
+            >
+              <Tabs.Tab
+                data-testid="tabs-tab"
                 csx={{ bg: 'azure' }}
-              >
-                <Tabs.Tab
-                  data-testid="tabs-tab"
-                  csx={{ bg: 'azure' }}
-                  label="Tab 1"
-                  id="1"
-                />
-              </Tabs.List>
-              <Tabs.Content
-                data-testid="tabs-content"
+                label="Tab 1"
                 id="1"
-                csx={{ bg: 'azure' }}
-              >
-                Tab 1 Content
-              </Tabs.Content>
-            </Tabs>
-          )}
-        </TabsState>
-      </ThemeProvider>
+              />
+            </Tabs.List>
+            <Tabs.Content
+              data-testid="tabs-content"
+              id="1"
+              csx={{ bg: 'azure' }}
+            >
+              Tab 1 Content
+            </Tabs.Content>
+          </Tabs>
+        )}
+      </TabsState>
     )
 
     expect(getByTestId('tabs-list')).toHaveStyleRule(
@@ -61,7 +57,7 @@ describe('Tabs tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <TabsState>
           {(state) => (
             <Tabs state={state}>
@@ -86,7 +82,7 @@ describe('Tabs tests', () => {
             </Tabs>
           )}
         </TabsState>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -94,20 +90,18 @@ describe('Tabs tests', () => {
 
   it('should not have any violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <TabsState>
-          {(state) => (
-            <Tabs state={state}>
-              <Tabs.List fluid aria-label="tabs">
-                <Tabs.Tab label="Tab 1" id="1" />
-                <Tabs.Tab label="Tab 2" id="2" />
-              </Tabs.List>
-              <Tabs.Content id="1">Tab 1 Content</Tabs.Content>
-              <Tabs.Content id="2">Tab 2 Content</Tabs.Content>
-            </Tabs>
-          )}
-        </TabsState>
-      </ThemeProvider>
+      <TabsState>
+        {(state) => (
+          <Tabs state={state}>
+            <Tabs.List fluid aria-label="tabs">
+              <Tabs.Tab label="Tab 1" id="1" />
+              <Tabs.Tab label="Tab 2" id="2" />
+            </Tabs.List>
+            <Tabs.Content id="1">Tab 1 Content</Tabs.Content>
+            <Tabs.Content id="2">Tab 2 Content</Tabs.Content>
+          </Tabs>
+        )}
+      </TabsState>
     )
 
     const results = await axe(container)

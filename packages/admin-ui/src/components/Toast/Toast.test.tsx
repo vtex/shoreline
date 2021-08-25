@@ -1,14 +1,13 @@
 import React from 'react'
-import { ThemeProvider } from '@vtex/admin-core'
 import {
+  render,
+  axe,
   getByTestId,
   getByText,
   queryAllByTestId,
   queryByText,
-  render,
   waitFor,
-} from '@testing-library/react'
-import { axe } from 'jest-axe'
+} from '../../test-utils'
 import { act } from 'react-dom/test-utils'
 
 import { Toast } from './components/Toast'
@@ -66,9 +65,7 @@ const ToastVariants = () => (
 describe('Toast tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Toast {...mockedToastProps} csx={{ backgroundColor: 'azure' }} />
-      </ThemeProvider>
+      <Toast {...mockedToastProps} csx={{ backgroundColor: 'azure' }} />
     )
 
     expect(getByTestId('onda-toast-component')).toHaveStyleRule(
@@ -78,11 +75,7 @@ describe('Toast tests', () => {
   })
 
   it('should have info style when no type is passed', () => {
-    const { getByTestId } = render(
-      <ThemeProvider>
-        <Toast {...mockedToastProps} />
-      </ThemeProvider>
-    )
+    const { getByTestId } = render(<Toast {...mockedToastProps} />)
 
     expect(getByTestId('onda-toast-component')).toHaveStyleRule(
       'background-color',
@@ -91,21 +84,13 @@ describe('Toast tests', () => {
   })
 
   it('should match snapshot', () => {
-    const { asFragment } = render(
-      <ThemeProvider>
-        <ToastVariants />
-      </ThemeProvider>
-    )
+    const { asFragment } = render(<ToastVariants />)
 
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('should not have a11y violations', async () => {
-    const { container } = render(
-      <ThemeProvider>
-        <ToastVariants />
-      </ThemeProvider>
-    )
+    const { container } = render(<ToastVariants />)
 
     const results = await axe(container)
 
@@ -243,11 +228,7 @@ describe('ToastManager tests', () => {
 
 describe('Toaster tests', () => {
   it('should not have a11y violations', async () => {
-    const { container } = render(
-      <ThemeProvider>
-        <Toaster {...mockedToasterProps} />
-      </ThemeProvider>
-    )
+    const { container } = render(<Toaster {...mockedToasterProps} />)
 
     const results = await axe(container)
 
@@ -255,11 +236,7 @@ describe('Toaster tests', () => {
   })
 
   it('should match snapshot', () => {
-    const { asFragment } = render(
-      <ThemeProvider>
-        <Toaster {...mockedToasterProps} />
-      </ThemeProvider>
-    )
+    const { asFragment } = render(<Toaster {...mockedToasterProps} />)
 
     expect(asFragment()).toMatchSnapshot()
   })

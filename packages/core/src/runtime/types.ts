@@ -1,13 +1,7 @@
 import type * as CSS from 'csstype'
 
-type StandardCSSProperties = CSS.Properties<number | string>
-/**
- * The `styles` function accepts arrays as values for mobile-first responsive styles.
- * Note that this extends to non-theme values also. For example `display=['none', 'block']`
- * will also works.
- *
- * For more information see: https://styled-system.com/responsive-styles
- */
+export type StandardCSSProperties = CSS.Properties<number | string>
+
 export type ResponsiveStyleValue<T> = T | Array<T | null | undefined>
 
 /**
@@ -58,7 +52,7 @@ export type Colors =
   | 'yellow.secondary.hover'
   | 'yellow.secondary.pressed'
 
-interface AliasesCSSProperties {
+export interface AliasesCSSProperties {
   /**
    * Shorthand for backgroundColor
    * @default transparent
@@ -113,13 +107,13 @@ interface AliasesCSSProperties {
     | StandardCSSProperties['fontVariationSettings']
 }
 
-interface ResponsiveAliases {
+export interface ResponsiveAliases {
   '@tablet'?: StyleProp
   '@desktop'?: StyleProp
   '@widescreen'?: StyleProp
 }
 
-interface OverwriteCSSProperties {
+export interface OverwriteCSSProperties {
   /**
    * CSS **`color`** property
    * @default currentColor
@@ -243,34 +237,11 @@ export interface ExtendedCSSProps
 
 export type StylePropertyValue<T> =
   | ResponsiveStyleValue<Exclude<T, undefined>>
-  | ((theme: Theme) => ResponsiveStyleValue<Exclude<T, undefined>> | undefined)
+  | ((theme: Theme) => ResponsiveStyleValue<Exclude<T, undefined>>)
   | StyleProp
 
 export type CSSProps = {
   [K in keyof ExtendedCSSProps]: StylePropertyValue<ExtendedCSSProps[K]>
-}
-
-export interface ThemeKeyProp {
-  /**
-   * **`themeKey`** is used to consume complex object styles.
-   *
-   * @example
-   * const theme = {
-   *   components.button: {
-   *     primary: {
-   *       padding: 3,
-   *       color: 'white',
-   *       bg: 'primary',
-   *       borderRadius: 'default',
-   *     },
-   *   },
-   * }
-   *
-   * const result = styles({
-   *   themeKey: 'components.button.primary',
-   * })(theme)
-   */
-  themeKey?: string | Record<string, Record<string, string>>
 }
 
 export interface ThemeDerivedStyles {
@@ -287,7 +258,6 @@ export interface CSSOthersObject {
 export type StyleObject = CSSProps &
   CSSPseudoSelectorProps &
   CSSOthersObject &
-  ThemeKeyProp &
   ResponsiveAliases
 
 /**
@@ -338,11 +308,3 @@ export interface Theme {
     [k: string]: StyleObject
   }
 }
-
-export type WithStyles<P> = P & {
-  styles?: StyleProp
-}
-
-export type CssPropsArgument = { theme: Theme } | Theme
-
-export type ResponsiveValue<T> = T | T[]

@@ -1,6 +1,6 @@
 import React from 'react'
 import type { UseSelectStateChange } from 'downshift'
-import { get } from '@vtex/admin-core'
+import { get } from '@vtex/onda-util'
 import { Box } from '@vtex/admin-primitives'
 
 import type { DropdownProps } from '../../Dropdown'

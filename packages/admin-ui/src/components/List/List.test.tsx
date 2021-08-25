@@ -1,20 +1,16 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
 import { List } from './index'
 
 describe('List tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <List data-testid="list" csx={{ bg: 'azure' }}>
-          <List.Item data-testid="listitem" csx={{ bg: 'coral' }}>
-            Item
-          </List.Item>
-        </List>
-      </ThemeProvider>
+      <List data-testid="list" csx={{ bg: 'azure' }}>
+        <List.Item data-testid="listitem" csx={{ bg: 'coral' }}>
+          Item
+        </List.Item>
+      </List>
     )
 
     expect(getByTestId('list')).toHaveStyleRule('background-color', 'azure')
@@ -23,14 +19,14 @@ describe('List tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <List>
           <List.Item>Item</List.Item>
         </List>
         <List ordered>
           <List.Item>Item</List.Item>
         </List>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -38,11 +34,9 @@ describe('List tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <List>
-          <List.Item>Item</List.Item>
-        </List>
-      </ThemeProvider>
+      <List>
+        <List.Item>Item</List.Item>
+      </List>
     )
 
     const results = await axe(container)

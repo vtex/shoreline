@@ -1,4 +1,5 @@
 import { jsx } from '@vtex/onda-react'
+import { get } from '@vtex/onda-util'
 import type { ComponentPropsWithRef } from 'react'
 
 /**
@@ -39,15 +40,8 @@ export const Skeleton = jsx.div(
     },
   },
   {
-    useOptions: (_, props, { keyframes, stylesOf }) => {
+    useOptions: (_, props, { keyframes }) => {
       const { csx, ...restProps } = props
-
-      const backgroundImage = `linear-gradient(
-        90deg,
-        ${stylesOf('colors.light.secondary')},
-        white,
-        ${stylesOf('colors.light.secondary')}
-      )`
 
       const load = keyframes`
         0% {
@@ -62,7 +56,12 @@ export const Skeleton = jsx.div(
         ...restProps,
         csx: {
           animation: `${load} 1.2s ease-in-out infinite`,
-          backgroundImage,
+          // TODO Investigate any type
+          backgroundImage: (theme: any) =>
+            `linear-gradient(90deg, ${get(
+              theme,
+              'colors.light.secondary'
+            )}, white, ${get(theme, 'colors.light.secondary')})`,
           ...csx,
         },
       }

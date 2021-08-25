@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
-import { render } from '@testing-library/react'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render } from '../../../test-utils'
 
 import { rootResolver } from '../resolvers/root'
 import { simpleResolver } from '../resolvers/simple'
@@ -110,7 +109,7 @@ describe('Resolvers tests', () => {
         handleValueChange: (value, index) => `${value} + ${index}`,
       })
 
-      const { getByRole } = render(<ThemeProvider>{result}</ThemeProvider>)
+      const { getByRole } = render(<>{result}</>)
 
       expect(getByRole('button')).toBeInTheDocument()
     })
@@ -141,7 +140,7 @@ describe('Resolvers tests', () => {
         handleValueChange: (value, index) => `${value} + ${index}`,
       })
 
-      const { getByText } = render(<ThemeProvider>{result}</ThemeProvider>)
+      const { getByText } = render(<>{result}</>)
 
       expect(getByText('item 1')).toBeInTheDocument()
     })
@@ -173,7 +172,7 @@ describe('Resolvers tests', () => {
         handleValueChange: (value, index) => `${value} + ${index}`,
       })
 
-      const { getByText } = render(<ThemeProvider>{result}</ThemeProvider>)
+      const { getByText } = render(<>{result}</>)
 
       expect(getByText('item 3')).toBeInTheDocument()
     })

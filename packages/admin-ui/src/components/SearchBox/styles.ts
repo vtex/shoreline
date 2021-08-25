@@ -1,4 +1,4 @@
-import type { StyleObject } from '@vtex/admin-core'
+import type { StyleObject } from '@vtex/onda-core'
 
 function styles(csx: StyleObject): StyleObject {
   return csx

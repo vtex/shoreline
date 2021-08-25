@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React, { cloneElement, Fragment } from 'react'
 import { jsx } from '@vtex/onda-react'
-import { isFunction } from '@vtex/admin-core'
+import { isFunction } from '@vtex/onda-util'
 
 import { useStateContext } from '../context'
 import { Cell } from './DataGridCell'

@@ -8,6 +8,9 @@ import type { Emotion } from '@emotion/css/create-instance'
 import createEmotion from '@emotion/css/create-instance'
 import { CacheProvider, Global } from '@emotion/react'
 
+/** focus-visible polyfill  */
+import 'focus-visible/dist/focus-visible'
+
 import type { Plugin } from './system'
 import { buildPlugins } from './system'
 import { plugins } from './plugins'
@@ -71,7 +74,13 @@ export type DesignSystem = (props: {
 export function createOnda<Theme extends Record<string, any>>(
   spec: OndaSpec<Theme>
 ): DesignSystem {
-  const { name, theme: themeConfig, options } = spec
+  const {
+    name,
+    theme: themeConfig,
+    options = {
+      disableCSSVariables: true,
+    },
+  } = spec
 
   invariant(
     isKebab(name),
@@ -82,12 +91,13 @@ export function createOnda<Theme extends Record<string, any>>(
     key: name,
   })
 
-  const [theme, cssVariables] = createTheme(themeConfig, options)
+  const { global, ...rest } = themeConfig
+  const [theme, cssVariables] = createTheme(rest, options)
   const steps = buildPlugins(theme, plugins)
   const parse = createParser(steps, theme)
   const clsx = createClsx(emotion)
   const atoms = createAtoms(parse, clsx)
-  const globalStyles = parse(theme.global)
+  const globalStyles = parse(global.styles)
 
   function SystemProvider(props: { children?: React.ReactNode }) {
     const { children } = props

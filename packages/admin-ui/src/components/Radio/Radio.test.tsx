@@ -1,7 +1,5 @@
 import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render } from '../../test-utils'
 
 import type { RadioStateReturn } from './index'
 import { Radio, useRadioState } from './index'
@@ -19,19 +17,17 @@ function RadioState({
 describe('Radio tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <RadioState>
-          {(state) => (
-            <Radio
-              state={state}
-              data-testid="radio"
-              value="radio"
-              aria-label="radio"
-              csx={{ bg: 'azure' }}
-            />
-          )}
-        </RadioState>
-      </ThemeProvider>
+      <RadioState>
+        {(state) => (
+          <Radio
+            state={state}
+            data-testid="radio"
+            value="radio"
+            aria-label="radio"
+            csx={{ bg: 'azure' }}
+          />
+        )}
+      </RadioState>
     )
 
     expect(getByTestId('radio')).toHaveStyleRule('background-color', 'azure')
@@ -39,7 +35,7 @@ describe('Radio tests', () => {
 
   it('should match snapshot with diferent sizes', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <RadioState>
           {(state) => (
             <Radio
@@ -60,7 +56,7 @@ describe('Radio tests', () => {
             />
           )}
         </RadioState>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()

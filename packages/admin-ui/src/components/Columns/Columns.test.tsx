@@ -1,53 +1,37 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import React, { Fragment } from 'react'
+import { render, axe, jestMatchMedia } from '../../test-utils'
 
 import { Columns } from './index'
 import { ColumnsItem } from './Item'
 
 describe('Columns tests', () => {
-  beforeEach(() => {
-    /**
-     * 🚧 Workaround for window.match media
-     * @see https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
-     */
-    Object.defineProperty(window, 'matchMedia', {
-      writable: true,
-      value: jest.fn().mockImplementation((query) => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: jest.fn(), // Deprecated
-        removeListener: jest.fn(), // Deprecated
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      })),
-    })
-  })
+  beforeEach(jestMatchMedia)
 
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Columns data-testid="columns" csx={{ bg: 'coral' }}>
-          <ColumnsItem data-testid="item" csx={{ bg: 'azure' }}>
-            <button>element 1</button>
-          </ColumnsItem>
-          <Columns.Item>
-            <button>element 2</button>
-          </Columns.Item>
-        </Columns>
-      </ThemeProvider>
+      <Columns data-testid="columns" csx={{ bg: 'coral' }}>
+        <ColumnsItem data-testid="item" csx={{ bg: 'azure' }}>
+          <button>element 1</button>
+        </ColumnsItem>
+        <Columns.Item>
+          <button>element 2</button>
+        </Columns.Item>
+      </Columns>
     )
 
+    // TODO: Check why types are not working
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(getByTestId('columns')).toHaveStyleRule('background-color', 'coral')
+    // TODO: Check why types are not working
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(getByTestId('item')).toHaveStyleRule('background-color', 'azure')
   })
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <Columns>
           <ColumnsItem>
             <button>element 1</button>
@@ -64,7 +48,7 @@ describe('Columns tests', () => {
             <button>element 2</button>
           </Columns.Item>
         </Columns>
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -72,16 +56,14 @@ describe('Columns tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <Columns>
-          <ColumnsItem>
-            <button>element 1</button>
-          </ColumnsItem>
-          <Columns.Item>
-            <button>element 2</button>
-          </Columns.Item>
-        </Columns>
-      </ThemeProvider>
+      <Columns>
+        <ColumnsItem>
+          <button>element 1</button>
+        </ColumnsItem>
+        <Columns.Item>
+          <button>element 2</button>
+        </Columns.Item>
+      </Columns>
     )
 
     const results = await axe(container)

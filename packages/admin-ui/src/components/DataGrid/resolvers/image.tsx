@@ -2,16 +2,42 @@ import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
-import { useSystem } from '@vtex/admin-core'
+import type { StyleObject } from '@vtex/onda-core'
+import { useSystem } from '@vtex/onda-core'
 
 import type { ResolverContext, ResolverRenderProps } from './core'
 import { createResolver, defaultRender } from './core'
 import { Skeleton } from '../../Skeleton'
+import type { DataGridDensity } from '../typings'
 
 const defaultPreview: ImagePreview = {
   display: true,
   delay: 0,
   size: 'regular',
+}
+
+function getImageVariant(density: DataGridDensity): StyleObject {
+  return {
+    regular: {
+      width: 56,
+      minWidth: 56,
+      height: 56,
+      minHeight: 56,
+      borderRadius: 4,
+    },
+    compact: {
+      width: 32,
+      minWidth: 32,
+      height: 32,
+      minHeight: 32,
+      borderRadius: 4,
+    },
+    variable: {
+      minWidth: 32,
+      minHeight: 32,
+      borderRadius: 4,
+    },
+  }[density] as any
 }
 
 /**
@@ -47,16 +73,14 @@ export function imageResolver<T>() {
         ) : (
           <img
             alt={resolver.alt}
-            className={cn({
-              themeKey: `components.table.image.${context.density}`,
-            })}
+            className={cn(getImageVariant(context.density))}
             src={url}
           />
         )
       ) : (
         <Skeleton
           csx={{
-            themeKey: `components.table.image.${context.density}`,
+            ...getImageVariant(context.density),
             animation: '',
           }}
         />
@@ -98,7 +122,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
             {...referenceProps}
             alt={alt}
             className={cn({
-              themeKey: `components.table.image.${density}`,
+              ...getImageVariant(density),
               cursor: 'zoom-in',
               transition: 'transform 150ms ease-in-out',
               ':hover': {
@@ -142,9 +166,34 @@ function ImageWithPreview(props: PreviewComponentProps) {
       >
         <img
           alt={`${alt} large`}
-          className={cn({
-            themeKey: `components.table.image-preview.${preview.size}`,
-          })}
+          className={cn(
+            {
+              small: {
+                width: 56,
+                minWidth: 56,
+                height: 56,
+                minHeight: 56,
+                borderRadius: 4,
+                boxShadow: 'menu',
+              },
+              regular: {
+                width: 156,
+                minWidth: 156,
+                height: 156,
+                minHeight: 156,
+                borderRadius: 4,
+                boxShadow: 'menu',
+              },
+              large: {
+                width: 256,
+                minWidth: 256,
+                height: 256,
+                minHeight: 256,
+                borderRadius: 4,
+                boxShadow: 'menu',
+              },
+            }[preview.size] as StyleObject
+          )}
           src={url}
         />
       </Tooltip>

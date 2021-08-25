@@ -1,6 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render } from '../../test-utils'
 
 import { CollapsibleGroup } from './index'
 import type { DisclosureStateReturn } from '../Collapsible'
@@ -19,20 +18,21 @@ function CollapsibleState({
 describe('CollapsibleGroup tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <CollapsibleGroup data-testid="collapsible-group" csx={{ bg: 'azure' }}>
-          <CollapsibleState>
-            {(state) => (
-              <Collapsible state={state}>
-                <Collapsible.Header label="Collapsible Header" />
-                <Collapsible.Content>Collapsible Content</Collapsible.Content>
-              </Collapsible>
-            )}
-          </CollapsibleState>
-        </CollapsibleGroup>
-      </ThemeProvider>
+      <CollapsibleGroup data-testid="collapsible-group" csx={{ bg: 'azure' }}>
+        <CollapsibleState>
+          {(state) => (
+            <Collapsible state={state}>
+              <Collapsible.Header label="Collapsible Header" />
+              <Collapsible.Content>Collapsible Content</Collapsible.Content>
+            </Collapsible>
+          )}
+        </CollapsibleState>
+      </CollapsibleGroup>
     )
 
+    // TODO: Check why types are not working
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(getByTestId('collapsible-group')).toHaveStyleRule(
       'background-color',
       'azure'
@@ -41,18 +41,16 @@ describe('CollapsibleGroup tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
-        <CollapsibleGroup>
-          <CollapsibleState>
-            {(state) => (
-              <Collapsible state={state}>
-                <Collapsible.Header label="Collapsible Header" />
-                <Collapsible.Content>Collapsible Content</Collapsible.Content>
-              </Collapsible>
-            )}
-          </CollapsibleState>
-        </CollapsibleGroup>
-      </ThemeProvider>
+      <CollapsibleGroup>
+        <CollapsibleState>
+          {(state) => (
+            <Collapsible state={state}>
+              <Collapsible.Header label="Collapsible Header" />
+              <Collapsible.Content>Collapsible Content</Collapsible.Content>
+            </Collapsible>
+          )}
+        </CollapsibleState>
+      </CollapsibleGroup>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -60,20 +58,18 @@ describe('CollapsibleGroup tests', () => {
 
   it('should not render invalid children', () => {
     const { asFragment } = render(
-      <ThemeProvider>
-        <CollapsibleGroup>
-          {undefined}
-          <CollapsibleState>
-            {(state) => (
-              <Collapsible state={state}>
-                <Collapsible.Header label="Collapsible Header" />
-                <Collapsible.Content>Collapsible Content</Collapsible.Content>
-              </Collapsible>
-            )}
-          </CollapsibleState>
-          {null}
-        </CollapsibleGroup>
-      </ThemeProvider>
+      <CollapsibleGroup>
+        {undefined}
+        <CollapsibleState>
+          {(state) => (
+            <Collapsible state={state}>
+              <Collapsible.Header label="Collapsible Header" />
+              <Collapsible.Content>Collapsible Content</Collapsible.Content>
+            </Collapsible>
+          )}
+        </CollapsibleState>
+        {null}
+      </CollapsibleGroup>
     )
 
     expect(asFragment()).toMatchSnapshot()

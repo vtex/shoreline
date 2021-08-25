@@ -1,6 +1,5 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { ThemeProvider } from '@vtex/admin-core'
+import React, { Fragment } from 'react'
+import { render } from '../../test-utils'
 
 import type { CheckboxStateReturn } from './index'
 import { Checkbox, useCheckboxState } from './index'
@@ -18,27 +17,28 @@ function CheckboxState({
 describe('Checkbox tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <CheckboxState>
-          {(state) => (
-            <Checkbox
-              state={state}
-              data-testid="checkbox"
-              value="checkbox"
-              aria-label="checkbox"
-              csx={{ bg: 'azure' }}
-            />
-          )}
-        </CheckboxState>
-      </ThemeProvider>
+      <CheckboxState>
+        {(state) => (
+          <Checkbox
+            state={state}
+            data-testid="checkbox"
+            value="checkbox"
+            aria-label="checkbox"
+            csx={{ bg: 'azure' }}
+          />
+        )}
+      </CheckboxState>
     )
 
+    // TODO: Check why types are not working
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(getByTestId('checkbox')).toHaveStyleRule('background-color', 'azure')
   })
 
   it('should match snapshot with diferent sizes', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <CheckboxState>
           {(state) => (
             <Checkbox
@@ -61,7 +61,7 @@ describe('Checkbox tests', () => {
             />
           )}
         </CheckboxState>
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()

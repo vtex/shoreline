@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
 import { CheckboxGroup } from './index'
 import { Label } from '../Label'
@@ -9,23 +7,22 @@ import { Label } from '../Label'
 describe('CheckboxGroup tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <CheckboxGroup data-testid="group" csx={{ bg: 'azure' }}>
-          <input type="checkbox" readOnly />
-        </CheckboxGroup>
-      </ThemeProvider>
+      <CheckboxGroup data-testid="group" csx={{ bg: 'azure' }}>
+        <input type="checkbox" readOnly />
+      </CheckboxGroup>
     )
 
+    // TODO: Check why types are not working
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(getByTestId('group')).toHaveStyleRule('background-color', 'azure')
   })
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
-        <CheckboxGroup>
-          <input type="checkbox" readOnly />
-        </CheckboxGroup>
-      </ThemeProvider>
+      <CheckboxGroup>
+        <input type="checkbox" readOnly />
+      </CheckboxGroup>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -33,11 +30,9 @@ describe('CheckboxGroup tests', () => {
 
   it('should match snapshot with label', () => {
     const { asFragment } = render(
-      <ThemeProvider>
-        <CheckboxGroup label="label">
-          <input type="checkbox" readOnly />
-        </CheckboxGroup>
-      </ThemeProvider>
+      <CheckboxGroup label="label">
+        <input type="checkbox" readOnly />
+      </CheckboxGroup>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -45,16 +40,14 @@ describe('CheckboxGroup tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <CheckboxGroup>
-          <Label>
-            <input type="checkbox" value="a" readOnly /> A
-          </Label>
-          <Label>
-            <input type="checkbox" value="b" readOnly /> B
-          </Label>
-        </CheckboxGroup>
-      </ThemeProvider>
+      <CheckboxGroup>
+        <Label>
+          <input type="checkbox" value="a" readOnly /> A
+        </Label>
+        <Label>
+          <input type="checkbox" value="b" readOnly /> B
+        </Label>
+      </CheckboxGroup>
     )
 
     const results = await axe(container)

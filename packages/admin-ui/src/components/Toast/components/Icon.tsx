@@ -5,7 +5,7 @@ import {
   IconSuccessColorful,
   IconWarningColorful,
 } from '@vtex/admin-ui-icons'
-import type { StyleProp } from '@vtex/admin-core'
+import type { StyleProp } from '@vtex/onda-core'
 import { isElement } from 'react-is'
 
 import type { ToastIconProps } from './typings'
@@ -14,7 +14,7 @@ import type { ToastIconProps } from './typings'
  * Toast icon renders an icon that corresponds
  * to the toast type.
  */
-export function ToastIcon(props: ToastIconProps) {
+export function ToastIcon(props: Omit<ToastIconProps, 'ref'>) {
   const { type, children, csx: maybeCsx = {}, ...rest } = props
 
   const csx: StyleProp = { marginRight: '0.75rem', color: 'blue', ...maybeCsx }
