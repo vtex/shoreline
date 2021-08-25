@@ -9,13 +9,13 @@ exports[`Collapsible tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: transparent;
-  color: #323845;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  background-color: transparent;
+  color: #323845;
   text-transform: none;
 }
 
@@ -45,8 +45,8 @@ exports[`Collapsible tests should match snapshot 1`] = `
 
 .emotion-3 svg {
   width: 24px;
-  min-width: 24px;
   height: 24px;
+  min-width: 24px;
   min-height: 24px;
   margin: 0.25rem;
 }
@@ -217,13 +217,13 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: transparent;
-  color: #323845;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  background-color: transparent;
+  color: #323845;
   text-transform: none;
 }
 
@@ -253,8 +253,8 @@ exports[`Collapsible tests should match snapshot with nesting collapsibles 1`] =
 
 .emotion-3 svg {
   width: 24px;
-  min-width: 24px;
   height: 24px;
+  min-width: 24px;
   min-height: 24px;
   margin: 0.25rem;
 }

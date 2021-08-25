@@ -39,13 +39,15 @@ export const Button = jsx(ReakitButton)(
           fontSize: 0,
           height: 32,
           width: 'auto',
-          paddingX: 3,
+          paddingLeft: 3,
+          paddingRight: 3,
         },
         regular: {
           fontSize: 1,
           height: 40,
           width: 'auto',
-          paddingX: 4,
+          paddingLeft: 4,
+          paddingRight: 4,
         },
       },
       variant: {
@@ -236,9 +238,9 @@ function useButtonIcon({
   children,
 }: {
   size: 'small' | 'regular'
-  icon: ReactNode
+  icon?: ReactNode
   iconPosition: 'start' | 'end'
-  children: ReactNode
+  children?: ReactNode
 }): Record<string, StyleObject> {
   const iconEnd = !!icon && iconPosition === 'end'
   const iconOnly = !!icon && !children
@@ -272,11 +274,13 @@ function useButtonIcon({
       {
         'regular-icon-only': {
           width: 40,
-          paddingX: 1,
+          paddingLeft: 1,
+          paddingRight: 1,
         },
         'small-icon-only': {
           width: 32,
-          paddingX: '2px',
+          paddingLeft: '2px',
+          paddingRight: '2px',
         },
       },
       resolvedSize,
