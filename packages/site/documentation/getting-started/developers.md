@@ -1,7 +1,5 @@
 ---
 path: /getting-started/developers/
-redirect_from:
-  - /
 ---
 
 # Developers
