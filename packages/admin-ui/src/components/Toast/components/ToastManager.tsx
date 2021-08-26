@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createOndaInstance } from '@vtex/onda-core'
+import { createOnda } from '@vtex/onda-core'
 
 import { Toaster } from './Toaster'
 import type {
@@ -12,8 +12,8 @@ import type {
 } from './typings'
 
 // TODO: REMOVE THIS ASAP
-const DangerousInnerOndaInstance = createOndaInstance({
-  name: 'toast',
+const [DangerousInnerOndaInstance] = createOnda({
+  key: 'toast',
 })
 
 /**

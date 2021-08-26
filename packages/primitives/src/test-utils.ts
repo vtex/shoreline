@@ -1,13 +1,10 @@
 import type { RenderOptions } from '@testing-library/react'
 import { render as baseRender } from '@testing-library/react'
-import { createOndaInstance } from '@vtex/onda-core'
+import { createOnda } from '@vtex/onda-core'
 import type { ReactElement } from 'react'
 
-const ThemeProvider = createOndaInstance({
-  name: 'test',
-  options: {
-    disableCSSVariables: true,
-  },
+const [ThemeProvider] = createOnda({
+  key: 'test',
 })
 
 function render(ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) {

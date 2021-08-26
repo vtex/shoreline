@@ -1,8 +1,8 @@
 import React from 'react'
-import { createOndaInstance } from '@vtex/onda-core'
+import { createOnda } from '@vtex/onda-core'
 
-const ThemeProvider = createOndaInstance({
-  name: 'storybook',
+const [ThemeProvider] = createOnda({
+  key: 'storybook',
 })
 
 export function themeDecorator(storyFn) {

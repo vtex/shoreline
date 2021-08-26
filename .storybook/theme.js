@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming/create'
-import { theme } from '@vtex/admin-ui-theme'
+import { theme } from '@vtex/admin-ui'
 
 const { colors, borderRadius } = theme
 
