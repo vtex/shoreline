@@ -17,9 +17,6 @@ describe('Avatar tests', () => {
       </Fragment>
     )
 
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('avatar')).toHaveStyleRule('background-color', 'azure')
   })
 

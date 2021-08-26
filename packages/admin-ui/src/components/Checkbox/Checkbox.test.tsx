@@ -30,9 +30,6 @@ describe('Checkbox tests', () => {
       </CheckboxState>
     )
 
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('checkbox')).toHaveStyleRule('background-color', 'azure')
   })
 

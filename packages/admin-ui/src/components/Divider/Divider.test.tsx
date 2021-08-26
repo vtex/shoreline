@@ -9,9 +9,6 @@ describe('Heading tests', () => {
       <Divider data-testid="divider" csx={{ bg: 'azure' }} />
     )
 
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('divider')).toHaveStyleRule('background-color', 'azure')
   })
 

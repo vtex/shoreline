@@ -16,11 +16,7 @@ function Example() {
     initialSelectedItem: 'Yesterday',
   })
 
-  return (
-    <ThemeProvider>
-      <Select items={days} state={state} label="Date" />
-    </ThemeProvider>
-  )
+  return <Select items={days} state={state} label="Date" />
 }
 ```
 
@@ -52,11 +48,7 @@ function Example() {
     initialSelectedItem: 'Arabica',
   })
 
-  return (
-    <ThemeProvider>
-      <Select items={species} state={speciesState} label="Recipes" />
-    </ThemeProvider>
-  )
+  return <Select items={species} state={speciesState} label="Recipes" />
 }
 ```
 
@@ -84,14 +76,12 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Select
-        items={items}
-        state={state}
-        label="Date"
-        renderItem={(item) => item.label}
-      />
-    </ThemeProvider>
+    <Select
+      items={items}
+      state={state}
+      label="Date"
+      renderItem={(item) => item.label}
+    />
   )
 }
 ```
@@ -108,11 +98,7 @@ function Example() {
     initialSelectedItem: '7 days ago',
   })
 
-  return (
-    <ThemeProvider>
-      <Select items={days} state={initialState} label="Date" disabled />
-    </ThemeProvider>
-  )
+  return <Select items={days} state={initialState} label="Date" disabled />
 }
 ```
 
@@ -129,9 +115,7 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Select items={days} state={state} label="Date" helperText="Help text" />
-    </ThemeProvider>
+    <Select items={days} state={state} label="Date" helperText="Help text" />
   )
 }
 ```
@@ -146,15 +130,13 @@ function Example() {
   const state = useSelectState({ items: days })
 
   return (
-    <ThemeProvider>
-      <Select
-        items={days}
-        state={state}
-        label="Date"
-        error
-        errorMessage="Message error"
-      />
-    </ThemeProvider>
+    <Select
+      items={days}
+      state={state}
+      label="Date"
+      error
+      errorMessage="Message error"
+    />
   )
 }
 ```
@@ -198,13 +180,11 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Select
-        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-        state={state}
-        label="Date"
-      />
-    </ThemeProvider>
+    <Select
+      items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+      state={state}
+      label="Date"
+    />
   )
 }
 ```
@@ -223,14 +203,12 @@ function Example() {
   })
 
   return (
-    <ThemeProvider>
-      <Select
-        items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-        state={state}
-        csx={{ margin: 4 }}
-        label="Date"
-      />
-    </ThemeProvider>
+    <Select
+      items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
+      state={state}
+      csx={{ margin: 4 }}
+      label="Date"
+    />
   )
 }
 ```

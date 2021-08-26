@@ -37,20 +37,11 @@ describe('Collapsible tests', () => {
       </CollapsibleState>
     )
 
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('collapsible')).toHaveStyleRule(
       'background-color',
       'azure'
     )
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('header')).toHaveStyleRule('background-color', 'azure')
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('content')).toHaveStyleRule('background-color', 'azure')
   })
 

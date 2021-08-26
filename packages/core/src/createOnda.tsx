@@ -97,7 +97,7 @@ export function createOnda<Theme extends Record<string, any>>(
   const parse = createParser(steps, theme)
   const clsx = createClsx(emotion)
   const atoms = createAtoms(parse, clsx)
-  const globalStyles = parse(global.styles)
+  const globalStyles = parse(global?.styles ?? {})
 
   function SystemProvider(props: { children?: React.ReactNode }) {
     const { children } = props

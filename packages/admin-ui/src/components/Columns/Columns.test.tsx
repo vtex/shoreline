@@ -19,13 +19,7 @@ describe('Columns tests', () => {
       </Columns>
     )
 
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('columns')).toHaveStyleRule('background-color', 'coral')
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('item')).toHaveStyleRule('background-color', 'azure')
   })
 

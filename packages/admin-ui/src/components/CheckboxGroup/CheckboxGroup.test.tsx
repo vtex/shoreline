@@ -12,9 +12,6 @@ describe('CheckboxGroup tests', () => {
       </CheckboxGroup>
     )
 
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('group')).toHaveStyleRule('background-color', 'azure')
   })
 

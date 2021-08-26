@@ -17,15 +17,10 @@ yarn add @vtex/admin-primitives @vtex/admin-core reakit @emotion/css @emotion/re
 After that, you must add the `admin-core's ThemeProvider` on your app root - so that you can consume styles.
 
 ```jsx
-import { ThemeProvider } from '@vtex/onda-core'
 import { Flex } from '@vtex/admin-primitives'
 
 function ApplicationRoot() {
-  return (
-    <ThemeProvider>
-      <Flex>A flex container</Flex>
-    </ThemeProvider>
-  )
+  return <Flex>A flex container</Flex>
 }
 ```
 

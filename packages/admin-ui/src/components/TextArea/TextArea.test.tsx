@@ -18,9 +18,6 @@ describe('TextArea tests', () => {
       />
     )
 
-    // TODO: Check why types are not working
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(getByTestId('text-area')).toHaveStyleRule(
       'background-color',
       'azure'
