@@ -13,24 +13,22 @@ admin-ui features separated by status:
 
 ## Features
 
-| feature                                            | status       | notes                            |
-| -------------------------------------------------- | ------------ | -------------------------------- |
-| [useSystem](/hooks/use-system/)                    | supported    | -                                |
-| [csx prop](/core-concepts/csx-prop/)               | supported    | -                                |
-| [responsive styles](/theming/responsive-design/)   | experimental | API improvements coming soon     |
-| [custom components](/theming/components/)          | experimental | -                                |
-| [gatsby plugin](/packages/gatsby-plugin-admin-ui/) | experimental | -                                |
-| theme overrides                                    | experimental | Override the theme from admin-ui |
+| feature                                            | status       | notes                        |
+| -------------------------------------------------- | ------------ | ---------------------------- |
+| [useSystem](/hooks/use-system/)                    | supported    | -                            |
+| [csx prop](/core-concepts/csx-prop/)               | supported    | -                            |
+| [responsive styles](/theming/responsive-design/)   | experimental | API improvements coming soon |
+| [gatsby plugin](/packages/gatsby-plugin-admin-ui/) | experimental | -                            |
 
 ## Components
 
 ### Primitives
 
-| component | status    | notes                                       |
-| --------- | --------- | ------------------------------------------- |
-| Box       | supported | The `themeKey` prop will soon be deprecated |
-| Flex      | supported | The `themeKey` prop will soon be deprecated |
-| Grid      | supported | The `themeKey` prop will soon be deprecated |
+| component | status    | notes |
+| --------- | --------- | ----- |
+| Box       | supported | -     |
+| Flex      | supported | -     |
+| Grid      | supported | -     |
 
 ### Feedback
 
@@ -93,8 +91,8 @@ admin-ui features separated by status:
 | Select         | supported      | Design changes coming soon that maybe invalidate this component                          |
 | Textarea       | supported      | TextArea label covered by input content, [#501](https://github.com/vtex/onda/issues/501) |
 | Toggle         | supported      | -                                                                                        |
+| Search         | supported      | -                                                                                        |
 | Formik library | experimental   | -                                                                                        |
-| Search         | experimental   | Big design changes coming soon that maybe invalidate this component                      |
 | Combobox       | in development | -                                                                                        |
 | Searchbox      | in development | -                                                                                        |
 | FormGroup      | upcoming       | -                                                                                        |
@@ -113,11 +111,11 @@ admin-ui features separated by status:
 
 ### Layouts
 
-| component | status       | notes                                       |
-| --------- | ------------ | ------------------------------------------- |
-| Set       | supported    | The `themeKey` prop will soon be deprecated |
-| Columns   | experimental | -                                           |
-| Stack     | upcoming     | -                                           |
+| component | status       | notes |
+| --------- | ------------ | ----- |
+| Set       | supported    | -     |
+| Columns   | experimental | -     |
+| Stack     | upcoming     | -     |
 
 ### Typography
 
