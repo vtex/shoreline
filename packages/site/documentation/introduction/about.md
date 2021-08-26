@@ -1,5 +1,7 @@
 ---
 path: /introduction/about/
+redirect_from:
+  - /
 ---
 
 # About Admin UI
