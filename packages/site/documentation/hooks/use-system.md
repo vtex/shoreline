@@ -174,22 +174,3 @@ function Example() {
   )
 }
 ```
-
-## stylesOf
-
-Most of the components implemented on top of the `admin-ui` have their styles defined in our [Theme Object](/theming/default-theme). This function allows us to reuse component styles in native JSX elements and also supports integrations with other libraries while being consistent.
-
-### Example
-
-```jsx
-function Example() {
-  const { stylesOf, cn } = useSystem()
-
-  const avatar = stylesOf('components.avatar.styles')
-  const button = stylesOf('components.button.danger-regular')
-
-  const className = cn(merge(button, avatar, { size: 40 }))
-
-  return <button className={className}>DA</button>
-}
-```
