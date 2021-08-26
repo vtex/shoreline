@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.111.0-alpha.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.110.0...@vtex/admin-ui@0.111.0-alpha.0) (2021-08-26)
+
+### Bug Fixes
+
+- **modal:** fix modal content scrollable style ([ea42ed7](https://github.com/vtex/onda/commit/ea42ed785ef654d9e9e842212a6821c2b904cff4))
+- **onda-react:** typescript props definition ([62a6f21](https://github.com/vtex/onda/commit/62a6f2139578723085f9be55a692ae282c1047fd))
+- **query-stories:** fix stories that use QueryStateContext ([3025063](https://github.com/vtex/onda/commit/3025063cdb5afcfe8a3b173133adc696946e2985))
+- **querystateprovider:** remove QueryStateProvider from ThemeProvider ([e726129](https://github.com/vtex/onda/commit/e726129706c5d9f6667944d21c8a3bc0dea14a7d))
+- **usesearchstate:** differentiates initial value from default value ([f67bad8](https://github.com/vtex/onda/commit/f67bad88649f35dbb34be206fa8b652dc64b5c4d))
+
 # [0.110.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.109.0...@vtex/admin-ui@0.110.0) (2021-08-17)
 
 ### Bug Fixes

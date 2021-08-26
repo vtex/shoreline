@@ -1,7 +1,7 @@
 {
   "name": "@vtex/onda-react",
   "license": "MIT",
-  "version": "0.4.5",
+  "version": "0.5.0-alpha.0",
   "main": "dist/index.js",
   "module": "dist/onda-react.esm.js",
   "typings": "dist/index.d.ts",
@@ -39,12 +39,12 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@vtex/admin-core": "^0.11.0",
+    "@vtex/admin-core": "^0.12.0-alpha.0",
     "polished": "^4.1.2"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.1.0",
-    "@vtex/onda-util": "^0.1.0-labs.3",
+    "@vtex/onda-util": "^0.2.0-labs.0",
     "react-is": "^17.0.2",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"

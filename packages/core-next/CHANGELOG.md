@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0-labs.0](https://github.com/vtex/onda/compare/@vtex/onda-core@0.1.0-labs.8...@vtex/onda-core@0.2.0-labs.0) (2021-08-26)
+
+### Features
+
+- **create-onda-instance:** add function to create an Onda provider instance ([a20e9e5](https://github.com/vtex/onda/commit/a20e9e5f405986376238dc5df0901ad8d560a7e2))
+
 # [0.1.0-labs.8](https://github.com/vtex/onda/compare/@vtex/onda-core@0.1.0-labs.7...@vtex/onda-core@0.1.0-labs.8) (2021-08-17)
 
 **Note:** Version bump only for package @vtex/onda-core

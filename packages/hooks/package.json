@@ -2,7 +2,7 @@
   "name": "@vtex/onda-hooks",
   "description": "VTEX/onda shared hooks",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.3.0-alpha.0",
   "main": "dist/index.js",
   "module": "dist/onda-hooks.esm.js",
   "typings": "dist/index.d.ts",
@@ -36,7 +36,7 @@
     "react-dom": ">=16.8"
   },
   "dependencies": {
-    "@vtex/onda-util": "^0.1.0-labs.3",
+    "@vtex/onda-util": "^0.2.0-labs.0",
     "use-debounce": "^7.0.0"
   }
 }

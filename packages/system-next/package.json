@@ -1,7 +1,7 @@
 {
   "name": "@vtex/onda-system",
   "license": "MIT",
-  "version": "0.1.0-labs.4",
+  "version": "0.2.0-labs.0",
   "main": "dist/index.js",
   "module": "dist/onda-system.esm.js",
   "typings": "dist/index.d.ts",
@@ -31,7 +31,7 @@
     "test": "tsdx test"
   },
   "dependencies": {
-    "@vtex/onda-util": "^0.1.0-labs.3",
+    "@vtex/onda-util": "^0.2.0-labs.0",
     "tiny-invariant": "^1.1.0"
   }
 }

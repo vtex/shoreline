@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0-alpha.0](https://github.com/vtex/onda/compare/@vtex/onda-hooks@0.2.0...@vtex/onda-hooks@0.3.0-alpha.0) (2021-08-26)
+
+### Bug Fixes
+
+- **querystatecontext:** pass throw context in nesteds QueryStateProvider ([83b8dae](https://github.com/vtex/onda/commit/83b8daeea0e3669b118221be9d3e89ba7efebea2))
+- **usequerystate:** add query state contex to fix conflicts caused by using multiple instances ([7a4c8c2](https://github.com/vtex/onda/commit/7a4c8c2ac97ca095b445456b8ed6a9da6fdc0077))
+
 # [0.2.0](https://github.com/vtex/onda/compare/@vtex/onda-hooks@0.1.0...@vtex/onda-hooks@0.2.0) (2021-08-17)
 
 ### Bug Fixes

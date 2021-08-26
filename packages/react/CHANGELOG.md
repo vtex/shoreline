@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0-alpha.0](https://github.com/vtex/onda/compare/@vtex/onda-react@0.4.5...@vtex/onda-react@0.5.0-alpha.0) (2021-08-26)
+
+### Bug Fixes
+
+- **onda-react:** typescript props definition ([62a6f21](https://github.com/vtex/onda/commit/62a6f2139578723085f9be55a692ae282c1047fd))
+
 ## [0.4.5](https://github.com/vtex/onda/compare/@vtex/onda-react@0.4.4...@vtex/onda-react@0.4.5) (2021-08-17)
 
 **Note:** Version bump only for package @vtex/onda-react

@@ -1,7 +1,7 @@
 {
   "name": "@vtex/onda-core",
   "license": "MIT",
-  "version": "0.1.0-labs.8",
+  "version": "0.2.0-labs.0",
   "main": "dist/index.js",
   "module": "dist/onda-core.esm.js",
   "typings": "dist/index.d.ts",
@@ -41,13 +41,13 @@
     "@emotion/react": "^11.4.0"
   },
   "dependencies": {
-    "@vtex/onda-system": "^0.1.0-labs.4",
-    "@vtex/onda-util": "^0.1.0-labs.3",
-    "@vtex/admin-ui-theme": "^0.26.9",
-    "react-helmet": "6.1.0",
+    "@vtex/admin-ui-theme": "^0.27.0-alpha.0",
+    "@vtex/onda-system": "^0.2.0-labs.0",
+    "@vtex/onda-util": "^0.2.0-labs.0",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",
+    "react-helmet": "6.1.0",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"
   }
