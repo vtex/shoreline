@@ -1,4 +1,4 @@
-import type { ResponsiveValue } from '@vtex/admin-core'
+import type { ResponsiveValue } from '@vtex/onda-core'
 import React from 'react'
 import invariant from 'tiny-invariant'
 

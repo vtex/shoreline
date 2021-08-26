@@ -1,6 +1,6 @@
 import isPropValid from '@emotion/is-prop-valid'
 import { get, pick } from '@vtex/onda-util'
-import type { StyleObject } from '@vtex/onda-core'
+import type { StyleProp } from '@vtex/onda-core'
 
 import { __options, __stylesheet } from './symbols'
 
@@ -38,7 +38,7 @@ export function isOndaComponent(entity: any): boolean {
  * get the stylesheet from a onda component
  * @param entity - any entity
  */
-export function getStylesheet(entity: any): StyleObject | null {
+export function getStylesheet(entity: any): StyleProp | null {
   if (!entity) {
     return null
   }

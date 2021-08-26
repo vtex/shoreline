@@ -1,18 +1,14 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import React, { Fragment } from 'react'
+import { render, axe } from '../../test-utils'
 
 import { Button } from './index'
 
 describe('Button tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Button data-testid="button" csx={{ bg: 'coral' }}>
-          Black Button
-        </Button>
-      </ThemeProvider>
+      <Button data-testid="button" csx={{ bg: 'coral' }}>
+        Black Button
+      </Button>
     )
 
     expect(getByTestId('button')).toHaveStyleRule('background-color', 'coral')
@@ -20,14 +16,14 @@ describe('Button tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <Button>Button</Button>
         <Button>Button</Button>
         <Button variant="secondary">Button</Button>
         <Button variant="tertiary">Button</Button>
         <Button size="small">Button</Button>
         <Button variant="danger">Button</Button>
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -35,14 +31,14 @@ describe('Button tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <Fragment>
         <Button>Button</Button>
         <Button>Button</Button>
         <Button variant="secondary">Button</Button>
         <Button variant="tertiary">Button</Button>
         <Button size="small">Button</Button>
         <Button variant="danger">Button</Button>
-      </ThemeProvider>
+      </Fragment>
     )
 
     const results = await axe(container)

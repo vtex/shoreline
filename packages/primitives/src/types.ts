@@ -1,4 +1,4 @@
-import type { StyleProp } from '@vtex/admin-core'
+import type { StyleProp } from '@vtex/onda-core'
 
 export interface SystemPrimitive {
   /**

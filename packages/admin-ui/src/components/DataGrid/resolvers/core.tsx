@@ -1,10 +1,7 @@
-// Any is allowed in this file. Its used to grant composability
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
 import warning from 'tiny-warning'
-import { get } from '@vtex/admin-core'
+import { get } from '@vtex/onda-util'
 
 import type { DataGridColumn, DataGridDensity } from '../typings'
 import type { SortOrder, SortState } from '../hooks/useDataGridSort'

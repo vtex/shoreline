@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
 import { Set } from './index'
 
@@ -28,12 +26,10 @@ describe('Set tests', () => {
 
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Set data-testid="set" csx={{ bg: 'coral' }}>
-          <button>element 1</button>
-          <button>element 2</button>
-        </Set>
-      </ThemeProvider>
+      <Set data-testid="set" csx={{ bg: 'coral' }}>
+        <button>element 1</button>
+        <button>element 2</button>
+      </Set>
     )
 
     expect(getByTestId('set')).toHaveStyleRule('background-color', 'coral')
@@ -41,7 +37,7 @@ describe('Set tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <Set>
           <button>element 1</button>
           <button>element 2</button>
@@ -62,7 +58,7 @@ describe('Set tests', () => {
           <button>element 1</button>
           <button>element 2</button>
         </Set>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -70,12 +66,10 @@ describe('Set tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <Set>
-          <button>element 1</button>
-          <button>element 2</button>
-        </Set>
-      </ThemeProvider>
+      <Set>
+        <button>element 1</button>
+        <button>element 2</button>
+      </Set>
     )
 
     const results = await axe(container)

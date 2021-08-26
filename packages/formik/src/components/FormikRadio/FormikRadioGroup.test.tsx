@@ -1,8 +1,6 @@
 import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, axe } from '../../test-utils'
 import userEvent from '@testing-library/user-event'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 import { Button, Label, Text } from '@vtex/admin-ui'
@@ -15,27 +13,25 @@ describe('Radio and RadioGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
-          <Form id="form-admin-formik-input">
-            <FormikRadioGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikRadio value={value} />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikRadioGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
+        <Form id="form-admin-formik-input">
+          <FormikRadioGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikRadio value={value} />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikRadioGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
     userEvent.click(screen.getByDisplayValue(options[2]))
 
@@ -56,34 +52,32 @@ describe('Radio and RadioGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
-          {({ setFieldValue }) => (
-            <Form id="form-admin-formik-input">
-              <FormikRadioGroup
-                name="value"
-                label="Label Title"
-                aria-label="label-title"
-              >
-                {options.map((value, key) => {
-                  return (
-                    <Label key={key}>
-                      <FormikRadio value={value} />
-                      {value}
-                    </Label>
-                  )
-                })}
-              </FormikRadioGroup>
-              <Button
-                size="small"
-                children="Change Value"
-                onClick={() => setFieldValue('value', options[0])}
-              />
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
+        {({ setFieldValue }) => (
+          <Form id="form-admin-formik-input">
+            <FormikRadioGroup
+              name="value"
+              label="Label Title"
+              aria-label="label-title"
+            >
+              {options.map((value, key) => {
+                return (
+                  <Label key={key}>
+                    <FormikRadio value={value} />
+                    {value}
+                  </Label>
+                )
+              })}
+            </FormikRadioGroup>
+            <Button
+              size="small"
+              children="Change Value"
+              onClick={() => setFieldValue('value', options[0])}
+            />
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     const option2 = screen.getByDisplayValue(options[2])
@@ -120,31 +114,29 @@ describe('Radio and RadioGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     const { rerender } = render(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: '' }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikRadioGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikRadio value={value} />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikRadioGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: '' }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikRadioGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikRadio value={value} />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikRadioGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const option2 = screen.getByDisplayValue(options[2])
@@ -155,31 +147,29 @@ describe('Radio and RadioGroup tests', () => {
     )
 
     rerender(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: options[0] }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikRadioGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikRadio value={value} />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikRadioGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: options[0] }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikRadioGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikRadio value={value} />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikRadioGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     await waitFor(() =>
@@ -197,37 +187,35 @@ describe('Radio and RadioGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
-          {({ touched, resetForm }) => (
-            <Form id="form-admin-formik-input">
-              <FormikRadioGroup
-                name="value"
-                label="Label Title"
-                aria-label="label-title"
-              >
-                {options.map((value, key) => {
-                  return (
-                    <Label key={key}>
-                      <FormikRadio value={value} />
-                      {value}
-                    </Label>
-                  )
-                })}
-              </FormikRadioGroup>
-              <Button
-                size="small"
-                children="Reset Form"
-                onClick={() => resetForm()}
-              />
-              <Text feedback="secondary">
-                <pre>{JSON.stringify(touched)}</pre>
-              </Text>
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
+        {({ touched, resetForm }) => (
+          <Form id="form-admin-formik-input">
+            <FormikRadioGroup
+              name="value"
+              label="Label Title"
+              aria-label="label-title"
+            >
+              {options.map((value, key) => {
+                return (
+                  <Label key={key}>
+                    <FormikRadio value={value} />
+                    {value}
+                  </Label>
+                )
+              })}
+            </FormikRadioGroup>
+            <Button
+              size="small"
+              children="Reset Form"
+              onClick={() => resetForm()}
+            />
+            <Text feedback="secondary">
+              <pre>{JSON.stringify(touched)}</pre>
+            </Text>
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     expect(await screen.findByText('{}')).not.toBeNull()
@@ -248,31 +236,29 @@ describe('Radio and RadioGroup tests', () => {
     const validate = () => ({ value: 'Error message' })
 
     render(
-      <ThemeProvider>
-        <Formik
-          initialValues={{ value: '' }}
-          validate={validate}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikRadioGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikRadio value={value} />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikRadioGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        initialValues={{ value: '' }}
+        validate={validate}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikRadioGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikRadio value={value} />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikRadioGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const error = screen.getByDisplayValue(options[3])
@@ -326,11 +312,9 @@ describe('Radio and RadioGroup tests', () => {
     }
 
     render(
-      <ThemeProvider>
-        <IntlProvider locale="en" messages={messagesEN}>
-          <Content />
-        </IntlProvider>
-      </ThemeProvider>
+      <IntlProvider locale="en" messages={messagesEN}>
+        <Content />
+      </IntlProvider>
     )
 
     const error = screen.getByDisplayValue(options[3])
@@ -346,27 +330,25 @@ describe('Radio and RadioGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     const { container } = render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: [] }} onSubmit={() => {}}>
-          <Form id="form-admin-formik-input">
-            <FormikRadioGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikRadio value={value} aria-label="Radio" />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikRadioGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: [] }} onSubmit={() => {}}>
+        <Form id="form-admin-formik-input">
+          <FormikRadioGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikRadio value={value} aria-label="Radio" />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikRadioGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const option2 = screen.getByText(options[2])

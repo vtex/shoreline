@@ -6,8 +6,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import {
   tag,
   Button,
-  createSystem,
-  ThemeProvider,
+  createOndaInstance,
   Set,
   Flex,
   IconCode,
@@ -17,6 +16,10 @@ import {
 import { copyToClipboard, calculateLinesToHighlight } from './util'
 import scope from './LiveCodeScope'
 import styles from './styles'
+
+const ThemeProvider = createOndaInstance({
+  name: 'code-preview',
+})
 
 export interface CodeProps {
   codeString: string
@@ -29,7 +32,6 @@ export interface CodeProps {
   noInline?: boolean
 }
 
-const system = createSystem('code-preview')
 const maxCodeLength = 10
 
 export function Code(props: CodeProps) {
@@ -61,7 +63,7 @@ export function Code(props: CodeProps) {
 
   if (!isStatic) {
     return (
-      <ThemeProvider system={system}>
+      <ThemeProvider>
         <LiveProvider
           code={codeString}
           noInline={noInline}
@@ -112,7 +114,7 @@ export function Code(props: CodeProps) {
   }
 
   return (
-    <ThemeProvider system={system}>
+    <ThemeProvider>
       {title && <tag.div csx={styles.preHeader}>{title}</tag.div>}
       <div className="gatsby-highlight">
         <Highlight

@@ -1,6 +1,12 @@
-import React, { createContext, useContext, useEffect, useRef } from 'react'
+import React, {
+  createContext,
+  Fragment,
+  useContext,
+  useEffect,
+  useRef,
+} from 'react'
 import type { Meta } from '@storybook/react'
-import { ThemeProvider } from '@vtex/admin-core'
+
 import { Button as ReakitButton, Separator, Role } from 'reakit'
 
 import { jsx } from '../index'
@@ -13,7 +19,7 @@ export function Plain() {
   const Div = jsx.div()
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Div>Plain div</Div>
       <Div
         csx={{
@@ -36,7 +42,7 @@ export function Plain() {
       >
         This should be a link
       </Div>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -97,9 +103,9 @@ export function ForwardRef() {
   }, [])
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Input ref={ref} />
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -121,9 +127,9 @@ export function DeepForwardRef() {
   }, [])
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Input ref={ref} />
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -133,7 +139,7 @@ export function Themed() {
   })
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Div>Plain div</Div>
       <Div
         csx={{
@@ -153,7 +159,7 @@ export function Themed() {
       >
         Nav, check the console
       </Div>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -169,7 +175,7 @@ export function Extend() {
   })
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Div>Normal div</Div>
       <NegativeDiv>Negative div</NegativeDiv>
       <NegativeDiv
@@ -180,7 +186,7 @@ export function Extend() {
       >
         Negative div with csx
       </NegativeDiv>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -202,7 +208,7 @@ export function DoubleExtend() {
   })
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Primary>Primary</Primary>
       <Hoverable
         csx={{
@@ -211,7 +217,7 @@ export function DoubleExtend() {
       >
         Hoverable
       </Hoverable>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -254,11 +260,11 @@ export function ButtonSeries() {
   })
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Button>Base button</Button>
       <Primary>Primary Button</Primary>
       <Secondary>Secondary Button</Secondary>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -277,10 +283,10 @@ export function BooleanVariants() {
   })
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Div />
       <Div danger />
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -329,12 +335,12 @@ export function ButtonVariants() {
   }
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Button>Base button</Button>
       <Button color="secondary" size="small">
         Secondary Button
       </Button>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -429,7 +435,7 @@ export function SyncVariants() {
   }
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Button appearance="outline">Base button</Button>
       <Button color="red" size="small">
         Secondary Button
@@ -437,7 +443,7 @@ export function SyncVariants() {
       <Button color="red" appearance="outline">
         Outlined Red Button
       </Button>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -532,7 +538,7 @@ export function WithReakit() {
   }
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Button appearance="outline">Base button</Button>
       <Button color="red" size="small">
         Secondary Button
@@ -540,7 +546,7 @@ export function WithReakit() {
       <Button color="red" appearance="outline">
         Outlined Red Button
       </Button>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -577,7 +583,7 @@ export function WithOptions() {
   const Paragraph = jsx('p')()
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Div csx={{ width: 500, margin: 5 }}>
         <Heading csx={{ marginBottom: 2 }}>Tolerance</Heading>
         <Paragraph>
@@ -616,7 +622,7 @@ export function WithOptions() {
           </Paragraph>
         </Div>
       </Div>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -660,10 +666,10 @@ export function UseOptions() {
   }
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Avatar label="Blue" />
       <Avatar label="Red" palette="red" />
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -704,11 +710,11 @@ export function CompoundComponents() {
   })
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Nav>
         <Nav.Button>button</Nav.Button>
         <Nav.Button size="small">small button</Nav.Button>
       </Nav>
-    </ThemeProvider>
+    </Fragment>
   )
 }

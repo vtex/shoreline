@@ -1,7 +1,6 @@
 import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '../../test-utils'
 import userEvent from '@testing-library/user-event'
-import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 import { Button, Text } from '@vtex/admin-ui'
@@ -14,19 +13,17 @@ describe('Select tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
-          <Form id="form-admin-formik-input">
-            <FormikSelect
-              name="value"
-              items={options}
-              data-testid="text-field"
-              label="TextField label"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
+        <Form id="form-admin-formik-input">
+          <FormikSelect
+            name="value"
+            items={options}
+            data-testid="text-field"
+            label="TextField label"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     userEvent.click(screen.getByRole('button', { name: /TextField label/i }))
@@ -49,26 +46,24 @@ describe('Select tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
-          {({ setFieldValue }) => (
-            <Form id="form-admin-formik-input">
-              <FormikSelect
-                name="value"
-                items={options}
-                data-testid="text-field"
-                label="TextField label"
-              />
-              <Button
-                size="small"
-                children="Change Value"
-                onClick={() => setFieldValue('value', options[0])}
-              />
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
+        {({ setFieldValue }) => (
+          <Form id="form-admin-formik-input">
+            <FormikSelect
+              name="value"
+              items={options}
+              data-testid="text-field"
+              label="TextField label"
+            />
+            <Button
+              size="small"
+              children="Change Value"
+              onClick={() => setFieldValue('value', options[0])}
+            />
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     const select = screen.getByRole('button', { name: /TextField label/i })
@@ -98,23 +93,21 @@ describe('Select tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     const { rerender } = render(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: '' }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikSelect
-              name="value"
-              data-testid="text-field"
-              label="TextField label"
-              items={options}
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: '' }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikSelect
+            name="value"
+            data-testid="text-field"
+            label="TextField label"
+            items={options}
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const select = screen.getByRole('button', { name: /TextField label/i })
@@ -124,23 +117,21 @@ describe('Select tests', () => {
     await waitFor(() => expect(select).toHaveTextContent(options[2]))
 
     rerender(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: options[0] }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikSelect
-              name="value"
-              items={options}
-              data-testid="text-field"
-              label="TextField label"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: options[0] }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikSelect
+            name="value"
+            items={options}
+            data-testid="text-field"
+            label="TextField label"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     await waitFor(() => expect(select).toHaveTextContent(options[0]))
@@ -151,29 +142,27 @@ describe('Select tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
-          {({ touched, resetForm }) => (
-            <Form id="form-admin-formik-input">
-              <FormikSelect
-                name="value"
-                items={options}
-                data-testid="text-field"
-                label="TextField label"
-              />
-              <Button
-                size="small"
-                children="Reset Form"
-                onClick={() => resetForm()}
-              />
-              <Text feedback="secondary">
-                <pre>{JSON.stringify(touched)}</pre>
-              </Text>
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
+        {({ touched, resetForm }) => (
+          <Form id="form-admin-formik-input">
+            <FormikSelect
+              name="value"
+              items={options}
+              data-testid="text-field"
+              label="TextField label"
+            />
+            <Button
+              size="small"
+              children="Reset Form"
+              onClick={() => resetForm()}
+            />
+            <Text feedback="secondary">
+              <pre>{JSON.stringify(touched)}</pre>
+            </Text>
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     expect(await screen.findByText('{}')).not.toBeNull()
@@ -192,23 +181,21 @@ describe('Select tests', () => {
     const validate = () => ({ value: 'Error message' })
 
     render(
-      <ThemeProvider>
-        <Formik
-          initialValues={{ value: '' }}
-          validate={validate}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikSelect
-              name="value"
-              items={options}
-              data-testid="text-field"
-              label="TextField label"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        initialValues={{ value: '' }}
+        validate={validate}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikSelect
+            name="value"
+            items={options}
+            data-testid="text-field"
+            label="TextField label"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const select = screen.getByRole('button', { name: /TextField label/i })
@@ -251,11 +238,9 @@ describe('Select tests', () => {
     }
 
     render(
-      <ThemeProvider>
-        <IntlProvider locale="en" messages={messagesEN}>
-          <Content />
-        </IntlProvider>
-      </ThemeProvider>
+      <IntlProvider locale="en" messages={messagesEN}>
+        <Content />
+      </IntlProvider>
     )
 
     const select = screen.getByRole('button', { name: /TextField label/i })
@@ -285,25 +270,23 @@ describe('Select tests', () => {
     }
 
     render(
-      <ThemeProvider>
-        <Formik
-          initialValues={{ value: { id: '', label: '' } }}
-          onSubmit={handleSubmit}
-          validate={validate}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikSelect
-              name="value"
-              items={options}
-              data-testid="text-field"
-              label="TextField label"
-              itemToString={(item) => (item ? item.label : '')}
-              renderItem={(item) => (item ? item.label : '')}
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        initialValues={{ value: { id: '', label: '' } }}
+        onSubmit={handleSubmit}
+        validate={validate}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikSelect
+            name="value"
+            items={options}
+            data-testid="text-field"
+            label="TextField label"
+            itemToString={(item) => (item ? item.label : '')}
+            renderItem={(item) => (item ? item.label : '')}
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     userEvent.click(screen.getByRole('button', { name: /TextField label/i }))

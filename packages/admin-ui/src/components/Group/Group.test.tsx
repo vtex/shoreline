@@ -1,8 +1,7 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render } from '../../test-utils'
 import type { BoxProps } from '@vtex/admin-primitives'
 import { Box } from '@vtex/admin-primitives'
-import { ThemeProvider } from '@vtex/admin-core'
 
 import { Group, useGroup } from '.'
 
@@ -19,11 +18,9 @@ describe('Group tests', () => {
 
   it('should provide a true grouped value', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Group>
-          <GroupAwareBox data-testid="box" />
-        </Group>
-      </ThemeProvider>
+      <Group>
+        <GroupAwareBox data-testid="box" />
+      </Group>
     )
 
     expect(getByTestId('box')).toHaveStyleRule('height', '100px')
@@ -31,22 +28,16 @@ describe('Group tests', () => {
 
   it('should provide a false grouped value', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Group grouped={false}>
-          <GroupAwareBox data-testid="box" />
-        </Group>
-      </ThemeProvider>
+      <Group grouped={false}>
+        <GroupAwareBox data-testid="box" />
+      </Group>
     )
 
     expect(getByTestId('box')).toHaveStyleRule('height', '200px')
   })
 
   it('Group-aware components should not break if not wrapped by Group', () => {
-    const { getByTestId } = render(
-      <ThemeProvider>
-        <GroupAwareBox data-testid="box" />
-      </ThemeProvider>
-    )
+    const { getByTestId } = render(<GroupAwareBox data-testid="box" />)
 
     expect(getByTestId('box')).toHaveStyleRule('height', '200px')
   })

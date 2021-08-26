@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import type { Meta } from '@storybook/react'
-import { ThemeProvider } from '@vtex/admin-core'
 import { useMenuState, Menu, MenuItem, MenuButton } from 'reakit/Menu'
 
 import { tag } from '../index'
@@ -11,7 +10,7 @@ export default {
 
 export function WithStyles() {
   return (
-    <ThemeProvider>
+    <Fragment>
       <tag.div
         csx={{
           bg: 'blue',
@@ -21,7 +20,7 @@ export function WithStyles() {
       >
         Div element
       </tag.div>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -29,7 +28,7 @@ export function Standalone() {
   const Div = tag('div')
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <Div
         csx={{
           bg: 'blue',
@@ -39,7 +38,7 @@ export function Standalone() {
       >
         Div element
       </Div>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 
@@ -47,7 +46,7 @@ export function Polymorphism() {
   const menu = useMenuState()
 
   return (
-    <ThemeProvider>
+    <Fragment>
       <tag.button
         as={MenuButton}
         {...menu}
@@ -99,6 +98,6 @@ export function Polymorphism() {
           Keyboard shortcuts
         </tag.button>
       </tag.div>
-    </ThemeProvider>
+    </Fragment>
   )
 }

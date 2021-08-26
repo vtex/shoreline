@@ -1,2 +1,0 @@
-/** theme overrides */
-export default {}

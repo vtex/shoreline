@@ -1,25 +1,21 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import React, { Fragment } from 'react'
+import { render, axe } from '../../test-utils'
 
 import { TextArea } from './index'
 
 describe('TextArea tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <TextArea
-          data-testid="text-area"
-          csx={{ backgroundColor: 'azure' }}
-          value=""
-          onChange={() => {}}
-          label="TextArea label"
-          id="text-area-1"
-          helperText="Helper"
-          charLimit={120}
-        />
-      </ThemeProvider>
+      <TextArea
+        data-testid="text-area"
+        csx={{ backgroundColor: 'azure' }}
+        value=""
+        onChange={() => {}}
+        label="TextArea label"
+        id="text-area-1"
+        helperText="Helper"
+        charLimit={120}
+      />
     )
 
     expect(getByTestId('text-area')).toHaveStyleRule(
@@ -30,7 +26,7 @@ describe('TextArea tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <TextArea
           helperText="Helper Text"
           value=""
@@ -72,7 +68,7 @@ describe('TextArea tests', () => {
           label="Label"
           id="text-area-5"
         />
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -80,7 +76,7 @@ describe('TextArea tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <Fragment>
         <TextArea
           charLimit={120}
           helperText="Helper Text"
@@ -110,7 +106,7 @@ describe('TextArea tests', () => {
           disabled
           id="text-area-3"
         />
-      </ThemeProvider>
+      </Fragment>
     )
 
     const results = await axe(container)

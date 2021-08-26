@@ -1,18 +1,14 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
 import { Text } from './index'
 
 describe('Text tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Text data-testid="text" csx={{ color: 'azure' }}>
-          Text test
-        </Text>
-      </ThemeProvider>
+      <Text data-testid="text" csx={{ color: 'azure' }}>
+        Text test
+      </Text>
     )
 
     expect(getByTestId('text')).toHaveStyleRule('color', 'azure')
@@ -20,7 +16,7 @@ describe('Text tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <Text>Span</Text>
         <Text element="strong">Bold</Text>
         <Text element="i">Italic</Text>
@@ -36,7 +32,7 @@ describe('Text tests', () => {
         <Text element="samp">Sample</Text>
         <Text element="sub">sub</Text>
         <Text element="sup">sup</Text>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -44,7 +40,7 @@ describe('Text tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <>
         <Text>Span</Text>
         <Text element="strong">Bold</Text>
         <Text element="i">Italic</Text>
@@ -60,7 +56,7 @@ describe('Text tests', () => {
         <Text element="samp">Sample</Text>
         <Text element="sub">sub</Text>
         <Text element="sup">sup</Text>
-      </ThemeProvider>
+      </>
     )
 
     const results = await axe(container)

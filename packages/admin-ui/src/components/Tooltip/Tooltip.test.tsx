@@ -1,9 +1,6 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
+import { render, axe } from '../../test-utils'
 import 'mutationobserver-shim'
-
-import { ThemeProvider } from '@vtex/admin-core'
 
 import { Tooltip } from './index'
 
@@ -12,18 +9,16 @@ global.MutationObserver = window.MutationObserver
 describe('Tooltip tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Tooltip
-          label="label"
-          data-testid="tooltip"
-          visible
-          csx={{
-            bg: 'coral',
-          }}
-        >
-          <button>button with tooltip</button>
-        </Tooltip>
-      </ThemeProvider>
+      <Tooltip
+        label="label"
+        data-testid="tooltip"
+        visible
+        csx={{
+          bg: 'coral',
+        }}
+      >
+        <button>button with tooltip</button>
+      </Tooltip>
     )
 
     expect(getByTestId('tooltip')).toHaveStyleRule('background-color', 'coral')
@@ -31,11 +26,9 @@ describe('Tooltip tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
-        <Tooltip label="label" visible baseId="id">
-          <button>button with tooltip</button>
-        </Tooltip>
-      </ThemeProvider>
+      <Tooltip label="label" visible baseId="id">
+        <button>button with tooltip</button>
+      </Tooltip>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -43,11 +36,9 @@ describe('Tooltip tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <Tooltip label="label" visible>
-          <button>button with tooltip</button>
-        </Tooltip>
-      </ThemeProvider>
+      <Tooltip label="label" visible>
+        <button>button with tooltip</button>
+      </Tooltip>
     )
 
     const results = await axe(container)

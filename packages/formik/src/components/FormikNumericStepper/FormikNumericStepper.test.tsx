@@ -1,8 +1,6 @@
 import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, axe } from '../../test-utils'
 import userEvent from '@testing-library/user-event'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
@@ -15,24 +13,22 @@ describe('Numeric Stepper tests', () => {
     const handleSubmit = jest.fn()
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: 0 }} onSubmit={handleSubmit}>
-          <Form id="form-admin-formik-input">
-            <FormikNumericStepper
-              name="value"
-              data-testid="numeric-field"
-              label="NumericStepper label"
-              id="numeric-field-1"
-            />
-            <Button
-              type="submit"
-              size="small"
-              children="Submit"
-              data-testid="btn-submit"
-            />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: 0 }} onSubmit={handleSubmit}>
+        <Form id="form-admin-formik-input">
+          <FormikNumericStepper
+            name="value"
+            data-testid="numeric-field"
+            label="NumericStepper label"
+            id="numeric-field-1"
+          />
+          <Button
+            type="submit"
+            size="small"
+            children="Submit"
+            data-testid="btn-submit"
+          />
+        </Form>
+      </Formik>
     )
 
     const input = screen.getByTestId('numeric-field')
@@ -83,26 +79,24 @@ describe('Numeric Stepper tests', () => {
     const handleSubmit = jest.fn()
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: 0 }} onSubmit={handleSubmit}>
-          {({ setFieldValue }) => (
-            <Form id="form-admin-formik-input">
-              <FormikNumericStepper
-                name="value"
-                data-testid="numeric-field"
-                label="NumericField label"
-                id="numeric-field-1"
-              />
-              <Button
-                size="small"
-                children="Change Value"
-                onClick={() => setFieldValue('value', 5)}
-              />
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: 0 }} onSubmit={handleSubmit}>
+        {({ setFieldValue }) => (
+          <Form id="form-admin-formik-input">
+            <FormikNumericStepper
+              name="value"
+              data-testid="numeric-field"
+              label="NumericField label"
+              id="numeric-field-1"
+            />
+            <Button
+              size="small"
+              children="Change Value"
+              onClick={() => setFieldValue('value', 5)}
+            />
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     const input = screen.getByTestId('numeric-field')
@@ -126,23 +120,21 @@ describe('Numeric Stepper tests', () => {
     const handleSubmit = jest.fn()
 
     const { rerender } = render(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: 0 }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikNumericStepper
-              name="value"
-              data-testid="numeric-field"
-              label="NumericField label"
-              id="numeric-field-1"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: 0 }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikNumericStepper
+            name="value"
+            data-testid="numeric-field"
+            label="NumericField label"
+            id="numeric-field-1"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const input = screen.getByTestId('numeric-field')
@@ -153,23 +145,21 @@ describe('Numeric Stepper tests', () => {
     expect(input).toHaveValue(5)
 
     rerender(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: 7 }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikNumericStepper
-              name="value"
-              data-testid="numeric-field"
-              label="NumericField label"
-              id="numeric-field-1"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: 7 }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikNumericStepper
+            name="value"
+            data-testid="numeric-field"
+            label="NumericField label"
+            id="numeric-field-1"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     await waitFor(() => expect(input).toHaveValue(7))
@@ -179,29 +169,27 @@ describe('Numeric Stepper tests', () => {
     const handleSubmit = jest.fn()
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
-          {({ touched, resetForm }) => (
-            <Form id="form-admin-formik-input">
-              <FormikNumericStepper
-                name="value"
-                data-testid="numeric-field"
-                label="NumericStepper label"
-                id="numeric-field-1"
-              />
-              <Button
-                size="small"
-                children="Reset Form"
-                onClick={() => resetForm()}
-              />
-              <Text feedback="secondary">
-                <pre>{JSON.stringify(touched)}</pre>
-              </Text>
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
+        {({ touched, resetForm }) => (
+          <Form id="form-admin-formik-input">
+            <FormikNumericStepper
+              name="value"
+              data-testid="numeric-field"
+              label="NumericStepper label"
+              id="numeric-field-1"
+            />
+            <Button
+              size="small"
+              children="Reset Form"
+              onClick={() => resetForm()}
+            />
+            <Text feedback="secondary">
+              <pre>{JSON.stringify(touched)}</pre>
+            </Text>
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     expect(await screen.findByText('{}')).not.toBeNull()
@@ -241,23 +229,21 @@ describe('Numeric Stepper tests', () => {
     const validate = () => ({ value: 'Error message' })
 
     render(
-      <ThemeProvider>
-        <Formik
-          initialValues={{ value: 0 }}
-          validate={validate}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikNumericStepper
-              name="value"
-              data-testid="numeric-field"
-              label="NumericField label"
-              id="numeric-field-1"
-            />
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        initialValues={{ value: 0 }}
+        validate={validate}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikNumericStepper
+            name="value"
+            data-testid="numeric-field"
+            label="NumericField label"
+            id="numeric-field-1"
+          />
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
     const input = screen.getByTestId('numeric-field')
 
@@ -276,33 +262,31 @@ describe('Numeric Stepper tests', () => {
     })
 
     render(
-      <ThemeProvider>
-        <Formik
-          initialValues={{ value: 0 }}
-          validationSchema={schemaValidationError}
-          onSubmit={handleSubmit}
-        >
-          {({ setFieldValue, setFieldTouched }) => (
-            <Form id="form-admin-formik-input">
-              <FormikNumericStepper
-                name="value"
-                data-testid="numeric-field"
-                label="NumericField label"
-                id="numeric-field-1"
-                maxValue={maxValue}
-              />
-              <Button
-                size="small"
-                children="Change Value"
-                onClick={() => {
-                  setFieldValue('value', maxValue + 2)
-                  setFieldTouched('value', true)
-                }}
-              />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        initialValues={{ value: 0 }}
+        validationSchema={schemaValidationError}
+        onSubmit={handleSubmit}
+      >
+        {({ setFieldValue, setFieldTouched }) => (
+          <Form id="form-admin-formik-input">
+            <FormikNumericStepper
+              name="value"
+              data-testid="numeric-field"
+              label="NumericField label"
+              id="numeric-field-1"
+              maxValue={maxValue}
+            />
+            <Button
+              size="small"
+              children="Change Value"
+              onClick={() => {
+                setFieldValue('value', maxValue + 2)
+                setFieldTouched('value', true)
+              }}
+            />
+          </Form>
+        )}
+      </Formik>
     )
 
     const input = screen.getByTestId('numeric-field')
@@ -344,11 +328,9 @@ describe('Numeric Stepper tests', () => {
     }
 
     render(
-      <ThemeProvider>
-        <IntlProvider locale="en" messages={messagesEN}>
-          <Content />
-        </IntlProvider>
-      </ThemeProvider>
+      <IntlProvider locale="en" messages={messagesEN}>
+        <Content />
+      </IntlProvider>
     )
 
     const input = screen.getByTestId('numeric-field')
@@ -361,22 +343,20 @@ describe('Numeric Stepper tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: 0 }}
-          onSubmit={() => {}}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikNumericStepper
-              name="value"
-              data-testid="text-field"
-              label="TextField label"
-              id="text-field-1"
-            />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: 0 }}
+        onSubmit={() => {}}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikNumericStepper
+            name="value"
+            data-testid="text-field"
+            label="TextField label"
+            id="text-field-1"
+          />
+        </Form>
+      </Formik>
     )
 
     const results = await axe(container)

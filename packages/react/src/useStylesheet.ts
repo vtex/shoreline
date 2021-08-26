@@ -1,5 +1,5 @@
-import type { StyleObject } from '@vtex/admin-core'
-import { useSystem } from '@vtex/admin-core'
+import type { StyleProp } from '@vtex/onda-core'
+import { useSystem } from '@vtex/onda-core'
 import { isObjectEmpty, merge, omit } from '@vtex/onda-util'
 
 export function useStylesheet<V>(params: UseStyleSheetParams<V>) {
@@ -121,16 +121,16 @@ export function collectSyncStyles(
   }, [])
 }
 
-export interface Stylesheet<Variants> extends StyleObject {
+export type Stylesheet<Variants> = StyleProp & {
   variants?: {
-    [k in keyof Variants]: { [b in keyof Variants[k]]: StyleObject }
+    [k in keyof Variants]: { [b in keyof Variants[k]]: StyleProp }
   }
 }
 
 export type Sync<Variants> = {
   [k in keyof Variants]?: keyof Variants[k]
 } & {
-  csx?: StyleObject
+  csx?: StyleProp
 }
 
 export interface UseStyleSheetParams<Variants> {

@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ElementType, ReactElement } from 'react'
 import type * as CSS from 'csstype'
-import type { ResponsiveValue } from '@vtex/admin-core'
-import { createComponent, omit, pick } from '@vtex/admin-core'
+import type { ResponsiveValue } from '@vtex/onda-core'
+import { omit, pick } from '@vtex/onda-util'
+import { createComponent } from '@vtex/admin-jsxs'
 
 import type { PrimitiveProps } from '../Primitive'
 import { Primitive } from '../Primitive'

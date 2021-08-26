@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
 import type { ToggleStateReturn } from './index'
 import { Toggle, useToggleState } from './index'
@@ -19,19 +17,17 @@ function ToggleState({
 describe('Toggle tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <ToggleState>
-          {(state) => (
-            <Toggle
-              state={state}
-              data-testid="toggle"
-              value="toggle"
-              aria-label="toggle"
-              csx={{ bg: 'azure' }}
-            />
-          )}
-        </ToggleState>
-      </ThemeProvider>
+      <ToggleState>
+        {(state) => (
+          <Toggle
+            state={state}
+            data-testid="toggle"
+            value="toggle"
+            aria-label="toggle"
+            csx={{ bg: 'azure' }}
+          />
+        )}
+      </ToggleState>
     )
 
     expect(getByTestId('toggle')).toHaveStyleRule('background-color', 'azure')
@@ -39,7 +35,7 @@ describe('Toggle tests', () => {
 
   it('should match snapshot with diferent sizes', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <ToggleState>
           {(state) => (
             <Toggle
@@ -60,7 +56,7 @@ describe('Toggle tests', () => {
             />
           )}
         </ToggleState>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -68,18 +64,16 @@ describe('Toggle tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
-        <ToggleState>
-          {(state) => (
-            <Toggle
-              state={state}
-              value="toggle"
-              aria-label="toggle"
-              size="regular"
-            />
-          )}
-        </ToggleState>
-      </ThemeProvider>
+      <ToggleState>
+        {(state) => (
+          <Toggle
+            state={state}
+            value="toggle"
+            aria-label="toggle"
+            size="regular"
+          />
+        )}
+      </ToggleState>
     )
 
     const results = await axe(container)

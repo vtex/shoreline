@@ -1,8 +1,6 @@
 import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, axe } from '../../test-utils'
 import userEvent from '@testing-library/user-event'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
 import { Button, Label, Text } from '@vtex/admin-ui'
@@ -15,27 +13,25 @@ describe('CheckboxGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: [] }} onSubmit={handleSubmit}>
-          <Form id="form-admin-formik-input">
-            <FormikCheckboxGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikCheckboxGroup.Item value={value} />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikCheckboxGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: [] }} onSubmit={handleSubmit}>
+        <Form id="form-admin-formik-input">
+          <FormikCheckboxGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikCheckboxGroup.Item value={value} />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikCheckboxGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const option2 = screen.getByText(options[2])
@@ -73,34 +69,32 @@ describe('CheckboxGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: [] }} onSubmit={handleSubmit}>
-          {({ setFieldValue }) => (
-            <Form id="form-admin-formik-input">
-              <FormikCheckboxGroup
-                name="value"
-                label="Label Title"
-                aria-label="label-title"
-              >
-                {options.map((value, key) => {
-                  return (
-                    <Label key={key}>
-                      <FormikCheckboxGroup.Item value={value} />
-                      {value}
-                    </Label>
-                  )
-                })}
-              </FormikCheckboxGroup>
-              <Button
-                size="small"
-                children="Change Value"
-                onClick={() => setFieldValue('value', [options[0]])}
-              />
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: [] }} onSubmit={handleSubmit}>
+        {({ setFieldValue }) => (
+          <Form id="form-admin-formik-input">
+            <FormikCheckboxGroup
+              name="value"
+              label="Label Title"
+              aria-label="label-title"
+            >
+              {options.map((value, key) => {
+                return (
+                  <Label key={key}>
+                    <FormikCheckboxGroup.Item value={value} />
+                    {value}
+                  </Label>
+                )
+              })}
+            </FormikCheckboxGroup>
+            <Button
+              size="small"
+              children="Change Value"
+              onClick={() => setFieldValue('value', [options[0]])}
+            />
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     const option2 = screen.getByText(options[2])
@@ -144,31 +138,29 @@ describe('CheckboxGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     const { rerender } = render(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: [] }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikCheckboxGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikCheckboxGroup.Item value={value} />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikCheckboxGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: [] }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikCheckboxGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikCheckboxGroup.Item value={value} />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikCheckboxGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const option2 = screen.getByText(options[2])
@@ -181,31 +173,29 @@ describe('CheckboxGroup tests', () => {
     )
 
     rerender(
-      <ThemeProvider>
-        <Formik
-          enableReinitialize
-          initialValues={{ value: [options[0]] }}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikCheckboxGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikCheckboxGroup.Item value={value} />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikCheckboxGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        enableReinitialize
+        initialValues={{ value: [options[0]] }}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikCheckboxGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikCheckboxGroup.Item value={value} />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikCheckboxGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     await waitFor(() =>
@@ -228,37 +218,35 @@ describe('CheckboxGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
-          {({ touched, resetForm }) => (
-            <Form id="form-admin-formik-input">
-              <FormikCheckboxGroup
-                name="value"
-                label="Label Title"
-                aria-label="label-title"
-              >
-                {options.map((value, key) => {
-                  return (
-                    <Label key={key}>
-                      <FormikCheckboxGroup.Item value={value} />
-                      {value}
-                    </Label>
-                  )
-                })}
-              </FormikCheckboxGroup>
-              <Button
-                size="small"
-                children="Reset Form"
-                onClick={() => resetForm()}
-              />
-              <Text feedback="secondary">
-                <pre>{JSON.stringify(touched)}</pre>
-              </Text>
-              <Button type="submit" size="small" children="Submit" />
-            </Form>
-          )}
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: false }} onSubmit={handleSubmit}>
+        {({ touched, resetForm }) => (
+          <Form id="form-admin-formik-input">
+            <FormikCheckboxGroup
+              name="value"
+              label="Label Title"
+              aria-label="label-title"
+            >
+              {options.map((value, key) => {
+                return (
+                  <Label key={key}>
+                    <FormikCheckboxGroup.Item value={value} />
+                    {value}
+                  </Label>
+                )
+              })}
+            </FormikCheckboxGroup>
+            <Button
+              size="small"
+              children="Reset Form"
+              onClick={() => resetForm()}
+            />
+            <Text feedback="secondary">
+              <pre>{JSON.stringify(touched)}</pre>
+            </Text>
+            <Button type="submit" size="small" children="Submit" />
+          </Form>
+        )}
+      </Formik>
     )
 
     expect(await screen.findByText('{}')).not.toBeNull()
@@ -279,31 +267,29 @@ describe('CheckboxGroup tests', () => {
     const validate = () => ({ value: ['Error message'] })
 
     const { rerender } = render(
-      <ThemeProvider>
-        <Formik
-          initialValues={{ value: '' }}
-          validate={validate}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikCheckboxGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikCheckboxGroup.Item value={value} />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikCheckboxGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        initialValues={{ value: '' }}
+        validate={validate}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikCheckboxGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikCheckboxGroup.Item value={value} />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikCheckboxGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const error = screen.getByText(options[3])
@@ -322,31 +308,29 @@ describe('CheckboxGroup tests', () => {
     const validate2 = () => ({ value: 'Error message' })
 
     rerender(
-      <ThemeProvider>
-        <Formik
-          initialValues={{ value: '' }}
-          validate={validate2}
-          onSubmit={handleSubmit}
-        >
-          <Form id="form-admin-formik-input">
-            <FormikCheckboxGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikCheckboxGroup.Item value={value} />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikCheckboxGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik
+        initialValues={{ value: '' }}
+        validate={validate2}
+        onSubmit={handleSubmit}
+      >
+        <Form id="form-admin-formik-input">
+          <FormikCheckboxGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikCheckboxGroup.Item value={value} />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikCheckboxGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     userEvent.click(error)
@@ -403,11 +387,9 @@ describe('CheckboxGroup tests', () => {
     const validate = () => ({ value: ['admin/admin-formik.error.message'] })
 
     const { rerender } = render(
-      <ThemeProvider>
-        <IntlProvider locale="en" messages={messagesEN}>
-          <Content validate={validate} />
-        </IntlProvider>
-      </ThemeProvider>
+      <IntlProvider locale="en" messages={messagesEN}>
+        <Content validate={validate} />
+      </IntlProvider>
     )
 
     const error = screen.getByText(options[3])
@@ -426,11 +408,9 @@ describe('CheckboxGroup tests', () => {
     const validate2 = () => ({ value: 'admin/admin-formik.error.message' })
 
     rerender(
-      <ThemeProvider>
-        <IntlProvider locale="en" messages={messagesEN}>
-          <Content validate={validate2} />
-        </IntlProvider>
-      </ThemeProvider>
+      <IntlProvider locale="en" messages={messagesEN}>
+        <Content validate={validate2} />
+      </IntlProvider>
     )
 
     userEvent.click(error)
@@ -449,30 +429,28 @@ describe('CheckboxGroup tests', () => {
     const options = ['option 1', 'option 2', 'option 3', 'error']
 
     const { container } = render(
-      <ThemeProvider>
-        <Formik initialValues={{ value: [] }} onSubmit={() => {}}>
-          <Form id="form-admin-formik-input">
-            <FormikCheckboxGroup
-              name="value"
-              label="Label Title"
-              aria-label="label-title"
-            >
-              {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikCheckboxGroup.Item
-                      value={value}
-                      aria-label="checkbox"
-                    />
-                    {value}
-                  </Label>
-                )
-              })}
-            </FormikCheckboxGroup>
-            <Button type="submit" size="small" children="Submit" />
-          </Form>
-        </Formik>
-      </ThemeProvider>
+      <Formik initialValues={{ value: [] }} onSubmit={() => {}}>
+        <Form id="form-admin-formik-input">
+          <FormikCheckboxGroup
+            name="value"
+            label="Label Title"
+            aria-label="label-title"
+          >
+            {options.map((value, key) => {
+              return (
+                <Label key={key}>
+                  <FormikCheckboxGroup.Item
+                    value={value}
+                    aria-label="checkbox"
+                  />
+                  {value}
+                </Label>
+              )
+            })}
+          </FormikCheckboxGroup>
+          <Button type="submit" size="small" children="Submit" />
+        </Form>
+      </Formik>
     )
 
     const option2 = screen.getByText(options[2])

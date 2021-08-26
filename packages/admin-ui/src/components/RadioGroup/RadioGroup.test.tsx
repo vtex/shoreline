@@ -1,7 +1,5 @@
 import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render } from '../../test-utils'
 
 import { RadioGroup } from './index'
 import type { RadioStateReturn } from '../Radio'
@@ -20,23 +18,21 @@ function RadioState({
 describe('RadioGroup tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <RadioState>
-          {(state) => (
-            <RadioGroup
-              data-testid="radio-group"
-              aria-label="fruits-group"
-              id="radio-group-id"
-              state={state}
-              csx={{ bg: 'azure' }}
-            >
-              <Radio state={state} value="Apple" />
-              <Radio state={state} value="Watermelon" />
-              <Radio state={state} value="Orange" />
-            </RadioGroup>
-          )}
-        </RadioState>
-      </ThemeProvider>
+      <RadioState>
+        {(state) => (
+          <RadioGroup
+            data-testid="radio-group"
+            aria-label="fruits-group"
+            id="radio-group-id"
+            state={state}
+            csx={{ bg: 'azure' }}
+          >
+            <Radio state={state} value="Apple" />
+            <Radio state={state} value="Watermelon" />
+            <Radio state={state} value="Orange" />
+          </RadioGroup>
+        )}
+      </RadioState>
     )
 
     expect(getByTestId('radio-group')).toHaveStyleRule(
@@ -47,7 +43,7 @@ describe('RadioGroup tests', () => {
 
   it('should match snapshot with diferent orientations', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <RadioState>
           {(state) => (
             <RadioGroup
@@ -78,7 +74,7 @@ describe('RadioGroup tests', () => {
             </RadioGroup>
           )}
         </RadioState>
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()

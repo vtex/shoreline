@@ -6,7 +6,7 @@ import {
   TabPanel as ReakitTabPanel,
   Tab as ReakitTab,
 } from 'reakit'
-import { useSystem } from '@vtex/admin-core'
+import { useSystem } from '@vtex/onda-core'
 
 import { TabsProvider, useTabsContext } from './context'
 import type { SystemComponent, SystemComponentProps } from '../../types'

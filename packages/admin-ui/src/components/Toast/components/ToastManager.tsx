@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { ThemeProvider } from '@vtex/admin-core'
+import { createOndaInstance } from '@vtex/onda-core'
 
 import { Toaster } from './Toaster'
 import type {
@@ -10,6 +10,11 @@ import type {
   ToastPosition,
   ToastProps,
 } from './typings'
+
+// TODO: REMOVE THIS ASAP
+const DangerousInnerOndaInstance = createOndaInstance({
+  name: 'toast',
+})
 
 /**
  * Wraps the Toaster. This component mounts the
@@ -58,9 +63,9 @@ export class ToastManager {
 
   private renderOrUpdate = () => {
     render(
-      <ThemeProvider>
+      <DangerousInnerOndaInstance>
         <Toaster state={this.state} />
-      </ThemeProvider>,
+      </DangerousInnerOndaInstance>,
       this.portal
     )
   }

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { get } from '@vtex/admin-core'
+import { get } from '@vtex/onda-util'
 import invariant from 'tiny-invariant'
 
 import type { Statement } from '../typings'

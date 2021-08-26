@@ -1,9 +1,9 @@
 import { useSelect, UseSelectReturnValue } from 'downshift'
 import type { Ref } from 'react'
 import React from 'react'
-import { forwardRef } from '@vtex/admin-core'
 import { BrowserView, MobileView } from 'react-device-detect'
 import { Box } from '@vtex/admin-primitives'
+import { forwardRef } from '@vtex/onda-util'
 
 import type { SystemComponent } from '../../types'
 import { Text } from '../Text'

@@ -1,6 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React from 'react'
-import { forwardRef, useSystem } from '@vtex/admin-core'
+import { useSystem } from '@vtex/onda-core'
 
 import { useModalContext } from '../context'
 import type { SystemComponent } from '../../../types'
@@ -18,7 +18,7 @@ import type { SystemComponent } from '../../../types'
  * </StatelessModal>
  * ```
  */
-export const ModalFooter = forwardRef(function ModalFooter(
+export const ModalFooter = React.forwardRef(function ModalFooter(
   props: ModalFooterProps,
   ref: Ref<HTMLDivElement>
 ) {

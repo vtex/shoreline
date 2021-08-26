@@ -1,19 +1,17 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import React, { Fragment } from 'react'
+import { render, axe } from '../../test-utils'
 
 import { Anchor } from './index'
 
 describe('Anchor tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Fragment>
         <Anchor href="/">Link 1</Anchor>
         <Anchor href="/">Link 2</Anchor>
         <Anchor href="/">Link 3</Anchor>
         <Anchor href="/">Link 4</Anchor>
-      </ThemeProvider>
+      </Fragment>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -21,12 +19,12 @@ describe('Anchor tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <Fragment>
         <Anchor href="/">Link 1</Anchor>
         <Anchor href="/">Link 2</Anchor>
         <Anchor href="/">Link 3</Anchor>
         <Anchor href="/">Link 4</Anchor>
-      </ThemeProvider>
+      </Fragment>
     )
 
     const results = await axe(container)

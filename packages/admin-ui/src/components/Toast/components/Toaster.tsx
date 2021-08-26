@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { tag } from '@vtex/onda-react'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-import type { StyleObject } from '@vtex/admin-core'
+import type { StyleObject } from '@vtex/onda-core'
 
 import { Toast } from './Toast'
 import type { ToasterProps } from './typings'

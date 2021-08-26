@@ -4917,6 +4917,32 @@
     "@typescript-eslint/types" "4.28.5"
     eslint-visitor-keys "^2.0.0"
 
+"@vtex/admin-styles@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@vtex/admin-styles/-/admin-styles-0.3.1.tgz#3374c50d8c7561026c9ce357e837d5f5705f0cfb"
+  integrity sha512-TS63lrDU0SJA213QLBSzC0cKT6bn25VSOSM8S7NHQgDIWITA6RbTD2430FwoYNpzdJn0qK1El+zOQtbfVTuy4A==
+  dependencies:
+    csstype "^3.0.5"
+    lodash.get "^4.4.2"
+    lodash.merge "^4.6.2"
+    tiny-warning "^1.0.3"
+
+"@vtex/admin-ui-system@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@vtex/admin-ui-system/-/admin-ui-system-0.16.0.tgz#e34f2c27b589a23627fa0a7d3eda93d9cddeab69"
+  integrity sha512-sdHd7YXdXRKnSXbIt+0ccIZKxf0FTTA3X+Zr7HBdTd6aMWt+APwrQDAHTTAIvd0KTdxXdRP5Ptc/dpK4DbEpWA==
+  dependencies:
+    "@vtex/admin-jsxs" "^0.1.2"
+    "@vtex/admin-styles" "^0.3.1"
+    csstype "^3.0.5"
+    deepmerge "^4.2.2"
+    focus-visible "^5.1.0"
+    lodash.omit "^4.5.0"
+    lodash.pick "^4.4.0"
+    polished "^4.0.5"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+
 "@vtex/prettier-config@^0.3.1":
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/@vtex/prettier-config/-/prettier-config-0.3.6.tgz#31762608d9a59b815b6d4e963e439b12f1a12279"

@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { StyleObject } from '@vtex/admin-core'
+import type { StyleProp } from '@vtex/onda-core'
 
 /**
  * "as" prop
@@ -15,7 +15,7 @@ export interface CsxCall {
    * Csx property
    * @default {}
    */
-  csx?: StyleObject
+  csx?: StyleProp
   /**
    * Fixup for emotion css
    * !🚨 Dont use it

@@ -1,17 +1,14 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render } from '../../test-utils'
 
 import { Paragraph } from './index'
 
 describe('Paragraph tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Paragraph data-testid="paragraph" csx={{ bg: 'azure' }}>
-          test paragraph
-        </Paragraph>
-      </ThemeProvider>
+      <Paragraph data-testid="paragraph" csx={{ bg: 'azure' }}>
+        test paragraph
+      </Paragraph>
     )
 
     expect(getByTestId('paragraph')).toHaveStyleRule(
@@ -21,11 +18,7 @@ describe('Paragraph tests', () => {
   })
 
   it('should match snapshot', () => {
-    const { asFragment } = render(
-      <ThemeProvider>
-        <Paragraph>test paragraph</Paragraph>
-      </ThemeProvider>
-    )
+    const { asFragment } = render(<Paragraph>test paragraph</Paragraph>)
 
     expect(asFragment()).toMatchSnapshot()
   })

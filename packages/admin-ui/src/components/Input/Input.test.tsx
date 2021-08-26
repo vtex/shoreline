@@ -1,27 +1,23 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
+import { render, axe } from '../../test-utils'
 import { IconAdd } from '@vtex/admin-ui-icons'
-import { ThemeProvider } from '@vtex/admin-core'
 
 import { Input } from './index'
 
 describe('Input tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Input
-          data-testid="text-field"
-          csx={{ backgroundColor: 'coral' }}
-          value=""
-          onChange={() => {}}
-          label="TextField label"
-          id="text-field-1"
-          helperText="Helper"
-          charLimit={120}
-          readOnly
-        />
-      </ThemeProvider>
+      <Input
+        data-testid="text-field"
+        csx={{ backgroundColor: 'coral' }}
+        value=""
+        onChange={() => {}}
+        label="TextField label"
+        id="text-field-1"
+        helperText="Helper"
+        charLimit={120}
+        readOnly
+      />
     )
 
     expect(getByTestId('text-field')).toHaveStyleRule(
@@ -32,7 +28,7 @@ describe('Input tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <Input
           errorMessage="Error Message"
           value=""
@@ -94,7 +90,7 @@ describe('Input tests', () => {
           label="Label"
           id="text-field-7"
         />
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -102,7 +98,7 @@ describe('Input tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <>
         <Input
           charLimit={120}
           helperText="Helper Text"
@@ -143,7 +139,7 @@ describe('Input tests', () => {
           label="Label"
           id="text-field-4"
         />
-      </ThemeProvider>
+      </>
     )
 
     const results = await axe(container)

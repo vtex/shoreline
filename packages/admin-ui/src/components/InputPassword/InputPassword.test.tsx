@@ -1,26 +1,22 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
+import { render, axe } from '../../test-utils'
 import { IconAdd } from '@vtex/admin-ui-icons'
-import { ThemeProvider } from '@vtex/admin-core'
 
 import { InputPassword } from './index'
 
 describe('InputPassword tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <InputPassword
-          data-testid="text-field"
-          csx={{ backgroundColor: 'coral' }}
-          value=""
-          onChange={() => {}}
-          label="TextField label"
-          id="text-field-1"
-          helperText="Helper"
-          charLimit={120}
-        />
-      </ThemeProvider>
+      <InputPassword
+        data-testid="text-field"
+        csx={{ backgroundColor: 'coral' }}
+        value=""
+        onChange={() => {}}
+        label="TextField label"
+        id="text-field-1"
+        helperText="Helper"
+        charLimit={120}
+      />
     )
 
     expect(getByTestId('text-field')).toHaveStyleRule(
@@ -31,7 +27,7 @@ describe('InputPassword tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <InputPassword
           errorMessage="Error Message"
           value=""
@@ -49,7 +45,7 @@ describe('InputPassword tests', () => {
           label="Label"
           id="text-field-7"
         />
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -57,7 +53,7 @@ describe('InputPassword tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <ThemeProvider>
+      <>
         <InputPassword
           errorMessage="Error Message"
           value=""
@@ -75,7 +71,7 @@ describe('InputPassword tests', () => {
           label="Label"
           id="text-field-7"
         />
-      </ThemeProvider>
+      </>
     )
 
     const results = await axe(container)

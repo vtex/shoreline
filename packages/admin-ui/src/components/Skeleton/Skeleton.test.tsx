@@ -1,16 +1,12 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { axe } from 'jest-axe'
-import { ThemeProvider } from '@vtex/admin-core'
+import { render, axe } from '../../test-utils'
 
 import { Skeleton } from './index'
 
 describe('Skeleton tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <ThemeProvider>
-        <Skeleton data-testid="skeleton" csx={{ bg: 'coral' }} />
-      </ThemeProvider>
+      <Skeleton data-testid="skeleton" csx={{ bg: 'coral' }} />
     )
 
     expect(getByTestId('skeleton')).toHaveStyleRule('background-color', 'coral')
@@ -18,21 +14,17 @@ describe('Skeleton tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <>
         <Skeleton />
         <Skeleton shape="circle" />
-      </ThemeProvider>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('should not have a11y violations', async () => {
-    const { container } = render(
-      <ThemeProvider>
-        <Skeleton />
-      </ThemeProvider>
-    )
+    const { container } = render(<Skeleton />)
 
     const results = await axe(container)
 
