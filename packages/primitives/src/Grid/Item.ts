@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ElementType, ReactElement } from 'react'
 import type * as CSS from 'csstype'
-import type { ResponsiveValue } from '@vtex/onda-core'
+import type { ResponsiveValue } from '@vtex/admin-ui-core'
 import { omit, pick } from '@vtex/admin-ui-util'
 import { createComponent } from '@vtex/admin-jsxs'
 

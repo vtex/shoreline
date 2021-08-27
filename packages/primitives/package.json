@@ -32,14 +32,14 @@
   "peerDependencies": {
     "@emotion/css": ">=11",
     "@emotion/react": ">=11",
-    "@vtex/onda-core": "0.x",
+    "@vtex/admin-ui-core": "0.x",
     "@vtex/admin-jsxs": "0.x",
     "react": ">=16",
     "react-dom": ">=16",
     "reakit": "1.x"
   },
   "devDependencies": {
-    "@vtex/onda-core": "^0.1.0-labs.8",
+    "@vtex/admin-ui-core": "*",
     "jest-environment-jsdom-fourteen": "^1.0.1",
     "reakit": "^1.3.6"
   }

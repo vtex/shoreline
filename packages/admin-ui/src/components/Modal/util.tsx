@@ -1,4 +1,4 @@
-import type { StyleProp } from '@vtex/onda-core'
+import type { StyleProp } from '@vtex/admin-ui-core'
 import type { ReactNode, ReactElement } from 'react'
 import { useRef, Children } from 'react'
 

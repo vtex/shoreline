@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React, { useCallback } from 'react'
-import { useSystem } from '@vtex/onda-core'
-import type { StyleProp } from '@vtex/onda-core'
+import { useSystem } from '@vtex/admin-ui-core'
+import type { StyleProp } from '@vtex/admin-ui-core'
 import { rgba } from 'polished'
 import { get } from '@vtex/admin-ui-util'
 

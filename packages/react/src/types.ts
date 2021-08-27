@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { StyleProp } from '@vtex/onda-core'
+import type { StyleProp } from '@vtex/admin-ui-core'
 
 /**
  * "as" prop

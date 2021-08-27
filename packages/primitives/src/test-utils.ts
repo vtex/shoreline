@@ -1,9 +1,9 @@
 import type { RenderOptions } from '@testing-library/react'
 import { render as baseRender } from '@testing-library/react'
-import { createOnda } from '@vtex/onda-core'
+import { createSystem } from '@vtex/admin-ui-core'
 import type { ReactElement } from 'react'
 
-const [ThemeProvider] = createOnda({
+const [ThemeProvider] = createSystem({
   key: 'test',
 })
 

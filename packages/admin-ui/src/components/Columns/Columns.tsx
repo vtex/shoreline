@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { useSystem } from '@vtex/onda-core'
-import type { StyleProp, ResponsiveValue } from '@vtex/onda-core'
+import { useSystem } from '@vtex/admin-ui-core'
+import type { StyleProp, ResponsiveValue } from '@vtex/admin-ui-core'
 
 import type { SystemComponent } from '../../types'
 import { ColumnsProvider } from './context'

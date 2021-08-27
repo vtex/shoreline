@@ -1,6 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React from 'react'
-import { useSystem } from '@vtex/onda-core'
+import { useSystem } from '@vtex/admin-ui-core'
 
 import { useModalContext } from '../context'
 import type { SystemComponent } from '../../../types'

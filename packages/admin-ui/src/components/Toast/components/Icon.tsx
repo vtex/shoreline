@@ -5,7 +5,7 @@ import {
   IconSuccessColorful,
   IconWarningColorful,
 } from '@vtex/admin-ui-icons'
-import type { StyleProp } from '@vtex/onda-core'
+import type { StyleProp } from '@vtex/admin-ui-core'
 import { isElement } from 'react-is'
 
 import type { ToastIconProps } from './typings'

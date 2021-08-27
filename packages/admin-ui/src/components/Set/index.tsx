@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
-import type { ResponsiveValue } from '@vtex/onda-core'
-import { useResponsiveValue } from '@vtex/onda-core'
+import type { ResponsiveValue } from '@vtex/admin-ui-core'
+import { useResponsiveValue } from '@vtex/admin-ui-core'
 import { createComponent } from '@vtex/admin-jsxs'
 import type { FlexProps } from '@vtex/admin-primitives'
 import { Flex } from '@vtex/admin-primitives'

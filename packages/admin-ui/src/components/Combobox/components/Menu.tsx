@@ -1,6 +1,6 @@
 import type { ElementType, ReactElement, ReactNode } from 'react'
 import React, { forwardRef, Fragment } from 'react'
-import type { StyleObject } from '@vtex/onda-core'
+import type { StyleObject } from '@vtex/admin-ui-core'
 
 import type { PolymorphicProps } from '../types'
 import { useStateContext } from '../context'

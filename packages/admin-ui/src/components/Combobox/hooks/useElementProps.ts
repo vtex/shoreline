@@ -1,4 +1,4 @@
-import { useSystem } from '@vtex/onda-core'
+import { useSystem } from '@vtex/admin-ui-core'
 
 export function useElementProps(type: any, props: any) {
   const { cx, cn } = useSystem()

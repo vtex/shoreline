@@ -2,7 +2,7 @@ import type { Ref } from 'react'
 import React, { forwardRef, useEffect, useReducer } from 'react'
 import { Input as ReakitInput } from 'reakit'
 import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
-import { useSystem } from '@vtex/onda-core'
+import { useSystem } from '@vtex/admin-ui-core'
 import invariant from 'tiny-invariant'
 import { Box } from '@vtex/admin-primitives'
 

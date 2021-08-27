@@ -1,8 +1,8 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { IconClose } from '@vtex/admin-ui-icons'
-import type { ResponsiveValue } from '@vtex/onda-core'
-import { lightness, useResponsiveValue } from '@vtex/onda-core'
+import type { ResponsiveValue } from '@vtex/admin-ui-core'
+import { lightness, useResponsiveValue } from '@vtex/admin-ui-core'
 
 import { Box, Flex } from '@vtex/admin-primitives'
 

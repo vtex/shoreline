@@ -1,6 +1,6 @@
 import isPropValid from '@emotion/is-prop-valid'
 import { get, pick } from '@vtex/admin-ui-util'
-import type { StyleProp } from '@vtex/onda-core'
+import type { StyleProp } from '@vtex/admin-ui-core'
 
 import { __options, __stylesheet } from './symbols'
 
