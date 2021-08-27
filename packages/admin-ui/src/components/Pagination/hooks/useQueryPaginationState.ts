@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useQueryState } from '@vtex/onda-hooks'
+import { useQueryState } from '@vtex/admin-ui-hooks'
 import type {
   PaginationAction,
   PaginationState,

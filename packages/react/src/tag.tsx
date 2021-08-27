@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSystem } from '@vtex/onda-core'
-import { isFunction, capitalize } from '@vtex/onda-util'
+import { isFunction, capitalize } from '@vtex/admin-ui-util'
 
 import type { CsxCall, ExtractHTMLAttributes, RenderProp } from './types'
 import type { DOMElements } from './domElements'

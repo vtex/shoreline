@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { flatMap, hasDuplicates } from '@vtex/onda-util'
+import { flatMap, hasDuplicates } from '@vtex/admin-ui-util'
 
 import type { StepsInstance, Plugin } from '../plugin'
 import { getNamespaces } from '../plugin'

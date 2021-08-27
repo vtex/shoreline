@@ -1,4 +1,4 @@
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 
 import { createPlugin, buildTransforms } from '../../system'
 

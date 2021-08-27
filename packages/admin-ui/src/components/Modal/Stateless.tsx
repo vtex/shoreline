@@ -3,7 +3,7 @@ import React, { useCallback } from 'react'
 import { useSystem } from '@vtex/onda-core'
 import type { StyleProp } from '@vtex/onda-core'
 import { rgba } from 'polished'
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 
 import type { ModalStateReturn } from './state'
 import { ModalProvider } from './context'

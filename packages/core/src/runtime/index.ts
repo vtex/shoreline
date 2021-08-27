@@ -1,6 +1,6 @@
 import type { Emotion } from '@emotion/css/create-instance'
 import type { CSSObject as EmotionCSSObject } from '@emotion/css'
-import { isFunction } from '@vtex/onda-util'
+import { isFunction } from '@vtex/admin-ui-util'
 
 import type { StepsInstance } from '../system'
 import type { StyleObject, StyleProp, Theme, ThemeDerivedStyles } from './types'

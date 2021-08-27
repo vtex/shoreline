@@ -41,7 +41,7 @@
     "@emotion/react": "^11.4.0"
   },
   "dependencies": {
-    "@vtex/onda-util": "^0.1.0-labs.3",
+    "@vtex/admin-ui-util": "*",
     "react-helmet": "6.1.0",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",

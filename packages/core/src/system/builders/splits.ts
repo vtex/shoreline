@@ -1,4 +1,4 @@
-import { callOrReturn } from '@vtex/onda-util'
+import { callOrReturn } from '@vtex/admin-ui-util'
 
 import type { Plugin } from '../plugin'
 import { getSplits } from '../plugin'

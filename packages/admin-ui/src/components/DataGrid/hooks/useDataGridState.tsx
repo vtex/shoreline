@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { useMemo, useCallback, useState } from 'react'
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 
 import type {
   Resolver,

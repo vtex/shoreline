@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelect, UseSelectReturnValue } from 'downshift'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
-import { forwardRef } from '@vtex/onda-util'
+import { forwardRef } from '@vtex/admin-ui-util'
 
 import type { ButtonProps } from '../Button'
 import { Button } from '../Button'

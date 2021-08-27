@@ -1,6 +1,6 @@
 import type { FormEvent } from 'react'
 import { useState, useMemo, useCallback } from 'react'
-import { useDebouncedCache } from '@vtex/onda-hooks'
+import { useDebouncedCache } from '@vtex/admin-ui-hooks'
 
 const DEFAULT_TIMEOUT_MS = 250
 

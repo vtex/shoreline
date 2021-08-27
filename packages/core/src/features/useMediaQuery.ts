@@ -1,5 +1,5 @@
 import React from 'react'
-import { isBrowser } from '@vtex/onda-util'
+import { isBrowser } from '@vtex/admin-ui-util'
 
 const useSafeLayoutEffect = isBrowser ? React.useLayoutEffect : React.useEffect
 

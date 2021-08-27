@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
 import warning from 'tiny-warning'
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 
 import type { DataGridColumn, DataGridDensity } from '../typings'
 import type { SortOrder, SortState } from '../hooks/useDataGridSort'

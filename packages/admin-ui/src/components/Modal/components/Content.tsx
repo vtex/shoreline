@@ -1,7 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React, { useMemo, forwardRef } from 'react'
 import { tag } from '@vtex/admin-ui-react'
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 import type { StyleObject } from '@vtex/onda-core'
 
 import { useModalContext } from '../context'

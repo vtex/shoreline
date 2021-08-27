@@ -1,5 +1,5 @@
 import { alpha } from '@vtex/onda-core'
-import { merge } from '@vtex/onda-util'
+import { merge } from '@vtex/admin-ui-util'
 import { createComponent } from '@vtex/admin-jsxs'
 
 import type { ButtonProps } from '../../Button'
