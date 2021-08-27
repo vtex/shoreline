@@ -3,7 +3,7 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 import { createOnda, useSystem } from '../createOnda'
 import type { StyleProp } from '../runtime'
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 import { theme as vars } from '../theme'
 
 export default {

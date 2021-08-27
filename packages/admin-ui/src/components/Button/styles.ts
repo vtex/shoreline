@@ -1,5 +1,5 @@
 import { alpha } from '@vtex/onda-core'
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 
 const size = {
   regular: {

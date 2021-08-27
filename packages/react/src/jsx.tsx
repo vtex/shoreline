@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSystem } from '@vtex/onda-core'
-import { merge, pick, omit, isFunction } from '@vtex/onda-util'
+import { merge, pick, omit, isFunction } from '@vtex/admin-ui-util'
 
 import type { __element } from './symbols'
 import { __options, __stylesheet } from './symbols'

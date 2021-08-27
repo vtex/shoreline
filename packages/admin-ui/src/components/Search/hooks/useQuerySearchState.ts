@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useQueryState } from '@vtex/onda-hooks'
+import { useQueryState } from '@vtex/admin-ui-hooks'
 import type { UseSearchStateParams, SearchFormState } from './useSearchState'
 import { useSearchState } from './useSearchState'
 

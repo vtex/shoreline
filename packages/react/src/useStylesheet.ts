@@ -1,6 +1,6 @@
 import type { StyleProp } from '@vtex/onda-core'
 import { useSystem } from '@vtex/onda-core'
-import { isObjectEmpty, merge, omit } from '@vtex/onda-util'
+import { isObjectEmpty, merge, omit } from '@vtex/admin-ui-util'
 
 export function useStylesheet<V>(params: UseStyleSheetParams<V>) {
   const { stylesheet, sync, props } = params

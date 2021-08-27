@@ -1,4 +1,4 @@
-import { get, callOrReturn } from '@vtex/onda-util'
+import { get, callOrReturn } from '@vtex/admin-ui-util'
 
 import type { Plugin, Rule } from '../plugin'
 import { getTransforms } from '../plugin'

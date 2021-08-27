@@ -1,5 +1,5 @@
 import { useMemo, useRef, useEffect, useState, useCallback } from 'react'
-import { isBrowser } from '@vtex/onda-util'
+import { isBrowser } from '@vtex/admin-ui-util'
 
 /**
  * Persisted the keys states in the querry params (url)

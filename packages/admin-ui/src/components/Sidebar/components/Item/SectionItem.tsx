@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { merge } from '@vtex/onda-util'
+import { merge } from '@vtex/admin-ui-util'
 
 import { useCompositeItem } from '../Aria'
 import type { ButtonProps } from '../../../Button'

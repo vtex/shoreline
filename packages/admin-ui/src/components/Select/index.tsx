@@ -3,7 +3,7 @@ import type { Ref } from 'react'
 import React from 'react'
 import { BrowserView, MobileView } from 'react-device-detect'
 import { Box } from '@vtex/admin-primitives'
-import { forwardRef } from '@vtex/onda-util'
+import { forwardRef } from '@vtex/admin-ui-util'
 
 import type { SystemComponent } from '../../types'
 import { Text } from '../Text'

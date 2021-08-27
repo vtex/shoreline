@@ -4,7 +4,7 @@ import type { RadioGroupProps as ReakitRadioGroupProps } from 'reakit/Radio'
 import { RadioGroup as ReakitRadioGroup } from 'reakit/Radio'
 import type { StyleObject } from '@vtex/onda-core'
 import { tag } from '@vtex/admin-ui-react'
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 
 import type { SystemComponent } from '../../types'
 import { Label } from '../Label'

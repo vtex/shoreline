@@ -1,6 +1,6 @@
 import React from 'react'
 import type { ReactElement } from 'react'
-import { isKebab } from '@vtex/onda-util'
+import { isKebab } from '@vtex/admin-ui-util'
 import invariant from 'tiny-invariant'
 import { Helmet } from 'react-helmet'
 import type { Emotion } from '@emotion/css/create-instance'

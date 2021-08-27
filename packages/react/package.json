@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.1.0",
-    "@vtex/onda-util": "^0.1.0-labs.3",
+    "@vtex/admin-ui-util": "*",
     "react-is": "^17.0.2",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"

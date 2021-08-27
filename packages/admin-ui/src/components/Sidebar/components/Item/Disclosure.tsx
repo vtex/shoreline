@@ -1,6 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { merge } from '@vtex/onda-util'
+import { merge } from '@vtex/admin-ui-util'
 
 import type { ButtonProps } from '../../../Button'
 import { Button } from '../../../Button'

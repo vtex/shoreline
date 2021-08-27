@@ -1,10 +1,10 @@
 {
-  "name": "@vtex/onda-hooks",
-  "description": "VTEX/onda shared hooks",
+  "name": "@vtex/admin-ui-hooks",
+  "description": "admin-ui shared hooks",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.0.0",
   "main": "dist/index.js",
-  "module": "dist/onda-hooks.esm.js",
+  "module": "dist/admin-ui-hooks.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -36,7 +36,7 @@
     "react-dom": ">=16.8"
   },
   "dependencies": {
-    "@vtex/onda-util": "^0.1.0-labs.3",
+    "@vtex/admin-ui-util": "*",
     "use-debounce": "^7.0.0"
   }
 }

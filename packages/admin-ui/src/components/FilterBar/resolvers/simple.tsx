@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 import invariant from 'tiny-invariant'
 
 import { createResolver, defaultRender } from './core'

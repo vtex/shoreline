@@ -1,5 +1,5 @@
 import * as polished from 'polished'
-import { get } from '@vtex/onda-util'
+import { get } from '@vtex/admin-ui-util'
 
 import type { Colors, Theme } from '../runtime'
 
