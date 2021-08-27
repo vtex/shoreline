@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import type { StyleObject } from '@vtex/onda-core'
+import type { StyleObject } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 import { tag } from '@vtex/admin-ui-react'
 

@@ -1,6 +1,6 @@
 import type { ReactNode, Ref, PropsWithChildren } from 'react'
 import React, { forwardRef } from 'react'
-import type { StyleProp } from '@vtex/onda-core'
+import type { StyleProp } from '@vtex/admin-ui-core'
 import { Box } from '@vtex/admin-primitives'
 
 import type { SystemComponent } from '../../types'

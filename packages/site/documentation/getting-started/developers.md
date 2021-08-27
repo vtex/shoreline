@@ -22,11 +22,11 @@ For the root component of the app:
 
 ```jsx isStatic
 // 1. import the ThemeProvider
-import { createOnda } from '@vtex/admin-ui'
+import { createSystem } from '@vtex/admin-ui'
 
 // 2. add an unique key for the onda instance
-const [ThemeProvider] = createOnda({
-  key: 'unique-key-in-kebab-case'
+const [ThemeProvider] = createSystem({
+  key: 'unique-key-in-kebab-case',
 })
 
 function RootComponent() {
@@ -60,8 +60,8 @@ For the `Root1`:
 ```jsx isStatic
 // Root 1
 
-const [ThemeProvider] = createOnda({
-  key: 'app-name-root-1'
+const [ThemeProvider] = createSystem({
+  key: 'app-name-root-1',
 })
 ```
 
@@ -70,8 +70,8 @@ For the `Root2`:
 ```jsx isStatic
 // Root 2
 
-const [ThemeProvider] = createOnda({
-  key: 'app-name-root-2'
+const [ThemeProvider] = createSystem({
+  key: 'app-name-root-2',
 })
 ```
 
@@ -92,6 +92,6 @@ module.exports = {
   plugins: [
     '@vtex/gatsby-plugin-admin-ui',
     // ...
-  ]
+  ],
 }
 ```

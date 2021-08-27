@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
 import type { RadioGroupProps as ReakitRadioGroupProps } from 'reakit/Radio'
 import { RadioGroup as ReakitRadioGroup } from 'reakit/Radio'
-import type { StyleObject } from '@vtex/onda-core'
+import type { StyleObject } from '@vtex/admin-ui-core'
 import { tag } from '@vtex/admin-ui-react'
 import { get } from '@vtex/admin-ui-util'
 

@@ -1,5 +1,5 @@
-import type { Colors } from '@vtex/onda-core'
-import { useSystem } from '@vtex/onda-core'
+import type { Colors } from '@vtex/admin-ui-core'
+import { useSystem } from '@vtex/admin-ui-core'
 import { createComponent, jsxs } from '@vtex/admin-jsxs'
 import type { IconProps } from '@vtex/admin-ui-icons'
 import { Icon } from '@vtex/admin-ui-icons'

@@ -1,4 +1,4 @@
-import { alpha } from '@vtex/onda-core'
+import { alpha } from '@vtex/admin-ui-core'
 import { merge } from '@vtex/admin-ui-util'
 import { createComponent } from '@vtex/admin-jsxs'
 

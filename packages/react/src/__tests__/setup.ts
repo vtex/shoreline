@@ -4,9 +4,9 @@ import { render as baseRender } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import serializer, { matchers } from 'jest-emotion'
 import { toHaveNoViolations } from 'jest-axe'
-import { createOnda } from '@vtex/onda-core'
+import { createSystem } from '@vtex/admin-ui-core'
 
-const [ThemeProvider] = createOnda({
+const [ThemeProvider] = createSystem({
   key: 'vtex-admin-ui',
 })
 

@@ -19,5 +19,5 @@ export const FormikRadio = forwardRef(
   }
 )
 
-// TODO Fix the type once the @vtex/onda-core has it
+// TODO Fix the type once the @vtex/admin-ui-core has it
 export type FormikRadioProps = ComponentPropsWithoutRef<'input'>

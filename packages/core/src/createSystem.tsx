@@ -47,12 +47,12 @@ export type CreateOndaReturn = [
   (props: { children?: React.ReactNode }) => ReactElement
 ]
 
-export function createOnda(spec: OndaSpec): CreateOndaReturn {
+export function createSystem(spec: OndaSpec): CreateOndaReturn {
   const { key } = spec
 
   invariant(
     isKebab(key),
-    '"key" property must be in kebab-case format on createOnda function'
+    '"key" property must be in kebab-case format on createSystem function'
   )
 
   const emotion = createEmotion({

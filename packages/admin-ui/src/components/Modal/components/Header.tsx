@@ -1,6 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React, { useMemo, forwardRef } from 'react'
-import type { StyleProp } from '@vtex/onda-core'
+import type { StyleProp } from '@vtex/admin-ui-core'
 import { IconClose } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
 import { tag } from '@vtex/admin-ui-react'

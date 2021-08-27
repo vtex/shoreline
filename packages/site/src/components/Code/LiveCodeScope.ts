@@ -1,6 +1,6 @@
 import * as AdminUI from '@vtex/admin-ui'
 import * as AdminUIIcons from '@vtex/admin-ui-icons'
-import * as AdminUICore from '@vtex/onda-core'
+import * as AdminUICore from '@vtex/admin-ui-core'
 import * as dnd from 'react-beautiful-dnd'
 import faker from 'faker'
 import {

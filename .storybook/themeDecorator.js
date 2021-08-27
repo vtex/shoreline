@@ -1,7 +1,7 @@
 import React from 'react'
-import { createOnda } from '@vtex/onda-core'
+import { createSystem } from '@vtex/admin-ui-core'
 
-const [ThemeProvider] = createOnda({
+const [ThemeProvider] = createSystem({
   key: 'storybook',
 })
 

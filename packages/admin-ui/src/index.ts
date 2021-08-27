@@ -1,4 +1,4 @@
-export * from '@vtex/onda-core'
+export * from '@vtex/admin-ui-core'
 export * from '@vtex/admin-primitives'
 export * from '@vtex/admin-ui-icons'
 export * from '@vtex/admin-illustrations'

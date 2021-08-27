@@ -1,6 +1,6 @@
 import type { ReactElement, ElementType, ComponentProps } from 'react'
 import { Box as ReakitBox } from 'reakit'
-import { useSystem } from '@vtex/onda-core'
+import { useSystem } from '@vtex/admin-ui-core'
 import { createComponent } from '@vtex/admin-jsxs'
 
 import type { SystemPrimitive } from '../types'

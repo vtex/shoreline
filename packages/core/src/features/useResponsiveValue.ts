@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { Theme } from '../runtime'
 
-import { useSystem } from '../createOnda'
+import { useSystem } from '../createSystem'
 
 type DefaultOptions = {
   defaultIndex?: number

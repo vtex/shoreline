@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSystem } from '@vtex/onda-core'
+import { useSystem } from '@vtex/admin-ui-core'
 import { merge, pick, omit, isFunction } from '@vtex/admin-ui-util'
 
 import type { __element } from './symbols'

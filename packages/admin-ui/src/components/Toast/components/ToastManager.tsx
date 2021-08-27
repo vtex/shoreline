@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createOnda } from '@vtex/onda-core'
+import { createSystem } from '@vtex/admin-ui-core'
 
 import { Toaster } from './Toaster'
 import type {
@@ -12,7 +12,7 @@ import type {
 } from './typings'
 
 // TODO: REMOVE THIS ASAP
-const [DangerousInnerOndaInstance] = createOnda({
+const [DangerousInnerOndaInstance] = createSystem({
   key: 'toast',
 })
 

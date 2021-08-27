@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import { createOnda, useSystem } from '../createOnda'
+import { createSystem, useSystem } from '../createSystem'
 
 describe('context', () => {
   it('should execute the system', () => {
-    const [Provider] = createOnda({
+    const [Provider] = createSystem({
       key: 'onda-design-system-tst',
     })
 

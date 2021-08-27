@@ -1,7 +1,7 @@
 import { createElement } from 'react'
-import { createOnda } from '@vtex/admin-ui'
+import { createSystem } from '@vtex/admin-ui'
 
-const [ThemeProvider] = createOnda({
+const [ThemeProvider] = createSystem({
   key: 'gatsby-plugin-admin-ui',
 })
 

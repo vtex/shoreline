@@ -1,16 +1,16 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { createOnda, useSystem } from '../createOnda'
+import { createSystem, useSystem } from '../createSystem'
 import type { StyleProp } from '../runtime'
 import { get } from '@vtex/admin-ui-util'
 import { theme as vars } from '../theme'
 
 export default {
-  title: 'onda-core/createOnda',
+  title: 'onda-core/createSystem',
 } as Meta
 
-const [OndaProvider] = createOnda({
+const [OndaProvider] = createSystem({
   key: 'storybook',
 })
 
