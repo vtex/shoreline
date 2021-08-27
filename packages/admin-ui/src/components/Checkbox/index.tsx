@@ -4,7 +4,7 @@ import {
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit/Checkbox'
-import { jsx } from '@vtex/onda-react'
+import { jsx } from '@vtex/admin-ui-react'
 
 export const Checkbox = jsx(ReakitCheckbox)(
   {

@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
-import { jsx } from '@vtex/onda-react'
+import { jsx } from '@vtex/admin-ui-react'
 import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
 
 import type { SearchFormState } from './hooks/useSearchState'

@@ -1,6 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React, { useMemo, forwardRef } from 'react'
-import { tag } from '@vtex/onda-react'
+import { tag } from '@vtex/admin-ui-react'
 import { get } from '@vtex/onda-util'
 import type { StyleObject } from '@vtex/onda-core'
 

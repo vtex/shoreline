@@ -2,7 +2,7 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { useSearchState, Search } from '../index'
-import { tag } from '@vtex/onda-react'
+import { tag } from '@vtex/admin-ui-react'
 import { Button } from '../../Button'
 import { useQuerySearchState } from '../hooks/useQuerySearchState'
 import { Set } from '../../Set'

@@ -1,6 +1,6 @@
 import type { RadioStateReturn } from 'reakit/Radio'
 import { Radio as ReakitRadio } from 'reakit/Radio'
-import { jsx } from '@vtex/onda-react'
+import { jsx } from '@vtex/admin-ui-react'
 import type { ComponentPropsWithRef } from 'react'
 
 export const Radio = jsx(ReakitRadio)(

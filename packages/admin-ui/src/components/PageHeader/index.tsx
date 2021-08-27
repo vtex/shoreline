@@ -1,5 +1,5 @@
 import React, { createContext, Fragment, useContext } from 'react'
-import { jsx, tag } from '@vtex/onda-react'
+import { jsx, tag } from '@vtex/admin-ui-react'
 import { IconArrow } from '@vtex/admin-ui-icons'
 
 import { Button } from '../Button'

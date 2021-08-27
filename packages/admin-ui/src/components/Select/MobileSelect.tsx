@@ -2,7 +2,7 @@ import type { ChangeEvent } from 'react'
 import React from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { Box } from '@vtex/admin-primitives'
-import { tag } from '@vtex/onda-react'
+import { tag } from '@vtex/admin-ui-react'
 
 import { Label } from '../Label'
 import type { SelectProps } from './index'

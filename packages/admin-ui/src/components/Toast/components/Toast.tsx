@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react'
 import { Flex } from '@vtex/admin-primitives'
 import { IconClose } from '@vtex/admin-ui-icons'
-import { jsx } from '@vtex/onda-react'
+import { jsx } from '@vtex/admin-ui-react'
 import { motion } from 'framer-motion'
 
 import type { ToastIconProps, ToastOptions } from './typings'

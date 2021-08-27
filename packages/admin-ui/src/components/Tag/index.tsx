@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
 import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
-import { jsx } from '@vtex/onda-react'
+import { jsx } from '@vtex/admin-ui-react'
 
 import { Button } from '../Button'
 

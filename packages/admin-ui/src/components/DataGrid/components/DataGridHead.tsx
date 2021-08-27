@@ -1,5 +1,5 @@
 import React, { cloneElement, Fragment } from 'react'
-import { jsx, tag } from '@vtex/onda-react'
+import { jsx, tag } from '@vtex/admin-ui-react'
 import { IconTriangle } from '@vtex/admin-ui-icons'
 
 import { useStateContext } from '../context'

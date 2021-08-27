@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Flex } from '@vtex/admin-primitives'
-import { tag, jsx } from '@vtex/onda-react'
+import { tag, jsx } from '@vtex/admin-ui-react'
 import {
   CollectionEmpty,
   CollectionError,

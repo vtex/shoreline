@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { jsx } from '@vtex/onda-react'
+import { jsx } from '@vtex/admin-ui-react'
 
 import { Head } from './DataGridHead'
 import { Body } from './DataGridBody'
