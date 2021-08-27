@@ -55,8 +55,8 @@ To manage Typography options, the theme object supports the following keys: `fon
 ```ts isStatic
 export default {
   fonts: {
-    sans: 'VTEXTrustVF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
-    mono: '"Dank Mono", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Consolas", "Monaco", "Menlo", monospace',
+    sans: '"VTEX Trust", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
+    mono: '"MonoLisa", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Dank Mono", "Consolas", "Monaco", "Menlo", monospace',
   },
   fontSizes: {
     0: '0.75rem',
@@ -66,13 +66,13 @@ export default {
     4: '1.25rem',
   },
   fontSettings: {
-    hairline: "'wght' 30",
-    thin: "'wght' 50",
-    light: "'wght' 65",
-    regular: "'wght' 92",
-    medium: "'wght' 120",
-    bold: "'wght' 170",
-    black: "'wght' 200",
+    hairline: "'WGHT' 100",
+    thin: "'WGHT' 250",
+    light: "'WGHT' 375",
+    regular: "'WGHT' 500",
+    medium: "'WGHT' 750",
+    bold: "'WGHT' 875",
+    black: "'WGHT' 1000",
   },
   lineHeights: {
     code: 1,

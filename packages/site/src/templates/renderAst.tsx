@@ -52,8 +52,6 @@ const { Compiler: renderAst } = new RehypeReact({
         <Paragraph
           csx={{
             marginY: 2,
-            fontFamily: 'VTEX Trust',
-            fontSettings: '"WGHT" 500',
             textAlign: 'justify',
             color: 'dark.primary',
             fontSize: 2,
