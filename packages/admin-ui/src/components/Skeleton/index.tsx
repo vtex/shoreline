@@ -1,4 +1,4 @@
-import { jsx } from '@vtex/onda-react'
+import { jsx } from '@vtex/admin-ui-react'
 import { get } from '@vtex/onda-util'
 import type { ComponentPropsWithRef } from 'react'
 

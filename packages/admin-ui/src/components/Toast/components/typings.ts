@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import type { IconProps } from '@vtex/admin-ui-icons'
-import type { CsxCall } from '@vtex/onda-react'
+import type { CsxCall } from '@vtex/admin-ui-react'
 
 import type { ButtonProps } from '../../Button'
 

@@ -46,7 +46,7 @@ export * from './components/Topbar'
 export * from './components/Toolbar'
 export * from './components/Pagination'
 export * from './components/FilterBar'
-export { tag, OndaElement, ElementPropsWithAs } from '@vtex/onda-react'
+export { tag, OndaElement, ElementPropsWithAs } from '@vtex/admin-ui-react'
 export {
   isMobile,
   isSafari,

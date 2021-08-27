@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { tag } from '@vtex/onda-react'
+import { tag } from '@vtex/admin-ui-react'
 
 import { PageHeader } from './index'
 import { Button } from '../Button'

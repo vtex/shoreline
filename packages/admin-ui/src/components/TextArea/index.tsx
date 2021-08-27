@@ -1,7 +1,7 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { Box } from '@vtex/admin-primitives'
-import { tag } from '@vtex/onda-react'
+import { tag } from '@vtex/admin-ui-react'
 
 import { Text } from '../Text'
 import { Label } from '../Label'

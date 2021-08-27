@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react'
-import { tag } from '@vtex/onda-react'
+import { tag } from '@vtex/admin-ui-react'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import type { StyleObject } from '@vtex/onda-core'
 

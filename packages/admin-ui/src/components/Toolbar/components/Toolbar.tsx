@@ -1,6 +1,6 @@
 import React from 'react'
 import { Toolbar as BaseToolbar } from 'reakit/Toolbar'
-import { jsx } from '@vtex/onda-react'
+import { jsx } from '@vtex/admin-ui-react'
 
 import { Set } from '../../Set'
 import type { ToolbarState } from '../state'

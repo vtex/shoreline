@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import type { StyleObject } from '@vtex/onda-core'
 import { get } from '@vtex/onda-util'
-import { tag } from '@vtex/onda-react'
+import { tag } from '@vtex/admin-ui-react'
 
 import { Label } from '../Label'
 import type { SystemComponent } from '../../types'

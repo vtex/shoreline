@@ -20,7 +20,7 @@ import {
 import { Button } from '../Button'
 import type { SystemComponent, SystemComponentProps } from '../../types'
 import { useGroup } from '../Group'
-import { tag } from '@vtex/onda-react'
+import { tag } from '@vtex/admin-ui-react'
 
 /**
  * A Collapsible is a container that allows toggling the display of content. It can be nested as well.

@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
-import { jsx, tag } from '@vtex/onda-react'
+import { jsx, tag } from '@vtex/admin-ui-react'
 
 /**
  * Component to create a user avatar from a passed label

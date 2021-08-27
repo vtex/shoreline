@@ -1,5 +1,5 @@
 import React from 'react'
-import { jsx } from '@vtex/onda-react'
+import { jsx } from '@vtex/admin-ui-react'
 import { DataViewContext } from '../context'
 import type { DataViewState } from '../state'
 import { DataViewStatus } from './DataViewStatus'

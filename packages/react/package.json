@@ -1,9 +1,9 @@
 {
-  "name": "@vtex/onda-react",
+  "name": "@vtex/admin-ui-react",
   "license": "MIT",
-  "version": "0.4.5",
+  "version": "0.0.0",
   "main": "dist/index.js",
-  "module": "dist/onda-react.esm.js",
+  "module": "dist/admin-ui-react.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -28,9 +28,7 @@
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
     "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
-    "test": "tsdx test --passWithNoTests",
-    "storybook": "start-storybook -p 6005",
-    "storybook:build": "yarn --cwd ../../ build && yarn run build-storybook"
+    "test": "tsdx test"
   },
   "peerDependencies": {
     "@emotion/css": ">=11",
