@@ -1,4 +1,4 @@
-import { alpha } from '@vtex/admin-ui-system'
+import { alpha } from '@vtex/onda-core'
 import { get } from '@vtex/onda-util'
 
 const size = {

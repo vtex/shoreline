@@ -1,8 +1,8 @@
 import { createElement } from 'react'
-import { createOndaInstance } from '@vtex/admin-ui'
+import { createOnda } from '@vtex/admin-ui'
 
-const ThemeProvider = createOndaInstance({
-  name: 'gatsby-plugin-admin-ui',
+const [ThemeProvider] = createOnda({
+  key: 'gatsby-plugin-admin-ui',
 })
 
 export function wrapRootElement(args) {

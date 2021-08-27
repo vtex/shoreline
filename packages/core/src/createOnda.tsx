@@ -1,6 +1,5 @@
 import React from 'react'
 import type { ReactElement } from 'react'
-import { theme as adminTheme } from '@vtex/admin-ui-theme'
 import { isKebab } from '@vtex/onda-util'
 import invariant from 'tiny-invariant'
 import { Helmet } from 'react-helmet'
@@ -11,41 +10,18 @@ import { CacheProvider, Global } from '@emotion/react'
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
 
-import type { Plugin } from './system'
-import { buildPlugins } from './system'
-import { plugins } from './plugins'
 import type { StyleProp } from './runtime'
-import type { ThemeOptions } from './theme'
-import { createTheme, useCSSVariables } from './theme'
-import { createAtoms, createClsx, createParser } from './runtime'
+import {
+  cssVariables,
+  parse,
+  useCSSVariables,
+  theme,
+  globalStyles,
+} from './theme'
+import { createAtoms, createClsx } from './runtime'
 
-export interface OndaSpec<Theme extends Record<string, any>> {
-  name: string
-  theme: Theme
-  plugins: Array<Plugin<Theme>>
-  options?: ThemeOptions
-}
-
-export interface OndaInstanceSpec {
-  name: string
-  options?: ThemeOptions
-}
-
-/**
- * It creates the Admin UI Design System instance
- *
- * @Example
- * const OndaProvider = createOndaInstance({ name: 'admin-app-name' })
- */
-export function createOndaInstance(spec: OndaInstanceSpec) {
-  const { name, options } = spec
-
-  invariant(
-    isKebab(name),
-    '"name" property must be in kebab-case format on createOndaInstance function'
-  )
-
-  return createOnda({ name, plugins, theme: adminTheme, options })
+export interface OndaSpec {
+  key: string
 }
 
 export const SystemContext = React.createContext<
@@ -67,37 +43,24 @@ export function useSystem() {
   return ctx
 }
 
-export type DesignSystem = (props: {
-  children?: React.ReactNode
-}) => ReactElement
+export type CreateOndaReturn = [
+  (props: { children?: React.ReactNode }) => ReactElement
+]
 
-export function createOnda<Theme extends Record<string, any>>(
-  spec: OndaSpec<Theme>
-): DesignSystem {
-  const {
-    name,
-    theme: themeConfig,
-    options = {
-      disableCSSVariables: true,
-    },
-  } = spec
+export function createOnda(spec: OndaSpec): CreateOndaReturn {
+  const { key } = spec
 
   invariant(
-    isKebab(name),
-    '"name" property must be in kebab-case format on createOnda function'
+    isKebab(key),
+    '"key" property must be in kebab-case format on createOnda function'
   )
 
   const emotion = createEmotion({
-    key: name,
+    key,
   })
 
-  const { global, ...rest } = themeConfig
-  const [theme, cssVariables] = createTheme(rest, options)
-  const steps = buildPlugins(theme, plugins)
-  const parse = createParser(steps, theme)
   const clsx = createClsx(emotion)
   const atoms = createAtoms(parse, clsx)
-  const globalStyles = parse(global?.styles ?? {})
 
   function SystemProvider(props: { children?: React.ReactNode }) {
     const { children } = props
@@ -130,5 +93,5 @@ export function createOnda<Theme extends Record<string, any>>(
     )
   }
 
-  return SystemProvider
+  return [SystemProvider]
 }

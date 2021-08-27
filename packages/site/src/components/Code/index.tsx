@@ -6,7 +6,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import {
   tag,
   Button,
-  createOndaInstance,
+  createOnda,
   Set,
   Flex,
   IconCode,
@@ -17,8 +17,8 @@ import { copyToClipboard, calculateLinesToHighlight } from './util'
 import scope from './LiveCodeScope'
 import styles from './styles'
 
-const ThemeProvider = createOndaInstance({
-  name: 'code-preview',
+const [ThemeProvider] = createOnda({
+  key: 'code-preview',
 })
 
 export interface CodeProps {

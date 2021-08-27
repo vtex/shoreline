@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import type { RenderOptions } from '@testing-library/react'
 import { render as baseRender } from '@testing-library/react'
-import { createOndaInstance } from '@vtex/onda-core'
+import { createOnda } from '@vtex/onda-core'
 import type { ReactElement } from 'react'
 import { renderHook, act } from '@testing-library/react-hooks'
 import serializer, { matchers } from 'jest-emotion'
@@ -12,11 +12,8 @@ expect.addSnapshotSerializer(serializer)
 expect.extend(matchers)
 expect.extend(toHaveNoViolations)
 
-const ThemeProvider = createOndaInstance({
-  name: 'test',
-  options: {
-    disableCSSVariables: true,
-  },
+const [ThemeProvider] = createOnda({
+  key: 'test',
 })
 
 function render(ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) {

@@ -4,52 +4,94 @@ path: /getting-started/developers/
 
 # Developers
 
-AdminUI is a curated collection of the reusable components within VTEX admin apps.
-`admin-ui` is available as a npm package. It has `@vtex/admin-ui-icons` as a peer dependency.
+AdminUI is an experimental collection of the reusable components within VTEX admin apps. It is available as an npm package of the name `@vtex/admin-ui`.
+
+## Setup
+
+How to set up `admin-ui` for different frameworks.
+
+### VTEX IO
+
+In the `/react` folder, install the `admin-ui` package.
 
 ```sh isStatic
 yarn add @vtex/admin-ui
 ```
 
-**For `VTEX IO` apps you should do this on the /react folder**
-
-## Setup
-
-### ThemeProvider
-
-For Admin UI to work correctly, you need to setup the `ThemeProvider` at the root of your application.
-Go to the root of your application and do this:
+For the root component of the app:
 
 ```jsx isStatic
-import React from 'react'
-
 // 1. import the ThemeProvider
-import { ThemeProvider } from '@vtex/admin-ui'
+import { createOnda } from '@vtex/admin-ui'
+
+// 2. add an unique key for the onda instance
+const [ThemeProvider] = createOnda({
+  key: 'unique-key-in-kebab-case'
+})
 
 function RootComponent() {
-  // 2. Use at the root of your app
+  // 3. Use at the root of your app
   return <ThemeProvider>{/** your app code here */}</ThemeProvider>
 }
 ```
 
-# ThemeProvider
+#### Multi-route apps
 
-Provides context so we can consume our theme along with our design system. This provider creates a [Emotion's Instance](https://emotion.sh/docs/@emotion/css#custom-instances) with `@vtex/admin-core`, so every style within this provider will consume from a single and unique instance. Since all of our components are theme-aware, remember that every application should have a `<ThemeProvider>` defined in the project root.
+Sometimes the app does not have a single entry. You **must** define a unique key for each one of them, like:
 
-## createSystem
+Example `routes.json`:
 
-To avoid conflict between several `ThemeProviders`, we need to guarantee that each application will consume our theme from a unique emotion instance, to do this we provide to you the `createSystem` function. This function is responsible for creating an instance from our admin system, along with all its features and the unique emotion instance.
+```json isStatic
+// /admin/routes.json
+{
+  "app.route1": {
+    "path": "/admin/route1",
+    "component": "Root1"
+  },
+  "app.route2": {
+    "path": "/admin/route2",
+    "component": "Root2"
+  }
+}
+```
 
-## Usage Example
-
-> Remember that the `createSystem` call should be outside of the react render.
+For the `Root1`:
 
 ```jsx isStatic
-import { ThemeProvider } from '@vtex/admin-ui'
+// Root 1
 
-const system = createSystem(/**Project App key*/)
+const [ThemeProvider] = createOnda({
+  key: 'app-name-root-1'
+})
+```
 
-function ProjectRoot() {
-  return <ThemeProvider system={system}>{/** Your app here */}</ThemeProvider>
+For the `Root2`:
+
+```jsx isStatic
+// Root 2
+
+const [ThemeProvider] = createOnda({
+  key: 'app-name-root-2'
+})
+```
+
+### Gatsby
+
+For ease of use, we provide a gatsby-plugin.
+
+```sh isStatic
+yarn add @vtex/admin-ui @vtex/gatsby-plugin-admin-ui
+```
+
+In your `gatsby-config` file, resolve the plugin.
+
+```js isStatic
+// gatsby-config.js
+
+module.exports = {
+  plugins: [
+    '@vtex/gatsby-plugin-admin-ui',
+    // ...
+  ]
 }
 ```

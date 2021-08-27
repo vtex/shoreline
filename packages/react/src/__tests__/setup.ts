@@ -4,13 +4,10 @@ import { render as baseRender } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import serializer, { matchers } from 'jest-emotion'
 import { toHaveNoViolations } from 'jest-axe'
-import { createOndaInstance } from '@vtex/onda-core'
+import { createOnda } from '@vtex/onda-core'
 
-const ThemeProvider = createOndaInstance({
-  name: 'vtex-admin-ui',
-  options: {
-    disableCSSVariables: true,
-  },
+const [ThemeProvider] = createOnda({
+  key: 'vtex-admin-ui',
 })
 
 function render(ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) {

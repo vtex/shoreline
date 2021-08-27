@@ -1,16 +1,17 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { createOndaInstance, useSystem } from '../createOnda'
+import { createOnda, useSystem } from '../createOnda'
 import type { StyleProp } from '../runtime'
 import { get } from '@vtex/onda-util'
+import { theme as vars } from '../theme'
 
 export default {
-  title: 'onda-core/createOndaInstance',
+  title: 'onda-core/createOnda',
 } as Meta
 
-const OndaProvider = createOndaInstance({
-  name: 'storybook',
+const [OndaProvider] = createOnda({
+  key: 'storybook',
 })
 
 function Div(props: { csx: StyleProp; children: ReactNode }) {
@@ -28,6 +29,23 @@ export function Styles() {
           color: 'light.primary',
           marginY: 2,
           size: 100,
+        }}
+      >
+        With csx
+      </Div>
+    </OndaProvider>
+  )
+}
+
+export function ThemeStyles() {
+  return (
+    <OndaProvider>
+      <Div
+        csx={{
+          bg: vars.colors.blue.default,
+          color: vars.colors.light.primary,
+          marginY: vars.space[2],
+          size: '100px',
         }}
       >
         With csx
