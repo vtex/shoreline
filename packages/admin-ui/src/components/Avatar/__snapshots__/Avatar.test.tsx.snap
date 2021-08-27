@@ -25,9 +25,9 @@ exports[`Avatar tests should match snaphot with label 1`] = `
 }
 
 .emotion-0 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -68,9 +68,9 @@ exports[`Avatar tests should match snaphot with pallette 1`] = `
 }
 
 .emotion-0 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -84,9 +84,9 @@ exports[`Avatar tests should match snaphot with pallette 1`] = `
     </div>
   </div>
   .emotion-0 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -122,9 +122,9 @@ exports[`Avatar tests should match snaphot with pallette 1`] = `
     </div>
   </div>
   .emotion-0 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 

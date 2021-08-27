@@ -33,9 +33,9 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -73,7 +73,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-4 a {
-  font-variation-settings: 'wght' 120;
+  font-variation-settings: 'WGHT' 750;
 }
 
 .emotion-1 {
@@ -155,9 +155,9 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -195,7 +195,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-4 a {
-  font-variation-settings: 'wght' 120;
+  font-variation-settings: 'WGHT' 750;
 }
 
 .emotion-1 {
@@ -284,9 +284,9 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -324,7 +324,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-4 a {
-  font-variation-settings: 'wght' 120;
+  font-variation-settings: 'WGHT' 750;
 }
 
 .emotion-1 {

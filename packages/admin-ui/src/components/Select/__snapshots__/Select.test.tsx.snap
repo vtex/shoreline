@@ -74,9 +74,9 @@ exports[`Select tests should render a Select with a list of string and other wit
 }
 
 .emotion-1 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.43;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   position: absolute;
   left: 12px;
@@ -232,9 +232,9 @@ exports[`Select tests should render a Select with a list of string and other wit
 }
 
 .emotion-1 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.43;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   position: absolute;
   left: 12px;

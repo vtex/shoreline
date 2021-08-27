@@ -4,9 +4,9 @@ exports[`Text tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -17,9 +17,9 @@ exports[`Text tests should match snapshot 1`] = `
   </span>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -30,9 +30,9 @@ exports[`Text tests should match snapshot 1`] = `
   </strong>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -43,9 +43,9 @@ exports[`Text tests should match snapshot 1`] = `
   </i>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -56,9 +56,9 @@ exports[`Text tests should match snapshot 1`] = `
   </u>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -69,9 +69,9 @@ exports[`Text tests should match snapshot 1`] = `
   </abbr>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -82,9 +82,9 @@ exports[`Text tests should match snapshot 1`] = `
   </cite>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -95,9 +95,9 @@ exports[`Text tests should match snapshot 1`] = `
   </del>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -108,9 +108,9 @@ exports[`Text tests should match snapshot 1`] = `
   </em>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -121,9 +121,9 @@ exports[`Text tests should match snapshot 1`] = `
   </ins>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -134,9 +134,9 @@ exports[`Text tests should match snapshot 1`] = `
   </kbd>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -147,9 +147,9 @@ exports[`Text tests should match snapshot 1`] = `
   </mark>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -160,9 +160,9 @@ exports[`Text tests should match snapshot 1`] = `
   </s>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -173,9 +173,9 @@ exports[`Text tests should match snapshot 1`] = `
   </samp>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
@@ -186,9 +186,9 @@ exports[`Text tests should match snapshot 1`] = `
   </sub>
   .emotion-0 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 

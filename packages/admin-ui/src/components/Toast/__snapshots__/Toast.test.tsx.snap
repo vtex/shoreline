@@ -24,9 +24,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -125,9 +125,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -226,9 +226,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -319,9 +319,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -419,9 +419,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -519,9 +519,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -557,8 +557,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -749,9 +749,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -787,8 +787,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -971,9 +971,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -1009,8 +1009,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1200,9 +1200,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -1238,8 +1238,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1429,9 +1429,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -1504,8 +1504,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1627,9 +1627,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -1702,8 +1702,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1817,9 +1817,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -1892,8 +1892,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -2014,9 +2014,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -2089,8 +2089,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -2211,9 +2211,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -2249,8 +2249,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -2339,8 +2339,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -2497,9 +2497,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -2535,8 +2535,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -2625,8 +2625,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -2775,9 +2775,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -2813,8 +2813,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -2903,8 +2903,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -3060,9 +3060,9 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   text-align: start;
 }
@@ -3098,8 +3098,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -3188,8 +3188,8 @@ exports[`Toast tests should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
