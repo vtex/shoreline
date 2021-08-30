@@ -28,12 +28,14 @@ export function QueryStateProvider({ children }: { children?: ReactNode }) {
     if (!isBrowser) return
     if (context) return
 
-    window.onpopstate = function onPopstateChange() {
+    function onPopstateChange() {
       setQueryParams(new URLSearchParams(window.location.search))
     }
 
+    window.addEventListener('popstate', onPopstateChange)
+
     return () => {
-      window.onpopstate = () => {}
+      window.removeEventListener('popstate', onPopstateChange)
     }
   }, [])
 
