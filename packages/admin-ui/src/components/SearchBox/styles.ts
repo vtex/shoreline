@@ -8,12 +8,12 @@ const typography = {
   title: styles({
     fontFamily: 'sans',
     fontSize: '1.2rem',
-    fontSettings: "'wght' 72",
+    fontSettings: 'medium',
   }),
   body: styles({
     fontFamily: 'sans',
     fontSize: '1rem',
-    fontSettings: "'wght' 80",
+    fontSettings: 'regular',
   }),
 }
 

@@ -23,8 +23,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -114,8 +114,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -299,8 +299,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -390,8 +390,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -479,9 +479,9 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-10 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
   color: #898F9E;
   margin-top: 0.5rem;
@@ -589,8 +589,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -680,8 +680,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -874,8 +874,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -965,8 +965,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1054,9 +1054,9 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-10 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
   color: #CB4242;
   margin-top: 0.5rem;
@@ -1164,8 +1164,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1255,8 +1255,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8 {
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'wght' 92;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;

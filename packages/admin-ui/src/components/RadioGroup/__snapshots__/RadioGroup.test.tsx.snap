@@ -79,7 +79,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 }
 
 .emotion-3 {
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   lh: highlight;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
@@ -231,7 +231,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 }
 
 .emotion-3 {
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   lh: highlight;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;

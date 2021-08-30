@@ -54,7 +54,7 @@ export const Tag = jsx.div(
           height: 26,
           paddingX: '2',
           lineHeight: 'small',
-          fontSettings: "'wght' 80",
+          fontSettings: 'regular',
           fontSize: 0,
           svg: {
             width: 16,

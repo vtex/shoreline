@@ -28,7 +28,7 @@ import { Text } from '@vtex/admin-ui'
 
 ```jsx isStatic
 lineHeight: 'small', // 1.125
-fontVariationSettings: 'regular', // "'wght' 92"
+fontVariationSettings: 'regular', // "'WGHT' 500"
 fontSize: 0, // 0.75rem
 ```
 
@@ -40,7 +40,7 @@ fontSize: 0, // 0.75rem
 
 ```jsx isStatic
 lineHeight: 'body', // 1.25
-fontVariationSettings: 'regular', // "'wght' 92"
+fontVariationSettings: 'regular', // "'WGHT' 500"
 fontSize: 1, // 0.875rem
 ```
 
@@ -52,7 +52,7 @@ fontSize: 1, // 0.875rem
 
 ```jsx isStatic
 lineHeight: 'highlight', // 1.25
-fontVariationSettings: 'regular', // "'wght' 92"
+fontVariationSettings: 'regular', // "'WGHT' 500"
 fontSize: 1, // 0.875rem
 ```
 
@@ -64,7 +64,7 @@ fontSize: 1, // 0.875rem
 
 ```jsx isStatic
 lineHeight: 'action', // 1.5
-fontVariationSettings: 'regular', // "'wght' 92"
+fontVariationSettings: 'regular', // "'WGHT' 500"
 fontSize: 1, // 0.875rem
 textTransform: 'uppercase',
 ```
@@ -77,7 +77,7 @@ textTransform: 'uppercase',
 
 ```jsx isStatic
 lineHeight: 'subtitle', // 1.5
-fontVariationSettings: 'regular', // "'wght' 92"
+fontVariationSettings: 'regular', // "'WGHT' 500"
 fontSize: 2, // 1rem
 ```
 
@@ -89,7 +89,7 @@ fontSize: 2, // 1rem
 
 ```jsx isStatic
 lineHeight: 'headline', // 1.5
-fontVariationSettings: 'regular', // "'wght' 92"
+fontVariationSettings: 'regular', // "'WGHT' 500"
 fontSize: 4, // 1.25rem
 ```
 

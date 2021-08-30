@@ -1,7 +1,7 @@
 import { create } from '@storybook/theming/create'
 import { theme } from '@vtex/admin-ui'
 
-const { colors, borderRadius } = theme
+const { colors, fonts, borderRadius } = theme
 
 export default create({
   base: 'light',
@@ -16,10 +16,8 @@ export default create({
   appBorderRadius: borderRadius[2],
 
   // Typography
-  fontBase:
-    '"VTEXTrustVF", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
-  fontCode:
-    '"Dank Mono", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Consolas", "Monaco", monospace',
+  fontBase: fonts.sans,
+  fontCode: fonts.code,
 
   // Text colors
   textColor: colors.dark.primary,

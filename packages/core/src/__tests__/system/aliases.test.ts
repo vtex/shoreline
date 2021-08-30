@@ -7,7 +7,7 @@ describe('aliases builder', () => {
       text: 'white',
     },
     fontSettings: {
-      regular: '"wght" 92',
+      regular: '"WGHT" 500',
     },
   }
 
@@ -30,7 +30,7 @@ describe('aliases builder', () => {
         text: 'white',
       },
       fontSettings: {
-        regular: '"wght" 92',
+        regular: '"WGHT" 500',
       },
     })
   })

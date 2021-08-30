@@ -82,9 +82,9 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
 }
 
@@ -95,9 +95,9 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
   text-decoration: none;
   cursor: pointer;
   font-size: 0.875rem;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
 }
 
 .emotion-2:active {
@@ -497,9 +497,9 @@ exports[`DataViewStatus should match snapshot error 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
 }
 
@@ -510,9 +510,9 @@ exports[`DataViewStatus should match snapshot error 1`] = `
   text-decoration: none;
   cursor: pointer;
   font-size: 0.875rem;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
 }
 
 .emotion-2:active {
@@ -886,17 +886,17 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
 
 .emotion-1 {
   color: #323845;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
 }
 
 .emotion-2 {
   color: #707685;
-  font-family: VTEXTrustVF,-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
-  font-variation-settings: 'wght' 92;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
 }
 
