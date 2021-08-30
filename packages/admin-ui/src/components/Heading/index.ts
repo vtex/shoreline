@@ -1,32 +1,8 @@
-import type { ReactNode } from 'react'
-import { createComponent } from '@vtex/admin-jsxs'
-import { Primitive } from '@vtex/admin-primitives'
+import { jsx } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithRef } from 'react'
 
-import type { SystemComponent } from '../../types'
+export const Heading = jsx.h1({
+  text: 'headline',
+})
 
-export const Heading = createComponent(Primitive, useHeading)
-
-export function useHeading(props: HeadingProps) {
-  const { csx, element = 'h1', ...htmlProps } = props
-
-  return {
-    element,
-    csx: {
-      text: 'headline',
-      ...csx,
-    },
-    ...htmlProps,
-  }
-}
-
-export interface HeadingProps extends SystemComponent {
-  /**
-   * Element to render
-   * @default h1
-   */
-  element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-  /**
-   * heading children
-   */
-  children?: ReactNode
-}
+export type HeadingProps = ComponentPropsWithRef<typeof Heading>
