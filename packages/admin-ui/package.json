@@ -54,6 +54,7 @@
     "@vtex/admin-ui-hooks": "^0.1.0",
     "@vtex/admin-ui-icons": "^0.13.0",
     "@vtex/admin-ui-react": "^0.1.0",
+    "@vtex/admin-jsxs": "^0.1.2",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
     "downshift": "^6.0.6",
