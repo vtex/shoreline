@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0 (2021-08-30)
+
+### Features
+
+- **admin-ui-core:** create package from onda-core ([6ae6869](https://github.com/vtex/onda/commit/6ae6869f89b8ce82a9acda6d8a7b424c24daed4d))
+- **core:** update font-stack with the latest version of VTEX Trust ([46f0638](https://github.com/vtex/onda/commit/46f0638d05117a6e0c4a70a9f53aafc07519b367))
+- **hooks-util:** create admin-ui-hooks from onda-hooks and admin-ui-util from onda-util ([1452e83](https://github.com/vtex/onda/commit/1452e83cd0cc602ce5863cf6b5b4b2ffcf3e1525))
+- **onda:** replace admin-core for onda-core ([e4ca4f2](https://github.com/vtex/onda/commit/e4ca4f2c2b508ba84dc8db5646161325b72665f4))
+- **onda-core:** add theme object ([e1c4cea](https://github.com/vtex/onda/commit/e1c4ceab3afac0cf31d6ee0dc693b5aa2c9c3a86))
+- **onda-core:** allow responsive arrays ([8810846](https://github.com/vtex/onda/commit/88108466ea8ff23457d743c589bc850e1a8308f1))
+- **onda-packages:** add onda packages ([b619064](https://github.com/vtex/onda/commit/b619064d04d190d5615a2832dbcb86d96efd16ee))
+- **onda-packages:** merge onda-runtime-emotion and onda-plugins into onda-core ([2272ea0](https://github.com/vtex/onda/commit/2272ea08a2673f81ee0e43bbd700eda2ff1690d0))
+
 # [0.1.0-labs.8](https://github.com/vtex/onda/compare/@vtex/onda-core@0.1.0-labs.7...@vtex/onda-core@0.1.0-labs.8) (2021-08-17)
 
 **Note:** Version bump only for package @vtex/onda-core

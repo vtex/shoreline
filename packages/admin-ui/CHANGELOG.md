@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.111.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.110.0...@vtex/admin-ui@0.111.0) (2021-08-30)
+
+### Bug Fixes
+
+- **modal:** fix modal content scrollable style ([ea42ed7](https://github.com/vtex/onda/commit/ea42ed785ef654d9e9e842212a6821c2b904cff4))
+- **onda-react:** typescript props definition ([62a6f21](https://github.com/vtex/onda/commit/62a6f2139578723085f9be55a692ae282c1047fd))
+
+### Features
+
+- **admin-ui-core:** create package from onda-core ([6ae6869](https://github.com/vtex/onda/commit/6ae6869f89b8ce82a9acda6d8a7b424c24daed4d))
+- **admin-ui-react:** create new package from onda-react ([e0f312f](https://github.com/vtex/onda/commit/e0f312f31628e0bfec3749b8338125c85c63c0a6))
+- **core:** update font-stack with the latest version of VTEX Trust ([46f0638](https://github.com/vtex/onda/commit/46f0638d05117a6e0c4a70a9f53aafc07519b367))
+- **hooks-util:** create admin-ui-hooks from onda-hooks and admin-ui-util from onda-util ([1452e83](https://github.com/vtex/onda/commit/1452e83cd0cc602ce5863cf6b5b4b2ffcf3e1525))
+- **onda:** replace admin-core for onda-core ([e4ca4f2](https://github.com/vtex/onda/commit/e4ca4f2c2b508ba84dc8db5646161325b72665f4))
+- **onda-core:** add theme object ([e1c4cea](https://github.com/vtex/onda/commit/e1c4ceab3afac0cf31d6ee0dc693b5aa2c9c3a86))
+
 # [0.110.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.109.0...@vtex/admin-ui@0.110.0) (2021-08-17)
 
 ### Bug Fixes

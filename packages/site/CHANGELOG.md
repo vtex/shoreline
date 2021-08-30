@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.14.1...admin-site@0.15.0) (2021-08-30)
+
+### Bug Fixes
+
+- **(docs-home-page):** fix redirect for the home page ([de6a4c3](https://github.com/vtex/onda/tree/master/packages/site/commit/de6a4c35c644ae25c1556c0763a5b07023750a40))
+
+### Features
+
+- **admin-ui-core:** create package from onda-core ([6ae6869](https://github.com/vtex/onda/tree/master/packages/site/commit/6ae6869f89b8ce82a9acda6d8a7b424c24daed4d))
+- **core:** update font-stack with the latest version of VTEX Trust ([46f0638](https://github.com/vtex/onda/tree/master/packages/site/commit/46f0638d05117a6e0c4a70a9f53aafc07519b367))
+- **onda:** replace admin-core for onda-core ([e4ca4f2](https://github.com/vtex/onda/tree/master/packages/site/commit/e4ca4f2c2b508ba84dc8db5646161325b72665f4))
+- **onda-core:** add theme object ([e1c4cea](https://github.com/vtex/onda/tree/master/packages/site/commit/e1c4ceab3afac0cf31d6ee0dc693b5aa2c9c3a86))
+
 ## [0.14.1](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.14.0...admin-site@0.14.1) (2021-08-17)
 
 **Note:** Version bump only for package admin-site

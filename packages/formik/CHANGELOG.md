@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.1.39...@vtex/admin-formik@0.2.0) (2021-08-30)
+
+### Features
+
+- **admin-ui-core:** create package from onda-core ([6ae6869](https://github.com/vtex/onda/commit/6ae6869f89b8ce82a9acda6d8a7b424c24daed4d))
+- **onda:** replace admin-core for onda-core ([e4ca4f2](https://github.com/vtex/onda/commit/e4ca4f2c2b508ba84dc8db5646161325b72665f4))
+- **onda-core:** add theme object ([e1c4cea](https://github.com/vtex/onda/commit/e1c4ceab3afac0cf31d6ee0dc693b5aa2c9c3a86))
+
 ## [0.1.39](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.1.38...@vtex/admin-formik@0.1.39) (2021-08-17)
 
 **Note:** Version bump only for package @vtex/admin-formik
