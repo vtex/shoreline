@@ -127,14 +127,14 @@ export const RegularModal: Story<ModalProps> = () => {
           customer, the shared cart means practicality when making a purchase.
           For your store, it means:
         </Paragraph>
-        <Heading element="h2">Information security</Heading>
+        <Heading as="h2">Information security</Heading>
         <Paragraph>
           The payment is still done by one person whose informations remain
           secure, since the profile and delivery data are visible only to the
           user who creates the cart. For others, these same data are
         </Paragraph>
 
-        <Heading element="h2">How this is technically possible</Heading>
+        <Heading as="h2">How this is technically possible</Heading>
         <Paragraph>
           We started using a parameter in the URL to identify the cart. As a
           result, the URL can be shared with other users, who can view the

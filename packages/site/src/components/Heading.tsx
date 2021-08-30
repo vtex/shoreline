@@ -2,8 +2,11 @@ import React from 'react'
 import type { HeadingProps } from '@vtex/admin-ui'
 import { Heading as BaseHeading } from '@vtex/admin-ui'
 
-function Heading(props: HeadingProps) {
-  const { children, element = 'h1', ...headingProps } = props
+type HeadingTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
+type Props = HeadingProps & { as?: HeadingTags }
+
+function Heading(props: Props) {
+  const { children, as = 'h1', ...headingProps } = props
   const fontSize = {
     h1: '2.0em',
     h2: '1.5em',
@@ -11,7 +14,7 @@ function Heading(props: HeadingProps) {
     h4: '1.15em',
     h5: '1.1em',
     h6: '1em',
-  }[element]
+  }[as]
 
   const marginTop = {
     h1: 6,
@@ -20,7 +23,7 @@ function Heading(props: HeadingProps) {
     h4: 3,
     h5: 2,
     h6: 2,
-  }[element]
+  }[as]
 
   return (
     <BaseHeading
