@@ -16,38 +16,38 @@ Playground.args = {
   children: 'Text!',
 }
 
-export function Elements() {
+export function ass() {
   return (
     <>
-      <Text element="strong">Bold</Text>
+      <Text as="strong">Bold</Text>
       <br />
-      <Text element="i">Italic</Text>
+      <Text as="i">Italic</Text>
       <br />
-      <Text element="u">Underline</Text>
+      <Text as="u">Underline</Text>
       <br />
-      <Text element="abbr">I18N</Text>
+      <Text as="abbr">I18N</Text>
       <br />
-      <Text element="cite">Citation</Text>
+      <Text as="cite">Citation</Text>
       <br />
-      <Text element="del">Deleted</Text>
+      <Text as="del">Deleted</Text>
       <br />
-      <Text element="em">Emphasis</Text>
+      <Text as="em">Emphasis</Text>
       <br />
-      <Text element="ins">Inserted</Text>
+      <Text as="ins">Inserted</Text>
       <br />
-      <Text element="kbd">Ctrl + C</Text>
+      <Text as="kbd">Ctrl + C</Text>
       <br />
-      <Text element="mark">Highlighted</Text>
+      <Text as="mark">Highlighted</Text>
       <br />
-      <Text element="s">Strikethrough</Text>
+      <Text as="s">Strikethrough</Text>
       <br />
-      <Text element="samp">Sample</Text>
+      <Text as="samp">Sample</Text>
       <br />
-      <Text element="sub">sub</Text>
+      <Text as="sub">sub</Text>
       <br />
-      <Text element="sup">sup</Text>
+      <Text as="sup">sup</Text>
       <br />
-      <Text element="code" variant="code">
+      <Text as="code" variant="code">
         {`
           function Code() {
             const copy = () => return 'copied'

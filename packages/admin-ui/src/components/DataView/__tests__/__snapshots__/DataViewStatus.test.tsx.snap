@@ -81,11 +81,11 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
 }
 
 .emotion-1 {
-  color: #323845;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
+  color: #323845;
 }
 
 .emotion-2 {
@@ -496,11 +496,11 @@ exports[`DataViewStatus should match snapshot error 1`] = `
 }
 
 .emotion-1 {
-  color: #323845;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
+  color: #323845;
 }
 
 .emotion-2 {
@@ -885,19 +885,19 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
 }
 
 .emotion-1 {
-  color: #323845;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.5;
   font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
+  color: #323845;
 }
 
 .emotion-2 {
-  color: #707685;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
+  color: #707685;
 }
 
 <div
