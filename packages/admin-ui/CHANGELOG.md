@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.111.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.111.0...@vtex/admin-ui@0.111.1) (2021-08-30)
+
+### Bug Fixes
+
+- **admin-ui:** @vtex/admin-jsxs export ([01dcc55](https://github.com/vtex/onda/commit/01dcc55a0213abbdac20b2c74f1631435c655334))
+
 # [0.111.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.110.0...@vtex/admin-ui@0.111.0) (2021-08-30)
 
 ### Bug Fixes
