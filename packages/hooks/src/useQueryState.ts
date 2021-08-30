@@ -39,18 +39,22 @@ export function useQueryState(
     }, {})
   )
 
-  const setQuery = useCallback((query: Record<string, any> = {}): void => {
-    if (!isBrowser) return
+  const setQuery = useCallback(
+    (query: Record<string, string | undefined> = {}): void => {
+      if (!isBrowser) return
 
-    Object.entries(query).forEach((element: [string, any]) => {
-      queryParams.set(element[0], element[1])
-    })
-    const newurl = `${window.location.protocol}//${window.location.host}${
-      window.location.pathname
-    }?${queryParams.toString()}`
+      Object.entries(query).forEach((element: [string, string | undefined]) => {
+        if (!element[1]) queryParams.delete(element[0])
+        else queryParams.set(element[0], element[1])
+      })
+      const newurl = `${window.location.protocol}//${window.location.host}${
+        window.location.pathname
+      }?${queryParams.toString()}`
 
-    window.history.pushState({ path: newurl }, '', newurl)
-  }, [])
+      window.history.pushState({ path: newurl }, '', newurl)
+    },
+    []
+  )
 
   return [initialQuery.current, setQuery, query]
 }

@@ -29,7 +29,10 @@ export function useQuerySearchState(
     if (searchChanged) {
       setSearchChanged(false)
       setQuery({
-        search: searchState.debouncedValue,
+        search:
+          searchState.debouncedValue !== ''
+            ? searchState.debouncedValue
+            : undefined,
       })
     } else if (query.search) {
       searchState.setValue(query.search)
