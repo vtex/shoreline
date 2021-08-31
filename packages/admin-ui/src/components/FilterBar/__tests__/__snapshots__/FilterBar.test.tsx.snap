@@ -2,7 +2,7 @@
 
 exports[`FilterBar tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-51 {
+  .emotion-49 {
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
@@ -10,7 +10,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   background-color: coral;
 }
 
-.emotion-50 {
+.emotion-48 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30,7 +30,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   background-color: #FFFFFF;
 }
 
-.emotion-42 {
+.emotion-40 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -46,31 +46,31 @@ exports[`FilterBar tests should match snapshot 1`] = `
   color: #2953B2;
 }
 
-.emotion-42:focus:not([data-focus-visible-added]) {
+.emotion-40:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-42:focus {
+.emotion-40:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-42:hover {
+.emotion-40:hover {
   color: #214491;
   background-color: rgba(202,215,241,0.24);
 }
 
-.emotion-42:active {
+.emotion-40:active {
   color: #1a3470;
   background-color: rgba(186,203,236,0.32);
 }
 
-.emotion-42:disabled {
+.emotion-40:disabled {
   color: #898F9E;
 }
 
-.emotion-42 svg {
+.emotion-40 svg {
   width: 20px;
   height: 20px;
   min-width: 20px;
@@ -122,7 +122,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   height: 24px;
 }
 
-.emotion-49 {
+.emotion-47 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -140,11 +140,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: start;
 }
 
-.emotion-49 >*:not(:first-child) {
+.emotion-47 >*:not(:first-child) {
   margin-left: 0.25rem;
 }
 
-.emotion-45 {
+.emotion-43 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -160,29 +160,29 @@ exports[`FilterBar tests should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.emotion-45:focus:not([data-focus-visible-added]) {
+.emotion-43:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-45:focus {
+.emotion-43:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-45:hover {
+.emotion-43:hover {
   background-color: rgba(50,56,69,0.04);
 }
 
-.emotion-45:active {
+.emotion-43:active {
   background-color: rgba(50,56,69,0.08);
 }
 
-.emotion-45:disabled {
+.emotion-43:disabled {
   color: #898F9E;
 }
 
-.emotion-48 {
+.emotion-46 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -198,35 +198,35 @@ exports[`FilterBar tests should match snapshot 1`] = `
   background-color: #2953B2;
 }
 
-.emotion-48:focus:not([data-focus-visible-added]) {
+.emotion-46:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-48:focus {
+.emotion-46:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
-.emotion-48:hover {
+.emotion-46:hover {
   background-color: #214491;
 }
 
-.emotion-48:active {
+.emotion-46:active {
   background-color: #1a3470;
 }
 
-.emotion-48:disabled {
+.emotion-46:disabled {
   color: #323845;
   background-color: #C4C5CA;
 }
 
-.emotion-38 {
+.emotion-36 {
   padding: 1rem;
   padding-left: 1rem;
 }
 
-.emotion-37 {
+.emotion-35 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -244,11 +244,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-37 >*:not(:last-child) {
+.emotion-35 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-.emotion-36 {
+.emotion-34 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -469,14 +469,14 @@ exports[`FilterBar tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-35 {
+.emotion-33 {
   border: 0;
   padding: 0rem;
   outline: none;
   z-index: 999;
 }
 
-.emotion-34 {
+.emotion-32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -495,7 +495,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
 }
 
-.emotion-34 hr {
+.emotion-32 hr {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   border-style: solid;
@@ -510,60 +510,79 @@ exports[`FilterBar tests should match snapshot 1`] = `
   outline: none;
 }
 
-.emotion-29 {
+.emotion-28 {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-size: 0.875rem;
+  border: none;
+  text-transform: initial;
+  width: 100%;
+  height: 32px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  font-size: 0.875rem;
-  height: 32px;
-  width: 100%;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
   background-color: transparent;
   color: #323845;
-  margin-top: 0.125rem;
-  margin-bottom: 0.125rem;
-  text-transform: initial;
 }
 
-.emotion-29:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-29:focus {
-  outline: none;
-  box-shadow: none;
-  background-color: rgba(218,227,245,0.32);
-}
-
-.emotion-29:hover {
-  color: #323845;
-  background-color: rgba(202,215,241,0.24);
-}
-
-.emotion-29:active {
-  color: #1a3470;
-  background-color: rgba(186,203,236,0.32);
-}
-
-.emotion-29:disabled {
-  color: #898F9E;
-}
-
-.emotion-29 svg {
-  margin-left: 0rem;
-  margin-right: 0.5rem;
-}
-
-.emotion-29 div {
+.emotion-28 div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
+}
+
+.emotion-28 svg {
+  margin: 0.25rem;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  margin-left: 0rem;
+  margin-right: 0.5rem;
+}
+
+.emotion-28:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-28:focus {
+  background-color: rgba(218,227,245,0.32);
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-28:hover {
+  color: #323845;
+}
+
+.emotion-28:active {
+  color: #1a3470;
+  background-color: rgba(186,203,236,0.32);
+}
+
+.emotion-28:disabled {
+  color: #898F9E;
+}
+
+.emotion-27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .emotion-26 {
@@ -574,17 +593,17 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-51"
+    class="emotion-49"
     data-testid="filter-bar"
   >
     <div
-      class="emotion-38"
+      class="emotion-36"
     >
       <div
-        class="emotion-37"
+        class="emotion-35"
       >
         <div
-          class="emotion-36"
+          class="emotion-34"
         >
           <div
             class="emotion-21"
@@ -809,7 +828,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
           <div
             aria-label="Statement Menu 0"
             aria-orientation="vertical"
-            class="emotion-35"
+            class="emotion-33"
             data-dialog="true"
             hidden=""
             id="statement-menu"
@@ -818,111 +837,101 @@ exports[`FilterBar tests should match snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="emotion-34"
+              class="emotion-32"
             >
               <button
-                class="emotion-29"
+                class="emotion-28"
                 id="statement-menu-1"
                 role="menuitem"
                 tabindex="0"
-                type="button"
               >
                 <div
-                  class="emotion-4"
+                  class="emotion-27"
                 >
-                  <div
-                    class="emotion-23"
+                  <svg
+                    class="emotion-26"
+                    fill="none"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      class="emotion-26"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M4.44852 3.75488C4.06573 3.75488 3.75452 4.0661 3.75452 4.44888V14.5609C3.75452 14.9437 4.06573 15.2549 4.44852 15.2549H5.00452C5.41873 15.2549 5.75452 15.5907 5.75452 16.0049C5.75452 16.4191 5.41873 16.7549 5.00452 16.7549H4.44852C3.2373 16.7549 2.25452 15.7721 2.25452 14.5609V4.44888C2.25452 3.23767 3.2373 2.25488 4.44852 2.25488H14.5595C15.7714 2.25488 16.7545 3.23733 16.7545 4.44888V5.00488C16.7545 5.4191 16.4187 5.75488 16.0045 5.75488C15.5903 5.75488 15.2545 5.4191 15.2545 5.00488V4.44888C15.2545 4.06643 14.9436 3.75488 14.5595 3.75488H4.44852Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                      <path
-                        clip-rule="evenodd"
-                        d="M9.44852 8.75488C9.06573 8.75488 8.75452 9.0661 8.75452 9.44888V19.5609C8.75452 19.9437 9.06573 20.2549 9.44852 20.2549H19.5605C19.943 20.2549 20.2545 19.944 20.2545 19.5599V9.44888C20.2545 9.06643 19.9436 8.75488 19.5595 8.75488H9.44852ZM7.25452 9.44888C7.25452 8.23767 8.2373 7.25488 9.44852 7.25488H19.5595C20.7714 7.25488 21.7545 8.23733 21.7545 9.44888V19.5599C21.7545 20.7718 20.7721 21.7549 19.5605 21.7549H9.44852C8.2373 21.7549 7.25452 20.7721 7.25452 19.5609V9.44888Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                      <path
-                        clip-rule="evenodd"
-                        d="M14.5045 11.2549C14.9187 11.2549 15.2545 11.5907 15.2545 12.0049V17.0049C15.2545 17.4191 14.9187 17.7549 14.5045 17.7549C14.0903 17.7549 13.7545 17.4191 13.7545 17.0049V12.0049C13.7545 11.5907 14.0903 11.2549 14.5045 11.2549Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                      <path
-                        clip-rule="evenodd"
-                        d="M11.2545 14.5049C11.2545 14.0907 11.5903 13.7549 12.0045 13.7549H17.0045C17.4187 13.7549 17.7545 14.0907 17.7545 14.5049C17.7545 14.9191 17.4187 15.2549 17.0045 15.2549H12.0045C11.5903 15.2549 11.2545 14.9191 11.2545 14.5049Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                     Duplicate
-                  </div>
+                    <path
+                      clip-rule="evenodd"
+                      d="M4.44852 3.75488C4.06573 3.75488 3.75452 4.0661 3.75452 4.44888V14.5609C3.75452 14.9437 4.06573 15.2549 4.44852 15.2549H5.00452C5.41873 15.2549 5.75452 15.5907 5.75452 16.0049C5.75452 16.4191 5.41873 16.7549 5.00452 16.7549H4.44852C3.2373 16.7549 2.25452 15.7721 2.25452 14.5609V4.44888C2.25452 3.23767 3.2373 2.25488 4.44852 2.25488H14.5595C15.7714 2.25488 16.7545 3.23733 16.7545 4.44888V5.00488C16.7545 5.4191 16.4187 5.75488 16.0045 5.75488C15.5903 5.75488 15.2545 5.4191 15.2545 5.00488V4.44888C15.2545 4.06643 14.9436 3.75488 14.5595 3.75488H4.44852Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.44852 8.75488C9.06573 8.75488 8.75452 9.0661 8.75452 9.44888V19.5609C8.75452 19.9437 9.06573 20.2549 9.44852 20.2549H19.5605C19.943 20.2549 20.2545 19.944 20.2545 19.5599V9.44888C20.2545 9.06643 19.9436 8.75488 19.5595 8.75488H9.44852ZM7.25452 9.44888C7.25452 8.23767 8.2373 7.25488 9.44852 7.25488H19.5595C20.7714 7.25488 21.7545 8.23733 21.7545 9.44888V19.5599C21.7545 20.7718 20.7721 21.7549 19.5605 21.7549H9.44852C8.2373 21.7549 7.25452 20.7721 7.25452 19.5609V9.44888Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M14.5045 11.2549C14.9187 11.2549 15.2545 11.5907 15.2545 12.0049V17.0049C15.2545 17.4191 14.9187 17.7549 14.5045 17.7549C14.0903 17.7549 13.7545 17.4191 13.7545 17.0049V12.0049C13.7545 11.5907 14.0903 11.2549 14.5045 11.2549Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M11.2545 14.5049C11.2545 14.0907 11.5903 13.7549 12.0045 13.7549H17.0045C17.4187 13.7549 17.7545 14.0907 17.7545 14.5049C17.7545 14.9191 17.4187 15.2549 17.0045 15.2549H12.0045C11.5903 15.2549 11.2545 14.9191 11.2545 14.5049Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                   Duplicate
                 </div>
               </button>
               <button
-                class="emotion-29"
+                class="emotion-28"
                 id="statement-menu-2"
                 role="menuitem"
                 tabindex="-1"
-                type="button"
               >
                 <div
-                  class="emotion-4"
+                  class="emotion-27"
                 >
-                  <div
-                    class="emotion-23"
+                  <svg
+                    class="emotion-26"
+                    fill="none"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      class="emotion-26"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M18 6V18.75C18 19.993 16.973 21 15.731 21H8.231C6.988 21 6 19.993 6 18.75V6"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1"
-                      />
-                      <path
-                        d="M19.5 6H4.5"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1"
-                      />
-                      <path
-                        d="M10 3H14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1"
-                      />
-                      <path
-                        d="M14 10V17"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1"
-                      />
-                      <path
-                        d="M10 17V10"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1"
-                      />
-                    </svg>
-                     Delete
-                  </div>
+                    <path
+                      d="M18 6V18.75C18 19.993 16.973 21 15.731 21H8.231C6.988 21 6 19.993 6 18.75V6"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1"
+                    />
+                    <path
+                      d="M19.5 6H4.5"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1"
+                    />
+                    <path
+                      d="M10 3H14"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1"
+                    />
+                    <path
+                      d="M14 10V17"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1"
+                    />
+                    <path
+                      d="M10 17V10"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1"
+                    />
+                  </svg>
+                   Delete
                 </div>
               </button>
             </div>
@@ -931,10 +940,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="emotion-50"
+      class="emotion-48"
     >
       <button
-        class="emotion-42"
+        class="emotion-40"
         type="button"
       >
         <div
@@ -966,10 +975,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
         </div>
       </button>
       <div
-        class="emotion-49"
+        class="emotion-47"
       >
         <button
-          class="emotion-45"
+          class="emotion-43"
           type="button"
         >
           <div
@@ -984,7 +993,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
         </button>
         <button
           aria-disabled="true"
-          class="emotion-48"
+          class="emotion-46"
           disabled=""
           style="pointer-events: none;"
           type="button"

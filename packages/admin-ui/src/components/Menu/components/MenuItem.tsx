@@ -1,9 +1,7 @@
+import type { ComponentPropsWithRef, ReactNode } from 'react'
+import React from 'react'
 import { alpha } from '@vtex/admin-ui-core'
-import { merge } from '@vtex/admin-ui-util'
-import { createComponent } from '@vtex/admin-jsxs'
-
-import type { ButtonProps } from '../../Button'
-import { Button } from '../../Button'
+import { jsx, tag } from '@vtex/admin-ui-react'
 
 /**
  * Accessible menu item component
@@ -18,68 +16,108 @@ import { Button } from '../../Button'
  * </StatelessMenu>
  * ```
  */
-export const MenuItem = createComponent(Button, useMenuItem)
-
-function useMenuItem(props: MenuItemProps): ButtonProps {
-  const { dangerous = false, csx: overrides = {}, ...buttonProps } = props
-
-  const variant = dangerous ? 'danger-tertiary' : 'tertiary'
-
-  const csx = merge(
-    {
-      marginY: '2px',
-      paddingX: 1,
-      fontSize: 1,
-      border: 'none',
-      textTransform: 'initial',
-      width: 'full',
-      div: {
-        justifyContent: 'flex-start',
-      },
-      svg: {
-        marginLeft: 0,
-        marginRight: 2,
-      },
-      ...(dangerous
-        ? {
-            color: 'red',
-            ':focus': {
-              bg: alpha('red.secondary.default', 0.32),
-              outline: 'none',
-              boxShadow: 'none',
-            },
-            ':hover': {
-              color: 'red',
-            },
-          }
-        : {
-            color: 'dark.primary',
-            ':focus': {
-              bg: alpha('blue.secondary.default', 0.32),
-              outline: 'none',
-              boxShadow: 'none',
-            },
-            ':hover': {
-              color: 'dark.primary',
-            },
-          }),
+export const MenuItem = jsx.button(
+  {
+    marginY: '2px',
+    paddingX: 1,
+    fontSize: 1,
+    border: 'none',
+    textTransform: 'initial',
+    width: 'full',
+    div: {
+      justifyContent: 'flex-start',
     },
-    overrides
-  )
+    height: 32,
+    svg: {
+      margin: 1,
+      size: 20,
+      minWidth: 20,
+      minHeight: 20,
+      marginLeft: 0,
+      marginRight: 2,
+    },
+    fontFamily: 'sans',
+    fontSettings: 'regular',
+    borderRadius: 'default',
+    cursor: 'pointer',
+    position: 'relative',
+    ':focus:not([data-focus-visible-added])': {
+      outline: 'none',
+      boxShadow: 'none',
+    },
+    variants: {
+      dangerous: {
+        true: {
+          color: 'red',
+          backgroundColor: 'transparent',
+          ':focus': {
+            bg: alpha('red.secondary.default', 0.32),
+            outline: 'none',
+            boxShadow: 'none',
+          },
+          ':hover': {
+            color: 'red',
+          },
+          ':active': {
+            color: 'red.pressed',
+            backgroundColor: alpha('red.secondary.pressed', 0.32),
+          },
+          ':disabled': {
+            color: 'mid.primary',
+          },
+        },
+        false: {
+          backgroundColor: 'transparent',
+          color: 'dark.primary',
+          ':focus': {
+            bg: alpha('blue.secondary.default', 0.32),
+            outline: 'none',
+            boxShadow: 'none',
+          },
+          ':hover': {
+            color: 'dark.primary',
+          },
+          ':active': {
+            color: 'blue.pressed',
+            backgroundColor: alpha('blue.secondary.pressed', 0.32),
+          },
+          ':disabled': {
+            color: 'mid.primary',
+          },
+        },
+      },
+    },
+  },
+  {
+    options: ['icon'],
+    useOptions: (options: MenuItemOptions, props) => {
+      const { children, ...buttonProps } = props
+      const { icon } = options
 
-  return {
-    size: 'small',
-    csx,
-    variant,
-    ...buttonProps,
+      return {
+        ...buttonProps,
+        children: (
+          <tag.div
+            csx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {icon} {children}
+          </tag.div>
+        ),
+      }
+    },
   }
+)
+
+MenuItem.defaultProps = {
+  dangerous: false,
 }
 
-export interface MenuItemProps
-  extends Omit<ButtonProps, 'variant' | 'iconPosition'> {
-  /**
-   * If performs a dangerous action
-   * @default false
-   */
-  dangerous?: boolean
+interface MenuItemOptions {
+  icon?: ReactNode
 }
+
+export type MenuItemProps = ComponentPropsWithRef<typeof MenuItem>
