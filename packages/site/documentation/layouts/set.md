@@ -20,12 +20,10 @@ A `<Set>` can be used to list a set of components. It will automatically space o
 </Set>
 ```
 
-## Installation
+## Import
 
 ```sh isStatic
-yarn add @vtex/admin-ui
----
-npm install @vtex/admin-ui
+import { Set } from '@vtex/admin-ui'
 ```
 
 ## Variation
@@ -126,11 +124,9 @@ You can use the `csx` property to handle different styles.
 </Set>
 ```
 
-## Limitations
-
-This component uses a flexbox under the hood. Knowing that it has the same limitations.
-
 # Props
+
+All props of `div` jsx element.
 
 | Name        | Type                        | Description                                              | Required             | Default |
 | ----------- | --------------------------- | -------------------------------------------------------- | -------------------- | ------- | ------------ |
@@ -138,6 +134,4 @@ This component uses a flexbox under the hood. Knowing that it has the same limit
 | fluid       | `boolean`                   | If the items should grow in width to match the container | 🚫                   | `false` |
 | spacing     | `ResponsiveValue<number>`   | Space between items                                      | 🚫                   | `0`     |
 | align       | `ResponsiveValue<'start'    | 'end'>`                                                  | Items alignment      | 🚫      | `start`      |
-| themeKey    | `string`                    | Optional themeKey                                        | 🚫                   | -       |
-| children    | `ReactNode`                 | Set children                                             | 🚫                   | -       |
 | csx         | `StyleProp`                 | Defines component styles                                 | 🚫                   | `{}`    |

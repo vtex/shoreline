@@ -1,7 +1,5 @@
 import { jsx } from '@vtex/admin-ui-react'
 
-import { Set } from '../../Set'
-
 /**
  * Organizes the DataView controls
  * @example
@@ -13,9 +11,15 @@ import { Set } from '../../Set'
  *    </DataViewControls>
  * </DataView>
  */
-export const DataViewControls = jsx(Set)({
+export const DataViewControls = jsx.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'start',
   paddingY: '4',
   width: '100%',
+  '> *:not(:first-child)': {
+    marginLeft: 3,
+  },
   variants: {
     sticky: {
       true: {
@@ -27,6 +31,5 @@ export const DataViewControls = jsx(Set)({
 })
 
 DataViewControls.defaultProps = {
-  spacing: 3,
   sticky: false,
 }

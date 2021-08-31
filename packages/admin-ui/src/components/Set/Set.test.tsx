@@ -1,28 +1,10 @@
 import React from 'react'
-import { render, axe } from '../../test-utils'
+import { render, axe, jestMatchMedia } from '../../test-utils'
 
 import { Set } from './index'
 
 describe('Set tests', () => {
-  beforeEach(() => {
-    /**
-     * 🚧 Workaround for window.match media
-     * @see https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
-     */
-    Object.defineProperty(window, 'matchMedia', {
-      writable: true,
-      value: jest.fn().mockImplementation((query) => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: jest.fn(), // Deprecated
-        removeListener: jest.fn(), // Deprecated
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      })),
-    })
-  })
+  beforeEach(jestMatchMedia)
 
   it('should have overridable styles', () => {
     const { getByTestId } = render(

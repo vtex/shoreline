@@ -1,5 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
+import { Tabbable } from 'reakit/Tabbable'
 
 import { useComposite } from '../Aria'
 import type { SetProps } from '../../../Set'
@@ -11,7 +12,7 @@ import { SCALES } from '../../consts'
 
 const _SidebarSection = forwardRef(function SidebarSection(
   props: SidebarSectionProps,
-  ref: Ref<HTMLButtonElement>
+  ref: Ref<HTMLDivElement>
 ) {
   const { title, children, ...baseProps } = props
   const { state } = useItemContext()
@@ -19,6 +20,7 @@ const _SidebarSection = forwardRef(function SidebarSection(
 
   return (
     <Set
+      as={Tabbable}
       spacing={0.5}
       orientation="vertical"
       csx={{
