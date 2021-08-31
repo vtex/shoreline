@@ -1,14 +1,16 @@
-import type { FunctionComponentElement, ReactNode } from 'react'
+import type {
+  ComponentPropsWithRef,
+  FunctionComponentElement,
+  ReactNode,
+} from 'react'
 import React, { cloneElement } from 'react'
+import type { TooltipStateReturn } from 'reakit/Tooltip'
 import {
   useTooltipState,
   Tooltip as ReakitTooltip,
   TooltipReference,
 } from 'reakit/Tooltip'
-import type { PopoverState } from 'reakit/ts'
-import { useSystem } from '@vtex/admin-ui-core'
-
-import type { SystemComponent } from '../../types'
+import { jsx, tag } from '@vtex/admin-ui-react'
 
 /**
  * Popup that displays information related to an element on :focus (by keyboard) or :hover (by mouse).
@@ -19,57 +21,51 @@ import type { SystemComponent } from '../../types'
  *   <Button icon={<IconClose />} variant="tertiary" />
  * </Tooltip>
  * ```
- */
-export function Tooltip(props: TooltipProps) {
-  const {
-    csx = {},
-    children,
-    label,
-    placement = 'top',
-    visible,
-    fixed,
-    baseId,
-    ...tooltipProps
-  } = props
+//  */
+export const Tooltip = jsx.div(
+  {},
+  {
+    options: ['state', 'children', 'label'],
+    useOptions(options: TooltipOptions, props) {
+      const { state, children, label } = options
+      const { csx, ...htmlProps } = props
 
-  const { cn } = useSystem()
+      return {
+        ...htmlProps,
+        children: (
+          <>
+            <TooltipReference {...state} {...children.props} ref={children.ref}>
+              {(referenceProps) =>
+                cloneElement(children, { ...referenceProps })
+              }
+            </TooltipReference>
+            <tag.div
+              as={ReakitTooltip}
+              {...state}
+              {...htmlProps}
+              csx={{
+                backgroundColor: 'dark.primary',
+                color: 'light.primary',
+                fontSize: 1,
+                paddingY: '0.5625rem',
+                paddingX: 3,
+                borderRadius: 3,
+                maxWidth: 240,
+                zIndex: 'over',
+                ...csx,
+              }}
+            >
+              {label}
+            </tag.div>
+          </>
+        ),
+      }
+    },
+  }
+)
 
-  const tooltip = useTooltipState({
-    placement,
-    visible,
-    unstable_fixed: fixed,
-    baseId,
-  })
-
-  return (
-    <>
-      <TooltipReference {...tooltip} {...children.props} ref={children.ref}>
-        {(referenceProps) => cloneElement(children, { ...referenceProps })}
-      </TooltipReference>
-      <ReakitTooltip
-        {...tooltip}
-        {...tooltipProps}
-        className={cn({
-          backgroundColor: 'dark.primary',
-          color: 'light.primary',
-          fontSize: 1,
-          paddingY: '0.5625rem',
-          paddingX: 3,
-          borderRadius: 3,
-          maxWidth: 240,
-          zIndex: 'over',
-          ...csx,
-        })}
-      >
-        {label}
-      </ReakitTooltip>
-    </>
-  )
-}
-
-export type TooltipPlacement = Pick<PopoverState, 'placement'>['placement']
-
-export interface TooltipProps extends SystemComponent {
+export interface TooltipOptions {
+  state: TooltipStateReturn
   /**
    * The element that triggers the tooltip
    */
@@ -78,23 +74,7 @@ export interface TooltipProps extends SystemComponent {
    * Label shown inside the tooltip
    */
   label: ReactNode
-  /**
-   * The placement of the tooltip relative to its children
-   * @default 'top'
-   */
-  placement?: TooltipPlacement
-  /**
-   * Whether the tooltip is visible or not
-   * @default false
-   */
-  visible?: boolean
-  /**
-   * Whether or not the tooltip popover should have position set to fixed.
-   * @default false
-   */
-  fixed?: boolean
-  /**
-   * reakit base-id
-   */
-  baseId?: string
 }
+
+export type TooltipProps = ComponentPropsWithRef<typeof Tooltip>
+export { useTooltipState }
