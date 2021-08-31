@@ -45,7 +45,7 @@ By default, the palette property has the `blue` value, but you can also set it t
   <Tag label="Rio de Janeiro" palette="red" />
   <Tag label="Rio de Janeiro" palette="yellow" />
   <Tag label="Rio de Janeiro" palette="green" />
-  <Tag label="Rio de Janeiro" palette="black" />
+  <Tag label="Rio de Janeiro" palette="gray" />
   <Tag label="Rio de Janeiro" palette="purple" />
 </>
 ```
@@ -72,7 +72,7 @@ You can add one Icon on the left side of the `Tag`. Just use the `icon` property
 | ------------ | ------------- | --------------------------------- | -------- | ------- | --------- | --------- | --------- | --- | ------ |
 | label        | `string`      | Tag size                          | ✅       | -       |
 | csx          | `StyleObject` | Custom styles                     | 🚫       | {}      |
-| palette      | `'black'      | 'green'                           | 'red'    | 'blue'  | 'yellow'  | 'purple'` | Tag theme | 🚫  | 'blue' |
+| palette      | `'gray'      | 'green'                           | 'red'    | 'blue'  | 'yellow'  | 'purple'` | Tag theme | 🚫  | 'blue' |
 | size         | `'regular'    | 'small'`                          | Tag size | 🚫      | 'regular' |
 | handleDelete | `() => void`  | When defined the tag is deletable | 🚫       | -       |
 | icon         | `ReactNode`   | Tag icon                          | 🚫       | -       |

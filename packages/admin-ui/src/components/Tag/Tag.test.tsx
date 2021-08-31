@@ -19,7 +19,7 @@ describe('Tag tests', () => {
         <Tag label="tag-1" palette="green" />
         <Tag label="tag-2" palette="yellow" />
         <Tag label="tag-3" palette="red" />
-        <Tag label="tag-4" palette="black" />
+        <Tag label="tag-4" palette="gray" />
         <Tag label="tag-5" palette="purple" />
         <Tag label="tag-6" />
         <Tag label="tag-7" size="regular" />
@@ -38,7 +38,7 @@ describe('Tag tests', () => {
         <Tag label="tag-1" palette="green" />
         <Tag label="tag-2" palette="yellow" />
         <Tag label="tag-3" palette="red" />
-        <Tag label="tag-4" palette="black" />
+        <Tag label="tag-4" palette="gray" />
         <Tag label="tag-5" palette="purple" />
         <Tag label="tag-6" />
         <Tag label="tag-7" size="regular" />
