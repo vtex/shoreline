@@ -38,10 +38,6 @@ export const Tag = jsx.div(
         red: {
           bg: 'red.secondary',
         },
-        black: {
-          bg: 'dark.primary',
-          color: 'light.primary',
-        },
         gray: {
           bg: 'mid.tertiary',
         },
