@@ -116,7 +116,7 @@ MenuItem.defaultProps = {
   dangerous: false,
 }
 
-interface MenuItemOptions {
+export interface MenuItemOptions {
   icon?: ReactNode
 }
 
