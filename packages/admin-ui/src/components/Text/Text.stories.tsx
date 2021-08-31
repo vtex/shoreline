@@ -16,7 +16,7 @@ Playground.args = {
   children: 'Text!',
 }
 
-export function ass() {
+export function As() {
   return (
     <>
       <Text as="strong">Bold</Text>
