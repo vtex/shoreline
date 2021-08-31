@@ -51,11 +51,11 @@ export function Csx() {
 
 export function Ordered() {
   return (
-    <List ordered>
+    <List as="ol">
       <List.Item>Coffee</List.Item>
       <List.Item>Juice</List.Item>
       <List.Item>Tea</List.Item>
-      <List ordered>
+      <List as="ol">
         <ListItem>With Milk</ListItem>
         <ListItem>Without Milk</ListItem>
       </List>
