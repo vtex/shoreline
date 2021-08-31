@@ -20,11 +20,7 @@ path: /typography/list/
 </List>
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
+## Import
 
 ```jsx isStatic
 import { List, ListProps } from '@vtex/admin-ui'
@@ -35,11 +31,11 @@ import { List, ListProps } from '@vtex/admin-ui'
 ### Ordered
 
 ```jsx
-<List ordered>
+<List as="ol">
   <List.Item>Coffee</List.Item>
   <List.Item>Juice</List.Item>
   <List.Item>Tea</List.Item>
-  <List ordered>
+  <List as="ol">
     <List.Item>With Milk</List.Item>
     <List.Item>Without Milk</List.Item>
   </List>
@@ -48,21 +44,19 @@ import { List, ListProps } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `csx` property to handle different styles, and also the `TextPattern`.
+You can use the `csx` property to handle different styles.
 
 ### Example
 
 ```jsx
 <List style="square">
-  <List.Item text="subtitle" csx={{ bg: 'blue', color: 'light.primary' }}>
-    Coffe
-  </List.Item>
+  <List.Item csx={{ bg: 'blue', color: 'light.primary' }}>Coffe</List.Item>
   <List>
-    <List.Item text="highlight">Arabica</List.Item>
-    <List.Item text="highlight">Robusta</List.Item>
+    <List.Item>Arabica</List.Item>
+    <List.Item>Robusta</List.Item>
   </List>
-  <List.Item text="highlight">Juice</List.Item>
-  <List.Item text="highlight">Tea</List.Item>
+  <List.Item>Juice</List.Item>
+  <List.Item>Tea</List.Item>
 </List>
 ```
 
@@ -70,16 +64,17 @@ You can use the `csx` property to handle different styles, and also the `TextPat
 
 ### List
 
-| Name     | Type            | Description                      | Required | Default |
-| -------- | --------------- | -------------------------------- | -------- | ------- |
-| children | `ReactNode`     | List children                    | 🚫       | -       |
-| ordered  | `boolean`       | Indicates if the list is ordered | 🚫       | -       |
-| style    | `ListStyleType` | List style                       | 🚫       | `disc`  |
-| csx      | `StyleProp`     | Defines component styles         | 🚫       | `{}`    |
+All props of `ul` jsx element.
+
+| Name  | Type            | Description              | Required | Default |
+| ----- | --------------- | ------------------------ | -------- | ------- |
+| style | `ListStyleType` | List style               | 🚫       | `disc`  |
+| csx   | `StyleProp`     | Defines component styles | 🚫       | `{}`    |
 
 ### List.Item
 
-| Name     | Type        | Description              | Required | Default |
-| -------- | ----------- | ------------------------ | -------- | ------- |
-| children | `ReactNode` | Component children       | 🚫       | -       |
-| csx      | `StyleProp` | Defines component styles | 🚫       | `{}`    |
+All props of `li` jsx element.
+
+| Name | Type        | Description              | Required | Default |
+| ---- | ----------- | ------------------------ | -------- | ------- |
+| csx  | `StyleProp` | Defines component styles | 🚫       | `{}`    |

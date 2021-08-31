@@ -38,17 +38,14 @@ exports[`Spinner tests should match snapshot 1`] = `
 }
 
 .emotion-1 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
   -webkit-animation: animation-1 1.5s linear infinite;
   animation: animation-1 1.5s linear infinite;
+  width: 24px;
+  height: 24px;
 }
 
 <svg
     class="emotion-1"
-    fill="none"
     focusable="false"
     viewBox="0 0 50 50"
   >

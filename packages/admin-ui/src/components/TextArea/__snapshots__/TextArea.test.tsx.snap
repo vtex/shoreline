@@ -51,11 +51,11 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  color: #707685;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
+  color: #707685;
 }
 
 .emotion-0 {
@@ -186,11 +186,11 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  color: #898F9E;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
+  color: #898F9E;
 }
 
 .emotion-0 {
@@ -389,11 +389,11 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  color: #CB4242;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
+  color: #CB4242;
 }
 
 <div
@@ -469,19 +469,19 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  color: #707685;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
+  color: #707685;
 }
 
 .emotion-3 {
-  color: #898F9E;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
+  color: #898F9E;
 }
 
 .emotion-0 {
@@ -600,11 +600,11 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
-  color: #898F9E;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
+  color: #898F9E;
 }
 
 .emotion-0 {
@@ -692,11 +692,11 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  color: #CB4242;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
+  color: #CB4242;
 }
 
 <div

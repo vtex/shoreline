@@ -12,14 +12,19 @@ export default {
 
 export const Playground: Story<LabelProps> = (args) => {
   return (
-    <Label {...args}>
+    <Label
+      csx={{
+        display: 'flex',
+      }}
+      {...args}
+    >
       <input type="checkbox" />
       Checkbox Input Label!
     </Label>
   )
 }
 
-Playground.args = { csx: { display: 'flex' } }
+Playground.args = {}
 
 export const HtmlFor = () => {
   return (

@@ -18,20 +18,20 @@ describe('Text tests', () => {
     const { asFragment } = render(
       <>
         <Text>Span</Text>
-        <Text element="strong">Bold</Text>
-        <Text element="i">Italic</Text>
-        <Text element="u">Underline</Text>
-        <Text element="abbr">I18N</Text>
-        <Text element="cite">Citation</Text>
-        <Text element="del">Deleted</Text>
-        <Text element="em">Emphasis</Text>
-        <Text element="ins">Inserted</Text>
-        <Text element="kbd">Ctrl + C</Text>
-        <Text element="mark">Highlighted</Text>
-        <Text element="s">Strikethrough</Text>
-        <Text element="samp">Sample</Text>
-        <Text element="sub">sub</Text>
-        <Text element="sup">sup</Text>
+        <Text as="strong">Bold</Text>
+        <Text as="i">Italic</Text>
+        <Text as="u">Underline</Text>
+        <Text as="abbr">I18N</Text>
+        <Text as="cite">Citation</Text>
+        <Text as="del">Deleted</Text>
+        <Text as="em">Emphasis</Text>
+        <Text as="ins">Inserted</Text>
+        <Text as="kbd">Ctrl + C</Text>
+        <Text as="mark">Highlighted</Text>
+        <Text as="s">Strikethrough</Text>
+        <Text as="samp">Sample</Text>
+        <Text as="sub">sub</Text>
+        <Text as="sup">sup</Text>
       </>
     )
 
@@ -42,20 +42,20 @@ describe('Text tests', () => {
     const { container } = render(
       <>
         <Text>Span</Text>
-        <Text element="strong">Bold</Text>
-        <Text element="i">Italic</Text>
-        <Text element="u">Underline</Text>
-        <Text element="abbr">I18N</Text>
-        <Text element="cite">Citation</Text>
-        <Text element="del">Deleted</Text>
-        <Text element="em">Emphasis</Text>
-        <Text element="ins">Inserted</Text>
-        <Text element="kbd">Ctrl + C</Text>
-        <Text element="mark">Highlighted</Text>
-        <Text element="s">Strikethrough</Text>
-        <Text element="samp">Sample</Text>
-        <Text element="sub">sub</Text>
-        <Text element="sup">sup</Text>
+        <Text as="strong">Bold</Text>
+        <Text as="i">Italic</Text>
+        <Text as="u">Underline</Text>
+        <Text as="abbr">I18N</Text>
+        <Text as="cite">Citation</Text>
+        <Text as="del">Deleted</Text>
+        <Text as="em">Emphasis</Text>
+        <Text as="ins">Inserted</Text>
+        <Text as="kbd">Ctrl + C</Text>
+        <Text as="mark">Highlighted</Text>
+        <Text as="s">Strikethrough</Text>
+        <Text as="samp">Sample</Text>
+        <Text as="sub">sub</Text>
+        <Text as="sup">sup</Text>
       </>
     )
 

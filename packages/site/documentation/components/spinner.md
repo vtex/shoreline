@@ -40,8 +40,10 @@ function Example() {
 
 ## Props
 
-| Name  | Type          | Description   | Required      | Default |
-| ----- | ------------- | ------------- | ------------- | ------- | ------ |
-| csx   | `StyleObject` | Custom styles | 🚫            | {}      |
-| color | `SystemColor  | string`       | Spinner color | 🚫      | 'blue' |
-| size  | `number`      | Spinner size  | 🚫            | 24      |
+All props of `svg` jsx element.
+
+| Name  | Type                          | Description   | Required | Default |
+| ----- | ----------------------------- | ------------- | -------- | ------- |
+| csx   | `StyleObject`                 | Custom styles | 🚫       | {}      |
+| color | `SystemColor or currentColor` | Spinner color | 🚫       | 'blue'  |
+| size  | `number`                      | Spinner size  | 🚫       | 24      |
