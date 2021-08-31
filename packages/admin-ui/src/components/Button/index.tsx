@@ -1,10 +1,10 @@
 import type { ReactNode, ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { Button as ReakitButton } from 'reakit/Button'
-import type { StyleObject } from '@vtex/onda-core'
-import { alpha } from '@vtex/onda-core'
-import { get } from '@vtex/onda-util'
-import { jsx, tag } from '@vtex/onda-react'
+import type { StyleObject } from '@vtex/admin-ui-core'
+import { alpha } from '@vtex/admin-ui-core'
+import { get } from '@vtex/admin-ui-util'
+import { jsx, tag } from '@vtex/admin-ui-react'
 
 import { Spinner } from '../Spinner'
 
