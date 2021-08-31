@@ -14,7 +14,7 @@ If you want to know more about how to style a primitive component, check out our
 
 `Flex` - The main wrapper with `display: flex` and helpful styles shorthand.
 
-`Flex.Spacer`: Creates an adjustable, empty space that can be used to tune the spacing between child elements within Flex.
+`FlexSpacer`: Creates an adjustable, empty space that can be used to tune the spacing between child elements within Flex.
 
 ```jsx
 <Flex csx={{ height: 100 }}>
@@ -52,14 +52,14 @@ yarn add @vtex/admin-ui
 ```
 
 ```jsx isStatic
-import { Flex } from '@vtex/admin-ui'
+import { Flex, FlexSpacer } from '@vtex/admin-ui'
 ```
 
 ## Variations
 
 ### Spacer
 
-You can combine `Flex` and `Flex.Spacer` to create an adjustable, empty space that can be used to tune the spacing between child elements within Flex.
+You can combine `Flex` and `FlexSpacer` to create an adjustable, empty space that can be used to tune the spacing between child elements within Flex.
 
 ```jsx
 <Flex justify="space-around">
@@ -71,7 +71,7 @@ You can combine `Flex` and `Flex.Spacer` to create an adjustable, empty space th
   >
     Box 1s
   </Box>
-  <Flex.Spacer />
+  <FlexSpacer />
   <Box
     csx={{
       bg: 'green',
@@ -85,7 +85,7 @@ You can combine `Flex` and `Flex.Spacer` to create an adjustable, empty space th
 
 ### Customization
 
-With the `csx` property, you can add any customization to the `Grid` and `Grid.Item` components. Check the [StyleObject](/theming/style-object) page for detailed info.
+With the `csx` property, you can add any customization to the `Flex` component. Check the [StyleObject](/theming/style-object) page for detailed info.
 
 You can also use the following properties to add flex-box styles:
 

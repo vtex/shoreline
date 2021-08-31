@@ -1,40 +1,40 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
+import { tag } from '@vtex/admin-ui-react'
 
-import { Flex } from './index'
-import { Primitive } from '../Primitive'
+import { Flex, FlexSpacer } from '../index'
 
 export default {
-  title: 'primitives/Flex',
+  title: 'admin-ui/Flex',
   component: Flex,
 } as Meta
 
 export const Playground: Story = (args) => {
   return (
     <Flex {...args}>
-      <Primitive
+      <tag.div
         csx={{
           bg: 'red',
           size: 100,
         }}
       >
-        Primitive 1
-      </Primitive>
-      <Primitive
+        tag.div 1
+      </tag.div>
+      <tag.div
         csx={{
           bg: 'green',
           size: 150,
         }}
       >
-        Primitive 2
-      </Primitive>
-      <Primitive
+        tag.div 2
+      </tag.div>
+      <tag.div
         csx={{
           bg: 'blue',
         }}
       >
-        Primitive 3
-      </Primitive>
+        tag.div 3
+      </tag.div>
     </Flex>
   )
 }
@@ -44,56 +44,48 @@ Playground.args = {
 }
 
 export function WithSpacer() {
-  const Primitivecsx = {
-    size: 100,
-  }
-
   return (
     <Flex>
-      <Primitive
+      <tag.div
         csx={{
           bg: 'red',
-          ...Primitivecsx,
+          size: 100,
         }}
       >
-        Primitive 1
-      </Primitive>
-      <Flex.Spacer />
-      <Primitive
+        tag.div 1
+      </tag.div>
+      <FlexSpacer />
+      <tag.div
         csx={{
           bg: 'green',
-          ...Primitivecsx,
+          size: 100,
         }}
       >
-        Primitive 2
-      </Primitive>
+        tag.div 2
+      </tag.div>
     </Flex>
   )
 }
 
 export function Around() {
-  const Primitivecsx = {
-    size: 100,
-  }
-
   return (
     <Flex justify="space-around">
-      <Primitive
+      <tag.div
         csx={{
           bg: 'red',
-          ...Primitivecsx,
+          size: 100,
         }}
       >
-        Primitive 1
-      </Primitive>
-      <Primitive
+        tag.div 1
+      </tag.div>
+      <tag.div
         csx={{
           bg: 'green',
-          ...Primitivecsx,
+          size: 100,
         }}
       >
-        Primitive 2
-      </Primitive>
+        tag.div 2
+      </tag.div>
     </Flex>
   )
 }

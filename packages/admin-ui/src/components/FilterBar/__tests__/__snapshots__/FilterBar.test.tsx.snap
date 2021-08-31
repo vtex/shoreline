@@ -253,10 +253,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  width: 100%;
 }
 
 .emotion-21 {

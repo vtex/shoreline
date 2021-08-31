@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
-import type { FlexProps, GridProps } from '@vtex/admin-primitives'
-import { Flex, Grid } from '@vtex/admin-primitives'
+import type { GridProps } from '@vtex/admin-primitives'
+import { Grid } from '@vtex/admin-primitives'
+import { jsx } from '@vtex/admin-ui-react'
 
 import type { SystemComponent } from '../../types'
 import { Skeleton } from '../Skeleton'
@@ -62,49 +63,29 @@ function TopbarSkeleton() {
   )
 }
 
-export function TopbarStart(props: FlexProps) {
-  const { children, csx, ...restProps } = props
+export const TopbarStart = jsx.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  height: '100%',
+  gridArea: 'start',
+})
 
-  return (
-    <Flex
-      align="center"
-      justify="flex-start"
-      csx={{ height: '100%', gridArea: 'start', ...csx }}
-      {...restProps}
-    >
-      {children}
-    </Flex>
-  )
-}
+export const TopbarCenter = jsx.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100%',
+  gridArea: 'center',
+})
 
-export function TopbarCenter(props: FlexProps) {
-  const { children, csx, ...restProps } = props
-
-  return (
-    <Flex
-      align="center"
-      csx={{ height: '100%', gridArea: 'center', ...csx }}
-      {...restProps}
-    >
-      {children}
-    </Flex>
-  )
-}
-
-export function TopbarEnd(props: FlexProps) {
-  const { children, csx, ...restProps } = props
-
-  return (
-    <Flex
-      align="center"
-      justify="flex-end"
-      csx={{ height: '100%', gridArea: 'end', ...csx }}
-      {...restProps}
-    >
-      {children}
-    </Flex>
-  )
-}
+export const TopbarEnd = jsx.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  height: '100%',
+  gridArea: 'end',
+})
 
 /**
  * Topbar content positioned in the start.

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { Flex } from '@vtex/admin-primitives'
 import { tag, jsx } from '@vtex/admin-ui-react'
 import {
   CollectionEmpty,
@@ -7,6 +6,7 @@ import {
   CollectionNotFound,
 } from '@vtex/admin-illustrations'
 
+import { Flex } from '../../Flex'
 import { Anchor } from '../../Anchor'
 import { Text } from '../../Text'
 import { useDataViewContext } from '../context'

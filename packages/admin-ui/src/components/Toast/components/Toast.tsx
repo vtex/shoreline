@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo } from 'react'
-import { Flex } from '@vtex/admin-primitives'
 import { IconClose } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/admin-ui-react'
 import { motion } from 'framer-motion'
@@ -9,6 +8,7 @@ import { ToastIcon } from './Icon'
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'
 import { Text } from '../../Text'
+import { Flex } from '../../Flex'
 
 const ToastContent = jsx(motion.div)({
   position: 'relative',
