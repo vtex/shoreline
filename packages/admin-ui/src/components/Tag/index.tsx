@@ -42,6 +42,9 @@ export const Tag = jsx.div(
           bg: 'dark.primary',
           color: 'light.primary',
         },
+        gray: {
+          bg: 'mid.tertiary',
+        },
         yellow: {
           bg: 'yellow.secondary',
         },
