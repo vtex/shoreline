@@ -90,7 +90,6 @@ export const Tag = jsx.div(
     options: ['handleDelete', 'icon', 'label'],
     useOptions: (options: TagOptions, props) => {
       const { label, handleDelete, icon } = options
-      const { palette } = props
 
       return {
         ...props,
@@ -103,9 +102,7 @@ export const Tag = jsx.div(
                 icon={<IconClose />}
                 aria-label={label}
                 onClick={handleDelete}
-                variant={
-                  palette === 'black' ? 'adaptative-light' : 'adaptative-dark'
-                }
+                variant="adaptative-dark"
                 size="small"
                 csx={{
                   marginLeft: 1,
