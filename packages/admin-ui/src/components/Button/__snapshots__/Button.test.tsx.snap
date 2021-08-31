@@ -46,13 +46,13 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #FFFFFF;
-  background-color: #2953B2;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #FFFFFF;
+  background-color: #2953B2;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -136,13 +136,13 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #FFFFFF;
-  background-color: #2953B2;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #FFFFFF;
+  background-color: #2953B2;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -226,13 +226,13 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
   background-color: #DAE3F5;
   color: #2953B2;
-  font-size: 0.875rem;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -316,13 +316,13 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: transparent;
-  color: #2953B2;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  background-color: transparent;
+  color: #2953B2;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -407,13 +407,13 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #FFFFFF;
-  background-color: #2953B2;
   font-size: 0.75rem;
   height: 32px;
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  color: #FFFFFF;
+  background-color: #2953B2;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -497,13 +497,13 @@ exports[`Button tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #FFFFFF;
-  background-color: #CB4242;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #FFFFFF;
+  background-color: #CB4242;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {

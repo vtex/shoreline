@@ -24,13 +24,13 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: transparent;
-  color: #323845;
   font-size: 0.875rem;
   height: 32px;
   width: 100%;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  background-color: transparent;
+  color: #323845;
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   text-transform: initial;
@@ -42,13 +42,14 @@ exports[`Menu tests should match snapshot hidden 1`] = `
 }
 
 .emotion-2:focus {
-  background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
+  background-color: rgba(218,227,245,0.32);
 }
 
 .emotion-2:hover {
   color: #323845;
+  background-color: rgba(202,215,241,0.24);
 }
 
 .emotion-2:active {
@@ -262,13 +263,13 @@ exports[`Menu tests should match snapshot visible 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: transparent;
-  color: #323845;
   font-size: 0.875rem;
   height: 32px;
   width: 100%;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  background-color: transparent;
+  color: #323845;
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   text-transform: initial;
@@ -280,13 +281,14 @@ exports[`Menu tests should match snapshot visible 1`] = `
 }
 
 .emotion-2:focus {
-  background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
+  background-color: rgba(218,227,245,0.32);
 }
 
 .emotion-2:hover {
   color: #323845;
+  background-color: rgba(202,215,241,0.24);
 }
 
 .emotion-2:active {

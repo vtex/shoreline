@@ -37,13 +37,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: transparent;
-  color: #2953B2;
   font-size: 0.75rem;
   height: 32px;
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  background-color: transparent;
+  color: #2953B2;
 }
 
 .emotion-42:focus:not([data-focus-visible-added]) {
@@ -72,8 +72,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-42 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -151,13 +151,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: currentColor;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  color: currentColor;
+  background-color: transparent;
 }
 
 .emotion-45:focus:not([data-focus-visible-added]) {
@@ -189,13 +189,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #FFFFFF;
-  background-color: #2953B2;
   font-size: 0.75rem;
   height: 32px;
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  color: #FFFFFF;
+  background-color: #2953B2;
 }
 
 .emotion-48:focus:not([data-focus-visible-added]) {
@@ -300,13 +300,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-color: #E0E2E7;
   cursor: pointer;
   position: relative;
-  color: #707685;
-  background-color: #FFFFFF;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
+  color: #707685;
+  background-color: #FFFFFF;
   min-width: 150px;
   max-width: 150px;
 }
@@ -335,8 +335,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-5 svg {
   width: 24px;
-  min-width: 24px;
   height: 24px;
+  min-width: 24px;
   min-height: 24px;
   margin: 0.25rem;
 }
@@ -430,13 +430,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #707685;
-  background-color: transparent;
   font-size: 0.875rem;
   height: 40px;
   width: 40px;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  color: #707685;
+  background-color: transparent;
 }
 
 .emotion-25:focus:not([data-focus-visible-added]) {
@@ -463,8 +463,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-25 svg {
   width: 24px;
-  min-width: 24px;
   height: 24px;
+  min-width: 24px;
   min-height: 24px;
   margin: 0.25rem;
 }
@@ -517,13 +517,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: transparent;
-  color: #323845;
   font-size: 0.875rem;
   height: 32px;
   width: 100%;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  background-color: transparent;
+  color: #323845;
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   text-transform: initial;
@@ -535,13 +535,14 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-29:focus {
-  background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
+  background-color: rgba(218,227,245,0.32);
 }
 
 .emotion-29:hover {
   color: #323845;
+  background-color: rgba(202,215,241,0.24);
 }
 
 .emotion-29:active {

@@ -563,13 +563,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: currentColor;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: currentColor;
+  background-color: transparent;
 }
 
 .emotion-6:focus:not([data-focus-visible-added]) {
@@ -596,8 +596,8 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-6 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -793,13 +793,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: currentColor;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: currentColor;
+  background-color: transparent;
 }
 
 .emotion-6:focus:not([data-focus-visible-added]) {
@@ -826,8 +826,8 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-6 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -1015,13 +1015,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: currentColor;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: currentColor;
+  background-color: transparent;
 }
 
 .emotion-6:focus:not([data-focus-visible-added]) {
@@ -1048,8 +1048,8 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-6 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -1244,13 +1244,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: currentColor;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: currentColor;
+  background-color: transparent;
 }
 
 .emotion-6:focus:not([data-focus-visible-added]) {
@@ -1277,8 +1277,8 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-6 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -1510,13 +1510,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #2953B2;
+  background-color: transparent;
   white-space: nowrap;
 }
 
@@ -1708,13 +1708,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #2953B2;
+  background-color: transparent;
   white-space: nowrap;
 }
 
@@ -1898,13 +1898,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #2953B2;
+  background-color: transparent;
   white-space: nowrap;
 }
 
@@ -2095,13 +2095,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #2953B2;
+  background-color: transparent;
   white-space: nowrap;
 }
 
@@ -2255,13 +2255,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: currentColor;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: currentColor;
+  background-color: transparent;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -2288,8 +2288,8 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-9 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -2345,13 +2345,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #2953B2;
+  background-color: transparent;
   white-space: nowrap;
 }
 
@@ -2541,13 +2541,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: currentColor;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: currentColor;
+  background-color: transparent;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -2574,8 +2574,8 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-9 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -2631,13 +2631,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #2953B2;
+  background-color: transparent;
   white-space: nowrap;
 }
 
@@ -2819,13 +2819,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: currentColor;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: currentColor;
+  background-color: transparent;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -2852,8 +2852,8 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-9 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -2909,13 +2909,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #2953B2;
+  background-color: transparent;
   white-space: nowrap;
 }
 
@@ -3104,13 +3104,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: currentColor;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 32px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: currentColor;
+  background-color: transparent;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -3137,8 +3137,8 @@ exports[`Toast tests should match snapshot 1`] = `
 
 .emotion-9 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -3194,13 +3194,13 @@ exports[`Toast tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #2953B2;
+  background-color: transparent;
   white-space: nowrap;
 }
 
