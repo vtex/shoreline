@@ -32,14 +32,14 @@ import { Box } from '@vtex/admin-ui'
 
 ### Polymorphism
 
-Box can be rendered as any HTML tag or component. To use this variation, add a valid HTML tah to the `element` property, by default it will render a `div`.
+Box can be rendered as any HTML tag or component. To use this variation, add a valid HTML tah to the `as` property, by default it will render a `div`.
 
 ```jsx
-<Box element="article">
-  <Box element="section">👻 I'm a section</Box>
+<Box as="article">
+  <Box as="section">👻 I'm a section</Box>
   <Box>👻 I'm a div</Box>
-  <Box element="footer">👻 I'm a footer</Box>
-  <Box csx={{ display: 'block' }} element="a" href="/typography/anchor">
+  <Box as="footer">👻 I'm a footer</Box>
+  <Box as={{ display: 'block' }} as="a" href="/typography/anchor">
     <IconLink /> I'm a link to anchor docs
   </Box>
 </Box>
@@ -59,4 +59,4 @@ With the `csx` property, you can add any customization to the `Box` component. C
 
 # Props
 
-<proptypes heading="Box" component="Box" />
+All props of 

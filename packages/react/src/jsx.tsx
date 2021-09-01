@@ -193,8 +193,7 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
       keyof Variants | keyof Options | 'as'
     > &
       VariantsCall<Variants> &
-      CsxCall &
-      Options
+      CsxCall
   > {
   /**
    * Prioritize elements over components
@@ -274,12 +273,12 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
  */
 export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
   extends React.ForwardRefExoticComponent<
-    Omit<
-      React.ComponentPropsWithRef<ComponentInfer<Type>>,
-      keyof Variants | keyof Options | 'as'
-    > &
+    Options &
+      Omit<
+        React.ComponentPropsWithRef<ComponentInfer<Type>>,
+        keyof Variants | keyof Options | 'as'
+      > &
       VariantsCall<Variants> &
-      Options &
       CsxCall
   > {
   /**

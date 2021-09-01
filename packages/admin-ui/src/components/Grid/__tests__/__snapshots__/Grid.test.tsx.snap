@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Grid tests should match snapshot 1`] = `
+exports[`Grid should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-2 {
   display: grid;

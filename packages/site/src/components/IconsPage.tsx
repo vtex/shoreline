@@ -456,7 +456,7 @@ export function IconPage() {
       {sections.map((section) => (
         <Box
           key={section.title}
-          element="section"
+          as="section"
           csx={{
             marginY: 5,
           }}
@@ -488,7 +488,7 @@ export function IconPage() {
                 return (
                   <Box
                     key={display ?? label}
-                    element="button"
+                    as="button"
                     csx={{
                       color: 'dark.primary',
                       bg: 'light.primary',

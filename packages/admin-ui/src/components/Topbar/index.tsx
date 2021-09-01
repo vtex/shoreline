@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import type { GridProps } from '@vtex/admin-primitives'
-import { Grid } from '@vtex/admin-primitives'
+import type { GridProps } from '../Grid'
+import { Grid } from '../Grid'
 import { jsx } from '@vtex/admin-ui-react'
 
 import type { SystemComponent } from '../../types'
