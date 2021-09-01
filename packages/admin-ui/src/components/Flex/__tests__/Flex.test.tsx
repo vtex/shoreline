@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 
-import { render } from '../test-utils'
-import { Flex } from './index'
+import { render } from '../../../test-utils'
+import { Flex, FlexSpacer } from '../index'
 
-describe('Flex tests', () => {
+describe('Flex', () => {
   it('should apply csx', () => {
     const { getByTestId } = render(
       <Flex data-testid="flex" csx={{ bg: 'coral' }}>
@@ -26,7 +26,7 @@ describe('Flex tests', () => {
         <Flex shrink={1} />
         <Flex order={999} />
         <Flex>
-          <Flex.Spacer />
+          <FlexSpacer />
         </Flex>
       </Fragment>
     )

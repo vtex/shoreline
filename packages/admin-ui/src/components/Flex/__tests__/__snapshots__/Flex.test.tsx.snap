@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Flex tests should match snapshot 1`] = `
+exports[`Flex should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;

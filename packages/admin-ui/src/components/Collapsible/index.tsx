@@ -9,8 +9,8 @@ import {
 } from 'reakit/Disclosure'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
-import { Flex } from '@vtex/admin-primitives'
 
+import { Flex } from '../Flex'
 import {
   CollapsibleProvider,
   useCollapsibleContext,

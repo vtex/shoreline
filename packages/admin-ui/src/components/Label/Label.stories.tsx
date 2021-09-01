@@ -1,9 +1,9 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { Flex } from '@vtex/admin-primitives'
 
 import type { LabelProps } from './index'
 import { Label } from './index'
+import { Flex } from '../Flex'
 
 export default {
   title: 'admin-ui/Label',
