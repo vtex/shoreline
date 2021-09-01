@@ -1,6 +1,6 @@
 import React from 'react'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../../../Box'
 import { Skeleton } from '../../../Skeleton'
 import { Set } from '../../../Set'
 import { SCALES } from '../../consts'

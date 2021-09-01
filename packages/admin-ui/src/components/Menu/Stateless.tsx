@@ -3,8 +3,8 @@ import React, { cloneElement, Children } from 'react'
 import { isElement } from 'react-is'
 import { IconContainer } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-ui-core'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../Box'
 import type { MenuStateReturn } from './components'
 import {
   ReakitMenu,

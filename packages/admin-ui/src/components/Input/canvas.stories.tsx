@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { IconAdd } from '@vtex/admin-ui-icons'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../Box'
 import type { InputType, InputProps } from './index'
 import { Input } from './index'
 

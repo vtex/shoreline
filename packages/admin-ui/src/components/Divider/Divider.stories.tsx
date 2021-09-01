@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { Box } from '@vtex/admin-primitives'
+import { Box } from '../Box'
 
 import { Divider } from './index'
 import { Card } from '../Card'

@@ -7,10 +7,10 @@ import {
   DialogBackdrop,
   useDialogState,
 } from 'reakit/Dialog'
-import { Box } from '@vtex/admin-primitives'
 import { IconSearch } from '@vtex/admin-ui-icons'
 import { useSystem, darken } from '@vtex/admin-ui-core'
 
+import { Box } from '../Box'
 import { Button } from '../Button'
 import {
   unstableSearchBox as SearchBox,
