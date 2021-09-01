@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../Box'
 import { Button } from '../Button'
 import { Set } from '../Set'
 import { toast } from './index'

@@ -1,8 +1,8 @@
 import type { ReactElement, ReactNode, Ref } from 'react'
 import React, { Children, cloneElement, Fragment, forwardRef } from 'react'
-import type { BoxProps } from '@vtex/admin-primitives'
-import { Box } from '@vtex/admin-primitives'
 
+import type { BoxProps } from '../Box'
+import { Box } from '../Box'
 import {
   SidebarCorner,
   SidebarItem,
@@ -51,7 +51,7 @@ const _Sidebar = forwardRef(function Sidebar(
       >
         <Box
           ref={ref}
-          element="nav"
+          as="nav"
           csx={{
             position: 'absolute',
             display: 'flex',
@@ -227,7 +227,7 @@ export const Sidebar = Object.assign(_Sidebar, {
 
 export { useSidebarState, SidebarState } from './hooks'
 
-export interface SidebarProps extends BoxProps<'nav'> {
+export interface SidebarProps extends BoxProps {
   /**
    * Sidebar content element. Should follow the following
    * structure:
@@ -258,5 +258,5 @@ export interface SidebarProps extends BoxProps<'nav'> {
    *
    * @default {}
    */
-  rootProps?: BoxProps<'div'>
+  rootProps?: BoxProps
 }

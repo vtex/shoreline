@@ -1,12 +1,13 @@
 import React from 'react'
+
 import { render } from '../../test-utils'
-import type { BoxProps } from '@vtex/admin-primitives'
-import { Box } from '@vtex/admin-primitives'
+import type { BoxProps } from '../Box'
+import { Box } from '../Box'
 
 import { Group, useGroup } from '.'
 
 describe('Group tests', () => {
-  function GroupAwareBox(props: BoxProps<'div'>) {
+  function GroupAwareBox(props: BoxProps) {
     const { grouped } = useGroup()
 
     return (

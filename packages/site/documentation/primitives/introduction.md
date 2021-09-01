@@ -112,7 +112,7 @@ function Example() {
 // 🚫 Wrong
 function Example() {
   return (
-    <Box element="h1" csx={{ text: 'headline' }}>
+    <Box as="h1" csx={{ text: 'headline' }}>
       Headline 1 text
     </Box>
   )
@@ -140,7 +140,7 @@ function Example() {
       }}
     >
       <Box
-        element="button"
+        as="button"
         csx={{
           border: 'none',
           borderRadius: 'default',

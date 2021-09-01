@@ -1,7 +1,7 @@
 import React from 'react'
-import { Box } from '@vtex/admin-primitives'
 import { IconDuplicate, IconDelete, IconAdd } from '@vtex/admin-ui-icons'
 
+import { Box } from '../Box'
 import { Set } from '../Set'
 import { Button } from '../Button'
 import {

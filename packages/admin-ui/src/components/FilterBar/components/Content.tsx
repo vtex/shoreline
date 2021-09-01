@@ -1,7 +1,7 @@
 import React from 'react'
-import type { BoxProps } from '@vtex/admin-primitives'
-import { Box } from '@vtex/admin-primitives'
 
+import type { BoxProps } from '../../Box'
+import { Box } from '../../Box'
 import { Set } from '../../Set'
 import { Paragraph } from '../../Paragraph'
 
@@ -21,7 +21,7 @@ export function Content(props: ContentProps) {
   )
 }
 
-export interface ContentProps extends BoxProps<'div'> {
+export interface ContentProps extends BoxProps {
   /** Whether has statement or not */
   empty: boolean
   /** Content label. It appears when Content is empty */

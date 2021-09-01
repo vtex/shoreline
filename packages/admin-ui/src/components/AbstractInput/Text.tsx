@@ -4,7 +4,7 @@ import type { InputProps as ReakitInputProps } from 'reakit'
 import { Input as ReakitInput } from 'reakit'
 import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-ui-core'
-import { Box } from '@vtex/admin-primitives'
+import { Box } from '../Box'
 
 import { Button } from '../Button'
 import type { SystemComponentProps } from '../../types'
@@ -144,7 +144,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
           {buttonElements}
           {suffix && (
             <Box
-              element="span"
+              as="span"
               csx={{
                 color: 'mid.primary',
                 borderLeftStyle: 'solid',

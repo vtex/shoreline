@@ -1,20 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Primitive tests should match snapshot 1`] = `
+exports[`Box should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="emotion-0"
   >
-    primitive content
+    box content
   </div>
 </DocumentFragment>
 `;
 
-exports[`Primitive tests should match snapshot using element 1`] = `
+exports[`Box should match snapshot using element 1`] = `
 <DocumentFragment>
   <a
     class="emotion-0"
-    data-testid="primitive"
     href="https://github.com/"
   >
     link content

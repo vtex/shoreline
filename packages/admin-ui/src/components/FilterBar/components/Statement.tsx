@@ -1,8 +1,7 @@
 import React from 'react'
-
-import { Box } from '@vtex/admin-primitives'
 import { jsx } from '@vtex/admin-ui-react'
 
+import { Box } from '../../Box'
 import type { Conjunction } from '../typings'
 import type { StatementDropdownProps } from './StatementDropdown'
 import { StatementDropdown } from './StatementDropdown'

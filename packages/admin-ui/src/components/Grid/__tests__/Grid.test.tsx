@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 
-import { render } from '../test-utils'
-import { Grid } from './index'
+import { render } from '../../../test-utils'
+import { Grid, GridItem } from '../index'
 
-describe('Grid tests', () => {
+describe('Grid', () => {
   it('should apply csx', () => {
     const { getByTestId } = render(
       <Grid data-testid="grid" csx={{ bg: 'azure' }}>
-        <Grid.Item data-testid="grid-item" csx={{ bg: 'azure' }} />
+        <GridItem data-testid="grid-item" csx={{ bg: 'azure' }} />
       </Grid>
     )
 
@@ -27,8 +27,8 @@ describe('Grid tests', () => {
           templateRows="1fr 2fr"
           gap="4"
         >
-          <Grid.Item area="row-1" />
-          <Grid.Item area="row-2" />
+          <GridItem area="row-1" />
+          <GridItem area="row-2" />
         </Grid>
         <Grid
           templateAreas={['row-1', 'row-2']}
@@ -37,8 +37,8 @@ describe('Grid tests', () => {
           rowGap="4"
           columnGap="2"
         >
-          <Grid.Item area="row-1" />
-          <Grid.Item area="row-2" />
+          <GridItem area="row-1" />
+          <GridItem area="row-2" />
         </Grid>
       </Fragment>
     )

@@ -1,8 +1,8 @@
 import type { RefObject } from 'react'
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import { IconCaret, IconCheck } from '@vtex/admin-ui-icons'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../Box'
 import type { SelectProps } from './index'
 import { Label } from '../Label'
 
@@ -108,7 +108,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
       }}
     >
       <Box
-        element="button"
+        as="button"
         type="button"
         {...state.getToggleButtonProps()}
         disabled={disabled}
@@ -165,7 +165,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
       >
         <Box>
           <Box
-            element="span"
+            as="span"
             csx={{
               lineHeight: 1.43,
               color: 'dark.primary',
@@ -230,7 +230,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
               {label}
             </Label>
             <Box
-              element="ul"
+              as="ul"
               csx={{
                 paddingBottom: 1,
                 maxHeight: 150,
@@ -243,7 +243,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
               {items.map((item, index) => (
                 <Box
                   key={`${item}${index}`}
-                  element="li"
+                  as="li"
                   {...state.getItemProps({ item, index })}
                   csx={{
                     color: 'dark.primary',

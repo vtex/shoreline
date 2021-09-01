@@ -14,7 +14,7 @@ If you want to know more about how to style a primitive component, check out our
 
 `Grid` - The main wrapper with `display: grid` and helpful styles shorthand.
 
-`Grid.Item` - Used as a child of `Grid` to control the `gridArea` position whithin the grid.
+`GridItem` - Used as a child of `Grid` to control the `gridArea` position whithin the grid.
 
 ```jsx
 <Grid
@@ -31,15 +31,15 @@ If you want to know more about how to style a primitive component, check out our
     div: { bg: 'blue', borderRadius: 'default' },
   }}
 >
-  <Grid.Item area="item-1" />
-  <Grid.Item area="item-2" />
-  <Grid.Item area="item-3" />
-  <Grid.Item area="item-4" />
-  <Grid.Item area="item-5" />
-  <Grid.Item area="item-6" />
-  <Grid.Item area="item-7" />
-  <Grid.Item area="item-8" />
-  <Grid.Item area="item-9" />
+  <GridItem area="item-1" />
+  <GridItem area="item-2" />
+  <GridItem area="item-3" />
+  <GridItem area="item-4" />
+  <GridItem area="item-5" />
+  <GridItem area="item-6" />
+  <GridItem area="item-7" />
+  <GridItem area="item-8" />
+  <GridItem area="item-9" />
 </Grid>
 ```
 
@@ -67,10 +67,10 @@ Here's an example of using grid template areas and applying a gap or space betwe
   gap="4"
   csx={{ height: 400, div: { borderRadius: 'default' } }}
 >
-  <Grid.Item area="yellow" csx={{ bg: 'yellow.secondary' }} />
-  <Grid.Item area="blue-1" csx={{ bg: 'blue.secondary' }} />
-  <Grid.Item area="blue-2" csx={{ bg: 'blue.secondary' }} />
-  <Grid.Item area="red" csx={{ bg: 'red.secondary' }} />
+  <GridItem area="yellow" csx={{ bg: 'yellow.secondary' }} />
+  <GridItem area="blue-1" csx={{ bg: 'blue.secondary' }} />
+  <GridItem area="blue-2" csx={{ bg: 'blue.secondary' }} />
+  <GridItem area="red" csx={{ bg: 'red.secondary' }} />
 </Grid>
 ```
 
@@ -110,7 +110,7 @@ Here's an example of using grid template rows and applying a gap or space betwee
 
 ## Customization
 
-With the `csx` property, you can add any customization to the `Grid` and `Grid.Item` components. Check the [StyleObject](/theming/style-object) page for detailed info.
+With the `csx` property, you can add any customization to the `Grid` and `GridItem` components. Check the [StyleObject](/theming/style-object) page for detailed info.
 
 ## Props
 

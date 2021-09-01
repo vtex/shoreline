@@ -4,7 +4,7 @@ import type { Story, Meta } from '@storybook/react'
 import { Box } from './index'
 
 export default {
-  title: 'Primitives/Box',
+  title: 'admin-ui/Box',
 } as Meta
 
 export const Basic: Story = () => {
@@ -41,7 +41,7 @@ export const ConsumingAdminUiTheme: Story = () => {
 
 export const Polymorphism: Story = () => {
   return (
-    <Box element="a" href="https://reakit.io/docs/role/" target="blank">
+    <Box as="a" href="https://reakit.io/docs/role/" target="blank">
       Link
     </Box>
   )
@@ -52,21 +52,6 @@ export const UsingClassNames: Story = () => {
     <Box
       csx={{ bg: 'primary.base', color: 'background' }}
       className="my-className"
-    >
-      Box
-    </Box>
-  )
-}
-
-export const WithMediaQueryAliases: Story = () => {
-  return (
-    <Box
-      csx={{
-        bg: 'yellow',
-        '@tablet': { bg: 'green' },
-        '@desktop': { bg: 'blue' },
-        '@widescreen': { bg: 'red' },
-      }}
     >
       Box
     </Box>

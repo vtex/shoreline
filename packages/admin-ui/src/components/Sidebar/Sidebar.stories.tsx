@@ -1,6 +1,5 @@
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
-import { Box } from '@vtex/admin-primitives'
 import {
   IconAppStore,
   IconHome,
@@ -13,6 +12,7 @@ import {
   IconStorefront,
 } from '@vtex/admin-ui-icons'
 
+import { Box } from '../Box'
 import { Sidebar, useSidebarState } from './index'
 import { Paragraph } from '../Paragraph'
 

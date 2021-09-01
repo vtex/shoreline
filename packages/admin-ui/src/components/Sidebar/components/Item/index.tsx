@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import React, { useEffect, useMemo } from 'react'
 import type { HTMLAttributesWithRef } from 'reakit-utils/ts'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../../../Box'
 import { CompositeItem, useCompositeState } from '../Aria'
 import type { SidebarDisclosureProps } from './Disclosure'
 import { SidebarDisclosure } from './Disclosure'
@@ -119,7 +119,7 @@ function _SidebarItem(props: SidebarItemProps) {
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
           <Box
-            element="ul"
+            as="ul"
             csx={{
               position: 'absolute',
               top: 0,
@@ -142,7 +142,7 @@ function _SidebarItem(props: SidebarItemProps) {
           >
             <Box
               aria-label={`${label} menu`}
-              element="li"
+              as="li"
               csx={{
                 listStyle: 'none',
               }}

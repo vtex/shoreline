@@ -241,7 +241,7 @@ We map styles that are repeated in the admin applications and create patterns fr
 
 **Flex:** You don't have to repeat the `display: 'flex'` every time and it comes with shorthands properties to apply Flexbox CSS behavior.
 
-**Grid & Grid.Item:** You don't have to repeat the `display: 'grid'` every time and it comes with shorthands properties to apply Grid CSS behavior.
+**Grid & GridItem:** You don't have to repeat the `display: 'grid'` every time and it comes with shorthands properties to apply Grid CSS behavior.
 
 **Set:** Handles all the CSS logic to apply spacing between its children, `flex-direction`, and all of that as easy as using two properties.
 

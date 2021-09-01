@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { IconCaretSmall } from '@vtex/admin-ui-icons'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../../Box'
 import { Button } from '../../Button'
 import type { SidebarState } from '../hooks'
 import { ItemSkeleton } from './Item/Skeleton'
