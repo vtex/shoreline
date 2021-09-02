@@ -3,7 +3,7 @@ import type {
   FunctionComponentElement,
   ReactNode,
 } from 'react'
-import React, { cloneElement } from 'react'
+import React, { Fragment, cloneElement } from 'react'
 
 import {
   useTooltipState,
@@ -23,7 +23,7 @@ import { jsx, tag } from '@vtex/admin-ui-react'
  * </Tooltip>
  * ```
 //  */
-export const Tooltip = jsx.div(
+export const Tooltip = jsx(Fragment)(
   {},
   {
     options: ['placement', 'visible', 'fixed', 'baseId', 'children', 'label'],
