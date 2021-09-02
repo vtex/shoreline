@@ -6,10 +6,9 @@ import React, {
   useRef,
 } from 'react'
 import type { Meta } from '@storybook/react'
-
 import { Button as ReakitButton, Separator, Role } from 'reakit'
 
-import { jsx } from '../index'
+import { jsx, tag } from '../index'
 
 export default {
   title: 'react/jsx',
@@ -43,6 +42,34 @@ export function Plain() {
         This should be a link
       </Div>
     </Fragment>
+  )
+}
+
+export function WithFragments() {
+  interface WrapOptions {
+    label: string
+  }
+
+  const Wrap = jsx(Fragment)(
+    {},
+    {
+      options: ['label'],
+      useOptions(options: WrapOptions, props) {
+        return {
+          children: (
+            <tag.div {...props}>
+              {options.label} {props.children}
+            </tag.div>
+          ),
+        }
+      },
+    }
+  )
+
+  return (
+    <Wrap label="Fragment" csx={{ bg: 'black', color: 'white', padding: 2 }}>
+      Children
+    </Wrap>
   )
 }
 
