@@ -1,5 +1,10 @@
 import React from 'react'
-import { Collapsible, useCollapsible } from '@vtex/admin-ui'
+import {
+  Collapsible,
+  CollapsibleHeader,
+  CollapsibleContent,
+  useCollapsibleState,
+} from '@vtex/admin-ui'
 
 import { Proptypes } from './Proptypes'
 
@@ -10,14 +15,14 @@ interface Props {
 
 export default function PropDetails(props: Props) {
   const { heading, component, ...restProps } = props
-  const collapsible = useCollapsible({ visible: false })
+  const collapsible = useCollapsibleState({ visible: false })
 
   return (
     <Collapsible state={collapsible} {...restProps} csx={{ marginBottom: 2 }}>
-      <Collapsible.Header label={heading} />
-      <Collapsible.Content>
+      <CollapsibleHeader label={heading} />
+      <CollapsibleContent>
         <Proptypes component={component} />
-      </Collapsible.Content>
+      </CollapsibleContent>
     </Collapsible>
   )
 }

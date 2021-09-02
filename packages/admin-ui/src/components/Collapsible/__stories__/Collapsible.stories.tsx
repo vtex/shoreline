@@ -1,8 +1,13 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import { Collapsible, useCollapsible } from './index'
-import { Button } from '../Button'
+import {
+  Collapsible,
+  CollapsibleHeader,
+  CollapsibleContent,
+  useCollapsibleState,
+} from '../index'
+import { Button } from '../../Button'
 
 export default {
   title: 'admin-ui/Collapsible',
@@ -10,12 +15,12 @@ export default {
 } as Meta
 
 export const Playground: Story = (args) => {
-  const state = useCollapsible()
+  const state = useCollapsibleState()
 
   return (
     <Collapsible {...args} state={state}>
-      <Collapsible.Header label={args.labelHeader} />
-      <Collapsible.Content>{args.content}</Collapsible.Content>
+      <CollapsibleHeader label={args.labelHeader} />
+      <CollapsibleContent>{args.content}</CollapsibleContent>
     </Collapsible>
   )
 }
@@ -28,58 +33,58 @@ Playground.args = {
 }
 
 export const ActionsPanel = () => {
-  const { toggle, ...props } = useCollapsible()
+  const { toggle, ...props } = useCollapsibleState()
 
   return (
     <Collapsible state={{ toggle, ...props }}>
-      <Collapsible.Header label="Actions Panel">
+      <CollapsibleHeader label="Actions Panel">
         <Button variant="secondary">Secondary</Button>
         <Button onClick={toggle}>Toggle Collapsible Content</Button>
-      </Collapsible.Header>
-      <Collapsible.Content>
+      </CollapsibleHeader>
+      <CollapsibleContent>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
         stars.
-      </Collapsible.Content>
+      </CollapsibleContent>
     </Collapsible>
   )
 }
 
 export const InitiallyVisible = () => {
-  const state = useCollapsible({ visible: true })
+  const state = useCollapsibleState({ visible: true })
 
   return (
     <Collapsible state={state}>
-      <Collapsible.Header label="Initially Visible" />
-      <Collapsible.Content>
+      <CollapsibleHeader label="Initially Visible" />
+      <CollapsibleContent>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
         stars.
-      </Collapsible.Content>
+      </CollapsibleContent>
     </Collapsible>
   )
 }
 
 export const Nested = () => {
-  const root = useCollapsible()
-  const nested = useCollapsible()
+  const root = useCollapsibleState()
+  const nested = useCollapsibleState()
 
   return (
     <Collapsible state={root}>
-      <Collapsible.Header label="Root Collapsible" />
-      <Collapsible.Content>
+      <CollapsibleHeader label="Root Collapsible" />
+      <CollapsibleContent>
         <Collapsible state={nested}>
-          <Collapsible.Header label="Nested Collapsible" />
-          <Collapsible.Content>
+          <CollapsibleHeader label="Nested Collapsible" />
+          <CollapsibleContent>
             It’s all about being ready to grow and reach new levels. Have a
             solid foundation, modular thinking and flexible essence, and you’re
             building for scale. We are global but we’re audacious enough to aim
             for the stars.
-          </Collapsible.Content>
+          </CollapsibleContent>
         </Collapsible>
-      </Collapsible.Content>
+      </CollapsibleContent>
     </Collapsible>
   )
 }

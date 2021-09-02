@@ -3,7 +3,12 @@ import type { Meta, Story } from '@storybook/react'
 
 import type { CollapsibleGroupProps } from './index'
 import { CollapsibleGroup } from './index'
-import { Collapsible, useCollapsible } from '../Collapsible'
+import {
+  Collapsible,
+  CollapsibleHeader,
+  CollapsibleContent,
+  useCollapsibleState,
+} from '../Collapsible'
 import { Text } from '../Text'
 import { Set } from '../Set'
 
@@ -13,23 +18,23 @@ export default {
 } as Meta
 
 export const Basic: Story<CollapsibleGroupProps> = () => {
-  const promos = useCollapsible()
-  const marketing = useCollapsible()
+  const promos = useCollapsibleState()
+  const marketing = useCollapsibleState()
 
   return (
     <CollapsibleGroup csx={{ width: 400 }}>
       <Collapsible state={promos}>
-        <Collapsible.Header label="Promos" />
-        <Collapsible.Content>
+        <CollapsibleHeader label="Promos" />
+        <CollapsibleContent>
           <Text variant="action">
             APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
             ALEMANA
           </Text>
-        </Collapsible.Content>
+        </CollapsibleContent>
       </Collapsible>
       <Collapsible state={marketing}>
-        <Collapsible.Header label="Marketing" />
-        <Collapsible.Content>
+        <CollapsibleHeader label="Marketing" />
+        <CollapsibleContent>
           <Set orientation="vertical">
             <Text variant="small" csx={{ color: 'dark.secondary' }}>
               Partner - app_ios
@@ -38,36 +43,36 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
               Campaign - Campaing Name
             </Text>
           </Set>
-        </Collapsible.Content>
+        </CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
   )
 }
 
 export const Nested: Story<CollapsibleGroupProps> = () => {
-  const promosAndPartner = useCollapsible()
-  const shipping = useCollapsible()
-  const promos = useCollapsible()
-  const marketing = useCollapsible()
-  const packageOne = useCollapsible()
-  const packageTwo = useCollapsible()
+  const promosAndPartner = useCollapsibleState()
+  const shipping = useCollapsibleState()
+  const promos = useCollapsibleState()
+  const marketing = useCollapsibleState()
+  const packageOne = useCollapsibleState()
+  const packageTwo = useCollapsibleState()
 
   const packages = ['Package #1', 'Package #2']
 
   const PromosGroup = (
     <CollapsibleGroup>
       <Collapsible state={promos}>
-        <Collapsible.Header label="Promos" />
-        <Collapsible.Content>
+        <CollapsibleHeader label="Promos" />
+        <CollapsibleContent>
           <Text variant="action">
             APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
             ALEMANA
           </Text>
-        </Collapsible.Content>
+        </CollapsibleContent>
       </Collapsible>
       <Collapsible state={marketing}>
-        <Collapsible.Header label="Marketing" />
-        <Collapsible.Content>
+        <CollapsibleHeader label="Marketing" />
+        <CollapsibleContent>
           <Set orientation="vertical">
             <Text variant="small" csx={{ color: 'dark.secondary' }}>
               Partner - app_ios
@@ -76,7 +81,7 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
               Campaign - Campaing Name
             </Text>
           </Set>
-        </Collapsible.Content>
+        </CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
   )
@@ -86,8 +91,8 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
       {packages.map((value, index) => {
         return (
           <Collapsible state={index ? packageOne : packageTwo} key={index}>
-            <Collapsible.Header label={value} />
-            <Collapsible.Content>
+            <CollapsibleHeader label={value} />
+            <CollapsibleContent>
               <Set orientation="vertical" spacing={2}>
                 <Text variant="small" csx={{ color: 'blue' }}>
                   N 00025755809
@@ -100,7 +105,7 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
                 </Text>
                 <Text csx={{ color: 'blue' }}>Tracking - XSDFE231675</Text>
               </Set>
-            </Collapsible.Content>
+            </CollapsibleContent>
           </Collapsible>
         )
       })}
@@ -110,12 +115,12 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
   return (
     <CollapsibleGroup csx={{ width: 400 }}>
       <Collapsible state={promosAndPartner}>
-        <Collapsible.Header label="Promos and Partnerships" />
-        <Collapsible.Content>{PromosGroup}</Collapsible.Content>
+        <CollapsibleHeader label="Promos and Partnerships" />
+        <CollapsibleContent>{PromosGroup}</CollapsibleContent>
       </Collapsible>
       <Collapsible state={shipping}>
-        <Collapsible.Header label="Shipping" />
-        <Collapsible.Content>{PackagesGroup}</Collapsible.Content>
+        <CollapsibleHeader label="Shipping" />
+        <CollapsibleContent>{PackagesGroup}</CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
   )

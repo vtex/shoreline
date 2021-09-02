@@ -25,11 +25,3 @@ export function CollapsibleProvider({
     </CollapsibleContext.Provider>
   )
 }
-
-export const RootContext = createContext<boolean>(true)
-
-export function useRootContext() {
-  const ctx = useContext(RootContext)
-
-  return ctx
-}
