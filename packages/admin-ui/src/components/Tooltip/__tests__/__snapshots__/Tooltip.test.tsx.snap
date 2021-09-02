@@ -2,11 +2,15 @@
 
 exports[`Tooltip tests should match snapshot 1`] = `
 <DocumentFragment>
-  <button
-    aria-describedby="id"
-    tabindex="0"
+  <div
+    class="emotion-0"
   >
-    button with tooltip
-  </button>
+    <button
+      aria-describedby="id"
+      tabindex="0"
+    >
+      button with tooltip
+    </button>
+  </div>
 </DocumentFragment>
 `;

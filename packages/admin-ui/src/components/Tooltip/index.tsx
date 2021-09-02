@@ -4,12 +4,13 @@ import type {
   ReactNode,
 } from 'react'
 import React, { cloneElement } from 'react'
-import type { TooltipStateReturn } from 'reakit/Tooltip'
+
 import {
   useTooltipState,
   Tooltip as ReakitTooltip,
   TooltipReference,
 } from 'reakit/Tooltip'
+import type { PopoverState } from 'reakit/ts'
 import { jsx, tag } from '@vtex/admin-ui-react'
 
 /**
@@ -25,13 +26,27 @@ import { jsx, tag } from '@vtex/admin-ui-react'
 export const Tooltip = jsx.div(
   {},
   {
-    options: ['state', 'children', 'label'],
+    options: ['placement', 'visible', 'fixed', 'baseId', 'children', 'label'],
     useOptions(options: TooltipOptions, props) {
-      const { state, children, label } = options
-      const { csx, ...htmlProps } = props
+      const {
+        children,
+        placement = 'top',
+        visible,
+        fixed,
+        baseId,
+        label,
+      } = options
+
+      const { csx, ...tooltipProps } = props
+
+      const state = useTooltipState({
+        placement,
+        visible,
+        unstable_fixed: fixed,
+        baseId,
+      })
 
       return {
-        ...htmlProps,
         children: (
           <>
             <TooltipReference {...state} {...children.props} ref={children.ref}>
@@ -42,7 +57,7 @@ export const Tooltip = jsx.div(
             <tag.div
               as={ReakitTooltip}
               {...state}
-              {...htmlProps}
+              {...tooltipProps}
               csx={{
                 backgroundColor: 'dark.primary',
                 color: 'light.primary',
@@ -64,8 +79,9 @@ export const Tooltip = jsx.div(
   }
 )
 
+type TooltipPlacement = Pick<PopoverState, 'placement'>['placement']
+
 export interface TooltipOptions {
-  state: TooltipStateReturn
   /**
    * The element that triggers the tooltip
    */
@@ -74,7 +90,25 @@ export interface TooltipOptions {
    * Label shown inside the tooltip
    */
   label: ReactNode
+  /**
+   * The placement of the tooltip relative to its children
+   * @default 'top'
+   */
+  placement?: TooltipPlacement
+  /**
+   * Whether the tooltip is visible or not
+   * @default false
+   */
+  visible?: boolean
+  /**
+   * Whether or not the tooltip popover should have position set to fixed.
+   * @default false
+   */
+  fixed?: boolean
+  /**
+   * reakit base-id
+   */
+  baseId?: string
 }
 
 export type TooltipProps = ComponentPropsWithRef<typeof Tooltip>
-export { useTooltipState }

@@ -4,13 +4,13 @@ import type { Story, Meta } from '@storybook/react'
 import type { IconProps } from '@vtex/admin-ui-icons'
 import { Icon, IconDuplicate } from '@vtex/admin-ui-icons'
 
-import type { TooltipProps } from './index'
-import { Tooltip, useTooltipState } from './index'
+import type { TooltipProps } from '../index'
+import { Tooltip } from '../index'
 
-import { Button } from '../Button'
-import { Tag } from '../Tag'
-import { Text } from '../Text'
-import { Set } from '../Set'
+import { Button } from '../../Button'
+import { Tag } from '../../Tag'
+import { Text } from '../../Text'
+import { Set } from '../../Set'
 
 export default {
   title: 'admin-ui/Tooltip',
@@ -18,21 +18,18 @@ export default {
 } as Meta
 
 export const Playground: Story<TooltipProps> = (args) => {
-  const state = useTooltipState()
-
   return (
-    <Tooltip state={state} label="Tooltip props" {...args}>
+    <Tooltip label="Tooltip props" {...args}>
       <Button icon={<IconDuplicate />} variant="tertiary" />
     </Tooltip>
   )
 }
 
 export const ReactNodeLabel = () => {
-  const state = useTooltipState({ visible: true, placement: 'right' })
-
   return (
     <Tooltip
-      state={state}
+      visible
+      placement="right"
       label={
         <Set orientation="vertical" spacing={2}>
           <Text variant="small" csx={{ color: 'mid.tertiary' }}>
@@ -50,7 +47,6 @@ export const ReactNodeLabel = () => {
 }
 
 export const CustomComponent = () => {
-  const state = useTooltipState()
   const CustomIcon = React.forwardRef(function Custom(
     props: IconProps,
     ref: Ref<SVGSVGElement>
@@ -83,7 +79,7 @@ export const CustomComponent = () => {
   })
 
   return (
-    <Tooltip state={state} label="My Custom icon">
+    <Tooltip label="My Custom icon">
       <CustomIcon />
     </Tooltip>
   )
