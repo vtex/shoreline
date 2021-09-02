@@ -11,22 +11,20 @@ const FIRST_CHILD_INDEX = 0
 
 /**
  * Component that nests Collapsible's components.
- * Composites: CollapsibleGroup.Item
- *
  * @example
  * ```jsx
- * import { CollapsibleGroup, useCollapsible } from `@vtex/admin-ui`
+ * import { CollapsibleGroup, useCollapsibleState } from `@vtex/admin-ui`
  *
  * function UseCase() {
- *   const state = useCollapsible()
+ *   const state = useCollapsibleState()
  *
  *   return (
  *     <CollapsibleGroup>
  *       <Collapsible state={state}>
- *         <Collapsible.Header label="Collapsible Label"/>
- *         <Collapsible.Content>
+ *         <CollapsibleHeader label="Collapsible Label"/>
+ *         <CollapsibleContent>
  *           {content}
- *         </Collapsible.Content>
+ *         </CollapsibleContent>
  *       </Collapsible>
  *     </CollapsibleGroup>
  *   )

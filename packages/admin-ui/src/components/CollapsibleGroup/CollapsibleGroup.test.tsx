@@ -1,32 +1,27 @@
 import React from 'react'
-import { render } from '../../test-utils'
+import { render, withState } from '../../test-utils'
 
 import { CollapsibleGroup } from './index'
-import type { DisclosureStateReturn } from '../Collapsible'
-import { useCollapsible, Collapsible } from '../Collapsible'
 
-function CollapsibleState({
-  children,
-}: {
-  children: (state: DisclosureStateReturn) => JSX.Element
-}) {
-  const state = useCollapsible({ baseId: 'mocked-id' })
+import {
+  useCollapsibleState,
+  Collapsible,
+  CollapsibleHeader,
+  CollapsibleContent,
+} from '../Collapsible'
 
-  return children(state)
-}
+const StatefulCollapsible = withState(Collapsible, () =>
+  useCollapsibleState({ baseId: 'mocked-id', visible: true })
+)
 
 describe('CollapsibleGroup tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <CollapsibleGroup data-testid="collapsible-group" csx={{ bg: 'azure' }}>
-        <CollapsibleState>
-          {(state) => (
-            <Collapsible state={state}>
-              <Collapsible.Header label="Collapsible Header" />
-              <Collapsible.Content>Collapsible Content</Collapsible.Content>
-            </Collapsible>
-          )}
-        </CollapsibleState>
+        <StatefulCollapsible>
+          <CollapsibleHeader label="Collapsible Header" />
+          <CollapsibleContent>Collapsible Content</CollapsibleContent>
+        </StatefulCollapsible>
       </CollapsibleGroup>
     )
 
@@ -39,14 +34,10 @@ describe('CollapsibleGroup tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <CollapsibleGroup>
-        <CollapsibleState>
-          {(state) => (
-            <Collapsible state={state}>
-              <Collapsible.Header label="Collapsible Header" />
-              <Collapsible.Content>Collapsible Content</Collapsible.Content>
-            </Collapsible>
-          )}
-        </CollapsibleState>
+        <StatefulCollapsible>
+          <CollapsibleHeader label="Collapsible Header" />
+          <CollapsibleContent>Collapsible Content</CollapsibleContent>
+        </StatefulCollapsible>
       </CollapsibleGroup>
     )
 
@@ -57,14 +48,10 @@ describe('CollapsibleGroup tests', () => {
     const { asFragment } = render(
       <CollapsibleGroup>
         {undefined}
-        <CollapsibleState>
-          {(state) => (
-            <Collapsible state={state}>
-              <Collapsible.Header label="Collapsible Header" />
-              <Collapsible.Content>Collapsible Content</Collapsible.Content>
-            </Collapsible>
-          )}
-        </CollapsibleState>
+        <StatefulCollapsible>
+          <CollapsibleHeader label="Collapsible Header" />
+          <CollapsibleContent>Collapsible Content</CollapsibleContent>
+        </StatefulCollapsible>
         {null}
       </CollapsibleGroup>
     )

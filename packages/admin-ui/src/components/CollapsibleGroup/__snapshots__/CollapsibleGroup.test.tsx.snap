@@ -2,7 +2,7 @@
 
 exports[`CollapsibleGroup tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-6 {
+  .emotion-8 {
   background-color: #FFFFFF;
   border-color: #E0E2E7;
   border-style: solid;
@@ -10,18 +10,9 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   border-radius: 4px;
 }
 
-.emotion-6 .__admin-ui-collapsible--header {
+.emotion-5 {
   padding: 1.5rem;
   padding-left: 0.5rem;
-}
-
-.emotion-6 .__admin-ui-collapsible--content {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -138,10 +129,10 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   min-height: 24px;
   width: 24px;
   height: 24px;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
   -webkit-transition: -webkit-transform 150ms ease;
   transition: transform 150ms ease;
 }
@@ -153,7 +144,26 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   display: flex;
 }
 
-.emotion-7 {
+
+
+.emotion-6 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.emotion-6 .__admin-ui-collapsible--header {
+  padding: 1rem;
+  padding-left: 0rem;
+}
+
+.emotion-6 .__admin-ui-collapsible--content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.emotion-9 {
   background-color: #FFFFFF;
   color: #323845;
   border-width: 1px;
@@ -164,17 +174,17 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-7"
+    class="emotion-9"
   >
     <div
-      class="emotion-6"
+      class="emotion-8"
     >
       <header
-        class="__admin-ui-collapsible--header emotion-5"
+        class="emotion-5 __admin-ui-collapsible--header"
       >
         <button
           aria-controls="mocked-id"
-          aria-expanded="false"
+          aria-expanded="true"
           class="emotion-3"
           type="button"
         >
@@ -205,6 +215,16 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
           class="emotion-4"
         />
       </header>
+      <div
+        class="emotion-7"
+        id="mocked-id"
+      >
+        <div
+          class="__admin-ui-collapsible--content emotion-6"
+        >
+          Collapsible Content
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -212,7 +232,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 <DocumentFragment>
-  .emotion-6 {
+  .emotion-8 {
   background-color: #FFFFFF;
   border-color: #E0E2E7;
   border-style: solid;
@@ -220,18 +240,9 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   border-radius: 4px;
 }
 
-.emotion-6 .__admin-ui-collapsible--header {
+.emotion-5 {
   padding: 1.5rem;
   padding-left: 0.5rem;
-}
-
-.emotion-6 .__admin-ui-collapsible--content {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -348,10 +359,10 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   min-height: 24px;
   width: 24px;
   height: 24px;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
   -webkit-transition: -webkit-transform 150ms ease;
   transition: transform 150ms ease;
 }
@@ -363,7 +374,26 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   display: flex;
 }
 
-.emotion-7 {
+
+
+.emotion-6 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.emotion-6 .__admin-ui-collapsible--header {
+  padding: 1rem;
+  padding-left: 0rem;
+}
+
+.emotion-6 .__admin-ui-collapsible--content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.emotion-9 {
   background-color: #FFFFFF;
   color: #323845;
   border-width: 1px;
@@ -374,17 +404,17 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 <div
-    class="emotion-7"
+    class="emotion-9"
   >
     <div
-      class="emotion-6"
+      class="emotion-8"
     >
       <header
-        class="__admin-ui-collapsible--header emotion-5"
+        class="emotion-5 __admin-ui-collapsible--header"
       >
         <button
           aria-controls="mocked-id"
-          aria-expanded="false"
+          aria-expanded="true"
           class="emotion-3"
           type="button"
         >
@@ -415,6 +445,16 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
           class="emotion-4"
         />
       </header>
+      <div
+        class="emotion-7"
+        id="mocked-id"
+      >
+        <div
+          class="__admin-ui-collapsible--content emotion-6"
+        >
+          Collapsible Content
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>

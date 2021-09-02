@@ -9,26 +9,26 @@ A `Collapsible` component is a container that allows toggling the display of its
 ## Installation
 
 ```jsx isStatic
-import { Collapsible, useCollapsible } from '@vtex/admin-ui'
+import { Collapsible, useCollapsibleState } from '@vtex/admin-ui'
 ```
 
 ## Behavior
 
-Always when using the `Collapsible`'s you should also use its composites: `Collapsible.Header` and `Collapsible.Content`
+Always when using the `Collapsible`'s you should also use its composites: `CollapsibleHeader` and `CollapsibleContent`
 
 ```jsx
 function Example() {
-  const state = useCollapsible()
+  const state = useCollapsibleState()
 
   return (
     <Collapsible state={state} csx={{ width: 500 }}>
-      <Collapsible.Header label="Build for Community #1" />
-      <Collapsible.Content>
+      <CollapsibleHeader label="Build for Community #1" />
+      <CollapsibleContent>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
         stars.
-      </Collapsible.Content>
+      </CollapsibleContent>
     </Collapsible>
   )
 }
@@ -42,17 +42,17 @@ This hook is extracted directly from `reakit/disclosure` with the same props. Yo
 
 ```jsx
 function Example() {
-  const collapsibleState = useCollapsible()
+  const collapsibleState = useCollapsibleState()
 
   return (
     <Collapsible state={collapsibleState} csx={{ width: 500 }}>
-      <Collapsible.Header label="State Logic" />
-      <Collapsible.Content>
+      <CollapsibleHeader label="State Logic" />
+      <CollapsibleContent>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
         stars.
-      </Collapsible.Content>
+      </CollapsibleContent>
     </Collapsible>
   )
 }
@@ -62,24 +62,24 @@ function Example() {
 
 ### Actions Panel
 
-You can render a set of actions on the right side of the collapsible's header. Just pass the buttons to the `Collapsible.Header` children.
+You can render a set of actions on the right side of the collapsible's header. Just pass the buttons to the `CollapsibleHeader` children.
 
 ```jsx
 function Example() {
-  const { toggle, ...props } = useCollapsible()
+  const { toggle, ...props } = useCollapsibleState()
 
   return (
     <Collapsible state={{ toggle, ...props }}>
-      <Collapsible.Header label="Actions Panel">
+      <CollapsibleHeader label="Actions Panel">
         <Button variant="secondary">Secondary</Button>
         <Button onClick={toggle}>Toggle Collapsible Content</Button>
-      </Collapsible.Header>
-      <Collapsible.Content>
+      </CollapsibleHeader>
+      <CollapsibleContent>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
         stars.
-      </Collapsible.Content>
+      </CollapsibleContent>
     </Collapsible>
   )
 }
@@ -87,21 +87,21 @@ function Example() {
 
 ### Initially Visible
 
-You can set the `Collapsible.Content` to be initially visible. Just define the property `visible` to be `true`, in the `useCollapsible` hook.
+You can set the `CollapsibleContent` to be initially visible. Just define the property `visible` to be `true`, in the `useCollapsibleState` hook.
 
 ```jsx
 function Example() {
-  const state = useCollapsible({ visible: true })
+  const state = useCollapsibleState({ visible: true })
 
   return (
     <Collapsible state={state}>
-      <Collapsible.Header label="Initially Visible" />
-      <Collapsible.Content>
+      <CollapsibleHeader label="Initially Visible" />
+      <CollapsibleContent>
         It’s all about being ready to grow and reach new levels. Have a solid
         foundation, modular thinking and flexible essence, and you’re building
         for scale. We are global but we’re audacious enough to aim for the
         stars.
-      </Collapsible.Content>
+      </CollapsibleContent>
     </Collapsible>
   )
 }
@@ -109,27 +109,27 @@ function Example() {
 
 ### Nested
 
-It is possible to render a `Collapsible` inside another, just pass the `Collapsible` as a child of `Collapsible.Content`. Note that each nested collapsible has different padding than the one at the root, this is a design requirement, each internal collapsible must have a `16px` padding, while the one in the root has a `24px` padding.
+It is possible to render a `Collapsible` inside another, just pass the `Collapsible` as a child of `CollapsibleContent`. Note that each nested collapsible has different padding than the one at the root, this is a design requirement, each internal collapsible must have a `16px` padding, while the one in the root has a `24px` padding.
 
 ```jsx
 function Example() {
-  const root = useCollapsible()
-  const nested = useCollapsible()
+  const root = useCollapsibleState()
+  const nested = useCollapsibleState()
 
   return (
     <Collapsible state={root}>
-      <Collapsible.Header label="Root Collapsible" />
-      <Collapsible.Content>
+      <CollapsibleHeader label="Root Collapsible" />
+      <CollapsibleContent>
         <Collapsible state={nested}>
-          <Collapsible.Header label="Nested Collapsible" />
-          <Collapsible.Content>
+          <CollapsibleHeader label="Nested Collapsible" />
+          <CollapsibleContent>
             It’s all about being ready to grow and reach new levels. Have a
             solid foundation, modular thinking and flexible essence, and you’re
             building for scale. We are global but we’re audacious enough to aim
             for the stars.
-          </Collapsible.Content>
+          </CollapsibleContent>
         </Collapsible>
-      </Collapsible.Content>
+      </CollapsibleContent>
     </Collapsible>
   )
 }
@@ -137,7 +137,7 @@ function Example() {
 
 ## Composites
 
-The `Collapsible` component uses two composites, `Collapsible.Header` and `Collapsible.Content`.
+The `Collapsible` component uses two composites, `CollapsibleHeader` and `CollapsibleContent`.
 
 ### Header
 
@@ -149,7 +149,7 @@ It represents the `button` that controls the content visibility and it's always 
 
 #### Actions Panel
 
-It represents a set of `buttons` and it's always located on the right side of the header. You should pass this set of `buttons` to the `Collapsible.Header` children, to this panel to be rendered.
+It represents a set of `buttons` and it's always located on the right side of the header. You should pass this set of `buttons` to the `CollapsibleHeader` children, to this panel to be rendered.
 
 ### Content
 
@@ -165,7 +165,7 @@ As the name already says, it represents the `content` of the collapsible. It ren
 | disabled  | `boolean`     | Same as the HTML attribute                                                                                                                            | 🚫       | false   |
 | children  | `ReactNode`   | Collapsible children                                                                                                                                  | 🚫       | -       |
 
-### Collapsible.Header Props
+### CollapsibleHeader Props
 
 | Name     | Type          | Description                | Required | Default |
 | -------- | ------------- | -------------------------- | -------- | ------- |
@@ -173,7 +173,7 @@ As the name already says, it represents the `content` of the collapsible. It ren
 | label    | `ReactNode`   | Toggle button label        | 🚫       | -       |
 | children | `ReactNode`   | CollapsibleHeader children | 🚫       | -       |
 
-### Collapsible.Content Props
+### CollapsibleContent Props
 
 | Name     | Type          | Description                 | Required | Default |
 | -------- | ------------- | --------------------------- | -------- | ------- |
@@ -188,7 +188,7 @@ As the name already says, it represents the `content` of the collapsible. It ren
 | baseId  | `string`     | ID that will serve as a base for all the items IDs |
 | toggle  | `() => void` | Toggles the visible state                          |
 
-### useCollapsible params
+### useCollapsibleState params
 
 | Name    | Type      | Description        | Required | Default |
 | ------- | --------- | ------------------ | -------- | ------- |
