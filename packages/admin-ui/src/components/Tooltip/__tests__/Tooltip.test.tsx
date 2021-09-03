@@ -1,8 +1,8 @@
 import React from 'react'
-import { render, axe } from '../../test-utils'
+import { render, axe } from '../../../test-utils'
 import 'mutationobserver-shim'
 
-import { Tooltip } from './index'
+import { Tooltip } from '../index'
 
 global.MutationObserver = window.MutationObserver
 

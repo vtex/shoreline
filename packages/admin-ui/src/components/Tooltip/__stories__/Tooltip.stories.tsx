@@ -4,32 +4,32 @@ import type { Story, Meta } from '@storybook/react'
 import type { IconProps } from '@vtex/admin-ui-icons'
 import { Icon, IconDuplicate } from '@vtex/admin-ui-icons'
 
-import type { TooltipProps } from './index'
-import { Tooltip } from './index'
-import { Button } from '../Button'
-import { Tag } from '../Tag'
-import { Text } from '../Text'
-import { Set } from '../Set'
+import type { TooltipProps } from '../index'
+import { Tooltip } from '../index'
+
+import { Button } from '../../Button'
+import { Tag } from '../../Tag'
+import { Text } from '../../Text'
+import { Set } from '../../Set'
 
 export default {
   title: 'admin-ui/Tooltip',
   component: Tooltip,
 } as Meta
 
-export const Playground: Story<TooltipProps> = (args) => (
-  <Tooltip {...args}>
-    <Button icon={<IconDuplicate />} variant="tertiary" />
-  </Tooltip>
-)
-
-Playground.args = {
-  label: 'Tooltip Label',
-  placement: 'right',
+export const Playground: Story<TooltipProps> = (args) => {
+  return (
+    <Tooltip label="Tooltip props" {...args}>
+      <Button icon={<IconDuplicate />} variant="tertiary" />
+    </Tooltip>
+  )
 }
 
 export const ReactNodeLabel = () => {
   return (
     <Tooltip
+      visible
+      placement="right"
       label={
         <Set orientation="vertical" spacing={2}>
           <Text variant="small" csx={{ color: 'mid.tertiary' }}>
