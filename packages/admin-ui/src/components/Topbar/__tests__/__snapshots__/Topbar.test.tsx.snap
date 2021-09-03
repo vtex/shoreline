@@ -39,6 +39,7 @@ exports[`Topbar tests should match snapshot 1`] = `
 .emotion-2 {
   display: grid;
   grid-template-areas: "start center end";
+  grid-template-columns: repeat(3, 1fr);
   height: 3.5rem;
   border-bottom-width: 1px;
   border-bottom-style: solid;

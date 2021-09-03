@@ -1,18 +1,18 @@
 import React from 'react'
-import { render, axe } from '../../test-utils'
+import { render, axe } from '../../../test-utils'
 
-import { Topbar } from './index'
+import { Topbar, TopbarStart, TopbarEnd } from '../index'
 
 describe('Topbar tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <Topbar data-testid="topbar" csx={{ bg: 'coral' }}>
-        <Topbar.Start>
+        <TopbarStart>
           <h1>start</h1>
-        </Topbar.Start>
-        <Topbar.End>
+        </TopbarStart>
+        <TopbarEnd>
           <h2>end</h2>
-        </Topbar.End>
+        </TopbarEnd>
       </Topbar>
     )
 
@@ -22,12 +22,12 @@ describe('Topbar tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <Topbar>
-        <Topbar.Start>
+        <TopbarStart>
           <h1>start</h1>
-        </Topbar.Start>
-        <Topbar.End>
+        </TopbarStart>
+        <TopbarEnd>
           <h2>end</h2>
-        </Topbar.End>
+        </TopbarEnd>
       </Topbar>
     )
 
@@ -37,12 +37,12 @@ describe('Topbar tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <Topbar>
-        <Topbar.Start>
+        <TopbarStart>
           <h1>start</h1>
-        </Topbar.Start>
-        <Topbar.End>
+        </TopbarStart>
+        <TopbarEnd>
           <h2>end</h2>
-        </Topbar.End>
+        </TopbarEnd>
       </Topbar>
     )
 

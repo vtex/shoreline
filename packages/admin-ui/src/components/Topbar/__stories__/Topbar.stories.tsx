@@ -8,10 +8,10 @@ import {
   IconUndo,
 } from '@vtex/admin-ui-icons'
 
-import { Topbar } from './index'
-import { Set } from '../Set'
-import { Button } from '../Button'
-import { Text } from '../Text'
+import { Topbar, TopbarStart, TopbarEnd } from '../index'
+import { Set } from '../../Set'
+import { Button } from '../../Button'
+import { Text } from '../../Text'
 
 export default {
   title: 'shell/Topbar',
@@ -21,15 +21,15 @@ export default {
 export function Example() {
   return (
     <Topbar>
-      <Topbar.Start>
+      <TopbarStart>
         <Set spacing={3}>
           <Button icon={<IconImage />} variant="adaptative-dark" />
           <Text csx={{ fontSize: 2, fontSettings: 'medium' }}>
             dpsppinheiros
           </Text>
         </Set>
-      </Topbar.Start>
-      <Topbar.End>
+      </TopbarStart>
+      <TopbarEnd>
         <Set spacing={0}>
           <Button
             variant="tertiary"
@@ -50,7 +50,7 @@ export function Example() {
           <Button variant="tertiary" icon={<IconNotifications />} />
           <Button variant="tertiary" icon={<IconHelp />} />
         </Set>
-      </Topbar.End>
+      </TopbarEnd>
     </Topbar>
   )
 }
@@ -61,15 +61,15 @@ export function Loading() {
   return (
     <Fragment>
       <Topbar loading={loading}>
-        <Topbar.Start>
+        <TopbarStart>
           <Set spacing={3}>
             <Button icon={<IconImage />} variant="adaptative-dark" />
             <Text csx={{ fontSize: 2, fontSettings: 'medium' }}>
               dpsppinheiros
             </Text>
           </Set>
-        </Topbar.Start>
-        <Topbar.End>
+        </TopbarStart>
+        <TopbarEnd>
           <Set spacing={0}>
             <Button
               variant="tertiary"
@@ -92,7 +92,7 @@ export function Loading() {
             <Button variant="tertiary" icon={<IconNotifications />} />
             <Button variant="tertiary" icon={<IconHelp />} />
           </Set>
-        </Topbar.End>
+        </TopbarEnd>
       </Topbar>
       <br />
       <Button onClick={() => setLoading((prev) => !prev)}>
