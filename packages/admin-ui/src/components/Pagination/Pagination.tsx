@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { IconCaret } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/admin-ui-react'
@@ -73,7 +74,7 @@ export const Pagination = jsx.div(
   }
 )
 
-interface PaginationOptions {
+export interface PaginationOptions {
   /**
    * String displayed in between the end of the range and the total amount of items
    * @default 'of'
@@ -104,3 +105,5 @@ interface PaginationOptions {
    */
   state: UsePaginationReturn
 }
+
+export type PaginationProps = ComponentPropsWithRef<typeof Pagination>
