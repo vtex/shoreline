@@ -78,6 +78,7 @@ Row.defaultProps = {
 export const Head = jsx.thead(
   {
     display: 'table-header-group',
+    color: 'dark.secondary',
   },
   {
     useOptions: (_, props) => {
