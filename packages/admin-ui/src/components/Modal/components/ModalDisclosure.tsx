@@ -1,7 +1,7 @@
 import type { FunctionComponentElement } from 'react'
 import React, { Children, cloneElement } from 'react'
+import { DialogDisclosure } from 'reakit/Dialog'
 
-import { AbstractModalDisclosure } from './Abstract'
 import type { ModalStateReturn } from '../state'
 
 /**
@@ -12,7 +12,8 @@ import type { ModalStateReturn } from '../state'
  * import { useModalState, ModalDisclosure } from `@vtex/admin-ui`
  *
  * const state = useModalState()
- * <ModalDisclosure {...state}>
+ *
+ * <ModalDisclosure state={state}>
  *  <button>Open Modal</button>
  * </ModalDisclosure>
  * ```
@@ -23,9 +24,9 @@ export function ModalDisclosure(props: ModalDisclosureProps) {
   Children.only(children)
 
   return (
-    <AbstractModalDisclosure {...state} ref={children.ref} {...children.props}>
+    <DialogDisclosure state={state} ref={children.ref} {...children.props}>
       {(enhancedProps) => cloneElement(children, enhancedProps)}
-    </AbstractModalDisclosure>
+    </DialogDisclosure>
   )
 }
 

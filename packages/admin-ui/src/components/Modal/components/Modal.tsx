@@ -2,30 +2,25 @@ import type { ReactNode } from 'react'
 import React, { useCallback } from 'react'
 import { useSystem } from '@vtex/admin-ui-core'
 import type { StyleProp } from '@vtex/admin-ui-core'
+import type { DialogOptions } from 'reakit/Dialog'
+import { Dialog, DialogBackdrop } from 'reakit/Dialog'
 import { rgba } from 'polished'
 import { get } from '@vtex/admin-ui-util'
 
-import type { ModalStateReturn } from './state'
-import { ModalProvider } from './context'
-import type { AbstractModalProps } from './components'
-import {
-  AbstractModal,
-  AbstractModalBackdrop,
-  ModalHeader,
-  ModalButton,
-  ModalFooter,
-  ModalContent,
-} from './components'
-import type { ModalSize } from './types'
-import { useComponentsExistence } from './util'
-import type { SystemComponent } from '../../types'
+import type { ModalStateReturn } from '../state'
+import { ModalProvider } from '../context'
+import type { ModalSize } from '../types'
+import { useComponentsExistence } from '../util'
+import type { SystemComponent } from '../../../types'
+
 /**
  * Stateless Modal
  * Must be used with ModalDisclosure and useModalState.
- * Composites: Modal.Header, Modal.Content, Modal.Footer, & Modal.Button
+ * Composites: ModalHeader, ModalContent, ModalFooter, & ModalButton
+ *
  * @example
  * ```jsx
- * import { StatelessModal, useModalState, ModalDisclosure } from `@vtex/admin-ui`
+ * import { Modal, useModalState, ModalDisclosure } from `@vtex/admin-ui`
  *
  * const state = useModalState()
  *
@@ -33,14 +28,15 @@ import type { SystemComponent } from '../../types'
  *  <button>Open Modal</button>
  * </ModalDisclosure>
  *
- * <StatelessModal state={state}>
- *  <StatelessModal.Content>
+ * <Modal state={state}>
+ *  <ModalHeader title="Title" />
+ *  <ModalContent>
  *   Example
- *  </StatelessModal.Content>
+ *  </ModalContent>
  * </StatelessModal>
  * ```
  */
-export function StatelessModal(props: StatelessModalProps) {
+export function Modal(props: StatelessModalProps) {
   const {
     children,
     state,
@@ -118,8 +114,8 @@ export function StatelessModal(props: StatelessModalProps) {
   })
 
   return (
-    <AbstractModalBackdrop className={backdropCn} {...state}>
-      <AbstractModal className={modalCn} {...state} {...baseProps}>
+    <DialogBackdrop className={backdropCn} state={state}>
+      <Dialog className={modalCn} state={state} {...baseProps}>
         <ModalProvider
           value={{
             state,
@@ -132,75 +128,13 @@ export function StatelessModal(props: StatelessModalProps) {
         >
           {children}
         </ModalProvider>
-      </AbstractModal>
-    </AbstractModalBackdrop>
+      </Dialog>
+    </DialogBackdrop>
   )
 }
 
-/**
- * Header of the modal
- * Renders a header element
- * @example
- * ```jsx
- * import { StatelessModal } from `@vtex/admin-ui`
- * <StatelessModal>
- *  <StatelessModal.Header title="Example">
- *    <Button>Cancel</Button>
- *  </StatelessModal.Header>
- * </StatelessModal>
- * ```
- */
-StatelessModal.Header = ModalHeader
-
-/**
- * Content of the modal
- * Renders a section element
- * @example
- * ```jsx
- * import { StatelessModal } from `@vtex/admin-ui`
- * <StatelessModal>
- *  <StatelessModal.Content>
- *    <Button>Cancel</Button>
- *  </StatelessModal.Content>
- * </StatelessModal>
- * ```
- */
-StatelessModal.Content = ModalContent
-
-/**
- * Footer of the modal
- * Renders a footer element
- * @example
- * ```jsx
- * import { StatelessModal } from `@vtex/admin-ui`
- * <StatelessModal>
- *  <StatelessModal.Footer>
- *    <Button>Cancel</Button>
- *  </StatelessModal.Footer>
- * </StatelessModal>
- * ```
- */
-StatelessModal.Footer = ModalFooter
-
-/**
- * Button capable of close the modal when clicked
- * It implements an admin-ui/Button, with all its features
- * @example
- * ```jsx
- * import { StatelessModal, useModalState } from `@vtex/admin-ui`
- *
- * const state = useModalState()
- * <StatelessModal state={state}>
- *    <StatelessModal.Content>
- *      <StatelessModal.Button closeModalOnClick>Save</StatelessModal.Button>
- *    <StatelessModal.Content>
- * </StatelessModal>
- * ```
- */
-StatelessModal.Button = ModalButton
-
 export interface StatelessModalProps
-  extends AbstractModalProps,
+  extends Pick<DialogOptions, 'hideOnEsc' | 'hideOnClickOutside'>,
     SystemComponent {
   /**
    * Component children
