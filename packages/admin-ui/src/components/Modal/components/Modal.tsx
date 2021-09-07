@@ -1,17 +1,24 @@
 import type { ReactNode } from 'react'
 import React, { useCallback } from 'react'
-import { useSystem } from '@vtex/admin-ui-core'
 import type { StyleProp } from '@vtex/admin-ui-core'
 import type { DialogOptions } from 'reakit/Dialog'
 import { Dialog, DialogBackdrop } from 'reakit/Dialog'
 import { rgba } from 'polished'
 import { get } from '@vtex/admin-ui-util'
+import { tag } from '@vtex/admin-ui-react'
 
 import type { ModalStateReturn } from '../state'
-import { ModalProvider } from '../context'
+import { ModalProvider } from './ModalContext'
 import type { ModalSize } from '../types'
 import { useComponentsExistence } from '../util'
 import type { SystemComponent } from '../../../types'
+
+const widths = {
+  mobile: 'calc(100% - 16px)',
+  small: 320,
+  regular: 560,
+  large: 800,
+}
 
 /**
  * Stateless Modal
@@ -36,7 +43,7 @@ import type { SystemComponent } from '../../../types'
  * </StatelessModal>
  * ```
  */
-export function Modal(props: StatelessModalProps) {
+export function Modal(props: ModalProps) {
   const {
     children,
     state,
@@ -48,74 +55,72 @@ export function Modal(props: StatelessModalProps) {
     ...baseProps
   } = props
 
-  const { cn } = useSystem()
-
   const handleClose = useCallback(() => {
     state.hide()
     onClose()
   }, [onClose, state])
 
-  const backdropCn = cn({
-    ...backdropCsx,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: ['flex-end', 'flex-end', 'center'],
-    alignItems: 'center',
-    backgroundColor: (theme) => rgba(get(theme, 'colors.dark.primary'), 0.5),
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 9999,
-    opacity: 0,
-    transition: 'fade',
-    '&[data-enter]': {
-      opacity: 1,
-    },
-  })
-
   const { hasHeader, hasFooter, scrollStyle } = useComponentsExistence(children)
 
-  const surfaceSizeStyle = {
-    'surface-small': {
-      width: ['calc(100% - 16px)', 'calc(100% - 16px)', 320],
-    },
-    'surface-regular': {
-      width: ['calc(100% - 16px)', 'calc(100% - 16px)', 560],
-    },
-    'surface-large': {
-      width: ['calc(100% - 16px)', 'calc(100% - 16px)', 800],
-    },
-  }
-
-  const modalCn = cn({
-    outline: 'none',
-    bg: 'light.primary',
-    borderRadius: 3,
-    borderColor: 'mid.tertiary',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    position: 'relative',
-    overflowY: 'auto',
-    overflowX: 'hidden',
-    maxHeight: '3/4',
-    margin: 2,
-    opacity: 0,
-    transform: 'translate3d(0, 48px, 0)',
-    transition: 'pop',
-    '&[data-enter]': {
-      opacity: 1,
-      transform: 'translate3d(0, 0, 0)',
-    },
-    ...get(surfaceSizeStyle, `surface-${size}`, {}),
-    ...scrollStyle,
-    ...csx,
-  })
+  const width = {
+    small: [widths.mobile, widths.mobile, widths.small],
+    regular: [widths.mobile, widths.mobile, widths.regular],
+    large: [widths.mobile, widths.mobile, widths.large],
+  }[size]
 
   return (
-    <DialogBackdrop className={backdropCn} state={state}>
-      <Dialog className={modalCn} state={state} {...baseProps}>
+    <tag.div
+      as={DialogBackdrop}
+      csx={{
+        ...backdropCsx,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: ['flex-end', 'flex-end', 'center'],
+        alignItems: 'center',
+        backgroundColor: (theme) =>
+          rgba(get(theme, 'colors.dark.primary'), 0.5),
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 9999,
+        opacity: 0,
+        transition: 'fade',
+        '&[data-enter]': {
+          opacity: 1,
+        },
+      }}
+      state={state}
+    >
+      <tag.div
+        as={Dialog}
+        csx={{
+          width,
+          outline: 'none',
+          bg: 'light.primary',
+          borderRadius: 3,
+          borderColor: 'mid.tertiary',
+          borderStyle: 'solid',
+          borderWidth: 1,
+          position: 'relative',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          maxHeight: '3/4',
+          margin: 2,
+          opacity: 0,
+          transform: 'translate3d(0, 48px, 0)',
+          transition: 'pop',
+          '&[data-enter]': {
+            opacity: 1,
+            transform: 'translate3d(0, 0, 0)',
+          },
+          ...scrollStyle,
+          ...csx,
+        }}
+        state={state}
+        {...baseProps}
+      >
         <ModalProvider
           value={{
             state,
@@ -128,12 +133,12 @@ export function Modal(props: StatelessModalProps) {
         >
           {children}
         </ModalProvider>
-      </Dialog>
-    </DialogBackdrop>
+      </tag.div>
+    </tag.div>
   )
 }
 
-export interface StatelessModalProps
+export interface ModalProps
   extends Pick<DialogOptions, 'hideOnEsc' | 'hideOnClickOutside'>,
     SystemComponent {
   /**

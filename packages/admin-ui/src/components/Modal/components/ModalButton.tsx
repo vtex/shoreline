@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'
-import { useModalContext } from '../context'
+import { useModalContext } from './ModalContext'
 
 /**
  * Button capable of close the modal when clicked

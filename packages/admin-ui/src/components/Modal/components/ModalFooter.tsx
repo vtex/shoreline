@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 
-import { useModalContext } from '../context'
+import { useModalContext } from './ModalContext'
 
 /**
  * Footer of the modal

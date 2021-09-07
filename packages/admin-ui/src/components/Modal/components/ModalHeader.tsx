@@ -5,7 +5,7 @@ import { IconClose } from '@vtex/admin-ui-icons'
 import { tag, jsx } from '@vtex/admin-ui-react'
 
 import { Box } from '../../Box'
-import { useModalContext } from '../context'
+import { useModalContext } from './ModalContext'
 import { ModalButton } from './ModalButton'
 
 /**
