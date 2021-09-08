@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { tag } from '@vtex/admin-ui'
+import { tag } from '@vtex/admin-ui-react'
 
 import { Toast } from './Toast'
 import { useFlipList } from '../hooks/useFlipList'

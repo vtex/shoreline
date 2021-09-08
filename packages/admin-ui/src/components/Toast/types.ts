@@ -1,4 +1,4 @@
-import type { ReactNode } from 'hoist-non-react-statics/node_modules/@types/react'
+import type { ReactNode } from 'react'
 
 export interface ToastAction {
   label: string
@@ -14,8 +14,8 @@ export interface InternalToast extends Toast {
 export interface Toast {
   key?: string
   message: ReactNode
-  description?: string
+  type?: 'error' | 'info' | 'success' | 'warning'
   dismissible?: boolean
   action?: ToastAction
-  type?: 'error' | 'info' | 'success' | 'warning'
+  duration?: number
 }

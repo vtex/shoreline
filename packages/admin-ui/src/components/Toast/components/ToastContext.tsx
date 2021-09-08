@@ -20,12 +20,12 @@ const ToastControllerContext = createContext<AddToast | null>(null)
 
 type Actions =
   | { type: 'enqueue'; toast: InternalToast }
-  | { type: 'dequeue'; dedupeKey: string }
+  | { type: 'dequeue'; key: string }
 
 interface ToastState {
   toasts: InternalToast[]
-  queuedToasts: {
-    [dedupeKey: string]: InternalToast | undefined
+  queue: {
+    [key: string]: InternalToast | undefined
   }
 }
 
@@ -52,8 +52,8 @@ function reducer(state: ToastState, action: Actions): ToastState {
 
             return t
           }),
-          queuedToasts: {
-            ...state.queuedToasts,
+          queue: {
+            ...state.queue,
             [dedupeKey]: toast,
           },
         }
@@ -67,16 +67,16 @@ function reducer(state: ToastState, action: Actions): ToastState {
 
     case 'dequeue': {
       const toasts = state.toasts.filter(
-        ({ dedupeKey }) => dedupeKey !== action.dedupeKey
+        ({ dedupeKey }) => dedupeKey !== action.key
       )
 
-      const queuedToast = state.queuedToasts[action.dedupeKey]
+      const queuedToast = state.queue[action.key]
 
       if (queuedToast) {
         return {
-          queuedToasts: {
-            ...state.queuedToasts,
-            [action.dedupeKey]: undefined,
+          queue: {
+            ...state.queue,
+            [action.key]: undefined,
           },
           toasts: [...toasts, queuedToast],
         }
@@ -93,7 +93,7 @@ function reducer(state: ToastState, action: Actions): ToastState {
 function useToastQueueState() {
   const [{ toasts }, dispatch] = useReducer(reducer, {
     toasts: [],
-    queuedToasts: {},
+    queue: {},
   })
 
   const add = useCallback(
@@ -102,7 +102,7 @@ function useToastQueueState() {
   )
 
   const remove = useCallback(
-    (dedupeKey: string) => dispatch({ type: 'dequeue', dedupeKey }),
+    (key: string) => dispatch({ type: 'dequeue', key }),
     []
   )
 
@@ -142,21 +142,21 @@ export function ToastProvider(props: ToastProviderProps) {
 }
 
 export const useToast = () => {
-  const addToast = useContext(ToastControllerContext)
+  const toast = useContext(ToastControllerContext)
 
-  invariant(addToast, 'No "ToastProvider" configured')
+  invariant(toast, 'No "ToastProvider" configured')
 
   return useCallback(
-    (toast: Toast) => {
+    (t: Toast) => {
       const id = `${cachedCounter++}`
 
-      addToast({
-        ...toast,
+      toast({
+        ...t,
         id,
-        dedupeKey: toast.key ?? id,
+        dedupeKey: t.key ?? id,
         shouldRemove: false,
       })
     },
-    [addToast]
+    [toast]
   )
 }

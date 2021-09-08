@@ -6,7 +6,7 @@ import { Button } from '../../Button'
 import { Set } from '../../Set'
 
 export default {
-  title: 'admin-ui/NextToast',
+  title: 'admin-ui/Toast',
   component: Toast,
 } as Meta
 
