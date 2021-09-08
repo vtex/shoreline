@@ -1,20 +1,18 @@
 ---
-path: /primitives/grid/
+path: /grid/
 ---
 
 # Grid
 
-Our design system comes with a set of primitive components that represent our most elementary components, through which other components are built. They are basic elements, with no determined style, that are used as a starting point for other components. Check out our [Introduction](/primitives/introduction) page, to see Do's and Don'ts about primitive components.
+Grid is a [Box](/box/) with `display: grid` and it comes with helpful styles shorthand.
 
-Grid is a [Box](/primitives/box) with `display: grid` and it comes with helpful styles shorthand. It renders a `div` element.
+## Import
 
-If you want to know more about how to style a primitive component, check out our [Inline Styles](/theming/inline-styles/) page.
+```jsx isStatic
+import { Grid, GridItem } from '@vtex/admin-ui'
+```
 
 ## Behavior
-
-`Grid` - The main wrapper with `display: grid` and helpful styles shorthand.
-
-`GridItem` - Used as a child of `Grid` to control the `gridArea` position whithin the grid.
 
 ```jsx
 <Grid
@@ -43,21 +41,18 @@ If you want to know more about how to style a primitive component, check out our
 </Grid>
 ```
 
-## Installation
+## Composition
 
-```sh isStatic
-yarn add @vtex/admin-ui
-```
+| Name       | Description                                                                   | Props           |
+| ---------- | ----------------------------------------------------------------------------- | --------------- |
+| `Grid`     | The main wrapper with `display: grid` and helpful styles shorthand            | `GridProps`     |
+| `GridItem` | Used as a child of `Grid` to control the `gridArea` position whithin the grid | `GridItemProps` |
 
-```jsx isStatic
-import { Grid } from '@vtex/admin-ui'
-```
-
-## Variation
+## Features
 
 ### Template Areas
 
-Here's an example of using grid template areas and applying a gap or space between the items.
+Example of using grid template areas and applying a gap or space between the items.
 
 ```jsx
 <Grid
@@ -76,7 +71,7 @@ Here's an example of using grid template areas and applying a gap or space betwe
 
 ### Template Columns
 
-Here's an example of using grid template columns and applying a gap or space between the columns.
+Example of using grid template columns and applying a gap or space between the columns.
 
 ```jsx
 <Grid
@@ -93,7 +88,7 @@ Here's an example of using grid template columns and applying a gap or space bet
 
 ### Template Rows
 
-Here's an example of using grid template rows and applying a gap or space between the rows.
+Example of using grid template rows and applying a gap or space between the rows.
 
 ```jsx
 <Grid
@@ -108,12 +103,25 @@ Here's an example of using grid template rows and applying a gap or space betwee
 </Grid>
 ```
 
-## Customization
-
-With the `csx` property, you can add any customization to the `Grid` and `GridItem` components. Check the [StyleObject](/theming/style-object) page for detailed info.
-
 ## Props
 
-<propdetails heading="Grid" component="Grid"></propdetails>
+### Grid
 
-<propdetails heading="GridItem" component="GridItem"></propdetails>
+All props of `as`, which is `div` by default. And also, the props that has the same type of grid styles:
+
+| Name              | Shorthand for         |
+| ----------------- | --------------------- |
+| `gap`             | `gridGap`             |
+| `rowGap`          | `gridRowGap`          |
+| `columnGap`       | `gridColumnGap`       |
+| `templateAreas`   | `gridTemplateAreas`   |
+| `templateRows`    | `gridTemplateRows`    |
+| `templateColumns` | `gridTemplateColumns` |
+
+## GridItem
+
+All props of `as`, which is `div` by default. And also, the props that has the same type of grid styles:
+
+| Name   | Shorthand for |
+| ------ | ------------- |
+| `area` | `gridArea`    |
