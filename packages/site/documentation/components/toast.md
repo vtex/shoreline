@@ -8,64 +8,28 @@ A toast is a variation of an alert that provides immediate feedback over actions
 
 ## Behavior
 
-The way of rendering a Toast on `admin-ui` is by calling the function returned by the `useToast` hook. Make sure to call this hook one component level below the `<ToastProvider>`.
+The way of rendering a Toast on `admin-ui` is by calling the function returned by the `useToast` hook.
+
+<blockquote palette="blue">
+
+Make sure to call the `useToast` hook one component level below the `<ToastProvider>`. This is necessary in order to the Toast work.
+
+</blockquote>
 
 ```jsx
 function Example() {
-  const Toast = () => {
-    const showToast = useToast()
-
-    return (
-      <Button
-        onClick={() =>
-          showToast({
-            message: 'This is the admin-ui toast!',
-          })
-        }
-      >
-        Show Toast
-      </Button>
-    )
-  }
+  const showToast = useToast()
 
   return (
-    <ToastProvider>
-      <Toast />
-    </ToastProvider>
-  )
-}
-```
-
-### Action + Dismissible
-
-```jsx
-function Example() {
-  const Toast = () => {
-    const showToast = useToast()
-
-    return (
-      <Button
-        onClick={() =>
-          showToast({
-            type: 'warning',
-            message: 'Type here a longer message but not much longer than that',
-            dismissible: true,
-            action: {
-              label: 'Action',
-              onClick: () => alert('Toast callback'),
-            },
-          })
-        }
-      >
-        Dismissable, with action
-      </Button>
-    )
-  }
-
-  return (
-    <ToastProvider>
-      <Toast />
-    </ToastProvider>
+    <Button
+      onClick={() =>
+        showToast({
+          message: 'This is the admin-ui toast!',
+        })
+      }
+    >
+      Show Toast
+    </Button>
   )
 }
 ```
@@ -82,60 +46,50 @@ import { ToastProvider, useToast } from '@vtex/admin-ui'
 
 ```jsx
 function Example() {
-  const ToastVariants = () => {
-    const showToast = useToast()
-
-    return (
-      <tag.div csx={{ '> *:not(:last-child)': { marginRight: '0.5rem' } }}>
-        <Button
-          onClick={() =>
-            showToast({
-              message:
-                'Type here a longer message but not much longer than that',
-            })
-          }
-        >
-          Info toast
-        </Button>
-        <Button
-          onClick={() =>
-            showToast({
-              type: 'success',
-              message: 'Type a short message here',
-            })
-          }
-        >
-          Success toast
-        </Button>
-        <Button
-          onClick={() =>
-            showToast({
-              type: 'warning',
-              message:
-                'Type here a longer message but not much longer than that',
-            })
-          }
-        >
-          Warning toast
-        </Button>
-        <Button
-          onClick={() =>
-            showToast({
-              type: 'error',
-              message: 'Type a short message here',
-            })
-          }
-        >
-          Error toast
-        </Button>
-      </tag.div>
-    )
-  }
+  const showToast = useToast()
 
   return (
-    <ToastProvider>
-      <ToastVariants />
-    </ToastProvider>
+    <tag.div csx={{ '> *:not(:last-child)': { marginRight: '0.5rem' } }}>
+      <Button
+        onClick={() =>
+          showToast({
+            message: 'Type here a longer message but not much longer than that',
+          })
+        }
+      >
+        Info toast
+      </Button>
+      <Button
+        onClick={() =>
+          showToast({
+            type: 'success',
+            message: 'Type a short message here',
+          })
+        }
+      >
+        Success toast
+      </Button>
+      <Button
+        onClick={() =>
+          showToast({
+            type: 'warning',
+            message: 'Type here a longer message but not much longer than that',
+          })
+        }
+      >
+        Warning toast
+      </Button>
+      <Button
+        onClick={() =>
+          showToast({
+            type: 'error',
+            message: 'Type a short message here',
+          })
+        }
+      >
+        Error toast
+      </Button>
+    </tag.div>
   )
 }
 ```
@@ -144,27 +98,19 @@ function Example() {
 
 ```jsx
 function Example() {
-  const Toast = () => {
-    const showToast = useToast()
-
-    return (
-      <Button
-        onClick={() =>
-          showToast({
-            message: 'Type here a longer message but not much longer than that',
-            dismissible: true,
-          })
-        }
-      >
-        Dismissable
-      </Button>
-    )
-  }
+  const showToast = useToast()
 
   return (
-    <ToastProvider>
-      <Toast />
-    </ToastProvider>
+    <Button
+      onClick={() =>
+        showToast({
+          message: 'Type here a longer message but not much longer than that',
+          dismissible: true,
+        })
+      }
+    >
+      Dismissable
+    </Button>
   )
 }
 ```
@@ -173,31 +119,23 @@ function Example() {
 
 ```jsx
 function Example() {
-  const Toast = () => {
-    const showToast = useToast()
-
-    return (
-      <Button
-        onClick={() =>
-          showToast({
-            type: 'success',
-            message: 'Type a short message here',
-            action: {
-              label: 'Action',
-              onClick: () => alert('Toast callback'),
-            },
-          })
-        }
-      >
-        With action
-      </Button>
-    )
-  }
+  const showToast = useToast()
 
   return (
-    <ToastProvider>
-      <Toast />
-    </ToastProvider>
+    <Button
+      onClick={() =>
+        showToast({
+          type: 'success',
+          message: 'Type a short message here',
+          action: {
+            label: 'Action',
+            onClick: () => alert('Toast callback'),
+          },
+        })
+      }
+    >
+      With action
+    </Button>
   )
 }
 ```
@@ -206,32 +144,24 @@ function Example() {
 
 ```jsx
 function Example() {
-  const Toast = () => {
-    const showToast = useToast()
-
-    return (
-      <Button
-        onClick={() =>
-          showToast({
-            type: 'warning',
-            message: 'Type here a longer message but not much longer than that',
-            dismissible: true,
-            action: {
-              label: 'Action',
-              onClick: () => alert('Toast callback'),
-            },
-          })
-        }
-      >
-        Dismissable, with action
-      </Button>
-    )
-  }
+  const showToast = useToast()
 
   return (
-    <ToastProvider>
-      <Toast />
-    </ToastProvider>
+    <Button
+      onClick={() =>
+        showToast({
+          type: 'warning',
+          message: 'Type here a longer message but not much longer than that',
+          dismissible: true,
+          action: {
+            label: 'Action',
+            onClick: () => alert('Toast callback'),
+          },
+        })
+      }
+    >
+      Dismissable, with action
+    </Button>
   )
 }
 ```
