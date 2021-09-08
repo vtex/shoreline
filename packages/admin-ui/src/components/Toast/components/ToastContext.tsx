@@ -117,7 +117,9 @@ interface ToastProviderProps {
   children: ReactNode
 }
 
-const InternalToastProvider = ({ children }: ToastProviderProps) => {
+function InternalToastProvider(props: ToastProviderProps) {
+  const { children } = props
+
   const queue = useToastQueueState()
 
   return (
@@ -141,22 +143,22 @@ export function ToastProvider(props: ToastProviderProps) {
   return <InternalToastProvider>{children}</InternalToastProvider>
 }
 
-export const useToast = () => {
-  const toast = useContext(ToastControllerContext)
+export function useToast() {
+  const dispatch = useContext(ToastControllerContext)
 
-  invariant(toast, 'No "ToastProvider" configured')
+  invariant(dispatch, 'No "ToastProvider" configured')
 
   return useCallback(
-    (t: Toast) => {
+    (toast: Toast) => {
       const id = `${cachedCounter++}`
 
-      toast({
-        ...t,
+      dispatch({
+        ...toast,
         id,
-        dedupeKey: t.key ?? id,
+        dedupeKey: toast.key ?? id,
         shouldRemove: false,
       })
     },
-    [toast]
+    [dispatch]
   )
 }

@@ -6,6 +6,70 @@ path: /toast/
 
 A toast is a variation of an alert that provides immediate feedback over actions that just happened and were caused by the user.
 
+## Behavior
+
+The way of rendering a Toast on `admin-ui` is by calling the function returned by the `useToast` hook. Make sure to call this hook one component level below the `<ToastProvider>`.
+
+```jsx
+function Example() {
+  const Toast = () => {
+    const showToast = useToast()
+
+    return (
+      <Button
+        onClick={() =>
+          showToast({
+            message: 'This is the admin-ui toast!',
+          })
+        }
+      >
+        Show Toast
+      </Button>
+    )
+  }
+
+  return (
+    <ToastProvider>
+      <Toast />
+    </ToastProvider>
+  )
+}
+```
+
+### Action + Dismissible
+
+```jsx
+function Example() {
+  const Toast = () => {
+    const showToast = useToast()
+
+    return (
+      <Button
+        onClick={() =>
+          showToast({
+            type: 'warning',
+            message: 'Type here a longer message but not much longer than that',
+            dismissible: true,
+            action: {
+              label: 'Action',
+              onClick: () => alert('Toast callback'),
+            },
+          })
+        }
+      >
+        Dismissable, with action
+      </Button>
+    )
+  }
+
+  return (
+    <ToastProvider>
+      <Toast />
+    </ToastProvider>
+  )
+}
+```
+
 ## Import
 
 ```jsx isStatic

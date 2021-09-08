@@ -4,7 +4,9 @@ interface UseTimeoutProps {
   onTimeout: () => void
   duration: number
 }
-export const useTimeout = ({ onTimeout, duration }: UseTimeoutProps) => {
+export function useTimeout(props: UseTimeoutProps) {
+  const { onTimeout, duration } = props
+
   const [activated, setActivated] = useState(true)
   const timeoutRef = useRef<number | undefined>()
 
