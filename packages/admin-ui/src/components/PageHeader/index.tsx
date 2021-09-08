@@ -27,6 +27,7 @@ const _PageHeader = jsx.header(
     top: 0,
     height: '4.5rem',
     paddingX: 4,
+    zIndex: 999,
   },
   {
     options: ['onPopNavigation'],

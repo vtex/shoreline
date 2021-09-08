@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageContent should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-1 {
+  display: block;
+  width: 100%;
+}
+
+.emotion-0 {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+<div
+    class="emotion-1"
+  >
+    <div
+      class="emotion-0"
+    />
+  </div>
+</DocumentFragment>
+`;
