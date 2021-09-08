@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react'
 import { useMemo } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 import { get } from '@vtex/admin-ui-util'
@@ -5,7 +6,6 @@ import type { StyleObject } from '@vtex/admin-ui-core'
 
 import { useModalContext } from './ModalContext'
 import { getScrollAreaSize } from '../util'
-import type { ComponentPropsWithRef } from 'hoist-non-react-statics/node_modules/@types/react'
 
 /**
  * Content of the modal

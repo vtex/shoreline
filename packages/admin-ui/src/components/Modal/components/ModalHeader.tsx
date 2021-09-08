@@ -53,12 +53,7 @@ export const ModalHeader = jsx.header(
     options: ['title', 'containerCsx'],
     useOptions(options: ModalHeaderOptions, props) {
       const { title = null, containerCsx = {} } = options
-      const {
-        children,
-
-        csx = {},
-        ...headerProps
-      } = props
+      const { children, csx = {}, ...headerProps } = props
 
       const { omitCloseButton, size } = useModalContext()
 
