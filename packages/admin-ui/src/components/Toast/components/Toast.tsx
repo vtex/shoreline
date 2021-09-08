@@ -7,8 +7,8 @@ import {
   IconWarningColorful,
 } from '@vtex/admin-ui-icons'
 import { tag } from '@vtex/admin-ui-react'
+import { useTimeout } from '@vtex/admin-ui-hooks'
 
-import { useTimeout } from '../hooks/useTimeout'
 import type { InternalToast } from '../types'
 import { Button } from '../../Button'
 import { ToastContainer } from './ToastContainer'

@@ -2,12 +2,12 @@ import React, { useCallback } from 'react'
 import { tag } from '@vtex/admin-ui-react'
 
 import { Toast } from './Toast'
-import { useFlipList } from '../hooks/useFlipList'
+import { useAnimatedList } from '../hooks/useAnimatedList'
 import type { InternalToast } from '../types'
 
 export function ToastQueue(props: ToastQueueProps) {
   const { toasts, dequeue } = props
-  const { itemRef, remove } = useFlipList()
+  const { itemRef, remove } = useAnimatedList()
 
   const onClear = useCallback(
     (dedupeKey: string, id: string) => {

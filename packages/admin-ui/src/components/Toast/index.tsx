@@ -1,5 +1,2 @@
-export * from './components/Toast'
-export * from './components/ToastContext'
-export * from './components/ToastQueue'
-export * from './hooks/useFlipList'
-export * from './hooks/useTimeout'
+export { ToastProvider, useToast } from './components/ToastContext'
+export { Toast as ToastParams } from './types'

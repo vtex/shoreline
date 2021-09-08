@@ -1,5 +1,5 @@
-import { useMemo, useCallback, useEffect, useLayoutEffect } from 'react'
-import { isBrowser } from '@vtex/admin-ui-util'
+import { useMemo, useCallback } from 'react'
+import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
 
 const animationTimeout = 300
 
@@ -12,16 +12,18 @@ interface Transform {
   to?: string
 }
 
-const animate = (
-  element: HTMLElement,
-  transforms: Transform[],
-  transition: string,
-  done?: () => void
-) => {
+interface AnimateProps {
+  element: HTMLElement
+  transforms: Transform[]
+  transition: string
+  onAnimate?: () => void
+}
+
+const animate = (props: AnimateProps) => {
+  const { element, transforms, transition, onAnimate } = props
+
   const fallbackTimeout = setTimeout(() => {
-    if (done) {
-      done()
-    }
+    onAnimate?.()
   }, animationTimeout)
 
   transforms.forEach(({ property, from = '' }) => {
@@ -36,9 +38,7 @@ const animate = (
 
     element.style.setProperty('transition', '')
 
-    if (done) {
-      done()
-    }
+    onAnimate?.()
 
     element.removeEventListener('transitionend', transitionEndHandler)
 
@@ -58,9 +58,7 @@ const animate = (
   })
 }
 
-const useSafeLayoutEffect = isBrowser ? useLayoutEffect : useEffect
-
-export const useFlipList = () => {
+export const useAnimatedList = () => {
   const refs = useMemo(() => new Map<string, HTMLElement | null>(), [])
   const positions = useMemo(() => new Map<string, number>(), [])
 
@@ -112,28 +110,28 @@ export const useFlipList = () => {
       }
     })
 
-    animations.forEach(({ element, transforms, transition }) => {
-      animate(element, transforms, transition)
+    animations.forEach((animation) => {
+      animate(animation)
     })
   })
 
   const remove = useCallback(
-    (id: string, cb: () => void) => {
+    (id: string, onAnimate: () => void) => {
       const element = refs.get(id)
 
       if (element) {
         // Removal animation
-        animate(
+        animate({
           element,
-          [
+          transforms: [
             {
               property: 'opacity',
               to: '0',
             },
           ],
-          exitTransition,
-          cb
-        )
+          transition: exitTransition,
+          onAnimate,
+        })
       }
     },
     [refs]

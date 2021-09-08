@@ -1,7 +1,8 @@
 import React from 'react'
 import { render, axe } from '../../../test-utils'
 
-import { Toast, ToastProvider } from '../index'
+import { ToastProvider } from '../index'
+import { Toast } from '../components/Toast'
 
 const toastProps = {
   onClear: () => {},
