@@ -3,21 +3,23 @@ import React, { forwardRef } from 'react'
 
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'
-import { useModalContext } from '../context'
+import { useModalContext } from './ModalContext'
 
 /**
  * Button capable of close the modal when clicked
  * It implements an admin-ui/Button, with all its features
+ *
  * @example
  * ```jsx
- * import { StatelessModal, useModalState } from `@vtex/admin-ui`
+ * import { Modal, useModalState } from `@vtex/admin-ui`
  *
  * const state = useModalState()
- * <StatelessModal state={state}>
- *    <StatelessModal.Content>
- *      <StatelessModal.Button closeModalOnClick>Save</StatelessModal.Button>
- *    <StatelessModal.Content>
- * </StatelessModal>
+ *
+ * <Modal state={state}>
+ *    <ModalContent>
+ *      <ModalButton closeModalOnClick>Save</ModalButton>
+ *    <ModalContent>
+ * </Modal>
  * ```
  */
 export const ModalButton = forwardRef(function ModalButton(

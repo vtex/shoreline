@@ -2,7 +2,7 @@ import React from 'react'
 import type { DialogStateReturn } from 'reakit/Dialog'
 import invariant from 'tiny-invariant'
 
-import type { ModalSize } from './types'
+import type { ModalSize } from '../types'
 
 const ModalContext = React.createContext<{
   state: DialogStateReturn
