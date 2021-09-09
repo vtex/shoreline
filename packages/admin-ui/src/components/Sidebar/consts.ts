@@ -4,3 +4,8 @@ export const SCALES = {
   FIXED_AREA_WIDTH: '3.5rem',
   SIDEBAR_SECTION_WIDTH: '11.5rem',
 }
+
+export enum ArrowKeys {
+  Right = 'ArrowRight',
+  Left = 'ArrowLeft',
+}

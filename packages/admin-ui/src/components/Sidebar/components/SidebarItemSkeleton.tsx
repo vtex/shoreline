@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { Box } from '../../../Box'
-import { Skeleton } from '../../../Skeleton'
-import { Set } from '../../../Set'
-import { SCALES } from '../../consts'
+import { Box } from '../../Box'
+import { Skeleton } from '../../Skeleton'
+import { Set } from '../../Set'
+import { SCALES } from '../consts'
 
 /**
- * The sidebar item skeleton.
+ * The SidebaItem loading state
  */
-export function ItemSkeleton() {
+export function SidebarItemSkeleton() {
   return (
     <Box
       csx={{

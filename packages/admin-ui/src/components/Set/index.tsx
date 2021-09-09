@@ -53,7 +53,7 @@ export const Set = jsx.div(
   }
 )
 
-interface SetOptions {
+export interface SetOptions {
   /**
    * orientation of items
    * @default vertical
@@ -76,4 +76,4 @@ interface SetOptions {
   align?: ResponsiveValue<'start' | 'end'>
 }
 
-export type SetProps = ComponentPropsWithoutRef<typeof Set>
+export type SetProps = ComponentPropsWithoutRef<typeof Set> & SetOptions

@@ -12,9 +12,16 @@ import {
   IconStorefront,
 } from '@vtex/admin-ui-icons'
 
-import { Box } from '../Box'
-import { Sidebar, useSidebarState } from './index'
-import { Paragraph } from '../Paragraph'
+import { Box } from '../../Box'
+import {
+  Sidebar,
+  SidebarGroup,
+  SidebarItem,
+  SidebarSection,
+  SidebarSectionItem,
+  useSidebarState,
+} from '../index'
+import { Paragraph } from '../../Paragraph'
 
 export default {
   title: 'shell/Sidebar',
@@ -167,9 +174,9 @@ export const Playground: Story<any> = (args) => {
         }}
       >
         <Sidebar {...args} state={state}>
-          <Sidebar.Top>
+          <SidebarGroup>
             {top.map((item, index) => (
-              <Sidebar.Item
+              <SidebarItem
                 label={item.label}
                 uniqueKey={item.label}
                 icon={item.icon}
@@ -177,33 +184,30 @@ export const Playground: Story<any> = (args) => {
                 selected={index === 0}
               >
                 {item.sections.map((section) => (
-                  <Sidebar.Item.Section
-                    title={section.title}
-                    key={section.title}
-                  >
+                  <SidebarSection title={section.title} key={section.title}>
                     {section.subItems.map((label) => (
-                      <Sidebar.Item.Section.Item
+                      <SidebarSectionItem
                         key={label}
                         onClick={() => console.log(`hey`)}
                       >
                         {label}
-                      </Sidebar.Item.Section.Item>
+                      </SidebarSectionItem>
                     ))}
-                  </Sidebar.Item.Section>
+                  </SidebarSection>
                 ))}
-              </Sidebar.Item>
+              </SidebarItem>
             ))}
-          </Sidebar.Top>
-          <Sidebar.Bottom>
+          </SidebarGroup>
+          <SidebarGroup>
             {bottom.map((item) => (
-              <Sidebar.Item
+              <SidebarItem
                 icon={item.icon}
                 label={item.label}
                 uniqueKey={item.label}
                 key={item.label}
               />
             ))}
-          </Sidebar.Bottom>
+          </SidebarGroup>
         </Sidebar>
         <Box
           csx={{

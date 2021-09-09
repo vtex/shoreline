@@ -1,14 +1,21 @@
-import type { ReactNode } from 'react'
-import React from 'react'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
+import { useCompositeItem } from 'reakit/Composite'
 
-import { useCompositeItem } from '../Aria'
-import type { ButtonProps } from '../../../Button'
-import { Button } from '../../../Button'
-import { useSidebarContext } from '../../context'
-import { useItemContext, ArrowKeys } from './shared'
+import type { ButtonProps } from '../../Button'
+import { Button } from '../../Button'
+import { useSidebarContext, useItemContext } from './SidebarContext'
+import { ArrowKeys } from '../consts'
 
-export function SidebarSectionItem(props: SidebarSectionItem) {
+/**
+ * The last node of the sidebar tree.
+ * This is where clients will interact most to perform actions
+ */
+export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
+  props: SidebarSectionItem,
+  ref: Ref<HTMLButtonElement>
+) {
   const { children, selected: currentSelected = false, ...buttonProps } = props
   const rootState = useSidebarContext()
   const { state, id, selected: parentSelected } = useItemContext()
@@ -35,6 +42,7 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
 
   return (
     <Button
+      ref={ref}
       variant="tertiary"
       size="small"
       csx={merge(
@@ -68,7 +76,7 @@ export function SidebarSectionItem(props: SidebarSectionItem) {
       {children}
     </Button>
   )
-}
+})
 
 type IntrinsicProps = Omit<ButtonProps, 'ref'>
 
