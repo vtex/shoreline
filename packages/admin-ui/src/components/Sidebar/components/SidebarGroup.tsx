@@ -16,17 +16,10 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
     spacing = 1,
     orientation = 'vertical',
     role = 'menubar',
-    ...setProps
   } = props
 
   return (
-    <Set
-      ref={ref}
-      spacing={spacing}
-      orientation={orientation}
-      role={role}
-      {...setProps}
-    >
+    <Set ref={ref} spacing={spacing} orientation={orientation} role={role}>
       {children}
     </Set>
   )

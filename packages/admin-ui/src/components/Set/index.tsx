@@ -53,7 +53,7 @@ export const Set = jsx.div(
   }
 )
 
-interface SetOptions {
+export interface SetOptions {
   /**
    * orientation of items
    * @default vertical
