@@ -1,161 +1,105 @@
-import React, { useEffect, useMemo } from 'react'
-import { IconClose } from '@vtex/admin-ui-icons'
-import { jsx } from '@vtex/admin-ui-react'
-import { motion } from 'framer-motion'
+import React, { useCallback, useEffect } from 'react'
+import {
+  IconClose,
+  IconErrorColorful,
+  IconNotifications,
+  IconSuccessColorful,
+  IconWarningColorful,
+} from '@vtex/admin-ui-icons'
+import { tag } from '@vtex/admin-ui-react'
+import { useTimeout } from '@vtex/admin-ui-hooks'
 
-import type { ToastIconProps, ToastOptions } from './typings'
-import { ToastIcon } from './Icon'
-import type { ButtonProps } from '../../Button'
+import type { InternalToast } from '../types'
 import { Button } from '../../Button'
-import { Text } from '../../Text'
-import { Flex } from '../../Flex'
+import { ToastContainer } from './ToastContainer'
 
-const ToastContent = jsx(motion.div)({
-  position: 'relative',
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  minWidth: '16.125rem',
-  width: 'auto',
-  minHeight: '4.5rem',
-  height: 'auto',
-  maxHeight: '4.5rem',
-  borderRadius: '0.25rem',
-  padding: '1rem',
-  boxShadow: 'subtle',
-  backgroundColor: 'white',
-  border: 'default',
-  variants: {
-    type: {
-      // Important! Although these hexes below
-      // are "hardcoded" and don't correspond to
-      // any color defined on the Design System
-      // level, they were defined on the component
-      // level and share the same styles with the
-      // Alert component. We're actively discussing
-      // how we can include these colors on the Design
-      // System level.
-      error: {
-        backgroundColor: '#FFF8F8',
-        borderColor: '#EDB6B6',
-      },
-      success: { backgroundColor: '#F0F8F5', borderColor: '#8FC2B1' },
-      warning: { backgroundColor: '#FFF9EE', borderColor: '#E5C38E' },
-      info: {},
-    },
-  },
-})
-
-ToastContent.defaultProps = {
-  type: 'info',
+interface ToastProps extends InternalToast {
+  onClear: (dedupeKey: string, id: string) => void
 }
 
-/**
- * The toast is a variation of an alert that provides immediate
- * feedback over actions that just happened and were caused by the user.
- *
- * It displays a message that goes away after a set period.
- */
-export function Toast(props: ToastOptions) {
-  const {
-    message,
-    duration,
-    remove,
-    id,
-    iconProps,
-    position = 'bottom-right',
-    dismissible,
-    csx,
-    stack,
-    action,
-    type,
-  } = useToast(props)
+const icons = {
+  success: <IconSuccessColorful />,
+  warning: <IconWarningColorful />,
+  error: <IconErrorColorful />,
+  info: <IconNotifications csx={{ color: 'blue' }} />,
+}
 
-  useEffect(() => {
-    const timeout = setTimeout(() => remove(id, position), duration)
+export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
+  (props, ref) => {
+    const {
+      id,
+      dedupeKey,
+      message,
+      onClear,
+      dismissible,
+      action,
+      shouldRemove,
+      type = 'info',
+      duration = 10000,
+    } = props
 
-    return () => clearTimeout(timeout)
-  }, [])
-
-  const handleOnDismiss = () => {
-    remove(id, position)
-  }
-
-  const isFirst = useMemo(() => {
-    return (
-      stack
-        .slice(0)
-        .reverse()
-        .findIndex((toastId) => toastId === id) === 0
+    const remove = useCallback(
+      () => onClear(dedupeKey, id),
+      [onClear, dedupeKey, id]
     )
-  }, [stack])
 
-  return (
-    <ToastContent
-      layout
-      type={type}
-      csx={csx}
-      data-testid="onda-toast-component"
-      initial={{ top: '7.5rem' }}
-      animate={{ top: 0 }}
-      exit={{
-        opacity: isFirst ? 1 : 0,
-        top: isFirst ? '7.5rem' : 0,
-      }}
-      transition={{
-        duration: 0.3,
-      }}
-    >
-      <Flex align="center">
-        <ToastIcon {...iconProps} />
-        <Text csx={{ textAlign: 'start' }}>{message}</Text>
-      </Flex>
-      {(dismissible || action) && (
-        <Flex align="center">
-          {action && <Button {...action} />}
-          {dismissible && (
-            <Button
-              icon={<IconClose />}
-              variant="adaptative-dark"
-              onClick={handleOnDismiss}
-              size="small"
-              aria-label="Close toast"
-            />
-          )}
-        </Flex>
-      )}
-    </ToastContent>
-  )
-}
+    const { stopTimeout, startTimeout } = useTimeout({
+      duration,
+      onTimeout: remove,
+    })
 
-function useToast(props: ToastOptions): ToastOptions {
-  const {
-    type = 'info',
-    iconProps: maybeIconProps,
-    action: maybeAction,
-  } = props
-
-  const iconProps: ToastIconProps = {
-    ...maybeIconProps,
-    type,
-  }
-
-  const action: ButtonProps | undefined = maybeAction
-    ? {
-        ...maybeAction,
-        variant: 'adaptative-dark',
-        csx: {
-          color: 'blue',
-          whiteSpace: 'nowrap',
-        },
+    useEffect(() => {
+      if (shouldRemove) {
+        stopTimeout()
+        remove()
       }
-    : undefined
+    }, [shouldRemove, remove, stopTimeout])
 
-  return {
-    type,
-    ...props,
-    action,
-    iconProps,
+    return (
+      <ToastContainer
+        role="alert"
+        ref={ref}
+        onMouseEnter={stopTimeout}
+        onMouseLeave={startTimeout}
+        type={type}
+      >
+        <tag.div
+          csx={{
+            display: 'flex',
+            alignItems: 'center',
+            '> *:first-child': { marginRight: '0.75rem' },
+          }}
+        >
+          {icons[type]}
+          <tag.p csx={{ textAlign: 'start', text: 'body' }}>{message}</tag.p>
+        </tag.div>
+        {(dismissible || action) && (
+          <tag.div csx={{ display: 'flex', alignItems: 'center' }}>
+            {action && (
+              <Button
+                key={action.label}
+                onClick={() => {
+                  remove()
+                  action.onClick()
+                }}
+                csx={{ color: 'blue' }}
+                variant="adaptative-dark"
+              >
+                {action.label}
+              </Button>
+            )}
+            {dismissible && (
+              <Button
+                icon={<IconClose />}
+                variant="adaptative-dark"
+                size="small"
+                aria-label="Close toast"
+                onClick={remove}
+              />
+            )}
+          </tag.div>
+        )}
+      </ToastContainer>
+    )
   }
-}
+)

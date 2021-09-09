@@ -11,6 +11,7 @@ import {
   Flex,
   IconCode,
   IconDuplicate,
+  ToastProvider,
 } from '@vtex/admin-ui'
 
 import { copyToClipboard, calculateLinesToHighlight } from './util'
@@ -64,51 +65,53 @@ export function Code(props: CodeProps) {
   if (!isStatic) {
     return (
       <ThemeProvider>
-        <LiveProvider
-          code={codeString}
-          noInline={noInline}
-          theme={theme}
-          scope={scope}
-        >
-          <tag.div csx={styles.wrapper}>
-            <tag.div as={LivePreview} csx={styles.preview} />
-            <Flex
-              justify="flex-end"
-              csx={{
-                padding: 1,
-                bg: 'sidebar.light',
-                borderBottomRightRadius: 4,
-                borderBottomLeftRadius: 4,
-              }}
-            >
-              <Set>
-                {codeVisible && (
+        <ToastProvider>
+          <LiveProvider
+            code={codeString}
+            noInline={noInline}
+            theme={theme}
+            scope={scope}
+          >
+            <tag.div csx={styles.wrapper}>
+              <tag.div as={LivePreview} csx={styles.preview} />
+              <Flex
+                justify="flex-end"
+                csx={{
+                  padding: 1,
+                  bg: 'sidebar.light',
+                  borderBottomRightRadius: 4,
+                  borderBottomLeftRadius: 4,
+                }}
+              >
+                <Set>
+                  {codeVisible && (
+                    <Button
+                      size="small"
+                      icon={<IconDuplicate />}
+                      variant="adaptative-dark"
+                      onClick={handleClick}
+                      disabled={copied}
+                    >
+                      {copied ? 'Copied!' : 'Copy code'}
+                    </Button>
+                  )}
                   <Button
-                    size="small"
-                    icon={<IconDuplicate />}
+                    icon={<IconCode />}
                     variant="adaptative-dark"
-                    onClick={handleClick}
-                    disabled={copied}
+                    size="small"
+                    onClick={() => setCodeVisible((v) => !v)}
                   >
-                    {copied ? 'Copied!' : 'Copy code'}
+                    Show/Hide Code
                   </Button>
-                )}
-                <Button
-                  icon={<IconCode />}
-                  variant="adaptative-dark"
-                  size="small"
-                  onClick={() => setCodeVisible((v) => !v)}
-                >
-                  Show/Hide Code
-                </Button>
-              </Set>
-            </Flex>
-            <tag.div csx={styles.editorWrapper}>
-              {codeVisible && <LiveEditor />}
+                </Set>
+              </Flex>
+              <tag.div csx={styles.editorWrapper}>
+                {codeVisible && <LiveEditor />}
+              </tag.div>
+              <tag.div as={LiveError} csx={styles.liveEditor} />
             </tag.div>
-            <tag.div as={LiveError} csx={styles.liveEditor} />
-          </tag.div>
-        </LiveProvider>
+          </LiveProvider>
+        </ToastProvider>
       </ThemeProvider>
     )
   }
