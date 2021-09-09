@@ -73,7 +73,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-4 a {
-  font-variation-settings: 'WGHT' 750;
+  font-variation-settings: 'WGHT' 650;
 }
 
 .emotion-1 {
@@ -195,7 +195,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-4 a {
-  font-variation-settings: 'WGHT' 750;
+  font-variation-settings: 'WGHT' 650;
 }
 
 .emotion-1 {
@@ -324,7 +324,7 @@ exports[`Alert tests should match snapshot 1`] = `
 }
 
 .emotion-4 a {
-  font-variation-settings: 'WGHT' 750;
+  font-variation-settings: 'WGHT' 650;
 }
 
 .emotion-1 {
