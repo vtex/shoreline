@@ -1,17 +1,22 @@
-import type { ReactNode } from 'react'
-import React, { useEffect, useMemo } from 'react'
+import type { ReactNode, Ref } from 'react'
+import React, { useEffect, useMemo, forwardRef } from 'react'
+import { CompositeItem, useCompositeState } from 'reakit/Composite'
+import { tag } from '@vtex/admin-ui-react'
 import type { HTMLAttributesWithRef } from 'reakit-utils/ts'
 
-import { Box } from '../../../Box'
-import { CompositeItem, useCompositeState } from '../Aria'
-import type { SidebarDisclosureProps } from './Disclosure'
-import { SidebarDisclosure } from './Disclosure'
-import { SidebarSection } from './Section'
-import { ItemProvider, ArrowKeys } from './shared'
-import { useSidebarContext } from '../../context'
-import { SCALES } from '../../consts'
+import type { SidebarDisclosureProps } from './SidebarDisclosure'
+import { SidebarDisclosure } from './SidebarDisclosure'
+import { useSidebarContext, ItemProvider } from './SidebarContext'
+import { SCALES, ArrowKeys } from '../consts'
 
-function _SidebarItem(props: SidebarItemProps) {
+/**
+ * Corresponds to an item of the sidebar's first level.
+ * It can hold multiple sections exhibited when the sidebar is expanded.
+ */
+export const SidebarItem = forwardRef(function SidebarItem(
+  props: SidebarItemProps,
+  ref: Ref<HTMLButtonElement>
+) {
   const {
     children,
     onClick,
@@ -103,6 +108,7 @@ function _SidebarItem(props: SidebarItemProps) {
 
   return (
     <CompositeItem
+      ref={ref}
       {...state.composite}
       role="menuitem"
       aria-label={label}
@@ -118,8 +124,7 @@ function _SidebarItem(props: SidebarItemProps) {
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
-          <Box
-            as="ul"
+          <tag.ul
             csx={{
               position: 'absolute',
               top: 0,
@@ -140,9 +145,8 @@ function _SidebarItem(props: SidebarItemProps) {
             onMouseEnter={handleShowToggle}
             onMouseLeave={handleHideToggle}
           >
-            <Box
+            <tag.li
               aria-label={`${label} menu`}
-              as="li"
               csx={{
                 listStyle: 'none',
               }}
@@ -156,55 +160,12 @@ function _SidebarItem(props: SidebarItemProps) {
               >
                 {children}
               </ItemProvider>
-            </Box>
-          </Box>
+            </tag.li>
+          </tag.ul>
         </>
       )}
     </CompositeItem>
   )
-}
-
-export const SidebarItem = Object.assign(_SidebarItem, {
-  /**
-   * Each `<Sidebar.Item.Section />` is responsible for
-   * defining the scope of a section within a sidebar item.
-   * It holds the `<Sidebar.Item.Section.Item />`, which
-   * is the last node of the sidebar tree and where clients
-   * will interact most to perform actions.
-   *
-   * @example
-   * ```jsx
-   * import { Sidebar } from `@vtex/admin-ui`
-   *
-   * <Sidebar>
-   *    <Sidebar.Header>
-   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/promotions" })}>
-   *       <Sidebar.Item.Section title={"Promotions"}>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/promotions" })}>
-   *         Promotions
-   *        </Sidebar.Item.Section.Item>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/discounts"})} >
-   *         Discounts
-   *        </Sidebar.Item.Section.Item>
-   *       </Sidebar.Item.Section>
-   *      </Sidebar.Item>
-   *    </Sidebar.Header>
-   *    <Sidebar.Footer>
-   *      <Sidebar.Item selected={someCondition} onClick={() => navigate({ to: "/apps" })}>
-   *       <Sidebar.Item.Section title={"Apps"}>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps" })}>
-   *         Installed apps
-   *        </Sidebar.Item.Section.Item>
-   *        <Sidebar.Item.Section.Item onClick={() => navigate({ to: "/apps-store"})} >
-   *         Apps store
-   *        </Sidebar.Item.Section.Item>
-   *       </Sidebar.Item.Section>
-   *      </Sidebar.Item>
-   *    </Sidebar.Footer>
-   * </Sidebar>
-   * ```
-   */
-  Section: SidebarSection,
 })
 
 export interface SidebarItemProps extends SidebarDisclosureProps {

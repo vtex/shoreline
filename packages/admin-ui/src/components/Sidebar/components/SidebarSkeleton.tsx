@@ -7,7 +7,7 @@ const size = 40
 
 /**
  * Skeleton component for the sidebar.
- * It fits the <Sidebar.Item /> disclosure button's size.
+ * It fits the SidebarItem disclosure button's size.
  */
 export function SidebarSkeleton(props: SidebarSkeletonProps) {
   const { amount = 7 } = props

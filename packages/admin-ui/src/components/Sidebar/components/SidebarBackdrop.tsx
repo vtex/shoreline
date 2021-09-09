@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react'
+import type { Ref } from 'react'
+import React, { Fragment, forwardRef } from 'react'
 import { IconCaretSmall } from '@vtex/admin-ui-icons'
+import { tag } from '@vtex/admin-ui-react'
 
-import { Box } from '../../Box'
 import { Button } from '../../Button'
-import type { SidebarState } from '../hooks'
-import { ItemSkeleton } from './Item/Skeleton'
+import type { SidebarState } from '../hooks/useSidebarState'
+import { SidebarItemSkeleton } from './SidebarItemSkeleton'
 
 const width = {
   expanded: '12.5rem',
@@ -18,9 +19,12 @@ const distance = {
 }
 
 /**
- * Components that acts as a spacer.
+ * Component that acts as a spacer
  */
-export function SidebarBackdrop(props: SidebarBackdropProps) {
+export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
+  props: SidebarBackdropProps,
+  ref: Ref<HTMLDivElement>
+) {
   const {
     state: {
       selectedItem,
@@ -31,7 +35,8 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
 
   return (
     <Fragment>
-      <Box
+      <tag.div
+        ref={ref}
         csx={{
           minWidth: selectedItem?.expandable
             ? reduced
@@ -50,8 +55,8 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
         onMouseEnter={showToggle}
         onMouseLeave={hideToggle}
       >
-        {loading && <ItemSkeleton />}
-      </Box>
+        {loading && <SidebarItemSkeleton />}
+      </tag.div>
 
       <Button
         title="toggle sidebar collapse"
@@ -103,7 +108,7 @@ export function SidebarBackdrop(props: SidebarBackdropProps) {
       />
     </Fragment>
   )
-}
+})
 
 export interface SidebarBackdropProps {
   state: SidebarState
