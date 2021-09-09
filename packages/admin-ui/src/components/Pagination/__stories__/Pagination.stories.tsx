@@ -6,6 +6,7 @@ import { usePaginationState } from '../hooks/usePaginationState'
 import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
 import { Set } from '../../Set'
 import { Input } from '../../Input'
+import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
 export default {
   title: 'admin-ui/Pagination',
@@ -51,23 +52,25 @@ export function PersistedPaginationWithQuery() {
   })
 
   return (
-    <Set orientation="vertical" spacing={6}>
-      <Input
-        label="Current URL:"
-        id="current-url-input"
-        value={window.location.href}
-        disabled
-        csx={{ width: 'lg' }}
-        helperText="You can copy the part with page in your URL to see the page
+    <QueryStateProvider>
+      <Set orientation="vertical" spacing={6}>
+        <Input
+          label="Current URL:"
+          id="current-url-input"
+          value={window.location.href}
+          disabled
+          csx={{ width: 'lg' }}
+          helperText="You can copy the part with page in your URL to see the page
         load directly on choosed page"
-      />
-      <Pagination
-        state={state}
-        preposition="of"
-        subject="results"
-        prevLabel="Previous"
-        nextLabel="Next"
-      />
-    </Set>
+        />
+        <Pagination
+          state={state}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+        />
+      </Set>
+    </QueryStateProvider>
   )
 }
