@@ -110,13 +110,17 @@ describe('Pagination', () => {
       .getElementsByTagName('button')[1]
 
     userEvent.click(nextButton)
-    rerender(<PersistedPaginationWithInitialValue />)
+    rerender(
+      <QueryStateProvider>
+        <PersistedPaginationWithInitialValue />
+      </QueryStateProvider>
+    )
 
-    waitFor(() => expect(window.location.href).toContain('?page=4'))
-    waitFor(() =>
+    await waitFor(() =>
       expect(getByTestId('pagination')).toHaveTextContent(
         '16 — 20 of 50 results'
       )
     )
+    waitFor(() => expect(window.location.href).toContain('?page=4'))
   })
 })
