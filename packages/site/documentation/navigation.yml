@@ -17,12 +17,6 @@
     - /guidelines/responsive-design/
     - /guidelines/styling/
     - /guidelines/tag/
-- section: Primitives
-  paths:
-    - /primitives/introduction/
-    - /primitives/box/
-    - /primitives/flex/
-    - /primitives/grid/
 - section: Layouts
   paths:
     - /layouts/introduction/
@@ -41,6 +35,7 @@
   paths:
     - /alert/
     - /avatar/
+    - /box/
     - /button/
     - /card/
     - /checkbox/
@@ -51,7 +46,9 @@
     - /data-view/
     - /divider/
     - /dropdown/
+    - /flex/
     - /filter-bar/
+    - /grid/
     - /icons/
     - /input/
     - /input-password/
