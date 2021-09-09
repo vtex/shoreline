@@ -20,7 +20,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
   props: SidebarSectionProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { title, children, ...baseProps } = props
+  const { title, children, ...setProps } = props
   const { state } = useItemContext()
   const compositeProps = useComposite({ ...state, baseId: 'section--' })
 
@@ -35,7 +35,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
         zIndex: 'sidebarUl',
       }}
       {...compositeProps}
-      {...baseProps}
+      {...setProps}
       ref={ref}
     >
       <Text
@@ -60,10 +60,4 @@ export interface SidebarSectionProps extends SetProps {
    * `title` of a section. This is what separates each item's section.
    */
   title: string
-  /**
-   * `chilren` should be multiple `<Sidebar.SubItem {...props} />` components.
-   * Those are the items over which clients will interact in order to
-   * navigate between different pages.
-   */
-  children?: ReactNode
 }

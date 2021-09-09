@@ -16,7 +16,7 @@ import { SCALES } from '../consts'
  * The sidebar structure is as follows:
  * ```bash
  * └── Sidebar
- *  └── SidebarCorner
+ *  └── SidebarGroup
  *       └── SidebarItem
  *           └── SidebarSection
  *               └── SidebarSectionItem
@@ -25,7 +25,7 @@ import { SCALES } from '../consts'
  * const state = useSidebarState()
  *
  * <Sidebar state={state}>
- *  <SidebarCorner>
+ *  <SidebarGroup>
  *    <SidebarItem>
  *      <SidebarSection>
  *        <SidebarSectionItem onClick={() => navigate({ to: "/admin/page1" })}>
@@ -33,7 +33,7 @@ import { SCALES } from '../consts'
  *        </SidebarSectionItem>
  *      </SidebarSection>
  *    </SidebarItem
- *  </SidebarCorner>
+ *  </SidebarGroup>
  * </Sidebar>
  */
 export const Sidebar = forwardRef(function Sidebar(

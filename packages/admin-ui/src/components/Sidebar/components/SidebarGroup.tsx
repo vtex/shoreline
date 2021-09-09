@@ -11,10 +11,22 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
   props: SetProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { children } = props
+  const {
+    children,
+    spacing = 1,
+    orientation = 'vertical',
+    role = 'menubar',
+    ...setProps
+  } = props
 
   return (
-    <Set ref={ref} spacing={1} orientation="vertical" role="menubar">
+    <Set
+      ref={ref}
+      spacing={spacing}
+      orientation={orientation}
+      role={role}
+      {...setProps}
+    >
       {children}
     </Set>
   )

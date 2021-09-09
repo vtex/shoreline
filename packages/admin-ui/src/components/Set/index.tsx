@@ -76,4 +76,4 @@ interface SetOptions {
   align?: ResponsiveValue<'start' | 'end'>
 }
 
-export type SetProps = ComponentPropsWithoutRef<typeof Set>
+export type SetProps = ComponentPropsWithoutRef<typeof Set> & SetOptions
