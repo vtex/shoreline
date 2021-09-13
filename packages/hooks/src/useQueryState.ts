@@ -43,9 +43,14 @@ export function useQueryState(
     (query: Record<string, string | undefined> = {}): void => {
       if (!isBrowser) return
 
-      Object.entries(query).forEach((element: [string, string | undefined]) => {
-        if (!element[1]) queryParams.delete(element[0])
-        else queryParams.set(element[0], element[1])
+      Object.entries(query).forEach((element: QueryParams) => {
+        if (!element[1]) {
+          queryParams.delete(element[0])
+
+          return
+        }
+
+        queryParams.set(element[0], element[1])
       })
       const newurl = `${window.location.protocol}//${window.location.host}${
         window.location.pathname
@@ -62,3 +67,5 @@ export function useQueryState(
 export type UsePersistedStateParams = {
   keys: string[]
 }
+
+type QueryParams = [string, string | undefined]
