@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tabs tests should match snapshot 1`] = `
+exports[`Tabs should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-2 {
   padding-left: 1rem;

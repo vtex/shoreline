@@ -1,0 +1,37 @@
+import { TabList as ReakitTabList } from 'reakit'
+import { jsx } from '@vtex/admin-ui-react'
+
+import { useTabsContext } from '../context'
+
+export const TabsList = jsx(ReakitTabList)(
+  {
+    paddingX: 4,
+    width: 'full',
+    variants: {
+      fluid: {
+        true: {
+          display: 'flex',
+          justifyContent: 'space-evenly',
+          '> button': { width: 'full' },
+        },
+        false: {
+          display: 'inline-block',
+        },
+      },
+    },
+  },
+  {
+    options: [],
+    useOptions(_, props) {
+      const { state } = useTabsContext()
+
+      return { ...props, ...state }
+    },
+  }
+)
+
+TabsList.defaultProps = {
+  fluid: false,
+}
+
+export type TabsListProps = React.ComponentPropsWithRef<typeof TabsList>
