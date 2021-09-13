@@ -112,7 +112,7 @@ export interface UsePaginationParams {
    */
   total?: number
   /**
-   * Inital page
+   * Initial page
    * @default 1
    */
   initialPage?: number

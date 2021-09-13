@@ -12,11 +12,11 @@ export function useQuerySearchState(
     keys: ['search'],
   })
 
-  const initalValue = initialQuery.search ?? ''
+  const initialValue = initialQuery.search ?? ''
 
   const searchState = useSearchState({
     ...props,
-    initalValue,
+    initialValue,
   })
 
   useEffect(() => {
@@ -62,5 +62,5 @@ export function useQuerySearchState(
 
 export type UseQuerySearchStateParams = Omit<
   UseSearchStateParams,
-  'initalValue'
+  'initialValue'
 >
