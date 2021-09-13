@@ -1,8 +1,7 @@
-import type { Ref } from 'react'
+import type { Ref, ReactNode } from 'react'
 import type { CsxCall } from '@vtex/admin-ui-react'
 import React, { forwardRef } from 'react'
 
-import type { SetProps } from '../../Set'
 import { Set } from '../../Set'
 
 /**
@@ -12,18 +11,22 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
   props: SidebarGroupProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const {
-    children,
-    spacing = 1,
-    orientation = 'vertical',
-    role = 'menubar',
-  } = props
+  const { children, spacing = 1, csx } = props
 
   return (
-    <Set ref={ref} spacing={spacing} orientation={orientation} role={role}>
+    <Set
+      ref={ref}
+      spacing={spacing}
+      orientation="vertical"
+      role="menubar"
+      csx={csx}
+    >
       {children}
     </Set>
   )
 })
 
-export type SidebarGroupProps = SetProps & CsxCall
+export interface SidebarGroupProps extends CsxCall {
+  children?: ReactNode
+  spacing?: number
+}
