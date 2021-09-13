@@ -1,0 +1,539 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  margin-right: 0.75rem;
+}
+
+.emotion-3 >*:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.25;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 0.875rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  z-index: 999;
+  -webkit-transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
+  transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
+  border-style: solid;
+  border-width: 1px;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+  background-color: #eaf5f1;
+  border-color: #CEE8DE;
+}
+
+.emotion-4 a {
+  font-variation-settings: 'WGHT' 650;
+}
+
+@media (min-width: 48em) and (max-width: 64em) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+  }
+
+  .emotion-4 >div:first-child {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 64em) and (max-width: 75em) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+  }
+
+  .emotion-4 >div:first-child {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 75em) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+  }
+
+  .emotion-4 >div:first-child {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #368369;
+}
+
+<div
+    class="emotion-4"
+  >
+    <div
+      class="emotion-3"
+    >
+      <div
+        class="emotion-1"
+      >
+        <svg
+          class="emotion-0"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 21C7.029 21 3 16.971 3 12C3 7.029 7.029 3 12 3C16.971 3 21 7.029 21 12C21 16.971 16.971 21 12 21Z"
+            fill="#44B172"
+            fill-rule="evenodd"
+          />
+          <path
+            d="M16 10L11 15L8 12"
+            stroke="white"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </div>
+      <p
+        class="emotion-2"
+      >
+        Order successfully placed
+      </p>
+    </div>
+  </div>
+  .emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  margin-right: 0.75rem;
+}
+
+.emotion-3 >*:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.25;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 0.875rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  z-index: 999;
+  -webkit-transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
+  transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
+  border-style: solid;
+  border-width: 1px;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+  background-color: #fbf3e4;
+  border-color: #F6E0BA;
+}
+
+.emotion-4 a {
+  font-variation-settings: 'WGHT' 650;
+}
+
+@media (min-width: 48em) and (max-width: 64em) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+  }
+
+  .emotion-4 >div:first-child {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 64em) and (max-width: 75em) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+  }
+
+  .emotion-4 >div:first-child {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 75em) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+  }
+
+  .emotion-4 >div:first-child {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #FFBA52;
+}
+
+<div
+    class="emotion-4"
+  >
+    <div
+      class="emotion-3"
+    >
+      <div
+        class="emotion-1"
+      >
+        <svg
+          class="emotion-0"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M3 14.381V9.61899C3 8.01699 3.852 6.53599 5.236 5.72999L9.736 3.11099C11.135 2.29699 12.864 2.29699 14.263 3.11099L18.763 5.72999C20.148 6.53599 21 8.01699 21 9.61899V14.381C21 15.983 20.148 17.464 18.764 18.27L14.264 20.889C12.865 21.703 11.136 21.703 9.737 20.889L5.237 18.27C3.852 17.464 3 15.983 3 14.381Z"
+            fill="#FFC165"
+            fill-rule="evenodd"
+          />
+          <path
+            d="M12 12V7.5"
+            stroke="#323845"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+          <path
+            d="M11.999 15.5C11.861 15.5 11.749 15.612 11.75 15.75C11.75 15.888 11.862 16 12 16C12.138 16 12.25 15.888 12.25 15.75C12.25 15.612 12.138 15.5 11.999 15.5"
+            stroke="#323845"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </div>
+      <p
+        class="emotion-2"
+      >
+        This account is inactive. Check your billing for more information.
+      </p>
+    </div>
+  </div>
+  .emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  margin-right: 0.75rem;
+}
+
+.emotion-3 >*:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  line-height: 1.25;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 0.875rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  z-index: 999;
+  -webkit-transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
+  transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
+  border-style: solid;
+  border-width: 1px;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+  background-color: #fee1e1;
+  border-color: #FEDADA;
+}
+
+.emotion-4 a {
+  font-variation-settings: 'WGHT' 650;
+}
+
+@media (min-width: 48em) and (max-width: 64em) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+  }
+
+  .emotion-4 >div:first-child {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 64em) and (max-width: 75em) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+  }
+
+  .emotion-4 >div:first-child {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 75em) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+  }
+
+  .emotion-4 >div:first-child {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #CB4242;
+}
+
+<div
+    class="emotion-4"
+  >
+    <div
+      class="emotion-3"
+    >
+      <div
+        class="emotion-1"
+      >
+        <svg
+          class="emotion-0"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M7.414 20.414L3.586 16.586C3.211 16.211 3 15.702 3 15.172V8.828C3 8.298 3.211 7.789 3.586 7.414L7.414 3.586C7.789 3.211 8.298 3 8.828 3H15.171C15.701 3 16.21 3.211 16.585 3.586L20.413 7.414C20.789 7.789 21 8.298 21 8.828V15.171C21 15.701 20.789 16.21 20.414 16.585L16 21H8.828C8.298 21 7.789 20.789 7.414 20.414Z"
+            fill="#FF6565"
+            fill-rule="evenodd"
+          />
+          <path
+            d="M9 15L15 9"
+            stroke="white"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+          <path
+            d="M15 15L9 9"
+            stroke="white"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </div>
+      <p
+        class="emotion-2"
+      >
+        Somenthing went wrong. Please, try again.
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
