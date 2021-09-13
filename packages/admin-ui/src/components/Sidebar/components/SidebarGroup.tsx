@@ -1,4 +1,5 @@
 import type { Ref } from 'react'
+import type { CsxCall } from '@vtex/admin-ui-react'
 import React, { forwardRef } from 'react'
 
 import type { SetProps } from '../../Set'
@@ -8,7 +9,7 @@ import { Set } from '../../Set'
  * Groups even-spaced SidebarItem's
  */
 export const SidebarGroup = forwardRef(function SidebarGroup(
-  props: SetProps,
+  props: SidebarGroupProps,
   ref: Ref<HTMLDivElement>
 ) {
   const {
@@ -24,3 +25,5 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
     </Set>
   )
 })
+
+export type SidebarGroupProps = SetProps & CsxCall
