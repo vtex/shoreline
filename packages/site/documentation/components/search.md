@@ -88,7 +88,7 @@ function Example() {
 
 ### Persisted state in query params
 
-It is very common to need to persist the state of a search in the url in cases where you want the user to be able to return to the page with the last search state. For that there is the `useQuerySearchState` hook, which handles this behavior for you. For this hook to work correctly, you need to setup the `QueryStateProvider` at the root of your application.
+You can persist the search value within the browser's query params using the `useQuerySearchState` hook, instead of `useSearchState`. The application should be wrapped by `QueryStateProvider`.
 
 _watch how your url changes (Note that the persisted value is the debounce value)_
 

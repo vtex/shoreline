@@ -83,7 +83,7 @@ For convenience, we also provide a hook that already implements the state logic 
 
 ### useQueryPaginationState
 
-Instead of `usePaginationState` it is also possible to use the `useQueryPaginationState` hook. It makes it possible to persist the pagination state in the query string parameters of the url. To do this is similarly to `usePaginationState`, you should pass the hook return to the `state` property in pagination component. For this hook to work correctly, you need to setup the `QueryStateProvider` at the root of your application.
+You can persist the pagination state within the browser's query params using the `useQuerySuseQueryPaginationStatetate` hook, instead of `usePaginationState`. Both hooks are used in the same way. The application should be wrapped by `QueryStateProvider`. The application should be wrapped by `QueryStateProvider`.
 
 #### Parameter
 
