@@ -1,12 +1,10 @@
-import type { ReactNode, Ref } from 'react'
-import React, { forwardRef } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
+import React, { Fragment } from 'react'
 import { IconClose } from '@vtex/admin-ui-icons'
-import type { ResponsiveValue } from '@vtex/admin-ui-core'
-import { lightness, useResponsiveValue } from '@vtex/admin-ui-core'
+import { jsx } from '@vtex/admin-ui-react'
+import { lightness } from '@vtex/admin-ui-core'
 
-import { Box } from '../Box'
 import { Flex } from '../Flex'
-import type { SystemComponent } from '../../types'
 import { Button } from '../Button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
@@ -14,115 +12,156 @@ import { Paragraph } from '../Paragraph'
 /**
  * Component to display relevant information within an admin page
  */
-export const Alert = forwardRef(
-  (props: AlertProps, ref: Ref<HTMLDivElement>) => {
-    const {
-      type = 'info',
-      fluid = [true, true, false],
-      visible = false,
-      sticky = false,
-      children,
-      onDismiss,
-      csx = {},
-      icon,
-      ...htmlProps
-    } = props
-
-    const responsiveFluid = useResponsiveValue(fluid)
-
-    const colorVariant = {
-      error: {
-        bg: lightness('red.secondary.default', 0.94),
-        borderColor: 'red.secondary',
+export const Alert = jsx.div(
+  {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: 48,
+    paddingY: 3,
+    paddingLeft: 4,
+    paddingRight: 3,
+    borderRadius: 'default',
+    zIndex: 999,
+    transition: 'pop',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    a: {
+      fontSettings: 'medium',
+    },
+    variants: {
+      sticky: {
+        true: {
+          paddingRight: 4,
+          borderRadius: 'flat',
+        },
+        false: {
+          paddingRight: 3,
+          borderRadius: 'default',
+        },
       },
-      success: {
-        bg: lightness('green.secondary.default', 0.94),
-        borderColor: 'green.secondary',
+      visible: {
+        true: {
+          opacity: 1,
+          transform: 'translate3d(0, 0, 0)',
+          visibility: 'visible',
+        },
+        false: {
+          opacity: 0,
+          transform: 'translate3d(0, -10px, 0)',
+          visibility: 'hidden',
+        },
       },
-      warning: {
-        bg: lightness('yellow.secondary.default', 0.94),
-        borderColor: 'yellow.secondary',
+      type: {
+        error: {
+          bg: lightness('red.secondary.default', 0.94),
+          borderColor: 'red.secondary',
+        },
+        success: {
+          bg: lightness('green.secondary.default', 0.94),
+          borderColor: 'green.secondary',
+        },
+        warning: {
+          bg: lightness('yellow.secondary.default', 0.94),
+          borderColor: 'yellow.secondary',
+        },
+        info: {
+          bg: 'light.secondary',
+          borderColor: 'blue.secondary',
+        },
       },
-      info: {
-        bg: 'light.secondary',
-        borderColor: 'blue.secondary',
-      },
-    }[type]
-
-    const iconContainerStyles = {
-      warning: {
-        color: 'yellow',
-      },
-      success: {
-        color: 'green',
-      },
-      error: {
-        color: 'red',
-      },
-      info: {
-        color: 'blue',
-      },
-    }[type]
-
-    return (
-      <Box
-        ref={ref}
-        csx={{
-          display: 'flex',
-          alignItems: responsiveFluid ? 'flex-start' : 'center',
-          justifyContent: 'space-between',
-          height: responsiveFluid ? '100%' : 48,
-          paddingY: 3,
-          paddingLeft: 4,
-          paddingRight: sticky ? 4 : 3,
-          borderRadius: sticky ? 'flat' : 'default',
-          opacity: visible ? 1 : 0,
-          zIndex: 999,
-          transform: visible
-            ? 'translate3d(0, 0, 0)'
-            : 'translate3d(0, -10px, 0)',
-          visibility: visible ? 'visible' : 'hidden',
-          transition: 'pop',
-          borderStyle: 'solid',
-          borderWidth: 1,
-          a: {
-            fontSettings: 'medium',
+      fluid: {
+        true: {
+          alignItems: 'flex-start',
+          height: '100%',
+          '@tablet': {
+            alignItems: 'center',
+            height: 48,
+            '> div:first-child': {
+              alignItems: 'center',
+            },
           },
-          ...colorVariant,
-          ...csx,
-        }}
-        {...htmlProps}
-      >
-        <Set
-          spacing={2}
-          csx={{
-            alignItems: responsiveFluid ? 'flex-start' : 'center',
-            marginRight: 3,
-          }}
-        >
-          {icon && (
-            <Flex align="center" csx={iconContainerStyles}>
-              {icon}
-            </Flex>
-          )}
-          <Paragraph>{children}</Paragraph>
-        </Set>
+          '@desktop': {
+            alignItems: 'center',
+            height: 48,
+            '> div:first-child': {
+              alignItems: 'center',
+            },
+          },
+          '@widescreen': {
+            alignItems: 'center',
+            height: 48,
+            '> div:first-child': {
+              alignItems: 'center',
+            },
+          },
+        },
+        false: {
+          alignItems: 'center',
+          height: 48,
+        },
+      },
+    },
+  },
+  {
+    options: ['icon', 'onDismiss'],
+    useOptions(options: AlertOptions, props) {
+      const { icon, onDismiss } = options
+      const { children, type = 'info', ...htmlProps } = props
 
-        {onDismiss && (
-          <Button
-            size="small"
-            variant="adaptative-dark"
-            icon={<IconClose />}
-            csx={{ color: 'dark.primary' }}
-            onClick={onDismiss}
-          />
-        )}
-      </Box>
-    )
+      const iconContainerCsx = {
+        warning: {
+          color: 'yellow',
+        },
+        success: {
+          color: 'green',
+        },
+        error: {
+          color: 'red',
+        },
+        info: {
+          color: 'blue',
+        },
+      }[type]
+
+      return {
+        ...htmlProps,
+        type,
+        children: (
+          <Fragment>
+            <Set spacing={2} csx={{ alignItems: 'flex-start', marginRight: 3 }}>
+              {icon && (
+                <Flex align="center" csx={iconContainerCsx}>
+                  {icon}
+                </Flex>
+              )}
+              <Paragraph>{children}</Paragraph>
+            </Set>
+
+            {onDismiss && (
+              <Button
+                size="small"
+                variant="adaptative-dark"
+                icon={<IconClose />}
+                csx={{ color: 'dark.primary' }}
+                onClick={onDismiss}
+              />
+            )}
+          </Fragment>
+        ),
+      }
+    },
   }
 )
 
-export interface AlertProps extends SystemComponent {
+Alert.defaultProps = {
+  type: 'info',
+  visible: false,
+  sticky: false,
+  fluid: true,
+}
+
+export interface AlertOptions {
   /**
    * Alert Icon
    */
@@ -131,28 +170,6 @@ export interface AlertProps extends SystemComponent {
    * action to take on click dismiss buttton
    */
   onDismiss?: () => void
-  /**
-   * whether is visible
-   * @default false
-   */
-  visible?: boolean
-  /**
-   * alert type
-   * @default warning
-   */
-  type?: 'error' | 'success' | 'warning' | 'info'
-  /**
-   * alert children
-   */
-  children?: ReactNode
-  /**
-   * whether is sticky
-   * @default false
-   */
-  sticky?: boolean
-  /**
-   * whether the height is fluid
-   * @default [true, true, false]
-   */
-  fluid?: ResponsiveValue<boolean>
 }
+
+export type AlertProps = ComponentPropsWithRef<typeof Alert> & AlertOptions

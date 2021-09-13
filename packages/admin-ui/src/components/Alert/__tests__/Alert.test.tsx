@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { render, axe } from '../../test-utils'
+import { render, axe } from '../../../test-utils'
 import {
   IconErrorColorful,
   IconInfo,
@@ -7,9 +7,9 @@ import {
   IconWarningColorful,
 } from '@vtex/admin-ui-icons'
 
-import { Alert } from './index'
+import { Alert } from '../index'
 
-describe('Alert tests', () => {
+describe('Alert', () => {
   beforeEach(() => {
     /**
      * 🚧 Workaround for window.match media

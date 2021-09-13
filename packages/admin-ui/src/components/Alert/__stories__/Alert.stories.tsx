@@ -7,13 +7,13 @@ import {
   IconHelp,
   IconWarningCircle,
 } from '@vtex/admin-ui-icons'
-import { Box } from '../Box'
 
-import type { AlertProps } from './index'
-import { Alert } from './index'
-import { Set } from '../Set'
-import { Button } from '../Button'
-import { Anchor } from '../Anchor'
+import type { AlertProps } from '../index'
+import { Alert } from '../index'
+import { Box } from '../../Box'
+import { Set } from '../../Set'
+import { Button } from '../../Button'
+import { Anchor } from '../../Anchor'
 
 export default {
   title: 'admin-ui/Alert',
