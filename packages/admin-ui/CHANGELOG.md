@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.112.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.112.1...@vtex/admin-ui@0.112.2) (2021-09-13)
+
+### Bug Fixes
+
+- **sidebar:** define SidebarGroup's own type ([45a213d](https://github.com/vtex/onda/commit/45a213dbc94ae5982d437ce31732ee9c68e15960))
+
 ## [0.112.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.112.0...@vtex/admin-ui@0.112.1) (2021-09-13)
 
 ### Bug Fixes
