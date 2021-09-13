@@ -23,7 +23,7 @@ describe('List tests', () => {
         <List>
           <List.Item>Item</List.Item>
         </List>
-        <List ordered>
+        <List as="ol">
           <List.Item>Item</List.Item>
         </List>
       </>

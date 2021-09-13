@@ -10,30 +10,30 @@ You may want to check the [Collapsible Documentation](/data-display/collapsible/
 ## Import
 
 ```jsx isStatic
-import { CollapsibleGroup, useCollapsible } from '@vtex/admin-ui'
+import { CollapsibleGroup, useCollapsibleState } from '@vtex/admin-ui'
 ```
 
 ## Behavior
 
 ```jsx
 function Example() {
-  const promos = useCollapsible()
-  const marketing = useCollapsible()
+  const promos = useCollapsibleState()
+  const marketing = useCollapsibleState()
 
   return (
     <CollapsibleGroup csx={{ width: 400 }}>
       <Collapsible state={promos}>
-        <Collapsible.Header label="Promos" />
-        <Collapsible.Content>
+        <CollapsibleHeader label="Promos" />
+        <CollapsibleContent>
           <Text variant="action">
             APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
             ALEMANA
           </Text>
-        </Collapsible.Content>
+        </CollapsibleContent>
       </Collapsible>
       <Collapsible state={marketing}>
-        <Collapsible.Header label="Marketing" />
-        <Collapsible.Content>
+        <CollapsibleHeader label="Marketing" />
+        <CollapsibleContent>
           <Set orientation="vertical">
             <Text variant="small" csx={{ color: 'dark.secondary' }}>
               Partner - app_ios
@@ -42,7 +42,7 @@ function Example() {
               Campaign - Campaign Name
             </Text>
           </Set>
-        </Collapsible.Content>
+        </CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
   )
@@ -53,33 +53,33 @@ function Example() {
 
 ### Nested
 
-It is possible to render a `CollapsibleGroup` inside a `Collapsible`, just pass the `CollapsibleGroup` as a child of `Collapsible.Content`. Note that when nesting, each internal collapsible will have different padding from the one on the root. Check [Nested Collapsible Documentation](/collapsible/#nested) for detailed info.
+It is possible to render a `CollapsibleGroup` inside a `Collapsible`, just pass the `CollapsibleGroup` as a child of `CollapsibleContent`. Note that when nesting, each internal collapsible will have different padding from the one on the root. Check [Nested Collapsible Documentation](/collapsible/#nested) for detailed info.
 
 ```jsx
 function Example() {
-  const promosAndPartner = useCollapsible()
-  const shipping = useCollapsible()
-  const promos = useCollapsible()
-  const marketing = useCollapsible()
-  const packageOne = useCollapsible()
-  const packageTwo = useCollapsible()
+  const promosAndPartner = useCollapsibleState()
+  const shipping = useCollapsibleState()
+  const promos = useCollapsibleState()
+  const marketing = useCollapsibleState()
+  const packageOne = useCollapsibleState()
+  const packageTwo = useCollapsibleState()
 
   const packages = ['Package #1', 'Package #2']
 
   const PromosGroup = (
     <CollapsibleGroup>
       <Collapsible state={promos}>
-        <Collapsible.Header label="Promos" />
-        <Collapsible.Content>
+        <CollapsibleHeader label="Promos" />
+        <CollapsibleContent>
           <Text variant="action">
             APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
             ALEMANA
           </Text>
-        </Collapsible.Content>
+        </CollapsibleContent>
       </Collapsible>
       <Collapsible state={marketing}>
-        <Collapsible.Header label="Marketing" />
-        <Collapsible.Content>
+        <CollapsibleHeader label="Marketing" />
+        <CollapsibleContent>
           <Set orientation="vertical">
             <Text variant="small" csx={{ color: 'dark.secondary' }}>
               Partner - app_ios
@@ -88,7 +88,7 @@ function Example() {
               Campaign - Campaing Name
             </Text>
           </Set>
-        </Collapsible.Content>
+        </CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
   )
@@ -98,8 +98,8 @@ function Example() {
       {packages.map((value, index) => {
         return (
           <Collapsible state={index ? packageOne : packageTwo} key={index}>
-            <Collapsible.Header label={value} />
-            <Collapsible.Content>
+            <CollapsibleHeader label={value} />
+            <CollapsibleContent>
               <Set orientation="vertical" spacing={2}>
                 <Text variant="small" csx={{ color: 'blue' }}>
                   N 00025755809
@@ -112,7 +112,7 @@ function Example() {
                 </Text>
                 <Text csx={{ color: 'blue' }}>Tracking - XSDFE231675</Text>
               </Set>
-            </Collapsible.Content>
+            </CollapsibleContent>
           </Collapsible>
         )
       })}
@@ -122,12 +122,12 @@ function Example() {
   return (
     <CollapsibleGroup csx={{ width: 400 }}>
       <Collapsible state={promosAndPartner}>
-        <Collapsible.Header label="Promos and Partnerships" />
-        <Collapsible.Content>{PromosGroup}</Collapsible.Content>
+        <CollapsibleHeader label="Promos and Partnerships" />
+        <CollapsibleContent>{PromosGroup}</CollapsibleContent>
       </Collapsible>
       <Collapsible state={shipping}>
-        <Collapsible.Header label="Shipping" />
-        <Collapsible.Content>{PackagesGroup}</Collapsible.Content>
+        <CollapsibleHeader label="Shipping" />
+        <CollapsibleContent>{PackagesGroup}</CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
   )

@@ -1,16 +1,12 @@
-import type { ReactNode } from 'react'
+import type { ReactNode, ComponentPropsWithRef } from 'react'
 import React from 'react'
-import type { ButtonProps as ReakitButtonProps } from 'reakit/Button'
 import { Button as ReakitButton } from 'reakit/Button'
-import type { StyleProp } from '@vtex/admin-ui-core'
-import { useSystem } from '@vtex/admin-ui-core'
-import { jsxs, createComponent } from '@vtex/admin-jsxs'
-import { Primitive, Box, Flex } from '@vtex/admin-primitives'
+import type { StyleObject } from '@vtex/admin-ui-core'
+import { alpha } from '@vtex/admin-ui-core'
+import { get } from '@vtex/admin-ui-util'
+import { jsx, tag } from '@vtex/admin-ui-react'
 
-import type { Variant, Size } from './types'
-import type { SystemComponentProps } from '../../types'
 import { Spinner } from '../Spinner'
-import { styles } from './styles'
 
 /**
  * Component that handles all Button variants of the DS.
@@ -21,113 +17,296 @@ import { styles } from './styles'
  * <Button>Default Button</Button>
  * ```
  */
-export const Button = createComponent(ReakitButton, useButton)
-
-export function useButton(props: ButtonProps): ReakitButtonProps {
-  const {
-    variant = 'primary',
-    size = 'regular',
-    iconPosition = 'start',
-    icon,
-    children: prevChildren,
-    csx,
-    loading = false,
-    ...compoundProps
-  } = props
-
-  const { resolvedSize, containerStyles } = useButtonSize({
-    size,
-    icon,
-    iconPosition,
-    children: prevChildren,
-  })
-
-  const { cn } = useSystem()
-  const className = cn({
-    ...styles(`${variant}-${resolvedSize}`),
-    ...csx,
-  })
-
-  return {
-    className,
-    children: jsxs(
-      Primitive,
-      {
-        csx: {
-          display: 'flex',
-          height: 'full',
-          width: 'full',
-          margin: 'auto',
-          alignItems: 'center',
-          justifyContent: 'center',
+export const Button = jsx(ReakitButton)(
+  {
+    fontFamily: 'sans',
+    fontSettings: 'regular',
+    border: 'none',
+    borderRadius: 'default',
+    cursor: 'pointer',
+    position: 'relative',
+    ':focus:not([data-focus-visible-added])': {
+      outline: 'none',
+      boxShadow: 'none',
+    },
+    ':focus': {
+      outline: 'none',
+      boxShadow: 'focus',
+    },
+    variants: {
+      size: {
+        small: {
+          fontSize: 0,
+          height: 32,
+          width: 'auto',
+          paddingLeft: 3,
+          paddingRight: 3,
+        },
+        regular: {
+          fontSize: 1,
+          height: 40,
+          width: 'auto',
+          paddingLeft: 4,
+          paddingRight: 4,
         },
       },
-      <Flex
-        align="center"
-        justify="center"
-        csx={{ visibility: loading ? 'hidden' : 'visible', ...containerStyles }}
-      >
-        {icon} {prevChildren}
-      </Flex>,
-      loading ? (
-        <Box
-          csx={{
-            position: 'absolute',
-            alignItems: 'center',
-            display: 'flex',
-            justifyContent: 'center',
-            bottom: 0,
-            top: 0,
-            left: 0,
-            right: 0,
-          }}
-        >
-          <Spinner color="currentColor" />
-        </Box>
-      ) : null
-    ),
-    ...compoundProps,
-  }
-}
+      variant: {
+        primary: {
+          color: 'light.primary',
+          backgroundColor: 'blue',
+          ':hover': {
+            backgroundColor: 'blue.hover',
+          },
+          ':active': {
+            backgroundColor: 'blue.pressed',
+          },
+          ':disabled': {
+            color: 'dark.primary',
+            backgroundColor: 'mid.secondary',
+          },
+        },
+        secondary: {
+          backgroundColor: 'blue.secondary',
+          color: 'blue',
+          ':hover': {
+            backgroundColor: 'blue.secondary.hover',
+          },
+          ':active': {
+            backgroundColor: 'blue.secondary.pressed',
+          },
+          ':disabled': {
+            color: 'mid.primary',
+            backgroundColor: 'light.secondary',
+          },
+        },
+        tertiary: {
+          backgroundColor: 'transparent',
+          color: 'blue',
+          ':hover': {
+            color: 'blue.hover',
+            backgroundColor: alpha('blue.secondary.hover', 0.24),
+          },
+          ':active': {
+            color: 'blue.pressed',
+            backgroundColor: alpha('blue.secondary.pressed', 0.32),
+          },
+          ':disabled': {
+            color: 'mid.primary',
+          },
+        },
+        danger: {
+          color: 'light.primary',
+          backgroundColor: 'red',
+          ':hover': {
+            backgroundColor: 'red.hover',
+          },
+          ':active': {
+            backgroundColor: 'red.pressed',
+          },
+          ':disabled': {
+            color: 'dark.primary',
+            backgroundColor: 'mid.secondary',
+          },
+        },
+        'danger-secondary': {
+          backgroundColor: 'red.secondary',
+          color: 'red',
+          ':hover': {
+            backgroundColor: 'red.secondary.hover',
+            color: 'red.hover',
+          },
+          ':active': {
+            backgroundColor: 'red.secondary.pressed',
+            color: 'red.pressed',
+          },
+          ':disabled': {
+            color: 'mid.primary',
+            backgroundColor: 'light.secondary',
+          },
+        },
+        'danger-tertiary': {
+          backgroundColor: 'transparent',
+          color: 'red',
+          ':hover': {
+            color: 'red.hover',
+            backgroundColor: alpha('red.secondary.hover', 0.24),
+          },
+          ':active': {
+            color: 'red.pressed',
+            backgroundColor: alpha('red.secondary.pressed', 0.32),
+          },
+          ':disabled': {
+            color: 'mid.primary',
+          },
+        },
+        'adaptative-dark': {
+          color: 'currentColor',
+          backgroundColor: 'transparent',
+          ':hover': {
+            backgroundColor: alpha('dark.primary', 0.04),
+          },
+          ':active': {
+            backgroundColor: alpha('dark.primary', 0.08),
+          },
+          ':disabled': {
+            color: 'mid.primary',
+          },
+        },
+        'adaptative-light': {
+          color: 'currentColor',
+          backgroundColor: 'transparent',
+          ':hover': {
+            backgroundColor: alpha('light.primary', 0.04),
+          },
+          ':active': {
+            backgroundColor: alpha('light.primary', 0.08),
+          },
+          ':disabled': {
+            color: 'mid.primary',
+          },
+        },
+      },
+    },
+  },
+  {
+    options: ['icon', 'iconPosition', 'loading'],
+    useOptions(options: ButtonOptions, props) {
+      const { size = 'regular', children, csx, ...restProps } = props
 
-function useButtonSize({
+      const { icon, iconPosition = 'start', loading = false } = options
+
+      const { resolvedStyles, containerStyles } = useButtonIcon({
+        size,
+        icon,
+        iconPosition,
+        children,
+      })
+
+      return {
+        ...restProps,
+        csx: { ...resolvedStyles, ...csx },
+        size,
+        children: (
+          <tag.div
+            csx={{
+              display: 'flex',
+              height: 'full',
+              width: 'full',
+              margin: 'auto',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <tag.div
+              csx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                visibility: loading ? 'hidden' : 'visible',
+                ...containerStyles,
+              }}
+            >
+              {icon} {children}
+            </tag.div>
+            {loading ? (
+              <tag.div
+                csx={{
+                  position: 'absolute',
+                  alignItems: 'center',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  bottom: 0,
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                }}
+              >
+                <Spinner color="currentColor" />
+              </tag.div>
+            ) : null}
+          </tag.div>
+        ),
+      }
+    },
+  }
+)
+
+function useButtonIcon({
   size,
   icon,
   iconPosition,
   children,
-}: Pick<ButtonProps, 'size' | 'icon' | 'iconPosition' | 'children'>) {
-  const iconStart = !!icon && iconPosition === 'start'
+}: {
+  size: 'small' | 'regular'
+  icon?: ReactNode
+  iconPosition: 'start' | 'end'
+  children?: ReactNode
+}): Record<string, StyleObject> {
   const iconEnd = !!icon && iconPosition === 'end'
   const iconOnly = !!icon && !children
 
-  const containerStyles: StyleProp = {
-    flexDirection: iconEnd ? 'row-reverse' : 'row',
+  const resolvedSize = iconOnly ? `${size}-icon-only` : ''
+  const resolvedPosition = !iconOnly ? iconPosition : ''
+  const svgSize = size === 'regular' ? 24 : 20
+
+  const resolvedStyles = {
+    svg: {
+      size: svgSize,
+      minWidth: svgSize,
+      minHeight: svgSize,
+      margin: 1,
+    },
+    ...get(
+      {
+        start: {
+          paddingLeft: 2,
+          paddingRight: 3,
+        },
+        end: {
+          paddingLeft: 3,
+          paddingRight: 2,
+        },
+      },
+      resolvedPosition,
+      {}
+    ),
+    ...get(
+      {
+        'regular-icon-only': {
+          width: 40,
+          paddingLeft: 1,
+          paddingRight: 1,
+        },
+        'small-icon-only': {
+          width: 32,
+          paddingLeft: '2px',
+          paddingRight: '2px',
+        },
+      },
+      resolvedSize,
+      {}
+    ),
   }
 
-  const resolvedSize = `${size}${
-    iconOnly ? `-icon` : iconStart || iconEnd ? `-icon-${iconPosition}` : ''
-  }`
-
   return {
-    resolvedSize,
-    containerStyles,
+    resolvedStyles: icon ? resolvedStyles : {},
+    containerStyles: {
+      flexDirection: iconEnd ? 'row-reverse' : 'row',
+    },
   }
 }
 
-export interface ButtonProps extends SystemComponentProps<ReakitButtonProps> {
+Button.defaultProps = {
+  size: 'regular',
+  variant: 'primary',
+}
+
+export interface ButtonOptions {
   /**
    *  Whether is loading
    * @default false
    */
   loading?: boolean
-  /** Size of the button
-   * @default regular
-   */
-  size?: Size
-  /** Button variant
-   * @default primary
-   */
-  variant?: Variant
   /**
    * Icon of the button
    */
@@ -137,9 +316,6 @@ export interface ButtonProps extends SystemComponentProps<ReakitButtonProps> {
    * @default start
    */
   iconPosition?: 'start' | 'end'
-  /**
-   * React children
-   * Also support render prop
-   */
-  children?: React.ReactNode | ((props: ButtonProps) => React.ReactNode)
 }
+
+export type ButtonProps = ComponentPropsWithRef<typeof Button>

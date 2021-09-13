@@ -11,7 +11,13 @@ import {
 import { Toolbar, ToolbarItem, useToolbarState } from '../index'
 import { Button } from '../../Button'
 import { MenuDisclosure, useMenuState, StatelessMenu } from '../../Menu'
-import { ModalDisclosure, StatelessModal, useModalState } from '../../Modal'
+import {
+  ModalDisclosure,
+  Modal,
+  ModalHeader,
+  ModalContent,
+  useModalState,
+} from '../../Modal'
 import { Text } from '../../Text'
 import { ToolbarButton } from '../components/ToolbarButton'
 
@@ -110,13 +116,9 @@ export const WithModal = () => {
         <StatelessMenu.Separator />
         <StatelessMenu.Item icon={<IconDelete />}>Delete</StatelessMenu.Item>
       </StatelessMenu>
-      <StatelessModal
-        aria-label="Seneca's modal"
-        state={modalState}
-        size="small"
-      >
-        <StatelessModal.Header title="Item 6" />
-        <StatelessModal.Content>
+      <Modal aria-label="Seneca's modal" state={modalState} size="small">
+        <ModalHeader title="Item 6" />
+        <ModalContent>
           <Text>
             True happiness is to enjoy the present, without anxious dependence
             upon the future, not to amuse ourselves with either hopes or fears
@@ -125,8 +127,8 @@ export const WithModal = () => {
             within us and within our reach. A wise man is content with his lot,
             whatever it may be, without wishing for what he has not.
           </Text>
-        </StatelessModal.Content>
-      </StatelessModal>
+        </ModalContent>
+      </Modal>
     </>
   )
 }

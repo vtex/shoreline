@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSystem } from '@vtex/admin-ui-core'
 import { merge, pick, omit, isFunction } from '@vtex/admin-ui-util'
+import * as ReactIs from 'react-is'
 
 import type { __element } from './symbols'
 import { __options, __stylesheet } from './symbols'
@@ -88,7 +89,11 @@ export function _jsx<T extends React.ElementType = 'div'>(type: T) {
         props: propsWithOptions,
       })
 
-      const { children, ...htmlProps } = styledProps
+      const fragment = (ComponentCall as any) === ReactIs.Fragment
+      const { children, ...maybeDirtyProps } = styledProps
+      const htmlProps = fragment
+        ? omit(maybeDirtyProps, ['className', 'style'])
+        : maybeDirtyProps
 
       return (
         <ComponentCall ref={ref} {...htmlProps}>
@@ -192,7 +197,8 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
       React.ComponentPropsWithRef<ComponentInfer<Type>>,
       keyof Variants | keyof Options | 'as'
     > &
-      VariantsCall<Variants>
+      VariantsCall<Variants> &
+      CsxCall
   > {
   /**
    * Prioritize elements over components
@@ -272,11 +278,13 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
  */
 export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
   extends React.ForwardRefExoticComponent<
-    Omit<
-      React.ComponentPropsWithRef<ComponentInfer<Type>>,
-      keyof Variants | keyof Options | 'as'
-    > &
-      VariantsCall<Variants>
+    Options &
+      Omit<
+        React.ComponentPropsWithRef<ComponentInfer<Type>>,
+        keyof Variants | keyof Options | 'as'
+      > &
+      VariantsCall<Variants> &
+      CsxCall
   > {
   /**
    * Prioritize components over elements

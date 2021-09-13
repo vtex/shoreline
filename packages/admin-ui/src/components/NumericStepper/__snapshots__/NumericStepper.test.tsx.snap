@@ -29,13 +29,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -63,8 +63,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -120,13 +120,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -154,8 +154,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -305,13 +305,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -339,8 +339,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -396,13 +396,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -430,8 +430,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -595,13 +595,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -629,8 +629,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -686,13 +686,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -720,8 +720,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -880,13 +880,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -914,8 +914,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -971,13 +971,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -1005,8 +1005,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -1170,13 +1170,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -1204,8 +1204,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }
@@ -1261,13 +1261,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
-  color: #2953B2;
-  background-color: transparent;
   font-size: 0.75rem;
   height: 40px;
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #2953B2;
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -1295,8 +1295,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8 svg {
   width: 20px;
-  min-width: 20px;
   height: 20px;
+  min-width: 20px;
   min-height: 20px;
   margin: 0.25rem;
 }

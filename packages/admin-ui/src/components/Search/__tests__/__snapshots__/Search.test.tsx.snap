@@ -247,19 +247,12 @@ exports[`Search tests should match snapshot on loading 1`] = `
 }
 
 .emotion-2 {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-  color: #323845;
-  top: 0rem;
-  left: 0rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 14px;
-  position: absolute;
   -webkit-animation: animation-0 1.5s linear infinite;
   animation: animation-0 1.5s linear infinite;
+  width: 20px;
+  height: 20px;
+  top: 0rem;
+  position: absolute;
   margin: 0.625rem 0.25rem 0 0.5rem;
 }
 
@@ -291,7 +284,6 @@ exports[`Search tests should match snapshot on loading 1`] = `
     >
       <svg
         class="emotion-2"
-        fill="none"
         focusable="false"
         viewBox="0 0 50 50"
       >

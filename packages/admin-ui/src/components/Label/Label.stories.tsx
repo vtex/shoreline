@@ -1,9 +1,9 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { Flex } from '@vtex/admin-primitives'
 
 import type { LabelProps } from './index'
 import { Label } from './index'
+import { Flex } from '../Flex'
 
 export default {
   title: 'admin-ui/Label',
@@ -12,14 +12,19 @@ export default {
 
 export const Playground: Story<LabelProps> = (args) => {
   return (
-    <Label {...args}>
+    <Label
+      csx={{
+        display: 'flex',
+      }}
+      {...args}
+    >
       <input type="checkbox" />
       Checkbox Input Label!
     </Label>
   )
 }
 
-Playground.args = { csx: { display: 'flex' } }
+Playground.args = {}
 
 export const HtmlFor = () => {
   return (

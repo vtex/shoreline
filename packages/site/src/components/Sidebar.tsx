@@ -124,7 +124,7 @@ export function Sidebar() {
             )
             .map((path) => (
               <Flex
-                element="li"
+                as="li"
                 key={path}
                 justify="space-between"
                 csx={{

@@ -4,8 +4,8 @@ import { IconClose } from '@vtex/admin-ui-icons'
 import type { ResponsiveValue } from '@vtex/admin-ui-core'
 import { lightness, useResponsiveValue } from '@vtex/admin-ui-core'
 
-import { Box, Flex } from '@vtex/admin-primitives'
-
+import { Box } from '../Box'
+import { Flex } from '../Flex'
 import type { SystemComponent } from '../../types'
 import { Button } from '../Button'
 import { Set } from '../Set'

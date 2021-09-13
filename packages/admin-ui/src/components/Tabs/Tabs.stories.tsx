@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../Box'
 import { Tabs, useTabState } from './index'
 import { Card } from '../Card'
 import { Heading } from '../Heading'

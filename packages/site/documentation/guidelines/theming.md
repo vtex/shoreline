@@ -70,7 +70,7 @@ export default {
     thin: "'WGHT' 250",
     light: "'WGHT' 375",
     regular: "'WGHT' 500",
-    medium: "'WGHT' 750",
+    medium: "'WGHT' 650",
     bold: "'WGHT' 875",
     black: "'WGHT' 1000",
   },

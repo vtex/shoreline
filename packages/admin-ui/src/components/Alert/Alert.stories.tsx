@@ -7,7 +7,7 @@ import {
   IconHelp,
   IconWarningCircle,
 } from '@vtex/admin-ui-icons'
-import { Box } from '@vtex/admin-primitives'
+import { Box } from '../Box'
 
 import type { AlertProps } from './index'
 import { Alert } from './index'

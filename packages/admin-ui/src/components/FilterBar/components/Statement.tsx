@@ -1,7 +1,7 @@
 import React from 'react'
-import type { FlexProps } from '@vtex/admin-primitives'
-import { Flex, Box } from '@vtex/admin-primitives'
+import { jsx } from '@vtex/admin-ui-react'
 
+import { Box } from '../../Box'
 import type { Conjunction } from '../typings'
 import type { StatementDropdownProps } from './StatementDropdown'
 import { StatementDropdown } from './StatementDropdown'
@@ -11,22 +11,16 @@ import { StatementMenu } from './StatementMenu'
 /**
  * Statement container
  */
-export function Statement(props: StatementProps) {
-  const { children, ...htmlProps } = props
-
-  return (
-    <Flex justify="space-between" csx={{ width: '100%' }} {...htmlProps}>
-      {children}
-    </Flex>
-  )
-}
+const _Statement = jsx.div({
+  display: 'flex',
+  width: '100%',
+  justifyContent: 'space-between',
+})
 
 /**
  * It renders either a Dropdown to select the FilterBar conjunction or the conjunction label.
  */
-Statement.Conjunction = function StatementConjunction(
-  props: StatementConjunctionProps
-) {
+function StatementConjunction(props: StatementConjunctionProps) {
   const { index, whereLabel, selectedItem, handleItemChange, items, label } =
     props
 
@@ -48,21 +42,20 @@ Statement.Conjunction = function StatementConjunction(
 /**
  * It renders a Dropdown to select the statement filter.
  */
-Statement.Filter = StatementDropdown
+const Filter = StatementDropdown
+
 /**
  * It renders a Dropdown to select the statement condition according to the statement filter conditions.
  */
-Statement.Conditions = StatementDropdown
+const Conditions = StatementDropdown
 /**
  * It renders a component according to the statement filter resolver.
  */
-Statement.Value = ResolvedValue
+const Value = ResolvedValue
 /**
  * It renders a menu where it's possible to delete or duplicate the current statement.
  */
-Statement.Menu = StatementMenu
-
-export type StatementProps = FlexProps
+const Menu = StatementMenu
 
 interface StatementConjunctionProps
   extends StatementDropdownProps<Conjunction> {
@@ -71,3 +64,11 @@ interface StatementConjunctionProps
   /** First statement conjunction label */
   whereLabel: string
 }
+
+export const Statement = Object.assign(_Statement, {
+  Conjunction: StatementConjunction,
+  Menu,
+  Filter,
+  Conditions,
+  Value,
+})

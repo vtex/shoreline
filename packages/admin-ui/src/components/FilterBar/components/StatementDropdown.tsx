@@ -1,8 +1,8 @@
 import React from 'react'
 import type { UseSelectStateChange } from 'downshift'
 import { get } from '@vtex/admin-ui-util'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../../Box'
 import type { DropdownProps } from '../../Dropdown'
 import { Dropdown, useDropdownState } from '../../Dropdown'
 

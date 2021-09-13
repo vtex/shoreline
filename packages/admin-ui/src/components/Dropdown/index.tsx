@@ -2,7 +2,7 @@ import type { ReactNode, Ref } from 'react'
 import React from 'react'
 import { useSelect, UseSelectReturnValue } from 'downshift'
 import { IconCaret } from '@vtex/admin-ui-icons'
-import { Box } from '@vtex/admin-primitives'
+import { Box } from '../Box'
 import { forwardRef } from '@vtex/admin-ui-util'
 
 import type { ButtonProps } from '../Button'

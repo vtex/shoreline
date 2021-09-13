@@ -9,14 +9,10 @@ By default `<Text>` renders a `<span>` or a specific text element, like `<i>`, `
 ## Behavior
 
 ```jsx
-<Text variant="headline">Here goes your text!</Text>
+<Text variant="headline">Headline</Text>
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
+## Import
 
 ```jsx isStatic
 import { Text } from '@vtex/admin-ui'
@@ -28,7 +24,7 @@ import { Text } from '@vtex/admin-ui'
 
 ```jsx isStatic
 lineHeight: 'small', // 1.125
-fontVariationSettings: 'regular', // "'WGHT' 500"
+fontSettings: 'regular', // "'WGHT' 500"
 fontSize: 0, // 0.75rem
 ```
 
@@ -40,7 +36,7 @@ fontSize: 0, // 0.75rem
 
 ```jsx isStatic
 lineHeight: 'body', // 1.25
-fontVariationSettings: 'regular', // "'WGHT' 500"
+fontSettings: 'regular', // "'WGHT' 500"
 fontSize: 1, // 0.875rem
 ```
 
@@ -52,7 +48,7 @@ fontSize: 1, // 0.875rem
 
 ```jsx isStatic
 lineHeight: 'highlight', // 1.25
-fontVariationSettings: 'regular', // "'WGHT' 500"
+fontSettings: 'regular', // "'WGHT' 500"
 fontSize: 1, // 0.875rem
 ```
 
@@ -64,7 +60,7 @@ fontSize: 1, // 0.875rem
 
 ```jsx isStatic
 lineHeight: 'action', // 1.5
-fontVariationSettings: 'regular', // "'WGHT' 500"
+fontSettings: 'regular', // "'WGHT' 500"
 fontSize: 1, // 0.875rem
 textTransform: 'uppercase',
 ```
@@ -77,7 +73,7 @@ textTransform: 'uppercase',
 
 ```jsx isStatic
 lineHeight: 'subtitle', // 1.5
-fontVariationSettings: 'regular', // "'WGHT' 500"
+fontSettings: 'regular', // "'WGHT' 500"
 fontSize: 2, // 1rem
 ```
 
@@ -89,7 +85,7 @@ fontSize: 2, // 1rem
 
 ```jsx isStatic
 lineHeight: 'headline', // 1.5
-fontVariationSettings: 'regular', // "'WGHT' 500"
+fontSettings: 'regular', // "'WGHT' 500"
 fontSize: 4, // 1.25rem
 ```
 
@@ -125,18 +121,17 @@ You can use the `csx` property to handle different styles.
 ### Example
 
 ```jsx
-<Text csx={{ color: 'blue.hover' }} variant="body" element="span">
+<Text csx={{ color: 'blue.hover' }} variant="body" as="span">
   Look, a text with 'blue.hover' color... 🤔
 </Text>
 ```
 
 ## Props
 
+All props of `span` jsx element.
+
 | Name     | Type               | Description                             | Required | Default    |
 | -------- | ------------------ | --------------------------------------- | -------- | ---------- |
-| element  | `TextElementType`  | Element to render                       | 🚫       | `'span'`   |
+| as       | `TextElementType`  | Element to render                       | 🚫       | `'span'`   |
 | variant  | `TextVariantType`  | Text variant. Consumes the text pattern | 🚫       | `body`     |
 | feedback | `TextFeedbackType` | Text feedback                           | 🚫       | ` default` |
-| id       | `string`           | HTML id                                 | 🚫       | -          |
-| children | `ReactNode`        | Text children                           | 🚫       | -          |
-| csx      | `StyleProp`        | Defines component styles                | 🚫       | `{}`       |

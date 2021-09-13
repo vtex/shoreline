@@ -1,8 +1,7 @@
+import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
-import type { FlexProps, GridProps } from '@vtex/admin-primitives'
-import { Flex, Grid } from '@vtex/admin-primitives'
+import { jsx } from '@vtex/admin-ui-react'
 
-import type { SystemComponent } from '../../types'
 import { Skeleton } from '../Skeleton'
 
 /**
@@ -13,38 +12,42 @@ import { Skeleton } from '../Skeleton'
  * import { Topbar } from `@vtex/admin-ui`
  *
  * <Topbar>
- *    <Topbar.Start>
+ *    <TopbarStart>
  *      {children}
- *    </Topbar.Start>
- *    <Topbar.Center>
+ *    </TopbarStart>
+ *    <TopbarCenter>
  *      {children}
- *    </Topbar.Center>
- *    <Topbar.End>
+ *    </TopbarCenter>
+ *    <TopbarEnd>
  *      {children}
- *    </Topbar.End>
+ *    </TopbarEnd>
  * </Topbar>
  * ```
  */
-export function Topbar(props: TopbarProps) {
-  const { children, csx, loading, ...restProps } = props
+export const Topbar = jsx.div(
+  {
+    display: 'grid',
+    gridTemplateAreas: '"start center end"',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    height: '3.5rem',
+    border: 'divider-bottom',
+    paddingX: 3,
+    zIndex: 'topbar',
+    bg: 'light.primary',
+  },
+  {
+    options: ['loading'],
+    useOptions(options: TopbarOptions, props) {
+      const { children, ...topbarProps } = props
+      const { loading } = options
 
-  return (
-    <Grid
-      templateAreas={['start center end']}
-      csx={{
-        height: '3.5rem',
-        border: 'divider-bottom',
-        paddingX: 3,
-        zIndex: 'topbar',
-        bg: 'light.primary',
-        ...csx,
-      }}
-      {...restProps}
-    >
-      {loading ? <TopbarSkeleton /> : children}
-    </Grid>
-  )
-}
+      return {
+        ...topbarProps,
+        children: loading ? <TopbarSkeleton /> : children,
+      }
+    },
+  }
+)
 
 /**
  * Topbar loading Skeleton
@@ -52,80 +55,55 @@ export function Topbar(props: TopbarProps) {
 function TopbarSkeleton() {
   return (
     <Fragment>
-      <Topbar.Start>
+      <TopbarStart>
         <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
-      </Topbar.Start>
-      <Topbar.End>
+      </TopbarStart>
+      <TopbarEnd>
         <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
-      </Topbar.End>
+      </TopbarEnd>
     </Fragment>
-  )
-}
-
-export function TopbarStart(props: FlexProps) {
-  const { children, csx, ...restProps } = props
-
-  return (
-    <Flex
-      align="center"
-      justify="flex-start"
-      csx={{ height: '100%', gridArea: 'start', ...csx }}
-      {...restProps}
-    >
-      {children}
-    </Flex>
-  )
-}
-
-export function TopbarCenter(props: FlexProps) {
-  const { children, csx, ...restProps } = props
-
-  return (
-    <Flex
-      align="center"
-      csx={{ height: '100%', gridArea: 'center', ...csx }}
-      {...restProps}
-    >
-      {children}
-    </Flex>
-  )
-}
-
-export function TopbarEnd(props: FlexProps) {
-  const { children, csx, ...restProps } = props
-
-  return (
-    <Flex
-      align="center"
-      justify="flex-end"
-      csx={{ height: '100%', gridArea: 'end', ...csx }}
-      {...restProps}
-    >
-      {children}
-    </Flex>
   )
 }
 
 /**
  * Topbar content positioned in the start.
  */
-Topbar.Start = TopbarStart
+export const TopbarStart = jsx.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  height: '100%',
+  gridArea: 'start',
+})
 
 /**
  * Topbar content positioned in the center.
  */
-Topbar.Center = TopbarCenter
+export const TopbarCenter = jsx.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100%',
+  gridArea: 'center',
+})
 
 /**
  * Topbar content positioned in the end.
  */
-Topbar.End = TopbarEnd
+export const TopbarEnd = jsx.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  height: '100%',
+  gridArea: 'end',
+})
 
-export interface TopbarProps extends SystemComponent, GridProps {
+export interface TopbarOptions {
   /**
    * Whether the topbar is loading or not
    * @default false
    */
-
   loading?: boolean
 }
+
+export type TopbarProps = ComponentPropsWithRef<typeof Topbar>

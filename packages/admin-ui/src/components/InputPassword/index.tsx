@@ -1,7 +1,7 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { Box } from '@vtex/admin-primitives'
 
+import { Box } from '../Box'
 import type { AbstractInputPasswordProps } from '../AbstractInput'
 import { AbstractInputPassword } from '../AbstractInput'
 import { Text } from '../Text'

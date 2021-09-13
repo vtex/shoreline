@@ -1,61 +1,59 @@
-import type { ReactNode } from 'react'
 import type { ResponsiveValue } from '@vtex/admin-ui-core'
+import { jsx } from '@vtex/admin-ui-react'
 import { useResponsiveValue } from '@vtex/admin-ui-core'
-import { createComponent } from '@vtex/admin-jsxs'
-import type { FlexProps } from '@vtex/admin-primitives'
-import { Flex } from '@vtex/admin-primitives'
-
-import type { SystemComponent } from '../../types'
+import type { ComponentPropsWithoutRef } from 'react'
 
 /**
  * Component used to display a set of components that are spaced evenly.
  */
-export const Set = createComponent(Flex, useSet)
+export const Set = jsx.div(
+  {
+    display: 'flex',
+  },
+  {
+    options: ['orientation', 'fluid', 'spacing', 'align'],
+    useOptions(options: SetOptions, props) {
+      const {
+        orientation = 'horizontal',
+        fluid = false,
+        spacing = 1,
+        align = 'start',
+      } = options
 
-export function useSet(props: SetProps): FlexProps<'div'> {
-  const {
-    orientation = 'horizontal',
-    fluid = false,
-    spacing = 1,
-    align = 'start',
-    csx,
-    ...layoutProps
-  } = props
+      const { csx, ...layoutProps } = props
 
-  const currentOrientation = useResponsiveValue(orientation)
-  const currentAlign = useResponsiveValue(align)
-  const isVertical = currentOrientation === 'vertical'
+      const currentOrientation = useResponsiveValue(orientation)
+      const currentAlign = useResponsiveValue(align)
+      const isVertical = currentOrientation === 'vertical'
 
-  const childrenSpacing = {
-    horizontal: {
-      '> *:not(:first-child)': {
-        marginLeft: spacing,
-      },
+      const childrenSpacing = {
+        horizontal: {
+          '> *:not(:first-child)': {
+            marginLeft: spacing,
+          },
+        },
+        vertical: {
+          '> *:not(:last-child)': {
+            marginBottom: spacing,
+          },
+        },
+      }[currentOrientation]
+
+      return {
+        ...layoutProps,
+        csx: {
+          flexDirection: isVertical ? 'column' : 'row',
+          alignItems: fluid ? 'unset' : isVertical ? currentAlign : 'center',
+          justifyContent: fluid ? 'unset' : isVertical ? 'unset' : currentAlign,
+          ...childrenSpacing,
+          ...csx,
+        },
+      }
     },
-    vertical: {
-      '> *:not(:last-child)': {
-        marginBottom: spacing,
-      },
-    },
-  }[currentOrientation]
-
-  return {
-    direction: isVertical ? 'column' : 'row',
-    align: fluid ? 'unset' : isVertical ? currentAlign : 'center',
-    justify: fluid ? 'unset' : isVertical ? 'unset' : currentAlign,
-    csx: {
-      ...childrenSpacing,
-      ...csx,
-    },
-    ...layoutProps,
   }
-}
+)
 
-export interface SetProps
-  extends SystemComponent,
-    Omit<FlexProps<'div'>, 'styles' | 'element'> {
-  /** component children */
-  children?: ReactNode
+export interface SetOptions {
   /**
    * orientation of items
    * @default vertical
@@ -77,3 +75,5 @@ export interface SetProps
    */
   align?: ResponsiveValue<'start' | 'end'>
 }
+
+export type SetProps = ComponentPropsWithoutRef<typeof Set> & SetOptions

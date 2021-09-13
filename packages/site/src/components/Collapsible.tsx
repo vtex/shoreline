@@ -1,6 +1,11 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { Collapsible, useCollapsible } from '@vtex/admin-ui'
+import {
+  Collapsible,
+  CollapsibleHeader,
+  CollapsibleContent,
+  useCollapsibleState,
+} from '@vtex/admin-ui'
 
 interface Props {
   heading: string
@@ -11,12 +16,12 @@ interface Props {
 
 export default function DocsCollapsbile(props: Props) {
   const { heading, component, children, visible, ...restProps } = props
-  const collapsible = useCollapsible({ visible })
+  const collapsible = useCollapsibleState({ visible })
 
   return (
     <Collapsible state={collapsible} {...restProps} csx={{ marginBottom: 2 }}>
-      <Collapsible.Header label={heading} />
-      <Collapsible.Content>{children}</Collapsible.Content>
+      <CollapsibleHeader label={heading} />
+      <CollapsibleContent>{children}</CollapsibleContent>
     </Collapsible>
   )
 }

@@ -4,77 +4,61 @@ path: /modal/
 
 # Modal
 
-A modal is an overlay that demands the attention and action from the user, preventing them from interacting with the rest of the page. It has both stateful (Modal) and stateless components (StatelessModal).
+A Modal Dialog is used to represent information that demands attention and/or action from the users, preventing them from interacting with the rest of the page. It follows the [WAI-ARIA Dialog (Modal) Pattern](https://www.w3.org/TR/wai-aria-practices/#dialog_modal).
+
+## Import
+
+```jsx isStatic
+import {
+  Modal,
+  ModalHeader,
+  ModalContent,
+  ModalFooter,
+  ModalButton,
+  ModalDisclosure,
+  useModalState,
+} from '@vtex/admin-ui'
+```
 
 ## Behavior
 
 Modal is a compound component with the following composites:
 
-| Name            | Description                                       | Props               |
-| --------------- | ------------------------------------------------- | ------------------- |
-| `Modal.Header`  | Modal header. Renders `header` element            | `Modal.HeaderProps` |
-| `Modal.Content` | Content of the modal. Renders a `section` element | `BoxProps`          |
-| `Modal.Footer`  | Modal footer. Renders a `footer` element          | `BoxProps`          |
-| `Modal.Button`  | Renders a admin-ui/Button                         | `Modal.ButtonProps` |
-
-#### Modal.Header
-
-Same as `BoxProps` with aditional,
-
-| Name        | Description                     | Type          | Default |
-| ----------- | ------------------------------- | ------------- | ------- |
-| title       | Title of the modal              | `ReactNode`   | null    |
-| containerSx | Styles of the buttons container | `SxStyleProp` | {}      |
-
-#### Modal.Button Props
-
-Same as `ButtonProps` with aditional,
-
-| Name              | Description                        | Type      | Default |
-| ----------------- | ---------------------------------- | --------- | ------- |
-| closeModalOnClick | If should close the modal on click | `boolean` | false   |
-
-#### Modal.Content Props
-
-Same as `BoxProps`.
-
-#### Modal.Footer Props
-
-Same as `BoxProps`.
-
-Stateful is the default way of using the Modal component within admin-ui.
+| Name           | Description                                       |
+| -------------- | ------------------------------------------------- |
+| `ModalHeader`  | Modal header. Renders `header` element            |
+| `ModalContent` | Content of the modal. Renders a `section` element |
+| `ModalFooter`  | Modal footer. Renders a `footer` element          |
+| `ModalButton`  | Renders a admin-ui/Button                         |
 
 ```jsx
-<Modal
-  aria-label="Publish modal"
-  size="small"
-  disclosure={<Button>Publish</Button>}
->
-  <Modal.Header title="Publish content" />
-  <Modal.Content>
-    <Text>
-      Are you sure you want to publish this content? These action cannot be
-      undone.
-    </Text>
-  </Modal.Content>
-  <Modal.Footer>
-    <Button variant="secondary">Cancel</Button>
-    <Button>Confirm</Button>
-  </Modal.Footer>
-</Modal>
+function ModalDialog() {
+  const modal = useModalState()
+
+  return (
+    <Box>
+      <ModalDisclosure state={modal}>
+        <Button>Publish</Button>
+      </ModalDisclosure>
+      <Modal aria-label="Publish modal" state={modal} size="small">
+        <ModalHeader title="Publish content" />
+        <ModalContent>
+          <Text>
+            Are you sure you want to publish this content? These action cannot
+            be undone.
+          </Text>
+        </ModalContent>
+        <ModalFooter>
+          <Button variant="secondary">Cancel</Button>
+          <Button>Confirm</Button>
+        </ModalFooter>
+      </Modal>
+    </Box>
+  )
+}
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Modal } from '@vtex/admin-ui'
-```
-
-### Variations
+## Examples
 
 ### Sizes
 
@@ -83,197 +67,126 @@ The modal comes in three different sizes: `small`, `regular`, and `large`.
 #### Small
 
 ```jsx
-<Modal aria-label="News modal" disclosure={<Button>Small</Button>} size="small">
-  <Modal.Header title="We have good news!" />
-  <Modal.Content>
-    <Text>
-      This is our new experience for inventory update. Feel free to leave
-      feedback.
-    </Text>
-  </Modal.Content>
-  <Modal.Footer>
-    <Button>Okay, got it</Button>
-  </Modal.Footer>
-</Modal>
+function SmallModal() {
+  const modal = useModalState()
+
+  return (
+    <Box>
+      <ModalDisclosure state={modal}>
+        <Button>Small</Button>
+      </ModalDisclosure>
+      <Modal aria-label="Small" state={modal} size="small">
+        <ModalHeader title="Small" />
+        <ModalContent>
+          <Text>Small Modal</Text>
+        </ModalContent>
+        <ModalFooter>
+          <Button>Confirm</Button>
+        </ModalFooter>
+      </Modal>
+    </Box>
+  )
+}
 ```
 
 #### Regular (default)
 
 ```jsx
-function Example() {
-  const checkbox = useCheckboxState()
-
-  const handleClose = () => checkbox.setState(false)
+function RegularModal() {
+  const modal = useModalState()
 
   return (
-    <>
-      <Modal
-        aria-label="Conditions Modal"
-        disclosure={<Button>Regular</Button>}
-        size="regular"
-        onClose={handleClose}
-      >
-        <Modal.Header title="Terms and Conditions" />
-        <Modal.Content>
-          <Text variant="subtitle">Shared Cart</Text>
-          <Text>
-            The shared cart is a tool that allows more than one customer to add,
-            remove or update items and informations from the same cart.
-            <br />
-            For your customer, the shared cart means practicality when making a
-            purchase. For your store, it means:
-            <Text variant="subtitle">How this is technically possible</Text>
-            We started using a parameter in the URL to identify the cart. As a
-            result, the URL can be shared with other users, who can view the
-            items, add and remove products, and even pay for the order. However,
-            for users already registered in the platform (whose data is filled
-            automatically in the checkout), all personal informations are
-            secure: only the informations owner has access to them, after he is
-            authenticated in the store.
-            <Text variant="subtitle">Information security</Text>
-            The payment is still done by one person whose informations remain
-            secure, since the profile and delivery data are visible only to the
-            user who creates the cart. For others, these same data are
-          </Text>
-        </Modal.Content>
-        <Modal.Footer>
-          <Label display="flex" position="relative" items="center">
-            <Checkbox state={checkbox} />
-            <Text pl="2">I accept the terms and conditions above</Text>
-          </Label>
-          <Button disabled={!checkbox.state}>Next</Button>
-        </Modal.Footer>
+    <Box>
+      <ModalDisclosure state={modal}>
+        <Button>Regular</Button>
+      </ModalDisclosure>
+      <Modal aria-label="Regular" state={modal}>
+        <ModalHeader title="Regular" />
+        <ModalContent>
+          <Text>Regular Modal</Text>
+        </ModalContent>
+        <ModalFooter>
+          <Button>Confirm</Button>
+        </ModalFooter>
       </Modal>
-    </>
+    </Box>
   )
 }
 ```
 
 #### Large
 
-TODO
-
-## Props
-
-<propdetails heading="Modal" component="Modal">
-</propdetails>
-
-# Stateless Modal
-
-Sometimes, you may need to access the modal states or open it on async updates (like data fetching). For this, need to use the stateless approach.
-You will also need the `ModalDisclosure` component and the `useModalState` hook.
-
-```jsx isStatic
-import { useModalState, ModalDisclosure, Button } from '@vtex/admin-ui'
-
-function Example() {
-  const state = useModalState()
-  return (
-    <ModalDisclosure {...state}>
-      {/** Can be any component */}
-      <Button>Toggle Modal</Button>
-    </ModalDisclosure>
-  )
-}
-```
-
 ```jsx
-function Example() {
-  const publishModal = useModalState()
+function LargeModal() {
+  const modal = useModalState()
 
   return (
     <Box>
-      <ModalDisclosure {...publishModal}>
-        <Button>Publish</Button>
+      <ModalDisclosure state={modal}>
+        <Button>Large</Button>
       </ModalDisclosure>
-      <StatelessModal
-        aria-label="Publish modal"
-        state={publishModal}
-        size="small"
-      >
-        <StatelessModal.Header title="Publish content" />
-        <StatelessModal.Content>
-          <Text>
-            Are you sure you want to publish this content? These action cannot
-            be undone.
-          </Text>
-        </StatelessModal.Content>
-        <StatelessModal.Footer>
-          <Button variant="secondary">Cancel</Button>
+      <Modal aria-label="Large" state={modal} size="large">
+        <ModalHeader title="Large" />
+        <ModalContent>
+          <Text>Large Modal</Text>
+        </ModalContent>
+        <ModalFooter>
           <Button>Confirm</Button>
-        </StatelessModal.Footer>
-      </StatelessModal>
+        </ModalFooter>
+      </Modal>
     </Box>
   )
 }
 ```
 
-In this example, we trigger the modal after fetching some data (it takes 1 second):
+## Accessibility
 
-```jsx isStatic
-import { Modal, Box, Button, Text } from '@vtex/admin-ui'
-
-const [data, setData] = useState([])
-const ref = useRef({ oneTime: true })
-const blockModal = useModalState()
-
-/**
- * Simulates a data fetching
- */
-const fetchData = async () => {
-  const simulateRequest = (delay: number, value: Item[]): Promise<Item[]> =>
-    new Promise((resolve) => setTimeout(resolve, delay, value))
-
-  const resolved = await simulateRequest(1000, [
-    { id: '1', icon: IconCarousel, title: 'Carousel' },
-    { id: '2', icon: IconShelf, title: 'Shelf' },
-    { id: '3', icon: IconInfoCard, title: 'Infocard' },
-    { id: '4', icon: IconRichText, title: 'Rich text' },
-    { id: '5', icon: IconVitrine, title: 'Vitrine by Corebiz™' },
-  ])
-
-  setData(resolved)
-}
-
-useEffect(() => {
-  if (ref.current.oneTime && data.length > 0) {
-    blockModal.show()
-    ref.current.oneTime = false
-  }
-}, [data, blockModal])
-
-function Example() {
-  return (
-    <Box csx={{ 'button + button': { ml: 4 } }}>
-      <Button onClick={fetchData} disabled={data.length > 0}>
-        Get blocks data
-      </Button>
-      <ModalDisclosure {...blockModal}>
-        <Button disabled={data.length === 0}>Add new block</Button>
-      </ModalDisclosure>
-      <StatelessModal aria-label="Add block modal" state={blockModal}>
-        <StatelessModal.Header title="Add new block" />
-        <StatelessModal.Content csx={{ paddingTop: 0 }}>
-          <List>
-            {data.map(({ id, icon: Icon, title }) => (
-              <List.Item key={id}>
-                <Icon />
-                <List.TextGroup
-                  ml="4"
-                  title={title}
-                  subtitle="Short description about the block"
-                />
-              </List.Item>
-            ))}
-          </List>
-        </StatelessModal.Content>
-      </StatelessModal>
-    </Box>
-  )
-}
-```
+- `Modal` has the `dialog` role.
+- `Modal` has `aria-modal` set to true.
+- When `Modal` opens, focus moves to an element inside of it.
+- Focus is trapped within the `Modal`.
+- <kbd>ESC</kbd> closes `Modal` unless hideOnEsc is set to false.
+- Clicking outside the `Modal` closes it unless hideOnClickOutside is set to false.
 
 ## Props
 
-<propdetails heading="StatelessModal" component="StatelessModal">
-</propdetails>
+### Modal
+
+| Name                 | Description                                                       | Type                          | Required | Default   |
+| -------------------- | ----------------------------------------------------------------- | ----------------------------- | -------- | --------- |
+| `aria-label`         | Modal aria-label                                                  | `string`                      | ✅       | -         |
+| `state`              | Return of useModalState                                           | `ModalState`                  | ✅       | -         |
+| `size`               | Modal size                                                        | `small`, `regular` or `large` | 🚫       | `regular` |
+| `hideOnClickOutside` | When enabled, user can hide the dialog by clicking outside it     | `boolean`                     | 🚫       | true      |
+| `hideOnEsc`          | When enabled, user can hide the dialog by pressing <kbd>ESC</kbd> | `boolean`                     | 🚫       | true      |
+
+### useModalState
+
+| Name    | Description             | Type      | Required | Default |
+| ------- | ----------------------- | --------- | -------- | ------- |
+| visible | If is initially visible | `boolean` | 🚫       | false   |
+
+### ModalHeader
+
+All props of `header` JSX element, and:
+
+| Name        | Description                     | Type          | Required | Default |
+| ----------- | ------------------------------- | ------------- | -------- | ------- |
+| title       | Title of the modal              | `ReactNode`   | 🚫       | null    |
+| containerSx | Styles of the buttons container | `SxStyleProp` | 🚫       | {}      |
+
+### ModalButton Props
+
+All props of [Button](/button/), and:
+
+| Name              | Description                        | Type      | Required | Default |
+| ----------------- | ---------------------------------- | --------- | -------- | ------- |
+| closeModalOnClick | If should close the modal on click | `boolean` | 🚫       | false   |
+
+### ModalContent Props
+
+All props of `section` JSX element.
+
+### ModalFooter Props
+
+All props of `footer` JSX element.

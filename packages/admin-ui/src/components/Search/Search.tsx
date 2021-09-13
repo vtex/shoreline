@@ -51,10 +51,11 @@ export const Search = jsx.form(
               icon={
                 state.loading ? (
                   <Spinner
+                    size={20}
                     csx={{
-                      color: 'dark.primary',
-                      margin: '0.625rem 0.25rem 0 0.5rem',
                       top: 0,
+                      position: 'absolute',
+                      margin: '0.625rem 0.25rem 0 0.5rem',
                     }}
                   />
                 ) : (
