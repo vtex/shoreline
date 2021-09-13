@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.112.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.111.1...@vtex/admin-ui@0.112.0) (2021-09-13)
+
+### Bug Fixes
+
+- **datagrid:** fix header color to dark.secondary ([14afa1f](https://github.com/vtex/onda/commit/14afa1fcb988a0052c08b68b434d650189136c4b))
+- remove variant ternary in Tag delete button ([52b0ab2](https://github.com/vtex/onda/commit/52b0ab291f71f24d4fc128c83a4977878cfdfb5d))
+- Update docs and tests ([7acf52d](https://github.com/vtex/onda/commit/7acf52dba2d7cfc92b1e9d809c8d0ac27d9a7d70))
+- update Tag test snapshot ([efc89f8](https://github.com/vtex/onda/commit/efc89f8f7e857fc674f3d8e4a717958fa1e1e6e1))
+- **font:** adjust medium weight to be 650 instead o 750 ([96cd49d](https://github.com/vtex/onda/commit/96cd49dab5a84dbc809a3ff1a6e54a0ed71af344))
+
+- fix!: remove Black variant of Tag component ([a476ec1](https://github.com/vtex/onda/commit/a476ec12d2bcaf848447f6fe0dd8074f1a44bd2a))
+
+### Features
+
+- add Gray palette in Tag component ([fd10705](https://github.com/vtex/onda/commit/fd107053730ef25a611cc83eb9f23a0f3314da73))
+
+### BREAKING CHANGES
+
+- It will not be possible to use palette="black" in Tags anymore.
+
 ## [0.111.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.111.0...@vtex/admin-ui@0.111.1) (2021-08-30)
 
 ### Bug Fixes

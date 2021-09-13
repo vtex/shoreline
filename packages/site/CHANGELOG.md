@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.2](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.15.1...admin-site@0.15.2) (2021-09-13)
+
+### Bug Fixes
+
+- Update docs and tests ([7acf52d](https://github.com/vtex/onda/tree/master/packages/site/commit/7acf52dba2d7cfc92b1e9d809c8d0ac27d9a7d70))
+- **font:** adjust medium weight to be 650 instead o 750 ([96cd49d](https://github.com/vtex/onda/tree/master/packages/site/commit/96cd49dab5a84dbc809a3ff1a6e54a0ed71af344))
+
 ## [0.15.1](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.15.0...admin-site@0.15.1) (2021-08-30)
 
 **Note:** Version bump only for package admin-site

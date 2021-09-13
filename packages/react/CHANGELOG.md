@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-react@0.1.0...@vtex/admin-ui-react@0.2.0) (2021-09-13)
+
+### Features
+
+- **admin-ui-react:** allow fragments on jsx ([0ce7ddc](https://github.com/vtex/onda/commit/0ce7ddcd7d0f774332dc69e84614305bd68175be))
+
 # 0.1.0 (2021-08-30)
 
 ### Bug Fixes

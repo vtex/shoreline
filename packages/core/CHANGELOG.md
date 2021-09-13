@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.1.0...@vtex/admin-ui-core@0.1.1) (2021-09-13)
+
+### Bug Fixes
+
+- **font:** adjust medium weight to be 650 instead o 750 ([96cd49d](https://github.com/vtex/onda/commit/96cd49dab5a84dbc809a3ff1a6e54a0ed71af344))
+
 # 0.1.0 (2021-08-30)
 
 ### Features
