@@ -8,33 +8,30 @@ Tabs are navigation solutions for alternating between content that is at the sam
 
 ## Behavior
 
-- Each `Tab.Content` should have an `id` correspondent to the id of its `Tab`.
-- Every `Tabs.List` should have the aria-label defined to guarantee accessibility.
-
 ```jsx
 function Example() {
   const state = useTabState()
 
   return (
     <Tabs state={state}>
-      <Tabs.List aria-label="behavior-tabs">
-        <Tabs.Tab label="Tab 1" id="1" />
-        <Tabs.Tab label="Tab 2" id="2" />
-        <Tabs.Tab label="Tab 3" id="3" />
-        <Tabs.Tab label="Tab 4" id="4" />
-      </Tabs.List>
-      <Tabs.Content id="1">
+      <TabsList aria-label="behavior-tabs">
+        <Tab label="Tab 1" id="1" />
+        <Tab label="Tab 2" id="2" />
+        <Tab label="Tab 3" id="3" />
+        <Tab label="Tab 4" id="4" />
+      </TabsList>
+      <TabContent id="1">
         <Card csx={{ marginTop: 2 }}>Tab 1 Content</Card>
-      </Tabs.Content>
-      <Tabs.Content id="2">
+      </TabContent>
+      <TabContent id="2">
         <Card csx={{ marginTop: 2 }}>Tab 2 Content</Card>
-      </Tabs.Content>
-      <Tabs.Content id="3">
+      </TabContent>
+      <TabContent id="3">
         <Card csx={{ marginTop: 2 }}>Tab 3 Content</Card>
-      </Tabs.Content>
-      <Tabs.Content id="4">
+      </TabContent>
+      <TabContent id="4">
         <Card csx={{ marginTop: 2 }}>Tab 4 Content</Card>
-      </Tabs.Content>
+      </TabContent>
     </Tabs>
   )
 }
@@ -47,7 +44,7 @@ yarn add @vtex/admin-ui
 ```
 
 ```jsx isStatic
-import { Tabs, useTabState } from '@vtex/admin-ui'
+import { Tabs, TabsList, Tab, TabContent, useTabState } from '@vtex/admin-ui'
 ```
 
 ## Variations
@@ -62,24 +59,24 @@ function Example() {
 
   return (
     <Tabs state={state}>
-      <Tabs.List fluid aria-label="fluid-tabs">
-        <Tabs.Tab label="Tab 1" id="1" />
-        <Tabs.Tab label="Tab 2" id="2" />
-        <Tabs.Tab label="Tab 3" id="3" />
-        <Tabs.Tab label="Tab 4" id="4" />
-      </Tabs.List>
-      <Tabs.Content id="1">
+      <TabsList fluid aria-label="fluid-tabs">
+        <Tab label="Tab 1" id="1" />
+        <Tab label="Tab 2" id="2" />
+        <Tab label="Tab 3" id="3" />
+        <Tab label="Tab 4" id="4" />
+      </TabsList>
+      <TabContent id="1">
         <Card csx={{ marginTop: 2 }}>Tab 1 Content</Card>
-      </Tabs.Content>
-      <Tabs.Content id="2">
+      </TabContent>
+      <TabContent id="2">
         <Card csx={{ marginTop: 2 }}>Tab 2 Content</Card>
-      </Tabs.Content>
-      <Tabs.Content id="3">
+      </TabContent>
+      <TabContent id="3">
         <Card csx={{ marginTop: 2 }}>Tab 3 Content</Card>
-      </Tabs.Content>
-      <Tabs.Content id="4">
+      </TabContent>
+      <TabContent id="4">
         <Card csx={{ marginTop: 2 }}>Tab 4 Content</Card>
-      </Tabs.Content>
+      </TabContent>
     </Tabs>
   )
 }
@@ -102,41 +99,76 @@ function Example() {
   return (
     <Card csx={{ width: 600 }}>
       <Tabs state={{ setSelectedId, ...state }}>
-        <Tabs.List fluid aria-label="my-tabs">
-          <Tabs.Tab label="Tab 1" id="1" />
-          <Tabs.Tab label="Tab 2" id="2" />
-          <Tabs.Tab label="Tab 3" id="3" />
-          <Tabs.Tab label="Tab 4" id="4" />
-        </Tabs.List>
-        <Tabs.Content id="1">
+        <TabsList fluid aria-label="my-tabs">
+          <Tab label="Tab 1" id="1" />
+          <Tab label="Tab 2" id="2" />
+          <Tab label="Tab 3" id="3" />
+          <Tab label="Tab 4" id="4" />
+        </TabsList>
+        <TabContent id="1">
           <Card csx={{ marginTop: 2 }}>
             <Button onClick={() => setSelectedId('2')}>Go to Tab 2!</Button>
           </Card>
-        </Tabs.Content>
-        <Tabs.Content id="2">
+        </TabContent>
+        <TabContent id="2">
           <Card csx={{ marginTop: 2 }}>
             <Button onClick={() => setSelectedId('3')}>Go to Tab 3!</Button>
           </Card>
-        </Tabs.Content>
-        <Tabs.Content id="3">
+        </TabContent>
+        <TabContent id="3">
           <Card csx={{ marginTop: 2 }}>
             <Button onClick={() => setSelectedId('4')}>Go to Tab 4!</Button>
           </Card>
-        </Tabs.Content>
-        <Tabs.Content id="4">
+        </TabContent>
+        <TabContent id="4">
           <Card csx={{ marginTop: 2 }}>
             <Button onClick={() => setSelectedId('1')}>Go to Tab 1!</Button>
           </Card>
-        </Tabs.Content>
+        </TabContent>
       </Tabs>
     </Card>
   )
 }
 ```
 
+## Accessibility
+
+- Each `TabContent` should have an `id` correspondent to the id of its `Tab`.
+- Every `TabsList` should have the `aria-label` defined to guarantee accessibility.
+
 ## Props
 
-<propdetails heading="Tabs" component="Tabs"></propdetails>
-<propdetails heading="Tabs.List" component="TabList"></propdetails>
-<propdetails heading="Tabs.Tab" component="Tab"></propdetails>
-<propdetails heading="Tabs.Content" component="TabContent"></propdetails>
+### Tabs
+
+| Name     | Type             | Description   | Required | Default |
+| -------- | ---------------- | ------------- | -------- | ------- |
+| state    | `TabStateReturn` | Tabs state    | ✅       | -       |
+| children | `ReactNode`      | Tabs children | ✅       | -       |
+
+### TabsList
+
+It also receives all props of `div` JSX element.
+
+| Name  | Type          | Description                                                  | Required | Default |
+| ----- | ------------- | ------------------------------------------------------------ | -------- | ------- |
+| fluid | `boolean`     | Whether the TabsList width should match the container or not | 🚫       | false   |
+| csx   | `StyleObject` | Custom styles                                                | 🚫       | {}      |
+
+### Tab
+
+It also receives all props of `button` JSX element.
+
+| Name  | Type          | Description   | Required | Default |
+| ----- | ------------- | ------------- | -------- | ------- |
+| label | `string`      | Tab label     | ✅       | -       |
+| id    | `string`      | Tab's id      | 🚫       | -       |
+| csx   | `StyleObject` | Custom styles | 🚫       | {}      |
+
+### TabContent
+
+It also receives all props of `div` JSX element.
+
+| Name | Type          | Description                               | Required | Default |
+| ---- | ------------- | ----------------------------------------- | -------- | ------- |
+| id   | `string`      | The same id as the correspondent Tab's id | 🚫       | -       |
+| csx  | `StyleObject` | Custom styles                             | 🚫       | {}      |
