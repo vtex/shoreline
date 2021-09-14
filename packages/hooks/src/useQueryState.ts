@@ -1,5 +1,6 @@
-import { useMemo, useRef, useEffect, useState, useCallback } from 'react'
+import { useMemo, useRef, useCallback } from 'react'
 import { isBrowser } from '@vtex/admin-ui-util'
+import { useQueryStateContext } from './useQueryStateContext'
 
 /**
  * Persisted the keys states in the querry params (url)
@@ -14,20 +15,7 @@ export function useQueryState(
   (v: Record<string, any>) => void,
   Record<string, any>
 ] {
-  const [queryParams, setQueryParams] = useState(
-    new URLSearchParams(isBrowser ? window.location.search : '')
-  )
-
-  useEffect(() => {
-    if (!isBrowser) return
-    window.onpopstate = function onPopstateChange() {
-      setQueryParams(new URLSearchParams(window.location.search))
-    }
-
-    return () => {
-      window.onpopstate = () => {}
-    }
-  }, [])
+  const { queryParams } = useQueryStateContext()
 
   const query: Record<string, string> = useMemo(() => {
     return params.keys.reduce(function (acc, curr) {
@@ -51,18 +39,27 @@ export function useQueryState(
     }, {})
   )
 
-  const setQuery = useCallback((query: Record<string, any> = {}): void => {
-    if (!isBrowser) return
+  const setQuery = useCallback(
+    (query: Record<string, string | undefined> = {}): void => {
+      if (!isBrowser) return
 
-    Object.entries(query).forEach((element: [string, any]) => {
-      queryParams.set(element[0], element[1])
-    })
-    const newurl = `${window.location.protocol}//${window.location.host}${
-      window.location.pathname
-    }?${queryParams.toString()}`
+      Object.entries(query).forEach((element: QueryParams) => {
+        if (!element[1]) {
+          queryParams.delete(element[0])
 
-    window.history.pushState({ path: newurl }, '', newurl)
-  }, [])
+          return
+        }
+
+        queryParams.set(element[0], element[1])
+      })
+      const newurl = `${window.location.protocol}//${window.location.host}${
+        window.location.pathname
+      }?${queryParams.toString()}`
+
+      window.history.pushState({ path: newurl }, '', newurl)
+    },
+    []
+  )
 
   return [initialQuery.current, setQuery, query]
 }
@@ -70,3 +67,5 @@ export function useQueryState(
 export type UsePersistedStateParams = {
   keys: string[]
 }
+
+type QueryParams = [string, string | undefined]

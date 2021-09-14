@@ -12,11 +12,11 @@ export function useQuerySearchState(
     keys: ['search'],
   })
 
-  const initalValue = initialQuery.search ?? ''
+  const initialValue = initialQuery.search ?? ''
 
   const searchState = useSearchState({
     ...props,
-    initalValue,
+    initialValue,
   })
 
   useEffect(() => {
@@ -29,7 +29,10 @@ export function useQuerySearchState(
     if (searchChanged) {
       setSearchChanged(false)
       setQuery({
-        search: searchState.debouncedValue,
+        search:
+          searchState.debouncedValue !== ''
+            ? searchState.debouncedValue
+            : undefined,
       })
     } else if (query.search) {
       searchState.setValue(query.search)
@@ -59,5 +62,5 @@ export function useQuerySearchState(
 
 export type UseQuerySearchStateParams = Omit<
   UseSearchStateParams,
-  'initalValue'
+  'initialValue'
 >

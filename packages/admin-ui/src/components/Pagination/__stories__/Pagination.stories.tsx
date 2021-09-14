@@ -6,6 +6,7 @@ import { usePaginationState } from '../hooks/usePaginationState'
 import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
 import { Set } from '../../Set'
 import { Input } from '../../Input'
+import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
 export default {
   title: 'admin-ui/Pagination',
@@ -45,29 +46,37 @@ export function InitialState() {
 }
 
 export function PersistedPaginationWithQuery() {
-  const state = useQueryPaginationState({
-    pageSize: 20,
-    total: 150,
-  })
+  const Content = () => {
+    const state = useQueryPaginationState({
+      pageSize: 20,
+      total: 150,
+    })
+
+    return (
+      <Set orientation="vertical" spacing={6}>
+        <Input
+          label="Current URL:"
+          id="current-url-input"
+          value={window.location.href}
+          disabled
+          csx={{ width: 'lg' }}
+          helperText="You can copy the part with page in your URL to see the page
+            load directly on choosed page"
+        />
+        <Pagination
+          state={state}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+        />
+      </Set>
+    )
+  }
 
   return (
-    <Set orientation="vertical" spacing={6}>
-      <Input
-        label="Current URL:"
-        id="current-url-input"
-        value={window.location.href}
-        disabled
-        csx={{ width: 'lg' }}
-        helperText="You can copy the part with page in your URL to see the page
-        load directly on choosed page"
-      />
-      <Pagination
-        state={state}
-        preposition="of"
-        subject="results"
-        prevLabel="Previous"
-        nextLabel="Next"
-      />
-    </Set>
+    <QueryStateProvider>
+      <Content />
+    </QueryStateProvider>
   )
 }

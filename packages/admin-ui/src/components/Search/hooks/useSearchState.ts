@@ -6,19 +6,20 @@ const DEFAULT_TIMEOUT_MS = 250
 
 export function useSearchState(
   params: UseSearchStateParams = {
-    initalValue: '',
+    initialValue: '',
     timeoutMs: DEFAULT_TIMEOUT_MS,
   }
 ): SearchFormState {
   const {
-    initalValue = '',
+    initialValue = '',
+    defaultValue = '',
     initiallyLoading = false,
     onSubmit: baseSubmit,
     timeoutMs = DEFAULT_TIMEOUT_MS,
   } = params
 
   const [value, debouncedValue, setValue] = useDebouncedCache({
-    initialState: initalValue,
+    initialState: initialValue,
     timeoutMs,
   })
 
@@ -32,7 +33,7 @@ export function useSearchState(
   }, [])
 
   const clear = useCallback(() => {
-    setValue(initalValue)
+    setValue(defaultValue)
   }, [value])
 
   return {
@@ -48,7 +49,8 @@ export function useSearchState(
 }
 
 export interface UseSearchStateParams {
-  initalValue?: string
+  initialValue?: string
+  defaultValue?: string
   initiallyLoading?: boolean
   onSubmit?: () => void
   timeoutMs?: number

@@ -1,5 +1,6 @@
 import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
 import { renderHook, act } from '@testing-library/react-hooks'
+import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
 const setQuery = (query: Record<string, any> = {}): boolean => {
   const params = new URLSearchParams(window.location.search)
@@ -27,11 +28,13 @@ describe('useQueryPaginationState tests', () => {
   beforeEach(cleanQuery)
 
   it('query is update when page changes', () => {
-    const { result, waitFor } = renderHook(() =>
-      useQueryPaginationState({
-        pageSize: 20,
-        total: 50,
-      })
+    const { result, waitFor } = renderHook(
+      () =>
+        useQueryPaginationState({
+          pageSize: 20,
+          total: 50,
+        }),
+      { wrapper: QueryStateProvider }
     )
 
     expect(result.current.currentPage).toBe(1)
@@ -62,11 +65,13 @@ describe('useQueryPaginationState tests', () => {
   it('starts with the status in query', async () => {
     setQuery({ page: 3 })
 
-    const { result, waitFor } = renderHook(() =>
-      useQueryPaginationState({
-        pageSize: 20,
-        total: 100,
-      })
+    const { result, waitFor } = renderHook(
+      () =>
+        useQueryPaginationState({
+          pageSize: 20,
+          total: 100,
+        }),
+      { wrapper: QueryStateProvider }
     )
 
     waitFor(() => expect(result.current.currentPage).toBe(3))
@@ -75,11 +80,13 @@ describe('useQueryPaginationState tests', () => {
 
   // window.history.back() not work (test pass because there is not await before waitFor)
   it('query is update on popstate called', async () => {
-    const { result, waitFor } = renderHook(() =>
-      useQueryPaginationState({
-        pageSize: 20,
-        total: 100,
-      })
+    const { result, waitFor } = renderHook(
+      () =>
+        useQueryPaginationState({
+          pageSize: 20,
+          total: 100,
+        }),
+      { wrapper: QueryStateProvider }
     )
 
     expect(result.current.currentPage).toBe(1)
