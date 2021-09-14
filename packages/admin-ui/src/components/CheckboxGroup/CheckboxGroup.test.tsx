@@ -4,7 +4,7 @@ import { render, axe } from '../../test-utils'
 import { CheckboxGroup } from './index'
 import { Label } from '../Label'
 
-describe('CheckboxGroup tests', () => {
+describe('CheckboxGroup', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <CheckboxGroup data-testid="group" csx={{ bg: 'azure' }}>
