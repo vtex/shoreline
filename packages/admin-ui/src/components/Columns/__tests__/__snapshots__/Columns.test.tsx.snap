@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Columns tests should match snapshot 1`] = `
+exports[`Columns should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   -webkit-flex: 1 1 0%;

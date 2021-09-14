@@ -62,9 +62,9 @@ Layout components should _not_ be used during the following cases:
 function Example() {
   return (
     <Columns>
-      <Columns.Item>
+      <Column>
         <Paragraph>Paragraph</Paragraph>
-      </Columns.Item>
+      </Column>
     </Columns>
   )
 }

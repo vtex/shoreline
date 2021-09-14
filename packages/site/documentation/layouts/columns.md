@@ -4,23 +4,23 @@ path: /layouts/columns/
 
 # Columns
 
-Our design system comes with a set of layout components to help you build common layouts inside your application. `Columns` implement a 12 column flexbox based responsive column system. By default, each `<Columns.Item>` will have an equal width and you can have up to 12 columns. Check out our [Introduction](/layouts/introduction) page, to see Do's and Don'ts about Layout components.
+Our design system comes with a set of layout components to help you build common layouts inside your application. `Columns` implement a 12 column flexbox based responsive column system. By default, each `<Column>` will have an equal width and you can have up to 12 columns. Check out our [Introduction](/layouts/introduction) page, to see Do's and Don'ts about Layout components.
 
-To create a basic columned layout, add a `<Columns>` component and then add your `<Columns.Item>`.
+To create a basic columned layout, add a `<Columns>` component and then add your `<Column>`.
 
 ## Behavior
 
 ```jsx
 <Columns spacing={1}>
-  <Columns.Item>
+  <Column>
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
-  </Columns.Item>
-  <Columns.Item>
+  </Column>
+  <Column>
     <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
-  </Columns.Item>
-  <Columns.Item>
+  </Column>
+  <Column>
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
-  </Columns.Item>
+  </Column>
 </Columns>
 ```
 
@@ -36,15 +36,15 @@ yarn add @vtex/admin-ui
 
 ```jsx
 <Columns spacing={1}>
-  <Columns.Item>
+  <Column>
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
-  </Columns.Item>
-  <Columns.Item>
+  </Column>
+  <Column>
     <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
-  </Columns.Item>
-  <Columns.Item>
+  </Column>
+  <Column>
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
-  </Columns.Item>
+  </Column>
 </Columns>
 ```
 
@@ -52,15 +52,15 @@ yarn add @vtex/admin-ui
 
 ```jsx
 <Columns spacing={0}>
-  <Columns.Item>
+  <Column>
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
-  </Columns.Item>
-  <Columns.Item>
+  </Column>
+  <Column>
     <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
-  </Columns.Item>
-  <Columns.Item>
+  </Column>
+  <Column>
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
-  </Columns.Item>
+  </Column>
 </Columns>
 ```
 
@@ -68,15 +68,15 @@ yarn add @vtex/admin-ui
 
 ```jsx
 <Columns spacing={1}>
-  <Columns.Item units={3}>
+  <Column units={3}>
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>3 units</Box>
-  </Columns.Item>
-  <Columns.Item units={6}>
+  </Column>
+  <Column units={6}>
     <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
-  </Columns.Item>
-  <Columns.Item units={3}>
+  </Column>
+  <Column units={3}>
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>3 units</Box>
-  </Columns.Item>
+  </Column>
 </Columns>
 ```
 
@@ -86,27 +86,27 @@ yarn add @vtex/admin-ui
 
 ```jsx
 <Columns spacing={1}>
-  <Columns.Item units={6} offset={['right', 'right', 'none']}>
+  <Column units={6} offset={['right', 'right', 'none']}>
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
-  </Columns.Item>
-  <Columns.Item units={3}>
+  </Column>
+  <Column units={3}>
     <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>3 units</Box>
-  </Columns.Item>
+  </Column>
 </Columns>
 ```
 
 ## Customization
 
-You can use the csx property to handle different styles in both `Columns`, and `Columns.Item`.
+You can use the csx property to handle different styles in both `Columns`, and `Column`.
 
 ```jsx
 <Columns spacing={1} csx={{ bg: 'mid.tertiary' }}>
-  <Columns.Item units={6} offset="right">
+  <Column units={6} offset="right">
     <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
-  </Columns.Item>
-  <Columns.Item units={3}>
+  </Column>
+  <Column units={3}>
     <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>3 units</Box>
-  </Columns.Item>
+  </Column>
 </Columns>
 ```
 
@@ -119,5 +119,5 @@ This component uses a flexbox under the hood. Knowing that it has the same limit
 <propdetails heading="Columns" component="Columns">
 </propdetails>
 
-<propdetails heading="Columns.Item" component="ColumnsItem">
+<propdetails heading="Column" component="ColumnsItem">
 </propdetails>

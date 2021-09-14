@@ -1,21 +1,20 @@
 import React, { Fragment } from 'react'
-import { render, axe, jestMatchMedia } from '../../test-utils'
+import { render, axe, jestMatchMedia } from '../../../test-utils'
 
-import { Columns } from './index'
-import { ColumnsItem } from './Item'
+import { Columns, Column } from '../index'
 
-describe('Columns tests', () => {
+describe('Columns', () => {
   beforeEach(jestMatchMedia)
 
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <Columns data-testid="columns" csx={{ bg: 'coral' }}>
-        <ColumnsItem data-testid="item" csx={{ bg: 'azure' }}>
+        <Column data-testid="item" csx={{ bg: 'azure' }}>
           <button>element 1</button>
-        </ColumnsItem>
-        <Columns.Item>
+        </Column>
+        <Column>
           <button>element 2</button>
-        </Columns.Item>
+        </Column>
       </Columns>
     )
 
@@ -27,20 +26,20 @@ describe('Columns tests', () => {
     const { asFragment } = render(
       <Fragment>
         <Columns>
-          <ColumnsItem>
+          <Column>
             <button>element 1</button>
-          </ColumnsItem>
-          <Columns.Item>
+          </Column>
+          <Column>
             <button>element 2</button>
-          </Columns.Item>
+          </Column>
         </Columns>
         <Columns>
-          <ColumnsItem units={4}>
+          <Column units={4}>
             <button>element 1</button>
-          </ColumnsItem>
-          <Columns.Item units={4} offset="right">
+          </Column>
+          <Column units={4} offset="right">
             <button>element 2</button>
-          </Columns.Item>
+          </Column>
         </Columns>
       </Fragment>
     )
@@ -51,12 +50,12 @@ describe('Columns tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <Columns>
-        <ColumnsItem>
+        <Column>
           <button>element 1</button>
-        </ColumnsItem>
-        <Columns.Item>
+        </Column>
+        <Column>
           <button>element 2</button>
-        </Columns.Item>
+        </Column>
       </Columns>
     )
 
