@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.112.2",
+  "version": "0.112.3",
   "main": "dist/index.js",
   "module": "dist/admin-ui.esm.js",
   "typings": "dist/index.d.ts",
@@ -50,7 +50,7 @@
     "@emotion/react": "^11.1.5",
     "@vtex/admin-illustrations": "^0.1.2",
     "@vtex/admin-ui-core": "^0.1.1",
-    "@vtex/admin-ui-hooks": "^0.1.1",
+    "@vtex/admin-ui-hooks": "^0.1.2",
     "@vtex/admin-ui-icons": "^0.13.1",
     "@vtex/admin-ui-react": "^0.2.0",
     "csstype": "^3.0.5",

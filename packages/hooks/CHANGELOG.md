@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-hooks@0.1.1...@vtex/admin-ui-hooks@0.1.2) (2021-09-14)
+
+### Bug Fixes
+
+- **querystatecontext:** pass throw context in nesteds QueryStateProvider ([cf5462f](https://github.com/vtex/onda/commit/cf5462f31baacf57d05d8f50a09d67ed9b6f98e4))
+- **usequerystate:** add query state contex to fix conflicts caused by using multiple instances ([dd718a9](https://github.com/vtex/onda/commit/dd718a9a0d1708e4d3ad95aaf11c2424c2446ff5))
+- **usequerystate:** better type and remove query param ([3f20730](https://github.com/vtex/onda/commit/3f2073031243b16821fdb43642a079cd1a0964cf))
+
 ## [0.1.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-hooks@0.1.0...@vtex/admin-ui-hooks@0.1.1) (2021-09-13)
 
 **Note:** Version bump only for package @vtex/admin-ui-hooks

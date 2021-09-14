@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.112.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.112.2...@vtex/admin-ui@0.112.3) (2021-09-14)
+
+### Bug Fixes
+
+- **query-stories:** fix stories that use QueryStateContext ([ac23b6d](https://github.com/vtex/onda/commit/ac23b6dba63f5a5fb55d287bb6055d42fb55b206))
+- **querystateprovider:** add QueryStateProvider in stories and tests of pagnation and search ([941b838](https://github.com/vtex/onda/commit/941b838bdc95cf140e8f5696eb9f2643484b381d))
+- **usequerystate:** better type and remove query param ([3f20730](https://github.com/vtex/onda/commit/3f2073031243b16821fdb43642a079cd1a0964cf))
+- **usesearchstate:** differentiates initial value from default value ([df7f670](https://github.com/vtex/onda/commit/df7f6705bfddd88a3ad269881384a286baac9eb3))
+
 ## [0.112.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.112.1...@vtex/admin-ui@0.112.2) (2021-09-13)
 
 ### Bug Fixes
