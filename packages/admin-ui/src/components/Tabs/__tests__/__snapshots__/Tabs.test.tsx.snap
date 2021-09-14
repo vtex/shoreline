@@ -89,7 +89,6 @@ exports[`Tabs should match snapshot 1`] = `
   >
     <button
       aria-controls="tabs-test-3"
-      aria-label="Tab 1"
       aria-selected="true"
       class="emotion-0"
       id="1"
@@ -100,7 +99,6 @@ exports[`Tabs should match snapshot 1`] = `
     </button>
     <button
       aria-controls="tabs-test-4"
-      aria-label="Tab 2"
       aria-selected="false"
       class="emotion-1"
       id="2"
@@ -253,7 +251,6 @@ exports[`Tabs should match snapshot 1`] = `
   >
     <button
       aria-controls="tabs-test-3"
-      aria-label="Tab 1"
       aria-selected="true"
       class="emotion-0"
       id="1"
@@ -264,7 +261,6 @@ exports[`Tabs should match snapshot 1`] = `
     </button>
     <button
       aria-controls="tabs-test-4"
-      aria-label="Tab 2"
       aria-selected="false"
       class="emotion-1"
       id="2"

@@ -14,24 +14,24 @@ function Example() {
 
   return (
     <Tabs state={state}>
-      <TabsList aria-label="behavior-tabs">
-        <Tab label="Tab 1" id="1" />
-        <Tab label="Tab 2" id="2" />
-        <Tab label="Tab 3" id="3" />
-        <Tab label="Tab 4" id="4" />
-      </TabsList>
-      <TabContent id="1">
-        <Card csx={{ marginTop: 2 }}>Tab 1 Content</Card>
-      </TabContent>
-      <TabContent id="2">
-        <Card csx={{ marginTop: 2 }}>Tab 2 Content</Card>
-      </TabContent>
-      <TabContent id="3">
-        <Card csx={{ marginTop: 2 }}>Tab 3 Content</Card>
-      </TabContent>
-      <TabContent id="4">
-        <Card csx={{ marginTop: 2 }}>Tab 4 Content</Card>
-      </TabContent>
+      <TabList aria-label="behavior-tabs">
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+        <Tab id="3">Tab 3</Tab>
+        <Tab id="4">Tab 4</Tab>
+      </TabList>
+      <TabPanel id="1" csx={{ padding: 3 }}>
+        Tab 1
+      </TabPanel>
+      <TabPanel id="2" csx={{ padding: 3 }}>
+        Tab 2
+      </TabPanel>
+      <TabPanel id="3" csx={{ padding: 3 }}>
+        Tab 3
+      </TabPanel>
+      <TabPanel id="4" csx={{ padding: 3 }}>
+        Tab 4
+      </TabPanel>
     </Tabs>
   )
 }
@@ -44,14 +44,14 @@ yarn add @vtex/admin-ui
 ```
 
 ```jsx isStatic
-import { Tabs, TabsList, Tab, TabContent, useTabState } from '@vtex/admin-ui'
+import { Tabs, TabList, Tab, TabPanel, useTabState } from '@vtex/admin-ui'
 ```
 
 ## Variations
 
 ### Fluid
 
-This property will make the `TabsList`, match the container width. By default, it has the value set to `false`.
+This property will make the `TabList`, match the container width. By default, it has the value set to `false`.
 
 ```jsx
 function Example() {
@@ -59,82 +59,116 @@ function Example() {
 
   return (
     <Tabs state={state}>
-      <TabsList fluid aria-label="fluid-tabs">
-        <Tab label="Tab 1" id="1" />
-        <Tab label="Tab 2" id="2" />
-        <Tab label="Tab 3" id="3" />
-        <Tab label="Tab 4" id="4" />
-      </TabsList>
-      <TabContent id="1">
-        <Card csx={{ marginTop: 2 }}>Tab 1 Content</Card>
-      </TabContent>
-      <TabContent id="2">
-        <Card csx={{ marginTop: 2 }}>Tab 2 Content</Card>
-      </TabContent>
-      <TabContent id="3">
-        <Card csx={{ marginTop: 2 }}>Tab 3 Content</Card>
-      </TabContent>
-      <TabContent id="4">
-        <Card csx={{ marginTop: 2 }}>Tab 4 Content</Card>
-      </TabContent>
+      <TabList fluid aria-label="fluid-tabs">
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+        <Tab id="3">Tab 3</Tab>
+        <Tab id="4">Tab 4</Tab>
+      </TabList>
+      <TabPanel id="1" csx={{ padding: 3 }}>
+        Tab 1
+      </TabPanel>
+      <TabPanel id="2" csx={{ padding: 3 }}>
+        Tab 2
+      </TabPanel>
+      <TabPanel id="3" csx={{ padding: 3 }}>
+        Tab 3
+      </TabPanel>
+      <TabPanel id="4" csx={{ padding: 3 }}>
+        Tab 4
+      </TabPanel>
     </Tabs>
   )
 }
 ```
 
-### useTabState
+## useTabState
 
-For convenience, we also provide a hook that already implements the state logic for you. You should pass the hook return to the `state` property.
+It has the same props of [Reakit/useTabState](https://reakit.io/docs/tab/#usetabstate) and you should pass the hook return to the Tabs' `state` property.
 
-It has the same props of [Reakit/useTabState](https://reakit.io/docs/tab/#usetabstate).
+### Default selected tab
 
-#### Example
-
-You can choose a `Tab` to be selected initially by default or change the selected `Tab` when an action is triggered. You can check it in the example below.
+You can set the default selected tab by passing an id to selectedId on useTabState.
 
 ```jsx
 function Example() {
-  const { setSelectedId, ...state } = useTabState({ selectedId: '3' })
+  const state = useTabState({ selectedId: '2' })
 
   return (
-    <Card csx={{ width: 600 }}>
-      <Tabs state={{ setSelectedId, ...state }}>
-        <TabsList fluid aria-label="my-tabs">
-          <Tab label="Tab 1" id="1" />
-          <Tab label="Tab 2" id="2" />
-          <Tab label="Tab 3" id="3" />
-          <Tab label="Tab 4" id="4" />
-        </TabsList>
-        <TabContent id="1">
-          <Card csx={{ marginTop: 2 }}>
-            <Button onClick={() => setSelectedId('2')}>Go to Tab 2!</Button>
-          </Card>
-        </TabContent>
-        <TabContent id="2">
-          <Card csx={{ marginTop: 2 }}>
-            <Button onClick={() => setSelectedId('3')}>Go to Tab 3!</Button>
-          </Card>
-        </TabContent>
-        <TabContent id="3">
-          <Card csx={{ marginTop: 2 }}>
-            <Button onClick={() => setSelectedId('4')}>Go to Tab 4!</Button>
-          </Card>
-        </TabContent>
-        <TabContent id="4">
-          <Card csx={{ marginTop: 2 }}>
-            <Button onClick={() => setSelectedId('1')}>Go to Tab 1!</Button>
-          </Card>
-        </TabContent>
-      </Tabs>
-    </Card>
+    <Tabs state={state}>
+      <TabList fluid aria-label="my-tabs">
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+        <Tab id="3">Tab 3</Tab>
+      </TabList>
+      <TabPanel id="1" csx={{ padding: 3 }}>
+        Tab 1
+      </TabPanel>
+      <TabPanel id="2" csx={{ padding: 3 }}>
+        Tab 2
+      </TabPanel>
+      <TabPanel id="3" csx={{ padding: 3 }}>
+        Tab 3
+      </TabPanel>
+    </Tabs>
+  )
+}
+```
+
+### Select a Tab manually
+
+You can set the selected tab by passing an `id` to the `setSelectedId` returned by the `useTabState`.
+
+```jsx
+function Example() {
+  const { setSelectedId, ...state } = useTabState()
+
+  return (
+    <Tabs state={{ setSelectedId, ...state }}>
+      <TabList fluid aria-label="my-tabs">
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+      </TabList>
+      <TabPanel id="1" csx={{ padding: 3 }}>
+        <Button onClick={() => setSelectedId('2')}>Go to Tab 2!</Button>
+      </TabPanel>
+      <TabPanel id="2" csx={{ padding: 3 }}>
+        <Button onClick={() => setSelectedId('1')}>Go to Tab 1!</Button>
+      </TabPanel>
+    </Tabs>
+  )
+}
+```
+
+### Manual Activation
+
+By default, a Tab is selected when it gets focused, which reveals its corresponding TabPanel. This behavior can be changed by setting manual to true on useTabState.
+
+```jsx
+function Example() {
+  const state = useTabState({ manual: true })
+
+  return (
+    <Tabs state={state}>
+      <TabList fluid aria-label="my-tabs">
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+      </TabList>
+      <TabPanel id="1" csx={{ padding: 3 }}>
+        Tab 1
+      </TabPanel>
+      <TabPanel id="2" csx={{ padding: 3 }}>
+        Tab 2
+      </TabPanel>
+    </Tabs>
   )
 }
 ```
 
 ## Accessibility
 
-- Each `TabContent` should have an `id` correspondent to the id of its `Tab`.
-- Every `TabsList` should have the `aria-label` defined to guarantee accessibility.
+- Each `TabPanel` should have an `id` correspondent to the id of its `Tab`.
+- Every `TabList` should have the `aria-label` defined to guarantee accessibility.
 
 ## Props
 
@@ -145,26 +179,25 @@ function Example() {
 | state    | `TabStateReturn` | Tabs state    | ✅       | -       |
 | children | `ReactNode`      | Tabs children | ✅       | -       |
 
-### TabsList
+### TabList
 
 It also receives all props of `div` JSX element.
 
-| Name  | Type          | Description                                                  | Required | Default |
-| ----- | ------------- | ------------------------------------------------------------ | -------- | ------- |
-| fluid | `boolean`     | Whether the TabsList width should match the container or not | 🚫       | false   |
-| csx   | `StyleObject` | Custom styles                                                | 🚫       | {}      |
+| Name  | Type          | Description                                                 | Required | Default |
+| ----- | ------------- | ----------------------------------------------------------- | -------- | ------- |
+| fluid | `boolean`     | Whether the TabList width should match the container or not | 🚫       | false   |
+| csx   | `StyleObject` | Custom styles                                               | 🚫       | {}      |
 
 ### Tab
 
 It also receives all props of `button` JSX element.
 
-| Name  | Type          | Description   | Required | Default |
-| ----- | ------------- | ------------- | -------- | ------- |
-| label | `string`      | Tab label     | ✅       | -       |
-| id    | `string`      | Tab's id      | 🚫       | -       |
-| csx   | `StyleObject` | Custom styles | 🚫       | {}      |
+| Name | Type          | Description   | Required | Default |
+| ---- | ------------- | ------------- | -------- | ------- |
+| id   | `string`      | Tab's id      | 🚫       | -       |
+| csx  | `StyleObject` | Custom styles | 🚫       | {}      |
 
-### TabContent
+### TabPanel
 
 It also receives all props of `div` JSX element.
 
