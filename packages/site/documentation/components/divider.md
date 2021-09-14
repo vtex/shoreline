@@ -52,23 +52,23 @@ The orientation property can also have a `vertical` value.
 ```jsx
 <Card csx={{ width: 600 }}>
   <Columns>
-    <Columns.Item>
+    <Column>
       <Heading>Cards</Heading>
       <Paragraph csx={{ color: 'mid.primary' }}>
         In Cards, your customer is given autonomy to manage credit cards related
         to his account, and can add, remove or edit credit card data.
       </Paragraph>
-    </Columns.Item>
+    </Column>
 
     <Divider orientation="vertical" csx={{ marginX: 6 }} />
 
-    <Columns.Item>
+    <Column>
       <Heading>Personal data</Heading>
       <Paragraph csx={{ color: 'mid.primary' }}>
         In this section, the user can manage their personal data registered on
         the store site.
       </Paragraph>
-    </Columns.Item>
+    </Column>
   </Columns>
 </Card>
 ```
