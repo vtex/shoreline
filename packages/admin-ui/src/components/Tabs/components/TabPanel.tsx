@@ -3,7 +3,7 @@ import { jsx } from '@vtex/admin-ui-react'
 
 import { useTabsContext } from '../context'
 
-export const TabContent = jsx(ReakitTabPanel)(
+export const TabPanel = jsx(ReakitTabPanel)(
   {
     ':focus:not([data-focus-visible-added])': {
       outline: 'none',
@@ -25,4 +25,4 @@ export const TabContent = jsx(ReakitTabPanel)(
   }
 )
 
-export type TabContentProps = React.ComponentPropsWithRef<typeof TabContent>
+export type TabPanelProps = React.ComponentPropsWithRef<typeof TabPanel>

@@ -35,9 +35,8 @@ export const Tab = jsx(ReakitTab)(
     color: 'dark.secondary',
   },
   {
-    options: ['label'],
-    useOptions(options: TabOptions, props) {
-      const { label } = options
+    options: [],
+    useOptions(_, props) {
       const { id, csx, ...htmlProps } = props
       const { state } = useTabsContext()
 
@@ -46,7 +45,6 @@ export const Tab = jsx(ReakitTab)(
       return {
         ...htmlProps,
         ...state,
-        'aria-label': label,
         id,
         csx: {
           ...(selected
@@ -58,14 +56,9 @@ export const Tab = jsx(ReakitTab)(
               }),
           ...csx,
         },
-        children: label,
       }
     },
   }
 )
 
-interface TabOptions {
-  label: string
-}
-
-export type TabProps = React.ComponentPropsWithRef<typeof Tab> & TabOptions
+export type TabProps = React.ComponentPropsWithRef<typeof Tab>

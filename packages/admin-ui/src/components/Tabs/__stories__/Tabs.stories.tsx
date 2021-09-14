@@ -2,7 +2,7 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { Box } from '../../Box'
-import { Tabs, Tab, TabContent, TabsList, useTabState } from '../index'
+import { Tabs, Tab, TabPanel, TabList, useTabState } from '../index'
 import { Card } from '../../Card'
 import { Heading } from '../../Heading'
 import { Set } from '../../Set'
@@ -17,24 +17,24 @@ export function FixedWidth() {
 
   return (
     <Tabs state={state}>
-      <TabsList aria-label="my-tabs">
-        <Tab label="Tab 1" id="1" />
-        <Tab label="Tab 2" id="2" />
-        <Tab label="Tab 3" id="3" />
-        <Tab label="Tab 4" id="4" />
-      </TabsList>
-      <TabContent id="1" csx={{ margin: 4 }}>
+      <TabList aria-label="my-tabs">
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+        <Tab id="3">Tab 3</Tab>
+        <Tab id="4">Tab 4</Tab>
+      </TabList>
+      <TabPanel id="1" csx={{ margin: 4 }}>
         Tab 1 Content
-      </TabContent>
-      <TabContent id="2" csx={{ margin: 4 }}>
+      </TabPanel>
+      <TabPanel id="2" csx={{ margin: 4 }}>
         Tab 2 Content
-      </TabContent>
-      <TabContent id="3" csx={{ margin: 4 }}>
+      </TabPanel>
+      <TabPanel id="3" csx={{ margin: 4 }}>
         Tab 3 Content
-      </TabContent>
-      <TabContent id="4" csx={{ margin: 4 }}>
+      </TabPanel>
+      <TabPanel id="4" csx={{ margin: 4 }}>
         Tab 4 Content
-      </TabContent>
+      </TabPanel>
     </Tabs>
   )
 }
@@ -44,24 +44,24 @@ export function FluidWidth() {
 
   return (
     <Tabs state={state}>
-      <TabsList fluid aria-label="my-tabs">
-        <Tab label="Tab 1" id="1" />
-        <Tab label="Tab 2" id="2" />
-        <Tab label="Tab 3" id="3" />
-        <Tab label="Tab 4" id="4" />
-      </TabsList>
-      <TabContent id="1" csx={{ margin: 4 }}>
+      <TabList fluid aria-label="my-tabs">
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+        <Tab id="3">Tab 3</Tab>
+        <Tab id="4">Tab 4</Tab>
+      </TabList>
+      <TabPanel id="1" csx={{ margin: 4 }}>
         Tab 1 Content
-      </TabContent>
-      <TabContent id="2" csx={{ margin: 4 }}>
+      </TabPanel>
+      <TabPanel id="2" csx={{ margin: 4 }}>
         Tab 2 Content
-      </TabContent>
-      <TabContent id="3" csx={{ margin: 4 }}>
+      </TabPanel>
+      <TabPanel id="3" csx={{ margin: 4 }}>
         Tab 3 Content
-      </TabContent>
-      <TabContent id="4" csx={{ margin: 4 }}>
+      </TabPanel>
+      <TabPanel id="4" csx={{ margin: 4 }}>
         Tab 4 Content
-      </TabContent>
+      </TabPanel>
     </Tabs>
   )
 }
@@ -73,10 +73,10 @@ function Header() {
         <Box csx={{ marginLeft: 4 }}>
           <Heading>Provider Manager</Heading>
         </Box>
-        <TabsList aria-label="my-tabs">
-          <Tab label="Pending" id="pending" />
-          <Tab label="Published" id="published" />
-        </TabsList>
+        <TabList aria-label="my-tabs">
+          <Tab id="pending">Pending</Tab>
+          <Tab id="published">Published</Tab>
+        </TabList>
       </Set>
     </Box>
   )
@@ -85,12 +85,12 @@ function Header() {
 function Content() {
   return (
     <Box csx={{ padding: 4 }}>
-      <TabContent id="published">
+      <TabPanel id="published">
         <Card csx={{ marginTop: 2 }}>Published Content</Card>
-      </TabContent>
-      <TabContent id="pending">
+      </TabPanel>
+      <TabPanel id="pending">
         <Card csx={{ marginTop: 2 }}>Pending Content</Card>
-      </TabContent>
+      </TabPanel>
     </Box>
   )
 }

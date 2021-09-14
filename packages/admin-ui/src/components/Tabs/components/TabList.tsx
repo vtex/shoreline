@@ -3,7 +3,7 @@ import { jsx } from '@vtex/admin-ui-react'
 
 import { useTabsContext } from '../context'
 
-export const TabsList = jsx(ReakitTabList)(
+export const TabList = jsx(ReakitTabList)(
   {
     paddingX: 4,
     width: 'full',
@@ -30,8 +30,8 @@ export const TabsList = jsx(ReakitTabList)(
   }
 )
 
-TabsList.defaultProps = {
+TabList.defaultProps = {
   fluid: false,
 }
 
-export type TabsListProps = React.ComponentPropsWithRef<typeof TabsList>
+export type TabListProps = React.ComponentPropsWithRef<typeof TabList>

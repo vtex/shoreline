@@ -2,7 +2,7 @@ import React from 'react'
 import { render, axe } from '../../../test-utils'
 
 import type { TabStateReturn } from '../index'
-import { Tabs, TabsList, Tab, TabContent, useTabState } from '../index'
+import { Tabs, TabList, Tab, TabPanel, useTabState } from '../index'
 
 function TabsState({
   children,
@@ -20,21 +20,18 @@ describe('Tabs', () => {
       <TabsState>
         {(state) => (
           <Tabs state={state}>
-            <TabsList
+            <TabList
               aria-label="overridable-tabs"
               data-testid="tabs-list"
               csx={{ bg: 'azure' }}
             >
-              <Tab
-                data-testid="tabs-tab"
-                csx={{ bg: 'azure' }}
-                label="Tab 1"
-                id="1"
-              />
-            </TabsList>
-            <TabContent data-testid="tabs-content" id="1" csx={{ bg: 'azure' }}>
+              <Tab data-testid="tabs-tab" csx={{ bg: 'azure' }} id="1">
+                Tab 1
+              </Tab>
+            </TabList>
+            <TabPanel data-testid="tabs-content" id="1" csx={{ bg: 'azure' }}>
               Tab 1 Content
-            </TabContent>
+            </TabPanel>
           </Tabs>
         )}
       </TabsState>
@@ -57,24 +54,24 @@ describe('Tabs', () => {
         <TabsState>
           {(state) => (
             <Tabs state={state}>
-              <TabsList aria-label="fixed-tabs">
-                <Tab label="Tab 1" id="1" />
-                <Tab label="Tab 2" id="2" />
-              </TabsList>
-              <TabContent id="1">Tab 1 Content</TabContent>
-              <TabContent id="2">Tab 2 Content</TabContent>
+              <TabList aria-label="fixed-tabs">
+                <Tab id="1">Tab 1</Tab>
+                <Tab id="2">Tab 2</Tab>
+              </TabList>
+              <TabPanel id="1">Tab 1 Content</TabPanel>
+              <TabPanel id="2">Tab 2 Content</TabPanel>
             </Tabs>
           )}
         </TabsState>
         <TabsState>
           {(state) => (
             <Tabs state={state}>
-              <TabsList fluid aria-label="fluid-tabs">
-                <Tab label="Tab 1" id="1" />
-                <Tab label="Tab 2" id="2" />
-              </TabsList>
-              <TabContent id="1">Tab 1 Content</TabContent>
-              <TabContent id="2">Tab 2 Content</TabContent>
+              <TabList fluid aria-label="fluid-tabs">
+                <Tab id="1">Tab 1</Tab>
+                <Tab id="2">Tab 2</Tab>
+              </TabList>
+              <TabPanel id="1">Tab 1 Content</TabPanel>
+              <TabPanel id="2">Tab 2 Content</TabPanel>
             </Tabs>
           )}
         </TabsState>
@@ -89,12 +86,12 @@ describe('Tabs', () => {
       <TabsState>
         {(state) => (
           <Tabs state={state}>
-            <TabsList fluid aria-label="tabs">
-              <Tab label="Tab 1" id="1" />
-              <Tab label="Tab 2" id="2" />
-            </TabsList>
-            <TabContent id="1">Tab 1 Content</TabContent>
-            <TabContent id="2">Tab 2 Content</TabContent>
+            <TabList fluid aria-label="tabs">
+              <Tab id="1">Tab 1</Tab>
+              <Tab id="2">Tab 2</Tab>
+            </TabList>
+            <TabPanel id="1">Tab 1 Content</TabPanel>
+            <TabPanel id="2">Tab 2 Content</TabPanel>
           </Tabs>
         )}
       </TabsState>
