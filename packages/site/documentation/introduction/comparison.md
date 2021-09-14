@@ -169,50 +169,6 @@ function Example() {
 }
 ```
 
-### Stateful & Stateless
-
-Some components have a more complex state logic and sometimes a more direct one. For those, we export two types of components: `Stateful` and `Stateless`. The main difference between them is that the stateful has its state self-contained while the stateless doesn't. For example:
-
-**Stateful**
-
-```jsx isStatic
-<Menu hideOnClick aria-label="menu label" disclosure={<Button>Actions</Button>}>
-  <Menu.Item icon={<IconImport />}>Download</Menu.Item>
-  <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
-  <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-  <Menu.Item dangerous icon={<IconDelete />}>
-    Delete
-  </Menu.Item>
-</Menu>
-```
-
-**Stateless**
-
-```jsx isStatic
-function Example() {
-  const state = useMenuState({
-    orientation: 'vertical',
-    loop: true,
-    placement: 'bottom-start',
-  })
-
-  return (
-    <>
-      <MenuDisclosure state={state}>
-        <Button>Post options</Button>
-      </MenuDisclosure>
-      <StatelessMenu aria-label="actions" state={state}>
-        <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconFavorite />}>
-          Favorite
-        </StatelessMenu.Item>
-      </StatelessMenu>
-    </>
-  )
-}
-```
-
 ## Reuse Design Behavior
 
 **Styleguide**

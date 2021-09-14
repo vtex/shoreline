@@ -30,30 +30,6 @@ Learn more in [Get started](/docs/get-started/).
 
 ## Variation
 
-## State
-
-### Stateful
-
-Handles the state internally.
-
-```jsx
-<Menu hideOnClick aria-label="menu label" disclosure={<Button>Actions</Button>}>
-  <Menu.Item icon={<IconImport />}>Download</Menu.Item>
-  <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
-  <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-  <Menu.Item dangerous icon={<IconDelete />}>Delete</Menu.Item>
-</Menu>
-```
-
-#### 🚫 Dont
-
-- Use when you need to change menu states programmatically.
-
-#### Props
-
-<propdetails heading="Menu Props" component="Menu">
-</propdetails>
-
 ### Stateless
 
 Accepts states handled by the `useMenuState` hook within the `state` prop.
