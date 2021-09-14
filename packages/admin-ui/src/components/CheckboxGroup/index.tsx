@@ -1,8 +1,8 @@
+import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { Label } from '../Label'
-import type { ComponentPropsWithRef } from 'hoist-non-react-statics/node_modules/@types/react'
 
 export const Group = jsx.div(
   {
