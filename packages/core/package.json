@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-core",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.1.2-next.0",
   "main": "dist/index.js",
   "module": "dist/admin-ui-core.esm.js",
   "typings": "dist/index.d.ts",
