@@ -16,7 +16,7 @@ import {
   UseFilterBarStateParams,
   UseFilterBarStateReturn,
 } from './typings'
-import { Menu } from '../Menu'
+import { MenuItem, MenuList, MenuButton } from '../Menu'
 import { baseResolvers } from './resolvers/base'
 import { useFilterBarState } from './useFilterBarState'
 
@@ -111,22 +111,27 @@ export function FilterBar<T, V extends { value: T }>(
                   handleValueChange={changeValue}
                 />
               </Set>
-              <Statement.Menu
-                baseId="statement-menu"
-                aria-label={`${statementMenuLabel} ${index}`}
-              >
-                <Menu.Item
-                  onClick={() => duplicateStatement(index)}
-                  icon={<IconDuplicate />}
-                >
-                  {duplicateStatementLabel}
-                </Menu.Item>
-                <Menu.Item
-                  onClick={() => deleteStatement(index)}
-                  icon={<IconDelete />}
-                >
-                  {deleteStatementLabel}
-                </Menu.Item>
+              <Statement.Menu>
+                <MenuButton
+                  aria-label={`${statementMenuLabel} ${index}`}
+                  variant="adaptative-dark"
+                  csx={{ color: 'dark.secondary' }}
+                  display="actions"
+                />
+                <MenuList aria-label={`${statementMenuLabel} ${index}`}>
+                  <MenuItem
+                    onClick={() => duplicateStatement(index)}
+                    icon={<IconDuplicate />}
+                  >
+                    {duplicateStatementLabel}
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => deleteStatement(index)}
+                    icon={<IconDelete />}
+                  >
+                    {deleteStatementLabel}
+                  </MenuItem>
+                </MenuList>
               </Statement.Menu>
             </Statement>
           )

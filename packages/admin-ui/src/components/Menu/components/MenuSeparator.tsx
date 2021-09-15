@@ -1,4 +1,5 @@
 import { jsx } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithRef } from 'hoist-non-react-statics/node_modules/@types/react'
 import { MenuSeparator as ReakitMenuSeparator } from 'reakit'
 
 /**
@@ -33,3 +34,5 @@ export const MenuSeparator = jsx(ReakitMenuSeparator)({
   marginX: (theme) => `-${theme.space?.[3]}`,
   outline: 'none',
 })
+
+export type MenuSeparatorProps = ComponentPropsWithRef<typeof MenuSeparator>

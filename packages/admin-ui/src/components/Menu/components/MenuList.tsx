@@ -4,6 +4,7 @@ import { jsx } from '@vtex/admin-ui-react'
 import { IconContainer } from '@vtex/admin-ui-icons'
 
 import { useMenuContext } from '../context'
+import type { ComponentPropsWithRef } from 'hoist-non-react-statics/node_modules/@types/react'
 
 export const MenuList = jsx(ReakitMenu)(
   {
@@ -36,3 +37,5 @@ export const MenuList = jsx(ReakitMenu)(
     },
   }
 )
+
+export type MenuListProps = ComponentPropsWithRef<typeof MenuList>
