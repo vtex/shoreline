@@ -6,7 +6,7 @@ import { PageHeader, PageTitle, PageActions } from '../index'
 import { Button } from '../../Button'
 
 export default {
-  title: 'admin-ui/PageHeader',
+  title: 'admin-ui/Page/PageHeader',
   component: PageHeader,
 } as Meta
 

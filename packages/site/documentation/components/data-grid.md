@@ -679,7 +679,7 @@ This function is called with an object containing the current sort state, the di
 
 ## Composition
 
-The `DataGrid` is designed to easily integrate with other components to create the view. You must understand the concept of the [DataView Pattern](/data-display/data-view/) before reading this section.
+The `DataGrid` is designed to easily integrate with other components to create the view. You must understand the concept of the [DataView Pattern](/patterns/data-view/) before reading this section.
 
 ### Anatomy
 

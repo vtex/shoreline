@@ -1,10 +1,10 @@
 ---
-path: /layouts/set/
+path: /set/
 ---
 
 # Set
 
-Our design system comes with a set of layout components to help you build common layouts inside your application. `Set` represents a set of components, that automatically space out the components. Check out our [Introduction](/layouts/introduction) page, to see Do's and Don'ts about Layout components.
+Our design system comes with a set of layout components to help you build common layouts inside your application. `Set` represents a set of components, that automatically space out the components.
 
 ## Behavior
 

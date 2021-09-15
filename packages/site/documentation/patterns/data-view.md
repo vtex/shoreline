@@ -1,10 +1,10 @@
 ---
-path: /data-view/
+path: /patterns/data-view/
 ---
 
 # DataView
 
-DataView is a pattern used for rendering and controlling a set of data.
+DataView is a pattern used for rendering and controlling a set of data. It is deeply related to the [Page pattern](/patterns/page/), acting as the view of the `PageContent`.
 
 ## Import
 
