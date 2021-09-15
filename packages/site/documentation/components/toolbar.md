@@ -68,14 +68,11 @@ function Example() {
       <Toolbar state={toolbar} aria-label="Toolbar Render Props">
         <ToolbarItem>
           {(itemProps) => (
-            <Menu state={state}>
+            <Menu state={menuState}>
               <MenuButton display="actions" variant="secondary" {...itemProps}>
                 Open Menu
               </MenuButton>
               <MenuList aria-label="Menu">
-                {canDownload && (
-                  <MenuItem icon={<IconImport />}>Download</MenuItem>
-                )}
                 <MenuItem icon={<IconLink />}>Link to</MenuItem>
                 <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
                 <MenuSeparator />

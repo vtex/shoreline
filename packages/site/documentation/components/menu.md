@@ -57,8 +57,8 @@ function Example() {
   })
 
   return (
-    <Menu>
-      <MenuButton state={state}>
+    <Menu state={state}>
+      <MenuButton>
         <Button>Post options</Button>
       </MenuButton>
       <MenuList aria-label="actions" state={state}>
