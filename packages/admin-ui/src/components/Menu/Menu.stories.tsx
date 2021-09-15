@@ -3,7 +3,6 @@ import type { Meta } from '@storybook/react'
 import {
   IconFavorite,
   IconLink,
-  IconImport,
   IconDelete,
   IconShippingTruck,
 } from '@vtex/admin-ui-icons'
@@ -67,9 +66,8 @@ export const WithConstraint = () => {
   const [canDownload, setCanDownload] = useState(false)
 
   const state = useMenuState({
-    orientation: 'vertical',
     loop: true,
-    placement: 'bottom-start',
+    placement: 'right',
   })
 
   return (
@@ -82,7 +80,6 @@ export const WithConstraint = () => {
           Post options
         </MenuButton>
         <MenuList aria-label="Menu">
-          {canDownload && <MenuItem icon={<IconImport />}>Download</MenuItem>}
           <MenuItem icon={<IconLink />}>Link to</MenuItem>
           <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
           <MenuItem icon={<IconDelete />}>Delete</MenuItem>

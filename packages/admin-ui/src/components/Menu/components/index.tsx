@@ -1,6 +1,0 @@
-export * from './AriaMenu'
-export * from './MenuItem'
-export * from './MenuList'
-export * from './Menu'
-export * from './MenuButton'
-export * from './MenuSeparator'

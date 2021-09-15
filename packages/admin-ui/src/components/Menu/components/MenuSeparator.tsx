@@ -21,4 +21,15 @@ import { MenuSeparator as ReakitMenuSeparator } from 'reakit'
  * </Menu>
  * ```
  */
-export const MenuSeparator = jsx(ReakitMenuSeparator)({})
+export const MenuSeparator = jsx(ReakitMenuSeparator)({
+  marginY: 2,
+  borderStyle: 'solid',
+  borderBottomWidth: 1,
+  borderTop: 'none',
+  borderLeft: 'none',
+  borderRight: 'none',
+  borderColor: 'mid.secondary',
+  width: (theme) => `calc(100% -${theme.space?.[3]})`,
+  marginX: (theme) => `-${theme.space?.[3]}`,
+  outline: 'none',
+})

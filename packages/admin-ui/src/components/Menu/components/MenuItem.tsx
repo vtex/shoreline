@@ -1,8 +1,9 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
-
 import { alpha } from '@vtex/admin-ui-core'
 import { jsx, tag } from '@vtex/admin-ui-react'
+import { MenuItem as ReakitMenuItem } from 'reakit/Menu'
+
 import { useMenuContext } from '../context'
 
 /**
@@ -23,7 +24,7 @@ import { useMenuContext } from '../context'
  * </Menu>
  * ```
  */
-export const MenuItem = jsx.button(
+export const MenuItem = jsx(ReakitMenuItem)(
   {
     marginY: '2px',
     paddingX: 1,
@@ -101,15 +102,13 @@ export const MenuItem = jsx.button(
       const { children, onClick, ...buttonProps } = props
       const { icon } = options
 
-      const {
-        hideOnClick,
-        state: { hide },
-      } = useMenuContext()
+      const { hideOnClick, state } = useMenuContext()
 
       return {
         ...buttonProps,
+        state,
         onClick(e) {
-          hideOnClick && hide()
+          hideOnClick && state.hide()
           onClick?.(e)
         },
         children: (

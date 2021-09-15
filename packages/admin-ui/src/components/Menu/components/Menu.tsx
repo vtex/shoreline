@@ -1,6 +1,5 @@
 import React from 'react'
 import type { MenuStateReturn } from 'reakit/Menu'
-
 import { jsx } from '@vtex/admin-ui-react'
 
 import { MenuProvider } from '../context'
