@@ -196,15 +196,11 @@ render(<WithSearch />)
 
 ### Page
 
-All props of JSX div element.
-
-| Name  | Type            | Description    | Required | Default |
-| ----- | --------------- | -------------- | -------- | ------- |
-| state | `DataViewState` | DataView state | ✅       | -       |
+All props of `div` jsx element
 
 ### PageContent
 
-All props of JSX div element
+All props of `div` jsx element
 
 ### PageHeader
 

@@ -6,9 +6,9 @@ import { PageHeaderContext } from './PageHeaderContext'
 /**
  * @example
  * <PageHeader onPopNavigation={() => {}}>
- *  <PageHeader.Title>
+ *  <PageTitle>
  *    Title
- *  </PageHeader.Title>
+ *  </PageTitle>
  * </PageHeader>
  */
 export const PageHeader = jsx.header(
