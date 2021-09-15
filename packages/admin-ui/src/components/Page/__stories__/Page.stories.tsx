@@ -4,7 +4,7 @@ import { tag } from '@vtex/admin-ui-react'
 import faker from 'faker'
 
 import { Page, PageContent } from '../index'
-import { PageHeader } from '../../PageHeader'
+import { PageHeader, PageTitle, PageActions } from '../../PageHeader'
 import { DataView, DataViewControls, useDataViewState } from '../../DataView'
 import { Search, useSearchState } from '../../Search'
 import { DataGrid, useDataGridState, createColumns } from '../../DataGrid'
@@ -19,7 +19,7 @@ export function Basic() {
   return (
     <Page>
       <PageHeader>
-        <PageHeader.Title>Page Title</PageHeader.Title>
+        <PageTitle>Page Title</PageTitle>
       </PageHeader>
       <PageContent>
         <tag.div>Page Content</tag.div>
@@ -91,10 +91,10 @@ export function WithDataView() {
   return (
     <Page>
       <PageHeader onPopNavigation={() => alert('should go back')}>
-        <PageHeader.Title>Page Title</PageHeader.Title>
-        <PageHeader.Actions>
+        <PageTitle>Page Title</PageTitle>
+        <PageActions>
           <Button>Primary Action</Button>
-        </PageHeader.Actions>
+        </PageActions>
       </PageHeader>
       <PageContent>
         <DataView state={view}>

@@ -2,8 +2,8 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
 
-import { PageHeader } from './index'
-import { Button } from '../Button'
+import { PageHeader, PageTitle, PageActions } from '../index'
+import { Button } from '../../Button'
 
 export default {
   title: 'admin-ui/PageHeader',
@@ -13,7 +13,7 @@ export default {
 export function Basic() {
   return (
     <PageHeader>
-      <PageHeader.Title>Product</PageHeader.Title>
+      <PageTitle>Product</PageTitle>
     </PageHeader>
   )
 }
@@ -21,7 +21,7 @@ export function Basic() {
 export function WithBackLink() {
   return (
     <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
-      <PageHeader.Title>Product</PageHeader.Title>
+      <PageTitle>Product</PageTitle>
     </PageHeader>
   )
 }
@@ -29,11 +29,11 @@ export function WithBackLink() {
 export function WithActions() {
   return (
     <PageHeader>
-      <PageHeader.Title>Products</PageHeader.Title>
-      <PageHeader.Actions>
+      <PageTitle>Products</PageTitle>
+      <PageActions>
         <Button variant="secondary">Edit</Button>
         <Button>Create</Button>
-      </PageHeader.Actions>
+      </PageActions>
     </PageHeader>
   )
 }
@@ -41,10 +41,10 @@ export function WithActions() {
 export function FullBlown() {
   return (
     <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
-      <PageHeader.Title>Product</PageHeader.Title>
-      <PageHeader.Actions>
+      <PageTitle>Product</PageTitle>
+      <PageActions>
         <Button variant="danger">Delete Item</Button>
-      </PageHeader.Actions>
+      </PageActions>
     </PageHeader>
   )
 }
@@ -66,7 +66,7 @@ export function Shell() {
         }}
       >
         <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
-          <PageHeader.Title>Product</PageHeader.Title>
+          <PageTitle>Product</PageTitle>
         </PageHeader>
         <tag.div
           csx={{

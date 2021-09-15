@@ -1,13 +1,13 @@
 import React from 'react'
-import { render } from '../../test-utils'
+import { render } from '../../../test-utils'
 
-import { PageHeader } from './index'
+import { PageHeader, PageTitle, PageActions } from '../index'
 
 describe('PageHeader', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <PageHeader data-testid="pageheader" csx={{ bg: 'azure' }}>
-        <PageHeader.Title>test paragraph</PageHeader.Title>
+        <PageTitle>test paragraph</PageTitle>
       </PageHeader>
     )
 
@@ -26,7 +26,7 @@ describe('PageHeader', () => {
   it('should match snapshot with title', () => {
     const { asFragment } = render(
       <PageHeader>
-        <PageHeader.Title>test paragraph</PageHeader.Title>
+        <PageTitle>test paragraph</PageTitle>
       </PageHeader>
     )
 
@@ -36,9 +36,9 @@ describe('PageHeader', () => {
   it('should match snapshot with actions', () => {
     const { asFragment } = render(
       <PageHeader>
-        <PageHeader.Actions>
+        <PageActions>
           <button>Action</button>
-        </PageHeader.Actions>
+        </PageActions>
       </PageHeader>
     )
 
@@ -48,7 +48,7 @@ describe('PageHeader', () => {
   it('should match snapshot with backlink', () => {
     const { asFragment } = render(
       <PageHeader onPopNavigation={() => null}>
-        <PageHeader.Title>test paragraph</PageHeader.Title>
+        <PageTitle>test paragraph</PageTitle>
       </PageHeader>
     )
 

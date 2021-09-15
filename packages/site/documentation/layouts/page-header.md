@@ -10,11 +10,11 @@ Users rely on the page header to navigate and orient themselves within the admin
 
 ### With Title
 
-This is the basic usage. Use the `PageHeader.Title` to render the page title.
+This is the basic usage. Use the `PageTitle` to render the page title.
 
 ```jsx
 <PageHeader>
-  <PageHeader.Title>Product</PageHeader.Title>
+  <PageTitle>Product</PageTitle>
 </PageHeader>
 ```
 
@@ -24,21 +24,21 @@ The back-link is present if the `onPopNavigation` property is passed.
 
 ```jsx
 <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
-  <PageHeader.Title>Product</PageHeader.Title>
+  <PageTitle>Product</PageTitle>
 </PageHeader>
 ```
 
 ### With Actions
 
-Use the `PageHeader.Actions` composite to add actions that are relevant for the whole page.
+Use the `PageActions` composite to add actions that are relevant for the whole page.
 
 ```jsx
 <PageHeader>
-  <PageHeader.Title>Products</PageHeader.Title>
-  <PageHeader.Actions>
+  <PageTitle>Products</PageTitle>
+  <PageActions>
     <Button variant="secondary">Edit</Button>
     <Button>Create</Button>
-  </PageHeader.Actions>
+  </PageActions>
 </PageHeader>
 ```
 
@@ -48,10 +48,10 @@ All features of `PageHeader` together.
 
 ```jsx
 <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
-  <PageHeader.Title>Product</PageHeader.Title>
-  <PageHeader.Actions>
+  <PageTitle>Product</PageTitle>
+  <PageActions>
     <Button variant="danger">Delete Item</Button>
-  </PageHeader.Actions>
+  </PageActions>
 </PageHeader>
 ```
 
@@ -65,10 +65,10 @@ All props of `header` jsx element
 | --------------- | ------------ | ---------------------------------- | -------- | ------- |
 | onPopNavigation | `() => void` | Action when back button is clicked | 🚫       | 🚫      |
 
-### PageHeader.Title
+### PageTitle
 
 All props of `div` jsx element
 
-### PageHeader.Actions
+### PageActions
 
 All props of `div` jsx element

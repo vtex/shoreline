@@ -107,7 +107,7 @@ admin-ui features separated by status:
 | Tabs       | experimental | -     |
 | Sidebar    | experimental | -     |
 | Topbar     | experimental | -     |
-| PageHeader | upcoming     | -     |
+| PageHeader | experimental     | -     |
 
 ### Layouts
 
