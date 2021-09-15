@@ -17,6 +17,10 @@ const StatefulMenu = withState(Menu, () =>
   useMenuState({ visible: true, baseId: 'id' })
 )
 
+const StatefulHiddenMenu = withState(Menu, () =>
+  useMenuState({ visible: false, baseId: 'id' })
+)
+
 describe('Menu', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
@@ -60,7 +64,7 @@ describe('Menu', () => {
 
   it('should match snapshot hidden', () => {
     const { asFragment } = render(
-      <StatefulMenu>
+      <StatefulHiddenMenu>
         <MenuButton>Open</MenuButton>
         <MenuList
           data-testid="menu"
@@ -75,7 +79,7 @@ describe('Menu', () => {
           <MenuSeparator />
           <MenuItem>Delete</MenuItem>
         </MenuList>
-      </StatefulMenu>
+      </StatefulHiddenMenu>
     )
 
     expect(asFragment()).toMatchSnapshot()

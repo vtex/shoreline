@@ -215,7 +215,7 @@ exports[`Menu should match snapshot hidden 1`] = `
   >
     <button
       aria-controls="id"
-      aria-expanded="true"
+      aria-expanded="false"
       aria-haspopup="menu"
       class="emotion-3"
       type="button"
@@ -249,8 +249,10 @@ exports[`Menu should match snapshot hidden 1`] = `
       class="emotion-13"
       data-dialog="true"
       data-testid="menu"
+      hidden=""
       id="id"
       role="menu"
+      style="display: none;"
       tabindex="-1"
     >
       <button
@@ -269,7 +271,7 @@ exports[`Menu should match snapshot hidden 1`] = `
         class="emotion-5"
         id="id-2"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
           class="emotion-4"
@@ -281,7 +283,7 @@ exports[`Menu should match snapshot hidden 1`] = `
         class="emotion-5"
         id="id-3"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
           class="emotion-4"
@@ -298,7 +300,7 @@ exports[`Menu should match snapshot hidden 1`] = `
         class="emotion-5"
         id="id-4"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
           class="emotion-4"
@@ -580,7 +582,7 @@ exports[`Menu should match snapshot visible 1`] = `
         class="emotion-5"
         id="id-2"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
           class="emotion-4"
@@ -592,7 +594,7 @@ exports[`Menu should match snapshot visible 1`] = `
         class="emotion-5"
         id="id-3"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
           class="emotion-4"
@@ -609,7 +611,7 @@ exports[`Menu should match snapshot visible 1`] = `
         class="emotion-5"
         id="id-4"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
           class="emotion-4"
