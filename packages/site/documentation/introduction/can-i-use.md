@@ -102,12 +102,16 @@ admin-ui features separated by status:
 
 ### Page structure
 
-| component  | status       | notes |
-| ---------- | ------------ | ----- |
-| Tabs       | experimental | -     |
-| Sidebar    | experimental | -     |
-| Topbar     | experimental | -     |
-| PageHeader | upcoming     | -     |
+| component   | status       | notes |
+| ----------- | ------------ | ----- |
+| Tabs        | experimental | -     |
+| Sidebar     | experimental | -     |
+| Topbar      | experimental | -     |
+| PageHeader  | experimental | -     |
+| Page        | experimental | -     |
+| PageContent | experimental | -     |
+| PageTitle   | experimental | -     |
+| PageActions | experimental | -     |
 
 ### Layouts
 

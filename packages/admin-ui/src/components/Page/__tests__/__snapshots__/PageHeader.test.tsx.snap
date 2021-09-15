@@ -28,6 +28,7 @@ exports[`PageHeader should match snapshot 1`] = `
   height: 4.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  z-index: 999;
 }
 
 <header
@@ -79,6 +80,7 @@ exports[`PageHeader should match snapshot with actions 1`] = `
   height: 4.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  z-index: 999;
 }
 
 <header
@@ -145,6 +147,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   height: 4.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  z-index: 999;
 }
 
 .emotion-3 {
@@ -343,6 +346,7 @@ exports[`PageHeader should match snapshot with title 1`] = `
   height: 4.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  z-index: 999;
 }
 
 <header
