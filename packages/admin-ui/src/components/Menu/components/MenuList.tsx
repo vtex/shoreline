@@ -1,10 +1,10 @@
+import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
-import { Menu as ReakitMenu } from 'reakit/menu'
+import { Menu as ReakitMenu } from 'reakit/Menu'
 import { jsx } from '@vtex/admin-ui-react'
 import { IconContainer } from '@vtex/admin-ui-icons'
 
 import { useMenuContext } from '../context'
-import type { ComponentPropsWithRef } from 'hoist-non-react-statics/node_modules/@types/react'
 
 export const MenuList = jsx(ReakitMenu)(
   {

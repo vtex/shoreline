@@ -1,5 +1,5 @@
+import type { ComponentPropsWithRef } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
-import type { ComponentPropsWithRef } from 'hoist-non-react-statics/node_modules/@types/react'
 import { MenuSeparator as ReakitMenuSeparator } from 'reakit'
 
 /**

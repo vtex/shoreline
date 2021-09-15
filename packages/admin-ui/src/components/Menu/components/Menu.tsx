@@ -1,9 +1,9 @@
+import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
 import type { MenuStateReturn } from 'reakit/Menu'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { MenuProvider } from '../context'
-import type { ComponentPropsWithRef } from 'hoist-non-react-statics/node_modules/@types/react'
 
 export const Menu = jsx.div(
   {},
