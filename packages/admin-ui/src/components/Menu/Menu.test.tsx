@@ -13,7 +13,9 @@ import {
 
 global.MutationObserver = window.MutationObserver
 
-const StatefulMenu = withState(Menu, () => useMenuState({ baseId: 'id' }))
+const StatefulMenu = withState(Menu, () =>
+  useMenuState({ visible: true, baseId: 'id' })
+)
 
 describe('Menu', () => {
   it('should have overridable styles', () => {
