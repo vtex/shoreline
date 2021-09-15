@@ -14,6 +14,12 @@ export default {
   title: 'react/jsx',
 } as Meta
 
+export function Test() {
+  const Component = jsx(Fragment)({})
+
+  return <Component />
+}
+
 export function Plain() {
   const Div = jsx.div()
 

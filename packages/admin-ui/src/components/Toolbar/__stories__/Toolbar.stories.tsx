@@ -10,7 +10,14 @@ import {
 
 import { Toolbar, ToolbarItem, useToolbarState } from '../index'
 import { Button } from '../../Button'
-import { MenuDisclosure, useMenuState, StatelessMenu } from '../../Menu'
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuSeparator,
+  MenuItem,
+  useMenuState,
+} from '../../Menu'
 import {
   ModalDisclosure,
   Modal,
@@ -55,27 +62,25 @@ export const WithMenu = () => {
       <Toolbar state={state} aria-label="Toolbar with menu">
         <ToolbarItem>
           {(itemProps) => (
-            <MenuDisclosure state={menuState}>
-              <Button
+            <Menu state={menuState}>
+              <MenuButton
                 icon={<IconAction />}
                 variant="adaptative-dark"
                 {...itemProps}
               >
                 More
-              </Button>
-            </MenuDisclosure>
+              </MenuButton>
+              <MenuList aria-label="actions">
+                <MenuItem icon={<IconImport />}>Download</MenuItem>
+                <MenuItem icon={<IconLink />}>Link to</MenuItem>
+                <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+                <MenuSeparator />
+                <MenuItem icon={<IconDelete />}>Delete</MenuItem>
+              </MenuList>
+            </Menu>
           )}
         </ToolbarItem>
       </Toolbar>
-      <StatelessMenu aria-label="actions" state={menuState}>
-        <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconFavorite />}>
-          Favorite
-        </StatelessMenu.Item>
-        <StatelessMenu.Separator />
-        <StatelessMenu.Item icon={<IconDelete />}>Delete</StatelessMenu.Item>
-      </StatelessMenu>
     </>
   )
 }
@@ -90,11 +95,22 @@ export const WithModal = () => {
       <Toolbar state={state} aria-label="Toolbar with modal">
         <ToolbarItem>
           {(itemProps) => (
-            <MenuDisclosure state={menuState}>
-              <Button variant="adaptative-dark" {...itemProps}>
-                Open menu
-              </Button>
-            </MenuDisclosure>
+            <Menu state={menuState}>
+              <MenuButton
+                icon={<IconAction />}
+                variant="adaptative-dark"
+                {...itemProps}
+              >
+                More
+              </MenuButton>
+              <MenuList aria-label="actions">
+                <MenuItem icon={<IconImport />}>Download</MenuItem>
+                <MenuItem icon={<IconLink />}>Link to</MenuItem>
+                <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+                <MenuSeparator />
+                <MenuItem icon={<IconDelete />}>Delete</MenuItem>
+              </MenuList>
+            </Menu>
           )}
         </ToolbarItem>
         <ToolbarItem>
@@ -107,15 +123,7 @@ export const WithModal = () => {
           )}
         </ToolbarItem>
       </Toolbar>
-      <StatelessMenu aria-label="actions" state={menuState}>
-        <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconFavorite />}>
-          Favorite
-        </StatelessMenu.Item>
-        <StatelessMenu.Separator />
-        <StatelessMenu.Item icon={<IconDelete />}>Delete</StatelessMenu.Item>
-      </StatelessMenu>
+
       <Modal aria-label="Seneca's modal" state={modalState} size="small">
         <ModalHeader title="Item 6" />
         <ModalContent>

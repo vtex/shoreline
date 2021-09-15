@@ -18,7 +18,14 @@ import {
   ToolbarItem,
   useToolbarState,
 } from '../../Toolbar'
-import { MenuDisclosure, useMenuState, StatelessMenu as Menu } from '../../Menu'
+import {
+  useMenuState,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuSeparator,
+} from '../../Menu'
 
 export default {
   title: 'admin-ui/DataView',
@@ -70,30 +77,28 @@ export function ToolbarControls() {
           </ToolbarButton>
           <ToolbarItem>
             {(itemProps) => (
-              <MenuDisclosure state={menu}>
-                <Button
+              <Menu state={menu}>
+                <MenuButton
                   icon={<IconAction />}
                   variant="adaptative-dark"
-                  size="small"
                   {...itemProps}
                 >
                   More
-                </Button>
-              </MenuDisclosure>
+                </MenuButton>
+                <MenuList aria-label="actions">
+                  <MenuItem icon={<IconImport />}>Download</MenuItem>
+                  <MenuItem icon={<IconLink />}>Link to</MenuItem>
+                  <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+                  <MenuSeparator />
+                  <MenuItem icon={<IconDelete />}>Delete</MenuItem>
+                </MenuList>
+              </Menu>
             )}
           </ToolbarItem>
         </Toolbar>
       </DataViewControls>
 
       <p>Data View content</p>
-
-      <Menu aria-label="more actions" state={menu}>
-        <Menu.Item icon={<IconImport />}>Download</Menu.Item>
-        <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
-        <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-        <Menu.Separator />
-        <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
-      </Menu>
     </DataView>
   )
 }

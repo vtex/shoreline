@@ -2,21 +2,29 @@ import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
 import { alpha } from '@vtex/admin-ui-core'
 import { jsx, tag } from '@vtex/admin-ui-react'
+import { MenuItem as ReakitMenuItem } from 'reakit/Menu'
+
+import { useMenuContext } from './MenuContext'
 
 /**
  * Accessible menu item component
  * ⚠️ You must use it within admin-ui/menu component context.
  * @example
  * ```jsx
- * import { StatelessMenu, Button } from `@vtex/admin-ui`
+ * import { Menu, MenuList, MenuItem, useMenuState, MenuButton } from `@vtex/admin-ui`
  *
- * <StatelessMenu discolure={<Button>Open menu</Button>}>
- *   <StatelessMenu.Item>Item one</StatelessMenu.Item>
- *   <StatelessMenu.Item>...</StatelessMenu.Item>
- * </StatelessMenu>
+ * const state = useMenuState()
+ *
+ * <Menu state={state}>
+ *   <MenuButton>Open Menu</MenuButton>
+ *   <MenuList aria-label="Menu">
+ *     <MenuItem>Item one</MenuItem>
+ *     <MenuItem>...</MenuItem>
+ *   </MenuList>
+ * </Menu>
  * ```
  */
-export const MenuItem = jsx.button(
+export const MenuItem = jsx(ReakitMenuItem)(
   {
     marginY: '2px',
     paddingX: 1,
@@ -91,11 +99,18 @@ export const MenuItem = jsx.button(
   {
     options: ['icon'],
     useOptions: (options: MenuItemOptions, props) => {
-      const { children, ...buttonProps } = props
+      const { children, onClick, ...buttonProps } = props
       const { icon } = options
+
+      const { hideOnClick, state } = useMenuContext()
 
       return {
         ...buttonProps,
+        state,
+        onClick(e) {
+          hideOnClick && state.hide()
+          onClick?.(e)
+        },
         children: (
           <tag.div
             csx={{

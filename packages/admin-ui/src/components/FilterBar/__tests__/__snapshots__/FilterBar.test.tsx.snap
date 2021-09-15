@@ -423,6 +423,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
   margin-bottom: 0.5rem;
 }
 
+
+
 .emotion-25 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
@@ -469,14 +471,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-33 {
+.emotion-32 {
   border: 0;
-  padding: 0rem;
   outline: none;
   z-index: 999;
-}
-
-.emotion-32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -485,7 +483,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   background-color: #FFFFFF;
-  margin-top: 0.25rem;
   padding: 0.75rem;
   min-width: 18px;
   border-radius: 3px;
@@ -493,21 +490,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-style: solid;
   border-color: #C4C5CA;
   box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
-}
-
-.emotion-32 hr {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-style: solid;
-  border-bottom-width: 1px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-color: #C4C5CA;
-  width: calc(100% -0.75rem);
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
-  outline: none;
 }
 
 .emotion-28 {
@@ -780,64 +762,64 @@ exports[`FilterBar tests should match snapshot 1`] = `
               />
             </div>
           </div>
-          <button
-            aria-controls="statement-menu"
-            aria-expanded="false"
-            aria-haspopup="menu"
-            aria-label="Statement Menu 0"
-            class="emotion-25"
-            type="button"
+          <div
+            class="emotion-33"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-controls="statement-menu"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              aria-label="Statement Menu 0"
+              class="emotion-25"
+              type="button"
             >
               <div
-                class="emotion-23"
+                class="emotion-4"
               >
-                <svg
-                  class="emotion-22"
-                  fill="none"
-                  viewBox="0 0 24 24"
+                <div
+                  class="emotion-23"
                 >
-                  <path
-                    d="M11.25 12.004C11.25 12.418 11.586 12.754 12 12.75C12.414 12.75 12.75 12.414 12.75 12C12.75 11.586 12.414 11.25 12 11.25C11.586 11.252 11.25 11.588 11.25 12.004"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M11.25 6.00398C11.25 6.41798 11.586 6.75398 12 6.74998C12.414 6.74998 12.75 6.41398 12.75 5.99998C12.75 5.58598 12.414 5.24998 12 5.24998C11.586 5.25198 11.25 5.58798 11.25 6.00398"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M11.25 18.004C11.25 18.418 11.586 18.754 12 18.75C12.414 18.75 12.75 18.414 12.75 18C12.75 17.586 12.414 17.25 12 17.25C11.586 17.252 11.25 17.588 11.25 18.004"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                </svg>
-                 
+                  <svg
+                    class="emotion-22"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.25 12.004C11.25 12.418 11.586 12.754 12 12.75C12.414 12.75 12.75 12.414 12.75 12C12.75 11.586 12.414 11.25 12 11.25C11.586 11.252 11.25 11.588 11.25 12.004"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M11.25 6.00398C11.25 6.41798 11.586 6.75398 12 6.74998C12.414 6.74998 12.75 6.41398 12.75 5.99998C12.75 5.58598 12.414 5.24998 12 5.24998C11.586 5.25198 11.25 5.58798 11.25 6.00398"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M11.25 18.004C11.25 18.418 11.586 18.754 12 18.75C12.414 18.75 12.75 18.414 12.75 18C12.75 17.586 12.414 17.25 12 17.25C11.586 17.252 11.25 17.588 11.25 18.004"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </svg>
+                   
+                </div>
               </div>
-            </div>
-          </button>
-          <div
-            aria-label="Statement Menu 0"
-            aria-orientation="vertical"
-            class="emotion-33"
-            data-dialog="true"
-            hidden=""
-            id="statement-menu"
-            role="menu"
-            style="display: none;"
-            tabindex="-1"
-          >
+            </button>
             <div
+              aria-label="Statement Menu 0"
+              aria-orientation="vertical"
               class="emotion-32"
+              data-dialog="true"
+              hidden=""
+              id="statement-menu"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
             >
               <button
                 class="emotion-28"
