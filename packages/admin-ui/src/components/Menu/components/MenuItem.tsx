@@ -4,7 +4,7 @@ import { alpha } from '@vtex/admin-ui-core'
 import { jsx, tag } from '@vtex/admin-ui-react'
 import { MenuItem as ReakitMenuItem } from 'reakit/Menu'
 
-import { useMenuContext } from '../context'
+import { useMenuContext } from './MenuContext'
 
 /**
  * Accessible menu item component

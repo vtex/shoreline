@@ -3,7 +3,7 @@ import React from 'react'
 import type { MenuStateReturn } from 'reakit/Menu'
 import { jsx } from '@vtex/admin-ui-react'
 
-import { MenuProvider } from '../context'
+import { MenuContext } from './MenuContext'
 
 export const Menu = jsx.div(
   {},
@@ -14,7 +14,11 @@ export const Menu = jsx.div(
 
       return {
         ...menuProps,
-        children: <MenuProvider {...options}>{children}</MenuProvider>,
+        children: (
+          <MenuContext.Provider value={options}>
+            {children}
+          </MenuContext.Provider>
+        ),
       }
     },
   }

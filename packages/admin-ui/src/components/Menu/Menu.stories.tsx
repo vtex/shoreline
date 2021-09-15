@@ -5,6 +5,7 @@ import {
   IconLink,
   IconDelete,
   IconShippingTruck,
+  IconAdd,
 } from '@vtex/admin-ui-icons'
 
 import { Menu } from './components/Menu'
@@ -80,6 +81,9 @@ export const WithConstraint = () => {
           Post options
         </MenuButton>
         <MenuList aria-label="Menu">
+          {canDownload ? (
+            <MenuItem icon={<IconAdd />}>Download</MenuItem>
+          ) : null}
           <MenuItem icon={<IconLink />}>Link to</MenuItem>
           <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
           <MenuItem icon={<IconDelete />}>Delete</MenuItem>

@@ -5,7 +5,7 @@ import { MenuButton as ReakitMenuButton } from 'reakit/Menu'
 
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'
-import { useMenuContext } from '../context'
+import { useMenuContext } from './MenuContext'
 
 export const MenuButton = forwardRef(
   (props: MenuButtonProps, ref: Ref<HTMLButtonElement>) => {

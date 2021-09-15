@@ -4,7 +4,7 @@ import { Menu as ReakitMenu } from 'reakit/Menu'
 import { jsx } from '@vtex/admin-ui-react'
 import { IconContainer } from '@vtex/admin-ui-icons'
 
-import { useMenuContext } from '../context'
+import { useMenuContext } from './MenuContext'
 
 export const MenuList = jsx(ReakitMenu)(
   {

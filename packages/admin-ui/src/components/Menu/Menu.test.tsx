@@ -1,8 +1,7 @@
 import React from 'react'
-import { render, axe } from '../../test-utils'
+import { render, axe, withState } from '../../test-utils'
 import 'mutationobserver-shim'
 
-import type { MenuStateReturn } from './index'
 import {
   MenuSeparator,
   Menu,
@@ -14,39 +13,27 @@ import {
 
 global.MutationObserver = window.MutationObserver
 
-function MenuState({
-  children,
-}: {
-  children: (props: MenuStateReturn) => void
-}) {
-  const state = useMenuState({ visible: true, baseId: 'id' })
-
-  return <>{children(state)}</>
-}
+const StatefulMenu = withState(Menu, () => useMenuState({ baseId: 'id' }))
 
 describe('Menu', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <MenuState>
-        {(state) => (
-          <Menu state={state}>
-            <MenuButton>Open</MenuButton>
-            <MenuList
-              data-testid="menu"
-              aria-label="menu label"
-              csx={{
-                bg: 'coral',
-              }}
-            >
-              <MenuItem>Download</MenuItem>
-              <MenuItem>Link to</MenuItem>
-              <MenuItem>Favorite</MenuItem>
-              <MenuSeparator />
-              <MenuItem>Delete</MenuItem>
-            </MenuList>
-          </Menu>
-        )}
-      </MenuState>
+      <StatefulMenu>
+        <MenuButton>Open</MenuButton>
+        <MenuList
+          data-testid="menu"
+          aria-label="menu label"
+          csx={{
+            bg: 'coral',
+          }}
+        >
+          <MenuItem>Download</MenuItem>
+          <MenuItem>Link to</MenuItem>
+          <MenuItem>Favorite</MenuItem>
+          <MenuSeparator />
+          <MenuItem>Delete</MenuItem>
+        </MenuList>
+      </StatefulMenu>
     )
 
     expect(getByTestId('menu')).toHaveStyleRule('background-color', 'coral')
@@ -54,20 +41,16 @@ describe('Menu', () => {
 
   it('should match snapshot visible', () => {
     const { asFragment } = render(
-      <MenuState>
-        {(state) => (
-          <Menu state={state}>
-            <MenuButton>Open</MenuButton>
-            <MenuList data-testid="menu" aria-label="menu label">
-              <MenuItem>Download</MenuItem>
-              <MenuItem>Link to</MenuItem>
-              <MenuItem>Favorite</MenuItem>
-              <MenuSeparator />
-              <MenuItem>Delete</MenuItem>
-            </MenuList>
-          </Menu>
-        )}
-      </MenuState>
+      <StatefulMenu>
+        <MenuButton>Open</MenuButton>
+        <MenuList data-testid="menu" aria-label="menu label">
+          <MenuItem>Download</MenuItem>
+          <MenuItem>Link to</MenuItem>
+          <MenuItem>Favorite</MenuItem>
+          <MenuSeparator />
+          <MenuItem>Delete</MenuItem>
+        </MenuList>
+      </StatefulMenu>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -75,26 +58,22 @@ describe('Menu', () => {
 
   it('should match snapshot hidden', () => {
     const { asFragment } = render(
-      <MenuState>
-        {(state) => (
-          <Menu state={state}>
-            <MenuButton>Open</MenuButton>
-            <MenuList
-              data-testid="menu"
-              aria-label="menu label"
-              csx={{
-                bg: 'coral',
-              }}
-            >
-              <MenuItem>Download</MenuItem>
-              <MenuItem>Link to</MenuItem>
-              <MenuItem>Favorite</MenuItem>
-              <MenuSeparator />
-              <MenuItem>Delete</MenuItem>
-            </MenuList>
-          </Menu>
-        )}
-      </MenuState>
+      <StatefulMenu>
+        <MenuButton>Open</MenuButton>
+        <MenuList
+          data-testid="menu"
+          aria-label="menu label"
+          csx={{
+            bg: 'coral',
+          }}
+        >
+          <MenuItem>Download</MenuItem>
+          <MenuItem>Link to</MenuItem>
+          <MenuItem>Favorite</MenuItem>
+          <MenuSeparator />
+          <MenuItem>Delete</MenuItem>
+        </MenuList>
+      </StatefulMenu>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -102,26 +81,22 @@ describe('Menu', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <MenuState>
-        {(state) => (
-          <Menu state={state}>
-            <MenuButton>Open</MenuButton>
-            <MenuList
-              data-testid="menu"
-              aria-label="menu label"
-              csx={{
-                bg: 'coral',
-              }}
-            >
-              <MenuItem>Download</MenuItem>
-              <MenuItem>Link to</MenuItem>
-              <MenuItem>Favorite</MenuItem>
-              <MenuSeparator />
-              <MenuItem>Delete</MenuItem>
-            </MenuList>
-          </Menu>
-        )}
-      </MenuState>
+      <StatefulMenu>
+        <MenuButton>Open</MenuButton>
+        <MenuList
+          data-testid="menu"
+          aria-label="menu label"
+          csx={{
+            bg: 'coral',
+          }}
+        >
+          <MenuItem>Download</MenuItem>
+          <MenuItem>Link to</MenuItem>
+          <MenuItem>Favorite</MenuItem>
+          <MenuSeparator />
+          <MenuItem>Delete</MenuItem>
+        </MenuList>
+      </StatefulMenu>
     )
 
     const results = await axe(container)
