@@ -4,7 +4,7 @@ path: /button/
 
 # Button
 
-Buttons trigger an action or allow the user to advance a state. They are where the user interacts with the screen.
+Buttons trigger an action or allow the user to advance a state.
 This component handles all `Button` variations of the Design System. It renders a `<button>` element by default.
 
 ## Usage
@@ -119,7 +119,7 @@ Display an icon after the text.
 Display only an Icon.
 
 ```jsx
-<Button icon={<IconFavorite title="Favorite" />} />
+<Button icon={<IconFavorite title="Favorite" />} aria-label="Favorite button" />
 ```
 
 ### States
@@ -170,14 +170,14 @@ function Example() {
 
 All props of `button` JSX element.
 
-| Name         | Type        | Description                               | Required             | Default     |
-| ------------ | ----------- | ----------------------------------------- | -------------------- | ----------- | ---------------- | --------------- | --------------- | ----------------- | -------------- | --- | ----------- |
-| size         | `Size`      | Size of the button                        | 🚫                   | `'regular'` |
-| variant      | `primary    | secondary                                 | tertiary             | danger      | danger-secondary | danger-tertiary | adaptative-dark | adaptative-light` | Button variant | 🚫  | `'primary'` |
-| icon         | `ReactNode` | Icon of the button                        | 🚫                   | -           |
-| iconPosition | `'start'    | 'end'`                                    | Position of the icon | 🚫          | `'start'`        |
-| disabled     | `boolean`   | Defines if the Button is disabled         | 🚫                   | `false`     |
-| loading      | `boolean`   | Defines if the Button is in loading state | 🚫                   | `false`     |
-| focusable    | `boolean`   | Defines if the Button is focusable        | 🚫                   | -           |
-| children     | `ReactNode` | Button children                           | 🚫                   | -           |
-| csx          | `StyleProp` | Defines component styles                  | 🚫                   | `{}`        |
+| Name         | Type        | Description                               | Required             | Default |
+| ------------ | ----------- | ----------------------------------------- | -------------------- | ------- | ---------------- | --------------- | --------------- | ----------------- | -------------- | --- | ----------- |
+| size         | `regular    | 'small'`                                  | Size of the button   | 🚫      | `'regular'`      |
+| variant      | `primary    | secondary                                 | tertiary             | danger  | danger-secondary | danger-tertiary | adaptative-dark | adaptative-light` | Button variant | 🚫  | `'primary'` |
+| icon         | `ReactNode` | Icon of the button                        | 🚫                   | -       |
+| iconPosition | `'start'    | 'end'`                                    | Position of the icon | 🚫      | `'start'`        |
+| disabled     | `boolean`   | Defines if the Button is disabled         | 🚫                   | `false` |
+| loading      | `boolean`   | Defines if the Button is in loading state | 🚫                   | `false` |
+| focusable    | `boolean`   | Defines if the Button is focusable        | 🚫                   | -       |
+| children     | `ReactNode` | Button children                           | 🚫                   | -       |
+| csx          | `StyleProp` | Defines component styles                  | 🚫                   | `{}`    |
