@@ -39,3 +39,5 @@ Or just extends our recommended settings:
 | Name                                                                                                                    | Description                                                                    |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | [`@vtex/admin-ui/create-tag-component-outside-render-phase`](./docs/rules/create-tag-component-outside-render-phase.md) | Enforce that creates components outside render phase when using `tag` function |
+| [`@vtex/admin-ui/prefer-flex`](./docs/rules/prefer-flex.md)                                                             | Enforce the usage of Flex instead of other components with display flex        |
+| [`@vtex/admin-ui/prefer-grid`](./docs/rules/prefer-grid.md)                                                             | Enforce the usage of Grid instead of other components with display grid        |

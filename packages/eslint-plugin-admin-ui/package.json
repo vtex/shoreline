@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/eslint": "^7.28.0",
     "@types/estree": "^0.0.47",
+    "@types/estree-jsx": "^0.0.1",
     "@vtex/admin-ui": "^0.114.3",
     "eslint": "^7.30.0"
   }

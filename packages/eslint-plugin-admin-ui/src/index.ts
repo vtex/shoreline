@@ -1,5 +1,7 @@
 import { recommended } from './configs/recommended'
 import { createTagComponentOutsideRenderPhase } from './rules/create-tag-component-outside-render-phase'
+import { preferFlex } from './rules/prefer-flex'
+import { preferGrid } from './rules/prefer-grid'
 
 // tsdx doesn't support we configure our tsconfig.json
 // to target module commonjs, so we need to manually
@@ -15,5 +17,7 @@ module.exports = {
   rules: {
     'create-tag-component-outside-render-phase':
       createTagComponentOutsideRenderPhase,
+    'prefer-flex': preferFlex,
+    'prefer-grid': preferGrid,
   },
 }
