@@ -4,119 +4,55 @@ path: /button/
 
 # Button
 
-Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen.
+Buttons trigger an action or allow the user to advance a state. They are where the user interacts with the screen.
 This component handles all `Button` variations of the Design System. It renders a `<button>` element by default.
 
-## UX Writing: Tone and Voice
-
-Keep in mind the Authority we want to transmit with our voice. Buttons are where the action takes place. We're always sure where we want to direct our users to, so they accomplish their goals. There's no space for ambiguity in the actions we guide them to take, we convey decisiveness.
-
-## Behavior
-
-```jsx
-<Button>Admin UI Button</Button>
-```
-
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
+## Usage
 
 ```jsx isStatic
 import { Button } from '@vtex/admin-ui'
+
+export function Example() {
+  return <Button onClick={() => ...}>Admin UI Button</Button>
+}
 ```
 
-Learn more in [Get started](/docs/get-started/).
+## Examples
 
-## Variations
+### Variants
 
-### Primary
+It represents the button appearance and is used to convey its action.
 
-This type of button only uses text to convey its action.
-This option should be used for the most important action of the page.
-
-#### ✅ Do's:
-
-- Use this on topbars and confirmation modals.
-- Use it only once per page/modal.
-
-#### 🚫 Dont's:
-
-- Avoid using more than 2 words.
-- Buttons should be in all caps.
-- Prefer imperative verbs.
-- No punctuation.
-
-#### Example
+#### Primary
 
 ```jsx
 <Set orientation="vertical">
-  <Button variant="primary">Primary Action</Button>
-  <Button variant="danger">Dangerous Primary Action</Button>
+  <Button>Primary (default)</Button>
+  <Button variant="danger">Dangerous Primary</Button>
 </Set>
 ```
 
-### Secondary
-
-This option should be used for optional actions.
-
-#### ✅ Do's:
-
-- Use this option for topbars, tables, lists, and forms.
-- Buttons should be in all caps.
-- Prefer imperative verbs.
-- Non-urgent actions
-
-#### 🚫 Dont's:
-
-- Avoid using more than 2 words.
-- No punctuation.
-
-#### Example
+#### Secondary
 
 ```jsx
 <Set orientation="vertical">
-  <Button variant="secondary">Secondary Action</Button>
-  <Button variant="danger-secondary">Dangerous Secondary Action</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="danger-secondary">Dangerous Secondary</Button>
 </Set>
 ```
 
-### Tertiary
-
-This option should be used for optional/tertiary actions.
-
-#### ✅ Do's:
-
-- Non-urgent, tertiary actions
-- Prefer imperative verbs.
-
-#### 🚫 Dont's:
-
-- Avoid using more than 3 words.
-- No punctuation.
+#### Tertiary
 
 ```jsx
 <Set orientation="vertical">
-  <Button variant="tertiary">Tertiary Action</Button>
-  <Button variant="danger-tertiary">Dangerous Tertiary Action</Button>
+  <Button variant="tertiary">Tertiary</Button>
+  <Button variant="danger-tertiary">Dangerous Tertiary</Button>
 </Set>
 ```
 
-### Adaptative
+#### Adaptative
 
-Adapts to the context that is inserted.
-
-#### ✅ Do's:
-
-- Non-urgent, tertiary actions
-- Close, dismiss, or collapse actions.
-- Prefer imperative verbs.
-
-#### 🚫 Dont's:
-
-- Avoid using more than 3 words.
-- No punctuation.
+Adapts its behavior(`bg`, `:hover`, `:active`) according to the context that the button is inserted, for example:
 
 ```jsx
 <Set orientation="vertical">
@@ -152,48 +88,65 @@ The button comes in two sizes: `regular` (default) and `small`.
 </Set>
 ```
 
-### Icon
+### Button With Icon
 
-This type of button replaces text with an icon. The action needs to be clear enough to be represented with just an icon. It is the lowest type of button in the hierarchy.
+Buttons may include an icon before or after the text or even be icon only.
 
-#### ✅ Do's:
+#### Icon before
 
-- Tight spaces such as modals, sidebars, or cards.
-- Non-urgent, tertiary actions
-- Add descriptions in the alt tag to improve accessibility.
-- Be consistent with what action it represents, pay attention to the icon's use on other screens,
+Display an icon before the text.
+
+```jsx
+<Set orientation="vertical">
+  <Button icon={<IconFavorite />}>Icon start</Button>
+</Set>
+```
+
+#### Icon after
+
+Display an icon after the text.
+
+```jsx
+<Set orientation="vertical">
+  <Button icon={<IconFavorite />} iconPosition="end">
+    Icon start
+  </Button>
+</Set>
+```
+
+#### Icon Only
+
+Display only an Icon.
 
 ```jsx
 <Button icon={<IconFavorite title="Favorite" />} />
 ```
 
-### Icon + Text
+### States
 
-This type of button combines an icon and an action. It embodies more complex actions, and therefore require an additional copy, but at the same time aren't urgent, or the page's primary focus.
+#### Disabled
 
-#### ✅ Do's:
-
-- If there's a need to be more specific and detail the action.
-- Prefer imperative verbs.
-- Non-urgent, tertiary actions
-
-#### 🚫 Dont's:
-
-- Avoid using more than 3 words.
-- No punctuation.
+Set `disabled` to disable a button that isn’t usable.
 
 ```jsx
-<Set orientation="vertical">
-  <Button icon={<IconFavorite />} iconPosition="start">
-    Icon start
-  </Button>
-  <Button icon={<IconCaret direction="down" />} iconPosition="end">
-    Icon end
-  </Button>
-</Set>
+function Example() {
+  return (
+    <Set orientation="vertical" spacing={2}>
+      <Button disabled>Disabled</Button>
+      <Button variant="secondary" disabled>
+        Disabled
+      </Button>
+      <Button variant="tertiary" disabled>
+        Disabled
+      </Button>
+    </Set>
+  )
+}
 ```
 
-### Loading
+#### Loading
+
+Set `loading` to indicate the button is loading.
 
 ```jsx
 function Example() {
@@ -209,15 +162,21 @@ function Example() {
 }
 ```
 
+## Accessibility
+
+- When using an Icon only button, you must set the `aria-label` property.
+
 ## Props
 
+All props of `button` JSX element.
+
 | Name         | Type        | Description                               | Required             | Default     |
-| ------------ | ----------- | ----------------------------------------- | -------------------- | ----------- | --------- |
+| ------------ | ----------- | ----------------------------------------- | -------------------- | ----------- | ---------------- | --------------- | --------------- | ----------------- | -------------- | --- | ----------- |
 | size         | `Size`      | Size of the button                        | 🚫                   | `'regular'` |
-| variant      | `Variant`   | Button variant                            | 🚫                   | `'primary'` |
+| variant      | `primary    | secondary                                 | tertiary             | danger      | danger-secondary | danger-tertiary | adaptative-dark | adaptative-light` | Button variant | 🚫  | `'primary'` |
 | icon         | `ReactNode` | Icon of the button                        | 🚫                   | -           |
-| iconPosition | `'start'    | 'end'`                                    | Position of the icon | 🚫          | `'start'` |
-| disabled     | `boolean`   | Defines if the Button is disabled         | 🚫                   | -           |
+| iconPosition | `'start'    | 'end'`                                    | Position of the icon | 🚫          | `'start'`        |
+| disabled     | `boolean`   | Defines if the Button is disabled         | 🚫                   | `false`     |
 | loading      | `boolean`   | Defines if the Button is in loading state | 🚫                   | `false`     |
 | focusable    | `boolean`   | Defines if the Button is focusable        | 🚫                   | -           |
 | children     | `ReactNode` | Button children                           | 🚫                   | -           |
