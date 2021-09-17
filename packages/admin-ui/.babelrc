@@ -1,0 +1,3 @@
+{
+  "plugins": ["@vtex/babel-plugin-admin-ui-react"]
+}
