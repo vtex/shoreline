@@ -39,7 +39,7 @@ function Example() {
 
 | Name          | Description                                                        |
 | ------------- | ------------------------------------------------------------------ |
-| Menu          | Menu's wrapper                                                     |
+| Menu          | Wrapper for the Menu                                               |
 | MenuButton    | Button that triggers the menu popover                              |
 | MenuList      | Menu's popover                                                     |
 | MenuItem      | Represents a button rendered inside the MenuList                   |
@@ -49,7 +49,7 @@ function Example() {
 
 ### Hide on click
 
-Hide Menu's popover after a MenuItem is clicked.
+Hide the Menu popover after a MenuItem is clicked.
 
 ```jsx
 function Example() {
@@ -61,8 +61,9 @@ function Example() {
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconImport />}>Download</MenuItem>
         <MenuItem disabled icon={<IconLink />}>
-          Link to
+          Disabled Link
         </MenuItem>
+        <MenuSeparator />
         <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
       </MenuList>
     </Menu>
@@ -84,8 +85,9 @@ function Example() {
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconImport />}>Download</MenuItem>
         <MenuItem disabled icon={<IconLink />}>
-          Link to
+          Disabled Link
         </MenuItem>
+        <MenuSeparator />
         <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
       </MenuList>
     </Menu>
@@ -107,8 +109,9 @@ function Example() {
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconImport />}>Download</MenuItem>
         <MenuItem disabled icon={<IconLink />}>
-          Link to
+          Disabled Link
         </MenuItem>
+        <MenuSeparator />
         <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
       </MenuList>
     </Menu>
@@ -139,6 +142,7 @@ function Example() {
         <MenuItem ref={ref} icon={<IconLink />}>
           Link to
         </MenuItem>
+        <MenuSeparator />
         <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
       </MenuList>
     </Menu>
@@ -164,17 +168,17 @@ function Example() {
 
 All props of admin-ui's `Button` component.
 
-| Name    | Type     | Description | Required                                               | Default |
-| ------- | -------- | ----------- | ------------------------------------------------------ | ------- | ------ |
-| display | `actions | menu'`      | Display dots icon if is actions and caret down if menu | 🚫      | `menu` |
+| Name    | Type     | Description | Required                                                   | Default |
+| ------- | -------- | ----------- | ---------------------------------------------------------- | ------- | ------ |
+| display | `actions | menu'`      | Display the dots icon if is actions and caret down if menu | 🚫      | `menu` |
 
 ### MenuList
 
 All props of `div` jsx element.
 
-| Name               | Type      | Description                                                          | Required | Default |
-| ------------------ | --------- | -------------------------------------------------------------------- | -------- | ------- |
-| hideOnClickOutside | `boolean` | Whether the Menu popup should hide after a click outside the popover | 🚫       | `true`  |
+| Name               | Type      | Description                                                                 | Required | Default |
+| ------------------ | --------- | --------------------------------------------------------------------------- | -------- | ------- |
+| hideOnClickOutside | `boolean` | Whether the Menu popup should hide after a click outside the popover or not | 🚫       | `true`  |
 
 ### MenuItem
 
@@ -188,7 +192,7 @@ All props of `hr` jsx element.
 
 | Name      | Type      | Description                                                    | Required   | Default |
 | --------- | --------- | -------------------------------------------------------------- | ---------- | ------- | ----------- | --------- | ---- | -------------- | --------------------- | --- | -------- |
-| loop      | `boolean` | loops from the last item to the first item and vice-versa.     | 🚫         | `false` |
+| loop      | `boolean` | Loops from the last item to the first item and vice-versa.     | 🚫         | `false` |
 | visible   | `boolean` | Whether is visible or not                                      | 🚫         | `false` |
 | placement | `bottom   | bottom-start                                                   | bottom-end | right   | right-start | right-end | auto | auto-start...` | Menu popover position | 🚫  | `bottom` |
 | baseId    | `string`  | ID that will serve as a base for all the items IDs.            | 🚫         | -       |
