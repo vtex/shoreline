@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.113.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.112.4-next.0...@vtex/admin-ui@0.113.0) (2021-09-20)
+
+### Features
+
+- **page:** add pattern ([14950b8](https://github.com/vtex/onda/commit/14950b8c31808dd187fa915bbeb21feb39fab6af))
+
 ## [0.112.4-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.112.3...@vtex/admin-ui@0.112.4-next.0) (2021-09-14)
 
 **Note:** Version bump only for package @vtex/admin-ui
