@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 
-import type { TabsProps } from './index'
+import type { TabsProps } from './components/Tabs'
 
 const TabsContext = createContext<TabsProps | null>(null)
 

@@ -6,129 +6,194 @@ path: /menu/
 
 Accessible dropdown Menu component that follows the [WAI-ARIA Menu](https://www.w3.org/TR/wai-aria-practices/#menu).
 
-## Behavior
-
-```jsx
-<Menu aria-label="menu label" disclosure={<Button>Actions</Button>}>
-  <Menu.Item>Download</Menu.Item>
-  <Menu.Item>Link to</Menu.Item>
-  <Menu.Item>Favorite</Menu.Item>
-</Menu>
-```
-
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
+## Usage
 
 ```jsx isStatic
-import { Menu } from '@vtex/admin-ui'
-```
+import {
+  Menu,
+  MenuList,
+  MenuButton,
+  MenuItem,
+  useMenuState,
+  MenuSeparator,
+} from '@vtex/admin-ui'
 
-Learn more in [Get started](/docs/get-started/).
-
-## Variation
-
-## State
-
-### Stateful
-
-Handles the state internally.
-
-```jsx
-<Menu hideOnClick aria-label="menu label" disclosure={<Button>Actions</Button>}>
-  <Menu.Item icon={<IconImport />}>Download</Menu.Item>
-  <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
-  <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-  <Menu.Item dangerous icon={<IconDelete />}>Delete</Menu.Item>
-</Menu>
-```
-
-#### 🚫 Dont
-
-- Use when you need to change menu states programmatically.
-
-#### Props
-
-<propdetails heading="Menu Props" component="Menu">
-</propdetails>
-
-### Stateless
-
-Accepts states handled by the `useMenuState` hook within the `state` prop.
-
-```jsx
 function Example() {
-  const state = useMenuState({
-    orientation: 'vertical',
-    loop: true,
-    placement: 'bottom-start',
-  })
+  const state = useMenuState()
 
   return (
-    <>
-      <MenuDisclosure state={state}>
-        <Button>Post options</Button>
-      </MenuDisclosure>
-      <StatelessMenu aria-label="actions" state={state}>
-        <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconFavorite />}>
-          Favorite
-        </StatelessMenu.Item>
-      </StatelessMenu>
-    </>
+    <Menu state={state}>
+      <MenuButton>Post options</MenuButton>
+      <MenuList aria-label="actions" state={state}>
+        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem icon={<IconLink />}>Link to</MenuItem>
+        <MenuSeparator />
+        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+      </MenuList>
+    </Menu>
   )
 }
 ```
 
-#### useMenuState
+## Composition
 
-Hook used to keep state. It has the same props of [Reakit/useMenuState](https://reakit.io/docs/menu/#usemenustate).
+| Name          | Description                                                        |
+| ------------- | ------------------------------------------------------------------ |
+| Menu          | Wrapper for the Menu                                               |
+| MenuButton    | Button that triggers the menu popover                              |
+| MenuList      | Menu's popover                                                     |
+| MenuItem      | Represents a button rendered inside the MenuList                   |
+| MenuSeparator | Represents an `hr` used to separate the menu popover into sections |
 
-#### ✅ Do's
+## Examples
 
-- Use when you need to change menu states programmatically
-- Use together with `MenuDisclosure` for user-based state changes.
+### Hide on click
 
-#### 🚫 Dont's
+Hide the Menu popover after a MenuItem is clicked.
 
-- Use it to handle a simple/contained menu, stateful is a solution.
+```jsx
+function Example() {
+  const state = useMenuState()
 
-#### Props
+  return (
+    <Menu state={state} hideOnClick>
+      <MenuButton>Post options</MenuButton>
+      <MenuList aria-label="actions" state={state}>
+        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem disabled icon={<IconLink />}>
+          Disabled Link
+        </MenuItem>
+        <MenuSeparator />
+        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+      </MenuList>
+    </Menu>
+  )
+}
+```
 
-<propdetails heading="StatelessMenu Props" component="StatelessMenu">
-</propdetails>
+### Action
 
-## Composites
+Set the MenuButton icon by using the `display` property
+
+```jsx
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <Menu state={state} hideOnClick>
+      <MenuButton display="actions" variant="adaptative-dark" />
+      <MenuList aria-label="actions" state={state}>
+        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem disabled icon={<IconLink />}>
+          Disabled Link
+        </MenuItem>
+        <MenuSeparator />
+        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+      </MenuList>
+    </Menu>
+  )
+}
+```
+
+### Placement
+
+Set the position of Menu's popover
+
+```jsx
+function Example() {
+  const state = useMenuState({ placement: 'right' })
+
+  return (
+    <Menu state={state} hideOnClick>
+      <MenuButton display="actions" variant="adaptative-dark" />
+      <MenuList aria-label="actions" state={state}>
+        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem disabled icon={<IconLink />}>
+          Disabled Link
+        </MenuItem>
+        <MenuSeparator />
+        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+      </MenuList>
+    </Menu>
+  )
+}
+```
+
+### Initial Focus
+
+Select a `MenuItem` to be focused when the popover is opened
+
+```jsx
+function Example() {
+  const state = useMenuState()
+  const ref = React.useRef()
+
+  React.useEffect(() => {
+    if (state.visible) {
+      ref.current.focus()
+    }
+  }, [state.visible])
+
+  return (
+    <Menu state={state}>
+      <MenuButton>Post options</MenuButton>
+      <MenuList aria-label="actions" state={state}>
+        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem ref={ref} icon={<IconLink />}>
+          Link to
+        </MenuItem>
+        <MenuSeparator />
+        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+      </MenuList>
+    </Menu>
+  )
+}
+```
+
+### Accessibility
+
+- You always must set the `aria-label` property in the `MenuList` component.
+
+## Props
+
+### Menu
+
+| Name        | Type              | Description                                                    | Required | Default |
+| ----------- | ----------------- | -------------------------------------------------------------- | -------- | ------- |
+| state       | `MenuStateReturn` | useMenuState hook return                                       | ✅       | -       |
+| children    | `ReactNode`       | Menu's composites                                              | 🚫       | -       |
+| hideOnClick | `boolean`         | Whether the Menu popup should hide after a MenuItem is clicked | 🚫       | `false` |
+
+### MenuButton
+
+All props of admin-ui's `Button` component.
+
+| Name    | Type     | Description | Required                                                   | Default |
+| ------- | -------- | ----------- | ---------------------------------------------------------- | ------- | ------ |
+| display | `actions | menu'`      | Display the dots icon if is actions and caret down if menu | 🚫      | `menu` |
+
+### MenuList
+
+All props of `div` jsx element.
+
+| Name               | Type      | Description                                                                 | Required | Default |
+| ------------------ | --------- | --------------------------------------------------------------------------- | -------- | ------- |
+| hideOnClickOutside | `boolean` | Whether the Menu popup should hide after a click outside the popover or not | 🚫       | `true`  |
 
 ### MenuItem
 
-```jsx
-<Menu hideOnClick aria-label="menu label" disclosure={<Button>Actions</Button>}>
-  <Menu.Item>Link to</Menu.Item>
-  <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-</Menu>
-```
+All props of `button` jsx element.
 
-#### Props
+### Separator
 
-<propdetails heading="MenuItem Props" component="Button">
-</propdetails>
+All props of `hr` jsx element.
 
-### MenuSeparator
+### useMenuState
 
-Represents an `hr` used to separate the menu into sections
-
-```jsx
-<Menu hideOnClick aria-label="menu label" disclosure={<Button>Actions</Button>}>
-  <Menu.Item icon={<IconLink />}>Link to</Menu.Item>
-  <Menu.Item icon={<IconFavorite />}>Favorite</Menu.Item>
-  <Menu.Separator />
-  <Menu.Item icon={<IconImport />}>Download</Menu.Item>
-  <Menu.Item icon={<IconArrow direction="up" />}>Upload</Menu.Item>
-  <Menu.Separator />
-  <Menu.Item icon={<IconDelete />}>Delete</Menu.Item>
-</Menu>
-```
+| Name      | Type      | Description                                                    | Required   | Default |
+| --------- | --------- | -------------------------------------------------------------- | ---------- | ------- | ----------- | --------- | ---- | -------------- | --------------------- | --- | -------- |
+| loop      | `boolean` | Loops from the last item to the first item and vice-versa.     | 🚫         | `false` |
+| visible   | `boolean` | Whether is visible or not                                      | 🚫         | `false` |
+| placement | `bottom   | bottom-start                                                   | bottom-end | right   | right-start | right-end | auto | auto-start...` | Menu popover position | 🚫  | `bottom` |
+| baseId    | `string`  | ID that will serve as a base for all the items IDs.            | 🚫         | -       |
+| gutter    | `number`  | Offset between the reference and the popover on the main axis. | 🚫         | `4`     |

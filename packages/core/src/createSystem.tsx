@@ -11,6 +11,7 @@ import { CacheProvider, Global } from '@emotion/react'
 import 'focus-visible/dist/focus-visible'
 
 import type { StyleProp } from './runtime'
+import type { UnstableAdminUI } from './theme'
 import {
   cssVariables,
   parse,
@@ -20,8 +21,9 @@ import {
 } from './theme'
 import { createAtoms, createClsx } from './runtime'
 
-export interface OndaSpec {
+export interface SystemSpec {
   key: string
+  unstableSystem?: UnstableAdminUI
 }
 
 export const SystemContext = React.createContext<
@@ -47,8 +49,8 @@ export type CreateOndaReturn = [
   (props: { children?: React.ReactNode }) => ReactElement
 ]
 
-export function createSystem(spec: OndaSpec): CreateOndaReturn {
-  const { key } = spec
+export function createSystem(spec: SystemSpec): CreateOndaReturn {
+  const { key, unstableSystem } = spec
 
   invariant(
     isKebab(key),
@@ -60,18 +62,18 @@ export function createSystem(spec: OndaSpec): CreateOndaReturn {
   })
 
   const clsx = createClsx(emotion)
-  const atoms = createAtoms(parse, clsx)
+  const atoms = createAtoms(unstableSystem?.parse ?? parse, clsx)
 
   function SystemProvider(props: { children?: React.ReactNode }) {
     const { children } = props
 
-    useCSSVariables(cssVariables)
+    useCSSVariables(unstableSystem?.cssVariables ?? cssVariables)
 
     return (
       <CacheProvider value={emotion.cache}>
         <SystemContext.Provider
           value={{
-            theme,
+            theme: unstableSystem?.theme ?? theme,
             cn: atoms,
             cx: emotion.cx,
             keyframes: emotion.keyframes,
@@ -86,7 +88,7 @@ export function createSystem(spec: OndaSpec): CreateOndaReturn {
               crossOrigin="anonymous"
             />
           </Helmet>
-          <Global styles={globalStyles} />
+          <Global styles={unstableSystem?.globalStyles ?? globalStyles} />
           {children}
         </SystemContext.Provider>
       </CacheProvider>

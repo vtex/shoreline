@@ -1,94 +1,133 @@
-import type { ReactNode } from 'react'
-import React from 'react'
-import type { StyleObject } from '@vtex/admin-ui-core'
-import { get } from '@vtex/admin-ui-util'
-import { tag } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithRef } from 'react'
+import React, { Fragment } from 'react'
+import { jsx } from '@vtex/admin-ui-react'
 
 import { Label } from '../Label'
-import type { SystemComponent } from '../../types'
 
-export function CheckboxGroup(props: CheckboxGroupProps) {
-  const {
-    csx,
-    label,
-    id,
-    orientation = 'horizontal',
-    size = 'regular',
-    children,
-    ...htmlProps
-  } = props
+export const Group = jsx.div(
+  {
+    fontSettings: 'regular',
+    lh: 'highlight',
+    marginTop: 3,
+    marginBottom: 6,
+    display: 'flex',
+    alignItems: 'flex-start',
+    '& > label > input': {
+      marginRight: 2,
+      marginLeft: 0,
+    },
+    '& > label': {
+      cursor: 'pointer',
+      color: 'dark.secondary',
+      display: 'flex',
+      alignItems: 'center',
+    },
+    variants: {
+      orientation: {
+        horizontal: {
+          flexDirection: 'row',
+        },
+        vertical: {
+          flexDirection: 'column',
+        },
+      },
+      size: {
+        regular: {
+          fontSize: '2',
+        },
+        small: {
+          fontSize: '1',
+        },
+      },
+    },
+  },
+  {
+    sync: [
+      {
+        orientation: 'horizontal',
+        size: 'regular',
+        csx: {
+          '& label:not(:last-child)': {
+            marginRight: 6,
+          },
+        },
+      },
+      {
+        orientation: 'horizontal',
+        size: 'small',
+        csx: {
+          '& label:not(:last-child)': {
+            marginRight: 5,
+          },
+        },
+      },
+      {
+        orientation: 'vertical',
+        size: 'regular',
+        csx: {
+          '& label:not(:last-child)': {
+            marginBottom: 4,
+          },
+        },
+      },
+      {
+        orientation: 'vertical',
+        size: 'small',
+        csx: {
+          '& label:not(:last-child)': {
+            marginBottom: 4,
+          },
+        },
+      },
+    ],
+  }
+)
 
-  return (
-    <>
-      {label && <Label htmlFor={id}>{label}</Label>}
-      <tag.div
-        {...htmlProps}
-        role="group"
-        id={id}
-        csx={{
-          fontSettings: 'regular',
-          lh: 'highlight',
-          marginTop: 3,
-          marginBottom: 6,
-          display: 'flex',
-          alignItems: 'flex-start',
-          '& > label > input': {
-            marginRight: 2,
-            marginLeft: 0,
-          },
-          '& > label': {
-            cursor: 'pointer',
-            color: 'dark.secondary',
-            display: 'flex',
-            alignItems: 'center',
-          },
-          ...get<Record<string, StyleObject>, string, object>(
-            {
-              'horizontal-regular': {
-                fontSize: '2',
-                flexDirection: 'row',
-                '& label:not(:last-child)': {
-                  marginRight: 6,
-                },
-              },
-              'vertical-regular': {
-                fontSize: '2',
-                flexDirection: 'column',
-                '& label:not(:last-child)': {
-                  marginBottom: 4,
-                },
-              },
-              'horizontal-small': {
-                fontSize: '1',
-                flexDirection: 'row',
-                '& label:not(:last-child)': {
-                  marginRight: 5,
-                },
-              },
-              'vertical-small': {
-                fontSize: '1',
-                flexDirection: 'column',
-                '& label:not(:last-child)': {
-                  marginBottom: 4,
-                },
-              },
-            },
-            `${orientation}-${size}`,
-            {}
-          ),
-          ...csx,
-        }}
-      >
-        {children}
-      </tag.div>
-    </>
-  )
+Group.defaultProps = {
+  orientation: 'horizontal',
+  role: 'group',
 }
 
-export interface CheckboxGroupProps extends SystemComponent {
-  children?: ReactNode
+export const CheckboxGroup = jsx(Fragment)(
+  {},
+  {
+    options: ['id', 'label', 'size', 'orientation'],
+    useOptions(options: CheckboxGroupOptions, props) {
+      const {
+        label,
+        id,
+        orientation = 'horizontal',
+        size = 'regular',
+      } = options
+
+      const { csx, children, ...groupProps } = props
+
+      return {
+        children: (
+          <Fragment>
+            {label && <Label htmlFor={id}>{label}</Label>}
+            <Group
+              id={id}
+              orientation={orientation}
+              size={size}
+              csx={csx}
+              {...groupProps}
+            >
+              {children}
+            </Group>
+          </Fragment>
+        ),
+      }
+    },
+  }
+)
+
+export interface CheckboxGroupOptions {
   id?: string
   label?: string
   size?: 'regular' | 'small'
   orientation?: 'horizontal' | 'vertical'
 }
+
+export type CheckboxGroupProps = ComponentPropsWithRef<typeof CheckboxGroup> &
+  CheckboxGroupOptions

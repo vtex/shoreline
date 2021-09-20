@@ -4,20 +4,14 @@ path: /toast/
 
 # Toast
 
-A toast is a variation of an alert that provides immediate feedback over actions that just happened and were caused by the user.
+The toast is used to show alerts on top of an overlay. The toast will close itself when the dismiss button is clicked, or after a timeout. The toast component is used to give feedback to users after an action has taken place.
 
-## Behavior
+## Usage
 
-The way of rendering a Toast on `admin-ui` is by calling the function returned by the `useToast` hook.
+```jsx isStatic
+import { ToastProvider, useToast } from '@vtex/admin-ui'
 
-<blockquote palette="blue">
-
-Make sure to call the `useToast` hook one component level below the `<ToastProvider>`. This is necessary in order to the Toast work.
-
-</blockquote>
-
-```jsx
-function Example() {
+function ToastButton(props) {
   const showToast = useToast()
 
   return (
@@ -27,22 +21,31 @@ function Example() {
           message: 'This is the admin-ui toast!',
         })
       }
-    >
-      Show Toast
-    </Button>
+      {...props}
+    />
+  )
+}
+
+function Example() {
+  return (
+    <ToastProvider>
+      <ToastButton>Show Toast</ToastButton>
+    </ToastProvider>
   )
 }
 ```
 
-## Import
+## Examples
 
-```jsx isStatic
-import { ToastProvider, useToast } from '@vtex/admin-ui'
-```
+<blockquote palette="blue">
 
-## Variations
+Make sure to call the `useToast` hook one component level below the `<ToastProvider>`. This is necessary in order for the Toast work.
+
+</blockquote>
 
 ### Type
+
+It represents the toast appearance and is used to convey its feedback.
 
 ```jsx
 function Example() {
@@ -57,7 +60,7 @@ function Example() {
           })
         }
       >
-        Info toast
+        Info toast (default)
       </Button>
       <Button
         onClick={() =>
@@ -96,6 +99,8 @@ function Example() {
 
 ### Dismissible
 
+Display a button to allow dismissing the toast when clicked.
+
 ```jsx
 function Example() {
   const showToast = useToast()
@@ -116,6 +121,8 @@ function Example() {
 ```
 
 ### Action
+
+Display a button allowing the toast to have an action.
 
 ```jsx
 function Example() {
@@ -166,7 +173,9 @@ function Example() {
 }
 ```
 
-## showToast props
+## Props
+
+Because the way of rendering a Toast on admin-ui is by calling the function returned by the `useToast` hook, these are the properties that you can pass to the function returned params.
 
 | Name        | Type                                     | Description                                             | Required | Default     |
 | ----------- | ---------------------------------------- | ------------------------------------------------------- | -------- | ----------- | ----------------- | --- | ------ |

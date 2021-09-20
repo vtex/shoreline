@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Columns should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  max-width: 100%;
+}
+
+.emotion-0:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+<div
+    class="emotion-2"
+  >
+    <div
+      class="emotion-0"
+    >
+      <button>
+        element 1
+      </button>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <button>
+        element 2
+      </button>
+    </div>
+  </div>
+  .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-0 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 33.33333333333333%;
+}
+
+.emotion-0:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+.emotion-1 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 33.33333333333333%;
+  margin-right: auto;
+}
+
+.emotion-1:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+<div
+    class="emotion-2"
+  >
+    <div
+      class="emotion-0"
+    >
+      <button>
+        element 1
+      </button>
+    </div>
+    <div
+      class="emotion-1"
+    >
+      <button>
+        element 2
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

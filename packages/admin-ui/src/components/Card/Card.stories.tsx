@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Columns } from '../Columns'
+import { Columns, Column } from '../Columns'
 import { Card } from './index'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
@@ -28,7 +28,7 @@ export const Example = () => {
 export const WithColumns = () => {
   return (
     <Columns>
-      <Columns.Item units={[12, 12, 8]}>
+      <Column units={[12, 12, 8]}>
         <Card csx={{ height: 'full' }}>
           <Heading>Build for community</Heading>
           <Paragraph>
@@ -38,8 +38,8 @@ export const WithColumns = () => {
             for the stars.
           </Paragraph>
         </Card>
-      </Columns.Item>
-      <Columns.Item units={[12, 12, 4]}>
+      </Column>
+      <Column units={[12, 12, 4]}>
         <Card>
           <Heading>Build for community</Heading>
           <Paragraph>
@@ -49,7 +49,7 @@ export const WithColumns = () => {
             for the stars.
           </Paragraph>
         </Card>
-      </Columns.Item>
+      </Column>
     </Columns>
   )
 }

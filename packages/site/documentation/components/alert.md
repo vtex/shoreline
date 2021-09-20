@@ -120,13 +120,13 @@ function Example() {
 
 ### Fluid
 
-Represents whether the height is fluid or not. This is a [Responsive Value Property](/theming/responsive-design/#responsive-values) and by default it has the following value: `[true, true, false]`. You can change it setting the `fluid` property to be either `true`, `false` or a `ResponsiveValue`.
+Represents whether the height is fluid or not on mobile devices. By default its value is `true`. You can change it setting the `fluid` property to be either `true` or `false`.
 
 ```jsx
 function Example() {
   return (
     <Box csx={{ width: 300 }}>
-      <Alert visible fluid type="success" onDismiss={() => {}}>
+      <Alert visible fluid={false} type="success" onDismiss={() => {}}>
         This account is inactive. Check your billing for more information.
       </Alert>
     </Box>
@@ -175,13 +175,13 @@ function Example() {
 
 ## Props
 
-| Name      | Type                  | Description                   | Required  | Default             |
-| --------- | --------------------- | ----------------------------- | --------- | ------------------- | --------------- | --- | ------- |
-| csx       | `StyleObject`         | Custom styles                 | 🚫        | {}                  |
-| icon      | `ReactNode`           | Icon to display               | 🚫        | -                   |
-| onDismiss | `() => void`          | Action to dispatch on dismiss | 🚫        | -                   |
-| visible   | `boolean`             | Whether it's visible or not   | 🚫        | false               |
-| type      | `'error'              | 'success'                     | 'warning' | 'info'`             | Icon to display | 🚫  | warning |
-| children  | `ReactNode`           | Component children            | 🚫        | -                   |
-| sticky    | `boolean`             | Whether it's sticky or not    | 🚫        | false               |
-| fluid     | `Responsive<boolean>` | Whether the height is fluid   | 🚫        | [true, true, false] |
+| Name      | Type          | Description                                   | Required  | Default |
+| --------- | ------------- | --------------------------------------------- | --------- | ------- | --------------- | --- | ---- |
+| csx       | `StyleObject` | Custom styles                                 | 🚫        | {}      |
+| icon      | `ReactNode`   | Icon to display                               | 🚫        | -       |
+| onDismiss | `() => void`  | Action to dispatch on dismiss                 | 🚫        | -       |
+| visible   | `boolean`     | Whether it's visible or not                   | 🚫        | false   |
+| type      | `'error'      | 'success'                                     | 'warning' | 'info'` | Icon to display | 🚫  | info |
+| children  | `ReactNode`   | Component children                            | 🚫        | -       |
+| sticky    | `boolean`     | Whether it's sticky or not                    | 🚫        | false   |
+| fluid     | `boolean`     | Whether the height is fluid on mobile devices | 🚫        | true    |

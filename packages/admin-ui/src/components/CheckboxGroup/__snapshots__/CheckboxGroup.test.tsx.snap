@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CheckboxGroup tests should match snapshot 1`] = `
+exports[`CheckboxGroup should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-variation-settings: 'WGHT' 500;
@@ -15,10 +15,10 @@ exports[`CheckboxGroup tests should match snapshot 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  font-size: 1rem;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  font-size: 1rem;
 }
 
 .emotion-0>label>input {
@@ -55,7 +55,7 @@ exports[`CheckboxGroup tests should match snapshot 1`] = `
 </DocumentFragment>
 `;
 
-exports[`CheckboxGroup tests should match snapshot with label 1`] = `
+exports[`CheckboxGroup should match snapshot with label 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -82,10 +82,10 @@ exports[`CheckboxGroup tests should match snapshot with label 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  font-size: 1rem;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  font-size: 1rem;
 }
 
 .emotion-0>label>input {

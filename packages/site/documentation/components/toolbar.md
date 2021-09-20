@@ -68,11 +68,17 @@ function Example() {
       <Toolbar state={toolbar} aria-label="Toolbar Render Props">
         <ToolbarItem>
           {(itemProps) => (
-            <MenuDisclosure state={menuState}>
-              <Button variant="adaptative-dark" {...itemProps}>
-                Open menu
-              </Button>
-            </MenuDisclosure>
+            <Menu state={menuState}>
+              <MenuButton display="actions" variant="secondary" {...itemProps}>
+                Open Menu
+              </MenuButton>
+              <MenuList aria-label="Menu">
+                <MenuItem icon={<IconLink />}>Link to</MenuItem>
+                <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+                <MenuSeparator />
+                <MenuItem icon={<IconDelete />}>Delete</MenuItem>
+              </MenuList>
+            </Menu>
           )}
         </ToolbarItem>
         <ToolbarItem>
@@ -85,16 +91,6 @@ function Example() {
           )}
         </ToolbarItem>
       </Toolbar>
-
-      <StatelessMenu aria-label="actions" state={menuState}>
-        <StatelessMenu.Item icon={<IconImport />}>Download</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconLink />}>Link to</StatelessMenu.Item>
-        <StatelessMenu.Item icon={<IconFavorite />}>
-          Favorite
-        </StatelessMenu.Item>
-        <StatelessMenu.Separator />
-        <StatelessMenu.Item icon={<IconDelete />}>Delete</StatelessMenu.Item>
-      </StatelessMenu>
 
       <Modal aria-label="Seneca's modal" state={modalState} size="small">
         <ModalHeader title="Item 6" />

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.1.1...@vtex/admin-ui-core@0.1.2-next.0) (2021-09-14)
+
+### Features
+
+- **admin-ui-core:** unstable support to custom themes ([ace06bb](https://github.com/vtex/onda/commit/ace06bb259664acad62f87378267fd346ae4af8c))
+
 ## [0.1.1](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.1.0...@vtex/admin-ui-core@0.1.1) (2021-09-13)
 
 ### Bug Fixes

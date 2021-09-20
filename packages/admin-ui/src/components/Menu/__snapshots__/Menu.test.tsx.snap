@@ -1,23 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu tests should match snapshot hidden 1`] = `
+exports[`Menu should match snapshot hidden 1`] = `
 <DocumentFragment>
-  <button
-    aria-controls="id"
-    aria-expanded="false"
-    aria-haspopup="menu"
-    type="button"
-  >
-    Open
-  </button>
-  .emotion-9 {
-  border: 0;
-  padding: 0rem;
+  
+
+.emotion-3 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.5rem;
+  color: #FFFFFF;
+  background-color: #2953B2;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
   outline: none;
-  z-index: 999;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-3:hover {
+  background-color: #214491;
+}
+
+.emotion-3:active {
+  background-color: #1a3470;
+}
+
+.emotion-3:disabled {
+  color: #323845;
+  background-color: #C4C5CA;
+}
+
+.emotion-3 svg {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-13 {
+  border: 0;
+  outline: none;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: coral;
+  padding: 0.75rem;
+  min-width: 18px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C4C5CA;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+}
+
+.emotion-5 {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -36,14 +139,14 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   color: #323845;
 }
 
-.emotion-1 div {
+.emotion-5 div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-1 svg {
+.emotion-5 svg {
   margin: 0.25rem;
   width: 20px;
   height: 20px;
@@ -53,31 +156,31 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   margin-right: 0.5rem;
 }
 
-.emotion-1:focus:not([data-focus-visible-added]) {
+.emotion-5:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-1:focus {
+.emotion-5:focus {
   background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-1:hover {
+.emotion-5:hover {
   color: #323845;
 }
 
-.emotion-1:active {
+.emotion-5:active {
   color: #1a3470;
   background-color: rgba(186,203,236,0.32);
 }
 
-.emotion-1:disabled {
+.emotion-5:disabled {
   color: #898F9E;
 }
 
-.emotion-0 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -92,26 +195,7 @@ exports[`Menu tests should match snapshot hidden 1`] = `
   justify-content: center;
 }
 
-.emotion-8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #FFFFFF;
-  margin-top: 0.25rem;
-  padding: 0.75rem;
-  min-width: 18px;
-  border-radius: 3px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #C4C5CA;
-  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
-}
-
-.emotion-8 hr {
+.emotion-10 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   border-style: solid;
@@ -127,71 +211,99 @@ exports[`Menu tests should match snapshot hidden 1`] = `
 }
 
 <div
-    aria-label="menu label"
-    aria-orientation="vertical"
-    class="emotion-9"
-    data-dialog="true"
-    data-testid="menu"
-    hidden=""
-    id="id"
-    role="menu"
-    style="display: none;"
-    tabindex="-1"
+    class="emotion-14"
   >
+    <button
+      aria-controls="id"
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="emotion-3"
+      type="button"
+    >
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-1"
+        >
+          <svg
+            class="emotion-0"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 14L12 10L8 14"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
+           Open
+        </div>
+      </div>
+    </button>
     <div
-      class="emotion-8"
-      data-testid="menubox"
+      aria-label="menu label"
+      aria-orientation="vertical"
+      class="emotion-13"
+      data-dialog="true"
+      data-testid="menu"
+      hidden=""
+      id="id"
+      role="menu"
+      style="display: none;"
+      tabindex="-1"
     >
       <button
-        class="emotion-1"
+        class="emotion-5"
         id="id-1"
         role="menuitem"
         tabindex="0"
       >
         <div
-          class="emotion-0"
+          class="emotion-4"
         >
            Download
         </div>
       </button>
       <button
-        class="emotion-1"
+        class="emotion-5"
         id="id-2"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="emotion-0"
+          class="emotion-4"
         >
            Link to
         </div>
       </button>
       <button
-        class="emotion-1"
+        class="emotion-5"
         id="id-3"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="emotion-0"
+          class="emotion-4"
         >
            Favorite
         </div>
       </button>
       <hr
         aria-orientation="horizontal"
-        id="id-4"
-        role="menuitem"
-        tabindex="-1"
+        class="emotion-10"
+        role="separator"
       />
       <button
-        class="emotion-1"
-        id="id-5"
+        class="emotion-5"
+        id="id-4"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="emotion-0"
+          class="emotion-4"
         >
            Delete
         </div>
@@ -201,24 +313,106 @@ exports[`Menu tests should match snapshot hidden 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Menu tests should match snapshot visible 1`] = `
+exports[`Menu should match snapshot visible 1`] = `
 <DocumentFragment>
-  <button
-    aria-controls="id"
-    aria-expanded="true"
-    aria-haspopup="menu"
-    type="button"
-  >
-    Open
-  </button>
-  .emotion-9 {
-  border: 0;
-  padding: 0rem;
+  
+
+.emotion-3 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.5rem;
+  color: #FFFFFF;
+  background-color: #2953B2;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
   outline: none;
-  z-index: 999;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+}
+
+.emotion-3:hover {
+  background-color: #214491;
+}
+
+.emotion-3:active {
+  background-color: #1a3470;
+}
+
+.emotion-3:disabled {
+  color: #323845;
+  background-color: #C4C5CA;
+}
+
+.emotion-3 svg {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.emotion-0 {
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-5 {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -237,14 +431,14 @@ exports[`Menu tests should match snapshot visible 1`] = `
   color: #323845;
 }
 
-.emotion-1 div {
+.emotion-5 div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-1 svg {
+.emotion-5 svg {
   margin: 0.25rem;
   width: 20px;
   height: 20px;
@@ -254,31 +448,31 @@ exports[`Menu tests should match snapshot visible 1`] = `
   margin-right: 0.5rem;
 }
 
-.emotion-1:focus:not([data-focus-visible-added]) {
+.emotion-5:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-1:focus {
+.emotion-5:focus {
   background-color: rgba(218,227,245,0.32);
   outline: none;
   box-shadow: none;
 }
 
-.emotion-1:hover {
+.emotion-5:hover {
   color: #323845;
 }
 
-.emotion-1:active {
+.emotion-5:active {
   color: #1a3470;
   background-color: rgba(186,203,236,0.32);
 }
 
-.emotion-1:disabled {
+.emotion-5:disabled {
   color: #898F9E;
 }
 
-.emotion-0 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -293,26 +487,7 @@ exports[`Menu tests should match snapshot visible 1`] = `
   justify-content: center;
 }
 
-.emotion-8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #FFFFFF;
-  margin-top: 0.25rem;
-  padding: 0.75rem;
-  min-width: 18px;
-  border-radius: 3px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #C4C5CA;
-  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
-}
-
-.emotion-8 hr {
+.emotion-10 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   border-style: solid;
@@ -327,70 +502,119 @@ exports[`Menu tests should match snapshot visible 1`] = `
   outline: none;
 }
 
+.emotion-13 {
+  border: 0;
+  outline: none;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  padding: 0.75rem;
+  min-width: 18px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C4C5CA;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+}
+
 <div
-    aria-label="menu label"
-    aria-orientation="vertical"
-    class="emotion-9"
-    data-dialog="true"
-    data-testid="menu"
-    id="id"
-    role="menu"
-    tabindex="-1"
+    class="emotion-14"
   >
+    <button
+      aria-controls="id"
+      aria-expanded="true"
+      aria-haspopup="menu"
+      class="emotion-3"
+      type="button"
+    >
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-1"
+        >
+          <svg
+            class="emotion-0"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 14L12 10L8 14"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
+           Open
+        </div>
+      </div>
+    </button>
     <div
-      class="emotion-8"
-      data-testid="menubox"
+      aria-label="menu label"
+      aria-orientation="vertical"
+      class="emotion-13"
+      data-dialog="true"
+      data-testid="menu"
+      id="id"
+      role="menu"
+      tabindex="-1"
     >
       <button
-        class="emotion-1"
+        class="emotion-5"
         id="id-1"
         role="menuitem"
         tabindex="0"
       >
         <div
-          class="emotion-0"
+          class="emotion-4"
         >
            Download
         </div>
       </button>
       <button
-        class="emotion-1"
+        class="emotion-5"
         id="id-2"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="emotion-0"
+          class="emotion-4"
         >
            Link to
         </div>
       </button>
       <button
-        class="emotion-1"
+        class="emotion-5"
         id="id-3"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="emotion-0"
+          class="emotion-4"
         >
            Favorite
         </div>
       </button>
       <hr
         aria-orientation="horizontal"
-        id="id-4"
-        role="menuitem"
-        tabindex="-1"
+        class="emotion-10"
+        role="separator"
       />
       <button
-        class="emotion-1"
-        id="id-5"
+        class="emotion-5"
+        id="id-4"
         role="menuitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="emotion-0"
+          class="emotion-4"
         >
            Delete
         </div>

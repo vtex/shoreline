@@ -16,13 +16,7 @@
     - /guidelines/theming/
     - /guidelines/responsive-design/
     - /guidelines/styling/
-    - /guidelines/tag/
-- section: Layouts
-  paths:
-    - /layouts/introduction/
-    - /layouts/columns/
-    - /layouts/set/
-    - /layouts/page-header/
+    - /guidelines/tag/    
 - section: Typography
   paths:
     - /typography/introduction/
@@ -42,8 +36,8 @@
     - /checkbox-group/
     - /collapsible/
     - /collapsible-group/
+    - /columns/
     - /data-grid/
-    - /data-view/
     - /divider/
     - /dropdown/
     - /flex/
@@ -60,6 +54,7 @@
     - /radio/
     - /radio-group/
     - /search/
+    - /set/
     - /skeleton/
     - /select/
     - /spinner/
@@ -71,6 +66,10 @@
     - /tooltip/
     - /toggle/
     - /visually-hidden/
+- section: Patterns
+  paths:
+    - /patterns/page/
+    - /patterns/data-view/
 - section: Hooks
   paths:
     - /hooks/use-media-query/

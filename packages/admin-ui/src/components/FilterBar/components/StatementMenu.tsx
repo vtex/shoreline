@@ -1,26 +1,14 @@
 import React from 'react'
-import { IconAction } from '@vtex/admin-ui-icons'
-
 import type { MenuProps } from '../../Menu'
-import { Menu } from '../../Menu'
-import { Button } from '../../Button'
+import { useMenuState, Menu } from '../../Menu'
 
-export function StatementMenu(props: Omit<MenuProps, 'disclosure'>) {
+export function StatementMenu(props: Omit<MenuProps, 'state'>) {
   const { children, ...menuProps } = props
 
+  const state = useMenuState({ baseId: 'statement-menu' })
+
   return (
-    <Menu
-      {...menuProps}
-      hideOnClick
-      disclosure={
-        <Button
-          aria-label={menuProps['aria-label']}
-          variant="adaptative-dark"
-          csx={{ color: 'dark.secondary' }}
-          icon={<IconAction />}
-        />
-      }
-    >
+    <Menu {...menuProps} state={state} hideOnClick>
       {children}
     </Menu>
   )

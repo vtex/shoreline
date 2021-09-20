@@ -1,2 +1,2 @@
-export * from './Columns'
-export * from './Item'
+export * from './components/Columns'
+export * from './components/Column'
