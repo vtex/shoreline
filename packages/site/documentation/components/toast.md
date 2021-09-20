@@ -39,7 +39,7 @@ function Example() {
 
 <blockquote palette="blue">
 
-Make sure to call the `useToast` hook one component level below the `<ToastProvider>`. This is necessary in order to the Toast work.
+Make sure to call the `useToast` hook one component level below the `<ToastProvider>`. This is necessary in order for the Toast work.
 
 </blockquote>
 
