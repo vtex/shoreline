@@ -6,19 +6,19 @@ path: /tabs/
 
 Tabs are navigation solutions for alternating between content that is at the same level of the hierarchy.
 
-## Behavior
+## Usage
 
-```jsx
+```jsx isStatic
+import { Tabs, Tab, TabList, TabPanel, useTabState } from '@vtex/admin-ui'
+
 function Example() {
   const state = useTabState()
 
   return (
     <Tabs state={state}>
-      <TabList aria-label="behavior-tabs">
+      <TabList aria-label="Usage Tabs">
         <Tab id="1">Tab 1</Tab>
         <Tab id="2">Tab 2</Tab>
-        <Tab id="3">Tab 3</Tab>
-        <Tab id="4">Tab 4</Tab>
       </TabList>
       <TabPanel id="1" csx={{ padding: 3 }}>
         Tab 1
@@ -26,28 +26,12 @@ function Example() {
       <TabPanel id="2" csx={{ padding: 3 }}>
         Tab 2
       </TabPanel>
-      <TabPanel id="3" csx={{ padding: 3 }}>
-        Tab 3
-      </TabPanel>
-      <TabPanel id="4" csx={{ padding: 3 }}>
-        Tab 4
-      </TabPanel>
     </Tabs>
   )
 }
 ```
 
-## Installation
-
-```bash isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Tabs, TabList, Tab, TabPanel, useTabState } from '@vtex/admin-ui'
-```
-
-## Variations
+## Example
 
 ### Fluid
 
@@ -82,10 +66,6 @@ function Example() {
 }
 ```
 
-## useTabState
-
-It has the same props of [Reakit/useTabState](https://reakit.io/docs/tab/#usetabstate) and you should pass the hook return to the Tabs' `state` property.
-
 ### Default selected tab
 
 You can set the default selected tab by passing an id to selectedId on useTabState.
@@ -117,23 +97,23 @@ function Example() {
 
 ### Select a Tab manually
 
-You can set the selected tab by passing an `id` to the `setSelectedId` returned by the `useTabState`.
+You can set the selected tab by passing an `id` to the `select` returned by the `useTabState`.
 
 ```jsx
 function Example() {
-  const { setSelectedId, ...state } = useTabState()
+  const state = useTabState()
 
   return (
-    <Tabs state={{ setSelectedId, ...state }}>
+    <Tabs state={state}>
       <TabList fluid aria-label="my-tabs">
         <Tab id="1">Tab 1</Tab>
         <Tab id="2">Tab 2</Tab>
       </TabList>
       <TabPanel id="1" csx={{ padding: 3 }}>
-        <Button onClick={() => setSelectedId('2')}>Go to Tab 2!</Button>
+        <Button onClick={() => state.select('2')}>Go to Tab 2!</Button>
       </TabPanel>
       <TabPanel id="2" csx={{ padding: 3 }}>
-        <Button onClick={() => setSelectedId('1')}>Go to Tab 1!</Button>
+        <Button onClick={() => state.select('1')}>Go to Tab 1!</Button>
       </TabPanel>
     </Tabs>
   )
@@ -179,15 +159,6 @@ function Example() {
 | state    | `TabStateReturn` | Tabs state    | ✅       | -       |
 | children | `ReactNode`      | Tabs children | ✅       | -       |
 
-### TabList
-
-It also receives all props of `div` JSX element.
-
-| Name  | Type          | Description                                                 | Required | Default |
-| ----- | ------------- | ----------------------------------------------------------- | -------- | ------- |
-| fluid | `boolean`     | Whether the TabList width should match the container or not | 🚫       | false   |
-| csx   | `StyleObject` | Custom styles                                               | 🚫       | {}      |
-
 ### Tab
 
 It also receives all props of `button` JSX element.
@@ -195,7 +166,16 @@ It also receives all props of `button` JSX element.
 | Name | Type          | Description   | Required | Default |
 | ---- | ------------- | ------------- | -------- | ------- |
 | id   | `string`      | Tab's id      | 🚫       | -       |
-| csx  | `StyleObject` | Custom styles | 🚫       | {}      |
+| csx  | `StyleObject` | Custom styles | 🚫       | `{}`    |
+
+### TabList
+
+It also receives all props of `div` JSX element.
+
+| Name  | Type          | Description                                                 | Required | Default |
+| ----- | ------------- | ----------------------------------------------------------- | -------- | ------- |
+| fluid | `boolean`     | Whether the TabList width should match the container or not | 🚫       | `false` |
+| csx   | `StyleObject` | Custom styles                                               | 🚫       | `{}`    |
 
 ### TabPanel
 
@@ -204,4 +184,28 @@ It also receives all props of `div` JSX element.
 | Name | Type          | Description                               | Required | Default |
 | ---- | ------------- | ----------------------------------------- | -------- | ------- |
 | id   | `string`      | The same id as the correspondent Tab's id | 🚫       | -       |
-| csx  | `StyleObject` | Custom styles                             | 🚫       | {}      |
+| csx  | `StyleObject` | Custom styles                             | 🚫       | `{}`    |
+
+### useTabState
+
+Hook parameters.
+
+| Name       | Type      | Description                                                | Required | Default |
+| ---------- | --------- | ---------------------------------------------------------- | -------- | ------- |
+| selectedId | `string`  | The current selected tab's id                              | 🚫       | -       |
+| baseId     | `string`  | ID that will serve as a base for all the items IDs.        | 🚫       | -       |
+| manual     | `boolean` | Whether the tab selection should be manual or not          | 🚫       | `false` |
+| loop       | `boolean` | Loops from the last item to the first item and vice-versa. | 🚫       | `false` |
+
+### TabStateReturn
+
+Properties returned by the `useTabState` hook.
+
+| Name       | Type         | Description                            | Required | Default |
+| ---------- | ------------ | -------------------------------------- | -------- | ------- |
+| selectedId | `string`     | The current selected tab's id          | 🚫       | -       |
+| select     | `() => void` | Moves into and selects a tab by its id | 🚫       | -       |
+| first      | `() => void` | Moves focus to the first item          | 🚫       | -       |
+| last       | `() => void` | Moves focus to the last item           | 🚫       | -       |
+| next       | `() => void` | Moves focus to the next item           | 🚫       | -       |
+| previous   | `() => void` | Moves focus to the previous item       | 🚫       | -       |
