@@ -18,6 +18,7 @@ export function SidebarItemSkeleton() {
     >
       {Array.from(new Array(2)).map((_, index) => (
         <Set
+          key={`sidebar-section-${index}`}
           spacing={1}
           orientation="vertical"
           csx={{
