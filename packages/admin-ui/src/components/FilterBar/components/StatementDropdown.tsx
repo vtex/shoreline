@@ -45,6 +45,7 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
     return (
       <Box
         csx={{
+          textAlign: 'start',
           textOverflow: 'ellipsis',
           overflow: 'hidden',
           whiteSpace: 'nowrap',
@@ -63,7 +64,10 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
       border: 'default',
       color: 'dark.secondary',
       div: {
-        justifyContent: 'space-between',
+        width: '100%',
+        div: {
+          justifyContent: 'space-between',
+        },
       },
       minWidth: 150,
       maxWidth: 150,
