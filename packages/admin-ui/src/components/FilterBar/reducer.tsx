@@ -114,6 +114,15 @@ export function defaultReducer<T>(
       return nextState
     }
 
+    case 'setStatements': {
+      const { statements } = action
+      const { conjunction } = state
+
+      const nextState = { conjunction, statements, applied: false }
+
+      return nextState
+    }
+
     case 'apply': {
       return { ...state, applied: true }
     }
@@ -147,6 +156,10 @@ export type Action<T> =
   | {
       type: 'filtersReset'
       conjunction: Conjunction
+    }
+  | {
+      type: 'setStatements'
+      statements: Array<Statement<T>>
     }
   | {
       type: 'duplicateStatement'

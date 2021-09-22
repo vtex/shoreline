@@ -64,6 +64,8 @@ export interface UseFilterBarStateReturn<T> {
   changeCondition: (condition: Condition, index: number) => void
   /** Function that changes the conjuntion of the filters */
   changeConjunction: (conjunction: Conjunction) => void
+  /** Function that changes the current statements */
+  setStatements: (statements: Array<Statement<T>>) => void
 }
 
 export interface InternalLabels {

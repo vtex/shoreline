@@ -342,6 +342,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-5 div {
+  width: 100%;
+}
+
+.emotion-5 div div {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
@@ -378,6 +382,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-2 {
+  text-align: start;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

@@ -7,6 +7,7 @@ import type {
   Conjunction,
   Filter,
   ReducerFilters,
+  Statement,
   UseFilterBarStateParams,
   UseFilterBarStateReturn,
 } from './typings'
@@ -105,6 +106,9 @@ export function useFilterBarState<T>(
       conjunction,
     })
 
+  const setStatements = (statements: Array<Statement<T>>) =>
+    memoizedDispatch({ type: 'setStatements', statements })
+
   return {
     conjunction,
     statements,
@@ -120,5 +124,6 @@ export function useFilterBarState<T>(
     changeFilter,
     changeCondition,
     changeConjunction,
+    setStatements,
   }
 }
