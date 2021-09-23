@@ -1,6 +1,7 @@
 import React from 'react'
 import { merge } from '@vtex/admin-ui-util'
 import { render } from '@testing-library/react'
+import createEmotion from '@emotion/css/create-instance'
 
 import { createSystem, useSystem } from '../createSystem'
 import { unstableCreateAdminUI, theme } from '../theme'
@@ -31,6 +32,37 @@ describe('context', () => {
     )
 
     expect(getByTestId('div')).toHaveStyleRule('padding', '0.5rem')
+  })
+
+  it('should allow passing a custom emotion instance', () => {
+    const key = 'onda-design-system-tst'
+    const customEmotionInstance = createEmotion({ key })
+
+    const [Provider] = createSystem({
+      emotionInstance: customEmotionInstance,
+    })
+
+    function Div() {
+      const { cn } = useSystem()
+
+      return (
+        <div
+          className={cn({
+            padding: 2,
+          })}
+          data-testid="div"
+        />
+      )
+    }
+
+    const { getByTestId } = render(
+      <Provider>
+        <Div />
+      </Provider>
+    )
+
+    expect(getByTestId('div')).toHaveStyleRule('padding', '0.5rem')
+    expect(getByTestId('div').className.startsWith(key)).toBeTruthy()
   })
 
   it('should be able to create a custom theme', () => {
