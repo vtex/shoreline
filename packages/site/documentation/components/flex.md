@@ -96,7 +96,7 @@ By default, `Flex` renders a div element. You can customize it using the `as` pr
 
 ### Spacer
 
-You can combine `Flex` and `FlexSpacer` to adjust the space.
+You can combine `Flex` and `FlexSpacer` to adjust spacing.
 
 ```jsx
 <Flex justify="space-around">
@@ -148,6 +148,6 @@ All props of `as` which is `div` by default.
 
 All props of `div` JSX element.
 
-| Name | Type          | Description   | Required | Default |
-| ---- | ------------- | ------------- | -------- | ------- |
-| csx  | `StyleObject` | Layout styles | 🚫       | -       |
+| Name  | Type          | Description   | Required | Default |
+| ----- | ------------- | ------------- | -------- | ------- |
+| `csx` | `StyleObject` | Layout styles | 🚫       | -       |

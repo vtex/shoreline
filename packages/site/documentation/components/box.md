@@ -4,7 +4,7 @@ path: /box/
 
 # Box
 
-`Box` is the most abstract layout component with no defined style or shape.
+`Box` is the base component to be used for most of your html elements. It has no defined style or shape.
 
 ## Usage
 
@@ -28,7 +28,7 @@ Use the `csx` property to [add styles](/guidelines/styling/).
 
 ### Semantic elements
 
-By default, Box renders a div element. You can customize it using the `as` prop.
+By default, `Box` renders a div element. You can customize it using the `as` prop.
 
 ```jsx isStatic
 <Box as="section">
@@ -48,6 +48,6 @@ Be sure that you're using the correct semantic element and `aria roles` for the 
 
 All props of `as` which is `div` by default.
 
-| Name | Type          | Description   | Required | Default |
-| ---- | ------------- | ------------- | -------- | ------- |
-| csx  | `StyleObject` | Layout styles | 🚫       | -       |
+| Name  | Type          | Description   | Required | Default |
+| ----- | ------------- | ------------- | -------- | ------- |
+| `csx` | `StyleObject` | Layout styles | 🚫       | -       |
