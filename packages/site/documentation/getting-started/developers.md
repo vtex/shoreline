@@ -61,7 +61,7 @@ For the `Root1`:
 // Root 1
 
 const [ThemeProvider] = createSystem({
-  key: 'app-name-root-1',
+  key: 'app-name-root-one',
 })
 ```
 
@@ -71,7 +71,7 @@ For the `Root2`:
 // Root 2
 
 const [ThemeProvider] = createSystem({
-  key: 'app-name-root-2',
+  key: 'app-name-root-two',
 })
 ```
 
