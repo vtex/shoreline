@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.1.2...@vtex/admin-ui-core@0.2.0) (2021-09-27)
+
+### Features
+
+- **admin-ui-core:** allow keeping reference to emotion instance ([c58b62c](https://github.com/vtex/onda/commit/c58b62ce2a017ffe476ce4f4c82fc2088fb717d3))
+
 ## [0.1.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.1.2-next.0...@vtex/admin-ui-core@0.1.2) (2021-09-20)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
