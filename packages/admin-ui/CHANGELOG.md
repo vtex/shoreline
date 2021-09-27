@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.113.1-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.113.0...@vtex/admin-ui@0.113.1-next.0) (2021-09-22)
+
+### Bug Fixes
+
+- **sidebar:** fix skeleton unique key warning ([11225a7](https://github.com/vtex/onda/commit/11225a7df7c0d9f17569575143dd24ca3bdbfd1a))
+
+### Features
+
+- **filter-bar:** add function to change the statements ([6adf2e1](https://github.com/vtex/onda/commit/6adf2e1c74ed6ffa97252b7f789d9ed767a28fc7))
+
 # [0.113.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.112.4-next.0...@vtex/admin-ui@0.113.0) (2021-09-20)
 
 ### Features

@@ -4,15 +4,42 @@ path: /flex/
 
 # Flex
 
-Flex is a [Box](/box/) with `display: flex` and it comes with helpful styles shorthand.
+`Flex` represents a flexbox layout.
 
-## Import
+## Usage
 
 ```jsx isStatic
 import { Flex, FlexSpacer } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <Flex>
+      <Flex justify="center" align="center">
+        First
+      </Flex>
+      <Flex justify="center" align="center">
+        Second
+      </Flex>
+      <Flex justify="center" align="center">
+        Third
+      </Flex>
+    </Flex>
+  )
+}
 ```
 
-## Behavior
+## Composition
+
+| Name         | Description                                                                             |
+| ------------ | --------------------------------------------------------------------------------------- |
+| `Flex`       | The main wrapper with `display: flex` and helpful styles shorthand.                     |
+| `FlexSpacer` | Creates an adjustable space that tunes the spacing between child elements within `Flex` |
+
+## Examples
+
+### Styling
+
+Use the `csx` property to [add styles](/guidelines/styling/).
 
 ```jsx
 <Flex csx={{ height: 100 }}>
@@ -24,7 +51,7 @@ import { Flex, FlexSpacer } from '@vtex/admin-ui'
       width: 100,
     }}
   >
-    A
+    Fist
   </Flex>
   <Flex
     justify="center"
@@ -34,7 +61,7 @@ import { Flex, FlexSpacer } from '@vtex/admin-ui'
       width: 150,
     }}
   >
-    B
+    Second
   </Flex>
   <Flex
     justify="center"
@@ -44,21 +71,32 @@ import { Flex, FlexSpacer } from '@vtex/admin-ui'
       flex: 1,
     }}
   >
-    C
+    Third
   </Flex>
 </Flex>
 ```
 
-## Composition
+### Semantic elements
 
-| Name         | Description                                                                                                  | Props             |
-| ------------ | ------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `Flex`       | The main wrapper with `display: flex` and helpful styles shorthand.                                          | `FlexProps`       |
-| `FlexSpacer` | Creates an adjustable, empty space that can be used to tune the spacing between child elements within `Flex` | `FlexSpacerProps` |
+By default, `Flex` renders a div element. You can customize it using the `as` prop.
 
-## Spacer
+```jsx isStatic
+<Flex as="section">
+  ...
+</Flex>
 
-You can combine `Flex` and `FlexSpacer` to create an adjustable, empty space that can be used to tune the spacing between child elements within Flex.
+<Flex as="aside">
+  ...
+</Flex>
+
+<Flex as="footer">
+  ...
+</Flex>
+```
+
+### Spacer
+
+You can combine `Flex` and `FlexSpacer` to adjust spacing.
 
 ```jsx
 <Flex justify="space-around">
@@ -84,23 +122,32 @@ You can combine `Flex` and `FlexSpacer` to create an adjustable, empty space tha
 </Flex>
 ```
 
+## Accessibility
+
+Be sure that you're using the correct semantic element and `aria roles` for the behavior you're implementing. You can use the [WAI-ARIA Practices](https://www.w3.org/TR/wai-aria-practices/) to help you.
+
 ## Props
 
 ### Flex
 
-All props of `as`, which is `div` by default. And also, the props that has the same type of flexbox styles:
+All props of `as` which is `div` by default.
 
-| Name        | Shorthand for    |
-| ----------- | ---------------- |
-| `direction` | `flexDirection`  |
-| `wrap`      | `flexWrap`       |
-| `basis`     | `flexBasis`      |
-| `shrink`    | `flexShrink`     |
-| `grow`      | `flexGrow`       |
-| `align`     | `alignItems`     |
-| `justify`   | `justifyContent` |
-| `order`     | `order`          |
+| Name        | Type                 | Description                           | Required | Default |
+| ----------- | -------------------- | ------------------------------------- | -------- | ------- |
+| `direction` | `CSS.flexDirection`  | Same as `flexDirection` css property  | 🚫       | -       |
+| `wrap`      | `CSS.flexWrap`       | Same as `flexWrap` css property       | 🚫       | -       |
+| `basis`     | `CSS.flexBasis`      | Same as `flexBasis` css property      | 🚫       | -       |
+| `shrink`    | `CSS.flexShrink`     | Same as `flexShrink` css property     | 🚫       | -       |
+| `grow`      | `CSS.flexGrow`       | Same as `flexGrow` css property       | 🚫       | -       |
+| `align`     | `CSS.alignItems`     | Same as `alignItems` css property     | 🚫       | -       |
+| `justify`   | `CSS.justifyContent` | Same as `justifyContent` css property | 🚫       | -       |
+| `order`     | `CSS.order`          | Same as `order` css property          | 🚫       | -       |
+| csx         | `StyleObject`        | Layout styles                         | 🚫       | -       |
 
-## FlexSpacer
+### FlexSpacer
 
 All props of `div` JSX element.
+
+| Name  | Type          | Description   | Required | Default |
+| ----- | ------------- | ------------- | -------- | ------- |
+| `csx` | `StyleObject` | Layout styles | 🚫       | -       |

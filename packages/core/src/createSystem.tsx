@@ -22,7 +22,8 @@ import {
 import { createAtoms, createClsx } from './runtime'
 
 export interface SystemSpec {
-  key: string
+  key?: string
+  emotionInstance?: Emotion
   unstableSystem?: UnstableAdminUI
 }
 
@@ -50,16 +51,29 @@ export type CreateOndaReturn = [
 ]
 
 export function createSystem(spec: SystemSpec): CreateOndaReturn {
-  const { key, unstableSystem } = spec
+  const { key, emotionInstance, unstableSystem } = spec
 
   invariant(
-    isKebab(key),
-    '"key" property must be in kebab-case format on createSystem function'
+    key || emotionInstance,
+    'Either "key" or "emotionInstance" must be provided on createSystem function'
   )
 
-  const emotion = createEmotion({
-    key,
-  })
+  let emotion: Emotion
+
+  if (emotionInstance) {
+    emotion = emotionInstance
+  } else {
+    const stringKey = key as string
+
+    invariant(
+      isKebab(stringKey),
+      '"key" property must be in kebab-case format on createSystem function'
+    )
+
+    emotion = createEmotion({
+      key: stringKey,
+    })
+  }
 
   const clsx = createClsx(emotion)
   const atoms = createAtoms(unstableSystem?.parse ?? parse, clsx)

@@ -1,8 +1,9 @@
 {
-  "name": "@vtex/admin-formik",
-  "version": "0.2.7-next.0",
+  "name": "@vtex/babel-plugin-admin-ui-react",
+  "license": "MIT",
+  "version": "0.0.0",
   "main": "dist/index.js",
-  "module": "dist/admin-formik.esm.js",
+  "module": "dist/babel-plugin-admin-ui-react.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -16,7 +17,7 @@
     "node": ">=10"
   },
   "repository": {
-    "directory": "packages/formik",
+    "directory": "packages/babel-plugin-admin-ui-react",
     "type": "git",
     "url": "git+https://github.com/vtex/onda.git"
   },
@@ -29,17 +30,13 @@
     "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
     "test": "tsdx test"
   },
-  "peerDependencies": {
-    "@vtex/admin-ui": ">=0",
-    "formik": ">=2",
-    "react": ">=16",
-    "react-dom": ">=16"
-  },
+  "peerDependencies": {},
   "devDependencies": {
-    "@vtex/admin-ui": "^0.113.1-next.0",
-    "formik": "^2.2.6",
-    "jest-environment-jsdom-fourteen": "^1.0.1",
-    "react-intl": "^5.8.1",
-    "yup": "^0.32.8"
+    "babel-plugin-tester": "^10.1.0",
+    "babel-test": "^0.2.4",
+    "jest-file-snapshot": "^0.5.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.15.5"
   }
 }
