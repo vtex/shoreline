@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@vtex/babel-plugin-admin-ui-react export const: export const 1`] = `
+
+import { jsx } from '@vtex/admin-ui-react'
+
+export const Box = jsx('div')({})
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { jsx } from '@vtex/admin-ui-react'
+export const Box = Object.assign(jsx('div')({}), {
+  displayName: 'Box',
+})
+
+
+`;
+
+exports[`@vtex/babel-plugin-admin-ui-react has inner scope: has inner scope 1`] = `
+
+import { jsx } from '@vtex/admin-ui-react'
+
+const render = () => {
+  const Box = jsx('div')({})
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { jsx } from '@vtex/admin-ui-react'
+
+const render = () => {
+  const Box = Object.assign(jsx('div')({}), {
+    displayName: 'Box',
+  })
+}
+
+
+`;
+
+exports[`@vtex/babel-plugin-admin-ui-react jsx of another module: jsx of another module 1`] = `
+
+import { jsx } from 'another-module'
+
+const Box = jsx('div')({})
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { jsx } from 'another-module'
+const Box = jsx('div')({})
+
+
+`;
+
+exports[`@vtex/babel-plugin-admin-ui-react multiple calls: multiple calls 1`] = `
+
+import { jsx } from '@vtex/admin-ui-react'
+
+const Box = jsx('div')({})
+const Flex = jsx(Box)({ display: 'flex' })
+const Center = jsx(Flex)({ justifyContent: 'center' })
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { jsx } from '@vtex/admin-ui-react'
+const Box = Object.assign(jsx('div')({}), {
+  displayName: 'Box',
+})
+const Flex = Object.assign(
+  jsx(Box)({
+    display: 'flex',
+  }),
+  {
+    displayName: 'Flex',
+  }
+)
+const Center = Object.assign(
+  jsx(Flex)({
+    justifyContent: 'center',
+  }),
+  {
+    displayName: 'Center',
+  }
+)
+
+
+`;
+
+exports[`@vtex/babel-plugin-admin-ui-react normal: normal 1`] = `
+
+import { jsx } from '@vtex/admin-ui-react'
+
+const Box = jsx('div')({})
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { jsx } from '@vtex/admin-ui-react'
+const Box = Object.assign(jsx('div')({}), {
+  displayName: 'Box',
+})
+
+
+`;
+
+exports[`@vtex/babel-plugin-admin-ui-react shadowing imported jsx: shadowing imported jsx 1`] = `
+
+import { jsx } from '@vtex/admin-ui-react'
+
+const render = () => {
+  const jsx = () => () => {}
+
+  const Box = jsx('div')({})
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { jsx } from '@vtex/admin-ui-react'
+
+const render = () => {
+  const jsx = () => () => {}
+
+  const Box = jsx('div')({})
+}
+
+
+`;
