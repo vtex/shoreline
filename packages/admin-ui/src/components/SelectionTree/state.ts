@@ -50,8 +50,16 @@ export function useSelectionTreeState<T>(
     [items]
   )
 
+  const rootInitialState = useMemo(
+    () =>
+      selected.length && selected.length !== ids.length
+        ? 'indeterminate'
+        : selected.length === ids.length,
+    [selected, ids]
+  )
+
   const { state: rootState, setState: setRootState } = useCheckboxState({
-    state: [],
+    state: rootInitialState,
   })
 
   const { state: selectedItems, setState: setSelectedItems } = useCheckboxState(
