@@ -9,9 +9,22 @@ The toast is used to show alerts on top of an overlay. The toast will close itse
 ## Usage
 
 ```jsx isStatic
-import { ToastProvider, useToast } from '@vtex/admin-ui'
+import { ToastProvider, useToast, createSystem } from '@vtex/admin-ui'
 
-function ToastButton(props) {
+const [SystemProvider] = createSystem({ key: 'app-name' })
+
+// You must always add the ToastProvider in the root of your application
+function Root() {
+  return (
+    <SystemProvider>
+      <ToastProvider>
+        {...}
+      </ToastProvider>
+    </SystemProvider>
+  )
+}
+
+function Example() {
   const showToast = useToast()
 
   return (
@@ -21,16 +34,9 @@ function ToastButton(props) {
           message: 'This is the admin-ui toast!',
         })
       }
-      {...props}
-    />
-  )
-}
-
-function Example() {
-  return (
-    <ToastProvider>
-      <ToastButton>Show Toast</ToastButton>
-    </ToastProvider>
+    >
+      Show Toast
+    </Button>
   )
 }
 ```
