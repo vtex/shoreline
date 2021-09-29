@@ -16,9 +16,9 @@ import {
   ComplementaryColors,
   SemanticColor,
 } from '../components/ColorBlock'
-import PropDetails from '../components/PropDetails'
+
 import { IconPage } from '../components/IconsPage'
-import IconPropDetails from '../components/IconPropDetails'
+
 import Collapsible from '../components/Collapsible'
 import { Code } from '../components/Code'
 
@@ -40,7 +40,6 @@ const { Compiler: renderAst } = new RehypeReact({
         </Text>
       )
     },
-    iconpropdetails: IconPropDetails,
     iconpage: IconPage,
     lightcolors: LightColors,
     darkcolors: DarkColors,
@@ -73,7 +72,6 @@ const { Compiler: renderAst } = new RehypeReact({
     kbd: Kbd,
     blockquote: Blockquote,
     summary: Summary,
-    propdetails: PropDetails,
     collapsible: Collapsible,
     h1: Heading,
     h2: function Render(props) {

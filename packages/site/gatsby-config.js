@@ -28,6 +28,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
@@ -36,6 +42,12 @@ module.exports = {
             options: {
               target: '_blank',
               rel: 'nofollow',
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
             },
           },
           'gatsby-remark-code-modifiers',

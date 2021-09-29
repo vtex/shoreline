@@ -115,9 +115,3 @@ You can use the csx property to handle different styles in both `Columns`, and `
 This component uses a flexbox under the hood. Knowing that it has the same limitations.
 
 ## Props
-
-<propdetails heading="Columns" component="Columns">
-</propdetails>
-
-<propdetails heading="Column" component="ColumnsItem">
-</propdetails>
