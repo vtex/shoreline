@@ -16,7 +16,7 @@
     - /guidelines/theming/
     - /guidelines/responsive-design/
     - /guidelines/styling/
-    - /guidelines/tag/    
+    - /guidelines/tag/
 - section: Typography
   paths:
     - /typography/introduction/
@@ -25,6 +25,9 @@
     - /typography/list/
     - /typography/paragraph/
     - /typography/text/
+- section: Foundations
+  paths:
+    - /foundations/colors/
 - section: Components
   paths:
     - /alert/
