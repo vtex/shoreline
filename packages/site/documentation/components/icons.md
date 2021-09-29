@@ -32,9 +32,6 @@ import { IconName } from '@vtex/admin-ui'
 
 </collapsible>
 
-<iconpropdetails heading="Icon Props" component="Icon"></iconpropdetails>
-<iconpropdetails heading="Icon With Direction Props" component="IconWithDirection"></iconpropdetails>
-
 ## List
 
 <iconpage></iconpage>

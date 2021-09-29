@@ -4,6 +4,8 @@ redirect_from:
   - /
 ---
 
+![Cover](../../src/images/cover.png)
+
 # About Admin UI
 
 Admin UI is a design system created by VTEX to help teams build a high-quality and consistent experience for Admin product.
