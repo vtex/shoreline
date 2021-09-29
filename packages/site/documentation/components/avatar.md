@@ -6,9 +6,21 @@ path: /avatar/
 
 Showing the first letter capitalized in the center, this component creates a user's avatar from a label.
 
-## Behavior
+## Usage
 
-The `Avatar` can be rendered in multiple palettes, this means that the `color` and `background-color` properties change according to its `palette` property value.
+```jsx isStatic
+import { Avatar } from '@vtex/admin-ui'
+
+function Example() {
+  return <Avatar label="Label" />
+}
+```
+
+## Examples
+
+### Palette
+
+The `Avatar` can be rendered in multiple palettes, this means that the `color` and `background-color` properties change according to its `palette` property value. It has `base` value by default.
 
 ```jsx
 <Set>
@@ -18,45 +30,9 @@ The `Avatar` can be rendered in multiple palettes, this means that the `color` a
 </Set>
 ```
 
-## Installation
+## Props
 
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-Learn more in [Get started](/docs/get-started/).
-
-## Variation
-
-### Base
-
-By default, it has a `base` palette.
-
-```jsx
-<Avatar label="base" />
-```
-
-### Primary
-
-Palette with `primary` value.
-
-```jsx
-<Avatar label="primary" palette="primary" />
-```
-
-### Danger
-
-Palette with `danger` value.
-
-```jsx
-<Avatar label="danger" palette="danger" />
-```
-
-## Customization
-
-You can also use the `csx` property to customize any style.
-
-# Props
+It also receive all props of `div` JSX element.
 
 | Name    | Type        | Description                                        | Required  | Default      |
 | ------- | ----------- | -------------------------------------------------- | --------- | ------------ | --- | -------- |
