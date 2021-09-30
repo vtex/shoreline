@@ -39,22 +39,7 @@ exports[`PageHeader should match snapshot 1`] = `
 
 exports[`PageHeader should match snapshot with actions 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-0 *+* {
-  margin-left: 1rem;
-}
-
-.emotion-1 {
+  .emotion-1 {
   background-color: #FFFFFF;
   color: #323845;
   display: -webkit-box;
@@ -81,6 +66,21 @@ exports[`PageHeader should match snapshot with actions 1`] = `
   padding-left: 1rem;
   padding-right: 1rem;
   z-index: 999;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 >*+* {
+  margin-left: 1rem;
 }
 
 <header
