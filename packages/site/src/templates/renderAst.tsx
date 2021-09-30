@@ -54,12 +54,6 @@ const { Compiler: renderAst } = new RehypeReact({
             textAlign: 'justify',
             color: 'dark.primary',
             fontSize: 2,
-            code: {
-              fontFamily:
-                'VTEX Trust, -apple-system, system-ui, BlinkMacSystemFont, sans-serif !important',
-              bg: 'light.secondary',
-              color: 'dark.primary',
-            },
           }}
           {...props}
         />
@@ -188,6 +182,7 @@ const { Compiler: renderAst } = new RehypeReact({
             verticalAlign: 'middle',
             code: {
               color: 'purple',
+              bg: 'transparent',
               fontSize: 1,
             },
           })}

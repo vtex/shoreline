@@ -11,6 +11,8 @@ export default merge(theme, {
     },
     code: {
       fontFamily: `${theme.fonts.mono} !important`,
+      bg: 'light.secondary',
+      color: 'dark.primary',
     },
     'pre > code': {
       fontFamily: `${theme.fonts.mono} !important`,
