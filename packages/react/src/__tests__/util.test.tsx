@@ -2,16 +2,20 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 
 import { jsx } from '../jsx'
-import { isOndaComponent, cleanProps, getStylesheet, getOptions } from '../util'
+import {
+  isAdminUIComponent,
+  cleanProps,
+  getStylesheet,
+  getOptions,
+} from '../util'
 
 describe('utils', () => {
-  it('isOndaComponent', () => {
+  it('isAdminUIComponent', () => {
     function FunctionComponent(props: ComponentPropsWithoutRef<'div'>) {
       return <div {...props} />
     }
 
     const Plain = jsx('div')()
-    const Aliased = jsx.div()
     const Themed = jsx('div')({
       color: 'blue',
     })
@@ -20,11 +24,10 @@ describe('utils', () => {
       bg: 'pink',
     })
 
-    expect(isOndaComponent(FunctionComponent)).toBe(false)
-    expect(isOndaComponent(Plain)).toBe(true)
-    expect(isOndaComponent(Aliased)).toBe(true)
-    expect(isOndaComponent(Themed)).toBe(true)
-    expect(isOndaComponent(Compound)).toBe(true)
+    expect(isAdminUIComponent(FunctionComponent)).toBe(false)
+    expect(isAdminUIComponent(Plain)).toBe(true)
+    expect(isAdminUIComponent(Themed)).toBe(true)
+    expect(isAdminUIComponent(Compound)).toBe(true)
   })
 
   it('getStylesheet', () => {
@@ -42,7 +45,7 @@ describe('utils', () => {
       },
     }
 
-    const Div = jsx.div(stylesheet)
+    const Div = jsx('div')(stylesheet)
     const Compound = jsx(Div)({
       padding: 2,
     })
@@ -55,7 +58,7 @@ describe('utils', () => {
   })
 
   it('getOptions', () => {
-    const Div = jsx.div({}, { options: ['a', 'b'] })
+    const Div = jsx('div')({}, { options: ['a', 'b'] })
     const Compound = jsx(Div)({}, { options: ['c'] })
 
     expect(getOptions(Div)).toEqual(['a', 'b'])

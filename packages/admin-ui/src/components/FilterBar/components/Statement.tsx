@@ -11,7 +11,7 @@ import { StatementMenu } from './StatementMenu'
 /**
  * Statement container
  */
-const _Statement = jsx.div({
+const _Statement = jsx('div')({
   display: 'flex',
   width: '100%',
   justifyContent: 'space-between',

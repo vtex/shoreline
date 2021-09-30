@@ -5,7 +5,7 @@ import { useResponsiveValue } from '@vtex/admin-ui-core'
 
 import { useColumnsContext } from './ColumnsContext'
 
-export const Column = jsx.div(
+export const Column = jsx('div')(
   {},
   {
     options: ['units', 'offset'],

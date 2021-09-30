@@ -1,6 +1,6 @@
 import { jsx } from '@vtex/admin-ui-react'
 
-export const Footer = jsx.div({
+export const Footer = jsx('div')({
   display: 'flex',
   paddingY: 2,
   paddingX: 4,

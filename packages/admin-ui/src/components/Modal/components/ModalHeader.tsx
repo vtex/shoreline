@@ -22,7 +22,7 @@ import { ModalButton } from './ModalButton'
  * </Modal>
  * ```
  */
-export const ModalHeader = jsx.header(
+export const ModalHeader = jsx('header')(
   {
     display: 'flex',
     justifyContent: 'space-between',

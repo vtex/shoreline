@@ -21,7 +21,7 @@ export function Test() {
 }
 
 export function Plain() {
-  const Div = jsx.div()
+  const Div = jsx('div')()
 
   return (
     <Fragment>
@@ -86,7 +86,7 @@ export function WithContext() {
     forward: string
   }
 
-  const Provider = jsx.div(
+  const Provider = jsx('div')(
     {},
     {
       useOptions(o: ProviderOptions, { children }) {
@@ -100,13 +100,14 @@ export function WithContext() {
     }
   )
 
-  const Consumer = jsx.p(
+  const Consumer = jsx('p')(
     {},
     {
-      useOptions: () => {
+      useOptions: (_, p) => {
         const content = useContext(Context)
 
         return {
+          ...p,
           children: <>{content}</>,
         }
       },
@@ -123,7 +124,7 @@ export function WithContext() {
 export function ForwardRef() {
   const ref = useRef<HTMLInputElement>(null)
 
-  const Input = jsx.input({
+  const Input = jsx('input')({
     border: '1px solid #cecece',
     paddingX: 3,
     paddingY: 2,
@@ -145,7 +146,7 @@ export function ForwardRef() {
 export function DeepForwardRef() {
   const ref = useRef<HTMLInputElement>(null)
 
-  const BaseInput = jsx.input({
+  const BaseInput = jsx('input')({
     border: '1px solid #cecece',
     paddingX: 3,
     paddingY: 2,
@@ -167,7 +168,7 @@ export function DeepForwardRef() {
 }
 
 export function Themed() {
-  const Div = jsx.div({
+  const Div = jsx('div')({
     size: 100,
   })
 
@@ -197,7 +198,7 @@ export function Themed() {
 }
 
 export function Extend() {
-  const Div = jsx.div({
+  const Div = jsx('div')({
     size: 100,
     marginY: 1,
   })
@@ -224,7 +225,7 @@ export function Extend() {
 }
 
 export function DoubleExtend() {
-  const Div = jsx.div({
+  const Div = jsx('div')({
     size: 100,
   })
 
@@ -255,7 +256,7 @@ export function DoubleExtend() {
 }
 
 export function ButtonSeries() {
-  const Button = jsx.button({
+  const Button = jsx('button')({
     height: 32,
     cursor: 'pointer',
     bg: 'transparent',
@@ -302,7 +303,7 @@ export function ButtonSeries() {
 }
 
 export function BooleanVariants() {
-  const Div = jsx.div({
+  const Div = jsx('div')({
     size: 100,
     bg: 'blue',
     margin: 2,
@@ -378,7 +379,7 @@ export function ButtonVariants() {
 }
 
 export function SyncVariants() {
-  const Button = jsx.button(
+  const Button = jsx('button')(
     {
       cursor: 'pointer',
       margin: 1,
@@ -707,7 +708,7 @@ export function UseOptions() {
 }
 
 export function CompoundComponents() {
-  const _Nav = jsx.nav({
+  const _Nav = jsx('nav')({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
@@ -716,7 +717,7 @@ export function CompoundComponents() {
     bg: 'sidebar.light',
   })
 
-  const Button = jsx.button({
+  const Button = jsx('button')({
     bg: 'blue',
     color: 'light.primary',
     cursor: 'pointer',

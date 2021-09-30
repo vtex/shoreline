@@ -2,7 +2,7 @@ import { jsx } from '@vtex/admin-ui-react'
 
 import type { DataGridColumn } from '../typings'
 
-export const Cell = jsx.td(
+export const Cell = jsx('td')(
   {
     flex: 1,
     borderBottomWidth: 1,

@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from './setup'
 import { tag, jsx } from '../index'
 
-describe('onda elements', () => {
+describe('AdminUI elements', () => {
   it('should create a callable element', () => {
     const Div = tag('div')
     const { getByText } = render(<Div>Testing</Div>)

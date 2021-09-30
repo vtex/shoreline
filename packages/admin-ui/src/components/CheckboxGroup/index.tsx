@@ -4,7 +4,7 @@ import { jsx } from '@vtex/admin-ui-react'
 
 import { Label } from '../Label'
 
-export const Group = jsx.div(
+export const Group = jsx('div')(
   {
     fontSettings: 'regular',
     lh: 'highlight',

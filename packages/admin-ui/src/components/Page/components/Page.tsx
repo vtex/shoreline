@@ -8,7 +8,7 @@ import { jsx } from '@vtex/admin-ui-react'
  *  <PageContent />
  * </Page>
  */
-export const Page = jsx.div({
+export const Page = jsx('div')({
   display: 'block',
   width: '100%',
 })

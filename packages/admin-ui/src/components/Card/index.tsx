@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 
-export const Card = jsx.div({
+export const Card = jsx('div')({
   bg: 'light.primary',
   color: 'dark.primary',
   border: 'default',

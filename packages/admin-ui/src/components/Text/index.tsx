@@ -1,7 +1,7 @@
 import { jsx } from '@vtex/admin-ui-react'
 import type { ComponentPropsWithRef } from 'react'
 
-export const Text = jsx.span({
+export const Text = jsx('span')({
   variants: {
     variant: {
       headline: {

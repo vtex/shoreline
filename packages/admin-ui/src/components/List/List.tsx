@@ -3,7 +3,7 @@ import { jsx } from '@vtex/admin-ui-react'
 
 import { ListItem } from './ListItem'
 
-const _List = jsx.ul({
+const _List = jsx('ul')({
   text: 'body',
   listStylePosition: 'inside',
   '> ul, ol': {

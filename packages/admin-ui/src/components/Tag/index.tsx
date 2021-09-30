@@ -17,7 +17,7 @@ import { Button } from '../Button'
  *   size="small"
  * />
  */
-export const Tag = jsx.div(
+export const Tag = jsx('div')(
   {
     display: 'inline-flex',
     alignItems: 'center',

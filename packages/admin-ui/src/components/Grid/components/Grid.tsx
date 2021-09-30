@@ -13,7 +13,7 @@ const propertyMap = {
   templateColumns: 'gridTemplateColumns',
 }
 
-export const Grid = jsx.div(
+export const Grid = jsx('div')(
   {
     display: 'grid',
   },
