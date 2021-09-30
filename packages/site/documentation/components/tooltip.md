@@ -4,7 +4,7 @@ path: /tooltip/
 
 # Tooltip
 
-Tooltips are a small informative popup that appear when an item is being, hovered, focused or touched.
+Tooltips are a small informative popup that appears when an item is being, hovered, focused or touched.
 
 ## Usage
 
@@ -55,7 +55,7 @@ You can also pass a custom component to the `label` property.
 
 ### Initially visible
 
-You can use the `visible` property to set the initial visibility.
+You can use the `visible` property to set the initial visibility of the tooltip.
 
 ```jsx
 <Tooltip label="Tooltip Label" visible placement="right">
@@ -75,7 +75,7 @@ You can use the `placement` property to change the position that the Tooltip pop
 
 ### Custom Component
 
-When using the Tooltip with a custom component, you must provide a `ref` for the Popup to work. You can easily do this using the `React.forwardRef`.
+When using the Tooltip with a custom component, you must provide a `ref` for the Popup to work. You can easily do this using the [React.forwardRef](https://reactjs.org/docs/forwarding-refs.html).
 
 ```jsx isStatic
 import React, { Ref, forwardRef } from '@vtex/admin-ui'
