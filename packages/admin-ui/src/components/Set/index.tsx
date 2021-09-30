@@ -6,7 +6,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 /**
  * Component used to display a set of components that are spaced evenly.
  */
-export const Set = jsx.div(
+export const Set = jsx('div')(
   {
     display: 'flex',
   },

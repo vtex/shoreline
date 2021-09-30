@@ -8,7 +8,7 @@ import { Flex } from '../../Flex'
 import { Button } from '../../Button'
 import { useCollapsibleContext } from '../context'
 
-export const CollapsibleHeader = jsx.header(
+export const CollapsibleHeader = jsx('header')(
   {
     padding: 6,
     paddingLeft: 2,

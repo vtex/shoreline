@@ -11,7 +11,7 @@ import { DataViewStatus } from './DataViewStatus'
  *
  * <DataView state={view} />
  */
-export const DataView = jsx.div(
+export const DataView = jsx('div')(
   {
     paddingY: '4',
     overflow: 'auto',

@@ -11,7 +11,7 @@ export interface RowOptions {
   item: Record<string, any>
 }
 
-const Row = jsx.tr(
+const Row = jsx('tr')(
   {
     display: 'table-row',
     bg: 'light.primary',
@@ -82,7 +82,7 @@ type RenderParams = {
 
 type RenderFunction = (params: RenderParams) => ReactNode
 
-const _Body = jsx.tbody(
+const _Body = jsx('tbody')(
   {
     display: 'table-row-group',
   },

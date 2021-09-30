@@ -24,7 +24,7 @@ import { Skeleton } from '../Skeleton'
  * </Topbar>
  * ```
  */
-export const Topbar = jsx.div(
+export const Topbar = jsx('div')(
   {
     display: 'grid',
     gridTemplateAreas: '"start center end"',
@@ -68,7 +68,7 @@ function TopbarSkeleton() {
 /**
  * Topbar content positioned in the start.
  */
-export const TopbarStart = jsx.div({
+export const TopbarStart = jsx('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-start',
@@ -79,7 +79,7 @@ export const TopbarStart = jsx.div({
 /**
  * Topbar content positioned in the center.
  */
-export const TopbarCenter = jsx.div({
+export const TopbarCenter = jsx('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -90,7 +90,7 @@ export const TopbarCenter = jsx.div({
 /**
  * Topbar content positioned in the end.
  */
-export const TopbarEnd = jsx.div({
+export const TopbarEnd = jsx('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',

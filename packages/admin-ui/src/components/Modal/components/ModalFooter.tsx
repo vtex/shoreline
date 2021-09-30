@@ -17,7 +17,7 @@ import { useModalContext } from './ModalContext'
  * </Modal>
  * ```
  */
-export const ModalFooter = jsx.footer(
+export const ModalFooter = jsx('footer')(
   {
     borderTopWidth: '1px',
     display: 'flex',

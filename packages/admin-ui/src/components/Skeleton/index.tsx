@@ -17,7 +17,7 @@ import type { ComponentPropsWithRef } from 'react'
  * }
  *
  */
-export const Skeleton = jsx.div(
+export const Skeleton = jsx('div')(
   {
     display: 'inline-block',
     width: 'full',

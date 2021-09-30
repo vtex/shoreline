@@ -5,32 +5,31 @@ import * as ReactIs from 'react-is'
 
 import type { __element } from './symbols'
 import { __options, __stylesheet } from './symbols'
+
 import type { VariantsCall, CsxCall } from './types'
 import { useOptionsIdentity, getStylesheet, getOptions } from './util'
 import type { Stylesheet, Sync } from './useStylesheet'
 import { useStylesheet } from './useStylesheet'
-import type { DOMElements } from './domElements'
-import { domElements } from './domElements'
 
 /**
  * Base jsx function
- * Use it to create onda-powered components
+ * Use it to create admin-ui-powered components
  * @template T Component/Element type, 'div' by default
  * @example
  * // with jsx tag
- * _jsx('div')()
+ * jsx('div')()
  *
  * // with component
  * import { Role } from 'reakit'
  *
- * _jsx(Role)()
+ * jsx(Role)()
  *
  * // composition
- * const A = _jsx('div')()
- * const B = _jsx(A)()
+ * const A = jsx('div')()
+ * const B = jsx(A)()
  *
  * // polymorphism
- * const Button = _jsx('button')()
+ * const Button = jsx('button')()
  *
  * <Button as="a" href="#">Button Link</Button>
  *
@@ -40,7 +39,7 @@ import { domElements } from './domElements'
  * @todo inherit types
  * @todo handle generic components
  */
-export function _jsx<T extends React.ElementType = 'div'>(type: T) {
+export function jsx<T extends React.ElementType = 'div'>(type: T) {
   const parentStylesheet = getStylesheet(type) ?? {}
   const parentOptions = getOptions(type) ?? []
 
@@ -58,12 +57,12 @@ export function _jsx<T extends React.ElementType = 'div'>(type: T) {
       memoize: false,
     }
   ): TT extends string
-    ? OndaJsxElement<TT, Options, Variants>
+    ? AdminUIJsxElement<TT, Options, Variants>
     : TT extends {
         [__element]: infer DeepTT
       }
-    ? OndaJsxElement<DeepTT, Options, Variants>
-    : OndaJsxComponent<TT, Options, Variants> {
+    ? AdminUIJsxElement<DeepTT, Options, Variants>
+    : AdminUIJsxComponent<TT, Options, Variants> {
     const {
       sync = [],
       useOptions = useOptionsIdentity,
@@ -119,51 +118,6 @@ export function _jsx<T extends React.ElementType = 'div'>(type: T) {
   }
 }
 
-/**
- * @example
- * // with elements
- * const Div = jsx.div({
- *  color: 'blue'
- * })
- *
- * <Div>Blue colored div</Div>
- *
- * // with components
- * import { Role } from 'reakit' // or any custom library
- *
- * const Box = jsx(Role)({
- *  color: 'blue'
- * })
- *
- * <Box>Blue colored box</Box>
- */
-const jsx = _jsx as typeof _jsx &
-  {
-    [key in DOMElements]: {
-      <
-        TT extends key,
-        Options extends {},
-        Variants extends {},
-        InferVariants extends Variants
-      >(
-        styleSheet?: Stylesheet<Variants>,
-        configuration?: JsxConfiguration<TT, Options, InferVariants>
-      ): TT extends string
-        ? OndaJsxElement<TT, Options, Variants>
-        : TT extends {
-            [__element]: infer DeepTT
-          }
-        ? OndaJsxElement<DeepTT, Options, Variants>
-        : OndaJsxComponent<TT, Options, Variants>
-    }
-  }
-
-domElements.forEach((domElement) => {
-  jsx[domElement] = _jsx(domElement)
-})
-
-export { jsx }
-
 function forwardRef<T extends React.ForwardRefRenderFunction<any, any>>(
   component: T
 ) {
@@ -181,7 +135,7 @@ function memo<T extends React.ComponentType<any>>(
 }
 
 /**
- * Onda JSX Elements
+ * AdminUI JSX Elements
  * @memberof types
  * @template Type Element type
  * @template Options Extra options
@@ -191,8 +145,11 @@ function memo<T extends React.ComponentType<any>>(
  * @todo support variant types inheritance
  * @todo suppoer option types inheritance
  */
-export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
-  extends React.ForwardRefExoticComponent<
+export interface AdminUIJsxElement<
+  Type,
+  Options extends {},
+  Variants extends {}
+> extends React.ForwardRefExoticComponent<
     Omit<
       React.ComponentPropsWithRef<ComponentInfer<Type>>,
       keyof Variants | keyof Options | 'as'
@@ -203,7 +160,7 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
   /**
    * Prioritize elements over components
    * @example
-   * const Button = jsx.button()
+   * const Button = jsx('button')()
    *
    * <Button href="" /> // 🚨 type error
    * <Button as="a" href="" /> // ✅ all good
@@ -223,7 +180,7 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
   /**
    * Handle a component type
    * @example
-   * const Button = jsx.button()
+   * const Button = jsx('button')()
    *
    * <Button to="" /> // 🚨 type error
    * <Button as={GatsbyLink} to="" /> // ✅ all good
@@ -242,7 +199,7 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
   ): JSX.Element
   /**
    * Component name displayed on console
-   * @default 'OndaComponent'
+   * @default 'AdminUIComponent'
    */
   displayName?: string
   /**
@@ -266,7 +223,7 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
 }
 
 /**
- * Onda JSX Components
+ * AdminUI JSX Components
  * @memberof types
  * @template Type Component type
  * @template Options Extra options
@@ -276,8 +233,11 @@ export interface OndaJsxElement<Type, Options extends {}, Variants extends {}>
  * @todo support variant types inheritance
  * @todo suppoer option types inheritance
  */
-export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
-  extends React.ForwardRefExoticComponent<
+export interface AdminUIJsxComponent<
+  Type,
+  Options extends {},
+  Variants extends {}
+> extends React.ForwardRefExoticComponent<
     Options &
       Omit<
         React.ComponentPropsWithRef<ComponentInfer<Type>>,
@@ -289,7 +249,7 @@ export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
   /**
    * Prioritize components over elements
    * @example
-   * const Button = jsx.button()
+   * const Button = jsx('button')()
    *
    * <Button to="" /> // 🚨 type error
    * <Button as={GatsbyLink} to="" /> // ✅ all good
@@ -309,7 +269,7 @@ export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
   /**
    * Handle a component type
    * @example
-   * const Button = jsx.button()
+   * const Button = jsx('button')()
    *
    * <Button href="" /> // 🚨 type error
    * <Button as="a" href="" /> // ✅ all good
@@ -328,7 +288,7 @@ export interface OndaJsxComponent<Type, Options extends {}, Variants extends {}>
   ): JSX.Element
   /**
    * Component name displayed on console
-   * @default 'OndaComponent'
+   * @default 'AdminUIComponent'
    */
   displayName?: string
   /**
@@ -363,7 +323,7 @@ export interface JsxConfiguration<
       CsxCall &
       VariantsCall<Variants>,
     system: ReturnType<typeof useSystem>
-  ) => React.ComponentPropsWithoutRef<Type>
+  ) => React.ComponentPropsWithoutRef<Type> & VariantsCall<Variants>
   sync?: Array<Sync<Variants>>
   memoize?: boolean
 }

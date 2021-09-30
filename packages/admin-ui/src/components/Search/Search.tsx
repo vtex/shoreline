@@ -23,7 +23,7 @@ import { Spinner } from '../Spinner'
  *
  * @link [For accessibility guidelines](https://admin-ui-docs.vercel.app/form/search/#accessibility)
  */
-export const Search = jsx.form(
+export const Search = jsx('form')(
   {
     position: 'relative',
     marginX: '1px',

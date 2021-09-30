@@ -1,5 +1,6 @@
 export * from '@vtex/admin-ui-core'
 export * from '@vtex/admin-ui-icons'
+export * from '@vtex/admin-ui-react'
 export * from '@vtex/admin-illustrations'
 export * from '@vtex/admin-ui-hooks'
 export * from '@vtex/admin-ui-util'
@@ -45,7 +46,6 @@ export * from './components/Topbar'
 export * from './components/Toolbar'
 export * from './components/Pagination'
 export * from './components/FilterBar'
-export { tag, OndaElement, ElementPropsWithAs } from '@vtex/admin-ui-react'
 export {
   isMobile,
   isSafari,

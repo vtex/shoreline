@@ -1,6 +1,6 @@
 import { jsx } from '@vtex/admin-ui-react'
 
-export const ToastContainer = jsx.div({
+export const ToastContainer = jsx('div')({
   position: 'relative',
   display: 'flex',
   flexDirection: 'row',

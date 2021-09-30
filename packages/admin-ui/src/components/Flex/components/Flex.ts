@@ -4,7 +4,7 @@ import type { ResponsiveValue } from '@vtex/admin-ui-core'
 import { pick, renameKeys } from '@vtex/admin-ui-util'
 import { jsx } from '@vtex/admin-ui-react'
 
-export const Flex = jsx.div(
+export const Flex = jsx('div')(
   {
     display: 'flex',
   },

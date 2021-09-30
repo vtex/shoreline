@@ -12,7 +12,7 @@ import { jsx, tag } from '@vtex/admin-ui-react'
  * <Avatar label="label" palette="danger" />
  * ```
  */
-export const Avatar = jsx.div(
+export const Avatar = jsx('div')(
   {
     display: 'flex',
     alignItems: 'center',

@@ -2,7 +2,7 @@ export type UnionStringArray<T extends Readonly<string[]>> = T[number]
 
 /**
  * All possible dom elements
- * This is mostly for `jsx.<element>` syntax.
+ * This is mostly for `jsx(<element>)` syntax.
  */
 export const domElements = [
   'a',

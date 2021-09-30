@@ -3,7 +3,7 @@ import React from 'react'
 import type { Colors } from '@vtex/admin-ui-core'
 import { jsx, tag } from '@vtex/admin-ui-react'
 
-export const Spinner = jsx.svg(
+export const Spinner = jsx('svg')(
   {},
   {
     options: ['color', 'size'],
