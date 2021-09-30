@@ -4,11 +4,13 @@ path: /text-area/
 
 # TextArea
 
-Text Area is the space where longer text is inputted by users.
+Text Area is the space where longer text is inputted by users. It renders a `<textarea>` by default.
 
-## Behavior
+## Usage
 
-```jsx
+```jsx isStatic
+import { TextArea } from '@vtex/admin-ui'
+
 function Example() {
   const [value, setValue] = React.useState('')
 
@@ -29,17 +31,7 @@ function Example() {
 }
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { TextArea } from '@vtex/admin-ui'
-```
-
-## Variations
+## Examples
 
 ### Helpers
 
@@ -68,7 +60,7 @@ function Example() {
 
 ### Disabled
 
-It means that the user will not be able to add any input value to the `TextArea`. To use this variation, the `disabled` property should have a true value.
+You can disable the input by defining the `disabled` property.
 
 ```jsx
 function Example() {
@@ -94,7 +86,7 @@ function Example() {
 
 ### Invalid
 
-It means that the user added an invalid input value to the `TextArea`. To use this variation, the `error` property should have a `true` value defined. You should, also define the `errorMessage` property, so the user can know what's the error is about. The error message will appear in the same position as the `helperText`.
+You can indicate to user that they input a invalid value by defining the `error` property. You should, also define the `errorMessage` property, so the user can know what's the error is about.
 
 ```jsx
 function Example() {
@@ -124,42 +116,23 @@ function Example() {
 }
 ```
 
-## State
+## Accessibility
 
-You can use the properties `value`, `onChange` to handling whether the value has changed. You also can control the `error` property to indicate if it's a valid input or not. Check the example below.
+Be sure that you're using the correct semantic element and `aria roles` for the behavior you're implementing. You can use the [WAI-ARIA Practices](https://www.w3.org/TR/wai-aria-practices/) to help you.
 
-```jsx
-function Example() {
-  const [value, setValue] = React.useState('')
-  const [error, setError] = React.useState(true)
+## Props
 
-  const invalidInput = 'Invalid Value'
+It also receives all props of `textarea` JSX element.
 
-  return (
-    <Box csx={{ width: 300 }}>
-      <TextArea
-        value={value}
-        onChange={(e) => {
-          const newValue = e.target.value
-          setValue(newValue)
-          setError(newValue === invalidInput ? true : false)
-        }}
-        error={error}
-        id="state-textarea"
-        label="State"
-        helperText="Helper Text"
-        errorMessage="Error Message"
-        charLimit={120}
-      />
-    </Box>
-  )
-}
-```
-
-## Customization
-
-You can use the `csx` property to customize any style.
-
-# Props
-
-<proptypes heading="TextArea" component="TextArea" />
+| Name         | Type                                          | Description                                  | Required | Default |
+| ------------ | --------------------------------------------- | -------------------------------------------- | -------- | ------- |
+| label        | `string`                                      | Label text                                   | ✅       | -       |
+| id           | `string`                                      | Unique id of the component                   | ✅       | -       |
+| name         | `string`                                      | Name of the textarea element.                | 🚫       | -       |
+| helperText   | `string`                                      | TextArea helper text                         | 🚫       | -       |
+| charLimit    | `number`                                      | TextArea char limit                          | 🚫       | -       |
+| errorMessage | `string`                                      | TextArea error message                       | 🚫       | -       |
+| onChange     | `react.FormEventHandler<HTMLTextareaElement>` | Handler called when the inputs value changes | 🚫       | -       |
+| disabled     | `boolean`                                     | Whether the textarea is disabled or not      | 🚫       | `false` |
+| error        | `boolean`                                     | TextArea error state                         | 🚫       | `false` |
+| csx          | `StyleProp`                                   | Defines component styles                     | 🚫       | `{}`    |
