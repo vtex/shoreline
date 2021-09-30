@@ -116,10 +116,6 @@ function Example() {
 }
 ```
 
-## Accessibility
-
-Be sure that you're using the correct semantic element and `aria roles` for the behavior you're implementing. You can use the [WAI-ARIA Practices](https://www.w3.org/TR/wai-aria-practices/) to help you.
-
 ## Props
 
 It also receives all props of `textarea` JSX element.

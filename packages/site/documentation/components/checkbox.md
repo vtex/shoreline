@@ -4,7 +4,7 @@ path: /checkbox/
 
 # Checkbox
 
-Checkboxes are tools that customize configurations. This control has three states: unselected, selected, and undetermined. They reflect the selection of an option and its execution usually requires another control, or confirmation. By default, it renders the native `<input type="checkbox">`.
+Checkboxes are tools that customize configurations. This control has three states: unselected, selected, and undetermined. They reflect the selection of an option and its execution usually requires another control, or confirmation. By default, it renders the native `<input type="checkbox">`. It implements [WAI-ARIA Checkbox pattern](https://www.w3.org/TR/wai-aria-practices/#checkbox).
 
 ## Usage
 
@@ -162,10 +162,6 @@ function Example() {
 ```
 
 ## Accessibility
-
-Be sure that you're using the correct semantic element and aria roles for the behavior you're implementing. You can use the [WAI-ARIA Checkbox pattern](https://www.w3.org/TR/wai-aria-practices/#checkbox) to help you.
-
-We already implement the following practices by default:
 
 - Checkbox has role `checkbox`.
 - When checked, Checkbox has `aria-checked` set to `true`.
