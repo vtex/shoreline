@@ -6,9 +6,13 @@ path: /foundations/colors/
 
 Colors are used to reflect a product's style with consistency across all components used on the Admin UI. Each color has some specific function when applied to an element on the screen. The following concepts are part of our efforts to make the user interface harmonious and consistent. We are committed to complying with the [Web Content Accessibility Guidelines AA standard contrast ratios](https://www.w3.org/TR/WCAG/).
 
+Todas as nossas cores existem no formato de tokens no Admin UI, para saber mais sobre como utilizar cada token de cor utilize nossa documentação sobre Design Tokens.
+
 ## Primary Color
 
-We use **blue.40** for primary actions (which will move the user forward in the flow) like buttons, text links, etc., and interactive elements like element selection, drag states, etc. Elements that are not actionable or interacting must not use this color.
+We use blue.40 for primary actions (which will move the user forward in the flow) like buttons, text links, etc., and interactive elements like element selection, drag states, etc. Elements that are not actionable or interacting must not use this color.
+
+![Blue Palette](../../src/images/blue-palette.png)
 
 ### Do
 
@@ -16,7 +20,7 @@ We use **blue.40** for primary actions (which will move the user forward in the 
 
 ![Blue - Do](../../src/images/do-blue-actions-interactions.png)
 
-### Don'ts
+### Dont's
 
 - Do not use blue.40 for highlighting information. Because using this color for actions may confuse when used on something like highlighting some information or text.
 
@@ -30,43 +34,77 @@ Semantic colors help users identify status, feedback, and informational elements
 
 ### Green
 
-- Use to represent confirmation actions, success messages, and status (completed, paid, added, etc.).
+- Green color is mainly used for backgrounds in success messages, states (completed, paid, added, etc.), and progress.
+- Do not use green color for next buttons.
+
+![Green Palette](../../src/images/green-palette.png)
 
 ### Orange:
 
-- Use to represent warning actions, warning messages, and status.
+- Orange color is mainly used for backgrounds in warning messages, actions and in states.
+- Use orange.50 for text on white backgrounds.
+
+![Orange Palette](../../src/images/orange-palette.png)
 
 ### Red
 
-- Use to represent remove, delete, error messages, and status (canceled, failed) actions.
+- Red color is mainly used for backgrounds in error messages, remove, delete and in states (canceled, failed) actions.
+- Use red for destructive buttons.
+
+![Red Palette](../../src/images/red-palette.png)
 
 ### Blue Light
 
-- Use to represent information feedbacks.
+- Blue Light color is mainly used for backgrounds in information messages, and status.
+- Use Blue Light color for highlighting information such as text or numbers.
+- Use Blue Light color for line charts.
+
+![Blue Light Palette](../../src/images/blue-light-palette.png)
 
 ## Foreground
 
-We have two color options for text on the Admin UI:
+- Use black color for main text.
+- Use grey.50 for secondary texts, which have a lower of importance than main texts, such as captions, subtitles, descriptions, etc.
+- Use grey.50 for icons colors.
 
-- black: Use for main text.
-- grey.50: Use for secondary texts, which have a lower weight of importance than main texts, such as captions, subtitles, descriptions, etc.
+![Grey Palette](../../src/images/grey-palette.png)
 
 ## Background
 
-Nós usamos duas cores principais para background:
+We have two main color options for background on the Admin UI:
 
-- white: Utilize como fundo principal nas interfaces do Admin.
-- grey10: Utilize para destacar o fundo em algum cenário específico como o caso sidebar.
+### White:
 
-Quatro cores para criar backgrounds semânticos para sinalizar status e/ou alerts:
+- Use white color for main pages background.
 
-blue-light.05: usado para alertas que representem feedbacks de informação.
-green,05: usado para status e/ou alertas que representem feedbacks de sucessos.
-red,05: usado paraa status e/ou alertas que representem feedbacks de erros.
-yellow.05 : usado para status e/ou alertas que representem feedbacks de atenção.
+### Grey:
 
-E demais cores para backgrounds
+- Use grey.10 color for highlighting background in specific scenarios like a sidebar component.
+- Do not use grey.10 as a border color for inputs and divisions.
 
 ## Border
 
-## Extended pallete
+- Use grey.30 color for the main border (cards, lines, dividers, etc.)
+- Use blue.30 for focus navigaiton.
+
+## Extended palette
+
+Use extended palette colors for tag component (except pink palette).
+
+### Purple
+
+![Purple Palette](../../src/images/purple-palette.png)
+
+### Cyan
+
+![Cyan Palette](../../src/images/cyan-palette.png)
+
+### Teal
+
+![Teal Palette](../../src/images/teal-palette.png)
+
+### Pink
+
+- The pink color palette represents the colors corresponding to VTEX branding. These colors should only be used in specific cases such as the VTEX logo, illustrations, etc.
+
+![Pink Palette](../../src/images/pink-palette.png)

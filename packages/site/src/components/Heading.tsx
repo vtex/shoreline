@@ -8,10 +8,10 @@ type Props = HeadingProps & { as?: HeadingTags }
 function Heading(props: Props) {
   const { children, as = 'h1', ...headingProps } = props
   const fontSize = {
-    h1: '2.0em',
-    h2: '1.5em',
-    h3: '1.25em',
-    h4: '1.15em',
+    h1: '32px',
+    h2: '24px',
+    h3: '18px',
+    h4: '16px',
     h5: '1.1em',
     h6: '1em',
   }[as]
@@ -30,7 +30,8 @@ function Heading(props: Props) {
       csx={{
         fontSize,
         position: 'relative',
-        color: 'dark.primary',
+        color: '#000000',
+        fontSettings: 'medium',
         marginTop,
         '> a > *': {
           visibility: 'hidden',

@@ -14,9 +14,10 @@ export function PageHeader(props: React.PropsWithChildren<{}>) {
     >
       <tag.h1
         csx={{
-          fontSize: '2.2rem',
+          fontSize: '40px',
           position: 'relative',
-          color: 'dark.primary',
+          color: '#000000',
+          fontSettings: 'medium',
           '> a > *': {
             visibility: 'hidden',
             position: 'absolute',
