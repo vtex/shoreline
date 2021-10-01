@@ -4,7 +4,7 @@ path: /tooltip/
 
 # Tooltip
 
-Tooltips are a small informative popup that appears when an item is being, hovered, focused or touched.
+Tooltips are a small informative popup that appears when an item is being, hovered, focused or touched. It implements [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
 
 ## Usage
 
@@ -99,8 +99,6 @@ function Example() {
 ```
 
 ## Accessibility
-
-Be sure that you're using the correct semantic element and `aria roles` for the behavior you're implementing. You can use the [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip) to help you.
 
 - `Tooltip` has `role="tooltip"`.
 - Tooltip's children has `aria-describedby` referring to the `Tooltip`.

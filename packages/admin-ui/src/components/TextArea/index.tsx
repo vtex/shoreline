@@ -78,6 +78,7 @@ export const TextArea = forwardRef(function Textarea(
           ':disabled': {
             bg: 'light.secondary',
             color: 'mid.primary',
+            borderColor: 'mid.secondary',
           },
           // Label styles
           ':focus + label': {

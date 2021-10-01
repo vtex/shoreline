@@ -93,6 +93,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 .emotion-0:disabled {
   background-color: #F4F6FB;
   color: #898F9E;
+  border-color: #C4C5CA;
 }
 
 .emotion-0:focus+label {
@@ -228,6 +229,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 .emotion-0:disabled {
   background-color: #F4F6FB;
   color: #898F9E;
+  border-color: #C4C5CA;
 }
 
 .emotion-0:focus+label {
@@ -339,6 +341,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 .emotion-0:disabled {
   background-color: #F4F6FB;
   color: #898F9E;
+  border-color: #C4C5CA;
 }
 
 .emotion-0:focus+label {
@@ -519,6 +522,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 .emotion-0:disabled {
   background-color: #F4F6FB;
   color: #898F9E;
+  border-color: #C4C5CA;
 }
 
 .emotion-0:focus+label {
@@ -642,6 +646,7 @@ exports[`TextArea tests should match snapshot 1`] = `
 .emotion-0:disabled {
   background-color: #F4F6FB;
   color: #898F9E;
+  border-color: #C4C5CA;
 }
 
 .emotion-0:focus+label {
