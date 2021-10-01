@@ -86,7 +86,7 @@ function Example() {
 
 ### Invalid
 
-You can indicate to user that they input a invalid value by defining the `error` property. You should, also define the `errorMessage` property, so the user can know what's the error is about.
+You can indicate to users that they had input an invalid value by defining the `error` property. You should, also define the `errorMessage` property, so the user can know what's the error is about.
 
 ```jsx
 function Example() {
