@@ -1,82 +1,197 @@
-import { darken, lighten } from 'polished'
+const blue = {
+  blue05: 'hsla(222, 62%, 96%, 1)',
+  blue10: 'hsla(222, 62%, 92%, 1)',
+  blue20: 'hsla(222, 64%, 84%, 1)',
+  blue30: 'hsla(222, 63%, 72%, 1)',
+  blue40: 'hsla(222, 63%, 43%, 1)',
+  blue50: 'hsla(222, 63%, 34%, 1)',
+  blue60: 'hsla(222, 63%, 25%, 1)',
+}
 
-const semanticColors = {
-  blue: '#2953B2',
-  blueSecondary: '#DAE3F5',
-  red: '#CB4242',
-  redSecondary: '#FEDADA',
-  yellow: '#FFBA52',
-  yellowSecondary: '#F6E0BA',
-  green: '#368369',
-  greenSecondary: '#CEE8DE',
-  black: '#323845',
-  white: '#FFFFFF',
+const lightBlue = {
+  lightBlue05: 'hsla(203, 62%, 96%, 1)',
+  lightBlue10: 'hsla(206, 61%, 92%, 1)',
+  lightBlue20: 'hsla(205, 63%, 84%, 1)',
+  lightBlue30: 'hsla(206, 63%, 72%, 1)',
+  lightBlue40: 'hsla(206, 63%, 44%, 1)',
+  lightBlue50: 'hsla(206, 63%, 35%, 1)',
+  lightBlue60: 'hsla(207, 64%, 22%, 1)',
+}
+
+const red = {
+  red05: 'hsla(0, 56%, 96%, 1)',
+  red10: 'hsla(0, 60%, 93%, 1)',
+  red20: 'hsla(0, 59%, 83%, 1)',
+  red30: 'hsla(0, 59%, 73%, 1)',
+  red40: 'hsla(0, 58%, 52%, 1)',
+  red50: 'hsla(0, 58%, 37%, 1)',
+  red60: 'hsla(0, 58%, 30%, 1)',
+}
+
+const green = {
+  green05: 'hsla(120, 39%, 95%, 1)',
+  green10: 'hsla(123, 39%, 91%, 1)',
+  green20: 'hsla(123, 41%, 77%, 1)',
+  green30: 'hsla(122, 41%, 64%, 1)',
+  green40: 'hsla(123, 41%, 37%, 1)',
+  green50: 'hsla(123, 41%, 26%, 1)',
+  green60: 'hsla(123, 41%, 19%, 1)',
+}
+
+const orange = {
+  orange05: 'hsla(30, 100%, 96%, 1)',
+  orange10: 'hsla(30, 100%, 92%, 1)',
+  orange20: 'hsla(30, 100%, 80%, 1)',
+  orange30: 'hsla(30, 100%, 69%, 1)',
+  orange40: 'hsla(30, 100%, 45%, 1)',
+  orange50: 'hsla(30, 100%, 35%, 1)',
+  orange60: 'hsla(29, 100%, 18%, 1)',
+}
+
+const cyan = {
+  cyan05: 'hsla(188, 71%, 96%, 1)',
+  cyan10: 'hsla(188, 72%, 92%, 1)',
+  cyan20: 'hsla(186, 70%, 79%, 1)',
+  cyan30: 'hsla(187, 71%, 66%, 1)',
+  cyan40: 'hsla(187, 71%, 41%, 1)',
+  cyan50: 'hsla(187, 71%, 32%, 1)',
+  cyan60: 'hsla(188, 78%, 16%, 1)',
+}
+
+const purple = {
+  purple05: 'hsla(266, 41%, 97%, 1)',
+  purple10: 'hsla(265, 35%, 93%, 1)',
+  purple20: 'hsla(268, 37%, 83%, 1)',
+  purple30: 'hsla(268, 37%, 73%, 1)',
+  purple40: 'hsla(268, 37%, 53%, 1)',
+  purple50: 'hsla(268, 37%, 42%, 1)',
+  purple60: 'hsla(268, 38%, 28%, 1)',
+}
+
+const pink = {
+  pink05: 'hsla(340, 79%, 96%, 1)',
+  pink10: 'hsla(340, 83%, 93%, 1)',
+  pink20: 'hsla(340, 82%, 82%, 1)',
+  pink30: 'hsla(340, 82%, 71%, 1)',
+  pink40: 'hsla(340, 82%, 50%, 1)',
+  pink50: 'hsla(340, 82%, 39%, 1)',
+  pink60: 'hsla(340, 82%, 29%, 1)',
+}
+
+const teal = {
+  teal05: 'hsla(177, 41%, 91%, 1)',
+  teal10: 'hsla(175, 41%, 79%, 1)',
+  teal20: 'hsla(174, 42%, 65%, 1)',
+  teal30: 'hsla(174, 42%, 51%, 1)',
+  teal40: 'hsla(173, 100%, 24%, 1)',
+  teal50: 'hsla(173, 100%, 19%, 1)',
+  teal60: 'hsla(173, 100%, 14%, 1)',
+}
+
+const grey = {
+  grey10: 'hsla(0, 0%, 98%, 1)',
+  grey20: 'hsla(0, 0%, 93%, 1)',
+  grey30: 'hsla(0, 0%, 87%, 1)',
+  grey40: 'hsla(0, 0%, 73%, 1)',
+  grey50: 'hsla(0, 0%, 45%, 1)',
+  grey60: 'hsla(0, 0%, 29%, 1)',
+  grey70: 'hsla(0, 0%, 20%, 1)',
+  grey80: 'hsla(0, 0%, 7%, 1)',
 }
 
 const colors = {
-  dark: {
-    primary: semanticColors.black,
-    secondary: '#707685',
-  },
-  light: {
-    primary: semanticColors.white,
-    secondary: '#F4F6FB',
-  },
-  mid: {
-    primary: '#898F9E',
-    secondary: '#C4C5CA',
-    tertiary: '#E0E2E7',
-  },
-  focus: '#8DB6FA',
-  blue: {
-    default: semanticColors.blue,
-    hover: darken(0.08, semanticColors.blue),
-    pressed: darken(0.16, semanticColors.blue),
-    secondary: {
-      default: semanticColors.blueSecondary,
-      hover: darken(0.04, semanticColors.blueSecondary),
-      pressed: darken(0.08, semanticColors.blueSecondary),
+  white: '#FFFFFF',
+  black: '#000000',
+  ...blue,
+  ...red,
+  ...lightBlue,
+  ...orange,
+  ...cyan,
+  ...pink,
+  ...grey,
+  ...green,
+  ...teal,
+  ...purple,
+}
+
+const tokens = {
+  background: {
+    base: colors.white,
+    muted: colors.grey10,
+    action: {
+      // Need to be checked
+      disabled: colors.grey30,
+      primary: colors.blue40,
+      primaryHover: colors.blue50,
+      primaryPressed: colors.blue60,
+      secondary: colors.blue10,
+      secondaryHover: colors.blue20,
+      secondaryPressed: colors.blue30,
+      tertiary: 'transparent',
+      tertiaryHover: colors.blue05,
+      tertiaryPressed: colors.blue10,
+      danger: colors.red40,
+      dangerHover: colors.red50,
+      dangerPressed: colors.red60,
+      dangerSecondary: colors.red10,
+      dangerSecondaryHover: colors.red20,
+      dangerSecondaryPressed: colors.red30,
+      dangerTertiary: 'transparent',
+      dangerTertiaryHover: colors.red05,
+      dangerTertiaryPressed: colors.red10,
+    },
+    feedback: {
+      warning: colors.orange10,
+      success: colors.green10,
+      info: colors.lightBlue10,
+      danger: colors.red10,
     },
   },
-  red: {
-    default: semanticColors.red,
-    hover: darken(0.08, semanticColors.red),
-    pressed: darken(0.16, semanticColors.red),
-    secondary: {
-      default: semanticColors.redSecondary,
-      hover: darken(0.04, semanticColors.redSecondary),
-      pressed: darken(0.08, semanticColors.redSecondary),
+  foreground: {
+    base: colors.black,
+    // Need to be checked
+    muted: colors.grey50,
+    highlight: colors.lightBlue40,
+    action: {
+      primary: colors.white,
+      secondary: colors.blue40,
+      tertiary: colors.blue40,
+      disabled: colors.grey50,
+      danger: colors.white,
+      dangerSecondary: colors.red40,
+      dangerTertiary: colors.red40,
+    },
+    link: colors.blue40,
+    linkHover: colors.blue50,
+    linkVisited: colors.blue60,
+    // Need to be checked
+    feedback: {
+      success: colors.black,
+      info: colors.black,
+      danger: colors.black,
+      warning: colors.black,
     },
   },
-  yellow: {
-    default: semanticColors.yellow,
-    hover: darken(0.08, semanticColors.yellow),
-    pressed: darken(0.16, semanticColors.yellow),
-    secondary: {
-      default: semanticColors.yellowSecondary,
-      hover: darken(0.04, semanticColors.yellowSecondary),
-      pressed: darken(0.08, semanticColors.yellowSecondary),
+  borderColor: {
+    base: colors.grey30,
+    focus: colors.lightBlue20,
+    // Need to be checked
+    inputHover: colors.grey70,
+    inputFocus: colors.blue40,
+    feedback: {
+      success: colors.green30,
+      info: colors.blue30,
+      danger: colors.red30,
+      warning: colors.orange30,
     },
-  },
-  green: {
-    default: semanticColors.green,
-    hover: darken(0.08, semanticColors.green),
-    pressed: darken(0.16, semanticColors.green),
-    secondary: {
-      default: semanticColors.greenSecondary,
-      hover: darken(0.04, semanticColors.greenSecondary),
-      pressed: darken(0.08, semanticColors.greenSecondary),
-    },
-  },
-  sidebar: {
-    light: '#F8F9FA',
-    dark: lighten(0.16, semanticColors.black),
-    hover: '#EAF0FD',
   },
 }
 
 export const themeShape = {
-  colors,
+  colors: {
+    ...colors,
+  },
+  ...tokens,
   global: {
     '@font-face': {
       fontFamily: 'VTEX Trust',
@@ -98,8 +213,8 @@ export const themeShape = {
     },
     body: {
       margin: 0,
-      bg: 'light.primary',
-      color: 'dark.primary',
+      bg: 'background.base',
+      color: 'foreground.base',
       lineHeight: 1,
     },
     'html, body': {
@@ -251,21 +366,21 @@ export const themeShape = {
       borderWidth: '1px',
       borderStyle: 'solid',
       borderRadius: 'default',
-      borderColor: 'mid.tertiary',
+      borderColor: 'borderColor.base',
     },
     'divider-bottom': {
       borderBottomWidth: '1px',
       borderBottomStyle: 'solid',
       borderBottomLeftRadius: 0,
       borderBottomRightRadius: 0,
-      borderColor: 'mid.tertiary',
+      borderColor: 'borderColor.base',
     },
     'divider-top': {
       borderTopWidth: '1px',
       borderTopStyle: 'solid',
       borderTopLeftRadius: 0,
       borderTopRightRadius: 0,
-      borderColor: 'mid.tertiary',
+      borderColor: 'borderColor.base',
     },
   },
   zIndices: {
@@ -303,9 +418,9 @@ export const themeShape = {
   shadows: {
     menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
     subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
-    focus: `0rem 0rem 0rem 0.125rem ${colors.focus}`,
-    inputFocus: `0 0 0 1px  ${colors.blue.default}`,
-    inputFocusError: `0 0 0 1px  ${colors.red.default}`,
+    focus: `0rem 0rem 0rem 0.125rem ${tokens.borderColor.focus}`,
+    inputFocus: `0 0 0 1px  ${tokens.borderColor.inputFocus}`,
+    inputFocusError: `0 0 0 1px  ${tokens.borderColor.feedback.danger}`,
   },
   borderRadius: {
     default: '4px',

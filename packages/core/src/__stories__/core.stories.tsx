@@ -25,8 +25,8 @@ export function Styles() {
     <OndaProvider>
       <Div
         csx={{
-          bg: 'blue',
-          color: 'light.primary',
+          bg: 'action.primary',
+          color: 'action.primary',
           marginY: 2,
           size: 100,
         }}
@@ -42,8 +42,8 @@ export function ThemeStyles() {
     <OndaProvider>
       <Div
         csx={{
-          bg: vars.colors.blue.default,
-          color: vars.colors.light.primary,
+          bg: vars.background.action.primary,
+          color: vars.foreground.action.primary,
           marginY: vars.space[2],
           size: '100px',
         }}
@@ -59,7 +59,7 @@ export function FunctionStyles() {
     <OndaProvider>
       <Div
         csx={{
-          color: (theme) => get(theme, 'colors.blue.default'),
+          color: (theme) => get(theme, 'foreground.muted'),
         }}
       >
         Plain div
