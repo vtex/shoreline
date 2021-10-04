@@ -150,9 +150,41 @@ function Example() {
 }
 ```
 
-### Accessibility
+## Accessibility
+
+- `MenuList` has role `menu`.
+- `MenuItem` has role `menuitem`.
+- Pressing <kbd>Enter</kbd> on `MenuButton` opens the `MenuList` and places focus on its first item.
+- When `MenuItem` has focus, <kbd>Space</kbd> and <kbd>Enter</kbd> triggers it.
+
+### Best Practices
 
 - You always must set the `aria-label` property in the `MenuList` component.
+
+```jsx isStatic
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <Menu state={state} hideOnClick>
+      <MenuButton display="actions" variant="adaptative-dark" />
+      <MenuList aria-label="actions" state={state}>
+        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem disabled icon={<IconLink />}>
+          Disabled Link
+        </MenuItem>
+        <MenuSeparator />
+        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+      </MenuList>
+    </Menu>
+  )
+}
+```
+
+### Keyboard Navigation
+
+- <kbd>↓</kbd> moves focus to the next `MenuItem`.
+- <kbd>↑</kbd> moves focus to the previous `MenuItem`.
 
 ## Props
 

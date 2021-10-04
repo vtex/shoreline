@@ -164,7 +164,24 @@ function Example() {
 
 ## Accessibility
 
+- `Button` has role `button`.
+- When `Button` has focus, <kbd>Space</kbd> and <kbd>Enter</kbd> triggers it.
+- If `disabled` prop is `true`, `Button` has `disabled` and `aria-disabled` attributes set to `true`.
+
+### Best Practices
+
 - When using an Icon only button, you must set the `aria-label` property.
+
+```jsx isStatic
+function Example() {
+  return (
+    <Button
+      icon={<IconFavorite title="Favorite" />}
+      aria-label="Favorite button"
+    />
+  )
+}
+```
 
 ## Props
 
