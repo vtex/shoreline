@@ -9,7 +9,7 @@ import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
 import type { UsePaginationReturn } from './hooks/usePaginationState'
 
-export const Pagination = jsx.div(
+export const Pagination = jsx('div')(
   {
     display: 'flex',
     alignItems: 'center',

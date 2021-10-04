@@ -20,10 +20,10 @@ export function cleanProps<P extends {}>(props: P) {
 }
 
 /**
- * wether an entity is an onda component
+ * wether an entity is an AdminUI component
  * @param entity - any entity
  */
-export function isOndaComponent(entity: any): boolean {
+export function isAdminUIComponent(entity: any): boolean {
   if (!entity) {
     return false
   }
@@ -35,7 +35,7 @@ export function isOndaComponent(entity: any): boolean {
 }
 
 /**
- * get the stylesheet from a onda component
+ * get the stylesheet from a AdminUI component
  * @param entity - any entity
  */
 export function getStylesheet(entity: any): StyleProp | null {
@@ -47,7 +47,7 @@ export function getStylesheet(entity: any): StyleProp | null {
 }
 
 /**
- * get the options from a onda component
+ * get the options from a AdminUI component
  * @param entity - any entity
  */
 export function getOptions(entity: any): string[] | null {

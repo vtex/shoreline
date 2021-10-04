@@ -260,6 +260,7 @@ exports[`Menu should match snapshot hidden 1`] = `
         id="id-1"
         role="menuitem"
         tabindex="0"
+        type="button"
       >
         <div
           class="emotion-4"
@@ -272,6 +273,7 @@ exports[`Menu should match snapshot hidden 1`] = `
         id="id-2"
         role="menuitem"
         tabindex="0"
+        type="button"
       >
         <div
           class="emotion-4"
@@ -284,6 +286,7 @@ exports[`Menu should match snapshot hidden 1`] = `
         id="id-3"
         role="menuitem"
         tabindex="0"
+        type="button"
       >
         <div
           class="emotion-4"
@@ -301,6 +304,7 @@ exports[`Menu should match snapshot hidden 1`] = `
         id="id-4"
         role="menuitem"
         tabindex="0"
+        type="button"
       >
         <div
           class="emotion-4"
@@ -571,6 +575,7 @@ exports[`Menu should match snapshot visible 1`] = `
         id="id-1"
         role="menuitem"
         tabindex="0"
+        type="button"
       >
         <div
           class="emotion-4"
@@ -583,6 +588,7 @@ exports[`Menu should match snapshot visible 1`] = `
         id="id-2"
         role="menuitem"
         tabindex="0"
+        type="button"
       >
         <div
           class="emotion-4"
@@ -595,6 +601,7 @@ exports[`Menu should match snapshot visible 1`] = `
         id="id-3"
         role="menuitem"
         tabindex="0"
+        type="button"
       >
         <div
           class="emotion-4"
@@ -612,6 +619,7 @@ exports[`Menu should match snapshot visible 1`] = `
         id="id-4"
         role="menuitem"
         tabindex="0"
+        type="button"
       >
         <div
           class="emotion-4"

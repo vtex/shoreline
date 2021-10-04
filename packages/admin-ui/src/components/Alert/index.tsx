@@ -12,7 +12,7 @@ import { Paragraph } from '../Paragraph'
 /**
  * Component to display relevant information within an admin page
  */
-export const Alert = jsx.div(
+export const Alert = jsx('div')(
   {
     display: 'flex',
     alignItems: 'center',

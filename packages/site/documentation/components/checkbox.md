@@ -4,87 +4,21 @@ path: /checkbox/
 
 # Checkbox
 
-Checkboxes are tools that customize configurations. This control has three states: unselected, selected, and undetermined. They reflect the selection of an option and its execution usually requires another control, or confirmation. The user can select multiple choices, including zero. By default, it renders the native `<input type="checkbox">`.
+Checkboxes are tools that customize configurations. This control has three states: unselected, selected, and undetermined. They reflect the selection of an option and its execution usually requires another control, or confirmation. By default, it renders the native `<input type="checkbox">`. It implements [WAI-ARIA Checkbox pattern](https://www.w3.org/TR/wai-aria-practices/#checkbox).
 
-- dual-state: `check` and `not checked` (true, false)
-
-- tri-state: `check`, `not checked`, and `partially checked` (true, false, mixed)
-
-## Behavior
-
-It receives the same props as controlled inputs, such as checked and onChange:
-
-```jsx
-function Example() {
-  const [checked, setChecked] = React.useState(false)
-
-  return (
-    <Checkbox
-      aria-label="label"
-      checked={checked}
-      onChange={() => setChecked(!checked)}
-    />
-  )
-}
-```
-
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
+## Usage
 
 ```jsx isStatic
-import { Checkbox } from '@vtex/admin-ui'
-```
+import { Checkbox, useCheckboxState } from '@vtex/admin-ui'
 
-## State
-
-There are two ways of handling the state in our `Checkbox`.
-
-### checked and onChange
-
-You can use the properties `checked` and `onChange` to handle if the Checkbox is checked and its values have changed.
-
-```jsx
 function Example() {
-  const [checked, setChecked] = React.useState(false)
+  const state = useCheckboxState({ state: false })
 
-  return <Checkbox checked={checked} onChange={() => setChecked(!checked)} />
+  return <Checkbox aria-label="label" state={state} />
 }
 ```
 
-### useCheckboxState
-
-For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of checkboxes and want to handle the states of each one. You should pass the hook return to the `state` property.
-
-```jsx
-function Example() {
-  const checkboxState = useCheckboxState({ state: false })
-
-  return <Checkbox state={checkboxState} />
-}
-```
-
-## Variation
-
-### Standalone
-
-When using a standalone `Checkbox` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
-
-```jsx
-function Example() {
-  const [checked, setChecked] = React.useState(false)
-
-  return (
-    <Checkbox
-      aria-label="label"
-      checked={checked}
-      onChange={() => setChecked(!checked)}
-    />
-  )
-}
-```
+## Examples
 
 ### Checked States
 
@@ -95,12 +29,20 @@ function Example() {
   return (
     <>
       <Set>
-        <Checkbox aria-label="label-1" />
-        <Checkbox aria-label="label-disabled-1" disabled />
+        <Checkbox aria-label="label-1" state={{ state: false }} />
+        <Checkbox
+          aria-label="label-disabled-1"
+          state={{ state: false }}
+          disabled
+        />
       </Set>
       <Set>
-        <Checkbox aria-label="label-2" checked />
-        <Checkbox aria-label="label-disabled-2" checked disabled />
+        <Checkbox aria-label="label-2" state={{ state: true }} />
+        <Checkbox
+          aria-label="label-disabled-2"
+          state={{ state: true }}
+          disabled
+        />
       </Set>
       <Set>
         <Checkbox aria-label="label-3" state={{ state: 'indeterminate' }} />
@@ -117,7 +59,7 @@ function Example() {
 
 ### Size
 
-There are two size variants: `small`, `regular`. By default, it will render `regular`.
+There are two size variants: `small`, `regular`. By default, it renders `regular`.
 
 ```jsx
 function Example() {
@@ -128,8 +70,12 @@ function Example() {
         <Checkbox aria-label="label-1" />
       </Set>
       <Set>
-        <Checkbox aria-label="label-small-2" checked size="small" />
-        <Checkbox aria-label="label-2" checked />
+        <Checkbox
+          aria-label="label-small-2"
+          state={{ state: true }}
+          size="small"
+        />
+        <Checkbox aria-label="label-2" state={{ state: true }} />
       </Set>
     </>
   )
@@ -138,7 +84,7 @@ function Example() {
 
 ### Multiple Checkboxes
 
-Oftentimes we need to render multiple checkboxes and store the checked values in an array. It can be easily done using our `useCheckboxState` hook, you just need to pass the hook return object to the checkboxes `state` property and define a `value` for each `Checkbox`.
+To render multiple checkboxes and store the checked values in an array, you just need to pass the hook return object to the checkboxes `state` property and define a unique `value` for each `Checkbox`.
 
 ```jsx
 function Example() {
@@ -157,7 +103,7 @@ function Example() {
 
 ### Indeterminate State
 
-Sometimes you need to implement a Checkbox that controls the state of a set of Checkboxes. It can be easily done using our `useCheckboxState` hook combined with our Checkbox tri-state: `checked`, `not checked`, and `indeterminate`.
+To implement a `Checkbox` that controls the state of a set of Checkboxes you'll need to combine the Checkbox tri-state: `checked`, `not checked`, and `indeterminate`.
 
 ```jsx
 function Example() {
@@ -215,14 +161,46 @@ function Example() {
 }
 ```
 
+## Accessibility
+
+- Checkbox has role `checkbox`.
+- When checked, Checkbox has `aria-checked` set to `true`.
+- When not checked, Checkbox has `aria-checked` set to `false`.
+- When partially checked, Checkbox has `aria-checked` set to `mixed`.
+
+### Best Practices
+
+- When using a standalone Checkbox you must provide `aria-label` to it:
+
+```jsx isStatic
+const state = useCheckboxState()
+
+<Checkbox state={state} aria-label="Meaningful label for Checkbox" />
+```
+
 ## Props
 
-| Name     | Type            | Description                                                                                    | Required                                                                                                                                          | Default |
-| -------- | --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ----------- |
-| checked  | `boolean`       | Checkbox's checked state. If present, it's used instead of state                               | 🚫                                                                                                                                                | -       |
-| disabled | `boolean`       | Defines if the Checkbox is disabled or not                                                     | 🚫                                                                                                                                                | -       |
-| value    | `string         | number`                                                                                        | Checkbox's value is going to be used when multiple checkboxes share the same state. Checking a checkbox with value will add it to the state array | 🚫      | -           |
-| state    | `CheckboxState` | Return of `useCheckboxState` hook. You can also provide these props from your own state logic. | 🚫                                                                                                                                                | -       |
-| size     | `'regular'      | 'small'`                                                                                       | Checkbox Size                                                                                                                                     | 🚫      | `'regular'` |
-| children | `ReactNode`     | Button children                                                                                | 🚫                                                                                                                                                | -       |
-| csx      | `StyleProp`     | Defines component styles                                                                       | 🚫                                                                                                                                                | `{}`    |
+It also receive all props of `<input type="checkbox" />` JSX element.
+
+### Checkbox
+
+| Name     | Type            | Description                         | Required       | Default |
+| -------- | --------------- | ----------------------------------- | -------------- | ------- | ----------- |
+| disabled | `boolean`       | Whether Checkbox is disabled or not | 🚫             | `false` |
+| value    | `string         | number`                             | Checkbox value | 🚫      | -           |
+| state    | `CheckboxState` | Return of `useCheckboxState` hook   | 🚫             | -       |
+| size     | `'regular'      | 'small'`                            | Checkbox Size  | 🚫      | `'regular'` |
+| csx      | `StyleProp`     | Defines component styles            | 🚫             | `{}`    |
+
+### useCheckboxState params
+
+| Name  | Type     | Description     | Required | Default    |
+| ----- | -------- | --------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- | --- | --- |
+| state | `boolean | "indeterminate" | (string  | number)[]` | Stores the state of the checkbox. If checkboxes that share this state have defined a value prop, it's going to be an array. | ✅  | -   |
+
+### useCheckboxState return
+
+| Name     | Type                            | Description        | Required   | Default    |
+| -------- | ------------------------------- | ------------------ | ---------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- | --- | --- |
+| state    | `boolean                        | "indeterminate"    | (string    | number)[]` | Stores the state of the checkbox. If checkboxes that share this state have defined a value prop, it's going to be an array. | -   | -   |
+| setState | `(value: SetStateAction<boolean | "indeterminate...` | Sets state | -          | -                                                                                                                           |

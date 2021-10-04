@@ -16,9 +16,9 @@ import {
   ComplementaryColors,
   SemanticColor,
 } from '../components/ColorBlock'
-import PropDetails from '../components/PropDetails'
+
 import { IconPage } from '../components/IconsPage'
-import IconPropDetails from '../components/IconPropDetails'
+
 import Collapsible from '../components/Collapsible'
 import { Code } from '../components/Code'
 
@@ -40,7 +40,6 @@ const { Compiler: renderAst } = new RehypeReact({
         </Text>
       )
     },
-    iconpropdetails: IconPropDetails,
     iconpage: IconPage,
     lightcolors: LightColors,
     darkcolors: DarkColors,
@@ -55,12 +54,6 @@ const { Compiler: renderAst } = new RehypeReact({
             textAlign: 'justify',
             color: 'dark.primary',
             fontSize: 2,
-            code: {
-              fontFamily:
-                'VTEX Trust, -apple-system, system-ui, BlinkMacSystemFont, sans-serif !important',
-              bg: 'light.secondary',
-              color: 'dark.primary',
-            },
           }}
           {...props}
         />
@@ -73,7 +66,6 @@ const { Compiler: renderAst } = new RehypeReact({
     kbd: Kbd,
     blockquote: Blockquote,
     summary: Summary,
-    propdetails: PropDetails,
     collapsible: Collapsible,
     h1: Heading,
     h2: function Render(props) {
@@ -190,6 +182,7 @@ const { Compiler: renderAst } = new RehypeReact({
             verticalAlign: 'middle',
             code: {
               color: 'purple',
+              bg: 'transparent',
               fontSize: 1,
             },
           })}

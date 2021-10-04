@@ -5,7 +5,7 @@ import { IconArrow } from '@vtex/admin-ui-icons'
 import { Button } from '../../Button'
 import { usePageHeaderContext } from './PageHeaderContext'
 
-export const PageTitle = jsx.div(
+export const PageTitle = jsx('div')(
   {
     display: 'flex',
     alignItems: 'center',

@@ -19,7 +19,7 @@ interface ViewOptions {
  * Renders the illustrations
  * Must be under the DataViewContext
  */
-const View = jsx.div(
+const View = jsx('div')(
   {
     display: 'flex',
     justifyContent: 'center',

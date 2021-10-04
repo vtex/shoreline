@@ -8,7 +8,7 @@ const propertyMap = {
   area: 'gridArea',
 }
 
-export const GridItem = jsx.div(
+export const GridItem = jsx('div')(
   {},
   {
     options: ['area'],

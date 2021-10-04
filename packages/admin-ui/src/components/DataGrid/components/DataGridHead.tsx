@@ -9,7 +9,7 @@ interface SortIndicatorOptions {
   direction?: 'ASC' | 'DSC' | null
 }
 
-const SortIndicator = jsx.div(
+const SortIndicator = jsx('div')(
   {
     display: 'flex',
     flexDirection: 'column',
@@ -65,7 +65,7 @@ const SortIndicator = jsx.div(
   }
 )
 
-const Row = jsx.tr({
+const Row = jsx('tr')({
   display: 'table-row',
   bg: 'light.primary',
   textAlign: 'left',
@@ -75,7 +75,7 @@ Row.defaultProps = {
   role: 'row',
 }
 
-export const Head = jsx.thead(
+export const Head = jsx('thead')(
   {
     display: 'table-header-group',
     color: 'dark.secondary',

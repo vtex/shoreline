@@ -5,7 +5,7 @@ import { jsx } from '@vtex/admin-ui-react'
 
 import { MenuContext } from './MenuContext'
 
-export const Menu = jsx.div(
+export const Menu = jsx('div')(
   {},
   {
     options: ['hideOnClick', 'state'],

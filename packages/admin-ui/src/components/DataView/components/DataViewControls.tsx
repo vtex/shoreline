@@ -11,7 +11,7 @@ import { jsx } from '@vtex/admin-ui-react'
  *    </DataViewControls>
  * </DataView>
  */
-export const DataViewControls = jsx.div({
+export const DataViewControls = jsx('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'start',

@@ -11,7 +11,7 @@ import { PageHeaderContext } from './PageHeaderContext'
  *  </PageTitle>
  * </PageHeader>
  */
-export const PageHeader = jsx.header(
+export const PageHeader = jsx('header')(
   {
     bg: 'light.primary',
     color: 'dark.primary',

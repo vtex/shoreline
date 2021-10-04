@@ -6,7 +6,7 @@ import type { ComponentPropsWithRef } from 'react'
  * @example
  * <Anchor href="#">Link to #</Anchor>
  */
-export const Anchor = jsx.a({
+export const Anchor = jsx('a')({
   font: 'inherit',
   color: 'blue',
   textDecoration: 'none',

@@ -99,13 +99,14 @@ export const MenuItem = jsx(ReakitMenuItem)(
   {
     options: ['icon'],
     useOptions: (options: MenuItemOptions, props) => {
-      const { children, onClick, ...buttonProps } = props
+      const { children, onClick, type = 'button', ...buttonProps } = props
       const { icon } = options
 
       const { hideOnClick, state } = useMenuContext()
 
       return {
         ...buttonProps,
+        type,
         state,
         onClick(e) {
           hideOnClick && state.hide()

@@ -7,7 +7,7 @@ import type { ComponentPropsWithRef } from 'react'
  * @example
  * <Label>label</Label>
  */
-export const Label = jsx.label({
+export const Label = jsx('label')({
   text: 'body',
 })
 

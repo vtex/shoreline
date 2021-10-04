@@ -831,6 +831,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 id="statement-menu-1"
                 role="menuitem"
                 tabindex="0"
+                type="button"
               >
                 <div
                   class="emotion-27"
@@ -873,6 +874,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 id="statement-menu-2"
                 role="menuitem"
                 tabindex="-1"
+                type="button"
               >
                 <div
                   class="emotion-27"

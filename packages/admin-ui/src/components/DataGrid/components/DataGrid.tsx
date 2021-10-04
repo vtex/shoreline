@@ -14,7 +14,7 @@ interface DataGridOptions {
   state: DataGridState<any>
 }
 
-const _DataGrid = jsx.table(
+const _DataGrid = jsx('table')(
   { display: 'table', width: '100%' },
   {
     useOptions(options: DataGridOptions, props) {

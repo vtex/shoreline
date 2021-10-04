@@ -7,7 +7,7 @@ import type { DOMElements } from './domElements'
 import { domElements } from './domElements'
 
 /**
- * Creates onda jsx elements
+ * Creates AdminUI jsx elements
  * @param type jsx tag
  * @example
  * const Box = _jsx('div')
@@ -22,7 +22,7 @@ import { domElements } from './domElements'
  */
 function _tag<T extends React.ElementType, Props>(
   type: T
-): OndaElement<T, Props> {
+): AdminUIElement<T, Props> {
   function Element(props: ElementPropsWithAs<Props, T>, ref: React.Ref<T>) {
     const {
       as: ElementCall = type,
@@ -45,33 +45,33 @@ function _tag<T extends React.ElementType, Props>(
     )
   }
 
-  Element.displayName = capitalize(String(type) ?? 'Onda')
+  Element.displayName = capitalize(String(type) ?? 'AdminUI')
 
-  return React.forwardRef(Element) as unknown as OndaElement<T, Props>
+  return React.forwardRef(Element) as unknown as AdminUIElement<T, Props>
 }
 
 /**
- * Onda jsx elements factory
+ * AdminUI jsx elements factory
  * @example
  * // standalone
  * const Box = tag('div')
  *
  * // rendering elements (you can replace div for any valid jsx tag)
- * <tag.div csx={{ color: 'pink' }}>Onda styled div</tag.div>
+ * <tag.div csx={{ color: 'pink' }}>AdminUI styled div</tag.div>
  *
  * // polymorphism
  * <tag.button as={ExternalLibButton} csx={{ bg: 'pink' }} >🦄 this is magic</tag.button>
  */
 export const tag = _tag as typeof _tag &
   {
-    [Tag in DOMElements]: OndaElement<Tag, {}>
+    [Tag in DOMElements]: AdminUIElement<Tag, {}>
   }
 
 domElements.forEach((t) => {
   tag[t] = _tag(t)
 })
 
-export type OndaElement<T extends React.ElementType, Props> = {
+export type AdminUIElement<T extends React.ElementType, Props> = {
   <TT extends React.ElementType>(
     props: ElementPropsWithAs<Props, TT> & { as: TT }
   ): JSX.Element

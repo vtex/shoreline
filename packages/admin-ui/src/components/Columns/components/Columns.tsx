@@ -5,7 +5,7 @@ import type { ResponsiveValue } from '@vtex/admin-ui-core'
 
 import { ColumnsProvider } from './ColumnsContext'
 
-export const Columns = jsx.div(
+export const Columns = jsx('div')(
   {
     display: 'flex',
     flexWrap: 'wrap',

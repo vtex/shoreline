@@ -21,7 +21,7 @@ import { getScrollAreaSize } from '../util'
  * </Modal>
  * ```
  */
-export const ModalContent = jsx.section(
+export const ModalContent = jsx('section')(
   {
     paddingTop: 4,
     paddingX: 6,

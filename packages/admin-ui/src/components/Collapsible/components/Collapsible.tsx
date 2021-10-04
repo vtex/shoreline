@@ -20,7 +20,7 @@ import { useGroup } from '../../Group'
  * </Collapsible>
  * ```
  */
-export const Collapsible = jsx.div(
+export const Collapsible = jsx('div')(
   {
     bg: 'light.primary',
     borderColor: 'mid.tertiary',
