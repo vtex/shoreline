@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-formik",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "main": "dist/index.js",
   "module": "dist/admin-formik.esm.js",
   "typings": "dist/index.d.ts",
@@ -36,7 +36,7 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@vtex/admin-ui": "^0.114.0",
+    "@vtex/admin-ui": "^0.114.1",
     "formik": "^2.2.6",
     "jest-environment-jsdom-fourteen": "^1.0.1",
     "react-intl": "^5.8.1",

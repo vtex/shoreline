@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-react@0.2.2...@vtex/admin-ui-react@0.2.3) (2021-10-04)
+
+### Bug Fixes
+
+- **admin-ui-react:** jsx variants overlap ([ff500ec](https://github.com/vtex/onda/commit/ff500ec16f8f987dcfb25322fa9cdd114fe80dbf))
+
 ## [0.2.2](https://github.com/vtex/onda/compare/@vtex/admin-ui-react@0.2.1...@vtex/admin-ui-react@0.2.2) (2021-09-27)
 
 **Note:** Version bump only for package @vtex/admin-ui-react

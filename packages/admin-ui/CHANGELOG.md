@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.114.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.114.0...@vtex/admin-ui@0.114.1) (2021-10-04)
+
+### Bug Fixes
+
+- **admin-ui-react:** jsx variants overlap ([ff500ec](https://github.com/vtex/onda/commit/ff500ec16f8f987dcfb25322fa9cdd114fe80dbf))
+- **menu-item:** add type prop with 'button' as default value ([060e308](https://github.com/vtex/onda/commit/060e3083daac9029c0500184f1fc4e239b7e15f5)), closes [#811](https://github.com/vtex/onda/issues/811)
+- **page-actions:** apply margin only between the directly children ([4d8d3d7](https://github.com/vtex/onda/commit/4d8d3d7e68670e7929e163167a3315dfc3f86406))
+- **selection-tree:** root checkbox re-render on useSelectionTreeState hook ([93068dc](https://github.com/vtex/onda/commit/93068dc9f9f895b588b1135e19838070fa10180c))
+- **text-area:** border color change when a disabled TextArea is hovered ([beb1369](https://github.com/vtex/onda/commit/beb1369b7c2a33f5f06bc7ab50894dc18d9dc4c9))
+
 # [0.114.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.113.1-next.0...@vtex/admin-ui@0.114.0) (2021-09-27)
 
 ### Features

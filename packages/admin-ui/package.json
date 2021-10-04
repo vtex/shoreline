@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.114.0",
+  "version": "0.114.1",
   "main": "dist/index.js",
   "module": "dist/admin-ui.esm.js",
   "typings": "dist/index.d.ts",
@@ -53,7 +53,7 @@
     "@vtex/admin-ui-core": "^0.2.0",
     "@vtex/admin-ui-hooks": "^0.1.2",
     "@vtex/admin-ui-icons": "^0.13.3",
-    "@vtex/admin-ui-react": "^0.2.2",
+    "@vtex/admin-ui-react": "^0.2.3",
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
     "downshift": "^6.0.6",
