@@ -221,7 +221,7 @@ Prefer props composition and shorthands.
 // ✅ Preferred
 <tag.div
   csx={{
-    bg: 'light.primary',
+    bg: 'base',
     paddingX: 2,
     size: '20rem',
   }}

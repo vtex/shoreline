@@ -8,15 +8,14 @@ import type { ComponentPropsWithRef } from 'react'
  */
 export const Anchor = jsx('a')({
   font: 'inherit',
-  color: 'blue',
+  color: 'link',
   textDecoration: 'none',
   cursor: 'pointer',
-  ':active': {
-    color: 'blue.pressed',
-    textDecoration: 'underline',
+  ':visited': {
+    color: 'linkVisited',
   },
   ':hover': {
-    color: 'blue.hover',
+    color: 'linkHover',
     textDecoration: 'underline',
   },
 })

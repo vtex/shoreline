@@ -43,7 +43,7 @@ export function Types() {
       <Alert type="warning" icon={<IconWarningColorful />} visible>
         This account is inactive. Check your billing for more information.
       </Alert>
-      <Alert type="error" icon={<IconErrorColorful />} visible>
+      <Alert type="danger" icon={<IconErrorColorful />} visible>
         Somenthing went wrong. Please, try again.
       </Alert>
     </Set>

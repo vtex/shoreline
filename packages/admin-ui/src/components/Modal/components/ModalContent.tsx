@@ -40,15 +40,15 @@ export const ModalContent = jsx('section')(
 
       const scrollbarStyles: StyleObject = {
         scrollbarWidth: 'thin',
-        scrollbarColor: 'light.primary',
+        scrollbarColor: 'base',
         '::-webkit-scrollbar': {
           width: '8px',
         },
         '::-webkit-scrollbar-thumb': {
-          backgroundColor: 'mid.tertiary',
+          bg: 'muted',
           borderRadius: '6px',
           border: '2px solid',
-          color: 'light.primary',
+          color: 'base',
         },
         overflowY: 'auto',
       }

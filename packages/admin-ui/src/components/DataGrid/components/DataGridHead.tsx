@@ -39,8 +39,7 @@ const SortIndicator = jsx('div')(
                   ...triangleCsx,
                   marginBottom: 0.5,
                   path: {
-                    fill:
-                      direction === 'ASC' ? 'dark.secondary' : 'mid.secondary',
+                    fill: direction === 'ASC' ? 'base' : 'muted',
                   },
                 }}
               />
@@ -51,8 +50,7 @@ const SortIndicator = jsx('div')(
                   ...triangleCsx,
                   marginTop: 0.5,
                   path: {
-                    fill:
-                      direction === 'DSC' ? 'dark.secondary' : 'mid.secondary',
+                    fill: direction === 'DSC' ? 'base' : 'muted',
                   },
                 }}
                 direction="down"
@@ -67,7 +65,7 @@ const SortIndicator = jsx('div')(
 
 const Row = jsx('tr')({
   display: 'table-row',
-  bg: 'light.primary',
+  bg: 'base',
   textAlign: 'left',
 })
 
@@ -78,7 +76,7 @@ Row.defaultProps = {
 export const Head = jsx('thead')(
   {
     display: 'table-header-group',
-    color: 'dark.secondary',
+    color: 'muted',
   },
   {
     useOptions: (_, props) => {

@@ -20,20 +20,8 @@ describe('Avatar tests', () => {
     expect(getByTestId('avatar')).toHaveStyleRule('background-color', 'azure')
   })
 
-  it('should match snaphot with label', () => {
+  it('should match snaphot', () => {
     const { asFragment } = render(<Avatar label="Test" />)
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should match snaphot with pallette', () => {
-    const { asFragment } = render(
-      <Fragment>
-        <Avatar label="Test" palette="base" />
-        <Avatar label="Test" palette="danger" />
-        <Avatar label="Test" palette="primary" />
-      </Fragment>
-    )
 
     expect(asFragment()).toMatchSnapshot()
   })

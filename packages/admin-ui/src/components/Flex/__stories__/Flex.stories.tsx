@@ -14,7 +14,7 @@ export const Playground: Story = (args) => {
     <Flex {...args}>
       <tag.div
         csx={{
-          bg: 'red',
+          bg: 'feedback.danger',
           size: 100,
         }}
       >
@@ -22,7 +22,7 @@ export const Playground: Story = (args) => {
       </tag.div>
       <tag.div
         csx={{
-          bg: 'green',
+          bg: 'feedback.success',
           size: 150,
         }}
       >
@@ -30,7 +30,7 @@ export const Playground: Story = (args) => {
       </tag.div>
       <tag.div
         csx={{
-          bg: 'blue',
+          bg: 'feedback.info',
         }}
       >
         tag.div 3
@@ -48,7 +48,7 @@ export function WithSpacer() {
     <Flex>
       <tag.div
         csx={{
-          bg: 'red',
+          bg: 'feedback.danger',
           size: 100,
         }}
       >
@@ -57,7 +57,7 @@ export function WithSpacer() {
       <FlexSpacer />
       <tag.div
         csx={{
-          bg: 'green',
+          bg: 'feedback.success',
           size: 100,
         }}
       >
@@ -72,7 +72,7 @@ export function Around() {
     <Flex justify="space-around">
       <tag.div
         csx={{
-          bg: 'red',
+          bg: 'feedback.danger',
           size: 100,
         }}
       >
@@ -80,7 +80,7 @@ export function Around() {
       </tag.div>
       <tag.div
         csx={{
-          bg: 'green',
+          bg: 'feedback.success',
           size: 100,
         }}
       >

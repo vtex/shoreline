@@ -33,7 +33,7 @@ export const Topbar = jsx('div')(
     border: 'divider-bottom',
     paddingX: 3,
     zIndex: 'topbar',
-    bg: 'light.primary',
+    bg: 'base',
   },
   {
     options: ['loading'],

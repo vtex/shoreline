@@ -61,7 +61,7 @@ export const Search = jsx('form')(
                 ) : (
                   <IconSearch
                     csx={{
-                      color: 'dark.primary',
+                      color: 'base',
                       margin: '0.625rem 0.25rem 0 0.5rem',
                       top: 0,
                     }}

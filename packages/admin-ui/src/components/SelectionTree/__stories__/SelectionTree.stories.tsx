@@ -43,7 +43,7 @@ export const Basic = () => {
             border: 'divider-bottom',
             cursor: 'pointer',
             ':hover': {
-              bg: 'light.secondary',
+              bg: 'muted',
             },
           }}
           key={item.id}
@@ -76,7 +76,7 @@ export const InitiallySelected = () => {
             border: 'divider-bottom',
             cursor: 'pointer',
             ':hover': {
-              bg: 'light.secondary',
+              bg: 'muted',
             },
           }}
           key={item.id}
@@ -107,7 +107,7 @@ export const BareStateHook = () => {
             border: 'divider-bottom',
             cursor: 'pointer',
             ':hover': {
-              bg: 'light.secondary',
+              bg: 'muted',
             },
           }}
           key={item.id}

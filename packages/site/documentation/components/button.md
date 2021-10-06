@@ -59,7 +59,7 @@ Adapts its behavior(`bg`, `:hover`, `:active`) according to the context that the
   <Box
     csx={{
       color: 'dark.primary',
-      bg: 'light.primary',
+      bg: 'base',
       padding: 4,
     }}
   >

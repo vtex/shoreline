@@ -6,5 +6,5 @@ export const Footer = jsx('div')({
   paddingX: 4,
   border: 'divider-top',
   justifyContent: 'space-between',
-  bg: 'light.primary',
+  bg: 'base',
 })

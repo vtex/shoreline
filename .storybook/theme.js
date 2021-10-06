@@ -6,13 +6,13 @@ const { colors, fonts, borderRadius } = theme
 export default create({
   base: 'light',
 
-  colorPrimary: colors.foreground.base,
-  colorSecondary: colors.foreground.muted,
+  colorPrimary: theme.foreground.base,
+  colorSecondary: theme.foreground.muted,
 
   // UI
-  appBg: colors.background.base,
-  appContentBg: colors.background.muted,
-  appBorderColor: colors.borderColor.base,
+  appBg: 'white',
+  appContentBg: 'white',
+  appBorderColor: theme.borderColor.base,
   appBorderRadius: borderRadius[2],
 
   // Typography
@@ -20,7 +20,7 @@ export default create({
   fontCode: fonts.code,
 
   // Text colors
-  textColor: colors.foreground.base,
+  textColor: theme.foreground.base,
   textInverseColor: colors.white,
 
   // Toolbar default and active colors
@@ -29,9 +29,9 @@ export default create({
   barBg: colors.black,
 
   // Form colors
-  inputBg: colors.background.base,
-  inputBorder: colors.borderColor.base,
-  inputTextColor: colors.foreground.base,
+  inputBg: 'white',
+  inputBorder: theme.borderColor.base,
+  inputTextColor: theme.foreground.base,
   inputBorderRadius: borderRadius.default,
 
   brandTitle: 'Admin UI',

@@ -27,30 +27,30 @@ export const Text = jsx('span')({
       },
     },
     feedback: {
-      default: {
-        color: 'dark.primary',
+      base: {
+        color: 'base',
       },
-      primary: {
-        color: 'blue',
+      muted: {
+        color: 'muted',
       },
-      secondary: {
-        color: 'dark.secondary',
+      info: {
+        color: 'feedback.info',
       },
       success: {
-        color: 'green',
+        color: 'feedback.success',
       },
       danger: {
-        color: 'red',
+        color: 'feedback.danger',
       },
       warning: {
-        color: 'yellow',
+        color: 'feedback.warning',
       },
     },
   },
 })
 
 Text.defaultProps = {
-  feedback: 'default',
+  feedback: 'base',
   variant: 'body',
 }
 

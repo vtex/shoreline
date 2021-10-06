@@ -102,18 +102,18 @@ export const NumericStepper = forwardRef(
               paddingLeft: 36,
               paddingRight: 36,
               textAlign: 'center',
-              color: 'dark.primary',
+              color: 'base',
               borderStyle: 'solid',
               borderWidth: 1,
-              borderColor: 'mid.primary',
+              borderColor: 'field.primary',
               borderRadius: 'default',
-              backgroundColor: 'light.primary',
+              bg: 'base',
               ':hover': {
-                borderColor: 'dark.primary',
+                borderColor: 'field.primaryHover',
               },
               ':disabled': {
-                backgroundColor: 'light.secondary',
-                color: 'mid.primary',
+                bg: 'light.secondary', // TODO missing
+                color: 'mid.primary', // TODO missing
               },
               ':focus:not([data-focus-visible-added])': {
                 outline: 'none',
@@ -125,9 +125,9 @@ export const NumericStepper = forwardRef(
               },
               ...(error
                 ? {
-                    borderColor: 'red',
+                    borderColor: 'inputError',
                     ':hover': {
-                      borderColor: 'red',
+                      borderColor: 'inputError',
                     },
                     ':focus': {
                       outline: 'none',
@@ -142,10 +142,9 @@ export const NumericStepper = forwardRef(
 
           <Button
             size="small"
-            variant="adaptative-dark"
+            variant="tertiary"
             icon={<IconRemove />}
             csx={{
-              color: 'blue',
               height: 40,
               position: 'absolute',
               left: 1,
@@ -157,11 +156,10 @@ export const NumericStepper = forwardRef(
 
           <Button
             size="small"
-            variant="adaptative-dark"
+            variant="tertiary"
             icon={<IconAdd />}
             aria-label={`${label}-increase-button}`}
             csx={{
-              color: 'blue',
               height: 40,
               position: 'absolute',
               right: 1,
@@ -174,7 +172,7 @@ export const NumericStepper = forwardRef(
           <Box
             csx={{
               text: 'small',
-              color: error ? 'red' : 'mid.primary',
+              color: error ? 'feedback.danger' : 'muted',
               marginTop: 2,
             }}
           >

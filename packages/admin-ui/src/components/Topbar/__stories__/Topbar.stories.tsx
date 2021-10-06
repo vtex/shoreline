@@ -31,19 +31,12 @@ export function Example() {
       </TopbarStart>
       <TopbarEnd>
         <Set spacing={0}>
-          <Button
-            variant="tertiary"
-            icon={<IconUndo csx={{ color: 'blue' }} />}
-            csx={{ color: 'dark.primary' }}
-          >
+          <Button variant="tertiary" icon={<IconUndo />}>
             Switch to previous version
           </Button>
           <Button
             variant="tertiary"
-            icon={
-              <IconArrow csx={{ color: 'blue', transform: `rotate(45deg)` }} />
-            }
-            csx={{ color: 'dark.primary' }}
+            icon={<IconArrow csx={{ transform: `rotate(45deg)` }} />}
           >
             View Store
           </Button>
@@ -71,21 +64,12 @@ export function Loading() {
         </TopbarStart>
         <TopbarEnd>
           <Set spacing={0}>
-            <Button
-              variant="tertiary"
-              icon={<IconUndo csx={{ color: 'blue' }} />}
-              csx={{ color: 'dark.primary' }}
-            >
+            <Button variant="tertiary" icon={<IconUndo />}>
               Switch to previous version
             </Button>
             <Button
               variant="tertiary"
-              icon={
-                <IconArrow
-                  csx={{ color: 'blue', transform: `rotate(45deg)` }}
-                />
-              }
-              csx={{ color: 'dark.primary' }}
+              icon={<IconArrow csx={{ transform: `rotate(45deg)` }} />}
             >
               View Store
             </Button>

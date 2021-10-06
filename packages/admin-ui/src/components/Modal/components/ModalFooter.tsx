@@ -23,7 +23,7 @@ export const ModalFooter = jsx('footer')(
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderColor: 'mid.tertiary',
+    borderColor: 'base',
     borderStyle: 'solid',
     borderBottomWidth: 0,
     borderLeftWidth: 0,
@@ -32,7 +32,7 @@ export const ModalFooter = jsx('footer')(
     bottom: 0,
     left: 0,
     right: 0,
-    bg: 'light.primary',
+    bg: 'base',
     padding: 6,
     flexDirection: ['column-reverse', 'column-reverse', 'row'],
     '>button': {

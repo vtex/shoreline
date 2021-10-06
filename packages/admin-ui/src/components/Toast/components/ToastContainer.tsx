@@ -27,7 +27,7 @@ export const ToastContainer = jsx('div')({
       },
       success: { bg: '#F0F8F5', borderColor: '#8FC2B1' },
       warning: { bg: '#FFF9EE', borderColor: '#E5C38E' },
-      info: { bg: 'light.primary' },
+      info: { bg: 'base' },
     },
   },
 })

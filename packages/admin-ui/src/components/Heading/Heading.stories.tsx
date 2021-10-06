@@ -30,5 +30,5 @@ export function HeadingLevels() {
 }
 
 export function Csx() {
-  return <Heading csx={{ color: 'blue' }}>Heading 1</Heading>
+  return <Heading csx={{ color: 'muted' }}>Heading 1</Heading>
 }

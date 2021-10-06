@@ -39,10 +39,8 @@ export function Patterns() {
 
 export function Csx() {
   return (
-    <List style="circle" csx={{ bg: 'blue.secondary' }}>
-      <List.Item csx={{ bg: 'blue', color: 'light.primary' }}>
-        Coffee Primary
-      </List.Item>
+    <List style="circle" csx={{ bg: 'muted' }}>
+      <List.Item>Coffee Primary</List.Item>
       <List.Item>Juice</List.Item>
       <List.Item>Tea</List.Item>
     </List>

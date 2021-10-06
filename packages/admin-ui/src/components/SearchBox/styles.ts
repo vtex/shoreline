@@ -32,7 +32,7 @@ const scrollbar = styles({
 })
 
 const box = styles({
-  bg: 'light.primary',
+  bg: 'base',
   borderRadius: 4,
   border: '1px solid',
   borderColor: 'mid.tertiary',
@@ -41,7 +41,7 @@ const box = styles({
 
 const menu = (scrollable: boolean) =>
   styles({
-    bg: 'light.primary',
+    bg: 'base',
     listStyle: 'none',
     width: '100%',
     maxHeight: 400,

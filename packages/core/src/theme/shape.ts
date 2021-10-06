@@ -1,4 +1,4 @@
-const blue = {
+export const blue = {
   blue05: 'hsla(222, 62%, 96%, 1)',
   blue10: 'hsla(222, 62%, 92%, 1)',
   blue20: 'hsla(222, 64%, 84%, 1)',
@@ -8,7 +8,7 @@ const blue = {
   blue60: 'hsla(222, 63%, 25%, 1)',
 }
 
-const lightBlue = {
+export const lightBlue = {
   lightBlue05: 'hsla(203, 62%, 96%, 1)',
   lightBlue10: 'hsla(206, 61%, 92%, 1)',
   lightBlue20: 'hsla(205, 63%, 84%, 1)',
@@ -18,7 +18,7 @@ const lightBlue = {
   lightBlue60: 'hsla(207, 64%, 22%, 1)',
 }
 
-const red = {
+export const red = {
   red05: 'hsla(0, 56%, 96%, 1)',
   red10: 'hsla(0, 60%, 93%, 1)',
   red20: 'hsla(0, 59%, 83%, 1)',
@@ -28,7 +28,7 @@ const red = {
   red60: 'hsla(0, 58%, 30%, 1)',
 }
 
-const green = {
+export const green = {
   green05: 'hsla(120, 39%, 95%, 1)',
   green10: 'hsla(123, 39%, 91%, 1)',
   green20: 'hsla(123, 41%, 77%, 1)',
@@ -38,7 +38,7 @@ const green = {
   green60: 'hsla(123, 41%, 19%, 1)',
 }
 
-const orange = {
+export const orange = {
   orange05: 'hsla(30, 100%, 96%, 1)',
   orange10: 'hsla(30, 100%, 92%, 1)',
   orange20: 'hsla(30, 100%, 80%, 1)',
@@ -48,7 +48,7 @@ const orange = {
   orange60: 'hsla(29, 100%, 18%, 1)',
 }
 
-const cyan = {
+export const cyan = {
   cyan05: 'hsla(188, 71%, 96%, 1)',
   cyan10: 'hsla(188, 72%, 92%, 1)',
   cyan20: 'hsla(186, 70%, 79%, 1)',
@@ -58,7 +58,7 @@ const cyan = {
   cyan60: 'hsla(188, 78%, 16%, 1)',
 }
 
-const purple = {
+export const purple = {
   purple05: 'hsla(266, 41%, 97%, 1)',
   purple10: 'hsla(265, 35%, 93%, 1)',
   purple20: 'hsla(268, 37%, 83%, 1)',
@@ -68,7 +68,7 @@ const purple = {
   purple60: 'hsla(268, 38%, 28%, 1)',
 }
 
-const pink = {
+export const pink = {
   pink05: 'hsla(340, 79%, 96%, 1)',
   pink10: 'hsla(340, 83%, 93%, 1)',
   pink20: 'hsla(340, 82%, 82%, 1)',
@@ -78,7 +78,7 @@ const pink = {
   pink60: 'hsla(340, 82%, 29%, 1)',
 }
 
-const teal = {
+export const teal = {
   teal05: 'hsla(177, 41%, 91%, 1)',
   teal10: 'hsla(175, 41%, 79%, 1)',
   teal20: 'hsla(174, 42%, 65%, 1)',
@@ -88,7 +88,7 @@ const teal = {
   teal60: 'hsla(173, 100%, 14%, 1)',
 }
 
-const grey = {
+export const grey = {
   grey10: 'hsla(0, 0%, 98%, 1)',
   grey20: 'hsla(0, 0%, 93%, 1)',
   grey30: 'hsla(0, 0%, 87%, 1)',
@@ -99,7 +99,10 @@ const grey = {
   grey80: 'hsla(0, 0%, 7%, 1)',
 }
 
-const colors = {
+/**
+ * admin-ui solid colors
+ */
+export const colors = {
   white: '#FFFFFF',
   black: '#000000',
   ...blue,
@@ -114,84 +117,164 @@ const colors = {
   ...purple,
 }
 
-const tokens = {
-  background: {
-    base: colors.white,
-    muted: colors.grey10,
-    action: {
-      // Need to be checked
-      disabled: colors.grey30,
-      primary: colors.blue40,
-      primaryHover: colors.blue50,
-      primaryPressed: colors.blue60,
-      secondary: colors.blue10,
-      secondaryHover: colors.blue20,
-      secondaryPressed: colors.blue30,
-      tertiary: 'transparent',
-      tertiaryHover: colors.blue05,
-      tertiaryPressed: colors.blue10,
-      danger: colors.red40,
-      dangerHover: colors.red50,
-      dangerPressed: colors.red60,
-      dangerSecondary: colors.red10,
-      dangerSecondaryHover: colors.red20,
-      dangerSecondaryPressed: colors.red30,
-      dangerTertiary: 'transparent',
-      dangerTertiaryHover: colors.red05,
-      dangerTertiaryPressed: colors.red10,
-    },
-    feedback: {
-      warning: colors.orange10,
-      success: colors.green10,
-      info: colors.lightBlue10,
-      danger: colors.red10,
-    },
+export const background = {
+  base: colors.white,
+  muted: colors.grey10,
+  backdrop: 'hsla(0, 0%, 0%, 0.5)',
+  popup: colors.black,
+
+  // buttons
+  action: {
+    // Need to be checked
+    disabled: colors.grey30,
+    primary: colors.blue40,
+    primaryHover: colors.blue50,
+    primaryPressed: colors.blue60,
+    secondary: colors.blue10,
+    secondaryHover: colors.blue20,
+    secondaryPressed: colors.blue30,
+    tertiary: 'transparent',
+    tertiaryHover: colors.blue05,
+    tertiaryPressed: colors.blue10,
+    danger: colors.red40,
+    dangerHover: colors.red50,
+    dangerPressed: colors.red60,
+    dangerSecondary: colors.red10,
+    dangerSecondaryHover: colors.red20,
+    dangerSecondaryPressed: colors.red30,
+    dangerTertiary: 'transparent',
+    dangerTertiaryHover: colors.red05,
+    dangerTertiaryPressed: colors.red10,
   },
-  foreground: {
-    base: colors.black,
-    // Need to be checked
-    muted: colors.grey50,
-    highlight: colors.lightBlue40,
-    action: {
-      primary: colors.white,
-      secondary: colors.blue40,
-      tertiary: colors.blue40,
-      disabled: colors.grey50,
-      danger: colors.white,
-      dangerSecondary: colors.red40,
-      dangerTertiary: colors.red40,
-    },
-    link: colors.blue40,
-    linkHover: colors.blue50,
-    linkVisited: colors.blue60,
-    // Need to be checked
-    feedback: {
-      success: colors.black,
-      info: colors.black,
-      danger: colors.black,
-      warning: colors.black,
-    },
+
+  // should turn to notifications
+  feedback: {
+    warning: colors.orange10,
+    success: colors.green10,
+    info: colors.lightBlue10,
+    danger: colors.red10,
   },
-  borderColor: {
-    base: colors.grey30,
-    focus: colors.lightBlue20,
-    // Need to be checked
-    inputHover: colors.grey70,
-    inputFocus: colors.blue40,
-    feedback: {
-      success: colors.green30,
-      info: colors.blue30,
-      danger: colors.red30,
-      warning: colors.orange30,
-    },
+
+  // text-fields
+  field: {
+    disabled: colors.grey30,
+    primary: 'inherit',
+    primaryHover: 'inherit',
+    primaryFocus: 'inherit',
+    critical: 'inherit',
+    criticalHover: 'inherit',
+    criticalFocus: 'inherit',
+  },
+
+  // form-controls
+  control: {
+    // disabled state
+    disabled: colors.grey30,
+
+    // default stat
+    primary: colors.white,
+    primaryHover: colors.white,
+    primaryPressed: colors.white,
+
+    // checked state
+    primaryChecked: colors.blue40,
+    primaryCheckedHover: colors.blue50,
+    primaryCheckedPressed: colors.blue60,
+
+    // indeterminate state
+    primaryIndeterminate: colors.blue10,
+    primaryIndeterminateHover: colors.blue20,
+    primaryIndeterminatePressed: colors.blue30,
+  },
+}
+
+export const foreground = {
+  base: colors.black,
+  muted: colors.grey50,
+  highlight: colors.lightBlue40,
+  popup: colors.white,
+
+  action: {
+    primary: colors.white,
+    secondary: colors.blue40,
+    tertiary: colors.blue40,
+    disabled: colors.grey50,
+    danger: colors.white,
+    dangerSecondary: colors.red40,
+    dangerTertiary: colors.red40,
+  },
+
+  link: colors.blue40,
+  linkHover: colors.blue50,
+  linkVisited: colors.blue60,
+
+  // Need to be checked
+  feedback: {
+    success: colors.green40,
+    info: colors.lightBlue40,
+    danger: colors.red40,
+    warning: colors.orange40,
+  },
+
+  // form controls
+  control: {
+    disabled: colors.grey50,
+    primary: colors.white,
+    primaryChecked: colors.white,
+    primaryIndeterminate: colors.blue50,
+  },
+}
+
+export const borderColor = {
+  base: colors.grey30,
+  focus: colors.lightBlue20,
+
+  // text-fields
+  field: {
+    primary: colors.grey40,
+    primaryHover: colors.grey50,
+    primaryFocus: colors.blue40,
+    critical: colors.red40,
+    criticalHover: colors.red50,
+    criticalFocus: colors.red60,
+  },
+
+  // form-controls
+  control: {
+    disabled: colors.grey30,
+
+    primary: colors.grey50,
+    primaryHover: colors.grey60,
+    primaryPressed: colors.grey70,
+
+    primaryChecked: colors.blue40,
+    primaryCheckedHover: colors.blue50,
+    primaryCheckedPressed: colors.blue60,
+
+    primaryIndeterminate: colors.blue40,
+    primaryIndeterminateHover: colors.blue50,
+    primaryIndeterminatePressed: colors.blue60,
+  },
+
+  // Need to be checked
+  input: colors.grey50, // TODO Align w/ design
+  inputHover: colors.grey70,
+  inputFocus: colors.blue40,
+  inputError: colors.red40, // TODO Align w/ design
+
+  feedback: {
+    success: colors.green30,
+    info: colors.blue30,
+    danger: colors.red30,
+    warning: colors.orange30,
   },
 }
 
 export const themeShape = {
-  colors: {
-    ...colors,
-  },
-  ...tokens,
+  colors,
+  background,
+  foreground,
+  borderColor,
   global: {
     '@font-face': {
       fontFamily: 'VTEX Trust',
@@ -213,8 +296,8 @@ export const themeShape = {
     },
     body: {
       margin: 0,
-      bg: 'background.base',
-      color: 'foreground.base',
+      bg: 'base',
+      color: 'base',
       lineHeight: 1,
     },
     'html, body': {
@@ -366,21 +449,21 @@ export const themeShape = {
       borderWidth: '1px',
       borderStyle: 'solid',
       borderRadius: 'default',
-      borderColor: 'borderColor.base',
+      borderColor: 'base',
     },
     'divider-bottom': {
       borderBottomWidth: '1px',
       borderBottomStyle: 'solid',
       borderBottomLeftRadius: 0,
       borderBottomRightRadius: 0,
-      borderColor: 'borderColor.base',
+      borderColor: 'base',
     },
     'divider-top': {
       borderTopWidth: '1px',
       borderTopStyle: 'solid',
       borderTopLeftRadius: 0,
       borderTopRightRadius: 0,
-      borderColor: 'borderColor.base',
+      borderColor: 'base',
     },
   },
   zIndices: {
@@ -418,9 +501,9 @@ export const themeShape = {
   shadows: {
     menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
     subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
-    focus: `0rem 0rem 0rem 0.125rem ${tokens.borderColor.focus}`,
-    inputFocus: `0 0 0 1px  ${tokens.borderColor.inputFocus}`,
-    inputFocusError: `0 0 0 1px  ${tokens.borderColor.feedback.danger}`,
+    focus: `0rem 0rem 0rem 0.125rem ${borderColor.focus}`,
+    inputFocus: `0 0 0 1px  ${borderColor.inputFocus}`,
+    inputFocusError: `0 0 0 1px  ${borderColor.feedback.danger}`,
   },
   borderRadius: {
     default: '4px',

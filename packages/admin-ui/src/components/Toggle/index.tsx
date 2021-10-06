@@ -1,63 +1,14 @@
 import type { CheckboxProps as ReakitProps } from 'reakit'
 import { Checkbox as ReakitCheckbox } from 'reakit'
 import { jsx } from '@vtex/admin-ui-react'
+import { get } from '@vtex/admin-ui-util'
 
 import type { CheckboxStateReturn } from '../Checkbox'
 import { useCheckboxState } from '../Checkbox'
 import type { ComponentPropsWithRef } from 'react'
 
-export const Toggle = jsx(ReakitCheckbox)(
-  {
-    appearance: 'none',
-    position: 'relative',
-    cursor: 'pointer',
-    margin: 0,
-    borderRadius: '6.25rem',
-    backgroundColor: 'mid.primary',
-    borderStyle: 'solid',
-    borderColor: 'mid.primary',
-    borderWidth: 1,
-    '&:after': {
-      content: '""',
-      display: 'block',
-      position: 'absolute',
-      borderRadius: '1.25rem',
-      backgroundColor: 'light.primary',
-      transition: 'transform .25s ease',
-    },
-    '&:checked': {
-      backgroundColor: 'green',
-      borderColor: 'green',
-      '&:hover': {
-        backgroundColor: 'green.hover',
-        borderColor: 'green.hover',
-      },
-      '&:disabled': {
-        backgroundColor: 'mid.primary',
-        borderColor: 'mid.primary',
-        '&:after': {
-          backgroundColor: 'mid.secondary',
-        },
-      },
-    },
-    '&:hover': {
-      backgroundColor: 'dark.secondary',
-      borderColor: 'dark.secondary',
-    },
-    '&:disabled': {
-      backgroundColor: 'mid.primary',
-      borderColor: 'mid.primary',
-      '&:after': {
-        backgroundColor: 'mid.secondary',
-      },
-    },
-    ':not(:checked):active': {
-      backgroundColor: 'dark.secondary',
-      borderColor: 'dark.secondary',
-      ':after': {
-        backgroundColor: 'blue.secondary',
-      },
-    },
+function focusVisible() {
+  return {
     ':focus:not([data-focus-visible-added])': {
       outline: 'none',
       boxShadow: 'none',
@@ -65,6 +16,80 @@ export const Toggle = jsx(ReakitCheckbox)(
     ':focus': {
       outline: 'none',
       boxShadow: 'focus',
+    },
+  }
+}
+
+export const Toggle = jsx(ReakitCheckbox)(
+  {
+    ...focusVisible,
+    bg: (theme) => get(theme, 'borderColor.control.primary'),
+    borderColor: 'control.primary',
+    appearance: 'none',
+    position: 'relative',
+    cursor: 'pointer',
+    margin: 0,
+    borderRadius: '6.25rem',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    ':after': {
+      bg: (theme) => get(theme, 'foreground.control.primary'),
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      borderRadius: '1.25rem',
+      transition: 'transform .25s ease',
+    },
+
+    ':hover': {
+      bg: (theme) => get(theme, 'borderColor.control.primaryHover'),
+      borderColor: 'control.primaryHover',
+    },
+
+    ':active': {
+      bg: (theme) => get(theme, 'borderColor.control.primaryPressed'),
+      borderColor: 'control.primaryPressed',
+    },
+
+    '&:disabled': {
+      bg: (theme) => get(theme, 'borderColor.control.disabled'),
+      borderColor: 'control.disabled',
+      '&:after': {
+        bg: 'control.disabled',
+      },
+    },
+
+    '&:checked': {
+      bg: 'control.primaryChecked',
+      color: 'control.primaryChecked',
+      borderColor: 'control.primaryChecked',
+
+      ':hover': {
+        bg: 'control.primaryCheckedHover',
+        borderColor: 'control.primaryCheckedHover',
+        ':after': {
+          borderColor: 'control.primaryCheckedHover',
+        },
+      },
+
+      ':active': {
+        bg: 'control.primaryCheckedPressed',
+        borderColor: 'control.primaryCheckedPressed',
+
+        ':after': {
+          borderColor: 'control.primaryCheckedPressed',
+        },
+      },
+
+      '&:disabled': {
+        bg: 'control.disabled',
+        borderColor: 'control.disabled',
+        color: 'control.disabled',
+
+        '&:after': {
+          bg: (theme) => get(theme, 'foreground.control.disabled'),
+        },
+      },
     },
     variants: {
       size: {
@@ -77,7 +102,7 @@ export const Toggle = jsx(ReakitCheckbox)(
           },
           '&:checked': {
             '&:after': {
-              transform: 'translateX(16px)',
+              transform: 'translateX(1rem)',
             },
           },
         },

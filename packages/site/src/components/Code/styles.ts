@@ -10,7 +10,7 @@ export default {
     padding: 5,
     position: 'relative',
     color: 'dark.primary',
-    bg: 'light.primary',
+    bg: 'base',
     minHeight: 'auto',
     borderRadius: 'default',
     fontFamily: 'mono',

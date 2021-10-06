@@ -2,7 +2,6 @@ import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React, { Fragment } from 'react'
 import { IconClose } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/admin-ui-react'
-import { lightness } from '@vtex/admin-ui-core'
 
 import { Flex } from '../Flex'
 import { Button } from '../Button'
@@ -29,6 +28,7 @@ export const Alert = jsx('div')(
     a: {
       fontSettings: 'medium',
     },
+    color: 'base',
     variants: {
       sticky: {
         true: {
@@ -53,21 +53,21 @@ export const Alert = jsx('div')(
         },
       },
       type: {
-        error: {
-          bg: lightness('red.secondary.default', 0.94),
-          borderColor: 'red.secondary',
+        danger: {
+          bg: 'feedback.danger',
+          borderColor: 'feedback.danger',
         },
         success: {
-          bg: lightness('green.secondary.default', 0.94),
-          borderColor: 'green.secondary',
+          bg: 'feedback.success',
+          borderColor: 'feedback.success',
         },
         warning: {
-          bg: lightness('yellow.secondary.default', 0.94),
-          borderColor: 'yellow.secondary',
+          bg: 'feedback.warning',
+          borderColor: 'feedback.warning',
         },
         info: {
-          bg: 'light.secondary',
-          borderColor: 'blue.secondary',
+          bg: 'feedback.info',
+          borderColor: 'feedback.info',
         },
       },
       fluid: {
@@ -111,16 +111,16 @@ export const Alert = jsx('div')(
 
       const iconContainerCsx = {
         warning: {
-          color: 'yellow',
+          color: 'feedback.warning',
         },
         success: {
-          color: 'green',
+          color: 'feedback.success',
         },
-        error: {
-          color: 'red',
+        danger: {
+          color: 'feedback.danger',
         },
         info: {
-          color: 'blue',
+          color: 'feedback.info',
         },
       }[type]
 

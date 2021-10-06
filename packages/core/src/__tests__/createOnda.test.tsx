@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 import createEmotion from '@emotion/css/create-instance'
 
 import { createSystem, useSystem } from '../createSystem'
-import { unstableCreateAdminUI, theme } from '../theme'
+import { unstableCreateAdminUI, theme } from '../adminUI'
 
 describe('context', () => {
   it('should execute the system', () => {

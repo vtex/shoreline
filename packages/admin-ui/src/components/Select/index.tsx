@@ -55,7 +55,7 @@ export const Select = forwardRef(
           <Box csx={{ paddingTop: 1 }}>
             <Text
               variant="small"
-              feedback={error ? 'danger' : 'secondary'}
+              feedback={error ? 'danger' : 'muted'}
               csx={{ lineHeight: 1.5 }}
             >
               {message}

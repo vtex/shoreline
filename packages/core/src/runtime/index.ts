@@ -66,8 +66,11 @@ function experimentalResponsiveScale(
  * @param steps
  * @returns
  */
-export function createParser(steps: StepsInstance, theme: Theme): CsxParser {
-  function csxParser(csx: StyleProp = {}) {
+export function createStyles(
+  steps: StepsInstance,
+  theme: Theme
+): StylesFunction {
+  function styles(csx: StyleProp = {}) {
     const cssObject: EmotionCSSObject = {}
     const responsive = experimentalResponsiveScale(csx as any)
 
@@ -83,7 +86,7 @@ export function createParser(steps: StepsInstance, theme: Theme): CsxParser {
       }
 
       if (token && typeof token === 'object') {
-        cssObject[cssProperty] = csxParser(token as StyleObject)
+        cssObject[cssProperty] = styles(token as StyleObject)
         continue
       }
 
@@ -96,13 +99,13 @@ export function createParser(steps: StepsInstance, theme: Theme): CsxParser {
         if (value.default) {
           // handle object rules
           if (typeof value.default === 'object') {
-            cssObject[cssProperty] = csxParser(value.default)
+            cssObject[cssProperty] = styles(value.default)
           } else {
             cssObject[cssProperty] = value.default
           }
         } else {
           // handle object rules
-          Object.assign(cssObject, csxParser(value))
+          Object.assign(cssObject, styles(value))
         }
       } else if (cssProperty in steps.splits.value) {
         const splitValue = steps.splits.exec(cssProperty, value)
@@ -116,7 +119,7 @@ export function createParser(steps: StepsInstance, theme: Theme): CsxParser {
     return cssObject
   }
 
-  return csxParser
+  return styles
 }
 
 /**
@@ -140,7 +143,7 @@ export function createClsx(emotion: Emotion): ClsxFn {
   return clsx
 }
 
-export function createAtoms(parser: CsxParser, clsx: ClsxFn) {
+export function createAtoms(parser: StylesFunction, clsx: ClsxFn) {
   function atoms(csx: StyleProp) {
     const parsed = parser(csx)
     const className = clsx(parsed)
@@ -153,5 +156,5 @@ export function createAtoms(parser: CsxParser, clsx: ClsxFn) {
 
 export { Global, CacheProvider } from '@emotion/react'
 
-export type CsxParser = (csx?: StyleProp) => EmotionCSSObject
+export type StylesFunction = (csx?: StyleProp) => EmotionCSSObject
 export type ClsxFn = (css?: EmotionCSSObject) => string

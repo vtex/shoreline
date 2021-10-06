@@ -16,16 +16,18 @@ describe('Tag tests', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <>
-        <Tag label="tag-1" palette="green" />
-        <Tag label="tag-2" palette="yellow" />
-        <Tag label="tag-3" palette="red" />
-        <Tag label="tag-4" palette="gray" />
-        <Tag label="tag-5" palette="purple" />
-        <Tag label="tag-6" />
-        <Tag label="tag-7" size="regular" />
-        <Tag label="tag-8" size="small" />
-        <Tag label="tag-9" handleDelete={() => {}} />
-        <Tag label="tag-10" icon={<IconAdd />} handleDelete={() => {}} />
+        <Tag label="Rio de Janeiro" palette="cyan" />
+        <Tag label="Rio de Janeiro" palette="purple" />
+        <Tag label="Rio de Janeiro" palette="green" />
+        <Tag label="Rio de Janeiro" palette="grey" />
+        <Tag label="Rio de Janeiro" palette="purple" />
+        <Tag label="Rio de Janeiro" palette="orange" />
+        <Tag label="Rio de Janeiro" palette="teal" />
+        <Tag label="tag-1" />
+        <Tag label="tag-2" size="regular" />
+        <Tag label="tag-3" size="small" />
+        <Tag label="tag-4" handleDelete={() => {}} />
+        <Tag label="tag-5" icon={<IconAdd />} handleDelete={() => {}} />
       </>
     )
 
@@ -35,16 +37,18 @@ describe('Tag tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <>
-        <Tag label="tag-1" palette="green" />
-        <Tag label="tag-2" palette="yellow" />
-        <Tag label="tag-3" palette="red" />
-        <Tag label="tag-4" palette="gray" />
-        <Tag label="tag-5" palette="purple" />
-        <Tag label="tag-6" />
-        <Tag label="tag-7" size="regular" />
-        <Tag label="tag-8" size="small" />
-        <Tag label="tag-9" handleDelete={() => {}} />
-        <Tag label="tag-10" icon={<IconAdd />} handleDelete={() => {}} />
+        <Tag label="Rio de Janeiro" palette="cyan" />
+        <Tag label="Rio de Janeiro" palette="purple" />
+        <Tag label="Rio de Janeiro" palette="green" />
+        <Tag label="Rio de Janeiro" palette="grey" />
+        <Tag label="Rio de Janeiro" palette="purple" />
+        <Tag label="Rio de Janeiro" palette="orange" />
+        <Tag label="Rio de Janeiro" palette="teal" />
+        <Tag label="tag-1" />
+        <Tag label="tag-2" size="regular" />
+        <Tag label="tag-3" size="small" />
+        <Tag label="tag-4" handleDelete={() => {}} />
+        <Tag label="tag-5" icon={<IconAdd />} handleDelete={() => {}} />
       </>
     )
 

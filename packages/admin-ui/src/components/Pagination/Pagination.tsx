@@ -39,7 +39,7 @@ export const Pagination = jsx('div')(
           <Fragment>
             {!loading && (
               <Text
-                feedback="secondary"
+                feedback="muted"
                 variant="small"
                 csx={{ marginRight: '1.25rem', whiteSpace: 'nowrap' }}
               >

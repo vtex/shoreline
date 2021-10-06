@@ -8,7 +8,7 @@ export const Cell = jsx('td')(
     borderBottomWidth: 1,
     fontSize: 1,
     borderBottomStyle: 'solid',
-    borderBottomColor: 'mid.tertiary',
+    borderBottomColor: 'base',
     display: 'table-cell',
     verticalAlign: 'middle',
     paddingX: 2,

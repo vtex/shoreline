@@ -32,7 +32,7 @@ export const useSkipToContent = createHook<
         overflow: 'hidden',
         zIndex: -999,
         ':focus, :active': {
-          bg: 'light.primary',
+          bg: 'base',
           left: 'auto',
           top: 'auto',
           height: 'auto',

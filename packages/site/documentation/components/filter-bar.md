@@ -313,7 +313,7 @@ function Example() {
                   id="filter-input"
                   value={value}
                   csx={{
-                    bg: 'light.primary',
+                    bg: 'base',
                     height: 40,
                     marginY: 0,
                     paddingRight: '60px',

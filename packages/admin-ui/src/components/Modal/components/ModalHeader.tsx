@@ -27,7 +27,7 @@ export const ModalHeader = jsx('header')(
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderColor: 'mid.tertiary',
+    borderColor: 'base',
     borderStyle: 'solid',
     'button + button': {
       marginLeft: 4,
@@ -39,14 +39,13 @@ export const ModalHeader = jsx('header')(
     borderRightWidth: 0,
     borderBottomWidth: 1,
     h1: {
-      variant: 'text.subtitle',
       lineHeight: 0,
     },
     position: 'sticky',
     top: 0,
     left: 0,
     right: 0,
-    bg: 'light.primary',
+    bg: 'base',
     zIndex: 999,
   },
   {

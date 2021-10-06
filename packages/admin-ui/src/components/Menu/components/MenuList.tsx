@@ -13,7 +13,7 @@ export const MenuList = jsx(ReakitMenu)(
     zIndex: 999,
     display: 'flex',
     flexDirection: 'column',
-    bg: 'light.primary',
+    bg: 'base',
     padding: 3,
     minWidth: 18,
     borderRadius: 3,

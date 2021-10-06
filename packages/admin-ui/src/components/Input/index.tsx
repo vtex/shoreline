@@ -1,11 +1,9 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
 
-import { Box } from '../Box'
 import type { AbstractInputProps } from '../AbstractInput'
 import { AbstractInput } from '../AbstractInput'
-import { Text } from '../Text'
-import { Label } from '../Label'
+import { FieldContainer, FloatingLabel, FieldDetails } from '../Field'
 import type { SystemComponentProps } from '../../types'
 
 export const Input = forwardRef(function Input(
@@ -27,14 +25,7 @@ export const Input = forwardRef(function Input(
   const message = error ? errorMessage : helperText
 
   return (
-    <Box
-      csx={{
-        display: 'flex',
-        position: 'relative',
-        justifyContent: 'flex-start',
-        flexDirection: 'column',
-      }}
-    >
+    <FieldContainer>
       <AbstractInput
         value={value}
         id={id}
@@ -43,50 +34,18 @@ export const Input = forwardRef(function Input(
         maxLength={charLimit}
         csx={{ paddingTop: 4, ...csx }}
         error={error}
-        labelElement={
-          <Label
-            csx={{
-              fontSize: 1,
-              left: 12,
-              paddingTop: 2,
-              color: 'mid.primary',
-              marginBottom: 3,
-              position: 'absolute',
-              transform: 'translate(0, 16px) scale(1)',
-              transformOrigin: 'top left',
-              transition: 'all 0.2s ease-out;',
-            }}
-            htmlFor={id}
-          >
-            {label}
-          </Label>
-        }
+        labelElement={<FloatingLabel htmlFor={id}>{label}</FloatingLabel>}
         {...inputProps}
       />
       {(message || !!charLimit) && (
-        <Box
-          csx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: '',
-            paddingTop: 1,
-          }}
-        >
-          {message ? (
-            <Text variant="small" feedback={error ? 'danger' : 'secondary'}>
-              {message}
-            </Text>
-          ) : (
-            <div>{/** spacer element */}</div>
-          )}
-          {!!charLimit && (
-            <Text variant="small" feedback="secondary">
-              {`${value.toString().length}/${charLimit}`}
-            </Text>
-          )}
-        </Box>
+        <FieldDetails
+          value={value}
+          message={message}
+          charLimit={charLimit}
+          error={error}
+        />
       )}
-    </Box>
+    </FieldContainer>
   )
 })
 

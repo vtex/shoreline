@@ -120,8 +120,8 @@ export const Loading = () => {
       </Button>
       <Box
         csx={{
-          color: 'light.primary',
-          bg: 'dark.primary',
+          color: 'base',
+          bg: 'base',
           padding: 4,
         }}
       >
@@ -135,8 +135,7 @@ export const Loading = () => {
       </Box>
       <Box
         csx={{
-          color: 'dark.primary',
-          bg: 'light.primary',
+          bg: 'base',
           padding: 4,
         }}
       >

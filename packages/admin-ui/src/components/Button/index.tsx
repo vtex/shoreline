@@ -33,6 +33,10 @@ export const Button = jsx(ReakitButton)(
       outline: 'none',
       boxShadow: 'focus',
     },
+    ':disabled': {
+      color: 'action.disabled',
+      bg: 'action.disabled',
+    },
     variants: {
       size: {
         small: {
@@ -52,117 +56,83 @@ export const Button = jsx(ReakitButton)(
       },
       variant: {
         primary: {
-          color: 'light.primary',
-          backgroundColor: 'blue',
+          color: 'action.primary',
+          bg: 'action.primary',
           ':hover': {
-            backgroundColor: 'blue.hover',
+            bg: 'action.primaryHover',
           },
           ':active': {
-            backgroundColor: 'blue.pressed',
-          },
-          ':disabled': {
-            color: 'dark.primary',
-            backgroundColor: 'mid.secondary',
+            bg: 'action.primaryPressed',
           },
         },
         secondary: {
-          backgroundColor: 'blue.secondary',
-          color: 'blue',
+          color: 'action.secondary',
+          bg: 'action.secondary',
           ':hover': {
-            backgroundColor: 'blue.secondary.hover',
+            bg: 'action.secondaryHover',
           },
           ':active': {
-            backgroundColor: 'blue.secondary.pressed',
-          },
-          ':disabled': {
-            color: 'mid.primary',
-            backgroundColor: 'light.secondary',
+            bg: 'action.secondaryPressed',
           },
         },
         tertiary: {
-          backgroundColor: 'transparent',
-          color: 'blue',
+          color: 'action.tertiary',
+          bg: 'action.tertiary',
           ':hover': {
-            color: 'blue.hover',
-            backgroundColor: alpha('blue.secondary.hover', 0.24),
+            bg: 'action.tertiaryHover',
           },
           ':active': {
-            color: 'blue.pressed',
-            backgroundColor: alpha('blue.secondary.pressed', 0.32),
-          },
-          ':disabled': {
-            color: 'mid.primary',
+            bg: 'action.tertiaryPressed',
           },
         },
         danger: {
-          color: 'light.primary',
-          backgroundColor: 'red',
+          color: 'action.danger',
+          bg: 'action.danger',
           ':hover': {
-            backgroundColor: 'red.hover',
+            bg: 'action.dangerHover',
           },
           ':active': {
-            backgroundColor: 'red.pressed',
-          },
-          ':disabled': {
-            color: 'dark.primary',
-            backgroundColor: 'mid.secondary',
+            bg: 'action.dangerPressed',
           },
         },
         'danger-secondary': {
-          backgroundColor: 'red.secondary',
-          color: 'red',
+          color: 'action.dangerSecondary',
+          bg: 'action.dangerSecondary',
           ':hover': {
-            backgroundColor: 'red.secondary.hover',
-            color: 'red.hover',
+            bg: 'action.dangerSecondaryHover',
           },
           ':active': {
-            backgroundColor: 'red.secondary.pressed',
-            color: 'red.pressed',
-          },
-          ':disabled': {
-            color: 'mid.primary',
-            backgroundColor: 'light.secondary',
+            bg: 'action.dangerSecondaryPressed',
           },
         },
         'danger-tertiary': {
-          backgroundColor: 'transparent',
-          color: 'red',
+          color: 'action.dangerTertiary',
+          bg: 'action.dangerTertiary',
           ':hover': {
-            color: 'red.hover',
-            backgroundColor: alpha('red.secondary.hover', 0.24),
+            bg: 'action.dangerTertiaryHover',
           },
           ':active': {
-            color: 'red.pressed',
-            backgroundColor: alpha('red.secondary.pressed', 0.32),
-          },
-          ':disabled': {
-            color: 'mid.primary',
+            bg: 'action.dangerTertiaryPressed',
           },
         },
         'adaptative-dark': {
           color: 'currentColor',
-          backgroundColor: 'transparent',
+          bg: 'transparent',
           ':hover': {
-            backgroundColor: alpha('dark.primary', 0.04),
+            bg: alpha('black' as any, 0.04), // TODO: Check if we can add this token!
           },
           ':active': {
-            backgroundColor: alpha('dark.primary', 0.08),
-          },
-          ':disabled': {
-            color: 'mid.primary',
+            bg: alpha('black' as any, 0.08),
           },
         },
         'adaptative-light': {
           color: 'currentColor',
-          backgroundColor: 'transparent',
+          bg: 'transparent',
           ':hover': {
-            backgroundColor: alpha('light.primary', 0.04),
+            bg: alpha('white' as any, 0.04),
           },
           ':active': {
-            backgroundColor: alpha('light.primary', 0.08),
-          },
-          ':disabled': {
-            color: 'mid.primary',
+            bg: alpha('white' as any, 0.08),
           },
         },
       },

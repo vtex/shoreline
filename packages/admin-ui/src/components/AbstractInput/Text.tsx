@@ -39,35 +39,25 @@ export const AbstractInput = forwardRef(function AbstractInput(
     borderWidth: 1,
     paddingLeft: 3,
     paddingRight: 4,
-    borderColor: error ? 'red' : 'mid.secondary',
+    borderColor: error ? 'inputError' : 'input',
     borderRadius: 'default',
     bg: 'inherit',
     marginY: 1,
     fontSize: 1,
-    color: 'dark.primary',
+    color: 'base',
     outline: 0,
     transition: 'snap',
     ':hover': {
-      borderColor: error ? 'red.hover' : 'dark.primary',
+      borderColor: error ? 'inputError' : 'inputHover',
     },
     ':focus': {
-      borderColor: error ? 'red' : 'blue',
+      borderColor: error ? 'inputError' : 'inputFocus',
       boxShadow: error ? 'inputFocusError' : 'inputFocus',
     },
     ':disabled': {
-      bg: 'light.secondary',
-      color: 'mid.primary',
+      bg: 'light.secondary', // TODO missing styles
+      color: 'mid.primary', // TODO missing styles
     },
-    ':focus + label': {
-      transform: 'translate(1px, 4px) scale(0.875)',
-    },
-    ':placeholder-shown:not(:focus) + label': {
-      paddingTop: 1,
-    },
-    ':not(:placeholder-shown) + label': {
-      transform: 'translate(1px, 4px) scale(0.875)',
-    },
-
     ...spacing({
       icon: !!icon,
       suffix: !!suffix,
@@ -94,7 +84,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
         <IconContainer
           space="regular"
           csx={{
-            color: 'mid.primary',
+            color: 'muted',
             top: 1,
             left: 0,
             marginX: 3,
@@ -125,7 +115,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
             paddingRight: 3,
             position: 'absolute',
             display: 'flex',
-            color: 'dark.secondary',
+            color: 'base',
           }}
         >
           {showClear && (
@@ -146,10 +136,10 @@ export const AbstractInput = forwardRef(function AbstractInput(
             <Box
               as="span"
               csx={{
-                color: 'mid.primary',
+                color: 'muted', // TODO missing
                 borderLeftStyle: 'solid',
                 borderLeftWidth: '1px',
-                borderLeftColor: 'mid.secondary',
+                borderLeftColor: 'input', // TODO missing
                 paddingTop: '14px',
                 marginTop: 'px',
                 width: '32px',

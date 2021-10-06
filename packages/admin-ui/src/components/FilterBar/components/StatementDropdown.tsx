@@ -60,9 +60,9 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
     variant,
     renderItem,
     csx: {
-      bg: 'light.primary',
+      bg: 'base',
       border: 'default',
-      color: 'dark.secondary',
+      color: 'muted',
       div: {
         width: '100%',
         div: {

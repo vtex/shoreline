@@ -29,8 +29,8 @@ export const ConsumingAdminUiTheme: Story = () => {
     <Box
       csx={{
         fontSize: 64,
-        bg: 'blue',
-        color: 'light.primary',
+        bg: 'muted',
+        color: 'base',
         borderRadius: 4,
       }}
     >
@@ -49,10 +49,7 @@ export const Polymorphism: Story = () => {
 
 export const UsingClassNames: Story = () => {
   return (
-    <Box
-      csx={{ bg: 'primary.base', color: 'background' }}
-      className="my-className"
-    >
+    <Box csx={{ bg: 'base', color: 'base' }} className="my-className">
       Box
     </Box>
   )

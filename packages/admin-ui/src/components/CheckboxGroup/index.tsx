@@ -18,7 +18,7 @@ export const Group = jsx('div')(
     },
     '& > label': {
       cursor: 'pointer',
-      color: 'dark.secondary',
+      color: 'muted',
       display: 'flex',
       alignItems: 'center',
     },

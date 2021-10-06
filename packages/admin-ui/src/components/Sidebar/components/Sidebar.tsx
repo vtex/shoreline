@@ -61,8 +61,8 @@ export const Sidebar = forwardRef(function Sidebar(
           minWidth: SCALES.FIXED_AREA_WIDTH,
           outline: 'none',
           borderRight: '1px solid',
-          borderColor: 'mid.tertiary',
-          bg: state.isReduced() ? 'light.primary' : 'sidebar.light',
+          borderColor: 'base',
+          bg: state.isReduced() ? 'base' : 'muted',
           boxShadow:
             state.selectedItem?.expandable && state.layout.reduced
               ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
@@ -117,7 +117,7 @@ export const Sidebar = forwardRef(function Sidebar(
       </tag.div>
       <tag.div
         csx={{
-          bg: state.isReduced() ? 'light.primary' : 'sidebar.light',
+          bg: state.isReduced() ? 'base' : 'muted',
           width: '3.4375rem',
           top: 0,
           bottom: 0,

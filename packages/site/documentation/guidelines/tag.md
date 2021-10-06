@@ -81,7 +81,7 @@ function Example() {
             borderRadius: 4,
             height: 32,
             cursor: 'pointer',
-            bg: 'light.primary',
+            bg: 'base',
             ':hover': {
               bg: 'light.secondary',
             },

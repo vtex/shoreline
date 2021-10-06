@@ -60,10 +60,7 @@ export function FilterBar<T, V extends { value: T }>(
   } = props
 
   return (
-    <Box
-      csx={{ border: 'default', bg: 'sidebar.light', ...csx }}
-      {...htmlProps}
-    >
+    <Box csx={{ border: 'default', bg: 'muted', ...csx }} {...htmlProps}>
       <Content empty={statements.length === 0} label={label}>
         {statements.map((statement, index) => {
           return (
@@ -115,7 +112,7 @@ export function FilterBar<T, V extends { value: T }>(
                 <MenuButton
                   aria-label={`${statementMenuLabel} ${index}`}
                   variant="adaptative-dark"
-                  csx={{ color: 'dark.secondary' }}
+                  csx={{ color: 'muted' }}
                   display="actions"
                 />
                 <MenuList aria-label={`${statementMenuLabel} ${index}`}>

@@ -22,8 +22,8 @@ import { useGroup } from '../../Group'
  */
 export const Collapsible = jsx('div')(
   {
-    bg: 'light.primary',
-    borderColor: 'mid.tertiary',
+    bg: 'base',
+    borderColor: 'base',
     borderStyle: 'solid',
     borderWidth: 1,
     borderRadius: 'default',

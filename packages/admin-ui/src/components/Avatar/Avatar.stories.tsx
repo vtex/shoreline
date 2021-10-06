@@ -21,9 +21,13 @@ Playground.args = {
 export const Basic = () => {
   return (
     <Set>
-      <Avatar label="base" />
-      <Avatar label="primary" palette="primary" />
-      <Avatar label="danger" palette="danger" />
+      <Avatar label="lightBlue" />
+      <Avatar label="green" palette="green" />
+      <Avatar label="orange" palette="orange" />
+      <Avatar label="cyan" palette="cyan" />
+      <Avatar label="purple" palette="purple" />
+      <Avatar label="teal" palette="teal" />
+      <Avatar label="grey" palette="grey" />
     </Set>
   )
 }

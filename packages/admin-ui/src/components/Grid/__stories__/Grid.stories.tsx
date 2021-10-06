@@ -5,16 +5,16 @@ import { tag } from '@vtex/admin-ui-react'
 import { Grid, GridItem } from '../index'
 
 export default {
-  title: 'primitives/Grid',
+  title: 'admin-ui/Grid',
   component: Grid,
 } as Meta
 
 export const Playground: Story = (args) => {
   return (
     <Grid {...args}>
-      <GridItem area="green" csx={{ bg: 'green' }} />
-      <GridItem area="blue" csx={{ bg: 'blue' }} />
-      <GridItem area="red" csx={{ bg: 'red' }} />
+      <GridItem area="green" csx={{ bg: 'feedback.success' }} />
+      <GridItem area="blue" csx={{ bg: 'feedback.info' }} />
+      <GridItem area="red" csx={{ bg: 'feedback.danger' }} />
     </Grid>
   )
 }
@@ -30,11 +30,11 @@ Playground.args = {
 export const TemplateColumns = () => {
   return (
     <Grid templateColumns="repeat(5, 1fr)" columnGap="4" csx={{ height: 100 }}>
-      <tag.div csx={{ bg: 'blue' }} />
-      <tag.div csx={{ bg: 'blue' }} />
-      <tag.div csx={{ bg: 'blue' }} />
-      <tag.div csx={{ bg: 'blue' }} />
-      <tag.div csx={{ bg: 'blue' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
     </Grid>
   )
 }
@@ -46,11 +46,11 @@ export const TemplateRows = () => {
       rowGap="4"
       csx={{ height: 500, width: 500 }}
     >
-      <tag.div csx={{ bg: 'blue' }} />
-      <tag.div csx={{ bg: 'blue' }} />
-      <tag.div csx={{ bg: 'blue' }} />
-      <tag.div csx={{ bg: 'blue' }} />
-      <tag.div csx={{ bg: 'blue' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={{ bg: 'feedback.info' }} />
     </Grid>
   )
 }

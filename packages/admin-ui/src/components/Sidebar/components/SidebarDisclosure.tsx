@@ -36,14 +36,14 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         csx={merge(
           {
             zIndex: 'sidebarDisclosure',
-            backgroundColor: selected ? 'sidebar.hover' : 'unset',
+            bg: selected ? 'action.secondary' : 'unset',
             'div > svg': {
-              color: selected ? 'unset' : 'sidebar.dark',
+              color: selected ? 'action.secondary' : 'base',
             },
             '&:hover': {
-              backgroundColor: 'sidebar.hover',
+              bg: 'action.secondaryHover',
               'div > svg': {
-                color: 'blue',
+                color: 'action.secondary',
                 opacity: 1,
               },
             },

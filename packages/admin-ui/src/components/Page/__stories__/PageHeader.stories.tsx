@@ -54,7 +54,7 @@ export function Shell() {
     <tag.div csx={{ width: '57.5rem', height: '37.5rem', display: 'flex' }}>
       <tag.aside
         csx={{
-          bg: 'mid.tertiary',
+          bg: 'muted',
           width: 320,
         }}
       >
@@ -83,7 +83,7 @@ export function Shell() {
                   height: 100,
                   marginTop: 3,
                   marginX: 2,
-                  bg: 'light.secondary',
+                  bg: 'muted',
                 }}
               />
             ))}

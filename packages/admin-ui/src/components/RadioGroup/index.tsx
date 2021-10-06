@@ -39,7 +39,7 @@ export function RadioGroup(props: RadioGroupProps) {
           },
           '& > label': {
             cursor: 'pointer',
-            color: 'dark.secondary',
+            color: 'muted',
             display: 'flex',
             alignItems: 'center',
           },

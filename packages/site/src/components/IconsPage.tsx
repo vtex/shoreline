@@ -491,7 +491,7 @@ export function IconPage() {
                     as="button"
                     csx={{
                       color: 'dark.primary',
-                      bg: 'light.primary',
+                      bg: 'base',
                       border: 'none',
                       flex: '0 0 auto',
                       width: '2/12',

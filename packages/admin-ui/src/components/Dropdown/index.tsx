@@ -53,11 +53,11 @@ export const Dropdown = forwardRef(
           csx={{
             visibility: state.isOpen ? 'visible' : 'hidden',
             cursor: 'pointer',
-            bg: 'light.primary',
+            bg: 'base',
             borderRadius: 'default',
             borderWidth: 1,
             borderStyle: 'solid',
-            borderColor: 'mid.secondary',
+            borderColor: 'base',
             boxShadow: 'menu',
             outline: 'none',
             marginTop: 1,
@@ -78,10 +78,14 @@ export const Dropdown = forwardRef(
                   height: 24,
                   paddingX: 4,
                   cursor: 'pointer',
+                  color:
+                    state.highlightedIndex === index
+                      ? 'action.secondary'
+                      : 'base',
                   bg:
                     state.highlightedIndex === index
-                      ? 'blue.secondary'
-                      : 'light.primary',
+                      ? 'action.secondary'
+                      : 'base',
                 }}
                 key={index}
                 {...state.getItemProps({ item, index })}

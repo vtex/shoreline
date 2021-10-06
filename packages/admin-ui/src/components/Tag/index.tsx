@@ -2,6 +2,7 @@ import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
 import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/admin-ui-react'
+import { palette } from '@vtex/admin-ui-core'
 
 import { Button } from '../Button'
 
@@ -22,31 +23,19 @@ export const Tag = jsx('div')(
     display: 'inline-flex',
     alignItems: 'center',
     borderRadius: '100px',
-    color: 'dark.primary',
     border: 'none',
     '> svg:nth-of-type(1)': {
       marginRight: 1,
     },
     variants: {
       palette: {
-        blue: {
-          bg: 'blue.secondary',
-        },
-        green: {
-          bg: 'green.secondary',
-        },
-        red: {
-          bg: 'red.secondary',
-        },
-        gray: {
-          bg: 'mid.tertiary',
-        },
-        yellow: {
-          bg: 'yellow.secondary',
-        },
-        purple: {
-          bg: '#E4E0F0',
-        },
+        lightBlue: palette('lightBlue'),
+        green: palette('green'),
+        orange: palette('orange'),
+        cyan: palette('cyan'),
+        purple: palette('purple'),
+        teal: palette('teal'),
+        grey: palette('grey'),
       },
       size: {
         small: {
@@ -118,7 +107,7 @@ export const Tag = jsx('div')(
 
 Tag.defaultProps = {
   size: 'regular',
-  palette: 'blue',
+  palette: 'lightBlue',
 }
 
 export interface TagOptions {

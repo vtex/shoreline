@@ -36,7 +36,7 @@ export default function Header() {
         position: 'fixed',
         border,
         color: 'dark.primary',
-        bg: 'light.primary',
+        bg: 'base',
         width: '80%',
         maxWidth: 'calc(90rem - 10%)',
         display: 'flex',

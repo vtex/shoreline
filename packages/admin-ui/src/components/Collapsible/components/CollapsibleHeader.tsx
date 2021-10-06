@@ -60,10 +60,10 @@ function Disclosure({ children }: { children: ReactNode }) {
             }
             variant="tertiary"
             csx={{
-              color: 'dark.primary',
+              color: 'base',
               textTransform: 'none',
-              '&:hover': { backgroundColor: 'transparent' },
-              '&:active': { backgroundColor: 'transparent' },
+              '&:hover': { bg: 'transparent' },
+              '&:active': { bg: 'transparent' },
             }}
           >
             {children}

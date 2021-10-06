@@ -2,9 +2,7 @@ import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { tag } from '@vtex/admin-ui-react'
 
-import { Box } from '../Box'
-import { Text } from '../Text'
-import { Label } from '../Label'
+import { FloatingLabel, FieldDetails, FieldContainer } from '../Field'
 import type { SystemComponentProps } from '../../types'
 
 export const TextArea = forwardRef(function Textarea(
@@ -27,22 +25,18 @@ export const TextArea = forwardRef(function Textarea(
   const message = error ? errorMessage : helperText
 
   return (
-    <Box
+    <FieldContainer
       csx={{
-        display: 'flex',
-        position: 'relative',
-        justifyContent: 'flex-start',
-        flexDirection: 'column',
         width: 'full',
         textarea: error
           ? {
-              borderColor: 'red',
+              borderColor: 'inputError',
               ':focus': {
-                borderColor: 'red',
+                borderColor: 'inputError',
                 boxShadow: 'inputFocusError',
               },
               ':hover': {
-                borderColor: 'red.hover',
+                borderColor: 'inputError',
               },
             }
           : {},
@@ -60,35 +54,25 @@ export const TextArea = forwardRef(function Textarea(
           borderWidth: 1,
           paddingLeft: 3,
           paddingRight: 4,
-          borderColor: 'mid.secondary',
+          borderColor: 'input',
           borderRadius: 'default',
           bg: 'inherit',
           marginY: 1,
           fontSize: 1,
-          color: 'dark.primary',
+          color: 'base',
           outline: 0,
           transition: 'snap',
           ':hover': {
-            borderColor: 'dark.primary',
+            borderColor: 'inputHover',
           },
           ':focus': {
-            borderColor: 'blue',
+            borderColor: 'inputFocus',
             boxShadow: 'inputFocus',
           },
           ':disabled': {
-            bg: 'light.secondary',
-            color: 'mid.primary',
-            borderColor: 'mid.secondary',
-          },
-          // Label styles
-          ':focus + label': {
-            transform: 'translate(1px, 4px) scale(0.875)',
-          },
-          ':placeholder-shown:not(:focus) + label': {
-            paddingTop: 1,
-          },
-          ':not(:placeholder-shown) + label': {
-            transform: 'translate(1px, 4px) scale(0.875)',
+            bg: 'light.secondary', // TODO missing
+            color: 'mid.primary', // TODO missing
+            borderColor: 'mid.secondary', // TODO missing
           },
           ...csx,
         }}
@@ -100,45 +84,16 @@ export const TextArea = forwardRef(function Textarea(
         onChange={onChange}
         {...textareaProps}
       />
-      <Label
-        htmlFor={id}
-        csx={{
-          fontSize: 1,
-          left: 12,
-          paddingTop: 2,
-          color: 'mid.primary',
-          marginBottom: 3,
-          position: 'absolute',
-          transform: 'translate(0, 16px) scale(1)',
-          transformOrigin: 'top left',
-          transition: 'all 0.2s ease-out;',
-        }}
-      >
-        {label}
-      </Label>
+      <FloatingLabel htmlFor={id}>{label}</FloatingLabel>
       {(message || !!charLimit) && (
-        <Box
-          csx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            paddingTop: 1,
-          }}
-        >
-          {message ? (
-            <Text variant="small" feedback={error ? 'danger' : 'secondary'}>
-              {message}
-            </Text>
-          ) : (
-            <div>{/** spacer element */}</div>
-          )}
-          {charLimit && (
-            <Text variant="small" csx={{ color: 'mid.primary' }}>
-              {`${value.toString().length}/${charLimit}`}
-            </Text>
-          )}
-        </Box>
+        <FieldDetails
+          value={value}
+          message={message}
+          charLimit={charLimit}
+          error={error}
+        />
       )}
-    </Box>
+    </FieldContainer>
   )
 })
 
