@@ -19,8 +19,8 @@ export const MenuList = jsx(ReakitMenu)(
     borderRadius: 3,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: 'mid.secondary',
-    boxShadow: 'menu',
+    borderColor: 'dialog.nonModal',
+    boxShadow: 'dialog.nonModal',
   },
   {
     options: [],

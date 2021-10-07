@@ -35,8 +35,13 @@ export const colors = {
 export const background = {
   base: colors.white,
   muted: colors.grey10,
-  backdrop: colors.greyTransparent80,
   popup: colors.black,
+
+  dialog: {
+    modal: colors.white,
+    nonModal: colors.white,
+    modalBackdrop: colors.greyTransparent80,
+  },
 
   action: {
     disabled: colors.grey30,
@@ -105,6 +110,10 @@ export const foreground = {
   muted: colors.grey50,
   highlight: colors.lightBlue40,
   popup: colors.white,
+  dialog: {
+    modal: colors.black,
+    nonModal: colors.black,
+  },
 
   action: {
     primary: colors.white,
@@ -139,6 +148,10 @@ export const foreground = {
 export const borderColor = {
   base: colors.grey30,
   focus: colors.lightBlue20,
+  dialog: {
+    modal: colors.grey20,
+    nonModal: colors.grey20,
+  },
 
   field: {
     disabled: colors.grey30,
@@ -184,6 +197,10 @@ const shadows = {
     base: ring('base'),
     info: ring('info'),
     primary: ring('primary'),
+  },
+
+  dialog: {
+    nonModal: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
   },
 
   menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',

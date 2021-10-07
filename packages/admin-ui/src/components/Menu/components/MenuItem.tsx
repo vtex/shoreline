@@ -1,6 +1,5 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
-import { alpha } from '@vtex/admin-ui-core'
 import { jsx, tag } from '@vtex/admin-ui-react'
 import { MenuItem as ReakitMenuItem } from 'reakit/Menu'
 
@@ -56,41 +55,45 @@ export const MenuItem = jsx(ReakitMenuItem)(
     variants: {
       dangerous: {
         true: {
-          color: 'red',
-          backgroundColor: 'transparent',
+          color: 'action.dangerTertiary',
+          bg: 'action.dangerTertiary',
           ':focus': {
-            bg: alpha('red.secondary.default', 0.32),
+            bg: 'action.dangerTertiaryHover',
             outline: 'none',
             boxShadow: 'none',
           },
           ':hover': {
-            color: 'red',
+            color: 'action.dangerTertiaryHover',
+            bg: 'action.dangerTertiaryHover',
           },
           ':active': {
-            color: 'red.pressed',
-            backgroundColor: alpha('red.secondary.pressed', 0.32),
+            color: 'action.dangerTertiaryPressed',
+            backgroundColor: 'action.dangerTertiaryPressed',
           },
           ':disabled': {
-            color: 'mid.primary',
+            color: 'action.disabled',
+            bg: 'action.disabled',
           },
         },
         false: {
-          backgroundColor: 'transparent',
+          backgroundColor: 'action.tertiary',
           color: 'dark.primary',
           ':focus': {
-            bg: alpha('blue.secondary.default', 0.32),
+            bg: 'action.tertiaryHover',
             outline: 'none',
             boxShadow: 'none',
           },
           ':hover': {
-            color: 'dark.primary',
+            color: 'action.tertiaryHover',
+            bg: 'action.tertiaryHover',
           },
           ':active': {
-            color: 'blue.pressed',
-            backgroundColor: alpha('blue.secondary.pressed', 0.32),
+            color: 'action.tertiaryPressed',
+            backgroundColor: 'action.tertiaryPressed',
           },
           ':disabled': {
-            color: 'mid.primary',
+            color: 'action.disabled',
+            bg: 'action.disabled',
           },
         },
       },

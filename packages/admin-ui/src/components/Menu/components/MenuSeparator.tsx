@@ -29,7 +29,7 @@ export const MenuSeparator = jsx(ReakitMenuSeparator)({
   borderTop: 'none',
   borderLeft: 'none',
   borderRight: 'none',
-  borderColor: 'mid.secondary',
+  borderColor: 'base',
   width: (theme) => `calc(100% -${theme.space?.[3]})`,
   marginX: (theme) => `-${theme.space?.[3]}`,
   outline: 'none',

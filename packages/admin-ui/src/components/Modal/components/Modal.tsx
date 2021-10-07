@@ -75,7 +75,7 @@ export function Modal(props: ModalProps) {
         flexDirection: 'column',
         justifyContent: ['flex-end', 'flex-end', 'center'],
         alignItems: 'center',
-        bg: 'backdrop',
+        bg: 'dialog.modalBackdrop',
         position: 'fixed',
         top: 0,
         left: 0,
