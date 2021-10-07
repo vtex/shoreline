@@ -413,3 +413,56 @@ export function Intl() {
     </Box>
   )
 }
+
+export function IntlFallback() {
+  const [locale, setLocale] = useState('en-US')
+  const state = useSearchBoxState({
+    id: 'basic',
+    collection: [
+      'Orders',
+      'Products',
+      'Pages',
+      'Shipping',
+      'Store Settings',
+      'Transactions',
+      'Billing',
+      'Site Layout',
+      'Promotions',
+      'Tracking',
+      'Coupons',
+    ],
+  })
+
+  const toggleLocale = () => {
+    if (locale === 'en-US') {
+      setLocale('na-NA')
+    }
+
+    if (locale === 'na-NA') {
+      setLocale('en-US')
+    }
+  }
+
+  return (
+    <Box>
+      <Button onClick={toggleLocale}>
+        {locale === 'en-US'
+          ? "Toggle unexistent locale (take a look at your browser's console)"
+          : 'Toggle locale'}
+      </Button>
+      <Box
+        csx={{
+          width: 680,
+        }}
+      >
+        <SearchBox state={state} locale={locale as Locale}>
+          <SearchBox.Input />
+          <SearchBox.Menu>
+            <SearchBox.Suggestion />
+          </SearchBox.Menu>
+          <SearchBox.Footer />
+        </SearchBox>
+      </Box>
+    </Box>
+  )
+}
