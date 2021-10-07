@@ -1,15 +1,18 @@
 import React, { Fragment, createContext, useContext, useCallback } from 'react'
 
-export type Locale =
-  | 'pt-BR'
-  | 'en-US'
-  | 'es-AR'
-  | 'fr-FR'
-  | 'ja-JP'
-  | 'ko-KR'
-  | 'it-IT'
-  | 'nl-NL'
-  | 'ro-RO'
+const locales = [
+  'pt-BR',
+  'en-US',
+  'es-AR',
+  'fr-FR',
+  'ja-JP',
+  'ko-KR',
+  'it-IT',
+  'nl-NL',
+  'ro-RO',
+] as const
+
+export type Locale = typeof locales[number]
 
 const englishTranslation = {
   comboboxLabel: 'Search',
@@ -47,16 +50,33 @@ const ids: Record<Locale, SearchBoxIntlStrings> = {
 
 const LocaleContext = createContext<Locale>('en-US')
 
+const DEFAULT_LOCALE: Locale = 'en-US'
+
+function useDefaultLocale() {
+  const intl = useCallback(
+    (id: IntlIds) => {
+      return ids[DEFAULT_LOCALE][id]
+    },
+    [DEFAULT_LOCALE]
+  )
+
+  return { intl, locale: DEFAULT_LOCALE }
+}
+
 export function useLocale() {
   const locale = useContext(LocaleContext)
 
-  if (!locale) {
-    throw Error('🌎 No locale provided')
+  if (!locale || !locales.includes(locale)) {
+    console.warn(
+      '🌎  No locale provided, or unexistent locale set. Falling back to default locale (en-US).'
+    )
+
+    return useDefaultLocale()
   }
 
   const intl = useCallback(
     (id: IntlIds) => {
-      return ids[locale][id]
+      return ids[locale]?.[id]
     },
     [locale]
   )
