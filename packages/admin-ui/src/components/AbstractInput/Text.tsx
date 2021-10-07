@@ -39,24 +39,26 @@ export const AbstractInput = forwardRef(function AbstractInput(
     borderWidth: 1,
     paddingLeft: 3,
     paddingRight: 4,
-    borderColor: error ? 'inputError' : 'input',
+    bg: error ? 'field.critical' : 'field.primary',
+    borderColor: error ? 'field.critical' : 'field.primary',
     borderRadius: 'default',
-    bg: 'inherit',
     marginY: 1,
     fontSize: 1,
     color: 'base',
     outline: 0,
     transition: 'snap',
     ':hover': {
-      borderColor: error ? 'inputError' : 'inputHover',
+      bg: error ? 'field.criticalHover' : 'field.primaryHover',
+      borderColor: error ? 'field.criticalHover' : 'field.primaryHover',
     },
     ':focus': {
-      borderColor: error ? 'inputError' : 'inputFocus',
-      boxShadow: error ? 'inputFocusError' : 'inputFocus',
+      bg: error ? 'field.criticalFocus' : 'field.primaryFocus',
+      borderColor: error ? 'field.criticalFocus' : 'field.primaryFocus',
+      boxShadow: error ? 'ring.critical' : 'ring.primary',
     },
     ':disabled': {
-      bg: 'light.secondary', // TODO missing styles
-      color: 'mid.primary', // TODO missing styles
+      bg: 'field.disabled',
+      color: 'field.disabled',
     },
     ...spacing({
       icon: !!icon,
@@ -136,10 +138,10 @@ export const AbstractInput = forwardRef(function AbstractInput(
             <Box
               as="span"
               csx={{
-                color: 'muted', // TODO missing
+                color: 'field.primary',
                 borderLeftStyle: 'solid',
                 borderLeftWidth: '1px',
-                borderLeftColor: 'input', // TODO missing
+                borderLeftColor: 'field.primary',
                 paddingTop: '14px',
                 marginTop: 'px',
                 width: '32px',

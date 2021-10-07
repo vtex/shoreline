@@ -1,3 +1,5 @@
+import { ring } from './styleKit'
+
 export const blue = {
   blue05: 'hsla(222, 62%, 96%, 1)',
   blue10: 'hsla(222, 62%, 92%, 1)',
@@ -123,9 +125,7 @@ export const background = {
   backdrop: 'hsla(0, 0%, 0%, 0.5)',
   popup: colors.black,
 
-  // buttons
   action: {
-    // Need to be checked
     disabled: colors.grey30,
     primary: colors.blue40,
     primaryHover: colors.blue50,
@@ -147,7 +147,6 @@ export const background = {
     dangerTertiaryPressed: colors.red10,
   },
 
-  // should turn to notifications
   feedback: {
     warning: colors.orange10,
     success: colors.green10,
@@ -155,18 +154,18 @@ export const background = {
     danger: colors.red10,
   },
 
-  // text-fields
   field: {
     disabled: colors.grey30,
+
     primary: 'inherit',
     primaryHover: 'inherit',
     primaryFocus: 'inherit',
+
     critical: 'inherit',
     criticalHover: 'inherit',
     criticalFocus: 'inherit',
   },
 
-  // form-controls
   control: {
     // disabled state
     disabled: colors.grey30,
@@ -208,7 +207,6 @@ export const foreground = {
   linkHover: colors.blue50,
   linkVisited: colors.blue60,
 
-  // Need to be checked
   feedback: {
     success: colors.green40,
     info: colors.lightBlue40,
@@ -216,9 +214,9 @@ export const foreground = {
     warning: colors.orange40,
   },
 
-  // form controls
   control: {
     disabled: colors.grey50,
+
     primary: colors.white,
     primaryChecked: colors.white,
     primaryIndeterminate: colors.blue50,
@@ -229,17 +227,18 @@ export const borderColor = {
   base: colors.grey30,
   focus: colors.lightBlue20,
 
-  // text-fields
   field: {
+    disabled: colors.grey30,
+
     primary: colors.grey40,
     primaryHover: colors.grey50,
     primaryFocus: colors.blue40,
+
     critical: colors.red40,
     criticalHover: colors.red50,
     criticalFocus: colors.red60,
   },
 
-  // form-controls
   control: {
     disabled: colors.grey30,
 
@@ -256,12 +255,6 @@ export const borderColor = {
     primaryIndeterminatePressed: colors.blue60,
   },
 
-  // Need to be checked
-  input: colors.grey50, // TODO Align w/ design
-  inputHover: colors.grey70,
-  inputFocus: colors.blue40,
-  inputError: colors.red40, // TODO Align w/ design
-
   feedback: {
     success: colors.green30,
     info: colors.blue30,
@@ -270,11 +263,26 @@ export const borderColor = {
   },
 }
 
+const shadows = {
+  ring: {
+    critical: ring('critical'),
+    warning: ring('warning'),
+    positive: ring('positive'),
+    base: ring('base'),
+    info: ring('info'),
+    primary: ring('primary'),
+  },
+
+  menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
+  subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
+}
+
 export const themeShape = {
   colors,
   background,
   foreground,
   borderColor,
+  shadows,
   global: {
     '@font-face': {
       fontFamily: 'VTEX Trust',
@@ -497,13 +505,6 @@ export const themeShape = {
     action: 1.5,
     subtitle: 1.5,
     headline: 1.5,
-  },
-  shadows: {
-    menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
-    subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
-    focus: `0rem 0rem 0rem 0.125rem ${borderColor.focus}`,
-    inputFocus: `0 0 0 1px  ${borderColor.inputFocus}`,
-    inputFocusError: `0 0 0 1px  ${borderColor.feedback.danger}`,
   },
   borderRadius: {
     default: '4px',

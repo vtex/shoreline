@@ -1,9 +1,66 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { tag } from '@vtex/admin-ui-react'
+import { jsx } from '@vtex/admin-ui-react'
 
 import { FloatingLabel, FieldDetails, FieldContainer } from '../Field'
 import type { SystemComponentProps } from '../../types'
+
+const Reference = jsx('textarea')({
+  // ...focusVisible(),
+  fontFamily: 'sans',
+  paddingTop: 24,
+  height: 100,
+  resize: 'none',
+  fontSettings: 'regular',
+  width: 'full',
+  borderStyle: 'solid',
+  borderWidth: 1,
+  paddingLeft: 3,
+  paddingRight: 4,
+  borderRadius: 'default',
+  marginY: 1,
+  fontSize: 1,
+  color: 'base',
+  outline: 0,
+  transition: 'snap',
+  ':disabled': {
+    bg: 'field.disabled',
+    color: 'field.disabled',
+    borderColor: 'field.disabled',
+  },
+  variants: {
+    tone: {
+      primary: {
+        bg: 'field.primary',
+        color: 'field.primary',
+        borderColor: 'field.primary',
+        ':not(:focus):hover': {
+          borderColor: 'field.primaryHover',
+        },
+        ':focus': {
+          borderColor: 'field.primaryFocus',
+          boxShadow: 'ring.primary',
+        },
+      },
+      critical: {
+        bg: 'field.critical',
+        color: 'field.critical',
+        borderColor: 'field.critical',
+        ':not(:focus):hover': {
+          borderColor: 'field.criticalHover',
+        },
+        ':focus': {
+          borderColor: 'field.criticalFocus',
+          boxShadow: 'ring.critical',
+        },
+      },
+    },
+  },
+})
+
+Reference.defaultProps = {
+  tone: 'primary',
+}
 
 export const TextArea = forwardRef(function Textarea(
   props: TextAreaProps,
@@ -28,54 +85,12 @@ export const TextArea = forwardRef(function Textarea(
     <FieldContainer
       csx={{
         width: 'full',
-        textarea: error
-          ? {
-              borderColor: 'inputError',
-              ':focus': {
-                borderColor: 'inputError',
-                boxShadow: 'inputFocusError',
-              },
-              ':hover': {
-                borderColor: 'inputError',
-              },
-            }
-          : {},
+        textarea: error ? {} : {},
       }}
     >
-      <tag.textarea
-        csx={{
-          fontFamily: 'sans',
-          paddingTop: 24,
-          height: 100,
-          resize: 'none',
-          fontSettings: 'regular',
-          width: 'full',
-          borderStyle: 'solid',
-          borderWidth: 1,
-          paddingLeft: 3,
-          paddingRight: 4,
-          borderColor: 'input',
-          borderRadius: 'default',
-          bg: 'inherit',
-          marginY: 1,
-          fontSize: 1,
-          color: 'base',
-          outline: 0,
-          transition: 'snap',
-          ':hover': {
-            borderColor: 'inputHover',
-          },
-          ':focus': {
-            borderColor: 'inputFocus',
-            boxShadow: 'inputFocus',
-          },
-          ':disabled': {
-            bg: 'light.secondary', // TODO missing
-            color: 'mid.primary', // TODO missing
-            borderColor: 'mid.secondary', // TODO missing
-          },
-          ...csx,
-        }}
+      <Reference
+        tone={error ? 'critical' : 'primary'}
+        csx={csx}
         id={id}
         ref={ref}
         placeholder=" "

@@ -15,7 +15,7 @@ function focusVisible() {
     },
     ':focus': {
       outline: 'none',
-      boxShadow: 'focus',
+      boxShadow: 'ring.primary',
     },
   }
 }
@@ -32,6 +32,7 @@ export const Toggle = jsx(ReakitCheckbox)(
     borderRadius: '6.25rem',
     borderStyle: 'solid',
     borderWidth: 1,
+
     ':after': {
       bg: (theme) => get(theme, 'foreground.control.primary'),
       content: '""',
@@ -51,11 +52,13 @@ export const Toggle = jsx(ReakitCheckbox)(
       borderColor: 'control.primaryPressed',
     },
 
-    '&:disabled': {
-      bg: (theme) => get(theme, 'borderColor.control.disabled'),
+    ':disabled': {
+      bg: 'control.disabled',
       borderColor: 'control.disabled',
-      '&:after': {
-        bg: 'control.disabled',
+      color: 'control.disabled',
+
+      ':after': {
+        bg: (theme) => get(theme, 'foreground.control.disabled'),
       },
     },
 
@@ -81,12 +84,12 @@ export const Toggle = jsx(ReakitCheckbox)(
         },
       },
 
-      '&:disabled': {
+      ':disabled': {
         bg: 'control.disabled',
         borderColor: 'control.disabled',
         color: 'control.disabled',
 
-        '&:after': {
+        ':after': {
           bg: (theme) => get(theme, 'foreground.control.disabled'),
         },
       },

@@ -4,26 +4,13 @@ import {
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit/Checkbox'
+import { focusVisible } from '@vtex/admin-ui-core'
 import { jsx } from '@vtex/admin-ui-react'
 import { get } from '@vtex/admin-ui-util'
 
-function focusVisible() {
-  return {
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'focus',
-    },
-  }
-}
-
 export const Checkbox = jsx(ReakitCheckbox)(
   {
-    ...focusVisible(),
-
+    ...focusVisible('primary'),
     bg: 'control.primary',
     borderColor: 'control.primary',
     color: 'control.primary',

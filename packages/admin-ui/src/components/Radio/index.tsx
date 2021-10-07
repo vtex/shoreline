@@ -1,25 +1,13 @@
 import type { RadioStateReturn } from 'reakit/Radio'
 import { Radio as ReakitRadio } from 'reakit/Radio'
+import { focusVisible } from '@vtex/admin-ui-core'
 import { jsx } from '@vtex/admin-ui-react'
 import { get } from '@vtex/admin-ui-util'
 import type { ComponentPropsWithRef } from 'react'
 
-function focusVisible() {
-  return {
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'focus',
-    },
-  }
-}
-
 export const Radio = jsx(ReakitRadio)(
   {
-    ...focusVisible(),
+    ...focusVisible('primary'),
     bg: 'control.primary',
     borderColor: 'control.primary',
     color: 'control.primary',

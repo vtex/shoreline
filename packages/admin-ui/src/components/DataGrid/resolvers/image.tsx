@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
 import type { StyleObject } from '@vtex/admin-ui-core'
-import { useSystem } from '@vtex/admin-ui-core'
+import { useSystem, focusVisible } from '@vtex/admin-ui-core'
 
 import type { ResolverContext, ResolverRenderProps } from './core'
 import { createResolver, defaultRender } from './core'
@@ -129,14 +129,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
                 transform: 'scale(1.1)',
                 boxShadow: 'subtle',
               },
-              ':focus:not([data-focus-visible-added])': {
-                outline: 'none',
-                boxShadow: 'none',
-              },
-              ':focus': {
-                outline: 'none',
-                boxShadow: 'focus',
-              },
+              ...focusVisible('info'),
             })}
             src={url}
           />

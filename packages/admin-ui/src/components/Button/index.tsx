@@ -2,7 +2,7 @@ import type { ReactNode, ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { Button as ReakitButton } from 'reakit/Button'
 import type { StyleObject } from '@vtex/admin-ui-core'
-import { alpha } from '@vtex/admin-ui-core'
+import { alpha, focusVisible } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 import { jsx, tag } from '@vtex/admin-ui-react'
 
@@ -25,14 +25,6 @@ export const Button = jsx(ReakitButton)(
     borderRadius: 'default',
     cursor: 'pointer',
     position: 'relative',
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'focus',
-    },
     ':disabled': {
       color: 'action.disabled',
       bg: 'action.disabled',
@@ -64,6 +56,7 @@ export const Button = jsx(ReakitButton)(
           ':active': {
             bg: 'action.primaryPressed',
           },
+          ...focusVisible('primary'),
         },
         secondary: {
           color: 'action.secondary',
@@ -74,6 +67,7 @@ export const Button = jsx(ReakitButton)(
           ':active': {
             bg: 'action.secondaryPressed',
           },
+          ...focusVisible('primary'),
         },
         tertiary: {
           color: 'action.tertiary',
@@ -84,6 +78,7 @@ export const Button = jsx(ReakitButton)(
           ':active': {
             bg: 'action.tertiaryPressed',
           },
+          ...focusVisible('primary'),
         },
         danger: {
           color: 'action.danger',
@@ -94,6 +89,7 @@ export const Button = jsx(ReakitButton)(
           ':active': {
             bg: 'action.dangerPressed',
           },
+          ...focusVisible('critical'),
         },
         'danger-secondary': {
           color: 'action.dangerSecondary',
@@ -104,6 +100,7 @@ export const Button = jsx(ReakitButton)(
           ':active': {
             bg: 'action.dangerSecondaryPressed',
           },
+          ...focusVisible('critical'),
         },
         'danger-tertiary': {
           color: 'action.dangerTertiary',
@@ -114,6 +111,7 @@ export const Button = jsx(ReakitButton)(
           ':active': {
             bg: 'action.dangerTertiaryPressed',
           },
+          ...focusVisible('critical'),
         },
         'adaptative-dark': {
           color: 'currentColor',
@@ -124,6 +122,7 @@ export const Button = jsx(ReakitButton)(
           ':active': {
             bg: alpha('black' as any, 0.08),
           },
+          ...focusVisible('base'),
         },
         'adaptative-light': {
           color: 'currentColor',
@@ -134,6 +133,7 @@ export const Button = jsx(ReakitButton)(
           ':active': {
             bg: alpha('white' as any, 0.08),
           },
+          ...focusVisible('base'),
         },
       },
     },

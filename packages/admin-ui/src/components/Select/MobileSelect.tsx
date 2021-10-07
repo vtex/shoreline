@@ -49,7 +49,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
           top: '25%',
           lineHeight: 1.5,
           paddingLeft: 3,
-          color: 'dark.secondary',
+          color: 'muted',
           zIndex: 2,
           ...(state.selectedItem ? { top: 2, text: 'small' } : {}),
         }}
@@ -62,37 +62,40 @@ export function MobileSelect<T>(props: SelectProps<T>) {
         onChange={handleOption}
         csx={{
           fontFamilly: 'sans',
-          color: 'dark.primary',
+          color: 'base',
           outline: 'none',
           fontSize: 1,
           appearance: 'none',
-          backgroundColor: 'transparent',
+          backgroundColor: 'field.primary',
           border: '1px solid',
-          borderColor: 'mid.secondary',
+          borderColor: 'field.primary',
           borderRadius: 'default',
           paddingTop: '1.125rem',
           paddingLeft: 3,
           width: '100%',
           height: '100%',
           ':focus': {
-            borderColor: 'blue',
-            boxShadow: 'inputFocus',
+            borderColor: 'field.primaryFocus',
+            boxShadow: 'ring.primary',
           },
           ':disabled': {
-            bg: 'light.secondary',
-            borderColor: 'mid.primary',
-            color: 'dark.primary',
+            bg: 'field.disabled',
+            borderColor: 'field.disabled',
+            color: 'field.disabled',
             opacity: 1,
           },
           ':disabled > svg': {
-            color: 'dark.secondary',
+            color: 'field.disabled',
           },
           ...(error
             ? {
-                borderColor: 'red',
+                borderColor: 'field.critical',
+                ':hover': {
+                  borderColor: 'field.criticalHover',
+                },
                 ':focus': {
-                  borderColor: 'red',
-                  boxShadow: 'inputFocusError',
+                  borderColor: 'field.criticalFocus',
+                  boxShadow: 'ring.critical',
                 },
               }
             : {}),
@@ -111,7 +114,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
           position: 'absolute',
           right: 12,
           top: '25%',
-          color: 'dark.secondary',
+          color: 'muted',
         }}
       />
     </Box>

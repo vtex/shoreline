@@ -124,40 +124,40 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
           borderWidth: 1,
           paddingLeft: 3,
           paddingRight: 4,
-          borderColor: 'mid.secondary',
+          borderColor: 'field.primary',
           borderRadius: 'default',
-          bg: 'inherit',
+          bg: 'field.primary',
           fontSize: 1,
-          color: 'dark.secondary',
+          color: 'field.primary',
           outline: 0,
           ':hover': {
-            borderColor: 'mid.primary',
+            borderColor: 'field.primaryHover',
           },
           ':hover > svg': {
-            color: 'dark.primary',
+            color: 'field.primary',
           },
           ':focus': {
-            borderColor: 'blue',
-            boxShadow: 'inputFocus',
+            borderColor: 'field.primaryFocus',
+            boxShadow: 'ring.primary',
           },
           ':disabled': {
-            bg: 'light.secondary',
-            borderColor: 'mid.primary',
-            color: 'dark.secondary',
+            bg: 'field.disabled',
+            borderColor: 'field.disabled',
+            color: 'field.disabled',
             cursor: 'initial',
           },
           ':disabled > svg': {
-            color: 'dark.secondary',
+            color: 'field.disabled',
           },
           ...(error
             ? {
-                borderColor: 'red',
+                borderColor: 'field.critical',
                 ':focus': {
-                  borderColor: 'red',
-                  boxShadow: 'inputFocusError',
+                  borderColor: 'field.criticaFocus',
+                  boxShadow: 'ring.critical',
                 },
                 ':hover': {
-                  borderColor: 'red',
+                  borderColor: 'field.criticalHover',
                 },
               }
             : {}),
@@ -168,7 +168,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
             as="span"
             csx={{
               lineHeight: 1.43,
-              color: 'dark.primary',
+              color: 'base',
               float: 'left',
               marginTop: '1.125rem',
               ':not(:empty) + label': {
@@ -186,11 +186,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
             {label}
           </Label>
         </Box>
-        <IconCaret
-          direction="down"
-          size={24}
-          csx={{ color: 'dark.secondary' }}
-        />
+        <IconCaret direction="down" size={24} csx={{ color: 'muted' }} />
       </Box>
 
       <Box
@@ -202,7 +198,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
           position: 'absolute',
           zIndex: 999,
           width: 'inherit',
-          backgroundColor: 'light.primary',
+          bg: 'base',
           outline: 'none',
         }}
       >
@@ -213,7 +209,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
               flexDirection: 'column',
               borderWidth: 1,
               borderStyle: 'solid',
-              borderColor: 'mid.primary',
+              borderColor: 'base',
               borderRadius: 'default',
             }}
           >
@@ -224,7 +220,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
                 paddingTop: 2,
                 paddingBottom: 1,
                 paddingLeft: 3,
-                color: 'mid.primary',
+                color: 'muted',
               }}
             >
               {label}
@@ -246,7 +242,6 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
                   as="li"
                   {...state.getItemProps({ item, index })}
                   csx={{
-                    color: 'dark.primary',
                     verticalAlign: 'middle',
                     listStyleType: 'none',
                     display: 'flex',
@@ -254,16 +249,20 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
                     cursor: 'pointer',
                     paddingY: 1,
                     paddingLeft: state.selectedItem ? 9 : 12,
-                    backgroundColor:
+                    bg:
                       state.highlightedIndex === index
-                        ? 'light.secondary'
-                        : 'transparent',
+                        ? 'action.secondary'
+                        : 'base',
+                    color:
+                      state.highlightedIndex === index
+                        ? 'action.secondary'
+                        : 'base',
                   }}
                 >
                   {state.selectedItem && (
                     <>
                       {renderItem(item) === renderItem(state.selectedItem) ? (
-                        <IconCheck size={16} csx={{ color: 'dark.primary' }} />
+                        <IconCheck size={16} csx={{ color: 'base' }} />
                       ) : (
                         <Box csx={{ width: 16 }} />
                       )}
