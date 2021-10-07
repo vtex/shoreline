@@ -47,16 +47,30 @@ const ids: Record<Locale, SearchBoxIntlStrings> = {
 
 const LocaleContext = createContext<Locale>('en-US')
 
+const DEFAULT_LOCALE: Locale = 'en-US'
+
+function useDefaultLocale() {
+  const intl = useCallback((id: IntlIds) => {
+    return ids[DEFAULT_LOCALE][id]
+  }, [])
+
+  return { intl, locale: DEFAULT_LOCALE }
+}
+
 export function useLocale() {
   const locale = useContext(LocaleContext)
 
   if (!locale) {
-    throw Error('🌎 No locale provided')
+    console.warn(
+      '🌎  No locale provided. Falling back to default locale (en-US).'
+    )
+
+    return useDefaultLocale()
   }
 
   const intl = useCallback(
     (id: IntlIds) => {
-      return ids[locale][id]
+      return ids[locale]?.[id]
     },
     [locale]
   )
