@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.114.2](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.114.1...@vtex/admin-ui@0.114.2) (2021-10-07)
+
+### Bug Fixes
+
+- **searchbox:** fallback to default lang in case provided locale doesn't existt ([9823ce7](https://github.com/vtex/onda/commit/9823ce7776ba62571996e27b574eb746255b4ff3))
+
 ## [0.114.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.114.0...@vtex/admin-ui@0.114.1) (2021-10-04)
 
 ### Bug Fixes
