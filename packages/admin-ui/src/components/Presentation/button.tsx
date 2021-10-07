@@ -5,15 +5,17 @@ export function Playground() {
   return (
     <tag.button
       csx={{
-        bg: 'action.secondary',
+        margin: 1,
+        paddingY: 2,
+        paddingX: 4,
+        cursor: 'pointer',
+        bg: 'action.primary',
         color: 'action.primary',
         ':hover': {
           bg: 'action.primaryHover',
-          color: 'action.primaryHover',
         },
         ':active': {
           bg: 'action.primaryPressed',
-          color: 'action.primaryPressed',
         },
       }}
     >

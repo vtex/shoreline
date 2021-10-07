@@ -36,15 +36,51 @@ export const background = {
   base: colors.white,
   muted: colors.grey10,
   popup: colors.black,
-
-  dialog: {
-    modal: colors.white,
-    nonModal: colors.white,
-    modalBackdrop: colors.greyTransparent80,
-  },
+  popover: colors.white,
+  modal: colors.white,
+  overlay: colors.greyTransparent80,
+  container: colors.white,
+  header: colors.white,
+  sidebar: colors.grey10,
+  topbar: colors.white,
 
   action: {
     disabled: colors.grey30,
+
+    main: {
+      solid: colors.blue40,
+      solidHover: colors.blue50,
+      solidPressed: colors.blue60,
+      solidDisabled: colors.grey30,
+
+      soft: colors.blue10,
+      softHover: colors.blue20,
+      softPressed: colors.blue30,
+      softDisabled: colors.grey30,
+
+      text: 'transparent',
+      textHover: colors.blue05,
+      textPressed: colors.blue10,
+      textDisabled: colors.grey30,
+    },
+
+    critical: {
+      solid: colors.red40,
+      solidHover: colors.red50,
+      solidPressed: colors.red60,
+      solidDisabled: colors.grey30,
+
+      soft: colors.red10,
+      softHover: colors.red20,
+      softPressed: colors.red30,
+      softDisabled: colors.grey30,
+
+      text: 'transparent',
+      textHover: colors.red05,
+      textPressed: colors.red10,
+      textDisabled: colors.grey30,
+    },
+
     primary: colors.blue40,
     primaryHover: colors.blue50,
     primaryPressed: colors.blue60,
@@ -63,6 +99,21 @@ export const background = {
     dangerTertiary: 'transparent',
     dangerTertiaryHover: colors.red05,
     dangerTertiaryPressed: colors.red10,
+  },
+
+  listBox: {
+    main: {
+      item: colors.white,
+      itemHover: colors.blue05,
+      itemPressed: colors.blue05,
+      itemSelected: colors.blue05,
+    },
+    critical: {
+      item: colors.white,
+      itemHover: colors.red05,
+      itemPressed: colors.red05,
+      itemSelected: colors.red05,
+    },
   },
 
   feedback: {
@@ -110,10 +161,12 @@ export const foreground = {
   muted: colors.grey50,
   highlight: colors.lightBlue40,
   popup: colors.white,
-  dialog: {
-    modal: colors.black,
-    nonModal: colors.black,
-  },
+  popover: colors.black,
+  modal: colors.black,
+  container: colors.black,
+  header: colors.black,
+  sidebar: colors.black,
+  topbar: colors.black,
 
   action: {
     primary: colors.white,
@@ -123,6 +176,21 @@ export const foreground = {
     danger: colors.white,
     dangerSecondary: colors.red40,
     dangerTertiary: colors.red40,
+  },
+
+  listBox: {
+    main: {
+      item: colors.black,
+      itemHover: colors.blue40,
+      itemPressed: colors.blue40,
+      itemSelected: colors.blue40,
+    },
+    critical: {
+      item: colors.black,
+      itemHover: colors.red40,
+      itemPressed: colors.red40,
+      itemSelected: colors.red40,
+    },
   },
 
   link: colors.blue40,
@@ -148,10 +216,12 @@ export const foreground = {
 export const borderColor = {
   base: colors.grey30,
   focus: colors.lightBlue20,
-  dialog: {
-    modal: colors.grey20,
-    nonModal: colors.grey20,
-  },
+  popover: colors.grey30,
+  modal: colors.grey30,
+  container: colors.grey30,
+  header: colors.grey30,
+  sidebar: colors.grey30,
+  topbar: colors.grey30,
 
   field: {
     disabled: colors.grey30,
@@ -194,9 +264,9 @@ const shadows = {
     critical: ring('critical'),
     warning: ring('warning'),
     positive: ring('positive'),
-    base: ring('base'),
+    neutral: ring('neutral'),
     info: ring('info'),
-    primary: ring('primary'),
+    main: ring('main'),
   },
 
   dialog: {
