@@ -10,10 +10,11 @@ import { get } from '@vtex/admin-ui-util'
 
 export const Checkbox = jsx(ReakitCheckbox)(
   {
-    ...focusVisible('primary'),
-    bg: 'control.primary',
-    borderColor: 'control.primary',
-    color: 'control.primary',
+    ...focusVisible('neutral'),
+
+    bg: 'control.neutral',
+    borderColor: 'control.neutral',
+    color: 'control.neutral',
 
     appearance: 'none',
     borderStyle: 'solid',
@@ -25,31 +26,31 @@ export const Checkbox = jsx(ReakitCheckbox)(
     alignItems: 'center',
     justifyContent: 'center',
 
-    '&:disabled': {
-      bg: 'control.disabled',
-      borderColor: 'control.disabled',
-      color: 'control.disabled',
+    ':disabled': {
+      bg: 'control.neutralDisabled',
+      borderColor: 'control.neutralDisabled',
+      color: 'control.neutralDisabled',
     },
 
-    '&:hover': {
-      bg: 'control.primaryHover',
-      borderColor: 'control.primaryHover',
+    ':hover': {
+      bg: 'control.neutralHover',
+      borderColor: 'control.neutralHover',
     },
 
-    '&:active': {
-      bg: 'control.primaryPressed',
-      borderColor: 'control.primaryPressed',
+    ':active': {
+      bg: 'control.neutralPressed',
+      borderColor: 'control.neutralPressed',
     },
 
-    '&:checked': {
-      bg: 'control.primaryChecked',
-      color: 'control.primaryChecked',
-      borderColor: 'control.primaryChecked',
+    ':checked': {
+      bg: 'control.neutralChecked',
+      color: 'control.neutralChecked',
+      borderColor: 'control.neutralChecked',
 
       '&:after': {
         content: (theme) =>
           `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='${String(
-            get(theme, 'foreground.control.primaryChecked', '')
+            get(theme, 'foreground.control.neutralChecked', '')
           ).replace(
             /#/i,
             '%23'
@@ -59,34 +60,34 @@ export const Checkbox = jsx(ReakitCheckbox)(
       '&[disabled]:after': {
         content: (theme) =>
           `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='${String(
-            get(theme, 'foreground.control.disabled', '')
+            get(theme, 'foreground.control.neutralCheckedDisabled', '')
           ).replace(
             /#/i,
             '%23'
           )}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>")`,
       },
 
-      '&:hover': {
-        bg: 'control.primaryCheckedHover',
-        borderColor: 'control.primaryCheckedHover',
+      ':hover': {
+        bg: 'control.neutralCheckedHover',
+        borderColor: 'control.neutralCheckedHover',
       },
 
-      '&:active': {
-        bg: 'control.primaryCheckedPressed',
-        borderColor: 'control.primaryCheckedPressed',
+      ':active': {
+        bg: 'control.neutralCheckedPressed',
+        borderColor: 'control.neutralCheckedPressed',
       },
 
-      '&:disabled': {
-        bg: 'control.disabled',
-        borderColor: 'control.disabled',
-        color: 'control.disabled',
+      ':disabled': {
+        bg: 'control.neutralCheckedDisabled',
+        borderColor: 'control.neutralCheckedDisabled',
+        color: 'control.neutralCheckedDisabled',
       },
     },
 
-    '&:indeterminate': {
-      bg: 'control.primaryIndeterminate',
-      borderColor: 'control.primaryIndeterminate',
-      color: 'control.primaryIndeterminate',
+    ':indeterminate': {
+      bg: 'control.neutralIndeterminate',
+      borderColor: 'control.neutralIndeterminate',
+      color: 'control.neutralIndeterminate',
 
       '&:after': {
         content: '""',
@@ -100,20 +101,20 @@ export const Checkbox = jsx(ReakitCheckbox)(
         borderColor: 'currentColor',
       },
 
-      '&:hover': {
-        borderColor: 'control.primaryIndeterminateHover',
-        bg: 'control.primaryIndeterminateHover',
+      ':hover': {
+        borderColor: 'control.neutralIndeterminateHover',
+        bg: 'control.neutralIndeterminateHover',
       },
 
-      '&:active': {
-        borderColor: 'control.primaryIndeterminatePressed',
-        bg: 'control.primaryIndeterminatePressed',
+      ':active': {
+        borderColor: 'control.neutralIndeterminatePressed',
+        bg: 'control.neutralIndeterminatePressed',
       },
 
-      '&:disabled': {
-        bg: 'control.disabled',
-        borderColor: 'control.disabled',
-        color: 'control.disabled',
+      ':disabled': {
+        bg: 'control.neutralIndeterminateDisabled',
+        borderColor: 'control.neutralIndeterminateDisabled',
+        color: 'control.neutralIndeterminateDisabled',
       },
     },
     variants: {

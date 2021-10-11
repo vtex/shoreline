@@ -2,7 +2,7 @@ import type { Ref } from 'react'
 import React, { forwardRef, useState } from 'react'
 import { IconHide, IconPreview } from '@vtex/admin-ui-icons'
 
-import { Button } from '../Button'
+import { ButtonGhost } from '../ButtonGhost'
 import type { AbstractInputProps } from './Text'
 import { AbstractInput } from './Text'
 
@@ -23,12 +23,11 @@ export const AbstractInputPassword = forwardRef(function AbstractInputPassword(
       }}
       {...inputProps}
       buttonElements={
-        <Button
+        <ButtonGhost
           icon={textVisible ? <IconHide /> : <IconPreview />}
           aria-label={`${textVisible ? 'hide' : 'show'} ${props.id} content`}
           onClick={() => setTextVisible((visible) => !visible)}
           size="small"
-          variant="adaptative-dark"
           csx={{
             marginTop: 2,
           }}

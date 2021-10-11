@@ -4,7 +4,7 @@ import { IconClose } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { Flex } from '../Flex'
-import { Button } from '../Button'
+import { ButtonGhost } from '../ButtonGhost'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
 
@@ -52,22 +52,22 @@ export const Alert = jsx('div')(
           visibility: 'hidden',
         },
       },
-      type: {
-        danger: {
-          bg: 'feedback.danger',
-          borderColor: 'feedback.danger',
+      tone: {
+        critical: {
+          bg: 'notification.critical',
+          borderColor: 'notification.critical',
         },
-        success: {
-          bg: 'feedback.success',
-          borderColor: 'feedback.success',
+        positive: {
+          bg: 'notification.positive',
+          borderColor: 'notification.positive',
         },
         warning: {
-          bg: 'feedback.warning',
-          borderColor: 'feedback.warning',
+          bg: 'notification.warning',
+          borderColor: 'notification.warning',
         },
         info: {
-          bg: 'feedback.info',
-          borderColor: 'feedback.info',
+          bg: 'notification.info',
+          borderColor: 'notification.info',
         },
       },
       fluid: {
@@ -107,26 +107,26 @@ export const Alert = jsx('div')(
     options: ['icon', 'onDismiss'],
     useOptions(options: AlertOptions, props) {
       const { icon, onDismiss } = options
-      const { children, type = 'info', ...htmlProps } = props
+      const { children, tone = 'info', ...htmlProps } = props
 
       const iconContainerCsx = {
         warning: {
-          color: 'feedback.warning',
+          color: 'notification.warning',
         },
-        success: {
-          color: 'feedback.success',
+        positive: {
+          color: 'notification.positive',
         },
-        danger: {
-          color: 'feedback.danger',
+        critical: {
+          color: 'notification.critical',
         },
         info: {
-          color: 'feedback.info',
+          color: 'notification.info',
         },
-      }[type]
+      }[tone]
 
       return {
         ...htmlProps,
-        type,
+        tone,
         children: (
           <Fragment>
             <Set spacing={2} csx={{ alignItems: 'flex-start', marginRight: 3 }}>
@@ -139,11 +139,9 @@ export const Alert = jsx('div')(
             </Set>
 
             {onDismiss && (
-              <Button
+              <ButtonGhost
                 size="small"
-                variant="adaptative-dark"
                 icon={<IconClose />}
-                csx={{ color: 'dark.primary' }}
                 onClick={onDismiss}
               />
             )}
@@ -155,7 +153,7 @@ export const Alert = jsx('div')(
 )
 
 Alert.defaultProps = {
-  type: 'info',
+  tone: 'info',
   visible: false,
   sticky: false,
   fluid: true,

@@ -6,7 +6,7 @@ import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-ui-core'
 import { Box } from '../Box'
 
-import { Button } from '../Button'
+import { ButtonGhost } from '../ButtonGhost'
 import type { SystemComponentProps } from '../../types'
 
 export const AbstractInput = forwardRef(function AbstractInput(
@@ -16,7 +16,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
   const {
     value,
     csx = {},
-    error = false,
+    tone = 'neutral',
     icon,
     suffix,
     onClear,
@@ -29,6 +29,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
 
   const showClear = !!onClear && String(value).toString().length > 0
   const showButtons = !!suffix || !!buttonElements || onClear
+  const critical = tone === 'critical'
 
   const inputClassName = cn({
     fontFamily: 'sans',
@@ -39,8 +40,8 @@ export const AbstractInput = forwardRef(function AbstractInput(
     borderWidth: 1,
     paddingLeft: 3,
     paddingRight: 4,
-    bg: error ? 'field.critical' : 'field.primary',
-    borderColor: error ? 'field.critical' : 'field.primary',
+    bg: critical ? 'field.critical' : 'field.neutral',
+    borderColor: critical ? 'field.critical' : 'field.neutral',
     borderRadius: 'default',
     marginY: 1,
     fontSize: 1,
@@ -48,13 +49,13 @@ export const AbstractInput = forwardRef(function AbstractInput(
     outline: 0,
     transition: 'snap',
     ':hover': {
-      bg: error ? 'field.criticalHover' : 'field.primaryHover',
-      borderColor: error ? 'field.criticalHover' : 'field.primaryHover',
+      bg: critical ? 'field.criticalHover' : 'field.neutralHover',
+      borderColor: critical ? 'field.criticalHover' : 'field.neutralHover',
     },
     ':focus': {
-      bg: error ? 'field.criticalFocus' : 'field.primaryFocus',
-      borderColor: error ? 'field.criticalFocus' : 'field.primaryFocus',
-      boxShadow: error ? 'ring.critical' : 'ring.primary',
+      bg: critical ? 'field.criticalFocus' : 'field.neutralFocus',
+      borderColor: critical ? 'field.criticalFocus' : 'field.neutralFocus',
+      boxShadow: critical ? 'ring.critical' : 'ring.neutral',
     },
     ':disabled': {
       bg: 'field.disabled',
@@ -121,12 +122,11 @@ export const AbstractInput = forwardRef(function AbstractInput(
           }}
         >
           {showClear && (
-            <Button
+            <ButtonGhost
               icon={<IconCancel />}
               aria-label={`clear ${inputProps.id} text`}
               onClick={onClear}
               size="small"
-              variant="adaptative-dark"
               csx={{
                 marginTop: 2,
                 marginRight: 1,
@@ -138,10 +138,10 @@ export const AbstractInput = forwardRef(function AbstractInput(
             <Box
               as="span"
               csx={{
-                color: 'field.primary',
+                color: 'field.neutral',
                 borderLeftStyle: 'solid',
                 borderLeftWidth: '1px',
-                borderLeftColor: 'field.primary',
+                borderLeftColor: 'field.neutral',
                 paddingTop: '14px',
                 marginTop: 'px',
                 width: '32px',
@@ -243,6 +243,6 @@ export interface AbstractInputProps
   buttonElements?: ReactNode
   /** onChange event */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  /** Input error state */
-  error?: boolean
+  /** Tone of voice @default neutral */
+  tone?: 'neutral' | 'critical'
 }

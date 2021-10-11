@@ -2,11 +2,60 @@ import type { ReactNode, ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { Button as ReakitButton } from 'reakit/Button'
 import type { StyleObject } from '@vtex/admin-ui-core'
-import { alpha, focusVisible } from '@vtex/admin-ui-core'
+import { focusVisible } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 import { jsx, tag } from '@vtex/admin-ui-react'
 
 import { Spinner } from '../Spinner'
+
+export type ActionTone = 'main' | 'critical'
+export type ActionVariant = 'solid' | 'soft' | 'text'
+
+function actionSync(tone: ActionTone, variant: ActionVariant) {
+  return {
+    tone,
+    variant,
+    csx: {
+      color: `action.${tone}.${variant}`,
+      bg: `action.${tone}.${variant}`,
+      ':hover': {
+        bg: `action.${tone}.${variant}Hover`,
+      },
+      ':active': {
+        bg: `action.${tone}.${variant}Pressed`,
+      },
+      ':disabled': {
+        bg: `action.${tone}.${variant}Disabled`,
+        color: `action.${tone}.${variant}Disabled`,
+      },
+    },
+  }
+}
+
+// const variant = {
+//   'adaptative-dark': {
+//     color: 'currentColor',
+//     bg: 'transparent',
+//     ':hover': {
+//       bg: alpha('black' as any, 0.04), // TODO: Check if we can add this token!
+//     },
+//     ':active': {
+//       bg: alpha('black' as any, 0.08),
+//     },
+//     ...focusVisible('base'),
+//   },
+//   'adaptative-light': {
+//     color: 'currentColor',
+//     bg: 'transparent',
+//     ':hover': {
+//       bg: alpha('white' as any, 0.04),
+//     },
+//     ':active': {
+//       bg: alpha('white' as any, 0.08),
+//     },
+//     ...focusVisible('base'),
+//   },
+// }
 
 /**
  * Component that handles all Button variants of the DS.
@@ -25,10 +74,6 @@ export const Button = jsx(ReakitButton)(
     borderRadius: 'default',
     cursor: 'pointer',
     position: 'relative',
-    ':disabled': {
-      color: 'action.disabled',
-      bg: 'action.disabled',
-    },
     variants: {
       size: {
         small: {
@@ -46,95 +91,14 @@ export const Button = jsx(ReakitButton)(
           paddingRight: 4,
         },
       },
+      tone: {
+        main: focusVisible('main'),
+        critical: focusVisible('critical'),
+      },
       variant: {
-        primary: {
-          color: 'action.primary',
-          bg: 'action.primary',
-          ':hover': {
-            bg: 'action.primaryHover',
-          },
-          ':active': {
-            bg: 'action.primaryPressed',
-          },
-          ...focusVisible('primary'),
-        },
-        secondary: {
-          color: 'action.secondary',
-          bg: 'action.secondary',
-          ':hover': {
-            bg: 'action.secondaryHover',
-          },
-          ':active': {
-            bg: 'action.secondaryPressed',
-          },
-          ...focusVisible('primary'),
-        },
-        tertiary: {
-          color: 'action.tertiary',
-          bg: 'action.tertiary',
-          ':hover': {
-            bg: 'action.tertiaryHover',
-          },
-          ':active': {
-            bg: 'action.tertiaryPressed',
-          },
-          ...focusVisible('primary'),
-        },
-        danger: {
-          color: 'action.danger',
-          bg: 'action.danger',
-          ':hover': {
-            bg: 'action.dangerHover',
-          },
-          ':active': {
-            bg: 'action.dangerPressed',
-          },
-          ...focusVisible('critical'),
-        },
-        'danger-secondary': {
-          color: 'action.dangerSecondary',
-          bg: 'action.dangerSecondary',
-          ':hover': {
-            bg: 'action.dangerSecondaryHover',
-          },
-          ':active': {
-            bg: 'action.dangerSecondaryPressed',
-          },
-          ...focusVisible('critical'),
-        },
-        'danger-tertiary': {
-          color: 'action.dangerTertiary',
-          bg: 'action.dangerTertiary',
-          ':hover': {
-            bg: 'action.dangerTertiaryHover',
-          },
-          ':active': {
-            bg: 'action.dangerTertiaryPressed',
-          },
-          ...focusVisible('critical'),
-        },
-        'adaptative-dark': {
-          color: 'currentColor',
-          bg: 'transparent',
-          ':hover': {
-            bg: alpha('black' as any, 0.04), // TODO: Check if we can add this token!
-          },
-          ':active': {
-            bg: alpha('black' as any, 0.08),
-          },
-          ...focusVisible('base'),
-        },
-        'adaptative-light': {
-          color: 'currentColor',
-          bg: 'transparent',
-          ':hover': {
-            bg: alpha('white' as any, 0.04),
-          },
-          ':active': {
-            bg: alpha('white' as any, 0.08),
-          },
-          ...focusVisible('base'),
-        },
+        solid: {},
+        soft: {},
+        text: {},
       },
     },
   },
@@ -198,10 +162,18 @@ export const Button = jsx(ReakitButton)(
         ),
       }
     },
+    sync: [
+      actionSync('main', 'solid'),
+      actionSync('main', 'soft'),
+      actionSync('main', 'text'),
+      actionSync('critical', 'solid'),
+      actionSync('critical', 'soft'),
+      actionSync('critical', 'text'),
+    ],
   }
 )
 
-function useButtonIcon({
+export function useButtonIcon({
   size,
   icon,
   iconPosition,
@@ -268,7 +240,8 @@ function useButtonIcon({
 
 Button.defaultProps = {
   size: 'regular',
-  variant: 'primary',
+  tone: 'main',
+  variant: 'solid',
 }
 
 export interface ButtonOptions {

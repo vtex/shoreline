@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import type { Meta } from '@storybook/react'
 import {
-  IconAction,
   IconDelete,
   IconFavorite,
   IconImport,
@@ -10,7 +9,7 @@ import {
 
 import { DataView, useDataViewState } from '../index'
 import { DataViewControls } from '../components/DataViewControls'
-import { Button } from '../../Button'
+import { ButtonGhost } from '../../ButtonGhost'
 import { Spinner } from '../../Spinner'
 import {
   Toolbar,
@@ -48,12 +47,8 @@ export function Controls() {
   return (
     <DataView state={view}>
       <DataViewControls>
-        <Button size="small" variant="adaptative-dark">
-          Export
-        </Button>
-        <Button size="small" variant="adaptative-dark">
-          Import
-        </Button>
+        <ButtonGhost>Export</ButtonGhost>
+        <ButtonGhost>Import</ButtonGhost>
       </DataViewControls>
       <p>Data View content</p>
     </DataView>
@@ -69,22 +64,14 @@ export function ToolbarControls() {
     <DataView state={view}>
       <DataViewControls>
         <Toolbar state={toolbar} aria-label="DataView Toolbar">
-          <ToolbarButton size="small" variant="adaptative-dark">
-            Export
-          </ToolbarButton>
-          <ToolbarButton size="small" variant="adaptative-dark">
-            Import
-          </ToolbarButton>
+          <ButtonGhost as={ToolbarButton}>Export</ButtonGhost>
+          <ButtonGhost as={ToolbarButton}>Import</ButtonGhost>
           <ToolbarItem>
             {(itemProps) => (
               <Menu state={menu}>
-                <MenuButton
-                  icon={<IconAction />}
-                  variant="adaptative-dark"
-                  {...itemProps}
-                >
+                <ButtonGhost as={MenuButton} {...itemProps}>
                   More
-                </MenuButton>
+                </ButtonGhost>
                 <MenuList aria-label="actions">
                   <MenuItem icon={<IconImport />}>Download</MenuItem>
                   <MenuItem icon={<IconLink />}>Link to</MenuItem>
@@ -125,41 +112,27 @@ export function Status() {
   return (
     <DataView state={view}>
       <DataViewControls>
-        <Button
-          size="small"
-          variant="adaptative-dark"
-          onClick={() => view.setStatus({ type: 'ready' })}
-        >
+        <ButtonGhost onClick={() => view.setStatus({ type: 'ready' })}>
           Ready
-        </Button>
-        <Button
-          size="small"
-          variant="adaptative-dark"
-          onClick={() => view.setStatus({ type: 'loading' })}
-        >
+        </ButtonGhost>
+        <ButtonGhost onClick={() => view.setStatus({ type: 'loading' })}>
           Loading
-        </Button>
-        <Button
-          size="small"
-          variant="adaptative-dark"
+        </ButtonGhost>
+        <ButtonGhost
           onClick={() =>
             view.setStatus({ type: 'empty', message: 'The view is empty' })
           }
         >
           Empty
-        </Button>
-        <Button
-          size="small"
-          variant="adaptative-dark"
+        </ButtonGhost>
+        <ButtonGhost
           onClick={() =>
             view.setStatus({ type: 'error', message: 'Something went wrong' })
           }
         >
           Error
-        </Button>
-        <Button
-          size="small"
-          variant="adaptative-dark"
+        </ButtonGhost>
+        <ButtonGhost
           onClick={() =>
             view.setStatus({
               type: 'not-found',
@@ -168,7 +141,7 @@ export function Status() {
           }
         >
           Not found
-        </Button>
+        </ButtonGhost>
       </DataViewControls>
       {content}
     </DataView>

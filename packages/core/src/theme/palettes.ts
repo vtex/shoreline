@@ -100,14 +100,16 @@ export const grey = {
 }
 
 export const greyTransparent = {
-  greyTransparent10: 'hsla(0, 0%, 98%, 0.5)',
-  greyTransparent20: 'hsla(0, 0%, 93%, 0.5)',
-  greyTransparent30: 'hsla(0, 0%, 87%, 0.5)',
-  greyTransparent40: 'hsla(0, 0%, 73%, 0.5)',
-  greyTransparent50: 'hsla(0, 0%, 45%, 0.5)',
-  greyTransparent60: 'hsla(0, 0%, 29%, 0.5)',
-  greyTransparent70: 'hsla(0, 0%, 20%, 0.5)',
-  greyTransparent80: 'hsla(0, 0%, 7%, 0.5)',
+  greyTransparent05: 'rgba(0, 0, 0, 0.05)',
+  greyTransparent10: 'rgba(0, 0, 0, 0.1)',
+  greyTransparent20: 'rgba(0, 0, 0, 0.2)',
+  greyTransparent30: 'rgba(0, 0, 0, 0.3)',
+  greyTransparent40: 'rgba(0, 0, 0, 0.4)',
+  greyTransparent50: 'rgba(0, 0, 0, 0.5)',
+  greyTransparent60: 'rgba(0, 0, 0, 0.6)',
+  greyTransparent70: 'rgba(0, 0, 0, 0.7)',
+  greyTransparent80: 'rgba(0, 0, 0, 0.8)',
+  greyTransparent90: 'rgba(0, 0, 0, 0.9)',
 }
 
 export const solid = {
