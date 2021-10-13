@@ -8,29 +8,29 @@ Colors are used to reflect a product's style with consistency across all compone
 
 Todas as nossas cores existem no formato de tokens no Admin UI, para saber mais sobre como utilizar cada token de cor utilize nossa documentação sobre Design Tokens.
 
-## Primary Color
+## Tones
 
-We use blue.40 for primary actions (which will move the user forward in the flow) like buttons, text links, etc., and interactive elements like element selection, drag states, etc. Elements that are not actionable or interacting must not use this color.
+## Palettes
+
+### Blue
+
+We use blue40 for primary actions (which will move the user forward in the flow) like buttons, text links, etc., and interactive elements like element selection, drag states, etc. Elements that are not actionable or interacting must not use this color.
 
 ![Blue Palette](../../src/images/blue-palette.png)
 
 ### Do
 
-- Use blue.40 for primary actions, links, active and selected states.
+- Use blue40 for primary actions, links, active and selected states.
 
 ![Blue - Do](../../src/images/do-blue-actions-interactions.png)
 
 ### Dont's
 
-- Do not use blue.40 for highlighting information. Because using this color for actions may confuse when used on something like highlighting some information or text.
+- Do not use blue40 for highlighting information. Because using this color for actions may confuse when used on something like highlighting some information or text.
 
 ![Blue - Dont](../../src/images/dont-blue-actions-interactions.png)
 
-- Do not use blue.40 for the color of the backgrounds. It can interfere with the visual priorities on the page and draw attention to non-action elements. Generally, buttons should be the only elements with dark backgrounds. Nothing on the page should draw attention away from them.
-
-## Semantic Colors
-
-Semantic colors help users identify status, feedback, and informational elements in the interface. Consistent use of color keeps the cognitive load low and contributes to a unified and engaging user experience.
+- Do not use blue40 for the color of the backgrounds. It can interfere with the visual priorities on the page and draw attention to non-action elements. Generally, buttons should be the only elements with dark backgrounds. Nothing on the page should draw attention away from them.
 
 ### Green
 
@@ -42,7 +42,7 @@ Semantic colors help users identify status, feedback, and informational elements
 ### Orange:
 
 - Orange color is mainly used for backgrounds in warning messages, actions and in states.
-- Use orange.50 for text on white backgrounds.
+- Use orange50 for text on white backgrounds.
 
 ![Orange Palette](../../src/images/orange-palette.png)
 
@@ -53,43 +53,26 @@ Semantic colors help users identify status, feedback, and informational elements
 
 ![Red Palette](../../src/images/red-palette.png)
 
-### Blue Light
+### Light Blue
 
-- Blue Light color is mainly used for backgrounds in information messages, and status.
-- Use Blue Light color for highlighting information such as text or numbers.
-- Use Blue Light color for line charts.
+- Light Blue color is mainly used for backgrounds in information messages, and status.
+- Use Light Blue color for highlighting information such as text or numbers.
+- Use Light Blue color for line charts.
 
 ![Blue Light Palette](../../src/images/blue-light-palette.png)
 
-## Foreground
+### Grey
 
 - Use black color for main text.
-- Use grey.50 for secondary texts, which have a lower of importance than main texts, such as captions, subtitles, descriptions, etc.
-- Use grey.50 for icons colors.
+- Use grey50 for secondary texts, which have a lower of importance than main texts, such as captions, subtitles, descriptions, etc.
+- Use grey50 for icons colors.
+- Use white color for main pages background.
+- Use grey10 color for highlighting background in specific scenarios like a sidebar component.
+- Do not use grey10 as a border color for inputs and divisions.
+- Use grey30 color for the main border (cards, lines, dividers, etc.)
+- Use blue30 for focus navigaiton.
 
 ![Grey Palette](../../src/images/grey-palette.png)
-
-## Background
-
-We have two main color options for background on the Admin UI:
-
-### White:
-
-- Use white color for main pages background.
-
-### Grey:
-
-- Use grey.10 color for highlighting background in specific scenarios like a sidebar component.
-- Do not use grey.10 as a border color for inputs and divisions.
-
-## Border
-
-- Use grey.30 color for the main border (cards, lines, dividers, etc.)
-- Use blue.30 for focus navigaiton.
-
-## Extended palette
-
-Use extended palette colors for tag component (except pink palette).
 
 ### Purple
 
