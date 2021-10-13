@@ -1,6 +1,6 @@
 import React, { createElement } from 'react'
 import RehypeReact from 'rehype-react'
-import { Paragraph, Text, useSystem } from '@vtex/admin-ui'
+import { Paragraph, Text, useSystem, tag } from '@vtex/admin-ui'
 
 import Anchor from '../components/Anchor'
 import List from '../components/List'
@@ -195,6 +195,34 @@ const { Compiler: renderAst } = new RehypeReact({
           })}
           {...props}
         />
+      )
+    },
+    tone: function Render(props: {
+      bg: 'main' | 'critical' | 'warning' | 'positive' | 'neutral'
+      desc: string
+    }) {
+      const { bg = 'main', desc = 'main' } = props
+
+      const tone = {
+        main: 'hsla(222, 63%, 43%, 1)',
+        critical: 'hsla(0, 58%, 52%, 1)',
+        warning: 'hsla(30, 100%, 45%, 1)',
+        positive: 'hsla(123, 41%, 37%, 1)',
+        neutral: 'hsla(0, 0%, 45%, 1)',
+        info: 'hsla(206, 63%, 44%, 1)',
+      }[bg]
+
+      return (
+        <tag.div
+          csx={{
+            display: 'inline-block',
+            borderRadius: 'pill',
+            color: tone,
+            fontSettings: 'medium',
+          }}
+        >
+          {desc}
+        </tag.div>
       )
     },
   },

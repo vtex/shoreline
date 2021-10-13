@@ -10,6 +10,56 @@ Todas as nossas cores existem no formato de tokens no Admin UI, para saber mais 
 
 ## Tones
 
+The usage of the colors in our system reflect the product’s tone of voice with consistency across all components used on the applications. We make available a spectrum of tones which are leveraged across the entire component suite.
+
+### Main
+
+<div style="width: 100px; backgroundColor: hsla(222, 63%, 43%, 1); height: 5px"></div>
+
+The principal interactive element on the screen. It should drive the user’s attention to the tasks that should be done using the application.
+
+### Critical
+
+<div style="width: 100px; backgroundColor: hsla(0, 58%, 52%, 1); height: 5px"></div>
+
+Inform to the user that that something went wrong or that they need extreme caution before taking some action.
+
+### Warning
+
+<div style="width: 100px; backgroundColor: hsla(30, 100%, 45%, 1); height: 5px"></div>
+
+It informs to the user that something is not working as it expected or that they need some caution before taking some action.
+
+### Positive
+
+<div style="width: 100px; backgroundColor: hsla(123, 41%, 37%, 1); height: 5px"></div>
+
+positive tone description
+
+### Neutral
+
+<div style="width: 100px; backgroundColor: hsla(0, 0%, 45%, 1); height: 5px"></div>
+
+Information that do not need emphasis. Already actioned in the past.
+
+### Info
+
+<div style="width: 100px; backgroundColor: hsla(206, 63%, 44%, 1); height: 5px"></div>
+
+info tone description
+
+## Semantic
+
+|          | Main                                   | Critical                                       | Warning                                       | Positive                                             | Neutral                                    | Info                                       |
+| -------- | -------------------------------------- | ---------------------------------------------- | --------------------------------------------- | ---------------------------------------------------- | ------------------------------------------ | ------------------------------------------ |
+| actions  | <tone bg="main" desc="primary"></tone> | <tone bg="critical" desc="destructive"></tone> |                                               |                                                      |                                            |                                            |
+| messages |                                        | <tone bg="critical" desc="error"></tone>       | <tone bg="warning" desc="warning"></tone>     | <tone bg="positive" desc="success"></tone>           |                                            | <tone bg="info" desc="information"></tone> |
+| status   |                                        | <tone bg="critical" desc="removed"></tone>     | <tone bg="warning" desc="pending"></tone>     | <tone bg="positive" desc="added or complete"></tone> | <tone bg="neutral" desc="default"></tone>  |                                            |
+| priority |                                        | <tone bg="critical" desc="major"></tone>       | <tone bg="warning" desc="medium"></tone>      |                                                      | <tone bg="neutral" desc="trivial"></tone>  | <tone bg="info" desc="minor"></tone>       |
+| payments |                                        | <tone bg="critical" desc="cancelled"></tone>   | <tone bg="warning" desc="in progress"></tone> | <tone bg="positive" desc="completed"></tone>         | <tone bg="neutral" desc="archived"></tone> |                                            |
+
+<br></br>
+
 ## Palettes
 
 ### Blue
