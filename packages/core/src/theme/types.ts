@@ -1,4 +1,33 @@
-function asLiterals<T extends string>(array: T[]): T[] {
+export type Tone =
+  | 'main'
+  | 'critical'
+  | 'warning'
+  | 'positive'
+  | 'neutral'
+  | 'info'
+
+export type Palette =
+  | 'blue'
+  | 'red'
+  | 'pink'
+  | 'lightBlue'
+  | 'green'
+  | 'orange'
+  | 'cyan'
+  | 'purple'
+  | 'teal'
+  | 'grey'
+
+export const paletteMap: Record<Tone, Palette> = {
+  critical: 'red',
+  warning: 'orange',
+  positive: 'green',
+  neutral: 'grey',
+  info: 'lightBlue',
+  main: 'blue',
+}
+
+export function asLiterals<T extends string>(array: T[]): T[] {
   return array
 }
 

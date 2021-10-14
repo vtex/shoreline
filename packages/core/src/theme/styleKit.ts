@@ -1,36 +1,8 @@
 import { get } from '@vtex/admin-ui-util'
-import { colors } from './shape'
-
+import type { Palette, Tone } from './types'
 import type { StyleProp } from '../runtime'
-
-export type Tone =
-  | 'main'
-  | 'critical'
-  | 'warning'
-  | 'positive'
-  | 'neutral'
-  | 'info'
-
-export type Palette =
-  | 'blue'
-  | 'red'
-  | 'pink'
-  | 'lightBlue'
-  | 'green'
-  | 'orange'
-  | 'cyan'
-  | 'purple'
-  | 'teal'
-  | 'grey'
-
-export const paletteMap: Record<Tone, Palette> = {
-  critical: 'red',
-  warning: 'orange',
-  positive: 'green',
-  neutral: 'grey',
-  info: 'lightBlue',
-  main: 'blue',
-}
+import { colors } from './colors'
+import { paletteMap } from './types'
 
 function createStyleKit() {
   function ring(tone: Tone) {

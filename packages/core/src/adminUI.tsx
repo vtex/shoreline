@@ -1,4 +1,4 @@
-import { themeShape as defaultTheme, createTheme } from './theme'
+import { defaultTheme, createTheme } from './theme'
 import { plugins } from './plugins'
 import { createStyles } from './runtime'
 import { buildPlugins } from './system'
