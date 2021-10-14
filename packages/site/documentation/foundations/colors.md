@@ -34,7 +34,7 @@ It informs to the user that something is not working as it expected or that they
 
 <div style="width: 100px; backgroundColor: hsla(123, 41%, 37%, 1); height: 5px"></div>
 
-positive tone description
+It represents something good or new things. Get the user to be aware that something good happened.
 
 ### Neutral
 
@@ -46,7 +46,7 @@ Information that do not need emphasis. Already actioned in the past.
 
 <div style="width: 100px; backgroundColor: hsla(206, 63%, 44%, 1); height: 5px"></div>
 
-info tone description
+It informs or guides the user in a calm and non-urgent way.
 
 ## Semantic
 
