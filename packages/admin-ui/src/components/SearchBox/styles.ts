@@ -8,7 +8,7 @@ const typography = {
   title: styles({
     fontFamily: 'sans',
     fontSize: '1.2rem',
-    fontSettings: 'medium',
+    fontSettings: 'regular',
   }),
   body: styles({
     fontFamily: 'sans',
@@ -19,23 +19,23 @@ const typography = {
 
 const scrollbar = styles({
   scrollbarWidth: 'thin',
-  scrollbarColor: 'light.primary',
+  scrollbarColor: 'base',
   '::-webkit-scrollbar': {
     width: '8px',
   },
   '::-webkit-scrollbar-thumb': {
-    backgroundColor: 'mid.tertiary',
+    backgroundColor: 'base',
     borderRadius: '6px',
     border: '2px solid',
-    color: 'light.primary',
+    color: 'muted',
   },
 })
 
 const box = styles({
-  bg: 'base',
+  bg: 'field.neutral',
   borderRadius: 4,
   border: '1px solid',
-  borderColor: 'mid.tertiary',
+  borderColor: 'field.neutral',
   boxShadow: '0px 20px 40px rgba(0,0,0,.24)',
 })
 
@@ -68,10 +68,10 @@ const option = (highlighted: boolean) =>
       border: 'none',
       marginBottom: 2,
     },
-    bg: highlighted ? 'sidebar.hover' : 'light.primary',
-    color: highlighted ? 'blue' : 'dark.primary',
+    bg: highlighted ? 'listBoxItem.mainSelected' : 'listBoxItem.main',
+    color: highlighted ? 'listBoxItem.mainSelected' : 'listBoxItem.main',
     svg: {
-      color: highlighted ? 'blue' : 'mid.primary',
+      color: highlighted ? 'listBoxItem.mainSelected' : 'listBoxItem.main',
     },
   })
 
@@ -82,7 +82,8 @@ const inputContainer = styles({
 const input = (open: boolean, standalone: boolean) =>
   styles({
     ...typography.title,
-    color: 'dark.primary',
+    bg: 'field.neutral',
+    color: 'field.neutral',
     height: 64,
     width: '100%',
     paddingX: 56,
@@ -98,7 +99,7 @@ const input = (open: boolean, standalone: boolean) =>
   })
 
 const inputIcon = styles({
-  color: 'blue',
+  color: 'base',
   size: 28,
   position: 'absolute',
   top: '18px',
@@ -109,12 +110,12 @@ const inputButton = styles({
   position: 'absolute',
   right: 4,
   top: 3,
-  color: 'mid.primary',
+  color: 'muted',
 })
 
 const label = styles({
   paddingLeft: 3,
-  color: 'dark.secondary',
+  color: 'muted',
   fontSize: 0,
   marginY: 2,
 })
@@ -134,12 +135,15 @@ const footer = styles({
   'div + div': {
     marginLeft: 5,
   },
-  color: 'dark.secondary',
+  color: 'muted',
 })
 
 const kbd = styles({
-  bg: 'mid.tertiary',
-  color: 'dark.secondary',
+  bg: 'muted',
+  color: 'muted',
+  borderColor: 'muted',
+  borderWidth: '1px',
+  borderStyle: 'solid',
   borderRadius: 4,
   paddingX: '6px',
   paddingY: '2px',
@@ -158,12 +162,12 @@ const emptyContainer = styles({
 })
 
 const emptyTitle = styles({
-  color: 'dark.primary',
+  color: 'base',
   fontSize: 1,
 })
 
 const emptySubtitle = styles({
-  color: 'dark.secondary',
+  color: 'muted',
   fontSize: 0,
 })
 

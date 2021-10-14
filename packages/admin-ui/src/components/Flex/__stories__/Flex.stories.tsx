@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
+import { palette } from '@vtex/admin-ui-core'
 
 import { Flex, FlexSpacer } from '../index'
 
@@ -14,7 +15,7 @@ export const Playground: Story = (args) => {
     <Flex {...args}>
       <tag.div
         csx={{
-          bg: 'feedback.danger',
+          ...palette('cyan'),
           size: 100,
         }}
       >
@@ -22,7 +23,8 @@ export const Playground: Story = (args) => {
       </tag.div>
       <tag.div
         csx={{
-          bg: 'feedback.success',
+          ...palette('teal'),
+
           size: 150,
         }}
       >
@@ -30,7 +32,7 @@ export const Playground: Story = (args) => {
       </tag.div>
       <tag.div
         csx={{
-          bg: 'feedback.info',
+          ...palette('purple'),
         }}
       >
         tag.div 3
@@ -48,7 +50,8 @@ export function WithSpacer() {
     <Flex>
       <tag.div
         csx={{
-          bg: 'feedback.danger',
+          ...palette('teal'),
+
           size: 100,
         }}
       >
@@ -57,7 +60,8 @@ export function WithSpacer() {
       <FlexSpacer />
       <tag.div
         csx={{
-          bg: 'feedback.success',
+          ...palette('purple'),
+
           size: 100,
         }}
       >
@@ -72,7 +76,8 @@ export function Around() {
     <Flex justify="space-around">
       <tag.div
         csx={{
-          bg: 'feedback.danger',
+          ...palette('teal'),
+
           size: 100,
         }}
       >
@@ -80,7 +85,8 @@ export function Around() {
       </tag.div>
       <tag.div
         csx={{
-          bg: 'feedback.success',
+          ...palette('purple'),
+
           size: 100,
         }}
       >

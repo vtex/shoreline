@@ -2,6 +2,7 @@ import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
 import { jsx, tag } from '@vtex/admin-ui-react'
 import { MenuItem as ReakitMenuItem } from 'reakit/Menu'
+import { focusVisible } from '@vtex/admin-ui-core'
 
 import { useMenuContext } from './MenuContext'
 
@@ -48,52 +49,40 @@ export const MenuItem = jsx(ReakitMenuItem)(
     borderRadius: 'default',
     cursor: 'pointer',
     position: 'relative',
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
     variants: {
-      dangerous: {
-        true: {
-          color: 'action.dangerTertiary',
-          bg: 'action.dangerTertiary',
-          ':focus': {
-            bg: 'action.dangerTertiaryHover',
-            outline: 'none',
-            boxShadow: 'none',
-          },
+      tone: {
+        main: {
+          ...focusVisible('main'),
+          bg: 'listBoxItem.main',
+          color: 'listBoxItem.main',
           ':hover': {
-            color: 'action.dangerTertiaryHover',
-            bg: 'action.dangerTertiaryHover',
+            color: 'listBoxItem.mainHover',
+            bg: 'listBoxItem.mainHover',
           },
           ':active': {
-            color: 'action.dangerTertiaryPressed',
-            backgroundColor: 'action.dangerTertiaryPressed',
+            color: 'listBoxItem.mainPressed',
+            bg: 'listBoxItem.mainPressed',
           },
           ':disabled': {
-            color: 'action.disabled',
-            bg: 'action.disabled',
+            color: 'listBoxItem.mainDisabled',
+            bg: 'listBoxItem.mainDisabled',
           },
         },
-        false: {
-          backgroundColor: 'action.tertiary',
-          color: 'dark.primary',
-          ':focus': {
-            bg: 'action.tertiaryHover',
-            outline: 'none',
-            boxShadow: 'none',
-          },
+        critical: {
+          ...focusVisible('critical'),
+          bg: 'listBoxItem.critical',
+          color: 'listBoxItem.critical',
           ':hover': {
-            color: 'action.tertiaryHover',
-            bg: 'action.tertiaryHover',
+            color: 'listBoxItem.criticalHover',
+            bg: 'listBoxItem.criticalHover',
           },
           ':active': {
-            color: 'action.tertiaryPressed',
-            backgroundColor: 'action.tertiaryPressed',
+            color: 'listBoxItem.criticalPressed',
+            bg: 'listBoxItem.criticalPressed',
           },
           ':disabled': {
-            color: 'action.disabled',
-            bg: 'action.disabled',
+            color: 'listBoxItem.criticalDisabled',
+            bg: 'listBoxItem.criticalDisabled',
           },
         },
       },
@@ -132,7 +121,7 @@ export const MenuItem = jsx(ReakitMenuItem)(
 )
 
 MenuItem.defaultProps = {
-  dangerous: false,
+  tone: 'main',
 }
 
 export interface MenuItemOptions {

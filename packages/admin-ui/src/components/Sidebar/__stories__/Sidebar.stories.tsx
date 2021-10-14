@@ -24,7 +24,7 @@ import {
 import { Paragraph } from '../../Paragraph'
 
 export default {
-  title: 'shell/Sidebar',
+  title: 'admin-ui/Sidebar',
   component: Sidebar,
 } as Meta
 

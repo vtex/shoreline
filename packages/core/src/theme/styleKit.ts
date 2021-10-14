@@ -3,23 +3,6 @@ import { colors } from './shape'
 
 import type { StyleProp } from '../runtime'
 
-// <Input tone="critical" />
-// <Button variant="mainPrimary" />
-// <Button variant="mainSecondary" />
-// <Button variant="mainTertiary" />
-
-// <Button variant="dangerPrimary" />
-// <Button variant="dangerSecondary" />
-// <Button variant="dangerTertiary" />
-
-// <Button tone="main" variant="solid" />
-// <Button tone="main" variant="soft" />
-// <Button tone="main" variant="text" />
-
-// <Button tone="critical" variant="solid" />
-// <Button tone="critical" variant="soft" />
-// <Button tone="critical" variant="text" />
-
 export type Tone =
   | 'main'
   | 'critical'

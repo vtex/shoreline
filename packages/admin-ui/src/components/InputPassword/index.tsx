@@ -13,16 +13,16 @@ export const InputPassword = forwardRef(function InputPassword(
   const {
     csx = {},
     value = '',
-    error = false,
+    tone = 'neutral',
     id,
     label,
     helperText,
     charLimit,
-    errorMessage,
+    criticalText,
     ...inputProps
   } = props
 
-  const message = error ? errorMessage : helperText
+  const message = tone === 'critical' ? criticalText : helperText
 
   return (
     <FieldContainer>
@@ -33,7 +33,7 @@ export const InputPassword = forwardRef(function InputPassword(
         placeholder=" "
         maxLength={charLimit}
         csx={{ paddingTop: 4, ...csx }}
-        error={error}
+        tone={tone}
         labelElement={<FloatingLabel htmlFor={id}>{label}</FloatingLabel>}
         {...inputProps}
       />
@@ -42,7 +42,7 @@ export const InputPassword = forwardRef(function InputPassword(
           value={value}
           message={message}
           charLimit={charLimit}
-          error={error}
+          tone={tone}
         />
       )}
     </FieldContainer>
@@ -65,5 +65,5 @@ export interface InputPasswordProps
   /** Input char limit */
   charLimit?: number
   /** Input error message */
-  errorMessage?: string
+  criticalText?: string
 }

@@ -5,7 +5,7 @@ import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
 
 import type { SearchFormState } from './hooks/useSearchState'
 import { AbstractInput } from '../AbstractInput'
-import { Button } from '../Button'
+import { ButtonGhost } from '../ButtonGhost'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { Label } from '../Label'
 import { Spinner } from '../Spinner'
@@ -78,11 +78,10 @@ export const Search = jsx('form')(
               onChange={(e) => state.setValue(e.target.value)}
               buttonElements={
                 state.showClear ? (
-                  <Button
+                  <ButtonGhost
                     icon={<IconCancel />}
                     onClick={state.clear}
                     size="small"
-                    variant="adaptative-dark"
                     csx={{
                       position: 'absolute',
                       top: 0,

@@ -16,7 +16,8 @@ export const Dropdown = forwardRef(
     const {
       items,
       label,
-      variant = 'primary',
+      tone = 'main',
+      variant = 'solid',
       size = 'regular',
       state,
       renderItem = (item) => item,
@@ -35,6 +36,7 @@ export const Dropdown = forwardRef(
           <label {...state.getLabelProps()}>{label}</label>
         </VisuallyHidden>
         <Button
+          tone={tone}
           variant={variant}
           size={size}
           icon={<IconCaret direction="down" />}
@@ -53,12 +55,12 @@ export const Dropdown = forwardRef(
           csx={{
             visibility: state.isOpen ? 'visible' : 'hidden',
             cursor: 'pointer',
-            bg: 'base',
+            bg: 'popover',
             borderRadius: 'default',
             borderWidth: 1,
             borderStyle: 'solid',
             borderColor: 'base',
-            boxShadow: 'menu',
+            boxShadow: 'popover',
             outline: 'none',
             marginTop: 1,
             paddingY: 4,
@@ -80,12 +82,12 @@ export const Dropdown = forwardRef(
                   cursor: 'pointer',
                   color:
                     state.highlightedIndex === index
-                      ? 'action.secondary'
-                      : 'base',
+                      ? 'listBoxItem.mainSelected'
+                      : 'listBoxItem.main',
                   bg:
                     state.highlightedIndex === index
-                      ? 'action.secondary'
-                      : 'base',
+                      ? 'listBoxItem.mainSelected'
+                      : 'listBoxItem.main',
                 }}
                 key={index}
                 {...state.getItemProps({ item, index })}
@@ -104,7 +106,7 @@ export { UseSelectReturnValue as UseDropdownReturnValue }
 
 export interface DropdownProps<T>
   extends SystemComponent,
-    Pick<ButtonProps, 'variant' | 'size' | 'disabled'> {
+    Pick<ButtonProps, 'tone' | 'variant' | 'size' | 'disabled'> {
   /**
    * aria-label. will be visually hidden
    */

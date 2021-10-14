@@ -31,7 +31,7 @@ export function WithActions() {
     <PageHeader>
       <PageTitle>Products</PageTitle>
       <PageActions>
-        <Button variant="secondary">Edit</Button>
+        <Button variant="soft">Edit</Button>
         <Button>Create</Button>
       </PageActions>
     </PageHeader>
@@ -43,7 +43,7 @@ export function FullBlown() {
     <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
       <PageTitle>Product</PageTitle>
       <PageActions>
-        <Button variant="danger">Delete Item</Button>
+        <Button tone="critical">Delete Item</Button>
       </PageActions>
     </PageHeader>
   )

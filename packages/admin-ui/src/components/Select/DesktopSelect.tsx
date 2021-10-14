@@ -124,30 +124,30 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
           borderWidth: 1,
           paddingLeft: 3,
           paddingRight: 4,
-          borderColor: 'field.primary',
+          borderColor: 'field.neutral',
           borderRadius: 'default',
-          bg: 'field.primary',
+          bg: 'field.neutral',
           fontSize: 1,
-          color: 'field.primary',
+          color: 'field.neutral',
           outline: 0,
           ':hover': {
-            borderColor: 'field.primaryHover',
+            borderColor: 'field.neutralHover',
           },
           ':hover > svg': {
-            color: 'field.primary',
+            color: 'field.neutral',
           },
           ':focus': {
-            borderColor: 'field.primaryFocus',
-            boxShadow: 'ring.primary',
+            borderColor: 'field.neutralFocus',
+            boxShadow: 'ring.neutral',
           },
           ':disabled': {
-            bg: 'field.disabled',
-            borderColor: 'field.disabled',
-            color: 'field.disabled',
+            bg: 'field.neutralDisabled',
+            borderColor: 'field.neutralDisabled',
+            color: 'field.neutralDisabled',
             cursor: 'initial',
           },
           ':disabled > svg': {
-            color: 'field.disabled',
+            color: 'field.neutralDisabled',
           },
           ...(error
             ? {
@@ -198,7 +198,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
           position: 'absolute',
           zIndex: 999,
           width: 'inherit',
-          bg: 'base',
+          bg: 'popover',
           outline: 'none',
         }}
       >
@@ -251,12 +251,12 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
                     paddingLeft: state.selectedItem ? 9 : 12,
                     bg:
                       state.highlightedIndex === index
-                        ? 'action.secondary'
-                        : 'base',
+                        ? 'listBoxItem.mainSelected'
+                        : 'listBoxItem.main',
                     color:
                       state.highlightedIndex === index
-                        ? 'action.secondary'
-                        : 'base',
+                        ? 'listBoxItem.mainSelected'
+                        : 'listBoxItem.main',
                   }}
                 >
                   {state.selectedItem && (

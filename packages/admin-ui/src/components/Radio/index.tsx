@@ -7,10 +7,10 @@ import type { ComponentPropsWithRef } from 'react'
 
 export const Radio = jsx(ReakitRadio)(
   {
-    ...focusVisible('primary'),
-    bg: 'control.primary',
-    borderColor: 'control.primary',
-    color: 'control.primary',
+    ...focusVisible('neutral'),
+    bg: 'control.neutral',
+    borderColor: 'control.neutral',
+    color: 'control.neutral',
     appearance: 'none',
     margin: 0,
     position: 'relative',
@@ -23,58 +23,59 @@ export const Radio = jsx(ReakitRadio)(
       position: 'absolute',
       display: 'block',
       borderRadius: 'circle',
-      bg: (theme) => get(theme, 'foreground.control.primary', ''),
+      bg: (theme) => get(theme, 'foreground.control.neutral', ''),
       opacity: 0,
       top: '0.3rem',
     },
     ':disabled': {
       cursor: 'not-allowed',
-      bg: 'control.disabled',
-      borderColor: 'control.disabled',
-      color: 'control.disabled',
+      bg: 'control.neutralDisabled',
+      borderColor: 'control.neutralDisabled',
+      color: 'control.neutralDisabled',
       ':after': {
-        bg: (theme) => get(theme, 'foreground.control.disabled', ''),
+        bg: (theme) => get(theme, 'foreground.control.neutralDisabled', ''),
       },
     },
 
     ':hover': {
-      bg: 'control.primaryHover',
-      borderColor: 'control.primaryHover',
+      bg: 'control.neutralHover',
+      borderColor: 'control.neutralHover',
     },
 
     ':active': {
-      bg: 'control.primaryPressed',
-      borderColor: 'control.primaryPressed',
+      bg: 'control.neutralPressed',
+      borderColor: 'control.neutralPressed',
     },
 
     ':checked': {
-      bg: 'control.primaryChecked',
-      color: 'control.primaryChecked',
-      borderColor: 'control.primaryChecked',
+      bg: 'control.neutralChecked',
+      color: 'control.neutralChecked',
+      borderColor: 'control.neutralChecked',
 
       ':after': {
         opacity: 1,
       },
 
       ':hover': {
-        bg: 'control.primaryCheckedHover',
-        borderColor: 'control.primaryCheckedHover',
+        bg: 'control.neutralCheckedHover',
+        borderColor: 'control.neutralCheckedHover',
       },
 
       ':active': {
-        bg: 'control.primaryCheckedPressed',
-        borderColor: 'control.primaryCheckedPressed',
+        bg: 'control.neutralCheckedPressed',
+        borderColor: 'control.neutralCheckedPressed',
       },
 
       ':disabled': {
         cursor: 'not-allowed',
 
-        bg: 'control.disabled',
-        borderColor: 'control.disabled',
-        color: 'control.disabled',
+        bg: 'control.neutralCheckedDisabled',
+        borderColor: 'control.neutralCheckedDisabled',
+        color: 'control.neutralCheckedDisabled',
 
         ':after': {
-          bg: (theme) => get(theme, 'foreground.control.disabled', ''),
+          bg: (theme) =>
+            get(theme, 'foreground.control.neutralCheckedDisabled', ''),
         },
       },
     },

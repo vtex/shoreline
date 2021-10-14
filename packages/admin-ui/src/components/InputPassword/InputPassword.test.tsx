@@ -29,7 +29,8 @@ describe('InputPassword tests', () => {
     const { asFragment } = render(
       <>
         <InputPassword
-          errorMessage="Error Message"
+          criticalText="Error Message"
+          tone="critical"
           value=""
           onChange={() => {}}
           label="Label"
@@ -39,7 +40,7 @@ describe('InputPassword tests', () => {
           icon={<IconAdd />}
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Error Message"
           value=""
           onChange={() => {}}
           label="Label"
@@ -55,7 +56,8 @@ describe('InputPassword tests', () => {
     const { container } = render(
       <>
         <InputPassword
-          errorMessage="Error Message"
+          criticalText="Error Message"
+          tone="critical"
           value=""
           onChange={() => {}}
           label="Label"
@@ -65,7 +67,7 @@ describe('InputPassword tests', () => {
           icon={<IconAdd />}
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Error Message"
           value=""
           onChange={() => {}}
           label="Label"

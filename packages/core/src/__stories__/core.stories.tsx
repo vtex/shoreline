@@ -4,7 +4,7 @@ import type { Meta } from '@storybook/react'
 import { createSystem, useSystem } from '../createSystem'
 import type { StyleProp } from '../runtime'
 import { get } from '@vtex/admin-ui-util'
-import { theme as vars } from '../theme'
+import { theme as vars } from '../adminUI'
 
 export default {
   title: 'onda-core/createSystem',
@@ -25,10 +25,15 @@ export function Styles() {
     <OndaProvider>
       <Div
         csx={{
-          bg: 'action.primary',
-          color: 'action.primary',
+          bg: 'muted',
+          color: 'base',
+          borderColor: 'container',
+          borderWidth: 1,
+          borderStyle: 'solid',
+          padding: 1,
           marginY: 2,
-          size: 100,
+          size: 150,
+          borderRadius: 'default',
         }}
       >
         With csx
@@ -42,8 +47,8 @@ export function ThemeStyles() {
     <OndaProvider>
       <Div
         csx={{
-          bg: vars.background.action.primary,
-          color: vars.foreground.action.primary,
+          bg: vars.background.action.main.soft,
+          color: vars.foreground.action.main.soft,
           marginY: vars.space[2],
           size: '100px',
         }}

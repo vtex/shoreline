@@ -48,7 +48,7 @@ export const ModalContent = jsx('section')(
           bg: 'muted',
           borderRadius: '6px',
           border: '2px solid',
-          color: 'base',
+          color: 'modal',
         },
         overflowY: 'auto',
       }

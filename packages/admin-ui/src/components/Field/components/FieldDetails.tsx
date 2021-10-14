@@ -13,23 +13,26 @@ export const FieldDetails = jsx(Role)(
     paddingTop: 1,
   },
   {
-    options: ['message', 'charLimit', 'value', 'error'],
+    options: ['message', 'charLimit', 'value', 'tone'],
     useOptions(options: FieldDetailsOptions, props) {
-      const { message, error, charLimit, value } = options
+      const { message, tone, charLimit, value } = options
 
       return {
         ...props,
         children: (
           <>
             {message ? (
-              <Text variant="small" feedback={error ? 'danger' : 'muted'}>
+              <Text
+                variant="small"
+                tone={tone === 'critical' ? 'critical' : 'muted'}
+              >
                 {message}
               </Text>
             ) : (
               <div>{/** spacer element */}</div>
             )}
             {!!charLimit && (
-              <Text variant="small" feedback="muted">
+              <Text variant="small" tone="muted">
                 {`${value?.toString().length}/${charLimit}`}
               </Text>
             )}
@@ -44,7 +47,7 @@ export interface FieldDetailsOptions {
   message?: string
   charLimit?: number
   value?: string | number | readonly string[]
-  error?: boolean
+  tone?: 'neutral' | 'critical'
 }
 
 export type FieldDetailsProps = ComponentPropsWithRef<typeof FieldDetails>

@@ -13,16 +13,16 @@ export const Input = forwardRef(function Input(
   const {
     csx = {},
     value = '',
-    error = false,
+    tone = 'neutral',
     id,
     label,
     helperText,
     charLimit,
-    errorMessage,
+    criticalText,
     ...inputProps
   } = props
 
-  const message = error ? errorMessage : helperText
+  const message = tone === 'critical' ? criticalText : helperText
 
   return (
     <FieldContainer>
@@ -33,7 +33,7 @@ export const Input = forwardRef(function Input(
         placeholder=" "
         maxLength={charLimit}
         csx={{ paddingTop: 4, ...csx }}
-        error={error}
+        tone={tone}
         labelElement={<FloatingLabel htmlFor={id}>{label}</FloatingLabel>}
         {...inputProps}
       />
@@ -42,7 +42,7 @@ export const Input = forwardRef(function Input(
           value={value}
           message={message}
           charLimit={charLimit}
-          error={error}
+          tone={tone}
         />
       )}
     </FieldContainer>
@@ -66,7 +66,7 @@ export interface InputProps extends SystemComponentProps<InputOwnProps> {
   /** Input char limit */
   charLimit?: number
   /** Input error message */
-  errorMessage?: string
+  criticalText?: string
   /** Input type */
   type?: InputType
 }

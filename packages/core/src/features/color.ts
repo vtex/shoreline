@@ -1,7 +1,8 @@
 import * as polished from 'polished'
 import { get } from '@vtex/admin-ui-util'
 
-import type { Colors, Theme } from '../runtime'
+import type { Theme } from '../runtime'
+import type { ColorTokens as Colors } from '../theme'
 
 /**
  * Get color from theme.colors

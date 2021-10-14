@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
+import { palette } from '@vtex/admin-ui-core'
 
 import { Grid, GridItem } from '../index'
 
@@ -12,9 +13,9 @@ export default {
 export const Playground: Story = (args) => {
   return (
     <Grid {...args}>
-      <GridItem area="green" csx={{ bg: 'feedback.success' }} />
-      <GridItem area="blue" csx={{ bg: 'feedback.info' }} />
-      <GridItem area="red" csx={{ bg: 'feedback.danger' }} />
+      <GridItem area="green" csx={palette('purple')} />
+      <GridItem area="blue" csx={palette('cyan')} />
+      <GridItem area="red" csx={palette('teal')} />
     </Grid>
   )
 }
@@ -30,11 +31,11 @@ Playground.args = {
 export const TemplateColumns = () => {
   return (
     <Grid templateColumns="repeat(5, 1fr)" columnGap="4" csx={{ height: 100 }}>
-      <tag.div csx={{ bg: 'feedback.info' }} />
-      <tag.div csx={{ bg: 'feedback.info' }} />
-      <tag.div csx={{ bg: 'feedback.info' }} />
-      <tag.div csx={{ bg: 'feedback.info' }} />
-      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={palette('cyan')} />
+      <tag.div csx={palette('cyan')} />
+      <tag.div csx={palette('cyan')} />
+      <tag.div csx={palette('cyan')} />
+      <tag.div csx={palette('cyan')} />
     </Grid>
   )
 }
@@ -46,11 +47,11 @@ export const TemplateRows = () => {
       rowGap="4"
       csx={{ height: 500, width: 500 }}
     >
-      <tag.div csx={{ bg: 'feedback.info' }} />
-      <tag.div csx={{ bg: 'feedback.info' }} />
-      <tag.div csx={{ bg: 'feedback.info' }} />
-      <tag.div csx={{ bg: 'feedback.info' }} />
-      <tag.div csx={{ bg: 'feedback.info' }} />
+      <tag.div csx={palette('cyan')} />
+      <tag.div csx={palette('cyan')} />
+      <tag.div csx={palette('cyan')} />
+      <tag.div csx={palette('cyan')} />
+      <tag.div csx={palette('cyan')} />
     </Grid>
   )
 }

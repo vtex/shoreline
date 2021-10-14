@@ -173,14 +173,14 @@ export const foreground = {
 
   listBoxItem: {
     main: colors.black,
-    mainHover: colors.blue40,
-    mainPressed: colors.blue40,
-    mainSelected: colors.blue40,
+    mainHover: colors.blue50,
+    mainPressed: colors.blue50,
+    mainSelected: colors.blue50,
 
-    critical: colors.black,
-    criticalHover: colors.red40,
-    criticalPressed: colors.red40,
-    criticalSelected: colors.red40,
+    critical: colors.red50,
+    criticalHover: colors.red50,
+    criticalPressed: colors.red50,
+    criticalSelected: colors.red50,
   },
 
   link: colors.blue40,

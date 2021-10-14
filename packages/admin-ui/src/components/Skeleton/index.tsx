@@ -56,7 +56,6 @@ export const Skeleton = jsx('div')(
         ...restProps,
         csx: {
           animation: `${load} 1.2s ease-in-out infinite`,
-          // TODO Investigate any type
           backgroundImage: (theme: any) =>
             `linear-gradient(90deg, ${get(theme, 'colors.grey20')},  ${get(
               theme,

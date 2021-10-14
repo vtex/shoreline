@@ -30,7 +30,7 @@ Playground.args = {
   id: 'Input',
   label: 'Label',
   helperText: 'Helper Text!',
-  errorMessage: 'Error Message!',
+  criticalText: 'Error Message!',
   charLimit: 120,
 }
 
@@ -131,8 +131,8 @@ export const Error = () => {
         onChange={(e) => setValue(e.target.value)}
         id="textfield"
         label="Label"
-        errorMessage="Error Message"
-        error
+        criticalText="Error Message"
+        tone="critical"
       />
     </Box>
   )
