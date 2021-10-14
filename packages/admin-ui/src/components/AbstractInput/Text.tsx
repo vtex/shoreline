@@ -58,8 +58,8 @@ export const AbstractInput = forwardRef(function AbstractInput(
       boxShadow: critical ? 'ring.critical' : 'ring.neutral',
     },
     ':disabled': {
-      bg: 'field.disabled',
-      color: 'field.disabled',
+      bg: critical ? 'field.criticalDisabled' : 'field.neutralDisabled',
+      color: critical ? 'field.criticalDisabled' : 'field.neutralDisabled',
     },
     ...spacing({
       icon: !!icon,

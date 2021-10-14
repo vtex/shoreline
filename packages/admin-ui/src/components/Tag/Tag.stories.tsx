@@ -29,8 +29,7 @@ export function Palettes() {
         <Tag label="Rio de Janeiro" palette="cyan" />
         <Tag label="Rio de Janeiro" palette="purple" />
         <Tag label="Rio de Janeiro" palette="green" />
-        <Tag label="Rio de Janeiro" palette="grey" />
-        <Tag label="Rio de Janeiro" palette="purple" />
+        <Tag label="Rio de Janeiro" palette="red" />
         <Tag label="Rio de Janeiro" palette="orange" />
         <Tag label="Rio de Janeiro" palette="teal" />
       </Set>
@@ -83,7 +82,6 @@ export const Variants = () => {
           size="small"
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
-          palette="grey"
           icon={<IconFavorite />}
         />
       </Set>

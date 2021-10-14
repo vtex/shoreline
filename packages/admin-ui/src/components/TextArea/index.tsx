@@ -23,23 +23,23 @@ const Reference = jsx('textarea')({
   color: 'base',
   outline: 0,
   transition: 'snap',
-  ':disabled': {
-    bg: 'field.disabled',
-    color: 'field.disabled',
-    borderColor: 'field.disabled',
-  },
   variants: {
     tone: {
-      primary: {
-        bg: 'field.primary',
-        color: 'field.primary',
-        borderColor: 'field.primary',
+      neutral: {
+        bg: 'field.neutral',
+        color: 'field.neutral',
+        borderColor: 'field.neutral',
         ':not(:focus):hover': {
-          borderColor: 'field.primaryHover',
+          borderColor: 'field.neutralHover',
         },
         ':focus': {
-          borderColor: 'field.primaryFocus',
-          boxShadow: 'ring.primary',
+          borderColor: 'field.neutralFocus',
+          boxShadow: 'ring.neutral',
+        },
+        ':disabled': {
+          bg: 'field.neutralDisabled',
+          color: 'field.neutralDisabled',
+          borderColor: 'field.neutralDisabled',
         },
       },
       critical: {
@@ -53,13 +53,18 @@ const Reference = jsx('textarea')({
           borderColor: 'field.criticalFocus',
           boxShadow: 'ring.critical',
         },
+        ':disabled': {
+          bg: 'field.criticalDisabled',
+          color: 'field.criticalDisabled',
+          borderColor: 'field.criticalDisabled',
+        },
       },
     },
   },
 })
 
 Reference.defaultProps = {
-  tone: 'primary',
+  tone: 'neutral',
 }
 
 export const TextArea = forwardRef(function Textarea(
@@ -89,7 +94,7 @@ export const TextArea = forwardRef(function Textarea(
       }}
     >
       <Reference
-        tone={error ? 'critical' : 'primary'}
+        tone={error ? 'critical' : 'neutral'}
         csx={csx}
         id={id}
         ref={ref}
@@ -105,7 +110,7 @@ export const TextArea = forwardRef(function Textarea(
           value={value}
           message={message}
           charLimit={charLimit}
-          error={error}
+          tone={error ? 'critical' : 'neutral'}
         />
       )}
     </FieldContainer>

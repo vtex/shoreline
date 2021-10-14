@@ -20,18 +20,24 @@ export const ToastContainer = jsx('div')({
   color: 'dark.primary',
   borderRadius: 'default',
   variants: {
-    type: {
-      error: {
-        bg: '#FFF8F8',
-        borderColor: '#EDB6B6',
+    tone: {
+      critical: {
+        bg: 'notification.critical',
+        borderColor: 'notification.critical',
       },
-      success: { bg: '#F0F8F5', borderColor: '#8FC2B1' },
-      warning: { bg: '#FFF9EE', borderColor: '#E5C38E' },
-      info: { bg: 'base' },
+      positive: {
+        bg: 'notification.positive',
+        borderColor: 'notification.positive',
+      },
+      warning: {
+        bg: 'notification.warning',
+        borderColor: 'notification.warning',
+      },
+      info: { bg: 'notification.info', borderColor: 'notification.info' },
     },
   },
 })
 
 ToastContainer.defaultProps = {
-  type: 'info',
+  tone: 'info',
 }

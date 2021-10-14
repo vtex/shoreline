@@ -38,11 +38,13 @@ export const background = {
   popup: colors.black,
   popover: colors.white,
   modal: colors.white,
-  overlay: colors.greyTransparent80,
+  overlay: colors.greyTransparent50,
   container: colors.white,
   header: colors.white,
   sidebar: colors.grey10,
   topbar: colors.white,
+  skeleton: colors.grey10,
+  skeletonMuted: colors.grey20,
 
   action: {
     neutral: {
@@ -90,12 +92,12 @@ export const background = {
   listBoxItem: {
     main: colors.white,
     mainHover: colors.blue05,
-    mainPressed: colors.blue05,
+    mainPressed: colors.blue10,
     mainSelected: colors.blue05,
 
     critical: colors.white,
     criticalHover: colors.red05,
-    criticalPressed: colors.red05,
+    criticalPressed: colors.red10,
     criticalSelected: colors.red05,
   },
 
@@ -107,30 +109,30 @@ export const background = {
   },
 
   field: {
-    neutral: 'inherit',
-    neutralHover: 'inherit',
-    neutralFocus: 'inherit',
+    neutral: colors.white,
+    neutralHover: colors.white,
+    neutralFocus: colors.white,
     neutralDisabled: colors.grey30,
 
-    critical: 'inherit',
-    criticalHover: 'inherit',
-    criticalFocus: 'inherit',
+    critical: colors.white,
+    criticalHover: colors.white,
+    criticalFocus: colors.white,
     criticalDisabled: colors.grey30,
   },
 
   control: {
     neutral: colors.white,
-    neutralHover: colors.white,
-    neutralPressed: colors.white,
+    neutralHover: colors.grey20,
+    neutralPressed: colors.grey40,
     neutralDisabled: colors.grey30,
 
-    neutralChecked: colors.grey80,
+    neutralChecked: colors.black,
     neutralCheckedHover: colors.grey70,
     neutralCheckedPressed: colors.grey60,
     neutralCheckedDisabled: colors.grey30,
 
-    neutralIndeterminate: colors.grey20,
-    neutralIndeterminateHover: colors.grey30,
+    neutralIndeterminate: colors.white,
+    neutralIndeterminateHover: colors.grey20,
     neutralIndeterminatePressed: colors.grey40,
     neutralIndeterminateDisabled: colors.grey30,
   },
@@ -145,8 +147,8 @@ export const foreground = {
   modal: colors.black,
   container: colors.black,
   header: colors.black,
-  sidebar: colors.black,
-  topbar: colors.black,
+  sidebar: colors.grey50,
+  topbar: colors.grey50,
 
   action: {
     neutral: {
@@ -155,7 +157,7 @@ export const foreground = {
     },
     main: {
       solid: colors.white,
-      solidDisabled: colors.grey50,
+      solidDisabled: colors.grey50, // check
       soft: colors.blue40,
       softDisabled: colors.grey50,
       text: colors.blue40,
@@ -172,15 +174,16 @@ export const foreground = {
   },
 
   listBoxItem: {
+    // check
     main: colors.black,
     mainHover: colors.blue50,
-    mainPressed: colors.blue50,
-    mainSelected: colors.blue50,
+    mainPressed: colors.blue60,
+    mainSelected: colors.blue40,
 
-    critical: colors.red50,
+    critical: colors.red40,
     criticalHover: colors.red50,
-    criticalPressed: colors.red50,
-    criticalSelected: colors.red50,
+    criticalPressed: colors.red60,
+    criticalSelected: colors.red40,
   },
 
   link: colors.blue40,
@@ -201,7 +204,7 @@ export const foreground = {
     neutralChecked: colors.white,
     neutralCheckedDisabled: colors.grey50,
 
-    neutralIndeterminate: colors.grey80,
+    neutralIndeterminate: colors.grey60,
     neutralIndeterminateDisabled: colors.grey50,
   },
 }
@@ -218,35 +221,35 @@ export const borderColor = {
   field: {
     neutral: colors.grey40,
     neutralHover: colors.grey50,
-    neutralFocus: colors.grey70,
-    neutralDisabled: colors.grey30,
+    neutralFocus: colors.grey60,
+    neutralDisabled: colors.grey50,
 
     critical: colors.red40,
     criticalHover: colors.red50,
     criticalFocus: colors.red60,
-    criticalDisabled: colors.grey30,
+    criticalDisabled: colors.grey50,
   },
 
   control: {
-    neutral: colors.grey50,
-    neutralHover: colors.grey60,
-    neutralPressed: colors.grey70,
-    neutralDisabled: colors.grey30,
+    neutral: colors.grey40,
+    neutralHover: colors.grey70,
+    neutralPressed: colors.grey60,
+    neutralDisabled: colors.grey50,
 
-    neutralChecked: colors.grey80,
+    neutralChecked: colors.black,
     neutralCheckedHover: colors.grey70,
     neutralCheckedPressed: colors.grey60,
-    neutralCheckedDisabled: colors.grey30,
+    neutralCheckedDisabled: colors.grey50,
 
     neutralIndeterminate: colors.grey40,
-    neutralIndeterminateHover: colors.grey50,
+    neutralIndeterminateHover: colors.grey70,
     neutralIndeterminatePressed: colors.grey60,
-    neutralIndeterminateDisabled: colors.grey30,
+    neutralIndeterminateDisabled: colors.grey50,
   },
 
   notification: {
     positive: colors.green30,
-    info: colors.blue30,
+    info: colors.lightBlue30,
     critical: colors.red30,
     warning: colors.orange30,
   },

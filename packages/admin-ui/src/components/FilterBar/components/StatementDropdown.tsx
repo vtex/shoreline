@@ -60,9 +60,17 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
     variant,
     renderItem,
     csx: {
-      container: 'base',
+      bg: 'action.neutral.ghost',
       border: 'default',
-      color: 'muted',
+      color: 'action.neutral.ghost',
+      ':hover': {
+        bg: 'action.neutral.ghostHover',
+        color: 'action.neutral.ghostHover',
+      },
+      ':active': {
+        bg: 'action.neutral.ghostPressed',
+        color: 'action.neutral.ghostHover',
+      },
       div: {
         width: '100%',
         div: {

@@ -60,10 +60,16 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
             fontSettings: selected ? 'medium' : 'regular',
             color: selected ? 'listBoxItem.mainSelected' : 'sidebar',
           },
-          '&:hover': {
-            backgroundColor: 'listBoxItem.mainSelectedHover',
+          ':active': {
+            backgroundColor: 'listBoxItem.mainPressed',
             '> div': {
-              color: selected ? 'listBoxItem.mainSelectedHover' : 'sidebar',
+              color: 'listBoxItem.mainPressed',
+            },
+          },
+          ':hover': {
+            backgroundColor: 'listBoxItem.mainHover',
+            '> div': {
+              color: 'listBoxItem.mainHover',
             },
           },
         },

@@ -57,10 +57,13 @@ export const Skeleton = jsx('div')(
         csx: {
           animation: `${load} 1.2s ease-in-out infinite`,
           backgroundImage: (theme: any) =>
-            `linear-gradient(90deg, ${get(theme, 'colors.grey20')},  ${get(
+            `linear-gradient(90deg, ${get(
               theme,
-              'colors.grey10'
-            )}, ${get(theme, 'colors.grey20')})`,
+              'background.skeletonMuted'
+            )},  ${get(theme, 'background.skeleton')}, ${get(
+              theme,
+              'background.skeletonMuted'
+            )})`,
           ...csx,
         },
       }

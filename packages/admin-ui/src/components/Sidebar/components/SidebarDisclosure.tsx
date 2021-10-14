@@ -40,7 +40,13 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
             'div > svg': {
               color: selected ? 'listBoxItem.mainSelected' : 'sidebar',
             },
-            '&:hover': {
+            ':active': {
+              bg: 'listBoxItem.mainPressed',
+              'div > svg': {
+                color: 'listBoxItem.mainPressed',
+              },
+            },
+            ':hover': {
               bg: 'listBoxItem.mainHover',
               'div > svg': {
                 color: 'listBoxItem.mainHover',

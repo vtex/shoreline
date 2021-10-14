@@ -13,6 +13,8 @@ const backgroundTokens = asLiterals([
   'header',
   'sidebar',
   'topbar',
+  'skeleton',
+  'skeletonMuted',
   'action.neutral.ghost',
   'action.neutral.ghostHover',
   'action.neutral.ghostPressed',

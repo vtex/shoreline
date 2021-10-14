@@ -19,10 +19,14 @@ export default {
 
 export const Playground: Story<TooltipProps> = (args) => {
   return (
-    <Tooltip label="Tooltip props" {...args}>
-      <Button icon={<IconDuplicate />} variant="tertiary" />
+    <Tooltip {...args}>
+      <Button icon={<IconDuplicate />} variant="text" />
     </Tooltip>
   )
+}
+
+Playground.args = {
+  label: 'Tooltip Label!',
 }
 
 export const ReactNodeLabel = () => {
@@ -32,7 +36,7 @@ export const ReactNodeLabel = () => {
       placement="right"
       label={
         <Set orientation="vertical" spacing={2}>
-          <Text variant="small" csx={{ color: 'mid.tertiary' }}>
+          <Text variant="small" tone="muted">
             Previous Order: 102183 (211-213)
           </Text>
           <Tag palette="green" label="Ready for Handling" size="small" />
@@ -41,7 +45,7 @@ export const ReactNodeLabel = () => {
         </Set>
       }
     >
-      <Button icon={<IconDuplicate />} variant="tertiary" />
+      <Button icon={<IconDuplicate />} variant="text" />
     </Tooltip>
   )
 }

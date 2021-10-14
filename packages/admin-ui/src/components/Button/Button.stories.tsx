@@ -23,7 +23,7 @@ Playground.args = {
 export const Size: Story = () => {
   return (
     <Set>
-      <Button>Regular Button</Button>
+      <Button disabled>Regular Button</Button>
       <Button size="small">Small Button</Button>
     </Set>
   )

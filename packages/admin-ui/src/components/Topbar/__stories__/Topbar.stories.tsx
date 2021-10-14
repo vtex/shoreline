@@ -12,6 +12,7 @@ import { Topbar, TopbarStart, TopbarEnd } from '../index'
 import { Set } from '../../Set'
 import { Button } from '../../Button'
 import { Text } from '../../Text'
+import { ButtonGhost } from '../../ButtonGhost'
 
 export default {
   title: 'shell/Topbar',
@@ -23,7 +24,7 @@ export function Example() {
     <Topbar>
       <TopbarStart>
         <Set spacing={3}>
-          <Button icon={<IconImage />} variant="adaptative-dark" />
+          <ButtonGhost icon={<IconImage />} />
           <Text csx={{ fontSize: 2, fontSettings: 'medium' }}>
             dpsppinheiros
           </Text>
@@ -31,17 +32,17 @@ export function Example() {
       </TopbarStart>
       <TopbarEnd>
         <Set spacing={0}>
-          <Button variant="tertiary" icon={<IconUndo />}>
+          <Button variant="text" icon={<IconUndo />}>
             Switch to previous version
           </Button>
           <Button
-            variant="tertiary"
+            variant="text"
             icon={<IconArrow csx={{ transform: `rotate(45deg)` }} />}
           >
             View Store
           </Button>
-          <Button variant="tertiary" icon={<IconNotifications />} />
-          <Button variant="tertiary" icon={<IconHelp />} />
+          <Button variant="text" icon={<IconNotifications />} />
+          <Button variant="text" icon={<IconHelp />} />
         </Set>
       </TopbarEnd>
     </Topbar>
@@ -56,7 +57,7 @@ export function Loading() {
       <Topbar loading={loading}>
         <TopbarStart>
           <Set spacing={3}>
-            <Button icon={<IconImage />} variant="adaptative-dark" />
+            <ButtonGhost icon={<IconImage />} />
             <Text csx={{ fontSize: 2, fontSettings: 'medium' }}>
               dpsppinheiros
             </Text>
@@ -64,17 +65,17 @@ export function Loading() {
         </TopbarStart>
         <TopbarEnd>
           <Set spacing={0}>
-            <Button variant="tertiary" icon={<IconUndo />}>
+            <Button variant="text" icon={<IconUndo />}>
               Switch to previous version
             </Button>
             <Button
-              variant="tertiary"
+              variant="text"
               icon={<IconArrow csx={{ transform: `rotate(45deg)` }} />}
             >
               View Store
             </Button>
-            <Button variant="tertiary" icon={<IconNotifications />} />
-            <Button variant="tertiary" icon={<IconHelp />} />
+            <Button variant="text" icon={<IconNotifications />} />
+            <Button variant="text" icon={<IconHelp />} />
           </Set>
         </TopbarEnd>
       </Topbar>

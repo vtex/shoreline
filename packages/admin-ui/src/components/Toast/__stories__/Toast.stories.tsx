@@ -1,13 +1,13 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Toast, ToastProvider, useToast } from '../index'
+import { ToastProvider, useToast } from '../index'
 import { Button } from '../../Button'
 import { Set } from '../../Set'
 
 export default {
   title: 'admin-ui/Toast',
-  component: Toast,
+  component: Button,
 } as Meta
 
 const ToastButton = () => {
@@ -18,7 +18,7 @@ const ToastButton = () => {
       <Button
         onClick={() => {
           showToast({
-            message: 'Type here a longer message but not much longer than that',
+            message: 'tone here a longer message but not much longer than that',
             dismissible: true,
             action: { label: 'Action', onClick: () => {} },
           })
@@ -31,31 +31,31 @@ const ToastButton = () => {
           showToast({
             message: 'This is a Toast!',
             dismissible: true,
-            type: 'success',
+            tone: 'positive',
             action: { label: 'Action', onClick: () => {} },
           })
         }}
       >
-        Success
+        positive
       </Button>
       <Button
         onClick={() => {
           showToast({
             message: 'This is a Toast!',
             dismissible: true,
-            type: 'error',
+            tone: 'critical',
             action: { label: 'Action', onClick: () => {} },
           })
         }}
       >
-        Error
+        critical
       </Button>
       <Button
         onClick={() => {
           showToast({
             message: 'This is a Toast!',
             dismissible: true,
-            type: 'warning',
+            tone: 'warning',
             action: { label: 'Action', onClick: () => {} },
           })
         }}

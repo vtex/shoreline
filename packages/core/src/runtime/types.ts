@@ -99,7 +99,7 @@ export interface OverwriteCSSProperties {
    * CSS **`borderColor`** property
    * @default currentColor
    */
-  borderColor?: BorderColorTokens
+  borderColor?: BorderColorTokens | CSS.Property.BorderColor
   /**
    * CSS **`caretColor`** property
    * @default currentColor
@@ -114,22 +114,22 @@ export interface OverwriteCSSProperties {
    * CSS **`borderTopColor`** property
    * @default currentColor
    */
-  borderTopColor?: BorderColorTokens
+  borderTopColor?: BorderColorTokens | CSS.Property.BorderTopColor
   /**
    * CSS **`borderBottomColor`** property
    * @default currentColor
    */
-  borderBottomColor?: BorderColorTokens
+  borderBottomColor?: BorderColorTokens | CSS.Property.BorderBottomColor
   /**
    * CSS **`borderLeftColor`** property
    * @default currentColor
    */
-  borderLeftColor?: BorderColorTokens
+  borderLeftColor?: BorderColorTokens | CSS.Property.BorderLeftColor
   /**
    * CSS **`borderRightColor`** property
    * @default currentColor
    */
-  borderRightColor?: BorderColorTokens
+  borderRightColor?: BorderColorTokens | CSS.Property.BorderRightColor
   /**
    * CSS **`outlineColor`** property
    * @default currentColor
