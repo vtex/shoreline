@@ -184,7 +184,7 @@ const { Compiler: renderAst } = new RehypeReact({
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',
             code: {
-              color: (theme) => get(theme, 'colors.purple40'),
+              color: 'highlight',
               bg: 'transparent',
               fontSize: 1,
             },
