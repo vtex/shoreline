@@ -16,7 +16,8 @@ export function PageHeader(props: React.PropsWithChildren<{}>) {
         csx={{
           fontSize: '40px',
           position: 'relative',
-          color: '#000000',
+          color: 'header',
+          bg: 'header',
           fontSettings: 'medium',
           '> a > *': {
             visibility: 'hidden',

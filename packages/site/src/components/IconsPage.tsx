@@ -490,7 +490,7 @@ export function IconPage() {
                     key={display ?? label}
                     as="button"
                     csx={{
-                      color: 'dark.primary',
+                      color: 'base',
                       bg: 'base',
                       border: 'none',
                       flex: '0 0 auto',
@@ -519,8 +519,8 @@ export function IconPage() {
                       <Box
                         csx={{
                           borderRadius: 'default',
-                          bg: 'light.secondary',
-                          color: 'dark.primary',
+                          bg: 'muted',
+                          color: 'base',
                           paddingY: 6,
                           paddingX: 4,
                           textAlign: 'center',

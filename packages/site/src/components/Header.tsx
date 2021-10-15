@@ -35,8 +35,8 @@ export default function Header() {
         height: 64,
         position: 'fixed',
         border,
-        color: 'dark.primary',
-        bg: 'base',
+        color: 'header',
+        bg: 'header',
         width: '80%',
         maxWidth: 'calc(90rem - 10%)',
         display: 'flex',
@@ -59,7 +59,7 @@ export default function Header() {
           "&:not([href='/'])": {
             paddingX: 4,
             '&:hover': {
-              color: 'blue',
+              color: 'linkHover',
               textDecoration: 'none',
             },
           },
@@ -74,10 +74,7 @@ export default function Header() {
         }}
         state={search}
       />
-      <Anchor
-        href="https://github.com/vtex/onda/tree/master/styleguides/admin/admin-ui"
-        target="blank"
-      >
+      <Anchor href="https://github.com/vtex/onda/" target="blank">
         <tag.i as={FaGithub} csx={{ fontSize: '1.5rem', marginRight: 2 }} />
         {!isLarge && <VisuallyHidden>GitHub</VisuallyHidden>}
       </Anchor>

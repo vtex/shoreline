@@ -30,7 +30,7 @@ function Heading(props: Props) {
       csx={{
         fontSize,
         position: 'relative',
-        color: '#000000',
+        color: 'base',
         fontSettings: 'medium',
         marginTop,
         '> a > *': {

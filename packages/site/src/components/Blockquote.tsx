@@ -8,18 +8,18 @@ export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
   {
     name: 'Blockquote',
     compose: useBox,
-    keys: ['palette'],
+    keys: ['tone'],
 
     useProps(options, htmlProps) {
-      const palette = options.palette ?? 'yellow'
+      const tone = options.tone ?? 'info'
       const { cn } = useSystem()
 
       return {
         ...htmlProps,
         children: htmlProps.children,
         className: cn({
-          color: 'dark.primary',
-          backgroundColor: `${palette}.secondary`,
+          color: 'base',
+          bg: `notification.${tone}`,
           paddingY: 1,
           paddingX: 2,
           marginY: 3,
@@ -40,7 +40,7 @@ const Blockquote = createComponent({
 
 export type BlockquoteOptions = BoxOptions & {
   experimental?: 'true' | 'false'
-  palette?: 'blue' | 'green' | 'red' | 'yellow'
+  tone?: 'critical' | 'warning' | 'info' | 'positive'
 }
 
 export type BlockquoteHTMLProps = BoxHTMLProps &

@@ -1,6 +1,6 @@
 import React, { createElement } from 'react'
 import RehypeReact from 'rehype-react'
-import { Paragraph, Text, useSystem, tag } from '@vtex/admin-ui'
+import { Paragraph, Text, useSystem, tag, get } from '@vtex/admin-ui'
 
 import Anchor from '../components/Anchor'
 import List from '../components/List'
@@ -31,11 +31,7 @@ const { Compiler: renderAst } = new RehypeReact({
       const { message, ...restProps } = props
 
       return (
-        <Text
-          {...restProps}
-          padding={1}
-          csx={{ bg: 'light.secondary', color: 'dark.primary' }}
-        >
+        <Text {...restProps} padding={1} csx={{ bg: 'muted', color: 'base' }}>
           {message}
         </Text>
       )
@@ -52,7 +48,7 @@ const { Compiler: renderAst } = new RehypeReact({
           csx={{
             marginY: 2,
             textAlign: 'left',
-            color: '#000000',
+            color: 'base',
             fontSize: '16px',
             lineHeight: '24px',
             code: {
@@ -167,7 +163,7 @@ const { Compiler: renderAst } = new RehypeReact({
         <th
           className={cn({
             paddingX: 3,
-            borderBottomColor: 'mid.secondary',
+            borderBottomColor: 'base',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',
@@ -183,12 +179,12 @@ const { Compiler: renderAst } = new RehypeReact({
         <td
           className={cn({
             paddingX: 3,
-            borderBottomColor: 'mid.secondary',
+            borderBottomColor: 'base',
             borderBottomWidth: 1,
             borderBottomStyle: 'solid',
             verticalAlign: 'middle',
             code: {
-              color: 'purple',
+              color: (theme) => get(theme, 'colors.purple40'),
               bg: 'transparent',
               fontSize: 1,
             },
@@ -204,12 +200,12 @@ const { Compiler: renderAst } = new RehypeReact({
       const { bg = 'main', desc = 'main' } = props
 
       const tone = {
-        main: 'hsla(222, 63%, 43%, 1)',
-        critical: 'hsla(0, 58%, 52%, 1)',
-        warning: 'hsla(30, 100%, 45%, 1)',
-        positive: 'hsla(123, 41%, 37%, 1)',
-        neutral: 'hsla(0, 0%, 45%, 1)',
-        info: 'hsla(206, 63%, 44%, 1)',
+        main: 'blue40',
+        critical: 'red40',
+        warning: 'orange40',
+        positive: 'green40',
+        neutral: 'grey50',
+        info: 'lightBlue40',
       }[bg]
 
       return (
@@ -217,7 +213,7 @@ const { Compiler: renderAst } = new RehypeReact({
           csx={{
             display: 'inline-block',
             borderRadius: 'pill',
-            color: tone,
+            color: (theme) => get(theme, `colors.${tone}`),
             fontSettings: 'medium',
           }}
         >

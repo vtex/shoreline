@@ -97,17 +97,17 @@ const { Compiler: renderAst } = new RehypeReact({
             href={href}
             aria-current={currentId === id ? 'page' : undefined}
             csx={{
-              color: 'dark.secondary',
+              color: 'muted',
               textDecoration: 'none',
               transition: 'all 150ms ease',
               position: 'relative',
               fontFamily: 'sans',
               fontSize: 14,
               ':hover': {
-                color: 'dark.primary',
+                color: 'base',
               },
               "&[aria-current='page']": {
-                color: 'dark.primary',
+                color: 'base',
                 fontSettings: 'bold',
               },
             }}

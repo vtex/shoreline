@@ -1,6 +1,14 @@
 import type { ReactNode } from 'react'
 import React, { createContext, useMemo } from 'react'
-import { Flex, IconCaret, tag, IconTopic, ButtonGhost } from '@vtex/admin-ui'
+import {
+  Flex,
+  IconCaret,
+  tag,
+  IconTopic,
+  ButtonGhost,
+  get,
+  focusVisible,
+} from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
@@ -77,7 +85,8 @@ export function Sidebar() {
             margin: 0,
           },
           borderRight: '1px solid',
-          borderColor: 'mid.tertiary',
+          borderRightColor: 'sidebar',
+          bg: 'base',
         }}
       >
         <tag.div
@@ -86,7 +95,7 @@ export function Sidebar() {
             top: 0,
             position: 'sticky',
             bg: 'base',
-            color: 'rebelPink',
+            color: (theme) => get(theme, 'colors.pink40'),
             width: '100%',
             display: 'flex',
             alignItems: 'center',
@@ -97,7 +106,7 @@ export function Sidebar() {
           <Logo />
           <ButtonGhost
             size="small"
-            csx={{ marginRight: 1, color: 'dark.primary' }}
+            csx={{ marginRight: 1 }}
             onClick={() => setBulkVisile((v) => !v)}
             icon={<IconTopic />}
           >
@@ -134,23 +143,37 @@ export function Sidebar() {
                     paddingX: 2,
                     width: '100%',
                     textDecoration: 'none',
-                    color: 'dark.secondary',
+                    color: 'sidebar',
                     cursor: 'pointer',
                     marginBottom: 1,
                     lineHeight: 1.4,
                     ':hover:not(:focus)': {
-                      color: 'blue',
+                      color: 'listBoxItem.mainHover',
+                      bg: 'listBoxItem.mainHover',
+                      borderColor: (theme) =>
+                        get(theme, 'foreground.listBoxItem.mainHover'),
+                      borderLeft: '2px solid',
+                      borderTopLeftRadius: 0,
+                      borderBottomLeftRadius: 0,
+                    },
+                    ':active': {
+                      bg: 'listBoxItem.mainPressed',
+                      color: 'listBoxItem.mainPressed',
+                      borderColor: (theme) =>
+                        get(theme, 'foreground.listBoxItem.mainPressed'),
+                      borderLeft: '2px solid',
+                      borderTopLeftRadius: 0,
+                      borderBottomLeftRadius: 0,
                     },
                     '&[aria-current="page"]': {
                       borderLeft: '2px solid',
-                      borderColor: 'blue',
-                      // bg: alpha('blue.secondary.default', 0.3),
-                      color: 'blue',
+                      bg: 'listBoxItem.mainSelected',
+                      color: 'listBoxItem.mainSelected',
                       borderTopLeftRadius: 0,
                       borderBottomLeftRadius: 0,
                     },
                     ':focus': {
-                      color: 'blue',
+                      color: 'listBoxItem.mainHover',
                       outline: 'none',
                     },
                   }}
@@ -212,11 +235,12 @@ function Section(props: SectionProps) {
     >
       <tag.button
         csx={{
+          ...focusVisible('neutral'),
           paddingY: 2,
           paddingX: 1,
-          color: 'dark.primary',
+          color: 'action.neutral.ghost',
+          bg: 'action.neutral.ghost',
           fontSize: 16,
-          bg: 'base',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -224,10 +248,12 @@ function Section(props: SectionProps) {
           cursor: 'pointer',
           borderRadius: 'default',
           ':hover': {
-            // bg: darken('light.primary', 0.04),
+            color: 'action.neutral.ghostHover',
+            bg: 'action.neutral.ghostHover',
           },
           ':active': {
-            // bg: darken('light.primary', 0.08),
+            color: 'action.neutral.ghostPressed',
+            bg: 'action.neutral.ghostPressed',
           },
         }}
         id={id}
