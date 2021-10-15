@@ -4,7 +4,7 @@ path: /input/
 
 # Input
 
-Is used in a form in order to retrieve input from the user. It always has a `label` defined and it renders a `<input>` html element by default.
+Is used in a form in order to retrieve input from the user. It always has a `label` defined, and renders a `<input>` html element by default.
 
 ## Usage
 
@@ -24,7 +24,28 @@ function Example() {
 }
 ```
 
+## Alternatives
+
+- [InputPassword](/input-password/) - For password fields.
+
 ## Examples
+
+### Tone of voice
+
+The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+
+```jsx
+<Set spacing={3}>
+  <Input label="Neutral" value="Neutral text field" helperText="Helpful text" />
+  <Input
+    tone="critical"
+    label="Critical"
+    value="Critical text field"
+    helperText="Helpful text"
+    criticalText="Something is wrong"
+  />
+</Set>
+```
 
 ### Icon
 
@@ -111,30 +132,6 @@ function Example() {
 }
 ```
 
-### Error
-
-You can add a `error message` in the same place of the `helperText` by defining the `error` property.
-
-```jsx
-function Example() {
-  const [value, setValue] = React.useState('')
-
-  return (
-    <tag.div csx={{ width: 300 }}>
-      <Input
-        label="Label"
-        charLimit={120}
-        helperText="Helper Text!"
-        errorMessage="Error message!"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        error
-      />
-    </tag.div>
-  )
-}
-```
-
 ### Disabled
 
 You can disable the input by defining the `disabled` property.
@@ -199,11 +196,7 @@ function Example() {
       <Input
         buttonElements={
           <Flex justify="center" align="center">
-            <Button
-              icon={<IconHelp />}
-              size="small"
-              variant="adaptative-dark"
-            />
+            <ButtonGhost icon={<IconHelp />} size="small" />
           </Flex>
         }
         label="Label"
@@ -219,22 +212,22 @@ function Example() {
 
 ## Props
 
-It also receives all props of `input` JSX element.
+All props of `input` JSX element.
 
-| Name           | Type                                       | Description                                     | Required | Default  |
-| -------------- | ------------------------------------------ | ----------------------------------------------- | -------- | -------- | ---------- | --- | --- |
-| label          | `string`                                   | Label text                                      | ✅       | -        |
-| id             | `string`                                   | Unique id of the component                      | ✅       | -        |
-| name           | `string`                                   | Name of the input element.                      | 🚫       | -        |
-| helperText     | `string`                                   | Input helper text                               | 🚫       | -        |
-| charLimit      | `number`                                   | Input char limit                                | 🚫       | -        |
-| errorMessage   | `string`                                   | Input error message                             | 🚫       | -        |
-| type           | `'tel'                                     | 'text'                                          | 'url'    | 'email'` | Input type | 🚫  | -   |
-| icon           | `ReactNode`                                | Input Icon                                      | 🚫       | -        |
-| suffix         | `string`                                   | Input Suffix                                    | 🚫       | -        |
-| onClear        | `() => void`                               | Handler called when the inputs value is cleared | 🚫       | -        |
-| buttonElements | `ReactNode`                                | Button elements                                 | 🚫       | -        |
-| onChange       | `react.FormEventHandler<HTMLInputElement>` | Handler called when the inputs value changes    | 🚫       | -        |
-| disabled       | `boolean`                                  | Whether the input is disabled or not            | 🚫       | `false`  |
-| error          | `boolean`                                  | Input error state                               | 🚫       | `false`  |
-| csx            | `StyleProp`                                | Defines component styles                        | 🚫       | `{}`     |
+| Name           | Type                                       | Description                                     | Required | Default   |
+| -------------- | ------------------------------------------ | ----------------------------------------------- | -------- | --------- |
+| label          | `string`                                   | Label text                                      | ✅       | -         |
+| id             | `string`                                   | Unique id of the component                      | ✅       | -         |
+| name           | `string`                                   | Name of the input element.                      | 🚫       | -         |
+| helperText     | `string`                                   | Input helper text                               | 🚫       | -         |
+| charLimit      | `number`                                   | Input char limit                                | 🚫       | -         |
+| tone           | `neutral, critical`                        | Tone of voice                                   | 🚫       | `neutral` |
+| type           | `tel, text, url, email`                    | Input type                                      | 🚫       | -         |
+| icon           | `ReactNode`                                | Input Icon                                      | 🚫       | -         |
+| suffix         | `string`                                   | Input Suffix                                    | 🚫       | -         |
+| onClear        | `() => void`                               | Handler called when the inputs value is cleared | 🚫       | -         |
+| buttonElements | `ReactNode`                                | Button elements                                 | 🚫       | -         |
+| onChange       | `React.FormEventHandler<HTMLInputElement>` | Handler called when the inputs value changes    | 🚫       | -         |
+| disabled       | `boolean`                                  | Whether the input is disabled or not            | 🚫       | `false`   |
+| criticalText   | `string`                                   | Input critical message                          | 🚫       | -         |
+| csx            | `StyleProp`                                | Defines component styles                        | 🚫       | `{}`      |
