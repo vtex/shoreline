@@ -212,11 +212,5 @@ This is useful when you want to change a single property across multiple breakpo
 For shorthand CSS properties or ones that are not automatically mapped to values in the theme, use an inline function to reference values from the theme object.
 
 ```jsx
-<Box
-  csx={{
-    boxShadow: (theme) => `0 0 .5em ${theme.colors.red.default}`,
-  }}
->
-  Red glow box shadow
-</Box>
+<Box csx={{ boxShadow: 'ring.critical' }}>Red glow box shadow</Box>
 ```

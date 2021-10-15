@@ -40,9 +40,6 @@ export function TokensTable(props: TokensTableProps) {
 
   const state = useDataGridState({
     density: 'variable',
-    /**
-     * Columns shape, read more about it on the rendering section
-     */
     columns: [
       {
         id: 'name',
@@ -101,16 +98,9 @@ export function TokensTable(props: TokensTableProps) {
         },
       },
     ],
-    /**
-     * List of items to render
-     */
     items: searchedItems,
   })
 
-  /**
-   * You must use the state prop so that your DataGrid comes to life
-   * This is the only prop that is required
-   */
   return (
     <DataView state={view}>
       <DataViewControls>
