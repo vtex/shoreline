@@ -166,7 +166,7 @@ Each category is made up of a group of contextual tokens. Each token group is re
 
 - **Notifications:** contains all colors related to components used to notifications messages, like Toasts and Alerts.
 
-- **Fields:** contains all colors related to field texts components.
+- **Fields:** contains all colors related to field texts components, like Inputs, TextAreas, and Selects.
 
 - **Controls:** contains all colors related to controls components, like Checkbox, Radio Buttons, and Toggle.
 
