@@ -253,7 +253,7 @@ export const foreground = {
   action: {
     neutral: {
       ghost: colors.black,
-      ghostDisabled: colors.grey50,
+      ghostDisabled: colors.grey40,
     },
     main: {
       solid: colors.white,
@@ -261,15 +261,15 @@ export const foreground = {
       soft: colors.blue40,
       softDisabled: colors.grey50,
       text: colors.blue40,
-      textDisabled: colors.grey50,
+      textDisabled: colors.grey40,
     },
     critical: {
       solid: colors.white,
       solidDisabled: colors.grey50,
-      soft: colors.red40,
+      soft: colors.red50,
       softDisabled: colors.grey50,
       text: colors.red40,
-      textDisabled: colors.grey50,
+      textDisabled: colors.grey40,
     },
   },
 
