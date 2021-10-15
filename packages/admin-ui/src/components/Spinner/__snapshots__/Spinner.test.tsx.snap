@@ -30,7 +30,7 @@ exports[`Spinner tests should match snapshot 1`] = `
 
 .emotion-0 {
   fill: none;
-  stroke: #2953B2;
+  stroke: currentColor;
   stroke-width: 5;
   stroke-linecap: round;
   -webkit-animation: animation-0 1s ease-in-out infinite;

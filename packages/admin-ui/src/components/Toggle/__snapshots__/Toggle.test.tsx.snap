@@ -3,6 +3,8 @@
 exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  background-color: hsla(0, 0%, 73%, 1);
+  border-color: hsla(0, 0%, 73%, 1);
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -11,73 +13,10 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
   cursor: pointer;
   margin: 0rem;
   border-radius: 6.25rem;
-  background-color: #898F9E;
   border-style: solid;
-  border-color: #898F9E;
   border-width: 1px;
   height: 20px;
   width: 36px;
-}
-
-.emotion-0:after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 1.25rem;
-  background-color: #FFFFFF;
-  -webkit-transition: -webkit-transform .25s ease;
-  transition: transform .25s ease;
-  width: 18px;
-  height: 18px;
-}
-
-.emotion-0:checked {
-  background-color: #368369;
-  border-color: #368369;
-}
-
-.emotion-0:checked:hover {
-  background-color: #2a6652;
-  border-color: #2a6652;
-}
-
-.emotion-0:checked:disabled {
-  background-color: #898F9E;
-  border-color: #898F9E;
-}
-
-.emotion-0:checked:disabled:after {
-  background-color: #C4C5CA;
-}
-
-.emotion-0:checked:after {
-  -webkit-transform: translateX(16px);
-  -moz-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  transform: translateX(16px);
-}
-
-.emotion-0:hover {
-  background-color: #707685;
-  border-color: #707685;
-}
-
-.emotion-0:disabled {
-  background-color: #898F9E;
-  border-color: #898F9E;
-}
-
-.emotion-0:disabled:after {
-  background-color: #C4C5CA;
-}
-
-.emotion-0:not(:checked):active {
-  background-color: #707685;
-  border-color: #707685;
-}
-
-.emotion-0:not(:checked):active:after {
-  background-color: #DAE3F5;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -87,7 +26,83 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+}
+
+.emotion-0:after {
+  background-color: #FFFFFF;
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 1.25rem;
+  -webkit-transition: -webkit-transform .25s ease;
+  transition: transform .25s ease;
+}
+
+.emotion-0:hover {
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
+}
+
+.emotion-0:active {
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
+}
+
+.emotion-0:disabled {
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:disabled:after {
+  background-color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:checked {
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+}
+
+.emotion-0:checked:hover {
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
+}
+
+.emotion-0:checked:hover:after {
+  border-color: hsla(0, 0%, 20%, 1);
+}
+
+.emotion-0:checked:active {
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
+}
+
+.emotion-0:checked:active:after {
+  border-color: hsla(0, 0%, 29%, 1);
+}
+
+.emotion-0:checked:disabled {
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:checked:disabled:after {
+  background-color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:checked:after {
+  -webkit-transform: translateX(1rem);
+  -moz-transform: translateX(1rem);
+  -ms-transform: translateX(1rem);
+  transform: translateX(1rem);
+}
+
+.emotion-0:after {
+  width: 18px;
+  height: 18px;
 }
 
 <input
@@ -99,6 +114,8 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
     value="toggle 1"
   />
   .emotion-0 {
+  background-color: hsla(0, 0%, 73%, 1);
+  border-color: hsla(0, 0%, 73%, 1);
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -107,73 +124,10 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
   cursor: pointer;
   margin: 0rem;
   border-radius: 6.25rem;
-  background-color: #898F9E;
   border-style: solid;
-  border-color: #898F9E;
   border-width: 1px;
   height: 16px;
   width: 28px;
-}
-
-.emotion-0:after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 1.25rem;
-  background-color: #FFFFFF;
-  -webkit-transition: -webkit-transform .25s ease;
-  transition: transform .25s ease;
-  width: 14px;
-  height: 14px;
-}
-
-.emotion-0:checked {
-  background-color: #368369;
-  border-color: #368369;
-}
-
-.emotion-0:checked:hover {
-  background-color: #2a6652;
-  border-color: #2a6652;
-}
-
-.emotion-0:checked:disabled {
-  background-color: #898F9E;
-  border-color: #898F9E;
-}
-
-.emotion-0:checked:disabled:after {
-  background-color: #C4C5CA;
-}
-
-.emotion-0:checked:after {
-  -webkit-transform: translateX(12px);
-  -moz-transform: translateX(12px);
-  -ms-transform: translateX(12px);
-  transform: translateX(12px);
-}
-
-.emotion-0:hover {
-  background-color: #707685;
-  border-color: #707685;
-}
-
-.emotion-0:disabled {
-  background-color: #898F9E;
-  border-color: #898F9E;
-}
-
-.emotion-0:disabled:after {
-  background-color: #C4C5CA;
-}
-
-.emotion-0:not(:checked):active {
-  background-color: #707685;
-  border-color: #707685;
-}
-
-.emotion-0:not(:checked):active:after {
-  background-color: #DAE3F5;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -183,7 +137,83 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+}
+
+.emotion-0:after {
+  background-color: #FFFFFF;
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 1.25rem;
+  -webkit-transition: -webkit-transform .25s ease;
+  transition: transform .25s ease;
+}
+
+.emotion-0:hover {
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
+}
+
+.emotion-0:active {
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
+}
+
+.emotion-0:disabled {
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:disabled:after {
+  background-color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:checked {
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+}
+
+.emotion-0:checked:hover {
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
+}
+
+.emotion-0:checked:hover:after {
+  border-color: hsla(0, 0%, 20%, 1);
+}
+
+.emotion-0:checked:active {
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
+}
+
+.emotion-0:checked:active:after {
+  border-color: hsla(0, 0%, 29%, 1);
+}
+
+.emotion-0:checked:disabled {
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:checked:disabled:after {
+  background-color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:checked:after {
+  -webkit-transform: translateX(12px);
+  -moz-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
+}
+
+.emotion-0:after {
+  width: 14px;
+  height: 14px;
 }
 
 <input

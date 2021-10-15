@@ -317,11 +317,11 @@ describe('variants', () => {
 
     expect(small).toHaveStyleRule('width', '50px')
     expect(small).toHaveStyleRule('height', '50px')
-    expect(small).toHaveStyleRule('color', '#000000')
+    expect(small).toHaveStyleRule('color', 'black')
     expect(small).toHaveStyleRule('background-color', 'azure')
     expect(regular).toHaveStyleRule('width', '100px')
     expect(regular).toHaveStyleRule('height', '100px')
-    expect(regular).toHaveStyleRule('color', '#FFFFFF')
+    expect(regular).toHaveStyleRule('color', 'white')
     expect(regular).toHaveStyleRule('background-color', 'indigo')
   })
 
@@ -402,7 +402,7 @@ describe('variants', () => {
 
     expect(result).toHaveStyleRule('width', '50px')
     expect(result).toHaveStyleRule('height', '50px')
-    expect(result).toHaveStyleRule('color', '#FFFFFF')
+    expect(result).toHaveStyleRule('color', 'white')
     expect(result).toHaveStyleRule('background-color', 'transparent')
     expect(result).toHaveStyleRule('border-color', 'indigo')
     expect(result).toHaveStyleRule('border-width', '1px')

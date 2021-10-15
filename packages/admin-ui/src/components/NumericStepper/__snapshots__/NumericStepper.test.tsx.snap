@@ -34,7 +34,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   left: 0.25rem;
 }
@@ -46,19 +46,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -125,7 +126,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   right: 0.25rem;
 }
@@ -137,19 +138,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-8:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -170,12 +172,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: #323845;
+  color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: #898F9E;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: field.netural;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -184,22 +186,25 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  border-color: hsla(0, 0%, 45%, 1);
+  color: field.neutralHover;
+  background-origin: field.neutralHover;
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-0:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
 <div
@@ -310,7 +315,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   left: 0.25rem;
 }
@@ -322,19 +327,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -401,7 +407,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   right: 0.25rem;
 }
@@ -413,19 +419,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-8:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -446,12 +453,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: #323845;
+  color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: #898F9E;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: field.netural;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -460,12 +467,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  border-color: hsla(0, 0%, 45%, 1);
+  color: field.neutralHover;
+  background-origin: field.neutralHover;
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -473,17 +488,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.emotion-0:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
 .emotion-10 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   margin-top: 0.5rem;
 }
 
@@ -562,11 +572,11 @@ exports[`NumericStepper tests should match snapshot 1`] = `
         </div>
       </button>
     </div>
-    <div
+    <span
       class="emotion-10"
     >
       Helper Text
-    </div>
+    </span>
   </div>
   .emotion-10 {
   width: 106px;
@@ -600,7 +610,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   left: 0.25rem;
 }
@@ -612,19 +622,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -691,7 +702,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   right: 0.25rem;
 }
@@ -703,19 +714,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-8:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -736,12 +748,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: #323845;
+  color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: #898F9E;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: field.netural;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -750,22 +762,25 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  border-color: hsla(0, 0%, 45%, 1);
+  color: field.neutralHover;
+  background-origin: field.neutralHover;
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-0:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
 <div
@@ -885,7 +900,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   left: 0.25rem;
 }
@@ -897,19 +912,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -976,7 +992,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   right: 0.25rem;
 }
@@ -988,19 +1004,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-8:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -1021,12 +1038,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: #323845;
+  color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: #CB4242;
+  border-color: hsla(0, 58%, 52%, 1);
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: field.netural;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -1035,20 +1052,21 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: #CB4242;
+  border-color: hsla(0, 58%, 37%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-0:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
@@ -1058,7 +1076,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: #CB4242;
+  color: hsla(0, 58%, 52%, 1);
   margin-top: 0.5rem;
 }
 
@@ -1137,11 +1155,11 @@ exports[`NumericStepper tests should match snapshot 1`] = `
         </div>
       </button>
     </div>
-    <div
+    <span
       class="emotion-10"
     >
       Minimum of 6
-    </div>
+    </span>
   </div>
   .emotion-10 {
   width: 106px;
@@ -1175,7 +1193,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   left: 0.25rem;
 }
@@ -1187,19 +1205,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -1266,7 +1285,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
   right: 0.25rem;
 }
@@ -1278,19 +1297,20 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-8:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -1311,12 +1331,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: #323845;
+  color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: #898F9E;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: field.netural;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -1325,22 +1345,25 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  border-color: hsla(0, 0%, 45%, 1);
+  color: field.neutralHover;
+  background-origin: field.neutralHover;
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-0:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
 }
 
 <div

@@ -4,20 +4,18 @@ exports[`Anchor tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font: inherit;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
 }
 
-.emotion-0:active {
-  color: #1a3470;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+.emotion-0:visited {
+  color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-0:hover {
-  color: #214491;
+  color: hsla(222, 63%, 34%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -30,20 +28,18 @@ exports[`Anchor tests should match snapshot 1`] = `
   </a>
   .emotion-0 {
   font: inherit;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
 }
 
-.emotion-0:active {
-  color: #1a3470;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+.emotion-0:visited {
+  color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-0:hover {
-  color: #214491;
+  color: hsla(222, 63%, 34%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -56,20 +52,18 @@ exports[`Anchor tests should match snapshot 1`] = `
   </a>
   .emotion-0 {
   font: inherit;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
 }
 
-.emotion-0:active {
-  color: #1a3470;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+.emotion-0:visited {
+  color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-0:hover {
-  color: #214491;
+  color: hsla(222, 63%, 34%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -82,20 +76,18 @@ exports[`Anchor tests should match snapshot 1`] = `
   </a>
   .emotion-0 {
   font: inherit;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
 }
 
-.emotion-0:active {
-  color: #1a3470;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+.emotion-0:visited {
+  color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-0:hover {
-  color: #214491;
+  color: hsla(222, 63%, 34%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }

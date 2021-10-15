@@ -52,7 +52,7 @@ exports[`Button tests should match snapshot 1`] = `
   padding-left: 1rem;
   padding-right: 1rem;
   color: #FFFFFF;
-  background-color: #2953B2;
+  background-color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -62,20 +62,20 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-2:hover {
-  background-color: #214491;
+  background-color: hsla(222, 63%, 34%, 1);
 }
 
 .emotion-2:active {
-  background-color: #1a3470;
+  background-color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-2:disabled {
-  color: #323845;
-  background-color: #C4C5CA;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <button
@@ -141,8 +141,8 @@ exports[`Button tests should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: #FFFFFF;
-  background-color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -152,20 +152,20 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-2:hover {
-  background-color: #214491;
+  background-color: hsla(222, 64%, 84%, 1);
 }
 
 .emotion-2:active {
-  background-color: #1a3470;
+  background-color: hsla(222, 63%, 72%, 1);
 }
 
 .emotion-2:disabled {
-  color: #323845;
-  background-color: #C4C5CA;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <button
@@ -231,98 +231,8 @@ exports[`Button tests should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  background-color: #DAE3F5;
-  color: #2953B2;
-}
-
-.emotion-2:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-2:hover {
-  background-color: #cad7f1;
-}
-
-.emotion-2:active {
-  background-color: #bacbec;
-}
-
-.emotion-2:disabled {
-  color: #898F9E;
-  background-color: #F4F6FB;
-}
-
-<button
-    class="emotion-2"
-    type="button"
-  >
-    <div
-      class="emotion-1"
-    >
-      <div
-        class="emotion-0"
-      >
-         Button
-      </div>
-    </div>
-  </button>
-  .emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  visibility: visible;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  font-size: 0.875rem;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
-  color: #2953B2;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -332,111 +242,20 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-2:hover {
-  color: #214491;
-  background-color: rgba(202,215,241,0.24);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-2:active {
-  color: #1a3470;
-  background-color: rgba(186,203,236,0.32);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-2:disabled {
-  color: #898F9E;
-}
-
-<button
-    class="emotion-2"
-    type="button"
-  >
-    <div
-      class="emotion-1"
-    >
-      <div
-        class="emotion-0"
-      >
-         Button
-      </div>
-    </div>
-  </button>
-  .emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  visibility: visible;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  font-size: 0.75rem;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  color: #FFFFFF;
-  background-color: #2953B2;
-}
-
-.emotion-2:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
-}
-
-.emotion-2:hover {
-  background-color: #214491;
-}
-
-.emotion-2:active {
-  background-color: #1a3470;
-}
-
-.emotion-2:disabled {
-  color: #323845;
-  background-color: #C4C5CA;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 <button
@@ -503,7 +322,7 @@ exports[`Button tests should match snapshot 1`] = `
   padding-left: 1rem;
   padding-right: 1rem;
   color: #FFFFFF;
-  background-color: #CB4242;
+  background-color: hsla(0, 58%, 52%, 1);
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -513,20 +332,200 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
 }
 
 .emotion-2:hover {
-  background-color: #b33131;
+  background-color: hsla(0, 58%, 37%, 1);
 }
 
 .emotion-2:active {
-  background-color: #932828;
+  background-color: hsla(0, 58%, 30%, 1);
 }
 
 .emotion-2:disabled {
-  color: #323845;
-  background-color: #C4C5CA;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+         Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: hsla(0, 58%, 37%, 1);
+  background-color: hsla(0, 60%, 93%, 1);
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
+}
+
+.emotion-2:hover {
+  background-color: hsla(0, 59%, 83%, 1);
+}
+
+.emotion-2:active {
+  background-color: hsla(0, 59%, 73%, 1);
+}
+
+.emotion-2:disabled {
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+         Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: hsla(0, 58%, 52%, 1);
+  background-color: transparent;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
+}
+
+.emotion-2:hover {
+  background-color: hsla(0, 56%, 96%, 1);
+}
+
+.emotion-2:active {
+  background-color: hsla(0, 60%, 93%, 1);
+}
+
+.emotion-2:disabled {
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 <button

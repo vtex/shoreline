@@ -12,9 +12,303 @@ exports[`Tag tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   border-radius: 100px;
-  color: #323845;
   border: none;
-  background-color: #CEE8DE;
+  background-color: hsla(188, 72%, 92%, 1);
+  color: hsla(188, 78%, 16%, 1);
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  border: none;
+  background-color: hsla(265, 35%, 93%, 1);
+  color: hsla(268, 38%, 28%, 1);
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  border: none;
+  background-color: hsla(123, 39%, 91%, 1);
+  color: hsla(123, 41%, 19%, 1);
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  border: none;
+  background-color: hsla(0, 60%, 93%, 1);
+  color: hsla(0, 58%, 30%, 1);
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  border: none;
+  background-color: hsla(265, 35%, 93%, 1);
+  color: hsla(268, 38%, 28%, 1);
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  border: none;
+  background-color: hsla(30, 100%, 92%, 1);
+  color: hsla(29, 100%, 18%, 1);
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  border: none;
+  background-color: hsla(175, 41%, 79%, 1);
+  color: hsla(173, 100%, 14%, 1);
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 1rem;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.emotion-0 button {
+  height: 20px;
+  width: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  border: none;
+  background-color: hsla(206, 61%, 92%, 1);
+  color: hsla(207, 64%, 22%, 1);
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -54,9 +348,9 @@ exports[`Tag tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   border-radius: 100px;
-  color: #323845;
   border: none;
-  background-color: #F6E0BA;
+  background-color: hsla(206, 61%, 92%, 1);
+  color: hsla(207, 64%, 22%, 1);
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -96,219 +390,9 @@ exports[`Tag tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   border-radius: 100px;
-  color: #323845;
   border: none;
-  background-color: #FEDADA;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  line-height: 1.5;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 1rem;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
-}
-
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
-<div
-    class="emotion-0"
-  >
-    tag-3
-  </div>
-  .emotion-0 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 100px;
-  color: #323845;
-  border: none;
-  background-color: #E0E2E7;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  line-height: 1.5;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 1rem;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
-}
-
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
-<div
-    class="emotion-0"
-  >
-    tag-4
-  </div>
-  .emotion-0 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 100px;
-  color: #323845;
-  border: none;
-  background-color: #E4E0F0;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  line-height: 1.5;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 1rem;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
-}
-
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
-<div
-    class="emotion-0"
-  >
-    tag-5
-  </div>
-  .emotion-0 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 100px;
-  color: #323845;
-  border: none;
-  background-color: #DAE3F5;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  line-height: 1.5;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 1rem;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
-}
-
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
-<div
-    class="emotion-0"
-  >
-    tag-6
-  </div>
-  .emotion-0 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 100px;
-  color: #323845;
-  border: none;
-  background-color: #DAE3F5;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  line-height: 1.5;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 1rem;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
-}
-
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
-<div
-    class="emotion-0"
-  >
-    tag-7
-  </div>
-  .emotion-0 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 100px;
-  color: #323845;
-  border: none;
-  background-color: #DAE3F5;
+  background-color: hsla(206, 61%, 92%, 1);
+  color: hsla(207, 64%, 22%, 1);
   height: 26px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -336,7 +420,7 @@ exports[`Tag tests should match snapshot 1`] = `
 <div
     class="emotion-0"
   >
-    tag-8
+    tag-3
   </div>
   .emotion-4 {
   display: -webkit-inline-box;
@@ -348,9 +432,9 @@ exports[`Tag tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   border-radius: 100px;
-  color: #323845;
   border: none;
-  background-color: #DAE3F5;
+  background-color: hsla(206, 61%, 92%, 1);
+  color: hsla(207, 64%, 22%, 1);
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -376,6 +460,8 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -387,8 +473,6 @@ exports[`Tag tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-left: 0.25rem;
 }
 
@@ -399,19 +483,20 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-3:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-3:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-3:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-3 svg {
@@ -469,9 +554,9 @@ exports[`Tag tests should match snapshot 1`] = `
 <div
     class="emotion-4"
   >
-    tag-9
+    tag-4
     <button
-      aria-label="tag-9"
+      aria-label="tag-4"
       class="emotion-3"
       type="button"
     >
@@ -516,9 +601,9 @@ exports[`Tag tests should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   border-radius: 100px;
-  color: #323845;
   border: none;
-  background-color: #DAE3F5;
+  background-color: hsla(206, 61%, 92%, 1);
+  color: hsla(207, 64%, 22%, 1);
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -544,6 +629,8 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -555,8 +642,6 @@ exports[`Tag tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-left: 0.25rem;
 }
 
@@ -567,19 +652,20 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -655,9 +741,9 @@ exports[`Tag tests should match snapshot 1`] = `
         fill-rule="evenodd"
       />
     </svg>
-    tag-10
+    tag-5
     <button
-      aria-label="tag-10"
+      aria-label="tag-5"
       class="emotion-4"
       type="button"
     >

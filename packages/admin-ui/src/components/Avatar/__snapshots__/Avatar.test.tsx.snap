@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar tests should match snaphot with label 1`] = `
+exports[`Avatar tests should match snaphot 1`] = `
 <DocumentFragment>
   .emotion-1 {
   display: -webkit-box;
@@ -20,8 +20,8 @@ exports[`Avatar tests should match snaphot with label 1`] = `
   padding: 0.5rem;
   border-radius: 100%;
   text-transform: uppercase;
-  background-color: #323845;
-  color: #FFFFFF;
+  background-color: hsla(206, 61%, 92%, 1);
+  color: hsla(207, 64%, 22%, 1);
 }
 
 .emotion-0 {
@@ -29,125 +29,6 @@ exports[`Avatar tests should match snaphot with label 1`] = `
   line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
-}
-
-<div
-    class="emotion-1"
-  >
-    <div
-      class="emotion-0"
-    >
-      T
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Avatar tests should match snaphot with pallette 1`] = `
-<DocumentFragment>
-  .emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  padding: 0.5rem;
-  border-radius: 100%;
-  text-transform: uppercase;
-  background-color: #323845;
-  color: #FFFFFF;
-}
-
-.emotion-0 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 0.875rem;
-}
-
-<div
-    class="emotion-1"
-  >
-    <div
-      class="emotion-0"
-    >
-      T
-    </div>
-  </div>
-  .emotion-0 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 0.875rem;
-}
-
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  padding: 0.5rem;
-  border-radius: 100%;
-  text-transform: uppercase;
-  background-color: #CB4242;
-  color: #FFFFFF;
-}
-
-<div
-    class="emotion-1"
-  >
-    <div
-      class="emotion-0"
-    >
-      T
-    </div>
-  </div>
-  .emotion-0 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 0.875rem;
-}
-
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  padding: 0.5rem;
-  border-radius: 100%;
-  text-transform: uppercase;
-  background-color: #2953B2;
-  color: #FFFFFF;
 }
 
 <div

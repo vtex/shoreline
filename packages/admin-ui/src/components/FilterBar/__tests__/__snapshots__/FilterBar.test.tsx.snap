@@ -2,15 +2,15 @@
 
 exports[`FilterBar tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-49 {
+  .emotion-51 {
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  border-color: #E0E2E7;
+  border-color: hsla(0, 0%, 87%, 1);
   background-color: coral;
 }
 
-.emotion-48 {
+.emotion-50 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23,14 +23,14 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-top-style: solid;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-color: #E0E2E7;
+  border-color: hsla(0, 0%, 87%, 1);
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
   background-color: #FFFFFF;
 }
 
-.emotion-40 {
+.emotion-42 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -42,35 +42,34 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
-  color: #2953B2;
 }
 
-.emotion-40:focus:not([data-focus-visible-added]) {
+.emotion-42:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-40:focus {
+.emotion-42:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-40:hover {
-  color: #214491;
-  background-color: rgba(202,215,241,0.24);
+.emotion-42:hover {
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
-.emotion-40:active {
-  color: #1a3470;
-  background-color: rgba(186,203,236,0.32);
+.emotion-42:active {
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
-.emotion-40:disabled {
-  color: #898F9E;
+.emotion-42:disabled {
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
-.emotion-40 svg {
+.emotion-42 svg {
   width: 20px;
   height: 20px;
   min-width: 20px;
@@ -122,7 +121,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   height: 24px;
 }
 
-.emotion-47 {
+.emotion-49 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -140,11 +139,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: start;
 }
 
-.emotion-47 >*:not(:first-child) {
+.emotion-49 >*:not(:first-child) {
   margin-left: 0.25rem;
 }
 
-.emotion-43 {
+.emotion-45 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -156,33 +157,32 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  color: currentColor;
-  background-color: transparent;
 }
 
-.emotion-43:focus:not([data-focus-visible-added]) {
+.emotion-45:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-43:focus {
+.emotion-45:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
-.emotion-43:hover {
-  background-color: rgba(50,56,69,0.04);
+.emotion-45:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.emotion-43:active {
-  background-color: rgba(50,56,69,0.08);
+.emotion-45:active {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-.emotion-43:disabled {
-  color: #898F9E;
+.emotion-45:disabled {
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
-.emotion-46 {
+.emotion-48 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -195,38 +195,38 @@ exports[`FilterBar tests should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   color: #FFFFFF;
-  background-color: #2953B2;
+  background-color: hsla(222, 63%, 43%, 1);
 }
 
-.emotion-46:focus:not([data-focus-visible-added]) {
+.emotion-48:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-46:focus {
+.emotion-48:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-46:hover {
-  background-color: #214491;
+.emotion-48:hover {
+  background-color: hsla(222, 63%, 34%, 1);
 }
 
-.emotion-46:active {
-  background-color: #1a3470;
+.emotion-48:active {
+  background-color: hsla(222, 63%, 25%, 1);
 }
 
-.emotion-46:disabled {
-  color: #323845;
-  background-color: #C4C5CA;
+.emotion-48:disabled {
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
-.emotion-36 {
+.emotion-38 {
   padding: 1rem;
   padding-left: 1rem;
 }
 
-.emotion-35 {
+.emotion-37 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -244,11 +244,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-35 >*:not(:last-child) {
+.emotion-37 >*:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-.emotion-34 {
+.emotion-36 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -297,7 +297,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  border-color: #E0E2E7;
+  border-color: hsla(0, 0%, 87%, 1);
   cursor: pointer;
   position: relative;
   font-size: 0.875rem;
@@ -305,8 +305,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
-  color: #707685;
-  background-color: #FFFFFF;
+  color: #000000;
+  background-color: transparent;
   min-width: 150px;
   max-width: 150px;
 }
@@ -318,19 +318,22 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
+  color: action.neutral.ghostHover;
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: action.neutral.ghostHover;
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-5 svg {
@@ -410,8 +413,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: #C4C5CA;
-  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+  border-color: hsla(0, 0%, 87%, 1);
+  box-shadow: popover;
   outline: none;
   margin-top: 0.25rem;
   padding-top: 1rem;
@@ -430,7 +433,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 
 
-.emotion-25 {
+.emotion-27 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -439,36 +442,50 @@ exports[`FilterBar tests should match snapshot 1`] = `
   position: relative;
   font-size: 0.875rem;
   height: 40px;
-  width: 40px;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  color: #707685;
+  width: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.75rem;
+  color: #FFFFFF;
+  background-color: hsla(222, 63%, 43%, 1);
+  color: #000000;
   background-color: transparent;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  font-size: 0.875rem;
+  height: 40px;
+  width: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.emotion-25:focus:not([data-focus-visible-added]) {
+.emotion-27:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-25:focus {
+.emotion-27:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-25:hover {
-  background-color: rgba(50,56,69,0.04);
+.emotion-27:hover {
+  background-color: hsla(222, 63%, 34%, 1);
 }
 
-.emotion-25:active {
-  background-color: rgba(50,56,69,0.08);
+.emotion-27:active {
+  background-color: hsla(222, 63%, 25%, 1);
 }
 
-.emotion-25:disabled {
-  color: #898F9E;
+.emotion-27:disabled {
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
-.emotion-25 svg {
+.emotion-27 svg {
   width: 24px;
   height: 24px;
   min-width: 24px;
@@ -476,7 +493,30 @@ exports[`FilterBar tests should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-32 {
+.emotion-27:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-27:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+}
+
+.emotion-27:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-27:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-27:disabled {
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
+}
+
+.emotion-34 {
   border: 0;
   outline: none;
   z-index: 999;
@@ -493,11 +533,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 3px;
   border-width: 1px;
   border-style: solid;
-  border-color: #C4C5CA;
-  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
+  border-color: hsla(0, 0%, 87%, 1);
+  box-shadow: popover;
 }
 
-.emotion-28 {
+.emotion-30 {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
@@ -512,18 +552,18 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: transparent;
-  color: #323845;
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
-.emotion-28 div {
+.emotion-30 div {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
-.emotion-28 svg {
+.emotion-30 svg {
   margin: 0.25rem;
   width: 20px;
   height: 20px;
@@ -533,31 +573,32 @@ exports[`FilterBar tests should match snapshot 1`] = `
   margin-right: 0.5rem;
 }
 
-.emotion-28:focus:not([data-focus-visible-added]) {
+.emotion-30:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-28:focus {
-  background-color: rgba(218,227,245,0.32);
+.emotion-30:focus {
   outline: none;
-  box-shadow: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-28:hover {
-  color: #323845;
+.emotion-30:hover {
+  color: hsla(222, 63%, 34%, 1);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
-.emotion-28:active {
-  color: #1a3470;
-  background-color: rgba(186,203,236,0.32);
+.emotion-30:active {
+  color: hsla(222, 63%, 25%, 1);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
-.emotion-28:disabled {
-  color: #898F9E;
+.emotion-30:disabled {
+  color: listBoxItem.mainDisabled;
+  background-color: listBoxItem.mainDisabled;
 }
 
-.emotion-27 {
+.emotion-29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -572,7 +613,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: center;
 }
 
-.emotion-26 {
+.emotion-28 {
   min-width: 20px;
   min-height: 20px;
   width: 20px;
@@ -580,17 +621,17 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 <div
-    class="emotion-49"
+    class="emotion-51"
     data-testid="filter-bar"
   >
     <div
-      class="emotion-36"
+      class="emotion-38"
     >
       <div
-        class="emotion-35"
+        class="emotion-37"
       >
         <div
-          class="emotion-34"
+          class="emotion-36"
         >
           <div
             class="emotion-21"
@@ -768,14 +809,14 @@ exports[`FilterBar tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="emotion-33"
+            class="emotion-35"
           >
             <button
               aria-controls="statement-menu"
               aria-expanded="false"
               aria-haspopup="menu"
               aria-label="Statement Menu 0"
-              class="emotion-25"
+              class="emotion-27"
               type="button"
             >
               <div
@@ -812,13 +853,22 @@ exports[`FilterBar tests should match snapshot 1`] = `
                     />
                   </svg>
                    
+                  <div
+                    class="emotion-4"
+                  >
+                    <div
+                      class="emotion-23"
+                    >
+                       
+                    </div>
+                  </div>
                 </div>
               </div>
             </button>
             <div
               aria-label="Statement Menu 0"
               aria-orientation="vertical"
-              class="emotion-32"
+              class="emotion-34"
               data-dialog="true"
               hidden=""
               id="statement-menu"
@@ -827,17 +877,17 @@ exports[`FilterBar tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="emotion-28"
+                class="emotion-30"
                 id="statement-menu-1"
                 role="menuitem"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="emotion-27"
+                  class="emotion-29"
                 >
                   <svg
-                    class="emotion-26"
+                    class="emotion-28"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -870,17 +920,17 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 </div>
               </button>
               <button
-                class="emotion-28"
+                class="emotion-30"
                 id="statement-menu-2"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
               >
                 <div
-                  class="emotion-27"
+                  class="emotion-29"
                 >
                   <svg
-                    class="emotion-26"
+                    class="emotion-28"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -929,10 +979,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="emotion-48"
+      class="emotion-50"
     >
       <button
-        class="emotion-40"
+        class="emotion-42"
         type="button"
       >
         <div
@@ -964,10 +1014,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
         </div>
       </button>
       <div
-        class="emotion-47"
+        class="emotion-49"
       >
         <button
-          class="emotion-43"
+          class="emotion-45"
           type="button"
         >
           <div
@@ -982,7 +1032,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
         </button>
         <button
           aria-disabled="true"
-          class="emotion-46"
+          class="emotion-48"
           disabled=""
           style="pointer-events: none;"
           type="button"
