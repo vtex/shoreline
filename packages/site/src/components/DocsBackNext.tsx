@@ -44,7 +44,7 @@ export default function DocsBackNext({
           color: 'inherit',
           cursor: 'pointer',
           '&:hover': {
-            color: 'linkHove',
+            color: 'linkHover',
           },
         },
       }}
