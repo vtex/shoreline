@@ -56,7 +56,7 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
                 <FormikSelect {...args} />
               </Box>
               <Button
-                variant="secondary"
+                variant="soft"
                 type="reset"
                 size="small"
                 onClick={() => resetForm()}
@@ -66,7 +66,7 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
               </Button>
               <Text
                 variant="small"
-                feedback="secondary"
+                tone="muted"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Change values in formik to current initial values
@@ -76,13 +76,13 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
               </Button>
               <Text
                 variant="small"
-                feedback="secondary"
+                tone="muted"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Set the current value as initial value
               </Text>
               <Button
-                variant="secondary"
+                variant="soft"
                 size="small"
                 onClick={() =>
                   setCurrentInitialValues({ [args.name]: args.items[1] })
@@ -92,7 +92,7 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
               </Button>
               <Text
                 variant="small"
-                feedback="secondary"
+                tone="muted"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Set "{args.items[1]}" as new initial value
@@ -101,13 +101,13 @@ export const Playground: Story<FormikSelectProps<string>> = (args) => {
             <Set orientation="vertical" spacing={4}>
               <Set orientation="vertical">
                 <Text variant="subtitle">Current value in formik :</Text>
-                <Text feedback="secondary">
+                <Text tone="muted">
                   <pre>{JSON.stringify(values)}</pre>
                 </Text>
               </Set>
               <Set orientation="vertical">
                 <Text variant="subtitle">Current initial value in formik:</Text>
-                <Text feedback="secondary">
+                <Text tone="muted">
                   <pre>{JSON.stringify(currentInitialValues)}</pre>
                 </Text>
               </Set>
@@ -148,7 +148,7 @@ export const Basic = () => {
             </Box>
             <Set orientation="vertical">
               <Text variant="subtitle">Current value in formik :</Text>
-              <Text feedback="secondary">
+              <Text tone="muted">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
@@ -204,7 +204,7 @@ export const WithObjectList = () => {
           </Box>
           <Set>
             <Text variant="subtitle">Current value in formik :</Text>
-            <Text feedback="secondary">
+            <Text tone="muted">
               <pre>{JSON.stringify(values)}</pre>
             </Text>
           </Set>
@@ -251,7 +251,7 @@ export const Error = () => {
           </Box>
           <Set>
             <Text variant="subtitle">Current value in formik :</Text>
-            <Text feedback="secondary">
+            <Text tone="muted">
               <pre>{JSON.stringify(values)}</pre>
             </Text>
           </Set>
@@ -305,7 +305,7 @@ export const WithIntl = () => {
             </Box>
             <Set>
               <Text variant="subtitle">Current value in formik :</Text>
-              <Text feedback="secondary">
+              <Text tone="muted">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
@@ -364,7 +364,7 @@ export const ChangeValueOutside = () => {
             </Box>
             <Set orientation="vertical">
               <Text variant="subtitle">Current value in formik :</Text>
-              <Text feedback="secondary">
+              <Text tone="muted">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
@@ -424,7 +424,7 @@ export const ChangeInitialValue = () => {
                 </Button>
                 <Text
                   variant="small"
-                  feedback="secondary"
+                  tone="muted"
                   csx={{ marginBottom: 3, textAlign: 'center' }}
                 >
                   When the initial value changes the form is restarted
@@ -433,13 +433,13 @@ export const ChangeInitialValue = () => {
             </Box>
             <Set orientation="vertical" csx={{ marginX: 8 }}>
               <Text variant="subtitle">Current value in formik :</Text>
-              <Text feedback="secondary">
+              <Text tone="muted">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
             <Set orientation="vertical">
               <Text variant="subtitle">Current initial value in formik:</Text>
-              <Text feedback="secondary">
+              <Text tone="muted">
                 <pre>{JSON.stringify(currentInitialValues)}</pre>
               </Text>
             </Set>

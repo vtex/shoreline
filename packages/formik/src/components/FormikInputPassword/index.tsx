@@ -38,8 +38,8 @@ export const FormikInputPassword = forwardRef(
     return (
       <InputPassword
         id={id}
-        error={!!errorMessage}
-        errorMessage={errorMessage ?? undefined}
+        tone={errorMessage ? 'critical' : 'neutral'}
+        criticalText={errorMessage ?? undefined}
         {...field}
         onChange={handleChange}
         {...inputProps}
@@ -50,8 +50,10 @@ export const FormikInputPassword = forwardRef(
 )
 
 export interface FormikInputPasswordProps
-  extends Omit<InputPasswordProps, 'id' | 'value'> {
+  extends Omit<InputPasswordProps, 'id' | 'value' | 'tone' | 'criticalText'> {
   name: string
   id?: string
+  error?: boolean
+  errorMessage?: string
   formatMessage?: (errorCode: string) => string
 }

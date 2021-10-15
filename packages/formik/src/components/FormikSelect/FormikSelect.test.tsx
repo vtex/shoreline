@@ -156,7 +156,7 @@ describe('Select tests', () => {
               children="Reset Form"
               onClick={() => resetForm()}
             />
-            <Text feedback="secondary">
+            <Text tone="muted">
               <pre>{JSON.stringify(touched)}</pre>
             </Text>
             <Button type="submit" size="small" children="Submit" />
