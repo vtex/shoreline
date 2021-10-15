@@ -16,7 +16,7 @@ import {
   ComplementaryColors,
   SemanticColor,
 } from '../components/ColorBlock'
-
+import { TokensTable, tokens } from '../components/TokensTable'
 import { IconPage } from '../components/IconsPage'
 
 import Collapsible from '../components/Collapsible'
@@ -220,6 +220,9 @@ const { Compiler: renderAst } = new RehypeReact({
           {desc}
         </tag.div>
       )
+    },
+    tokenstable: function Render(props: { type: keyof typeof tokens }) {
+      return <TokensTable items={tokens[props.type]} type={props.type} />
     },
   },
 })

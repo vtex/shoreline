@@ -28,6 +28,7 @@
 - section: Foundations
   paths:
     - /foundations/colors/
+    - /foundations/design-tokens/
 - section: Components
   paths:
     - /alert/
