@@ -4,7 +4,7 @@ path: /foundations/design-tokens/
 
 # Design Tokens
 
-Design tokens are a platform that defines agnostic variables used to express the look-and-feel of a company’s brand and products. They form the building blocks of the Design system and are used to define color, typography, size, spacing, and other attributes. It provides the foundation for creating themes and automating the design process.
+Design tokens area methodology. It's a technology-agnostic architeture and process for scaling design cross multiple platforms and devices, including native, and more.
 
 ## Background
 
