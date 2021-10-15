@@ -1,14 +1,6 @@
 import type { ReactNode } from 'react'
 import React, { createContext, useMemo } from 'react'
-import {
-  Flex,
-  IconCaret,
-  tag,
-  darken,
-  alpha,
-  Button,
-  IconTopic,
-} from '@vtex/admin-ui'
+import { Flex, IconCaret, tag, IconTopic, ButtonGhost } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
@@ -103,15 +95,14 @@ export function Sidebar() {
           }}
         >
           <Logo />
-          <Button
-            variant="adaptative-dark"
+          <ButtonGhost
             size="small"
             csx={{ marginRight: 1, color: 'dark.primary' }}
             onClick={() => setBulkVisile((v) => !v)}
             icon={<IconTopic />}
           >
             {visible ? 'Collapse' : 'Expand'} All
-          </Button>
+          </ButtonGhost>
         </tag.div>
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
           const paths = node.paths
@@ -153,7 +144,7 @@ export function Sidebar() {
                     '&[aria-current="page"]': {
                       borderLeft: '2px solid',
                       borderColor: 'blue',
-                      bg: alpha('blue.secondary.default', 0.3),
+                      // bg: alpha('blue.secondary.default', 0.3),
                       color: 'blue',
                       borderTopLeftRadius: 0,
                       borderBottomLeftRadius: 0,
@@ -233,10 +224,10 @@ function Section(props: SectionProps) {
           cursor: 'pointer',
           borderRadius: 'default',
           ':hover': {
-            bg: darken('light.primary', 0.04),
+            // bg: darken('light.primary', 0.04),
           },
           ':active': {
-            bg: darken('light.primary', 0.08),
+            // bg: darken('light.primary', 0.08),
           },
         }}
         id={id}

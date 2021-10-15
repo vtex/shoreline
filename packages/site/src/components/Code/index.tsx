@@ -5,13 +5,13 @@ import theme from 'prism-react-renderer/themes/github'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import {
   tag,
-  Button,
   createSystem,
   Set,
   Flex,
   IconCode,
   IconDuplicate,
   ToastProvider,
+  ButtonGhost,
 } from '@vtex/admin-ui'
 
 import { copyToClipboard, calculateLinesToHighlight } from './util'
@@ -78,31 +78,29 @@ export function Code(props: CodeProps) {
                 justify="flex-end"
                 csx={{
                   padding: 1,
-                  bg: 'sidebar.light',
+                  bg: 'muted',
                   borderBottomRightRadius: 4,
                   borderBottomLeftRadius: 4,
                 }}
               >
                 <Set>
                   {codeVisible && (
-                    <Button
+                    <ButtonGhost
                       size="small"
                       icon={<IconDuplicate />}
-                      variant="adaptative-dark"
                       onClick={handleClick}
                       disabled={copied}
                     >
                       {copied ? 'Copied!' : 'Copy code'}
-                    </Button>
+                    </ButtonGhost>
                   )}
-                  <Button
+                  <ButtonGhost
                     icon={<IconCode />}
-                    variant="adaptative-dark"
                     size="small"
                     onClick={() => setCodeVisible((v) => !v)}
                   >
                     Show/Hide Code
-                  </Button>
+                  </ButtonGhost>
                 </Set>
               </Flex>
               <tag.div csx={styles.editorWrapper}>
@@ -142,16 +140,15 @@ export function Code(props: CodeProps) {
               className={blockClassName}
               style={style}
             >
-              <Button
+              <ButtonGhost
                 size="small"
                 icon={<IconCode />}
-                variant="adaptative-dark"
                 onClick={handleClick}
                 disabled={copied}
                 csx={styles.copyButton}
               >
                 {copied ? 'Copied!' : 'Copy code'}
-              </Button>
+              </ButtonGhost>
               <tag.code
                 csx={{
                   position: 'relative',
@@ -183,8 +180,7 @@ export function Code(props: CodeProps) {
                     )
                   })}
                 {tokens.length > maxCodeLength && (
-                  <Button
-                    variant="adaptative-dark"
+                  <ButtonGhost
                     csx={{
                       width: '100%',
                       zIndex: 2,
@@ -192,7 +188,7 @@ export function Code(props: CodeProps) {
                     onClick={() => setCodeVisible((v) => !v)}
                   >
                     {codeVisible ? 'Hide' : 'Show'} Code
-                  </Button>
+                  </ButtonGhost>
                 )}
                 {tokens.length > maxCodeLength && !codeVisible && (
                   <tag.div
