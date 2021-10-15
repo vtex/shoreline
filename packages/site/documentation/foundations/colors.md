@@ -148,7 +148,7 @@ Check the [tokens table](/foundations/design-tokens) to learn more about each to
 
 ### Admin UI Foundations
 
-Use the Admin UI Foundations library to use colors in your Figma files. To use he library enable from the Figma Libraries tab. Within the library, styles are divided into three categories:
+Use the Admin UI Foundations library to use colors in your Figma files. To use the library enable from the Figma Libraries tab. Within the library, styles are divided into three categories:
 
 - Background: has all colors related to backgrounds.
 - Foraground: has all colors related to text and icons.
