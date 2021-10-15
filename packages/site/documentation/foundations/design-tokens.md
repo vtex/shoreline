@@ -4,7 +4,7 @@ path: /foundations/design-tokens/
 
 # Design Tokens
 
-Design tokens area methodology. It's a technology-agnostic architeture and process for scaling design cross multiple platforms and devices, including native, and more.
+Design tokens are variables used to express the look and feel of the VTEX admin and its products. It provides the foundation for themes and automated the design process.
 
 ## Background
 
