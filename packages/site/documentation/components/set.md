@@ -1,4 +1,5 @@
 ---
+title: Set
 path: /set/
 ---
 

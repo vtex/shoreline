@@ -1,4 +1,5 @@
 ---
+title: About Admin UI
 path: /introduction/about/
 redirect_from:
   - /

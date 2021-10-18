@@ -1,4 +1,5 @@
 ---
+title: List
 path: /typography/list/
 ---
 

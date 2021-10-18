@@ -1,4 +1,5 @@
 ---
+title: Code Styleguide
 path: /contributing/code-styleguide/
 ---
 

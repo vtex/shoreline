@@ -1,4 +1,5 @@
 ---
+title: Checkbox
 path: /checkbox/
 ---
 

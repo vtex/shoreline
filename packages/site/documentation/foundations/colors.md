@@ -1,4 +1,5 @@
 ---
+title: Colors
 path: /foundations/colors/
 ---
 

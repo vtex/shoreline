@@ -1,4 +1,5 @@
 ---
+title: Spinner
 path: /spinner/
 ---
 

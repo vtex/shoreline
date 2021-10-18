@@ -8,8 +8,8 @@ export function PageHeader(props: React.PropsWithChildren<{}>) {
     <tag.div
       csx={{
         paddingY: 6,
+        paddingX: 2,
         marginBottom: 4,
-        border: 'divider-bottom',
       }}
     >
       <tag.h1

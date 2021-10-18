@@ -1,4 +1,5 @@
 ---
+title: ButtonGhost
 path: /button-ghost/
 ---
 

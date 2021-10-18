@@ -1,4 +1,5 @@
 ---
+title: Textarea
 path: /text-area/
 ---
 

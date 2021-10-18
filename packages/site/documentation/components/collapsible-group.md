@@ -1,4 +1,5 @@
 ---
+title: CollapsibleGroup
 path: /collapsible-group/
 ---
 

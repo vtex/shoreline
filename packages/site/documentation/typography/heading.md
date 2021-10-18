@@ -1,4 +1,5 @@
 ---
+title: Heading
 path: /typography/heading/
 ---
 

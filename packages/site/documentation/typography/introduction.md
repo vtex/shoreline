@@ -1,4 +1,5 @@
 ---
+title: Introduction
 path: /typography/introduction/
 ---
 

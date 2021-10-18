@@ -1,4 +1,5 @@
 ---
+title: Divider
 path: /divider/
 ---
 

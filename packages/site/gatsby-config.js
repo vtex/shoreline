@@ -34,9 +34,10 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        plugins: [
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-external-links',
             options: {
@@ -50,8 +51,6 @@ module.exports = {
               maxWidth: 800,
             },
           },
-          'gatsby-remark-code-modifiers',
-          'gatsby-remark-title',
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {

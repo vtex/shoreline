@@ -1,4 +1,5 @@
 ---
+title: useSystem
 path: /hooks/use-system/
 ---
 

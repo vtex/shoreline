@@ -1,4 +1,5 @@
 ---
+title: Tag
 path: /guidelines/tag/
 ---
 

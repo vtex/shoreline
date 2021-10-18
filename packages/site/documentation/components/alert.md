@@ -1,4 +1,5 @@
 ---
+title: Alert
 path: /alert/
 ---
 

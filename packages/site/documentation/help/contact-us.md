@@ -1,4 +1,5 @@
 ---
+title: Contact us
 path: /help/contact-us/
 ---
 
@@ -14,9 +15,9 @@ As a first step, it’s always good to explore the content on this website. The 
 
 If you have a bug report, feature request, suggestion, or general feedback, please create a Github issue:
 
-🐞 [Bug report](https://github.com/vtex/onda/issues/new?assignees=&labels=&template=bug_report.md)<br>
+🐞 [Bug report](https://github.com/vtex/onda/issues/new?assignees=&labels=&template=bug_report.md)<br />
 
-💡 [Feature request](https://github.com/vtex/onda/issues/new?assignees=&labels=&template=feature_request.md)<br>
+💡 [Feature request](https://github.com/vtex/onda/issues/new?assignees=&labels=&template=feature_request.md)<br />
 
 💬 [Support or feedbacks](https://github.com/vtex/onda/issues/new?assignees=&labels=&template=support-question.md)
 
@@ -24,7 +25,7 @@ If you have a bug report, feature request, suggestion, or general feedback, plea
 
 _For internal VTEX users only._ The Admin UI team maintains the following channels and will provide support as time permits.
 
-[#admin-ui](https://vtex.slack.com/archives/C01DVTFA4VA)<br>
-<br>
+[#admin-ui](https://vtex.slack.com/archives/C01DVTFA4VA)<br />
+<br />
 
 _Check if this channel is the right place for your questions. Topics like admin shell, admin version, and apps repositories need to discuss with the Admin team on [#team-admin](https://vtex.slack.com/archives/C0170C2TTDY) channel._

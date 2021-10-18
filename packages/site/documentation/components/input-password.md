@@ -1,4 +1,5 @@
 ---
+title: InputPassword
 path: /input-password/
 ---
 

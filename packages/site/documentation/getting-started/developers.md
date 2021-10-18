@@ -1,4 +1,5 @@
 ---
+title: Developers
 path: /getting-started/developers/
 ---
 

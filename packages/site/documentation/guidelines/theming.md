@@ -1,4 +1,5 @@
 ---
+title: Theming
 path: /guidelines/theming/
 ---
 
@@ -18,35 +19,35 @@ Our styleguide provides an accessible default palette to get you up and running.
 
 ### Light
 
-<lightcolors></lightcolors>
+<Lightcolors></Lightcolors>
 
 ### Mid
 
-<midcolors></midcolors>
+<Midcolors></Midcolors>
 
 ### Dark
 
-<darkcolors></darkcolors>
+<Darkcolors></Darkcolors>
 
 ### Blue
 
-<semanticcolor color="blue"></semanticcolor>
+<Semanticcolor color="blue"></Semanticcolor>
 
 ### Red
 
-<semanticcolor color="red"></semanticcolor>
+<Semanticcolor color="red"></Semanticcolor>
 
 ### Yellow
 
-<semanticcolor color="yellow"></semanticcolor>
+<Semanticcolor color="yellow"></Semanticcolor>
 
 ### Green
 
-<semanticcolor color="green"></semanticcolor>
+<Semanticcolor color="green"></Semanticcolor>
 
 ### Complementary
 
-<complementarycolors></complementarycolors>
+<Complementarycolors></Complementarycolors>
 
 ## Typography
 

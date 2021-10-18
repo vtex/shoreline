@@ -1,4 +1,5 @@
 ---
+title: FilterBar
 path: /filter-bar/
 ---
 
@@ -468,11 +469,11 @@ Hook that manages the state logic of the FilterBar component. It receives two pa
 
 ## Prsops
 
-| Name           | Type                             | Description                                              | Required | Default            |
-| -------------- | -------------------------------- | -------------------------------------------------------- | -------- | ------------------ |
-| label          | `string`                         | FilterBar label. It appears when there are no statements | ✅       | -                  |
-| internalLabels | `InternalLabels`                 | Set of FilterBar internal labels                         | ✅       | -                  |
-| state          | `UseFilterBarStateReturn<V,T>`   | Object that manages the component state logic            | ✅       | -                  |
-| conjunctions   | `Conjunction[]`                  | FilterBar conjunction options                            | ✅       | -                  |
-| csx            | `StyleObject`                    | Custom styles                                            | 🚫       | {}                 |
-| resolvers      | `Record<String, Resolver<V, T>>` | FilterBar resolvers                                      | 🚫       | baseResolvers<T>() |
+| Name           | Type                             | Description                                              | Required | Default              |
+| -------------- | -------------------------------- | -------------------------------------------------------- | -------- | -------------------- |
+| label          | `string`                         | FilterBar label. It appears when there are no statements | ✅       | -                    |
+| internalLabels | `InternalLabels`                 | Set of FilterBar internal labels                         | ✅       | -                    |
+| state          | `UseFilterBarStateReturn<V,T>`   | Object that manages the component state logic            | ✅       | -                    |
+| conjunctions   | `Conjunction[]`                  | FilterBar conjunction options                            | ✅       | -                    |
+| csx            | `StyleObject`                    | Custom styles                                            | 🚫       | {}                   |
+| resolvers      | `Record<String, Resolver<V, T>>` | FilterBar resolvers                                      | 🚫       | `baseResolvers<T>()` |

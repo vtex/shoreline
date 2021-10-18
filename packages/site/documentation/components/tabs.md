@@ -1,4 +1,5 @@
 ---
+title: Tabs
 path: /tabs/
 ---
 

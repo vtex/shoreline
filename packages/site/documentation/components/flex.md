@@ -1,4 +1,5 @@
 ---
+title: Flex
 path: /flex/
 ---
 

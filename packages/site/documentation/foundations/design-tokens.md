@@ -1,4 +1,5 @@
 ---
+title: Design Tokens
 path: /foundations/design-tokens/
 ---
 
@@ -8,16 +9,16 @@ Design tokens are variables used to express the look and feel of the VTEX admin 
 
 ## Background
 
-<tokenstable type="background"></tokenstable>
+<TokensTable type="background"></TokensTable>
 
 ## Foreground
 
-<tokenstable type="foreground"></tokenstable>
+<TokensTable type="foreground"></TokensTable>
 
 ## Border Color
 
-<tokenstable type="borderColor"></tokenstable>
+<TokensTable type="borderColor"></TokensTable>
 
 ## Shadows
 
-<tokenstable type="shadows"></tokenstable>
+<TokensTable type="shadows"></TokensTable>

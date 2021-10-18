@@ -1,4 +1,5 @@
 ---
+title: Toast
 path: /toast/
 ---
 

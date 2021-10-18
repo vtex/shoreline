@@ -14,7 +14,6 @@ import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
 import { useSearchContext } from './Search'
-import Logo from '../icons/Logo'
 import useLocation from '../hooks/useLocation'
 
 const query = graphql`
@@ -25,10 +24,10 @@ const query = graphql`
         paths
       }
     }
-    allMarkdownRemark {
+    allMdx {
       nodes {
-        title
         frontmatter {
+          title
           path
           fullPage
         }
@@ -36,6 +35,24 @@ const query = graphql`
     }
   }
 `
+
+interface Data {
+  allNavigationYaml: {
+    nodes: Array<{
+      section: string
+      paths: string[]
+    }>
+  }
+  allMdx: {
+    nodes: Array<{
+      frontmatter: {
+        title: string
+        path: string
+        experimental?: boolean
+      }
+    }>
+  }
+}
 
 interface BulkVisible {
   visible: boolean
@@ -60,9 +77,9 @@ export function Sidebar() {
   const { id: baseId } = useId({ baseId: 'docs-navigation' })
   const getId = (section: string) => `${baseId}-${kebabCase(section)}`
   const findMeta = (path: string) =>
-    data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)
+    data.allMdx.nodes.find((node) => node.frontmatter.path === path)
 
-  const getTitle = (path: string) => findMeta(path)?.title ?? ''
+  const getTitle = (path: string) => findMeta(path)?.frontmatter?.title ?? ''
   const search = useSearchContext()
   const [bulkVisible, setBulkVisile] = React.useState(false)
   const { pathname } = useLocation()
@@ -79,13 +96,12 @@ export function Sidebar() {
     >
       <tag.div
         csx={{
-          height: '100vh',
+          height: 'calc(100vh - 64px)',
+          marginTop: '64px',
           overflowY: 'auto',
           'nav:first-of-type': {
             margin: 0,
           },
-          borderRight: '1px solid',
-          borderRightColor: 'sidebar',
           bg: 'base',
         }}
       >
@@ -103,14 +119,17 @@ export function Sidebar() {
             zIndex: 999,
           }}
         >
-          <Logo />
           <ButtonGhost
             size="small"
-            csx={{ marginRight: 1 }}
+            csx={{
+              marginX: 2,
+              width: '100%',
+              '>div': { justifyContent: 'start' },
+            }}
             onClick={() => setBulkVisile((v) => !v)}
             icon={<IconTopic />}
           >
-            {visible ? 'Collapse' : 'Expand'} All
+            {visible ? 'Collapse' : 'Expand'} Sidebar Items
           </ButtonGhost>
         </tag.div>
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
@@ -274,22 +293,4 @@ function Section(props: SectionProps) {
       )}
     </tag.nav>
   )
-}
-
-interface Data {
-  allNavigationYaml: {
-    nodes: Array<{
-      section: string
-      paths: string[]
-    }>
-  }
-  allMarkdownRemark: {
-    nodes: Array<{
-      title: string
-      frontmatter: {
-        path: string
-        experimental?: boolean
-      }
-    }>
-  }
 }

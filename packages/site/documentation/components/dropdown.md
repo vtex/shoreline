@@ -1,4 +1,5 @@
 ---
+title: Dropdown
 path: /dropdown/
 ---
 
@@ -217,4 +218,3 @@ function Example() {
 
 ## Props
 
-<proptypes heading="Dropdown" component="Dropdown" />

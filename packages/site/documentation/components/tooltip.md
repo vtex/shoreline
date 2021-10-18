@@ -1,4 +1,5 @@
 ---
+title: Tooltip
 path: /tooltip/
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: Columns
 path: /columns/
 ---
 

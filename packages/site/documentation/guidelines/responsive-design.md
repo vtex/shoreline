@@ -1,4 +1,5 @@
 ---
+title: Responsive Design
 path: /guidelines/responsive-design/
 ---
 

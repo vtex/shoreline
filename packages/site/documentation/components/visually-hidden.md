@@ -1,4 +1,5 @@
 ---
+title: VisuallyHidden
 path: /visually-hidden/
 ---
 

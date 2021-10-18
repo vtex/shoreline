@@ -1,4 +1,5 @@
 ---
+title: Select
 path: /select/
 ---
 
@@ -215,4 +216,3 @@ function Example() {
 
 ## Props
 
-<proptypes heading="Select" component="Select" />

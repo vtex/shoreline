@@ -1,4 +1,5 @@
 ---
+title: Collapsible
 path: /collapsible/
 ---
 

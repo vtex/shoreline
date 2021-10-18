@@ -1,4 +1,5 @@
 ---
+title: Icons
 path: /icons/
 fullPage: true
 ---
@@ -8,8 +9,6 @@ fullPage: true
 The icon set of the AdminUI.
 
 ## Usage
-
-<collapsible heading="Usage details" visible={true}>
 
 ```jsx isStatic
 import { IconName } from '@vtex/admin-ui'
@@ -29,8 +28,6 @@ import { IconName } from '@vtex/admin-ui'
   <IconNotifications on />
 </Set>
 ```
-
-</collapsible>
 
 ## List
 

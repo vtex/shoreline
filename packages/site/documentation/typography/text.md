@@ -1,4 +1,5 @@
 ---
+title: Text
 path: /typography/text/
 ---
 

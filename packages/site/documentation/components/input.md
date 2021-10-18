@@ -1,4 +1,5 @@
 ---
+title: Input
 path: /input/
 ---
 

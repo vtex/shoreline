@@ -1,4 +1,5 @@
 ---
+title: Paragraph
 path: /typography/paragraph/
 ---
 

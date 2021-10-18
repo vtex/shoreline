@@ -6,6 +6,7 @@ import { FaGithub } from 'react-icons/fa'
 import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
 import Anchor from './Anchor'
 import { useSearchContext } from './Search'
+import Logo from '../icons/Logo'
 
 export default function Header() {
   const isLarge = useViewportWidthGreaterThan(768)
@@ -37,8 +38,8 @@ export default function Header() {
         border,
         color: 'header',
         bg: 'header',
-        width: '80%',
-        maxWidth: 'calc(90rem - 10%)',
+        width: '100%',
+        maxWidth: '90rem',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -66,6 +67,7 @@ export default function Header() {
         },
       }}
     >
+      <Logo />
       <Search
         id="search"
         placeholder="Start typing to filter sidebar items"

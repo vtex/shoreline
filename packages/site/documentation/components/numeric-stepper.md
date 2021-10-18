@@ -1,4 +1,5 @@
 ---
+title: NumericStepper
 path: /numeric-stepper/
 ---
 
@@ -157,4 +158,3 @@ function Example() {
 
 ## Props
 
-<proptypes heading="NumericStepper" component="NumericStepper" />

@@ -7,8 +7,6 @@
  */
 const { resolve, relative, dirname } = require('path')
 
-const rehype = require('rehype')
-
 const { repository } = require('./package.json')
 
 function getAdjacentPaths(arr, index) {
@@ -20,15 +18,15 @@ function getAdjacentPaths(arr, index) {
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage, createRedirect } = actions
-  const template = resolve(`src/templates/Docs.tsx`)
+  const layout = resolve(`src/components/MDXLayout.tsx`)
 
   return graphql(`
     {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             fileAbsolutePath
-            tableOfContents(pathToSlugField: "frontmatter.path")
+            tableOfContents
             frontmatter {
               path
               redirect_from
@@ -56,7 +54,7 @@ exports.createPages = ({ actions, graphql }) => {
       node.paths.forEach((path) => flatArray.push(path))
     })
 
-    return result.data.allMarkdownRemark.edges.forEach(async ({ node }) => {
+    return result.data.allMdx.edges.forEach(async ({ node }) => {
       const { frontmatter, fileAbsolutePath, tableOfContents } = node
       const { path, redirect_from } = frontmatter
 
@@ -70,17 +68,14 @@ exports.createPages = ({ actions, graphql }) => {
       const repo = `${repository.replace(/(\/tree.+|\/)$/, '')}/tree/master/`
       const sourceUrl = `${repo}${relative(root, dirname(fileAbsolutePath))}`
       const readmeUrl = `${repo}${relative(root, fileAbsolutePath)}`
-      const tableOfContentsAst = await rehype()
-        .data('settings', { fragment: true })
-        .parse(tableOfContents)
 
       createPage({
         path,
-        component: template,
+        component: layout,
         context: {
           sourceUrl,
           readmeUrl,
-          tableOfContentsAst,
+          tableOfContents,
           nextPagePath,
           prevPagePath,
         },

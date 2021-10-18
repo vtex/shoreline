@@ -1,4 +1,5 @@
 ---
+title: CheckboxGroup
 path: /checkbox-group/
 ---
 
@@ -127,4 +128,3 @@ function Example() {
 
 ## Props
 
-<proptypes heading="CheckboxGroup" component="CheckboxGroup" />

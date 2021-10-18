@@ -52,10 +52,10 @@ export function PageLayout(props: Props) {
   const {
     data,
     children,
-    pageContext: { sourceUrl = '', readmeUrl = '', tableOfContentsAst = {} },
+    pageContext: { tableOfContents = {} },
   } = props
 
-  const title = data?.markdownRemark?.title
+  const title = data?.mdx?.frontmatter?.title
   const search = useSearchState()
 
   return (
@@ -68,6 +68,7 @@ export function PageLayout(props: Props) {
           justifyContent: 'center',
         }}
       >
+        <Header />
         <StickyBlock>
           <Sidebar />
         </StickyBlock>
@@ -80,7 +81,6 @@ export function PageLayout(props: Props) {
             overflow: 'auto',
           }}
         >
-          <Header />
           <tag.div
             csx={{
               padding: 4,
@@ -91,14 +91,9 @@ export function PageLayout(props: Props) {
             {children}
           </tag.div>
         </Flex>
-        {title && props.pageContext.tableOfContentsAst && (
+        {title && tableOfContents && (
           <StickyBlock top={80} pl={48}>
-            <TableOfContents
-              sourceUrl={sourceUrl}
-              readmeUrl={readmeUrl}
-              tableOfContentsAst={tableOfContentsAst}
-              title={title}
-            />
+            <TableOfContents items={tableOfContents.items} />
           </StickyBlock>
         )}
       </tag.div>
@@ -114,13 +109,14 @@ interface Props {
   pageContext: {
     sourceUrl?: string
     readmeUrl?: string
-    tableOfContentsAst?: Record<string, unknown>
+    tableOfContents?: Record<string, any>
   }
   data?: {
-    markdownRemark?: {
-      title?: string
-      htmlAst?: Record<string, unknown>
+    mdx?: {
+      body?: string
+      excerpt?: Record<string, unknown>
       frontmatter?: {
+        title?: string
         path?: string
         experimental?: boolean
         fullPage?: boolean

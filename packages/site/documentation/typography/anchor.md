@@ -1,4 +1,5 @@
 ---
+title: Anchor
 path: /typography/anchor/
 ---
 
