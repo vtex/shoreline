@@ -43,7 +43,7 @@ export function TokensTable(props: TokensTableProps) {
 
       return (
         item.token.toLowerCase().includes(searchLowerCase) ||
-        item.color.toLowerCase().includes(searchLowerCase)
+        item.value.toLowerCase().includes(searchLowerCase)
       )
     })
   }, [search])
@@ -100,10 +100,10 @@ export function TokensTable(props: TokensTableProps) {
             return (
               <tag.div csx={{ display: 'flex', flexDirection: 'column' }}>
                 <Text csx={{ fontSettings: 'medium' }}>
-                  {column.item.color}
+                  {column.item.value}
                 </Text>
                 <Text tone="muted">
-                  {get(theme, `colors.${column.item.color}`)}
+                  {get(theme, `colors.${column.item.value}`)}
                 </Text>
               </tag.div>
             )
@@ -121,7 +121,7 @@ export function TokensTable(props: TokensTableProps) {
                 csx={{
                   width: 90,
                   height: 60,
-                  bg: (theme) => get(theme, `colors.${column.item.color}`),
+                  bg: (theme) => get(theme, `colors.${column.item.value}`),
                   boxShadow:
                     column.item.type === 'shadows'
                       ? get(theme, column.item.token)
@@ -176,7 +176,7 @@ interface TokensTableProps {
   items: Array<{
     token: string
     description: string
-    color: string
+    value: string
     type: string
   }>
 }

@@ -36,3 +36,7 @@ export const Blockquote = jsx('blockquote')({
     },
   },
 })
+
+Blockquote.defaultProps = {
+  tone: 'info',
+}
