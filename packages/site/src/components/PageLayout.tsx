@@ -55,6 +55,7 @@ export function PageLayout(props: Props) {
   } = props
 
   const title = data?.mdx?.frontmatter?.title
+  const fullPage = data?.mdx?.frontmatter?.fullPage
 
   return (
     <tag.div
@@ -72,9 +73,9 @@ export function PageLayout(props: Props) {
       <Flex
         direction="column"
         csx={{
-          width: '80%',
+          width: fullPage ? '100%' : '80%',
           flex: '1 1 0',
-          maxWidth: '64rem',
+          maxWidth: fullPage ? 'unset' : '64rem',
           overflow: 'auto',
         }}
       >
@@ -88,7 +89,7 @@ export function PageLayout(props: Props) {
           {children}
         </tag.div>
       </Flex>
-      {title && tableOfContents && (
+      {!fullPage && title && tableOfContents && (
         <StickyBlock top="11.2rem" pl={48}>
           <TableOfContents items={tableOfContents.items} />
         </StickyBlock>

@@ -15,6 +15,7 @@ import {
   useDropdownState,
   usePaginationState,
   FlexSpacer,
+  Flex,
   Pagination,
 } from '@vtex/admin-ui'
 
@@ -56,7 +57,7 @@ export function TokensTable(props: TokensTableProps) {
     if (!searchedItems.length) {
       view.setStatus({
         type: 'not-found',
-        message: 'The token that you are looking for does not exist',
+        message: 'The token you are looking for does not exist',
       })
     } else {
       view.setStatus({
@@ -66,7 +67,7 @@ export function TokensTable(props: TokensTableProps) {
   }, [searchedItems.length])
 
   const pagination = usePaginationState({
-    pageSize: 50,
+    pageSize: 10,
     total: searchedItems.length,
   })
 
@@ -81,12 +82,12 @@ export function TokensTable(props: TokensTableProps) {
           type: 'root',
           render: (column) => {
             return (
-              <tag.div csx={{ display: 'flex', flexDirection: 'column' }}>
+              <Flex direction="column">
                 <Text csx={{ fontSettings: 'medium' }}>
                   {column.item.token}
                 </Text>
                 <Text tone="muted">{column.item.description}</Text>
-              </tag.div>
+              </Flex>
             )
           },
         },
@@ -94,18 +95,17 @@ export function TokensTable(props: TokensTableProps) {
       {
         id: 'values',
         header: 'Values',
+        width: 260,
         resolver: {
           type: 'root',
           render: (column) => {
             return (
-              <tag.div csx={{ display: 'flex', flexDirection: 'column' }}>
+              <Flex direction="column">
                 <Text csx={{ fontSettings: 'medium' }}>
                   {column.item.value}
                 </Text>
-                <Text tone="muted">
-                  {get(theme, `colors.${column.item.value}`)}
-                </Text>
-              </tag.div>
+                <Text tone="muted">{get(theme, column.item.token)}</Text>
+              </Flex>
             )
           },
         },
@@ -119,7 +119,7 @@ export function TokensTable(props: TokensTableProps) {
             return (
               <tag.div
                 csx={{
-                  width: 90,
+                  width: 100,
                   height: 60,
                   bg: (theme) => get(theme, `colors.${column.item.value}`),
                   boxShadow:

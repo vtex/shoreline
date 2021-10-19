@@ -1,6 +1,7 @@
 ---
 title: Design Tokens
 path: /guidelines/design-tokens/
+fullPage: true
 ---
 
 # Design Tokens
