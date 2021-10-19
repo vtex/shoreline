@@ -1,30 +1,30 @@
-import type { ReactNode } from 'react'
 import React from 'react'
-import { Paragraph, useSystem, tag, palette, get } from '@vtex/admin-ui'
+import {
+  Paragraph,
+  useSystem,
+  tag,
+  Grid,
+  Box,
+  palette,
+  get,
+} from '@vtex/admin-ui'
 
 import Anchor from './Anchor'
 import List from './List'
 import { Kbd } from './Kbd'
 import { Blockquote } from './Blockquote'
 import Heading from './Heading'
-import {
-  MidColors,
-  DarkColors,
-  LightColors,
-  ComplementaryColors,
-  SemanticColor,
-} from './ColorBlock'
-import { TokensTable, tokens } from './TokensTable'
+import { ColorCard } from './ColorCard'
+import { tokens, TokensTable } from './TokensTable'
+import { SemanticTable } from './SemanticTable'
 import { Code } from './Code'
 
-export const MDXComponents: Record<string, (props: any) => ReactNode> = {
+export const MDXComponents = {
+  Grid: (props: any) => <Grid {...props} csx={{ marginY: 4, ...props?.csx }} />,
+  Box,
   a: Anchor,
-  LightColors,
-  DarkColors,
-  MidColors,
-  ComplementaryColors,
-  SemanticColor,
-  p: (props) => (
+  ColorCard,
+  p: (props: any) => (
     <Paragraph
       csx={{
         marginTop: '.8rem',
@@ -44,16 +44,16 @@ export const MDXComponents: Record<string, (props: any) => ReactNode> = {
     />
   ),
   ul: List,
-  ol: (props) => <List el="ol" {...props} />,
+  ol: (props: any) => <List el="ol" {...props} />,
   kbd: Kbd,
   blockquote: Blockquote,
   h1: Heading,
-  h2: (props) => <Heading as="h2" {...props} />,
-  h3: (props) => <Heading as="h3" {...props} />,
-  h4: (props) => <Heading as="h4" {...props} />,
-  h5: (props) => <Heading as="h5" {...props} />,
-  h6: (props) => <Heading as="h6" {...props} />,
-  pre: (props) => {
+  h2: (props: any) => <Heading as="h2" {...props} />,
+  h3: (props: any) => <Heading as="h3" {...props} />,
+  h4: (props: any) => <Heading as="h4" {...props} />,
+  h5: (props: any) => <Heading as="h5" {...props} />,
+  h6: (props: any) => <Heading as="h6" {...props} />,
+  pre: (props: any) => {
     if (!props?.children) {
       return null
     }
@@ -70,7 +70,7 @@ export const MDXComponents: Record<string, (props: any) => ReactNode> = {
       />
     )
   },
-  table: (props) => (
+  table: (props: any) => (
     <tag.table
       csx={{
         borderRadius: 3,
@@ -83,8 +83,10 @@ export const MDXComponents: Record<string, (props: any) => ReactNode> = {
       {...props}
     />
   ),
-  tr: (props) => <tag.tr csx={{ textAlign: 'left', height: 48 }} {...props} />,
-  th: (props) => (
+  tr: (props: any) => (
+    <tag.tr csx={{ textAlign: 'left', height: 48 }} {...props} />
+  ),
+  th: (props: any) => (
     <tag.th
       csx={{
         paddingX: 3,
@@ -96,7 +98,7 @@ export const MDXComponents: Record<string, (props: any) => ReactNode> = {
       {...props}
     />
   ),
-  td: (props) => {
+  td: (props: any) => {
     const { cn } = useSystem()
 
     return (
@@ -151,7 +153,6 @@ export const MDXComponents: Record<string, (props: any) => ReactNode> = {
       </tag.div>
     )
   },
-  TokensTable: function Render(props: { type: keyof typeof tokens }) {
-    return <TokensTable items={tokens[props.type]} type={props.type} />
-  },
+  TokensTable: () => <TokensTable items={tokens} />,
+  SemanticTable,
 }

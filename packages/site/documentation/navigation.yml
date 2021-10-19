@@ -13,6 +13,7 @@
     - /contributing/publishing/
 - section: Guidelines
   paths:
+    - /guidelines/design-tokens/
     - /guidelines/theming/
     - /guidelines/responsive-design/
     - /guidelines/styling/
@@ -28,7 +29,6 @@
 - section: Foundations
   paths:
     - /foundations/colors/
-    - /foundations/design-tokens/
 - section: Components
   paths:
     - /alert/

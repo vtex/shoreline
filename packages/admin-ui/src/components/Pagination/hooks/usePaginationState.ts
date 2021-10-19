@@ -80,7 +80,7 @@ export function defaultReducer(
     }
 
     case 'setTotal': {
-      return getState(state.currentPage, action.pageSize, action.total)
+      return getState(1, action.pageSize, action.total)
     }
 
     default:

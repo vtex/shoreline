@@ -7,47 +7,93 @@ path: /guidelines/theming/
 
 The theme object is where you define your application's color palette, type scale, font stacks, breakpoints, border-radius values, and more.
 
-Theming with Admin UI is based on the [Styled System Theme Specification](https://system-ui.com/theme/).
+Theming with Admin UI is inspired by the [Styled System Theme Specification](https://system-ui.com/theme/).
 
-Our library provides a sensible [default theme](https://github.com/vtex/onda/tree/master/styleguides/admin/admin-ui-theme) defined by VTEX designers.
+Our library provides a sensible [default theme](https://github.com/vtex/onda/blob/master/packages/core/src/theme/shape.ts) defined by the design system team.
 
 ## Colors
 
 Color themes are used to reflect a product's style with consistency across all components used on the application. Each color has some specific function when applied to an element on the screen. They can be customized to match the app's style guidelines, reflecting their function.
 
-Our styleguide provides an accessible default palette to get you up and running.
+Our design system provides an accessible default palette to get you up and running. To check how we use them semantically, you can check the [Design Tokens section](/guidelines/design-tokens)
 
-### Light
+<Grid templateColumns="repeat(3, 1fr)" columnGap="4" rowGap="6">
+  <ColorCard color="blue05" name="colors.blue40" />
+  <ColorCard color="blue10" name="colors.blue40" />
+  <ColorCard color="blue20" name="colors.blue40" />
+  <ColorCard color="blue30" name="colors.blue40" />
+  <ColorCard color="blue40" name="colors.blue40" />
+  <ColorCard color="blue50" name="colors.blue40" />
+  <ColorCard color="blue60" name="colors.blue40" />
 
-<Lightcolors></Lightcolors>
+  <ColorCard color="lightBlue05" name="colors.lightBlue05" />
+  <ColorCard color="lightBlue10" name="colors.lightBlue10" />
+  <ColorCard color="lightBlue20" name="colors.lightBlue20" />
+  <ColorCard color="lightBlue30" name="colors.lightBlue30" />
+  <ColorCard color="lightBlue40" name="colors.lightBlue40" />
+  <ColorCard color="lightBlue50" name="colors.lightBlue50" />
+  <ColorCard color="lightBlue60" name="colors.lightBlue60" />
 
-### Mid
+  <ColorCard color="cyan05" name="colors.cyan05" />
+  <ColorCard color="cyan10" name="colors.cyan10" />
+  <ColorCard color="cyan20" name="colors.cyan20" />
+  <ColorCard color="cyan30" name="colors.cyan30" />
+  <ColorCard color="cyan40" name="colors.cyan40" />
+  <ColorCard color="cyan50" name="colors.cyan50" />
+  <ColorCard color="cyan60" name="colors.cyan60" />
 
-<Midcolors></Midcolors>
+  <ColorCard color="teal05" name="colors.teal05" />
+  <ColorCard color="teal10" name="colors.teal10" />
+  <ColorCard color="teal20" name="colors.teal20" />
+  <ColorCard color="teal30" name="colors.teal30" />
+  <ColorCard color="teal40" name="colors.teal40" />
+  <ColorCard color="teal50" name="colors.teal50" />
+  <ColorCard color="teal60" name="colors.teal60" />
 
-### Dark
+  <ColorCard color="green05" name="colors.green05" />
+  <ColorCard color="green10" name="colors.green10" />
+  <ColorCard color="green20" name="colors.green20" />
+  <ColorCard color="green30" name="colors.green30" />
+  <ColorCard color="green40" name="colors.green40" />
+  <ColorCard color="green50" name="colors.green50" />
+  <ColorCard color="green60" name="colors.green60" />
 
-<Darkcolors></Darkcolors>
+  <ColorCard color="orange05" name="colors.orange05" />
+  <ColorCard color="orange10" name="colors.orange10" />
+  <ColorCard color="orange20" name="colors.orange20" />
+  <ColorCard color="orange30" name="colors.orange30" />
+  <ColorCard color="orange40" name="colors.orange40" />
+  <ColorCard color="orange50" name="colors.orange50" />
+  <ColorCard color="orange60" name="colors.orange60" />
 
-### Blue
+  <ColorCard color="pink05" name="colors.pink05" />
+  <ColorCard color="pink10" name="colors.pink10" />
+  <ColorCard color="pink20" name="colors.pink20" />
+  <ColorCard color="pink30" name="colors.pink30" />
+  <ColorCard color="pink40" name="colors.pink40" />
+  <ColorCard color="pink50" name="colors.pink50" />
+  <ColorCard color="pink60" name="colors.pink60" />
 
-<Semanticcolor color="blue"></Semanticcolor>
+  <ColorCard color="red05" name="colors.red05" />
+  <ColorCard color="red10" name="colors.red10" />
+  <ColorCard color="red20" name="colors.red20" />
+  <ColorCard color="red30" name="colors.red30" />
+  <ColorCard color="red40" name="colors.red40" />
+  <ColorCard color="red50" name="colors.red50" />
+  <ColorCard color="red60" name="colors.red60" />
 
-### Red
+  <ColorCard color="white" name="colors.white" />
+  <ColorCard color="grey10" name="colors.grey10" />
+  <ColorCard color="grey20" name="colors.grey20" />
+  <ColorCard color="grey30" name="colors.grey30" />
+  <ColorCard color="grey40" name="colors.grey40" />
+  <ColorCard color="grey50" name="colors.grey50" />
+  <ColorCard color="grey60" name="colors.grey60" />
+  <ColorCard color="grey70" name="colors.grey60" />
+  <ColorCard color="grey80" name="colors.grey60" />
+  <ColorCard color="black" name="colors.black" />
 
-<Semanticcolor color="red"></Semanticcolor>
-
-### Yellow
-
-<Semanticcolor color="yellow"></Semanticcolor>
-
-### Green
-
-<Semanticcolor color="green"></Semanticcolor>
-
-### Complementary
-
-<Complementarycolors></Complementarycolors>
+</Grid>
 
 ## Typography
 
