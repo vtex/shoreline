@@ -93,8 +93,6 @@ export function usePaths() {
     }, [])
   }, [data])
 
-  console.log({ paths })
-
   return {
     data,
     paths,
