@@ -31,8 +31,6 @@ export default function MDXLayout({ data, pageContext }: DocsProps) {
     },
   } = data
 
-  console.log(title)
-
   const { nextPagePath, prevPagePath } = pageContext
 
   return (

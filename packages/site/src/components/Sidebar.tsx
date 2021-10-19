@@ -250,13 +250,14 @@ function Section(props: SectionProps) {
   const { id, section, children, initiallyVisible } = props
   const [visible, setVisible] = React.useState(initiallyVisible)
 
+  const { pathname } = useLocation()
   const { visible: bulkVisible } = useBulkVisible()
 
   React.useEffect(
     function syncStates() {
       setVisible(initiallyVisible || bulkVisible)
     },
-    [bulkVisible, window?.location?.pathname]
+    [bulkVisible, pathname]
   )
 
   return (
