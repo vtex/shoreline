@@ -5,7 +5,7 @@ about: Suggest an idea for the product
 
 # Feature Request
 
-- [ ] I've read and understood the [Contributing guidelines](https://admin-ui-docs.vercel.app/engineering/contributing/) and have done my best effort to follow them.
+- [ ] I've read and understood the [Contributing guidelines](https://admin-ui-docs.vercel.app/contributing/overview/) and have done my best effort to follow them.
 - [ ] I've searched for any related issues and avoided creating a duplicate issue.
 
 ## Is this feature request related to an existing component? Please describe.
