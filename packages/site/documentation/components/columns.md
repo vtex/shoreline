@@ -14,13 +14,13 @@ To create a basic columned layout, add a `<Columns>` component and then add your
 ```jsx
 <Columns spacing={1}>
   <Column>
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
   </Column>
   <Column>
-    <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
   </Column>
   <Column>
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
   </Column>
 </Columns>
 ```
@@ -38,13 +38,13 @@ yarn add @vtex/admin-ui
 ```jsx
 <Columns spacing={1}>
   <Column>
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
   </Column>
   <Column>
-    <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
   </Column>
   <Column>
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
   </Column>
 </Columns>
 ```
@@ -54,13 +54,13 @@ yarn add @vtex/admin-ui
 ```jsx
 <Columns spacing={0}>
   <Column>
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
   </Column>
   <Column>
-    <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
   </Column>
   <Column>
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
   </Column>
 </Columns>
 ```
@@ -70,13 +70,13 @@ yarn add @vtex/admin-ui
 ```jsx
 <Columns spacing={1}>
   <Column units={3}>
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>3 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>3 units</Box>
   </Column>
   <Column units={6}>
-    <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
   </Column>
   <Column units={3}>
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>3 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>3 units</Box>
   </Column>
 </Columns>
 ```
@@ -88,10 +88,10 @@ yarn add @vtex/admin-ui
 ```jsx
 <Columns spacing={1}>
   <Column units={6} offset={['right', 'right', 'none']}>
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
   </Column>
   <Column units={3}>
-    <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>3 units</Box>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>3 units</Box>
   </Column>
 </Columns>
 ```
@@ -101,12 +101,12 @@ yarn add @vtex/admin-ui
 You can use the csx property to handle different styles in both `Columns`, and `Column`.
 
 ```jsx
-<Columns spacing={1} csx={{ bg: 'mid.tertiary' }}>
+<Columns spacing={1}>
   <Column units={6} offset="right">
-    <Box csx={{ bg: 'blue.secondary', padding: 2 }}>6 units</Box>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
   </Column>
   <Column units={3}>
-    <Box csx={{ bg: 'blue.secondary.hover', padding: 2 }}>3 units</Box>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>3 units</Box>
   </Column>
 </Columns>
 ```

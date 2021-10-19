@@ -29,7 +29,7 @@ By default, the orientation property has a `horizontal` value.
 <Card csx={{ width: 500 }}>
   <Set orientation="vertical" spacing={2}>
     <Heading>Tolerance</Heading>
-    <Paragraph csx={{ color: 'mid.primary' }}>
+    <Paragraph csx={{ color: 'muted' }}>
       Allows orders to be placed even if they pass X% of the account`s credit
       limit. Tolerance is set per account.
     </Paragraph>
@@ -39,7 +39,7 @@ By default, the orientation property has a `horizontal` value.
 
   <Set orientation="vertical" spacing={2}>
     <Heading>Automatic account creation</Heading>
-    <Paragraph csx={{ color: 'mid.primary' }}>
+    <Paragraph csx={{ color: 'muted' }}>
       Allows users who have not been previously credited to close a purchase.
     </Paragraph>
   </Set>
@@ -55,7 +55,7 @@ The orientation property can also have a `vertical` value.
   <Columns>
     <Column>
       <Heading>Cards</Heading>
-      <Paragraph csx={{ color: 'mid.primary' }}>
+      <Paragraph csx={{ color: 'muted' }}>
         In Cards, your customer is given autonomy to manage credit cards related
         to his account, and can add, remove or edit credit card data.
       </Paragraph>
@@ -65,7 +65,7 @@ The orientation property can also have a `vertical` value.
 
     <Column>
       <Heading>Personal data</Heading>
-      <Paragraph csx={{ color: 'mid.primary' }}>
+      <Paragraph csx={{ color: 'muted' }}>
         In this section, the user can manage their personal data registered on
         the store site.
       </Paragraph>

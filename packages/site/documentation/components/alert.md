@@ -7,29 +7,42 @@ path: /alert/
 
 Alerts are notifications of mild to high priority. They may inform the user about events they should know, or explain a problem and point out a solution. They may be triggered by a user action or not.
 
-## Import
+## Usage
 
 ```jsx isStatic
 import { Alert } from '@vtex/admin-ui'
+
+function Example() {
+  return <Alert visible>Order successfully placed</Alert>
+}
 ```
 
-## Behavior
+## Examples
+
+### Tone of voice
+
+The alert's [tone of voice](/foundations/colors/#tones) is either `info` (default), `warning`, `possitive`, or `critical`.
 
 ```jsx
 function Example() {
   return (
-    <Alert
-      visible
-      type="success"
-      onDismiss={() => window.alert('Alert dismissed!')}
-    >
-      Order successfully placed
-    </Alert>
+    <Set spacing={2} orientation="vertical" fluid>
+      <Alert visible tone="info">
+        Info Alert
+      </Alert>
+      <Alert visible tone="warning">
+        Warning Alert
+      </Alert>
+      <Alert visible tone="positive">
+        Positive Alert
+      </Alert>
+      <Alert visible tone="critical">
+        Critical Alert
+      </Alert>
+    </Set>
   )
 }
 ```
-
-## Variations
 
 ### Visible
 
@@ -53,31 +66,6 @@ function Example() {
 }
 ```
 
-### Types
-
-There are four types of alerts: `info`, `warning`, `success`, and `error`. By default, it will render an Alert with `type` property set to `warning`.
-
-```jsx
-function Example() {
-  return (
-    <Set spacing={2} orientation="vertical" fluid>
-      <Alert visible type="info">
-        Info Alert
-      </Alert>
-      <Alert visible type="warning">
-        Warning Alert
-      </Alert>
-      <Alert visible type="success">
-        Success Alert
-      </Alert>
-      <Alert visible type="error">
-        Error Alert
-      </Alert>
-    </Set>
-  )
-}
-```
-
 ### Action
 
 You can easily add an action into any `Alert` using the `Anchor` component.
@@ -90,7 +78,7 @@ function Example() {
 
   return (
     <Set spacing={2} orientation="vertical" fluid>
-      <Alert type="success" icon={<IconSuccessColorful />} visible>
+      <Alert tone="positive" icon={<IconSuccessColorful />} visible>
         Order successfully placed <Anchor>See order.</Anchor>
       </Alert>
     </Set>
@@ -127,7 +115,7 @@ Represents whether the height is fluid or not on mobile devices. By default its 
 function Example() {
   return (
     <Box csx={{ width: 300 }}>
-      <Alert visible fluid={false} type="success" onDismiss={() => {}}>
+      <Alert visible fluid={false} tone="positive" onDismiss={() => {}}>
         This account is inactive. Check your billing for more information.
       </Alert>
     </Box>
@@ -142,7 +130,7 @@ The Alert can have a sticky border or not. By default, it will render an Alert w
 ```jsx
 function Example() {
   return (
-    <Alert visible sticky type="success" onDismiss={() => {}}>
+    <Alert visible sticky tone="positive" onDismiss={() => {}}>
       Order successfully placed
     </Alert>
   )
@@ -157,17 +145,17 @@ You can add an icon on the left side of the `Alert`. Just use the `icon` propert
 function Example() {
   return (
     <Set spacing={2} orientation="vertical" fluid>
-      <Alert type="info" icon={<IconHelp />} visible>
+      <Alert tone="info" icon={<IconHelp />} visible>
         Info Alert
       </Alert>
-      <Alert type="success" icon={<IconSuccessColorful />} visible>
-        Success Alert
+      <Alert tone="positive" icon={<IconSuccessColorful />} visible>
+        Positive Alert
       </Alert>
-      <Alert type="warning" icon={<IconWarningColorful />} visible>
+      <Alert tone="warning" icon={<IconWarningColorful />} visible>
         Warning Alert
       </Alert>
-      <Alert type="error" icon={<IconErrorColorful />} visible>
-        Error Alert
+      <Alert tone="critical" icon={<IconErrorColorful />} visible>
+        Critical Alert
       </Alert>
     </Set>
   )
@@ -176,13 +164,13 @@ function Example() {
 
 ## Props
 
-| Name      | Type          | Description                                   | Required  | Default |
-| --------- | ------------- | --------------------------------------------- | --------- | ------- | --------------- | --- | ---- |
-| csx       | `StyleObject` | Custom styles                                 | 🚫        | {}      |
-| icon      | `ReactNode`   | Icon to display                               | 🚫        | -       |
-| onDismiss | `() => void`  | Action to dispatch on dismiss                 | 🚫        | -       |
-| visible   | `boolean`     | Whether it's visible or not                   | 🚫        | false   |
-| type      | `'error'      | 'success'                                     | 'warning' | 'info'` | Icon to display | 🚫  | info |
-| children  | `ReactNode`   | Component children                            | 🚫        | -       |
-| sticky    | `boolean`     | Whether it's sticky or not                    | 🚫        | false   |
-| fluid     | `boolean`     | Whether the height is fluid on mobile devices | 🚫        | true    |
+| Name      | Type                                   | Description                                   | Required | Default |
+| --------- | -------------------------------------- | --------------------------------------------- | -------- | ------- |
+| csx       | `StyleObject`                          | Custom styles                                 | 🚫       | `{}`    |
+| icon      | `ReactNode`                            | Icon to display                               | 🚫       | -       |
+| onDismiss | `() => void`                           | Action to dispatch on dismiss                 | 🚫       | -       |
+| visible   | `boolean`                              | Whether it's visible or not                   | 🚫       | `false` |
+| tone      | `info, positive, warning, or critical` | Tone of voice                               | 🚫       | `info`  |
+| children  | `ReactNode`                            | Component children                            | 🚫       | -       |
+| sticky    | `boolean`                              | Whether it's sticky or not                    | 🚫       | `false` |
+| fluid     | `boolean`                              | Whether the height is fluid on mobile devices | 🚫       | `true`  |

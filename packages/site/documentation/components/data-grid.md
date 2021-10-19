@@ -367,13 +367,7 @@ function Example() {
            */
           render: function Render({ data }) {
             return (
-              <tag.p
-                csx={{
-                  color: Number(data) > 0 ? 'blue' : 'red',
-                }}
-              >
-                {data}
-              </tag.p>
+              <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
             )
           },
         },
@@ -873,14 +867,14 @@ function WithToolbar() {
         <Toolbar state={toolbar}>
           <ToolbarButton
             size="small"
-            variant="adaptative-dark"
+            variant="text"
             icon={<IconImport />}
           >
             Import
           </ToolbarButton>
           <ToolbarButton
             size="small"
-            variant="adaptative-dark"
+            variant="text"
             icon={<IconExport />}
           >
             Export
@@ -1144,14 +1138,14 @@ function WithFullTopbar() {
         <Toolbar state={toolbar} aria-label="Toolbar">
           <ToolbarButton
             size="small"
-            variant="adaptative-dark"
+            variant="text"
             icon={<IconImport />}
           >
             Import
           </ToolbarButton>
           <ToolbarButton
             size="small"
-            variant="adaptative-dark"
+            variant="text"
             icon={<IconExport />}
           >
             Export

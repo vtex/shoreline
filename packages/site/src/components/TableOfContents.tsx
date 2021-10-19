@@ -80,7 +80,7 @@ function renderItems(items: any[], activeId: string) {
             <tag.a
               href={item.url}
               csx={{
-                color: isActive(item) ? 'highlight' : 'muted',
+                color: isActive(item) ? 'base' : 'muted',
                 fontSettings: isActive(item) ? 'medium' : 'regular',
                 transform: isActive(item) ? 'scale(1.1)' : 'scale(1.0)',
                 transformOrigin: 'left bottom',

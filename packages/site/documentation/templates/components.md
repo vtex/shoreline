@@ -12,6 +12,10 @@ Use this template to fill all the information about each component. Not all fiel
 // Code Sample with import
 ```
 
+# Alternatives
+
+- Component - 
+
 ## Composition
 
 | Name | Description |

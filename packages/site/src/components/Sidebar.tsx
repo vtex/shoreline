@@ -13,28 +13,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
-import { useSearchContext } from './Search'
 import useLocation from '../hooks/useLocation'
-
-const query = graphql`
-  query DocsQuery {
-    allNavigationYaml {
-      nodes {
-        section
-        paths
-      }
-    }
-    allMdx {
-      nodes {
-        frontmatter {
-          title
-          path
-          fullPage
-        }
-      }
-    }
-  }
-`
 
 interface Data {
   allNavigationYaml: {
@@ -72,15 +51,61 @@ function useBulkVisible() {
   return ctx
 }
 
+const findMeta = (data: Data, path: string) =>
+  data.allMdx.nodes.find((node) => node.frontmatter.path === path)
+
+const getTitle = (data: Data, path: string) =>
+  findMeta(data, path)?.frontmatter?.title ?? ''
+
+export function usePaths() {
+  const data: Data = useStaticQuery(graphql`
+    query DocsQuery {
+      allNavigationYaml {
+        nodes {
+          section
+          paths
+        }
+      }
+      allMdx {
+        nodes {
+          frontmatter {
+            title
+            path
+            fullPage
+          }
+        }
+      }
+    }
+  `)
+
+  const paths = useMemo(() => {
+    return data.allNavigationYaml.nodes.reduce<
+      Array<{ title: string; to: string }>
+    >((acc, node) => {
+      const nodePaths = node.paths.map((path) => {
+        return {
+          title: getTitle(data, path),
+          to: path,
+        }
+      })
+
+      return [...acc, ...nodePaths]
+    }, [])
+  }, [data])
+
+  console.log({ paths })
+
+  return {
+    data,
+    paths,
+  }
+}
+
 export function Sidebar() {
-  const data: Data = useStaticQuery(query)
+  const { data } = usePaths()
   const { id: baseId } = useId({ baseId: 'docs-navigation' })
   const getId = (section: string) => `${baseId}-${kebabCase(section)}`
-  const findMeta = (path: string) =>
-    data.allMdx.nodes.find((node) => node.frontmatter.path === path)
 
-  const getTitle = (path: string) => findMeta(path)?.frontmatter?.title ?? ''
-  const search = useSearchContext()
   const [bulkVisible, setBulkVisile] = React.useState(false)
   const { pathname } = useLocation()
 
@@ -133,75 +158,67 @@ export function Sidebar() {
           </ButtonGhost>
         </tag.div>
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
-          const paths = node.paths
-            .filter((path) =>
-              search.debouncedValue !== ''
-                ? getTitle(path)
-                    .toLocaleLowerCase()
-                    .includes(search.debouncedValue.toLowerCase())
-                : path
-            )
-            .map((path) => (
-              <Flex
-                as="li"
-                key={path}
-                justify="space-between"
+          const paths = node.paths.map((path) => (
+            <Flex
+              as="li"
+              key={path}
+              justify="space-between"
+              csx={{
+                listStyle: 'none',
+                width: '100%',
+              }}
+            >
+              <tag.a
+                as={Link}
                 csx={{
-                  listStyle: 'none',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  borderRadius: 'default',
+                  alignItems: 'center',
+                  height: 32,
+                  paddingX: 2,
                   width: '100%',
+                  textDecoration: 'none',
+                  color: 'sidebar',
+                  cursor: 'pointer',
+                  marginBottom: 1,
+                  lineHeight: 1.4,
+                  ':hover:not(:focus)': {
+                    color: 'listBoxItem.mainHover',
+                    bg: 'listBoxItem.mainHover',
+                    borderColor: (theme) =>
+                      get(theme, 'foreground.listBoxItem.mainHover'),
+                    borderLeft: '2px solid',
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  },
+                  ':active': {
+                    bg: 'listBoxItem.mainPressed',
+                    color: 'listBoxItem.mainPressed',
+                    borderColor: (theme) =>
+                      get(theme, 'foreground.listBoxItem.mainPressed'),
+                    borderLeft: '2px solid',
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  },
+                  '&[aria-current="page"]': {
+                    borderLeft: '2px solid',
+                    bg: 'listBoxItem.mainSelected',
+                    color: 'listBoxItem.mainSelected',
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  },
+                  ':focus': {
+                    color: 'listBoxItem.mainHover',
+                    outline: 'none',
+                  },
                 }}
+                to={path}
               >
-                <tag.a
-                  as={Link}
-                  csx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    borderRadius: 'default',
-                    alignItems: 'center',
-                    height: 32,
-                    paddingX: 2,
-                    width: '100%',
-                    textDecoration: 'none',
-                    color: 'sidebar',
-                    cursor: 'pointer',
-                    marginBottom: 1,
-                    lineHeight: 1.4,
-                    ':hover:not(:focus)': {
-                      color: 'listBoxItem.mainHover',
-                      bg: 'listBoxItem.mainHover',
-                      borderColor: (theme) =>
-                        get(theme, 'foreground.listBoxItem.mainHover'),
-                      borderLeft: '2px solid',
-                      borderTopLeftRadius: 0,
-                      borderBottomLeftRadius: 0,
-                    },
-                    ':active': {
-                      bg: 'listBoxItem.mainPressed',
-                      color: 'listBoxItem.mainPressed',
-                      borderColor: (theme) =>
-                        get(theme, 'foreground.listBoxItem.mainPressed'),
-                      borderLeft: '2px solid',
-                      borderTopLeftRadius: 0,
-                      borderBottomLeftRadius: 0,
-                    },
-                    '&[aria-current="page"]': {
-                      borderLeft: '2px solid',
-                      bg: 'listBoxItem.mainSelected',
-                      color: 'listBoxItem.mainSelected',
-                      borderTopLeftRadius: 0,
-                      borderBottomLeftRadius: 0,
-                    },
-                    ':focus': {
-                      color: 'listBoxItem.mainHover',
-                      outline: 'none',
-                    },
-                  }}
-                  to={path}
-                >
-                  {getTitle(path)}
-                </tag.a>
-              </Flex>
-            ))
+                {getTitle(data, path)}
+              </tag.a>
+            </Flex>
+          ))
 
           if (paths.length > 0) {
             return [
@@ -241,7 +258,7 @@ function Section(props: SectionProps) {
     function syncStates() {
       setVisible(initiallyVisible || bulkVisible)
     },
-    [bulkVisible]
+    [bulkVisible, window?.location?.pathname]
   )
 
   return (
@@ -282,6 +299,7 @@ function Section(props: SectionProps) {
         <IconCaret
           csx={{
             zIndex: 1,
+            color: 'muted',
           }}
           direction={visible ? 'up' : 'down'}
         />

@@ -38,7 +38,7 @@ export default function MDXLayout({ data, pageContext }: DocsProps) {
   return (
     <>
       <Seo title={`Admin UI - ${title}`} description={excerpt} />
-      <tag.div csx={{ paddingX: 2 }}>
+      <tag.div csx={{ paddingX: 3 }}>
         <MDXProvider components={MDXComponents}>
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>

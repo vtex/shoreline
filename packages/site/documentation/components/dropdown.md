@@ -40,7 +40,7 @@ import { Dropdown, useDropdownState } from '@vtex/admin-ui'
 
 ### Variant
 
-In the same way as the [buttons](https://admin-ui-docs.vercel.app/button/), the `variant` prop represents the appearance of the Dropdown, indicating whether is a `primary`, `secondary`, or a `tertiary` action. By default, it will render a `primary` dropdown.
+In the same way as the [buttons](/button/), the `variant` prop represents the appearance of the Dropdown, indicating whether is a `solid` (default), `soft`, or a `text` action.
 
 ```jsx
 function Example() {
@@ -66,13 +66,13 @@ function Example() {
     <Set spacing={3}>
       <Dropdown items={species} state={speciesState} label="Species" />
       <Dropdown
-        variant="secondary"
+        variant="soft"
         items={brewMethods}
         state={brewState}
         label="Methods"
       />
       <Dropdown
-        variant="tertiary"
+        variant="text"
         items={recipes}
         state={recipesState}
         label="Recipes"

@@ -21,13 +21,17 @@ function Example() {
 
 ### Palette
 
-The `Avatar` can be rendered in multiple palettes, this means that the `color` and `background-color` properties change according to its `palette` property value. It has `base` value by default.
+The `Avatar` can be rendered in multiple palettes, this means that the `color` and `background-color` properties change according to its `palette` property value. It has `lightBlue` value by default.
 
 ```jsx
 <Set>
-  <Avatar label="base" />
-  <Avatar label="primary" palette="primary" />
-  <Avatar label="danger" palette="danger" />
+  <Avatar label="lightBlue" />
+  <Avatar label="green" palette="green" />
+  <Avatar label="orange" palette="orange" />
+  <Avatar label="cyan" palette="cyan" />
+  <Avatar label="purple" palette="purple" />
+  <Avatar label="teal" palette="teal" />
+  <Avatar label="grey" palette="grey" />
 </Set>
 ```
 
@@ -35,8 +39,8 @@ The `Avatar` can be rendered in multiple palettes, this means that the `color` a
 
 It also receive all props of `div` JSX element.
 
-| Name    | Type        | Description                                        | Required  | Default      |
-| ------- | ----------- | -------------------------------------------------- | --------- | ------------ | --- | -------- |
-| label   | `string`    | String that will have its first letter capitalized | ✅        | -            |
-| palette | `'base'     | 'primary'                                          | 'danger'` | Avatar theme | 🚫  | `'base'` |
-| csx     | `StyleProp` | Defines component styles                           | 🚫        | `{}`         |
+| Name    | Type                                                   | Description                                        | Required | Default     |
+| ------- | ------------------------------------------------------ | -------------------------------------------------- | -------- | ----------- |
+| label   | `string`                                               | String that will have its first letter capitalized | ✅       | -           |
+| palette | `lightBlue, green, orange, cyan, purple, teal or grey` | Avatar theme                                       | 🚫       | `lightBlue` |
+| csx     | `StyleProp`                                            | Defines component styles                           | 🚫       | `{}`        |
