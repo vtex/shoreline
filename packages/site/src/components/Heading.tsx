@@ -54,6 +54,7 @@ function Heading(props: Props) {
 
   return (
     <BaseHeading
+      as={as}
       csx={{
         fontSize,
         fontSettings,

@@ -200,7 +200,7 @@ Always prefer to use tokens instead of hardcoded values
 // ✅ Good
 <tag.div
   csx={{
-    color: 'light.primary',
+    color: 'base',
     padding: 2,
   }}
 />
@@ -231,7 +231,7 @@ Prefer props composition and shorthands.
 // 🚨 Not wrong, but can improve
 <tag.div
   csx={{
-    backgroundColor: 'light.primary',
+    backgroundColor: 'base',
     paddingLeft: 2,
     paddingRight: 2,
     height: '20rem',
@@ -290,7 +290,7 @@ While coding an app it doesn't matter, but if you are within a library this is a
     padding: 2,
   }}
 >
-  <tag.h1 csx={{ color: 'dark.primary' }}>
+  <tag.h1 csx={{ color: 'base' }}>
     Title
   </tag.h1>
 </tag.div>
@@ -300,7 +300,7 @@ While coding an app it doesn't matter, but if you are within a library this is a
   csx={{
     padding: 2,
     h1: {
-      color: 'dark.primary'
+      color: 'base'
     }
   }}
 >

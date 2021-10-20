@@ -31,8 +31,7 @@ In the example below, the `<Box>` has full width while on `mobile`, and half on 
   csx={{
     width: ['full', '1/2'],
     padding: 4,
-    bg: 'blue',
-    color: 'light.primary',
+    ...palette('teal')
   }}
 />
 ```
@@ -46,8 +45,7 @@ If you want to skip a breakpoint, you can use the value `null`. This is useful i
   csx={{
     width: [null, null, 'full'],
     padding: 4,
-    color: 'light.primary',
-    bg: 'dark.primary',
+    ...palette('purple')
   }}
 />
 ```
@@ -61,10 +59,10 @@ For example, you can use the alias `@tablet` if you want to apply specific style
 ```jsx
 <Box
   csx={{
-    bg: 'yellow',
-    '@tablet': { bg: 'green' },
-    '@desktop': { bg: 'blue' },
-    '@widescreen': { bg: 'red' },
+    ...palette('pink'),
+    '@tablet': { ...palette('orange'), },
+    '@desktop': { ...palette('teal'), },
+    '@widescreen': { ...palette('cyan'), },
   }}
 >
   Box

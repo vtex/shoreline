@@ -3,6 +3,7 @@ import type { Palette, Tone } from './types'
 import type { StyleProp } from '../runtime'
 import { colors } from './colors'
 import { paletteMap } from './types'
+import type { ColorTokens } from '.'
 
 function createStyleKit() {
   function ring(tone: Tone) {
@@ -13,6 +14,25 @@ function createStyleKit() {
     return {
       bg: get(colors, `${color}10`, ''),
       color: get(colors, `${color}60`, ''),
+    }
+  }
+
+  function color(token: ColorTokens) {
+    return get(colors, token, '')
+  }
+
+  function listBoxItem(tone: 'main' | 'critical', selected = false) {
+    return {
+      bg: `listBoxItem.${tone}${selected ? 'Selected' : ''}`,
+      color: `listBoxItem.${tone}${selected ? 'Selected' : ''}`,
+      ':hover': {
+        bg: `listBoxItem.${tone}Hover`,
+        color: `listBoxItem.${tone}Hover`,
+      },
+      ':pressed': {
+        bg: `listBoxItem.${tone}Pressed`,
+        color: `listBoxItem.${tone}Pressed`,
+      },
     }
   }
 
@@ -32,10 +52,12 @@ function createStyleKit() {
   return {
     ring,
     palette,
+    color,
+    listBoxItem,
     focusVisible,
   }
 }
 
-const { ring, palette, focusVisible } = createStyleKit()
+const { ring, palette, focusVisible, color, listBoxItem } = createStyleKit()
 
-export { ring, palette, focusVisible }
+export { ring, palette, focusVisible, color, listBoxItem }

@@ -7,14 +7,19 @@ export default function List(props: ListProps) {
     <Box
       csx={{
         lineHeight: 1.5,
+        borderLeft: '1px solid #2121',
         li: {
           marginBottom: 2,
+          marginLeft: 3,
+          '&::marker': {
+            color: 'muted',
+          },
         },
         '#props ~ &, #props ~ details > &': {
           '> li': {
             marginBottom: 6,
             li: {
-              margin: 0,
+              margin: 2,
             },
             'strong ~ code': {
               color: 'indianred',

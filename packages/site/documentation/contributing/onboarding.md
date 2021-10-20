@@ -1,9 +1,9 @@
 ---
-title: Overview
-path: /contributing/overview/
+title: Onboarding
+path: /contributing/onboarding/
 ---
 
-# Overview
+# Onboarding
 
 VTEX Admin v4 is a collaborative effort. We want to make contributing to this project as easy and transparent as possible, and this document aims to guide you through the process. If your questions weren't clarified here, feel free to reach us at #dev-design-system. Follow the steps below to contribute to our VTEX Admin v4's development.
 
@@ -28,23 +28,25 @@ It is essential that all commits follow an established convention. We ask you to
 
 Follow the instructions below to get started on development.
 
-### 1. Getting started
+### Getting started
 
 1.  Clone the repository `vtex/onda`.
 2.  Run `yarn` to fetch its dependencies.
 3.  Run commands of your choosing.
 4.  Run `yarn test`.
 
-**Available Commands:**
+#### Scripts
 
-- `yarn build`: builds the entire repository and its packages
-- `yarn test`: runs the complete test suite
-- `yarn lint`: checks the code style
-- `yarn site`: runs the documentation site locally
-- `yarn build:site`: builds the documentation site
-- `yarn storybook`: runs the storybook locally
-- `yarn buid:storybook`: builds storybook
-- `yarn commit`: runs the git-cz cli
+| Command               | Description                                   |
+| --------------------- | --------------------------------------------- |
+| `yarn build`          | Builds the entire repository and its packages |
+| `yarn test`           | Runs the complete test suite                  |
+| `yarn lint`           | Checks the code style                         |
+| `yarn site`           | Runs the documentation site locally           |
+| `yarn build:site`     | Builds the documentation site                 |
+| `yarn storybook`      | Runs the storybook locally                    |
+| `yarn buid:storybook` | Builds storybook                              |
+| `yarn commit`         | Runs the git-cz cli                           |
 
 ### Your First Pull Request
 
@@ -66,14 +68,3 @@ Before submitting a pull request:, please make sure the following is done:
 6.  Format your code with prettier (yarn prettier).
 7.  Make sure your code lints (yarn lint).
 8.  Run `yarn build`, yarn `build:storybook` or `yarn build:site` to ensure that the builds are still working.
-
-### Publishing Packages
-
-We use Lerna combined with the Conventional Commits to publish our packages.
-
-- `fix::` a commit of the type fix patches a bug in your codebase. It will relase a `PATCH` version.
-- `feat::` a commit of the type feat introduces a new feature to the codebase. It will release a `MINOR` version.
-
-**Publish commands**
-
-- yarn publish:packages: runs the lerna publish: command, and if it has a fix or a feat commit it will release a new version of the package changed.

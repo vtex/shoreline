@@ -155,4 +155,13 @@ export const MDXComponents = {
   },
   TokensTable: () => <TokensTable items={tokens} />,
   SemanticTable,
+  img: (props: any) => (
+    <tag.img
+      csx={{
+        width: '100%',
+        borderRadius: 4,
+      }}
+      {...props}
+    />
+  ),
 }
