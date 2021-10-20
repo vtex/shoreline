@@ -1,7 +1,7 @@
 - section: Introduction
   paths:
     - /introduction/about/
-    - /introduction/can-i-use/
+    - /introduction/components-status/
     - /introduction/comparison/
 - section: Getting started
   paths:

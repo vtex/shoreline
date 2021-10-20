@@ -7,6 +7,7 @@ import {
   Box,
   palette,
   get,
+  Text,
 } from '@vtex/admin-ui'
 
 import Anchor from './Anchor'
@@ -16,11 +17,13 @@ import { Blockquote } from './Blockquote'
 import Heading from './Heading'
 import { ColorCard } from './ColorCard'
 import { tokens, TokensTable } from './TokensTable'
+import { componentsStatus, StatusTable } from './StatusTable'
 import { SemanticTable } from './SemanticTable'
 import { Code } from './Code'
 import { TypefaceShowcase } from './TypefaceShowcase'
 
 export const MDXComponents = {
+  Text,
   Grid: (props: any) => <Grid {...props} csx={{ marginY: 4, ...props?.csx }} />,
   Box,
   a: Anchor,
@@ -156,6 +159,7 @@ export const MDXComponents = {
     )
   },
   TokensTable: () => <TokensTable items={tokens} />,
+  StatusTable: () => <StatusTable items={componentsStatus} />,
   SemanticTable,
   img: (props: any) => (
     <tag.img
