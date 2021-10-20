@@ -1,6 +1,6 @@
 ---
 title: Anchor
-path: /typography/anchor/
+path: /anchor/
 ---
 
 # Anchor
@@ -11,7 +11,7 @@ Component to create an anchor.
 
 ```jsx
 <Box styles={{ width: 300 }}>
-  <Anchor href="/typography/anchor/#behavior">Link</Anchor>
+  <Anchor href="/anchor/#behavior">Link</Anchor>
 </Box>
 ```
 

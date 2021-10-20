@@ -1,6 +1,6 @@
 ---
 title: Paragraph
-path: /typography/paragraph/
+path: /paragraph/
 ---
 
 # Paragraph
@@ -36,7 +36,7 @@ import { Paragraph, ParagraphProps } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `csx` property to handle different styles, and also the `TextPattern` and `SpaceStyleProps`.
+You can use the `csx` property to handle different styles, and also the `TextPattern`.
 
 ### Example
 
@@ -44,7 +44,7 @@ You can use the `csx` property to handle different styles, and also the `TextPat
 <Paragraph
   text="body"
   padding={6}
-  csx={{ bg: 'light.secondary', color: 'blue' }}
+  csx={{ bg: 'muted', color: 'muted' }}
 >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a aliquam
   ex, quis pretium enim. Sed cursus quam ac lorem efficitur, ac sodales lorem

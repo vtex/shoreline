@@ -1,27 +1,50 @@
 ---
 title: Text
-path: /typography/text/
+path: /text/
 ---
 
 # Text
 
 By default `<Text>` renders a `<span>` or a specific text element, like `<i>`, `<kbd>`, `<strong>`, etc. You can apply all `TextVariants` using the `variant` prop.
 
-## Behavior
-
-```jsx
-<Text variant="headline">Headline</Text>
-```
-
-## Import
+## Usage
 
 ```jsx isStatic
 import { Text } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <Text variant="headline">Headline</Text>
+  )
+}
 ```
 
-## Variation
+## Examples
 
-### Small
+### Tone of voice
+
+Text tone of voice
+
+```jsx
+<Box
+  csx={{
+    '> *': {
+      display: 'block',
+    },
+  }}
+>
+  <Text tone="neutral">Default text</Text>
+  <Text tone="muted">Muted text</Text>
+  <Text tone="info">Info text</Text>
+  <Text tone="critical">Critical text</Text>
+  <Text tone="warning">Warning text</Text>
+  <Text tone="positive">Positive text</Text>
+</Box>
+```
+
+### Variant
+
+#### Small
 
 ```jsx isStatic
 lineHeight: 'small', // 1.125
@@ -33,7 +56,7 @@ fontSize: 0, // 0.75rem
 <Text variant="small">Here goes your text!</Text>
 ```
 
-### Body
+#### Body
 
 ```jsx isStatic
 lineHeight: 'body', // 1.25
@@ -45,7 +68,7 @@ fontSize: 1, // 0.875rem
 <Text variant="body">Here goes your text!</Text>
 ```
 
-### Highlight
+#### Highlight
 
 ```jsx isStatic
 lineHeight: 'highlight', // 1.25
@@ -57,7 +80,7 @@ fontSize: 1, // 0.875rem
 <Text variant="highlight">Here goes your text!</Text>
 ```
 
-### Action
+#### Action
 
 ```jsx isStatic
 lineHeight: 'action', // 1.5
@@ -70,7 +93,7 @@ textTransform: 'uppercase',
 <Text variant="action">Here goes your text!</Text>
 ```
 
-### Subtitle
+#### Subtitle
 
 ```jsx isStatic
 lineHeight: 'subtitle', // 1.5
@@ -82,7 +105,7 @@ fontSize: 2, // 1rem
 <Text variant="subtitle">Here goes your text!</Text>
 ```
 
-### Headline
+#### Headline
 
 ```jsx isStatic
 lineHeight: 'headline', // 1.5
@@ -92,39 +115,6 @@ fontSize: 4, // 1.25rem
 
 ```jsx
 <Text variant="headline">Here goes your text!</Text>
-```
-
-### Feedback
-
-Feedback that the text should pass.
-
-```jsx
-<Box
-  csx={{
-    '> *': {
-      display: 'block',
-    },
-  }}
->
-  <Text>Default text</Text>
-  <Text feedback="secondary">Secondary text</Text>
-  <Text feedback="primary">Primary text</Text>
-  <Text feedback="danger">Danger text</Text>
-  <Text feedback="warning">Warning text</Text>
-  <Text feedback="success">Success text</Text>
-</Box>
-```
-
-## Customization
-
-You can use the `csx` property to handle different styles.
-
-### Example
-
-```jsx
-<Text csx={{ color: 'blue.hover' }} variant="body" as="span">
-  Look, a text with 'blue.hover' color... 🤔
-</Text>
 ```
 
 ## Props

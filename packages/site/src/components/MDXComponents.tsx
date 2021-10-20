@@ -18,12 +18,14 @@ import { ColorCard } from './ColorCard'
 import { tokens, TokensTable } from './TokensTable'
 import { SemanticTable } from './SemanticTable'
 import { Code } from './Code'
+import { TypefaceShowcase } from './TypefaceShowcase'
 
 export const MDXComponents = {
   Grid: (props: any) => <Grid {...props} csx={{ marginY: 4, ...props?.csx }} />,
   Box,
   a: Anchor,
   ColorCard,
+  TypefaceShowcase,
   p: (props: any) => (
     <Paragraph
       csx={{

@@ -1,6 +1,6 @@
 ---
 title: Heading
-path: /typography/heading/
+path: /heading/
 ---
 
 # Heading
@@ -32,18 +32,6 @@ import { Heading } from '@vtex/admin-ui'
   <Heading as="h5">Heading 5</Heading>
   <Heading as="h6">Heading 6</Heading>
 </Set>
-```
-
-## Customization
-
-You can use the `csx` property to handle different styles, and also the `TextPattern` and `SpaceStyleProps`.
-
-### Example
-
-```jsx
-<Heading csx={{ fontSize: 4, bg: 'light.secondary', color: 'blue' }}>
-  Heading 1
-</Heading>
 ```
 
 ## Props

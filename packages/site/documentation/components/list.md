@@ -1,6 +1,6 @@
 ---
 title: List
-path: /typography/list/
+path: /list/
 ---
 
 # List
@@ -51,7 +51,7 @@ You can use the `csx` property to handle different styles.
 
 ```jsx
 <List style="square">
-  <List.Item csx={{ bg: 'blue', color: 'light.primary' }}>Coffe</List.Item>
+  <List.Item csx={{ bg: 'muted', color: 'muted' }}>Coffe</List.Item>
   <List>
     <List.Item>Arabica</List.Item>
     <List.Item>Robusta</List.Item>
