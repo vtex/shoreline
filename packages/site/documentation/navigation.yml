@@ -21,7 +21,6 @@
 - section: Foundations
   paths:
     - /foundations/colors/
-    - /foundations/design-tokens/
     - /foundations/typography/
 - section: Components
   paths:

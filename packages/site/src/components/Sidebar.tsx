@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import React, { createContext, useMemo } from 'react'
+import React, { createContext, useMemo, useState } from 'react'
 import {
   Flex,
   IconCaret,
@@ -13,7 +13,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
-import useLocation from '../hooks/useLocation'
+import { useLocation } from '../hooks/useLocation'
 
 interface Data {
   allNavigationYaml: {
@@ -248,16 +248,14 @@ interface SectionProps {
 
 function Section(props: SectionProps) {
   const { id, section, children, initiallyVisible } = props
-  const [visible, setVisible] = React.useState(initiallyVisible)
-
-  const { pathname } = useLocation()
+  const [visible, setVisible] = useState(initiallyVisible)
   const { visible: bulkVisible } = useBulkVisible()
 
   React.useEffect(
     function syncStates() {
       setVisible(initiallyVisible || bulkVisible)
     },
-    [bulkVisible, pathname]
+    [bulkVisible, initiallyVisible]
   )
 
   return (
