@@ -1,4 +1,4 @@
-import { theme, merge } from '@vtex/admin-ui'
+import { theme, merge, color } from '@vtex/admin-ui'
 
 export default merge(theme, {
   shadows: {
@@ -158,6 +158,9 @@ export default merge(theme, {
   colors: {
     purple: '#805ad5',
     rebelPink: '#F71963',
+  },
+  borderColor: {
+    nestedContent: color('grey20'),
   },
   sizes: {
     header: '4.5rem',

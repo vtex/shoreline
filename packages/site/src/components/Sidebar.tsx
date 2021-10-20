@@ -302,7 +302,13 @@ function Section(props: SectionProps) {
         />
       </tag.button>
       {visible && (
-        <tag.ul csx={{ padding: 0, borderLeft: '1px solid #2121' }}>
+        <tag.ul
+          csx={{
+            padding: 0,
+            borderLeft: '1px solid',
+            borderLeftColor: 'nestedContent',
+          }}
+        >
           {children}
         </tag.ul>
       )}

@@ -7,7 +7,8 @@ export default function List(props: ListProps) {
     <Box
       csx={{
         lineHeight: 1.5,
-        borderLeft: '1px solid #2121',
+        borderLeft: '1px solid',
+        borderLeftColor: 'nestedContent',
         li: {
           marginBottom: 2,
           marginLeft: 3,
