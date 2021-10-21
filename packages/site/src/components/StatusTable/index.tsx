@@ -1,20 +1,15 @@
 import type { ReactNode } from 'react'
 import React, { useEffect } from 'react'
+
 import {
   useDataGridState,
-  DataGrid,
   useDataViewState,
   useSearchState,
-  DataView,
-  DataViewControls,
-  Search,
   useDropdownState,
   usePaginationState,
-  Dropdown,
-  FlexSpacer,
-  Pagination,
   Tag,
 } from '@vtex/admin-ui'
+import { FilterDataGrid } from '../FilterDataGrid'
 
 interface StatusTableProps {
   items: Array<{
@@ -34,7 +29,7 @@ const filters = [
 ]
 
 export function StatusTable(props: StatusTableProps) {
-  const view = useDataViewState()
+  const dataView = useDataViewState()
   const search = useSearchState()
   const { items = [] } = props
 
@@ -64,12 +59,12 @@ export function StatusTable(props: StatusTableProps) {
 
   useEffect(() => {
     if (!searchedItems.length) {
-      view.setStatus({
+      dataView.setStatus({
         type: 'not-found',
         message: 'The component you are looking for does not exist',
       })
     } else {
-      view.setStatus({
+      dataView.setStatus({
         type: 'ready',
       })
     }
@@ -80,7 +75,7 @@ export function StatusTable(props: StatusTableProps) {
     total: searchedItems.length,
   })
 
-  const state = useDataGridState({
+  const dataGrid = useDataGridState({
     density: 'variable',
     columns: [
       {
@@ -123,39 +118,14 @@ export function StatusTable(props: StatusTableProps) {
   })
 
   return (
-    <DataView state={view}>
-      <DataViewControls>
-        <DataViewControls>
-          <Search id="search" placeholder="Search" state={search} />
-          <Dropdown
-            label="Status"
-            state={dropdown}
-            items={filters}
-            csx={{
-              color: 'action.neutral.ghost',
-              bg: 'action.neutral.ghost',
-              ':hover': {
-                color: 'action.neutral.ghostHover',
-                bg: 'action.neutral.ghostHover',
-              },
-              ':active': {
-                color: 'action.neutral.ghostPressed',
-                bg: 'action.neutral.ghostPressed',
-              },
-            }}
-          />
-          <FlexSpacer />
-          <Pagination
-            state={pagination}
-            preposition="of"
-            subject="results"
-            prevLabel="Previous"
-            nextLabel="Next"
-          />
-        </DataViewControls>
-      </DataViewControls>
-      <DataGrid state={state} />
-    </DataView>
+    <FilterDataGrid
+      filters={filters}
+      pagination={pagination}
+      dataGrid={dataGrid}
+      dataView={dataView}
+      search={search}
+      dropdown={dropdown}
+    />
   )
 }
 

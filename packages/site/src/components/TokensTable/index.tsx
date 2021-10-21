@@ -1,28 +1,22 @@
 import React, { useEffect } from 'react'
 import {
   useDataGridState,
-  DataGrid,
   useDataViewState,
   useSearchState,
-  DataView,
-  DataViewControls,
-  Search,
   tag,
   get,
   theme,
   Text,
-  Dropdown,
+  Flex,
   useDropdownState,
   usePaginationState,
-  FlexSpacer,
-  Flex,
-  Pagination,
 } from '@vtex/admin-ui'
+import { FilterDataGrid } from '../FilterDataGrid'
 
 const filters = ['All', 'Background', 'Foreground', 'BorderColor', 'Shadows']
 
 export function TokensTable(props: TokensTableProps) {
-  const view = useDataViewState()
+  const dataView = useDataViewState()
   const search = useSearchState()
   const { items = [] } = props
 
@@ -55,12 +49,12 @@ export function TokensTable(props: TokensTableProps) {
 
   useEffect(() => {
     if (!searchedItems.length) {
-      view.setStatus({
+      dataView.setStatus({
         type: 'not-found',
         message: 'The token you are looking for does not exist',
       })
     } else {
-      view.setStatus({
+      dataView.setStatus({
         type: 'ready',
       })
     }
@@ -71,7 +65,7 @@ export function TokensTable(props: TokensTableProps) {
     total: searchedItems.length,
   })
 
-  const state = useDataGridState({
+  const dataGrid = useDataGridState({
     density: 'variable',
     columns: [
       {
@@ -138,37 +132,14 @@ export function TokensTable(props: TokensTableProps) {
   })
 
   return (
-    <DataView state={view}>
-      <DataViewControls>
-        <Search id="search" placeholder="Search" state={search} />
-        <Dropdown
-          label="Tokens Type"
-          state={dropdown}
-          items={filters}
-          csx={{
-            color: 'action.neutral.ghost',
-            bg: 'action.neutral.ghost',
-            ':hover': {
-              color: 'action.neutral.ghostHover',
-              bg: 'action.neutral.ghostHover',
-            },
-            ':active': {
-              color: 'action.neutral.ghostPressed',
-              bg: 'action.neutral.ghostPressed',
-            },
-          }}
-        />
-        <FlexSpacer />
-        <Pagination
-          state={pagination}
-          preposition="of"
-          subject="results"
-          prevLabel="Previous"
-          nextLabel="Next"
-        />
-      </DataViewControls>
-      <DataGrid state={state} />
-    </DataView>
+    <FilterDataGrid
+      filters={filters}
+      pagination={pagination}
+      dataGrid={dataGrid}
+      dataView={dataView}
+      search={search}
+      dropdown={dropdown}
+    />
   )
 }
 
