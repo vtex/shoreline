@@ -129,10 +129,10 @@ You can use the `csx` property to handle different styles.
 
 All props of `div` jsx element.
 
-| Name          | Type                        | Description                                              | Required             | Default |
-| ------------- | --------------------------- | -------------------------------------------------------- | -------------------- | ------- | ------------ |
-| `orientation` | `ResponsiveValue<'vertical' | 'horizontal'>`                                           | orientation of items | 🚫      | `'vertical'` |
-| `fluid`       | `boolean`                   | If the items should grow in width to match the container | 🚫                   | `false` |
-| `spacing`     | `ResponsiveValue<number>`   | Space between items                                      | 🚫                   | `0`     |
-| `align`       | `ResponsiveValue<'start'    | 'end'>`                                                  | Items alignment      | 🚫      | `start`      |
-| `csx`         | `StyleProp`                 | Defines component styles                                 | 🚫                   | `{}`    |
+| Name        | Type                                           | Description                                              | Required | Default      |
+| ----------- | ---------------------------------------------- | -------------------------------------------------------- | -------- | ------------ |
+| orientation | `ResponsiveValue<'vertical', or 'horizontal'>` | orientation of items                                     | 🚫       | `'vertical'` |
+| fluid       | `boolean`                                      | If the items should grow in width to match the container | 🚫       | `false`      |
+| spacing     | `ResponsiveValue<number>`                      | Space between items                                      | 🚫       | `0`          |
+| align       | `ResponsiveValue<'start', or 'end'>`           | Items alignment                                          | 🚫       | `start`      |
+| csx         | `StyleProp`                                    | Defines component styles                                 | 🚫       | `{}`         |

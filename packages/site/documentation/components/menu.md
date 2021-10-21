@@ -223,10 +223,10 @@ All props of `hr` jsx element.
 
 ### useMenuState
 
-| Name      | Type      | Description                                                    | Required   | Default |
-| --------- | --------- | -------------------------------------------------------------- | ---------- | ------- | ----------- | --------- | ---- | -------------- | --------------------- | --- | -------- |
-| loop      | `boolean` | Loops from the last item to the first item and vice-versa.     | 🚫         | `false` |
-| visible   | `boolean` | Whether is visible or not                                      | 🚫         | `false` |
-| placement | `bottom   | bottom-start                                                   | bottom-end | right   | right-start | right-end | auto | auto-start...` | Menu popover position | 🚫  | `bottom` |
-| baseId    | `string`  | ID that will serve as a base for all the items IDs.            | 🚫         | -       |
-| gutter    | `number`  | Offset between the reference and the popover on the main axis. | 🚫         | `4`     |
+| Name      | Type                                                                                   | Description                                                    | Required | Default  |
+| --------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------- | -------- |
+| loop      | `boolean`                                                                              | Loops from the last item to the first item and vice-versa.     | 🚫       | `false`  |
+| visible   | `boolean`                                                                              | Whether is visible or not                                      | 🚫       | `false`  |
+| placement | `bottom, bottom-start, bottom-end, right, right-start, right-end, auto, auto-start...` | Menu popover position                                          | 🚫       | `bottom` |
+| baseId    | `string`                                                                               | ID that will serve as a base for all the items IDs.            | 🚫       | -        |
+| gutter    | `number`                                                                               | Offset between the reference and the popover on the main axis. | 🚫       | `4`      |

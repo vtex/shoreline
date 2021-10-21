@@ -76,7 +76,7 @@ The orientation property can also have a `vertical` value.
 
 ## Props
 
-| Name        | Type          | Description   | Required            | Default |
-| ----------- | ------------- | ------------- | ------------------- | ------- | ------------ |
-| csx         | `StyleObject` | Custom styles | 🚫                  | {}      |
-| orientation | `'horizontal' | 'vertical'`   | Divider orientation | 🚫      | 'horizontal' |
+| Name        | Type                   | Description         | Required | Default        |
+| ----------- | ---------------------- | ------------------- | -------- | -------------- |
+| csx         | `StyleObject`          | Custom styles       | 🚫       | `{}`           |
+| orientation | `horizontal, vertical` | Divider orientation | 🚫       | `'horizontal'` |

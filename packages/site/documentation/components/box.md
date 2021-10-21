@@ -49,6 +49,6 @@ Be sure that you're using the correct semantic element and `aria roles` for the 
 
 All props of `as` which is `div` by default.
 
-| Name  | Type          | Description   | Required | Default |
-| ----- | ------------- | ------------- | -------- | ------- |
-| `csx` | `StyleObject` | Layout styles | 🚫       | -       |
+| Name | Type          | Description   | Required | Default |
+| ---- | ------------- | ------------- | -------- | ------- |
+| csx  | `StyleObject` | Layout styles | 🚫       | -       |

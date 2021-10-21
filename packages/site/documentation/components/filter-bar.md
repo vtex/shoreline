@@ -463,9 +463,9 @@ Hook that manages the state logic of the FilterBar component. It receives two pa
 | Name        | Type                            | Description                                                              | Required | Default |
 | ----------- | ------------------------------- | ------------------------------------------------------------------------ | -------- | ------- |
 | conjunction | `Conjunction`                   | FilterBar initial conjunction                                            | ✅       | -       |
-| statements  | `Statement<T>[]`                | FilterBar initial statements                                             | 🚫       | []      |
-| filters     | `Filter<T>[]`                   | FilterBar filters                                                        | 🚫       | []      |
 | onApply     | `(filters: Filters<T>) => void` | Render props function that is called when the user hits the apply button | ✅       | -       |
+| statements  | `Statement<T>[]`                | FilterBar initial statements                                             | 🚫       | `[]`    |
+| filters     | `Filter<T>[]`                   | FilterBar filters                                                        | 🚫       | `[]`    |
 
 ## Prsops
 
@@ -475,5 +475,5 @@ Hook that manages the state logic of the FilterBar component. It receives two pa
 | internalLabels | `InternalLabels`                 | Set of FilterBar internal labels                         | ✅       | -                    |
 | state          | `UseFilterBarStateReturn<V,T>`   | Object that manages the component state logic            | ✅       | -                    |
 | conjunctions   | `Conjunction[]`                  | FilterBar conjunction options                            | ✅       | -                    |
-| csx            | `StyleObject`                    | Custom styles                                            | 🚫       | {}                   |
+| csx            | `StyleObject`                    | Custom styles                                            | 🚫       | `{}`                 |
 | resolvers      | `Record<String, Resolver<V, T>>` | FilterBar resolvers                                      | 🚫       | `baseResolvers<T>()` |

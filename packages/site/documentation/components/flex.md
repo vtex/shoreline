@@ -133,22 +133,22 @@ Be sure that you're using the correct semantic element and `aria roles` for the 
 
 All props of `as` which is `div` by default.
 
-| Name        | Type                 | Description                           | Required | Default |
-| ----------- | -------------------- | ------------------------------------- | -------- | ------- |
-| `direction` | `CSS.flexDirection`  | Same as `flexDirection` css property  | 🚫       | -       |
-| `wrap`      | `CSS.flexWrap`       | Same as `flexWrap` css property       | 🚫       | -       |
-| `basis`     | `CSS.flexBasis`      | Same as `flexBasis` css property      | 🚫       | -       |
-| `shrink`    | `CSS.flexShrink`     | Same as `flexShrink` css property     | 🚫       | -       |
-| `grow`      | `CSS.flexGrow`       | Same as `flexGrow` css property       | 🚫       | -       |
-| `align`     | `CSS.alignItems`     | Same as `alignItems` css property     | 🚫       | -       |
-| `justify`   | `CSS.justifyContent` | Same as `justifyContent` css property | 🚫       | -       |
-| `order`     | `CSS.order`          | Same as `order` css property          | 🚫       | -       |
-| `csx`       | `StyleObject`        | Layout styles                         | 🚫       | -       |
+| Name      | Type                 | Description                         | Required | Default |
+| --------- | -------------------- | ----------------------------------- | -------- | ------- |
+| direction | `CSS.flexDirection`  | Same as flexDirection css property  | 🚫       | -       |
+| wrap      | `CSS.flexWrap`       | Same as flexWrap css property       | 🚫       | -       |
+| basis     | `CSS.flexBasis`      | Same as flexBasis css property      | 🚫       | -       |
+| shrink    | `CSS.flexShrink`     | Same as flexShrink css property     | 🚫       | -       |
+| grow      | `CSS.flexGrow`       | Same as flexGrow css property       | 🚫       | -       |
+| align     | `CSS.alignItems`     | Same as alignItems css property     | 🚫       | -       |
+| justify   | `CSS.justifyContent` | Same as justifyContent css property | 🚫       | -       |
+| order     | `CSS.order`          | Same as order css property          | 🚫       | -       |
+| csx       | `StyleObject`        | Layout styles                       | 🚫       | -       |
 
 ### FlexSpacer
 
 All props of `div` JSX element.
 
-| Name  | Type          | Description   | Required | Default |
-| ----- | ------------- | ------------- | -------- | ------- |
-| `csx` | `StyleObject` | Layout styles | 🚫       | -       |
+| Name | Type          | Description   | Required | Default |
+| ---- | ------------- | ------------- | -------- | ------- |
+| csx  | `StyleObject` | Layout styles | 🚫       | -       |

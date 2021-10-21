@@ -109,12 +109,12 @@ function Example() {
 
 It also receive all props of `div` JSX element.
 
-| Name        | Type                                                                                | Description                                                          | Required | Default |
-| ----------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
-| `children`  | `ReactNode`                                                                         | The element that triggers the tooltip                                | ✅       | -       |
-| `label`     | `ReactNode`                                                                         | Label shown inside the tooltip                                       | ✅       | -       |
-| `placement` | `auto-start, auto, auto-end, top-start, top, top-end, right-start, bottom, or left` | The placement of the tooltip relative to its children                | 🚫       | `top`   |
-| `visible`   | `boolean`                                                                           | Whether the tooltip is visible or not                                | 🚫       | `false` |
-| `fixed`     | `boolean`                                                                           | Whether the tooltip popover should have position set to fixed or not | 🚫       | `false` |
-| `baseId`    | `string`                                                                            | Tooltip baseId                                                       | 🚫       | -       |
-| `csx`       | `StyleProps`                                                                        | Custom styles                                                        | ✅       | `{}`    |
+| Name      | Type                                                                                | Description                                                          | Required | Default |
+| --------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
+| children  | `ReactNode`                                                                         | The element that triggers the tooltip                                | ✅       | -       |
+| label     | `ReactNode`                                                                         | Label shown inside the tooltip                                       | ✅       | -       |
+| placement | `auto-start, auto, auto-end, top-start, top, top-end, right-start, bottom, or left` | The placement of the tooltip relative to its children                | 🚫       | `top`   |
+| visible   | `boolean`                                                                           | Whether the tooltip is visible or not                                | 🚫       | `false` |
+| fixed     | `boolean`                                                                           | Whether the tooltip popover should have position set to fixed or not | 🚫       | `false` |
+| baseId    | `string`                                                                            | Tooltip baseId                                                       | 🚫       | -       |
+| csx       | `StyleProps`                                                                        | Custom styles                                                        | 🚫       | `{}`    |

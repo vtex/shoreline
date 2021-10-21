@@ -189,7 +189,7 @@ It also receive all props of `<input type="checkbox" />` JSX element.
 | -------- | ------------------- | ----------------------------------- | -------- | --------- |
 | disabled | `boolean`           | Whether Checkbox is disabled or not | 🚫       | `false`   |
 | value    | `string, or number` | Checkbox value                      | 🚫       | -         |
-| state    | `CheckboxState`     | Return of `useCheckboxState` hook   | 🚫       | -         |
+| state    | `CheckboxState`     | Return of useCheckboxState hook     | 🚫       | -         |
 | size     | `regular, or small` | Checkbox Size                       | 🚫       | `regular` |
 | csx      | `StyleProp`         | Defines component styles            | 🚫       | `{}`      |
 
@@ -204,4 +204,4 @@ It also receive all props of `<input type="checkbox" />` JSX element.
 | Name     | Type                                                 | Description                                                                                                                 | Required | Default |
 | -------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | state    | `boolean, "indeterminate", Array<string, or number>` | Stores the state of the checkbox. If checkboxes that share this state have defined a value prop, it's going to be an array. | -        | -       |
-| setState | `(value: SetStateAction<CheckboxState>) => void`              | Sets state                                                                                                                  | -        | -       |
+| setState | `(value: SetStateAction<CheckboxState>) => void`     | Sets state                                                                                                                  | -        | -       |

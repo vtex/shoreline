@@ -140,39 +140,39 @@ All props of `form` JSX element
 
 Configuration params accepted by the state hook
 
-| Name               | Type                                      | Description                       | Required | Default |
-| ------------------ | ----------------------------------------- | --------------------------------- | -------- | ------- |
-| `initialValue`     | `string`                                  | Initial input value               | 🚫       | `''`    |
-| `defaultValue`     | `string`                                  | Value set in the clean action     | 🚫       | `''`    |
-| `initiallyLoading` | `boolean`                                 | If is initially loading           | 🚫       | `false` |
-| `onSubmit`         | `(e: FormEvent<HTMLFormElement>) => void` | Action to take on submit the form | 🚫       | -       |
-| `timeoutMs`        | `number`                                  | Debounce timeout in ms            | 🚫       | `250`   |
+| Name             | Type                                      | Description                       | Required | Default |
+| ---------------- | ----------------------------------------- | --------------------------------- | -------- | ------- |
+| initialValue     | `string`                                  | Initial input value               | 🚫       | `''`    |
+| defaultValue     | `string`                                  | Value set in the clean action     | 🚫       | `''`    |
+| initiallyLoading | `boolean`                                 | If is initially loading           | 🚫       | `false` |
+| onSubmit         | `(e: FormEvent<HTMLFormElement>) => void` | Action to take on submit the form | 🚫       | -       |
+| timeoutMs        | `number`                                  | Debounce timeout in ms            | 🚫       | `250`   |
 
 ### useSearchState Return
 
 The object returned from the state hook
 
-| Name             | Type                                            | Description                                 |
-| ---------------- | ----------------------------------------------- | ------------------------------------------- |
-| `value`          | `string`                                        | Input value                                 |
-| `debouncedValue` | `string`                                        | Input value with debouce                    |
-| `setValue`       | `(value: string) => void`                       | Sets the value state                        |
-| `onSubmit`       | `(e: FormEvent<HTMLFormElement>) => void`       | Action to take on submit the form           |
-| `clear`          | `() => void`                                    | Clears the input value                      |
-| `showClear`      | `boolean`                                       | Whether should show the clear option or not |
-| `loading`        | `boolean`                                       | Whether is loading                          |
-| `setLoading`     | `React.Dispatch<React.SetStateAction<boolean>>` | Sets the loading state                      |
+| Name           | Type                                            | Description                                 |
+| -------------- | ----------------------------------------------- | ------------------------------------------- |
+| value          | `string`                                        | Input value                                 |
+| debouncedValue | `string`                                        | Input value with debouce                    |
+| setValue       | `(value: string) => void`                       | Sets the value state                        |
+| onSubmit       | `(e: FormEvent<HTMLFormElement>) => void`       | Action to take on submit the form           |
+| clear          | `() => void`                                    | Clears the input value                      |
+| showClear      | `boolean`                                       | Whether should show the clear option or not |
+| loading        | `boolean`                                       | Whether is loading                          |
+| setLoading     | `React.Dispatch<React.SetStateAction<boolean>>` | Sets the loading state                      |
 
 ### useQuerySearchState Params
 
 Configuration params accepted by the state hook
 
-| Name               | Type                                      | Description                       | Required | Default |
-| ------------------ | ----------------------------------------- | --------------------------------- | -------- | ------- |
-| `defaultValue`     | `string`                                  | Value set in the clean action     | 🚫       | `''`    |
-| `initiallyLoading` | `boolean`                                 | If is initially loading           | 🚫       | `false` |
-| `onSubmit`         | `(e: FormEvent<HTMLFormElement>) => void` | Action to take on submit the form | 🚫       | -       |
-| `timeoutMs`        | `number`                                  | Debounce timeout in ms            | 🚫       | `250`   |
+| Name             | Type                                      | Description                       | Required | Default |
+| ---------------- | ----------------------------------------- | --------------------------------- | -------- | ------- |
+| defaultValue     | `string`                                  | Value set in the clean action     | 🚫       | `''`    |
+| initiallyLoading | `boolean`                                 | If is initially loading           | 🚫       | `false` |
+| onSubmit         | `(e: FormEvent<HTMLFormElement>) => void` | Action to take on submit the form | 🚫       | -       |
+| timeoutMs        | `number`                                  | Debounce timeout in ms            | 🚫       | `250`   |
 
 ### useQuerySearchState Return
 

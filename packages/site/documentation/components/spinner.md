@@ -50,7 +50,7 @@ function Example() {
 
 All props of `svg` jsx element.
 
-| Name   | Type          | Description        | Required | Default |
-| ------ | ------------- | ------------------ | -------- | ------- |
-| `csx`  | `StyleObject` | Custom styles      | 🚫       | {}      |
-| `size` | `number`      | Spinner size in px | 🚫       | 24      |
+| Name | Type          | Description        | Required | Default |
+| ---- | ------------- | ------------------ | -------- | ------- |
+| csx  | `StyleObject` | Custom styles      | 🚫       | `{}`    |
+| size | `number`      | Spinner size in px | 🚫       | `24`    |

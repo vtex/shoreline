@@ -127,17 +127,17 @@ function Example() {
 
 ## Props
 
-| Name       | Type                | Description                                                                            | Required                   | Default |
-| ---------- | ------------------- | -------------------------------------------------------------------------------------- | -------------------------- | ------- | ----------- |
-| `state`    | `RadioStateReturn`  | Return of `useRadio` hook. You can also provide these props from your own state logic. | ✅                         | -       |
-| `size`     | `'regular'          | 'small'`                                                                               | Radio size                 | 🚫      | `'regular'` |
-| `checked`  | `boolean`           | Same as the HTML checked attribute                                                     | 🚫                         | -       |
-| `disabled` | `boolean`           | Defines if the Radio is disabled                                                       | 🚫                         | -       |
-| `value`    | `string             | number`                                                                                | Same as the HTML attribute | 🚫      | -           |
-| `name`     | `string`            | Same as the HTML value attribute                                                       | 🚫                         | -       |
-| `onClick`  | `MouseEventHandler` | Same as the HTML attribute                                                             | 🚫                         | -       |
-| `onBlur`   | `FocusEventHandler` | Same as the HTML attribute                                                             | 🚫                         | -       |
-| `onFocus`  | `FocusEventHandler` | Same as the HTML attribute                                                             | 🚫                         | -       |
-| `id`       | `string`            | Same as the HTML attribute                                                             | 🚫                         | -       |
-| `children` | `ReactNode`         | Radio children                                                                         | 🚫                         | -       |
-| `csx`      | `StyleProp`         | Defines component styles                                                               | 🚫                         | `{}`    |
+| Name     | Type                | Description                                                                          | Required | Default     |
+| -------- | ------------------- | ------------------------------------------------------------------------------------ | -------- | ----------- |
+| state    | `RadioStateReturn`  | Return of useRadio hook. You can also provide these props from your own state logic. | ✅       | -           |
+| size     | `regular, small`    | Radio size                                                                           | 🚫       | `'regular'` |
+| checked  | `boolean`           | Same as the HTML checked attribute                                                   | 🚫       | -           |
+| disabled | `boolean`           | Defines if the Radio is disabled                                                     | 🚫       | -           |
+| value    | `string, number`    | Same as the HTML attribute                                                           | 🚫       | -           |
+| name     | `string`            | Same as the HTML value attribute                                                     | 🚫       | -           |
+| onClick  | `MouseEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
+| onBlur   | `FocusEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
+| onFocus  | `FocusEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
+| id       | `string`            | Same as the HTML attribute                                                           | 🚫       | -           |
+| children | `ReactNode`         | Radio children                                                                       | 🚫       | -           |
+| csx      | `StyleProp`         | Defines component styles                                                             | 🚫       | `{}`        |

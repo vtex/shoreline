@@ -218,16 +218,16 @@ function Example() {
 
 ## Props
 
-| Name           | Type                  | Description                            | Required  | Default |
-| -------------- | --------------------- | -------------------------------------- | --------- | ------- |
-| label          | `string`              | Label text                             | ✅        | -       |
-| id             | `string`              | Unique id of the component             | ✅        | -       |
-| helperText     | `string`              | InputPassword helper text              | 🚫        | -       |
-| charLimit      | `number`              | InputPassword char limit               | 🚫        | -       |
-| criticalText   | `string`              | InputPassword error message            | 🚫        | -       |
-| icon           | `ReactNode`           | InputPassword Icon                     | 🚫        | -       |
-| labelElement   | `ReactNode`           | Render an optional label               | 🚫        | -       |
-| buttonElements | `ReactNode`           | Button elements                        | 🚫        | -       |
-| onChange       | `ChangeEventHandler`  | Event triggered when something changes | 🚫        | -       |
-| tone           | `neutral or critical` | InputPassword tone of voice            | `neutral` | -       |
-| csx            | `StyleProp`           | Defines component styles               | 🚫        | `{}`    |
+| Name           | Type                  | Description                            | Required | Default   |
+| -------------- | --------------------- | -------------------------------------- | -------- | --------- |
+| label          | `string`              | Label text                             | ✅       | -         |
+| id             | `string`              | Unique id of the component             | ✅       | -         |
+| helperText     | `string`              | InputPassword helper text              | 🚫       | -         |
+| charLimit      | `number`              | InputPassword char limit               | 🚫       | -         |
+| criticalText   | `string`              | InputPassword error message            | 🚫       | -         |
+| icon           | `ReactNode`           | InputPassword Icon                     | 🚫       | -         |
+| labelElement   | `ReactNode`           | Render an optional label               | 🚫       | -         |
+| buttonElements | `ReactNode`           | Button elements                        | 🚫       | -         |
+| onChange       | `ChangeEventHandler`  | Event triggered when something changes | 🚫       | -         |
+| tone           | `neutral or critical` | InputPassword tone of voice            | 🚫       | `neutral` |
+| csx            | `StyleProp`           | Defines component styles               | 🚫       | `{}`      |

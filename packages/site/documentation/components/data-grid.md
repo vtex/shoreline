@@ -235,11 +235,11 @@ All resolvers accept a render function, that returns a component. It controls th
 }
 ```
 
-| prop name | type                                             | description                                                         |
-| --------- | ------------------------------------------------ | ------------------------------------------------------------------- |
-| item      | `T`                                              | the item displayed for the row                                      |
-| data      | `unknown`                                        | extracted column data from the item, you need to cast it before use |
-| context   | `{ loading: boolean, density: DataGridDensity }` | relevant global information about the table current state           |
+| Name    | Type                                             | Description                                                         |
+| ------- | ------------------------------------------------ | ------------------------------------------------------------------- |
+| item    | `T`                                              | the item displayed for the row                                      |
+| data    | `unknown`                                        | extracted column data from the item, you need to cast it before use |
+| context | `{ loading: boolean, density: DataGridDensity }` | relevant global information about the table current state           |
 
 ##### Root Resolver
 
@@ -865,18 +865,10 @@ function WithToolbar() {
     <DataView state={view}>
       <DataViewControls>
         <Toolbar state={toolbar}>
-          <ToolbarButton
-            size="small"
-            variant="text"
-            icon={<IconImport />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconImport />}>
             Import
           </ToolbarButton>
-          <ToolbarButton
-            size="small"
-            variant="text"
-            icon={<IconExport />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconExport />}>
             Export
           </ToolbarButton>
         </Toolbar>
@@ -1136,18 +1128,10 @@ function WithFullTopbar() {
       <DataViewControls>
         <Search id="search" placeholder="Search" state={search} />
         <Toolbar state={toolbar} aria-label="Toolbar">
-          <ToolbarButton
-            size="small"
-            variant="text"
-            icon={<IconImport />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconImport />}>
             Import
           </ToolbarButton>
-          <ToolbarButton
-            size="small"
-            variant="text"
-            icon={<IconExport />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconExport />}>
             Export
           </ToolbarButton>
         </Toolbar>
