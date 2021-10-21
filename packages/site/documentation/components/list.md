@@ -70,12 +70,12 @@ All props of `ul` jsx element.
 | Name  | Type            | Description              | Required | Default |
 | ----- | --------------- | ------------------------ | -------- | ------- |
 | style | `ListStyleType` | List style               | 🚫       | `disc`  |
-| csx   | `StyleProp`     | Defines component styles | 🚫       | `{}`    |
+| `csx` | `StyleProp`     | Defines component styles | 🚫       | `{}`    |
 
 ### List.Item
 
 All props of `li` jsx element.
 
-| Name | Type        | Description              | Required | Default |
-| ---- | ----------- | ------------------------ | -------- | ------- |
-| csx  | `StyleProp` | Defines component styles | 🚫       | `{}`    |
+| Name  | Type        | Description              | Required | Default |
+| ----- | ----------- | ------------------------ | -------- | ------- |
+| `csx` | `StyleProp` | Defines component styles | 🚫       | `{}`    |

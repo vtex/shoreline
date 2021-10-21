@@ -5,7 +5,7 @@ import * as AdminIcon from '@vtex/admin-ui-icons'
 
 import { Searchbar, useSearch } from './Searchbar'
 
-export function IconPage() {
+export function IconsPage() {
   const { current, searchState } = useSearch()
 
   const sections = [

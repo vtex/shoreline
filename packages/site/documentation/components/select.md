@@ -7,11 +7,14 @@ path: /select/
 
 Select is a component that allow users to select an option, require a click to see options and support only single-selection.
 
-## Behavior
+## Usage
 
-```jsx
+```jsx isStatic
+import { Select } from '@vtex/admin-ui'
+
+const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
+
 function Example() {
-  const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
   const state = useSelectState({
     items: days,
     initialSelectedItem: 'Yesterday',
@@ -21,17 +24,7 @@ function Example() {
 }
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Select, useSelectState } from '@vtex/admin-ui'
-```
-
-## Variations
+## Examples
 
 ### Items
 

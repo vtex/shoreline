@@ -111,8 +111,4 @@ You can use the csx property to handle different styles in both `Columns`, and `
 </Columns>
 ```
 
-## Limitations
-
-This component uses a flexbox under the hood. Knowing that it has the same limitations.
-
 ## Props

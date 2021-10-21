@@ -31,4 +31,4 @@ import { IconName } from '@vtex/admin-ui'
 
 ## List
 
-<iconpage></iconpage>
+<IconsPage></IconsPage>

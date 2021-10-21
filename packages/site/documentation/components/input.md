@@ -28,6 +28,7 @@ function Example() {
 ## Alternatives
 
 - [InputPassword](/input-password/) - For password fields.
+- [Textarea](/text-area/) - For long text fields.
 
 ## Examples
 

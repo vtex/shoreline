@@ -7,9 +7,11 @@ path: /numeric-stepper/
 
 NumericSteppers represents a control for regular numerical input, where you expect the user to modify it by a few incremental steps.
 
-## Behavior
+## Usage
 
-```jsx
+```jsx isStatic
+import { NumericStepper } from '@vtex/admin-ui'
+
 function Example() {
   const [value, setValue] = React.useState(0)
 
@@ -24,17 +26,33 @@ function Example() {
 }
 ```
 
-## Installation
+## Examples
 
-```sh isStatic
-yarn add @vtex/admin-ui
+### Tone of voice
+
+The `NumericStepper` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+
+```jsx
+<Set spacing={3}>
+  <NumericStepper
+    value={10}
+    minValue={0}
+    maxValue={10}
+    onChange={() => null}
+    helperText="Helper text"
+    label="numeric-stepper"
+  />
+  <NumericStepper
+    value={10}
+    minValue={0}
+    maxValue={10}
+    tone="critical"
+    onChange={() => null}
+    criticalText="Critical text"
+    label="numeric-stepper"
+  />
+</Set>
 ```
-
-```jsx isStatic
-import { NumericStepper } from '@vtex/admin-ui'
-```
-
-## Variations
 
 ### Step Multiplier
 
@@ -95,33 +113,6 @@ function Example() {
 }
 ```
 
-### Error
-
-It means that the user added an invalid input value to the `NumericStepper`. To use this variation, the `error` property should have a `true` value. You should, also define the `errorMessage` property, so the user can know what's the error is about. The error message will appear in the same position as the `helperText`.
-
-```jsx
-function Example() {
-  const [value, setValue] = React.useState(5)
-  const minValue = 0
-  const maxValue = 4
-
-  const errorMessage =
-    value < minValue ? 'Less than minimum!' : 'Greater than maximum!'
-
-  return (
-    <NumericStepper
-      value={value}
-      minValue={0}
-      maxValue={4}
-      onChange={(event) => setValue(event.value)}
-      error={value > maxValue || value < minValue}
-      errorMessage={errorMessage}
-      label="numeric-stepper"
-    />
-  )
-}
-```
-
 ### Disabled
 
 It means that the user will not be able to add any input value to the NumericStepper. To use this variation, the `disabled` property should have a true value.
@@ -137,7 +128,7 @@ It means that the user will not be able to add any input value to the NumericSte
 
 ## State
 
-You can use the properties `value`, and `onChange` to handling if the value has changed. You also can control the `error` property to indicate if it's a valid input or not. Note that the `onChange` represents a function with an object `{ value: number }` as a parameter. Check the example below.
+You can use the properties `value`, and `onChange` to handling if the value has changed. You also can control the `tone` property to indicate if it's a valid input or not. Note that the `onChange` represents a function with an object `{ value: number }` as a parameter. Check the example below.
 
 ```jsx
 function Example() {
@@ -147,8 +138,8 @@ function Example() {
     <NumericStepper
       value={value}
       helperText="Helper Text"
-      error={value === 5}
-      errorMessage="Value cannot be 5!"
+      tone={value === 5  ? 'critical' :  'neutral'}
+      criticalText="Value cannot be 5!"
       label="numeric-stepper"
       onChange={(event) => setValue(event.value)}
     />
@@ -157,4 +148,3 @@ function Example() {
 ```
 
 ## Props
-

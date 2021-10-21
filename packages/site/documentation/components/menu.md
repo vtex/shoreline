@@ -82,7 +82,7 @@ function Example() {
 
   return (
     <Menu state={state} hideOnClick>
-      <MenuButton display="actions" variant="adaptative-dark" />
+      <MenuButton display="actions" variant="text" />
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconImport />}>Download</MenuItem>
         <MenuItem disabled icon={<IconLink />}>
@@ -106,7 +106,7 @@ function Example() {
 
   return (
     <Menu state={state} hideOnClick>
-      <MenuButton display="actions" variant="adaptative-dark" />
+      <MenuButton display="actions" variant="text" />
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconImport />}>Download</MenuItem>
         <MenuItem disabled icon={<IconLink />}>
@@ -168,7 +168,7 @@ function Example() {
 
   return (
     <Menu state={state} hideOnClick>
-      <MenuButton display="actions" variant="adaptative-dark" />
+      <MenuButton display="actions" variant="text" />
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconImport />}>Download</MenuItem>
         <MenuItem disabled icon={<IconLink />}>

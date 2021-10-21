@@ -48,7 +48,7 @@ Use the `csx` property to [add styles](/guidelines/styling/).
     justify="center"
     align="center"
     csx={{
-      bg: 'mid.tertiary',
+      ...palette('purple'),
       width: 100,
     }}
   >
@@ -58,7 +58,7 @@ Use the `csx` property to [add styles](/guidelines/styling/).
     justify="center"
     align="center"
     csx={{
-      bg: 'mid.secondary',
+      ...palette('teal'),
       width: 150,
     }}
   >
@@ -68,7 +68,7 @@ Use the `csx` property to [add styles](/guidelines/styling/).
     justify="center"
     align="center"
     csx={{
-      bg: 'mid.tertiary',
+      ...palette('purple'),
       flex: 1,
     }}
   >
@@ -103,7 +103,7 @@ You can combine `Flex` and `FlexSpacer` to adjust spacing.
 <Flex justify="space-around">
   <Box
     csx={{
-      bg: 'red.secondary',
+      ...palette('purple'),
       padding: 1,
       size: 100,
     }}
@@ -113,7 +113,7 @@ You can combine `Flex` and `FlexSpacer` to adjust spacing.
   <FlexSpacer />
   <Box
     csx={{
-      bg: 'green.secondary',
+      ...palette('teal'),
       padding: 1,
       size: 100,
     }}
@@ -143,7 +143,7 @@ All props of `as` which is `div` by default.
 | `align`     | `CSS.alignItems`     | Same as `alignItems` css property     | 🚫       | -       |
 | `justify`   | `CSS.justifyContent` | Same as `justifyContent` css property | 🚫       | -       |
 | `order`     | `CSS.order`          | Same as `order` css property          | 🚫       | -       |
-| csx         | `StyleObject`        | Layout styles                         | 🚫       | -       |
+| `csx`       | `StyleObject`        | Layout styles                         | 🚫       | -       |
 
 ### FlexSpacer
 

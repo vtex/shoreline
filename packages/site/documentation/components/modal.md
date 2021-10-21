@@ -163,26 +163,26 @@ function LargeModal() {
 
 ### useModalState
 
-| Name    | Description             | Type      | Required | Default |
-| ------- | ----------------------- | --------- | -------- | ------- |
-| visible | If is initially visible | `boolean` | 🚫       | false   |
+| Name      | Description             | Type      | Required | Default |
+| --------- | ----------------------- | --------- | -------- | ------- |
+| `visible` | If is initially visible | `boolean` | 🚫       | false   |
 
 ### ModalHeader
 
 All props of `header` JSX element, and:
 
-| Name        | Description                     | Type          | Required | Default |
-| ----------- | ------------------------------- | ------------- | -------- | ------- |
-| title       | Title of the modal              | `ReactNode`   | 🚫       | null    |
-| containerSx | Styles of the buttons container | `SxStyleProp` | 🚫       | {}      |
+| Name           | Description                     | Type          | Required | Default |
+| -------------- | ------------------------------- | ------------- | -------- | ------- |
+| `title`        | Title of the modal              | `ReactNode`   | 🚫       | null    |
+| `containerCsx` | Styles of the buttons container | `SxStyleProp` | 🚫       | {}      |
 
 ### ModalButton Props
 
 All props of [Button](/button/), and:
 
-| Name              | Description                        | Type      | Required | Default |
-| ----------------- | ---------------------------------- | --------- | -------- | ------- |
-| closeModalOnClick | If should close the modal on click | `boolean` | 🚫       | false   |
+| Name                | Description                        | Type      | Required | Default |
+| ------------------- | ---------------------------------- | --------- | -------- | ------- |
+| `closeModalOnClick` | If should close the modal on click | `boolean` | 🚫       | false   |
 
 ### ModalContent Props
 
