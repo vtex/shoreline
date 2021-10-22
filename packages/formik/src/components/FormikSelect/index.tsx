@@ -53,16 +53,19 @@ export const FormikSelect = <T,>(props: FormikSelectProps<T>) => {
         label={label}
         items={items}
         state={itemState}
-        error={!!errorMessage}
-        errorMessage={errorMessage ?? undefined}
+        tone={errorMessage ? 'critical' : 'neutral'}
+        criticalText={errorMessage ?? undefined}
         {...selectProps}
       />
     </div>
   )
 }
 
-export interface FormikSelectProps<T> extends Omit<SelectProps<T>, 'state'> {
+export interface FormikSelectProps<T>
+  extends Omit<SelectProps<T>, 'state' | 'criticalText' | 'tone'> {
   name: string
+  error?: boolean
+  errorMessage?: string
   formatMessage?: (errorCode: string) => string
   itemToString?: (item: T | null) => string
   onChange?: (value: T | null) => void

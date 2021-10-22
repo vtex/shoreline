@@ -16,7 +16,7 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
     state,
     label,
     items,
-    error,
+    tone = 'neutral',
     disabled,
     block,
     renderItem = (item) => item,
@@ -124,43 +124,31 @@ export function DesktopSelect<T>(props: SelectProps<T>) {
           borderWidth: 1,
           paddingLeft: 3,
           paddingRight: 4,
-          borderColor: 'field.neutral',
+          borderColor: `field.${tone}`,
           borderRadius: 'default',
-          bg: 'field.neutral',
+          bg: `field.${tone}`,
           fontSize: 1,
-          color: 'field.neutral',
+          color: `field.${tone}`,
           outline: 0,
           ':hover': {
-            borderColor: 'field.neutralHover',
+            borderColor: `field.${tone}Hover`,
           },
           ':hover > svg': {
-            color: 'field.neutral',
+            color: `field.${tone}`,
           },
           ':focus': {
-            borderColor: 'field.neutralFocus',
-            boxShadow: 'ring.neutral',
+            borderColor: `field.${tone}Focus`,
+            boxShadow: `ring.${tone}`,
           },
           ':disabled': {
-            bg: 'field.neutralDisabled',
-            borderColor: 'field.neutralDisabled',
-            color: 'field.neutralDisabled',
+            bg: `field.${tone}Disabled`,
+            borderColor: `field.${tone}Disabled`,
+            color: `field.${tone}Disabled`,
             cursor: 'initial',
           },
           ':disabled > svg': {
-            color: 'field.neutralDisabled',
+            color: `field.${tone}Disabled`,
           },
-          ...(error
-            ? {
-                borderColor: 'field.critical',
-                ':focus': {
-                  borderColor: 'field.criticaFocus',
-                  boxShadow: 'ring.critical',
-                },
-                ':hover': {
-                  borderColor: 'field.criticalHover',
-                },
-              }
-            : {}),
         }}
       >
         <Box>

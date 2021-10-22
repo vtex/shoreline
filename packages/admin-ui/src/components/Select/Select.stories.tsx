@@ -63,8 +63,8 @@ export const Error = () => {
       items={days}
       state={state}
       label="Date"
-      error={error}
-      errorMessage="Message error"
+      tone={error ? 'critical' : 'neutral'}
+      criticalText="Critical message"
     />
   )
 }
@@ -106,7 +106,7 @@ export const Block = () => {
         items={days}
         state={state}
         label="Date"
-        errorMessage="Message error"
+        criticalText="Message error"
         block
       />
     </Card>

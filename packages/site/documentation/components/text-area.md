@@ -34,14 +34,14 @@ function Example() {
 
 ## Alternatives
 
-- [Input](/input/) - For short text fields.
+- [Input](/input/) - For text fields.
 - [InputPassword](/input-password/) - For password fields.
 
 ## Examples
 
 ### Tone of Voice
 
-The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+The `TextArea` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
 
 ```jsx
 <Set spacing={3}>

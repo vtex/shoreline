@@ -20,8 +20,8 @@ export const Select = forwardRef(
       renderItem,
       helperText,
       disabled,
-      error,
-      errorMessage,
+      tone = 'neutral',
+      criticalText,
       block,
       ...restProps
     } = props
@@ -33,11 +33,11 @@ export const Select = forwardRef(
       items,
       renderItem,
       disabled,
-      error,
+      tone,
       block,
     }
 
-    const message = error ? errorMessage : helperText
+    const message = tone === 'critical' ? criticalText : helperText
 
     const styles = block ? { ...csx, width: 'full' } : csx
 
@@ -53,11 +53,7 @@ export const Select = forwardRef(
 
         {message && (
           <Box csx={{ paddingTop: 1 }}>
-            <Text
-              variant="small"
-              tone={error ? 'critical' : 'neutral'}
-              csx={{ lineHeight: 1.5 }}
-            >
+            <Text variant="small" tone={tone} csx={{ lineHeight: 1.5 }}>
               {message}
             </Text>
           </Box>
@@ -92,13 +88,14 @@ export interface SelectProps<T> extends SystemComponent {
    */
   helperText?: string
   /**
-   * Select with error
+   * Select's tone of voice
+   * @default neutral
    */
-  error?: boolean
+  tone?: 'neutral' | 'critical'
   /**
-   * Select error message
+   * Select critical message
    */
-  errorMessage?: string
+  criticalText?: string
   /**
    * Flag to indicate if select is disabled
    */

@@ -39,8 +39,8 @@ export const FormikTextArea = forwardRef(
         id={id}
         {...field}
         onChange={handleChange}
-        error={!!errorMessage}
-        errorMessage={errorMessage ?? undefined}
+        tone={errorMessage ? 'critical' : 'neutral'}
+        criticalText={errorMessage ?? undefined}
         {...textAreaProps}
         ref={ref}
       />
@@ -49,9 +49,14 @@ export const FormikTextArea = forwardRef(
 )
 
 export interface FormikTextAreaProps
-  extends Omit<TextAreaProps, 'id' | 'value' | 'onChange'> {
+  extends Omit<
+    TextAreaProps,
+    'id' | 'value' | 'onChange' | 'criticalText' | 'tone'
+  > {
   name: string
   id?: string
+  errorMessage?: string
+  error?: boolean
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
   formatMessage?: (errorCode: string) => string
 }

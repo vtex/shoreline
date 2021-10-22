@@ -12,7 +12,7 @@ export function MobileSelect<T>(props: SelectProps<T>) {
     state,
     label,
     items,
-    error,
+    tone = 'neutral',
     disabled,
     block,
     renderItem = (item) => item as unknown as string,
@@ -66,39 +66,27 @@ export function MobileSelect<T>(props: SelectProps<T>) {
           outline: 'none',
           fontSize: 1,
           appearance: 'none',
-          backgroundColor: 'field.neutral',
+          backgroundColor: `field.${tone}`,
           border: '1px solid',
-          borderColor: 'field.neutral',
+          borderColor: `field.${tone}`,
           borderRadius: 'default',
           paddingTop: '1.125rem',
           paddingLeft: 3,
           width: '100%',
           height: '100%',
           ':focus': {
-            borderColor: 'field.neutralFocus',
-            boxShadow: 'ring.neutral',
+            borderColor: `field.${tone}Focus`,
+            boxShadow: `ring.${tone}`,
           },
           ':disabled': {
-            bg: 'field.neutralDisabled',
-            borderColor: 'field.neutralDisabled',
-            color: 'field.neutralDisabled',
+            bg: `field.${tone}Disabled`,
+            borderColor: `field.${tone}Disabled`,
+            color: `field.${tone}Disabled`,
             opacity: 1,
           },
           ':disabled > svg': {
-            color: 'field.neutralDisabled',
+            color: `field.${tone}Disabled`,
           },
-          ...(error
-            ? {
-                borderColor: 'field.critical',
-                ':hover': {
-                  borderColor: 'field.criticalHover',
-                },
-                ':focus': {
-                  borderColor: 'field.criticalFocus',
-                  boxShadow: 'ring.critical',
-                },
-              }
-            : {}),
         }}
       >
         {!state.selectedItem && <option disabled value="" />}
