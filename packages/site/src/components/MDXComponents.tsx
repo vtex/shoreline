@@ -1,14 +1,6 @@
 import React from 'react'
-import {
-  Paragraph,
-  useSystem,
-  tag,
-  Grid,
-  Box,
-  palette,
-  get,
-  Text,
-} from '@vtex/admin-ui'
+import { Paragraph, useSystem, tag, Grid, palette } from '@vtex/admin-ui'
+import * as AdminUI from '@vtex/admin-ui'
 
 import Anchor from './Anchor'
 import List from './List'
@@ -23,9 +15,8 @@ import { Code } from './Code'
 import { TypefaceShowcase } from './TypefaceShowcase'
 
 export const MDXComponents = {
-  Text,
+  ...AdminUI,
   Grid: (props: any) => <Grid {...props} csx={{ marginY: 4, ...props?.csx }} />,
-  Box,
   a: Anchor,
   ColorCard,
   TypefaceShowcase,
@@ -128,34 +119,6 @@ export const MDXComponents = {
         })}
         {...props}
       />
-    )
-  },
-  Tone: function Render(props: {
-    bg: 'main' | 'critical' | 'warning' | 'positive' | 'neutral'
-    desc: string
-  }) {
-    const { bg = 'main', desc = 'main' } = props
-
-    const tone = {
-      main: 'blue40',
-      critical: 'red40',
-      warning: 'orange40',
-      positive: 'green40',
-      neutral: 'grey50',
-      info: 'lightBlue40',
-    }[bg]
-
-    return (
-      <tag.div
-        csx={{
-          display: 'inline-block',
-          borderRadius: 'pill',
-          color: (theme) => get(theme, `colors.${tone}`),
-          fontSettings: 'medium',
-        }}
-      >
-        {desc}
-      </tag.div>
     )
   },
   TokensTable: () => <TokensTable items={tokens} />,

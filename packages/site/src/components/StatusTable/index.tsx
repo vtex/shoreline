@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import React, { useEffect } from 'react'
-
 import {
   useDataGridState,
   useDataViewState,
