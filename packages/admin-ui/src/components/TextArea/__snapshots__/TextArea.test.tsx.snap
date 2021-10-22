@@ -39,8 +39,6 @@ exports[`TextArea tests should match snapshot 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
-
-
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
@@ -181,8 +179,6 @@ exports[`TextArea tests should match snapshot 1`] = `
   -ms-transform: translate(1px, 4px) scale(0.875);
   transform: translate(1px, 4px) scale(0.875);
 }
-
-
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -327,8 +323,6 @@ exports[`TextArea tests should match snapshot 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
-
-
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
@@ -429,7 +423,7 @@ exports[`TextArea tests should match snapshot 1`] = `
       <span
         class="emotion-2"
       >
-        Error Message
+        Critical Message
       </span>
     </div>
   </div>
@@ -469,8 +463,6 @@ exports[`TextArea tests should match snapshot 1`] = `
   -ms-transform: translate(1px, 4px) scale(0.875);
   transform: translate(1px, 4px) scale(0.875);
 }
-
-
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -619,8 +611,6 @@ exports[`TextArea tests should match snapshot 1`] = `
   transform: translate(1px, 4px) scale(0.875);
 }
 
-
-
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
@@ -730,7 +720,7 @@ exports[`TextArea tests should match snapshot 1`] = `
       <span
         class="emotion-2"
       >
-        Error Message
+        Critical Message
       </span>
       <span
         class="emotion-3"

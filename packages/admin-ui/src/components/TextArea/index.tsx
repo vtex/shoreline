@@ -78,23 +78,22 @@ export const TextArea = forwardRef(function Textarea(
     helperText,
     charLimit,
     value = '',
-    error = false,
+    tone = 'neutral',
     onChange,
-    errorMessage,
+    criticalText,
     ...textareaProps
   } = props
 
-  const message = error ? errorMessage : helperText
+  const message = tone === 'critical' ? criticalText : helperText
 
   return (
     <FieldContainer
       csx={{
         width: 'full',
-        textarea: error ? {} : {},
       }}
     >
       <Reference
-        tone={error ? 'critical' : 'neutral'}
+        tone={tone}
         csx={csx}
         id={id}
         ref={ref}
@@ -110,7 +109,7 @@ export const TextArea = forwardRef(function Textarea(
           value={value}
           message={message}
           charLimit={charLimit}
-          tone={error ? 'critical' : 'neutral'}
+          tone={tone}
         />
       )}
     </FieldContainer>
@@ -135,10 +134,12 @@ export interface TextAreaProps extends SystemComponentProps<TextAreaOwnProps> {
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
   /** TextArea value */
   value: string | number
-  /** TextArea with error */
-  error?: boolean
-  /**
-   * TextArea error message
+  /** TextArea tone of voice
+   * @default neutral
    */
-  errorMessage?: string
+  tone?: 'neutral' | 'critical'
+  /**
+   * TextArea critical message
+   */
+  criticalText?: string
 }

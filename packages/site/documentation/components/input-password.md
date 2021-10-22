@@ -224,7 +224,7 @@ function Example() {
 | id             | `string`              | Unique id of the component             | ✅       | -         |
 | helperText     | `string`              | InputPassword helper text              | 🚫       | -         |
 | charLimit      | `number`              | InputPassword char limit               | 🚫       | -         |
-| criticalText   | `string`              | InputPassword error message            | 🚫       | -         |
+| criticalText   | `string`              | InputPassword critical message         | 🚫       | -         |
 | icon           | `ReactNode`           | InputPassword Icon                     | 🚫       | -         |
 | labelElement   | `ReactNode`           | Render an optional label               | 🚫       | -         |
 | buttonElements | `ReactNode`           | Button elements                        | 🚫       | -         |

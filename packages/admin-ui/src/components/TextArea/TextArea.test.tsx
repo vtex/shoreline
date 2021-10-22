@@ -42,17 +42,17 @@ describe('TextArea tests', () => {
           id="text-area-2"
         />
         <TextArea
-          errorMessage="Error Message"
+          criticalText="Critical Message"
           value=""
           onChange={() => {}}
-          error
+          tone="critical"
           label="Label"
           id="text-area-3"
         />
         <TextArea
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Critical Message"
           value=""
           onChange={() => {}}
           label="Label"
@@ -61,10 +61,10 @@ describe('TextArea tests', () => {
         <TextArea
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Critical Message"
           value=""
           onChange={() => {}}
-          error
+          tone="critical"
           label="Label"
           id="text-area-5"
         />
@@ -80,7 +80,7 @@ describe('TextArea tests', () => {
         <TextArea
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Error Message"
           value=""
           onChange={() => {}}
           label="Label"
@@ -89,10 +89,10 @@ describe('TextArea tests', () => {
         <TextArea
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Error Message"
           value=""
           onChange={() => {}}
-          error
+          tone="critical"
           label="Label"
           id="text-area-2"
         />
@@ -101,7 +101,7 @@ describe('TextArea tests', () => {
           helperText="Helper Text"
           value=""
           onChange={() => {}}
-          error
+          tone="critical"
           label="Label"
           disabled
           id="text-area-3"
