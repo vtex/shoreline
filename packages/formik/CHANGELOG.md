@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.11-next.0](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.2.10...@vtex/admin-formik@0.2.11-next.0) (2021-10-25)
+
+### Bug Fixes
+
+- **select:** change the component api to be according to the Fields ([ac2b208](https://github.com/vtex/onda/commit/ac2b208bac6fde42ebf3c016faca136a7d4bfd2a))
+
 ## [0.2.10](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.2.9...@vtex/admin-formik@0.2.10) (2021-10-07)
 
 **Note:** Version bump only for package @vtex/admin-formik

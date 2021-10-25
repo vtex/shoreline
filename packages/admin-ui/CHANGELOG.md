@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.114.4-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.114.3...@vtex/admin-ui@0.114.4-next.0) (2021-10-25)
+
+### Bug Fixes
+
+- **admin-ui:** searchbox render in ssr ([fffceba](https://github.com/vtex/onda/commit/fffcebad76a796a402509c012d93a19ae2f8a76d))
+- **core:** colors typescript ([4106fa7](https://github.com/vtex/onda/commit/4106fa76315d6b9c1a597bed9b8a2758fd202408))
+- **select:** change the component api to be according to the Fields ([ac2b208](https://github.com/vtex/onda/commit/ac2b208bac6fde42ebf3c016faca136a7d4bfd2a))
+- **text-area:** change the component api to be according to the Fields ([d914fbf](https://github.com/vtex/onda/commit/d914fbf52c1d1133fcb23dcc7bd03cc32d276590))
+
+### Features
+
+- **admin-ui:** create Center component ([d91110d](https://github.com/vtex/onda/commit/d91110d18f57e8ff03d482962312188a12b16407))
+- **button-ghost:** create component ([aa308fd](https://github.com/vtex/onda/commit/aa308fdfd41e0c4d226ba98b84a23e2f0cf0b7bf))
+
 ## [0.114.3](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.114.2...@vtex/admin-ui@0.114.3) (2021-10-07)
 
 **Note:** Version bump only for package @vtex/admin-ui

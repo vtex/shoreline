@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-react@0.2.3...@vtex/admin-ui-react@0.2.4-next.0) (2021-10-25)
+
+### Features
+
+- **colors:** add new color structure and semantical tokens ([a931c4a](https://github.com/vtex/onda/commit/a931c4a28cfa56ce176836a0642a3f09f35dd632))
+
 ## [0.2.3](https://github.com/vtex/onda/compare/@vtex/admin-ui-react@0.2.2...@vtex/admin-ui-react@0.2.3) (2021-10-04)
 
 ### Bug Fixes

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.11-next.0](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.15.10...admin-site@0.15.11-next.0) (2021-10-25)
+
+### Bug Fixes
+
+- **admin-ui:** searchbox render in ssr ([fffceba](https://github.com/vtex/onda/tree/master/packages/site/commit/fffcebad76a796a402509c012d93a19ae2f8a76d))
+- **select:** change the component api to be according to the Fields ([ac2b208](https://github.com/vtex/onda/tree/master/packages/site/commit/ac2b208bac6fde42ebf3c016faca136a7d4bfd2a))
+- **text-area:** change the component api to be according to the Fields ([d914fbf](https://github.com/vtex/onda/tree/master/packages/site/commit/d914fbf52c1d1133fcb23dcc7bd03cc32d276590))
+
+### Features
+
+- **admin-ui:** create Center component ([d91110d](https://github.com/vtex/onda/tree/master/packages/site/commit/d91110d18f57e8ff03d482962312188a12b16407))
+
 ## [0.15.10](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.15.9...admin-site@0.15.10) (2021-10-07)
 
 **Note:** Version bump only for package admin-site
