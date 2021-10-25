@@ -1,4 +1,5 @@
 ---
+title: Theming
 path: /guidelines/theming/
 ---
 
@@ -6,47 +7,15 @@ path: /guidelines/theming/
 
 The theme object is where you define your application's color palette, type scale, font stacks, breakpoints, border-radius values, and more.
 
-Theming with Admin UI is based on the [Styled System Theme Specification](https://system-ui.com/theme/).
+Theming with Admin UI is inspired by the [Styled System Theme Specification](https://system-ui.com/theme/).
 
-Our library provides a sensible [default theme](https://github.com/vtex/onda/tree/master/styleguides/admin/admin-ui-theme) defined by VTEX designers.
+Our library provides a sensible [default theme](https://github.com/vtex/onda/blob/master/packages/core/src/theme/shape.ts) defined by the design system team.
 
 ## Colors
 
 Color themes are used to reflect a product's style with consistency across all components used on the application. Each color has some specific function when applied to an element on the screen. They can be customized to match the app's style guidelines, reflecting their function.
 
-Our styleguide provides an accessible default palette to get you up and running.
-
-### Light
-
-<lightcolors></lightcolors>
-
-### Mid
-
-<midcolors></midcolors>
-
-### Dark
-
-<darkcolors></darkcolors>
-
-### Blue
-
-<semanticcolor color="blue"></semanticcolor>
-
-### Red
-
-<semanticcolor color="red"></semanticcolor>
-
-### Yellow
-
-<semanticcolor color="yellow"></semanticcolor>
-
-### Green
-
-<semanticcolor color="green"></semanticcolor>
-
-### Complementary
-
-<complementarycolors></complementarycolors>
+Our design system provides an [accessible default palette](/foundations/colors) to get you up and running. To check how we use them semantically, you can check the [Design Tokens section](/guidelines/design-tokens)
 
 ## Typography
 

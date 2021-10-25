@@ -36,10 +36,10 @@ export interface Toast {
    */
   message: ReactNode
   /**
-   * The toast's type.
+   * The toast's tone.
    * @default info
    */
-  type?: 'error' | 'info' | 'success' | 'warning'
+  tone?: 'critical' | 'info' | 'positive' | 'warning'
   /**
    * Whether the toast can be dismissed or not.
    * @default false

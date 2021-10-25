@@ -1,5 +1,6 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
+import { palette } from '@vtex/admin-ui-core'
 
 import { Box } from '../../Box'
 import { Columns, Column } from '../index'
@@ -11,14 +12,12 @@ export default {
 
 const primaryStyles = {
   padding: 2,
-  bg: 'blue',
-  color: 'light.primary',
+  ...palette('purple'),
 }
 
 const invertedStyles = {
   padding: 2,
-  bg: 'dark.primary',
-  color: 'light.primary',
+  ...palette('teal'),
 }
 
 export const Playground: Story = (args) => {

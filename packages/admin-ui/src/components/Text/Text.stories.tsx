@@ -60,5 +60,5 @@ export function As() {
 }
 
 export function Csx() {
-  return <Text csx={{ color: 'blue' }}>Primary text</Text>
+  return <Text csx={{ fontSize: 50 }}>Primary text</Text>
 }

@@ -4,7 +4,7 @@ exports[`PageHeader should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background-color: #FFFFFF;
-  color: #323845;
+  color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,7 +21,7 @@ exports[`PageHeader should match snapshot 1`] = `
   border-bottom-style: solid;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-color: #E0E2E7;
+  border-color: hsla(0, 0%, 87%, 1);
   -webkit-position: sticky;
   position: sticky;
   top: 0rem;
@@ -41,7 +41,7 @@ exports[`PageHeader should match snapshot with actions 1`] = `
 <DocumentFragment>
   .emotion-1 {
   background-color: #FFFFFF;
-  color: #323845;
+  color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -58,7 +58,7 @@ exports[`PageHeader should match snapshot with actions 1`] = `
   border-bottom-style: solid;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-color: #E0E2E7;
+  border-color: hsla(0, 0%, 87%, 1);
   -webkit-position: sticky;
   position: sticky;
   top: 0rem;
@@ -123,7 +123,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 
 .emotion-6 {
   background-color: #FFFFFF;
-  color: #323845;
+  color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -140,7 +140,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   border-bottom-style: solid;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-color: #E0E2E7;
+  border-color: hsla(0, 0%, 87%, 1);
   -webkit-position: sticky;
   position: sticky;
   top: 0rem;
@@ -162,8 +162,8 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   width: 40px;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  color: hsla(222, 63%, 43%, 1);
   background-color: transparent;
-  color: #2953B2;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -173,21 +173,20 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
 .emotion-3:hover {
-  color: #214491;
-  background-color: rgba(202,215,241,0.24);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-3:active {
-  color: #1a3470;
-  background-color: rgba(186,203,236,0.32);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-3:disabled {
-  color: #898F9E;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-3 svg {
@@ -322,7 +321,7 @@ exports[`PageHeader should match snapshot with title 1`] = `
 
 .emotion-2 {
   background-color: #FFFFFF;
-  color: #323845;
+  color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -339,7 +338,7 @@ exports[`PageHeader should match snapshot with title 1`] = `
   border-bottom-style: solid;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-color: #E0E2E7;
+  border-color: hsla(0, 0%, 87%, 1);
   -webkit-position: sticky;
   position: sticky;
   top: 0rem;

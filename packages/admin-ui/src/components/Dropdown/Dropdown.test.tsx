@@ -102,7 +102,7 @@ describe('Dropdown tests', () => {
         <DropdownState items={brewMethods} initialSelectedItem={brewMethods[0]}>
           {(state) => (
             <Dropdown
-              variant="secondary"
+              variant="soft"
               label="Brew Methods"
               items={brewMethods}
               state={state}
@@ -112,7 +112,7 @@ describe('Dropdown tests', () => {
         <DropdownState items={recipes} initialSelectedItem={recipes[0]}>
           {(state) => (
             <Dropdown
-              variant="tertiary"
+              variant="text"
               label="Recipes"
               items={recipes}
               state={state}

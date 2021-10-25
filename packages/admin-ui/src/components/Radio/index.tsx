@@ -1,64 +1,85 @@
 import type { RadioStateReturn } from 'reakit/Radio'
 import { Radio as ReakitRadio } from 'reakit/Radio'
+import { focusVisible } from '@vtex/admin-ui-core'
 import { jsx } from '@vtex/admin-ui-react'
+import { get } from '@vtex/admin-ui-util'
 import type { ComponentPropsWithRef } from 'react'
 
 export const Radio = jsx(ReakitRadio)(
   {
+    ...focusVisible('neutral'),
+    bg: 'control.neutral',
+    borderColor: 'control.neutral',
+    color: 'control.neutral',
     appearance: 'none',
     margin: 0,
     position: 'relative',
     cursor: 'pointer',
     borderStyle: 'solid',
     borderWidth: '1px',
-    borderColor: 'mid.secondary',
-    backgroundColor: 'transparent',
     borderRadius: 'circle',
     ':after': {
       content: '""',
+      position: 'absolute',
       display: 'block',
       borderRadius: 'circle',
-      backgroundColor: 'light.primary',
+      bg: (theme) => get(theme, 'foreground.control.neutral', ''),
       opacity: 0,
-    },
-    ':checked': {
-      backgroundColor: 'blue',
-      borderColor: 'blue',
-      ':after': {
-        opacity: 1,
-      },
-      ':hover': {
-        backgroundColor: 'blue.hover',
-        borderColor: 'blue.hover',
-      },
-      ':active': {
-        borderColor: 'blue.pressed',
-        backgroundColor: 'blue.pressed',
-      },
+      top: '0.3rem',
     },
     ':disabled': {
       cursor: 'not-allowed',
-      backgroundColor: 'mid.tertiary',
-      borderColor: 'mid.primary',
+      bg: 'control.neutralDisabled',
+      borderColor: 'control.neutralDisabled',
+      color: 'control.neutralDisabled',
       ':after': {
-        backgroundColor: 'mid.primary',
+        bg: (theme) => get(theme, 'foreground.control.neutralDisabled', ''),
       },
     },
+
     ':hover': {
-      borderColor: 'dark.primary',
+      bg: 'control.neutralHover',
+      borderColor: 'control.neutralHover',
     },
+
     ':active': {
-      borderColor: 'dark.secondary',
-      backgroundColor: 'blue.secondary',
+      bg: 'control.neutralPressed',
+      borderColor: 'control.neutralPressed',
     },
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
+
+    ':checked': {
+      bg: 'control.neutralChecked',
+      color: 'control.neutralChecked',
+      borderColor: 'control.neutralChecked',
+
+      ':after': {
+        opacity: 1,
+      },
+
+      ':hover': {
+        bg: 'control.neutralCheckedHover',
+        borderColor: 'control.neutralCheckedHover',
+      },
+
+      ':active': {
+        bg: 'control.neutralCheckedPressed',
+        borderColor: 'control.neutralCheckedPressed',
+      },
+
+      ':disabled': {
+        cursor: 'not-allowed',
+
+        bg: 'control.neutralCheckedDisabled',
+        borderColor: 'control.neutralCheckedDisabled',
+        color: 'control.neutralCheckedDisabled',
+
+        ':after': {
+          bg: (theme) =>
+            get(theme, 'foreground.control.neutralCheckedDisabled', ''),
+        },
+      },
     },
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'focus',
-    },
+
     variants: {
       size: {
         regular: {

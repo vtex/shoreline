@@ -36,7 +36,9 @@ export const Playground = () => {
         <MenuItem icon={<IconLink />}>Link to</MenuItem>
         <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
         <MenuSeparator />
-        <MenuItem icon={<IconDelete />}>Delete</MenuItem>
+        <MenuItem icon={<IconDelete />} tone="critical">
+          Delete
+        </MenuItem>
       </MenuList>
     </Menu>
   )
@@ -55,7 +57,7 @@ export const InitallyVisible = () => {
         <MenuItem icon={<IconLink />}>Link to</MenuItem>
         <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
         <MenuSeparator />
-        <MenuItem icon={<IconDelete />} dangerous>
+        <MenuItem icon={<IconDelete />} tone="critical">
           Delete
         </MenuItem>
       </MenuList>
@@ -77,7 +79,7 @@ export const WithConstraint = () => {
         {canDownload ? 'Cannot' : 'Can'} download
       </Button>
       <Menu state={state}>
-        <MenuButton display="actions" variant="secondary">
+        <MenuButton display="actions" variant="soft">
           Post options
         </MenuButton>
         <MenuList aria-label="Menu">
@@ -86,7 +88,9 @@ export const WithConstraint = () => {
           ) : null}
           <MenuItem icon={<IconLink />}>Link to</MenuItem>
           <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
-          <MenuItem icon={<IconDelete />}>Delete</MenuItem>
+          <MenuItem icon={<IconDelete />} tone="critical">
+            Delete
+          </MenuItem>
         </MenuList>
       </Menu>
     </Set>

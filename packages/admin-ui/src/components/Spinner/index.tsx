@@ -1,6 +1,5 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
-import type { Colors } from '@vtex/admin-ui-core'
 import { jsx, tag } from '@vtex/admin-ui-react'
 
 export const Spinner = jsx('svg')(
@@ -8,7 +7,7 @@ export const Spinner = jsx('svg')(
   {
     options: ['color', 'size'],
     useOptions(options: SpinnerOptions, props, system) {
-      const { color = 'blue', size = 24 } = options
+      const { size = 24 } = options
       const { csx } = props
       const { keyframes } = system
 
@@ -47,7 +46,7 @@ export const Spinner = jsx('svg')(
             r={20}
             csx={{
               fill: 'none',
-              stroke: color,
+              stroke: 'currentColor',
               strokeWidth: 5,
               strokeLinecap: 'round',
               animation: `${dash} 1s ease-in-out infinite`,
@@ -61,7 +60,6 @@ export const Spinner = jsx('svg')(
 
 interface SpinnerOptions {
   size?: number
-  color?: Colors | 'currentColor'
 }
 
 Spinner.defaultProps = {

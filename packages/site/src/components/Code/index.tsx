@@ -3,15 +3,16 @@ import type { Language } from 'prism-react-renderer'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/github'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+import { Formik, Form } from 'formik'
 import {
   tag,
-  Button,
   createSystem,
   Set,
   Flex,
   IconCode,
   IconDuplicate,
   ToastProvider,
+  ButtonGhost,
 } from '@vtex/admin-ui'
 
 import { copyToClipboard, calculateLinesToHighlight } from './util'
@@ -27,6 +28,7 @@ export interface CodeProps {
   className: string
   highlight?: string
   isStatic?: string | boolean
+  isFormik?: string | boolean
   isShown?: boolean
   title?: string
   lineNumbers?: string
@@ -40,6 +42,7 @@ export function Code(props: CodeProps) {
     codeString,
     className,
     isStatic = false,
+    isFormik = false,
     isShown = false,
     highlight,
     title,
@@ -62,6 +65,23 @@ export function Code(props: CodeProps) {
 
   const [codeVisible, setCodeVisible] = useState(isShown)
 
+  const toggleVisible = () => {
+    setCodeVisible((prev) => !prev)
+  }
+
+  if (isFormik) {
+    return (
+      <FormikPreview
+        copied={copied}
+        handleClick={handleClick}
+        codeString={codeString}
+        noInline={noInline}
+        codeVisible={codeVisible}
+        toggleVisible={toggleVisible}
+      />
+    )
+  }
+
   if (!isStatic) {
     return (
       <ThemeProvider>
@@ -78,31 +98,29 @@ export function Code(props: CodeProps) {
                 justify="flex-end"
                 csx={{
                   padding: 1,
-                  bg: 'sidebar.light',
+                  bg: 'muted',
                   borderBottomRightRadius: 4,
                   borderBottomLeftRadius: 4,
                 }}
               >
                 <Set>
                   {codeVisible && (
-                    <Button
+                    <ButtonGhost
                       size="small"
                       icon={<IconDuplicate />}
-                      variant="adaptative-dark"
                       onClick={handleClick}
                       disabled={copied}
                     >
                       {copied ? 'Copied!' : 'Copy code'}
-                    </Button>
+                    </ButtonGhost>
                   )}
-                  <Button
+                  <ButtonGhost
                     icon={<IconCode />}
-                    variant="adaptative-dark"
                     size="small"
-                    onClick={() => setCodeVisible((v) => !v)}
+                    onClick={toggleVisible}
                   >
                     Show/Hide Code
-                  </Button>
+                  </ButtonGhost>
                 </Set>
               </Flex>
               <tag.div csx={styles.editorWrapper}>
@@ -142,16 +160,15 @@ export function Code(props: CodeProps) {
               className={blockClassName}
               style={style}
             >
-              <Button
+              <ButtonGhost
                 size="small"
                 icon={<IconCode />}
-                variant="adaptative-dark"
                 onClick={handleClick}
                 disabled={copied}
                 csx={styles.copyButton}
               >
                 {copied ? 'Copied!' : 'Copy code'}
-              </Button>
+              </ButtonGhost>
               <tag.code
                 csx={{
                   position: 'relative',
@@ -183,8 +200,7 @@ export function Code(props: CodeProps) {
                     )
                   })}
                 {tokens.length > maxCodeLength && (
-                  <Button
-                    variant="adaptative-dark"
+                  <ButtonGhost
                     csx={{
                       width: '100%',
                       zIndex: 2,
@@ -192,7 +208,7 @@ export function Code(props: CodeProps) {
                     onClick={() => setCodeVisible((v) => !v)}
                   >
                     {codeVisible ? 'Hide' : 'Show'} Code
-                  </Button>
+                  </ButtonGhost>
                 )}
                 {tokens.length > maxCodeLength && !codeVisible && (
                   <tag.div
@@ -212,6 +228,104 @@ export function Code(props: CodeProps) {
           )}
         </Highlight>
       </div>
+    </ThemeProvider>
+  )
+}
+
+interface FormikPreviewProps {
+  codeString?: string
+  noInline?: boolean
+  handleClick?: () => void
+  toggleVisible: () => void
+  codeVisible?: boolean
+  copied?: boolean
+}
+
+function FormikPreview(props: FormikPreviewProps) {
+  const {
+    codeString,
+    noInline,
+    handleClick,
+    copied,
+    codeVisible,
+    toggleVisible,
+  } = props
+
+  const handleFormikSubmit = (
+    values: any,
+    {
+      setSubmitting,
+    }: {
+      setSubmitting: (isSubmitting: boolean) => void
+    }
+  ) => {
+    setSubmitting(true) // Lock the form to not be modified
+    alert(`Values submitted: ${JSON.stringify(values)}`)
+    setSubmitting(false) // Lock the form to not be modified
+  }
+
+  return (
+    <ThemeProvider>
+      <Formik
+        initialValues={{
+          checkboxValue: false,
+          checkboxGroupValue: [],
+          inputValue: '',
+          inputPasswordValue: '',
+          numericStepperValue: 0,
+          radioGroupValue: '',
+          selectValue: '',
+          textAreaValue: '',
+          toggleValue: false,
+        }}
+        onSubmit={handleFormikSubmit}
+      >
+        <Form>
+          <LiveProvider
+            code={codeString}
+            noInline={noInline}
+            theme={theme}
+            scope={scope}
+          >
+            <tag.div csx={styles.wrapper}>
+              <tag.div as={LivePreview} csx={styles.preview} />
+              <Flex
+                justify="flex-end"
+                csx={{
+                  padding: 1,
+                  bg: 'sidebar.light',
+                  borderBottomRightRadius: 4,
+                  borderBottomLeftRadius: 4,
+                }}
+              >
+                <Set>
+                  {codeVisible && (
+                    <ButtonGhost
+                      size="small"
+                      icon={<IconDuplicate />}
+                      onClick={handleClick}
+                      disabled={copied}
+                    >
+                      {copied ? 'Copied!' : 'Copy code'}
+                    </ButtonGhost>
+                  )}
+                  <ButtonGhost
+                    icon={<IconCode />}
+                    size="small"
+                    onClick={toggleVisible}
+                  >
+                    Show/Hide Code
+                  </ButtonGhost>
+                </Set>
+              </Flex>
+              <tag.div csx={styles.editorWrapper}>
+                {codeVisible && <LiveEditor />}
+              </tag.div>
+              <tag.div as={LiveError} csx={styles.liveEditor} />
+            </tag.div>
+          </LiveProvider>
+        </Form>
+      </Formik>
     </ThemeProvider>
   )
 }

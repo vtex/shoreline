@@ -1,8 +1,8 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
-import { alpha } from '@vtex/admin-ui-core'
 import { jsx, tag } from '@vtex/admin-ui-react'
 import { MenuItem as ReakitMenuItem } from 'reakit/Menu'
+import { focusVisible } from '@vtex/admin-ui-core'
 
 import { useMenuContext } from './MenuContext'
 
@@ -49,48 +49,40 @@ export const MenuItem = jsx(ReakitMenuItem)(
     borderRadius: 'default',
     cursor: 'pointer',
     position: 'relative',
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
     variants: {
-      dangerous: {
-        true: {
-          color: 'red',
-          backgroundColor: 'transparent',
-          ':focus': {
-            bg: alpha('red.secondary.default', 0.32),
-            outline: 'none',
-            boxShadow: 'none',
-          },
+      tone: {
+        main: {
+          ...focusVisible('main'),
+          bg: 'listBoxItem.main',
+          color: 'listBoxItem.main',
           ':hover': {
-            color: 'red',
+            color: 'listBoxItem.mainHover',
+            bg: 'listBoxItem.mainHover',
           },
           ':active': {
-            color: 'red.pressed',
-            backgroundColor: alpha('red.secondary.pressed', 0.32),
+            color: 'listBoxItem.mainPressed',
+            bg: 'listBoxItem.mainPressed',
           },
           ':disabled': {
-            color: 'mid.primary',
+            color: 'listBoxItem.mainDisabled',
+            bg: 'listBoxItem.mainDisabled',
           },
         },
-        false: {
-          backgroundColor: 'transparent',
-          color: 'dark.primary',
-          ':focus': {
-            bg: alpha('blue.secondary.default', 0.32),
-            outline: 'none',
-            boxShadow: 'none',
-          },
+        critical: {
+          ...focusVisible('critical'),
+          bg: 'listBoxItem.critical',
+          color: 'listBoxItem.critical',
           ':hover': {
-            color: 'dark.primary',
+            color: 'listBoxItem.criticalHover',
+            bg: 'listBoxItem.criticalHover',
           },
           ':active': {
-            color: 'blue.pressed',
-            backgroundColor: alpha('blue.secondary.pressed', 0.32),
+            color: 'listBoxItem.criticalPressed',
+            bg: 'listBoxItem.criticalPressed',
           },
           ':disabled': {
-            color: 'mid.primary',
+            color: 'listBoxItem.criticalDisabled',
+            bg: 'listBoxItem.criticalDisabled',
           },
         },
       },
@@ -129,7 +121,7 @@ export const MenuItem = jsx(ReakitMenuItem)(
 )
 
 MenuItem.defaultProps = {
-  dangerous: false,
+  tone: 'main',
 }
 
 export interface MenuItemOptions {

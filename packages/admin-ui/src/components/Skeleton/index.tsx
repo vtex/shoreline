@@ -22,7 +22,7 @@ export const Skeleton = jsx('div')(
     display: 'inline-block',
     width: 'full',
     height: 'full',
-    backgroundColor: 'light.secondary',
+    bg: (theme) => get(theme, 'colors.grey20', ''),
     backgroundSize: `200px 100%`,
     backgroundRepeat: 'no-repeat',
     lineHeight: 1,
@@ -56,12 +56,14 @@ export const Skeleton = jsx('div')(
         ...restProps,
         csx: {
           animation: `${load} 1.2s ease-in-out infinite`,
-          // TODO Investigate any type
           backgroundImage: (theme: any) =>
             `linear-gradient(90deg, ${get(
               theme,
-              'colors.light.secondary'
-            )}, white, ${get(theme, 'colors.light.secondary')})`,
+              'background.skeletonMuted'
+            )},  ${get(theme, 'background.skeleton')}, ${get(
+              theme,
+              'background.skeletonMuted'
+            )})`,
           ...csx,
         },
       }

@@ -1,4 +1,5 @@
 ---
+title: useMediaQuery
 path: /hooks/use-media-query/
 ---
 

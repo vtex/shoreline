@@ -1,4 +1,5 @@
 ---
+title: DataView
 path: /patterns/data-view/
 ---
 

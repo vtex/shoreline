@@ -10,18 +10,18 @@ import { tag } from '@vtex/admin-ui-react'
 import { useTimeout } from '@vtex/admin-ui-hooks'
 
 import type { InternalToast } from '../types'
-import { Button } from '../../Button'
 import { ToastContainer } from './ToastContainer'
+import { ButtonGhost } from '../../ButtonGhost'
 
 interface ToastProps extends InternalToast {
   onClear: (dedupeKey: string, id: string) => void
 }
 
 const icons = {
-  success: <IconSuccessColorful />,
+  positive: <IconSuccessColorful />,
   warning: <IconWarningColorful />,
-  error: <IconErrorColorful />,
-  info: <IconNotifications csx={{ color: 'blue' }} />,
+  critical: <IconErrorColorful />,
+  info: <IconNotifications csx={{ color: 'notification.info' }} />,
 }
 
 export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
@@ -34,7 +34,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
       dismissible,
       action,
       shouldRemove,
-      type = 'info',
+      tone = 'info',
       duration = 10000,
     } = props
 
@@ -61,7 +61,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         ref={ref}
         onMouseEnter={stopTimeout}
         onMouseLeave={startTimeout}
-        type={type}
+        tone={tone}
       >
         <tag.div
           csx={{
@@ -70,28 +70,26 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             '> *:first-child': { marginRight: '0.75rem' },
           }}
         >
-          {icons[type]}
+          {icons[tone]}
           <tag.p csx={{ textAlign: 'start', text: 'body' }}>{message}</tag.p>
         </tag.div>
         {(dismissible || action) && (
           <tag.div csx={{ display: 'flex', alignItems: 'center' }}>
             {action && (
-              <Button
+              <ButtonGhost
                 key={action.label}
                 onClick={() => {
                   remove()
                   action.onClick()
                 }}
-                csx={{ color: 'blue' }}
-                variant="adaptative-dark"
+                csx={{ color: 'action.main.text' }}
               >
                 {action.label}
-              </Button>
+              </ButtonGhost>
             )}
             {dismissible && (
-              <Button
+              <ButtonGhost
                 icon={<IconClose />}
-                variant="adaptative-dark"
                 size="small"
                 aria-label="Close toast"
                 onClick={remove}

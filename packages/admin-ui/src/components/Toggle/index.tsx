@@ -1,6 +1,8 @@
 import type { CheckboxProps as ReakitProps } from 'reakit'
 import { Checkbox as ReakitCheckbox } from 'reakit'
 import { jsx } from '@vtex/admin-ui-react'
+import { get } from '@vtex/admin-ui-util'
+import { focusVisible } from '@vtex/admin-ui-core'
 
 import type { CheckboxStateReturn } from '../Checkbox'
 import { useCheckboxState } from '../Checkbox'
@@ -8,64 +10,80 @@ import type { ComponentPropsWithRef } from 'react'
 
 export const Toggle = jsx(ReakitCheckbox)(
   {
+    ...focusVisible('neutral'),
+    bg: (theme) => get(theme, 'borderColor.control.neutral'),
+    borderColor: 'control.neutral',
     appearance: 'none',
     position: 'relative',
     cursor: 'pointer',
     margin: 0,
     borderRadius: '6.25rem',
-    backgroundColor: 'mid.primary',
     borderStyle: 'solid',
-    borderColor: 'mid.primary',
     borderWidth: 1,
-    '&:after': {
+
+    ':after': {
+      bg: (theme) => get(theme, 'foreground.control.neutral'),
       content: '""',
       display: 'block',
       position: 'absolute',
       borderRadius: '1.25rem',
-      backgroundColor: 'light.primary',
       transition: 'transform .25s ease',
     },
-    '&:checked': {
-      backgroundColor: 'green',
-      borderColor: 'green',
-      '&:hover': {
-        backgroundColor: 'green.hover',
-        borderColor: 'green.hover',
+
+    ':hover': {
+      bg: (theme) => get(theme, 'borderColor.control.neutralHover'),
+      borderColor: 'control.neutralHover',
+    },
+
+    ':active': {
+      bg: (theme) => get(theme, 'borderColor.control.neutralPressed'),
+      borderColor: 'control.neutralPressed',
+    },
+
+    ':disabled': {
+      bg: 'control.neutralDisabled',
+      borderColor: 'control.neutralDisabled',
+      color: 'control.neutralDisabled',
+
+      ':after': {
+        bg: (theme) => get(theme, 'foreground.control.neutralDisabled'),
       },
-      '&:disabled': {
-        backgroundColor: 'mid.primary',
-        borderColor: 'mid.primary',
-        '&:after': {
-          backgroundColor: 'mid.secondary',
+    },
+
+    '&:checked': {
+      bg: 'control.neutralChecked',
+      color: 'control.neutralChecked',
+      borderColor: 'control.neutralChecked',
+
+      ':hover': {
+        bg: 'control.neutralCheckedHover',
+        borderColor: 'control.neutralCheckedHover',
+        ':after': {
+          borderColor: 'control.neutralCheckedHover',
+        },
+      },
+
+      ':active': {
+        bg: 'control.neutralCheckedPressed',
+        borderColor: 'control.neutralCheckedPressed',
+
+        ':after': {
+          borderColor: 'control.neutralCheckedPressed',
+        },
+      },
+
+      ':disabled': {
+        bg: 'control.neutralCheckedDisabled',
+        borderColor: 'control.neutralCheckedDisabled',
+        color: 'control.neutralCheckedDisabled',
+
+        ':after': {
+          bg: (theme) =>
+            get(theme, 'foreground.control.neutralCheckedDisabled'),
         },
       },
     },
-    '&:hover': {
-      backgroundColor: 'dark.secondary',
-      borderColor: 'dark.secondary',
-    },
-    '&:disabled': {
-      backgroundColor: 'mid.primary',
-      borderColor: 'mid.primary',
-      '&:after': {
-        backgroundColor: 'mid.secondary',
-      },
-    },
-    ':not(:checked):active': {
-      backgroundColor: 'dark.secondary',
-      borderColor: 'dark.secondary',
-      ':after': {
-        backgroundColor: 'blue.secondary',
-      },
-    },
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'focus',
-    },
+
     variants: {
       size: {
         regular: {
@@ -77,7 +95,7 @@ export const Toggle = jsx(ReakitCheckbox)(
           },
           '&:checked': {
             '&:after': {
-              transform: 'translateX(16px)',
+              transform: 'translateX(1rem)',
             },
           },
         },

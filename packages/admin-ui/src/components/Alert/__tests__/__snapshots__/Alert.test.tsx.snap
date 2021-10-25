@@ -62,14 +62,15 @@ exports[`Alert should match snapshot 1`] = `
   transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
   border-style: solid;
   border-width: 1px;
+  color: #000000;
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   visibility: visible;
-  background-color: #eaf5f1;
-  border-color: #CEE8DE;
+  background-color: hsla(123, 39%, 91%, 1);
+  border-color: hsla(122, 41%, 64%, 1);
 }
 
 .emotion-4 a {
@@ -136,7 +137,7 @@ exports[`Alert should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #368369;
+  color: hsla(123, 41%, 37%, 1);
 }
 
 <div
@@ -156,7 +157,7 @@ exports[`Alert should match snapshot 1`] = `
           <path
             clip-rule="evenodd"
             d="M12 21C7.029 21 3 16.971 3 12C3 7.029 7.029 3 12 3C16.971 3 21 7.029 21 12C21 16.971 16.971 21 12 21Z"
-            fill="#44B172"
+            fill="hsla(123, 41%, 37%, 1)"
             fill-rule="evenodd"
           />
           <path
@@ -235,14 +236,15 @@ exports[`Alert should match snapshot 1`] = `
   transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
   border-style: solid;
   border-width: 1px;
+  color: #000000;
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   visibility: visible;
-  background-color: #fbf3e4;
-  border-color: #F6E0BA;
+  background-color: hsla(30, 100%, 92%, 1);
+  border-color: hsla(30, 100%, 69%, 1);
 }
 
 .emotion-4 a {
@@ -309,7 +311,7 @@ exports[`Alert should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #FFBA52;
+  color: hsla(30, 100%, 45%, 1);
 }
 
 <div
@@ -329,19 +331,19 @@ exports[`Alert should match snapshot 1`] = `
           <path
             clip-rule="evenodd"
             d="M3 14.381V9.61899C3 8.01699 3.852 6.53599 5.236 5.72999L9.736 3.11099C11.135 2.29699 12.864 2.29699 14.263 3.11099L18.763 5.72999C20.148 6.53599 21 8.01699 21 9.61899V14.381C21 15.983 20.148 17.464 18.764 18.27L14.264 20.889C12.865 21.703 11.136 21.703 9.737 20.889L5.237 18.27C3.852 17.464 3 15.983 3 14.381Z"
-            fill="#FFC165"
+            fill="hsla(30, 100%, 45%, 1)"
             fill-rule="evenodd"
           />
           <path
             d="M12 12V7.5"
-            stroke="#323845"
+            stroke="#000000"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="1.5"
           />
           <path
             d="M11.999 15.5C11.861 15.5 11.749 15.612 11.75 15.75C11.75 15.888 11.862 16 12 16C12.138 16 12.25 15.888 12.25 15.75C12.25 15.612 12.138 15.5 11.999 15.5"
-            stroke="#323845"
+            stroke="#000000"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="1.5"
@@ -415,14 +417,15 @@ exports[`Alert should match snapshot 1`] = `
   transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
   border-style: solid;
   border-width: 1px;
+  color: #000000;
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   visibility: visible;
-  background-color: #fee1e1;
-  border-color: #FEDADA;
+  background-color: hsla(0, 60%, 93%, 1);
+  border-color: hsla(0, 59%, 73%, 1);
 }
 
 .emotion-4 a {
@@ -489,7 +492,7 @@ exports[`Alert should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #CB4242;
+  color: hsla(0, 58%, 52%, 1);
 }
 
 <div
@@ -509,7 +512,7 @@ exports[`Alert should match snapshot 1`] = `
           <path
             clip-rule="evenodd"
             d="M7.414 20.414L3.586 16.586C3.211 16.211 3 15.702 3 15.172V8.828C3 8.298 3.211 7.789 3.586 7.414L7.414 3.586C7.789 3.211 8.298 3 8.828 3H15.171C15.701 3 16.21 3.211 16.585 3.586L20.413 7.414C20.789 7.789 21 8.298 21 8.828V15.171C21 15.701 20.789 16.21 20.414 16.585L16 21H8.828C8.298 21 7.789 20.789 7.414 20.414Z"
-            fill="#FF6565"
+            fill="hsla(0, 58%, 52%, 1)"
             fill-rule="evenodd"
           />
           <path

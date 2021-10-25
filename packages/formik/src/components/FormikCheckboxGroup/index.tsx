@@ -47,7 +47,7 @@ export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
         </FormikCheckboxGroupContext.Provider>
       </CheckboxGroup>
       {errorMessage && (
-        <Text variant="small" feedback="danger" csx={{ paddingTop: 1 }}>
+        <Text variant="small" tone="critical" csx={{ paddingTop: 1 }}>
           {errorMessage}
         </Text>
       )}

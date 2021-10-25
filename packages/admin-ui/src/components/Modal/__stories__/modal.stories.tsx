@@ -39,7 +39,7 @@ export function Dialog() {
           </Text>
         </ModalContent>
         <ModalFooter>
-          <Button variant="secondary">Cancel</Button>
+          <Button variant="soft">Cancel</Button>
           <Button>Confirm</Button>
         </ModalFooter>
       </Modal>

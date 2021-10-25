@@ -30,7 +30,7 @@ describe('Input tests', () => {
     const { asFragment } = render(
       <>
         <Input
-          errorMessage="Error Message"
+          criticalText="Error Message"
           value=""
           onChange={() => {}}
           label="Label"
@@ -61,7 +61,7 @@ describe('Input tests', () => {
         <Input
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Error Message"
           value=""
           onChange={() => {}}
           label="Label"
@@ -83,7 +83,7 @@ describe('Input tests', () => {
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Error Message"
           value=""
           onChange={() => {}}
           onClear={() => {}}
@@ -110,7 +110,7 @@ describe('Input tests', () => {
         <Input
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Error Message"
           value=""
           onChange={() => {}}
           label="Label"
@@ -132,7 +132,7 @@ describe('Input tests', () => {
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
-          errorMessage="Error Message"
+          criticalText="Error Message"
           value=""
           onChange={() => {}}
           onClear={() => {}}

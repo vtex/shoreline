@@ -1,5 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
+import { palette } from '@vtex/admin-ui-core'
 import { jsx, tag } from '@vtex/admin-ui-react'
 
 /**
@@ -8,8 +9,6 @@ import { jsx, tag } from '@vtex/admin-ui-react'
  * @example
  * ```jsx
  * <Avatar label="label" />
- * <Avatar label="label" palette="primary" />
- * <Avatar label="label" palette="danger" />
  * ```
  */
 export const Avatar = jsx('div')(
@@ -24,18 +23,13 @@ export const Avatar = jsx('div')(
     textTransform: 'uppercase',
     variants: {
       palette: {
-        base: {
-          bg: 'dark.primary',
-          color: 'light.primary',
-        },
-        primary: {
-          bg: 'blue',
-          color: 'light.primary',
-        },
-        danger: {
-          bg: 'red',
-          color: 'light.primary',
-        },
+        lightBlue: palette('lightBlue'),
+        green: palette('green'),
+        orange: palette('orange'),
+        cyan: palette('cyan'),
+        purple: palette('purple'),
+        teal: palette('teal'),
+        grey: palette('grey'),
       },
     },
   },
@@ -54,7 +48,7 @@ export const Avatar = jsx('div')(
 )
 
 Avatar.defaultProps = {
-  palette: 'base',
+  palette: 'lightBlue',
 }
 
 export interface AvatarOptions {

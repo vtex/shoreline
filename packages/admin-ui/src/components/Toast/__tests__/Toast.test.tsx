@@ -22,9 +22,9 @@ describe('Toast', () => {
     const { asFragment } = render(
       <ToastProvider>
         <Toast {...toastProps} />
-        <Toast {...toastProps} type="success" />
-        <Toast {...toastProps} type="warning" />
-        <Toast {...toastProps} type="error" />
+        <Toast {...toastProps} tone="positive" />
+        <Toast {...toastProps} tone="warning" />
+        <Toast {...toastProps} tone="critical" />
       </ToastProvider>
     )
 

@@ -36,10 +36,10 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" csx={{ color: 'dark.secondary' }}>
+            <Text variant="small" tone="muted">
               Partner - app_ios
             </Text>
-            <Text variant="small" csx={{ color: 'dark.secondary' }}>
+            <Text variant="small" tone="muted">
               Campaign - Campaing Name
             </Text>
           </Set>
@@ -74,10 +74,10 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" csx={{ color: 'dark.secondary' }}>
+            <Text variant="small" tone="muted">
               Partner - app_ios
             </Text>
-            <Text variant="small" csx={{ color: 'dark.secondary' }}>
+            <Text variant="small" tone="muted">
               Campaign - Campaing Name
             </Text>
           </Set>
@@ -94,16 +94,16 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
             <CollapsibleHeader label={value} />
             <CollapsibleContent>
               <Set orientation="vertical" spacing={2}>
-                <Text variant="small" csx={{ color: 'blue' }}>
+                <Text variant="small" tone="info">
                   N 00025755809
                 </Text>
-                <Text variant="small" csx={{ color: 'mid.primary' }}>
+                <Text variant="small" tone="muted">
                   Total cost of items - 39,00 BRL
                 </Text>
-                <Text variant="small" csx={{ color: 'mid.primary' }}>
+                <Text variant="small" tone="muted">
                   Type - Total Express
                 </Text>
-                <Text csx={{ color: 'blue' }}>Tracking - XSDFE231675</Text>
+                <Text tone="info">Tracking - XSDFE231675</Text>
               </Set>
             </CollapsibleContent>
           </Collapsible>

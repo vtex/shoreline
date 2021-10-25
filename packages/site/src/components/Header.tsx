@@ -1,15 +1,44 @@
 import React, { useEffect, useState } from 'react'
-import { Search, tag } from '@vtex/admin-ui'
-import { VisuallyHidden } from 'reakit'
+import {
+  Dialog,
+  DialogBackdrop,
+  DialogDisclosure,
+  useDialogState,
+} from 'reakit/Dialog'
+import { navigate } from 'gatsby-link'
+import {
+  tag,
+  get,
+  unstableSearchBox as SearchBox,
+  unstableUseSearchBoxState as useSearchBoxState,
+  IconSearch,
+  Paragraph,
+} from '@vtex/admin-ui'
 import { FaGithub } from 'react-icons/fa'
+import { usePaths } from './Sidebar'
 
-import useViewportWidthGreaterThan from '../hooks/useViewportWidthGreaterThan'
 import Anchor from './Anchor'
-import { useSearchContext } from './Search'
+import Logo from '../icons/Logo'
 
 export default function Header() {
-  const isLarge = useViewportWidthGreaterThan(768)
-  const search = useSearchContext()
+  const dialog = useDialogState()
+  const { paths } = usePaths()
+  const searchState = useSearchBoxState({
+    id: 'basic',
+    collection: paths,
+    onSelectedItemChange: ({ selectedItem }) => {
+      if (!selectedItem) return
+
+      const { to } = selectedItem
+
+      navigate(to)
+
+      dialog.hide()
+    },
+    itemToString: (item) => item?.title ?? '',
+    compare: (a, b) => a?.title === b?.title,
+  })
+
   const [border, setBorder] = useState('none')
 
   useEffect(() => {
@@ -32,16 +61,16 @@ export default function Header() {
     <tag.header
       csx={{
         top: 0,
-        height: 64,
+        height: 52,
         position: 'fixed',
         border,
-        color: 'dark.primary',
-        bg: 'light.primary',
-        width: '80%',
-        maxWidth: 'calc(90rem - 10%)',
+        color: 'header',
+        bg: 'rgba(240,240,240,0.7)',
+        backdropFilter: 'saturate(180%) blur(20px)',
+        width: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         zIndex: 9999,
         paddingX: 4,
         '& > *:not(:last-child)': {
@@ -59,28 +88,102 @@ export default function Header() {
           "&:not([href='/'])": {
             paddingX: 4,
             '&:hover': {
-              color: 'blue',
+              color: 'linkHover',
               textDecoration: 'none',
             },
           },
         },
       }}
     >
-      <Search
-        id="search"
-        placeholder="Start typing to filter sidebar items"
+      <tag.div
         csx={{
-          width: 500,
+          width: '100%',
+          maxWidth: '89rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
-        state={search}
-      />
-      <Anchor
-        href="https://github.com/vtex/onda/tree/master/styleguides/admin/admin-ui"
-        target="blank"
       >
-        <tag.i as={FaGithub} csx={{ fontSize: '1.5rem', marginRight: 2 }} />
-        {!isLarge && <VisuallyHidden>GitHub</VisuallyHidden>}
-      </Anchor>
+        <Logo />
+        <tag.button
+          as={DialogDisclosure}
+          csx={{
+            width: '14rem',
+            height: '2rem',
+            bg: (theme) => get(theme, 'colors.greyTransparent10'),
+            color: 'base',
+            borderRadius: 'default',
+            text: 'body',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            'svg + p': {
+              marginLeft: 2,
+            },
+            cursor: 'pointer',
+            ':focus:not([data-focus-visible-added])': {
+              outline: 'none',
+              boxShadow: 'none',
+            },
+            ':focus': {
+              outline: 'none',
+              boxShadow: 'focus',
+            },
+            ':hover': {
+              bg: (theme) => get(theme, 'colors.greyTransparent20'),
+            },
+            ':active': {
+              bg: (theme) => get(theme, 'colors.greyTransparent30'),
+            },
+          }}
+          state={dialog}
+        >
+          <IconSearch />
+          <Paragraph>Search for pages</Paragraph>
+        </tag.button>
+        <tag.div
+          as={DialogBackdrop}
+          csx={{
+            bg: (theme) => get(theme, 'colors.greyTransparent40'),
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            zIndex: 9999,
+          }}
+          state={dialog}
+        >
+          <tag.div
+            as={Dialog}
+            csx={{
+              position: 'absolute',
+              top: '0.75rem',
+              width: '42.5rem',
+              left: '50%',
+              marginLeft: '-21.25rem',
+              ':focus': {
+                outline: 'none',
+              },
+            }}
+            state={dialog}
+          >
+            <SearchBox state={searchState}>
+              <SearchBox.Input />
+              <SearchBox.Menu>
+                <SearchBox.Suggestion>
+                  {(item) => item.title}
+                </SearchBox.Suggestion>
+              </SearchBox.Menu>
+              <SearchBox.Footer />
+            </SearchBox>
+          </tag.div>
+        </tag.div>
+        <Anchor href="https://github.com/vtex/onda/" target="blank">
+          <tag.i as={FaGithub} csx={{ fontSize: '1.5rem', marginRight: 2 }} />
+          Github
+        </Anchor>
+      </tag.div>
     </tag.header>
   )
 }

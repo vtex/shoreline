@@ -1,11 +1,71 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { tag } from '@vtex/admin-ui-react'
+import { jsx } from '@vtex/admin-ui-react'
 
-import { Box } from '../Box'
-import { Text } from '../Text'
-import { Label } from '../Label'
+import { FloatingLabel, FieldDetails, FieldContainer } from '../Field'
 import type { SystemComponentProps } from '../../types'
+
+const Reference = jsx('textarea')({
+  // ...focusVisible(),
+  fontFamily: 'sans',
+  paddingTop: 24,
+  height: 100,
+  resize: 'none',
+  fontSettings: 'regular',
+  width: 'full',
+  borderStyle: 'solid',
+  borderWidth: 1,
+  paddingLeft: 3,
+  paddingRight: 4,
+  borderRadius: 'default',
+  marginY: 1,
+  fontSize: 1,
+  color: 'base',
+  outline: 0,
+  transition: 'snap',
+  variants: {
+    tone: {
+      neutral: {
+        bg: 'field.neutral',
+        color: 'field.neutral',
+        borderColor: 'field.neutral',
+        ':not(:focus):hover': {
+          borderColor: 'field.neutralHover',
+        },
+        ':focus': {
+          borderColor: 'field.neutralFocus',
+          boxShadow: 'ring.neutral',
+        },
+        ':disabled': {
+          bg: 'field.neutralDisabled',
+          color: 'field.neutralDisabled',
+          borderColor: 'field.neutralDisabled',
+        },
+      },
+      critical: {
+        bg: 'field.critical',
+        color: 'field.critical',
+        borderColor: 'field.critical',
+        ':not(:focus):hover': {
+          borderColor: 'field.criticalHover',
+        },
+        ':focus': {
+          borderColor: 'field.criticalFocus',
+          boxShadow: 'ring.critical',
+        },
+        ':disabled': {
+          bg: 'field.criticalDisabled',
+          color: 'field.criticalDisabled',
+          borderColor: 'field.criticalDisabled',
+        },
+      },
+    },
+  },
+})
+
+Reference.defaultProps = {
+  tone: 'neutral',
+}
 
 export const TextArea = forwardRef(function Textarea(
   props: TextAreaProps,
@@ -18,80 +78,23 @@ export const TextArea = forwardRef(function Textarea(
     helperText,
     charLimit,
     value = '',
-    error = false,
+    tone = 'neutral',
     onChange,
-    errorMessage,
+    criticalText,
     ...textareaProps
   } = props
 
-  const message = error ? errorMessage : helperText
+  const message = tone === 'critical' ? criticalText : helperText
 
   return (
-    <Box
+    <FieldContainer
       csx={{
-        display: 'flex',
-        position: 'relative',
-        justifyContent: 'flex-start',
-        flexDirection: 'column',
         width: 'full',
-        textarea: error
-          ? {
-              borderColor: 'red',
-              ':focus': {
-                borderColor: 'red',
-                boxShadow: 'inputFocusError',
-              },
-              ':hover': {
-                borderColor: 'red.hover',
-              },
-            }
-          : {},
       }}
     >
-      <tag.textarea
-        csx={{
-          fontFamily: 'sans',
-          paddingTop: 24,
-          height: 100,
-          resize: 'none',
-          fontSettings: 'regular',
-          width: 'full',
-          borderStyle: 'solid',
-          borderWidth: 1,
-          paddingLeft: 3,
-          paddingRight: 4,
-          borderColor: 'mid.secondary',
-          borderRadius: 'default',
-          bg: 'inherit',
-          marginY: 1,
-          fontSize: 1,
-          color: 'dark.primary',
-          outline: 0,
-          transition: 'snap',
-          ':hover': {
-            borderColor: 'dark.primary',
-          },
-          ':focus': {
-            borderColor: 'blue',
-            boxShadow: 'inputFocus',
-          },
-          ':disabled': {
-            bg: 'light.secondary',
-            color: 'mid.primary',
-            borderColor: 'mid.secondary',
-          },
-          // Label styles
-          ':focus + label': {
-            transform: 'translate(1px, 4px) scale(0.875)',
-          },
-          ':placeholder-shown:not(:focus) + label': {
-            paddingTop: 1,
-          },
-          ':not(:placeholder-shown) + label': {
-            transform: 'translate(1px, 4px) scale(0.875)',
-          },
-          ...csx,
-        }}
+      <Reference
+        tone={tone}
+        csx={csx}
         id={id}
         ref={ref}
         placeholder=" "
@@ -100,45 +103,16 @@ export const TextArea = forwardRef(function Textarea(
         onChange={onChange}
         {...textareaProps}
       />
-      <Label
-        htmlFor={id}
-        csx={{
-          fontSize: 1,
-          left: 12,
-          paddingTop: 2,
-          color: 'mid.primary',
-          marginBottom: 3,
-          position: 'absolute',
-          transform: 'translate(0, 16px) scale(1)',
-          transformOrigin: 'top left',
-          transition: 'all 0.2s ease-out;',
-        }}
-      >
-        {label}
-      </Label>
+      <FloatingLabel htmlFor={id}>{label}</FloatingLabel>
       {(message || !!charLimit) && (
-        <Box
-          csx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            paddingTop: 1,
-          }}
-        >
-          {message ? (
-            <Text variant="small" feedback={error ? 'danger' : 'secondary'}>
-              {message}
-            </Text>
-          ) : (
-            <div>{/** spacer element */}</div>
-          )}
-          {charLimit && (
-            <Text variant="small" csx={{ color: 'mid.primary' }}>
-              {`${value.toString().length}/${charLimit}`}
-            </Text>
-          )}
-        </Box>
+        <FieldDetails
+          value={value}
+          message={message}
+          charLimit={charLimit}
+          tone={tone}
+        />
       )}
-    </Box>
+    </FieldContainer>
   )
 })
 
@@ -160,10 +134,12 @@ export interface TextAreaProps extends SystemComponentProps<TextAreaOwnProps> {
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
   /** TextArea value */
   value: string | number
-  /** TextArea with error */
-  error?: boolean
-  /**
-   * TextArea error message
+  /** TextArea tone of voice
+   * @default neutral
    */
-  errorMessage?: string
+  tone?: 'neutral' | 'critical'
+  /**
+   * TextArea critical message
+   */
+  criticalText?: string
 }

@@ -29,7 +29,7 @@ Playground.args = {
   id: 'InputPassword',
   label: 'Label',
   helperText: 'Helper Text!',
-  errorMessage: 'Error Message!',
+  criticalText: 'Error Message!',
 }
 
 export const Example = () => {
@@ -60,10 +60,10 @@ export const Error = () => {
         id="textfield"
         label="Password"
         helperText="Use a strong password"
-        errorMessage="The passwords do not match"
+        criticalText="The passwords do not match"
         charLimit={10}
         icon={<IconLock />}
-        error
+        tone="critical"
       />
     </Box>
   )

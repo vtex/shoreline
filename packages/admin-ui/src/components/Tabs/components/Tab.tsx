@@ -1,5 +1,6 @@
 import { Tab as ReakitTab } from 'reakit'
 import { jsx } from '@vtex/admin-ui-react'
+import { get } from '@vtex/admin-ui-util'
 
 import { useTabsContext } from '../context'
 
@@ -32,7 +33,7 @@ export const Tab = jsx(ReakitTab)(
     paddingX: 6,
     textTransform: 'uppercase',
     backgroundColor: 'transparent',
-    color: 'dark.secondary',
+    color: 'base',
   },
   {
     options: [],
@@ -48,10 +49,14 @@ export const Tab = jsx(ReakitTab)(
         id,
         csx: {
           ...(selected
-            ? { borderBottomColor: 'blue', color: 'blue' }
+            ? {
+                borderBottomColor: (theme: any) =>
+                  get(theme, 'foreground.action.main.text'),
+                color: 'action.main.text',
+              }
             : {
                 ':hover': {
-                  color: 'blue.hover',
+                  color: 'action.main.text',
                 },
               }),
           ...csx,

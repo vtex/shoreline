@@ -1,4 +1,5 @@
 ---
+title: Skeleton
 path: /skeleton/
 ---
 
@@ -45,8 +46,8 @@ The shape can also be circular. To use this variation, the `shape` property has 
 
 ## Props
 
-| Name    | Type          | Description       | Required | Default  |
-| ------- | ------------- | ----------------- | -------- | -------- |
-| csx     | `StyleObject` | Custom styles     | 🚫       | {}       |
-| shape   | `'rect'       | 'circle'`         | 🚫       | 'circle' |
-| element | `ElementType` | Element to render | 🚫       | 'div'    |
+| Name    | Type              | Description       | Required | Default  |
+| ------- | ----------------- | ----------------- | -------- | -------- |
+| csx     | `StyleObject`     | Custom styles     | 🚫       | `{}`     |
+| shape   | `rect, or circle` | Skeleton's shape  | 🚫       | `circle` |
+| element | `ElementType`     | Element to render | 🚫       | `'div'`  |

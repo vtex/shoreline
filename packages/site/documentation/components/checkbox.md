@@ -1,4 +1,5 @@
 ---
+title: Checkbox
 path: /checkbox/
 ---
 
@@ -184,13 +185,13 @@ It also receive all props of `<input type="checkbox" />` JSX element.
 
 ### Checkbox
 
-| Name     | Type            | Description                         | Required       | Default |
-| -------- | --------------- | ----------------------------------- | -------------- | ------- | ----------- |
-| disabled | `boolean`       | Whether Checkbox is disabled or not | 🚫             | `false` |
-| value    | `string         | number`                             | Checkbox value | 🚫      | -           |
-| state    | `CheckboxState` | Return of `useCheckboxState` hook   | 🚫             | -       |
-| size     | `'regular'      | 'small'`                            | Checkbox Size  | 🚫      | `'regular'` |
-| csx      | `StyleProp`     | Defines component styles            | 🚫             | `{}`    |
+| Name     | Type                | Description                         | Required | Default   |
+| -------- | ------------------- | ----------------------------------- | -------- | --------- |
+| disabled | `boolean`           | Whether Checkbox is disabled or not | 🚫       | `false`   |
+| value    | `string, or number` | Checkbox value                      | 🚫       | -         |
+| state    | `CheckboxState`     | Return of useCheckboxState hook     | 🚫       | -         |
+| size     | `regular, or small` | Checkbox Size                       | 🚫       | `regular` |
+| csx      | `StyleProp`         | Defines component styles            | 🚫       | `{}`      |
 
 ### useCheckboxState params
 
@@ -200,7 +201,7 @@ It also receive all props of `<input type="checkbox" />` JSX element.
 
 ### useCheckboxState return
 
-| Name     | Type                            | Description        | Required   | Default    |
-| -------- | ------------------------------- | ------------------ | ---------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| state    | `boolean                        | "indeterminate"    | (string    | number)[]` | Stores the state of the checkbox. If checkboxes that share this state have defined a value prop, it's going to be an array. | -   | -   |
-| setState | `(value: SetStateAction<boolean | "indeterminate...` | Sets state | -          | -                                                                                                                           |
+| Name     | Type                                                 | Description                                                                                                                 | Required | Default |
+| -------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| state    | `boolean, "indeterminate", Array<string, or number>` | Stores the state of the checkbox. If checkboxes that share this state have defined a value prop, it's going to be an array. | -        | -       |
+| setState | `(value: SetStateAction<CheckboxState>) => void`     | Sets state                                                                                                                  | -        | -       |

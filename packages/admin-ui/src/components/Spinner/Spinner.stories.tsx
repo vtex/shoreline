@@ -15,9 +15,8 @@ export const Playground: Story<SpinnerProps> = (args) => {
 
 Playground.args = {
   size: 24,
-  color: 'blue',
 }
 
 export const Size = () => <Spinner size={100} />
 
-export const Color = () => <Spinner color="red.default" />
+export const Color = () => <Spinner />

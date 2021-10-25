@@ -1,11 +1,11 @@
 ---
+title: Button
 path: /button/
 ---
 
 # Button
 
-Buttons trigger an action or allow the user to advance a state.
-This component handles all `Button` variations of the Design System. It renders a `<button>` element by default.
+Buttons trigger an action or allow the user to advance a state. It renders a `<button>` element by default.
 
 ## Usage
 
@@ -13,82 +13,66 @@ This component handles all `Button` variations of the Design System. It renders 
 import { Button } from '@vtex/admin-ui'
 
 export function Example() {
-  return <Button onClick={() => ...}>Admin UI Button</Button>
+  return <Button onClick={() => {}}>Admin UI Button</Button>
 }
 ```
 
+## Alternatives
+
+- [ButtonGhost](/button-ghost/) - For complementary, less proeminent, actions.
+
 ## Examples
 
-### Variants
+### Tone of voice
 
-It represents the button appearance and is used to convey its action.
-
-#### Primary
+The button's [tone of voice](/foundations/colors/#tones) is either `main` (default) or `critical`, and it's adjustable using the `tone` prop.
 
 ```jsx
-<Set orientation="vertical">
-  <Button>Primary (default)</Button>
-  <Button variant="danger">Dangerous Primary</Button>
+<Set>
+  <Button>Main</Button>
+  <Button tone="critical">Critical</Button>
 </Set>
 ```
 
-#### Secondary
+### Variant
+
+The variant defines the appearance and emphasis of the button.
+
+- Text (low emphasis): Typically used for less important actions.
+- Soft (medium emphasis): Used for more emphasis than text buttons.
+- Solid (high emphasis): Have the highest emphasis, as they use a color fill and shadow. Used for primary actions.
 
 ```jsx
 <Set orientation="vertical">
-  <Button variant="secondary">Secondary</Button>
-  <Button variant="danger-secondary">Dangerous Secondary</Button>
+  <Set>
+    <Button variant="text">Main Text</Button>
+    <Button variant="soft">Main Soft</Button>
+    <Button>Main Solid</Button>
+  </Set>
+  <Set>
+    <Button tone="critical" variant="text">
+      Critical Text
+    </Button>
+    <Button tone="critical" variant="soft">
+      Critical Soft
+    </Button>
+    <Button tone="critical">Critical Solid</Button>
+  </Set>
 </Set>
 ```
 
-#### Tertiary
-
-```jsx
-<Set orientation="vertical">
-  <Button variant="tertiary">Tertiary</Button>
-  <Button variant="danger-tertiary">Dangerous Tertiary</Button>
-</Set>
-```
-
-#### Adaptative
-
-Adapts its behavior(`bg`, `:hover`, `:active`) according to the context that the button is inserted, for example:
-
-```jsx
-<Set orientation="vertical">
-  <Box
-    csx={{
-      color: 'dark.primary',
-      bg: 'light.primary',
-      padding: 4,
-    }}
-  >
-    <Button variant="adaptative-dark" icon={<IconClose />} />
-  </Box>
-  <Box
-    csx={{
-      color: 'light.primary',
-      bg: 'dark.primary',
-      padding: 4,
-    }}
-  >
-    <Button variant="adaptative-light" icon={<IconClose />} />
-  </Box>
-</Set>
-```
-
-### Sizes
+### Size
 
 The button comes in two sizes: `regular` (default) and `small`.
 
 ```jsx
-<Set orientation="vertical">
+<Set>
   <Button>Regular Button</Button>
   <Button size="small">Small Button</Button>
 </Set>
 ```
 
-### Button With Icon
+### With Icon
 
 Buttons may include an icon before or after the text or even be icon only.
 
@@ -97,9 +81,7 @@ Buttons may include an icon before or after the text or even be icon only.
 Display an icon before the text.
 
 ```jsx
-<Set orientation="vertical">
-  <Button icon={<IconFavorite />}>Icon start</Button>
-</Set>
+<Button icon={<IconFavorite />}>Icon start</Button>
 ```
 
 #### Icon after
@@ -107,11 +89,9 @@ Display an icon before the text.
 Display an icon after the text.
 
 ```jsx
-<Set orientation="vertical">
-  <Button icon={<IconFavorite />} iconPosition="end">
-    Icon start
-  </Button>
-</Set>
+<Button icon={<IconFavorite />} iconPosition="end">
+  Icon start
+</Button>
 ```
 
 #### Icon Only
@@ -122,7 +102,7 @@ Display only an Icon.
 <Button icon={<IconFavorite title="Favorite" />} aria-label="Favorite button" />
 ```
 
-### States
+### State
 
 #### Disabled
 
@@ -131,12 +111,12 @@ Set `disabled` to disable a button that isn’t usable.
 ```jsx
 function Example() {
   return (
-    <Set orientation="vertical" spacing={2}>
+    <Set>
       <Button disabled>Disabled</Button>
-      <Button variant="secondary" disabled>
+      <Button variant="soft" disabled>
         Disabled
       </Button>
-      <Button variant="tertiary" disabled>
+      <Button variant="text" disabled>
         Disabled
       </Button>
     </Set>
@@ -153,7 +133,21 @@ function Example() {
   const [loading, setLoading] = React.useState(true)
 
   return (
-    <Set orientation="vertical">
+    <Set>
+      <Button
+        loading={loading}
+        variant="text"
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
+      <Button
+        loading={loading}
+        variant="soft"
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
       <Button loading={loading} onClick={() => setLoading(!loading)}>
         Loading
       </Button>
@@ -187,14 +181,15 @@ function Example() {
 
 All props of `button` JSX element.
 
-| Name         | Type        | Description                               | Required             | Default |
-| ------------ | ----------- | ----------------------------------------- | -------------------- | ------- | ---------------- | --------------- | --------------- | ----------------- | -------------- | --- | ----------- |
-| size         | `regular    | 'small'`                                  | Size of the button   | 🚫      | `'regular'`      |
-| variant      | `primary    | secondary                                 | tertiary             | danger  | danger-secondary | danger-tertiary | adaptative-dark | adaptative-light` | Button variant | 🚫  | `'primary'` |
-| icon         | `ReactNode` | Icon of the button                        | 🚫                   | -       |
-| iconPosition | `'start'    | 'end'`                                    | Position of the icon | 🚫      | `'start'`        |
-| disabled     | `boolean`   | Defines if the Button is disabled         | 🚫                   | `false` |
-| loading      | `boolean`   | Defines if the Button is in loading state | 🚫                   | `false` |
-| focusable    | `boolean`   | Defines if the Button is focusable        | 🚫                   | -       |
-| children     | `ReactNode` | Button children                           | 🚫                   | -       |
-| csx          | `StyleProp` | Defines component styles                  | 🚫                   | `{}`    |
+| Name         | Type                | Description                               | Required | Default   |
+| ------------ | ------------------- | ----------------------------------------- | -------- | --------- |
+| size         | `regular, small`    | Size of the button                        | 🚫       | `regular` |
+| tone         | `main, small`       | Tone of voice                             | 🚫       | `main`    |
+| variant      | `solid, soft, text` | Button variant                            | 🚫       | `solid`   |
+| icon         | `ReactNode`         | Icon of the button                        | 🚫       | -         |
+| iconPosition | `start, end`        | Position of the icon                      | 🚫       | `start`   |
+| disabled     | `boolean`           | Defines if the Button is disabled         | 🚫       | `false`   |
+| loading      | `boolean`           | Defines if the Button is in loading state | 🚫       | `false`   |
+| focusable    | `boolean`           | Defines if the Button is focusable        | 🚫       | -         |
+| children     | `ReactNode`         | Button children                           | 🚫       | -         |
+| csx          | `StyleProp`         | Defines component styles                  | 🚫       | `{}`      |

@@ -4,10 +4,10 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 
 const query = graphql`
   query DocsBackNextQuery {
-    allMarkdownRemark {
+    allMdx {
       nodes {
-        title
         frontmatter {
+          title
           path
         }
       }
@@ -23,14 +23,15 @@ export default function DocsBackNext({
   const { cn } = useSystem()
 
   const findMeta = (path: string) =>
-    data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)
+    data.allMdx.nodes.find((node) => node.frontmatter.path === path)
 
-  const getTitle = (path: string) => findMeta?.(path)?.title
+  const getTitle = (path: string) => findMeta?.(path)?.frontmatter?.title ?? ''
 
   return (
     <Box
       csx={{
-        color: 'dark.primary',
+        color: 'base',
+        bg: 'base',
         li: {
           listStyle: 'none',
         },
@@ -43,7 +44,7 @@ export default function DocsBackNext({
           color: 'inherit',
           cursor: 'pointer',
           '&:hover': {
-            color: 'blue.hover',
+            color: 'linkHover',
           },
         },
       }}
@@ -76,10 +77,10 @@ export default function DocsBackNext({
 type DocsBackNextProps = { nextPath: string; prevPath: string }
 
 type Data = {
-  allMarkdownRemark: {
+  allMdx: {
     nodes: Array<{
-      title: string
       frontmatter: {
+        title: string
         path: string
       }
     }>

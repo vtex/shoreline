@@ -3,11 +3,11 @@
 exports[`TextArea tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-4 {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
@@ -18,7 +18,26 @@ exports[`TextArea tests should match snapshot 1`] = `
   width: 100%;
 }
 
+.emotion-4 input:focus+label,
+.emotion-4 textarea:focus+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
 
+.emotion-4 input:placeholder-shown:not(:focus)+label,
+.emotion-4 textarea:placeholder-shown:not(:focus)+label {
+  padding-top: 0.25rem;
+}
+
+.emotion-4 input:not(:placeholder-shown)+label,
+.emotion-4 textarea:not(:placeholder-shown)+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -27,7 +46,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -47,6 +66,10 @@ exports[`TextArea tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-align-items: ;
+  -webkit-box-align: ;
+  -ms-flex-align: ;
+  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -55,7 +78,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: #707685;
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0 {
@@ -69,49 +92,31 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #C4C5CA;
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: field.neutral;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
 }
 
-.emotion-0:hover {
-  border-color: #323845;
+.emotion-0:not(:focus):hover {
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-  border-color: #C4C5CA;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -139,11 +144,11 @@ exports[`TextArea tests should match snapshot 1`] = `
     </div>
   </div>
   .emotion-4 {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
@@ -154,7 +159,26 @@ exports[`TextArea tests should match snapshot 1`] = `
   width: 100%;
 }
 
+.emotion-4 input:focus+label,
+.emotion-4 textarea:focus+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
 
+.emotion-4 input:placeholder-shown:not(:focus)+label,
+.emotion-4 textarea:placeholder-shown:not(:focus)+label {
+  padding-top: 0.25rem;
+}
+
+.emotion-4 input:not(:placeholder-shown)+label,
+.emotion-4 textarea:not(:placeholder-shown)+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -163,7 +187,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -183,6 +207,10 @@ exports[`TextArea tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-align-items: ;
+  -webkit-box-align: ;
+  -ms-flex-align: ;
+  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -191,7 +219,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0 {
@@ -205,49 +233,31 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #C4C5CA;
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: field.neutral;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
 }
 
-.emotion-0:hover {
-  border-color: #323845;
+.emotion-0:not(:focus):hover {
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-  border-color: #C4C5CA;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -276,14 +286,51 @@ exports[`TextArea tests should match snapshot 1`] = `
       </span>
     </div>
   </div>
-  .emotion-1 {
+  .emotion-4 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.emotion-4 input:focus+label,
+.emotion-4 textarea:focus+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
+
+.emotion-4 input:placeholder-shown:not(:focus)+label,
+.emotion-4 textarea:placeholder-shown:not(:focus)+label {
+  padding-top: 0.25rem;
+}
+
+.emotion-4 input:not(:placeholder-shown)+label,
+.emotion-4 textarea:not(:placeholder-shown)+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
+
+.emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -303,6 +350,10 @@ exports[`TextArea tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-align-items: ;
+  -webkit-box-align: ;
+  -ms-flex-align: ;
+  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -317,78 +368,31 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #C4C5CA;
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: field.critical;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
+  background-color: #FFFFFF;
+  border-color: hsla(0, 58%, 52%, 1);
 }
 
-.emotion-0:hover {
-  border-color: #323845;
+.emotion-0:not(:focus):hover {
+  border-color: hsla(0, 58%, 37%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  border-color: hsla(0, 58%, 30%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-  border-color: #C4C5CA;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-}
-
-.emotion-4 textarea {
-  border-color: #CB4242;
-}
-
-.emotion-4 textarea:focus {
-  border-color: #CB4242;
-  box-shadow: 0 0 0 1px #CB4242;
-}
-
-.emotion-4 textarea:hover {
-  border-color: #b33131;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.criticalDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-2 {
@@ -396,7 +400,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: #CB4242;
+  color: hsla(0, 58%, 52%, 1);
 }
 
 <div
@@ -419,16 +423,16 @@ exports[`TextArea tests should match snapshot 1`] = `
       <span
         class="emotion-2"
       >
-        Error Message
+        Critical Message
       </span>
     </div>
   </div>
   .emotion-5 {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
@@ -439,7 +443,26 @@ exports[`TextArea tests should match snapshot 1`] = `
   width: 100%;
 }
 
+.emotion-5 input:focus+label,
+.emotion-5 textarea:focus+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
 
+.emotion-5 input:placeholder-shown:not(:focus)+label,
+.emotion-5 textarea:placeholder-shown:not(:focus)+label {
+  padding-top: 0.25rem;
+}
+
+.emotion-5 input:not(:placeholder-shown)+label,
+.emotion-5 textarea:not(:placeholder-shown)+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -448,7 +471,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -468,6 +491,10 @@ exports[`TextArea tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-align-items: ;
+  -webkit-box-align: ;
+  -ms-flex-align: ;
+  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -476,15 +503,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: #707685;
-}
-
-.emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.125;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 0.75rem;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0 {
@@ -498,49 +517,31 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #C4C5CA;
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: field.neutral;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
 }
 
-.emotion-0:hover {
-  border-color: #323845;
+.emotion-0:not(:focus):hover {
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-  border-color: #C4C5CA;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -567,20 +568,57 @@ exports[`TextArea tests should match snapshot 1`] = `
         Helper Text
       </span>
       <span
-        class="emotion-3"
+        class="emotion-2"
       >
         0/120
       </span>
     </div>
   </div>
-  .emotion-1 {
+  .emotion-5 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.emotion-5 input:focus+label,
+.emotion-5 textarea:focus+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
+
+.emotion-5 input:placeholder-shown:not(:focus)+label,
+.emotion-5 textarea:placeholder-shown:not(:focus)+label {
+  padding-top: 0.25rem;
+}
+
+.emotion-5 input:not(:placeholder-shown)+label,
+.emotion-5 textarea:not(:placeholder-shown)+label {
+  -webkit-transform: translate(1px, 4px) scale(0.875);
+  -moz-transform: translate(1px, 4px) scale(0.875);
+  -ms-transform: translate(1px, 4px) scale(0.875);
+  transform: translate(1px, 4px) scale(0.875);
+}
+
+.emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -600,6 +638,10 @@ exports[`TextArea tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-align-items: ;
+  -webkit-box-align: ;
+  -ms-flex-align: ;
+  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -608,7 +650,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0 {
@@ -622,78 +664,31 @@ exports[`TextArea tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #C4C5CA;
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: field.critical;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
+  background-color: #FFFFFF;
+  border-color: hsla(0, 58%, 52%, 1);
 }
 
-.emotion-0:hover {
-  border-color: #323845;
+.emotion-0:not(:focus):hover {
+  border-color: hsla(0, 58%, 37%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  border-color: hsla(0, 58%, 30%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-  border-color: #C4C5CA;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-}
-
-.emotion-5 textarea {
-  border-color: #CB4242;
-}
-
-.emotion-5 textarea:focus {
-  border-color: #CB4242;
-  box-shadow: 0 0 0 1px #CB4242;
-}
-
-.emotion-5 textarea:hover {
-  border-color: #b33131;
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.criticalDisabled;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-2 {
@@ -701,7 +696,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: #CB4242;
+  color: hsla(0, 58%, 52%, 1);
 }
 
 <div
@@ -725,7 +720,7 @@ exports[`TextArea tests should match snapshot 1`] = `
       <span
         class="emotion-2"
       >
-        Error Message
+        Critical Message
       </span>
       <span
         class="emotion-3"

@@ -8,15 +8,17 @@ export function PageHeader(props: React.PropsWithChildren<{}>) {
     <tag.div
       csx={{
         paddingY: 6,
+        paddingX: 2,
         marginBottom: 4,
-        border: 'divider-bottom',
       }}
     >
       <tag.h1
         csx={{
-          fontSize: '2.2rem',
+          fontSize: '40px',
           position: 'relative',
-          color: 'dark.primary',
+          color: 'header',
+          bg: 'header',
+          fontSettings: 'medium',
           '> a > *': {
             visibility: 'hidden',
             position: 'absolute',

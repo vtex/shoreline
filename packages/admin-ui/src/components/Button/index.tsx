@@ -2,11 +2,60 @@ import type { ReactNode, ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { Button as ReakitButton } from 'reakit/Button'
 import type { StyleObject } from '@vtex/admin-ui-core'
-import { alpha } from '@vtex/admin-ui-core'
+import { focusVisible } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 import { jsx, tag } from '@vtex/admin-ui-react'
 
 import { Spinner } from '../Spinner'
+
+export type ActionTone = 'main' | 'critical'
+export type ActionVariant = 'solid' | 'soft' | 'text'
+
+function actionSync(tone: ActionTone, variant: ActionVariant) {
+  return {
+    tone,
+    variant,
+    csx: {
+      color: `action.${tone}.${variant}`,
+      bg: `action.${tone}.${variant}`,
+      ':hover': {
+        bg: `action.${tone}.${variant}Hover`,
+      },
+      ':active': {
+        bg: `action.${tone}.${variant}Pressed`,
+      },
+      ':disabled': {
+        bg: `action.${tone}.${variant}Disabled`,
+        color: `action.${tone}.${variant}Disabled`,
+      },
+    },
+  }
+}
+
+// const variant = {
+//   'adaptative-dark': {
+//     color: 'currentColor',
+//     bg: 'transparent',
+//     ':hover': {
+//       bg: alpha('black' as any, 0.04), // TODO: Check if we can add this token!
+//     },
+//     ':active': {
+//       bg: alpha('black' as any, 0.08),
+//     },
+//     ...focusVisible('base'),
+//   },
+//   'adaptative-light': {
+//     color: 'currentColor',
+//     bg: 'transparent',
+//     ':hover': {
+//       bg: alpha('white' as any, 0.04),
+//     },
+//     ':active': {
+//       bg: alpha('white' as any, 0.08),
+//     },
+//     ...focusVisible('base'),
+//   },
+// }
 
 /**
  * Component that handles all Button variants of the DS.
@@ -25,14 +74,6 @@ export const Button = jsx(ReakitButton)(
     borderRadius: 'default',
     cursor: 'pointer',
     position: 'relative',
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'focus',
-    },
     variants: {
       size: {
         small: {
@@ -50,121 +91,14 @@ export const Button = jsx(ReakitButton)(
           paddingRight: 4,
         },
       },
+      tone: {
+        main: focusVisible('main'),
+        critical: focusVisible('critical'),
+      },
       variant: {
-        primary: {
-          color: 'light.primary',
-          backgroundColor: 'blue',
-          ':hover': {
-            backgroundColor: 'blue.hover',
-          },
-          ':active': {
-            backgroundColor: 'blue.pressed',
-          },
-          ':disabled': {
-            color: 'dark.primary',
-            backgroundColor: 'mid.secondary',
-          },
-        },
-        secondary: {
-          backgroundColor: 'blue.secondary',
-          color: 'blue',
-          ':hover': {
-            backgroundColor: 'blue.secondary.hover',
-          },
-          ':active': {
-            backgroundColor: 'blue.secondary.pressed',
-          },
-          ':disabled': {
-            color: 'mid.primary',
-            backgroundColor: 'light.secondary',
-          },
-        },
-        tertiary: {
-          backgroundColor: 'transparent',
-          color: 'blue',
-          ':hover': {
-            color: 'blue.hover',
-            backgroundColor: alpha('blue.secondary.hover', 0.24),
-          },
-          ':active': {
-            color: 'blue.pressed',
-            backgroundColor: alpha('blue.secondary.pressed', 0.32),
-          },
-          ':disabled': {
-            color: 'mid.primary',
-          },
-        },
-        danger: {
-          color: 'light.primary',
-          backgroundColor: 'red',
-          ':hover': {
-            backgroundColor: 'red.hover',
-          },
-          ':active': {
-            backgroundColor: 'red.pressed',
-          },
-          ':disabled': {
-            color: 'dark.primary',
-            backgroundColor: 'mid.secondary',
-          },
-        },
-        'danger-secondary': {
-          backgroundColor: 'red.secondary',
-          color: 'red',
-          ':hover': {
-            backgroundColor: 'red.secondary.hover',
-            color: 'red.hover',
-          },
-          ':active': {
-            backgroundColor: 'red.secondary.pressed',
-            color: 'red.pressed',
-          },
-          ':disabled': {
-            color: 'mid.primary',
-            backgroundColor: 'light.secondary',
-          },
-        },
-        'danger-tertiary': {
-          backgroundColor: 'transparent',
-          color: 'red',
-          ':hover': {
-            color: 'red.hover',
-            backgroundColor: alpha('red.secondary.hover', 0.24),
-          },
-          ':active': {
-            color: 'red.pressed',
-            backgroundColor: alpha('red.secondary.pressed', 0.32),
-          },
-          ':disabled': {
-            color: 'mid.primary',
-          },
-        },
-        'adaptative-dark': {
-          color: 'currentColor',
-          backgroundColor: 'transparent',
-          ':hover': {
-            backgroundColor: alpha('dark.primary', 0.04),
-          },
-          ':active': {
-            backgroundColor: alpha('dark.primary', 0.08),
-          },
-          ':disabled': {
-            color: 'mid.primary',
-          },
-        },
-        'adaptative-light': {
-          color: 'currentColor',
-          backgroundColor: 'transparent',
-          ':hover': {
-            backgroundColor: alpha('light.primary', 0.04),
-          },
-          ':active': {
-            backgroundColor: alpha('light.primary', 0.08),
-          },
-          ':disabled': {
-            color: 'mid.primary',
-          },
-        },
+        solid: {},
+        soft: {},
+        text: {},
       },
     },
   },
@@ -228,10 +162,18 @@ export const Button = jsx(ReakitButton)(
         ),
       }
     },
+    sync: [
+      actionSync('main', 'solid'),
+      actionSync('main', 'soft'),
+      actionSync('main', 'text'),
+      actionSync('critical', 'solid'),
+      actionSync('critical', 'soft'),
+      actionSync('critical', 'text'),
+    ],
   }
 )
 
-function useButtonIcon({
+export function useButtonIcon({
   size,
   icon,
   iconPosition,
@@ -298,7 +240,8 @@ function useButtonIcon({
 
 Button.defaultProps = {
   size: 'regular',
-  variant: 'primary',
+  tone: 'main',
+  variant: 'solid',
 }
 
 export interface ButtonOptions {

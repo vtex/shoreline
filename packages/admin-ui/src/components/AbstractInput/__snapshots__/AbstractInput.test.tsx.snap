@@ -15,48 +15,32 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 44px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 .emotion-5 {
@@ -69,7 +53,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-3 {
@@ -117,6 +101,8 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-4 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -128,8 +114,6 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-top: 0.5rem;
 }
 
@@ -140,19 +124,20 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -221,7 +206,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-4 {
@@ -281,7 +266,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -299,51 +284,37 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 44px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-1:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-1:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-1:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-1:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 .emotion-5 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -355,8 +326,6 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-top: 0.5rem;
 }
 
@@ -367,19 +336,20 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-5 svg {
@@ -474,48 +444,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 <div
@@ -540,48 +494,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 44px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 .emotion-5 {
@@ -594,10 +532,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-4 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -609,8 +549,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
@@ -622,19 +560,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -757,48 +696,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 44px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 .emotion-5 {
@@ -811,10 +734,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-4 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -826,8 +751,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
@@ -839,19 +762,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -972,48 +896,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 1rem;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-1:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-1:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-1:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-1:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 .emotion-2 {
@@ -1029,7 +937,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1072,48 +980,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 1rem;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-1:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-1:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-1:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-1:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 .emotion-2 {
@@ -1129,7 +1021,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1175,10 +1067,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-5 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -1190,8 +1084,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
@@ -1203,19 +1095,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-5 svg {
@@ -1283,7 +1176,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1301,48 +1194,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 44px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-1:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-1:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-1:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-1:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 <div
@@ -1428,10 +1305,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-5 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -1443,8 +1322,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
@@ -1456,19 +1333,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-5 svg {
@@ -1536,7 +1414,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1554,48 +1432,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 44px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-1:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-1:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-1:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-1:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 <div
@@ -1687,7 +1549,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-0 {
@@ -1699,55 +1561,39 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 64px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 .emotion-1 {
-  color: #898F9E;
+  color: field.neutral;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #C4C5CA;
+  border-left-color: hsla(0, 0%, 73%, 1);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -1787,7 +1633,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-0 {
@@ -1799,55 +1645,39 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 64px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 .emotion-1 {
-  color: #898F9E;
+  color: field.neutral;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #C4C5CA;
+  border-left-color: hsla(0, 0%, 73%, 1);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -1889,10 +1719,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-4 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -1904,8 +1736,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
@@ -1917,19 +1747,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-4:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-4:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-4:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -1985,10 +1816,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  color: #898F9E;
+  color: field.neutral;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #C4C5CA;
+  border-left-color: hsla(0, 0%, 73%, 1);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2007,48 +1838,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 75px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-0:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-0:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-0:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-0:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 <div
@@ -2121,7 +1936,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-4 {
@@ -2137,7 +1952,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2147,10 +1962,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  color: #898F9E;
+  color: field.neutral;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #C4C5CA;
+  border-left-color: hsla(0, 0%, 73%, 1);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2169,48 +1984,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 64px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-1:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-1:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-1:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-1:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 <div
@@ -2257,10 +2056,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-5 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -2272,8 +2073,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
@@ -2285,19 +2084,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-5 svg {
@@ -2365,7 +2165,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2375,10 +2175,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  color: #898F9E;
+  color: field.neutral;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #C4C5CA;
+  border-left-color: hsla(0, 0%, 73%, 1);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2397,48 +2197,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-1:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-1:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-1:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-1:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 <div
@@ -2529,10 +2313,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-5 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -2544,8 +2330,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
@@ -2557,19 +2341,20 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-5 svg {
@@ -2637,7 +2422,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: #898F9E;
+  color: hsla(0, 0%, 45%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2647,10 +2432,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  color: #898F9E;
+  color: field.neutral;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #C4C5CA;
+  border-left-color: hsla(0, 0%, 73%, 1);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2669,48 +2454,32 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  border-color: #C4C5CA;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #323845;
+  color: #000000;
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
 }
 
 .emotion-1:hover {
-  border-color: #323845;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: #F4F6FB;
-  color: #898F9E;
-}
-
-.emotion-1:focus+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
-}
-
-.emotion-1:placeholder-shown:not(:focus)+label {
-  padding-top: 0.25rem;
-}
-
-.emotion-1:not(:placeholder-shown)+label {
-  -webkit-transform: translate(1px, 4px) scale(0.875);
-  -moz-transform: translate(1px, 4px) scale(0.875);
-  -ms-transform: translate(1px, 4px) scale(0.875);
-  transform: translate(1px, 4px) scale(0.875);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: field.neutralDisabled;
 }
 
 <div

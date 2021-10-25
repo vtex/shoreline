@@ -1,4 +1,5 @@
 ---
+title: Pagination
 path: /pagination/
 ---
 
@@ -61,8 +62,8 @@ function Loading() {
 | subject     | `string`              | String displayed in the end of the component                                   | ✅       | -       |
 | prevLabel   | `string`              | Label used in previous button tooltip                                          | ✅       | -       |
 | nextLabel   | `string`              | Label used in next button tooltip                                              | ✅       | -       |
-| loading     | `boolean`             | Whether the table is loading or not                                            | 🚫       | -       |
 | state       | `UsePaginationReturn` | Component State                                                                | ✅       | -       |
+| loading     | `boolean`             | Whether the table is loading or not                                            | 🚫       | -       |
 
 ## State objects
 
@@ -74,12 +75,12 @@ For convenience, we also provide a hook that already implements the state logic 
 
 #### Parameter
 
-| Name         | Type                                                                    | Description                                                                        | Required | Default                            |
-| ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ---------------------------------- |
-| pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                  |
-| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | pageSize                           |
-| stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | usePagination hook default reducer |
-| initialPage  | `number`                                                                | The initial state of pagination                                                    | 🚫       | 1                                  |
+| Name         | Type                                                                    | Description                                                                        | Required | Default                              |
+| ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |
+| pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                    |
+| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize`                           |
+| stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | `usePagination hook default reducer` |
+| initialPage  | `number`                                                                | The initial state of pagination                                                    | 🚫       | `1`                                  |
 
 ### useQueryPaginationState
 
@@ -87,11 +88,11 @@ You can persist the pagination state within the browser's query params using the
 
 #### Parameter
 
-| Name         | Type                                                                    | Description                                                                        | Required | Default                            |
-| ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ---------------------------------- |
-| pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                  |
-| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | pageSize                           |
-| stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | usePagination hook default reducer |
+| Name         | Type                                                                    | Description                                                                        | Required | Default                              |
+| ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |
+| pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                    |
+| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize`                           |
+| stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | `usePagination hook default reducer` |
 
 #### Code example
 

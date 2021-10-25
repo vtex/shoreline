@@ -4,7 +4,7 @@ import { IconCaret } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { Set } from '../Set'
-import { Button } from '../Button'
+import { ButtonGhost } from '../ButtonGhost'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
 import type { UsePaginationReturn } from './hooks/usePaginationState'
@@ -39,7 +39,7 @@ export const Pagination = jsx('div')(
           <Fragment>
             {!loading && (
               <Text
-                feedback="secondary"
+                tone="muted"
                 variant="small"
                 csx={{ marginRight: '1.25rem', whiteSpace: 'nowrap' }}
               >
@@ -48,20 +48,18 @@ export const Pagination = jsx('div')(
             )}
             <Set spacing={2}>
               <Tooltip label={prevLabel}>
-                <Button
+                <ButtonGhost
                   disabled={loading || prevDisabled}
                   onClick={() => paginate({ type: 'prev' })}
-                  variant="adaptative-dark"
                   size="small"
                   icon={<IconCaret direction="left" />}
                 />
               </Tooltip>
 
               <Tooltip label={nextLabel}>
-                <Button
+                <ButtonGhost
                   disabled={loading || nextDisabled}
                   onClick={() => paginate({ type: 'next' })}
-                  variant="adaptative-dark"
                   size="small"
                   icon={<IconCaret direction="right" />}
                 />

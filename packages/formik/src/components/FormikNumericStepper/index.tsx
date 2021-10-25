@@ -47,8 +47,8 @@ export const FormikNumericStepper = forwardRef(
           id={id}
           value={value}
           onChange={handleChange}
-          error={!!errorMessage}
-          errorMessage={errorMessage ?? undefined}
+          tone={errorMessage ? 'critical' : 'neutral'}
+          criticalText={errorMessage ?? undefined}
           {...numericStepperProps}
           ref={ref}
         />
@@ -58,9 +58,14 @@ export const FormikNumericStepper = forwardRef(
 )
 
 export interface FormikNumericStepperProps
-  extends Omit<NumericStepperProps, 'id' | 'onChange' | 'value'> {
+  extends Omit<
+    NumericStepperProps,
+    'id' | 'onChange' | 'value' | 'criticalText' | 'tone'
+  > {
   name: string
   id?: string
   onChange?: (value: { value: number }) => void
+  error?: boolean
+  errorMessage?: string
   formatMessage?: (errorCode: string) => string
 }

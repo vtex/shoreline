@@ -39,9 +39,9 @@ describe('NumericStepper tests', () => {
         />
         <NumericStepper
           value={0}
-          error
+          tone="critical"
           onChange={() => {}}
-          errorMessage="Minimum of 6"
+          criticalText="Minimum of 6"
           label="numeric-stepper-3"
         />
         <NumericStepper

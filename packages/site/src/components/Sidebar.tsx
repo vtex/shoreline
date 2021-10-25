@@ -1,41 +1,37 @@
 import type { ReactNode } from 'react'
-import React, { createContext, useMemo } from 'react'
+import React, { createContext, useMemo, useState } from 'react'
 import {
   Flex,
   IconCaret,
   tag,
-  darken,
-  alpha,
-  Button,
   IconTopic,
+  ButtonGhost,
+  get,
+  focusVisible,
 } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
-import { useSearchContext } from './Search'
-import Logo from '../icons/Logo'
-import useLocation from '../hooks/useLocation'
+import { useLocation } from '../hooks/useLocation'
 
-const query = graphql`
-  query DocsQuery {
-    allNavigationYaml {
-      nodes {
-        section
-        paths
-      }
-    }
-    allMarkdownRemark {
-      nodes {
-        title
-        frontmatter {
-          path
-          fullPage
-        }
-      }
-    }
+interface Data {
+  allNavigationYaml: {
+    nodes: Array<{
+      section: string
+      paths: string[]
+    }>
   }
-`
+  allMdx: {
+    nodes: Array<{
+      frontmatter: {
+        title: string
+        path: string
+        experimental?: boolean
+      }
+    }>
+  }
+}
 
 interface BulkVisible {
   visible: boolean
@@ -55,15 +51,59 @@ function useBulkVisible() {
   return ctx
 }
 
+const findMeta = (data: Data, path: string) =>
+  data.allMdx.nodes.find((node) => node.frontmatter.path === path)
+
+const getTitle = (data: Data, path: string) =>
+  findMeta(data, path)?.frontmatter?.title ?? ''
+
+export function usePaths() {
+  const data: Data = useStaticQuery(graphql`
+    query DocsQuery {
+      allNavigationYaml {
+        nodes {
+          section
+          paths
+        }
+      }
+      allMdx {
+        nodes {
+          frontmatter {
+            title
+            path
+            fullPage
+          }
+        }
+      }
+    }
+  `)
+
+  const paths = useMemo(() => {
+    return data.allNavigationYaml.nodes.reduce<
+      Array<{ title: string; to: string }>
+    >((acc, node) => {
+      const nodePaths = node.paths.map((path) => {
+        return {
+          title: getTitle(data, path),
+          to: path,
+        }
+      })
+
+      return [...acc, ...nodePaths]
+    }, [])
+  }, [data])
+
+  return {
+    data,
+    paths,
+  }
+}
+
 export function Sidebar() {
-  const data: Data = useStaticQuery(query)
+  const { data } = usePaths()
   const { id: baseId } = useId({ baseId: 'docs-navigation' })
   const getId = (section: string) => `${baseId}-${kebabCase(section)}`
-  const findMeta = (path: string) =>
-    data.allMarkdownRemark.nodes.find((node) => node.frontmatter.path === path)
 
-  const getTitle = (path: string) => findMeta(path)?.title ?? ''
-  const search = useSearchContext()
   const [bulkVisible, setBulkVisile] = React.useState(false)
   const { pathname } = useLocation()
 
@@ -79,13 +119,13 @@ export function Sidebar() {
     >
       <tag.div
         csx={{
-          height: '100vh',
+          height: 'calc(100vh - 64px)',
+          marginTop: '64px',
           overflowY: 'auto',
           'nav:first-of-type': {
             margin: 0,
           },
-          borderRight: '1px solid',
-          borderColor: 'mid.tertiary',
+          bg: 'base',
         }}
       >
         <tag.div
@@ -93,8 +133,8 @@ export function Sidebar() {
             height: 64,
             top: 0,
             position: 'sticky',
-            bg: 'light.primary',
-            color: 'rebelPink',
+            bg: 'base',
+            color: (theme) => get(theme, 'colors.pink40'),
             width: '100%',
             display: 'flex',
             alignItems: 'center',
@@ -102,73 +142,81 @@ export function Sidebar() {
             zIndex: 999,
           }}
         >
-          <Logo />
-          <Button
-            variant="adaptative-dark"
+          <ButtonGhost
             size="small"
-            csx={{ marginRight: 1, color: 'dark.primary' }}
+            csx={{
+              marginX: 2,
+              width: '100%',
+              '>div': { justifyContent: 'start' },
+            }}
             onClick={() => setBulkVisile((v) => !v)}
             icon={<IconTopic />}
           >
-            {visible ? 'Collapse' : 'Expand'} All
-          </Button>
+            {visible ? 'Collapse' : 'Expand'} Sidebar Items
+          </ButtonGhost>
         </tag.div>
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
-          const paths = node.paths
-            .filter((path) =>
-              search.debouncedValue !== ''
-                ? getTitle(path)
-                    .toLocaleLowerCase()
-                    .includes(search.debouncedValue.toLowerCase())
-                : path
-            )
-            .map((path) => (
-              <Flex
-                as="li"
-                key={path}
-                justify="space-between"
+          const paths = node.paths.map((path) => (
+            <Flex
+              as="li"
+              key={path}
+              justify="space-between"
+              csx={{
+                listStyle: 'none',
+                width: '100%',
+              }}
+            >
+              <tag.a
+                as={Link}
                 csx={{
-                  listStyle: 'none',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  borderRadius: 'default',
+                  alignItems: 'center',
+                  height: 32,
+                  paddingX: 2,
                   width: '100%',
+                  textDecoration: 'none',
+                  color: 'sidebar',
+                  cursor: 'pointer',
+                  marginBottom: 1,
+                  lineHeight: 1.4,
+                  ':hover:not(:focus)': {
+                    color: 'listBoxItem.mainHover',
+                    bg: 'listBoxItem.mainHover',
+                    borderColor: (theme) =>
+                      get(theme, 'foreground.listBoxItem.mainHover'),
+                    borderLeft: '2px solid',
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  },
+                  ':active': {
+                    bg: 'listBoxItem.mainPressed',
+                    color: 'listBoxItem.mainPressed',
+                    borderColor: (theme) =>
+                      get(theme, 'foreground.listBoxItem.mainPressed'),
+                    borderLeft: '2px solid',
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  },
+                  '&[aria-current="page"]': {
+                    borderLeft: '2px solid',
+                    bg: 'listBoxItem.mainSelected',
+                    color: 'listBoxItem.mainSelected',
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  },
+                  ':focus': {
+                    color: 'listBoxItem.mainHover',
+                    outline: 'none',
+                  },
                 }}
+                to={path}
               >
-                <tag.a
-                  as={Link}
-                  csx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    borderRadius: 'default',
-                    alignItems: 'center',
-                    height: 32,
-                    paddingX: 2,
-                    width: '100%',
-                    textDecoration: 'none',
-                    color: 'dark.secondary',
-                    cursor: 'pointer',
-                    marginBottom: 1,
-                    lineHeight: 1.4,
-                    ':hover:not(:focus)': {
-                      color: 'blue',
-                    },
-                    '&[aria-current="page"]': {
-                      borderLeft: '2px solid',
-                      borderColor: 'blue',
-                      bg: alpha('blue.secondary.default', 0.3),
-                      color: 'blue',
-                      borderTopLeftRadius: 0,
-                      borderBottomLeftRadius: 0,
-                    },
-                    ':focus': {
-                      color: 'blue',
-                      outline: 'none',
-                    },
-                  }}
-                  to={path}
-                >
-                  {getTitle(path)}
-                </tag.a>
-              </Flex>
-            ))
+                {getTitle(data, path)}
+              </tag.a>
+            </Flex>
+          ))
 
           if (paths.length > 0) {
             return [
@@ -200,15 +248,14 @@ interface SectionProps {
 
 function Section(props: SectionProps) {
   const { id, section, children, initiallyVisible } = props
-  const [visible, setVisible] = React.useState(initiallyVisible)
-
+  const [visible, setVisible] = useState(initiallyVisible)
   const { visible: bulkVisible } = useBulkVisible()
 
   React.useEffect(
     function syncStates() {
       setVisible(initiallyVisible || bulkVisible)
     },
-    [bulkVisible]
+    [bulkVisible, initiallyVisible]
   )
 
   return (
@@ -221,11 +268,12 @@ function Section(props: SectionProps) {
     >
       <tag.button
         csx={{
+          ...focusVisible('neutral'),
           paddingY: 2,
           paddingX: 1,
-          color: 'dark.primary',
+          color: 'action.neutral.ghost',
+          bg: 'action.neutral.ghost',
           fontSize: 16,
-          bg: 'light.primary',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -233,10 +281,12 @@ function Section(props: SectionProps) {
           cursor: 'pointer',
           borderRadius: 'default',
           ':hover': {
-            bg: darken('light.primary', 0.04),
+            color: 'action.neutral.ghostHover',
+            bg: 'action.neutral.ghostHover',
           },
           ':active': {
-            bg: darken('light.primary', 0.08),
+            color: 'action.neutral.ghostPressed',
+            bg: 'action.neutral.ghostPressed',
           },
         }}
         id={id}
@@ -246,33 +296,22 @@ function Section(props: SectionProps) {
         <IconCaret
           csx={{
             zIndex: 1,
+            color: 'muted',
           }}
           direction={visible ? 'up' : 'down'}
         />
       </tag.button>
       {visible && (
-        <tag.ul csx={{ padding: 0, borderLeft: '1px solid #2121' }}>
+        <tag.ul
+          csx={{
+            padding: 0,
+            borderLeft: '1px solid',
+            borderLeftColor: 'nestedContent',
+          }}
+        >
           {children}
         </tag.ul>
       )}
     </tag.nav>
   )
-}
-
-interface Data {
-  allNavigationYaml: {
-    nodes: Array<{
-      section: string
-      paths: string[]
-    }>
-  }
-  allMarkdownRemark: {
-    nodes: Array<{
-      title: string
-      frontmatter: {
-        path: string
-        experimental?: boolean
-      }
-    }>
-  }
 }

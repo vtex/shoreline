@@ -44,12 +44,9 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
               : width.expanded
             : width.hidden,
           transition: 'min-width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          bg:
-            selectedItem?.expandable && !reduced
-              ? 'sidebar.light'
-              : 'light.primary',
+          bg: 'sidebar',
           borderRight: selectedItem?.expandable ? 1 : 0,
-          borderRightColor: 'mid.tertiary',
+          borderRightColor: 'base',
           borderRightStyle: 'solid',
         }}
         onMouseEnter={showToggle}
@@ -61,6 +58,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
       <Button
         title="toggle sidebar collapse"
         name="toggle sidebar collapse"
+        variant="text"
         csx={{
           left:
             selectedItem?.expandable && reduced
@@ -73,19 +71,12 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           cursor: 'pointer',
           border: '1px solid',
           borderRadius: '100%',
-          borderColor: 'mid.tertiary',
+          borderColor: 'sidebar',
           height: '1.5rem',
           width: '1.5rem',
           transition:
             'left 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 175ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          bg: 'light.primary',
-          '&:hover': {
-            bg: 'blue.secondary',
-            borderColor: 'blue.secondary',
-            '> div > svg': {
-              color: 'blue',
-            },
-          },
+          bg: 'base',
         }}
         icon={
           <IconCaretSmall
@@ -94,7 +85,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
               display: 'flex',
               justifyContent: 'center',
               transition: '125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-              color: 'black',
+              color: 'base',
               '> path': {
                 strokeWidth: 2,
               },

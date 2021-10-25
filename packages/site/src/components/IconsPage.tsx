@@ -5,7 +5,7 @@ import * as AdminIcon from '@vtex/admin-ui-icons'
 
 import { Searchbar, useSearch } from './Searchbar'
 
-export function IconPage() {
+export function IconsPage() {
   const { current, searchState } = useSearch()
 
   const sections = [
@@ -490,8 +490,8 @@ export function IconPage() {
                     key={display ?? label}
                     as="button"
                     csx={{
-                      color: 'dark.primary',
-                      bg: 'light.primary',
+                      color: 'base',
+                      bg: 'base',
                       border: 'none',
                       flex: '0 0 auto',
                       width: '2/12',
@@ -519,8 +519,8 @@ export function IconPage() {
                       <Box
                         csx={{
                           borderRadius: 'default',
-                          bg: 'light.secondary',
-                          color: 'dark.primary',
+                          bg: 'muted',
+                          color: 'base',
                           paddingY: 6,
                           paddingX: 4,
                           textAlign: 'center',

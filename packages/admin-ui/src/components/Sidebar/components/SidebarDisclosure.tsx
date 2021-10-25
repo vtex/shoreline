@@ -29,21 +29,27 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
     >
       <Button
         ref={ref}
-        variant="tertiary"
+        variant="text"
         icon={icon}
         title={label}
         name={label}
         csx={merge(
           {
             zIndex: 'sidebarDisclosure',
-            backgroundColor: selected ? 'sidebar.hover' : 'unset',
+            bg: selected ? 'listBoxItem.mainSelected' : 'transparent',
             'div > svg': {
-              color: selected ? 'unset' : 'sidebar.dark',
+              color: selected ? 'listBoxItem.mainSelected' : 'sidebar',
             },
-            '&:hover': {
-              backgroundColor: 'sidebar.hover',
+            ':active': {
+              bg: 'listBoxItem.mainPressed',
               'div > svg': {
-                color: 'blue',
+                color: 'listBoxItem.mainPressed',
+              },
+            },
+            ':hover': {
+              bg: 'listBoxItem.mainHover',
+              'div > svg': {
+                color: 'listBoxItem.mainHover',
                 opacity: 1,
               },
             },

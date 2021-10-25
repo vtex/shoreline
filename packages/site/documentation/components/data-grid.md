@@ -1,4 +1,5 @@
 ---
+title: DataGrid
 path: /data-grid/
 ---
 
@@ -135,15 +136,15 @@ type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
 
 The main objective of `DataGrid` is to provide a flexible render to support any kind of data type.
 
-| Attribute | Type                                | Description                                                                                                                                                                                                                                           | Required                                                                                               |
-| --------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --- |
-| id        | `string`                            | String that defines the property name that the column represents.                                                                                                                                                                                     | ✅                                                                                                     |
-| header    | `((column: Column<T>) => ReactNode) | string`                                                                                                                                                                                                                                               | Controls the title which appears on the table Header.<br>It can receive either a string or an element. | 🚫  |
-| accessor  | `((item: T) => ReactNode)           | string`                                                                                                                                                                                                                                               | Defines how to access a property                                                                       | 🚫  |
-| resolver  | `R`                                 | [Resolvers](/data-display/data-grid/#resolvers) api<br>Will select the [plain resolver](/data-display/data-grid/#plain) by default                                                                                                                    | 🚫                                                                                                     |
-| width     | `number`                            | Defines a fixed width for the specific column.<br>Receives either a string or number.<br>By default, the column's width is defined to fit the available space without breaking the content.                                                           | 🚫                                                                                                     |
-| sortable  | `(a: T, b: T) => number`            | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatelessTable sort prop. Check [Sorting](/data-display/data-grid/#sorting) | 🚫                                                                                                     |
-| compare   | `boolean`                           | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](/data-display/data-grid/#sorting)                                 | 🚫                                                                                                     |
+| Attribute | Type                                            | Description                                                                                                                                                                                                                                           | Required |
+| --------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| id        | `string`                                        | String that defines the property name that the column represents.                                                                                                                                                                                     | ✅       |
+| header    | `((column: Column<T>) => ReactNode), or string` | Controls the title which appears on the table Header.<br />It can receive either a string or an element.                                                                                                                                              | 🚫       |
+| accessor  | `((item: T) => ReactNode), or string`           | Defines how to access a property                                                                                                                                                                                                                      | 🚫       |
+| resolver  | `R`                                             | [Resolvers](/data-display/data-grid/#resolvers) api<br />Will select the [plain resolver](/data-display/data-grid/#plain) by default                                                                                                                  | 🚫       |
+| width     | `number`                                        | Defines a fixed width for the specific column.<br />Receives either a string or number.<br />By default, the column's width is defined to fit the available space without breaking the content.                                                       | 🚫       |
+| sortable  | `(a: T, b: T) => number`                        | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatelessTable sort prop. Check [Sorting](/data-display/data-grid/#sorting) | 🚫       |
+| compare   | `boolean`                                       | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](/data-display/data-grid/#sorting)                                 | 🚫       |
 
 ### Accessor
 
@@ -234,11 +235,11 @@ All resolvers accept a render function, that returns a component. It controls th
 }
 ```
 
-| prop name | type                                             | description                                                         |
-| --------- | ------------------------------------------------ | ------------------------------------------------------------------- |
-| item      | `T`                                              | the item displayed for the row                                      |
-| data      | `unknown`                                        | extracted column data from the item, you need to cast it before use |
-| context   | `{ loading: boolean, density: DataGridDensity }` | relevant global information about the table current state           |
+| Name    | Type                                             | Description                                                         |
+| ------- | ------------------------------------------------ | ------------------------------------------------------------------- |
+| item    | `T`                                              | the item displayed for the row                                      |
+| data    | `unknown`                                        | extracted column data from the item, you need to cast it before use |
+| context | `{ loading: boolean, density: DataGridDensity }` | relevant global information about the table current state           |
 
 ##### Root Resolver
 
@@ -366,13 +367,7 @@ function Example() {
            */
           render: function Render({ data }) {
             return (
-              <tag.p
-                csx={{
-                  color: Number(data) > 0 ? 'blue' : 'red',
-                }}
-              >
-                {data}
-              </tag.p>
+              <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
             )
           },
         },
@@ -870,18 +865,10 @@ function WithToolbar() {
     <DataView state={view}>
       <DataViewControls>
         <Toolbar state={toolbar}>
-          <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
-            icon={<IconImport />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconImport />}>
             Import
           </ToolbarButton>
-          <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
-            icon={<IconExport />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconExport />}>
             Export
           </ToolbarButton>
         </Toolbar>
@@ -1141,18 +1128,10 @@ function WithFullTopbar() {
       <DataViewControls>
         <Search id="search" placeholder="Search" state={search} />
         <Toolbar state={toolbar} aria-label="Toolbar">
-          <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
-            icon={<IconImport />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconImport />}>
             Import
           </ToolbarButton>
-          <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
-            icon={<IconExport />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconExport />}>
             Export
           </ToolbarButton>
         </Toolbar>

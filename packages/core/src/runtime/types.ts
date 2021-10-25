@@ -1,4 +1,10 @@
 import type * as CSS from 'csstype'
+import type {
+  BackgroundTokens,
+  BorderColorTokens,
+  ForegroundTokens,
+  ColorTokens,
+} from '../theme/types'
 
 export type StandardCSSProperties = CSS.Properties<number | string>
 
@@ -17,47 +23,12 @@ export type EmotionCSSProperties = CSS.StandardProperties<number | string> &
  */
 export type CSSPseudoSelectorProps = { [K in CSS.Pseudos]?: StyleProp }
 
-export type Colors =
-  | 'dark.primary'
-  | 'dark.secondary'
-  | 'light.primary'
-  | 'light.secondary'
-  | 'mid.primary'
-  | 'mid.secondary'
-  | 'mid.tertiary'
-  | 'focus'
-  | 'blue'
-  | 'blue.default'
-  | 'blue.hover'
-  | 'blue.pressed'
-  | 'blue.secondary.default'
-  | 'blue.secondary.hover'
-  | 'blue.secondary.pressed'
-  | 'red.default'
-  | 'red.hover'
-  | 'red.pressed'
-  | 'red.secondary.default'
-  | 'red.secondary.hover'
-  | 'red.secondary.pressed'
-  | 'green.default'
-  | 'green.hover'
-  | 'green.pressed'
-  | 'green.secondary.default'
-  | 'green.secondary.hover'
-  | 'green.secondary.pressed'
-  | 'yellow.default'
-  | 'yellow.hover'
-  | 'yellow.pressed'
-  | 'yellow.secondary.default'
-  | 'yellow.secondary.hover'
-  | 'yellow.secondary.pressed'
-
 export interface AliasesCSSProperties {
   /**
    * Shorthand for backgroundColor
    * @default transparent
    */
-  bg?: Colors | StandardCSSProperties['backgroundColor']
+  bg?: BackgroundTokens | StandardCSSProperties['backgroundColor']
   /**
    * Shorthand for marginLeft & marginRight
    * @default 0
@@ -118,62 +89,62 @@ export interface OverwriteCSSProperties {
    * CSS **`color`** property
    * @default currentColor
    */
-  color?: Colors | CSS.Property.Color
+  color?: ForegroundTokens | CSS.Property.Color
   /**
    * CSS **`backgroundColor`** property
    * @default transparent
    */
-  backgroundColor?: Colors | CSS.Property.BackgroundColor
+  backgroundColor?: BackgroundTokens | CSS.Property.BackgroundColor
   /**
    * CSS **`borderColor`** property
    * @default currentColor
    */
-  borderColor?: Colors | CSS.Property.BorderColor
+  borderColor?: BorderColorTokens | CSS.Property.BorderColor
   /**
    * CSS **`caretColor`** property
    * @default currentColor
    */
-  caretColor?: Colors | CSS.Property.CaretColor
+  caretColor?: ColorTokens | CSS.Property.CaretColor
   /**
    * CSS **`columnRuleColor`** property
    * @default currentColor
    */
-  columnRuleColor?: Colors | CSS.Property.ColumnRuleColor
+  columnRuleColor?: ColorTokens | CSS.Property.ColumnRuleColor
   /**
    * CSS **`borderTopColor`** property
    * @default currentColor
    */
-  borderTopColor?: Colors | CSS.Property.BorderTopColor
+  borderTopColor?: BorderColorTokens | CSS.Property.BorderTopColor
   /**
    * CSS **`borderBottomColor`** property
    * @default currentColor
    */
-  borderBottomColor?: Colors | CSS.Property.BorderBottomColor
+  borderBottomColor?: BorderColorTokens | CSS.Property.BorderBottomColor
   /**
    * CSS **`borderLeftColor`** property
    * @default currentColor
    */
-  borderLeftColor?: Colors | CSS.Property.BorderLeftColor
+  borderLeftColor?: BorderColorTokens | CSS.Property.BorderLeftColor
   /**
    * CSS **`borderRightColor`** property
    * @default currentColor
    */
-  borderRightColor?: Colors | CSS.Property.BorderRightColor
+  borderRightColor?: BorderColorTokens | CSS.Property.BorderRightColor
   /**
    * CSS **`outlineColor`** property
    * @default currentColor
    */
-  outlineColor?: Colors | CSS.Property.OutlineColor
+  outlineColor?: ColorTokens | CSS.Property.OutlineColor
   /**
    * CSS **`fill`** property
    * @default currentColor
    */
-  fill?: Colors | CSS.Property.Fill
+  fill?: ColorTokens | CSS.Property.Fill
   /**
    * CSS **`stroke`** property
    * @default currentColor
    */
-  stroke?: Colors | CSS.Property.Stroke
+  stroke?: ColorTokens | CSS.Property.Stroke
   /**
    * CSS **`box-shadow`** property
    * @default none

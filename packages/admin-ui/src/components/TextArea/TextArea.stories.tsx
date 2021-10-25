@@ -28,7 +28,7 @@ Playground.args = {
   id: 'TextArea',
   label: 'Label',
   helperText: 'Helper Text!',
-  errorMessage: 'Error Message!',
+  criticalText: 'Error Message!',
   charLimit: 120,
 }
 
@@ -71,11 +71,11 @@ export const Error = () => {
           setValue(newValue)
           handleError(newValue)
         }}
-        error={error}
+        tone={error ? 'critical' : 'neutral'}
         id="textarea-2"
-        label="Error"
+        label="Critical"
         helperText="Helper Text"
-        errorMessage="Error Message"
+        criticalText="Critical Message"
         charLimit={120}
       />
     </Box>

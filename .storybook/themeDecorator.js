@@ -1,5 +1,5 @@
 import React from 'react'
-import { createSystem } from '@vtex/admin-ui-core'
+import { createSystem } from '@vtex/admin-ui'
 
 const [ThemeProvider] = createSystem({
   key: 'storybook',

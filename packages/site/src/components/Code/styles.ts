@@ -9,8 +9,8 @@ export default {
   preview: {
     padding: 5,
     position: 'relative',
-    color: 'dark.primary',
-    bg: 'light.primary',
+    color: 'base',
+    bg: 'base',
     minHeight: 'auto',
     borderRadius: 'default',
     fontFamily: 'mono',
@@ -34,8 +34,8 @@ export default {
     textAlign: 'left',
     fontFamily: 'mono',
     padding: '1rem',
-    bg: 'red.secondary',
-    color: 'red',
+    bg: 'notification.critical',
+    color: 'notification.critical',
     text: 'body',
   },
   copyButton: {
@@ -45,8 +45,6 @@ export default {
     zIndex: 1,
   },
   preHeader: {
-    bg: 'dark.primary',
-    color: 'light.primary',
     fontSize: '12px',
     lineHeight: '18px',
     marginTop: '0.5rem',
@@ -74,7 +72,7 @@ export default {
       minWidth: '100%',
     },
     '.highlight-line': {
-      backgroundColor: '#44475a',
+      bg: 'hightlight',
       marginLeft: '-1rem',
       marginRight: '-2rem',
       padding: '0 0.75rem',

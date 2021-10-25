@@ -28,13 +28,13 @@ exports[`Toast should match snapshot 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  border-color: #E0E2E7;
+  border-color: hsla(206, 63%, 72%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: #323845;
-  background-color: #FFFFFF;
+  color: dark.primary;
+  background-color: hsla(206, 61%, 92%, 1);
 }
 
 .emotion-2 {
@@ -57,7 +57,7 @@ exports[`Toast should match snapshot 1`] = `
   min-height: 24px;
   width: 24px;
   height: 24px;
-  color: #2953B2;
+  color: hsla(206, 63%, 44%, 1);
 }
 
 .emotion-1 {
@@ -80,6 +80,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5 {
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -91,8 +93,6 @@ exports[`Toast should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: #2953B2;
-  background-color: transparent;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -102,19 +102,20 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 {
@@ -155,6 +156,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -166,8 +169,6 @@ exports[`Toast should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -177,19 +178,20 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-9:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-9:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-9:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-9 svg {
@@ -336,6 +338,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5 {
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -347,8 +351,6 @@ exports[`Toast should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: #2953B2;
-  background-color: transparent;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -358,19 +360,20 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 {
@@ -411,6 +414,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -422,8 +427,6 @@ exports[`Toast should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -433,19 +436,20 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-9:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-9:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-9:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-9 svg {
@@ -489,13 +493,13 @@ exports[`Toast should match snapshot 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  border-color: #8FC2B1;
+  border-color: hsla(122, 41%, 64%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: #323845;
-  background-color: #F0F8F5;
+  color: dark.primary;
+  background-color: hsla(123, 39%, 91%, 1);
 }
 
 <div
@@ -513,7 +517,7 @@ exports[`Toast should match snapshot 1`] = `
         <path
           clip-rule="evenodd"
           d="M12 21C7.029 21 3 16.971 3 12C3 7.029 7.029 3 12 3C16.971 3 21 7.029 21 12C21 16.971 16.971 21 12 21Z"
-          fill="#44B172"
+          fill="hsla(123, 41%, 37%, 1)"
           fill-rule="evenodd"
         />
         <path
@@ -619,6 +623,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5 {
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -630,8 +636,6 @@ exports[`Toast should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: #2953B2;
-  background-color: transparent;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -641,19 +645,20 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 {
@@ -694,6 +699,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -705,8 +712,6 @@ exports[`Toast should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -716,19 +721,20 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-9:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-9:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-9:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-9 svg {
@@ -772,13 +778,13 @@ exports[`Toast should match snapshot 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  border-color: #E5C38E;
+  border-color: hsla(30, 100%, 69%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: #323845;
-  background-color: #FFF9EE;
+  color: dark.primary;
+  background-color: hsla(30, 100%, 92%, 1);
 }
 
 <div
@@ -796,19 +802,19 @@ exports[`Toast should match snapshot 1`] = `
         <path
           clip-rule="evenodd"
           d="M3 14.381V9.61899C3 8.01699 3.852 6.53599 5.236 5.72999L9.736 3.11099C11.135 2.29699 12.864 2.29699 14.263 3.11099L18.763 5.72999C20.148 6.53599 21 8.01699 21 9.61899V14.381C21 15.983 20.148 17.464 18.764 18.27L14.264 20.889C12.865 21.703 11.136 21.703 9.737 20.889L5.237 18.27C3.852 17.464 3 15.983 3 14.381Z"
-          fill="#FFC165"
+          fill="hsla(30, 100%, 45%, 1)"
           fill-rule="evenodd"
         />
         <path
           d="M12 12V7.5"
-          stroke="#323845"
+          stroke="#000000"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="1.5"
         />
         <path
           d="M11.999 15.5C11.861 15.5 11.749 15.612 11.75 15.75C11.75 15.888 11.862 16 12 16C12.138 16 12.25 15.888 12.25 15.75C12.25 15.612 12.138 15.5 11.999 15.5"
-          stroke="#323845"
+          stroke="#000000"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="1.5"
@@ -909,6 +915,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5 {
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -920,8 +928,6 @@ exports[`Toast should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: #2953B2;
-  background-color: transparent;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -931,19 +937,20 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-5:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 {
@@ -984,6 +991,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9 {
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -995,8 +1004,6 @@ exports[`Toast should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: currentColor;
-  background-color: transparent;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -1006,19 +1013,20 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-9:hover {
-  background-color: rgba(50,56,69,0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-9:active {
-  background-color: rgba(50,56,69,0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-9:disabled {
-  color: #898F9E;
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-9 svg {
@@ -1062,13 +1070,13 @@ exports[`Toast should match snapshot 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  border-color: #EDB6B6;
+  border-color: hsla(0, 59%, 73%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: #323845;
-  background-color: #FFF8F8;
+  color: dark.primary;
+  background-color: hsla(0, 60%, 93%, 1);
 }
 
 <div
@@ -1086,7 +1094,7 @@ exports[`Toast should match snapshot 1`] = `
         <path
           clip-rule="evenodd"
           d="M7.414 20.414L3.586 16.586C3.211 16.211 3 15.702 3 15.172V8.828C3 8.298 3.211 7.789 3.586 7.414L7.414 3.586C7.789 3.211 8.298 3 8.828 3H15.171C15.701 3 16.21 3.211 16.585 3.586L20.413 7.414C20.789 7.789 21 8.298 21 8.828V15.171C21 15.701 20.789 16.21 20.414 16.585L16 21H8.828C8.298 21 7.789 20.789 7.414 20.414Z"
-          fill="#FF6565"
+          fill="hsla(0, 58%, 52%, 1)"
           fill-rule="evenodd"
         />
         <path

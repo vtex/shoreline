@@ -41,11 +41,7 @@ export const Basic = () => {
   return (
     <Toolbar state={state} aria-label="basic-toolbar">
       {labels.map((label) => (
-        <ToolbarButton
-          key={label}
-          onClick={() => console.log('clicked')}
-          variant="adaptative-dark"
-        >
+        <ToolbarButton key={label} onClick={() => console.log('clicked')}>
           {label}
         </ToolbarButton>
       ))}
@@ -63,11 +59,7 @@ export const WithMenu = () => {
         <ToolbarItem>
           {(itemProps) => (
             <Menu state={menuState}>
-              <MenuButton
-                icon={<IconAction />}
-                variant="adaptative-dark"
-                {...itemProps}
-              >
+              <MenuButton icon={<IconAction />} {...itemProps}>
                 More
               </MenuButton>
               <MenuList aria-label="actions">
@@ -96,11 +88,7 @@ export const WithModal = () => {
         <ToolbarItem>
           {(itemProps) => (
             <Menu state={menuState}>
-              <MenuButton
-                icon={<IconAction />}
-                variant="adaptative-dark"
-                {...itemProps}
-              >
+              <MenuButton icon={<IconAction />} {...itemProps}>
                 More
               </MenuButton>
               <MenuList aria-label="actions">
@@ -116,9 +104,7 @@ export const WithModal = () => {
         <ToolbarItem>
           {(itemProps) => (
             <ModalDisclosure state={modalState}>
-              <Button {...itemProps} variant="adaptative-dark">
-                Open modal
-              </Button>
+              <Button {...itemProps}>Open modal</Button>
             </ModalDisclosure>
           )}
         </ToolbarItem>

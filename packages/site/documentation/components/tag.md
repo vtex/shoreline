@@ -1,4 +1,5 @@
 ---
+title: Tag
 path: /tag/
 ---
 
@@ -6,23 +7,23 @@ path: /tag/
 
 Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
 
-## Import
+## Usage
 
 ```jsx isStatic
-import { Tag, TagProps } from '@vtex/admin-ui'
+import { Tag } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <Tag
+      icon={<IconFavorite />}
+      label="Here goes the label!"
+      handleDelete={() => window.alert('Tag deleted')}
+    />
+  )
+}
 ```
 
-## Behavior
-
-```jsx
-<Tag
-  icon={<IconFavorite />}
-  label="Here goes the label!"
-  handleDelete={() => window.alert('Tag deleted')}
-/>
-```
-
-## Variation
+## Examples
 
 ### Sizes
 
@@ -37,15 +38,17 @@ By default, the size property has a `regular` value, but you can also set it to 
 
 ### Palettes
 
-By default, the palette property has the `blue` value, but you can also set it to the following values: `red`, `yellow`, `green`, `black`, and `purple`.
+By default, the palette property has the `lightBlue` value, but you can also set it to the following values: `red`, `orange`, `green`, `cyan`, `teal`, and `purple`.
 
 ```jsx
 <>
   <Tag label="Rio de Janeiro" />
   <Tag label="Rio de Janeiro" palette="red" />
-  <Tag label="Rio de Janeiro" palette="yellow" />
+  <Tag label="Rio de Janeiro" palette="orange" />
   <Tag label="Rio de Janeiro" palette="green" />
-  <Tag label="Rio de Janeiro" palette="gray" />
+  <Tag label="Rio de Janeiro" palette="red" />
+  <Tag label="Rio de Janeiro" palette="cyan" />
+  <Tag label="Rio de Janeiro" palette="teal" />
   <Tag label="Rio de Janeiro" palette="purple" />
 </>
 ```
@@ -68,11 +71,11 @@ You can add one Icon on the left side of the `Tag`. Just use the `icon` property
 
 ## Props
 
-| Name         | Type          | Description                       | Required | Default |
-| ------------ | ------------- | --------------------------------- | -------- | ------- | --------- | --------- | --------- | --- | ------ |
-| label        | `string`      | Tag size                          | ✅       | -       |
-| csx          | `StyleObject` | Custom styles                     | 🚫       | {}      |
-| palette      | `'gray'      | 'green'                           | 'red'    | 'blue'  | 'yellow'  | 'purple'` | Tag theme | 🚫  | 'blue' |
-| size         | `'regular'    | 'small'`                          | Tag size | 🚫      | 'regular' |
-| handleDelete | `() => void`  | When defined the tag is deletable | 🚫       | -       |
-| icon         | `ReactNode`   | Tag icon                          | 🚫       | -       |
+| Name         | Type                                                              | Description                       | Required | Default     |
+| ------------ | ----------------------------------------------------------------- | --------------------------------- | -------- | ----------- |
+| label        | `string`                                                          | Tag size                          | ✅       | -           |
+| csx          | `StyleObject`                                                     | Custom styles                     | 🚫       | `{}`        |
+| palette      | `'lightBlue', 'green', 'red', 'orange', 'cyan', 'teal', 'purple'` | Tag theme                         | 🚫       | `'blue'`    |
+| size         | `'regular', 'small'`                                              | Tag size                          | 🚫       | `'regular'` |
+| handleDelete | `() => void`                                                      | When defined the tag is deletable | 🚫       | -           |
+| icon         | `ReactNode`                                                       | Tag icon                          | 🚫       | -           |

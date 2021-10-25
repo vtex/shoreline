@@ -2,13 +2,14 @@ import type { Ref } from 'react'
 import React, { forwardRef, useEffect, useReducer } from 'react'
 import { Input as ReakitInput } from 'reakit'
 import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
-import { useSystem } from '@vtex/admin-ui-core'
+import { useSystem, focusVisible } from '@vtex/admin-ui-core'
 import invariant from 'tiny-invariant'
 
 import { Box } from '../Box'
 import type { SystemComponentProps } from '../../types'
 import { Button } from '../Button'
 import type { AbstractInputOwnProps } from '../AbstractInput'
+import { Text } from '../Text'
 
 export const NumericStepper = forwardRef(
   (props: NumericStepperProps, ref: Ref<HTMLDivElement>) => {
@@ -19,9 +20,9 @@ export const NumericStepper = forwardRef(
       disabled,
       step = 1,
       onChange,
-      errorMessage,
+      tone = 'neutral',
       helperText,
-      error,
+      criticalText,
       label,
       csx,
       ...inputProps
@@ -32,7 +33,7 @@ export const NumericStepper = forwardRef(
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
-    const hasHelper = !!error || !!helperText
+    const hasHelper = tone === 'critical' || !!helperText
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({
@@ -102,37 +103,35 @@ export const NumericStepper = forwardRef(
               paddingLeft: 36,
               paddingRight: 36,
               textAlign: 'center',
-              color: 'dark.primary',
+              color: 'field.neutral',
               borderStyle: 'solid',
               borderWidth: 1,
-              borderColor: 'mid.primary',
+              borderColor: 'field.neutral',
               borderRadius: 'default',
-              backgroundColor: 'light.primary',
+              bg: 'field.netural',
               ':hover': {
-                borderColor: 'dark.primary',
+                borderColor: 'field.neutralHover',
+                color: 'field.neutralHover',
+                backgroundOrigin: 'field.neutralHover',
               },
               ':disabled': {
-                backgroundColor: 'light.secondary',
-                color: 'mid.primary',
-              },
-              ':focus:not([data-focus-visible-added])': {
-                outline: 'none',
-                boxShadow: 'none',
+                bg: 'field.neutralDisabled',
+                color: 'field.neutralDisabled',
+                borderColor: 'field.neutralDisabled',
               },
               ':focus': {
-                outline: 'none',
-                boxShadow: 'focus',
+                borderColor: 'field.neutralFocus',
+                color: 'field.neutralFocus',
+                bg: 'field.neutralFocus',
               },
-              ...(error
+              ...focusVisible('neutral'),
+              ...(tone === 'critical'
                 ? {
-                    borderColor: 'red',
+                    borderColor: 'field.critical',
                     ':hover': {
-                      borderColor: 'red',
+                      borderColor: 'field.criticalHover',
                     },
-                    ':focus': {
-                      outline: 'none',
-                      boxShadow: 'none',
-                    },
+                    ...focusVisible('critical'),
                   }
                 : {}),
               ...csx,
@@ -142,10 +141,9 @@ export const NumericStepper = forwardRef(
 
           <Button
             size="small"
-            variant="adaptative-dark"
+            variant="text"
             icon={<IconRemove />}
             csx={{
-              color: 'blue',
               height: 40,
               position: 'absolute',
               left: 1,
@@ -157,11 +155,10 @@ export const NumericStepper = forwardRef(
 
           <Button
             size="small"
-            variant="adaptative-dark"
+            variant="text"
             icon={<IconAdd />}
             aria-label={`${label}-increase-button}`}
             csx={{
-              color: 'blue',
               height: 40,
               position: 'absolute',
               right: 1,
@@ -171,15 +168,15 @@ export const NumericStepper = forwardRef(
           />
         </Box>
         {hasHelper && (
-          <Box
+          <Text
+            variant="small"
+            tone={tone === 'critical' ? 'critical' : 'muted'}
             csx={{
-              text: 'small',
-              color: error ? 'red' : 'mid.primary',
               marginTop: 2,
             }}
           >
-            {error ? errorMessage : helperText}
-          </Box>
+            {tone === 'critical' ? criticalText : helperText}
+          </Text>
         )}
       </Box>
     )
@@ -298,14 +295,14 @@ export interface NumericStepperProps
    */
   disabled?: boolean
   /**
-   * Whether has an error or not
-   * @default false
+   * Tone of voice
+   * @default neutral
    */
-  error?: boolean
+  tone?: 'neutral' | 'critical'
   /**
    * NumericStepper error message
    */
-  errorMessage?: string
+  criticalText?: string
   /**
    * NumericStepper helper Text
    */

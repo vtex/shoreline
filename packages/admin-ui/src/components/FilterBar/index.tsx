@@ -17,6 +17,7 @@ import {
   UseFilterBarStateReturn,
 } from './typings'
 import { MenuItem, MenuList, MenuButton } from '../Menu'
+import { ButtonGhost } from '../ButtonGhost'
 import { baseResolvers } from './resolvers/base'
 import { useFilterBarState } from './useFilterBarState'
 
@@ -60,10 +61,7 @@ export function FilterBar<T, V extends { value: T }>(
   } = props
 
   return (
-    <Box
-      csx={{ border: 'default', bg: 'sidebar.light', ...csx }}
-      {...htmlProps}
-    >
+    <Box csx={{ border: 'default', bg: 'muted', ...csx }} {...htmlProps}>
       <Content empty={statements.length === 0} label={label}>
         {statements.map((statement, index) => {
           return (
@@ -112,10 +110,9 @@ export function FilterBar<T, V extends { value: T }>(
                 />
               </Set>
               <Statement.Menu>
-                <MenuButton
+                <ButtonGhost
+                  as={MenuButton}
                   aria-label={`${statementMenuLabel} ${index}`}
-                  variant="adaptative-dark"
-                  csx={{ color: 'dark.secondary' }}
                   display="actions"
                 />
                 <MenuList aria-label={`${statementMenuLabel} ${index}`}>
@@ -141,21 +138,20 @@ export function FilterBar<T, V extends { value: T }>(
       <Footer>
         <Button
           size="small"
-          variant="tertiary"
+          variant="text"
           icon={<IconAdd />}
           onClick={addStatement}
         >
           {addFilterLabel}
         </Button>
         <Set>
-          <Button
+          <ButtonGhost
             size="small"
-            variant="adaptative-dark"
             disabled={statements.length === 0}
             onClick={resetFilters}
           >
             {clearFilterLabel}
-          </Button>
+          </ButtonGhost>
           <Button
             size="small"
             disabled={applied}

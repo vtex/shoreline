@@ -1,4 +1,5 @@
 ---
+title: Tag
 path: /guidelines/tag/
 ---
 
@@ -13,8 +14,10 @@ The most common use-case is the jsx elements:
 ```jsx
 <tag.div
   csx={{
-    bg: 'blue',
-    color: 'light.primary',
+    bg: 'muted',
+    color: 'base',
+    border: 'default',
+    borderRadius: 'default',
     padding: 4,
   }}
 >
@@ -32,9 +35,24 @@ const Button = tag(ReakitButton) // also components
 
 function Example() {
   return (
-    <Section csx={{ bg: 'blue.secondary', padding: 4, color: 'blue' }}>
+    <Section csx={{ padding: 4, ...palette('purple') }}>
       admin-ui-powered section
-      <Button csx={{ padding: 2, bg: 'blue', color: 'light.primary' }}>
+      <Button
+        csx={{
+          padding: 2,
+          cursor: 'pointer',
+          bg: 'action.main.text',
+          color: 'action.main.text',
+          ':hover': {
+            bg: 'action.main.textHover',
+            color: 'action.main.textHover',
+          },
+          ':active': {
+            bg: 'action.main.textPressed',
+            color: 'action.main.textPressed',
+          },
+        }}
+      >
         Button
       </Button>
     </Section>
@@ -58,11 +76,20 @@ function Example() {
         as={ReakitMenuButton}
         {...menu}
         csx={{
-          bg: 'blue',
-          color: 'light.primary',
           height: 32,
           borderRadius: 4,
+          padding: 2,
           cursor: 'pointer',
+          bg: 'action.main.text',
+          color: 'action.main.text',
+          ':hover': {
+            bg: 'action.main.textHover',
+            color: 'action.main.textHover',
+          },
+          ':active': {
+            bg: 'action.main.textPressed',
+            color: 'action.main.textPressed',
+          },
         }}
       >
         Preferences
@@ -73,21 +100,18 @@ function Example() {
         aria-label="Preferences"
         csx={{
           border: '1px solid',
-          borderColor: 'dark.secondary',
+          borderColor: 'popover',
           display: 'flex',
           flexDirection: 'column',
+          bg: 'popover',
           borderRadius: 4,
           '> button': {
             borderRadius: 4,
+            margin: 1,
             height: 32,
             cursor: 'pointer',
-            bg: 'light.primary',
-            ':hover': {
-              bg: 'light.secondary',
-            },
-            ':active': {
-              bg: 'mid.tertiary',
-            },
+            ...listBoxItem('main'),
+            ...focusVisible('main'),
           },
         }}
       >

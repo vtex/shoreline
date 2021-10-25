@@ -11,14 +11,9 @@ import { CacheProvider, Global } from '@emotion/react'
 import 'focus-visible/dist/focus-visible'
 
 import type { StyleProp } from './runtime'
-import type { UnstableAdminUI } from './theme'
-import {
-  cssVariables,
-  parse,
-  useCSSVariables,
-  theme,
-  globalStyles,
-} from './theme'
+import { cssVariables, styles, theme, globalStyles } from './adminUI'
+import type { UnstableAdminUI } from './adminUI'
+import { useCSSVariables } from './theme'
 import { createAtoms, createClsx } from './runtime'
 
 export interface SystemSpec {
@@ -76,7 +71,7 @@ export function createSystem(spec: SystemSpec): CreateOndaReturn {
   }
 
   const clsx = createClsx(emotion)
-  const atoms = createAtoms(unstableSystem?.parse ?? parse, clsx)
+  const atoms = createAtoms(unstableSystem?.styles ?? styles, clsx)
 
   function SystemProvider(props: { children?: React.ReactNode }) {
     const { children } = props

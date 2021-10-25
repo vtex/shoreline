@@ -1,4 +1,5 @@
 ---
+title: Label
 path: /label/
 ---
 

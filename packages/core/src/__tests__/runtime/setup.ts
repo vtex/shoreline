@@ -3,7 +3,7 @@ import { matchers } from 'jest-emotion'
 import { buildPlugins } from '../../system'
 
 import { plugins } from '../../plugins'
-import { createClsx, createParser } from '../../runtime'
+import { createClsx, createStyles } from '../../runtime'
 import createEmotion from '@emotion/css/create-instance'
 
 expect.extend(matchers)
@@ -26,11 +26,23 @@ const theme = {
       hover: 'red',
     },
   },
+  foreground: {
+    primary: {
+      default: 'blue',
+      hover: 'red',
+    },
+  },
+  background: {
+    primary: {
+      default: 'blue',
+      hover: 'red',
+    },
+  },
 }
 
 const emotion = createEmotion({ key: 'test' })
 const steps = buildPlugins(theme, plugins)
 const clsx = createClsx(emotion)
-const parse = createParser(steps, theme)
+const parse = createStyles(steps, theme)
 
 export { clsx, parse }

@@ -18,11 +18,15 @@ describe('Button tests', () => {
     const { asFragment } = render(
       <Fragment>
         <Button>Button</Button>
-        <Button>Button</Button>
-        <Button variant="secondary">Button</Button>
-        <Button variant="tertiary">Button</Button>
-        <Button size="small">Button</Button>
-        <Button variant="danger">Button</Button>
+        <Button variant="soft">Button</Button>
+        <Button variant="text">Button</Button>
+        <Button tone="critical">Button</Button>
+        <Button tone="critical" variant="soft">
+          Button
+        </Button>
+        <Button tone="critical" variant="text">
+          Button
+        </Button>
       </Fragment>
     )
 
@@ -33,11 +37,6 @@ describe('Button tests', () => {
     const { container } = render(
       <Fragment>
         <Button>Button</Button>
-        <Button>Button</Button>
-        <Button variant="secondary">Button</Button>
-        <Button variant="tertiary">Button</Button>
-        <Button size="small">Button</Button>
-        <Button variant="danger">Button</Button>
       </Fragment>
     )
 

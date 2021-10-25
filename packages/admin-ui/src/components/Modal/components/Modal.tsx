@@ -3,8 +3,6 @@ import React, { useCallback } from 'react'
 import type { StyleProp } from '@vtex/admin-ui-core'
 import type { DialogOptions } from 'reakit/Dialog'
 import { Dialog, DialogBackdrop } from 'reakit/Dialog'
-import { rgba } from 'polished'
-import { get } from '@vtex/admin-ui-util'
 import { tag } from '@vtex/admin-ui-react'
 
 import type { ModalStateReturn } from '../state'
@@ -77,8 +75,7 @@ export function Modal(props: ModalProps) {
         flexDirection: 'column',
         justifyContent: ['flex-end', 'flex-end', 'center'],
         alignItems: 'center',
-        backgroundColor: (theme) =>
-          rgba(get(theme, 'colors.dark.primary'), 0.5),
+        bg: 'overlay',
         position: 'fixed',
         top: 0,
         left: 0,
@@ -98,9 +95,9 @@ export function Modal(props: ModalProps) {
         csx={{
           width,
           outline: 'none',
-          bg: 'light.primary',
+          bg: 'modal',
           borderRadius: 3,
-          borderColor: 'mid.tertiary',
+          borderColor: 'modal',
           borderStyle: 'solid',
           borderWidth: 1,
           position: 'relative',

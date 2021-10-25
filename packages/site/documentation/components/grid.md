@@ -1,4 +1,5 @@
 ---
+title: Grid
 path: /grid/
 ---
 
@@ -26,7 +27,10 @@ import { Grid, GridItem } from '@vtex/admin-ui'
   gap="6"
   csx={{
     height: 400,
-    div: { bg: 'blue', borderRadius: 'default' },
+    div: {
+      ...palette('purple'),
+      borderRadius: 'default',
+    },
   }}
 >
   <GridItem area="item-1" />
@@ -56,16 +60,16 @@ Example of using grid template areas and applying a gap or space between the ite
 
 ```jsx
 <Grid
-  templateAreas={['yellow blue-1 blue-2', 'yellow red red']}
+  templateAreas={['orange blue-1 blue-2', 'orange red red']}
   templateColumns="1fr 2fr 2fr"
   templateRows="1fr 2fr"
   gap="4"
   csx={{ height: 400, div: { borderRadius: 'default' } }}
 >
-  <GridItem area="yellow" csx={{ bg: 'yellow.secondary' }} />
-  <GridItem area="blue-1" csx={{ bg: 'blue.secondary' }} />
-  <GridItem area="blue-2" csx={{ bg: 'blue.secondary' }} />
-  <GridItem area="red" csx={{ bg: 'red.secondary' }} />
+  <GridItem area="orange" csx={palette('orange')} />
+  <GridItem area="blue-1" csx={palette('lightBlue')} />
+  <GridItem area="blue-2" csx={palette('lightBlue')} />
+  <GridItem area="red" csx={palette('red')} />
 </Grid>
 ```
 
@@ -79,10 +83,10 @@ Example of using grid template columns and applying a gap or space between the c
   columnGap="4"
   csx={{ height: 100, div: { borderRadius: 'default' } }}
 >
-  <Box csx={{ bg: 'blue.secondary' }} />
-  <Box csx={{ bg: 'green.secondary' }} />
-  <Box csx={{ bg: 'yellow.secondary' }} />
-  <Box csx={{ bg: 'red.secondary' }} />
+  <Box csx={palette('cyan')} />
+  <Box csx={palette('green')} />
+  <Box csx={palette('orange')} />
+  <Box csx={palette('teal')} />
 </Grid>
 ```
 
@@ -96,10 +100,10 @@ Example of using grid template rows and applying a gap or space between the rows
   rowGap="4"
   csx={{ height: 400, width: 300, div: { borderRadius: 'default' } }}
 >
-  <Box csx={{ bg: 'blue.secondary' }} />
-  <Box csx={{ bg: 'green.secondary' }} />
-  <Box csx={{ bg: 'yellow.secondary' }} />
-  <Box csx={{ bg: 'red.secondary' }} />
+  <Box csx={palette('cyan')} />
+  <Box csx={palette('green')} />
+  <Box csx={palette('orange')} />
+  <Box csx={palette('teal')} />
 </Grid>
 ```
 

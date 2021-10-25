@@ -53,7 +53,6 @@ export {
   isFirefox,
   isEdge,
 } from 'react-device-detect'
-export * from './components/Combobox'
 export * from './components/SearchBox'
 export * from './components/DataGrid'
 export * from './components/Page'
@@ -62,3 +61,6 @@ export * from './components/SelectionTree'
 export * from './components/Box'
 export * from './components/Flex'
 export * from './components/Grid'
+export * from './components/ButtonGhost'
+export * from './components/Field'
+export * from './components/Center'

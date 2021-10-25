@@ -31,19 +31,19 @@ Playground.args = {
   onDismiss: () => {},
 }
 
-export function Types() {
+export function Tones() {
   return (
     <Set orientation="vertical" fluid>
-      <Alert type="info" icon={<IconHelp />} visible>
+      <Alert tone="info" icon={<IconHelp />} visible>
         Order successfully placed
       </Alert>
-      <Alert type="success" icon={<IconSuccessColorful />} visible>
+      <Alert tone="positive" icon={<IconSuccessColorful />} visible>
         Order successfully placed
       </Alert>
-      <Alert type="warning" icon={<IconWarningColorful />} visible>
+      <Alert tone="warning" icon={<IconWarningColorful />} visible>
         This account is inactive. Check your billing for more information.
       </Alert>
-      <Alert type="error" icon={<IconErrorColorful />} visible>
+      <Alert tone="critical" icon={<IconErrorColorful />} visible>
         Somenthing went wrong. Please, try again.
       </Alert>
     </Set>
@@ -53,7 +53,7 @@ export function Types() {
 export function Actions() {
   return (
     <Set orientation="vertical" fluid>
-      <Alert type="success" visible>
+      <Alert tone="positive" visible>
         Order successfully placed <Anchor>See order</Anchor>
       </Alert>
 
@@ -88,7 +88,7 @@ export function Fluid() {
         icon={<IconWarningCircle />}
         visible
         fluid
-        type="info"
+        tone="info"
         onDismiss={() => {}}
       >
         This account is inactive. Check your billing for more information.
@@ -99,7 +99,7 @@ export function Fluid() {
 
 export function Sticky() {
   return (
-    <Alert onDismiss={() => {}} type="success" visible sticky>
+    <Alert onDismiss={() => {}} tone="positive" visible sticky>
       Order successfully placed
     </Alert>
   )

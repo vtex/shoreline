@@ -1,54 +1,42 @@
-import type React from 'react'
-import type { BoxHTMLProps, BoxOptions } from 'reakit'
-import { useBox } from 'reakit'
-import { createHook, createComponent } from 'reakit-system'
-import { useSystem } from '@vtex/admin-ui'
+import { jsx } from '@vtex/admin-ui'
 
-export const useBlockquote = createHook<BlockquoteOptions, BlockquoteHTMLProps>(
-  {
-    name: 'Blockquote',
-    compose: useBox,
-    keys: ['palette'],
-
-    useProps(options, htmlProps) {
-      const palette = options.palette ?? 'yellow'
-      const { cn } = useSystem()
-
-      return {
-        ...htmlProps,
-        children: htmlProps.children,
-        className: cn({
-          color: 'dark.primary',
-          backgroundColor: `${palette}.secondary`,
-          paddingY: 1,
-          paddingX: 2,
-          marginY: 3,
-          borderRadius: 'default',
-          p: {
-            margin: 0,
-          },
-        }),
-      }
+export const Blockquote = jsx('blockquote')({
+  color: 'base',
+  paddingY: 1,
+  paddingX: 2,
+  marginY: 3,
+  borderRadius: 'default',
+  p: {
+    margin: 0,
+  },
+  borderWidth: 1,
+  borderStyle: 'solid',
+  variants: {
+    tone: {
+      critical: {
+        bg: `notification.critical`,
+        color: `notification.critical`,
+        borderColor: `notification.critical`,
+      },
+      warning: {
+        bg: `notification.warning`,
+        color: `notification.warning`,
+        borderColor: `notification.warning`,
+      },
+      info: {
+        bg: `notification.info`,
+        color: `notification.info`,
+        borderColor: `notification.info`,
+      },
+      positive: {
+        bg: `notification.positive`,
+        color: `notification.positive`,
+        borderColor: `notification.positive`,
+      },
     },
-  }
-)
-
-const Blockquote = createComponent({
-  as: 'blockquote',
-  useHook: useBlockquote,
+  },
 })
 
-export type BlockquoteOptions = BoxOptions & {
-  experimental?: 'true' | 'false'
-  palette?: 'blue' | 'green' | 'red' | 'yellow'
+Blockquote.defaultProps = {
+  tone: 'info',
 }
-
-export type BlockquoteHTMLProps = BoxHTMLProps &
-  React.DetailedHTMLProps<
-    React.BlockquoteHTMLAttributes<HTMLElement>,
-    HTMLElement
-  >
-
-export type BlockquoteProps = BlockquoteOptions & BlockquoteHTMLProps
-
-export default Blockquote

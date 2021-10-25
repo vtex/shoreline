@@ -26,31 +26,31 @@ export const Text = jsx('span')({
         text: 'code',
       },
     },
-    feedback: {
-      default: {
-        color: 'dark.primary',
+    tone: {
+      neutral: {
+        color: 'base',
       },
-      primary: {
-        color: 'blue',
+      muted: {
+        color: 'muted',
       },
-      secondary: {
-        color: 'dark.secondary',
+      info: {
+        color: 'notification.info',
       },
-      success: {
-        color: 'green',
+      positive: {
+        color: 'notification.positive',
       },
-      danger: {
-        color: 'red',
+      critical: {
+        color: 'notification.critical',
       },
       warning: {
-        color: 'yellow',
+        color: 'notification.warning',
       },
     },
   },
 })
 
 Text.defaultProps = {
-  feedback: 'default',
+  tone: 'neutral',
   variant: 'body',
 }
 

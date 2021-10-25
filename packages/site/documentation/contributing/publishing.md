@@ -1,4 +1,5 @@
 ---
+title: Publishing Versions
 path: /contributing/publishing/
 ---
 

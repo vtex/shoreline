@@ -1,37 +1,37 @@
 - section: Introduction
   paths:
     - /introduction/about/
-    - /introduction/can-i-use/
+    - /introduction/components-status/
     - /introduction/comparison/
 - section: Getting started
   paths:
     - /getting-started/developers/
 - section: Contributing
   paths:
-    - /contributing/overview/
+    - /contributing/onboarding/
     - /contributing/code-styleguide/
     - /contributing/publishing/
 - section: Guidelines
   paths:
+    - /guidelines/design-tokens/
     - /guidelines/theming/
     - /guidelines/responsive-design/
     - /guidelines/styling/
-    - /guidelines/tag/    
-- section: Typography
+    - /guidelines/tag/
+- section: Foundations
   paths:
-    - /typography/introduction/
-    - /typography/anchor/
-    - /typography/heading/
-    - /typography/list/
-    - /typography/paragraph/
-    - /typography/text/
+    - /foundations/colors/
+    - /foundations/typography/
 - section: Components
   paths:
     - /alert/
+    - /anchor/
     - /avatar/
     - /box/
     - /button/
+    - /button-ghost/
     - /card/
+    - /center/
     - /checkbox/
     - /checkbox-group/
     - /collapsible/
@@ -42,15 +42,19 @@
     - /dropdown/
     - /flex/
     - /filter-bar/
+    - /formik/
     - /grid/
+    - /heading/
     - /icons/
     - /input/
     - /input-password/
     - /label/
+    - /list/
     - /menu/
     - /modal/
     - /numeric-stepper/
     - /pagination/
+    - /paragraph/
     - /radio/
     - /radio-group/
     - /search/
@@ -61,6 +65,7 @@
     - /tabs/
     - /tag/
     - /text-area/
+    - /text/
     - /toast/
     - /toolbar/
     - /tooltip/
@@ -78,3 +83,4 @@
 - section: Help
   paths:
     - /help/contact-us/
+    - /help/release-notes/

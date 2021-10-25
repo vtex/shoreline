@@ -264,7 +264,7 @@ export function ButtonSeries() {
     borderRadius: 'default',
     text: 'action',
     ':hover': {
-      bg: 'light.primary',
+      bg: 'base',
     },
     ':active': {
       bg: 'light.secondary',

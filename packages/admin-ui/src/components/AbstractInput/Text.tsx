@@ -6,7 +6,7 @@ import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-ui-core'
 import { Box } from '../Box'
 
-import { Button } from '../Button'
+import { ButtonGhost } from '../ButtonGhost'
 import type { SystemComponentProps } from '../../types'
 
 export const AbstractInput = forwardRef(function AbstractInput(
@@ -16,7 +16,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
   const {
     value,
     csx = {},
-    error = false,
+    tone = 'neutral',
     icon,
     suffix,
     onClear,
@@ -29,6 +29,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
 
   const showClear = !!onClear && String(value).toString().length > 0
   const showButtons = !!suffix || !!buttonElements || onClear
+  const critical = tone === 'critical'
 
   const inputClassName = cn({
     fontFamily: 'sans',
@@ -39,35 +40,27 @@ export const AbstractInput = forwardRef(function AbstractInput(
     borderWidth: 1,
     paddingLeft: 3,
     paddingRight: 4,
-    borderColor: error ? 'red' : 'mid.secondary',
+    bg: critical ? 'field.critical' : 'field.neutral',
+    borderColor: critical ? 'field.critical' : 'field.neutral',
     borderRadius: 'default',
-    bg: 'inherit',
     marginY: 1,
     fontSize: 1,
-    color: 'dark.primary',
+    color: 'base',
     outline: 0,
     transition: 'snap',
     ':hover': {
-      borderColor: error ? 'red.hover' : 'dark.primary',
+      bg: critical ? 'field.criticalHover' : 'field.neutralHover',
+      borderColor: critical ? 'field.criticalHover' : 'field.neutralHover',
     },
     ':focus': {
-      borderColor: error ? 'red' : 'blue',
-      boxShadow: error ? 'inputFocusError' : 'inputFocus',
+      bg: critical ? 'field.criticalFocus' : 'field.neutralFocus',
+      borderColor: critical ? 'field.criticalFocus' : 'field.neutralFocus',
+      boxShadow: critical ? 'ring.critical' : 'ring.neutral',
     },
     ':disabled': {
-      bg: 'light.secondary',
-      color: 'mid.primary',
+      bg: critical ? 'field.criticalDisabled' : 'field.neutralDisabled',
+      color: critical ? 'field.criticalDisabled' : 'field.neutralDisabled',
     },
-    ':focus + label': {
-      transform: 'translate(1px, 4px) scale(0.875)',
-    },
-    ':placeholder-shown:not(:focus) + label': {
-      paddingTop: 1,
-    },
-    ':not(:placeholder-shown) + label': {
-      transform: 'translate(1px, 4px) scale(0.875)',
-    },
-
     ...spacing({
       icon: !!icon,
       suffix: !!suffix,
@@ -94,7 +87,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
         <IconContainer
           space="regular"
           csx={{
-            color: 'mid.primary',
+            color: 'muted',
             top: 1,
             left: 0,
             marginX: 3,
@@ -125,16 +118,15 @@ export const AbstractInput = forwardRef(function AbstractInput(
             paddingRight: 3,
             position: 'absolute',
             display: 'flex',
-            color: 'dark.secondary',
+            color: 'base',
           }}
         >
           {showClear && (
-            <Button
+            <ButtonGhost
               icon={<IconCancel />}
               aria-label={`clear ${inputProps.id} text`}
               onClick={onClear}
               size="small"
-              variant="adaptative-dark"
               csx={{
                 marginTop: 2,
                 marginRight: 1,
@@ -146,10 +138,10 @@ export const AbstractInput = forwardRef(function AbstractInput(
             <Box
               as="span"
               csx={{
-                color: 'mid.primary',
+                color: 'field.neutral',
                 borderLeftStyle: 'solid',
                 borderLeftWidth: '1px',
-                borderLeftColor: 'mid.secondary',
+                borderLeftColor: 'field.neutral',
                 paddingTop: '14px',
                 marginTop: 'px',
                 width: '32px',
@@ -251,6 +243,6 @@ export interface AbstractInputProps
   buttonElements?: ReactNode
   /** onChange event */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  /** Input error state */
-  error?: boolean
+  /** Tone of voice @default neutral */
+  tone?: 'neutral' | 'critical'
 }

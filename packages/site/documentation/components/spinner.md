@@ -1,4 +1,5 @@
 ---
+title: Spinner
 path: /spinner/
 ---
 
@@ -6,21 +7,36 @@ path: /spinner/
 
 A Spinner is a way of showing the user something is being loaded, either because of a user action or not. It should be used for short, indeterminate loading times.
 
-## Import
+## Usage
 
 ```jsx isStatic
 import { Spinner } from '@vtex/admin-ui'
-```
 
-## Behavior
-
-```jsx
 function Example() {
   return <Spinner />
 }
 ```
 
-## Variations
+## Alternatives
+
+- [Skeleton](/skeleton/) - For layout/block loading
+
+## Examples
+
+### Contextual theming
+
+The spinner's circle always has the `currentColor` fill.
+
+```jsx
+<Set>
+  <Center csx={{ size: 50, ...palette('lightBlue') }}>
+    <Spinner />
+  </Center>
+  <Center csx={{ size: 50, ...palette('red') }}>
+    <Spinner />
+  </Center>
+</Set>
+```
 
 ### Size
 
@@ -30,20 +46,11 @@ function Example() {
 }
 ```
 
-### Color
-
-```jsx
-function Example() {
-  return <Spinner color="red" />
-}
-```
-
 ## Props
 
 All props of `svg` jsx element.
 
-| Name  | Type                          | Description   | Required | Default |
-| ----- | ----------------------------- | ------------- | -------- | ------- |
-| csx   | `StyleObject`                 | Custom styles | 🚫       | {}      |
-| color | `SystemColor or currentColor` | Spinner color | 🚫       | 'blue'  |
-| size  | `number`                      | Spinner size  | 🚫       | 24      |
+| Name | Type          | Description        | Required | Default |
+| ---- | ------------- | ------------------ | -------- | ------- |
+| csx  | `StyleObject` | Custom styles      | 🚫       | `{}`    |
+| size | `number`      | Spinner size in px | 🚫       | `24`    |

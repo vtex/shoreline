@@ -30,7 +30,7 @@ exports[`Tabs should match snapshot 1`] = `
   padding-right: 1.5rem;
   text-transform: uppercase;
   background-color: transparent;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-1:focus:not([data-focus-visible-added]) {
@@ -40,11 +40,11 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-1:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: focus;
 }
 
 .emotion-1:hover {
-  color: #214491;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-0 {
@@ -55,7 +55,7 @@ exports[`Tabs should match snapshot 1`] = `
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-style: solid;
-  border-bottom-color: #2953B2;
+  border-bottom-color: hsla(222, 63%, 43%, 1);
   border-bottom-width: 2px;
   border-top-style: solid;
   border-top-color: transparent;
@@ -68,7 +68,7 @@ exports[`Tabs should match snapshot 1`] = `
   padding-right: 1.5rem;
   text-transform: uppercase;
   background-color: transparent;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -78,7 +78,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: focus;
 }
 
 <div
@@ -117,7 +117,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 <div
@@ -139,7 +139,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 <div
@@ -174,7 +174,7 @@ exports[`Tabs should match snapshot 1`] = `
   padding-right: 1.5rem;
   text-transform: uppercase;
   background-color: transparent;
-  color: #707685;
+  color: #000000;
 }
 
 .emotion-1:focus:not([data-focus-visible-added]) {
@@ -184,11 +184,11 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-1:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: focus;
 }
 
 .emotion-1:hover {
-  color: #214491;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-2 {
@@ -217,7 +217,7 @@ exports[`Tabs should match snapshot 1`] = `
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-style: solid;
-  border-bottom-color: #2953B2;
+  border-bottom-color: hsla(222, 63%, 43%, 1);
   border-bottom-width: 2px;
   border-top-style: solid;
   border-top-color: transparent;
@@ -230,7 +230,7 @@ exports[`Tabs should match snapshot 1`] = `
   padding-right: 1.5rem;
   text-transform: uppercase;
   background-color: transparent;
-  color: #2953B2;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -240,7 +240,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: focus;
 }
 
 <div
@@ -279,7 +279,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 <div
@@ -301,7 +301,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #8DB6FA;
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 <div

@@ -41,7 +41,7 @@ export const Error: Story = () => {
         onChange={(event) => setValue(event.target.value)}
         value={value}
         id="with error"
-        error
+        tone="critical"
       />
     </Box>
   )
@@ -74,7 +74,7 @@ export const Overridecsx: Story = () => {
         id="username"
         suffix="kg"
         icon={<IconAdd />}
-        csx={{ borderColor: 'dark.primary' }}
+        csx={{ borderColor: 'feedback.success' }}
       />
     </Box>
   )

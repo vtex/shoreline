@@ -1,4 +1,5 @@
 ---
+title: Card
 path: /card/
 ---
 

@@ -27,43 +27,43 @@ exports[`Select tests should render a Select with a list of string and other wit
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #C4C5CA;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
+  background-color: #FFFFFF;
   font-size: 0.875rem;
-  color: #707685;
+  color: field.neutral;
   outline: 0;
 }
 
 .emotion-4:hover {
-  border-color: #898F9E;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-4:hover>svg {
-  color: #323845;
+  color: field.neutral;
 }
 
 .emotion-4:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-4:disabled {
-  background-color: #F4F6FB;
-  border-color: #898F9E;
-  color: #707685;
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: field.neutralDisabled;
   cursor: initial;
 }
 
 .emotion-4:disabled>svg {
-  color: #707685;
+  color: field.neutralDisabled;
 }
 
 
 
 .emotion-0 {
   line-height: 1.43;
-  color: #323845;
+  color: #000000;
   float: left;
   margin-top: 1.125rem;
 }
@@ -91,7 +91,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
-  color: #707685;
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {
@@ -185,43 +185,43 @@ exports[`Select tests should render a Select with a list of string and other wit
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: #C4C5CA;
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: inherit;
+  background-color: #FFFFFF;
   font-size: 0.875rem;
-  color: #707685;
+  color: field.neutral;
   outline: 0;
 }
 
 .emotion-4:hover {
-  border-color: #898F9E;
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-4:hover>svg {
-  color: #323845;
+  color: field.neutral;
 }
 
 .emotion-4:focus {
-  border-color: #2953B2;
-  box-shadow: 0 0 0 1px #2953B2;
+  border-color: hsla(0, 0%, 29%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-4:disabled {
-  background-color: #F4F6FB;
-  border-color: #898F9E;
-  color: #707685;
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: field.neutralDisabled;
   cursor: initial;
 }
 
 .emotion-4:disabled>svg {
-  color: #707685;
+  color: field.neutralDisabled;
 }
 
 
 
 .emotion-0 {
   line-height: 1.43;
-  color: #323845;
+  color: #000000;
   float: left;
   margin-top: 1.125rem;
 }
@@ -249,7 +249,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
-  color: #707685;
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {

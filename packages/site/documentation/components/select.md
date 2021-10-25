@@ -1,4 +1,5 @@
 ---
+title: Select
 path: /select/
 ---
 
@@ -6,11 +7,14 @@ path: /select/
 
 Select is a component that allow users to select an option, require a click to see options and support only single-selection.
 
-## Behavior
+## Usage
 
-```jsx
+```jsx isStatic
+import { Select } from '@vtex/admin-ui'
+
+const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
+
 function Example() {
-  const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
   const state = useSelectState({
     items: days,
     initialSelectedItem: 'Yesterday',
@@ -20,17 +24,45 @@ function Example() {
 }
 ```
 
-## Installation
+## Examples
 
-```sh isStatic
-yarn add @vtex/admin-ui
+### Tone of voice
+
+The `Select` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+
+```jsx
+function Example() {
+  const species = ['Arabica', 'Robusta']
+  const speciesState = useSelectState({
+    items: species,
+    initialSelectedItem: 'Arabica',
+  })
+
+  const date = ['Yesterday', 'Tomorrow']
+  const dateState = useSelectState({
+    items: date,
+    initialSelectedItem: 'Yesterday',
+  })
+
+  return (
+    <Set spacing={3}>
+      <Select
+        label="Neutral"
+        items={species}
+        state={speciesState}
+        helperText="Helpful text"
+      />
+      <Select
+        tone="critical"
+        items={date}
+        state={dateState}
+        label="Critical"
+        criticalText="Critical message"
+      />
+    </Set>
+  )
+}
 ```
-
-```jsx isStatic
-import { Select, useSelectState } from '@vtex/admin-ui'
-```
-
-## Variations
 
 ### Items
 
@@ -120,27 +152,6 @@ function Example() {
 }
 ```
 
-### Error
-
-You can add a `error message` in the same place of the `helperText`. Just use the `error` property for that.
-
-```jsx
-function Example() {
-  const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
-  const state = useSelectState({ items: days })
-
-  return (
-    <Select
-      items={days}
-      state={state}
-      label="Date"
-      error
-      errorMessage="Message error"
-    />
-  )
-}
-```
-
 ### Block
 
 You can define the select as a block-level element. It means that the Select will have full-width by default. To use this variation the `block` property should have a true value.
@@ -189,10 +200,6 @@ function Example() {
 }
 ```
 
-## Customization
-
-You can use the [csx](https://admin-ui-docs.vercel.app/theming/inline-styles/#styles--csx) property to customize any style.
-
 ### Example
 
 ```jsx
@@ -215,4 +222,15 @@ function Example() {
 
 ## Props
 
-<proptypes heading="Select" component="Select" />
+| Name         | Type                          | Description                               | Required | Default   |
+| ------------ | ----------------------------- | ----------------------------------------- | -------- | --------- |
+| label        | `string`                      | Label text                                | ✅       | -         |
+| state        | `UseSelectReturnValue<T>`     | useSelectState hook return                | ✅       | -         |
+| items        | `T[]`                         | Select items.                             | ✅       | -         |
+| renderItem   | `(item: T, or null) => strng` | Function to customize the item rendering. | 🚫       | -         |
+| helperText   | `string`                      | Select helper text                        | 🚫       | -         |
+| tone         | `neutral, critical`           | Select's tone of voice                    | 🚫       | `neutral` |
+| criticalText | `string`                      | TextArea critical message                 | 🚫       | -         |
+| disabled     | `boolean`                     | Whether the textarea is disabled or not   | 🚫       | `false`   |
+| block        | `boolean`                     | Whether is a block-level element or not   | 🚫       | `false`   |
+| csx          | `StyleProp`                   | Defines component styles                  | 🚫       | `{}`      |

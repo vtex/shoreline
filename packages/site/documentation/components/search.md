@@ -1,4 +1,5 @@
 ---
+title: Search
 path: /search/
 ---
 
@@ -51,7 +52,7 @@ function Example() {
         aria-label="Loading Example Search"
         placeholder="Search something..."
       />
-      <Button variant="secondary" onClick={() => state.setLoading((l) => !l)}>
+      <Button variant="soft" onClick={() => state.setLoading((l) => !l)}>
         Toggle Loading
       </Button>
     </Set>

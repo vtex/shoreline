@@ -1,4 +1,5 @@
 ---
+title: Toast
 path: /toast/
 ---
 
@@ -49,9 +50,9 @@ Make sure to call the `useToast` hook one component level below the `<ToastProvi
 
 </blockquote>
 
-### Type
+### Tone of voice
 
-It represents the toast appearance and is used to convey its feedback.
+The toast's tone of voice is either `info` (default), `critical`, `warning`, or `positive`, and it's adjustable using the `tone` prop.
 
 ```jsx
 function Example() {
@@ -71,17 +72,17 @@ function Example() {
       <Button
         onClick={() =>
           showToast({
-            type: 'success',
+            tone: 'positive',
             message: 'Type a short message here',
           })
         }
       >
-        Success toast
+        Positive toast
       </Button>
       <Button
         onClick={() =>
           showToast({
-            type: 'warning',
+            tone: 'warning',
             message: 'Type here a longer message but not much longer than that',
           })
         }
@@ -91,12 +92,12 @@ function Example() {
       <Button
         onClick={() =>
           showToast({
-            type: 'error',
+            tone: 'critical',
             message: 'Type a short message here',
           })
         }
       >
-        Error toast
+        Critical toast
       </Button>
     </tag.div>
   )
@@ -138,7 +139,7 @@ function Example() {
     <Button
       onClick={() =>
         showToast({
-          type: 'success',
+          tone: 'positive',
           message: 'Type a short message here',
           action: {
             label: 'Action',
@@ -163,7 +164,7 @@ function Example() {
     <Button
       onClick={() =>
         showToast({
-          type: 'warning',
+          tone: 'warning',
           message: 'Type here a longer message but not much longer than that',
           dismissible: true,
           action: {
@@ -184,9 +185,9 @@ function Example() {
 Because the way of rendering a Toast on admin-ui is by calling the function returned by the `useToast` hook, these are the properties that you can pass to the function returned params.
 
 | Name        | Type                                     | Description                                             | Required | Default     |
-| ----------- | ---------------------------------------- | ------------------------------------------------------- | -------- | ----------- | ----------------- | --- | ------ |
+| ----------- | ---------------------------------------- | ------------------------------------------------------- | -------- | ----------- |
 | message     | `ReactNode`                              | Message displayed to the end-user.                      | ✅       | -           |
-| type        | `error                                   | info                                                    | warning  | success`    | The toast's type. | 🚫  | `info` |
+| tone        | `critical, info, warning, positive`      | The toast's tone of voice.                              | 🚫       | `info`      |
 | duration    | `number`                                 | How long the toast should be apparent, in milliseconds. | 🚫       | `10000`     |
 | dismissible | `boolean`                                | Whether the toast can be dismissed or not.              | 🚫       | `false`     |
 | action      | `{ label: string, onClick: () => void }` | Toast's actions' props.                                 | 🚫       | `undefined` |

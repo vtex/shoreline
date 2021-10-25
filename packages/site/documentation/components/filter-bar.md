@@ -1,4 +1,5 @@
 ---
+title: FilterBar
 path: /filter-bar/
 ---
 
@@ -313,7 +314,7 @@ function Example() {
                   id="filter-input"
                   value={value}
                   csx={{
-                    bg: 'light.primary',
+                    bg: 'base',
                     height: 40,
                     marginY: 0,
                     paddingRight: '60px',
@@ -462,17 +463,17 @@ Hook that manages the state logic of the FilterBar component. It receives two pa
 | Name        | Type                            | Description                                                              | Required | Default |
 | ----------- | ------------------------------- | ------------------------------------------------------------------------ | -------- | ------- |
 | conjunction | `Conjunction`                   | FilterBar initial conjunction                                            | ✅       | -       |
-| statements  | `Statement<T>[]`                | FilterBar initial statements                                             | 🚫       | []      |
-| filters     | `Filter<T>[]`                   | FilterBar filters                                                        | 🚫       | []      |
 | onApply     | `(filters: Filters<T>) => void` | Render props function that is called when the user hits the apply button | ✅       | -       |
+| statements  | `Statement<T>[]`                | FilterBar initial statements                                             | 🚫       | `[]`    |
+| filters     | `Filter<T>[]`                   | FilterBar filters                                                        | 🚫       | `[]`    |
 
 ## Prsops
 
-| Name           | Type                             | Description                                              | Required | Default            |
-| -------------- | -------------------------------- | -------------------------------------------------------- | -------- | ------------------ |
-| label          | `string`                         | FilterBar label. It appears when there are no statements | ✅       | -                  |
-| internalLabels | `InternalLabels`                 | Set of FilterBar internal labels                         | ✅       | -                  |
-| state          | `UseFilterBarStateReturn<V,T>`   | Object that manages the component state logic            | ✅       | -                  |
-| conjunctions   | `Conjunction[]`                  | FilterBar conjunction options                            | ✅       | -                  |
-| csx            | `StyleObject`                    | Custom styles                                            | 🚫       | {}                 |
-| resolvers      | `Record<String, Resolver<V, T>>` | FilterBar resolvers                                      | 🚫       | baseResolvers<T>() |
+| Name           | Type                             | Description                                              | Required | Default              |
+| -------------- | -------------------------------- | -------------------------------------------------------- | -------- | -------------------- |
+| label          | `string`                         | FilterBar label. It appears when there are no statements | ✅       | -                    |
+| internalLabels | `InternalLabels`                 | Set of FilterBar internal labels                         | ✅       | -                    |
+| state          | `UseFilterBarStateReturn<V,T>`   | Object that manages the component state logic            | ✅       | -                    |
+| conjunctions   | `Conjunction[]`                  | FilterBar conjunction options                            | ✅       | -                    |
+| csx            | `StyleObject`                    | Custom styles                                            | 🚫       | `{}`                 |
+| resolvers      | `Record<String, Resolver<V, T>>` | FilterBar resolvers                                      | 🚫       | `baseResolvers<T>()` |

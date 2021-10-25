@@ -19,7 +19,7 @@ Playground.args = {
 
 export function Csx() {
   return (
-    <Paragraph csx={{ bg: 'light.secondary', color: 'blue' }}>
+    <Paragraph csx={{ bg: 'muted', color: 'muted' }}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a
       aliquam ex, quis pretium enim. Sed cursus quam ac lorem efficitur, ac
       sodales lorem convallis. Ut scelerisque mauris velit, sit amet iaculis

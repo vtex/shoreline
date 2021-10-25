@@ -1,5 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { useState, useEffect } from 'react'
+import { isBrowser } from '@vtex/admin-ui-util'
 
 /**
  * Use local storage to persist a state
@@ -13,13 +14,15 @@ export function usePersistentState<T>(
   key: string
 ): [T, Dispatch<SetStateAction<T>>] {
   const [value, setValue] = useState<T>(() => {
-    const persistedValue = window.localStorage.getItem(key)
+    if (!isBrowser) return defaultValue
+
+    const persistedValue = window.localStorage?.getItem(key) ?? null
 
     return persistedValue !== null ? JSON.parse(persistedValue) : defaultValue
   })
 
   useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(value))
+    window?.localStorage?.setItem(key, JSON.stringify(value))
   }, [key, value])
 
   return [value, setValue]

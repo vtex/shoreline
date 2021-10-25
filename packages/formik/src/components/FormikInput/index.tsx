@@ -38,8 +38,8 @@ export const FormikInput = forwardRef(
     return (
       <Input
         id={id}
-        error={!!errorMessage}
-        errorMessage={errorMessage ?? undefined}
+        tone={errorMessage ? 'critical' : 'neutral'}
+        criticalText={errorMessage ?? undefined}
         {...field}
         onChange={handleChange}
         {...inputProps}
@@ -49,8 +49,11 @@ export const FormikInput = forwardRef(
   }
 )
 
-export interface FormikInputProps extends Omit<InputProps, 'id' | 'value'> {
+export interface FormikInputProps
+  extends Omit<InputProps, 'id' | 'value' | 'tone' | 'criticalText'> {
   name: string
   id?: string
+  error?: boolean
+  errorMessage?: string
   formatMessage?: (errorCode: string) => string
 }

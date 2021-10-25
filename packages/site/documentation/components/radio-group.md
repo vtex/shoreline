@@ -1,4 +1,5 @@
 ---
+title: RadioGroup
 path: /radio-group/
 ---
 
@@ -150,4 +151,3 @@ function Example() {
 
 ## Props
 
-<proptypes heading="RadioGroup" component="RadioGroup"/>

@@ -45,7 +45,7 @@ exports[`Topbar tests should match snapshot 1`] = `
   border-bottom-style: solid;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-color: #E0E2E7;
+  border-color: hsla(0, 0%, 87%, 1);
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   z-index: 9999;

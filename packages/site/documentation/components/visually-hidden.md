@@ -1,4 +1,5 @@
 ---
+title: VisuallyHidden
 path: /visually-hidden/
 ---
 
@@ -30,4 +31,4 @@ import { VisuallyHidden } from '@vtex/admin-ui'
 
 | Name     | Type        | Description             | Required | Default |
 | -------- | ----------- | ----------------------- | -------- | ------- |
-| children | `ReactNode` | VisuallyHidden children |
+| children | `ReactNode` | VisuallyHidden children | 🚫       | -       |

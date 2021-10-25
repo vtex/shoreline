@@ -1,4 +1,5 @@
 ---
+title: Styling
 path: /guidelines/styling/
 ---
 
@@ -9,8 +10,8 @@ The admin-ui `StyleObject` lets you style elements while consuming values from t
 ```jsx
 <Box
   csx={{
-    color: 'darkorchid',
-    backgroundColor: 'orange',
+    ...palette('pink'),
+    borderRadius: 4,
     padding: '10px',
   }}
 >
@@ -25,8 +26,11 @@ Scales are values that can be consumed from specific properties within the `Styl
 ```jsx
 <Box
   csx={{
-    color: 'blue',
-    backgroundColor: 'blue.secondary',
+    color: 'base',
+    backgroundColor: 'muted',
+    border: '1px solid',
+    borderColor: 'container',
+    borderRadius: 4,
     padding: 3,
     fontSize: 3,
   }}
@@ -47,13 +51,13 @@ Sometimes it’s useful to nest selectors to target elements inside the current 
       margin: 1,
       cursor: 'pointer',
       borderRadius: 'default',
-      bg: 'light.secondary',
-      color: 'dark.primary',
+      bg: 'muted',
+      color: 'base',
     },
     header: {
       button: {
-        bg: 'dark.primary',
-        color: 'light.primary',
+        bg: color('grey70'),
+        color: color('white'),
       },
     },
   }}
@@ -84,12 +88,12 @@ Scoped classNames can also be created and reused multiple times.
       },
     },
     '.light': {
-      bg: 'light.secondary',
-      color: 'dark.primary',
+      bg: 'muted',
+      color: 'base',
     },
     '.dark': {
-      bg: 'dark.primary',
-      color: 'light.primary',
+      bg: color('grey70'),
+      color: color('white'),
     },
   }}
 >
@@ -106,8 +110,7 @@ You can use all [CSS Pseudo-classes](https://developer.mozilla.org/en-US/docs/We
 ```jsx
 <Box
   csx={{
-    bg: 'blue',
-    color: 'light.primary',
+    ...palette('cyan'),
     padding: 1,
     size: 64,
     transition: 'snap',
@@ -165,7 +168,7 @@ You can also use the [standard CSS media query syntax](https://developer.mozilla
 ```jsx
 <Box
   csx={{
-    bg: 'blue',
+    bg: color('green10'),
     size: 50,
     '@media screen and (min-width: 40em)': {
       size: 100,
@@ -190,7 +193,7 @@ This is useful when you want to change a single property across multiple breakpo
 ```jsx
 <Box
   csx={{
-    bg: 'dark.primary',
+    bg: color('green10'),
     height: 30,
     width: ['full', 'full', '1/2'],
   }}
@@ -212,11 +215,5 @@ This is useful when you want to change a single property across multiple breakpo
 For shorthand CSS properties or ones that are not automatically mapped to values in the theme, use an inline function to reference values from the theme object.
 
 ```jsx
-<Box
-  csx={{
-    boxShadow: (theme) => `0 0 .5em ${theme.colors.red.default}`,
-  }}
->
-  Red glow box shadow
-</Box>
+<Box csx={{ boxShadow: 'ring.critical' }}>Red glow box shadow</Box>
 ```

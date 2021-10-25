@@ -31,7 +31,7 @@ Playground.args = {
   minValue: -4,
   maxValue: 4,
   helperText: 'Helper Text!',
-  errorMessage: 'Error Message!',
+  criticalText: 'Error Message!',
 }
 
 export const Overview = () => {
@@ -73,9 +73,9 @@ export const Error = () => {
         setValue(event.value)
       }}
       value={value}
-      error={value < 6}
+      tone={value < 6 ? 'critical' : 'neutral'}
       minValue={6}
-      errorMessage="Minimum of 6"
+      criticalText="Minimum of 6"
       label="numeric-stepper"
     />
   )

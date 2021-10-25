@@ -1,4 +1,5 @@
 ---
+title: Toolbar
 path: /toolbar/
 ---
 
@@ -46,8 +47,8 @@ function Example() {
   return (
     <Toolbar state={toolbar} aria-label="Example Toolbar">
       <ToolbarButton>Item 1</ToolbarButton>
-      <ToolbarButton variant="secondary">Item 2</ToolbarButton>
-      <ToolbarButton variant="tertiary">Item 3</ToolbarButton>
+      <ToolbarButton variant="soft">Item 2</ToolbarButton>
+      <ToolbarButton variant="text">Item 3</ToolbarButton>
     </Toolbar>
   )
 }
@@ -69,7 +70,7 @@ function Example() {
         <ToolbarItem>
           {(itemProps) => (
             <Menu state={menuState}>
-              <MenuButton display="actions" variant="secondary" {...itemProps}>
+              <MenuButton display="actions" variant="soft" {...itemProps}>
                 Open Menu
               </MenuButton>
               <MenuList aria-label="Menu">
@@ -84,7 +85,7 @@ function Example() {
         <ToolbarItem>
           {(itemProps) => (
             <ModalDisclosure state={modalState}>
-              <Button {...itemProps} variant="adaptative-dark">
+              <Button {...itemProps} variant="text">
                 Open modal
               </Button>
             </ModalDisclosure>

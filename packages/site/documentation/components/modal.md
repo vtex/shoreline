@@ -1,4 +1,5 @@
 ---
+title: Modal
 path: /modal/
 ---
 
@@ -152,36 +153,36 @@ function LargeModal() {
 
 ### Modal
 
-| Name                 | Description                                                       | Type                          | Required | Default   |
-| -------------------- | ----------------------------------------------------------------- | ----------------------------- | -------- | --------- |
-| `aria-label`         | Modal aria-label                                                  | `string`                      | ✅       | -         |
-| `state`              | Return of useModalState                                           | `ModalState`                  | ✅       | -         |
-| `size`               | Modal size                                                        | `small`, `regular` or `large` | 🚫       | `regular` |
-| `hideOnClickOutside` | When enabled, user can hide the dialog by clicking outside it     | `boolean`                     | 🚫       | true      |
-| `hideOnEsc`          | When enabled, user can hide the dialog by pressing <kbd>ESC</kbd> | `boolean`                     | 🚫       | true      |
+| Name                 | Type                      | Description                                                       | Required | Default   |
+| -------------------- | ------------------------- | ----------------------------------------------------------------- | -------- | --------- |
+| `aria-label`         | `string`                  | Modal aria-label                                                  | ✅       | -         |
+| `state`              | `ModalState`              | Return of useModalState                                           | ✅       | -         |
+| `size`               | `small, regular or large` | Modal size                                                        | 🚫       | `regular` |
+| `hideOnClickOutside` | `boolean`                 | When enabled, user can hide the dialog by clicking outside it     | 🚫       | `true`    |
+| `hideOnEsc`          | `boolean`                 | When enabled, user can hide the dialog by pressing <kbd>ESC</kbd> | 🚫       | `true`    |
 
 ### useModalState
 
-| Name    | Description             | Type      | Required | Default |
-| ------- | ----------------------- | --------- | -------- | ------- |
-| visible | If is initially visible | `boolean` | 🚫       | false   |
+| Name    | Type      | Description             | Required | Default |
+| ------- | --------- | ----------------------- | -------- | ------- |
+| visible | `boolean` | If is initially visible | 🚫       | `false` |
 
 ### ModalHeader
 
 All props of `header` JSX element, and:
 
-| Name        | Description                     | Type          | Required | Default |
-| ----------- | ------------------------------- | ------------- | -------- | ------- |
-| title       | Title of the modal              | `ReactNode`   | 🚫       | null    |
-| containerSx | Styles of the buttons container | `SxStyleProp` | 🚫       | {}      |
+| Name         | Type          | Description                     | Required | Default |
+| ------------ | ------------- | ------------------------------- | -------- | ------- |
+| title        | `ReactNode`   | Title of the modal              | 🚫       | `null`  |
+| containerCsx | `SxStyleProp` | Styles of the buttons container | 🚫       | `{}`    |
 
 ### ModalButton Props
 
 All props of [Button](/button/), and:
 
-| Name              | Description                        | Type      | Required | Default |
-| ----------------- | ---------------------------------- | --------- | -------- | ------- |
-| closeModalOnClick | If should close the modal on click | `boolean` | 🚫       | false   |
+| Name              | Type      | Description                        | Required | Default |
+| ----------------- | --------- | ---------------------------------- | -------- | ------- |
+| closeModalOnClick | `boolean` | If should close the modal on click | 🚫       | `false` |
 
 ### ModalContent Props
 

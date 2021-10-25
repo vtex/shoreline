@@ -1,4 +1,5 @@
 ---
+title: Page
 path: /patterns/page/
 ---
 

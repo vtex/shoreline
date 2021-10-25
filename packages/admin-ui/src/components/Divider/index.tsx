@@ -9,7 +9,7 @@ export const Divider = jsx(ReakitSeparator)({
   text: 'headline',
   border: 'solid',
   borderWidth: 1,
-  borderColor: 'mid.tertiary',
+  borderColor: 'base',
   margin: 0,
   variants: {
     orientation: {

@@ -14,9 +14,10 @@ export const useAnchor = createHook<AnchorOptions, AnchorHTMLProps>({
     return {
       ...htmlProps,
       className: cn({
-        color: 'blue',
+        color: 'link',
         textDecoration: 'none',
-        ':hover': { textDecoration: 'underline' },
+        ':hover': { color: 'linkHover', textDecoration: 'underline' },
+        ':visited': { color: 'linkVisited' },
       }),
     }
   },

@@ -4,42 +4,91 @@ import {
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit/Checkbox'
+import { focusVisible } from '@vtex/admin-ui-core'
 import { jsx } from '@vtex/admin-ui-react'
+import { get } from '@vtex/admin-ui-util'
 
 export const Checkbox = jsx(ReakitCheckbox)(
   {
+    ...focusVisible('neutral'),
+
+    bg: 'control.neutral',
+    borderColor: 'control.neutral',
+    color: 'control.neutral',
+
     appearance: 'none',
     borderStyle: 'solid',
     borderWidth: '0.063rem',
-    borderColor: 'mid.primary',
     borderRadius: '0.188rem',
     cursor: 'pointer',
     display: 'flex',
     margin: 0,
     alignItems: 'center',
     justifyContent: 'center',
-    '&:checked': {
-      backgroundColor: 'blue',
-      borderColor: 'blue',
+
+    ':disabled': {
+      bg: 'control.neutralDisabled',
+      borderColor: 'control.neutralDisabled',
+      color: 'control.neutralDisabled',
+    },
+
+    ':hover': {
+      bg: 'control.neutralHover',
+      borderColor: 'control.neutralHover',
+    },
+
+    ':active': {
+      bg: 'control.neutralPressed',
+      borderColor: 'control.neutralPressed',
+    },
+
+    ':checked': {
+      bg: 'control.neutralChecked',
+      color: 'control.neutralChecked',
+      borderColor: 'control.neutralChecked',
+
       '&:after': {
-        content: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>")`,
+        content: (theme) =>
+          `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='${String(
+            get(theme, 'foreground.control.neutralChecked', '')
+          ).replace(
+            /#/i,
+            '%23'
+          )}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>")`,
       },
+
       '&[disabled]:after': {
-        content: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='%23898F9E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>")`,
+        content: (theme) =>
+          `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='${String(
+            get(theme, 'foreground.control.neutralCheckedDisabled', '')
+          ).replace(
+            /#/i,
+            '%23'
+          )}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>")`,
       },
-      '&:hover': {
-        backgroundColor: 'blue.hover',
-        borderColor: 'blue.hover',
+
+      ':hover': {
+        bg: 'control.neutralCheckedHover',
+        borderColor: 'control.neutralCheckedHover',
       },
-      '&:active': {
-        backgroundColor: 'blue.pressed',
-        borderColor: 'blue.pressed',
+
+      ':active': {
+        bg: 'control.neutralCheckedPressed',
+        borderColor: 'control.neutralCheckedPressed',
+      },
+
+      ':disabled': {
+        bg: 'control.neutralCheckedDisabled',
+        borderColor: 'control.neutralCheckedDisabled',
+        color: 'control.neutralCheckedDisabled',
       },
     },
-    '&:indeterminate': {
-      backgroundColor: 'blue.secondary',
-      borderColor: 'blue',
-      color: 'blue',
+
+    ':indeterminate': {
+      bg: 'control.neutralIndeterminate',
+      borderColor: 'control.neutralIndeterminate',
+      color: 'control.neutralIndeterminate',
+
       '&:after': {
         content: '""',
         width: '0.5rem',
@@ -51,40 +100,22 @@ export const Checkbox = jsx(ReakitCheckbox)(
         borderRadius: '0.188rem',
         borderColor: 'currentColor',
       },
-      '&:disabled': {
-        backgroundColor: 'mid.secondary',
-        borderColor: 'mid.primary',
-        color: 'mid.primary',
+
+      ':hover': {
+        borderColor: 'control.neutralIndeterminateHover',
+        bg: 'control.neutralIndeterminateHover',
       },
-      '&:hover': {
-        borderColor: 'blue.hover',
-        color: 'blue.hover',
-        bg: 'blue.secondary.hover',
+
+      ':active': {
+        borderColor: 'control.neutralIndeterminatePressed',
+        bg: 'control.neutralIndeterminatePressed',
       },
-      '&:active': {
-        borderColor: 'blue.pressed',
-        color: 'blue.pressed',
+
+      ':disabled': {
+        bg: 'control.neutralIndeterminateDisabled',
+        borderColor: 'control.neutralIndeterminateDisabled',
+        color: 'control.neutralIndeterminateDisabled',
       },
-    },
-    '&:disabled': {
-      backgroundColor: 'mid.secondary',
-      borderColor: 'mid.primary',
-      color: 'mid.primary',
-    },
-    '&:hover': {
-      borderColor: 'dark.primary',
-    },
-    '&:active': {
-      backgroundColor: 'blue.secondary',
-      borderColor: 'dark.secondary',
-    },
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'focus',
     },
     variants: {
       size: {

@@ -1,4 +1,5 @@
 ---
+title: Textarea
 path: /text-area/
 ---
 
@@ -31,7 +32,33 @@ function Example() {
 }
 ```
 
+## Alternatives
+
+- [Input](/input/) - For text fields.
+- [InputPassword](/input-password/) - For password fields.
+
 ## Examples
+
+### Tone of Voice
+
+The `TextArea` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+
+```jsx
+<Set spacing={3}>
+  <TextArea
+    label="Neutral"
+    value="Neutral text area"
+    helperText="Helpful text"
+  />
+  <TextArea
+    tone="critical"
+    label="Critical"
+    value="Critical text area"
+    helperText="Helpful text"
+    criticalText="Something is wrong"
+  />
+</Set>
+```
 
 ### Helpers
 
@@ -84,51 +111,19 @@ function Example() {
 }
 ```
 
-### Invalid
-
-You can indicate to users that they had input an invalid value by defining the `error` property. You should, also define the `errorMessage` property, so the user can know what's the error is about.
-
-```jsx
-function Example() {
-  const [value, setValue] = React.useState('Invalid Value')
-  const [error, setError] = React.useState(true)
-
-  const invalidInput = 'Invalid Value'
-
-  return (
-    <Box csx={{ width: 300 }}>
-      <TextArea
-        value={value}
-        onChange={(e) => {
-          const newValue = e.target.value
-          setValue(newValue)
-          setError(newValue === invalidInput ? true : false)
-        }}
-        error={error}
-        id="invalid-textarea"
-        label="Invalid"
-        helperText="Helper Text"
-        errorMessage="Error Message"
-        charLimit={120}
-      />
-    </Box>
-  )
-}
-```
-
 ## Props
 
 It also receives all props of `textarea` JSX element.
 
-| Name         | Type                                          | Description                                  | Required | Default |
-| ------------ | --------------------------------------------- | -------------------------------------------- | -------- | ------- |
-| label        | `string`                                      | Label text                                   | ✅       | -       |
-| id           | `string`                                      | Unique id of the component                   | ✅       | -       |
-| name         | `string`                                      | Name of the textarea element.                | 🚫       | -       |
-| helperText   | `string`                                      | TextArea helper text                         | 🚫       | -       |
-| charLimit    | `number`                                      | TextArea char limit                          | 🚫       | -       |
-| errorMessage | `string`                                      | TextArea error message                       | 🚫       | -       |
-| onChange     | `react.FormEventHandler<HTMLTextareaElement>` | Handler called when the inputs value changes | 🚫       | -       |
-| disabled     | `boolean`                                     | Whether the textarea is disabled or not      | 🚫       | `false` |
-| error        | `boolean`                                     | TextArea error state                         | 🚫       | `false` |
-| csx          | `StyleProp`                                   | Defines component styles                     | 🚫       | `{}`    |
+| Name         | Type                                          | Description                                  | Required | Default   |
+| ------------ | --------------------------------------------- | -------------------------------------------- | -------- | --------- |
+| label        | `string`                                      | Label text                                   | ✅       | -         |
+| id           | `string`                                      | Unique id of the component                   | ✅       | -         |
+| name         | `string`                                      | Name of the textarea element.                | 🚫       | -         |
+| helperText   | `string`                                      | TextArea helper text                         | 🚫       | -         |
+| charLimit    | `number`                                      | TextArea char limit                          | 🚫       | -         |
+| criticalText | `string`                                      | TextArea critical message                    | 🚫       | -         |
+| onChange     | `react.FormEventHandler<HTMLTextareaElement>` | Handler called when the inputs value changes | 🚫       | -         |
+| disabled     | `boolean`                                     | Whether the textarea is disabled or not      | 🚫       | `false`   |
+| tone         | `neutral, critical`                           | TextArea's tone of voice                     | 🚫       | `neutral` |
+| csx          | `StyleProp`                                   | Defines component styles                     | 🚫       | `{}`      |

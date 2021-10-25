@@ -1,20 +1,19 @@
 import type { PropsWithChildren, ReactNode } from 'react'
 import React from 'react'
-import { Flex, tag, useSearchState } from '@vtex/admin-ui'
+import { Flex, tag } from '@vtex/admin-ui'
 
 import { Sidebar } from './Sidebar'
 import { TableOfContents } from './TableOfContents'
 import Header from './Header'
-import { SearchProvider } from './Search'
 
-function StickyBlock(props: PropsWithChildren<{ top?: number; pl?: number }>) {
-  const { top = 0, pl = 0, children } = props
+function StickyBlock(props: PropsWithChildren<{ top?: string; pl?: number }>) {
+  const { top = '0rem', pl = 0, children } = props
 
   return (
     <tag.div
       csx={{
         width: '20%',
-        maxWidth: '18rem',
+        maxWidth: '16rem',
         position: 'static',
         paddingTop: 0,
         overflowY: 'visible',
@@ -52,57 +51,50 @@ export function PageLayout(props: Props) {
   const {
     data,
     children,
-    pageContext: { sourceUrl = '', readmeUrl = '', tableOfContentsAst = {} },
+    pageContext: { tableOfContents = {} },
   } = props
 
-  const title = data?.markdownRemark?.title
-  const search = useSearchState()
+  const title = data?.mdx?.frontmatter?.title
+  const fullPage = data?.mdx?.frontmatter?.fullPage
 
   return (
-    <SearchProvider value={search}>
-      <tag.div
+    <tag.div
+      csx={{
+        margin: 'auto',
+        maxWidth: '90rem',
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
+      <Header />
+      <StickyBlock>
+        <Sidebar />
+      </StickyBlock>
+      <Flex
+        direction="column"
         csx={{
-          margin: 'auto',
-          maxWidth: '90rem',
-          display: 'flex',
-          justifyContent: 'center',
+          width: fullPage ? '100%' : '80%',
+          flex: '1 1 0',
+          maxWidth: fullPage ? 'unset' : '64rem',
+          overflow: 'auto',
         }}
       >
-        <StickyBlock>
-          <Sidebar />
-        </StickyBlock>
-        <Flex
-          direction="column"
+        <tag.div
           csx={{
-            width: '80%',
-            flex: '1 1 0',
-            maxWidth: '64rem',
-            overflow: 'auto',
+            padding: 4,
+            marginTop: 64,
+            width: '100%',
           }}
         >
-          <Header />
-          <tag.div
-            csx={{
-              padding: 4,
-              marginTop: 64,
-              width: '100%',
-            }}
-          >
-            {children}
-          </tag.div>
-        </Flex>
-        {title && props.pageContext.tableOfContentsAst && (
-          <StickyBlock top={80} pl={48}>
-            <TableOfContents
-              sourceUrl={sourceUrl}
-              readmeUrl={readmeUrl}
-              tableOfContentsAst={tableOfContentsAst}
-              title={title}
-            />
-          </StickyBlock>
-        )}
-      </tag.div>
-    </SearchProvider>
+          {children}
+        </tag.div>
+      </Flex>
+      {!fullPage && title && tableOfContents && (
+        <StickyBlock top="11.2rem" pl={48}>
+          <TableOfContents items={tableOfContents.items} />
+        </StickyBlock>
+      )}
+    </tag.div>
   )
 }
 
@@ -114,13 +106,14 @@ interface Props {
   pageContext: {
     sourceUrl?: string
     readmeUrl?: string
-    tableOfContentsAst?: Record<string, unknown>
+    tableOfContents?: Record<string, any>
   }
   data?: {
-    markdownRemark?: {
-      title?: string
-      htmlAst?: Record<string, unknown>
+    mdx?: {
+      body?: string
+      excerpt?: Record<string, unknown>
       frontmatter?: {
+        title?: string
         path?: string
         experimental?: boolean
         fullPage?: boolean
