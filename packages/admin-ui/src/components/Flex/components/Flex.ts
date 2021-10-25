@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 import type * as CSS from 'csstype'
-import type { ResponsiveValue } from '@vtex/admin-ui-core'
+import type { ResponsiveValue } from '@vtex/admin-ui-react'
 import { pick, renameKeys } from '@vtex/admin-ui-util'
 import { jsx } from '@vtex/admin-ui-react'
 
