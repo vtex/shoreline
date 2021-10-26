@@ -1,7 +1,243 @@
-import { colors } from './colors'
+import { colors, dracula } from './colors'
 import { ring } from './styleKit'
 
 export const defaultTheme = {
+  __modes: {
+    dracula: {
+      background: {
+        base: dracula.grey700,
+        muted: dracula.grey600,
+        popup: colors.absoluteDark,
+        popover: dracula.absoluteDark,
+        modal: dracula.absoluteDark,
+        overlay: colors.greyTransparent50,
+        container: dracula.absoluteDark,
+        header: dracula.absoluteDark,
+        sidebar: colors.grey10,
+        topbar: dracula.absoluteDark,
+        skeleton: colors.grey10,
+        skeletonMuted: colors.grey20,
+
+        action: {
+          neutral: {
+            ghost: 'transparent',
+            ghostHover: colors.greyTransparent05,
+            ghostPressed: colors.greyTransparent10,
+            ghostDisabled: 'transparent',
+          },
+
+          main: {
+            solid: colors.blue40,
+            solidHover: colors.blue50,
+            solidPressed: colors.blue60,
+            solidDisabled: colors.grey30,
+
+            soft: colors.blue10,
+            softHover: colors.blue20,
+            softPressed: colors.blue30,
+            softDisabled: colors.grey30,
+
+            text: 'transparent',
+            textHover: colors.blue05,
+            textPressed: colors.blue10,
+            textDisabled: colors.grey30,
+          },
+
+          critical: {
+            solid: colors.red40,
+            solidHover: colors.red50,
+            solidPressed: colors.red60,
+            solidDisabled: colors.grey30,
+
+            soft: colors.red10,
+            softHover: colors.red20,
+            softPressed: colors.red30,
+            softDisabled: colors.grey30,
+
+            text: 'transparent',
+            textHover: colors.red05,
+            textPressed: colors.red10,
+            textDisabled: colors.grey30,
+          },
+        },
+
+        listBoxItem: {
+          main: dracula.absoluteDark,
+          mainHover: colors.blue05,
+          mainPressed: colors.blue10,
+          mainSelected: colors.blue05,
+
+          critical: dracula.absoluteDark,
+          criticalHover: colors.red05,
+          criticalPressed: colors.red10,
+          criticalSelected: colors.red05,
+        },
+
+        notification: {
+          warning: dracula.yellow200,
+          positive: dracula.green200,
+          info: dracula.cyan200,
+          critical: dracula.red200,
+        },
+
+        field: {
+          neutral: dracula.absoluteDark,
+          neutralHover: dracula.absoluteDark,
+          neutralFocus: dracula.absoluteDark,
+          neutralDisabled: colors.grey30,
+
+          critical: dracula.absoluteDark,
+          criticalHover: dracula.absoluteDark,
+          criticalFocus: dracula.absoluteDark,
+          criticalDisabled: colors.grey30,
+        },
+
+        control: {
+          neutral: dracula.absoluteDark,
+          neutralHover: colors.grey20,
+          neutralPressed: colors.grey40,
+          neutralDisabled: colors.grey30,
+
+          neutralChecked: colors.absoluteDark,
+          neutralCheckedHover: colors.grey70,
+          neutralCheckedPressed: colors.grey60,
+          neutralCheckedDisabled: colors.grey30,
+
+          neutralIndeterminate: dracula.absoluteDark,
+          neutralIndeterminateHover: colors.grey20,
+          neutralIndeterminatePressed: colors.grey40,
+          neutralIndeterminateDisabled: colors.grey30,
+        },
+      },
+      foreground: {
+        base: dracula.absoluteLight,
+        muted: colors.grey50,
+        highlight: colors.lightBlue40,
+        popup: colors.absoluteLight,
+        popover: colors.absoluteDark,
+        modal: colors.absoluteDark,
+        container: colors.absoluteDark,
+        header: colors.absoluteDark,
+        sidebar: colors.grey50,
+        topbar: colors.grey50,
+
+        action: {
+          neutral: {
+            ghost: colors.absoluteDark,
+            ghostDisabled: colors.grey40,
+          },
+          main: {
+            solid: colors.absoluteLight,
+            solidDisabled: colors.grey50,
+            soft: colors.blue40,
+            softDisabled: colors.grey50,
+            text: colors.blue40,
+            textDisabled: colors.grey40,
+          },
+          critical: {
+            solid: colors.absoluteLight,
+            solidDisabled: colors.grey50,
+            soft: colors.red50,
+            softDisabled: colors.grey50,
+            text: colors.red40,
+            textDisabled: colors.grey40,
+          },
+        },
+
+        listBoxItem: {
+          main: colors.absoluteDark,
+          mainHover: colors.blue50,
+          mainPressed: colors.blue60,
+          mainSelected: colors.blue40,
+
+          critical: colors.red40,
+          criticalHover: colors.red50,
+          criticalPressed: colors.red60,
+          criticalSelected: colors.red40,
+        },
+
+        link: dracula.purple,
+        linkHover: dracula.purpleGlow,
+        linkVisited: dracula.purple,
+
+        notification: {
+          positive: dracula.green,
+          info: dracula.cyan,
+          critical: dracula.red,
+          warning: dracula.yellow,
+        },
+
+        control: {
+          neutral: colors.absoluteLight,
+          neutralDisabled: colors.grey50,
+
+          neutralChecked: colors.absoluteLight,
+          neutralCheckedDisabled: colors.grey50,
+
+          neutralIndeterminate: colors.grey60,
+          neutralIndeterminateDisabled: colors.grey50,
+        },
+      },
+      borderColor: {
+        base: colors.grey30,
+        popover: colors.grey30,
+        modal: colors.grey30,
+        container: dracula.grey600,
+        header: colors.grey30,
+        sidebar: colors.grey30,
+        topbar: colors.grey30,
+
+        field: {
+          neutral: colors.grey40,
+          neutralHover: colors.grey50,
+          neutralFocus: colors.grey60,
+          neutralDisabled: colors.grey50,
+
+          critical: colors.red40,
+          criticalHover: colors.red50,
+          criticalFocus: colors.red60,
+          criticalDisabled: colors.grey50,
+        },
+
+        control: {
+          neutral: colors.grey40,
+          neutralHover: colors.grey70,
+          neutralPressed: colors.grey60,
+          neutralDisabled: colors.grey50,
+
+          neutralChecked: colors.absoluteDark,
+          neutralCheckedHover: colors.grey70,
+          neutralCheckedPressed: colors.grey60,
+          neutralCheckedDisabled: colors.grey50,
+
+          neutralIndeterminate: colors.grey40,
+          neutralIndeterminateHover: colors.grey70,
+          neutralIndeterminatePressed: colors.grey60,
+          neutralIndeterminateDisabled: colors.grey50,
+        },
+
+        notification: {
+          positive: colors.green30,
+          info: colors.lightBlue30,
+          critical: colors.red30,
+          warning: colors.orange30,
+        },
+      },
+      shadows: {
+        ring: {
+          critical: ring('critical'),
+          warning: ring('warning'),
+          positive: ring('positive'),
+          neutral: ring('neutral'),
+          info: ring('info'),
+          main: ring('main'),
+        },
+
+        menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
+        subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
+      },
+    },
+  },
   background: {
     base: colors.absoluteLight,
     muted: colors.grey10,

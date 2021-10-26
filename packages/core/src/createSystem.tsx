@@ -13,13 +13,15 @@ import 'focus-visible/dist/focus-visible'
 import type { StyleProp } from './runtime'
 import { cssVariables, styles, theme, globalStyles } from './adminUI'
 import type { UnstableAdminUI } from './adminUI'
-import { useCSSVariables } from './theme'
+
 import { createAtoms, createClsx } from './runtime'
+import { ColorModeProvider } from './theme/colorMode'
 
 export interface SystemSpec {
   key?: string
   emotionInstance?: Emotion
   unstableSystem?: UnstableAdminUI
+  mode?: string
 }
 
 export const SystemContext = React.createContext<
@@ -46,7 +48,7 @@ export type CreateOndaReturn = [
 ]
 
 export function createSystem(spec: SystemSpec): CreateOndaReturn {
-  const { key, emotionInstance, unstableSystem } = spec
+  const { key, emotionInstance, unstableSystem, mode } = spec
 
   invariant(
     key || emotionInstance,
@@ -76,8 +78,6 @@ export function createSystem(spec: SystemSpec): CreateOndaReturn {
   function SystemProvider(props: { children?: React.ReactNode }) {
     const { children } = props
 
-    useCSSVariables(unstableSystem?.cssVariables ?? cssVariables)
-
     return (
       <CacheProvider value={emotion.cache}>
         <SystemContext.Provider
@@ -88,17 +88,22 @@ export function createSystem(spec: SystemSpec): CreateOndaReturn {
             keyframes: emotion.keyframes,
           }}
         >
-          <Helmet>
-            <link
-              rel="preload"
-              href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2"
-              as="font"
-              type="font/woff2"
-              crossOrigin="anonymous"
-            />
-          </Helmet>
-          <Global styles={unstableSystem?.globalStyles ?? globalStyles} />
-          {children}
+          <ColorModeProvider
+            cssVariables={unstableSystem?.cssVariables ?? cssVariables}
+            defaultColorMode={mode}
+          >
+            <Helmet>
+              <link
+                rel="preload"
+                href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2"
+                as="font"
+                type="font/woff2"
+                crossOrigin="anonymous"
+              />
+            </Helmet>
+            <Global styles={unstableSystem?.globalStyles ?? globalStyles} />
+            {children}
+          </ColorModeProvider>
         </SystemContext.Provider>
       </CacheProvider>
     )

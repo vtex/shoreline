@@ -5,24 +5,46 @@ import { createSystem, useSystem } from '../createSystem'
 import type { StyleProp } from '../runtime'
 import { get } from '@vtex/admin-ui-util'
 import { theme as vars } from '../adminUI'
+import { useColorMode } from '../theme/colorMode'
+
+const [SystemProvider] = createSystem({
+  key: 'storybook',
+})
 
 export default {
   title: 'onda-core/createSystem',
 } as Meta
 
-const [OndaProvider] = createSystem({
-  key: 'storybook',
-})
+function Toggle() {
+  const { setColorMode } = useColorMode()
+
+  return (
+    <button
+      onClick={() =>
+        setColorMode((mode: string) =>
+          mode === 'default' ? 'dracula' : 'default'
+        )
+      }
+    >
+      Toggle theme
+    </button>
+  )
+}
 
 function Div(props: { csx: StyleProp; children: ReactNode }) {
   const { cn } = useSystem()
 
-  return <div className={cn(props.csx)}>Text content</div>
+  return (
+    <div className={cn(props.csx)}>
+      Text content
+      <Toggle />
+    </div>
+  )
 }
 
 export function Styles() {
   return (
-    <OndaProvider>
+    <SystemProvider>
       <Div
         csx={{
           bg: 'muted',
@@ -38,13 +60,13 @@ export function Styles() {
       >
         With csx
       </Div>
-    </OndaProvider>
+    </SystemProvider>
   )
 }
 
 export function ThemeStyles() {
   return (
-    <OndaProvider>
+    <SystemProvider>
       <Div
         csx={{
           bg: vars.background.action.main.soft,
@@ -55,13 +77,13 @@ export function ThemeStyles() {
       >
         With csx
       </Div>
-    </OndaProvider>
+    </SystemProvider>
   )
 }
 
 export function FunctionStyles() {
   return (
-    <OndaProvider>
+    <SystemProvider>
       <Div
         csx={{
           color: (theme) => get(theme, 'foreground.muted'),
@@ -69,6 +91,6 @@ export function FunctionStyles() {
       >
         Plain div
       </Div>
-    </OndaProvider>
+    </SystemProvider>
   )
 }

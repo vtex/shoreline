@@ -1,4 +1,4 @@
-import { pick, omit, renameKeys, isObjectEmpty } from '@vtex/admin-ui-util'
+import { pick, omit, get, renameKeys, isObjectEmpty } from '@vtex/admin-ui-util'
 
 const toVarName = (key: string) => `--admin-ui-${key}`
 const toVarValue = (key: string) => `var(${toVarName(key)})`
@@ -31,7 +31,10 @@ export function createTheme<Theme extends Record<string, any>>(
   if (options?.disableCSSVariables)
     return [{ global, ...strictTheme } as BaseTheme<Theme>, {}]
 
+  const modes = get(strictTheme, '__modes')
   const themeToParse = options?.tokens ? pick(strictTheme, options?.tokens) : {}
+
+  /** TODO: create a function to handle this */
   const rawValues = isObjectEmpty(themeToParse)
     ? {}
     : renameKeys(
@@ -48,7 +51,15 @@ export function createTheme<Theme extends Record<string, any>>(
     : strictTheme
 
   const theme = toCustomProperties(themeToParse)
-  const cssVariables = objectToVars(themeToParse)
+  const cssVariables = {
+    default: objectToVars(themeToParse),
+    ...Object.keys(modes).reduce((acc, mode) => {
+      return {
+        ...acc,
+        [mode]: objectToVars(modes[mode]),
+      }
+    }, {}),
+  }
 
   return [
     { global, ...theme, ...themeToKeep, ...rawValues } as BaseTheme<Theme>,
