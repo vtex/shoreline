@@ -7,7 +7,8 @@ export function unstableCreateAdminUI<T extends Record<string, any>>(
   unparsedTheme: T
 ) {
   const [theme, cssVariables] = createTheme(unparsedTheme, {
-    disableCSSVariables: true,
+    tokens: ['background', 'foreground', 'borderColor'],
+    disableCSSVariables: false,
   })
 
   const steps = buildPlugins(theme, plugins)

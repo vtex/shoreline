@@ -1,9 +1,12 @@
-const toVarName = (key: string) => `--onda-${key}`
+import { pick, omit, renameKeys, isObjectEmpty } from '@vtex/admin-ui-util'
+
+const toVarName = (key: string) => `--admin-ui-${key}`
 const toVarValue = (key: string) => `var(${toVarName(key)})`
 const join = (...args: Array<string | undefined>) =>
   args.filter(Boolean).join('-')
 
 export interface ThemeOptions {
+  tokens?: string[]
   disableCSSVariables?: boolean
 }
 
@@ -28,10 +31,29 @@ export function createTheme<Theme extends Record<string, any>>(
   if (options?.disableCSSVariables)
     return [{ global, ...strictTheme } as BaseTheme<Theme>, {}]
 
-  const theme = toCustomProperties(strictTheme)
-  const cssVariables = objectToVars(strictTheme)
+  const themeToParse = options?.tokens ? pick(strictTheme, options?.tokens) : {}
+  const rawValues = isObjectEmpty(themeToParse)
+    ? {}
+    : renameKeys(
+        {
+          background: 'rawBackground',
+          foreground: 'rawForeground',
+          borderColor: 'rawBorderColor',
+        },
+        themeToParse
+      )
 
-  return [{ global, ...theme } as BaseTheme<Theme>, cssVariables]
+  const themeToKeep = options?.tokens
+    ? omit(strictTheme, options?.tokens)
+    : strictTheme
+
+  const theme = toCustomProperties(themeToParse)
+  const cssVariables = objectToVars(themeToParse)
+
+  return [
+    { global, ...theme, ...themeToKeep, ...rawValues } as BaseTheme<Theme>,
+    cssVariables,
+  ]
 }
 
 export function toCustomProperties(

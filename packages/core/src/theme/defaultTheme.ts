@@ -1,26 +1,239 @@
-import { colors, background, foreground, borderColor } from './colors'
+import { colors } from './colors'
 import { ring } from './styleKit'
 
-const shadows = {
-  ring: {
-    critical: ring('critical'),
-    warning: ring('warning'),
-    positive: ring('positive'),
-    neutral: ring('neutral'),
-    info: ring('info'),
-    main: ring('main'),
-  },
-
-  menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
-  subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
-}
-
 export const defaultTheme = {
-  colors,
-  background,
-  foreground,
-  borderColor,
-  shadows,
+  background: {
+    base: colors.absoluteLight,
+    muted: colors.grey10,
+    popup: colors.absoluteDark,
+    popover: colors.absoluteLight,
+    modal: colors.absoluteLight,
+    overlay: colors.greyTransparent50,
+    container: colors.absoluteLight,
+    header: colors.absoluteLight,
+    sidebar: colors.grey10,
+    topbar: colors.absoluteLight,
+    skeleton: colors.grey10,
+    skeletonMuted: colors.grey20,
+
+    action: {
+      neutral: {
+        ghost: 'transparent',
+        ghostHover: colors.greyTransparent05,
+        ghostPressed: colors.greyTransparent10,
+        ghostDisabled: 'transparent',
+      },
+
+      main: {
+        solid: colors.blue40,
+        solidHover: colors.blue50,
+        solidPressed: colors.blue60,
+        solidDisabled: colors.grey30,
+
+        soft: colors.blue10,
+        softHover: colors.blue20,
+        softPressed: colors.blue30,
+        softDisabled: colors.grey30,
+
+        text: 'transparent',
+        textHover: colors.blue05,
+        textPressed: colors.blue10,
+        textDisabled: colors.grey30,
+      },
+
+      critical: {
+        solid: colors.red40,
+        solidHover: colors.red50,
+        solidPressed: colors.red60,
+        solidDisabled: colors.grey30,
+
+        soft: colors.red10,
+        softHover: colors.red20,
+        softPressed: colors.red30,
+        softDisabled: colors.grey30,
+
+        text: 'transparent',
+        textHover: colors.red05,
+        textPressed: colors.red10,
+        textDisabled: colors.grey30,
+      },
+    },
+
+    listBoxItem: {
+      main: colors.absoluteLight,
+      mainHover: colors.blue05,
+      mainPressed: colors.blue10,
+      mainSelected: colors.blue05,
+
+      critical: colors.absoluteLight,
+      criticalHover: colors.red05,
+      criticalPressed: colors.red10,
+      criticalSelected: colors.red05,
+    },
+
+    notification: {
+      warning: colors.orange10,
+      positive: colors.green10,
+      info: colors.lightBlue10,
+      critical: colors.red10,
+    },
+
+    field: {
+      neutral: colors.absoluteLight,
+      neutralHover: colors.absoluteLight,
+      neutralFocus: colors.absoluteLight,
+      neutralDisabled: colors.grey30,
+
+      critical: colors.absoluteLight,
+      criticalHover: colors.absoluteLight,
+      criticalFocus: colors.absoluteLight,
+      criticalDisabled: colors.grey30,
+    },
+
+    control: {
+      neutral: colors.absoluteLight,
+      neutralHover: colors.grey20,
+      neutralPressed: colors.grey40,
+      neutralDisabled: colors.grey30,
+
+      neutralChecked: colors.absoluteDark,
+      neutralCheckedHover: colors.grey70,
+      neutralCheckedPressed: colors.grey60,
+      neutralCheckedDisabled: colors.grey30,
+
+      neutralIndeterminate: colors.absoluteLight,
+      neutralIndeterminateHover: colors.grey20,
+      neutralIndeterminatePressed: colors.grey40,
+      neutralIndeterminateDisabled: colors.grey30,
+    },
+  },
+  foreground: {
+    base: colors.absoluteDark,
+    muted: colors.grey50,
+    highlight: colors.lightBlue40,
+    popup: colors.absoluteLight,
+    popover: colors.absoluteDark,
+    modal: colors.absoluteDark,
+    container: colors.absoluteDark,
+    header: colors.absoluteDark,
+    sidebar: colors.grey50,
+    topbar: colors.grey50,
+
+    action: {
+      neutral: {
+        ghost: colors.absoluteDark,
+        ghostDisabled: colors.grey40,
+      },
+      main: {
+        solid: colors.absoluteLight,
+        solidDisabled: colors.grey50,
+        soft: colors.blue40,
+        softDisabled: colors.grey50,
+        text: colors.blue40,
+        textDisabled: colors.grey40,
+      },
+      critical: {
+        solid: colors.absoluteLight,
+        solidDisabled: colors.grey50,
+        soft: colors.red50,
+        softDisabled: colors.grey50,
+        text: colors.red40,
+        textDisabled: colors.grey40,
+      },
+    },
+
+    listBoxItem: {
+      main: colors.absoluteDark,
+      mainHover: colors.blue50,
+      mainPressed: colors.blue60,
+      mainSelected: colors.blue40,
+
+      critical: colors.red40,
+      criticalHover: colors.red50,
+      criticalPressed: colors.red60,
+      criticalSelected: colors.red40,
+    },
+
+    link: colors.blue40,
+    linkHover: colors.blue50,
+    linkVisited: colors.blue60,
+
+    notification: {
+      positive: colors.green40,
+      info: colors.lightBlue40,
+      critical: colors.red40,
+      warning: colors.orange40,
+    },
+
+    control: {
+      neutral: colors.absoluteLight,
+      neutralDisabled: colors.grey50,
+
+      neutralChecked: colors.absoluteLight,
+      neutralCheckedDisabled: colors.grey50,
+
+      neutralIndeterminate: colors.grey60,
+      neutralIndeterminateDisabled: colors.grey50,
+    },
+  },
+  borderColor: {
+    base: colors.grey30,
+    popover: colors.grey30,
+    modal: colors.grey30,
+    container: colors.grey30,
+    header: colors.grey30,
+    sidebar: colors.grey30,
+    topbar: colors.grey30,
+
+    field: {
+      neutral: colors.grey40,
+      neutralHover: colors.grey50,
+      neutralFocus: colors.grey60,
+      neutralDisabled: colors.grey50,
+
+      critical: colors.red40,
+      criticalHover: colors.red50,
+      criticalFocus: colors.red60,
+      criticalDisabled: colors.grey50,
+    },
+
+    control: {
+      neutral: colors.grey40,
+      neutralHover: colors.grey70,
+      neutralPressed: colors.grey60,
+      neutralDisabled: colors.grey50,
+
+      neutralChecked: colors.absoluteDark,
+      neutralCheckedHover: colors.grey70,
+      neutralCheckedPressed: colors.grey60,
+      neutralCheckedDisabled: colors.grey50,
+
+      neutralIndeterminate: colors.grey40,
+      neutralIndeterminateHover: colors.grey70,
+      neutralIndeterminatePressed: colors.grey60,
+      neutralIndeterminateDisabled: colors.grey50,
+    },
+
+    notification: {
+      positive: colors.green30,
+      info: colors.lightBlue30,
+      critical: colors.red30,
+      warning: colors.orange30,
+    },
+  },
+  shadows: {
+    ring: {
+      critical: ring('critical'),
+      warning: ring('warning'),
+      positive: ring('positive'),
+      neutral: ring('neutral'),
+      info: ring('info'),
+      main: ring('main'),
+    },
+
+    menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
+    subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
+  },
   global: {
     '@font-face': {
       fontFamily: 'VTEX Trust',

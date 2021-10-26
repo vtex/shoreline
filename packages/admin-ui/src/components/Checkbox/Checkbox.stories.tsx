@@ -4,6 +4,7 @@ import type { Meta, Story } from '@storybook/react'
 import { Label } from '../Label'
 import { Checkbox, useCheckboxState } from './index'
 import { Text } from '../Text'
+import { Box } from '../Box'
 
 export default {
   title: 'admin-ui/Checkbox',
@@ -30,12 +31,12 @@ export const MultipleCheckboxes = () => {
   const props = useCheckboxState({ state: [] })
 
   return (
-    <>
+    <Box csx={{ color: '#FFF' }}>
       <Text>Checkboxes marked: {props.state}</Text>
       <Checkbox state={props} aria-label="label" value="checkbox1" />
       <Checkbox state={props} aria-label="label" value="checkbox2" />
       <Checkbox state={props} aria-label="label" value="checkbox3" />
-    </>
+    </Box>
   )
 }
 

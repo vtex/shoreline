@@ -42,15 +42,19 @@ export const Checkbox = jsx(ReakitCheckbox)(
       borderColor: 'control.neutralPressed',
     },
 
+    '> .haha': {
+      stroke: 'azure',
+      height: '200px',
+    },
+
     ':checked': {
       bg: 'control.neutralChecked',
       color: 'control.neutralChecked',
-      borderColor: 'control.neutralChecked',
 
       '&:after': {
         content: (theme) =>
           `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='${String(
-            get(theme, 'foreground.control.neutralChecked', '')
+            get(theme, 'rawForeground.control.neutralChecked', '')
           ).replace(
             /#/i,
             '%23'
@@ -60,7 +64,7 @@ export const Checkbox = jsx(ReakitCheckbox)(
       '&[disabled]:after': {
         content: (theme) =>
           `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='${String(
-            get(theme, 'foreground.control.neutralCheckedDisabled', '')
+            get(theme, 'rawForeground.control.neutralCheckedDisabled', '')
           ).replace(
             /#/i,
             '%23'
