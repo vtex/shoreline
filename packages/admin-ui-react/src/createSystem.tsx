@@ -1,4 +1,13 @@
 import React from 'react'
+import type { StyleProp, UnstableAdminUI } from '@vtex/admin-ui-core'
+import {
+  cssVariables,
+  styles,
+  theme,
+  globalStyles,
+  createAtoms,
+  createClsx,
+} from '@vtex/admin-ui-core'
 import type { ReactElement } from 'react'
 import { isKebab } from '@vtex/admin-ui-util'
 import invariant from 'tiny-invariant'
@@ -6,16 +15,10 @@ import { Helmet } from 'react-helmet'
 import type { Emotion } from '@emotion/css/create-instance'
 import createEmotion from '@emotion/css/create-instance'
 import { CacheProvider, Global } from '@emotion/react'
+import { ColorModeProvider } from './colorMode'
 
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
-
-import type { StyleProp } from './runtime'
-import { cssVariables, styles, theme, globalStyles } from './adminUI'
-import type { UnstableAdminUI } from './adminUI'
-
-import { createAtoms, createClsx } from './runtime'
-import { ColorModeProvider } from './theme/colorMode'
 
 export interface SystemSpec {
   key?: string

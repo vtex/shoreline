@@ -2,11 +2,11 @@ import React from 'react'
 import { merge } from '@vtex/admin-ui-util'
 import { render } from '@testing-library/react'
 import createEmotion from '@emotion/css/create-instance'
+import { unstableCreateAdminUI, theme } from '@vtex/admin-ui-core'
 
 import { createSystem, useSystem } from '../createSystem'
-import { unstableCreateAdminUI, theme } from '../adminUI'
 
-describe('context', () => {
+describe('createSystem()', () => {
   it('should execute the system', () => {
     const [Provider] = createSystem({
       key: 'onda-design-system-tst',

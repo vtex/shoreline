@@ -4,7 +4,7 @@ import { render as baseRender } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import serializer, { matchers } from 'jest-emotion'
 import { toHaveNoViolations } from 'jest-axe'
-import { createSystem } from '@vtex/admin-ui-core'
+import { createSystem } from '../createSystem'
 
 const [ThemeProvider] = createSystem({
   key: 'vtex-admin-ui',

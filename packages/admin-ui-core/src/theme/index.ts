@@ -1,4 +1,3 @@
-export * from './colorMode'
 export * from './defaultTheme'
 export * from './createTheme'
 export * from './styleKit'

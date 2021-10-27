@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import type { InputProps as ReakitInputProps } from 'reakit'
 import { Input as ReakitInput } from 'reakit'
 import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
-import { useSystem } from '@vtex/admin-ui-core'
+import { useSystem } from '@vtex/admin-ui-react'
 import { Box } from '../Box'
 
 import { ButtonGhost } from '../ButtonGhost'

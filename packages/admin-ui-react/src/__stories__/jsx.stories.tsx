@@ -11,7 +11,7 @@ import { Button as ReakitButton, Separator, Role } from 'reakit'
 import { jsx, tag } from '../index'
 
 export default {
-  title: 'react/jsx',
+  title: 'admin-ui-react/jsx',
 } as Meta
 
 export function Test() {

@@ -6,7 +6,7 @@ import React, {
   useLayoutEffect,
 } from 'react'
 import { isBrowser, get } from '@vtex/admin-ui-util'
-import { useStoredState } from './useStoredState'
+import { useStoredState } from './hooks/useStoredState'
 
 const useSafeEffect = isBrowser ? useLayoutEffect : useEffect
 

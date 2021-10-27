@@ -5,7 +5,7 @@ import { useMenuState, Menu, MenuItem, MenuButton } from 'reakit/Menu'
 import { tag } from '../index'
 
 export default {
-  title: 'react/tag',
+  title: 'admin-ui-react/tag',
 } as Meta
 
 export function WithStyles() {
