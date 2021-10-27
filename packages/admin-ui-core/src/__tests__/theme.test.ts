@@ -2,51 +2,61 @@ import { createTheme, objectToVars, toCustomProperties } from '../theme'
 
 describe('theme', () => {
   it('should return a array of objects', () => {
-    expect(createTheme({})).toEqual([
-      {
+    expect(createTheme({})).toEqual({
+      theme: {
         global: {},
       },
-      {},
-    ])
+      cssVariables: {
+        default: {},
+      },
+    })
   })
 
   it('should be able to parse the whole theme', () => {
-    const [theme, variables] = createTheme({
-      colors: {
-        primary: {
-          default: 'red',
-          hover: 'blue',
-          pressed: 'green',
+    const { theme, cssVariables } = createTheme(
+      {
+        colors: {
+          primary: {
+            default: 'red',
+            hover: 'blue',
+            pressed: 'green',
+          },
         },
+        space: [0, 1, 2, 3],
       },
-      space: [0, 1, 2, 3],
-    })
+      {
+        tokens: ['colors', 'space'],
+        disableCSSVariables: false,
+      }
+    )
 
     expect(theme).toEqual({
       global: {},
       colors: {
         primary: {
-          default: 'var(--onda-colors-primary-default)',
-          hover: 'var(--onda-colors-primary-hover)',
-          pressed: 'var(--onda-colors-primary-pressed)',
+          default: 'var(--admin-ui-colors-primary-default)',
+          hover: 'var(--admin-ui-colors-primary-hover)',
+          pressed: 'var(--admin-ui-colors-primary-pressed)',
         },
       },
       space: [
-        'var(--onda-space-0)',
-        'var(--onda-space-1)',
-        'var(--onda-space-2)',
-        'var(--onda-space-3)',
+        'var(--admin-ui-space-0)',
+        'var(--admin-ui-space-1)',
+        'var(--admin-ui-space-2)',
+        'var(--admin-ui-space-3)',
       ],
     })
 
-    expect(variables).toEqual({
-      '--onda-colors-primary-default': 'red',
-      '--onda-colors-primary-hover': 'blue',
-      '--onda-colors-primary-pressed': 'green',
-      '--onda-space-0': 0,
-      '--onda-space-1': 1,
-      '--onda-space-2': 2,
-      '--onda-space-3': 3,
+    expect(cssVariables).toEqual({
+      default: {
+        '--admin-ui-colors-primary-default': 'red',
+        '--admin-ui-colors-primary-hover': 'blue',
+        '--admin-ui-colors-primary-pressed': 'green',
+        '--admin-ui-space-0': 0,
+        '--admin-ui-space-1': 1,
+        '--admin-ui-space-2': 2,
+        '--admin-ui-space-3': 3,
+      },
     })
   })
 
@@ -63,13 +73,13 @@ describe('theme', () => {
     })
 
     expect(result).toEqual({
-      '--onda-colors-primary-default': 'red',
-      '--onda-colors-primary-hover': 'blue',
-      '--onda-colors-primary-pressed': 'green',
-      '--onda-space-0': 0,
-      '--onda-space-1': 1,
-      '--onda-space-2': 2,
-      '--onda-space-3': 3,
+      '--admin-ui-colors-primary-default': 'red',
+      '--admin-ui-colors-primary-hover': 'blue',
+      '--admin-ui-colors-primary-pressed': 'green',
+      '--admin-ui-space-0': 0,
+      '--admin-ui-space-1': 1,
+      '--admin-ui-space-2': 2,
+      '--admin-ui-space-3': 3,
     })
   })
 
@@ -85,11 +95,11 @@ describe('theme', () => {
     })
 
     expect(result).toEqual({
-      '--onda-colors-primary-default-0': 'red',
-      '--onda-colors-primary-default-1': 'pink',
-      '--onda-colors-primary-default-2': 'teal',
-      '--onda-colors-primary-hover': 'blue',
-      '--onda-colors-primary-pressed': 'green',
+      '--admin-ui-colors-primary-default-0': 'red',
+      '--admin-ui-colors-primary-default-1': 'pink',
+      '--admin-ui-colors-primary-default-2': 'teal',
+      '--admin-ui-colors-primary-hover': 'blue',
+      '--admin-ui-colors-primary-pressed': 'green',
     })
   })
 
@@ -109,19 +119,19 @@ describe('theme', () => {
       colors: {
         primary: {
           default: [
-            'var(--onda-colors-primary-default-0)',
-            'var(--onda-colors-primary-default-1)',
-            'var(--onda-colors-primary-default-2)',
+            'var(--admin-ui-colors-primary-default-0)',
+            'var(--admin-ui-colors-primary-default-1)',
+            'var(--admin-ui-colors-primary-default-2)',
           ],
-          hover: 'var(--onda-colors-primary-hover)',
-          pressed: 'var(--onda-colors-primary-pressed)',
+          hover: 'var(--admin-ui-colors-primary-hover)',
+          pressed: 'var(--admin-ui-colors-primary-pressed)',
         },
       },
       space: [
-        'var(--onda-space-0)',
-        'var(--onda-space-1)',
-        'var(--onda-space-2)',
-        'var(--onda-space-3)',
+        'var(--admin-ui-space-0)',
+        'var(--admin-ui-space-1)',
+        'var(--admin-ui-space-2)',
+        'var(--admin-ui-space-3)',
       ],
     })
   })

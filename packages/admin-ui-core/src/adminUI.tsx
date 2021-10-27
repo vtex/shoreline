@@ -6,7 +6,7 @@ import { buildPlugins } from './system'
 export function unstableCreateAdminUI<T extends Record<string, any>>(
   unparsedTheme: T
 ) {
-  const [theme, cssVariables] = createTheme(unparsedTheme, {
+  const { theme, cssVariables } = createTheme(unparsedTheme, {
     tokens: ['background', 'foreground', 'borderColor'],
     disableCSSVariables: false,
   })

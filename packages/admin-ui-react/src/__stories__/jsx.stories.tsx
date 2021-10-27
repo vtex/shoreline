@@ -8,10 +8,22 @@ import React, {
 import type { Meta } from '@storybook/react'
 import { Button as ReakitButton, Separator, Role } from 'reakit'
 
+import { createSystem } from '../createSystem'
 import { jsx, tag } from '../index'
+
+const [SystemProvider] = createSystem({
+  key: 'admin-ui-react',
+})
 
 export default {
   title: 'admin-ui-react/jsx',
+  decorators: [
+    (Story) => (
+      <SystemProvider>
+        <Story />
+      </SystemProvider>
+    ),
+  ],
 } as Meta
 
 export function Test() {

@@ -30,7 +30,7 @@ exports[`Tabs should match snapshot 1`] = `
   padding-right: 1.5rem;
   text-transform: uppercase;
   background-color: transparent;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
 }
 
 .emotion-1:focus:not([data-focus-visible-added]) {
@@ -44,7 +44,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  color: hsla(222, 63%, 43%, 1);
+  color: var(--admin-ui-foreground-action-main-text);
 }
 
 .emotion-0 {
@@ -55,7 +55,7 @@ exports[`Tabs should match snapshot 1`] = `
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-style: solid;
-  border-bottom-color: hsla(222, 63%, 43%, 1);
+  border-bottom-color: var(--admin-ui-foreground-action-main-text);
   border-bottom-width: 2px;
   border-top-style: solid;
   border-top-color: transparent;
@@ -68,7 +68,7 @@ exports[`Tabs should match snapshot 1`] = `
   padding-right: 1.5rem;
   text-transform: uppercase;
   background-color: transparent;
-  color: hsla(222, 63%, 43%, 1);
+  color: var(--admin-ui-foreground-action-main-text);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -174,7 +174,7 @@ exports[`Tabs should match snapshot 1`] = `
   padding-right: 1.5rem;
   text-transform: uppercase;
   background-color: transparent;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
 }
 
 .emotion-1:focus:not([data-focus-visible-added]) {
@@ -188,7 +188,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  color: hsla(222, 63%, 43%, 1);
+  color: var(--admin-ui-foreground-action-main-text);
 }
 
 .emotion-2 {
@@ -217,7 +217,7 @@ exports[`Tabs should match snapshot 1`] = `
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-style: solid;
-  border-bottom-color: hsla(222, 63%, 43%, 1);
+  border-bottom-color: var(--admin-ui-foreground-action-main-text);
   border-bottom-width: 2px;
   border-top-style: solid;
   border-top-color: transparent;
@@ -230,7 +230,7 @@ exports[`Tabs should match snapshot 1`] = `
   padding-right: 1.5rem;
   text-transform: uppercase;
   background-color: transparent;
-  color: hsla(222, 63%, 43%, 1);
+  color: var(--admin-ui-foreground-action-main-text);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {

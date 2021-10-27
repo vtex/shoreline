@@ -1,4 +1,4 @@
-import { pick, omit, get, renameKeys, isObjectEmpty } from '@vtex/admin-ui-util'
+import { pick, omit, get } from '@vtex/admin-ui-util'
 
 const toVarName = (key: string) => `--admin-ui-${key}`
 const toVarValue = (key: string) => `var(${toVarName(key)})`
@@ -14,44 +14,42 @@ export type BaseTheme<T> = T & {
   global: any
 }
 
-export function createTheme<Theme extends Record<string, any>>(
-  config: Theme,
-  options?: ThemeOptions
-): [BaseTheme<Theme>, Record<string, any>] {
-  if (!config)
-    return [
-      {
-        global: {},
-      } as BaseTheme<Theme>,
-      {},
-    ]
+export type CSSVariables = Record<string, Record<string, any>>
 
-  const { global = {}, ...strictTheme } = config
+export interface CreateThemeReturn<T> {
+  theme: BaseTheme<T>
+  cssVariables: CSSVariables
+}
+
+export function createTheme<T extends Record<string, any>>(
+  initialTheme: T,
+  options?: ThemeOptions
+): CreateThemeReturn<T> {
+  if (!initialTheme)
+    return {
+      theme: {
+        global: {},
+      } as BaseTheme<T>,
+      cssVariables: {},
+    }
+
+  const { global = {}, ...strictTheme } = initialTheme
 
   if (options?.disableCSSVariables)
-    return [{ global, ...strictTheme } as BaseTheme<Theme>, {}]
+    return {
+      theme: { global, ...strictTheme } as BaseTheme<T>,
+      cssVariables: {},
+    }
 
-  const modes = get(strictTheme, '__modes')
+  const modes = get(strictTheme, '__modes', {})
   const themeToParse = options?.tokens ? pick(strictTheme, options?.tokens) : {}
-
-  /** TODO: create a function to handle this */
-  const rawValues = isObjectEmpty(themeToParse)
-    ? {}
-    : renameKeys(
-        {
-          background: 'rawBackground',
-          foreground: 'rawForeground',
-          borderColor: 'rawBorderColor',
-        },
-        themeToParse
-      )
 
   const themeToKeep = options?.tokens
     ? omit(strictTheme, options?.tokens)
     : strictTheme
 
   const theme = toCustomProperties(themeToParse)
-  const cssVariables = {
+  const cssVariables: CSSVariables = {
     default: objectToVars(themeToParse),
     ...Object.keys(modes).reduce((acc, mode) => {
       return {
@@ -61,10 +59,10 @@ export function createTheme<Theme extends Record<string, any>>(
     }, {}),
   }
 
-  return [
-    { global, ...theme, ...themeToKeep, ...rawValues } as BaseTheme<Theme>,
+  return {
+    theme: { global, ...theme, ...themeToKeep } as BaseTheme<T>,
     cssVariables,
-  ]
+  }
 }
 
 export function toCustomProperties(

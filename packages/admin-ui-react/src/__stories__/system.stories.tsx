@@ -12,6 +12,13 @@ const [SystemProvider] = createSystem({
 
 export default {
   title: 'admin-ui-react/system',
+  decorators: [
+    (Story) => (
+      <SystemProvider>
+        <Story />
+      </SystemProvider>
+    ),
+  ],
 } as Meta
 
 function Toggle() {
@@ -43,36 +50,32 @@ function Div(props: { csx: StyleProp; children: ReactNode }) {
 
 export function Styles() {
   return (
-    <SystemProvider>
-      <Div
-        csx={{
-          bg: 'muted',
-          color: 'base',
-          borderColor: 'container',
-          borderWidth: 1,
-          borderStyle: 'solid',
-          padding: 1,
-          marginY: 2,
-          size: 150,
-          borderRadius: 'default',
-        }}
-      >
-        With csx
-      </Div>
-    </SystemProvider>
+    <Div
+      csx={{
+        bg: 'muted',
+        color: 'base',
+        borderColor: 'container',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        padding: 1,
+        marginY: 2,
+        size: 150,
+        borderRadius: 'default',
+      }}
+    >
+      With csx
+    </Div>
   )
 }
 
 export function FunctionStyles() {
   return (
-    <SystemProvider>
-      <Div
-        csx={{
-          color: (theme) => get(theme, 'foreground.muted'),
-        }}
-      >
-        Plain div
-      </Div>
-    </SystemProvider>
+    <Div
+      csx={{
+        color: (theme) => get(theme, 'foreground.muted'),
+      }}
+    >
+      Plain div
+    </Div>
   )
 }

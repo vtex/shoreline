@@ -3,9 +3,9 @@
 exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
-  color: #FFFFFF;
+  background-color: var(--admin-ui-background-control-neutral);
+  border-color: var(--admin-ui-borderColor-control-neutral);
+  color: var(--admin-ui-foreground-control-neutral);
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -44,33 +44,94 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  border-color: hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-control-neutralDisabled);
+  border-color: var(--admin-ui-borderColor-control-neutralDisabled);
+  color: var(--admin-ui-foreground-control-neutralDisabled);
 }
 
 .emotion-0:hover {
-  background-color: hsla(0, 0%, 93%, 1);
-  border-color: hsla(0, 0%, 20%, 1);
+  background-color: var(--admin-ui-background-control-neutralHover);
+  border-color: var(--admin-ui-borderColor-control-neutralHover);
 }
 
 .emotion-0:active {
-  background-color: hsla(0, 0%, 73%, 1);
-  border-color: hsla(0, 0%, 29%, 1);
+  background-color: var(--admin-ui-background-control-neutralPressed);
+  border-color: var(--admin-ui-borderColor-control-neutralPressed);
+}
+
+.emotion-0 >.haha {
+  stroke: azure;
+  height: 200px;
 }
 
 .emotion-0:checked {
-  background-color: #000000;
-  color: #FFFFFF;
-  border-color: #000000;
+  background-color: var(--admin-ui-background-control-neutralChecked);
+  color: var(--admin-ui-foreground-control-neutralChecked);
+  position: relative;
 }
 
 .emotion-0:checked:after {
-  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>");
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-color: var(--admin-ui-foreground-control-neutralChecked);
 }
 
 .emotion-0:checked[disabled]:after {
-  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='hsla(0, 0%, 45%, 1)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>");}.emotion-0:checked:hover{background-color:hsla(0, 0%, 20%, 1);border-color:hsla(0, 0%, 20%, 1);}.emotion-0:checked:active{background-color:hsla(0, 0%, 29%, 1);border-color:hsla(0, 0%, 29%, 1);}.emotion-0:checked:disabled{background-color:hsla(0, 0%, 87%, 1);border-color:hsla(0, 0%, 45%, 1);color:hsla(0, 0%, 45%, 1);}.emotion-0:indeterminate{background-color:#FFFFFF;border-color:hsla(0, 0%, 73%, 1);color:hsla(0, 0%, 29%, 1);}.emotion-0:indeterminate:after{content:"";
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+}
+
+.emotion-0:checked:hover {
+  background-color: var(--admin-ui-background-control-neutralCheckedHover);
+  border-color: var(--admin-ui-borderColor-control-neutralCheckedHover);
+}
+
+.emotion-0:checked:active {
+  background-color: var(--admin-ui-background-control-neutralCheckedPressed);
+  border-color: var(--admin-ui-borderColor-control-neutralCheckedPressed);
+}
+
+.emotion-0:checked:disabled {
+  background-color: var(--admin-ui-background-control-neutralCheckedDisabled);
+  border-color: var(--admin-ui-borderColor-control-neutralCheckedDisabled);
+  color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+}
+
+.emotion-0:indeterminate {
+  background-color: var(--admin-ui-background-control-neutralIndeterminate);
+  border-color: var(--admin-ui-borderColor-control-neutralIndeterminate);
+  color: var(--admin-ui-foreground-control-neutralIndeterminate);
+}
+
+.emotion-0:indeterminate:after {
+  content: "";
   width: 0.5rem;
   height: 0;
   border-width: 0.063rem;
@@ -82,19 +143,19 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:indeterminate:hover {
-  border-color: hsla(0, 0%, 20%, 1);
-  background-color: hsla(0, 0%, 93%, 1);
+  border-color: var(--admin-ui-borderColor-control-neutralIndeterminateHover);
+  background-color: var(--admin-ui-background-control-neutralIndeterminateHover);
 }
 
 .emotion-0:indeterminate:active {
-  border-color: hsla(0, 0%, 29%, 1);
-  background-color: hsla(0, 0%, 73%, 1);
+  border-color: var(--admin-ui-borderColor-control-neutralIndeterminatePressed);
+  background-color: var(--admin-ui-background-control-neutralIndeterminatePressed);
 }
 
 .emotion-0:indeterminate:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  border-color: hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-control-neutralIndeterminateDisabled);
+  border-color: var(--admin-ui-borderColor-control-neutralIndeterminateDisabled);
+  color: var(--admin-ui-foreground-control-neutralIndeterminateDisabled);
 }
 
 <input
@@ -106,9 +167,9 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
     value="checkbox"
   />
   .emotion-0 {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
-  color: #FFFFFF;
+  background-color: var(--admin-ui-background-control-neutral);
+  border-color: var(--admin-ui-borderColor-control-neutral);
+  color: var(--admin-ui-foreground-control-neutral);
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -147,33 +208,94 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  border-color: hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-control-neutralDisabled);
+  border-color: var(--admin-ui-borderColor-control-neutralDisabled);
+  color: var(--admin-ui-foreground-control-neutralDisabled);
 }
 
 .emotion-0:hover {
-  background-color: hsla(0, 0%, 93%, 1);
-  border-color: hsla(0, 0%, 20%, 1);
+  background-color: var(--admin-ui-background-control-neutralHover);
+  border-color: var(--admin-ui-borderColor-control-neutralHover);
 }
 
 .emotion-0:active {
-  background-color: hsla(0, 0%, 73%, 1);
-  border-color: hsla(0, 0%, 29%, 1);
+  background-color: var(--admin-ui-background-control-neutralPressed);
+  border-color: var(--admin-ui-borderColor-control-neutralPressed);
+}
+
+.emotion-0 >.haha {
+  stroke: azure;
+  height: 200px;
 }
 
 .emotion-0:checked {
-  background-color: #000000;
-  color: #FFFFFF;
-  border-color: #000000;
+  background-color: var(--admin-ui-background-control-neutralChecked);
+  color: var(--admin-ui-foreground-control-neutralChecked);
+  position: relative;
 }
 
 .emotion-0:checked:after {
-  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>");
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-color: var(--admin-ui-foreground-control-neutralChecked);
 }
 
 .emotion-0:checked[disabled]:after {
-  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='hsla(0, 0%, 45%, 1)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>");}.emotion-0:checked:hover{background-color:hsla(0, 0%, 20%, 1);border-color:hsla(0, 0%, 20%, 1);}.emotion-0:checked:active{background-color:hsla(0, 0%, 29%, 1);border-color:hsla(0, 0%, 29%, 1);}.emotion-0:checked:disabled{background-color:hsla(0, 0%, 87%, 1);border-color:hsla(0, 0%, 45%, 1);color:hsla(0, 0%, 45%, 1);}.emotion-0:indeterminate{background-color:#FFFFFF;border-color:hsla(0, 0%, 73%, 1);color:hsla(0, 0%, 29%, 1);}.emotion-0:indeterminate:after{content:"";
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+}
+
+.emotion-0:checked:hover {
+  background-color: var(--admin-ui-background-control-neutralCheckedHover);
+  border-color: var(--admin-ui-borderColor-control-neutralCheckedHover);
+}
+
+.emotion-0:checked:active {
+  background-color: var(--admin-ui-background-control-neutralCheckedPressed);
+  border-color: var(--admin-ui-borderColor-control-neutralCheckedPressed);
+}
+
+.emotion-0:checked:disabled {
+  background-color: var(--admin-ui-background-control-neutralCheckedDisabled);
+  border-color: var(--admin-ui-borderColor-control-neutralCheckedDisabled);
+  color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+}
+
+.emotion-0:indeterminate {
+  background-color: var(--admin-ui-background-control-neutralIndeterminate);
+  border-color: var(--admin-ui-borderColor-control-neutralIndeterminate);
+  color: var(--admin-ui-foreground-control-neutralIndeterminate);
+}
+
+.emotion-0:indeterminate:after {
+  content: "";
   width: 0.5rem;
   height: 0;
   border-width: 0.063rem;
@@ -185,19 +307,19 @@ exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:indeterminate:hover {
-  border-color: hsla(0, 0%, 20%, 1);
-  background-color: hsla(0, 0%, 93%, 1);
+  border-color: var(--admin-ui-borderColor-control-neutralIndeterminateHover);
+  background-color: var(--admin-ui-background-control-neutralIndeterminateHover);
 }
 
 .emotion-0:indeterminate:active {
-  border-color: hsla(0, 0%, 29%, 1);
-  background-color: hsla(0, 0%, 73%, 1);
+  border-color: var(--admin-ui-borderColor-control-neutralIndeterminatePressed);
+  background-color: var(--admin-ui-background-control-neutralIndeterminatePressed);
 }
 
 .emotion-0:indeterminate:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  border-color: hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-control-neutralIndeterminateDisabled);
+  border-color: var(--admin-ui-borderColor-control-neutralIndeterminateDisabled);
+  color: var(--admin-ui-foreground-control-neutralIndeterminateDisabled);
 }
 
 <input

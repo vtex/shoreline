@@ -49,7 +49,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -70,13 +70,13 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
@@ -84,18 +84,18 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-field-neutralHover);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  background-color: var(--admin-ui-background-field-neutralFocus);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
 }
 
@@ -166,7 +166,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -198,7 +198,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-0 {
@@ -210,13 +210,13 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
@@ -224,18 +224,18 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-field-neutralHover);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  background-color: var(--admin-ui-background-field-neutralFocus);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
 }
 
@@ -315,7 +315,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -347,7 +347,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-0 {
@@ -359,13 +359,13 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
@@ -373,18 +373,18 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-field-neutralHover);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  background-color: var(--admin-ui-background-field-neutralFocus);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
 }
 
@@ -466,7 +466,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -498,7 +498,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-0 {
@@ -510,13 +510,13 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
@@ -524,18 +524,18 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-field-neutralHover);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  background-color: var(--admin-ui-background-field-neutralFocus);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
 }
 
@@ -621,7 +621,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -653,7 +653,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-0 {
@@ -665,13 +665,13 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
@@ -679,18 +679,18 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-field-neutralHover);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  background-color: var(--admin-ui-background-field-neutralFocus);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
 }
 
@@ -772,7 +772,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -804,7 +804,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-1 {
@@ -816,13 +816,13 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
@@ -830,18 +830,18 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-field-neutralHover);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-1:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  background-color: var(--admin-ui-background-field-neutralFocus);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
 }
 
@@ -858,7 +858,7 @@ exports[`Input tests should match snapshot 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -877,14 +877,14 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
 }
 
 .emotion-3 {
   color: field.neutral;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: hsla(0, 0%, 73%, 1);
+  border-left-color: var(--admin-ui-borderColor-field-neutral);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -999,7 +999,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -1031,7 +1031,7 @@ exports[`Input tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-1 {
@@ -1043,13 +1043,13 @@ exports[`Input tests should match snapshot 1`] = `
   border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
@@ -1057,18 +1057,18 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  background-color: var(--admin-ui-background-field-neutralHover);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-1:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  background-color: var(--admin-ui-background-field-neutralFocus);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
 }
 
@@ -1085,7 +1085,7 @@ exports[`Input tests should match snapshot 1`] = `
   min-height: 20px;
   width: 20px;
   height: 20px;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1104,14 +1104,14 @@ exports[`Input tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  color: #000000;
+  color: var(--admin-ui-foreground-base);
 }
 
 .emotion-3 {
   color: field.neutral;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: hsla(0, 0%, 73%, 1);
+  border-left-color: var(--admin-ui-borderColor-field-neutral);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;

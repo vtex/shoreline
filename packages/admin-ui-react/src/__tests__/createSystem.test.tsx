@@ -6,7 +6,7 @@ import { unstableCreateAdminUI, theme } from '@vtex/admin-ui-core'
 
 import { createSystem, useSystem } from '../createSystem'
 
-describe('createSystem()', () => {
+describe('createSystem', () => {
   it('should execute the system', () => {
     const [Provider] = createSystem({
       key: 'onda-design-system-tst',

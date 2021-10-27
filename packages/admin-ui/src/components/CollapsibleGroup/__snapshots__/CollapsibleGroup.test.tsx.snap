@@ -3,8 +3,8 @@
 exports[`CollapsibleGroup tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-8 {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-base);
+  border-color: var(--admin-ui-borderColor-base);
   border-style: solid;
   border-width: 0;
   border-radius: 4px;
@@ -31,8 +31,8 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
-  color: #000000;
-  background-color: transparent;
+  color: var(--admin-ui-foreground-action-neutral-ghost);
+  background-color: var(--admin-ui-background-action-neutral-ghost);
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -57,16 +57,16 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--admin-ui-background-action-neutral-ghostHover);
 }
 
 .emotion-3:active {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--admin-ui-background-action-neutral-ghostPressed);
 }
 
 .emotion-3:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-action-neutral-ghostDisabled);
+  color: var(--admin-ui-foreground-action-neutral-ghostDisabled);
 }
 
 .emotion-3 svg {
@@ -154,9 +154,9 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  background-color: #FFFFFF;
-  color: #000000;
-  border-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-container);
+  color: var(--admin-ui-foreground-container);
+  border-color: var(--admin-ui-borderColor-container);
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
@@ -223,8 +223,8 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 <DocumentFragment>
   .emotion-8 {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-base);
+  border-color: var(--admin-ui-borderColor-base);
   border-style: solid;
   border-width: 0;
   border-radius: 4px;
@@ -251,8 +251,8 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-3 {
-  color: #000000;
-  background-color: transparent;
+  color: var(--admin-ui-foreground-action-neutral-ghost);
+  background-color: var(--admin-ui-background-action-neutral-ghost);
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -277,16 +277,16 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-3:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--admin-ui-background-action-neutral-ghostHover);
 }
 
 .emotion-3:active {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--admin-ui-background-action-neutral-ghostPressed);
 }
 
 .emotion-3:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-action-neutral-ghostDisabled);
+  color: var(--admin-ui-foreground-action-neutral-ghostDisabled);
 }
 
 .emotion-3 svg {
@@ -374,9 +374,9 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-9 {
-  background-color: #FFFFFF;
-  color: #000000;
-  border-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-container);
+  color: var(--admin-ui-foreground-container);
+  border-color: var(--admin-ui-borderColor-container);
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;

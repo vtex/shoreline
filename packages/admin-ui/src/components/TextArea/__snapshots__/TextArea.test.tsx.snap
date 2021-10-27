@@ -46,7 +46,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -78,7 +78,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-0 {
@@ -100,23 +100,23 @@ exports[`TextArea tests should match snapshot 1`] = `
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
 }
 
 .emotion-0:not(:focus):hover {
-  border-color: hsla(0, 0%, 45%, 1);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-0:focus {
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
 }
 
 <div
@@ -187,7 +187,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -219,7 +219,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-0 {
@@ -241,23 +241,23 @@ exports[`TextArea tests should match snapshot 1`] = `
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
 }
 
 .emotion-0:not(:focus):hover {
-  border-color: hsla(0, 0%, 45%, 1);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-0:focus {
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
 }
 
 <div
@@ -330,7 +330,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -376,23 +376,23 @@ exports[`TextArea tests should match snapshot 1`] = `
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
-  background-color: #FFFFFF;
-  border-color: hsla(0, 58%, 52%, 1);
+  background-color: var(--admin-ui-background-field-critical);
+  border-color: var(--admin-ui-borderColor-field-critical);
 }
 
 .emotion-0:not(:focus):hover {
-  border-color: hsla(0, 58%, 37%, 1);
+  border-color: var(--admin-ui-borderColor-field-criticalHover);
 }
 
 .emotion-0:focus {
-  border-color: hsla(0, 58%, 30%, 1);
+  border-color: var(--admin-ui-borderColor-field-criticalFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-criticalDisabled);
   color: field.criticalDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  border-color: var(--admin-ui-borderColor-field-criticalDisabled);
 }
 
 .emotion-2 {
@@ -400,7 +400,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 58%, 52%, 1);
+  color: var(--admin-ui-foreground-notification-critical);
 }
 
 <div
@@ -471,7 +471,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -503,7 +503,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-0 {
@@ -525,23 +525,23 @@ exports[`TextArea tests should match snapshot 1`] = `
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background-color: var(--admin-ui-background-field-neutral);
+  border-color: var(--admin-ui-borderColor-field-neutral);
 }
 
 .emotion-0:not(:focus):hover {
-  border-color: hsla(0, 0%, 45%, 1);
+  border-color: var(--admin-ui-borderColor-field-neutralHover);
 }
 
 .emotion-0:focus {
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: var(--admin-ui-borderColor-field-neutralFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-neutralDisabled);
   color: field.neutralDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
 }
 
 <div
@@ -618,7 +618,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -650,7 +650,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: var(--admin-ui-foreground-muted);
 }
 
 .emotion-0 {
@@ -672,23 +672,23 @@ exports[`TextArea tests should match snapshot 1`] = `
   outline: 0;
   -webkit-transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
   transition: all 70ms cubic-bezier(0.2, 0.2, 0.38, 0.9);
-  background-color: #FFFFFF;
-  border-color: hsla(0, 58%, 52%, 1);
+  background-color: var(--admin-ui-background-field-critical);
+  border-color: var(--admin-ui-borderColor-field-critical);
 }
 
 .emotion-0:not(:focus):hover {
-  border-color: hsla(0, 58%, 37%, 1);
+  border-color: var(--admin-ui-borderColor-field-criticalHover);
 }
 
 .emotion-0:focus {
-  border-color: hsla(0, 58%, 30%, 1);
+  border-color: var(--admin-ui-borderColor-field-criticalFocus);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
+  background-color: var(--admin-ui-background-field-criticalDisabled);
   color: field.criticalDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  border-color: var(--admin-ui-borderColor-field-criticalDisabled);
 }
 
 .emotion-2 {
@@ -696,7 +696,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 58%, 52%, 1);
+  color: var(--admin-ui-foreground-notification-critical);
 }
 
 <div
