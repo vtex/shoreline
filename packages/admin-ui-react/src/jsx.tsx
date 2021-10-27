@@ -8,8 +8,8 @@ import { __options, __stylesheet } from './symbols'
 
 import type { VariantsCall, CsxCall } from './types'
 import { useOptionsIdentity, getStylesheet, getOptions } from './util'
-import type { Stylesheet, Sync } from './useStylesheet'
-import { useStylesheet } from './useStylesheet'
+import type { Stylesheet, Sync } from './hooks/useStylesheet'
+import { useStylesheet } from './hooks/useStylesheet'
 
 /**
  * Base jsx function
