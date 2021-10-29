@@ -6,8 +6,16 @@ import type { StyleProp } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 import { useColorMode } from '../colorMode'
 
+import { unstableCreateAdminUI, defaultTheme } from '@vtex/admin-ui-core'
+
+const unstableSystem = unstableCreateAdminUI(defaultTheme, {
+  tokens: ['background', 'foreground', 'borderColor'],
+  disableCSSVariables: false,
+})
+
 const [SystemProvider] = createSystem({
   key: 'storybook',
+  unstableSystem,
 })
 
 export default {

@@ -1,14 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import type { StyleProp, UnstableAdminUI } from '@vtex/admin-ui-core'
 import {
-  cssVariables,
-  styles,
-  theme,
-  globalStyles,
   createAtoms,
   createClsx,
+  defaultSystemInstance,
 } from '@vtex/admin-ui-core'
-import type { ReactElement } from 'react'
+import type { ReactElement, ReactNode } from 'react'
 import { isKebab } from '@vtex/admin-ui-util'
 import invariant from 'tiny-invariant'
 import { Helmet } from 'react-helmet'
@@ -76,7 +73,25 @@ export function createSystem(spec: SystemSpec): CreateOndaReturn {
   }
 
   const clsx = createClsx(emotion)
-  const atoms = createAtoms(unstableSystem?.styles ?? styles, clsx)
+  const atoms = createAtoms(
+    unstableSystem?.styles ?? defaultSystemInstance.styles,
+    clsx
+  )
+
+  const Wrapper =
+    unstableSystem?.themeOptions.disableCSSVariables ??
+    defaultSystemInstance.themeOptions.disableCSSVariables
+      ? Fragment
+      : (props: { children: ReactNode }) => (
+          <ColorModeProvider
+            cssVariables={
+              unstableSystem?.cssVariables ?? defaultSystemInstance.cssVariables
+            }
+            defaultColorMode={mode}
+          >
+            {props.children}
+          </ColorModeProvider>
+        )
 
   function SystemProvider(props: { children?: React.ReactNode }) {
     const { children } = props
@@ -85,16 +100,13 @@ export function createSystem(spec: SystemSpec): CreateOndaReturn {
       <CacheProvider value={emotion.cache}>
         <SystemContext.Provider
           value={{
-            theme: unstableSystem?.theme ?? theme,
+            theme: unstableSystem?.theme ?? defaultSystemInstance.theme,
             cn: atoms,
             cx: emotion.cx,
             keyframes: emotion.keyframes,
           }}
         >
-          <ColorModeProvider
-            cssVariables={unstableSystem?.cssVariables ?? cssVariables}
-            defaultColorMode={mode}
-          >
+          <Wrapper>
             <Helmet>
               <link
                 rel="preload"
@@ -104,9 +116,14 @@ export function createSystem(spec: SystemSpec): CreateOndaReturn {
                 crossOrigin="anonymous"
               />
             </Helmet>
-            <Global styles={unstableSystem?.globalStyles ?? globalStyles} />
+            <Global
+              styles={
+                unstableSystem?.globalStyles ??
+                defaultSystemInstance.globalStyles
+              }
+            />
             {children}
-          </ColorModeProvider>
+          </Wrapper>
         </SystemContext.Provider>
       </CacheProvider>
     )

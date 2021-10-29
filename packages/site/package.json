@@ -10,7 +10,8 @@
     "prebuild-site": "yarn clean",
     "build-site": "yarn --cwd ../../ build:fast && yarn gatsby build",
     "predevelop": "yarn clean",
-    "develop": "gatsby develop -H 0.0.0.0 -p 8000"
+    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
+    "serve": "gatsby serve"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.2.0",
