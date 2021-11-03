@@ -5,15 +5,17 @@ import { createStyles } from './runtime'
 import { buildPlugins } from './system'
 
 const defaultOptions: ThemeOptions = {
-  tokens: ['background', 'foreground', 'borderColor'],
-  disableCSSVariables: true,
+  enableModes: true,
 }
 
 export function unstableCreateAdminUI<T extends Record<string, any>>(
   unparsedTheme: T,
   themeOptions: ThemeOptions = defaultOptions
 ) {
-  const { theme, cssVariables } = createTheme(unparsedTheme, themeOptions)
+  const { theme, cssVariables, rootStyleObject, rootStyleString } = createTheme(
+    unparsedTheme,
+    themeOptions
+  )
 
   const steps = buildPlugins(theme, plugins)
   const styles = createStyles(steps, theme)
@@ -25,6 +27,8 @@ export function unstableCreateAdminUI<T extends Record<string, any>>(
     styles,
     globalStyles,
     themeOptions,
+    rootStyleObject,
+    rootStyleString,
   }
 }
 

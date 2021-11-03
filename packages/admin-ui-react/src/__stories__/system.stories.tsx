@@ -4,13 +4,12 @@ import type { Meta } from '@storybook/react'
 import { createSystem, useSystem } from '../createSystem'
 import type { StyleProp } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
-import { useColorMode } from '../colorMode'
+import { useThemeMode } from '../themeMode'
 
 import { unstableCreateAdminUI, defaultTheme } from '@vtex/admin-ui-core'
 
 const unstableSystem = unstableCreateAdminUI(defaultTheme, {
-  tokens: ['background', 'foreground', 'borderColor'],
-  disableCSSVariables: false,
+  enableModes: true,
 })
 
 const [SystemProvider] = createSystem({
@@ -30,14 +29,12 @@ export default {
 } as Meta
 
 function Toggle() {
-  const { setColorMode } = useColorMode()
+  const { setThemeMode } = useThemeMode()
 
   return (
     <button
       onClick={() =>
-        setColorMode((mode: string) =>
-          mode === 'default' ? 'dracula' : 'default'
-        )
+        setThemeMode((mode: string) => (mode === 'main' ? 'dracula' : 'main'))
       }
     >
       Toggle theme

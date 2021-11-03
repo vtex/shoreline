@@ -5,14 +5,14 @@ import {
   createClsx,
   defaultSystemInstance,
 } from '@vtex/admin-ui-core'
-import type { ReactElement, ReactNode } from 'react'
+import type { ReactElement, PropsWithChildren } from 'react'
 import { isKebab } from '@vtex/admin-ui-util'
 import invariant from 'tiny-invariant'
 import { Helmet } from 'react-helmet'
 import type { Emotion } from '@emotion/css/create-instance'
 import createEmotion from '@emotion/css/create-instance'
 import { CacheProvider, Global } from '@emotion/react'
-import { ColorModeProvider } from './colorMode'
+import { ThemeModeProvider } from './themeMode'
 
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
@@ -43,12 +43,15 @@ export function useSystem() {
   return ctx
 }
 
-export type CreateOndaReturn = [
-  (props: { children?: React.ReactNode }) => ReactElement
-]
+export type CreateOndaReturn = [(props: PropsWithChildren<{}>) => ReactElement]
 
 export function createSystem(spec: SystemSpec): CreateOndaReturn {
-  const { key, emotionInstance, unstableSystem, mode } = spec
+  const {
+    key,
+    emotionInstance,
+    unstableSystem = defaultSystemInstance,
+    mode = 'main',
+  } = spec
 
   invariant(
     key || emotionInstance,
@@ -73,34 +76,29 @@ export function createSystem(spec: SystemSpec): CreateOndaReturn {
   }
 
   const clsx = createClsx(emotion)
-  const atoms = createAtoms(
-    unstableSystem?.styles ?? defaultSystemInstance.styles,
-    clsx
-  )
+  const atoms = createAtoms(unstableSystem.styles, clsx)
 
-  const Wrapper =
-    unstableSystem?.themeOptions.disableCSSVariables ??
-    defaultSystemInstance.themeOptions.disableCSSVariables
-      ? Fragment
-      : (props: { children: ReactNode }) => (
-          <ColorModeProvider
-            cssVariables={
-              unstableSystem?.cssVariables ?? defaultSystemInstance.cssVariables
-            }
-            defaultColorMode={mode}
+  const Wrapper = unstableSystem.themeOptions.enableModes
+    ? function ThemeWrapper(props: PropsWithChildren<{}>) {
+        return (
+          <ThemeModeProvider
+            styleObject={unstableSystem.rootStyleObject}
+            defaultThemeMode={mode}
           >
             {props.children}
-          </ColorModeProvider>
+          </ThemeModeProvider>
         )
+      }
+    : Fragment
 
-  function SystemProvider(props: { children?: React.ReactNode }) {
+  function SystemProvider(props: PropsWithChildren<{}>) {
     const { children } = props
 
     return (
       <CacheProvider value={emotion.cache}>
         <SystemContext.Provider
           value={{
-            theme: unstableSystem?.theme ?? defaultSystemInstance.theme,
+            theme: unstableSystem.theme,
             cn: atoms,
             cx: emotion.cx,
             keyframes: emotion.keyframes,
@@ -116,12 +114,7 @@ export function createSystem(spec: SystemSpec): CreateOndaReturn {
                 crossOrigin="anonymous"
               />
             </Helmet>
-            <Global
-              styles={
-                unstableSystem?.globalStyles ??
-                defaultSystemInstance.globalStyles
-              }
-            />
+            <Global styles={unstableSystem.globalStyles} />
             {children}
           </Wrapper>
         </SystemContext.Provider>

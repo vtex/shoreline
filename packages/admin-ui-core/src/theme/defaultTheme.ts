@@ -2,7 +2,7 @@ import { colors, dracula } from './colors'
 import { ring } from './styleKit'
 
 export const defaultTheme = {
-  __modes: {
+  modes: {
     dracula: {
       background: {
         base: dracula.grey700,
@@ -222,19 +222,6 @@ export const defaultTheme = {
           critical: colors.red30,
           warning: colors.orange30,
         },
-      },
-      shadows: {
-        ring: {
-          critical: ring('critical'),
-          warning: ring('warning'),
-          positive: ring('positive'),
-          neutral: ring('neutral'),
-          info: ring('info'),
-          main: ring('main'),
-        },
-
-        menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
-        subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
       },
     },
   },
