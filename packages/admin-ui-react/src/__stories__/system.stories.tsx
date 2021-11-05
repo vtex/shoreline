@@ -34,7 +34,9 @@ function Toggle() {
   return (
     <button
       onClick={() =>
-        setThemeMode((mode: string) => (mode === 'main' ? 'dracula' : 'main'))
+        setThemeMode((mode: string) =>
+          mode === 'main' ? 'darkMatter' : 'main'
+        )
       }
     >
       Toggle theme

@@ -2,7 +2,7 @@ import React from 'react'
 import { createSystem, unstableCreateAdminUI, defaultTheme } from '@vtex/admin-ui'
 
 const unstableSystem = unstableCreateAdminUI(defaultTheme, {
-  enableModes: false,
+  enableModes: true,
 })
 
 const [ThemeProvider] = createSystem({
