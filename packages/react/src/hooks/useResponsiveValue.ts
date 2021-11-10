@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
-import type { Theme } from '../runtime'
-
-import { useSystem } from '../createSystem'
+import type { Theme } from '@vtex/admin-ui-core'
+import { useSystem } from '@vtex/admin-ui-core'
 
 type DefaultOptions = {
   defaultIndex?: number
