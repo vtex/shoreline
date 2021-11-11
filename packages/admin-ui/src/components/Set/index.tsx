@@ -1,7 +1,6 @@
-import type { ResponsiveValue } from '@vtex/admin-ui-core'
-import { jsx } from '@vtex/admin-ui-react'
-import { useResponsiveValue } from '@vtex/admin-ui-core'
 import type { ComponentPropsWithoutRef } from 'react'
+import type { ResponsiveValue } from '@vtex/admin-ui-react'
+import { jsx, useResponsiveValue } from '@vtex/admin-ui-react'
 
 /**
  * Component used to display a set of components that are spaced evenly.

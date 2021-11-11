@@ -1,4 +1,4 @@
-import type { ResponsiveValue } from '@vtex/admin-ui-core'
+import type { ResponsiveValue } from '@vtex/admin-ui-react'
 import React from 'react'
 import invariant from 'tiny-invariant'
 
