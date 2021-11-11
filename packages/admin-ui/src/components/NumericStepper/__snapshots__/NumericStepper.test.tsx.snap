@@ -34,8 +34,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -50,16 +50,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -126,8 +126,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -142,16 +142,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -175,7 +175,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--admin-ui-borderColor-field-neutral);
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   background-color: field.netural;
 }
@@ -186,15 +186,15 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: var(--admin-ui-borderColor-field-neutralHover);
+  border-color: hsla(0, 0%, 45%, 1);
   color: field.neutralHover;
   background-origin: field.neutralHover;
 }
 
 .emotion-0:disabled {
-  background-color: var(--admin-ui-background-field-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
   color: field.neutralDisabled;
-  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
@@ -315,8 +315,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -331,16 +331,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -407,8 +407,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -423,16 +423,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -456,7 +456,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--admin-ui-borderColor-field-neutral);
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   background-color: field.netural;
 }
@@ -467,15 +467,15 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: var(--admin-ui-borderColor-field-neutralHover);
+  border-color: hsla(0, 0%, 45%, 1);
   color: field.neutralHover;
   background-origin: field.neutralHover;
 }
 
 .emotion-0:disabled {
-  background-color: var(--admin-ui-background-field-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
   color: field.neutralDisabled;
-  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
@@ -493,7 +493,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: var(--admin-ui-foreground-muted);
+  color: hsla(0, 0%, 45%, 1);
   margin-top: 0.5rem;
 }
 
@@ -610,8 +610,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -626,16 +626,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -702,8 +702,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -718,16 +718,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -751,7 +751,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--admin-ui-borderColor-field-neutral);
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   background-color: field.netural;
 }
@@ -762,15 +762,15 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: var(--admin-ui-borderColor-field-neutralHover);
+  border-color: hsla(0, 0%, 45%, 1);
   color: field.neutralHover;
   background-origin: field.neutralHover;
 }
 
 .emotion-0:disabled {
-  background-color: var(--admin-ui-background-field-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
   color: field.neutralDisabled;
-  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
@@ -900,8 +900,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -916,16 +916,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -992,8 +992,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -1008,16 +1008,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -1041,7 +1041,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--admin-ui-borderColor-field-critical);
+  border-color: hsla(0, 58%, 52%, 1);
   border-radius: 4px;
   background-color: field.netural;
 }
@@ -1052,13 +1052,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: var(--admin-ui-borderColor-field-criticalHover);
+  border-color: hsla(0, 58%, 37%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: var(--admin-ui-background-field-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
   color: field.neutralDisabled;
-  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
@@ -1076,7 +1076,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: var(--admin-ui-foreground-notification-critical);
+  color: hsla(0, 58%, 52%, 1);
   margin-top: 0.5rem;
 }
 
@@ -1193,8 +1193,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   left: 0.25rem;
 }
 
@@ -1209,16 +1209,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-4:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -1285,8 +1285,8 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
   right: 0.25rem;
 }
 
@@ -1301,16 +1301,16 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-8:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -1334,7 +1334,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: field.neutral;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--admin-ui-borderColor-field-neutral);
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   background-color: field.netural;
 }
@@ -1345,15 +1345,15 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: var(--admin-ui-borderColor-field-neutralHover);
+  border-color: hsla(0, 0%, 45%, 1);
   color: field.neutralHover;
   background-origin: field.neutralHover;
 }
 
 .emotion-0:disabled {
-  background-color: var(--admin-ui-background-field-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
   color: field.neutralDisabled;
-  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {

@@ -9,7 +9,7 @@ exports[`Heading tests should match snapshot 1`] = `
   font-size: 1.25rem;
   border: solid;
   border-width: 1px;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   margin: 0rem;
   border-bottom: 0;
 }
@@ -26,7 +26,7 @@ exports[`Heading tests should match snapshot 1`] = `
   font-size: 1.25rem;
   border: solid;
   border-width: 1px;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   margin: 0rem;
   border-left: 0;
   height: auto;

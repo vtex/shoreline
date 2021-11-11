@@ -27,16 +27,16 @@ exports[`Select tests should render a Select with a list of string and other wit
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: var(--admin-ui-borderColor-field-neutral);
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: var(--admin-ui-background-field-neutral);
+  background-color: #FFFFFF;
   font-size: 0.875rem;
   color: field.neutral;
   outline: 0;
 }
 
 .emotion-4:hover {
-  border-color: var(--admin-ui-borderColor-field-neutralHover);
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-4:hover>svg {
@@ -44,13 +44,13 @@ exports[`Select tests should render a Select with a list of string and other wit
 }
 
 .emotion-4:focus {
-  border-color: var(--admin-ui-borderColor-field-neutralFocus);
+  border-color: hsla(0, 0%, 29%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-4:disabled {
-  background-color: var(--admin-ui-background-field-neutralDisabled);
-  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
   color: field.neutralDisabled;
   cursor: initial;
 }
@@ -63,7 +63,7 @@ exports[`Select tests should render a Select with a list of string and other wit
 
 .emotion-0 {
   line-height: 1.43;
-  color: var(--admin-ui-foreground-base);
+  color: #000000;
   float: left;
   margin-top: 1.125rem;
 }
@@ -91,7 +91,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
-  color: var(--admin-ui-foreground-muted);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {
@@ -100,7 +100,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   position: absolute;
   z-index: 999;
   width: inherit;
-  background-color: var(--admin-ui-background-popover);
+  background-color: #FFFFFF;
   outline: none;
 }
 
@@ -185,16 +185,16 @@ exports[`Select tests should render a Select with a list of string and other wit
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  border-color: var(--admin-ui-borderColor-field-neutral);
+  border-color: hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: var(--admin-ui-background-field-neutral);
+  background-color: #FFFFFF;
   font-size: 0.875rem;
   color: field.neutral;
   outline: 0;
 }
 
 .emotion-4:hover {
-  border-color: var(--admin-ui-borderColor-field-neutralHover);
+  border-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-4:hover>svg {
@@ -202,13 +202,13 @@ exports[`Select tests should render a Select with a list of string and other wit
 }
 
 .emotion-4:focus {
-  border-color: var(--admin-ui-borderColor-field-neutralFocus);
+  border-color: hsla(0, 0%, 29%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-4:disabled {
-  background-color: var(--admin-ui-background-field-neutralDisabled);
-  border-color: var(--admin-ui-borderColor-field-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
   color: field.neutralDisabled;
   cursor: initial;
 }
@@ -221,7 +221,7 @@ exports[`Select tests should render a Select with a list of string and other wit
 
 .emotion-0 {
   line-height: 1.43;
-  color: var(--admin-ui-foreground-base);
+  color: #000000;
   float: left;
   margin-top: 1.125rem;
 }
@@ -249,7 +249,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
-  color: var(--admin-ui-foreground-muted);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {
@@ -258,7 +258,7 @@ exports[`Select tests should render a Select with a list of string and other wit
   position: absolute;
   z-index: 999;
   width: inherit;
-  background-color: var(--admin-ui-background-popover);
+  background-color: #FFFFFF;
   outline: none;
 }
 

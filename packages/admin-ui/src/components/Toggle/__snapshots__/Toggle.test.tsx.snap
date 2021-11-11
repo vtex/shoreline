@@ -3,8 +3,8 @@
 exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  background-color: var(--admin-ui-borderColor-control-neutral);
-  border-color: var(--admin-ui-borderColor-control-neutral);
+  background-color: hsla(0, 0%, 73%, 1);
+  border-color: hsla(0, 0%, 73%, 1);
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -30,7 +30,7 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:after {
-  background-color: var(--admin-ui-foreground-control-neutral);
+  background-color: #FFFFFF;
   content: "";
   display: block;
   position: absolute;
@@ -40,57 +40,57 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--admin-ui-borderColor-control-neutralHover);
-  border-color: var(--admin-ui-borderColor-control-neutralHover);
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:active {
-  background-color: var(--admin-ui-borderColor-control-neutralPressed);
-  border-color: var(--admin-ui-borderColor-control-neutralPressed);
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: var(--admin-ui-background-control-neutralDisabled);
-  border-color: var(--admin-ui-borderColor-control-neutralDisabled);
-  color: var(--admin-ui-foreground-control-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:disabled:after {
-  background-color: var(--admin-ui-foreground-control-neutralDisabled);
+  background-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:checked {
-  background-color: var(--admin-ui-background-control-neutralChecked);
-  color: var(--admin-ui-foreground-control-neutralChecked);
-  border-color: var(--admin-ui-borderColor-control-neutralChecked);
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
 }
 
 .emotion-0:checked:hover {
-  background-color: var(--admin-ui-background-control-neutralCheckedHover);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedHover);
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:checked:hover:after {
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedHover);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:checked:active {
-  background-color: var(--admin-ui-background-control-neutralCheckedPressed);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedPressed);
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:checked:active:after {
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedPressed);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:checked:disabled {
-  background-color: var(--admin-ui-background-control-neutralCheckedDisabled);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedDisabled);
-  color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:checked:disabled:after {
-  background-color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+  background-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:checked:after {
@@ -114,8 +114,8 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
     value="toggle 1"
   />
   .emotion-0 {
-  background-color: var(--admin-ui-borderColor-control-neutral);
-  border-color: var(--admin-ui-borderColor-control-neutral);
+  background-color: hsla(0, 0%, 73%, 1);
+  border-color: hsla(0, 0%, 73%, 1);
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -141,7 +141,7 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:after {
-  background-color: var(--admin-ui-foreground-control-neutral);
+  background-color: #FFFFFF;
   content: "";
   display: block;
   position: absolute;
@@ -151,57 +151,57 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--admin-ui-borderColor-control-neutralHover);
-  border-color: var(--admin-ui-borderColor-control-neutralHover);
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:active {
-  background-color: var(--admin-ui-borderColor-control-neutralPressed);
-  border-color: var(--admin-ui-borderColor-control-neutralPressed);
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: var(--admin-ui-background-control-neutralDisabled);
-  border-color: var(--admin-ui-borderColor-control-neutralDisabled);
-  color: var(--admin-ui-foreground-control-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:disabled:after {
-  background-color: var(--admin-ui-foreground-control-neutralDisabled);
+  background-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:checked {
-  background-color: var(--admin-ui-background-control-neutralChecked);
-  color: var(--admin-ui-foreground-control-neutralChecked);
-  border-color: var(--admin-ui-borderColor-control-neutralChecked);
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
 }
 
 .emotion-0:checked:hover {
-  background-color: var(--admin-ui-background-control-neutralCheckedHover);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedHover);
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:checked:hover:after {
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedHover);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:checked:active {
-  background-color: var(--admin-ui-background-control-neutralCheckedPressed);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedPressed);
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:checked:active:after {
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedPressed);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:checked:disabled {
-  background-color: var(--admin-ui-background-control-neutralCheckedDisabled);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedDisabled);
-  color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:checked:disabled:after {
-  background-color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+  background-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:checked:after {

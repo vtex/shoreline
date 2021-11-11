@@ -5,7 +5,7 @@ import { createStyles } from './runtime'
 import { buildPlugins } from './system'
 
 const defaultOptions: ThemeOptions = {
-  enableModes: true,
+  enableModes: false,
 }
 
 export function unstableCreateAdminUI<T extends Record<string, any>>(

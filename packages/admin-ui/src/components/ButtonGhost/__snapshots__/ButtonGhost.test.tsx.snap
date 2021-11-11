@@ -40,8 +40,8 @@ exports[`ButtonGhost should match snapshot 1`] = `
 }
 
 .emotion-2 {
-  color: var(--admin-ui-foreground-action-neutral-ghost);
-  background-color: var(--admin-ui-background-action-neutral-ghost);
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -66,16 +66,16 @@ exports[`ButtonGhost should match snapshot 1`] = `
 }
 
 .emotion-2:hover {
-  background-color: var(--admin-ui-background-action-neutral-ghostHover);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-2:active {
-  background-color: var(--admin-ui-background-action-neutral-ghostPressed);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-2:disabled {
-  background-color: var(--admin-ui-background-action-neutral-ghostDisabled);
-  color: var(--admin-ui-foreground-action-neutral-ghostDisabled);
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 <button

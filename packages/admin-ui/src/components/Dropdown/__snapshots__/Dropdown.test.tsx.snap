@@ -72,11 +72,11 @@ exports[`Dropdown tests should match snapshot 1`] = `
   justify-content: unset;
   visibility: hidden;
   cursor: pointer;
-  background-color: var(--admin-ui-background-popover);
+  background-color: #FFFFFF;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   box-shadow: popover;
   outline: none;
   margin-top: 0.25rem;
@@ -106,8 +106,8 @@ exports[`Dropdown tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
-  color: var(--admin-ui-foreground-action-main-solid);
-  background-color: var(--admin-ui-background-action-main-solid);
+  color: #FFFFFF;
+  background-color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -121,16 +121,16 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  background-color: var(--admin-ui-background-action-main-solidHover);
+  background-color: hsla(222, 63%, 34%, 1);
 }
 
 .emotion-3:active {
-  background-color: var(--admin-ui-background-action-main-solidPressed);
+  background-color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-3:disabled {
-  background-color: var(--admin-ui-background-action-main-solidDisabled);
-  color: var(--admin-ui-foreground-action-main-solidDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3 svg {
@@ -263,11 +263,11 @@ exports[`Dropdown tests should match snapshot 1`] = `
   justify-content: unset;
   visibility: hidden;
   cursor: pointer;
-  background-color: var(--admin-ui-background-popover);
+  background-color: #FFFFFF;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   box-shadow: popover;
   outline: none;
   margin-top: 0.25rem;
@@ -297,8 +297,8 @@ exports[`Dropdown tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
-  color: var(--admin-ui-foreground-action-main-soft);
-  background-color: var(--admin-ui-background-action-main-soft);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -312,16 +312,16 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  background-color: var(--admin-ui-background-action-main-softHover);
+  background-color: hsla(222, 64%, 84%, 1);
 }
 
 .emotion-3:active {
-  background-color: var(--admin-ui-background-action-main-softPressed);
+  background-color: hsla(222, 63%, 72%, 1);
 }
 
 .emotion-3:disabled {
-  background-color: var(--admin-ui-background-action-main-softDisabled);
-  color: var(--admin-ui-foreground-action-main-softDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3 svg {
@@ -454,11 +454,11 @@ exports[`Dropdown tests should match snapshot 1`] = `
   justify-content: unset;
   visibility: hidden;
   cursor: pointer;
-  background-color: var(--admin-ui-background-popover);
+  background-color: #FFFFFF;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   box-shadow: popover;
   outline: none;
   margin-top: 0.25rem;
@@ -488,8 +488,8 @@ exports[`Dropdown tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -503,16 +503,16 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-3:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-3:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-3 svg {
@@ -650,11 +650,11 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   justify-content: unset;
   visibility: hidden;
   cursor: pointer;
-  background-color: var(--admin-ui-background-popover);
+  background-color: #FFFFFF;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   box-shadow: popover;
   outline: none;
   margin-top: 0.25rem;
@@ -684,8 +684,8 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
-  color: var(--admin-ui-foreground-action-main-solid);
-  background-color: var(--admin-ui-background-action-main-solid);
+  color: #FFFFFF;
+  background-color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -699,16 +699,16 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-3:hover {
-  background-color: var(--admin-ui-background-action-main-solidHover);
+  background-color: hsla(222, 63%, 34%, 1);
 }
 
 .emotion-3:active {
-  background-color: var(--admin-ui-background-action-main-solidPressed);
+  background-color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-3:disabled {
-  background-color: var(--admin-ui-background-action-main-solidDisabled);
-  color: var(--admin-ui-foreground-action-main-solidDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3 svg {
@@ -841,11 +841,11 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   justify-content: unset;
   visibility: hidden;
   cursor: pointer;
-  background-color: var(--admin-ui-background-popover);
+  background-color: #FFFFFF;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   box-shadow: popover;
   outline: none;
   margin-top: 0.25rem;
@@ -875,8 +875,8 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
-  color: var(--admin-ui-foreground-action-main-solid);
-  background-color: var(--admin-ui-background-action-main-solid);
+  color: #FFFFFF;
+  background-color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -890,16 +890,16 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-3:hover {
-  background-color: var(--admin-ui-background-action-main-solidHover);
+  background-color: hsla(222, 63%, 34%, 1);
 }
 
 .emotion-3:active {
-  background-color: var(--admin-ui-background-action-main-solidPressed);
+  background-color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-3:disabled {
-  background-color: var(--admin-ui-background-action-main-solidDisabled);
-  color: var(--admin-ui-foreground-action-main-solidDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3 svg {

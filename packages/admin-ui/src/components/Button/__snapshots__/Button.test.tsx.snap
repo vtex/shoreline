@@ -51,8 +51,8 @@ exports[`Button tests should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: var(--admin-ui-foreground-action-main-solid);
-  background-color: var(--admin-ui-background-action-main-solid);
+  color: #FFFFFF;
+  background-color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -66,16 +66,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-2:hover {
-  background-color: var(--admin-ui-background-action-main-solidHover);
+  background-color: hsla(222, 63%, 34%, 1);
 }
 
 .emotion-2:active {
-  background-color: var(--admin-ui-background-action-main-solidPressed);
+  background-color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-2:disabled {
-  background-color: var(--admin-ui-background-action-main-solidDisabled);
-  color: var(--admin-ui-foreground-action-main-solidDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <button
@@ -141,8 +141,8 @@ exports[`Button tests should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: var(--admin-ui-foreground-action-main-soft);
-  background-color: var(--admin-ui-background-action-main-soft);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -156,16 +156,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-2:hover {
-  background-color: var(--admin-ui-background-action-main-softHover);
+  background-color: hsla(222, 64%, 84%, 1);
 }
 
 .emotion-2:active {
-  background-color: var(--admin-ui-background-action-main-softPressed);
+  background-color: hsla(222, 63%, 72%, 1);
 }
 
 .emotion-2:disabled {
-  background-color: var(--admin-ui-background-action-main-softDisabled);
-  color: var(--admin-ui-foreground-action-main-softDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <button
@@ -231,8 +231,8 @@ exports[`Button tests should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -246,16 +246,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-2:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-2:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-2:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 <button
@@ -321,8 +321,8 @@ exports[`Button tests should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: var(--admin-ui-foreground-action-critical-solid);
-  background-color: var(--admin-ui-background-action-critical-solid);
+  color: #FFFFFF;
+  background-color: hsla(0, 58%, 52%, 1);
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -336,16 +336,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-2:hover {
-  background-color: var(--admin-ui-background-action-critical-solidHover);
+  background-color: hsla(0, 58%, 37%, 1);
 }
 
 .emotion-2:active {
-  background-color: var(--admin-ui-background-action-critical-solidPressed);
+  background-color: hsla(0, 58%, 30%, 1);
 }
 
 .emotion-2:disabled {
-  background-color: var(--admin-ui-background-action-critical-solidDisabled);
-  color: var(--admin-ui-foreground-action-critical-solidDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <button
@@ -411,8 +411,8 @@ exports[`Button tests should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: var(--admin-ui-foreground-action-critical-soft);
-  background-color: var(--admin-ui-background-action-critical-soft);
+  color: hsla(0, 58%, 37%, 1);
+  background-color: hsla(0, 60%, 93%, 1);
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -426,16 +426,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-2:hover {
-  background-color: var(--admin-ui-background-action-critical-softHover);
+  background-color: hsla(0, 59%, 83%, 1);
 }
 
 .emotion-2:active {
-  background-color: var(--admin-ui-background-action-critical-softPressed);
+  background-color: hsla(0, 59%, 73%, 1);
 }
 
 .emotion-2:disabled {
-  background-color: var(--admin-ui-background-action-critical-softDisabled);
-  color: var(--admin-ui-foreground-action-critical-softDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <button
@@ -501,8 +501,8 @@ exports[`Button tests should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: var(--admin-ui-foreground-action-critical-text);
-  background-color: var(--admin-ui-background-action-critical-text);
+  color: hsla(0, 58%, 52%, 1);
+  background-color: transparent;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -516,16 +516,16 @@ exports[`Button tests should match snapshot 1`] = `
 }
 
 .emotion-2:hover {
-  background-color: var(--admin-ui-background-action-critical-textHover);
+  background-color: hsla(0, 56%, 96%, 1);
 }
 
 .emotion-2:active {
-  background-color: var(--admin-ui-background-action-critical-textPressed);
+  background-color: hsla(0, 60%, 93%, 1);
 }
 
 .emotion-2:disabled {
-  background-color: var(--admin-ui-background-action-critical-textDisabled);
-  color: var(--admin-ui-foreground-action-critical-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 <button

@@ -6,7 +6,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   background-color: coral;
 }
 
@@ -23,11 +23,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-top-style: solid;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  background-color: var(--admin-ui-background-container);
+  background-color: #FFFFFF;
 }
 
 .emotion-42 {
@@ -42,8 +42,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
-  color: var(--admin-ui-foreground-action-main-text);
-  background-color: var(--admin-ui-background-action-main-text);
+  color: hsla(222, 63%, 43%, 1);
+  background-color: transparent;
 }
 
 .emotion-42:focus:not([data-focus-visible-added]) {
@@ -57,16 +57,16 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-42:hover {
-  background-color: var(--admin-ui-background-action-main-textHover);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-42:active {
-  background-color: var(--admin-ui-background-action-main-textPressed);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-42:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-42 svg {
@@ -144,8 +144,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-45 {
-  color: var(--admin-ui-foreground-action-neutral-ghost);
-  background-color: var(--admin-ui-background-action-neutral-ghost);
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -170,16 +170,16 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-45:hover {
-  background-color: var(--admin-ui-background-action-neutral-ghostHover);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-45:active {
-  background-color: var(--admin-ui-background-action-neutral-ghostPressed);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-45:disabled {
-  background-color: var(--admin-ui-background-action-neutral-ghostDisabled);
-  color: var(--admin-ui-foreground-action-neutral-ghostDisabled);
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-48 {
@@ -194,8 +194,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  color: var(--admin-ui-foreground-action-main-solid);
-  background-color: var(--admin-ui-background-action-main-solid);
+  color: #FFFFFF;
+  background-color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-48:focus:not([data-focus-visible-added]) {
@@ -209,16 +209,16 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-48:hover {
-  background-color: var(--admin-ui-background-action-main-solidHover);
+  background-color: hsla(222, 63%, 34%, 1);
 }
 
 .emotion-48:active {
-  background-color: var(--admin-ui-background-action-main-solidPressed);
+  background-color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-48:disabled {
-  background-color: var(--admin-ui-background-action-main-solidDisabled);
-  color: var(--admin-ui-foreground-action-main-solidDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-38 {
@@ -297,7 +297,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   cursor: pointer;
   position: relative;
   font-size: 0.875rem;
@@ -305,8 +305,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
-  color: var(--admin-ui-foreground-action-neutral-ghost);
-  background-color: var(--admin-ui-background-action-neutral-ghost);
+  color: #000000;
+  background-color: transparent;
   min-width: 150px;
   max-width: 150px;
 }
@@ -322,18 +322,18 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  background-color: var(--admin-ui-background-action-neutral-ghostHover);
+  background-color: rgba(0, 0, 0, 0.05);
   color: action.neutral.ghostHover;
 }
 
 .emotion-5:active {
-  background-color: var(--admin-ui-background-action-neutral-ghostPressed);
+  background-color: rgba(0, 0, 0, 0.1);
   color: action.neutral.ghostHover;
 }
 
 .emotion-5:disabled {
-  background-color: var(--admin-ui-background-action-main-textDisabled);
-  color: var(--admin-ui-foreground-action-main-textDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-5 svg {
@@ -409,11 +409,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: unset;
   visibility: hidden;
   cursor: pointer;
-  background-color: var(--admin-ui-background-popover);
+  background-color: #FFFFFF;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--admin-ui-borderColor-base);
+  border-color: hsla(0, 0%, 87%, 1);
   box-shadow: popover;
   outline: none;
   margin-top: 0.25rem;
@@ -445,10 +445,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
-  color: var(--admin-ui-foreground-action-main-solid);
-  background-color: var(--admin-ui-background-action-main-solid);
-  color: var(--admin-ui-foreground-action-neutral-ghost);
-  background-color: var(--admin-ui-background-action-neutral-ghost);
+  color: #FFFFFF;
+  background-color: hsla(222, 63%, 43%, 1);
+  color: #000000;
+  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -473,16 +473,16 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-27:hover {
-  background-color: var(--admin-ui-background-action-main-solidHover);
+  background-color: hsla(222, 63%, 34%, 1);
 }
 
 .emotion-27:active {
-  background-color: var(--admin-ui-background-action-main-solidPressed);
+  background-color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-27:disabled {
-  background-color: var(--admin-ui-background-action-main-solidDisabled);
-  color: var(--admin-ui-foreground-action-main-solidDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-27 svg {
@@ -504,16 +504,16 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-27:hover {
-  background-color: var(--admin-ui-background-action-neutral-ghostHover);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-27:active {
-  background-color: var(--admin-ui-background-action-neutral-ghostPressed);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-27:disabled {
-  background-color: var(--admin-ui-background-action-neutral-ghostDisabled);
-  color: var(--admin-ui-foreground-action-neutral-ghostDisabled);
+  background-color: transparent;
+  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-34 {
@@ -527,13 +527,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: var(--admin-ui-background-popover);
+  background-color: #FFFFFF;
   padding: 0.75rem;
   min-width: 18px;
   border-radius: 3px;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--admin-ui-borderColor-popover);
+  border-color: hsla(0, 0%, 87%, 1);
   box-shadow: popover;
 }
 
@@ -552,8 +552,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: var(--admin-ui-background-listBoxItem-main);
-  color: var(--admin-ui-foreground-listBoxItem-main);
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
 .emotion-30 div {
@@ -584,13 +584,13 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-30:hover {
-  color: var(--admin-ui-foreground-listBoxItem-mainHover);
-  background-color: var(--admin-ui-background-listBoxItem-mainHover);
+  color: hsla(222, 63%, 34%, 1);
+  background-color: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-30:active {
-  color: var(--admin-ui-foreground-listBoxItem-mainPressed);
-  background-color: var(--admin-ui-background-listBoxItem-mainPressed);
+  color: hsla(222, 63%, 25%, 1);
+  background-color: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-30:disabled {

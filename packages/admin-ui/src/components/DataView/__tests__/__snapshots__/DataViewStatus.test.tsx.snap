@@ -85,12 +85,12 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
   line-height: 1.5;
   font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
-  color: var(--admin-ui-foreground-base);
+  color: #000000;
 }
 
 .emotion-2 {
   font: inherit;
-  color: var(--admin-ui-foreground-link);
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -101,11 +101,11 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
 }
 
 .emotion-2:visited {
-  color: var(--admin-ui-foreground-linkVisited);
+  color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-2:hover {
-  color: var(--admin-ui-foreground-linkHover);
+  color: hsla(222, 63%, 34%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -498,12 +498,12 @@ exports[`DataViewStatus should match snapshot error 1`] = `
   line-height: 1.5;
   font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
-  color: var(--admin-ui-foreground-base);
+  color: #000000;
 }
 
 .emotion-2 {
   font: inherit;
-  color: var(--admin-ui-foreground-link);
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -514,11 +514,11 @@ exports[`DataViewStatus should match snapshot error 1`] = `
 }
 
 .emotion-2:visited {
-  color: var(--admin-ui-foreground-linkVisited);
+  color: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-2:hover {
-  color: var(--admin-ui-foreground-linkHover);
+  color: hsla(222, 63%, 34%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -885,7 +885,7 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
   line-height: 1.5;
   font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
-  color: var(--admin-ui-foreground-base);
+  color: #000000;
 }
 
 .emotion-2 {
@@ -893,7 +893,7 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
   line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
-  color: var(--admin-ui-foreground-muted);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div

@@ -3,9 +3,9 @@
 exports[`RadioGroup tests should match snapshot with diferent orientations 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  background-color: var(--admin-ui-background-control-neutral);
-  border-color: var(--admin-ui-borderColor-control-neutral);
-  color: var(--admin-ui-foreground-control-neutral);
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
+  color: #FFFFFF;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -36,7 +36,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   position: absolute;
   display: block;
   border-radius: 100%;
-  background-color: var(--admin-ui-foreground-control-neutral);
+  background-color: #FFFFFF;
   opacity: 0;
   top: 0.3rem;
   width: 0.5rem;
@@ -45,29 +45,29 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--admin-ui-background-control-neutralDisabled);
-  border-color: var(--admin-ui-borderColor-control-neutralDisabled);
-  color: var(--admin-ui-foreground-control-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:disabled:after {
-  background-color: var(--admin-ui-foreground-control-neutralDisabled);
+  background-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:hover {
-  background-color: var(--admin-ui-background-control-neutralHover);
-  border-color: var(--admin-ui-borderColor-control-neutralHover);
+  background-color: hsla(0, 0%, 93%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:active {
-  background-color: var(--admin-ui-background-control-neutralPressed);
-  border-color: var(--admin-ui-borderColor-control-neutralPressed);
+  background-color: hsla(0, 0%, 73%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:checked {
-  background-color: var(--admin-ui-background-control-neutralChecked);
-  color: var(--admin-ui-foreground-control-neutralChecked);
-  border-color: var(--admin-ui-borderColor-control-neutralChecked);
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
 }
 
 .emotion-0:checked:after {
@@ -75,24 +75,24 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 }
 
 .emotion-0:checked:hover {
-  background-color: var(--admin-ui-background-control-neutralCheckedHover);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedHover);
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:checked:active {
-  background-color: var(--admin-ui-background-control-neutralCheckedPressed);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedPressed);
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:checked:disabled {
   cursor: not-allowed;
-  background-color: var(--admin-ui-background-control-neutralCheckedDisabled);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedDisabled);
-  color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:checked:disabled:after {
-  background-color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+  background-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3 {
@@ -121,7 +121,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: var(--admin-ui-foreground-muted);
+  color: hsla(0, 0%, 45%, 1);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -172,9 +172,9 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
     />
   </div>
   .emotion-0 {
-  background-color: var(--admin-ui-background-control-neutral);
-  border-color: var(--admin-ui-borderColor-control-neutral);
-  color: var(--admin-ui-foreground-control-neutral);
+  background-color: #FFFFFF;
+  border-color: hsla(0, 0%, 73%, 1);
+  color: #FFFFFF;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -205,7 +205,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   position: absolute;
   display: block;
   border-radius: 100%;
-  background-color: var(--admin-ui-foreground-control-neutral);
+  background-color: #FFFFFF;
   opacity: 0;
   top: 0.3rem;
   width: 0.5rem;
@@ -214,29 +214,29 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--admin-ui-background-control-neutralDisabled);
-  border-color: var(--admin-ui-borderColor-control-neutralDisabled);
-  color: var(--admin-ui-foreground-control-neutralDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:disabled:after {
-  background-color: var(--admin-ui-foreground-control-neutralDisabled);
+  background-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:hover {
-  background-color: var(--admin-ui-background-control-neutralHover);
-  border-color: var(--admin-ui-borderColor-control-neutralHover);
+  background-color: hsla(0, 0%, 93%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:active {
-  background-color: var(--admin-ui-background-control-neutralPressed);
-  border-color: var(--admin-ui-borderColor-control-neutralPressed);
+  background-color: hsla(0, 0%, 73%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:checked {
-  background-color: var(--admin-ui-background-control-neutralChecked);
-  color: var(--admin-ui-foreground-control-neutralChecked);
-  border-color: var(--admin-ui-borderColor-control-neutralChecked);
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
 }
 
 .emotion-0:checked:after {
@@ -244,24 +244,24 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 }
 
 .emotion-0:checked:hover {
-  background-color: var(--admin-ui-background-control-neutralCheckedHover);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedHover);
+  background-color: hsla(0, 0%, 20%, 1);
+  border-color: hsla(0, 0%, 20%, 1);
 }
 
 .emotion-0:checked:active {
-  background-color: var(--admin-ui-background-control-neutralCheckedPressed);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedPressed);
+  background-color: hsla(0, 0%, 29%, 1);
+  border-color: hsla(0, 0%, 29%, 1);
 }
 
 .emotion-0:checked:disabled {
   cursor: not-allowed;
-  background-color: var(--admin-ui-background-control-neutralCheckedDisabled);
-  border-color: var(--admin-ui-borderColor-control-neutralCheckedDisabled);
-  color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+  background-color: hsla(0, 0%, 87%, 1);
+  border-color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:checked:disabled:after {
-  background-color: var(--admin-ui-foreground-control-neutralCheckedDisabled);
+  background-color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3 {
@@ -290,7 +290,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: var(--admin-ui-foreground-muted);
+  color: hsla(0, 0%, 45%, 1);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

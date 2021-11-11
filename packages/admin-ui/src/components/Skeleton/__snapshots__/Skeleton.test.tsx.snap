@@ -26,7 +26,7 @@ exports[`Skeleton tests should match snapshot 1`] = `
   border-radius: 4px;
   -webkit-animation: animation-0 1.2s ease-in-out infinite;
   animation: animation-0 1.2s ease-in-out infinite;
-  background-image: linear-gradient(90deg, var(--admin-ui-background-skeletonMuted),  var(--admin-ui-background-skeleton), var(--admin-ui-background-skeletonMuted));
+  background-image: linear-gradient(90deg, hsla(0, 0%, 93%, 1),  hsla(0, 0%, 98%, 1), hsla(0, 0%, 93%, 1));
 }
 
 <div
@@ -56,7 +56,7 @@ exports[`Skeleton tests should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation: animation-0 1.2s ease-in-out infinite;
   animation: animation-0 1.2s ease-in-out infinite;
-  background-image: linear-gradient(90deg, var(--admin-ui-background-skeletonMuted),  var(--admin-ui-background-skeleton), var(--admin-ui-background-skeletonMuted));
+  background-image: linear-gradient(90deg, hsla(0, 0%, 93%, 1),  hsla(0, 0%, 98%, 1), hsla(0, 0%, 93%, 1));
 }
 
 <div

@@ -6,9 +6,9 @@ describe('theme', () => {
       theme: {
         global: {},
       },
-      cssVariables: {
-        default: {},
-      },
+      cssVariables: {},
+      rootStyleObject: {},
+      rootStyleString: '',
     })
   })
 
@@ -25,8 +25,7 @@ describe('theme', () => {
         space: [0, 1, 2, 3],
       },
       {
-        tokens: ['colors', 'space'],
-        disableCSSVariables: false,
+        enableModes: true,
       }
     )
 
@@ -39,23 +38,14 @@ describe('theme', () => {
           pressed: 'var(--admin-ui-colors-primary-pressed)',
         },
       },
-      space: [
-        'var(--admin-ui-space-0)',
-        'var(--admin-ui-space-1)',
-        'var(--admin-ui-space-2)',
-        'var(--admin-ui-space-3)',
-      ],
+      space: [0, 1, 2, 3],
     })
 
     expect(cssVariables).toEqual({
-      default: {
+      main: {
         '--admin-ui-colors-primary-default': 'red',
         '--admin-ui-colors-primary-hover': 'blue',
         '--admin-ui-colors-primary-pressed': 'green',
-        '--admin-ui-space-0': 0,
-        '--admin-ui-space-1': 1,
-        '--admin-ui-space-2': 2,
-        '--admin-ui-space-3': 3,
       },
     })
   })
