@@ -1,19 +1,32 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { createAtoms, createClsx } from '../runtime'
-import { styles } from '../adminUI'
 import createEmotion from '@emotion/css/create-instance'
+import { createTheme, createRuntime } from '..'
 
 export default {
   title: 'admin-ui-core/core',
 } as Meta
 
+// create a emotion instance
 const emotion = createEmotion({
   key: 'admin-ui-core',
 })
 
-const clsx = createClsx(emotion)
-const atoms = createAtoms(styles, clsx)
+// theme creation
+const { theme } = createTheme({
+  foreground: {
+    base: '#111',
+  },
+  background: {
+    muted: '#cecece',
+  },
+  borderColor: {
+    container: '#000',
+  },
+})
+
+// atoms function
+const { atoms } = createRuntime(theme, emotion)
 
 export function FrameworkdAgnostic() {
   return (
@@ -27,10 +40,10 @@ export function FrameworkdAgnostic() {
         padding: 1,
         marginY: 2,
         size: 150,
-        borderRadius: 'default',
+        borderRadius: 4,
       })}
     >
-      With csx
+      Framework Agnostic Box
     </div>
   )
 }

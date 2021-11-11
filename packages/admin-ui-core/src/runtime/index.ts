@@ -3,7 +3,9 @@ import type { CSSObject as EmotionCSSObject } from '@emotion/css'
 import { isFunction } from '@vtex/admin-ui-util'
 
 import type { StepsInstance } from '../system'
+import { buildPlugins } from '../system'
 import type { StyleObject, StyleProp, Theme, ThemeDerivedStyles } from './types'
+import { plugins } from '../plugins'
 
 export * from './types'
 
@@ -154,7 +156,19 @@ export function createAtoms(parser: StylesFunction, clsx: ClsxFn) {
   return atoms
 }
 
-export { Global, CacheProvider } from '@emotion/react'
+export function createRuntime(theme: Record<string, any>, emotion: Emotion) {
+  const steps = buildPlugins(theme, plugins)
+  const styles = createStyles(steps, theme)
+  const clsx = createClsx(emotion)
+  const atoms = createAtoms(styles, clsx)
+
+  return {
+    steps,
+    styles,
+    atoms,
+    clsx,
+  }
+}
 
 export type StylesFunction = (csx?: StyleProp) => EmotionCSSObject
 export type ClsxFn = (css?: EmotionCSSObject) => string
