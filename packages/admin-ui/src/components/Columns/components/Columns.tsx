@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { jsx } from '@vtex/admin-ui-react'
-import type { ResponsiveValue } from '@vtex/admin-ui-core'
+import type { ResponsiveValue } from '@vtex/admin-ui-react'
 
 import { ColumnsProvider } from './ColumnsContext'
 
