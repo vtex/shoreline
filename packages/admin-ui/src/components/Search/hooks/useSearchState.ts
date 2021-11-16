@@ -27,10 +27,16 @@ export function useSearchState(
 
   const showClear = useMemo(() => value.toString().length > 0, [value])
 
-  const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    baseSubmit?.()
-  }, [])
+  const onSubmit = useCallback(
+    (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault()
+      baseSubmit?.({
+        event,
+        value,
+      })
+    },
+    [value, debouncedValue]
+  )
 
   const clear = useCallback(() => {
     setValue(defaultValue)
@@ -48,11 +54,16 @@ export function useSearchState(
   }
 }
 
+export interface UseSearchStateCallback {
+  value: string
+  event: FormEvent<HTMLFormElement>
+}
+
 export interface UseSearchStateParams {
   initialValue?: string
   defaultValue?: string
   initiallyLoading?: boolean
-  onSubmit?: () => void
+  onSubmit?: (callback: UseSearchStateCallback) => void
   timeoutMs?: number
 }
 

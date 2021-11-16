@@ -144,7 +144,7 @@ Configuration params accepted by the state hook
 | initialValue     | `string`                                  | Initial input value               | 🚫       | `''`    |
 | defaultValue     | `string`                                  | Value set in the clean action     | 🚫       | `''`    |
 | initiallyLoading | `boolean`                                 | If is initially loading           | 🚫       | `false` |
-| onSubmit         | `(e: FormEvent<HTMLFormElement>) => void` | Action to take on submit the form | 🚫       | -       |
+| onSubmit         | `(callback: { value: string, event: FormEvent<HTMLFormElement> }) => void` | Action to take on submit the form | 🚫       | -       |
 | timeoutMs        | `number`                                  | Debounce timeout in ms            | 🚫       | `250`   |
 
 ### useSearchState Return

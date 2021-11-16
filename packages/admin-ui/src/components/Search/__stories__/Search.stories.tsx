@@ -28,6 +28,25 @@ export const Basic = () => {
   )
 }
 
+export const Submit = () => {
+  const state = useSearchState({
+    onSubmit({ value, event }) {
+      console.log({ value })
+      console.log({ event })
+    },
+  })
+
+  return (
+    <Search
+      csx={{ width: 500 }}
+      id="search"
+      state={state}
+      aria-label="Search"
+      placeholder="Search for a product, category or brand"
+    />
+  )
+}
+
 export const Debounce = () => {
   const state = useSearchState({
     timeoutMs: 500,
