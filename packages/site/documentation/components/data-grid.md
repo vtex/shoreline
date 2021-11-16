@@ -1085,7 +1085,7 @@ function WithFullTopbar() {
   })
 
   const paginatedItems = React.useMemo(() => {
-    pagination.paginate('reset')
+    pagination.paginate({ type: 'reset' })
     return items.filter((item) =>
       item.name.toLowerCase().startsWith(
         // use the search debounced value to
