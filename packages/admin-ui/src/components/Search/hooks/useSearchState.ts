@@ -35,7 +35,7 @@ export function useSearchState(
         value,
       })
     },
-    [value, debouncedValue]
+    [value]
   )
 
   const clear = useCallback(() => {
