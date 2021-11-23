@@ -30,6 +30,10 @@
 
 ## Getting started
 
+### Comming from 0.114.x
+
+The 0.115.0 introduced a substantial amount of changes. Use the [MIGRATION.md document](./MIGRATION.md) to help you. 
+
 ### Installation
 
 Yarn:
