@@ -14,6 +14,7 @@ import { unstable_useId as useId } from 'reakit'
 import kebabCase from 'lodash/kebabCase'
 
 import { useLocation } from '../hooks/useLocation'
+import { VersionSwitcher } from './VersionSwitcher'
 
 interface Data {
   allNavigationYaml: {
@@ -155,6 +156,7 @@ export function Sidebar() {
             {visible ? 'Collapse' : 'Expand'} Sidebar Items
           </ButtonGhost>
         </tag.div>
+        <VersionSwitcher />
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
           const paths = node.paths.map((path) => (
             <Flex
