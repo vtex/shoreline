@@ -3,8 +3,8 @@ import { createColorPalette } from './createColorPalette'
 export const colors = createColorPalette({
   id: 'main',
   colors: {
-    absoluteLight: '#FFFFFF',
-    absoluteDark: '#000000',
+    white: '#FFFFFF',
+    black: '#000000',
 
     blue05: 'hsla(222, 62%, 96%, 1)',
     blue10: 'hsla(222, 62%, 92%, 1)',
@@ -103,8 +103,8 @@ export const colors = createColorPalette({
 export const darkMatter = createColorPalette({
   id: 'darkMatter',
   colors: {
-    absoluteLight: 'hsl(60, 30%, 96%)',
-    absoluteDark: 'hsl(235, 8%, 12%)',
+    white: 'hsl(60, 30%, 96%)',
+    black: 'hsl(235, 8%, 12%)',
 
     blue05: 'hsla(225, 100%, 75%, 0.1)',
     blue10: 'hsla(225, 100%, 75%, 0.2)',

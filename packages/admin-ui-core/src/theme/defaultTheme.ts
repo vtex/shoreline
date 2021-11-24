@@ -5,16 +5,16 @@ export const defaultTheme = {
   modes: {
     darkMatter: {
       background: {
-        base: darkMatter.absoluteDark,
+        base: darkMatter.black,
         muted: darkMatter.grey10,
-        popup: darkMatter.absoluteLight,
-        popover: darkMatter.absoluteDark,
-        modal: darkMatter.absoluteDark,
+        popup: darkMatter.white,
+        popover: darkMatter.black,
+        modal: darkMatter.black,
         overlay: darkMatter.greyTransparent50,
-        container: darkMatter.absoluteDark,
-        header: darkMatter.absoluteDark,
+        container: darkMatter.black,
+        header: darkMatter.black,
         sidebar: darkMatter.grey10,
-        topbar: darkMatter.absoluteDark,
+        topbar: darkMatter.black,
         skeleton: darkMatter.grey10,
         skeletonMuted: darkMatter.grey20,
 
@@ -62,12 +62,12 @@ export const defaultTheme = {
         },
 
         listBoxItem: {
-          main: darkMatter.absoluteDark,
+          main: darkMatter.black,
           mainHover: darkMatter.blue05,
           mainPressed: darkMatter.blue10,
           mainSelected: darkMatter.blue05,
 
-          critical: darkMatter.absoluteDark,
+          critical: darkMatter.black,
           criticalHover: darkMatter.red05,
           criticalPressed: darkMatter.red10,
           criticalSelected: darkMatter.red05,
@@ -81,53 +81,53 @@ export const defaultTheme = {
         },
 
         field: {
-          neutral: darkMatter.absoluteDark,
-          neutralHover: darkMatter.absoluteDark,
-          neutralFocus: darkMatter.absoluteDark,
+          neutral: darkMatter.black,
+          neutralHover: darkMatter.black,
+          neutralFocus: darkMatter.black,
           neutralDisabled: darkMatter.grey30,
 
-          critical: darkMatter.absoluteDark,
-          criticalHover: darkMatter.absoluteDark,
-          criticalFocus: darkMatter.absoluteDark,
+          critical: darkMatter.black,
+          criticalHover: darkMatter.black,
+          criticalFocus: darkMatter.black,
           criticalDisabled: darkMatter.grey30,
         },
 
         control: {
-          neutral: darkMatter.absoluteDark,
+          neutral: darkMatter.black,
           neutralHover: darkMatter.grey20,
           neutralPressed: darkMatter.grey40,
           neutralDisabled: darkMatter.grey30,
 
-          neutralChecked: darkMatter.absoluteLight,
+          neutralChecked: darkMatter.white,
           neutralCheckedHover: darkMatter.grey70,
           neutralCheckedPressed: darkMatter.grey60,
           neutralCheckedDisabled: darkMatter.grey30,
 
-          neutralIndeterminate: darkMatter.absoluteDark,
+          neutralIndeterminate: darkMatter.black,
           neutralIndeterminateHover: darkMatter.grey20,
           neutralIndeterminatePressed: darkMatter.grey40,
           neutralIndeterminateDisabled: darkMatter.grey30,
         },
       },
       foreground: {
-        base: darkMatter.absoluteLight,
+        base: darkMatter.white,
         muted: darkMatter.grey50,
         highlight: darkMatter.lightBlue40,
-        popup: darkMatter.absoluteDark,
-        popover: darkMatter.absoluteLight,
-        modal: darkMatter.absoluteLight,
-        container: darkMatter.absoluteLight,
-        header: darkMatter.absoluteLight,
+        popup: darkMatter.black,
+        popover: darkMatter.white,
+        modal: darkMatter.white,
+        container: darkMatter.white,
+        header: darkMatter.white,
         sidebar: darkMatter.grey50,
         topbar: darkMatter.grey50,
 
         action: {
           neutral: {
-            ghost: darkMatter.absoluteLight,
+            ghost: darkMatter.white,
             ghostDisabled: darkMatter.grey40,
           },
           main: {
-            solid: darkMatter.absoluteDark,
+            solid: darkMatter.black,
             solidDisabled: darkMatter.grey50,
             soft: darkMatter.blue40,
             softDisabled: darkMatter.grey50,
@@ -135,7 +135,7 @@ export const defaultTheme = {
             textDisabled: darkMatter.grey40,
           },
           critical: {
-            solid: darkMatter.absoluteDark,
+            solid: darkMatter.black,
             solidDisabled: darkMatter.grey50,
             soft: darkMatter.red50,
             softDisabled: darkMatter.grey50,
@@ -145,7 +145,7 @@ export const defaultTheme = {
         },
 
         listBoxItem: {
-          main: darkMatter.absoluteLight,
+          main: darkMatter.white,
           mainHover: darkMatter.blue50,
           mainPressed: darkMatter.blue60,
           mainSelected: darkMatter.blue40,
@@ -168,10 +168,10 @@ export const defaultTheme = {
         },
 
         control: {
-          neutral: darkMatter.absoluteDark,
+          neutral: darkMatter.black,
           neutralDisabled: darkMatter.grey50,
 
-          neutralChecked: darkMatter.absoluteDark,
+          neutralChecked: darkMatter.black,
           neutralCheckedDisabled: darkMatter.grey50,
 
           neutralIndeterminate: darkMatter.grey60,
@@ -205,7 +205,7 @@ export const defaultTheme = {
           neutralPressed: darkMatter.grey60,
           neutralDisabled: darkMatter.grey50,
 
-          neutralChecked: darkMatter.absoluteLight,
+          neutralChecked: darkMatter.white,
           neutralCheckedHover: darkMatter.grey70,
           neutralCheckedPressed: darkMatter.grey60,
           neutralCheckedDisabled: darkMatter.grey50,
@@ -226,16 +226,16 @@ export const defaultTheme = {
     },
   },
   background: {
-    base: colors.absoluteLight,
+    base: colors.white,
     muted: colors.grey10,
-    popup: colors.absoluteDark,
-    popover: colors.absoluteLight,
-    modal: colors.absoluteLight,
+    popup: colors.black,
+    popover: colors.white,
+    modal: colors.white,
     overlay: colors.greyTransparent50,
-    container: colors.absoluteLight,
-    header: colors.absoluteLight,
+    container: colors.white,
+    header: colors.white,
     sidebar: colors.grey10,
-    topbar: colors.absoluteLight,
+    topbar: colors.white,
     skeleton: colors.grey10,
     skeletonMuted: colors.grey20,
 
@@ -283,12 +283,12 @@ export const defaultTheme = {
     },
 
     listBoxItem: {
-      main: colors.absoluteLight,
+      main: colors.white,
       mainHover: colors.blue05,
       mainPressed: colors.blue10,
       mainSelected: colors.blue05,
 
-      critical: colors.absoluteLight,
+      critical: colors.white,
       criticalHover: colors.red05,
       criticalPressed: colors.red10,
       criticalSelected: colors.red05,
@@ -302,53 +302,53 @@ export const defaultTheme = {
     },
 
     field: {
-      neutral: colors.absoluteLight,
-      neutralHover: colors.absoluteLight,
-      neutralFocus: colors.absoluteLight,
+      neutral: colors.white,
+      neutralHover: colors.white,
+      neutralFocus: colors.white,
       neutralDisabled: colors.grey30,
 
-      critical: colors.absoluteLight,
-      criticalHover: colors.absoluteLight,
-      criticalFocus: colors.absoluteLight,
+      critical: colors.white,
+      criticalHover: colors.white,
+      criticalFocus: colors.white,
       criticalDisabled: colors.grey30,
     },
 
     control: {
-      neutral: colors.absoluteLight,
+      neutral: colors.white,
       neutralHover: colors.grey20,
       neutralPressed: colors.grey40,
       neutralDisabled: colors.grey30,
 
-      neutralChecked: colors.absoluteDark,
+      neutralChecked: colors.black,
       neutralCheckedHover: colors.grey70,
       neutralCheckedPressed: colors.grey60,
       neutralCheckedDisabled: colors.grey30,
 
-      neutralIndeterminate: colors.absoluteLight,
+      neutralIndeterminate: colors.white,
       neutralIndeterminateHover: colors.grey20,
       neutralIndeterminatePressed: colors.grey40,
       neutralIndeterminateDisabled: colors.grey30,
     },
   },
   foreground: {
-    base: colors.absoluteDark,
+    base: colors.black,
     muted: colors.grey50,
     highlight: colors.lightBlue40,
-    popup: colors.absoluteLight,
-    popover: colors.absoluteDark,
-    modal: colors.absoluteDark,
-    container: colors.absoluteDark,
-    header: colors.absoluteDark,
+    popup: colors.white,
+    popover: colors.black,
+    modal: colors.black,
+    container: colors.black,
+    header: colors.black,
     sidebar: colors.grey50,
     topbar: colors.grey50,
 
     action: {
       neutral: {
-        ghost: colors.absoluteDark,
+        ghost: colors.black,
         ghostDisabled: colors.grey40,
       },
       main: {
-        solid: colors.absoluteLight,
+        solid: colors.white,
         solidDisabled: colors.grey50,
         soft: colors.blue40,
         softDisabled: colors.grey50,
@@ -356,7 +356,7 @@ export const defaultTheme = {
         textDisabled: colors.grey40,
       },
       critical: {
-        solid: colors.absoluteLight,
+        solid: colors.white,
         solidDisabled: colors.grey50,
         soft: colors.red50,
         softDisabled: colors.grey50,
@@ -366,7 +366,7 @@ export const defaultTheme = {
     },
 
     listBoxItem: {
-      main: colors.absoluteDark,
+      main: colors.black,
       mainHover: colors.blue50,
       mainPressed: colors.blue60,
       mainSelected: colors.blue40,
@@ -389,10 +389,10 @@ export const defaultTheme = {
     },
 
     control: {
-      neutral: colors.absoluteLight,
+      neutral: colors.white,
       neutralDisabled: colors.grey50,
 
-      neutralChecked: colors.absoluteLight,
+      neutralChecked: colors.white,
       neutralCheckedDisabled: colors.grey50,
 
       neutralIndeterminate: colors.grey60,
@@ -426,7 +426,7 @@ export const defaultTheme = {
       neutralPressed: colors.grey60,
       neutralDisabled: colors.grey50,
 
-      neutralChecked: colors.absoluteDark,
+      neutralChecked: colors.black,
       neutralCheckedHover: colors.grey70,
       neutralCheckedPressed: colors.grey60,
       neutralCheckedDisabled: colors.grey50,
