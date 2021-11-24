@@ -16,6 +16,7 @@ import kebabCase from 'lodash/kebabCase'
 import { useSearchContext } from './Search'
 import Logo from '../icons/Logo'
 import useLocation from '../hooks/useLocation'
+import { VersionSwitcher } from './VersionSwitcher'
 
 const query = graphql`
   query DocsQuery {
@@ -113,6 +114,8 @@ export function Sidebar() {
             {visible ? 'Collapse' : 'Expand'} All
           </Button>
         </tag.div>
+        <VersionSwitcher />
+
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
           const paths = node.paths
             .filter((path) =>

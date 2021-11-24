@@ -30,6 +30,8 @@
 
 ## Getting started
 
+> This branch keeps the 0.114.x versions of admin-ui. And [is hosted in this site](0.114.x--admin-ui.surge.sh). To migrate to the newest version of admin-ui, read the [migration document](https://github.com/vtex/onda/blob/main/MIGRATION.md).
+
 ### Installation
 
 Yarn:
