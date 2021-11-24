@@ -37,15 +37,17 @@ export function useSystem() {
 
   invariant(
     ctx,
-    'Waaaait! Something is wrong, make sure you are using the useSystem() hook under an Onda provider.'
+    'Waaaait! Something is wrong, make sure you are using the useSystem() hook under an AdminUI provider.'
   )
 
   return ctx
 }
 
-export type CreateOndaReturn = [(props: PropsWithChildren<{}>) => ReactElement]
+export type CreateAdminUIReturn = [
+  (props: PropsWithChildren<{}>) => ReactElement
+]
 
-export function createSystem(spec: SystemSpec): CreateOndaReturn {
+export function createSystem(spec: SystemSpec): CreateAdminUIReturn {
   const {
     key,
     emotionInstance,

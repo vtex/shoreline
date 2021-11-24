@@ -58,11 +58,6 @@ export const Checkbox = jsx(ReakitCheckbox)(
       borderColor: 'control.neutralPressed',
     },
 
-    '> .haha': {
-      stroke: 'azure',
-      height: '200px',
-    },
-
     ':checked': {
       bg: 'control.neutralChecked',
       color: 'control.neutralChecked',
