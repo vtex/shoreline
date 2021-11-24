@@ -4,9 +4,25 @@ import {
   CheckboxStateReturn,
   useCheckboxState,
 } from 'reakit/Checkbox'
+import type { StyleObject } from '@vtex/admin-ui-core'
 import { focusVisible } from '@vtex/admin-ui-core'
 import { jsx } from '@vtex/admin-ui-react'
 import { get } from '@vtex/admin-ui-util'
+
+const checkmark: StyleObject = {
+  content: '""',
+  display: 'block',
+  boxSizing: 'border-box',
+  position: 'absolute',
+  left: '3px',
+  top: '-1px',
+  width: '6px',
+  height: '10px',
+  borderWidth: '0 2px 2px 0',
+  borderStyle: 'solid',
+  transformOrigin: 'bottom left',
+  transform: 'rotate(45deg)',
+}
 
 export const Checkbox = jsx(ReakitCheckbox)(
   {
@@ -45,26 +61,17 @@ export const Checkbox = jsx(ReakitCheckbox)(
     ':checked': {
       bg: 'control.neutralChecked',
       color: 'control.neutralChecked',
-      borderColor: 'control.neutralChecked',
+      position: 'relative',
 
       '&:after': {
-        content: (theme) =>
-          `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='${String(
-            get(theme, 'foreground.control.neutralChecked', '')
-          ).replace(
-            /#/i,
-            '%23'
-          )}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>")`,
+        ...checkmark,
+        borderColor: (theme) => get(theme, 'foreground.control.neutralChecked'),
       },
 
       '&[disabled]:after': {
-        content: (theme) =>
-          `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' width='10' height='8' fill='none'><path d='M9 1L4 7L1 4' stroke='${String(
-            get(theme, 'foreground.control.neutralCheckedDisabled', '')
-          ).replace(
-            /#/i,
-            '%23'
-          )}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>")`,
+        ...checkmark,
+        borderColor: (theme) =>
+          get(theme, 'foreground.control.neutralCheckedDisabled'),
       },
 
       ':hover': {

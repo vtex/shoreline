@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
 import React, { cloneElement, Fragment } from 'react'
-import { useSystem } from '@vtex/admin-ui-core'
+import { useSystem } from '@vtex/admin-ui-react'
 import { merge } from '@vtex/admin-ui-util'
 import {
   IconSearch,
