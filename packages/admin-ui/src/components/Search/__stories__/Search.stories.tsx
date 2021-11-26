@@ -22,7 +22,7 @@ export const Basic = () => {
       csx={{ width: 500 }}
       id="search"
       state={state}
-      aria-label="Search"
+      aria-label="Product, category or brand"
       placeholder="Search for a product, category or brand"
     />
   )
@@ -38,6 +38,7 @@ export const Debounce = () => {
       <Search
         id="search"
         state={state}
+        aria-label="Product, category or brand"
         placeholder="Search for a product, category or brand"
       />
       <tag.div csx={{ marginTop: 4 }}>
@@ -56,6 +57,7 @@ export const Loading = () => {
       <Search
         id="search"
         state={state}
+        aria-label="Product, category or brand"
         placeholder="Search for a product, category or brand"
       />
       <Button
@@ -80,6 +82,7 @@ export const InitiallyLoading = () => {
       <Search
         id="search"
         state={state}
+        aria-label="Product, category or brand"
         placeholder="Search for a product, category or brand"
       />
       <Button
@@ -115,6 +118,7 @@ export const QueryState = () => {
           <Search
             id="search"
             state={state}
+            aria-label="Product, category or brand"
             placeholder="Search for a product, category or brand"
           />
           <tag.div csx={{ marginTop: 4 }}>

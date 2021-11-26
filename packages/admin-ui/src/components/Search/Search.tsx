@@ -1,14 +1,16 @@
 import type { ComponentPropsWithRef } from 'react'
-import React, { Fragment } from 'react'
+import React from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
 
-import type { SearchFormState } from './hooks/useSearchState'
 import { AbstractInput } from '../AbstractInput'
 import { ButtonGhost } from '../ButtonGhost'
-import { VisuallyHidden } from '../VisuallyHidden'
-import { Label } from '../Label'
 import { Spinner } from '../Spinner'
+import { VisuallyHidden } from '../VisuallyHidden'
+
+import type { SearchFormState } from './hooks/useSearchState'
+
+import style from './Search.style'
 
 /**
  * Search form
@@ -23,6 +25,12 @@ import { Spinner } from '../Spinner'
  *
  * @link [For accessibility guidelines](https://admin-ui-docs.vercel.app/form/search/#accessibility)
  */
+
+const iconByName = {
+  search: <IconSearch csx={style.search} />,
+  spinner: <Spinner csx={style.spinner} size={20} />,
+}
+
 export const Search = jsx('form')(
   {
     position: 'relative',
@@ -32,70 +40,45 @@ export const Search = jsx('form')(
     options: ['state'],
     useOptions(options: SearchOptions, props) {
       const { state } = options
+
+      const iconName = state.loading ? 'spinner' : 'search'
+      const Icon = iconByName[iconName]
+
+      const ClearButton = state.showClear ? (
+        <ButtonGhost
+          aria-label="Clear search"
+          csx={style.clearButton}
+          icon={<IconCancel />}
+          onClick={state.clear}
+          size="small"
+        />
+      ) : null
+
       const { id, placeholder, 'aria-label': label = '', ...formProps } = props
 
       return {
         ...formProps,
         onSubmit: state.onSubmit,
-        'aria-label': `${label} Form`,
+        'aria-label': label,
         role: 'search',
         children: (
-          <Fragment>
-            <VisuallyHidden>
-              <Label htmlFor={id}>{label} Input</Label>
-            </VisuallyHidden>
+          <>
             <AbstractInput
+              aria-label={label}
               placeholder={placeholder}
               id={id}
               value={state.value}
-              icon={
-                state.loading ? (
-                  <Spinner
-                    size={20}
-                    csx={{
-                      top: 0,
-                      position: 'absolute',
-                      margin: '0.625rem 0.25rem 0 0.5rem',
-                    }}
-                  />
-                ) : (
-                  <IconSearch
-                    csx={{
-                      color: 'base',
-                      margin: '0.625rem 0.25rem 0 0.5rem',
-                      top: 0,
-                    }}
-                  />
-                )
-              }
-              csx={{
-                height: '2.5rem',
-                paddingY: '0.4375rem',
-                paddingLeft: '2rem',
-                paddingRight: '2.5rem',
-                margin: 0,
-              }}
+              icon={Icon}
+              csx={style.input}
               onChange={(e) => state.setValue(e.target.value)}
-              buttonElements={
-                state.showClear ? (
-                  <ButtonGhost
-                    icon={<IconCancel />}
-                    onClick={state.clear}
-                    size="small"
-                    csx={{
-                      position: 'absolute',
-                      top: 0,
-                      right: 0,
-                      marginRight: '0.375rem',
-                    }}
-                  />
-                ) : undefined
-              }
+              buttonElements={ClearButton}
             />
             <VisuallyHidden>
-              <button type="submit">Search</button>
+              <button type="submit" tabIndex={-1}>
+                Search
+              </button>
             </VisuallyHidden>
-          </Fragment>
+          </>
         ),
       }
     },

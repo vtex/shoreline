@@ -20,6 +20,7 @@ describe('Search tests', () => {
         data-testid="search"
         id="search"
         placeholder="Placeholder"
+        aria-label="Product"
         csx={{ bg: 'azure' }}
       />
     )
@@ -28,19 +29,23 @@ describe('Search tests', () => {
   })
 
   it('should match snapshot', () => {
-    const { asFragment } = render(<StatefulSearch />)
+    const { asFragment } = render(<StatefulSearch aria-label="Product" />)
 
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('should match snapshot on loading', () => {
-    const { asFragment } = render(<StatefulSearchLoading />)
+    const { asFragment } = render(
+      <StatefulSearchLoading aria-label="Product" />
+    )
 
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('should not have a11y violations', async () => {
-    const { container } = render(<StatefulSearch id="search" />)
+    const { container } = render(
+      <StatefulSearch id="search" aria-label="Product" />
+    )
 
     const results = await axe(container)
 
@@ -49,7 +54,7 @@ describe('Search tests', () => {
 
   it('should not have a11y violations on loading', async () => {
     const { container } = render(
-      <StatefulSearchLoading id="Search" aria-label="Search Form" />
+      <StatefulSearchLoading id="Search" aria-label="Product" />
     )
 
     const results = await axe(container)
