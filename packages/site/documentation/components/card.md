@@ -7,13 +7,23 @@ path: /card/
 
 Cards are surfaces that display content and actions on a single topic.
 
-## Import
+## Usage
 
 ```jsx isStatic
 import { Card } from '@vtex/admin-ui'
 ```
 
-## Behavior
+## Alternatives
+
+[Box](/box/).
+
+## Composition
+
+| Name | Description |
+| ---- | ----------- |
+|      |             |
+
+## Examples
 
 ```jsx
 <Card>
@@ -28,6 +38,10 @@ import { Card } from '@vtex/admin-ui'
 </Card>
 ```
 
+## Accessibility
+
+_Tbd_
+
 ## Props
 
-Same as [Box](/primitives/box/).
+Same as [Box](/box/).
