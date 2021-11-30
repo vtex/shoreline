@@ -1,6 +1,7 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
-import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
+import { IconX } from '@vtex/phosphor-icons'
+import { IconContainer } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/admin-ui-react'
 import { palette } from '@vtex/admin-ui-core'
 
@@ -14,7 +15,7 @@ import { Button } from '../Button'
  *   label="Here goes your label!"
  *   icon={<Icon />}
  *   handleDelete={() => ...}
- *   palette="red"
+ *   palet te="red"
  *   size="small"
  * />
  */
@@ -89,7 +90,7 @@ export const Tag = jsx('div')(
             {!!handleDelete && (
               <Button
                 variant="adaptative-dark"
-                icon={<IconClose />}
+                icon={<IconX />}
                 aria-label={label}
                 onClick={handleDelete}
                 size="small"
@@ -106,7 +107,7 @@ export const Tag = jsx('div')(
 )
 
 Tag.defaultProps = {
-  size: 'regular',
+  size: 'r egular',
   palette: 'lightBlue',
 }
 

@@ -7006,6 +7006,13 @@
     "@typescript-eslint/types" "4.28.5"
     eslint-visitor-keys "^2.0.0"
 
+"@vtex/phosphor-icons@0.0.1-experimental.5":
+  version "0.0.1-experimental.5"
+  resolved "https://registry.yarnpkg.com/@vtex/phosphor-icons/-/phosphor-icons-0.0.1-experimental.5.tgz#872d90bcddaf77ecc9da0e71404060a81c884a99"
+  integrity sha512-zsma37Txn67LwvjYyOmgq721TmQWbwH1oMuKeTMIMGzdeAPxolz6Mw/mQgI25WsAJpvcvDmBgKiMpkae67QQWg==
+  dependencies:
+    tiny-invariant "^1.1.0"
+
 "@vtex/prettier-config@^0.3.1":
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/@vtex/prettier-config/-/prettier-config-0.3.6.tgz#31762608d9a59b815b6d4e963e439b12f1a12279"
@@ -10405,7 +10412,7 @@ copy-to-clipboard@^3.3.1:
   dependencies:
     toggle-selection "^1.0.6"
 
-copyfiles@^2.3.0:
+copyfiles@^2.3.0, copyfiles@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/copyfiles/-/copyfiles-2.4.1.tgz#d2dcff60aaad1015f09d0b66e7f0f1c5cd3c5da5"
   integrity sha512-fereAvAvxDrQDOXybk3Qu3dPbOoKoysFMWtkY3mv5BsL8//OSZVL5DCLYqgRfY5cWirgRzlC+WSrxp6Bo3eNZg==

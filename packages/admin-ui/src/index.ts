@@ -1,6 +1,6 @@
 export * from '@vtex/admin-ui-core'
-export * from '@vtex/admin-ui-icons'
 export * from '@vtex/admin-ui-react'
+export * from '@vtex/phosphor-icons'
 export * from '@vtex/admin-illustrations'
 export * from '@vtex/admin-ui-hooks'
 export * from '@vtex/admin-ui-util'

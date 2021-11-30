@@ -1,7 +1,7 @@
 import type { Ref } from 'react'
 import React, { forwardRef, useEffect, useReducer } from 'react'
 import { Input as ReakitInput } from 'reakit'
-import { IconAdd, IconRemove } from '@vtex/admin-ui-icons'
+import { IconPlus, IconMinus } from '@vtex/phosphor-icons'
 import { focusVisible } from '@vtex/admin-ui-core'
 import { useSystem } from '@vtex/admin-ui-react'
 
@@ -140,7 +140,7 @@ export const NumericStepper = forwardRef(
           <Button
             size="small"
             variant="tertiary"
-            icon={<IconRemove />}
+            icon={<IconMinus />}
             csx={{
               height: 40,
               position: 'absolute',
@@ -154,7 +154,7 @@ export const NumericStepper = forwardRef(
           <Button
             size="small"
             variant="tertiary"
-            icon={<IconAdd />}
+            icon={<IconPlus />}
             aria-label={`${label}-increase-button}`}
             csx={{
               height: 40,

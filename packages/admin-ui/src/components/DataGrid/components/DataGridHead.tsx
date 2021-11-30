@@ -1,6 +1,6 @@
 import React, { cloneElement, Fragment } from 'react'
 import { jsx, tag } from '@vtex/admin-ui-react'
-import { IconTriangle } from '@vtex/admin-ui-icons'
+import { IconTriangle } from '@vtex/phosphor-icons'
 
 import { useStateContext } from '../context'
 import { Cell } from './DataGridCell'

@@ -78,7 +78,7 @@ function Example() {
 
   return (
     <Set spacing={2} orientation="vertical" fluid>
-      <Alert tone="positive" icon={<IconSuccessColorful />} visible>
+      <Alert tone="positive" icon={<IconCheckCircle />} visible>
         Order successfully placed <Anchor>See order.</Anchor>
       </Alert>
     </Set>
@@ -145,16 +145,16 @@ You can add an icon on the left side of the `Alert`. Just use the `icon` propert
 function Example() {
   return (
     <Set spacing={2} orientation="vertical" fluid>
-      <Alert tone="info" icon={<IconHelp />} visible>
+      <Alert tone="info" icon={<IconQuestion />} visible>
         Info Alert
       </Alert>
-      <Alert tone="positive" icon={<IconSuccessColorful />} visible>
+      <Alert tone="positive" icon={<IconCheckCircle />} visible>
         Positive Alert
       </Alert>
-      <Alert tone="warning" icon={<IconWarningColorful />} visible>
+      <Alert tone="warning" icon={<IconWarningOctagon />} visible>
         Warning Alert
       </Alert>
-      <Alert tone="critical" icon={<IconErrorColorful />} visible>
+      <Alert tone="critical" icon={<IconXCircle />} visible>
         Critical Alert
       </Alert>
     </Set>
@@ -170,7 +170,7 @@ function Example() {
 | icon      | `ReactNode`                            | Icon to display                               | 🚫       | -       |
 | onDismiss | `() => void`                           | Action to dispatch on dismiss                 | 🚫       | -       |
 | visible   | `boolean`                              | Whether it's visible or not                   | 🚫       | `false` |
-| tone      | `info, positive, warning, or critical` | Tone of voice                               | 🚫       | `info`  |
+| tone      | `info, positive, warning, or critical` | Tone of voice                                 | 🚫       | `info`  |
 | children  | `ReactNode`                            | Component children                            | 🚫       | -       |
 | sticky    | `boolean`                              | Whether it's sticky or not                    | 🚫       | `false` |
 | fluid     | `boolean`                              | Whether the height is fluid on mobile devices | 🚫       | `true`  |

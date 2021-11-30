@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React, { Fragment } from 'react'
-import { IconClose } from '@vtex/admin-ui-icons'
+import { IconX } from '@vtex/phosphor-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { Flex } from '../Flex'
@@ -140,7 +140,7 @@ export const Alert = jsx('div')(
               <Button
                 variant="adaptative-dark"
                 size="small"
-                icon={<IconClose />}
+                icon={<IconX />}
                 onClick={onDismiss}
               />
             )}

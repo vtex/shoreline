@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { render, jestMatchMedia, axe } from '../../../test-utils'
 import {
-  IconErrorColorful,
+  IconXCircle,
   IconInfo,
-  IconSuccessColorful,
-  IconWarningColorful,
-} from '@vtex/admin-ui-icons'
+  IconCheckCircle,
+  IconWarningOctagon,
+} from '@vtex/phosphor-icons'
 
 import { Alert } from '../index'
 
@@ -28,13 +28,13 @@ describe('Alert', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <Fragment>
-        <Alert tone="positive" icon={<IconSuccessColorful />} visible>
+        <Alert tone="positive" icon={<IconCheckCircle />} visible>
           Order successfully placed
         </Alert>
-        <Alert tone="warning" icon={<IconWarningColorful />} visible>
+        <Alert tone="warning" icon={<IconWarningOctagon />} visible>
           This account is inactive. Check your billing for more information.
         </Alert>
-        <Alert tone="critical" icon={<IconErrorColorful />} visible>
+        <Alert tone="critical" icon={<IconXCircle />} visible>
           Somenthing went wrong. Please, try again.
         </Alert>
       </Fragment>
@@ -46,13 +46,13 @@ describe('Alert', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <Fragment>
-        <Alert tone="positive" icon={<IconSuccessColorful />} visible>
+        <Alert tone="positive" icon={<IconCheckCircle />} visible>
           Order successfully placed
         </Alert>
-        <Alert tone="warning" icon={<IconWarningColorful />} visible>
+        <Alert tone="warning" icon={<IconWarningOctagon />} visible>
           This account is inactive. Check your billing for more information.
         </Alert>
-        <Alert tone="critical" icon={<IconErrorColorful />} visible>
+        <Alert tone="critical" icon={<IconXCircle />} visible>
           Somenthing went wrong. Please, try again.
         </Alert>
       </Fragment>

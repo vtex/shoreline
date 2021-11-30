@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { axe } from 'jest-axe'
-import { IconAdd } from '@vtex/admin-ui-icons'
+import { IconPlus } from '@vtex/phosphor-icons'
 import { render, fireEvent } from '../../test-utils'
 
 import { AbstractInput, AbstractInputPassword } from './index'
@@ -26,11 +26,11 @@ describe('AbstractInput tests', () => {
           <AbstractInput value="Test1" readOnly />
           <AbstractInput onClear={() => {}} />
           <AbstractInput onClear={() => {}} value="Test2" readOnly />
-          <AbstractInput icon={<IconAdd />} />
-          <AbstractInput icon={<IconAdd />} value="Test3" readOnly />
-          <AbstractInput icon={<IconAdd />} onClear={() => {}} />
+          <AbstractInput icon={<IconPlus />} />
+          <AbstractInput icon={<IconPlus />} value="Test3" readOnly />
+          <AbstractInput icon={<IconPlus />} onClear={() => {}} />
           <AbstractInput
-            icon={<IconAdd />}
+            icon={<IconPlus />}
             onClear={() => {}}
             value="Test4"
             readOnly
@@ -38,11 +38,11 @@ describe('AbstractInput tests', () => {
           <AbstractInput suffix="Kg" />
           <AbstractInput suffix="Kg" value="Test5" readOnly />
           <AbstractInput suffix="Kg" onClear={() => {}} />
-          <AbstractInput suffix="Kg" icon={<IconAdd />} />
-          <AbstractInput suffix="Kg" icon={<IconAdd />} onClear={() => {}} />
+          <AbstractInput suffix="Kg" icon={<IconPlus />} />
+          <AbstractInput suffix="Kg" icon={<IconPlus />} onClear={() => {}} />
           <AbstractInput
             suffix="Kg"
-            icon={<IconAdd />}
+            icon={<IconPlus />}
             onClear={() => {}}
             value="Test6"
             readOnly
@@ -65,20 +65,20 @@ describe('AbstractInput tests', () => {
             aria-label="input-clear-value"
             readOnly
           />
-          <AbstractInput icon={<IconAdd />} aria-label="input-icon" />
+          <AbstractInput icon={<IconPlus />} aria-label="input-icon" />
           <AbstractInput
-            icon={<IconAdd />}
+            icon={<IconPlus />}
             value="Test3"
             aria-label="input-icon-value"
             readOnly
           />
           <AbstractInput
-            icon={<IconAdd />}
+            icon={<IconPlus />}
             onClear={() => {}}
             aria-label="input-icon-clear"
           />
           <AbstractInput
-            icon={<IconAdd />}
+            icon={<IconPlus />}
             onClear={() => {}}
             value="Test4"
             aria-label="input-icon-clear-value"
@@ -98,18 +98,18 @@ describe('AbstractInput tests', () => {
           />
           <AbstractInput
             suffix="Kg"
-            icon={<IconAdd />}
+            icon={<IconPlus />}
             aria-label="input-suffix-icon"
           />
           <AbstractInput
             suffix="Kg"
-            icon={<IconAdd />}
+            icon={<IconPlus />}
             onClear={() => {}}
             aria-label="input-suffix-icon-clear"
           />
           <AbstractInput
             suffix="Kg"
-            icon={<IconAdd />}
+            icon={<IconPlus />}
             onClear={() => {}}
             value="Test6"
             aria-label="input-suffix-icon-clear-value"
@@ -161,7 +161,7 @@ describe('AbstractInput tests', () => {
             value=""
             id="password"
             readOnly
-            icon={<IconAdd />}
+            icon={<IconPlus />}
           />
         </Fragment>
       )

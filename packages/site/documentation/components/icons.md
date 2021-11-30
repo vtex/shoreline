@@ -16,16 +16,14 @@ import { IconName } from '@vtex/admin-ui'
 
 ```jsx
 <Set>
-  <IconCard />
-  <IconPaymentMethod />
+  <IconCreditCard />
+  <IconWallet />
   {/** With directions */}
-  <IconArrow direction="up" /> {/** default */}
-  <IconArrow direction="right" />
-  <IconArrow direction="down" />
-  <IconArrow direction="left" />
-  {/** With state */}
-  <IconNotifications />
-  <IconNotifications on />
+  <IconArrowUp direction="up" /> {/** default */}
+  <IconArrowUp direction="right" />
+  <IconArrowUp direction="down" />
+  <IconArrowUp direction="left" />
+  <IconBell />
 </Set>
 ```
 

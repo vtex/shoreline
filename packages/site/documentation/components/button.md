@@ -67,7 +67,7 @@ Buttons may include an icon before or after the text or even be icon only.
 Display an icon before the text.
 
 ```jsx
-<Button icon={<IconFavorite />}>Icon start</Button>
+<Button icon={<IconHeart />}>Icon start</Button>
 ```
 
 #### Icon after
@@ -75,7 +75,7 @@ Display an icon before the text.
 Display an icon after the text.
 
 ```jsx
-<Button icon={<IconFavorite />} iconPosition="end">
+<Button icon={<IconHeart />} iconPosition="end">
   Icon start
 </Button>
 ```
@@ -85,7 +85,7 @@ Display an icon after the text.
 Display only an Icon.
 
 ```jsx
-<Button icon={<IconFavorite title="Favorite" />} aria-label="Favorite button" />
+<Button icon={<IconHeart title="Favorite" />} aria-label="Favorite button" />
 ```
 
 ### State
@@ -156,7 +156,7 @@ function Example() {
 function Example() {
   return (
     <Button
-      icon={<IconFavorite title="Favorite" />}
+      icon={<IconHeart title="Favorite" />}
       aria-label="Favorite button"
     />
   )

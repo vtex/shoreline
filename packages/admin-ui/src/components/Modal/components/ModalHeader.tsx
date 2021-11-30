@@ -1,7 +1,7 @@
 import type { ReactNode, ComponentPropsWithRef } from 'react'
 import React, { useMemo } from 'react'
 import type { StyleProp } from '@vtex/admin-ui-core'
-import { IconClose } from '@vtex/admin-ui-icons'
+import { IconX } from '@vtex/phosphor-icons'
 import { tag, jsx } from '@vtex/admin-ui-react'
 
 import { Box } from '../../Box'
@@ -82,7 +82,7 @@ export const ModalHeader = jsx('header')(
                   variant="adaptative-dark"
                   as={ModalButton}
                   closeModalOnClick
-                  icon={<IconClose />}
+                  icon={<IconX />}
                 />
               )}
             </tag.div>

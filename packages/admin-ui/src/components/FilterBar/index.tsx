@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconDuplicate, IconDelete, IconAdd } from '@vtex/admin-ui-icons'
+import { IconCopy, IconTrash, IconPlus } from '@vtex/phosphor-icons'
 
 import { Box } from '../Box'
 import { Set } from '../Set'
@@ -127,13 +127,13 @@ export function FilterBar<T, V extends { value: T }>(
                 <MenuList aria-label={`${statementMenuLabel} ${index}`}>
                   <MenuItem
                     onClick={() => duplicateStatement(index)}
-                    icon={<IconDuplicate />}
+                    icon={<IconCopy />}
                   >
                     {duplicateStatementLabel}
                   </MenuItem>
                   <MenuItem
                     onClick={() => deleteStatement(index)}
-                    icon={<IconDelete />}
+                    icon={<IconTrash />}
                   >
                     {deleteStatementLabel}
                   </MenuItem>
@@ -148,7 +148,7 @@ export function FilterBar<T, V extends { value: T }>(
         <Button
           size="small"
           variant="tertiary"
-          icon={<IconAdd />}
+          icon={<IconPlus />}
           onClick={addStatement}
         >
           {addFilterLabel}

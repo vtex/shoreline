@@ -2,7 +2,8 @@ import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import type { InputProps as ReakitInputProps } from 'reakit'
 import { Input as ReakitInput } from 'reakit'
-import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
+import { IconXCircle } from '@vtex/phosphor-icons'
+import { IconContainer } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-ui-react'
 import { Box } from '../Box'
 
@@ -119,7 +120,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
           {showClear && (
             <Button
               variant="adaptative-dark"
-              icon={<IconCancel />}
+              icon={<IconXCircle />}
               aria-label={`clear ${inputProps.id} text`}
               onClick={onClear}
               size="small"

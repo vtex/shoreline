@@ -7,7 +7,7 @@ import {
   AbstractInput,
   useSystem,
 } from '@vtex/admin-ui'
-import { IconSearch } from '@vtex/admin-ui-icons'
+import { IconMagnifyingGlass } from '@vtex/phosphor-icons'
 import { debounce } from 'lodash'
 
 interface SearchbarProps {
@@ -33,7 +33,7 @@ export function Searchbar(props: SearchbarProps) {
         <AbstractInput
           id={id}
           {...state}
-          icon={<IconSearch />}
+          icon={<IconMagnifyingGlass />}
           placeholder={placeholder}
         />
         <VisuallyHidden>

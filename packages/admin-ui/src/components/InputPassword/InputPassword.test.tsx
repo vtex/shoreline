@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, axe } from '../../test-utils'
-import { IconAdd } from '@vtex/admin-ui-icons'
+import { IconPlus } from '@vtex/phosphor-icons'
 
 import { InputPassword } from './index'
 
@@ -34,7 +34,7 @@ describe('InputPassword tests', () => {
           id="text-field-1"
         />
         <InputPassword
-          icon={<IconAdd />}
+          icon={<IconPlus />}
           charLimit={120}
           helperText="Helper Text"
           criticalText="Error Message"
@@ -61,7 +61,7 @@ describe('InputPassword tests', () => {
           id="text-field-1"
         />
         <InputPassword
-          icon={<IconAdd />}
+          icon={<IconPlus />}
           charLimit={120}
           helperText="Helper Text"
           criticalText="Error Message"

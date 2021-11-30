@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { IconFavorite } from '@vtex/admin-ui-icons'
+import { IconHeart } from '@vtex/phosphor-icons'
 
 import type { TagProps } from './index'
 import { Tag } from './index'
@@ -18,7 +18,7 @@ export const Playground: Story<TagProps> = (args) => {
 
 Playground.args = {
   label: 'Rio de Janeiro',
-  icon: <IconFavorite />,
+  icon: <IconHeart />,
 }
 
 export function Palettes() {
@@ -44,7 +44,7 @@ export function Deletable() {
 }
 
 export function WithIcon() {
-  return <Tag label="Rio de Janeiro" icon={<IconFavorite />} />
+  return <Tag label="Rio de Janeiro" icon={<IconHeart />} />
 }
 
 export const Variants = () => {
@@ -56,8 +56,8 @@ export const Variants = () => {
       </Set>
       <br />
       <Set>
-        <Tag label="Rio de Janeiro" icon={<IconFavorite />} />
-        <Tag size="small" label="Rio de Janeiro" icon={<IconFavorite />} />
+        <Tag label="Rio de Janeiro" icon={<IconHeart />} />
+        <Tag size="small" label="Rio de Janeiro" icon={<IconHeart />} />
       </Set>
       <br />
       <Set>
@@ -76,13 +76,13 @@ export const Variants = () => {
         <Tag
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
-          icon={<IconFavorite />}
+          icon={<IconHeart />}
         />
         <Tag
           size="small"
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
-          icon={<IconFavorite />}
+          icon={<IconHeart />}
         />
       </Set>
     </>

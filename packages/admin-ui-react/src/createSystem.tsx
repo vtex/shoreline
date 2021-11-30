@@ -12,10 +12,12 @@ import { Helmet } from 'react-helmet'
 import type { Emotion } from '@emotion/css/create-instance'
 import createEmotion from '@emotion/css/create-instance'
 import { CacheProvider, Global } from '@emotion/react'
+
 import { ThemeModeProvider } from './themeMode'
 
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
+import { IconProvider } from './createIcons'
 
 export interface SystemSpec {
   key?: string
@@ -106,19 +108,21 @@ export function createSystem(spec: SystemSpec): CreateAdminUIReturn {
             keyframes: emotion.keyframes,
           }}
         >
-          <Wrapper>
-            <Helmet>
-              <link
-                rel="preload"
-                href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2"
-                as="font"
-                type="font/woff2"
-                crossOrigin="anonymous"
-              />
-            </Helmet>
-            <Global styles={unstableSystem.globalStyles} />
-            {children}
-          </Wrapper>
+          <IconProvider>
+            <Wrapper>
+              <Helmet>
+                <link
+                  rel="preload"
+                  href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2"
+                  as="font"
+                  type="font/woff2"
+                  crossOrigin="anonymous"
+                />
+              </Helmet>
+              <Global styles={unstableSystem.globalStyles} />
+              {children}
+            </Wrapper>
+          </IconProvider>
         </SystemContext.Provider>
       </CacheProvider>
     )

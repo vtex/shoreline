@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import type { Meta } from '@storybook/react'
 import {
-  IconFavorite,
-  IconLink,
-  IconDelete,
-  IconShippingTruck,
-  IconAdd,
-} from '@vtex/admin-ui-icons'
+  IconHeart,
+  IconLinkSimple,
+  IconTrash,
+  IconTruck,
+  IconPlus,
+} from '@vtex/phosphor-icons'
 
 import { Menu } from './components/Menu'
 import {
@@ -32,11 +32,11 @@ export const Playground = () => {
     <Menu state={state} hideOnClick>
       <MenuButton display="menu" />
       <MenuList aria-label="Menu">
-        <MenuItem icon={<IconShippingTruck />}>Download</MenuItem>
-        <MenuItem icon={<IconLink />}>Link to</MenuItem>
-        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+        <MenuItem icon={<IconTruck />}>Download</MenuItem>
+        <MenuItem icon={<IconLinkSimple />}>Link to</MenuItem>
+        <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
         <MenuSeparator />
-        <MenuItem icon={<IconDelete />} tone="critical">
+        <MenuItem icon={<IconTrash />} tone="critical">
           Delete
         </MenuItem>
       </MenuList>
@@ -53,11 +53,11 @@ export const InitallyVisible = () => {
     <Menu state={state} hideOnClick>
       <MenuButton display="menu" />
       <MenuList aria-label="Menu">
-        <MenuItem icon={<IconShippingTruck />}>Download</MenuItem>
-        <MenuItem icon={<IconLink />}>Link to</MenuItem>
-        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+        <MenuItem icon={<IconTruck />}>Download</MenuItem>
+        <MenuItem icon={<IconLinkSimple />}>Link to</MenuItem>
+        <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
         <MenuSeparator />
-        <MenuItem icon={<IconDelete />} tone="critical">
+        <MenuItem icon={<IconTrash />} tone="critical">
           Delete
         </MenuItem>
       </MenuList>
@@ -84,11 +84,11 @@ export const WithConstraint = () => {
         </MenuButton>
         <MenuList aria-label="Menu">
           {canDownload ? (
-            <MenuItem icon={<IconAdd />}>Download</MenuItem>
+            <MenuItem icon={<IconPlus />}>Download</MenuItem>
           ) : null}
-          <MenuItem icon={<IconLink />}>Link to</MenuItem>
-          <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
-          <MenuItem icon={<IconDelete />} tone="critical">
+          <MenuItem icon={<IconLinkSimple />}>Link to</MenuItem>
+          <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
+          <MenuItem icon={<IconTrash />} tone="critical">
             Delete
           </MenuItem>
         </MenuList>

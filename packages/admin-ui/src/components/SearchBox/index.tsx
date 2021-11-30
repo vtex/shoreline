@@ -3,11 +3,12 @@ import React, { cloneElement, Fragment } from 'react'
 import { useSystem } from '@vtex/admin-ui-react'
 import { merge } from '@vtex/admin-ui-util'
 import {
-  IconSearch,
-  IconCancel,
-  IconHistory,
-  IconContainer,
-} from '@vtex/admin-ui-icons'
+  IconMagnifyingGlass,
+  IconXCircle,
+  IconClockCounterClockwise,
+} from '@vtex/phosphor-icons'
+
+import { IconContainer } from '@vtex/admin-ui-icons'
 import type { Variants } from 'framer-motion'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 
@@ -106,7 +107,7 @@ function Input(props: InputProps) {
 
   return (
     <motion.div {...comboboxProps} className={cn(style.inputContainer)} layout>
-      <IconSearch csx={style.inputIcon} />
+      <IconMagnifyingGlass csx={style.inputIcon} />
       <input
         {...inputProps}
         {...elementProps}
@@ -118,7 +119,7 @@ function Input(props: InputProps) {
         <Button
           csx={style.inputButton}
           variant="tertiary"
-          icon={<IconCancel />}
+          icon={<IconXCircle />}
           onClick={handleClear}
         />
       )}
@@ -246,7 +247,7 @@ function Suggestion(props: SuggestionProps) {
     >
       <IconContainer space="regular">
         {type === 'storage' && (
-          <IconHistory
+          <IconClockCounterClockwise
             csx={{
               marginTop: '2px',
             }}

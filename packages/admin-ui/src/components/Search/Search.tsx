@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { jsx } from '@vtex/admin-ui-react'
-import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
+import { IconMagnifyingGlass, IconXCircle } from '@vtex/phosphor-icons'
 
 import { AbstractInput } from '../AbstractInput'
 import { Button } from '../Button'
@@ -27,7 +27,7 @@ import style from './Search.style'
  */
 
 const iconByName = {
-  search: <IconSearch csx={style.search} />,
+  search: <IconMagnifyingGlass csx={style.search} />,
   spinner: <Spinner csx={style.spinner} size={20} />,
 }
 
@@ -49,7 +49,7 @@ export const Search = jsx('form')(
           variant="adaptative-dark"
           aria-label="Clear search"
           csx={style.clearButton}
-          icon={<IconCancel />}
+          icon={<IconXCircle />}
           onClick={state.clear}
           size="small"
         />

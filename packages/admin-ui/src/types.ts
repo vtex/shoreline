@@ -1,5 +1,7 @@
 import type { StyleProp } from '@vtex/admin-ui-core'
 
+import type { CsxCall } from '@vtex/admin-ui-react'
+
 export interface SystemPrimitive {
   /**
    * define component styles
@@ -16,3 +18,10 @@ export interface SystemPrimitive {
 export type SystemComponent = SystemPrimitive
 export type SystemComponentProps<T> = SystemPrimitive & OmitNotAllowedProps<T>
 export type OmitNotAllowedProps<T> = Omit<T, 'className' | 'color' | 'style'>
+
+declare module '@vtex/phosphor-icons' {
+  export interface IconOptions extends CsxCall {
+    direction?: 'up' | 'down' | 'right' | 'left'
+    title?: string
+  }
+}

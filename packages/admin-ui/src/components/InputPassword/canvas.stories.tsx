@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { IconLock } from '@vtex/admin-ui-icons'
+import { IconLock } from '@vtex/phosphor-icons'
 
 import { Box } from '../Box'
 import type { InputPasswordProps } from './index'

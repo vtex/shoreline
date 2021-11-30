@@ -1,7 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React from 'react'
 import { useSelect, UseSelectReturnValue } from 'downshift'
-import { IconCaret } from '@vtex/admin-ui-icons'
+import { IconCaretDown } from '@vtex/phosphor-icons'
 import { Box } from '../Box'
 import { forwardRef } from '@vtex/admin-ui-util'
 
@@ -33,7 +33,7 @@ export const Dropdown = forwardRef(
         <Button
           variant={variant}
           size={size}
-          icon={<IconCaret direction="down" />}
+          icon={<IconCaretDown />}
           iconPosition="end"
           {...state.getToggleButtonProps()}
           csx={csx}

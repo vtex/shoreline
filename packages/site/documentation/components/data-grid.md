@@ -865,10 +865,14 @@ function WithToolbar() {
     <DataView state={view}>
       <DataViewControls>
         <Toolbar state={toolbar}>
-          <ToolbarButton size="small" variant="text" icon={<IconImport />}>
+          <ToolbarButton
+            size="small"
+            variant="text"
+            icon={<IconArrowLineDown />}
+          >
             Import
           </ToolbarButton>
-          <ToolbarButton size="small" variant="text" icon={<IconExport />}>
+          <ToolbarButton size="small" variant="text" icon={<IconArrowLineUp />}>
             Export
           </ToolbarButton>
         </Toolbar>
@@ -1128,10 +1132,14 @@ function WithFullTopbar() {
       <DataViewControls>
         <Search id="search" placeholder="Search" state={search} />
         <Toolbar state={toolbar} aria-label="Toolbar">
-          <ToolbarButton size="small" variant="text" icon={<IconImport />}>
+          <ToolbarButton
+            size="small"
+            variant="text"
+            icon={<IconArrowLineDown />}
+          >
             Import
           </ToolbarButton>
-          <ToolbarButton size="small" variant="text" icon={<IconExport />}>
+          <ToolbarButton size="small" variant="text" icon={<IconArrowLineUp />}>
             Export
           </ToolbarButton>
         </Toolbar>
@@ -1285,7 +1293,7 @@ function Example() {
         resolver: {
           type: 'root',
           render: function RenderIcon() {
-            return <IconDrag />
+            return <IconDotsSixVertical />
           },
         },
       },

@@ -1,6 +1,6 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { IconAction, IconCaret } from '@vtex/admin-ui-icons'
+import { IconDotsThreeVertical, IconCaretDown } from '@vtex/phosphor-icons'
 import { MenuButton as ReakitMenuButton } from 'reakit/Menu'
 
 import type { ButtonProps } from '../../Button'
@@ -21,7 +21,7 @@ export const MenuButton = forwardRef(
         as={ReakitMenuButton}
         {...state}
         ref={ref}
-        icon={isActions ? <IconAction /> : <IconCaret direction="down" />}
+        icon={isActions ? <IconDotsThreeVertical /> : <IconCaretDown />}
         iconPosition={iconPosition}
         {...buttonProps}
       >

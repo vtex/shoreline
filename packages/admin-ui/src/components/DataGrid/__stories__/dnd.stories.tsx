@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 import type { DropResult } from 'react-beautiful-dnd'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import faker from 'faker'
-import { IconDrag } from '@vtex/admin-ui-icons'
+import { IconDotsSixVertical } from '@vtex/phosphor-icons'
 
 import { DataGrid } from '../index'
 import { useDataGridState } from '../hooks/useDataGridState'
@@ -40,7 +40,7 @@ export function Dnd() {
         resolver: {
           type: 'root',
           render: function RenderIcon() {
-            return <IconDrag />
+            return <IconDotsSixVertical />
           },
         },
       },

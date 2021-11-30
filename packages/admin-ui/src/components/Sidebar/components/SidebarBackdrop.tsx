@@ -1,6 +1,6 @@
 import type { Ref } from 'react'
 import React, { Fragment, forwardRef } from 'react'
-import { IconCaretSmall } from '@vtex/admin-ui-icons'
+import { IconCaretUp } from '@vtex/phosphor-icons'
 import { tag } from '@vtex/admin-ui-react'
 
 import { Button } from '../../Button'
@@ -76,10 +76,17 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           transition:
             'left 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 175ms cubic-bezier(0.4, 0.14, 0.3, 1)',
           bg: '$primary',
+          svg: {
+            width: 20,
+            height: 20,
+            minHeight: 20,
+            minWidth: 20,
+          },
         }}
         icon={
-          <IconCaretSmall
-            direction={reduced ? 'down' : 'up'}
+          <IconCaretUp
+            size={20}
+            direction={reduced ? 'right' : 'left'}
             csx={{
               display: 'flex',
               justifyContent: 'center',
