@@ -10,7 +10,7 @@ import {
   Set,
   Flex,
   IconCode,
-  IconDuplicate,
+  IconCopy,
   ToastProvider,
   Button,
 } from '@vtex/admin-ui'
@@ -108,7 +108,7 @@ export function Code(props: CodeProps) {
                     <Button
                       variant="adaptative-dark"
                       size="small"
-                      icon={<IconDuplicate />}
+                      icon={<IconCopy />}
                       onClick={handleClick}
                       disabled={copied}
                     >
@@ -306,7 +306,7 @@ function FormikPreview(props: FormikPreviewProps) {
                   {codeVisible && (
                     <Button
                       size="small"
-                      icon={<IconDuplicate />}
+                      icon={<IconCopy />}
                       onClick={handleClick}
                       disabled={copied}
                     >

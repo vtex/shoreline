@@ -53,7 +53,6 @@
     "@vtex/admin-illustrations": "^0.1.3",
     "@vtex/admin-ui-core": "^0.3.0",
     "@vtex/admin-ui-hooks": "^0.1.3",
-    "@vtex/admin-ui-icons": "^0.13.4",
     "@vtex/admin-ui-react": "^0.3.0",
     "@vtex/phosphor-icons": "0.0.1-experimental.5",
     "csstype": "^3.0.5",

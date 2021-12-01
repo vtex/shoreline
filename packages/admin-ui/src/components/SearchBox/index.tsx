@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
 import React, { cloneElement, Fragment } from 'react'
-import { useSystem } from '@vtex/admin-ui-react'
+import { useSystem, IconContainer } from '@vtex/admin-ui-react'
 import { merge } from '@vtex/admin-ui-util'
 import {
   IconMagnifyingGlass,
@@ -8,7 +8,6 @@ import {
   IconClockCounterClockwise,
 } from '@vtex/phosphor-icons'
 
-import { IconContainer } from '@vtex/admin-ui-icons'
 import type { Variants } from 'framer-motion'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 

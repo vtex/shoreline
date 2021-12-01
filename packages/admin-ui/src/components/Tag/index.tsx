@@ -1,8 +1,7 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
 import { IconX } from '@vtex/phosphor-icons'
-import { IconContainer } from '@vtex/admin-ui-icons'
-import { jsx } from '@vtex/admin-ui-react'
+import { IconContainer, jsx } from '@vtex/admin-ui-react'
 import { palette } from '@vtex/admin-ui-core'
 
 import { Button } from '../Button'

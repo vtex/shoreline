@@ -1,6 +1,4 @@
 import * as AdminUI from '@vtex/admin-ui'
-import * as AdminUIIcons from '@vtex/phosphor-icons'
-import * as AdminUICore from '@vtex/admin-ui-core'
 import * as dnd from 'react-beautiful-dnd'
 import faker from 'faker'
 import * as AdminFormik from '@vtex/admin-formik'
@@ -17,8 +15,6 @@ import {
 
 export default {
   ...AdminUI,
-  ...AdminUIIcons,
-  ...AdminUICore,
   ...AdminFormik,
   ...Formik,
   Yup,
