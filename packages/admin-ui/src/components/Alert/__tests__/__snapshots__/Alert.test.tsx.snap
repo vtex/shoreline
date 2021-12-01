@@ -26,10 +26,14 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .emotion-2 {
@@ -149,21 +153,34 @@ exports[`Alert should match snapshot 1`] = `
       >
         <svg
           class="emotion-0"
-          fill="none"
-          viewBox="0 0 24 24"
+          fill="currentColor"
+          height="20"
+          viewBox="0 0 256 256"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            clip-rule="evenodd"
-            d="M12 21C7.029 21 3 16.971 3 12C3 7.029 7.029 3 12 3C16.971 3 21 7.029 21 12C21 16.971 16.971 21 12 21Z"
-            fill="hsla(123, 41%, 37%, 1)"
-            fill-rule="evenodd"
+          <rect
+            fill="none"
+            height="256"
+            width="256"
           />
-          <path
-            d="M16 10L11 15L8 12"
-            stroke="white"
+          <polyline
+            fill="none"
+            points="172 104 113.333 160 84 132"
+            stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="1.5"
+            stroke-width="16"
+          />
+          <circle
+            cx="128"
+            cy="128"
+            fill="none"
+            r="96"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="16"
           />
         </svg>
       </div>
@@ -198,10 +215,14 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .emotion-2 {
@@ -321,8 +342,11 @@ exports[`Alert should match snapshot 1`] = `
       >
         <svg
           class="emotion-0"
-          fill="none"
-          viewBox="0 0 24 24"
+          fill="currentColor"
+          height="20"
+          viewBox="0 0 256 256"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             clip-rule="evenodd"
@@ -330,19 +354,28 @@ exports[`Alert should match snapshot 1`] = `
             fill="hsla(30, 100%, 42%, 1)"
             fill-rule="evenodd"
           />
-          <path
-            d="M12 12V7.5"
-            stroke="#000000"
+          <line
+            fill="none"
+            stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="1.5"
+            stroke-width="16"
+            x1="128"
+            x2="128"
+            y1="80"
+            y2="136"
           />
           <path
-            d="M11.999 15.5C11.861 15.5 11.749 15.612 11.75 15.75C11.75 15.888 11.862 16 12 16C12.138 16 12.25 15.888 12.25 15.75C12.25 15.612 12.138 15.5 11.999 15.5"
-            stroke="#000000"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
+            d="M164.45079,32H91.54921a8,8,0,0,0-5.65686,2.34315l-51.5492,51.5492A8,8,0,0,0,32,91.54921v72.90158a8,8,0,0,0,2.34315,5.65686l51.5492,51.5492A8,8,0,0,0,91.54921,224h72.90158a8,8,0,0,0,5.65686-2.34315l51.5492-51.5492A8,8,0,0,0,224,164.45079V91.54921a8,8,0,0,0-2.34315-5.65686l-51.5492-51.5492A8,8,0,0,0,164.45079,32Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-miterlimit="10"
+            stroke-width="16"
+          />
+          <circle
+            cx="128"
+            cy="172"
+            r="12"
           />
         </svg>
       </div>
@@ -377,10 +410,14 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .emotion-2 {
@@ -500,28 +537,47 @@ exports[`Alert should match snapshot 1`] = `
       >
         <svg
           class="emotion-0"
-          fill="none"
-          viewBox="0 0 24 24"
+          fill="currentColor"
+          height="20"
+          viewBox="0 0 256 256"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            clip-rule="evenodd"
-            d="M7.414 20.414L3.586 16.586C3.211 16.211 3 15.702 3 15.172V8.828C3 8.298 3.211 7.789 3.586 7.414L7.414 3.586C7.789 3.211 8.298 3 8.828 3H15.171C15.701 3 16.21 3.211 16.585 3.586L20.413 7.414C20.789 7.789 21 8.298 21 8.828V15.171C21 15.701 20.789 16.21 20.414 16.585L16 21H8.828C8.298 21 7.789 20.789 7.414 20.414Z"
-            fill="hsla(0, 58%, 52%, 1)"
-            fill-rule="evenodd"
+          <rect
+            fill="none"
+            height="256"
+            width="256"
           />
-          <path
-            d="M9 15L15 9"
-            stroke="white"
+          <circle
+            cx="128"
+            cy="128"
+            fill="none"
+            r="96"
+            stroke="currentColor"
+            stroke-miterlimit="10"
+            stroke-width="16"
+          />
+          <line
+            fill="none"
+            stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="1.5"
+            stroke-width="16"
+            x1="160"
+            x2="96"
+            y1="96"
+            y2="160"
           />
-          <path
-            d="M15 15L9 9"
-            stroke="white"
+          <line
+            fill="none"
+            stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="1.5"
+            stroke-width="16"
+            x1="160"
+            x2="96"
+            y1="160"
+            y2="96"
           />
         </svg>
       </div>

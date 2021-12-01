@@ -44,11 +44,10 @@ exports[`Collapsible should match snapshot 1`] = `
 }
 
 .emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
+  height: 20px;
+  width: 20px;
+  min-height: 20px;
+  max-height: 20px;
 }
 
 .emotion-2 {
@@ -89,10 +88,10 @@ exports[`Collapsible should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  min-width: 20px;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -174,15 +173,24 @@ exports[`Collapsible should match snapshot 1`] = `
           >
             <svg
               class="emotion-0"
-              fill="none"
-              viewBox="0 0 24 24"
+              fill="currentColor"
+              height="20"
+              viewBox="0 0 256 256"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M16 14L12 10L8 14"
+              <rect
+                fill="none"
+                height="256"
+                width="256"
+              />
+              <polyline
+                fill="none"
+                points="48 160 128 80 208 160"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1.5"
+                stroke-width="16"
               />
             </svg>
              Collapsible Label
@@ -251,11 +259,10 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 }
 
 .emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
+  height: 20px;
+  width: 20px;
+  min-height: 20px;
+  max-height: 20px;
 }
 
 .emotion-2 {
@@ -296,10 +303,10 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 }
 
 .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  min-width: 20px;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -381,15 +388,24 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
           >
             <svg
               class="emotion-0"
-              fill="none"
-              viewBox="0 0 24 24"
+              fill="currentColor"
+              height="20"
+              viewBox="0 0 256 256"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M16 14L12 10L8 14"
+              <rect
+                fill="none"
+                height="256"
+                width="256"
+              />
+              <polyline
+                fill="none"
+                points="48 160 128 80 208 160"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1.5"
+                stroke-width="16"
               />
             </svg>
              Collapsible Label
@@ -427,15 +443,24 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
                 >
                   <svg
                     class="emotion-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    height="20"
+                    viewBox="0 0 256 256"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M16 14L12 10L8 14"
+                    <rect
+                      fill="none"
+                      height="256"
+                      width="256"
+                    />
+                    <polyline
+                      fill="none"
+                      points="48 160 128 80 208 160"
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="1.5"
+                      stroke-width="16"
                     />
                   </svg>
                    Collapsible Label

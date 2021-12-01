@@ -91,14 +91,14 @@ exports[`Menu should match snapshot hidden 1`] = `
 }
 
 .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .emotion-13 {
@@ -223,15 +223,24 @@ exports[`Menu should match snapshot hidden 1`] = `
         >
           <svg
             class="emotion-0"
-            fill="none"
-            viewBox="0 0 24 24"
+            fill="currentColor"
+            height="20"
+            viewBox="0 0 256 256"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M16 14L12 10L8 14"
+            <rect
+              fill="none"
+              height="256"
+              width="256"
+            />
+            <polyline
+              fill="none"
+              points="208 96 128 176 48 96"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="1.5"
+              stroke-width="16"
             />
           </svg>
            Open
@@ -403,14 +412,14 @@ exports[`Menu should match snapshot visible 1`] = `
 }
 
 .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .emotion-5 {
@@ -535,15 +544,24 @@ exports[`Menu should match snapshot visible 1`] = `
         >
           <svg
             class="emotion-0"
-            fill="none"
-            viewBox="0 0 24 24"
+            fill="currentColor"
+            height="20"
+            viewBox="0 0 256 256"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M16 14L12 10L8 14"
+            <rect
+              fill="none"
+              height="256"
+              width="256"
+            />
+            <polyline
+              fill="none"
+              points="208 96 128 176 48 96"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="1.5"
+              stroke-width="16"
             />
           </svg>
            Open
