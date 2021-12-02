@@ -1,8 +1,8 @@
 import type * as CSS from 'csstype'
 import type {
-  BackgroundTokens,
-  BorderColorTokens,
-  ForegroundTokens,
+  BgTokens,
+  BorderTokens,
+  FgTokens,
   ColorTokens,
 } from '../theme/types'
 
@@ -28,7 +28,7 @@ export interface AliasesCSSProperties {
    * Shorthand for backgroundColor
    * @default transparent
    */
-  bg?: BackgroundTokens | StandardCSSProperties['backgroundColor']
+  bg?: BgTokens | StandardCSSProperties['backgroundColor']
   /**
    * Shorthand for marginLeft & marginRight
    * @default 0
@@ -89,17 +89,17 @@ export interface OverwriteCSSProperties {
    * CSS **`color`** property
    * @default currentColor
    */
-  color?: ForegroundTokens | CSS.Property.Color
+  color?: FgTokens | CSS.Property.Color
   /**
    * CSS **`backgroundColor`** property
    * @default transparent
    */
-  backgroundColor?: BackgroundTokens | CSS.Property.BackgroundColor
+  backround?: BgTokens | CSS.Property.BackgroundColor
   /**
-   * CSS **`borderColor`** property
+   * CSS **`border`** property
    * @default currentColor
    */
-  borderColor?: BorderColorTokens | CSS.Property.BorderColor
+  border?: BorderTokens | CSS.Property.BorderColor
   /**
    * CSS **`caretColor`** property
    * @default currentColor
@@ -114,22 +114,22 @@ export interface OverwriteCSSProperties {
    * CSS **`borderTopColor`** property
    * @default currentColor
    */
-  borderTopColor?: BorderColorTokens | CSS.Property.BorderTopColor
+  borderTopColor?: BorderTokens | CSS.Property.BorderTopColor
   /**
    * CSS **`borderBottomColor`** property
    * @default currentColor
    */
-  borderBottomColor?: BorderColorTokens | CSS.Property.BorderBottomColor
+  borderBottomColor?: BorderTokens | CSS.Property.BorderBottomColor
   /**
    * CSS **`borderLeftColor`** property
    * @default currentColor
    */
-  borderLeftColor?: BorderColorTokens | CSS.Property.BorderLeftColor
+  borderLeftColor?: BorderTokens | CSS.Property.BorderLeftColor
   /**
    * CSS **`borderRightColor`** property
    * @default currentColor
    */
-  borderRightColor?: BorderColorTokens | CSS.Property.BorderRightColor
+  borderRightColor?: BorderTokens | CSS.Property.BorderRightColor
   /**
    * CSS **`outlineColor`** property
    * @default currentColor

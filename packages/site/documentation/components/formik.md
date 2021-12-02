@@ -426,7 +426,7 @@ function ExampleComplete() {
           </ModalContent>
           <ModalFooter>
             <Button
-              variant="soft"
+              variant="secondary"
               onClick={() => {
                 stateModal.hide()
               }}

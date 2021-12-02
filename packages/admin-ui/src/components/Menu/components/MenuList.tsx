@@ -8,7 +8,6 @@ import { useMenuContext } from './MenuContext'
 
 export const MenuList = jsx(ReakitMenu)(
   {
-    border: 0,
     outline: 'none',
     zIndex: 999,
     display: 'flex',

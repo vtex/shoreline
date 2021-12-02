@@ -54,7 +54,7 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
                 <FormikCheckbox {...args} />
               </Box>
               <Button
-                variant="soft"
+                variant="secondary"
                 type="reset"
                 size="small"
                 onClick={() => resetForm()}
@@ -80,7 +80,7 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
                 Set the current value as initial value
               </Text>
               <Button
-                variant="soft"
+                variant="secondary"
                 size="small"
                 onClick={() =>
                   setCurrentInitialValues({ [args.name]: !values.value })

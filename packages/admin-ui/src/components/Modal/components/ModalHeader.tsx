@@ -7,7 +7,7 @@ import { tag, jsx } from '@vtex/admin-ui-react'
 import { Box } from '../../Box'
 import { useModalContext } from './ModalContext'
 import { ModalButton } from './ModalButton'
-import { ButtonGhost } from '../../ButtonGhost'
+import { Button } from '../../Button'
 
 /**
  * Header of the modal
@@ -28,8 +28,7 @@ export const ModalHeader = jsx('header')(
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderColor: 'base',
-    borderStyle: 'solid',
+    border: '$neutral',
     'button + button': {
       marginLeft: 4,
     },
@@ -46,7 +45,7 @@ export const ModalHeader = jsx('header')(
     top: 0,
     left: 0,
     right: 0,
-    bg: 'base',
+    bg: '$primary',
     zIndex: 999,
   },
   {
@@ -83,7 +82,8 @@ export const ModalHeader = jsx('header')(
             >
               {children}
               {!omitCloseButton && (
-                <ButtonGhost
+                <Button
+                  variant="adaptative-dark"
                   as={ModalButton}
                   closeModalOnClick
                   icon={<IconClose />}

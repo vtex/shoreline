@@ -2,10 +2,10 @@ import { createPlugin } from '../system'
 
 export const elevation = createPlugin({
   name: 'onda-plugin-elevation',
-  namespaces: ['shadows', 'zIndices'],
+  namespaces: ['shadow', 'zIndices'],
   rules: {
-    boxShadow: 'shadows',
-    textShadow: 'shadows',
+    boxShadow: 'shadow',
+    textShadow: 'shadow',
     zIndex: 'zIndices',
   },
 })

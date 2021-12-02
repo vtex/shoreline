@@ -74,7 +74,7 @@ export const Overridecsx: Story = () => {
         id="username"
         suffix="kg"
         icon={<IconAdd />}
-        csx={{ borderColor: 'feedback.success' }}
+        csx={{ border: '$positive' }}
       />
     </Box>
   )

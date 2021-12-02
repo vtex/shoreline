@@ -43,7 +43,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
   return (
     <Button
       ref={ref}
-      variant="text"
+      variant="tertiary"
       size="small"
       csx={merge(
         {

@@ -26,7 +26,7 @@ export function StatementDropdown<T>(props: StatementDropdownProps<T>) {
 export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
   const {
     csx,
-    variant = 'text',
+    variant = 'tertiary',
     items,
     selectedItem,
     handleItemChange,

@@ -72,7 +72,7 @@ function Example() {
   return (
     <Collapsible state={{ toggle, ...props }}>
       <CollapsibleHeader label="Actions Panel">
-        <Button variant="soft">Secondary</Button>
+        <Button variant="secondary">Secondary</Button>
         <Button onClick={toggle}>Toggle Collapsible Content</Button>
       </CollapsibleHeader>
       <CollapsibleContent>

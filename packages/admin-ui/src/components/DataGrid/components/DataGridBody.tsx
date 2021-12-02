@@ -14,7 +14,7 @@ export interface RowOptions {
 const Row = jsx('tr')(
   {
     display: 'table-row',
-    bg: 'base',
+    bg: '$primary',
     textAlign: 'left',
   },
   {
@@ -39,7 +39,7 @@ const Row = jsx('tr')(
           ? {
               cursor: 'pointer',
               ':hover': {
-                bg: 'muted',
+                bg: '$action.neutral.tertiaryHover',
                 ...csx,
               },
             }

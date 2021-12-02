@@ -4,7 +4,7 @@ import { jsx } from '@vtex/admin-ui-react'
 import { IconSearch, IconCancel } from '@vtex/admin-ui-icons'
 
 import { AbstractInput } from '../AbstractInput'
-import { ButtonGhost } from '../ButtonGhost'
+import { Button } from '../Button'
 import { Spinner } from '../Spinner'
 import { VisuallyHidden } from '../VisuallyHidden'
 
@@ -45,7 +45,8 @@ export const Search = jsx('form')(
       const Icon = iconByName[iconName]
 
       const ClearButton = state.showClear ? (
-        <ButtonGhost
+        <Button
+          variant="adaptative-dark"
           aria-label="Clear search"
           csx={style.clearButton}
           icon={<IconCancel />}

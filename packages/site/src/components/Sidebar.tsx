@@ -5,7 +5,7 @@ import {
   IconCaret,
   tag,
   IconTopic,
-  ButtonGhost,
+  Button,
   get,
   focusVisible,
 } from '@vtex/admin-ui'
@@ -143,7 +143,8 @@ export function Sidebar() {
             zIndex: 999,
           }}
         >
-          <ButtonGhost
+          <Button
+            variant="adaptative-dark"
             size="small"
             csx={{
               marginX: 2,
@@ -154,7 +155,7 @@ export function Sidebar() {
             icon={<IconTopic />}
           >
             {visible ? 'Collapse' : 'Expand'} Sidebar Items
-          </ButtonGhost>
+          </Button>
         </tag.div>
         <VersionSwitcher />
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {

@@ -24,7 +24,7 @@ export const PageTitle = jsx('div')(
           <Fragment>
             {onPopNavigation && (
               <Button
-                variant="text"
+                variant="tertiary"
                 icon={<IconArrow direction="left" />}
                 onClick={onPopNavigation}
               />

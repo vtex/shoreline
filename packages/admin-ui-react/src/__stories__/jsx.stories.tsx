@@ -29,7 +29,7 @@ export default {
 export function Test() {
   const Component = jsx(Fragment)({})
 
-  return <Component />
+  return <Component>Fragment</Component>
 }
 
 export function Plain() {
@@ -40,8 +40,8 @@ export function Plain() {
       <Div>Plain div</Div>
       <Div
         csx={{
-          bg: 'blue.default',
-          color: 'light.primary',
+          bg: '$info',
+          color: '$info',
           marginY: 2,
           size: 100,
         }}
@@ -50,14 +50,14 @@ export function Plain() {
       </Div>
       <Div
         csx={{
-          color: 'red',
+          color: '$critical',
           fontSize: 3,
         }}
         as="a"
         href="https://admin-ui-docs.vercel.app"
         target="blank"
       >
-        This should be a link
+        This should be a critical link
       </Div>
     </Fragment>
   )
@@ -85,7 +85,10 @@ export function WithFragments() {
   )
 
   return (
-    <Wrap label="Fragment" csx={{ bg: 'black', color: 'white', padding: 2 }}>
+    <Wrap
+      label="Fragment"
+      csx={{ bg: '$inverted', color: '$inverted', padding: 2 }}
+    >
       Children
     </Wrap>
   )
@@ -137,7 +140,7 @@ export function ForwardRef() {
   const ref = useRef<HTMLInputElement>(null)
 
   const Input = jsx('input')({
-    border: '1px solid #cecece',
+    border: '$form.neutral',
     paddingX: 3,
     paddingY: 2,
   })
@@ -159,7 +162,7 @@ export function DeepForwardRef() {
   const ref = useRef<HTMLInputElement>(null)
 
   const BaseInput = jsx('input')({
-    border: '1px solid #cecece',
+    border: '$form.neutral',
     paddingX: 3,
     paddingY: 2,
   })
@@ -189,17 +192,17 @@ export function Themed() {
       <Div>Plain div</Div>
       <Div
         csx={{
-          bg: 'blue.default',
-          color: 'light.primary',
+          bg: '$positive',
+          color: '$positive',
         }}
       >
         With csx
       </Div>
       <Div
         csx={{
-          color: 'red',
+          color: '$critical',
           fontSize: 3,
-          bg: 'red.secondary.default',
+          bg: '$critical',
         }}
         as="nav"
       >
@@ -216,8 +219,8 @@ export function Extend() {
   })
 
   const NegativeDiv = jsx(Div)({
-    bg: 'red.secondary',
-    color: 'red',
+    bg: '$critical',
+    color: '$critical',
   })
 
   return (
@@ -241,21 +244,21 @@ export function DoubleExtend() {
     size: 100,
   })
 
-  const Primary = jsx(Div)({
-    bg: 'blue',
-    color: 'light.primary',
+  const Info = jsx(Div)({
+    bg: '$info',
+    color: '$info',
   })
 
-  const Hoverable = jsx(Primary)({
+  const Hoverable = jsx(Info)({
     cursor: 'pointer',
     ':hover': {
-      bg: 'blue.hover',
+      bg: '$action.main.tertiaryHover',
     },
   })
 
   return (
     <Fragment>
-      <Primary>Primary</Primary>
+      <Info>Primary</Info>
       <Hoverable
         csx={{
           marginTop: 1,
@@ -264,6 +267,42 @@ export function DoubleExtend() {
         Hoverable
       </Hoverable>
     </Fragment>
+  )
+}
+
+export function InterceptVariants() {
+  const Div = jsx('div')(
+    {
+      variants: {
+        theme: {
+          primary: {
+            bg: '$primary',
+            color: '$primary',
+          },
+          inverted: {
+            bg: '$inverted',
+            color: '$inverted',
+          },
+        },
+      },
+    },
+    {
+      useOptions(_, props) {
+        const { theme = 'inverted', ...rest } = props
+
+        return {
+          theme,
+          ...rest,
+        }
+      },
+    }
+  )
+
+  return (
+    <>
+      <Div>Normal</Div>
+      {/* <Div theme="inverted">Inverted</Div> */}
+    </>
   )
 }
 

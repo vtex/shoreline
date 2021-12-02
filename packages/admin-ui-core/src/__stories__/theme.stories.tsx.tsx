@@ -17,25 +17,25 @@ const { theme, cssVariables } = createTheme(
   {
     modes: {
       dark: {
-        foreground: {
-          base: '#fff',
+        fg: {
+          primary: '#fff',
         },
-        background: {
-          muted: '#111',
+        bg: {
+          secondary: '#111',
         },
-        borderColor: {
-          container: '#1fe',
+        border: {
+          neutral: '1px solid #1fe',
         },
       },
     },
-    foreground: {
-      base: '#111',
+    fg: {
+      primary: '#111',
     },
-    background: {
-      muted: '#cecece',
+    bg: {
+      secondary: '#cecece',
     },
-    borderColor: {
-      container: '#1fe',
+    border: {
+      neutral: '1px solid #1fe',
     },
   },
   {
@@ -53,11 +53,9 @@ export function CSSVariables() {
     <div className={atoms(cssVariables.main)}>
       <div
         className={atoms({
-          bg: 'muted',
-          color: 'base',
-          borderColor: 'container',
-          borderWidth: 1,
-          borderStyle: 'solid',
+          bg: '$secondary',
+          color: '$primary',
+          border: '$neutral',
           padding: 1,
           marginY: 2,
           size: 150,
@@ -83,11 +81,9 @@ export function ModeSwitch() {
     >
       <div
         className={atoms({
-          bg: 'muted',
-          color: 'base',
-          borderColor: 'container',
-          borderWidth: 1,
-          borderStyle: 'solid',
+          bg: '$secondary',
+          color: '$primary',
+          border: '$neutral',
           padding: 1,
           marginY: 2,
           size: 150,

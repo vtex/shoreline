@@ -79,7 +79,7 @@ export const WithConstraint = () => {
         {canDownload ? 'Cannot' : 'Can'} download
       </Button>
       <Menu state={state}>
-        <MenuButton display="actions" variant="soft">
+        <MenuButton display="actions" variant="secondary">
           Post options
         </MenuButton>
         <MenuList aria-label="Menu">

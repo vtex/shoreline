@@ -26,13 +26,13 @@ const theme = {
       hover: 'red',
     },
   },
-  foreground: {
+  fg: {
     primary: {
       default: 'blue',
       hover: 'red',
     },
   },
-  background: {
+  bg: {
     primary: {
       default: 'blue',
       hover: 'red',

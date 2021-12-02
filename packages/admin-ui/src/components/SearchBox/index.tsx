@@ -117,7 +117,7 @@ function Input(props: InputProps) {
       {inputProps?.value !== '' && (
         <Button
           csx={styles.inputButton}
-          variant="text"
+          variant="tertiary"
           icon={<IconCancel />}
           onClick={handleClear}
         />

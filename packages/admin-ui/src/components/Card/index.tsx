@@ -2,11 +2,9 @@ import type { ComponentPropsWithRef } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 
 export const Card = jsx('div')({
-  bg: 'container',
-  color: 'container',
-  borderColor: 'container',
-  borderWidth: 1,
-  borderStyle: 'solid',
+  bg: '$primary',
+  color: '$primary',
+  border: '$neutral',
   borderRadius: 4,
   padding: 6,
 })

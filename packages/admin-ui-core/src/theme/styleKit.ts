@@ -49,15 +49,21 @@ function createStyleKit() {
     }
   }
 
+  function border(ct: ColorTokens, widthPx = 1) {
+    return `${widthPx}px solid ${get(colors, ct)}`
+  }
+
   return {
     ring,
     palette,
     color,
     listBoxItem,
     focusVisible,
+    border,
   }
 }
 
-const { ring, palette, focusVisible, color, listBoxItem } = createStyleKit()
+const { ring, palette, focusVisible, color, listBoxItem, border } =
+  createStyleKit()
 
-export { ring, palette, focusVisible, color, listBoxItem }
+export { ring, palette, focusVisible, color, listBoxItem, border }

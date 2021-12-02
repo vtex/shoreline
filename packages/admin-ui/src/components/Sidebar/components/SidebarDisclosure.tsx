@@ -29,7 +29,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
     >
       <Button
         ref={ref}
-        variant="text"
+        variant="tertiary"
         icon={icon}
         title={label}
         name={label}

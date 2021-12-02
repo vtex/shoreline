@@ -143,7 +143,7 @@ export const NumericStepper = forwardRef(
 
           <Button
             size="small"
-            variant="text"
+            variant="tertiary"
             icon={<IconRemove />}
             csx={{
               height: 40,
@@ -157,7 +157,7 @@ export const NumericStepper = forwardRef(
 
           <Button
             size="small"
-            variant="text"
+            variant="tertiary"
             icon={<IconAdd />}
             aria-label={`${label}-increase-button}`}
             csx={{

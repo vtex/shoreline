@@ -1,24 +1,23 @@
 import { create } from '@storybook/theming/create'
-import { theme } from '@vtex/admin-ui'
 
 export default create({
   base: 'light',
 
-  colorPrimary: theme.foreground.base,
-  colorSecondary: theme.foreground.muted,
+  colorPrimary: 'black',
+  colorSecondary: '#111',
 
   // UI
   appBg: 'white',
   appContentBg: 'white',
-  appBorderColor: theme.borderColor.base,
-  appBorderRadius: theme.borderRadius[2],
+  appBorderColor: 'black',
+  appBorderRadius: '4px',
 
   // Typography
-  fontBase: theme.fonts.sans,
-  fontCode: theme.fonts.code,
+  fontBase: 'sans-serif',
+  fontCode: 'monospace',
 
   // Text colors
-  textColor: theme.foreground.base,
+  textColor: 'black',
   textInverseColor: 'white',
 
   // Toolbar default and active colors
@@ -28,9 +27,9 @@ export default create({
 
   // Form colors
   inputBg: 'white',
-  inputBorder: theme.borderColor.base,
-  inputTextColor: theme.foreground.base,
-  inputBorderRadius: theme.borderRadius.default,
+  inputBorder: 'black',
+  inputTextColor: 'black',
+  inputBorderRadius: '4px',
 
   brandTitle: 'Admin UI',
   brandUrl: 'https://github.com/vtex/onda',
