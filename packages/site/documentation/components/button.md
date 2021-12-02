@@ -17,46 +17,32 @@ export function Example() {
 }
 ```
 
-## Alternatives
-
-- [ButtonGhost](/button-ghost/) - For complementary, less proeminent, actions.
-
 ## Examples
-
-### Tone of voice
-
-The button's [tone of voice](/foundations/colors/#tones) is either `main` (default) or `critical`, and it's adjustable using the `tone` prop.
-
-```jsx
-<Set>
-  <Button>Main</Button>
-  <Button tone="critical">Critical</Button>
-</Set>
-```
 
 ### Variant
 
 The variant defines the appearance and emphasis of the button.
 
-- Text (low emphasis): Typically used for less important actions.
-- Soft (medium emphasis): Used for more emphasis than text buttons.
-- Solid (high emphasis): Have the highest emphasis, as they use a color fill and shadow. Used for primary actions.
+- tertiary & adaptative (low emphasis): Typically used for less important actions.
+- secondary (medium emphasis): Used for more emphasis than text buttons.
+- primary (high emphasis): Have the highest emphasis, as they use a color fill and shadow. Used for primary actions.
 
 ```jsx
 <Set orientation="vertical">
   <Set>
-    <Button variant="text">Main Text</Button>
-    <Button variant="soft">Main Soft</Button>
-    <Button>Main Solid</Button>
+    <Button variant="adaptative-dark">Apdaptative</Button>
+    <Button variant="tertiary">Tertiary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="primary">Primary</Button>
   </Set>
   <Set>
-    <Button tone="critical" variant="text">
-      Critical Text
+    <Button variant="danger-tertiary">
+      Danger Tertiary
     </Button>
-    <Button tone="critical" variant="soft">
-      Critical Soft
+    <Button variant="danger-secodary">
+      Danger Secondary
     </Button>
-    <Button tone="critical">Critical Solid</Button>
+    <Button variant="danger">Danger Primary</Button>
   </Set>
 </Set>
 ```
@@ -113,10 +99,10 @@ function Example() {
   return (
     <Set>
       <Button disabled>Disabled</Button>
-      <Button variant="soft" disabled>
+      <Button variant="secondary" disabled>
         Disabled
       </Button>
-      <Button variant="text" disabled>
+      <Button variant="tertiary" disabled>
         Disabled
       </Button>
     </Set>
@@ -143,7 +129,7 @@ function Example() {
       </Button>
       <Button
         loading={loading}
-        variant="soft"
+        variant="secondary"
         onClick={() => setLoading(!loading)}
       >
         Loading
@@ -185,7 +171,7 @@ All props of `button` JSX element.
 | ------------ | ------------------- | ----------------------------------------- | -------- | --------- |
 | size         | `regular, small`    | Size of the button                        | 🚫       | `regular` |
 | tone         | `main, small`       | Tone of voice                             | 🚫       | `main`    |
-| variant      | `solid, soft, text` | Button variant                            | 🚫       | `solid`   |
+| variant      | `primary, secondary, tertiary, danger, danger-secondary, danger-tertiary, adaptative-dark, adaptative-light` | Button variant                            | 🚫       | `solid`   |
 | icon         | `ReactNode`         | Icon of the button                        | 🚫       | -         |
 | iconPosition | `start, end`        | Position of the icon                      | 🚫       | `start`   |
 | disabled     | `boolean`           | Defines if the Button is disabled         | 🚫       | `false`   |

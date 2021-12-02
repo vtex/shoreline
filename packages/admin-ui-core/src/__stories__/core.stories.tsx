@@ -14,14 +14,14 @@ const emotion = createEmotion({
 
 // theme creation
 const { theme } = createTheme({
-  foreground: {
-    base: '#111',
+  fg: {
+    primary: '#111',
   },
-  background: {
-    muted: '#cecece',
+  bg: {
+    secondary: '#cecece',
   },
-  borderColor: {
-    container: '#000',
+  border: {
+    neutral: '1px solid #000',
   },
 })
 
@@ -32,11 +32,9 @@ export function FrameworkdAgnostic() {
   return (
     <div
       className={atoms({
-        bg: 'muted',
-        color: 'base',
-        borderColor: 'container',
-        borderWidth: 1,
-        borderStyle: 'solid',
+        bg: '$secondary',
+        color: '$primary',
+        border: '$neutral',
         padding: 1,
         marginY: 2,
         size: 150,

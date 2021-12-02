@@ -58,7 +58,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
       <Button
         title="toggle sidebar collapse"
         name="toggle sidebar collapse"
-        variant="text"
+        variant="tertiary"
         csx={{
           left:
             selectedItem?.expandable && reduced

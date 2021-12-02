@@ -4,7 +4,7 @@ import { IconClose } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { Flex } from '../Flex'
-import { ButtonGhost } from '../ButtonGhost'
+import { Button } from '../Button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
 
@@ -23,8 +23,6 @@ export const Alert = jsx('div')(
     borderRadius: 'default',
     zIndex: 999,
     transition: 'pop',
-    borderStyle: 'solid',
-    borderWidth: 1,
     a: {
       fontSettings: 'medium',
     },
@@ -54,20 +52,20 @@ export const Alert = jsx('div')(
       },
       tone: {
         critical: {
-          bg: 'notification.critical',
-          borderColor: 'notification.critical',
+          bg: '$critical',
+          border: '$critical',
         },
         positive: {
-          bg: 'notification.positive',
-          borderColor: 'notification.positive',
+          bg: '$positive',
+          border: '$positive',
         },
         warning: {
-          bg: 'notification.warning',
-          borderColor: 'notification.warning',
+          bg: '$warning',
+          border: '$warning',
         },
         info: {
-          bg: 'notification.info',
-          borderColor: 'notification.info',
+          bg: '$info',
+          border: '$info',
         },
       },
       fluid: {
@@ -111,16 +109,16 @@ export const Alert = jsx('div')(
 
       const iconContainerCsx = {
         warning: {
-          color: 'notification.warning',
+          color: '$warning',
         },
         positive: {
-          color: 'notification.positive',
+          color: '$positive',
         },
         critical: {
-          color: 'notification.critical',
+          color: '$critical',
         },
         info: {
-          color: 'notification.info',
+          color: '$info',
         },
       }[tone]
 
@@ -139,7 +137,8 @@ export const Alert = jsx('div')(
             </Set>
 
             {onDismiss && (
-              <ButtonGhost
+              <Button
+                variant="adaptative-dark"
                 size="small"
                 icon={<IconClose />}
                 onClick={onDismiss}

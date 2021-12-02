@@ -70,7 +70,7 @@ describe('parse', () => {
       })
 
       expect(result).toEqual({
-        backgroundColor: 'blue',
+        background: 'blue',
       })
     })
 

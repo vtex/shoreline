@@ -198,7 +198,7 @@ function Example() {
       <Input
         buttonElements={
           <Flex justify="center" align="center">
-            <ButtonGhost icon={<IconHelp />} size="small" />
+            <Button variant="adaptative-dark" icon={<IconHelp />} size="small" />
           </Flex>
         }
         label="Label"

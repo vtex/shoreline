@@ -5,7 +5,7 @@ import { IconCaret } from '@vtex/admin-ui-icons'
 import { Disclosure as ReakitDisclosure } from 'reakit/Disclosure'
 
 import { Flex } from '../../Flex'
-import { ButtonGhost } from '../../ButtonGhost'
+import { Button } from '../../Button'
 import { useCollapsibleContext } from '../context'
 
 export const CollapsibleHeader = jsx('header')(
@@ -47,7 +47,8 @@ function Disclosure({ children }: { children: ReactNode }) {
     <ReakitDisclosure visible={visible} {...disclosureProps}>
       {(enhancedProps) => {
         return (
-          <ButtonGhost
+          <Button
+            variant="adaptative-dark"
             {...enhancedProps}
             iconPosition="start"
             icon={
@@ -60,7 +61,7 @@ function Disclosure({ children }: { children: ReactNode }) {
             }
           >
             {children}
-          </ButtonGhost>
+          </Button>
         )
       }}
     </ReakitDisclosure>

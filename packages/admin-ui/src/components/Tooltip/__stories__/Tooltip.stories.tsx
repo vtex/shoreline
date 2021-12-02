@@ -20,7 +20,7 @@ export default {
 export const Playground: Story<TooltipProps> = (args) => {
   return (
     <Tooltip {...args}>
-      <Button icon={<IconDuplicate />} variant="text" />
+      <Button icon={<IconDuplicate />} variant="tertiary" />
     </Tooltip>
   )
 }
@@ -45,7 +45,7 @@ export const ReactNodeLabel = () => {
         </Set>
       }
     >
-      <Button icon={<IconDuplicate />} variant="text" />
+      <Button icon={<IconDuplicate />} variant="tertiary" />
     </Tooltip>
   )
 }

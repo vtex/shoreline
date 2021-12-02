@@ -23,7 +23,7 @@ Playground.args = {
 export const Size: Story = () => {
   return (
     <Set>
-      <Button disabled>Regular Button</Button>
+      <Button disabled>Regular Button Disabled</Button>
       <Button size="small">Small Button</Button>
     </Set>
   )
@@ -32,16 +32,13 @@ export const Size: Story = () => {
 export const Variant: Story = () => {
   return (
     <Set orientation="vertical">
-      <Button>Solid Button</Button>
-      <Button variant="soft">Soft Button</Button>
-      <Button variant="text">Text Button</Button>
-      <Button tone="critical">Critical Solid Button</Button>
-      <Button tone="critical" variant="soft">
-        Critical Soft Button
-      </Button>
-      <Button tone="critical" variant="text">
-        Critical Text Button
-      </Button>
+      <Button>Primary Button</Button>
+      <Button variant="secondary">Secondary Button</Button>
+      <Button variant="tertiary">Tertiary Button</Button>
+      <Button variant="danger">Danger Button</Button>
+      <Button variant="danger-secondary">Danger Secondary Button</Button>
+      <Button variant="danger-tertiary">Danger Tertiary Button</Button>
+      <Button variant="adaptative-dark">Adaptative Dark Button</Button>
     </Set>
   )
 }
@@ -50,10 +47,10 @@ export const WithIcon: Story = () => {
   return (
     <Set>
       <Button icon={<IconAppStore />}>Icon Start</Button>
-      <Button icon={<IconAppStore />} iconPosition="end" variant="soft">
+      <Button icon={<IconAppStore />} iconPosition="end" variant="secondary">
         IconEnd
       </Button>
-      <Button icon={<IconAppStore title="Icon only" />} variant="text" />
+      <Button icon={<IconAppStore title="Icon only" />} variant="tertiary" />
     </Set>
   )
 }
@@ -73,7 +70,7 @@ export const Loading = () => {
       <Button
         icon={<IconAdd />}
         loading={loading}
-        tone="critical"
+        variant="danger"
         iconPosition="end"
         onClick={() => setLoading(!loading)}
       >
@@ -81,7 +78,7 @@ export const Loading = () => {
       </Button>
       <Button
         loading={loading}
-        variant="soft"
+        variant="secondary"
         onClick={() => setLoading(!loading)}
         size="small"
       >
@@ -90,21 +87,19 @@ export const Loading = () => {
       <Button
         icon={<IconAdd />}
         loading={loading}
-        tone="critical"
-        variant="soft"
+        variant="danger-secondary"
         onClick={() => setLoading(!loading)}
       />
       <Button
         loading={loading}
-        variant="text"
+        variant="tertiary"
         onClick={() => setLoading(!loading)}
       >
         Loading
       </Button>
       <Button
         loading={loading}
-        tone="critical"
-        variant="text"
+        variant="danger-tertiary"
         onClick={() => setLoading(!loading)}
       >
         Loading

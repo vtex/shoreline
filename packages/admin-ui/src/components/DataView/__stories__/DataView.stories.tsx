@@ -9,7 +9,7 @@ import {
 
 import { DataView, useDataViewState } from '../index'
 import { DataViewControls } from '../components/DataViewControls'
-import { ButtonGhost } from '../../ButtonGhost'
+import { Button } from '../../Button'
 import { Spinner } from '../../Spinner'
 import {
   Toolbar,
@@ -47,8 +47,8 @@ export function Controls() {
   return (
     <DataView state={view}>
       <DataViewControls>
-        <ButtonGhost>Export</ButtonGhost>
-        <ButtonGhost>Import</ButtonGhost>
+        <Button variant="adaptative-dark">Export</Button>
+        <Button variant="adaptative-dark">Import</Button>
       </DataViewControls>
       <p>Data View content</p>
     </DataView>
@@ -64,14 +64,22 @@ export function ToolbarControls() {
     <DataView state={view}>
       <DataViewControls>
         <Toolbar state={toolbar} aria-label="DataView Toolbar">
-          <ButtonGhost as={ToolbarButton}>Export</ButtonGhost>
-          <ButtonGhost as={ToolbarButton}>Import</ButtonGhost>
+          <Button variant="adaptative-dark" as={ToolbarButton}>
+            Export
+          </Button>
+          <Button variant="adaptative-dark" as={ToolbarButton}>
+            Import
+          </Button>
           <ToolbarItem>
             {(itemProps) => (
               <Menu state={menu}>
-                <ButtonGhost as={MenuButton} {...itemProps}>
+                <Button
+                  variant="adaptative-dark"
+                  as={MenuButton}
+                  {...itemProps}
+                >
                   More
-                </ButtonGhost>
+                </Button>
                 <MenuList aria-label="actions">
                   <MenuItem icon={<IconImport />}>Download</MenuItem>
                   <MenuItem icon={<IconLink />}>Link to</MenuItem>
@@ -112,27 +120,36 @@ export function Status() {
   return (
     <DataView state={view}>
       <DataViewControls>
-        <ButtonGhost onClick={() => view.setStatus({ type: 'ready' })}>
+        <Button
+          variant="adaptative-dark"
+          onClick={() => view.setStatus({ type: 'ready' })}
+        >
           Ready
-        </ButtonGhost>
-        <ButtonGhost onClick={() => view.setStatus({ type: 'loading' })}>
+        </Button>
+        <Button
+          variant="adaptative-dark"
+          onClick={() => view.setStatus({ type: 'loading' })}
+        >
           Loading
-        </ButtonGhost>
-        <ButtonGhost
+        </Button>
+        <Button
+          variant="adaptative-dark"
           onClick={() =>
             view.setStatus({ type: 'empty', message: 'The view is empty' })
           }
         >
           Empty
-        </ButtonGhost>
-        <ButtonGhost
+        </Button>
+        <Button
+          variant="adaptative-dark"
           onClick={() =>
             view.setStatus({ type: 'error', message: 'Something went wrong' })
           }
         >
           Error
-        </ButtonGhost>
-        <ButtonGhost
+        </Button>
+        <Button
+          variant="adaptative-dark"
           onClick={() =>
             view.setStatus({
               type: 'not-found',
@@ -141,7 +158,7 @@ export function Status() {
           }
         >
           Not found
-        </ButtonGhost>
+        </Button>
       </DataViewControls>
       {content}
     </DataView>

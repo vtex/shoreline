@@ -97,7 +97,7 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                   }}
                 >
                   <Button
-                    variant="soft"
+                    variant="secondary"
                     type="reset"
                     size="small"
                     onClick={() => resetForm()}
@@ -141,7 +141,7 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                   }}
                 >
                   <Button
-                    variant="soft"
+                    variant="secondary"
                     size="small"
                     onClick={() =>
                       setCurrentInitialValues({ [args.name]: [options[1]] })

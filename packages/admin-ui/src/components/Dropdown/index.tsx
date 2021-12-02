@@ -16,8 +16,7 @@ export const Dropdown = forwardRef(
     const {
       items,
       label,
-      tone = 'main',
-      variant = 'solid',
+      variant = 'primary',
       size = 'regular',
       state,
       renderItem = (item) => item,
@@ -36,7 +35,6 @@ export const Dropdown = forwardRef(
           <label {...state.getLabelProps()}>{label}</label>
         </VisuallyHidden>
         <Button
-          tone={tone}
           variant={variant}
           size={size}
           icon={<IconCaret direction="down" />}
@@ -106,7 +104,7 @@ export { UseSelectReturnValue as UseDropdownReturnValue }
 
 export interface DropdownProps<T>
   extends SystemComponent,
-    Pick<ButtonProps, 'tone' | 'variant' | 'size' | 'disabled'> {
+    Pick<ButtonProps, 'variant' | 'size' | 'disabled'> {
   /**
    * aria-label. will be visually hidden
    */

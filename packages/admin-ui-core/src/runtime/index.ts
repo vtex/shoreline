@@ -15,6 +15,8 @@ export * from './types'
  */
 const breakpoints = ['40em', '48em', '64em', '75em']
 
+const TOKEN_PREIFX = '$'
+
 /**
  * Available media queries mapped from the breakpoints
  */
@@ -81,12 +83,6 @@ export function createStyles(
       const mqValue = responsive[key as keyof typeof responsive]
       const token = isFunction(mqValue) ? (mqValue as Function)(theme) : mqValue
 
-      if (isFunction(token)) {
-        console.log({
-          token,
-        })
-      }
-
       if (token && typeof token === 'object') {
         cssObject[cssProperty] = styles(token as StyleObject)
         continue
@@ -94,7 +90,7 @@ export function createStyles(
 
       const rule = steps.rules.exec(cssProperty)
       const transform = steps.transforms(cssProperty)
-      const value = transform.exec(rule, token)
+      const value = transform.exec(rule, extractTokenCall(token))
 
       if (!!value && typeof value === 'object') {
         // handle default entries on rules
@@ -168,6 +164,16 @@ export function createRuntime(theme: Record<string, any>, emotion: Emotion) {
     atoms,
     clsx,
   }
+}
+
+export function isToken(token: string) {
+  return typeof token === 'string' && token.startsWith(TOKEN_PREIFX)
+}
+
+export function extractTokenCall(token: string) {
+  if (!isToken(token)) return token
+
+  return token.substring(1)
 }
 
 export type StylesFunction = (csx?: StyleProp) => EmotionCSSObject

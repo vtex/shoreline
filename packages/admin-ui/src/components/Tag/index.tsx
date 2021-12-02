@@ -4,7 +4,7 @@ import { IconClose, IconContainer } from '@vtex/admin-ui-icons'
 import { jsx } from '@vtex/admin-ui-react'
 import { palette } from '@vtex/admin-ui-core'
 
-import { ButtonGhost } from '../ButtonGhost'
+import { Button } from '../Button'
 
 /**
  * Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
@@ -87,7 +87,8 @@ export const Tag = jsx('div')(
             {icon}
             {label}
             {!!handleDelete && (
-              <ButtonGhost
+              <Button
+                variant="adaptative-dark"
                 icon={<IconClose />}
                 aria-label={label}
                 onClick={handleDelete}
