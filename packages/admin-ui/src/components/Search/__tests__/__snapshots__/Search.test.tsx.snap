@@ -47,8 +47,6 @@ exports[`Search tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
   width: 20px;
   height: 20px;
   min-height: 20px;
@@ -83,8 +81,11 @@ exports[`Search tests should match snapshot 1`] = `
     >
       <svg
         class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
+        fill="currentColor"
+        height="20"
+        viewBox="0 0 256 256"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <rect
           fill="none"
