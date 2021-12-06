@@ -49,14 +49,14 @@ export const Button = jsx(ReakitButton)(
           tone: 'critical',
           variant: 'tertiary',
         }),
-        'adaptative-dark': {
-          color: '$action.neutral.onPrimary',
-          ...style.neutralTertiary,
-        },
-        'adaptative-light': {
-          color: '$action.neutral.onInverted',
-          ...style.neutralTertiary,
-        },
+        'adaptative-dark': style.action({
+          tone: 'neutral',
+          variant: 'tertiary',
+        }),
+        'adaptative-light': style.action({
+          tone: 'neutral',
+          variant: 'tertiary',
+        }),
       },
     },
   },
