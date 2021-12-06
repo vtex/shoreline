@@ -5,11 +5,9 @@ import type { DataGridColumn } from '../typings'
 export const Cell = jsx('td')(
   {
     flex: 1,
-    borderBottomWidth: 1,
     fontSize: 1,
-    borderBottomStyle: 'solid',
-    borderBottomColor: 'base',
     display: 'table-cell',
+    borderBottom: '$neutral',
     verticalAlign: 'middle',
     paddingX: 2,
     variants: {

@@ -2,7 +2,7 @@ import type { StyleProp } from '@vtex/admin-ui-core'
 import { focusVisible } from '@vtex/admin-ui-core'
 
 type Size = 'small' | 'regular'
-type ActionTone = 'main' | 'critical'
+type ActionTone = 'main' | 'critical' | 'neutral'
 type ActionVariant = 'primary' | 'secondary' | 'tertiary'
 type IconVariant = 'none' | 'start' | 'end' | 'only'
 
@@ -17,9 +17,11 @@ export function action(options: { tone: ActionTone; variant: ActionVariant }) {
     color: `action.${tone}.${variant}`,
     bg: `action.${tone}.${variant}`,
     ':hover': {
+      color: `action.${tone}.${variant}Hover`,
       bg: `action.${tone}.${variant}Hover`,
     },
     ':active': {
+      color: `action.${tone}.${variant}Pressed`,
       bg: `action.${tone}.${variant}Pressed`,
     },
     ...focusVisible(tone),
@@ -37,17 +39,6 @@ export const baseline = css({
     bg: '$disabled',
     color: '$disabled',
   },
-})
-
-export const neutralTertiary = css({
-  bg: '$action.neutral.tertiary',
-  ':hover': {
-    bg: '$action.neutral.tertiaryHover',
-  },
-  ':active': {
-    bg: '$action.neutral.tertiaryPressed',
-  },
-  ...focusVisible('neutral'),
 })
 
 export const small = (options: { icon: IconVariant }) => {

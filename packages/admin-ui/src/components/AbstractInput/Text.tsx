@@ -38,12 +38,12 @@ export const AbstractInput = forwardRef(function AbstractInput(
     height: 48,
     paddingLeft: 3,
     paddingRight: 4,
-    bg: '$form',
+    bg: '$form.neutral',
     border: critical ? '$form.critical' : '$form.neutral',
     borderRadius: 'default',
     marginY: 1,
     fontSize: 1,
-    color: '$form',
+    color: '$form.neutral',
     outline: 0,
     transition: 'snap',
     ':hover': {
@@ -62,7 +62,6 @@ export const AbstractInput = forwardRef(function AbstractInput(
       suffix: !!suffix,
       clear: !!onClear,
     }),
-
     ...csx,
   })
 
@@ -135,7 +134,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
             <Box
               as="span"
               csx={{
-                color: '$form',
+                color: '$form.neutral',
                 borderLeft: '$form.neutral',
                 paddingTop: '14px',
                 marginTop: 'px',
