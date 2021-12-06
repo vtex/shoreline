@@ -14,13 +14,6 @@ const lightTheme = {
     overlay: colors.greyTransparent50,
     skeleton: `linear-gradient(90deg, ${colors.grey20}, ${colors.grey10})`,
 
-    form: 'transparent',
-    formHover: colors.grey20,
-    formPressed: colors.grey40,
-    formChecked: colors.black,
-    formCheckedHover: colors.grey70,
-    formCheckedPressed: colors.grey60,
-
     action: {
       neutral: {
         tertiary: 'transparent',
@@ -56,6 +49,15 @@ const lightTheme = {
         tertiarySelected: colors.red05,
       },
     },
+
+    form: {
+      neutral: 'transparent',
+      neutralHover: colors.grey20,
+      neutralPressed: colors.grey40,
+      neutralChecked: colors.black,
+      neutralCheckedHover: colors.grey70,
+      neutralCheckedPressed: colors.grey60,
+    },
   },
   fg: {
     primary: colors.black,
@@ -69,24 +71,44 @@ const lightTheme = {
 
     action: {
       neutral: {
-        onPrimary: colors.black,
-        onSecondary: colors.grey40,
-        onInverted: colors.white,
+        tertiary: colors.black,
+        tertiaryHover: colors.black,
+        tertiaryPressed: colors.black,
       },
       main: {
         primary: colors.white,
+        primaryHover: colors.white,
+        primaryPressed: colors.white,
+
         secondary: colors.blue50,
+        secondaryHover: colors.blue50,
+        secondaryPressed: colors.blue50,
+
         tertiary: colors.blue40,
+        tertiaryHover: colors.blue40,
+        tertiaryPressed: colors.blue40,
+        tertiarySelected: colors.blue40,
       },
       critical: {
         primary: colors.white,
+        primaryHover: colors.white,
+        primaryPressed: colors.white,
+
         secondary: colors.red50,
+        secondaryHover: colors.red50,
+        secondaryPressed: colors.red50,
+
         tertiary: colors.red40,
+        tertiaryHover: colors.red40,
+        tertiaryPressed: colors.red40,
+        tertiarySelected: colors.red40,
       },
     },
 
-    form: colors.black,
-    formChecked: colors.white,
+    form: {
+      neutral: colors.black,
+      neutralChecked: colors.white,
+    },
   },
   border: {
     neutral: border('grey30'),
@@ -102,7 +124,6 @@ const lightTheme = {
       neutralHover: border('grey50'),
       neutralFocus: border('grey60'),
       neutralPressed: border('grey60'),
-
       neutralChecked: border('black'),
       neutralCheckedHover: border('grey70'),
       neutralCheckedPressed: border('grey60'),
