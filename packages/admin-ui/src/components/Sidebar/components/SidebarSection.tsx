@@ -40,7 +40,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
     >
       <Text
         variant="action"
-        tone="muted"
+        tone="secondary"
         csx={{
           fontSize: '0.6875rem',
           paddingBottom: '0.8125rem',

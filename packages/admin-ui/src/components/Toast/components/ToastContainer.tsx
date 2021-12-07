@@ -17,23 +17,23 @@ export const ToastContainer = jsx('div')({
   pointerEvents: 'all',
   overflow: 'hidden',
   paddingY: '4',
-  color: 'dark.primary',
+  color: '$primary',
   borderRadius: 'default',
   variants: {
     tone: {
       critical: {
-        bg: 'notification.critical',
-        borderColor: 'notification.critical',
+        bg: '$critical',
+        border: '$critical',
       },
       positive: {
-        bg: 'notification.positive',
-        borderColor: 'notification.positive',
+        bg: '$positive',
+        border: '$positive',
       },
       warning: {
-        bg: 'notification.warning',
-        borderColor: 'notification.warning',
+        bg: '$warning',
+        border: '$warning',
       },
-      info: { bg: 'notification.info', borderColor: 'notification.info' },
+      info: { bg: '$info', border: '$info' },
     },
   },
 })

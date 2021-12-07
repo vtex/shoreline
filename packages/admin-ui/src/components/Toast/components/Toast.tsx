@@ -21,7 +21,7 @@ const icons = {
   positive: <IconSuccessColorful />,
   warning: <IconWarningColorful />,
   critical: <IconErrorColorful />,
-  info: <IconNotifications csx={{ color: 'notification.info' }} />,
+  info: <IconNotifications csx={{ color: '$info' }} />,
 }
 
 export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
@@ -83,7 +83,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
                   remove()
                   action.onClick()
                 }}
-                csx={{ color: 'action.main.text' }}
+                csx={{ color: '$action.main.tertiary' }}
               >
                 {action.label}
               </Button>

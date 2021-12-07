@@ -12,8 +12,7 @@ const lightTheme = {
     info: colors.lightBlue10,
     inverted: colors.black,
     overlay: colors.greyTransparent50,
-    skeleton: `linear-gradient(90deg, ${colors.grey20}, ${colors.grey10})`,
-
+    skeleton: `linear-gradient(90deg, ${colors.grey20}, ${colors.grey10}), ${colors.grey20}`,
     action: {
       neutral: {
         tertiary: 'transparent',
@@ -62,7 +61,7 @@ const lightTheme = {
   fg: {
     primary: colors.black,
     secondary: colors.grey50,
-    disabled: colors.grey30,
+    disabled: colors.grey50,
     inverted: colors.white,
     positive: colors.green40,
     info: colors.lightBlue40,
@@ -112,7 +111,7 @@ const lightTheme = {
   },
   border: {
     neutral: border('grey30'),
-    mainSelected: border('blue40'),
+    mainSelected: border('blue40', 2),
     positive: border('green30'),
     info: border('lightBlue30'),
     critical: border('red30'),

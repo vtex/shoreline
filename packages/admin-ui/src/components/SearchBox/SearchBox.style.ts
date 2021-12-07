@@ -1,47 +1,46 @@
 import type { StyleObject } from '@vtex/admin-ui-core'
 
-function styles(csx: StyleObject): StyleObject {
+function css(csx: StyleObject): StyleObject {
   return csx
 }
 
 const typography = {
-  title: styles({
+  title: css({
     fontFamily: 'sans',
     fontSize: '1.2rem',
     fontSettings: 'regular',
   }),
-  body: styles({
+  body: css({
     fontFamily: 'sans',
     fontSize: '1rem',
     fontSettings: 'regular',
   }),
 }
 
-const scrollbar = styles({
+const scrollbar = css({
   scrollbarWidth: 'thin',
-  scrollbarColor: 'base',
+  scrollbarColor: '$primary',
   '::-webkit-scrollbar': {
     width: '8px',
   },
   '::-webkit-scrollbar-thumb': {
-    backgroundColor: 'base',
+    bg: '$primary',
     borderRadius: '6px',
     border: '2px solid',
-    color: 'muted',
+    color: '$secondary',
   },
 })
 
-const box = styles({
-  bg: 'field.neutral',
+const box = css({
+  bg: '$form.neutral',
   borderRadius: 4,
-  border: '1px solid',
-  borderColor: 'field.neutral',
+  border: '$neutral',
   boxShadow: '0px 20px 40px rgba(0,0,0,.24)',
 })
 
 const menu = (scrollable: boolean) =>
-  styles({
-    bg: 'base',
+  css({
+    bg: '$primary',
     listStyle: 'none',
     width: '100%',
     maxHeight: 400,
@@ -52,7 +51,7 @@ const menu = (scrollable: boolean) =>
   })
 
 const option = (highlighted: boolean) =>
-  styles({
+  css({
     ...typography.body,
     p: {
       ...typography.body,
@@ -68,22 +67,26 @@ const option = (highlighted: boolean) =>
       border: 'none',
       marginBottom: 2,
     },
-    bg: highlighted ? 'listBoxItem.mainSelected' : 'listBoxItem.main',
-    color: highlighted ? 'listBoxItem.mainSelected' : 'listBoxItem.main',
+    bg: highlighted ? '$action.main.tertiarySelected' : '$action.main.tertiary',
+    color: highlighted
+      ? '$action.main.tertiarySelected'
+      : '$action.main.tertiary',
     svg: {
-      color: highlighted ? 'listBoxItem.mainSelected' : 'listBoxItem.main',
+      color: highlighted
+        ? '$action.main.tertiarySelected'
+        : '$action.main.tertiary',
     },
   })
 
-const inputContainer = styles({
+const inputContainer = css({
   position: 'relative',
 })
 
 const input = (open: boolean, standalone: boolean) =>
-  styles({
+  css({
     ...typography.title,
-    bg: 'field.neutral',
-    color: 'field.neutral',
+    bg: '$form.neutral',
+    color: '$form.neutral',
     height: 64,
     width: '100%',
     paddingX: 56,
@@ -98,29 +101,29 @@ const input = (open: boolean, standalone: boolean) =>
     border: !standalone && open ? 'divider-bottom' : 'none',
   })
 
-const inputIcon = styles({
-  color: 'base',
+const inputIcon = css({
+  color: '$primary',
   size: 28,
   position: 'absolute',
   top: '18px',
   left: 4,
 })
 
-const inputButton = styles({
+const inputButton = css({
   position: 'absolute',
   right: 4,
   top: 3,
-  color: 'muted',
+  color: '$secondary',
 })
 
-const label = styles({
+const label = css({
   paddingLeft: 3,
-  color: 'muted',
+  color: '$secondary',
   fontSize: 0,
   marginY: 2,
 })
 
-const footer = styles({
+const footer = css({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -129,19 +132,19 @@ const footer = styles({
   height: 40,
   textAlign: 'center',
   border: 'divider-top',
-  bg: 'sidebar.light',
+  bg: '$primary',
   borderBottomLeftRadius: 4,
   borderBottomRightRadius: 4,
   'div + div': {
     marginLeft: 5,
   },
-  color: 'muted',
+  color: '$secondary',
 })
 
-const kbd = styles({
-  bg: 'muted',
-  color: 'muted',
-  borderColor: 'muted',
+const kbd = css({
+  bg: '$secondary',
+  color: '$secondary',
+  border: '$neutral',
   borderWidth: '1px',
   borderStyle: 'solid',
   borderRadius: 4,
@@ -155,23 +158,23 @@ const kbd = styles({
     '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
 })
 
-const emptyContainer = styles({
+const emptyContainer = css({
   textAlign: 'center',
   marginY: 6,
   border: 'none',
 })
 
-const emptyTitle = styles({
+const emptyTitle = css({
   color: 'base',
   fontSize: 1,
 })
 
-const emptySubtitle = styles({
-  color: 'muted',
+const emptySubtitle = css({
+  color: '$secondary',
   fontSize: 0,
 })
 
-export default {
+export {
   box,
   menu,
   option,
