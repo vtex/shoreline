@@ -61,7 +61,15 @@ export function FilterBar<T, V extends { value: T }>(
   } = props
 
   return (
-    <Box csx={{ border: 'default', bg: 'muted', ...csx }} {...htmlProps}>
+    <Box
+      csx={{
+        border: '$neutral',
+        bg: '$secondary',
+        borderRadius: 'default',
+        ...csx,
+      }}
+      {...htmlProps}
+    >
       <Content empty={statements.length === 0} label={label}>
         {statements.map((statement, index) => {
           return (
