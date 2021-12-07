@@ -13,8 +13,8 @@ import { PageHeaderContext } from './PageHeaderContext'
  */
 export const PageHeader = jsx('header')(
   {
-    bg: 'header',
-    color: 'header',
+    bg: '$primary',
+    color: '$primary',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',

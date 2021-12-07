@@ -39,7 +39,7 @@ export function Patterns() {
 
 export function Csx() {
   return (
-    <List style="circle" csx={{ bg: 'muted' }}>
+    <List style="circle" csx={{ bg: '$secondary' }}>
       <List.Item>Coffee Primary</List.Item>
       <List.Item>Juice</List.Item>
       <List.Item>Tea</List.Item>

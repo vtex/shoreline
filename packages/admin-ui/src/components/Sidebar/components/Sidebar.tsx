@@ -2,6 +2,8 @@ import type { ReactElement, Ref } from 'react'
 import React, { Children, cloneElement, Fragment, forwardRef } from 'react'
 import { tag } from '@vtex/admin-ui-react'
 import { CompositeGroup } from 'reakit/Composite'
+import { theme } from '@vtex/admin-ui-core'
+import { get } from '@vtex/admin-ui-util'
 
 import type { BoxProps } from '../../Box'
 import { SidebarBackdrop } from './SidebarBackdrop'
@@ -60,14 +62,14 @@ export const Sidebar = forwardRef(function Sidebar(
           maxWidth: SCALES.MAX_SIDEBAR_WIDTH,
           minWidth: SCALES.FIXED_AREA_WIDTH,
           outline: 'none',
-          borderRight: '1px solid',
-          borderColor: 'sidebar',
-          bg: 'sidebar',
+          borderRight: '$neutral',
+          bg: '$primary',
           boxShadow:
             state.selectedItem?.expandable && state.layout.reduced
               ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
               : 'unset',
           ...rootProps.csx,
+          '--admin-ui-fg-action-main-tertiary': get(theme, 'fg.secondary', ''),
         }}
         {...rootProps}
       >
@@ -117,7 +119,7 @@ export const Sidebar = forwardRef(function Sidebar(
       </tag.div>
       <tag.div
         csx={{
-          bg: 'sidebar',
+          bg: '$secondary',
           width: '3.4375rem',
           top: 0,
           bottom: 0,

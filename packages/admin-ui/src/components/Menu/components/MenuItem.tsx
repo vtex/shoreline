@@ -2,8 +2,8 @@ import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
 import { jsx, tag } from '@vtex/admin-ui-react'
 import { MenuItem as ReakitMenuItem } from 'reakit/Menu'
-import { focusVisible } from '@vtex/admin-ui-core'
 
+import * as style from '../Menu.style'
 import { useMenuContext } from './MenuContext'
 
 /**
@@ -26,65 +26,11 @@ import { useMenuContext } from './MenuContext'
  */
 export const MenuItem = jsx(ReakitMenuItem)(
   {
-    marginY: '2px',
-    paddingX: 1,
-    fontSize: 1,
-    border: 'none',
-    textTransform: 'initial',
-    width: 'full',
-    div: {
-      justifyContent: 'flex-start',
-    },
-    height: 32,
-    svg: {
-      margin: 1,
-      size: 20,
-      minWidth: 20,
-      minHeight: 20,
-      marginLeft: 0,
-      marginRight: 2,
-    },
-    fontFamily: 'sans',
-    fontSettings: 'regular',
-    borderRadius: 'default',
-    cursor: 'pointer',
-    position: 'relative',
+    ...style.item,
     variants: {
       tone: {
-        main: {
-          ...focusVisible('main'),
-          bg: 'listBoxItem.main',
-          color: 'listBoxItem.main',
-          ':hover': {
-            color: 'listBoxItem.mainHover',
-            bg: 'listBoxItem.mainHover',
-          },
-          ':active': {
-            color: 'listBoxItem.mainPressed',
-            bg: 'listBoxItem.mainPressed',
-          },
-          ':disabled': {
-            color: 'listBoxItem.mainDisabled',
-            bg: 'listBoxItem.mainDisabled',
-          },
-        },
-        critical: {
-          ...focusVisible('critical'),
-          bg: 'listBoxItem.critical',
-          color: 'listBoxItem.critical',
-          ':hover': {
-            color: 'listBoxItem.criticalHover',
-            bg: 'listBoxItem.criticalHover',
-          },
-          ':active': {
-            color: 'listBoxItem.criticalPressed',
-            bg: 'listBoxItem.criticalPressed',
-          },
-          ':disabled': {
-            color: 'listBoxItem.criticalDisabled',
-            bg: 'listBoxItem.criticalDisabled',
-          },
-        },
+        main: style.itemVariant('main'),
+        critical: style.itemVariant('critical'),
       },
     },
   },

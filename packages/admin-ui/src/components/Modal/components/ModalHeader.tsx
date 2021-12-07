@@ -28,16 +28,12 @@ export const ModalHeader = jsx('header')(
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    border: '$neutral',
+    borderBottom: '$neutral',
     'button + button': {
       marginLeft: 4,
     },
     paddingY: 4,
     paddingX: 6,
-    borderTopWidth: '0px',
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
-    borderBottomWidth: 1,
     h1: {
       lineHeight: 0,
     },
