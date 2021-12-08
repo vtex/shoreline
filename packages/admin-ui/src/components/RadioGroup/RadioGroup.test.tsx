@@ -35,10 +35,7 @@ describe('RadioGroup tests', () => {
       </RadioState>
     )
 
-    expect(getByTestId('radio-group')).toHaveStyleRule(
-      'background-color',
-      'azure'
-    )
+    expect(getByTestId('radio-group')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot with diferent orientations', () => {

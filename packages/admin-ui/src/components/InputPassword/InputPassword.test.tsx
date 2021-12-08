@@ -9,7 +9,7 @@ describe('InputPassword tests', () => {
     const { getByTestId } = render(
       <InputPassword
         data-testid="text-field"
-        csx={{ backgroundColor: 'coral' }}
+        csx={{ bg: 'coral' }}
         value=""
         onChange={() => {}}
         label="TextField label"
@@ -19,10 +19,7 @@ describe('InputPassword tests', () => {
       />
     )
 
-    expect(getByTestId('text-field')).toHaveStyleRule(
-      'background-color',
-      'coral'
-    )
+    expect(getByTestId('text-field')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

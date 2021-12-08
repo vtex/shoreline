@@ -24,17 +24,15 @@ exports[`Toast should match snapshot 1`] = `
   height: auto;
   max-height: 4.5rem;
   padding: 1rem;
-  box-shadow: 0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05);
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 4px;
-  border-color: hsla(206, 63%, 72%, 1);
+  box-shadow: subtle;
+  border: 1px solid hsla(206, 63%, 72%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: dark.primary;
-  background-color: hsla(206, 61%, 92%, 1);
+  color: #000000;
+  border-radius: 4px;
+  background: hsla(206, 61%, 92%, 1);
 }
 
 .emotion-2 {
@@ -80,8 +78,6 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -93,6 +89,23 @@ exports[`Toast should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: hsla(222, 63%, 43%, 1);
+  background: transparent;
+}
+
+.emotion-5:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-5:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-5:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -105,17 +118,12 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
-.emotion-5:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-5:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-5:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+.emotion-5 svg {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
 }
 
 .emotion-4 {
@@ -156,8 +164,6 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -169,6 +175,23 @@ exports[`Toast should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #000000;
+  background: transparent;
+}
+
+.emotion-9:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-9:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-9:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -179,19 +202,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-9:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-9:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-9:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-9 svg {
@@ -338,8 +348,6 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -351,6 +359,23 @@ exports[`Toast should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: hsla(222, 63%, 43%, 1);
+  background: transparent;
+}
+
+.emotion-5:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-5:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-5:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -363,17 +388,12 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
-.emotion-5:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-5:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-5:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+.emotion-5 svg {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
 }
 
 .emotion-4 {
@@ -414,8 +434,6 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -427,6 +445,23 @@ exports[`Toast should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #000000;
+  background: transparent;
+}
+
+.emotion-9:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-9:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-9:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -437,19 +472,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-9:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-9:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-9:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-9 svg {
@@ -489,17 +511,15 @@ exports[`Toast should match snapshot 1`] = `
   height: auto;
   max-height: 4.5rem;
   padding: 1rem;
-  box-shadow: 0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05);
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 4px;
-  border-color: hsla(122, 41%, 64%, 1);
+  box-shadow: subtle;
+  border: 1px solid hsla(122, 41%, 64%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: dark.primary;
-  background-color: hsla(123, 39%, 91%, 1);
+  color: #000000;
+  border-radius: 4px;
+  background: hsla(123, 39%, 91%, 1);
 }
 
 <div
@@ -623,8 +643,6 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -636,6 +654,23 @@ exports[`Toast should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: hsla(222, 63%, 43%, 1);
+  background: transparent;
+}
+
+.emotion-5:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-5:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-5:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -648,17 +683,12 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
-.emotion-5:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-5:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-5:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+.emotion-5 svg {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
 }
 
 .emotion-4 {
@@ -699,8 +729,6 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -712,6 +740,23 @@ exports[`Toast should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #000000;
+  background: transparent;
+}
+
+.emotion-9:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-9:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-9:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -722,19 +767,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-9:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-9:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-9:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-9 svg {
@@ -774,17 +806,15 @@ exports[`Toast should match snapshot 1`] = `
   height: auto;
   max-height: 4.5rem;
   padding: 1rem;
-  box-shadow: 0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05);
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 4px;
-  border-color: hsla(30, 100%, 69%, 1);
+  box-shadow: subtle;
+  border: 1px solid hsla(30, 100%, 69%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: dark.primary;
-  background-color: hsla(30, 100%, 92%, 1);
+  color: #000000;
+  border-radius: 4px;
+  background: hsla(30, 100%, 92%, 1);
 }
 
 <div
@@ -915,8 +945,6 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5 {
-  color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -928,6 +956,23 @@ exports[`Toast should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  color: hsla(222, 63%, 43%, 1);
+  background: transparent;
+}
+
+.emotion-5:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-5:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-5:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -940,17 +985,12 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
-.emotion-5:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-5:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-5:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+.emotion-5 svg {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0.25rem;
 }
 
 .emotion-4 {
@@ -991,8 +1031,6 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -1004,6 +1042,23 @@ exports[`Toast should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #000000;
+  background: transparent;
+}
+
+.emotion-9:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-9:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-9:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -1014,19 +1069,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-9:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-9:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-9:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-9 svg {
@@ -1066,17 +1108,15 @@ exports[`Toast should match snapshot 1`] = `
   height: auto;
   max-height: 4.5rem;
   padding: 1rem;
-  box-shadow: 0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05);
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 4px;
-  border-color: hsla(0, 59%, 73%, 1);
+  box-shadow: subtle;
+  border: 1px solid hsla(0, 59%, 73%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: dark.primary;
-  background-color: hsla(0, 60%, 93%, 1);
+  color: #000000;
+  border-radius: 4px;
+  background: hsla(0, 60%, 93%, 1);
 }
 
 <div

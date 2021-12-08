@@ -20,7 +20,7 @@ exports[`Avatar tests should match snaphot 1`] = `
   padding: 0.5rem;
   border-radius: 100%;
   text-transform: uppercase;
-  background-color: hsla(206, 61%, 92%, 1);
+  background: hsla(206, 61%, 92%, 1);
   color: hsla(207, 64%, 22%, 1);
 }
 

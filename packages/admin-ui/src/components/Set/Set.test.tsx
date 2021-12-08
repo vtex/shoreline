@@ -14,7 +14,7 @@ describe('Set tests', () => {
       </Set>
     )
 
-    expect(getByTestId('set')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('set')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

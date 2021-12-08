@@ -66,12 +66,10 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   width: 100%;
   height: 48px;
-  border-style: solid;
-  border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background: transparent;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -84,19 +82,17 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: form.neutralFocus;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -206,12 +202,10 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   width: 100%;
   height: 48px;
-  border-style: solid;
-  border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background: transparent;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -224,19 +218,17 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: form.neutralFocus;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -355,12 +347,10 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   width: 100%;
   height: 48px;
-  border-style: solid;
-  border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background: transparent;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -373,19 +363,17 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: form.neutralFocus;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -506,12 +494,10 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   width: 100%;
   height: 48px;
-  border-style: solid;
-  border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background: transparent;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -524,19 +510,17 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: form.neutralFocus;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -661,12 +645,10 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   width: 100%;
   height: 48px;
-  border-style: solid;
-  border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 1rem;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background: transparent;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -679,19 +661,17 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: form.neutralFocus;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -812,12 +792,10 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   width: 100%;
   height: 48px;
-  border-style: solid;
-  border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background: transparent;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -830,19 +808,17 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: form.neutralFocus;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {
@@ -881,10 +857,8 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
-  color: field.neutral;
-  border-left-style: solid;
-  border-left-width: 1px;
-  border-left-color: hsla(0, 0%, 73%, 1);
+  color: #000000;
+  border-left: 1px solid hsla(0, 0%, 73%, 1);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -1039,12 +1013,10 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   width: 100%;
   height: 48px;
-  border-style: solid;
-  border-width: 1px;
   padding-left: 44px;
   padding-right: 75px;
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 73%, 1);
+  background: transparent;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1057,19 +1029,17 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 29%, 1);
+  border-color: form.neutralFocus;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
 }
 
 .emotion-1:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {
@@ -1108,10 +1078,8 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
-  color: field.neutral;
-  border-left-style: solid;
-  border-left-width: 1px;
-  border-left-color: hsla(0, 0%, 73%, 1);
+  color: #000000;
+  border-left: 1px solid hsla(0, 0%, 73%, 1);
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;

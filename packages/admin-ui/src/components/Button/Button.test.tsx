@@ -11,7 +11,7 @@ describe('Button tests', () => {
       </Button>
     )
 
-    expect(getByTestId('button')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('button')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

@@ -50,7 +50,7 @@ describe('Dropdown tests', () => {
       </DropdownState>
     )
 
-    expect(getByTestId('dropdown')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('dropdown')).toHaveStyleRule('background', 'azure')
   })
 
   it('should render a Dropdown with a list of string and other with a list of object', () => {

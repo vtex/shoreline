@@ -30,7 +30,7 @@ describe('Checkbox tests', () => {
       </CheckboxState>
     )
 
-    expect(getByTestId('checkbox')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('checkbox')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot with diferent sizes', () => {

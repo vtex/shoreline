@@ -28,7 +28,7 @@ exports[`CheckboxGroup should match snapshot 1`] = `
 
 .emotion-0>label {
   cursor: pointer;
-  color: hsla(0, 0%, 45%, 1);
+  color: muted;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -95,7 +95,7 @@ exports[`CheckboxGroup should match snapshot with label 1`] = `
 
 .emotion-0>label {
   cursor: pointer;
-  color: hsla(0, 0%, 45%, 1);
+  color: muted;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

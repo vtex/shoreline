@@ -8,7 +8,7 @@ describe('TextArea tests', () => {
     const { getByTestId } = render(
       <TextArea
         data-testid="text-area"
-        csx={{ backgroundColor: 'azure' }}
+        csx={{ bg: 'azure' }}
         value=""
         onChange={() => {}}
         label="TextArea label"
@@ -18,10 +18,7 @@ describe('TextArea tests', () => {
       />
     )
 
-    expect(getByTestId('text-area')).toHaveStyleRule(
-      'background-color',
-      'azure'
-    )
+    expect(getByTestId('text-area')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {

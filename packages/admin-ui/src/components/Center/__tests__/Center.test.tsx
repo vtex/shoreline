@@ -11,7 +11,7 @@ describe('Center', () => {
       </Center>
     )
 
-    expect(getByTestId('flex')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('flex')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

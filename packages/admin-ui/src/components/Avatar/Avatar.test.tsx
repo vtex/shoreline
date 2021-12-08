@@ -17,7 +17,7 @@ describe('Avatar tests', () => {
       </Fragment>
     )
 
-    expect(getByTestId('avatar')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('avatar')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snaphot', () => {

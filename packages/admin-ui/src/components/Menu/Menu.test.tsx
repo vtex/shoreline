@@ -42,7 +42,7 @@ describe('Menu', () => {
       </StatefulMenu>
     )
 
-    expect(getByTestId('menu')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('menu')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot visible', () => {

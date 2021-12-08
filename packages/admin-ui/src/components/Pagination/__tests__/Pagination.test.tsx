@@ -74,10 +74,7 @@ describe('Pagination', () => {
       />
     )
 
-    expect(getByTestId('pagination')).toHaveStyleRule(
-      'background-color',
-      'coral'
-    )
+    expect(getByTestId('pagination')).toHaveStyleRule('background', 'coral')
   })
 
   it('should starts in a specific page', () => {

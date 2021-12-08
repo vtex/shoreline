@@ -11,7 +11,7 @@ describe('Card tests', () => {
       </Card>
     )
 
-    expect(getByTestId('card')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('card')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

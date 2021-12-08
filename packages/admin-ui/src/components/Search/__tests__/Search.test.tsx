@@ -24,7 +24,7 @@ describe('Search tests', () => {
       />
     )
 
-    expect(getByTestId('search')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('search')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {

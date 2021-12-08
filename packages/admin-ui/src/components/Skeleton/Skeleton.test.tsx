@@ -9,7 +9,7 @@ describe('Skeleton tests', () => {
       <Skeleton data-testid="skeleton" csx={{ bg: 'coral' }} />
     )
 
-    expect(getByTestId('skeleton')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('skeleton')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

@@ -30,7 +30,7 @@ describe('Radio tests', () => {
       </RadioState>
     )
 
-    expect(getByTestId('radio')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('radio')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot with diferent sizes', () => {
