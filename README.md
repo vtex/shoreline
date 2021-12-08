@@ -11,7 +11,7 @@
 <p align="center" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
   AdminUI is a design system created by VTEX to help teams build a high-quality and consistent experience for Admin products.
   <br />
-  <a href="https://admin-ui-docs.vercel.app" style="font-size: 1.2rem; font-weight: bold">
+  <a href="https://admin-ui.vercel.app" style="font-size: 1.2rem; font-weight: bold">
     📚 Documentation
   </a>
 </p>
