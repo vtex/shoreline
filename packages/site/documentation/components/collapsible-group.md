@@ -36,10 +36,10 @@ function Example() {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" tone="muted">
+            <Text variant="small" tone="secondary">
               Partner - app_ios
             </Text>
-            <Text variant="small" tone="muted">
+            <Text variant="small" tone="secondary">
               Campaign - Campaign Name
             </Text>
           </Set>
@@ -82,10 +82,10 @@ function Example() {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" tone="muted">
+            <Text variant="small" tone="secondary">
               Partner - app_ios
             </Text>
-            <Text variant="small" tone="muted">
+            <Text variant="small" tone="secondary">
               Campaign - Campaing Name
             </Text>
           </Set>

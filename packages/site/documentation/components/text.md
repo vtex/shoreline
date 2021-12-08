@@ -13,9 +13,7 @@ By default `<Text>` renders a `<span>` or a specific text element, like `<i>`, `
 import { Text } from '@vtex/admin-ui'
 
 function Example() {
-  return (
-    <Text variant="headline">Headline</Text>
-  )
+  return <Text variant="headline">Headline</Text>
 }
 ```
 
@@ -33,8 +31,8 @@ Text tone of voice
     },
   }}
 >
-  <Text tone="neutral">Default text</Text>
-  <Text tone="muted">Muted text</Text>
+  <Text tone="primary">Default text</Text>
+  <Text tone="secondary">Muted text</Text>
   <Text tone="info">Info text</Text>
   <Text tone="critical">Critical text</Text>
   <Text tone="warning">Warning text</Text>

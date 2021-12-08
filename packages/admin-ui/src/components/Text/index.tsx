@@ -27,30 +27,30 @@ export const Text = jsx('span')({
       },
     },
     tone: {
-      neutral: {
-        color: 'base',
+      primary: {
+        color: '$primary',
       },
-      muted: {
-        color: 'muted',
+      secondary: {
+        color: '$secondary',
       },
       info: {
-        color: 'notification.info',
+        color: '$info',
       },
       positive: {
-        color: 'notification.positive',
+        color: '$positive',
       },
       critical: {
-        color: 'notification.critical',
+        color: '$critical',
       },
       warning: {
-        color: 'notification.warning',
+        color: '$warning',
       },
     },
   },
 })
 
 Text.defaultProps = {
-  tone: 'neutral',
+  tone: 'primary',
   variant: 'body',
 }
 

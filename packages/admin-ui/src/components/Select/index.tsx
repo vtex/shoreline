@@ -77,7 +77,7 @@ export interface SelectProps
   helperText?: string
   /**
    * Select's tone of voice
-   * @default neutral
+   * @default primary
    */
   tone?: 'neutral' | 'critical'
   /**
