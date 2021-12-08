@@ -40,7 +40,7 @@ export const Basic = () => {
             alignItems: 'center',
             width: 250,
             height: 48,
-            border: 'divider-bottom',
+            borderBottom: '$neutral',
             cursor: 'pointer',
             ':hover': {
               bg: 'muted',
@@ -73,7 +73,7 @@ export const InitiallySelected = () => {
             alignItems: 'center',
             width: 250,
             height: 48,
-            border: 'divider-bottom',
+            borderBottom: '$neutral',
             cursor: 'pointer',
             ':hover': {
               bg: 'muted',
@@ -104,7 +104,7 @@ export const BareStateHook = () => {
             alignItems: 'center',
             width: 250,
             height: 48,
-            border: 'divider-bottom',
+            borderBottom: '$neutral',
             cursor: 'pointer',
             ':hover': {
               bg: 'muted',

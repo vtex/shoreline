@@ -62,7 +62,7 @@ const option = (highlighted: boolean) =>
     alignItems: 'center',
     width: '100%',
     cursor: 'pointer',
-    border: 'divider-bottom',
+    borderBottom: '$neutral',
     ':last-child': {
       border: 'none',
       marginBottom: 2,
@@ -98,7 +98,7 @@ const input = (open: boolean, standalone: boolean) =>
     borderTopLeftRadius: 4,
     borderBottomRightRadius: !open || standalone ? 4 : 0,
     borderBottomLeftRadius: !open || standalone ? 4 : 0,
-    border: !standalone && open ? 'divider-bottom' : 'none',
+    borderBottom: !standalone && open ? '$neutral' : 'none',
   })
 
 const inputIcon = css({
