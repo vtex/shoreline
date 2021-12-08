@@ -168,7 +168,7 @@ export const NumericStepper = forwardRef(
         {hasHelper && (
           <Text
             variant="small"
-            tone={tone === 'critical' ? 'critical' : 'muted'}
+            tone={tone === 'critical' ? 'critical' : 'secondary'}
             csx={{
               marginTop: 2,
             }}

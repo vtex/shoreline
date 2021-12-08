@@ -80,7 +80,7 @@ export function TokensTable(props: TokensTableProps) {
                 <Text csx={{ fontSettings: 'medium' }}>
                   {column.item.token}
                 </Text>
-                <Text tone="muted">{column.item.description}</Text>
+                <Text tone="secondary">{column.item.description}</Text>
               </Flex>
             )
           },
@@ -98,7 +98,7 @@ export function TokensTable(props: TokensTableProps) {
                 <Text csx={{ fontSettings: 'medium' }}>
                   {column.item.value}
                 </Text>
-                <Text tone="muted">{get(theme, column.item.token)}</Text>
+                <Text tone="secondary">{get(theme, column.item.token)}</Text>
               </Flex>
             )
           },

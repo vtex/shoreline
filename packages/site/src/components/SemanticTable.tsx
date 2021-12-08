@@ -18,7 +18,9 @@ export function SemanticTable(props: SemanticTableProps) {
       width,
       resolver: {
         type: 'plain',
-        render: (column) => <Text tone="muted">{column.item?.semantic}</Text>,
+        render: (column) => (
+          <Text tone="secondary">{column.item?.semantic}</Text>
+        ),
       },
     },
     {
