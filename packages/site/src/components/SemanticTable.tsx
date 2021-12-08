@@ -74,7 +74,7 @@ export function SemanticTable(props: SemanticTableProps) {
       resolver: {
         type: 'root',
         render: (column) => {
-          return <Tone tone="primary" semantic={column.item?.neutral} />
+          return <Tone tone="neutral" semantic={column.item?.neutral} />
         },
       },
     },

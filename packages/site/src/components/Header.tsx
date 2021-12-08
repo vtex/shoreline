@@ -88,7 +88,7 @@ export default function Header() {
           "&:not([href='/'])": {
             paddingX: 4,
             '&:hover': {
-              color: 'linkHover',
+              color: '$action.main.tertiaryHover',
               textDecoration: 'none',
             },
           },

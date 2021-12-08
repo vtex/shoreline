@@ -1,7 +1,7 @@
 import { jsx } from '@vtex/admin-ui'
 
 export const Blockquote = jsx('blockquote')({
-  color: 'base',
+  color: '$primary',
   paddingY: 1,
   paddingX: 2,
   marginY: 3,
@@ -14,24 +14,24 @@ export const Blockquote = jsx('blockquote')({
   variants: {
     tone: {
       critical: {
-        bg: `notification.critical`,
-        color: `notification.critical`,
-        borderColor: `notification.critical`,
+        bg: `$critical`,
+        color: `$critical`,
+        borderColor: `$critical`,
       },
       warning: {
-        bg: `notification.warning`,
-        color: `notification.warning`,
-        borderColor: `notification.warning`,
+        bg: `$warning`,
+        color: `$warning`,
+        borderColor: `$warning`,
       },
       info: {
-        bg: `notification.info`,
-        color: `notification.info`,
-        borderColor: `notification.info`,
+        bg: `$info`,
+        color: `$info`,
+        borderColor: `$info`,
       },
       positive: {
-        bg: `notification.positive`,
-        color: `notification.positive`,
-        borderColor: `notification.positive`,
+        bg: `$positive`,
+        color: `$positive`,
+        borderColor: `$positive`,
       },
     },
   },

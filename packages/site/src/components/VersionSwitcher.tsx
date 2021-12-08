@@ -35,7 +35,7 @@ export function VersionSwitcher() {
         state={state}
         items={items}
         renderItem={(i) => i?.label ?? ''}
-        variant="text"
+        variant="adaptative-dark"
       />
     </Set>
   )

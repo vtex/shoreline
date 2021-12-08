@@ -4,13 +4,14 @@ export default {
   wrapper: {
     overflow: 'visible',
     marginY: 5,
-    border: 'default',
+    border: '$neutral',
+    borderRadius: 'default',
   },
   preview: {
     padding: 5,
     position: 'relative',
-    color: 'base',
-    bg: 'base',
+    color: '$primary',
+    bg: '$primary',
     minHeight: 'auto',
     borderRadius: 'default',
     fontFamily: 'mono',
@@ -34,8 +35,8 @@ export default {
     textAlign: 'left',
     fontFamily: 'mono',
     padding: '1rem',
-    bg: 'notification.critical',
-    color: 'notification.critical',
+    bg: '$critical',
+    color: '$critical',
     text: 'body',
   },
   copyButton: {

@@ -98,7 +98,7 @@ export function Code(props: CodeProps) {
                 justify="flex-end"
                 csx={{
                   padding: 1,
-                  bg: 'muted',
+                  bg: '$secondary',
                   borderBottomRightRadius: 4,
                   borderBottomLeftRadius: 4,
                 }}
@@ -297,7 +297,7 @@ function FormikPreview(props: FormikPreviewProps) {
                 justify="flex-end"
                 csx={{
                   padding: 1,
-                  bg: 'sidebar.light',
+                  bg: '$secondary',
                   borderBottomRightRadius: 4,
                   borderBottomLeftRadius: 4,
                 }}

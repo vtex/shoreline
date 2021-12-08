@@ -30,8 +30,8 @@ export default function DocsBackNext({
   return (
     <Box
       csx={{
-        color: 'base',
-        bg: 'base',
+        color: '$primary',
+        bg: '$primary',
         li: {
           listStyle: 'none',
         },
@@ -44,7 +44,7 @@ export default function DocsBackNext({
           color: 'inherit',
           cursor: 'pointer',
           '&:hover': {
-            color: 'linkHover',
+            color: '$action.main.tertiaryHover',
           },
         },
       }}

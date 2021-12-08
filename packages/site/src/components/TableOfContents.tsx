@@ -80,7 +80,7 @@ function renderItems(items: any[], activeId: string) {
             <tag.a
               href={item.url}
               csx={{
-                color: isActive(item) ? 'base' : 'muted',
+                color: isActive(item) ? '$primary' : '$secondary',
                 fontSettings: isActive(item) ? 'medium' : 'regular',
                 transform: isActive(item) ? 'scale(1.1)' : 'scale(1.0)',
                 transformOrigin: 'left bottom',
@@ -90,7 +90,7 @@ function renderItems(items: any[], activeId: string) {
                 position: 'relative',
                 fontFamily: 'sans',
                 ':hover': {
-                  color: 'linkHover',
+                  color: '$action.main.tertiaryHover',
                 },
               }}
             >
