@@ -56,6 +56,12 @@ const lightTheme = {
       neutralChecked: colors.black,
       neutralCheckedHover: colors.grey70,
       neutralCheckedPressed: colors.grey60,
+      neutralInactive: colors.grey40,
+      neutralInactiveHover: colors.grey50,
+      neutralInactivePressed: colors.grey60,
+      neutralActive: colors.black,
+      neutralActiveHover: colors.grey70,
+      neutralActivePressed: colors.grey60,
     },
   },
   fg: {

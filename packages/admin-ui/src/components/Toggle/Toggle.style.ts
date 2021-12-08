@@ -5,7 +5,7 @@ import { get } from '@vtex/admin-ui-util'
 const css = (csx: StyleProp) => csx
 
 export const checkmark = css({
-  bg: (theme) => get(theme, 'bg.primary'),
+  bg: (theme) => get(theme, 'fg.form.neutralChecked'),
   content: '""',
   display: 'block',
   position: 'absolute',
@@ -15,8 +15,8 @@ export const checkmark = css({
 
 export const baseline = css({
   ...focusVisible('neutral'),
-  bg: (theme) => get(theme, 'bg.form.neutralPressed'),
-  border: 'form.neutral',
+  bg: '$form.neutralInactive',
+  border: '$form.neutral',
   appearance: 'none',
   position: 'relative',
   cursor: 'pointer',
@@ -26,31 +26,27 @@ export const baseline = css({
   borderWidth: 1,
 
   ':disabled': {
+    bg: '$disabled',
     border: '$disabled',
     color: '$disabled',
     cursor: 'not-allowed',
   },
 
   ':hover': {
-    bg: '$form.neutralHover',
+    bg: '$form.neutralInactiveHover',
     border: '$form.neutralHover',
   },
 
   ':active': {
-    bg: '$form.neutralPressed',
+    bg: '$form.neutralInactivePressed',
     border: '$form.neutralPressed',
   },
 })
 
 export const checked = css({
-  bg: '$form.neutralChecked',
+  bg: '$form.neutralActive',
   color: '$form.neutralChecked',
   border: '$form.neutralChecked',
-
-  '&:after': {
-    ...checkmark,
-    bg: (theme) => get(theme, 'fg.form.neutralChecked', ''),
-  },
 
   '&[disabled]:after': {
     ...checkmark,
@@ -64,19 +60,13 @@ export const checked = css({
   },
 
   ':hover': {
-    bg: '$form.neutralCheckedHover',
+    bg: '$form.neutralActiveHover',
     border: '$form.neutralCheckedHover',
-    // ':after': {
-    //   border: '$form.neutralCheckedHover',
-    // },
   },
 
   ':active': {
-    bg: '$form.neutralCheckedPressed',
+    bg: '$form.neutralActivePressed',
     border: '$form.neutralCheckedPressed',
-    // ':after': {
-    //   border: '$form.neutralCheckedPressed',
-    // },
   },
 })
 

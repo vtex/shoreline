@@ -19,7 +19,7 @@ export const PageHeader = jsx('header')(
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
-    border: 'divider-bottom',
+    borderBottom: '$neutral',
     position: 'sticky',
     top: 0,
     height: '4.5rem',
