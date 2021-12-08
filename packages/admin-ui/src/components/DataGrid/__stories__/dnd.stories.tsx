@@ -112,7 +112,7 @@ export function Dnd() {
                           csx={{
                             ...draggableProvided.draggableProps.style,
                             boxShadow: draggableSnapshot.isDragging
-                              ? 'menu'
+                              ? '$overlay.center'
                               : 'none',
                           }}
                         />

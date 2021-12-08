@@ -150,7 +150,7 @@ describe('Input password tests', () => {
               children="Reset Form"
               onClick={() => resetForm()}
             />
-            <Text tone="muted">
+            <Text tone="secondary">
               <pre>{JSON.stringify(touched)}</pre>
             </Text>
             <Button type="submit" size="small" children="Submit" />

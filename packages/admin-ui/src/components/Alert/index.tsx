@@ -13,6 +13,7 @@ import { Paragraph } from '../Paragraph'
  */
 export const Alert = jsx('div')(
   {
+    color: '$primary',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -26,7 +27,6 @@ export const Alert = jsx('div')(
     a: {
       fontSettings: 'medium',
     },
-    color: 'base',
     variants: {
       sticky: {
         true: {

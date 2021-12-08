@@ -68,7 +68,7 @@ export function FluidWidth() {
 
 function Header() {
   return (
-    <Box csx={{ marginTop: 5, border: 'divider-bottom' }}>
+    <Box csx={{ marginTop: 5, borderBottom: '$neutral' }}>
       <Set orientation="vertical" fluid spacing={5}>
         <Box csx={{ marginLeft: 4 }}>
           <Heading>Provider Manager</Heading>

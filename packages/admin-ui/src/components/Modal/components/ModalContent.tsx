@@ -45,10 +45,10 @@ export const ModalContent = jsx('section')(
           width: '8px',
         },
         '::-webkit-scrollbar-thumb': {
-          bg: 'muted',
+          bg: '$secondary',
           borderRadius: '6px',
           border: '2px solid',
-          color: 'modal',
+          color: '$primary',
         },
         overflowY: 'auto',
       }

@@ -36,10 +36,10 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" tone="muted">
+            <Text variant="small" tone="secondary">
               Partner - app_ios
             </Text>
-            <Text variant="small" tone="muted">
+            <Text variant="small" tone="secondary">
               Campaign - Campaing Name
             </Text>
           </Set>
@@ -74,10 +74,10 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" tone="muted">
+            <Text variant="small" tone="secondary">
               Partner - app_ios
             </Text>
-            <Text variant="small" tone="muted">
+            <Text variant="small" tone="secondary">
               Campaign - Campaing Name
             </Text>
           </Set>
@@ -97,10 +97,10 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
                 <Text variant="small" tone="info">
                   N 00025755809
                 </Text>
-                <Text variant="small" tone="muted">
+                <Text variant="small" tone="secondary">
                   Total cost of items - 39,00 BRL
                 </Text>
-                <Text variant="small" tone="muted">
+                <Text variant="small" tone="secondary">
                   Type - Total Express
                 </Text>
                 <Text tone="info">Tracking - XSDFE231675</Text>

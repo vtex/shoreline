@@ -14,7 +14,7 @@ export const FloatingLabel = jsx('label')({
   fontSize: 1,
   left: 12,
   paddingTop: 2,
-  color: 'muted',
+  color: '$secondary',
   marginBottom: 3,
   position: 'absolute',
   transform: 'translate(0, 16px) scale(1)',

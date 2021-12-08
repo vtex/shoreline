@@ -36,7 +36,7 @@ export const ReactNodeLabel = () => {
       placement="right"
       label={
         <Set orientation="vertical" spacing={2}>
-          <Text variant="small" tone="muted">
+          <Text variant="small" tone="secondary">
             Previous Order: 102183 (211-213)
           </Text>
           <Tag palette="green" label="Ready for Handling" size="small" />

@@ -14,7 +14,7 @@ import { motion, AnimateSharedLayout } from 'framer-motion'
 import { Button } from '../Button'
 import type { SystemComponent } from '../../types'
 import { useStateContext, StateContext } from './context'
-import styles from './styles'
+import * as style from './SearchBox.style'
 import { Label } from '../Label'
 import { VisuallyHidden } from '../VisuallyHidden'
 import type { Locale } from './intl'
@@ -55,7 +55,7 @@ function __SearchBox(props: SearchBoxProps) {
           initial={{
             originY: 'unset',
           }}
-          className={cn(styles.box)}
+          className={cn(style.box)}
         >
           <VisuallyHidden>
             <label {...labelProps}>
@@ -105,18 +105,18 @@ function Input(props: InputProps) {
   }
 
   return (
-    <motion.div {...comboboxProps} className={cn(styles.inputContainer)} layout>
-      <IconSearch csx={styles.inputIcon} />
+    <motion.div {...comboboxProps} className={cn(style.inputContainer)} layout>
+      <IconSearch csx={style.inputIcon} />
       <input
         {...inputProps}
         {...elementProps}
         placeholder={intl('placeholder')}
         onFocus={handleFocus}
-        className={cn(styles.input(isOpen, type === 'seed'))}
+        className={cn(style.input(isOpen, type === 'seed'))}
       />
       {inputProps?.value !== '' && (
         <Button
-          csx={styles.inputButton}
+          csx={style.inputButton}
           variant="tertiary"
           icon={<IconCancel />}
           onClick={handleClear}
@@ -147,12 +147,12 @@ function Menu(props: MenuProps) {
   const displayScrollBar = !seed && items.length > 10
   const displayEmptyView = !seed && empty && isOpen
   const displaySuggestions = !seed && !empty && isOpen
-  const className = cn(merge(styles.menu(displayScrollBar), csx))
+  const className = cn(merge(style.menu(displayScrollBar), csx))
 
   return (
     <Label>
       {displaySuggestions && (
-        <motion.p className={cn(styles.label)} layout>
+        <motion.p className={cn(style.label)} layout>
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <Intl id={type === 'search' ? 'adminPages' : 'lastSearches'} />
           </motion.span>
@@ -185,16 +185,16 @@ function EmptyView() {
   return (
     <motion.li
       layout
-      className={cn(styles.emptyContainer)}
+      className={cn(style.emptyContainer)}
       variants={itemMotion}
       initial="init"
       animate="enter"
       exit="leave"
     >
-      <motion.p layout className={cn(styles.emptyTitle)}>
+      <motion.p layout className={cn(style.emptyTitle)}>
         <Intl id="emptyTitle" />
       </motion.p>
-      <motion.p layout className={cn(styles.emptySubtitle)}>
+      <motion.p layout className={cn(style.emptySubtitle)}>
         <Intl id="emptySubtitle" />
       </motion.p>
     </motion.li>
@@ -230,7 +230,7 @@ function Suggestion(props: SuggestionProps) {
   } = useStateContext()
 
   const { cn } = useSystem()
-  const className = cn(merge(styles.option(highlighted), csx))
+  const className = cn(merge(style.option(highlighted), csx))
   const liProps = getItemProps({ item, index })
 
   return (
@@ -274,7 +274,7 @@ type KbdProps = ComponentPropsWithoutRef<'kbd'>
 function Kbd(props: KbdProps) {
   const { cn } = useSystem()
 
-  return <motion.kbd className={cn(styles.kbd)} {...(props as any)} layout />
+  return <motion.kbd className={cn(style.kbd)} {...(props as any)} layout />
 }
 
 /**
@@ -306,7 +306,7 @@ function Footer() {
         },
       }}
       exit="leave"
-      className={cn(styles.footer)}
+      className={cn(style.footer)}
     >
       <motion.div layout>
         <Kbd>↓</Kbd> <Kbd>↑</Kbd> <Intl id="toNavigate" />
