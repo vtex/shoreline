@@ -31,7 +31,7 @@ Text tone of voice
     },
   }}
 >
-  <Text tone="neutral">Default text</Text>
+  <Text tone="primary">Default text</Text>
   <Text tone="secondary">Muted text</Text>
   <Text tone="info">Info text</Text>
   <Text tone="critical">Critical text</Text>
