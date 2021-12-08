@@ -16,8 +16,8 @@ const SelectField = jsx('select')({
   ...style.baseline,
   variants: {
     tone: {
-      neutral: style.neutral,
-      critical: style.critical,
+      neutral: style.toneVariant('neutral'),
+      critical: style.toneVariant('critical'),
     },
   },
 })

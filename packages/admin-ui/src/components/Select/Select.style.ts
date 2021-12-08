@@ -26,25 +26,17 @@ export const baseline = css({
   },
 })
 
-export const neutral = css({
-  color: '$form.neutral',
-  bg: '$form.neutral',
-  border: '$form.neutral',
-  ':focus': {
-    border: '$form.neutralFocus',
-    boxShadow: '$ring.neutral',
-  },
-})
-
-export const critical = css({
-  color: '$form.critical',
-  bg: '$form.critical',
-  border: '$form.critical',
-  ':focus': {
-    border: '$form.criticalFocus',
-    boxShadow: '$ring.critical',
-  },
-})
+export function toneVariant(tone: 'neutral' | 'critical') {
+  return css({
+    color: `$form.${tone}`,
+    bg: `$form.${tone}`,
+    border: `$form.${tone}`,
+    ':focus': {
+      border: `$form.${tone}Focus`,
+      boxShadow: `$ring.${tone}`,
+    },
+  })
+}
 
 export function label(options: { active: boolean }) {
   const { active } = options
