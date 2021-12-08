@@ -18,8 +18,8 @@ describe('Columns', () => {
       </Columns>
     )
 
-    expect(getByTestId('columns')).toHaveStyleRule('background-color', 'coral')
-    expect(getByTestId('item')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('columns')).toHaveStyleRule('background', 'coral')
+    expect(getByTestId('item')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {

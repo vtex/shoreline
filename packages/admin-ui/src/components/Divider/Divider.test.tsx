@@ -9,7 +9,7 @@ describe('Heading tests', () => {
       <Divider data-testid="divider" csx={{ bg: 'azure' }} />
     )
 
-    expect(getByTestId('divider')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('divider')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {

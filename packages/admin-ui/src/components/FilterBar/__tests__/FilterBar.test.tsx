@@ -89,10 +89,7 @@ describe('FilterBar tests', () => {
       </>
     )
 
-    expect(getByTestId('filter-bar')).toHaveStyleRule(
-      'background-color',
-      'coral'
-    )
+    expect(getByTestId('filter-bar')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', async () => {

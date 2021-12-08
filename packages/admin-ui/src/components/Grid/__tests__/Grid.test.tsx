@@ -11,11 +11,8 @@ describe('Grid', () => {
       </Grid>
     )
 
-    expect(getByTestId('grid')).toHaveStyleRule('background-color', 'azure')
-    expect(getByTestId('grid-item')).toHaveStyleRule(
-      'background-color',
-      'azure'
-    )
+    expect(getByTestId('grid')).toHaveStyleRule('background', 'azure')
+    expect(getByTestId('grid-item')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {

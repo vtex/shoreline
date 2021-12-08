@@ -53,6 +53,7 @@ export const Select = forwardRef(
             ref={ref}
             value={value}
             id={id}
+            csx={csx}
             {...selectProps}
           />
           <IconCaret direction="down" size={24} csx={style.caret} />

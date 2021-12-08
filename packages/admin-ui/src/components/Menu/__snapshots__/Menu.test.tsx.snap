@@ -17,7 +17,22 @@ exports[`Menu should match snapshot hidden 1`] = `
   padding-left: 0.75rem;
   padding-right: 0.5rem;
   color: #FFFFFF;
-  background-color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 63%, 43%, 1);
+}
+
+.emotion-3:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-3:hover {
+  color: #FFFFFF;
+  background: hsla(222, 63%, 34%, 1);
+}
+
+.emotion-3:active {
+  color: #FFFFFF;
+  background: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -28,19 +43,6 @@ exports[`Menu should match snapshot hidden 1`] = `
 .emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-3:hover {
-  background-color: hsla(222, 63%, 34%, 1);
-}
-
-.emotion-3:active {
-  background-color: hsla(222, 63%, 25%, 1);
-}
-
-.emotion-3:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3 svg {
@@ -100,7 +102,6 @@ exports[`Menu should match snapshot hidden 1`] = `
 }
 
 .emotion-13 {
-  border: 0;
   outline: none;
   z-index: 999;
   display: -webkit-box;
@@ -110,14 +111,12 @@ exports[`Menu should match snapshot hidden 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: coral;
+  background: coral;
   padding: 0.75rem;
   min-width: 18px;
+  border: 1px solid hsla(0, 0%, 87%, 1);
   border-radius: 3px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: hsla(0, 0%, 87%, 1);
-  box-shadow: popover;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
 }
 
 .emotion-5 {
@@ -135,8 +134,8 @@ exports[`Menu should match snapshot hidden 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: #FFFFFF;
-  color: #000000;
+  background: transparent;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-5 div {
@@ -167,18 +166,18 @@ exports[`Menu should match snapshot hidden 1`] = `
 }
 
 .emotion-5:hover {
-  color: hsla(222, 63%, 34%, 1);
-  background-color: hsla(222, 62%, 96%, 1);
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-5:active {
-  color: hsla(222, 63%, 25%, 1);
-  background-color: hsla(222, 62%, 92%, 1);
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-5:disabled {
-  color: listBoxItem.mainDisabled;
-  background-color: listBoxItem.mainDisabled;
+  color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 87%, 1);
 }
 
 .emotion-4 {
@@ -199,12 +198,7 @@ exports[`Menu should match snapshot hidden 1`] = `
 .emotion-10 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  border-style: solid;
-  border-bottom-width: 1px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-color: hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
   width: calc(100% -0.75rem);
   margin-left: -0.75rem;
   margin-right: -0.75rem;
@@ -335,7 +329,22 @@ exports[`Menu should match snapshot visible 1`] = `
   padding-left: 0.75rem;
   padding-right: 0.5rem;
   color: #FFFFFF;
-  background-color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 63%, 43%, 1);
+}
+
+.emotion-3:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+}
+
+.emotion-3:hover {
+  color: #FFFFFF;
+  background: hsla(222, 63%, 34%, 1);
+}
+
+.emotion-3:active {
+  color: #FFFFFF;
+  background: hsla(222, 63%, 25%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -346,19 +355,6 @@ exports[`Menu should match snapshot visible 1`] = `
 .emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-3:hover {
-  background-color: hsla(222, 63%, 34%, 1);
-}
-
-.emotion-3:active {
-  background-color: hsla(222, 63%, 25%, 1);
-}
-
-.emotion-3:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3 svg {
@@ -432,8 +428,8 @@ exports[`Menu should match snapshot visible 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  background-color: #FFFFFF;
-  color: #000000;
+  background: transparent;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-5 div {
@@ -464,18 +460,18 @@ exports[`Menu should match snapshot visible 1`] = `
 }
 
 .emotion-5:hover {
-  color: hsla(222, 63%, 34%, 1);
-  background-color: hsla(222, 62%, 96%, 1);
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 96%, 1);
 }
 
 .emotion-5:active {
-  color: hsla(222, 63%, 25%, 1);
-  background-color: hsla(222, 62%, 92%, 1);
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-5:disabled {
-  color: listBoxItem.mainDisabled;
-  background-color: listBoxItem.mainDisabled;
+  color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 87%, 1);
 }
 
 .emotion-4 {
@@ -496,12 +492,7 @@ exports[`Menu should match snapshot visible 1`] = `
 .emotion-10 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  border-style: solid;
-  border-bottom-width: 1px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-color: hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
   width: calc(100% -0.75rem);
   margin-left: -0.75rem;
   margin-right: -0.75rem;
@@ -509,7 +500,6 @@ exports[`Menu should match snapshot visible 1`] = `
 }
 
 .emotion-13 {
-  border: 0;
   outline: none;
   z-index: 999;
   display: -webkit-box;
@@ -519,14 +509,12 @@ exports[`Menu should match snapshot visible 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: #FFFFFF;
+  background: #FFFFFF;
   padding: 0.75rem;
   min-width: 18px;
+  border: 1px solid hsla(0, 0%, 87%, 1);
   border-radius: 3px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: hsla(0, 0%, 87%, 1);
-  box-shadow: popover;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
 }
 
 <div

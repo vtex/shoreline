@@ -30,7 +30,7 @@ describe('Toggle tests', () => {
       </ToggleState>
     )
 
-    expect(getByTestId('toggle')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('toggle')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot with diferent sizes', () => {

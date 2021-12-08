@@ -33,7 +33,7 @@ describe('AdminUI elements', () => {
       </Div>
     )
 
-    expect(getByTestId('test')).toHaveStyleRule('background-color', '#000')
+    expect(getByTestId('test')).toHaveStyleRule('background', '#000')
     expect(getByTestId('test')).toHaveStyleRule('color', '#fff')
   })
 
@@ -54,7 +54,7 @@ describe('AdminUI elements', () => {
 
     const result = getByRole('button')
 
-    expect(result).toHaveStyleRule('background-color', '#000')
+    expect(result).toHaveStyleRule('background', '#000')
     expect(result).toHaveStyleRule('color', '#fff')
   })
 
@@ -92,7 +92,7 @@ describe('AdminUI elements', () => {
 
     const result = getByTestId('test')
 
-    expect(result).toHaveStyleRule('background-color', '#000')
+    expect(result).toHaveStyleRule('background', '#000')
     expect(result).toHaveStyleRule('color', '#fff')
   })
 
@@ -115,7 +115,7 @@ describe('AdminUI elements', () => {
 
     const result = getByRole('button')
 
-    expect(result).toHaveStyleRule('background-color', '#000')
+    expect(result).toHaveStyleRule('background', '#000')
     expect(result).toHaveStyleRule('color', '#2fa')
   })
 })

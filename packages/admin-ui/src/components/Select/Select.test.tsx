@@ -11,6 +11,7 @@ describe('Select', () => {
         csx={{ color: 'azure' }}
         label="Select"
         value="option-1"
+        onChange={() => null}
       >
         <option value="option-1">Option 1</option>
         <option value="option-2">Option 2</option>
@@ -22,7 +23,7 @@ describe('Select', () => {
 
   it('should match the snapshot', () => {
     const { asFragment } = render(
-      <Select label="Select" value="option-1">
+      <Select label="Select" value="option-1" onChange={() => null}>
         <option value="option-1">Option 1</option>
         <option value="option-2">Option 2</option>
       </Select>
@@ -33,7 +34,13 @@ describe('Select', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <Select label="Select" value="option-1">
+      <Select
+        id="select"
+        label="Select"
+        name="select"
+        value="option-1"
+        onChange={() => null}
+      >
         <option value="option-1">Option 1</option>
         <option value="option-2">Option 2</option>
       </Select>

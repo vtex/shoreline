@@ -9,7 +9,7 @@ describe('Input tests', () => {
     const { getByTestId } = render(
       <Input
         data-testid="text-field"
-        csx={{ backgroundColor: 'coral' }}
+        csx={{ bg: 'coral' }}
         value=""
         onChange={() => {}}
         label="TextField label"
@@ -20,10 +20,7 @@ describe('Input tests', () => {
       />
     )
 
-    expect(getByTestId('text-field')).toHaveStyleRule(
-      'background-color',
-      'coral'
-    )
+    expect(getByTestId('text-field')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

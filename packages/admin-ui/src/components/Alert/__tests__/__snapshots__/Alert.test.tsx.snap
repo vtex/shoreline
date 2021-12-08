@@ -40,6 +40,7 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-4 {
+  color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -60,17 +61,14 @@ exports[`Alert should match snapshot 1`] = `
   z-index: 999;
   -webkit-transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
   transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
-  border-style: solid;
-  border-width: 1px;
-  color: #000000;
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   visibility: visible;
-  background-color: hsla(123, 39%, 91%, 1);
-  border-color: hsla(122, 41%, 64%, 1);
+  background: hsla(123, 39%, 91%, 1);
+  border: 1px solid hsla(122, 41%, 64%, 1);
 }
 
 .emotion-4 a {
@@ -214,6 +212,7 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-4 {
+  color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -234,17 +233,14 @@ exports[`Alert should match snapshot 1`] = `
   z-index: 999;
   -webkit-transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
   transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
-  border-style: solid;
-  border-width: 1px;
-  color: #000000;
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   visibility: visible;
-  background-color: hsla(30, 100%, 92%, 1);
-  border-color: hsla(30, 100%, 69%, 1);
+  background: hsla(30, 100%, 92%, 1);
+  border: 1px solid hsla(30, 100%, 69%, 1);
 }
 
 .emotion-4 a {
@@ -395,6 +391,7 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-4 {
+  color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -415,17 +412,14 @@ exports[`Alert should match snapshot 1`] = `
   z-index: 999;
   -webkit-transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
   transition: all 150ms cubic-bezier(0.4, 0.14, 0.3, 1);
-  border-style: solid;
-  border-width: 1px;
-  color: #000000;
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   visibility: visible;
-  background-color: hsla(0, 60%, 93%, 1);
-  border-color: hsla(0, 59%, 73%, 1);
+  background: hsla(0, 60%, 93%, 1);
+  border: 1px solid hsla(0, 59%, 73%, 1);
 }
 
 .emotion-4 a {

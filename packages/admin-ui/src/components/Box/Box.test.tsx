@@ -11,7 +11,7 @@ describe('Box', () => {
       </Box>
     )
 
-    expect(getByTestId('box')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('box')).toHaveStyleRule('background', 'coral')
   })
 
   it('should be polymorphic', () => {

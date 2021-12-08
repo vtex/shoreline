@@ -11,10 +11,7 @@ describe('PageHeader', () => {
       </PageHeader>
     )
 
-    expect(getByTestId('pageheader')).toHaveStyleRule(
-      'background-color',
-      'azure'
-    )
+    expect(getByTestId('pageheader')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {

@@ -54,16 +54,10 @@ describe('Modal', () => {
       </ModalWithState>
     )
 
-    expect(getByTestId('modal')).toHaveStyleRule('background-color', 'coral')
-    expect(getByTestId('header')).toHaveStyleRule('background-color', 'azure')
-    expect(getByTestId('content')).toHaveStyleRule(
-      'background-color',
-      'aquamarine'
-    )
-    expect(getByTestId('footer')).toHaveStyleRule(
-      'background-color',
-      'firebrick'
-    )
+    expect(getByTestId('modal')).toHaveStyleRule('background', 'coral')
+    expect(getByTestId('header')).toHaveStyleRule('background', 'azure')
+    expect(getByTestId('content')).toHaveStyleRule('background', 'aquamarine')
+    expect(getByTestId('footer')).toHaveStyleRule('background', 'firebrick')
   })
 
   it('should not have a11y violations', async () => {

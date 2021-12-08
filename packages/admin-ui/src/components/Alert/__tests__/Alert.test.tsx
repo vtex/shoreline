@@ -22,7 +22,7 @@ describe('Alert', () => {
       />
     )
 
-    expect(getByTestId('alert')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('alert')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

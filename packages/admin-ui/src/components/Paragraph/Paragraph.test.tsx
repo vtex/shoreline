@@ -11,10 +11,7 @@ describe('Paragraph tests', () => {
       </Paragraph>
     )
 
-    expect(getByTestId('paragraph')).toHaveStyleRule(
-      'background-color',
-      'azure'
-    )
+    expect(getByTestId('paragraph')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {
