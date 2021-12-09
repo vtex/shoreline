@@ -110,7 +110,7 @@ export default function Header() {
           csx={{
             width: '14rem',
             height: '2rem',
-            bg: (theme) => get(theme, 'colors.greyTransparent10'),
+            bg: (theme) => get(theme, 'colors.grayTransparent10'),
             color: 'base',
             borderRadius: 'default',
             text: 'body',
@@ -130,10 +130,10 @@ export default function Header() {
               boxShadow: 'focus',
             },
             ':hover': {
-              bg: (theme) => get(theme, 'colors.greyTransparent20'),
+              bg: (theme) => get(theme, 'colors.grayTransparent20'),
             },
             ':active': {
-              bg: (theme) => get(theme, 'colors.greyTransparent30'),
+              bg: (theme) => get(theme, 'colors.grayTransparent30'),
             },
           }}
           state={dialog}
@@ -144,7 +144,7 @@ export default function Header() {
         <tag.div
           as={DialogBackdrop}
           csx={{
-            bg: (theme) => get(theme, 'colors.greyTransparent40'),
+            bg: (theme) => get(theme, 'colors.grayTransparent40'),
             position: 'fixed',
             top: 0,
             left: 0,

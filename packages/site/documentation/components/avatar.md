@@ -31,7 +31,7 @@ The `Avatar` can be rendered in multiple palettes, this means that the `color` a
   <Avatar label="cyan" palette="cyan" />
   <Avatar label="purple" palette="purple" />
   <Avatar label="teal" palette="teal" />
-  <Avatar label="grey" palette="grey" />
+  <Avatar label="gray" palette="gray" />
 </Set>
 ```
 
@@ -42,5 +42,5 @@ It also receive all props of `div` JSX element.
 | Name    | Type                                                   | Description                                        | Required | Default     |
 | ------- | ------------------------------------------------------ | -------------------------------------------------- | -------- | ----------- |
 | label   | `string`                                               | String that will have its first letter capitalized | ✅       | -           |
-| palette | `lightBlue, green, orange, cyan, purple, teal or grey` | Avatar theme                                       | 🚫       | `lightBlue` |
+| palette | `lightBlue, green, orange, cyan, purple, teal or gray` | Avatar theme                                       | 🚫       | `lightBlue` |
 | csx     | `StyleProp`                                            | Defines component styles                           | 🚫       | `{}`        |

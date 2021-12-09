@@ -8,7 +8,7 @@ export const background = [
   {
     token: 'background.muted',
     description: 'Second default background color for the Admin.',
-    value: 'grey10',
+    value: 'gray10',
     type: 'background',
   },
   {
@@ -33,7 +33,7 @@ export const background = [
     token: 'background.overlay',
     description:
       'The color of the mask overlay that appears when you enter a modal state.',
-    value: 'greyTransparent50',
+    value: 'grayTransparent50',
     type: 'background',
   },
   {
@@ -51,7 +51,7 @@ export const background = [
   {
     token: 'background.sidebar',
     description: 'Background color of Sidebar component.',
-    value: 'grey10',
+    value: 'gray10',
     type: 'background',
   },
   {
@@ -63,13 +63,13 @@ export const background = [
   {
     token: 'background.skeleton',
     description: 'Background color of Skeleton component.',
-    value: 'grey10',
+    value: 'gray10',
     type: 'background',
   },
   {
     token: 'background.skeletonMuted',
     description: 'Background color of Skeleton component.',
-    value: 'grey20',
+    value: 'gray20',
     type: 'background',
   },
   {
@@ -81,13 +81,13 @@ export const background = [
   {
     token: 'background.action.neutral.ghostHover',
     description: '-',
-    value: 'greyTransparent05',
+    value: 'grayTransparent05',
     type: 'background',
   },
   {
     token: 'background.action.neutral.ghostPressed',
     description: '-',
-    value: 'greyTransparent10',
+    value: 'grayTransparent10',
     type: 'background',
   },
   {
@@ -117,7 +117,7 @@ export const background = [
   {
     token: 'background.action.main.solidDisabled',
     description: 'Background color of disabled main solid button.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -141,7 +141,7 @@ export const background = [
   {
     token: 'background.action.main.softDisabled',
     description: 'Background color of disabled main soft button.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -165,7 +165,7 @@ export const background = [
   {
     token: 'background.action.main.textDisabled',
     description: 'Background color of disabled main text button.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -189,7 +189,7 @@ export const background = [
   {
     token: 'background.action.critical.solidDisabled',
     description: 'Background color of disabled critical solid button.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -213,7 +213,7 @@ export const background = [
   {
     token: 'background.action.critical.softDisabled',
     description: 'Background color of disabled critical soft button.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -237,7 +237,7 @@ export const background = [
   {
     token: 'background.action.critical.textDisabled',
     description: 'Background color of disabled critical text button.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -333,7 +333,7 @@ export const background = [
   {
     token: 'background.field.neutralDisabled',
     description: '-',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -357,7 +357,7 @@ export const background = [
   {
     token: 'background.field.criticalDisabled',
     description: '-',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -369,19 +369,19 @@ export const background = [
   {
     token: 'background.control.neutralHover',
     description: '-',
-    value: 'grey20',
+    value: 'gray20',
     type: 'background',
   },
   {
     token: 'background.control.neutralPressed',
     description: '-',
-    value: 'grey40',
+    value: 'gray40',
     type: 'background',
   },
   {
     token: 'background.control.neutralDisabled',
     description: '-',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -393,19 +393,19 @@ export const background = [
   {
     token: 'background.control.neutralCheckedHover',
     description: '-',
-    value: 'grey70',
+    value: 'gray70',
     type: 'background',
   },
   {
     token: 'background.control.neutralCheckedPressed',
     description: '-',
-    value: 'grey60',
+    value: 'gray60',
     type: 'background',
   },
   {
     token: 'background.control.neutralCheckedDisabled',
     description: '-',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
   {
@@ -417,19 +417,19 @@ export const background = [
   {
     token: 'background.control.neutralIndeterminateHover',
     description: '-',
-    value: 'grey20',
+    value: 'gray20',
     type: 'background',
   },
   {
     token: 'background.control.neutralIndeterminatePressed',
     description: '-',
-    value: 'grey40',
+    value: 'gray40',
     type: 'background',
   },
   {
     token: 'background.control.neutralIndeterminateDisabled',
     description: '-',
-    value: 'grey30',
+    value: 'gray30',
     type: 'background',
   },
 ]
@@ -444,7 +444,7 @@ export const foreground = [
   {
     token: 'foreground.muted',
     description: 'Color for secondary text and icons.',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
   {
@@ -486,13 +486,13 @@ export const foreground = [
   {
     token: 'foreground.sidebar',
     description: '-',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
   {
     token: 'foreground.topbar',
     description: '-',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
   {
@@ -504,7 +504,7 @@ export const foreground = [
   {
     token: 'foreground.action.neutral.ghostDisabled',
     description: '-',
-    value: 'grey40',
+    value: 'gray40',
     type: 'foreground',
   },
   {
@@ -516,7 +516,7 @@ export const foreground = [
   {
     token: 'foreground.action.main.solidDisabled',
     description: '-',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
   {
@@ -528,7 +528,7 @@ export const foreground = [
   {
     token: 'foreground.action.main.softDisabled',
     description: '-',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
   {
@@ -540,7 +540,7 @@ export const foreground = [
   {
     token: 'foreground.action.main.textDisabled',
     description: '-',
-    value: 'grey40',
+    value: 'gray40',
     type: 'foreground',
   },
   {
@@ -552,7 +552,7 @@ export const foreground = [
   {
     token: 'foreground.action.critical.solidDisabled',
     description: '-',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
   {
@@ -564,7 +564,7 @@ export const foreground = [
   {
     token: 'foreground.action.critical.softDisabled',
     description: '-',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
   {
@@ -576,7 +576,7 @@ export const foreground = [
   {
     token: 'foreground.action.critical.textDisabled',
     description: '-',
-    value: 'grey40',
+    value: 'gray40',
     type: 'foreground',
   },
   {
@@ -678,7 +678,7 @@ export const foreground = [
   {
     token: 'foreground.control.neutralDisabled',
     description: 'Color for disabled control elements.',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
   {
@@ -690,19 +690,19 @@ export const foreground = [
   {
     token: 'foreground.control.neutralCheckedDisabled',
     description: 'Color for checked disabled control elements.',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
   {
     token: 'foreground.control.neutralIndeterminate',
     description: 'Color for indeterminate control elements.',
-    value: 'grey60',
+    value: 'gray60',
     type: 'foreground',
   },
   {
     token: 'foreground.control.neutralIndeterminateDisabled',
     description: 'Color for indeterminate disableds control elements.',
-    value: 'grey50',
+    value: 'gray50',
     type: 'foreground',
   },
 ]
@@ -711,67 +711,67 @@ export const borderColor = [
   {
     token: 'borderColor.base',
     description: 'Default border color for UI elements.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'borderColor',
   },
   {
     token: 'borderColor.popover',
     description: 'Border color for Popover component.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'borderColor',
   },
   {
     token: 'borderColor.modal',
     description: 'Border color for Modal component.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'borderColor',
   },
   {
     token: 'borderColor.container',
     description: 'Border color for Cards component.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'borderColor',
   },
   {
     token: 'borderColor.header',
     description: 'Border color for Page Header component.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'borderColor',
   },
   {
     token: 'borderColor.sidebar',
     description: 'Border color for Sidebar component.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'borderColor',
   },
   {
     token: 'borderColor.topbar',
     description: 'Border color for Topbar component.',
-    value: 'grey30',
+    value: 'gray30',
     type: 'borderColor',
   },
   {
     token: 'borderColor.field.neutral',
     description: 'Border color default on form elements.',
-    value: 'grey40',
+    value: 'gray40',
     type: 'borderColor',
   },
   {
     token: 'borderColor.field.neutralHover',
     description: 'Border color default on hover form elements.',
-    value: 'grey50',
+    value: 'gray50',
     type: 'borderColor',
   },
   {
     token: 'borderColor.field.neutralFocus',
     description: 'Border color default on focus form elements.',
-    value: 'grey60',
+    value: 'gray60',
     type: 'borderColor',
   },
   {
     token: 'borderColor.field.neutralDisabled',
     description: 'Border color default on disabled form elements.',
-    value: 'grey50',
+    value: 'gray50',
     type: 'borderColor',
   },
   {
@@ -795,31 +795,31 @@ export const borderColor = [
   {
     token: 'borderColor.field.criticalDisabled',
     description: 'Border color on critical on disabled form elements.',
-    value: 'grey50',
+    value: 'gray50',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutral',
     description: '-',
-    value: 'grey40',
+    value: 'gray40',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutralHover',
     description: '-',
-    value: 'grey70',
+    value: 'gray70',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutralPressed',
     description: '-',
-    value: 'grey60',
+    value: 'gray60',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutralDisabled',
     description: '-',
-    value: 'grey50',
+    value: 'gray50',
     type: 'borderColor',
   },
   {
@@ -831,43 +831,43 @@ export const borderColor = [
   {
     token: 'borderColor.control.neutralCheckedHover',
     description: '-',
-    value: 'grey70',
+    value: 'gray70',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutralCheckedPressed',
     description: '-',
-    value: 'grey60',
+    value: 'gray60',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutralCheckedDisabled',
     description: '-',
-    value: 'grey50',
+    value: 'gray50',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutralIndeterminate',
     description: '-',
-    value: 'grey40',
+    value: 'gray40',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutralIndeterminateHover',
     description: '-',
-    value: 'grey70',
+    value: 'gray70',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutralIndeterminatePressed',
     description: '-',
-    value: 'grey60',
+    value: 'gray60',
     type: 'borderColor',
   },
   {
     token: 'borderColor.control.neutralIndeterminateDisabled',
     description: '-',
-    value: 'grey50',
+    value: 'gray50',
     type: 'borderColor',
   },
   {
@@ -918,7 +918,7 @@ export const shadows = [
   {
     token: 'shadows.ring.neutral',
     description: '-',
-    value: '0rem 0rem 0rem 0.125rem {colors.grey20}',
+    value: '0rem 0rem 0rem 0.125rem {colors.gray20}',
     type: 'shadows',
   },
   {

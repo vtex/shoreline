@@ -16,13 +16,13 @@ export type Palette =
   | 'cyan'
   | 'purple'
   | 'teal'
-  | 'grey'
+  | 'gray'
 
 export const paletteMap: Record<Tone, Palette> = {
   critical: 'red',
   warning: 'orange',
   positive: 'green',
-  neutral: 'grey',
+  neutral: 'gray',
   info: 'lightBlue',
   main: 'blue',
 }
@@ -174,13 +174,13 @@ const colorTokens = asLiterals([
   'pink40',
   'pink50',
   'pink60',
-  'grey05',
-  'grey20',
-  'grey20',
-  'grey30',
-  'grey40',
-  'grey50',
-  'grey60',
+  'gray05',
+  'gray20',
+  'gray20',
+  'gray30',
+  'gray40',
+  'gray50',
+  'gray60',
   'green05',
   'green10',
   'green20',
@@ -202,16 +202,16 @@ const colorTokens = asLiterals([
   'purple40',
   'purple50',
   'purple60',
-  'greyTransparent05',
-  'greyTransparent10',
-  'greyTransparent20',
-  'greyTransparent30',
-  'greyTransparent40',
-  'greyTransparent50',
-  'greyTransparent60',
-  'greyTransparent70',
-  'greyTransparent80',
-  'greyTransparent90',
+  'grayTransparent05',
+  'grayTransparent10',
+  'grayTransparent20',
+  'grayTransparent30',
+  'grayTransparent40',
+  'grayTransparent50',
+  'grayTransparent60',
+  'grayTransparent70',
+  'grayTransparent80',
+  'grayTransparent90',
 ])
 
 export type ColorTokens = typeof colorTokens[number]

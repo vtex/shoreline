@@ -107,7 +107,7 @@ function Tone(props: ToneProps) {
     main: 'blue',
     info: 'lightBlue',
     critical: 'red',
-    neutral: 'grey',
+    neutral: 'gray',
     warning: 'orange',
     positive: 'green',
   }[tone] as any
