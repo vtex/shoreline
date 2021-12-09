@@ -56,7 +56,7 @@ Sometimes it’s useful to nest selectors to target elements inside the current 
     },
     header: {
       button: {
-        bg: color('grey70'),
+        bg: color('grey60'),
         color: color('white'),
       },
     },
@@ -92,7 +92,7 @@ Scoped classNames can also be created and reused multiple times.
       color: 'base',
     },
     '.dark': {
-      bg: color('grey70'),
+      bg: color('grey60'),
       color: color('white'),
     },
   }}
