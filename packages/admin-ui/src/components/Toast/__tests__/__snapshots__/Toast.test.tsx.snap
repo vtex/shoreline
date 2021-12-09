@@ -25,7 +25,7 @@ exports[`Toast should match snapshot 1`] = `
   max-height: 4.5rem;
   padding: 1rem;
   box-shadow: subtle;
-  border: 1px solid hsla(206, 63%, 72%, 1);
+  border: 1px solid hsla(206, 72%, 70%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
@@ -95,7 +95,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-5:hover {
@@ -115,7 +115,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-5 svg {
@@ -181,7 +181,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-9:hover {
@@ -201,7 +201,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-9 svg {
@@ -365,7 +365,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-5:hover {
@@ -385,7 +385,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-5 svg {
@@ -451,7 +451,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-9:hover {
@@ -471,7 +471,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-9 svg {
@@ -512,7 +512,7 @@ exports[`Toast should match snapshot 1`] = `
   max-height: 4.5rem;
   padding: 1rem;
   box-shadow: subtle;
-  border: 1px solid hsla(122, 41%, 64%, 1);
+  border: 1px solid hsla(123, 46%, 67%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
@@ -660,7 +660,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-5:hover {
@@ -680,7 +680,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-5 svg {
@@ -746,7 +746,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-9:hover {
@@ -766,7 +766,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-9 svg {
@@ -807,7 +807,7 @@ exports[`Toast should match snapshot 1`] = `
   max-height: 4.5rem;
   padding: 1rem;
   box-shadow: subtle;
-  border: 1px solid hsla(30, 100%, 69%, 1);
+  border: 1px solid hsla(28, 87%, 70%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
@@ -832,7 +832,7 @@ exports[`Toast should match snapshot 1`] = `
         <path
           clip-rule="evenodd"
           d="M3 14.381V9.61899C3 8.01699 3.852 6.53599 5.236 5.72999L9.736 3.11099C11.135 2.29699 12.864 2.29699 14.263 3.11099L18.763 5.72999C20.148 6.53599 21 8.01699 21 9.61899V14.381C21 15.983 20.148 17.464 18.764 18.27L14.264 20.889C12.865 21.703 11.136 21.703 9.737 20.889L5.237 18.27C3.852 17.464 3 15.983 3 14.381Z"
-          fill="hsla(30, 100%, 45%, 1)"
+          fill="hsla(30, 100%, 42%, 1)"
           fill-rule="evenodd"
         />
         <path
@@ -962,7 +962,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-5:hover {
@@ -982,7 +982,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-5 svg {
@@ -1048,7 +1048,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-9:hover {
@@ -1068,7 +1068,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-9 svg {
@@ -1109,7 +1109,7 @@ exports[`Toast should match snapshot 1`] = `
   max-height: 4.5rem;
   padding: 1rem;
   box-shadow: subtle;
-  border: 1px solid hsla(0, 59%, 73%, 1);
+  border: 1px solid hsla(0, 81%, 77%, 1);
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;

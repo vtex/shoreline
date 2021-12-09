@@ -110,7 +110,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:hover {
@@ -301,7 +301,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:hover {
@@ -311,7 +311,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 
 .emotion-3:active {
   color: hsla(222, 63%, 34%, 1);
-  background: hsla(222, 63%, 72%, 1);
+  background: hsla(222, 78%, 77%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -492,12 +492,12 @@ exports[`Dropdown tests should match snapshot 1`] = `
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 96%, 1);
+  background: hsl(224, 65%, 97%, 1);
 }
 
 .emotion-3:active {
@@ -688,7 +688,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:hover {
@@ -879,7 +879,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:hover {

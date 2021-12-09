@@ -46,7 +46,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -78,7 +78,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0 {
@@ -104,17 +104,17 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:not(:focus):hover {
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -190,7 +190,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -222,7 +222,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0 {
@@ -248,17 +248,17 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:not(:focus):hover {
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -336,7 +336,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -386,8 +386,8 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:not(:focus):hover {
@@ -480,7 +480,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -512,7 +512,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0 {
@@ -538,17 +538,17 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:not(:focus):hover {
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -630,7 +630,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.875rem;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -662,7 +662,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0 {
@@ -688,8 +688,8 @@ exports[`TextArea tests should match snapshot 1`] = `
 
 .emotion-0:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:not(:focus):hover {

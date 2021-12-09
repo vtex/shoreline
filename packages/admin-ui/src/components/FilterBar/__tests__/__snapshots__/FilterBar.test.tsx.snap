@@ -42,12 +42,12 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-42:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-42:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 96%, 1);
+  background: hsl(224, 65%, 97%, 1);
 }
 
 .emotion-42:active {
@@ -157,7 +157,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-45:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-45:hover {
@@ -177,7 +177,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-45:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-45 svg {
@@ -206,7 +206,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-48:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-48:hover {
@@ -327,7 +327,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-5:hover {
@@ -347,7 +347,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-5 svg {
@@ -476,7 +476,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-27:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-27:hover {
@@ -509,7 +509,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-27:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-27:hover {
@@ -529,7 +529,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-27:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-27 svg {
@@ -606,7 +606,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-30:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 96%, 1);
+  background: hsl(224, 65%, 97%, 1);
 }
 
 .emotion-30:active {
@@ -615,7 +615,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-30:disabled {
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
   background: hsla(0, 0%, 87%, 1);
 }
 

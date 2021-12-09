@@ -893,7 +893,7 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
   line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 <div

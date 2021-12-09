@@ -57,7 +57,7 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-2:hover {
@@ -157,7 +157,7 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-2:hover {
@@ -167,7 +167,7 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:active {
   color: hsla(222, 63%, 34%, 1);
-  background: hsla(222, 63%, 72%, 1);
+  background: hsla(222, 78%, 77%, 1);
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -257,12 +257,12 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-2:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 96%, 1);
+  background: hsl(224, 65%, 97%, 1);
 }
 
 .emotion-2:active {
@@ -357,7 +357,7 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-2:hover {
@@ -457,7 +457,7 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-2:hover {
@@ -467,7 +467,7 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:active {
   color: hsla(0, 58%, 37%, 1);
-  background: hsla(0, 59%, 73%, 1);
+  background: hsla(0, 81%, 77%, 1);
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -557,12 +557,12 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-2:hover {
   color: hsla(0, 58%, 52%, 1);
-  background: hsla(0, 56%, 96%, 1);
+  background: hsl(0, 53%, 97%, 1);
 }
 
 .emotion-2:active {

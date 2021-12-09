@@ -41,18 +41,22 @@ exports[`Search tests should match snapshot 1`] = `
   color: field.neutralDisabled;
 =======
 .emotion-2:hover {
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-2:focus {
   border-color: form.neutralFocus;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-2:disabled {
   background: hsla(0, 0%, 87%, 1);
+<<<<<<< HEAD
   color: hsla(0, 0%, 45%, 1);
 >>>>>>> b6ea0e40 (test(admin-ui): fix cases)
+=======
+  color: hsla(0, 0%, 43%, 1);
+>>>>>>> 8f9c5547 (test(admin-ui): update snapshots)
 }
 
 .emotion-2 {
@@ -191,18 +195,22 @@ exports[`Search tests should match snapshot on loading 1`] = `
   color: field.neutralDisabled;
 =======
 .emotion-3:hover {
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:focus {
   border-color: form.neutralFocus;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
+<<<<<<< HEAD
   color: hsla(0, 0%, 45%, 1);
 >>>>>>> b6ea0e40 (test(admin-ui): fix cases)
+=======
+  color: hsla(0, 0%, 43%, 1);
+>>>>>>> 8f9c5547 (test(admin-ui): update snapshots)
 }
 
 .emotion-3 {

@@ -38,24 +38,24 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:disabled {
   background: hsla(0, 0%, 87%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 43%, 1);
   cursor: not-allowed;
 }
 
 .emotion-0:hover {
-  background: hsla(0, 0%, 93%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:active {
   background: hsla(0, 0%, 73%, 1);
-  border: 1px solid hsla(0, 0%, 29%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:after {
@@ -91,23 +91,23 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   display: block;
   border-radius: 100%;
   top: 0.3rem;
-  background: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:checked:disabled {
   cursor: not-allowed;
   background: hsla(0, 0%, 87%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:checked:hover {
-  background: hsla(0, 0%, 20%, 1);
-  border: 1px solid hsla(0, 0%, 20%, 1);
+  background: hsla(0, 0%, 23%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
 }
 
 .emotion-0:checked:active {
-  background: hsla(0, 0%, 29%, 1);
-  border: 1px solid hsla(0, 0%, 29%, 1);
+  background: hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-3 {
@@ -136,7 +136,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -222,24 +222,24 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:disabled {
   background: hsla(0, 0%, 87%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 43%, 1);
   cursor: not-allowed;
 }
 
 .emotion-0:hover {
-  background: hsla(0, 0%, 93%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:active {
   background: hsla(0, 0%, 73%, 1);
-  border: 1px solid hsla(0, 0%, 29%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:after {
@@ -275,23 +275,23 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   display: block;
   border-radius: 100%;
   top: 0.3rem;
-  background: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:checked:disabled {
   cursor: not-allowed;
   background: hsla(0, 0%, 87%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:checked:hover {
-  background: hsla(0, 0%, 20%, 1);
-  border: 1px solid hsla(0, 0%, 20%, 1);
+  background: hsla(0, 0%, 23%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
 }
 
 .emotion-0:checked:active {
-  background: hsla(0, 0%, 29%, 1);
-  border: 1px solid hsla(0, 0%, 29%, 1);
+  background: hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-3 {
@@ -320,7 +320,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

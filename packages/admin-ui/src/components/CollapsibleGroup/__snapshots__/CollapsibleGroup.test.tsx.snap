@@ -47,7 +47,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:hover {
@@ -67,7 +67,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-3 svg {
@@ -266,7 +266,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:hover {
@@ -286,7 +286,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-3 svg {

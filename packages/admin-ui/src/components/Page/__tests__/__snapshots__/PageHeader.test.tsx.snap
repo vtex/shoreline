@@ -156,12 +156,12 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 96%, 1);
+  background: hsl(224, 65%, 97%, 1);
 }
 
 .emotion-3:active {

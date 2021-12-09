@@ -13,8 +13,8 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background: hsla(188, 72%, 92%, 1);
-  color: hsla(188, 78%, 16%, 1);
+  background: hsla(190, 58%, 90%, 1);
+  color: hsla(187, 77%, 15%, 1);
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -265,8 +265,8 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background: hsla(175, 41%, 79%, 1);
-  color: hsla(173, 100%, 14%, 1);
+  background: hsla(166, 52%, 87%, 1);
+  color: hsla(171, 100%, 14%, 1);
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -478,7 +478,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-3:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:hover {
@@ -498,7 +498,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-3 svg {
@@ -649,7 +649,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-4:disabled {
   background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-4:hover {
@@ -669,7 +669,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-4 svg {
