@@ -5,11 +5,19 @@ steps:
   - name: Build
     image: node:14.17.0
     pull: if-not-exists
+    resources: 
+      limits:
+        cpu: 1800
+        memory: 1.6Gi
     commands:
       - yarn && yarn build
   - name: Unit Tests
     image: node:14.17.0
     pull: if-not-exists
+    resources: 
+      limits:
+        cpu: 1800
+        memory: 1.6Gi
     commands:
       - yarn ci:test
     depends_on:
