@@ -6,7 +6,7 @@ steps:
     image: node:14.17.0
     pull: if-not-exists
     commands:
-      - yarn && yarn build:fast
+      - yarn && yarn build
   - name: Unit Tests
     image: node:14.17.0
     pull: if-not-exists
