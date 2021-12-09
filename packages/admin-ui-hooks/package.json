@@ -26,7 +26,7 @@
     "url": "https://github.com/vtex/onda/issues"
   },
   "scripts": {
-    "start": "tsdx watch --verbose --noClean",
+    "dev": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
     "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
     "test": "tsdx test"

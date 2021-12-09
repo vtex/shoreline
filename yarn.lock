@@ -25623,6 +25623,13 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
+turbo@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/turbo/-/turbo-1.0.3.tgz#fad0a7111c1510afe094d1d7c4d0ac2a5ff7965c"
+  integrity sha512-KB/46bh7P7/PhE6q73AYhkgt4bdzoRIFfIta/I/ON92YcCErvi3XcQ8n9ZGbbUg+Mk6uWkM9fTQyb/37f4Z+yA==
+  dependencies:
+    zlib "^1.0.5"
+
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
@@ -27329,6 +27336,11 @@ zepto@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/zepto/-/zepto-1.2.0.tgz#e127bd9e66fd846be5eab48c1394882f7c0e4f98"
   integrity sha1-4Se9nmb9hGvl6rSME5SIL3wOT5g=
+
+zlib@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/zlib/-/zlib-1.0.5.tgz#6e7c972fc371c645a6afb03ab14769def114fcc0"
+  integrity sha1-bnyXL8NxxkWmr7A6sUdp3vEU/MA=
 
 zwitch@^1.0.0:
   version "1.0.5"
