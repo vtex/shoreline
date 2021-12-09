@@ -2,6 +2,15 @@ kind: pipeline
 type: kubernetes
 name: Pullrequest
 steps:
+  - name: Dependencies
+    image: node:14.17.0
+    pull: if-not-exists
+    resources: 
+      limits:
+        cpu: 2000
+        memory: 4Gi
+    commands:
+      - yarn install
   - name: Build
     image: node:14.17.0
     pull: if-not-exists
@@ -10,7 +19,9 @@ steps:
         cpu: 2000
         memory: 4Gi
     commands:
-      - yarn && yarn build
+      - yarn build:ci
+    depends_on:
+      - Dependencies
   - name: Unit Tests
     image: node:14.17.0
     pull: if-not-exists
@@ -19,7 +30,7 @@ steps:
         cpu: 2000
         memory: 4Gi
     commands:
-      - yarn ci:test
+      - yarn test:ci
     depends_on:
       - Build
 trigger:

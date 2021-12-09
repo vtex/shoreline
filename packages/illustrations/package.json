@@ -26,7 +26,9 @@
   "scripts": {
     "dev": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
-    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs"
+    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
+    "test": "tsdx test --passWithNoTests",
+    "test:ci": "tsdx test --passWithNoTests --silent"
   },
   "peerDependencies": {
     "react": ">=16",

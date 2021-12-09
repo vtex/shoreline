@@ -10,21 +10,25 @@
     "baseBranch": "origin/main",
     "pipeline": {
       "build": {
-        "dependsOn": [
-          "^build"
-        ],
+        "dependsOn": ["^build"],
         "outputs": []
       },
       "test": {
-        "dependsOn": [
-          "^build"
-        ],
+        "dependsOn": ["build"],
         "outputs": []
       },
       "lint": {
         "outputs": []
       },
       "dev": {
+        "cache": false
+      },
+      "build:ci": {
+        "dependsOn": ["^build"],
+        "cache": false
+      },
+      "test:ci": {
+        "outputs": [],
         "cache": false
       }
     }
@@ -55,8 +59,9 @@
     "site": "yarn --cwd packages/site develop",
     "build:site": "yarn --cwd packages/site build-site",
     "commit": "cz",
-    "ci:test": "turbo run test -- --silent",
-    "ci:lint": "yarn lint"
+    "build:ci": "turbo run build:ci --no-cache",
+    "test:ci": "turbo run test:ci --parallel --no-cache",
+    "lint:ci": "yarn lint"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
