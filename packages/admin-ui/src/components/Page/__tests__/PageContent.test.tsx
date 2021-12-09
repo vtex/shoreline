@@ -11,10 +11,7 @@ describe('PageContent', () => {
       </Page>
     )
 
-    expect(getByTestId('page-content')).toHaveStyleRule(
-      'background-color',
-      'coral'
-    )
+    expect(getByTestId('page-content')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

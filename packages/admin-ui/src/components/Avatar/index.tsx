@@ -29,7 +29,7 @@ export const Avatar = jsx('div')(
         cyan: palette('cyan'),
         purple: palette('purple'),
         teal: palette('teal'),
-        grey: palette('grey'),
+        gray: palette('gray'),
       },
     },
   },

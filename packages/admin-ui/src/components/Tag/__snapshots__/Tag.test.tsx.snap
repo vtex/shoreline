@@ -13,8 +13,8 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(188, 72%, 92%, 1);
-  color: hsla(188, 78%, 16%, 1);
+  background: hsla(190, 58%, 90%, 1);
+  color: hsla(187, 77%, 15%, 1);
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -55,7 +55,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(265, 35%, 93%, 1);
+  background: hsla(265, 35%, 93%, 1);
   color: hsla(268, 38%, 28%, 1);
   height: 40px;
   padding-left: 1rem;
@@ -97,7 +97,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(123, 39%, 91%, 1);
+  background: hsla(123, 39%, 91%, 1);
   color: hsla(123, 41%, 19%, 1);
   height: 40px;
   padding-left: 1rem;
@@ -139,7 +139,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(0, 60%, 93%, 1);
+  background: hsla(0, 60%, 93%, 1);
   color: hsla(0, 58%, 30%, 1);
   height: 40px;
   padding-left: 1rem;
@@ -181,7 +181,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(265, 35%, 93%, 1);
+  background: hsla(265, 35%, 93%, 1);
   color: hsla(268, 38%, 28%, 1);
   height: 40px;
   padding-left: 1rem;
@@ -223,7 +223,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(30, 100%, 92%, 1);
+  background: hsla(30, 100%, 92%, 1);
   color: hsla(29, 100%, 18%, 1);
   height: 40px;
   padding-left: 1rem;
@@ -265,8 +265,8 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(175, 41%, 79%, 1);
-  color: hsla(173, 100%, 14%, 1);
+  background: hsla(166, 52%, 87%, 1);
+  color: hsla(171, 100%, 14%, 1);
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -307,7 +307,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(206, 61%, 92%, 1);
+  background: hsla(206, 61%, 92%, 1);
   color: hsla(207, 64%, 22%, 1);
   height: 40px;
   padding-left: 1rem;
@@ -349,7 +349,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(206, 61%, 92%, 1);
+  background: hsla(206, 61%, 92%, 1);
   color: hsla(207, 64%, 22%, 1);
   height: 40px;
   padding-left: 1rem;
@@ -391,7 +391,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(206, 61%, 92%, 1);
+  background: hsla(206, 61%, 92%, 1);
   color: hsla(207, 64%, 22%, 1);
   height: 26px;
   padding-left: 0.5rem;
@@ -433,7 +433,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(206, 61%, 92%, 1);
+  background: hsla(206, 61%, 92%, 1);
   color: hsla(207, 64%, 22%, 1);
   height: 40px;
   padding-left: 1rem;
@@ -460,8 +460,6 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -473,7 +471,24 @@ exports[`Tag tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #000000;
+  background: transparent;
   margin-left: 0.25rem;
+}
+
+.emotion-3:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-3:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-3:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -483,20 +498,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-3:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-3:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-3:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-3 svg {
@@ -602,7 +604,7 @@ exports[`Tag tests should match snapshot 1`] = `
   align-items: center;
   border-radius: 100px;
   border: none;
-  background-color: hsla(206, 61%, 92%, 1);
+  background: hsla(206, 61%, 92%, 1);
   color: hsla(207, 64%, 22%, 1);
   height: 40px;
   padding-left: 1rem;
@@ -629,8 +631,6 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-4 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -642,7 +642,24 @@ exports[`Tag tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  color: #000000;
+  background: transparent;
   margin-left: 0.25rem;
+}
+
+.emotion-4:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-4:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-4:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -652,20 +669,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-4:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-4:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-4:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-4 svg {

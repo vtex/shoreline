@@ -12,7 +12,7 @@ describe('CheckboxGroup', () => {
       </CheckboxGroup>
     )
 
-    expect(getByTestId('group')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('group')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {

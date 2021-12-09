@@ -28,13 +28,13 @@ export const MDXComponents = {
         marginTop: '.8rem',
         marginBottom: '1rem',
         textAlign: 'left',
-        color: 'base',
+        color: '$primary',
         fontSize: '1rem',
         lineHeight: '24px',
         code: {
           fontFamily:
             'VTEX Trust, -apple-system, system-ui, BlinkMacSystemFont, sans-serif !important',
-          color: 'highlight',
+          color: '$info',
           bg: 'transparent',
         },
       }}
@@ -88,9 +88,7 @@ export const MDXComponents = {
     <tag.th
       csx={{
         paddingX: 3,
-        borderBottomColor: 'base',
-        borderBottomWidth: 1,
-        borderBottomStyle: 'solid',
+        borderBottom: '$neutral',
         verticalAlign: 'middle',
       }}
       {...props}
@@ -103,14 +101,12 @@ export const MDXComponents = {
       <td
         className={cn({
           paddingX: 3,
-          borderBottomColor: 'base',
-          borderBottomWidth: 1,
-          borderBottomStyle: 'solid',
+          borderBottomColor: '$neutral',
           verticalAlign: 'middle',
           whiteSpace: 'pre-wrap',
           wordWrap: 'break-word',
           code: {
-            color: 'highlight',
+            color: '$info',
             bg: 'transparent',
             padding: 2,
             borderRadius: 4,

@@ -3,11 +3,10 @@
 exports[`CollapsibleGroup tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-8 {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 87%, 1);
-  border-style: solid;
-  border-width: 0;
+  background: #FFFFFF;
+  border: 1px solid hsla(0, 0%, 87%, 1);
   border-radius: 4px;
+  border-width: 0;
 }
 
 .emotion-5 {
@@ -31,8 +30,6 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -44,6 +41,23 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  color: #000000;
+  background: transparent;
+}
+
+.emotion-3:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-3:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-3:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -53,20 +67,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-3:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-3:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-3:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-3 svg {
@@ -154,11 +155,9 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-9 {
-  background-color: #FFFFFF;
+  background: #FFFFFF;
   color: #000000;
-  border-color: hsla(0, 0%, 87%, 1);
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid hsla(0, 0%, 87%, 1);
   border-radius: 4px;
   padding: 0rem;
 }
@@ -223,11 +222,10 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 <DocumentFragment>
   .emotion-8 {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 87%, 1);
-  border-style: solid;
-  border-width: 0;
+  background: #FFFFFF;
+  border: 1px solid hsla(0, 0%, 87%, 1);
   border-radius: 4px;
+  border-width: 0;
 }
 
 .emotion-5 {
@@ -251,8 +249,6 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-3 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -264,6 +260,23 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  color: #000000;
+  background: transparent;
+}
+
+.emotion-3:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-3:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-3:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -273,20 +286,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-3:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-3:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-3:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-3 svg {
@@ -374,11 +374,9 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-9 {
-  background-color: #FFFFFF;
+  background: #FFFFFF;
   color: #000000;
-  border-color: hsla(0, 0%, 87%, 1);
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid hsla(0, 0%, 87%, 1);
   border-radius: 4px;
   padding: 0rem;
 }

@@ -43,7 +43,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
   return (
     <Button
       ref={ref}
-      variant="text"
+      variant="tertiary"
       size="small"
       csx={merge(
         {
@@ -53,23 +53,27 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
           height: 'auto',
           marginY: 1,
           textAlign: 'left',
-          backgroundColor: selected ? 'listBoxItem.mainSelected' : 'sidebar',
+          bg: selected
+            ? '$action.main.tertiarySelected'
+            : '$action.main.tertiary',
           '> div': {
             justifyContent: 'start',
             fontSize: '14px',
             fontSettings: selected ? 'medium' : 'regular',
-            color: selected ? 'listBoxItem.mainSelected' : 'sidebar',
+            color: selected
+              ? '$action.main.tertiarySelected'
+              : '$action.main.tertiary',
           },
           ':active': {
-            backgroundColor: 'listBoxItem.mainPressed',
+            bg: '$action.main.tertiaryPressed',
             '> div': {
-              color: 'listBoxItem.mainPressed',
+              color: '$action.main.tertiaryPressed',
             },
           },
           ':hover': {
-            backgroundColor: 'listBoxItem.mainHover',
+            bg: '$action.main.tertiaryHover',
             '> div': {
-              color: 'listBoxItem.mainHover',
+              color: '$action.main.tertiaryHover',
             },
           },
         },

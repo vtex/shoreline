@@ -55,7 +55,7 @@ exports[`Tabs should match snapshot 1`] = `
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-style: solid;
-  border-bottom-color: hsla(222, 63%, 43%, 1);
+  border-bottom-color: transparent;
   border-bottom-width: 2px;
   border-top-style: solid;
   border-top-color: transparent;
@@ -69,6 +69,7 @@ exports[`Tabs should match snapshot 1`] = `
   text-transform: uppercase;
   background-color: transparent;
   color: hsla(222, 63%, 43%, 1);
+  border-bottom: 2px solid hsla(222, 63%, 43%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -79,6 +80,10 @@ exports[`Tabs should match snapshot 1`] = `
 .emotion-0:focus {
   outline: none;
   box-shadow: focus;
+}
+
+.emotion-0:hover {
+  color: hsla(222, 63%, 43%, 1);
 }
 
 <div
@@ -117,7 +122,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 <div
@@ -139,7 +144,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 <div
@@ -217,7 +222,7 @@ exports[`Tabs should match snapshot 1`] = `
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-style: solid;
-  border-bottom-color: hsla(222, 63%, 43%, 1);
+  border-bottom-color: transparent;
   border-bottom-width: 2px;
   border-top-style: solid;
   border-top-color: transparent;
@@ -231,6 +236,7 @@ exports[`Tabs should match snapshot 1`] = `
   text-transform: uppercase;
   background-color: transparent;
   color: hsla(222, 63%, 43%, 1);
+  border-bottom: 2px solid hsla(222, 63%, 43%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -241,6 +247,10 @@ exports[`Tabs should match snapshot 1`] = `
 .emotion-0:focus {
   outline: none;
   box-shadow: focus;
+}
+
+.emotion-0:hover {
+  color: hsla(222, 63%, 43%, 1);
 }
 
 <div
@@ -279,7 +289,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 <div
@@ -301,7 +311,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 <div

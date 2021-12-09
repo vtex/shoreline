@@ -65,7 +65,7 @@ const SortIndicator = jsx('div')(
 
 const Row = jsx('tr')({
   display: 'table-row',
-  bg: 'base',
+  bg: '$primary',
   textAlign: 'left',
 })
 

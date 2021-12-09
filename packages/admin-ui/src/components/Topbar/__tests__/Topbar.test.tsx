@@ -16,7 +16,7 @@ describe('Topbar tests', () => {
       </Topbar>
     )
 
-    expect(getByTestId('topbar')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('topbar')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

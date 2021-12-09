@@ -14,10 +14,7 @@ describe('DataView', () => {
       </StatefulDataView>
     )
 
-    expect(getByTestId('data-view')).toHaveStyleRule(
-      'background-color',
-      'coral'
-    )
+    expect(getByTestId('data-view')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

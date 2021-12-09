@@ -29,13 +29,13 @@ export function VersionSwitcher() {
 
   return (
     <Set csx={{ marginLeft: 5 }}>
-      <Text tone="neutral">Docs Version: </Text>
+      <Text tone="primary">Docs Version: </Text>
       <Dropdown
         label="Version Switcher"
         state={state}
         items={items}
         renderItem={(i) => i?.label ?? ''}
-        variant="text"
+        variant="adaptative-dark"
       />
     </Set>
   )

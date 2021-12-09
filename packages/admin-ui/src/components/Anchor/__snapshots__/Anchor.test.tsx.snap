@@ -11,11 +11,11 @@ exports[`Anchor tests should match snapshot 1`] = `
 }
 
 .emotion-0:visited {
-  color: hsla(222, 63%, 25%, 1);
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-0:hover {
-  color: hsla(222, 63%, 34%, 1);
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -35,11 +35,11 @@ exports[`Anchor tests should match snapshot 1`] = `
 }
 
 .emotion-0:visited {
-  color: hsla(222, 63%, 25%, 1);
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-0:hover {
-  color: hsla(222, 63%, 34%, 1);
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -59,11 +59,11 @@ exports[`Anchor tests should match snapshot 1`] = `
 }
 
 .emotion-0:visited {
-  color: hsla(222, 63%, 25%, 1);
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-0:hover {
-  color: hsla(222, 63%, 34%, 1);
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -83,11 +83,11 @@ exports[`Anchor tests should match snapshot 1`] = `
 }
 
 .emotion-0:visited {
-  color: hsla(222, 63%, 25%, 1);
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-0:hover {
-  color: hsla(222, 63%, 34%, 1);
+  color: hsla(222, 63%, 43%, 1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }

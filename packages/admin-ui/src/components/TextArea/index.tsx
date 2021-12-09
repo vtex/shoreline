@@ -5,60 +5,14 @@ import { jsx } from '@vtex/admin-ui-react'
 import { FloatingLabel, FieldDetails, FieldContainer } from '../Field'
 import type { SystemComponentProps } from '../../types'
 
+import * as style from './TextArea.style'
+
 const Reference = jsx('textarea')({
-  // ...focusVisible(),
-  fontFamily: 'sans',
-  paddingTop: 24,
-  height: 100,
-  resize: 'none',
-  fontSettings: 'regular',
-  width: 'full',
-  borderStyle: 'solid',
-  borderWidth: 1,
-  paddingLeft: 3,
-  paddingRight: 4,
-  borderRadius: 'default',
-  marginY: 1,
-  fontSize: 1,
-  color: 'base',
-  outline: 0,
-  transition: 'snap',
+  ...style.baseline,
   variants: {
     tone: {
-      neutral: {
-        bg: 'field.neutral',
-        color: 'field.neutral',
-        borderColor: 'field.neutral',
-        ':not(:focus):hover': {
-          borderColor: 'field.neutralHover',
-        },
-        ':focus': {
-          borderColor: 'field.neutralFocus',
-          boxShadow: 'ring.neutral',
-        },
-        ':disabled': {
-          bg: 'field.neutralDisabled',
-          color: 'field.neutralDisabled',
-          borderColor: 'field.neutralDisabled',
-        },
-      },
-      critical: {
-        bg: 'field.critical',
-        color: 'field.critical',
-        borderColor: 'field.critical',
-        ':not(:focus):hover': {
-          borderColor: 'field.criticalHover',
-        },
-        ':focus': {
-          borderColor: 'field.criticalFocus',
-          boxShadow: 'ring.critical',
-        },
-        ':disabled': {
-          bg: 'field.criticalDisabled',
-          color: 'field.criticalDisabled',
-          borderColor: 'field.criticalDisabled',
-        },
-      },
+      neutral: style.toneVariant('neutral'),
+      critical: style.toneVariant('critical'),
     },
   },
 })

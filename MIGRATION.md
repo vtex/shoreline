@@ -114,40 +114,6 @@ The palette property changed its values
 <Avatar label="grey" palette="grey" />
 ```
 
-### Button
-
-We split the `variant` prop into two properties: `variant` and `tone`, and we also changed its values.
-
-We removed the `adaptative` variants, now you must use the `ButtonGhost` component.
-
-> Note: the first button specified on “after” represents the first button on “before”, and so on.
-
-**Before**
-
-```jsx
-<Button variant="primary" />
-<Button variant="secondary" />
-<Button variant="tertiary" />
-<Button variant="danger" />
-<Button variant="danger-secondary" />
-<Button variant="danger-tertiary" />
-<Button variant="adaptative-dark" />
-<Button variant="adaptative-light" />
-```
-
-**After**
-
-```jsx
-<Button variant="solid" tone="main" />
-<Button variant="soft" tone="main" />
-<Button variant="text" tone="main" />
-<Button variant="solid" tone="critical" />
-<Button variant="soft" tone="critical" />
-<Button variant="text" tone="critical" />
-<ButtonGhost />
-// adaptative-light no longer exist
-```
-
 ### Input & InputPassword & TextArea & Select & NumericStepper
 
 The way of handling errors on the Fields has changed. Now you must use a combination of the `tone` and `criticalText` properties, instead of `error` and `errorMessage`

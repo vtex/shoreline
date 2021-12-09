@@ -13,8 +13,8 @@ describe('List tests', () => {
       </List>
     )
 
-    expect(getByTestId('list')).toHaveStyleRule('background-color', 'azure')
-    expect(getByTestId('listitem')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('list')).toHaveStyleRule('background', 'azure')
+    expect(getByTestId('listitem')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

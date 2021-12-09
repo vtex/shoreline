@@ -54,7 +54,7 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
                 <FormikCheckbox {...args} />
               </Box>
               <Button
-                variant="soft"
+                variant="secondary"
                 type="reset"
                 size="small"
                 onClick={() => resetForm()}
@@ -64,7 +64,7 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
               </Button>
               <Text
                 variant="small"
-                tone="muted"
+                tone="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Change values in formik to current initial values
@@ -74,13 +74,13 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
               </Button>
               <Text
                 variant="small"
-                tone="muted"
+                tone="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 Set the current value as initial value
               </Text>
               <Button
-                variant="soft"
+                variant="secondary"
                 size="small"
                 onClick={() =>
                   setCurrentInitialValues({ [args.name]: !values.value })
@@ -90,7 +90,7 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
               </Button>
               <Text
                 variant="small"
-                tone="muted"
+                tone="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
                 {`Set "${!initialValues.value}" as new initial value`}
@@ -99,13 +99,13 @@ export const Playground: Story<FormikCheckboxProps> = (args) => {
             <Set orientation="vertical" spacing={4}>
               <Set orientation="vertical">
                 <Text variant="subtitle">Current value in formik :</Text>
-                <Text tone="muted">
+                <Text tone="secondary">
                   <pre>{JSON.stringify(values)}</pre>
                 </Text>
               </Set>
               <Set orientation="vertical">
                 <Text variant="subtitle">Current initial value in formik:</Text>
-                <Text tone="muted">
+                <Text tone="secondary">
                   <pre>{JSON.stringify(currentInitialValues)}</pre>
                 </Text>
               </Set>
@@ -143,7 +143,7 @@ export const Basic = () => {
             </Box>
             <Set orientation="vertical">
               <Text variant="subtitle">Current value in formik :</Text>
-              <Text tone="muted">
+              <Text tone="secondary">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
@@ -185,7 +185,7 @@ export const Error = () => {
           </Box>
           <Set>
             <Text variant="subtitle">Current value in formik :</Text>
-            <Text tone="muted">
+            <Text tone="secondary">
               <pre>{JSON.stringify(values)}</pre>
             </Text>
           </Set>
@@ -237,7 +237,7 @@ export const WithIntl = () => {
             </Box>
             <Set>
               <Text variant="subtitle">Current value in formik :</Text>
-              <Text tone="muted">
+              <Text tone="secondary">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
@@ -281,7 +281,7 @@ export const ChangeValueOutside = () => {
             </Box>
             <Set orientation="vertical">
               <Text variant="subtitle">Current value in formik :</Text>
-              <Text tone="muted">
+              <Text tone="secondary">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
@@ -328,7 +328,7 @@ export const ChangeInitialValue = () => {
                 </Button>
                 <Text
                   variant="small"
-                  tone="muted"
+                  tone="secondary"
                   csx={{ marginBottom: 3, textAlign: 'center' }}
                 >
                   When the initial value changes the form is restarted
@@ -337,13 +337,13 @@ export const ChangeInitialValue = () => {
             </Box>
             <Set orientation="vertical" csx={{ marginX: 8 }}>
               <Text variant="subtitle">Current value in formik :</Text>
-              <Text tone="muted">
+              <Text tone="secondary">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
             <Set orientation="vertical">
               <Text variant="subtitle">Current initial value in formik:</Text>
-              <Text tone="muted">
+              <Text tone="secondary">
                 <pre>{JSON.stringify(currentInitialValues)}</pre>
               </Text>
             </Set>

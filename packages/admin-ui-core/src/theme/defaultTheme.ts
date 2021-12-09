@@ -1,462 +1,161 @@
-import { colors, darkMatter } from './colors'
-import { ring } from './styleKit'
+import { colors } from './colors'
+import { ring, border } from './styleKit'
+
+const lightTheme = {
+  bg: {
+    primary: colors.white,
+    secondary: colors.gray05,
+    disabled: colors.gray20,
+    positive: colors.green10,
+    critical: colors.red10,
+    warning: colors.orange10,
+    info: colors.lightBlue10,
+    inverted: colors.black,
+    overlay: colors.grayTransparent50,
+    skeleton: `linear-gradient(90deg, ${colors.gray20}, ${colors.gray10}), ${colors.gray20}`,
+    action: {
+      neutral: {
+        tertiary: 'transparent',
+        tertiaryHover: colors.grayTransparent05,
+        tertiaryPressed: colors.grayTransparent10,
+      },
+      main: {
+        primary: colors.blue40,
+        primaryHover: colors.blue50,
+        primaryPressed: colors.blue60,
+
+        secondary: colors.blue10,
+        secondaryHover: colors.blue20,
+        secondaryPressed: colors.blue30,
+
+        tertiary: 'transparent',
+        tertiaryHover: colors.blue05,
+        tertiaryPressed: colors.blue10,
+        tertiarySelected: colors.blue05,
+      },
+      critical: {
+        primary: colors.red40,
+        primaryHover: colors.red50,
+        primaryPressed: colors.red60,
+
+        secondary: colors.red10,
+        secondaryHover: colors.red20,
+        secondaryPressed: colors.red30,
+
+        tertiary: 'transparent',
+        tertiaryHover: colors.red05,
+        tertiaryPressed: colors.red10,
+        tertiarySelected: colors.red05,
+      },
+    },
+
+    form: {
+      neutral: 'transparent',
+      neutralHover: colors.gray10,
+      neutralPressed: colors.gray30,
+      neutralChecked: colors.black,
+      neutralCheckedHover: colors.gray60,
+      neutralCheckedPressed: colors.gray50,
+      neutralInactive: colors.gray30,
+      neutralInactiveHover: colors.gray40,
+      neutralInactivePressed: colors.gray50,
+      neutralActive: colors.black,
+      neutralActiveHover: colors.gray60,
+      neutralActivePressed: colors.gray50,
+    },
+  },
+  fg: {
+    primary: colors.black,
+    secondary: colors.gray40,
+    disabled: colors.gray40,
+    inverted: colors.white,
+    positive: colors.green40,
+    info: colors.lightBlue40,
+    critical: colors.red40,
+    warning: colors.orange40,
+
+    action: {
+      neutral: {
+        tertiary: colors.black,
+        tertiaryHover: colors.black,
+        tertiaryPressed: colors.black,
+      },
+      main: {
+        primary: colors.white,
+        primaryHover: colors.white,
+        primaryPressed: colors.white,
+
+        secondary: colors.blue50,
+        secondaryHover: colors.blue50,
+        secondaryPressed: colors.blue50,
+
+        tertiary: colors.blue40,
+        tertiaryHover: colors.blue40,
+        tertiaryPressed: colors.blue40,
+        tertiarySelected: colors.blue40,
+      },
+      critical: {
+        primary: colors.white,
+        primaryHover: colors.white,
+        primaryPressed: colors.white,
+
+        secondary: colors.red50,
+        secondaryHover: colors.red50,
+        secondaryPressed: colors.red50,
+
+        tertiary: colors.red40,
+        tertiaryHover: colors.red40,
+        tertiaryPressed: colors.red40,
+        tertiarySelected: colors.red40,
+      },
+    },
+
+    form: {
+      neutral: colors.black,
+      neutralChecked: colors.white,
+    },
+  },
+  border: {
+    neutral: border('gray20'),
+    mainSelected: border('blue40', 2),
+    positive: border('green30'),
+    info: border('lightBlue30'),
+    critical: border('red30'),
+    warning: border('orange30'),
+    disabled: border('gray40'),
+
+    form: {
+      neutral: border('gray30'),
+      neutralHover: border('gray40'),
+      neutralFocus: border('gray50'),
+      neutralPressed: border('gray50'),
+      neutralChecked: border('black'),
+      neutralCheckedHover: border('gray60'),
+      neutralCheckedPressed: border('gray50'),
+
+      critical: border('red40'),
+      criticalHover: border('red50'),
+      criticalFocus: border('red60'),
+    },
+  },
+  shadow: {
+    ring: {
+      critical: ring('critical'),
+      neutral: ring('neutral'),
+      main: ring('main'),
+    },
+    overlay: {
+      center: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
+      bottom: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
+    },
+  },
+}
 
 export const defaultTheme = {
   modes: {
-    darkMatter: {
-      background: {
-        base: darkMatter.black,
-        muted: darkMatter.grey10,
-        popup: darkMatter.white,
-        popover: darkMatter.black,
-        modal: darkMatter.black,
-        overlay: darkMatter.greyTransparent50,
-        container: darkMatter.black,
-        header: darkMatter.black,
-        sidebar: darkMatter.grey10,
-        topbar: darkMatter.black,
-        skeleton: darkMatter.grey10,
-        skeletonMuted: darkMatter.grey20,
-
-        action: {
-          neutral: {
-            ghost: 'transparent',
-            ghostHover: darkMatter.greyTransparent05,
-            ghostPressed: darkMatter.greyTransparent10,
-            ghostDisabled: 'transparent',
-          },
-
-          main: {
-            solid: darkMatter.blue40,
-            solidHover: darkMatter.blue50,
-            solidPressed: darkMatter.blue60,
-            solidDisabled: darkMatter.grey30,
-
-            soft: darkMatter.blue10,
-            softHover: darkMatter.blue20,
-            softPressed: darkMatter.blue30,
-            softDisabled: darkMatter.grey30,
-
-            text: 'transparent',
-            textHover: darkMatter.blue05,
-            textPressed: darkMatter.blue10,
-            textDisabled: darkMatter.grey30,
-          },
-
-          critical: {
-            solid: darkMatter.red40,
-            solidHover: darkMatter.red50,
-            solidPressed: darkMatter.red60,
-            solidDisabled: darkMatter.grey30,
-
-            soft: darkMatter.red10,
-            softHover: darkMatter.red20,
-            softPressed: darkMatter.red30,
-            softDisabled: darkMatter.grey30,
-
-            text: 'transparent',
-            textHover: darkMatter.red05,
-            textPressed: darkMatter.red10,
-            textDisabled: darkMatter.grey30,
-          },
-        },
-
-        listBoxItem: {
-          main: darkMatter.black,
-          mainHover: darkMatter.blue05,
-          mainPressed: darkMatter.blue10,
-          mainSelected: darkMatter.blue05,
-
-          critical: darkMatter.black,
-          criticalHover: darkMatter.red05,
-          criticalPressed: darkMatter.red10,
-          criticalSelected: darkMatter.red05,
-        },
-
-        notification: {
-          warning: darkMatter.orange10,
-          positive: darkMatter.green10,
-          info: darkMatter.lightBlue10,
-          critical: darkMatter.red10,
-        },
-
-        field: {
-          neutral: darkMatter.black,
-          neutralHover: darkMatter.black,
-          neutralFocus: darkMatter.black,
-          neutralDisabled: darkMatter.grey30,
-
-          critical: darkMatter.black,
-          criticalHover: darkMatter.black,
-          criticalFocus: darkMatter.black,
-          criticalDisabled: darkMatter.grey30,
-        },
-
-        control: {
-          neutral: darkMatter.black,
-          neutralHover: darkMatter.grey20,
-          neutralPressed: darkMatter.grey40,
-          neutralDisabled: darkMatter.grey30,
-
-          neutralChecked: darkMatter.white,
-          neutralCheckedHover: darkMatter.grey70,
-          neutralCheckedPressed: darkMatter.grey60,
-          neutralCheckedDisabled: darkMatter.grey30,
-
-          neutralIndeterminate: darkMatter.black,
-          neutralIndeterminateHover: darkMatter.grey20,
-          neutralIndeterminatePressed: darkMatter.grey40,
-          neutralIndeterminateDisabled: darkMatter.grey30,
-        },
-      },
-      foreground: {
-        base: darkMatter.white,
-        muted: darkMatter.grey50,
-        highlight: darkMatter.lightBlue40,
-        popup: darkMatter.black,
-        popover: darkMatter.white,
-        modal: darkMatter.white,
-        container: darkMatter.white,
-        header: darkMatter.white,
-        sidebar: darkMatter.grey50,
-        topbar: darkMatter.grey50,
-
-        action: {
-          neutral: {
-            ghost: darkMatter.white,
-            ghostDisabled: darkMatter.grey40,
-          },
-          main: {
-            solid: darkMatter.black,
-            solidDisabled: darkMatter.grey50,
-            soft: darkMatter.blue40,
-            softDisabled: darkMatter.grey50,
-            text: darkMatter.blue40,
-            textDisabled: darkMatter.grey40,
-          },
-          critical: {
-            solid: darkMatter.black,
-            solidDisabled: darkMatter.grey50,
-            soft: darkMatter.red50,
-            softDisabled: darkMatter.grey50,
-            text: darkMatter.red40,
-            textDisabled: darkMatter.grey40,
-          },
-        },
-
-        listBoxItem: {
-          main: darkMatter.white,
-          mainHover: darkMatter.blue50,
-          mainPressed: darkMatter.blue60,
-          mainSelected: darkMatter.blue40,
-
-          critical: darkMatter.red40,
-          criticalHover: darkMatter.red50,
-          criticalPressed: darkMatter.red60,
-          criticalSelected: darkMatter.red40,
-        },
-
-        link: darkMatter.blue40,
-        linkHover: darkMatter.blue50,
-        linkVisited: darkMatter.blue60,
-
-        notification: {
-          positive: darkMatter.green40,
-          info: darkMatter.lightBlue40,
-          critical: darkMatter.red40,
-          warning: darkMatter.orange40,
-        },
-
-        control: {
-          neutral: darkMatter.black,
-          neutralDisabled: darkMatter.grey50,
-
-          neutralChecked: darkMatter.black,
-          neutralCheckedDisabled: darkMatter.grey50,
-
-          neutralIndeterminate: darkMatter.grey60,
-          neutralIndeterminateDisabled: darkMatter.grey50,
-        },
-      },
-      borderColor: {
-        base: darkMatter.grey30,
-        popover: darkMatter.grey30,
-        modal: darkMatter.grey30,
-        container: darkMatter.grey30,
-        header: darkMatter.grey30,
-        sidebar: darkMatter.grey30,
-        topbar: darkMatter.grey30,
-
-        field: {
-          neutral: darkMatter.grey40,
-          neutralHover: darkMatter.grey50,
-          neutralFocus: darkMatter.grey60,
-          neutralDisabled: darkMatter.grey50,
-
-          critical: darkMatter.red40,
-          criticalHover: darkMatter.red50,
-          criticalFocus: darkMatter.red60,
-          criticalDisabled: darkMatter.grey50,
-        },
-
-        control: {
-          neutral: darkMatter.grey40,
-          neutralHover: darkMatter.grey70,
-          neutralPressed: darkMatter.grey60,
-          neutralDisabled: darkMatter.grey50,
-
-          neutralChecked: darkMatter.white,
-          neutralCheckedHover: darkMatter.grey70,
-          neutralCheckedPressed: darkMatter.grey60,
-          neutralCheckedDisabled: darkMatter.grey50,
-
-          neutralIndeterminate: darkMatter.grey40,
-          neutralIndeterminateHover: darkMatter.grey70,
-          neutralIndeterminatePressed: darkMatter.grey60,
-          neutralIndeterminateDisabled: darkMatter.grey50,
-        },
-
-        notification: {
-          positive: darkMatter.green30,
-          info: darkMatter.lightBlue30,
-          critical: darkMatter.red30,
-          warning: darkMatter.orange30,
-        },
-      },
-    },
+    darkMatter: lightTheme,
   },
-  background: {
-    base: colors.white,
-    muted: colors.grey10,
-    popup: colors.black,
-    popover: colors.white,
-    modal: colors.white,
-    overlay: colors.greyTransparent50,
-    container: colors.white,
-    header: colors.white,
-    sidebar: colors.grey10,
-    topbar: colors.white,
-    skeleton: colors.grey10,
-    skeletonMuted: colors.grey20,
-
-    action: {
-      neutral: {
-        ghost: 'transparent',
-        ghostHover: colors.greyTransparent05,
-        ghostPressed: colors.greyTransparent10,
-        ghostDisabled: 'transparent',
-      },
-
-      main: {
-        solid: colors.blue40,
-        solidHover: colors.blue50,
-        solidPressed: colors.blue60,
-        solidDisabled: colors.grey30,
-
-        soft: colors.blue10,
-        softHover: colors.blue20,
-        softPressed: colors.blue30,
-        softDisabled: colors.grey30,
-
-        text: 'transparent',
-        textHover: colors.blue05,
-        textPressed: colors.blue10,
-        textDisabled: colors.grey30,
-      },
-
-      critical: {
-        solid: colors.red40,
-        solidHover: colors.red50,
-        solidPressed: colors.red60,
-        solidDisabled: colors.grey30,
-
-        soft: colors.red10,
-        softHover: colors.red20,
-        softPressed: colors.red30,
-        softDisabled: colors.grey30,
-
-        text: 'transparent',
-        textHover: colors.red05,
-        textPressed: colors.red10,
-        textDisabled: colors.grey30,
-      },
-    },
-
-    listBoxItem: {
-      main: colors.white,
-      mainHover: colors.blue05,
-      mainPressed: colors.blue10,
-      mainSelected: colors.blue05,
-
-      critical: colors.white,
-      criticalHover: colors.red05,
-      criticalPressed: colors.red10,
-      criticalSelected: colors.red05,
-    },
-
-    notification: {
-      warning: colors.orange10,
-      positive: colors.green10,
-      info: colors.lightBlue10,
-      critical: colors.red10,
-    },
-
-    field: {
-      neutral: colors.white,
-      neutralHover: colors.white,
-      neutralFocus: colors.white,
-      neutralDisabled: colors.grey30,
-
-      critical: colors.white,
-      criticalHover: colors.white,
-      criticalFocus: colors.white,
-      criticalDisabled: colors.grey30,
-    },
-
-    control: {
-      neutral: colors.white,
-      neutralHover: colors.grey20,
-      neutralPressed: colors.grey40,
-      neutralDisabled: colors.grey30,
-
-      neutralChecked: colors.black,
-      neutralCheckedHover: colors.grey70,
-      neutralCheckedPressed: colors.grey60,
-      neutralCheckedDisabled: colors.grey30,
-
-      neutralIndeterminate: colors.white,
-      neutralIndeterminateHover: colors.grey20,
-      neutralIndeterminatePressed: colors.grey40,
-      neutralIndeterminateDisabled: colors.grey30,
-    },
-  },
-  foreground: {
-    base: colors.black,
-    muted: colors.grey50,
-    highlight: colors.lightBlue40,
-    popup: colors.white,
-    popover: colors.black,
-    modal: colors.black,
-    container: colors.black,
-    header: colors.black,
-    sidebar: colors.grey50,
-    topbar: colors.grey50,
-
-    action: {
-      neutral: {
-        ghost: colors.black,
-        ghostDisabled: colors.grey40,
-      },
-      main: {
-        solid: colors.white,
-        solidDisabled: colors.grey50,
-        soft: colors.blue40,
-        softDisabled: colors.grey50,
-        text: colors.blue40,
-        textDisabled: colors.grey40,
-      },
-      critical: {
-        solid: colors.white,
-        solidDisabled: colors.grey50,
-        soft: colors.red50,
-        softDisabled: colors.grey50,
-        text: colors.red40,
-        textDisabled: colors.grey40,
-      },
-    },
-
-    listBoxItem: {
-      main: colors.black,
-      mainHover: colors.blue50,
-      mainPressed: colors.blue60,
-      mainSelected: colors.blue40,
-
-      critical: colors.red40,
-      criticalHover: colors.red50,
-      criticalPressed: colors.red60,
-      criticalSelected: colors.red40,
-    },
-
-    link: colors.blue40,
-    linkHover: colors.blue50,
-    linkVisited: colors.blue60,
-
-    notification: {
-      positive: colors.green40,
-      info: colors.lightBlue40,
-      critical: colors.red40,
-      warning: colors.orange40,
-    },
-
-    control: {
-      neutral: colors.white,
-      neutralDisabled: colors.grey50,
-
-      neutralChecked: colors.white,
-      neutralCheckedDisabled: colors.grey50,
-
-      neutralIndeterminate: colors.grey60,
-      neutralIndeterminateDisabled: colors.grey50,
-    },
-  },
-  borderColor: {
-    base: colors.grey30,
-    popover: colors.grey30,
-    modal: colors.grey30,
-    container: colors.grey30,
-    header: colors.grey30,
-    sidebar: colors.grey30,
-    topbar: colors.grey30,
-
-    field: {
-      neutral: colors.grey40,
-      neutralHover: colors.grey50,
-      neutralFocus: colors.grey60,
-      neutralDisabled: colors.grey50,
-
-      critical: colors.red40,
-      criticalHover: colors.red50,
-      criticalFocus: colors.red60,
-      criticalDisabled: colors.grey50,
-    },
-
-    control: {
-      neutral: colors.grey40,
-      neutralHover: colors.grey70,
-      neutralPressed: colors.grey60,
-      neutralDisabled: colors.grey50,
-
-      neutralChecked: colors.black,
-      neutralCheckedHover: colors.grey70,
-      neutralCheckedPressed: colors.grey60,
-      neutralCheckedDisabled: colors.grey50,
-
-      neutralIndeterminate: colors.grey40,
-      neutralIndeterminateHover: colors.grey70,
-      neutralIndeterminatePressed: colors.grey60,
-      neutralIndeterminateDisabled: colors.grey50,
-    },
-
-    notification: {
-      positive: colors.green30,
-      info: colors.lightBlue30,
-      critical: colors.red30,
-      warning: colors.orange30,
-    },
-  },
-  shadows: {
-    ring: {
-      critical: ring('critical'),
-      warning: ring('warning'),
-      positive: ring('positive'),
-      neutral: ring('neutral'),
-      info: ring('info'),
-      main: ring('main'),
-    },
-
-    menu: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
-    subtle: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
-  },
+  ...lightTheme,
   global: {
     '@font-face': {
       fontFamily: 'VTEX Trust',
@@ -624,28 +323,6 @@ export const defaultTheme = {
       lineHeight: 'headline',
       fontSettings: 'regular',
       fontSize: 4,
-    },
-  },
-  border: {
-    default: {
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      borderRadius: 'default',
-      borderColor: 'base',
-    },
-    'divider-bottom': {
-      borderBottomWidth: '1px',
-      borderBottomStyle: 'solid',
-      borderBottomLeftRadius: 0,
-      borderBottomRightRadius: 0,
-      borderColor: 'base',
-    },
-    'divider-top': {
-      borderTopWidth: '1px',
-      borderTopStyle: 'solid',
-      borderTopLeftRadius: 0,
-      borderTopRightRadius: 0,
-      borderColor: 'base',
     },
   },
   zIndices: {

@@ -22,7 +22,7 @@ style.spinner = {
 
 style.search = {
   ...style.icon,
-  color: 'base',
+  color: '$primary',
 }
 
 style.clearButton = {

@@ -50,7 +50,7 @@ describe('Dropdown tests', () => {
       </DropdownState>
     )
 
-    expect(getByTestId('dropdown')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('dropdown')).toHaveStyleRule('background', 'azure')
   })
 
   it('should render a Dropdown with a list of string and other with a list of object', () => {
@@ -102,7 +102,7 @@ describe('Dropdown tests', () => {
         <DropdownState items={brewMethods} initialSelectedItem={brewMethods[0]}>
           {(state) => (
             <Dropdown
-              variant="soft"
+              variant="secondary"
               label="Brew Methods"
               items={brewMethods}
               state={state}
@@ -112,7 +112,7 @@ describe('Dropdown tests', () => {
         <DropdownState items={recipes} initialSelectedItem={recipes[0]}>
           {(state) => (
             <Dropdown
-              variant="text"
+              variant="tertiary"
               label="Recipes"
               items={recipes}
               state={state}

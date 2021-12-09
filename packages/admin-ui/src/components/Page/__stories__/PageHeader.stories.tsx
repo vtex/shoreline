@@ -31,7 +31,7 @@ export function WithActions() {
     <PageHeader>
       <PageTitle>Products</PageTitle>
       <PageActions>
-        <Button variant="soft">Edit</Button>
+        <Button variant="secondary">Edit</Button>
         <Button>Create</Button>
       </PageActions>
     </PageHeader>
@@ -43,7 +43,7 @@ export function FullBlown() {
     <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
       <PageTitle>Product</PageTitle>
       <PageActions>
-        <Button tone="critical">Delete Item</Button>
+        <Button variant="danger">Delete Item</Button>
       </PageActions>
     </PageHeader>
   )
@@ -54,7 +54,7 @@ export function Shell() {
     <tag.div csx={{ width: '57.5rem', height: '37.5rem', display: 'flex' }}>
       <tag.aside
         csx={{
-          bg: 'muted',
+          bg: '$secondary',
           width: 320,
         }}
       >
@@ -83,7 +83,7 @@ export function Shell() {
                   height: 100,
                   marginTop: 3,
                   marginX: 2,
-                  bg: 'muted',
+                  bg: '$secondary',
                 }}
               />
             ))}

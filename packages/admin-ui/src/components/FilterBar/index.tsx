@@ -17,7 +17,7 @@ import {
   UseFilterBarStateReturn,
 } from './typings'
 import { MenuItem, MenuList, MenuButton } from '../Menu'
-import { ButtonGhost } from '../ButtonGhost'
+
 import { baseResolvers } from './resolvers/base'
 import { useFilterBarState } from './useFilterBarState'
 
@@ -61,7 +61,15 @@ export function FilterBar<T, V extends { value: T }>(
   } = props
 
   return (
-    <Box csx={{ border: 'default', bg: 'muted', ...csx }} {...htmlProps}>
+    <Box
+      csx={{
+        border: '$neutral',
+        bg: '$secondary',
+        borderRadius: 'default',
+        ...csx,
+      }}
+      {...htmlProps}
+    >
       <Content empty={statements.length === 0} label={label}>
         {statements.map((statement, index) => {
           return (
@@ -110,7 +118,8 @@ export function FilterBar<T, V extends { value: T }>(
                 />
               </Set>
               <Statement.Menu>
-                <ButtonGhost
+                <Button
+                  variant="adaptative-dark"
                   as={MenuButton}
                   aria-label={`${statementMenuLabel} ${index}`}
                   display="actions"
@@ -138,20 +147,21 @@ export function FilterBar<T, V extends { value: T }>(
       <Footer>
         <Button
           size="small"
-          variant="text"
+          variant="tertiary"
           icon={<IconAdd />}
           onClick={addStatement}
         >
           {addFilterLabel}
         </Button>
         <Set>
-          <ButtonGhost
+          <Button
+            variant="adaptative-dark"
             size="small"
             disabled={statements.length === 0}
             onClick={resetFilters}
           >
             {clearFilterLabel}
-          </ButtonGhost>
+          </Button>
           <Button
             size="small"
             disabled={applied}

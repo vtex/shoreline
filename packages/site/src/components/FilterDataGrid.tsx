@@ -3,7 +3,7 @@ import type {
   DataViewState,
   SearchFormState,
   UsePaginationReturn,
-  UseSelectReturnValue,
+  UseDropdownReturnValue,
   DataGridState,
 } from '@vtex/admin-ui'
 import {
@@ -28,15 +28,15 @@ export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
           state={dropdown}
           items={filters}
           csx={{
-            color: 'action.neutral.ghost',
-            bg: 'action.neutral.ghost',
+            color: '$action.neutral.tertiary',
+            bg: '$action.neutral.tertiary',
             ':hover': {
-              color: 'action.neutral.ghostHover',
-              bg: 'action.neutral.ghostHover',
+              color: '$action.neutral.tertiaryHover',
+              bg: '$action.neutral.tertiaryHover',
             },
             ':active': {
-              color: 'action.neutral.ghostPressed',
-              bg: 'action.neutral.ghostPressed',
+              color: '$action.neutral.tertiaryPressed',
+              bg: '$action.neutral.tertiaryPressed',
             },
           }}
         />
@@ -60,5 +60,5 @@ interface DataGridFilterProps<T> {
   filters: string[]
   dataView: DataViewState
   search: SearchFormState
-  dropdown: UseSelectReturnValue<string>
+  dropdown: UseDropdownReturnValue<string>
 }

@@ -6,7 +6,7 @@ import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
 import { useSystem } from '@vtex/admin-ui-react'
 import { Box } from '../Box'
 
-import { ButtonGhost } from '../ButtonGhost'
+import { Button } from '../Button'
 import type { SystemComponentProps } from '../../types'
 
 export const AbstractInput = forwardRef(function AbstractInput(
@@ -36,37 +36,32 @@ export const AbstractInput = forwardRef(function AbstractInput(
     fontSettings: 'regular',
     width: 'full',
     height: 48,
-    borderStyle: 'solid',
-    borderWidth: 1,
     paddingLeft: 3,
     paddingRight: 4,
-    bg: critical ? 'field.critical' : 'field.neutral',
-    borderColor: critical ? 'field.critical' : 'field.neutral',
+    bg: '$form.neutral',
+    border: critical ? '$form.critical' : '$form.neutral',
     borderRadius: 'default',
     marginY: 1,
     fontSize: 1,
-    color: 'base',
+    color: '$form.neutral',
     outline: 0,
     transition: 'snap',
     ':hover': {
-      bg: critical ? 'field.criticalHover' : 'field.neutralHover',
-      borderColor: critical ? 'field.criticalHover' : 'field.neutralHover',
+      border: critical ? '$form.criticalHover' : '$form.neutralHover',
     },
     ':focus': {
-      bg: critical ? 'field.criticalFocus' : 'field.neutralFocus',
-      borderColor: critical ? 'field.criticalFocus' : 'field.neutralFocus',
-      boxShadow: critical ? 'ring.critical' : 'ring.neutral',
+      borderColor: critical ? '$form.criticalFocus' : '$form.neutralFocus',
+      boxShadow: critical ? '$ring.critical' : '$ring.neutral',
     },
     ':disabled': {
-      bg: critical ? 'field.criticalDisabled' : 'field.neutralDisabled',
-      color: critical ? 'field.criticalDisabled' : 'field.neutralDisabled',
+      bg: '$disabled',
+      color: '$disabled',
     },
     ...spacing({
       icon: !!icon,
       suffix: !!suffix,
       clear: !!onClear,
     }),
-
     ...csx,
   })
 
@@ -87,7 +82,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
         <IconContainer
           space="regular"
           csx={{
-            color: 'muted',
+            color: '$secondary',
             top: 1,
             left: 0,
             marginX: 3,
@@ -118,11 +113,12 @@ export const AbstractInput = forwardRef(function AbstractInput(
             paddingRight: 3,
             position: 'absolute',
             display: 'flex',
-            color: 'base',
+            color: '$primary',
           }}
         >
           {showClear && (
-            <ButtonGhost
+            <Button
+              variant="adaptative-dark"
               icon={<IconCancel />}
               aria-label={`clear ${inputProps.id} text`}
               onClick={onClear}
@@ -138,10 +134,8 @@ export const AbstractInput = forwardRef(function AbstractInput(
             <Box
               as="span"
               csx={{
-                color: 'field.neutral',
-                borderLeftStyle: 'solid',
-                borderLeftWidth: '1px',
-                borderLeftColor: 'field.neutral',
+                color: '$form.neutral',
+                borderLeft: '$form.neutral',
                 paddingTop: '14px',
                 marginTop: 'px',
                 width: '32px',

@@ -84,7 +84,7 @@ export function DataViewStatus() {
           <Fragment>
             <Text variant="subtitle">{statusObject.notFound?.message}</Text>
             {statusObject.notFound?.suggestion && (
-              <Text variant="body" tone="muted">
+              <Text variant="body" tone="secondary">
                 {statusObject.notFound?.suggestion}
               </Text>
             )}

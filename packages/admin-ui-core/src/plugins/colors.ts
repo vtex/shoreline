@@ -2,13 +2,14 @@ import { createPlugin } from '../system'
 
 export const colors = createPlugin({
   name: 'onda-plugin-colors',
-  namespaces: ['colors', 'background', 'foreground', 'borderColor'],
+  namespaces: ['colors', 'bg', 'fg', 'borderColor'],
   aliases: {
-    bg: 'backgroundColor',
+    bg: 'background',
   },
   rules: {
-    color: 'foreground',
-    backgroundColor: 'background',
+    color: 'fg',
+    backgroundColor: 'bg',
+    background: 'bg',
     borderColor: 'borderColor',
     caretColor: 'colors',
     columnRuleColor: 'colors',

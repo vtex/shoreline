@@ -44,7 +44,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
               : width.expanded
             : width.hidden,
           transition: 'min-width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          bg: 'sidebar',
+          bg: '$secondary',
           borderRight: selectedItem?.expandable ? 1 : 0,
           borderRightColor: 'base',
           borderRightStyle: 'solid',
@@ -58,7 +58,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
       <Button
         title="toggle sidebar collapse"
         name="toggle sidebar collapse"
-        variant="text"
+        variant="tertiary"
         csx={{
           left:
             selectedItem?.expandable && reduced
@@ -69,14 +69,13 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           zIndex: 1,
           top: '4.6875rem',
           cursor: 'pointer',
-          border: '1px solid',
           borderRadius: '100%',
-          borderColor: 'sidebar',
+          border: '$neutral',
           height: '1.5rem',
           width: '1.5rem',
           transition:
             'left 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 175ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          bg: 'base',
+          bg: '$primary',
         }}
         icon={
           <IconCaretSmall
@@ -85,7 +84,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
               display: 'flex',
               justifyContent: 'center',
               transition: '125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-              color: 'base',
+              color: '$primary',
               '> path': {
                 strokeWidth: 2,
               },

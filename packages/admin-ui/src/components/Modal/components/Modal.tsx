@@ -95,9 +95,9 @@ export function Modal(props: ModalProps) {
         csx={{
           width,
           outline: 'none',
-          bg: 'modal',
+          bg: '$primary',
           borderRadius: 3,
-          borderColor: 'modal',
+          border: '$neutral',
           borderStyle: 'solid',
           borderWidth: 1,
           position: 'relative',

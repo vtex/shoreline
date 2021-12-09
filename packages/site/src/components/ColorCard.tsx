@@ -14,7 +14,7 @@ export function ColorCard(props: ColorCardProps) {
         border: 'default',
         borderRadius: '8px',
         boxShadow: 'block',
-        bg: 'muted',
+        bg: '$secondary',
         transition: 'all .2s ease-in-out',
         ':hover': {
           transform: 'scale(1.05)',

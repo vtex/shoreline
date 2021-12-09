@@ -21,7 +21,7 @@ describe('Tooltip tests', () => {
       </Tooltip>
     )
 
-    expect(getByTestId('tooltip')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('tooltip')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

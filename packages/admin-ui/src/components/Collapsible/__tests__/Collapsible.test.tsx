@@ -27,12 +27,9 @@ describe('Collapsible', () => {
       </StatefulCollapsible>
     )
 
-    expect(getByTestId('collapsible')).toHaveStyleRule(
-      'background-color',
-      'azure'
-    )
-    expect(getByTestId('header')).toHaveStyleRule('background-color', 'azure')
-    expect(getByTestId('content')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('collapsible')).toHaveStyleRule('background', 'azure')
+    expect(getByTestId('header')).toHaveStyleRule('background', 'azure')
+    expect(getByTestId('content')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {

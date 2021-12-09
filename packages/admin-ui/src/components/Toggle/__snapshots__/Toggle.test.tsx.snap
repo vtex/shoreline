@@ -3,8 +3,8 @@
 exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  background-color: hsla(0, 0%, 73%, 1);
-  border-color: hsla(0, 0%, 73%, 1);
+  background: hsla(0, 0%, 73%, 1);
+  border: 1px solid hsla(0, 0%, 73%, 1);
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -26,11 +26,28 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-0:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  cursor: not-allowed;
+}
+
+.emotion-0:hover {
+  background: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
+}
+
+.emotion-0:active {
+  background: hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:after {
-  background-color: #FFFFFF;
+  background: #FFFFFF;
   content: "";
   display: block;
   position: absolute;
@@ -39,58 +56,36 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
   transition: transform .25s ease;
 }
 
-.emotion-0:hover {
-  background-color: hsla(0, 0%, 20%, 1);
-  border-color: hsla(0, 0%, 20%, 1);
-}
-
-.emotion-0:active {
-  background-color: hsla(0, 0%, 29%, 1);
-  border-color: hsla(0, 0%, 29%, 1);
-}
-
-.emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  border-color: hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
-.emotion-0:disabled:after {
-  background-color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-0:checked {
-  background-color: #000000;
+  background: #000000;
   color: #FFFFFF;
-  border-color: #000000;
+  border: 1px solid #000000;
 }
 
-.emotion-0:checked:hover {
-  background-color: hsla(0, 0%, 20%, 1);
-  border-color: hsla(0, 0%, 20%, 1);
-}
-
-.emotion-0:checked:hover:after {
-  border-color: hsla(0, 0%, 20%, 1);
-}
-
-.emotion-0:checked:active {
-  background-color: hsla(0, 0%, 29%, 1);
-  border-color: hsla(0, 0%, 29%, 1);
-}
-
-.emotion-0:checked:active:after {
-  border-color: hsla(0, 0%, 29%, 1);
+.emotion-0:checked[disabled]:after {
+  background: hsla(0, 0%, 43%, 1);
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 1.25rem;
+  -webkit-transition: -webkit-transform .25s ease;
+  transition: transform .25s ease;
 }
 
 .emotion-0:checked:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  border-color: hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  cursor: not-allowed;
+  background: hsla(0, 0%, 87%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
-.emotion-0:checked:disabled:after {
-  background-color: hsla(0, 0%, 45%, 1);
+.emotion-0:checked:hover {
+  background: hsla(0, 0%, 23%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
+}
+
+.emotion-0:checked:active {
+  background: hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:checked:after {
@@ -114,8 +109,8 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
     value="toggle 1"
   />
   .emotion-0 {
-  background-color: hsla(0, 0%, 73%, 1);
-  border-color: hsla(0, 0%, 73%, 1);
+  background: hsla(0, 0%, 73%, 1);
+  border: 1px solid hsla(0, 0%, 73%, 1);
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -137,11 +132,28 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-0:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  cursor: not-allowed;
+}
+
+.emotion-0:hover {
+  background: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
+}
+
+.emotion-0:active {
+  background: hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:after {
-  background-color: #FFFFFF;
+  background: #FFFFFF;
   content: "";
   display: block;
   position: absolute;
@@ -150,58 +162,36 @@ exports[`Toggle tests should match snapshot with diferent sizes 1`] = `
   transition: transform .25s ease;
 }
 
-.emotion-0:hover {
-  background-color: hsla(0, 0%, 20%, 1);
-  border-color: hsla(0, 0%, 20%, 1);
-}
-
-.emotion-0:active {
-  background-color: hsla(0, 0%, 29%, 1);
-  border-color: hsla(0, 0%, 29%, 1);
-}
-
-.emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  border-color: hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
-.emotion-0:disabled:after {
-  background-color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-0:checked {
-  background-color: #000000;
+  background: #000000;
   color: #FFFFFF;
-  border-color: #000000;
+  border: 1px solid #000000;
 }
 
-.emotion-0:checked:hover {
-  background-color: hsla(0, 0%, 20%, 1);
-  border-color: hsla(0, 0%, 20%, 1);
-}
-
-.emotion-0:checked:hover:after {
-  border-color: hsla(0, 0%, 20%, 1);
-}
-
-.emotion-0:checked:active {
-  background-color: hsla(0, 0%, 29%, 1);
-  border-color: hsla(0, 0%, 29%, 1);
-}
-
-.emotion-0:checked:active:after {
-  border-color: hsla(0, 0%, 29%, 1);
+.emotion-0:checked[disabled]:after {
+  background: hsla(0, 0%, 43%, 1);
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 1.25rem;
+  -webkit-transition: -webkit-transform .25s ease;
+  transition: transform .25s ease;
 }
 
 .emotion-0:checked:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  border-color: hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  cursor: not-allowed;
+  background: hsla(0, 0%, 87%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
-.emotion-0:checked:disabled:after {
-  background-color: hsla(0, 0%, 45%, 1);
+.emotion-0:checked:hover {
+  background: hsla(0, 0%, 23%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
+}
+
+.emotion-0:checked:active {
+  background: hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:checked:after {

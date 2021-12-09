@@ -12,7 +12,7 @@ import {
   IconCode,
   IconDuplicate,
   ToastProvider,
-  ButtonGhost,
+  Button,
 } from '@vtex/admin-ui'
 
 import { copyToClipboard, calculateLinesToHighlight } from './util'
@@ -98,29 +98,31 @@ export function Code(props: CodeProps) {
                 justify="flex-end"
                 csx={{
                   padding: 1,
-                  bg: 'muted',
+                  bg: '$secondary',
                   borderBottomRightRadius: 4,
                   borderBottomLeftRadius: 4,
                 }}
               >
                 <Set>
                   {codeVisible && (
-                    <ButtonGhost
+                    <Button
+                      variant="adaptative-dark"
                       size="small"
                       icon={<IconDuplicate />}
                       onClick={handleClick}
                       disabled={copied}
                     >
                       {copied ? 'Copied!' : 'Copy code'}
-                    </ButtonGhost>
+                    </Button>
                   )}
-                  <ButtonGhost
+                  <Button
+                    variant="adaptative-dark"
                     icon={<IconCode />}
                     size="small"
                     onClick={toggleVisible}
                   >
                     Show/Hide Code
-                  </ButtonGhost>
+                  </Button>
                 </Set>
               </Flex>
               <tag.div csx={styles.editorWrapper}>
@@ -160,7 +162,8 @@ export function Code(props: CodeProps) {
               className={blockClassName}
               style={style}
             >
-              <ButtonGhost
+              <Button
+                variant="adaptative-dark"
                 size="small"
                 icon={<IconCode />}
                 onClick={handleClick}
@@ -168,7 +171,7 @@ export function Code(props: CodeProps) {
                 csx={styles.copyButton}
               >
                 {copied ? 'Copied!' : 'Copy code'}
-              </ButtonGhost>
+              </Button>
               <tag.code
                 csx={{
                   position: 'relative',
@@ -200,7 +203,8 @@ export function Code(props: CodeProps) {
                     )
                   })}
                 {tokens.length > maxCodeLength && (
-                  <ButtonGhost
+                  <Button
+                    variant="adaptative-dark"
                     csx={{
                       width: '100%',
                       zIndex: 2,
@@ -208,7 +212,7 @@ export function Code(props: CodeProps) {
                     onClick={() => setCodeVisible((v) => !v)}
                   >
                     {codeVisible ? 'Hide' : 'Show'} Code
-                  </ButtonGhost>
+                  </Button>
                 )}
                 {tokens.length > maxCodeLength && !codeVisible && (
                   <tag.div
@@ -293,29 +297,29 @@ function FormikPreview(props: FormikPreviewProps) {
                 justify="flex-end"
                 csx={{
                   padding: 1,
-                  bg: 'sidebar.light',
+                  bg: '$secondary',
                   borderBottomRightRadius: 4,
                   borderBottomLeftRadius: 4,
                 }}
               >
                 <Set>
                   {codeVisible && (
-                    <ButtonGhost
+                    <Button
                       size="small"
                       icon={<IconDuplicate />}
                       onClick={handleClick}
                       disabled={copied}
                     >
                       {copied ? 'Copied!' : 'Copy code'}
-                    </ButtonGhost>
+                    </Button>
                   )}
-                  <ButtonGhost
+                  <Button
                     icon={<IconCode />}
                     size="small"
                     onClick={toggleVisible}
                   >
                     Show/Hide Code
-                  </ButtonGhost>
+                  </Button>
                 </Set>
               </Flex>
               <tag.div csx={styles.editorWrapper}>

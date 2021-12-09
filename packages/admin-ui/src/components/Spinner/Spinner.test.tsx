@@ -15,7 +15,7 @@ describe('Spinner tests', () => {
       />
     )
 
-    expect(getByTestId('spinner')).toHaveStyleRule('background-color', 'azure')
+    expect(getByTestId('spinner')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {

@@ -311,7 +311,7 @@ function ExampleComplete() {
     password: '',
     description: '',
     age: 0,
-    civilStatus: '',
+    civilStatus: 'single',
     genders: '',
     hobbies: [],
     acceptTerms: false,
@@ -426,7 +426,7 @@ function ExampleComplete() {
           </ModalContent>
           <ModalFooter>
             <Button
-              variant="soft"
+              variant="secondary"
               onClick={() => {
                 stateModal.hide()
               }}
@@ -522,9 +522,14 @@ function ExampleComplete() {
             <FormikSelect
               name="civilStatus"
               label="Civil Status"
-              items={civilStatus}
               csx={{ marginTop: '1.5rem', marginLeft: 8, width: 'full' }}
-            />
+            >
+              {civilStatus.map((cs) => (
+                <option key={cs} value={cs}>
+                  {cs}
+                </option>
+              ))}
+            </FormikSelect>
           </Flex>
           <FormikTextArea
             name="description"
@@ -652,47 +657,9 @@ These two components must always be used together. If you use FormikRadio outsid
 ### FormikSelect
 
 ```tsx isFormik
-<FormikSelect
-  name="selectValue"
-  label="Label"
-  items={['Option 1', 'Option 2', 'Option 3']}
-/>
-```
-
-If you want to use select with a list of more complex items (objects), the property that was previously passed to the useSelectState hook is now passed to the FormikSelect component. In this case, the formik field will be the complete object that is selected. See an example below.
-
-```tsx
-function Example() {
-  const options = [
-    { id: 'id-01', label: 'Option 1' },
-    { id: 'id-02', label: 'Option 2' },
-    { id: 'id-03', label: 'Option 3' },
-  ]
-
-  const handleSubmit = (values, { setSubmitting }) => {
-    setSubmitting(true)
-    alert('Values submitted: ' + JSON.stringify(values))
-    setSubmitting(false)
-  }
-
-  return (
-    <Formik
-      initialValues={{ value: { id: '', label: '' } }}
-      onSubmit={handleSubmit}
-    >
-      <Form id="form-admin-formik-input">
-        <FormikSelect
-          name="value"
-          label="Label"
-          items={options}
-          itemToString={(item) => (item ? item.label + '-' + item.id : '')}
-          renderItem={(item) => (item ? item.label : '')}
-        />
-        <Button type="submit" csx={{ marginY: 2 }}>
-          Submit
-        </Button>
-      </Form>
-    </Formik>
-  )
-}
+<FormikSelect name="selectValue" label="Label">
+  <option value="option 1">Option 1</option>
+  <option value="option 2">Option 2</option>
+  <option value="option 3">Option 3</option>
+</FormikSelect>
 ```

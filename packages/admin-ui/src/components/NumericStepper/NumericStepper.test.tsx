@@ -16,7 +16,7 @@ describe('NumericStepper tests', () => {
     )
 
     expect(getByTestId('numeric-stepper')).toHaveStyleRule(
-      'background-color',
+      'background',
       'azure'
     )
   })

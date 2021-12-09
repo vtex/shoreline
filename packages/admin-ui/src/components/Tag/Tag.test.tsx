@@ -10,7 +10,7 @@ describe('Tag tests', () => {
       <Tag label="tag-1" data-testid="tag" csx={{ bg: 'coral' }} />
     )
 
-    expect(getByTestId('tag')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('tag')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

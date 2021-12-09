@@ -27,7 +27,7 @@ export const Basic = () => {
       <Avatar label="cyan" palette="cyan" />
       <Avatar label="purple" palette="purple" />
       <Avatar label="teal" palette="teal" />
-      <Avatar label="grey" palette="grey" />
+      <Avatar label="gray" palette="gray" />
     </Set>
   )
 }

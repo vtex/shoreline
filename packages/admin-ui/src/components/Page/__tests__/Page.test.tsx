@@ -9,7 +9,7 @@ describe('Page', () => {
       <Page csx={{ bg: 'coral' }} data-testid="page" />
     )
 
-    expect(getByTestId('page')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('page')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {

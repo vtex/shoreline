@@ -2,6 +2,8 @@ import type { ComponentPropsWithRef } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 import { MenuSeparator as ReakitMenuSeparator } from 'reakit'
 
+import * as style from '../Menu.style'
+
 /**
  * Accessible menu separator
  * ⚠️ You must use it within admin-ui/menu component context.
@@ -22,17 +24,6 @@ import { MenuSeparator as ReakitMenuSeparator } from 'reakit'
  * </Menu>
  * ```
  */
-export const MenuSeparator = jsx(ReakitMenuSeparator)({
-  marginY: 2,
-  borderStyle: 'solid',
-  borderBottomWidth: 1,
-  borderTop: 'none',
-  borderLeft: 'none',
-  borderRight: 'none',
-  borderColor: 'base',
-  width: (theme) => `calc(100% -${theme.space?.[3]})`,
-  marginX: (theme) => `-${theme.space?.[3]}`,
-  outline: 'none',
-})
+export const MenuSeparator = jsx(ReakitMenuSeparator)(style.separator)
 
 export type MenuSeparatorProps = ComponentPropsWithRef<typeof MenuSeparator>

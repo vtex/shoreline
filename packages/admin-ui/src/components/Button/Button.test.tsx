@@ -11,22 +11,18 @@ describe('Button tests', () => {
       </Button>
     )
 
-    expect(getByTestId('button')).toHaveStyleRule('background-color', 'coral')
+    expect(getByTestId('button')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {
     const { asFragment } = render(
       <Fragment>
         <Button>Button</Button>
-        <Button variant="soft">Button</Button>
-        <Button variant="text">Button</Button>
-        <Button tone="critical">Button</Button>
-        <Button tone="critical" variant="soft">
-          Button
-        </Button>
-        <Button tone="critical" variant="text">
-          Button
-        </Button>
+        <Button variant="secondary">Button</Button>
+        <Button variant="tertiary">Button</Button>
+        <Button variant="danger">Button</Button>
+        <Button variant="danger-secondary">Button</Button>
+        <Button variant="danger-tertiary">Button</Button>
       </Fragment>
     )
 

@@ -24,19 +24,12 @@ export const Playground: Story = (args) => {
       <tag.div
         csx={{
           ...palette('teal'),
-
           size: 150,
         }}
       >
         tag.div 2
       </tag.div>
-      <tag.div
-        csx={{
-          ...palette('purple'),
-        }}
-      >
-        tag.div 3
-      </tag.div>
+      <tag.div csx={palette('purple')}>tag.div 3</tag.div>
     </Flex>
   )
 }
@@ -51,7 +44,6 @@ export function WithSpacer() {
       <tag.div
         csx={{
           ...palette('teal'),
-
           size: 100,
         }}
       >
@@ -61,7 +53,6 @@ export function WithSpacer() {
       <tag.div
         csx={{
           ...palette('purple'),
-
           size: 100,
         }}
       >
@@ -77,7 +68,6 @@ export function Around() {
       <tag.div
         csx={{
           ...palette('teal'),
-
           size: 100,
         }}
       >
@@ -86,7 +76,6 @@ export function Around() {
       <tag.div
         csx={{
           ...palette('purple'),
-
           size: 100,
         }}
       >

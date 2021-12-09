@@ -5,7 +5,7 @@ import {
   IconCaret,
   tag,
   IconTopic,
-  ButtonGhost,
+  Button,
   get,
   focusVisible,
 } from '@vtex/admin-ui'
@@ -143,7 +143,8 @@ export function Sidebar() {
             zIndex: 999,
           }}
         >
-          <ButtonGhost
+          <Button
+            variant="adaptative-dark"
             size="small"
             csx={{
               marginX: 2,
@@ -154,7 +155,7 @@ export function Sidebar() {
             icon={<IconTopic />}
           >
             {visible ? 'Collapse' : 'Expand'} Sidebar Items
-          </ButtonGhost>
+          </Button>
         </tag.div>
         <VersionSwitcher />
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
@@ -179,37 +180,37 @@ export function Sidebar() {
                   paddingX: 2,
                   width: '100%',
                   textDecoration: 'none',
-                  color: 'sidebar',
+                  color: '$primary',
                   cursor: 'pointer',
                   marginBottom: 1,
                   lineHeight: 1.4,
                   ':hover:not(:focus)': {
-                    color: 'listBoxItem.mainHover',
-                    bg: 'listBoxItem.mainHover',
+                    color: '$action.main.tertiaryHover',
+                    bg: '$action.main.tertiaryHover',
                     borderColor: (theme) =>
-                      get(theme, 'foreground.listBoxItem.mainHover'),
+                      get(theme, 'fg.action.main.tertiaryHover'),
                     borderLeft: '2px solid',
                     borderTopLeftRadius: 0,
                     borderBottomLeftRadius: 0,
                   },
                   ':active': {
-                    bg: 'listBoxItem.mainPressed',
-                    color: 'listBoxItem.mainPressed',
+                    bg: '$action.main.tertiaryPressed',
+                    color: '$action.main.tertiaryPressed',
                     borderColor: (theme) =>
-                      get(theme, 'foreground.listBoxItem.mainPressed'),
+                      get(theme, 'fg.action.main.tertiaryPressed'),
                     borderLeft: '2px solid',
                     borderTopLeftRadius: 0,
                     borderBottomLeftRadius: 0,
                   },
                   '&[aria-current="page"]': {
                     borderLeft: '2px solid',
-                    bg: 'listBoxItem.mainSelected',
-                    color: 'listBoxItem.mainSelected',
+                    bg: '$action.main.tertiarySelected',
+                    color: '$action.main.tertiarySelected',
                     borderTopLeftRadius: 0,
                     borderBottomLeftRadius: 0,
                   },
                   ':focus': {
-                    color: 'listBoxItem.mainHover',
+                    color: '$action.main.tertiaryHover',
                     outline: 'none',
                   },
                 }}
@@ -273,8 +274,8 @@ function Section(props: SectionProps) {
           ...focusVisible('neutral'),
           paddingY: 2,
           paddingX: 1,
-          color: 'action.neutral.ghost',
-          bg: 'action.neutral.ghost',
+          color: '$action.neutral.tertiary',
+          bg: '$action.neutral.tertiary',
           fontSize: 16,
           display: 'flex',
           alignItems: 'center',
@@ -283,12 +284,12 @@ function Section(props: SectionProps) {
           cursor: 'pointer',
           borderRadius: 'default',
           ':hover': {
-            color: 'action.neutral.ghostHover',
-            bg: 'action.neutral.ghostHover',
+            color: '$action.neutral.tertiaryHover',
+            bg: '$action.neutral.tertiaryHover',
           },
           ':active': {
-            color: 'action.neutral.ghostPressed',
-            bg: 'action.neutral.ghostPressed',
+            color: '$action.neutral.tertiaryPressed',
+            bg: '$action.neutral.tertiaryPressed',
           },
         }}
         id={id}

@@ -40,7 +40,7 @@ describe('createComponent', () => {
         </Div>
       )
 
-      expect(getByTestId('test')).toHaveStyleRule('background-color', '#000')
+      expect(getByTestId('test')).toHaveStyleRule('background', '#000')
       expect(getByTestId('test')).toHaveStyleRule('color', '#fff')
     })
 
@@ -52,7 +52,7 @@ describe('createComponent', () => {
 
       const { getByTestId } = render(<Div data-testid="test">Testing</Div>)
 
-      expect(getByTestId('test')).toHaveStyleRule('background-color', '#000')
+      expect(getByTestId('test')).toHaveStyleRule('background', '#000')
       expect(getByTestId('test')).toHaveStyleRule('color', '#fff')
     })
 
@@ -73,7 +73,7 @@ describe('createComponent', () => {
         </Div>
       )
 
-      expect(getByTestId('test')).toHaveStyleRule('background-color', '#000')
+      expect(getByTestId('test')).toHaveStyleRule('background', '#000')
       expect(getByTestId('test')).toHaveStyleRule('color', '#2fa')
     })
 
@@ -103,7 +103,7 @@ describe('createComponent', () => {
       )
 
       expect(getByTestId('test')).toHaveTextContent('Testing')
-      expect(getByTestId('test')).toHaveStyleRule('background-color', '#2fa')
+      expect(getByTestId('test')).toHaveStyleRule('background', '#2fa')
       expect(getByTestId('test')).toHaveStyleRule('color', '#c3a')
     })
 
@@ -128,7 +128,7 @@ describe('createComponent', () => {
       )
 
       expect(getByTestId('test')).toHaveTextContent('Testing')
-      expect(getByTestId('test')).toHaveStyleRule('background-color', '#2fa')
+      expect(getByTestId('test')).toHaveStyleRule('background', '#2fa')
       expect(getByTestId('test')).toHaveStyleRule('color', '#33f')
     })
 
@@ -152,7 +152,7 @@ describe('createComponent', () => {
 
     //   expect(result).toBeInTheDocument()
     //   expect(result).toHaveTextContent('Test')
-    //   expect(result).toHaveStyleRule('background-color', '#000')
+    //   expect(result).toHaveStyleRule('background', '#000')
     //   expect(result).toHaveStyleRule('color', '#fff')
     // })
 
@@ -189,7 +189,7 @@ describe('createComponent', () => {
 
     //     expect(result).toBeInTheDocument()
     //     expect(result).toHaveTextContent('4')
-    //     expect(result).toHaveStyleRule('background-color', '#000')
+    //     expect(result).toHaveStyleRule('background', '#000')
     //     expect(result).toHaveStyleRule('color', '#fff')
     //   })
   })
@@ -267,11 +267,11 @@ describe('variants', () => {
     expect(small).toHaveStyleRule('width', '50px')
     expect(small).toHaveStyleRule('height', '50px')
     expect(small).toHaveStyleRule('color', '#fff')
-    expect(small).toHaveStyleRule('background-color', '#000')
+    expect(small).toHaveStyleRule('background', '#000')
     expect(regular).toHaveStyleRule('width', '100px')
     expect(regular).toHaveStyleRule('height', '100px')
     expect(regular).toHaveStyleRule('color', '#2fa')
-    expect(regular).toHaveStyleRule('background-color', '#c3a')
+    expect(regular).toHaveStyleRule('background', '#c3a')
   })
 
   it('accepts default values for variants', () => {
@@ -318,11 +318,11 @@ describe('variants', () => {
     expect(small).toHaveStyleRule('width', '50px')
     expect(small).toHaveStyleRule('height', '50px')
     expect(small).toHaveStyleRule('color', 'black')
-    expect(small).toHaveStyleRule('background-color', 'azure')
+    expect(small).toHaveStyleRule('background', 'azure')
     expect(regular).toHaveStyleRule('width', '100px')
     expect(regular).toHaveStyleRule('height', '100px')
     expect(regular).toHaveStyleRule('color', 'white')
-    expect(regular).toHaveStyleRule('background-color', 'indigo')
+    expect(regular).toHaveStyleRule('background', 'indigo')
   })
 
   it('should be able to sync variants', () => {
@@ -403,7 +403,7 @@ describe('variants', () => {
     expect(result).toHaveStyleRule('width', '50px')
     expect(result).toHaveStyleRule('height', '50px')
     expect(result).toHaveStyleRule('color', 'white')
-    expect(result).toHaveStyleRule('background-color', 'transparent')
+    expect(result).toHaveStyleRule('background', 'transparent')
     expect(result).toHaveStyleRule('border-color', 'indigo')
     expect(result).toHaveStyleRule('border-width', '1px')
     expect(result).toHaveStyleRule('border-style', 'solid')

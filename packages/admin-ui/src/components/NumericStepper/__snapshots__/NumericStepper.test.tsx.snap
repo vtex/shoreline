@@ -35,8 +35,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   left: 0.25rem;
+}
+
+.emotion-4:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-4:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-4:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -47,19 +62,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-4:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-4:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -127,8 +129,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   right: 0.25rem;
+}
+
+.emotion-8:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-8:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-8:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -139,19 +156,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-8:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-8:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -172,12 +176,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: field.neutral;
-  border-style: solid;
-  border-width: 1px;
-  border-color: hsla(0, 0%, 73%, 1);
+  color: #000000;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: field.netural;
+  background: transparent;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -186,20 +188,18 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: hsla(0, 0%, 45%, 1);
-  color: field.neutralHover;
-  background-origin: field.neutralHover;
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -316,8 +316,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   left: 0.25rem;
+}
+
+.emotion-4:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-4:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-4:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -328,19 +343,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-4:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-4:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -408,8 +410,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   right: 0.25rem;
+}
+
+.emotion-8:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-8:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-8:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -420,19 +437,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-8:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-8:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -453,12 +457,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: field.neutral;
-  border-style: solid;
-  border-width: 1px;
-  border-color: hsla(0, 0%, 73%, 1);
+  color: #000000;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: field.netural;
+  background: transparent;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -467,20 +469,18 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: hsla(0, 0%, 45%, 1);
-  color: field.neutralHover;
-  background-origin: field.neutralHover;
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -493,7 +493,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   line-height: 1.125;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
-  color: hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 43%, 1);
   margin-top: 0.5rem;
 }
 
@@ -611,8 +611,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   left: 0.25rem;
+}
+
+.emotion-4:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-4:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-4:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -623,19 +638,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-4:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-4:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -703,8 +705,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   right: 0.25rem;
+}
+
+.emotion-8:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-8:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-8:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -715,19 +732,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-8:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-8:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -748,12 +752,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: field.neutral;
-  border-style: solid;
-  border-width: 1px;
-  border-color: hsla(0, 0%, 73%, 1);
+  color: #000000;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: field.netural;
+  background: transparent;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -762,20 +764,18 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: hsla(0, 0%, 45%, 1);
-  color: field.neutralHover;
-  background-origin: field.neutralHover;
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -901,8 +901,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   left: 0.25rem;
+}
+
+.emotion-4:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-4:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-4:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -913,19 +928,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-4:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-4:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -993,8 +995,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   right: 0.25rem;
+}
+
+.emotion-8:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-8:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-8:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -1005,19 +1022,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-8:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-8:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -1038,12 +1042,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: field.neutral;
-  border-style: solid;
-  border-width: 1px;
-  border-color: hsla(0, 58%, 52%, 1);
+  color: #000000;
+  border: 1px solid hsla(0, 58%, 52%, 1);
   border-radius: 4px;
-  background-color: field.netural;
+  background: transparent;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -1052,13 +1054,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: hsla(0, 58%, 37%, 1);
+  border: 1px solid hsla(0, 58%, 37%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:focus {
@@ -1194,8 +1196,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   left: 0.25rem;
+}
+
+.emotion-4:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-4:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-4:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -1206,19 +1223,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-4:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-4:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-4 svg {
@@ -1286,8 +1290,23 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
   right: 0.25rem;
+}
+
+.emotion-8:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-8:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-8:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -1298,19 +1317,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-8:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-8:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-8 svg {
@@ -1331,12 +1337,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-left: 36px;
   padding-right: 36px;
   text-align: center;
-  color: field.neutral;
-  border-style: solid;
-  border-width: 1px;
-  border-color: hsla(0, 0%, 73%, 1);
+  color: #000000;
+  border: 1px solid hsla(0, 0%, 73%, 1);
   border-radius: 4px;
-  background-color: field.netural;
+  background: transparent;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -1345,20 +1349,18 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border-color: hsla(0, 0%, 45%, 1);
-  color: field.neutralHover;
-  background-origin: field.neutralHover;
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: field.neutralDisabled;
-  border-color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {

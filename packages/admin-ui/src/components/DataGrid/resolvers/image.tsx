@@ -128,9 +128,9 @@ function ImageWithPreview(props: PreviewComponentProps) {
               transition: 'transform 150ms ease-in-out',
               ':hover': {
                 transform: 'scale(1.1)',
-                boxShadow: 'subtle',
+                boxShadow: '$overlay.bottom',
               },
-              ...focusVisible('info'),
+              ...focusVisible('main'),
             })}
             src={url}
           />
@@ -168,7 +168,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
                 height: 56,
                 minHeight: 56,
                 borderRadius: 4,
-                boxShadow: 'menu',
+                boxShadow: '$overlay.center',
               },
               regular: {
                 width: 156,
@@ -176,7 +176,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
                 height: 156,
                 minHeight: 156,
                 borderRadius: 4,
-                boxShadow: 'menu',
+                boxShadow: '$overlay.center',
               },
               large: {
                 width: 256,
@@ -184,7 +184,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
                 height: 256,
                 minHeight: 256,
                 borderRadius: 4,
-                boxShadow: 'menu',
+                boxShadow: '$overlay.center',
               },
             }[preview.size] as StyleObject
           )}

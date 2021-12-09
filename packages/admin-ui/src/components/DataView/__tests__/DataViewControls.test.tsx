@@ -14,7 +14,7 @@ describe('DataViewControls', () => {
     )
 
     expect(getByTestId('data-view-controls')).toHaveStyleRule(
-      'background-color',
+      'background',
       'coral'
     )
   })

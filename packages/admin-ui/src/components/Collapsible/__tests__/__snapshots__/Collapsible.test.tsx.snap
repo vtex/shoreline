@@ -3,8 +3,6 @@
 exports[`Collapsible should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-3 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -16,6 +14,23 @@ exports[`Collapsible should match snapshot 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  color: #000000;
+  background: transparent;
+}
+
+.emotion-3:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-3:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-3:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -25,20 +40,7 @@ exports[`Collapsible should match snapshot 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-3:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-3:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-3:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-3 svg {
@@ -109,11 +111,10 @@ exports[`Collapsible should match snapshot 1`] = `
 
 
 .emotion-8 {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 87%, 1);
-  border-style: solid;
-  border-width: 1px;
+  background: #FFFFFF;
+  border: 1px solid hsla(0, 0%, 87%, 1);
   border-radius: 4px;
+  border-width: 1px;
 }
 
 .emotion-5 {
@@ -209,8 +210,6 @@ exports[`Collapsible should match snapshot 1`] = `
 exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 <DocumentFragment>
   .emotion-3 {
-  color: #000000;
-  background-color: transparent;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   border: none;
@@ -222,6 +221,23 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
+  color: #000000;
+  background: transparent;
+}
+
+.emotion-3:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-3:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-3:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -231,20 +247,7 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 93%, 1);
-}
-
-.emotion-3:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.emotion-3:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.emotion-3:disabled {
-  background-color: transparent;
-  color: hsla(0, 0%, 73%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-3 svg {
@@ -315,11 +318,10 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 
 
 .emotion-14 {
-  background-color: #FFFFFF;
-  border-color: hsla(0, 0%, 87%, 1);
-  border-style: solid;
-  border-width: 1px;
+  background: #FFFFFF;
+  border: 1px solid hsla(0, 0%, 87%, 1);
   border-radius: 4px;
+  border-width: 1px;
 }
 
 .emotion-5 {

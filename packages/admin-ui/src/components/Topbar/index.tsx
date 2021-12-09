@@ -30,10 +30,10 @@ export const Topbar = jsx('div')(
     gridTemplateAreas: '"start center end"',
     gridTemplateColumns: 'repeat(3, 1fr)',
     height: '3.5rem',
-    border: 'divider-bottom',
+    borderBottom: '$neutral',
     paddingX: 3,
     zIndex: 'topbar',
-    bg: 'base',
+    bg: '$primary',
   },
   {
     options: ['loading'],

@@ -93,13 +93,13 @@ export const Variants = () => {
     <Set>
       <Dropdown items={species} state={speciesState} label="Species" />
       <Dropdown
-        variant="soft"
+        variant="secondary"
         items={brewMethods}
         state={brewState}
         label="Methods"
       />
       <Dropdown
-        variant="text"
+        variant="tertiary"
         items={recipes}
         state={recipesState}
         label="Recipes"

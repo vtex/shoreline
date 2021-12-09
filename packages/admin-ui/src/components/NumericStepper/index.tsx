@@ -105,33 +105,29 @@ export const NumericStepper = forwardRef(
               paddingLeft: 36,
               paddingRight: 36,
               textAlign: 'center',
-              color: 'field.neutral',
-              borderStyle: 'solid',
-              borderWidth: 1,
-              borderColor: 'field.neutral',
-              borderRadius: 'default',
-              bg: 'field.netural',
+              color: '$form.neutral',
+              border: '$form.neutral',
+              borderRadius: '$default',
+              bg: '$form.neutral',
               ':hover': {
-                borderColor: 'field.neutralHover',
-                color: 'field.neutralHover',
-                backgroundOrigin: 'field.neutralHover',
+                border: '$form.neutralHover',
               },
               ':disabled': {
-                bg: 'field.neutralDisabled',
-                color: 'field.neutralDisabled',
-                borderColor: 'field.neutralDisabled',
+                bg: '$disabled',
+                color: '$disabled',
+                border: '$disabled',
               },
               ':focus': {
-                borderColor: 'field.neutralFocus',
-                color: 'field.neutralFocus',
-                bg: 'field.neutralFocus',
+                border: '$form.neutralFocus',
+                color: '$form.neutralFocus',
+                bg: '$form.neutralFocus',
               },
               ...focusVisible('neutral'),
               ...(tone === 'critical'
                 ? {
-                    borderColor: 'field.critical',
+                    border: '$form.critical',
                     ':hover': {
-                      borderColor: 'field.criticalHover',
+                      border: '$form.criticalHover',
                     },
                     ...focusVisible('critical'),
                   }
@@ -143,7 +139,7 @@ export const NumericStepper = forwardRef(
 
           <Button
             size="small"
-            variant="text"
+            variant="tertiary"
             icon={<IconRemove />}
             csx={{
               height: 40,
@@ -157,7 +153,7 @@ export const NumericStepper = forwardRef(
 
           <Button
             size="small"
-            variant="text"
+            variant="tertiary"
             icon={<IconAdd />}
             aria-label={`${label}-increase-button}`}
             csx={{
@@ -172,7 +168,7 @@ export const NumericStepper = forwardRef(
         {hasHelper && (
           <Text
             variant="small"
-            tone={tone === 'critical' ? 'critical' : 'muted'}
+            tone={tone === 'critical' ? 'critical' : 'secondary'}
             csx={{
               marginTop: 2,
             }}

@@ -10,14 +10,14 @@ import { Button } from '../Button'
 import { VisuallyHidden } from '../VisuallyHidden'
 import { Set } from '../Set'
 import type { SystemComponent } from '../../types'
+import * as style from './Dropdown.style'
 
 export const Dropdown = forwardRef(
   <T,>(props: DropdownProps<T>, ref: Ref<HTMLDivElement>) => {
     const {
       items,
       label,
-      tone = 'main',
-      variant = 'solid',
+      variant = 'primary',
       size = 'regular',
       state,
       renderItem = (item) => item,
@@ -26,17 +26,11 @@ export const Dropdown = forwardRef(
     } = props
 
     return (
-      <Box
-        ref={ref}
-        csx={{
-          position: 'relative',
-        }}
-      >
+      <Box ref={ref} csx={style.container}>
         <VisuallyHidden>
           <label {...state.getLabelProps()}>{label}</label>
         </VisuallyHidden>
         <Button
-          tone={tone}
           variant={variant}
           size={size}
           icon={<IconCaret direction="down" />}
@@ -52,43 +46,16 @@ export const Dropdown = forwardRef(
           spacing={2}
           orientation="vertical"
           {...state.getMenuProps()}
-          csx={{
-            visibility: state.isOpen ? 'visible' : 'hidden',
-            cursor: 'pointer',
-            bg: 'popover',
-            borderRadius: 'default',
-            borderWidth: 1,
-            borderStyle: 'solid',
-            borderColor: 'base',
-            boxShadow: 'popover',
-            outline: 'none',
-            marginTop: 1,
-            paddingY: 4,
-            minWidth: 'inherit',
-            width: 'max-content',
-            position: 'absolute',
-            zIndex: 999,
-          }}
+          csx={style.menu({
+            visible: state.isOpen,
+          })}
         >
           {state.isOpen &&
             items.map((item, index) => (
               <Box
-                csx={{
-                  text: 'body',
-                  display: 'flex',
-                  alignItems: 'center',
-                  height: 24,
-                  paddingX: 4,
-                  cursor: 'pointer',
-                  color:
-                    state.highlightedIndex === index
-                      ? 'listBoxItem.mainSelected'
-                      : 'listBoxItem.main',
-                  bg:
-                    state.highlightedIndex === index
-                      ? 'listBoxItem.mainSelected'
-                      : 'listBoxItem.main',
-                }}
+                csx={style.listboxItem({
+                  selected: state.highlightedIndex === index,
+                })}
                 key={index}
                 {...state.getItemProps({ item, index })}
               >
@@ -106,7 +73,7 @@ export { UseSelectReturnValue as UseDropdownReturnValue }
 
 export interface DropdownProps<T>
   extends SystemComponent,
-    Pick<ButtonProps, 'tone' | 'variant' | 'size' | 'disabled'> {
+    Pick<ButtonProps, 'variant' | 'size' | 'disabled'> {
   /**
    * aria-label. will be visually hidden
    */

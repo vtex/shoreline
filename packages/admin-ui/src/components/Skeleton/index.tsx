@@ -1,5 +1,4 @@
 import { jsx } from '@vtex/admin-ui-react'
-import { get } from '@vtex/admin-ui-util'
 import type { ComponentPropsWithRef } from 'react'
 
 /**
@@ -22,7 +21,7 @@ export const Skeleton = jsx('div')(
     display: 'inline-block',
     width: 'full',
     height: 'full',
-    bg: (theme) => get(theme, 'colors.grey20', ''),
+    bg: '$skeleton',
     backgroundSize: `200px 100%`,
     backgroundRepeat: 'no-repeat',
     lineHeight: 1,
@@ -56,14 +55,6 @@ export const Skeleton = jsx('div')(
         ...restProps,
         csx: {
           animation: `${load} 1.2s ease-in-out infinite`,
-          backgroundImage: (theme: any) =>
-            `linear-gradient(90deg, ${get(
-              theme,
-              'background.skeletonMuted'
-            )},  ${get(theme, 'background.skeleton')}, ${get(
-              theme,
-              'background.skeletonMuted'
-            )})`,
           ...csx,
         },
       }

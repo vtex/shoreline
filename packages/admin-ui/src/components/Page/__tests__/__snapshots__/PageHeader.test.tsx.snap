@@ -3,7 +3,7 @@
 exports[`PageHeader should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  background-color: #FFFFFF;
+  background: #FFFFFF;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -17,11 +17,7 @@ exports[`PageHeader should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-color: hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
   -webkit-position: sticky;
   position: sticky;
   top: 0rem;
@@ -40,7 +36,7 @@ exports[`PageHeader should match snapshot 1`] = `
 exports[`PageHeader should match snapshot with actions 1`] = `
 <DocumentFragment>
   .emotion-1 {
-  background-color: #FFFFFF;
+  background: #FFFFFF;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -54,11 +50,7 @@ exports[`PageHeader should match snapshot with actions 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-color: hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
   -webkit-position: sticky;
   position: sticky;
   top: 0rem;
@@ -122,7 +114,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 }
 
 .emotion-6 {
-  background-color: #FFFFFF;
+  background: #FFFFFF;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -136,11 +128,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-color: hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
   -webkit-position: sticky;
   position: sticky;
   top: 0rem;
@@ -163,7 +151,22 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   color: hsla(222, 63%, 43%, 1);
-  background-color: transparent;
+  background: transparent;
+}
+
+.emotion-3:disabled {
+  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 43%, 1);
+}
+
+.emotion-3:hover {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsl(224, 65%, 97%, 1);
+}
+
+.emotion-3:active {
+  color: hsla(222, 63%, 43%, 1);
+  background: hsla(222, 62%, 92%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -174,19 +177,6 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 .emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-3:hover {
-  background-color: hsla(222, 62%, 96%, 1);
-}
-
-.emotion-3:active {
-  background-color: hsla(222, 62%, 92%, 1);
-}
-
-.emotion-3:disabled {
-  background-color: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 73%, 1);
 }
 
 .emotion-3 svg {
@@ -320,7 +310,7 @@ exports[`PageHeader should match snapshot with title 1`] = `
 }
 
 .emotion-2 {
-  background-color: #FFFFFF;
+  background: #FFFFFF;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -334,11 +324,7 @@ exports[`PageHeader should match snapshot with title 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-color: hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
   -webkit-position: sticky;
   position: sticky;
   top: 0rem;

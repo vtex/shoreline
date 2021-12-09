@@ -26,7 +26,7 @@ describe('CollapsibleGroup tests', () => {
     )
 
     expect(getByTestId('collapsible-group')).toHaveStyleRule(
-      'background-color',
+      'background',
       'azure'
     )
   })

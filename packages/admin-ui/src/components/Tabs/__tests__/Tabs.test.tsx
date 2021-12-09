@@ -37,15 +37,9 @@ describe('Tabs', () => {
       </TabsState>
     )
 
-    expect(getByTestId('tabs-list')).toHaveStyleRule(
-      'background-color',
-      'azure'
-    )
-    expect(getByTestId('tabs-tab')).toHaveStyleRule('background-color', 'azure')
-    expect(getByTestId('tabs-content')).toHaveStyleRule(
-      'background-color',
-      'azure'
-    )
+    expect(getByTestId('tabs-list')).toHaveStyleRule('background', 'azure')
+    expect(getByTestId('tabs-tab')).toHaveStyleRule('background', 'azure')
+    expect(getByTestId('tabs-content')).toHaveStyleRule('background', 'azure')
   })
 
   it('should match snapshot', () => {
