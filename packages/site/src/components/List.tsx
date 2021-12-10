@@ -7,13 +7,12 @@ export default function List(props: ListProps) {
     <Box
       csx={{
         lineHeight: 1.5,
-        borderLeft: '1px solid',
-        borderLeftColor: 'nestedContent',
+        borderLeft: '$neutral',
         li: {
           marginBottom: 2,
           marginLeft: 3,
           '&::marker': {
-            color: 'muted',
+            color: '$secondary',
           },
         },
         '#props ~ &, #props ~ details > &': {

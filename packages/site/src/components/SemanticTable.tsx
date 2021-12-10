@@ -3,8 +3,8 @@ import {
   useDataGridState,
   DataGrid,
   Text,
-  get,
   createColumns,
+  color as getColor,
 } from '@vtex/admin-ui'
 
 export function SemanticTable(props: SemanticTableProps) {
@@ -115,11 +115,11 @@ function Tone(props: ToneProps) {
   return semantic ? (
     <Text
       csx={{
-        color: (theme) => get(theme, `colors.${color}50`),
+        color: getColor(`${color}40` as any),
+        borderColor: getColor(`${color}40` as any),
         border: 'solid 1px',
         borderRadius: 'pill',
         padding: 2,
-        borderColor: (theme) => get(theme, `colors.${color}40`),
         fontSettings: 'medium',
         width: '100%',
         display: 'flex',
