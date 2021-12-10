@@ -114,7 +114,7 @@ The palette property changed its values
 <Avatar label="grey" palette="grey" />
 ```
 
-### Input & InputPassword & TextArea & Select & NumericStepper
+### Input & InputPassword & TextArea & NumericStepper
 
 The way of handling errors on the Fields has changed. Now you must use a combination of the `tone` and `criticalText` properties, instead of `error` and `errorMessage`
 
@@ -156,6 +156,46 @@ The way of handling errors on the Fields has changed. Now you must use a combina
   criticalText="Critical message!"
 />
 ```
+
+### Select
+
+The select behavior now matches the native jsx element.
+
+**Before**
+
+```jsx
+import { useSelectState } from '@vtex/admin-ui'
+
+const items = []
+const state = useSelectState({ items })
+
+<Select
+  state={state}
+  items={items}
+  label="Label"
+  helperText="Helper Text!"
+  errorMessage="Error message!"
+/>
+```
+
+**After**
+
+```jsx
+import { useState } from 'react'
+
+const [value, setValue] = useState('')
+
+<Select
+  value={value}
+  onChange={e => setValue(e.target.value)}
+  label="Label"
+  helperText="Helper Text!"
+  errorMessage="Error message!"
+>
+  <option value="option-1">{/** ... */}</option>
+</Select>
+```
+
 
 ### Spinner
 
