@@ -41,13 +41,15 @@ export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
           }}
         />
         <FlexSpacer />
-        <Pagination
-          state={pagination}
-          preposition="of"
-          subject="results"
-          prevLabel="Previous"
-          nextLabel="Next"
-        />
+        {pagination && (
+          <Pagination
+            state={pagination}
+            preposition="of"
+            subject="results"
+            prevLabel="Previous"
+            nextLabel="Next"
+          />
+        )}
       </DataViewControls>
       <DataGrid state={dataGrid} />
     </DataView>
@@ -55,7 +57,7 @@ export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
 }
 
 interface DataGridFilterProps<T> {
-  pagination: UsePaginationReturn
+  pagination?: UsePaginationReturn
   dataGrid: DataGridState<T>
   filters: string[]
   dataView: DataViewState
