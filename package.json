@@ -22,14 +22,6 @@
       },
       "dev": {
         "cache": false
-      },
-      "build:ci": {
-        "dependsOn": ["^build"],
-        "cache": false
-      },
-      "test:ci": {
-        "outputs": [],
-        "cache": false
       }
     }
   },
@@ -42,6 +34,7 @@
     "node": ">=10.13.0"
   },
   "scripts": {
+    "lerna": "lerna",
     "turbo": "turbo",
     "build": "turbo run build",
     "test": "turbo run test --parallel",
@@ -59,8 +52,8 @@
     "site": "yarn --cwd packages/site develop",
     "build:site": "yarn --cwd packages/site build-site",
     "commit": "cz",
-    "build:ci": "turbo run build:ci --no-cache",
-    "test:ci": "turbo run test:ci --parallel --no-cache",
+    "build:ci": "lerna run build:fast",
+    "test:ci": "lerna run test:ci",
     "lint:ci": "yarn lint"
   },
   "devDependencies": {
