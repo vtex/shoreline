@@ -106,7 +106,7 @@ export const Tag = jsx('div')(
 )
 
 Tag.defaultProps = {
-  size: 'r egular',
+  size: 'regular',
   palette: 'lightBlue',
 }
 

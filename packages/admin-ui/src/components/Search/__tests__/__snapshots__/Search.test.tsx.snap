@@ -29,7 +29,7 @@ exports[`Search tests should match snapshot 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -189,7 +189,7 @@ exports[`Search tests should match snapshot on loading 1`] = `
 }
 
 .emotion-2:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 

@@ -50,7 +50,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
       border: critical ? '$form.criticalHover' : '$form.neutralHover',
     },
     ':focus': {
-      borderColor: critical ? '$form.criticalFocus' : '$form.neutralFocus',
+      border: critical ? '$form.criticalFocus' : '$form.neutralFocus',
       boxShadow: critical ? '$ring.critical' : '$ring.neutral',
     },
     ':disabled': {

@@ -16,22 +16,22 @@ export const Blockquote = jsx('blockquote')({
       critical: {
         bg: `$critical`,
         color: `$critical`,
-        borderColor: `$critical`,
+        border: `$critical`,
       },
       warning: {
         bg: `$warning`,
         color: `$warning`,
-        borderColor: `$warning`,
+        border: `$warning`,
       },
       info: {
         bg: `$info`,
         color: `$info`,
-        borderColor: `$info`,
+        border: `$info`,
       },
       positive: {
         bg: `$positive`,
         color: `$positive`,
-        borderColor: `$positive`,
+        border: `$positive`,
       },
     },
   },

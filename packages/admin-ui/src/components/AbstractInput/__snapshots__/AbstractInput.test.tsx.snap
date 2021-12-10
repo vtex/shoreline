@@ -30,7 +30,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-0:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -284,6 +284,12 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 .emotion-0 {
   width: 20px;
   height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
   color: hsla(0, 0%, 43%, 1);
   top: 0.25rem;
   left: 0rem;
@@ -317,7 +323,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -507,7 +513,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -553,7 +559,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -773,7 +779,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -991,7 +997,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -1011,6 +1017,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-0 {
   width: 20px;
   height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
   color: hsla(0, 0%, 43%, 1);
   top: 0.25rem;
   left: 0rem;
@@ -1087,7 +1099,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -1107,6 +1119,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-0 {
   width: 20px;
   height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
   color: hsla(0, 0%, 43%, 1);
   top: 0.25rem;
   left: 0rem;
@@ -1284,6 +1302,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-0 {
   width: 20px;
   height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
   color: hsla(0, 0%, 43%, 1);
   top: 0.25rem;
   left: 0rem;
@@ -1317,7 +1341,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -1556,6 +1580,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-0 {
   width: 20px;
   height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
   color: hsla(0, 0%, 43%, 1);
   top: 0.25rem;
   left: 0rem;
@@ -1589,7 +1619,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -1748,7 +1778,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -1826,7 +1856,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -2017,7 +2047,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -2126,6 +2156,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-0 {
   width: 20px;
   height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
   color: hsla(0, 0%, 43%, 1);
   top: 0.25rem;
   left: 0rem;
@@ -2171,7 +2207,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -2355,6 +2391,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-0 {
   width: 20px;
   height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
   color: hsla(0, 0%, 43%, 1);
   top: 0.25rem;
   left: 0rem;
@@ -2400,7 +2442,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -2644,6 +2686,12 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-0 {
   width: 20px;
   height: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
   color: hsla(0, 0%, 43%, 1);
   top: 0.25rem;
   left: 0rem;
@@ -2689,7 +2737,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
