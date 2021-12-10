@@ -25,11 +25,12 @@
     "url": "https://github.com/vtex/onda/issues"
   },
   "scripts": {
-    "start": "tsdx watch",
+    "dev": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "prepare": "tsdx build",
+    "test:ci": "tsdx test --silent"
   },
   "devDependencies": {
     "@types/eslint": "^7.28.0",

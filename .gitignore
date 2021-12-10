@@ -1,6 +1,10 @@
+# Tuborepo
+.turbo
+
 # Keep in sync with .eslintignore + .prettierignore
 **/node_modules
 **/dist
+**/build
 packages/icons/native
 **/.cache
 **/coverage
