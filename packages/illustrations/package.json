@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-illustrations",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "dist/index.js",
   "module": "dist/admin-illustrations.esm.js",
   "typings": "dist/index.d.ts",

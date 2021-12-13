@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-react@0.2.4-next.0...@vtex/admin-ui-react@0.3.0) (2021-12-13)
+
+### Bug Fixes
+
+- **color-mode:** allow themes to be disabled ([4be6f32](https://github.com/vtex/onda/commit/4be6f32b24b9554fa48c88bb4725fec65188db4a))
+
+### Features
+
+- **admin-ui-react:** create theme modes ([0ea2464](https://github.com/vtex/onda/commit/0ea24645e9370bd8bfc6ed84bfd4f1b77acd5981))
+- **core:** create darkMatter theme ([423ce38](https://github.com/vtex/onda/commit/423ce389059f9db49c826d27778174de08540bcb))
+
 ## [0.2.4-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-react@0.2.3...@vtex/admin-ui-react@0.2.4-next.0) (2021-10-25)
 
 ### Features

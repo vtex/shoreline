@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.11](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.15.11-next.0...admin-site@0.15.11) (2021-12-13)
+
+### Bug Fixes
+
+- **color:** change color palette values ([84f9ce8](https://github.com/vtex/onda/tree/master/packages/site/commit/84f9ce826e03e9e4f85c6a4a7a33942504829637))
+- **color-mode:** allow themes to be disabled ([4be6f32](https://github.com/vtex/onda/tree/master/packages/site/commit/4be6f32b24b9554fa48c88bb4725fec65188db4a))
+
 ## [0.15.11-next.0](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.15.10...admin-site@0.15.11-next.0) (2021-10-25)
 
 ### Bug Fixes

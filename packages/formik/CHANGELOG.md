@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.2.11-next.0...@vtex/admin-formik@0.3.0) (2021-12-13)
+
+### Features
+
+- **select:** change from a custom select, to a native one ([25c3ade](https://github.com/vtex/onda/commit/25c3aded6e100fa7b1c2635c2b6e0d9b4feda6d3))
+
 ## [0.2.11-next.0](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.2.10...@vtex/admin-formik@0.2.11-next.0) (2021-10-25)
 
 ### Bug Fixes

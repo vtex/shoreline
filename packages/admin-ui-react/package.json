@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-react",
   "license": "MIT",
-  "version": "0.2.4-next.0",
+  "version": "0.3.0",
   "main": "dist/index.js",
   "module": "dist/admin-ui-react.esm.js",
   "typings": "dist/index.d.ts",
@@ -38,12 +38,12 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@vtex/admin-ui-core": "^0.2.1-next.0",
+    "@vtex/admin-ui-core": "^0.3.0",
     "polished": "^4.1.2"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.1.0",
-    "@vtex/admin-ui-util": "^0.1.1",
+    "@vtex/admin-ui-util": "^0.1.2",
     "react-is": "^17.0.2",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"

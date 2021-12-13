@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.2.1-next.0...@vtex/admin-ui-core@0.3.0) (2021-12-13)
+
+### Bug Fixes
+
+- **color:** change color palette values ([84f9ce8](https://github.com/vtex/onda/commit/84f9ce826e03e9e4f85c6a4a7a33942504829637))
+- **color-mode:** allow themes to be disabled ([4be6f32](https://github.com/vtex/onda/commit/4be6f32b24b9554fa48c88bb4725fec65188db4a))
+- **tokens:** use the correct types ([76810b7](https://github.com/vtex/onda/commit/76810b77a38347278f37f6809d801682746216ce))
+
+### Features
+
+- **admin-ui-react:** create theme modes ([0ea2464](https://github.com/vtex/onda/commit/0ea24645e9370bd8bfc6ed84bfd4f1b77acd5981))
+- **core:** add the createRuntime function ([1ba6771](https://github.com/vtex/onda/commit/1ba6771454bcf2a99ce79809b536d186a088d85d))
+- **core:** create darkMatter theme ([423ce38](https://github.com/vtex/onda/commit/423ce389059f9db49c826d27778174de08540bcb))
+
 ## [0.2.1-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.2.0...@vtex/admin-ui-core@0.2.1-next.0) (2021-10-25)
 
 ### Bug Fixes

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.115.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.114.4-next.0...@vtex/admin-ui@0.115.0) (2021-12-13)
+
+### Bug Fixes
+
+- **search:** improve tab navigation and component structure ([15dd030](https://github.com/vtex/onda/commit/15dd03089c2a26f05f937a3c97989919402f2ea9)), closes [#848](https://github.com/vtex/onda/issues/848)
+- **search:** text token ([434ea17](https://github.com/vtex/onda/commit/434ea17a24eea7a5b3bb48605fcc761b25b9a358))
+
+### Features
+
+- **core:** allow theme creation on specyfic namespaces ([3be4523](https://github.com/vtex/onda/commit/3be45239f52581248cbdeee03b64c82ba3b81f47))
+- **select:** change from a custom select, to a native one ([25c3ade](https://github.com/vtex/onda/commit/25c3aded6e100fa7b1c2635c2b6e0d9b4feda6d3))
+
 ## [0.114.4-next.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.114.3...@vtex/admin-ui@0.114.4-next.0) (2021-10-25)
 
 ### Bug Fixes
