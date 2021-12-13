@@ -58,9 +58,7 @@ function renderItems(items: any[], activeId: string) {
     <tag.ul
       csx={{
         listStyle: 'none',
-        borderLeftColor: 'nestedContent',
-        borderLeftWidth: 1,
-        borderLeftStyle: 'solid',
+        borderLeft: '$neutral',
         ':first-child': {
           borderLeft: 'none',
         },

@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react'
+import type { StyleProp } from '@vtex/admin-ui'
 import {
   useDataGridState,
   useDataViewState,
   useSearchState,
-  tag,
   get,
   theme,
   Text,
   Flex,
   useDropdownState,
-  usePaginationState,
+  Center,
 } from '@vtex/admin-ui'
 import { FilterDataGrid } from '../FilterDataGrid'
 
-const filters = ['All', 'Background', 'Foreground', 'BorderColor', 'Shadows']
+const filters = ['All', 'Background', 'Color', 'Border', 'BoxShadow']
 
 export function TokensTable(props: TokensTableProps) {
   const dataView = useDataViewState()
+
   const search = useSearchState()
   const { items = [] } = props
 
@@ -44,10 +45,6 @@ export function TokensTable(props: TokensTableProps) {
   }, [search])
 
   useEffect(() => {
-    pagination.paginate({ type: 'setTotal', total: searchedItems.length })
-  }, [searchedItems.length])
-
-  useEffect(() => {
     if (!searchedItems.length) {
       dataView.setStatus({
         type: 'not-found',
@@ -59,11 +56,6 @@ export function TokensTable(props: TokensTableProps) {
       })
     }
   }, [searchedItems.length])
-
-  const pagination = usePaginationState({
-    pageSize: 10,
-    total: searchedItems.length,
-  })
 
   const dataGrid = useDataGridState({
     density: 'variable',
@@ -111,30 +103,28 @@ export function TokensTable(props: TokensTableProps) {
           type: 'root',
           render: (column) => {
             return (
-              <tag.div
+              <Center
                 csx={{
+                  ...column.item.csx,
                   width: 100,
                   height: 60,
-                  bg: (theme) => get(theme, `colors.${column.item.value}`),
-                  boxShadow:
-                    column.item.type === 'shadows'
-                      ? get(theme, column.item.token)
-                      : 'block',
                   borderRadius: 'default',
+                  fontSize: 22,
                 }}
-              />
+              >
+                AA
+              </Center>
             )
           },
         },
       },
     ],
-    items: searchedItems.slice(pagination.range[0] - 1, pagination.range[1]),
+    items: searchedItems,
   })
 
   return (
     <FilterDataGrid
       filters={filters}
-      pagination={pagination}
       dataGrid={dataGrid}
       dataView={dataView}
       search={search}
@@ -149,6 +139,7 @@ interface TokensTableProps {
     description: string
     value: string
     type: string
+    csx: StyleProp
   }>
 }
 

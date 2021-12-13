@@ -6,8 +6,8 @@ import {
   tag,
   IconTopic,
   Button,
-  get,
   focusVisible,
+  color,
 } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
@@ -126,16 +126,17 @@ export function Sidebar() {
           'nav:first-of-type': {
             margin: 0,
           },
-          bg: 'base',
+          bg: '$primary',
         }}
       >
         <tag.div
           csx={{
             height: 64,
             top: 0,
+            backdropFilter: 'blur(2px)',
             position: 'sticky',
-            bg: 'base',
-            color: (theme) => get(theme, 'colors.pink40'),
+            bg: 'linear-gradient(0deg,  rgba(255,255,255,.30) 0%, #FFF 30%)',
+            color: color('pink40'),
             width: '100%',
             display: 'flex',
             alignItems: 'center',
@@ -157,6 +158,7 @@ export function Sidebar() {
             {visible ? 'Collapse' : 'Expand'} Sidebar Items
           </Button>
         </tag.div>
+
         <VersionSwitcher />
         {data.allNavigationYaml.nodes.reduce<ReactNode[]>((acc, node) => {
           const paths = node.paths.map((path) => (
@@ -178,41 +180,38 @@ export function Sidebar() {
                   alignItems: 'center',
                   height: 32,
                   paddingX: 2,
+                  marginX: 2,
                   width: '100%',
                   textDecoration: 'none',
-                  color: '$primary',
+                  color: '$secondary',
                   cursor: 'pointer',
                   marginBottom: 1,
                   lineHeight: 1.4,
+                  transition: 'transform 150ms ease-in-out',
                   ':hover:not(:focus)': {
-                    color: '$action.main.tertiaryHover',
-                    bg: '$action.main.tertiaryHover',
-                    borderColor: (theme) =>
-                      get(theme, 'fg.action.main.tertiaryHover'),
-                    borderLeft: '2px solid',
-                    borderTopLeftRadius: 0,
-                    borderBottomLeftRadius: 0,
+                    color: '$action.neutral.tertiaryHover',
+                    bg: '$action.neutral.tertiaryHover',
+                    transform: 'scale(1.03)',
                   },
                   ':active': {
-                    bg: '$action.main.tertiaryPressed',
-                    color: '$action.main.tertiaryPressed',
-                    borderColor: (theme) =>
-                      get(theme, 'fg.action.main.tertiaryPressed'),
-                    borderLeft: '2px solid',
-                    borderTopLeftRadius: 0,
-                    borderBottomLeftRadius: 0,
+                    bg: '$action.neutral.tertiaryPressed',
+                    color: '$action.neutral.tertiaryPressed',
+                    transform: 'scale(1.03)',
                   },
                   '&[aria-current="page"]': {
-                    borderLeft: '2px solid',
-                    bg: '$action.main.tertiarySelected',
-                    color: '$action.main.tertiarySelected',
-                    borderTopLeftRadius: 0,
-                    borderBottomLeftRadius: 0,
+                    bg: '$inverted',
+                    color: '$inverted',
+                    ':hover': {
+                      bg: '$inverted',
+                      color: '$inverted',
+                      boxShadow: '$ring.neutral',
+                      transform: 'scale(1.03)',
+                    },
                   },
                   ':focus': {
-                    color: '$action.main.tertiaryHover',
-                    outline: 'none',
+                    transform: 'scale(1.03)',
                   },
+                  ...focusVisible('neutral'),
                 }}
                 to={path}
               >
@@ -308,8 +307,6 @@ function Section(props: SectionProps) {
         <tag.ul
           csx={{
             padding: 0,
-            borderLeft: '1px solid',
-            borderLeftColor: 'nestedContent',
           }}
         >
           {children}

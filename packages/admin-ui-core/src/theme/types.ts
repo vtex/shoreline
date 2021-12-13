@@ -31,7 +31,7 @@ export function asLiterals<T extends string>(array: T[]): T[] {
   return array
 }
 
-const bgTokens = asLiterals([
+export const bgTokens = asLiterals([
   '$primary',
   '$secondary',
   '$disabled',
@@ -79,7 +79,7 @@ const bgTokens = asLiterals([
   '$form.neutralActivePressed',
 ])
 
-const fgTokens = asLiterals([
+export const fgTokens = asLiterals([
   '$primary',
   '$secondary',
   '$disabled',
@@ -115,7 +115,7 @@ const fgTokens = asLiterals([
   '$form.neutralChecked',
 ])
 
-const borderTokens = asLiterals([
+export const borderTokens = asLiterals([
   '$neutral',
   '$mainSelected',
   '$positive',
@@ -135,7 +135,7 @@ const borderTokens = asLiterals([
   '$form.criticalFocus',
 ])
 
-const shadowTokens = asLiterals([
+export const shadowTokens = asLiterals([
   '$ring.critical',
   '$ring.neutral',
   '$ring.main',
@@ -143,7 +143,7 @@ const shadowTokens = asLiterals([
   '$overlay.bottom',
 ])
 
-const colorTokens = asLiterals([
+export const colorTokens = asLiterals([
   'white',
   'black',
   'blue05',

@@ -5,7 +5,6 @@ import {
   useDataViewState,
   useSearchState,
   useDropdownState,
-  usePaginationState,
   Tag,
 } from '@vtex/admin-ui'
 import { FilterDataGrid } from '../FilterDataGrid'
@@ -53,10 +52,6 @@ export function StatusTable(props: StatusTableProps) {
   }, [search])
 
   useEffect(() => {
-    pagination.paginate({ type: 'setTotal', total: searchedItems.length })
-  }, [searchedItems.length])
-
-  useEffect(() => {
     if (!searchedItems.length) {
       dataView.setStatus({
         type: 'not-found',
@@ -68,11 +63,6 @@ export function StatusTable(props: StatusTableProps) {
       })
     }
   }, [searchedItems.length])
-
-  const pagination = usePaginationState({
-    pageSize: 25,
-    total: searchedItems.length,
-  })
 
   const dataGrid = useDataGridState({
     density: 'variable',
@@ -113,13 +103,12 @@ export function StatusTable(props: StatusTableProps) {
         header: 'notes',
       },
     ],
-    items: searchedItems.slice(pagination.range[0] - 1, pagination.range[1]),
+    items: searchedItems,
   })
 
   return (
     <FilterDataGrid
       filters={filters}
-      pagination={pagination}
       dataGrid={dataGrid}
       dataView={dataView}
       search={search}

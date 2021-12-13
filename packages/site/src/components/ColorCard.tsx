@@ -1,20 +1,20 @@
 import React from 'react'
-import { tag, Text, Flex, get, theme } from '@vtex/admin-ui'
+import { tag, Text, Flex, color as getColor } from '@vtex/admin-ui'
 
 export function ColorCard(props: ColorCardProps) {
   const { color, name } = props
 
-  const colorValue = get(theme, `colors.${color}`, '')
+  const colorValue = getColor(color as any)
 
   return (
     <Flex
       direction="column"
       csx={{
         maxWidth: 250,
-        border: 'default',
+        border: '$neutral',
         borderRadius: '8px',
         boxShadow: 'block',
-        bg: '$secondary',
+        bg: '$primary',
         transition: 'all .2s ease-in-out',
         ':hover': {
           transform: 'scale(1.05)',
@@ -23,7 +23,7 @@ export function ColorCard(props: ColorCardProps) {
     >
       <tag.div
         csx={{
-          backgroundColor: colorValue,
+          bg: colorValue,
           borderTopLeftRadius: '8px',
           borderTopRightRadius: '8px',
           height: 80,
