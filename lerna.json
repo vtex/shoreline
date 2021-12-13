@@ -9,7 +9,7 @@
   "loglevel": "success",
   "command": {
     "publish": {
-      "allowBranch": ["master", "next"],
+      "allowBranch": ["main", "0.114.x"],
       "conventionalCommits": true,
       "message": "chore(release): publish [skip ci]"
     }
