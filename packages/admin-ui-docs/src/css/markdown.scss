@@ -1,0 +1,22 @@
+.markdown {
+  .token-line .token {
+    font-family: "MonoLisa","Operator Mono","Fira Code Retina","Fira Code","FiraCode-Retina","Dank Mono","Consolas","Monaco","Menlo",monospace !important;
+    line-height: normal;
+  }
+
+  & > ul,
+  & > ol {
+    margin: 0 0 var(--ifm-list-margin) !important;
+    padding-left: var(--ifm-list-left-padding) !important;
+  }
+
+  strong {
+    font-variation-settings: 'WGHT' 600 !important;
+  }
+
+  table {
+    display: table;
+    margin-bottom: var(--ifm-leading);
+    width: 100%;
+  }
+}

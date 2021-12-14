@@ -1,0 +1,82 @@
+---
+title: Divider
+path: /divider/
+---
+
+# Divider
+
+It renders an `hr` element and grants accessibility described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator).
+
+## Import
+
+```jsx isStatic maxRows=12
+import { Divider } from '@vtex/admin-ui'
+```
+
+## Behavior
+
+```jsx live
+<Divider />
+```
+
+## Variation
+
+### Horizontal
+
+By default, the orientation property has a `horizontal` value.
+
+```jsx live
+<Card csx={{ width: 500 }}>
+  <Set orientation="vertical" spacing={2}>
+    <Heading>Tolerance</Heading>
+    <Paragraph csx={{ color: 'muted' }}>
+      Allows orders to be placed even if they pass X% of the account`s credit
+      limit. Tolerance is set per account.
+    </Paragraph>
+  </Set>
+
+  <Divider csx={{ marginY: 6 }} />
+
+  <Set orientation="vertical" spacing={2}>
+    <Heading>Automatic account creation</Heading>
+    <Paragraph csx={{ color: 'muted' }}>
+      Allows users who have not been previously credited to close a purchase.
+    </Paragraph>
+  </Set>
+</Card>
+```
+
+### Vertical
+
+The orientation property can also have a `vertical` value.
+
+```jsx live
+<Card csx={{ width: 600 }}>
+  <Columns>
+    <Column>
+      <Heading>Cards</Heading>
+      <Paragraph csx={{ color: 'muted' }}>
+        In Cards, your customer is given autonomy to manage credit cards related
+        to his account, and can add, remove or edit credit card data.
+      </Paragraph>
+    </Column>
+
+    <Divider orientation="vertical" csx={{ marginX: 6 }} />
+
+    <Column>
+      <Heading>Personal data</Heading>
+      <Paragraph csx={{ color: 'muted' }}>
+        In this section, the user can manage their personal data registered on
+        the store site.
+      </Paragraph>
+    </Column>
+  </Columns>
+</Card>
+```
+
+## Props
+
+| Name        | Type                   | Description         | Required | Default        |
+| ----------- | ---------------------- | ------------------- | -------- | -------------- |
+| csx         | `StyleObject`          | Custom styles       | 🚫       | `{}`           |
+| orientation | `horizontal, vertical` | Divider orientation | 🚫       | `'horizontal'` |

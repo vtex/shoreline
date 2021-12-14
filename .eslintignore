@@ -10,3 +10,4 @@ storybook-static
 **/gatsby-browser.js
 **/gatsby-ssr.js
 **/404.js
+**/src/theme/**/*.js

@@ -1,0 +1,71 @@
+---
+title: Responsive Design
+path: /guidelines/responsive-design/
+sidebar_position: 3
+---
+
+# Responsive Design
+
+## Breakpoints
+
+`admin-ui` uses 4 mobile-first breakpoints, which are
+
+| name       | min-width em | min-width px |
+| ---------- | ------------ | ------------ |
+| mobile     | `40em`       | `640px`      |
+| tablet     | `48em`       | `768px`      |
+| desktop    | `64em`       | `1024px`     |
+| widescreen | `75em`       | `1200px`     |
+
+## Responsive Values
+
+A Responsive value accept an array of values. The current value will be the one that matches the breakpoint:
+
+```sh
+[mobile, tablet, desktop, widescreen]
+```
+
+In the example below, the `<Box>` has full width while on `mobile`, and half on tablet and above.
+
+```jsx live
+<Box
+  csx={{
+    width: ['full', '1/2'],
+    padding: 4,
+    ...palette('teal'),
+  }}
+/>
+```
+
+### Skipping Breakpoints
+
+If you want to skip a breakpoint, you can use the value `null`. This is useful if you want to set a value for only the largest breakpoint, for example.
+
+```jsx live
+<Box
+  csx={{
+    width: [null, null, 'full'],
+    padding: 4,
+    ...palette('purple'),
+  }}
+/>
+```
+
+### Responsive aliases
+
+We provide some properties that combine our breakpoints with media queries making it easier to add responsiveness into your layout.
+
+For example, you can use the alias `@tablet` if you want to apply specific styles only to devices with widths similar to a tablet.
+
+```jsx live
+<Box
+  csx={{
+    ...palette('pink'),
+    '@tablet': { ...palette('orange') },
+    '@desktop': { ...palette('teal') },
+    '@widescreen': { ...palette('cyan') },
+  }}
+>
+  Box
+</Box>
+```
