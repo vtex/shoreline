@@ -99,4 +99,5 @@ export {
   IconWarning,
   IconWarningCircle,
   IconCheckCircle,
+  IconProps,
 } from '@vtex/phosphor-icons'

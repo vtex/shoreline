@@ -14,7 +14,6 @@ import { componentsStatus, StatusTable } from './StatusTable'
 import { SemanticTable } from './SemanticTable'
 import { Code } from './Code'
 import { TypefaceShowcase } from './TypefaceShowcase'
-import { IconsPage } from './IconsPage'
 
 export const MDXComponents = {
   ...AdminUI,
@@ -22,7 +21,6 @@ export const MDXComponents = {
   a: Anchor,
   ColorCard,
   TypefaceShowcase,
-  IconsPage,
   p: (props: any) => (
     <Paragraph
       csx={{

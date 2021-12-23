@@ -244,7 +244,7 @@ function Suggestion(props: SuggestionProps) {
       animate="enter"
       exit="leave"
     >
-      <IconContainer size="normal">
+      <IconContainer size="regular">
         {type === 'storage' && (
           <IconClockCounterClockwise
             csx={{

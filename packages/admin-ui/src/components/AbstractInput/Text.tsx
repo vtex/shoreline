@@ -80,7 +80,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
     >
       {icon && (
         <IconContainer
-          size="normal"
+          size="regular"
           csx={{
             color: '$secondary',
             top: 1,

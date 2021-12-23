@@ -48,7 +48,7 @@ function useIconProps(props: IconProps) {
 export const IconProvider = createIconProvider({ useIconProps })
 
 export const IconContainerContext = createContext<IconContext>({
-  size: 'normal',
+  size: 'regular',
 })
 
 export function IconContainer(props: PropsWithChildren<IconContext>) {
@@ -68,11 +68,11 @@ export function useIconContainer(): UseIconReturn {
     size,
     csx,
     isSmall: size === 'small',
-    isNormal: size === 'normal',
+    isRegular: size === 'regular',
   }
 }
 
-export type AvailableSize = 'normal' | 'small'
+export type AvailableSize = 'regular' | 'small'
 export interface IconContext {
   size: AvailableSize
   csx?: StyleProp
@@ -82,5 +82,5 @@ export type UseIconReturn = {
   size: AvailableSize
   csx: StyleProp
   isSmall: boolean
-  isNormal: boolean
+  isRegular: boolean
 }

@@ -1,4 +1,5 @@
-import React, { useEffect, cloneElement, useState } from 'react'
+import React, { useEffect, cloneElement } from 'react'
+import type { IconProps } from '@vtex/admin-ui'
 import {
   useDataViewState,
   useSearchState,
@@ -8,22 +9,26 @@ import {
   Dropdown,
   Grid,
   Search,
-  Card,
-  Toggle,
-  Label,
   Set,
   Text,
   Center,
 } from '@vtex/admin-ui'
-import type { IconProps } from './icons'
+import { small, filled } from './icons'
 
-const sizes = ['Normal', 'Small']
-const weights = ['Regular', 'Fill']
+const sizes = ['Regular', 'Small']
+const weights = ['Outline', 'Fill']
+
+function sort(items: IconItem[], filter: string[]) {
+  items.sort((a, _) => {
+    if (filter.includes(a.name)) return -1
+    if (!filter.includes(a.name)) return 1
+
+    return 0
+  })
+}
 
 export function IconsGrid(props: IconsGridProps) {
   const dataView = useDataViewState()
-
-  const [mirrored, setMirrored] = useState(false)
 
   const search = useSearchState()
   const { items = [] } = props
@@ -39,11 +44,21 @@ export function IconsGrid(props: IconsGridProps) {
   })
 
   const searchedItems = React.useMemo(() => {
-    return items.filter((item) => {
+    const filtered = items.filter((item) => {
       const searchLowerCase = search.debouncedValue.toLocaleLowerCase()
 
       return item.name.toLowerCase().includes(searchLowerCase)
     })
+
+    if (weightDropdown.selectedItem === 'Fill') {
+      sort(filtered, filled)
+    }
+
+    if (sizeDropdown.selectedItem === 'Small') {
+      sort(filtered, small)
+    }
+
+    return filtered
   }, [search])
 
   useEffect(() => {
@@ -60,7 +75,7 @@ export function IconsGrid(props: IconsGridProps) {
   }, [searchedItems.length])
 
   return (
-    <DataView state={dataView}>
+    <DataView state={dataView} csx={{ marginX: 2 }}>
       <DataViewControls>
         <Search id="search" placeholder="Search" state={search} />
         <Dropdown
@@ -75,59 +90,38 @@ export function IconsGrid(props: IconsGridProps) {
           items={weights}
           variant="adaptative-dark"
         />
-        {/* <Set spacing={2}>
-          <Toggle
-            id="toggle-small"
-            checked={small}
-            onChange={() => setSmall((prev) => !prev)}
-          />
-          <Label htmlFor="toggle-small" csx={{ display: 'flex' }}>
-            Small
-          </Label>
-        </Set>
-        <Set spacing={2}>
-          <Toggle
-            id="toggle-filled"
-            checked={filled}
-            onChange={() => setFilled((prev) => !prev)}
-          />
-          <Label htmlFor="toggle-filled" csx={{ display: 'flex' }}>
-            Filled
-          </Label>
-        </Set> */}
-        <Set spacing={2}>
-          <Toggle
-            id="toggle-mirrored"
-            checked={mirrored}
-            onChange={() => setMirrored((prev) => !prev)}
-          />
-          <Label htmlFor="toggle-mirrored" csx={{ display: 'flex' }}>
-            Mirrored
-          </Label>
-        </Set>
       </DataViewControls>
-      <Grid templateColumns="repeat(3, 1fr)" gap="4">
+      <Grid templateColumns="repeat(3, 1fr)" gap="3">
         {searchedItems.map((item) => {
-          const codeString = `<Icon${item.name} />`
+          const { selectedItem: selectedSize } = sizeDropdown
+          const { selectedItem: selectedWeight } = weightDropdown
+
+          const smallFilter =
+            selectedSize === 'Small' && !small.includes(item.name)
+
+          const filledFilter =
+            selectedWeight === 'Fill' && !filled.includes(item.name)
+
+          const notMapped = smallFilter || filledFilter
 
           return (
-            <Card csx={{ height: 100 }}>
-              <Center>
-                <Set
-                  spacing={2}
-                  orientation="vertical"
-                  csx={{ alignItems: 'center' }}
-                >
-                  {cloneElement(item.icon, {
-                    ...props,
-                    size: sizeDropdown.selectedItem?.toLowerCase(),
-                    mirrored,
-                    weight: weightDropdown.selectedItem?.toLowerCase(),
-                  })}
-                  <Text tone="secondary">{codeString}</Text>
-                </Set>
-              </Center>
-            </Card>
+            <Center
+              csx={{
+                height: 100,
+                maxWidth: 250,
+                borderRadius: 'default',
+                ':hover': {
+                  bg: notMapped ? '$primary' : '$secondary',
+                },
+              }}
+            >
+              <IconPreview
+                item={item}
+                weight={selectedWeight?.toLowerCase() as 'fill' | 'outline'}
+                size={selectedSize?.toLowerCase() as 'regular' | 'small'}
+                opacity={notMapped ? 0.2 : 1}
+              />
+            </Center>
           )
         })}
       </Grid>
@@ -135,13 +129,38 @@ export function IconsGrid(props: IconsGridProps) {
   )
 }
 
+interface IconPreviewProps extends Pick<IconProps, 'weight' | 'size'> {
+  item: IconItem
+  opacity: number
+}
+
+function IconPreview(props: IconPreviewProps) {
+  const { item, weight, size, opacity } = props
+
+  return (
+    <Set spacing={4} orientation="vertical" csx={{ alignItems: 'center' }}>
+      {cloneElement(item.icon, {
+        ...props,
+        size,
+        weight,
+        csx: {
+          opacity,
+        },
+      })}
+      <Text tone="secondary" csx={{ opacity }}>
+        {`<Icon${item.name} />`}
+      </Text>
+    </Set>
+  )
+}
+
 interface IconsGridProps {
-  items: Array<{
-    name: string
-    icon: JSX.Element
-    type: 'filled' | 'normal' | 'small'
-    props: IconProps
-  }>
+  items: IconItem[]
+}
+
+interface IconItem {
+  name: string
+  icon: JSX.Element
 }
 
 export * from './icons'

@@ -18,7 +18,7 @@ export type SystemComponent = SystemPrimitive
 export type SystemComponentProps<T> = SystemPrimitive & OmitNotAllowedProps<T>
 export type OmitNotAllowedProps<T> = Omit<T, 'className' | 'color' | 'style'>
 
-type IconSize = 'normal' | 'small'
+type IconSize = 'regular' | 'small'
 
 declare module '@vtex/phosphor-icons' {
   export interface IconOptions extends CsxCall {

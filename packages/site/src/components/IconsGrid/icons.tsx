@@ -121,4 +121,7 @@ export const iconsDoc = [
   'CheckCircle',
 ]
 
+export const filled = ['Warning', 'Bell', 'Envelope', 'XOctagon']
+export const small = ['CaretDown', 'CaretRight', 'X', 'ArrowUpRight']
+
 export const icons = generateMap()

@@ -7,6 +7,8 @@ path: /foundations/icons/
 
 <IconsGrid />
 
+> You may notice that some icons appear opaque when you change their variations. This is because not every use case are mapped by us, if you need to use an opaque one, please [let us know](https://vtex.slack.com/archives/C01DVTFA4VA).
+
 ## Variations
 
 ### Weight
